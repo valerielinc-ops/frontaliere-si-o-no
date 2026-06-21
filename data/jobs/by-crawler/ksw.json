@@ -864,8 +864,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
         "it": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
+        "en": "nursing-specialist-nursing-specialist-traumatology-hand-plastic-surgery-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-en-soins-infirmiers-specialiste-en-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique-kantonsspital"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2378,12 +2378,12 @@
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2426,16 +2426,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
@@ -2616,7 +2613,7 @@
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -2662,8 +2659,6 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
         "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -2671,7 +2666,7 @@
           "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-01T15:16:02.879Z",
