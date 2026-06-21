@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eta-sa-swatch-group",
-  "assembledAt": "2026-06-21T12:33:25.796Z",
+  "assembledAt": "2026-06-21T22:54:31.492Z",
   "jobs": [
     {
       "id": "company-6oyzsl",
@@ -73,7 +73,8 @@
       },
       "previousSlugs": [
         "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-6oyzsj",
@@ -148,7 +149,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "company-6oyzsm",
@@ -239,7 +241,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "company-6oyzsk",
