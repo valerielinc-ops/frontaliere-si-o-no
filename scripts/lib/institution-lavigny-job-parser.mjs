@@ -108,7 +108,9 @@ function detectCantonFromPostal(postal = '') {
 export function parseLavignyListing(html) {
   const out = [];
   const seen = new Set();
-  const blockRx = /<div\s+id="main_(\d+)"[\s\S]*?(?=<div\s+id="main_\d+"|<\/main>|<footer)/g;
+  // Block ids switched from numeric (`main_12`) to UUID (`main_59d5a108-…`)
+  // on the live site; match any id token (`[\w-]+`) so both forms parse.
+  const blockRx = /<div\s+id="main_([\w-]+)"[\s\S]*?(?=<div\s+id="main_[\w-]+"|<\/main>|<footer)/g;
   let m;
   while ((m = blockRx.exec(html))) {
     const id = m[1];
@@ -126,11 +128,13 @@ export function parseLavignyListing(html) {
     const contractLine = divs[1] || '';
     const locationLine = divs[2] || '';
 
-    const detailMatch = block.match(/<div\s+id="detailoffre\d+"[^>]*>([\s\S]*?)<a[^>]*jobup_connect/);
+    const detailMatch = block.match(/<div\s+id="detailoffre[\w-]+"[^>]*>([\s\S]*?)<a[^>]*jobup_connect/);
     const detailHtml = detailMatch ? detailMatch[1] : '';
     const detailText = detailHtml ? htmlToText(detailHtml).trim() : '';
 
-    const jobupMatch = block.match(/jobup\.ch\/fr\/emplois\/detail\/([a-f0-9-]+)/i);
+    // jobup deep-link locale path drifted from `/fr/emplois/detail/` to
+    // `/en/jobs/detail/`; match either localized form and keep the uuid.
+    const jobupMatch = block.match(/jobup\.ch\/\w+\/(?:emplois|jobs)\/detail\/([a-f0-9-]+)/i);
     const jobupUuid = jobupMatch ? jobupMatch[1] : '';
     const applyUrl = jobupUuid
       ? `https://www.jobup.ch/fr/emplois/detail/${jobupUuid}/`
