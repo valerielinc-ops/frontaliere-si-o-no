@@ -3059,7 +3059,8 @@
         "ausbildung-augenoptiker-efz-m-w-d-fielmann-ch",
         "ausbildung-augenoptiker-cfc-w-m-d-fielmann-group-zug",
         "ausbildung-augenoptiker-cfc-w-m-d-fielmann-group-bulach",
-        "ausbildung-augenoptiker-cfc-w-m-d-fielmann-group-neuchatel"
+        "ausbildung-augenoptiker-cfc-w-m-d-fielmann-group-neuchatel",
+        "ausbildung-augenoptiker-cfc-w-m-d-fielmann-group-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6260,22 +6261,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2833",
-      "previousSlugsByLocale": {
-        "it": [
-          "ottico-ottico-f-m-d-fielmann-group-interlaken"
-        ],
-        "en": [
-          "optometrist-w-m-d-fielmann-group-interlaken"
-        ],
-        "fr": [
-          "optometriste-w-m-d-fielmann-group-interlaken"
-        ]
-      },
       "previousSlugs": [
+        "augenoptiker-w-m-d-fielmann-ch-3",
+        "augenoptiker-w-m-d-fielmann-ch",
         "ottico-ottico-f-m-d-fielmann-group-interlaken",
         "optometrist-w-m-d-fielmann-group-interlaken",
-        "optometriste-w-m-d-fielmann-group-interlaken",
-        "augenoptiker-w-m-d-fielmann-ch-3"
+        "optometriste-w-m-d-fielmann-group-interlaken"
       ],
       "firstSeenAt": "2026-06-16T22:48:37.593Z",
       "salaryMin": 69500,
@@ -6290,7 +6281,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZG"
+      "addressRegion": "ZG",
+      "previousSlugsByLocale": {
+        "it": [
+          "ottico-ottico-f-m-d-fielmann-group-interlaken"
+        ],
+        "en": [
+          "optometrist-w-m-d-fielmann-group-interlaken"
+        ],
+        "fr": [
+          "optometriste-w-m-d-fielmann-group-interlaken"
+        ]
+      }
     },
     {
       "id": "fielmann-0646b89b82bd",
@@ -6514,11 +6516,12 @@
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
+        "ottico-optometrista-w-m-d-fielmann-group-altdorf",
+        "ottico-m-f-d-fielmann-group-altdorf",
+        "augenoptiker-w-m-d-fielmann-ch-4",
         "ottico-ottico-f-m-d-fielmann-group-altdorf",
         "optometrist-w-m-d-fielmann-group-altdorf",
-        "optometriste-w-m-d-fielmann-group-altdorf",
-        "ottico-optometrista-w-m-d-fielmann-group-altdorf",
-        "ottico-m-f-d-fielmann-group-altdorf"
+        "optometriste-w-m-d-fielmann-group-altdorf"
       ],
       "firstSeenAt": "2026-06-16T22:48:35.343Z",
       "salaryMin": 57500,
@@ -6602,10 +6605,11 @@
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
+        "ottico-a-fielmann-group-zofingen",
+        "augenoptiker-w-m-d-fielmann-ch-5",
         "ottico-ottico-f-m-d-fielmann-group-zofingen",
         "optometrist-w-m-d-fielmann-group-zofingen",
-        "optometriste-w-m-d-fielmann-group-zofingen",
-        "ottico-a-fielmann-group-zofingen"
+        "optometriste-w-m-d-fielmann-group-zofingen"
       ],
       "firstSeenAt": "2026-06-16T22:48:34.598Z",
       "salaryMin": 68500,
@@ -6689,10 +6693,11 @@
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
+        "ottico-m-f-d-fielmann-group-solothurn",
+        "augenoptiker-w-m-d-fielmann-ch-6",
         "ottico-ottico-f-m-d-fielmann-group-solothurn",
         "optometrist-w-m-d-fielmann-group-solothurn",
-        "optometriste-w-m-d-fielmann-group-solothurn",
-        "ottico-m-f-d-fielmann-group-solothurn"
+        "optometriste-w-m-d-fielmann-group-solothurn"
       ],
       "firstSeenAt": "2026-06-16T22:48:33.827Z",
       "salaryMin": 57500,
@@ -6852,6 +6857,7 @@
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
+        "augenoptiker-w-m-d-fielmann-ch-9",
         "ottico-ottico-f-m-d-fielmann-group-winterthur",
         "optometrist-w-m-d-fielmann-group-winterthur",
         "optometriste-w-m-d-fielmann-group-winterthur"
@@ -6938,10 +6944,11 @@
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
+        "ottico-m-f-d-fielmann-group-schaffhausen",
+        "augenoptiker-w-m-d-fielmann-ch-10",
         "ottico-ottico-f-m-d-fielmann-group-schaffhausen",
         "optometrist-w-m-d-fielmann-group-schaffhausen",
-        "optometriste-w-m-d-fielmann-group-schaffhausen",
-        "ottico-m-f-d-fielmann-group-schaffhausen"
+        "optometriste-w-m-d-fielmann-group-schaffhausen"
       ],
       "firstSeenAt": "2026-06-16T22:48:31.601Z",
       "salaryMin": 60500,
@@ -7025,10 +7032,11 @@
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
+        "ottico-m-f-d-fielmann-group-baden",
+        "augenoptiker-w-m-d-fielmann-ch-11",
         "ottico-ottico-f-m-d-fielmann-group-baden",
         "optometrist-w-m-d-fielmann-group-baden",
-        "optometriste-w-m-d-fielmann-group-baden",
-        "ottico-m-f-d-fielmann-group-baden"
+        "optometriste-w-m-d-fielmann-group-baden"
       ],
       "firstSeenAt": "2026-06-16T22:48:30.850Z",
       "salaryMin": 69500,
@@ -7112,10 +7120,11 @@
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
+        "ottico-m-f-d-fielmann-group-basel",
+        "augenoptiker-w-m-d-fielmann-ch-12",
         "ottico-ottico-f-m-d-fielmann-group-basel",
         "optometrist-w-m-d-fielmann-group-basel",
-        "optometriste-w-m-d-fielmann-group-basel",
-        "ottico-m-f-d-fielmann-group-basel"
+        "optometriste-w-m-d-fielmann-group-basel"
       ],
       "firstSeenAt": "2026-06-16T22:48:30.112Z",
       "salaryMin": 62000,
@@ -9276,12 +9285,13 @@
       },
       "previousSlugs": [
         "opticien-ne-f-m-d-fielmann-group-sion",
-        "opticien-ne-h-f-d-fielmann-ch-2",
         "optician-m-f-d-fielmann-group-sion",
         "optimierung-n-h-f-d-fielmann-group-sion",
         "opticien-ne-f-m-d-fielmann-group-geneve",
         "optician-m-f-d-fielmann-group-geneve",
-        "optimierung-n-h-f-d-fielmann-group-geneve"
+        "optimierung-n-h-f-d-fielmann-group-geneve",
+        "opticien-ne-h-f-d-fielmann-ch",
+        "opticien-ne-h-f-d-fielmann-ch-2"
       ],
       "firstSeenAt": "2026-05-13T11:02:13.280Z",
       "salaryMin": 60500,
@@ -9365,6 +9375,7 @@
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
+        "augenoptiker-w-m-d-fielmann-ch-8",
         "ottico-ottico-f-m-d-fielmann-group-spreitenbach",
         "optometrist-w-m-d-fielmann-group-spreitenbach",
         "optometriste-w-m-d-fielmann-group-spreitenbach"
