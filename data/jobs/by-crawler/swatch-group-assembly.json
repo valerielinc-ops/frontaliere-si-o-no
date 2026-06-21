@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swatch-group-assembly",
-  "assembledAt": "2026-06-20T22:57:05.989Z",
+  "assembledAt": "2026-06-21T12:33:25.785Z",
   "jobs": [
     {
       "id": "company-7ubdu1",
@@ -36,7 +36,7 @@
       },
       "slugByLocale": {
         "it": "assistente-vendite-50-80-basilea-swatch-ltd-ticino",
-        "en": "sales-associate-50-80-basel-swatch-ltd-ticino",
+        "en": "sales-associate-50-80-basel-swatch-ltd-2502-biel-apply-for-this-job-share-this-job-offer-main-navigation-swatch-group-t-7ubdu1",
         "de": "sales-associate-50-80-basel-swatch-ltd-2502-biel-apply-for-this-job-share-this-job-offer-main-navigation-swatch-group-t-7ubdu1",
         "fr": "assistant-e-vente-50-80-bale-swatch-ltd-ticino"
       },
@@ -49,6 +49,7 @@
           "venditore-50-80-basilea-swatch-ltd-ticino"
         ],
         "en": [
+          "sales-associate-50-80-basel-swatch-ltd-ticino",
           "sales-associate-50-80-basel-swatch-ltd-2502-biel-apply-for-this-job-share-this-job-offer-main-navigation-swatch-group-t-7ubdu1"
         ],
         "fr": [
@@ -61,6 +62,7 @@
         "sales-associate-50-80-basel-swatch-ltd-2502-biel-apply-for-this-job-share-this-job-offer-main-navigation-swatch-group-t",
         "sales-associate-50-80-basel-swatch-ltd-2502-biel-apply-for-this-job-share-this-job-offer-main-navigation-swatch-group-t-7ubdu1",
         "venditore-50-80-basilea-swatch-ltd-ticino",
+        "sales-associate-50-80-basel-swatch-ltd-ticino",
         "association-des-ventes-50-80-bale-swatch-ltd-ticino",
         "vendeur-50-80-bale-swatch-ltd-ticino",
         "sales-associazione-50-100-indirizzo-swatch-ltd-ticino",
@@ -178,7 +180,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubdt9",
@@ -215,7 +218,7 @@
       "slugByLocale": {
         "it": "acquirente-senior-100-the-swatch-group-research-and-development-ltd-ticino",
         "en": "senior-purchase-100-the-swatch-group-research-and-development-ltd-ticino",
-        "de": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino",
+        "de": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdt9",
         "fr": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdt9"
       },
       "requirementsByLocale": {},
@@ -232,6 +235,7 @@
         ],
         "de": [
           "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
+          "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino",
           "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdt9"
         ],
         "fr": [
@@ -243,6 +247,7 @@
         "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdt9",
         "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
         "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb",
+        "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino",
         "senior-purchase-100-the-swatch-group-research-and-development-ltd-ticino-5bcd0d"
       ],
       "salaryMin": 175000,
@@ -412,7 +417,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubd5z",
@@ -505,7 +511,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uavdc",
@@ -586,7 +593,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaw4v",
