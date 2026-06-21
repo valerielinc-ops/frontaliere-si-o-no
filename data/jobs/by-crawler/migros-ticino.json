@@ -245,8 +245,6 @@
         "sales-associate-denner-ag-sulgen",
         "vendeur-vendeuse-denner-ag-sulgen",
         "venditore-denner-ag-zurich-fzpktp",
-        "seller-denner-ag-zurich-1d38ef",
-        "vendeur-denner-ag-zurich-1d38ef",
         "verkaufer-in-denner-ag-zurich-fzpktp",
         "verkaufer-in-denner-ag-frick",
         "verkaufer-in-denner-ag-allschwil-2",
@@ -1094,8 +1092,8 @@
       "firstSeenAt": "2026-06-20T11:50:45.016Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-wetzikon",
-        "en": "seller-denner-ag-wetzikon-8e6f7a",
-        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
+        "en": "seller-denner-ag-wetzikon",
+        "fr": "vendeur-denner-ag-wetzikon",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
       "titleByLocale": {
@@ -1131,13 +1129,11 @@
         ],
         "en": [
           "seller-denner-ag-sulgen",
-          "seller-denner-ag-wetzikon-8e6f7a",
-          "seller-denner-ag-wetzikon"
+          "seller-denner-ag-wetzikon-8e6f7a"
         ],
         "fr": [
           "vendeur-denner-ag-sulgen",
-          "vendeur-denner-ag-wetzikon-8e6f7a",
-          "vendeur-denner-ag-wetzikon"
+          "vendeur-denner-ag-wetzikon-8e6f7a"
         ],
         "it": [
           "venditore-denner-ag-sulgen"
@@ -1150,6 +1146,7 @@
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-sulgen",
         "vendeur-denner-ag-wetzikon-8e6f7a",
+        "venditore-denner-ag-sulgen",
         "verkaufer-in-denner-ag-sulgen-ylgjxe",
         "venditore-a-denner-ag-sulgen",
         "sales-associate-denner-ag-sulgen",
@@ -1160,10 +1157,7 @@
         "vendeur-denner-ag-zurich-1d38ef",
         "verkaufer-in-denner-ag-zurich-fzpktp",
         "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-allschwil-2",
-        "verkaufer-in-denner-ag-allschwil",
-        "venditore-denner-ag-zurich-1ed56c",
-        "verkaufer-in-denner-ag-frick-7j5ksm"
+        "verkaufer-in-denner-ag-allschwil-2"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1322,9 +1316,7 @@
         "venditore-a-denner-ag-sulgen",
         "sales-associate-denner-ag-sulgen",
         "vendeur-vendeuse-denner-ag-sulgen",
-        "venditore-denner-ag-zurich-fzpktp",
-        "seller-denner-ag-zurich-1d38ef",
-        "vendeur-denner-ag-zurich-1d38ef"
+        "venditore-denner-ag-zurich-fzpktp"
       ]
     },
     {
@@ -5815,9 +5807,7 @@
         "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "verkaufer-in-denner-ag-interlaken-2",
-        "verkaufer-in-denner-ag-interlaken",
-        "seller-denner-ag-zurich-1d38ef",
-        "vendeur-denner-ag-zurich-1d38ef"
+        "verkaufer-in-denner-ag-interlaken"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10652,9 +10642,9 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal",
+        "en": "seller-denner-ag-langenthal-d47c8f",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-634638"
+        "fr": "vendeur-denner-ag-langenthal-d47c8f"
       },
       "requirementsByLocale": {
         "it": [],
@@ -10684,8 +10674,7 @@
           "verkaufer-in-denner-ag-frick",
           "verkaufer-in-denner-ag-langenthal",
           "seller-denner-ag-langenthal-634638",
-          "seller-denner-ag-langenthal",
-          "seller-denner-ag-langenthal-d47c8f"
+          "seller-denner-ag-langenthal"
         ],
         "de": [
           "verkaufer-in-denner-ag-langenthal-hutbop",
@@ -10695,8 +10684,7 @@
           "verkaufer-in-denner-ag-langenthal-hutbop",
           "verkaufer-in-denner-ag-frick",
           "verkaufer-in-denner-ag-langenthal",
-          "vendeur-denner-ag-langenthal-634638",
-          "vendeur-denner-ag-langenthal-d47c8f"
+          "vendeur-denner-ag-langenthal-634638"
         ]
       },
       "previousSlugs": [
@@ -10717,9 +10705,7 @@
         "verkaufer-in-denner-ag-basel-2",
         "verkaufer-in-denner-ag-basel",
         "verkaufer-in-denner-ag-wilderswil-8uju7p",
-        "verkaufer-in-denner-ag-wilderswil-2",
-        "venditore-denner-ag-langenthal-634638",
-        "seller-denner-ag-langenthal-d47c8f"
+        "verkaufer-in-denner-ag-wilderswil-2"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -19145,8 +19131,7 @@
         "verkaufer-in-denner-ag-wattwil",
         "verkaufer-in-denner-ag-allschwil-2",
         "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-        "venditore-denner-ag-allschwil-5b4844",
-        "venditore-denner-ag-allschwil"
+        "venditore-denner-ag-allschwil-5b4844"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -20249,7 +20234,6 @@
         "pizzaiolo-baden-pizzeria-ristorante-molino-baden-q9gttd",
         "chef-de-partie-baden-pizzeria-ristorante-molino-baden",
         "chef-de-partie-baden-pizzeria-ristorante-molino-baden-vj2ad6",
-        "user-safety-safe-pizzeria-ristorante-molino-baden",
         "capopartita-baden-pizzeria-ristorante-molino-baden"
       ],
       "salaryMin": 62000,
@@ -39523,8 +39507,7 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
