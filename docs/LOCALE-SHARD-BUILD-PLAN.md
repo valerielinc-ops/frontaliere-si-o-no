@@ -120,12 +120,15 @@ F0 ½gg · F1 2-3gg (34 loop) · F2 1-2gg · F3 1gg · F4 1-2gg · F5 1gg+live �
 
 ---
 
-## Fase 5 — Wiring `deploy.yml` (spec design-complete, flag-gated, NON attivato)
+## Fase 5 — Wiring `deploy.yml` (CABLATO, flag-gated)
 
-> **Non costruito sul `deploy.yml` di produzione** per scelta: dato il caveat
-> overhead-bound (la matrix è ≈/più lenta del monolite), wirare un percorso più
-> lento nel deploy live del sito-revenue aggiunge rischio per zero beneficio di
-> velocità. Spec pronta; attivazione = decisione utente esplicita.
+> **STATO (aggiornato):** il percorso matrix è ora **cablato in `deploy.yml`**,
+> flag-gated dietro `vars.LOCALE_MATRIX_BUILD` (+ input `force_matrix` per i test).
+> Default OFF al primo merge → il monolite resta il default, zero rischio live;
+> il passaggio a default ON è una decisione utente esplicita (già richiesta).
+> Caveat overhead-bound invariato: la matrix è ≈/più lenta del monolite (~30-40min
+> per shard vs ~23min), quindi l'attivazione vale per *morfologia* (split per-locale,
+> cap-10GB Pages), non per velocità. Rollback = flip del flag.
 
 **Reference implementation validata:** `deploy-matrix-experiment.yml` (prep +
 matrix `build-locale` + prune + validate, tutto verde). È il template del
@@ -140,9 +143,27 @@ percorso matrix.
    - ogni shard pusha il suo subtree allo shard repo (riusa `push_shard()` esistente);
    - lo shard `it` produce root+shared+sitemaps → Pages + CDN.
 3. Il percorso monolitico resta il default (`else`): zero rischio finché OFF.
-4. **Gate pre-attivazione:** step `recompose+audit` (scarica i 4 dist, ricompone,
-   gira i gate SEO esistenti audit-hreflang/sitemap/broken-link/structured-data)
-   == verdi identici al monolite. Senza questo, NON attivare.
+4. **Gate pre-attivazione:** (a) il job `compare` di `deploy-matrix-experiment.yml`
+   prova l'equivalenza byte/sha256 recomposed-matrix == monolite; (b) un deploy
+   matrix dispatchato end-to-end (`force_matrix=true`) verde su tutti i job. NB: il
+   recompose+audit SEO per-deploy è ridondante — `post-deploy-validate-dist.yml`
+   **già** riaggrega en/de/fr dai repo shard (`LOCALE_SHARDS_LIVE=true`, clona
+   `frontaliere-<loc>`) e gira gli audit SEO sul tree completo, sia per il monolite
+   che per il matrix. Senza i gate (a)+(b) verdi, NON portare il flag a default ON.
+
+**Implementazione cablata (questo wiring):**
+- `matrix-setup` (locale list + `DEPLOY_BUILD_ID` condiviso digits-only),
+  `prep` (assemble/cleanup/mine/migrate/thumbnails/news-sitemap + active-jobs
+  regression + SEO moratorium → `prepared-snapshot`), `build-locale` matrix.
+- Lo shard IT richiama `scripts/lib/deploy-it-pages-prep.sh` (CDN push, offload,
+  prune-cdn, drop-assets, tar, sitemaps bundle, dist-bytes/file-delta/url-first-seen)
+  e carica gli artifact identici al monolite (`github-pages`, `sitemaps-*`,
+  `jobs-master-*`, `pre-deploy-snapshot-*`, `winners-*`) + commit dist-history.
+- en/de/fr richiamano offload (`CDN_BASE` esplicito) + `scripts/lib/push-locale-shard.sh`.
+- `DEPLOY_BUILD_ID` condiviso → ogni shard emette lo stesso `dist/build-id.txt`
+  (`build-plugins/constants.ts` lo onora; monolite invariato quando l'env è unset).
+- Downstream `deploy`/`validate-dist`/`validate-live`/`publish` invariati (consumano
+  gli stessi artifact via `needs:[build, build-locale]` + success-of-either).
 
 **Rollback:** `LOCALE_MATRIX_BUILD=false` → ritorno immediato al monolite.
 

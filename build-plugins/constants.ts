@@ -5,6 +5,16 @@
  * and read at runtime (staleness checks). NOT injected as a Vite `define` —
  * baking it into the bundle changed the entry hash every build → ~100% page
  * churn (see vite.config define removal).
+ *
+ * Honors `process.env.DEPLOY_BUILD_ID` when set, so a multi-runner deploy
+ * (the per-locale MATRIX build) can pass ONE canonical id to every shard build
+ * — otherwise each runner's `Date.now()` would diverge and the IT shard's
+ * build-id.txt (the one GitHub Pages serves + the one staged into the
+ * sitemaps-bundle for wait-for-pages-propagation.mjs) could differ from the
+ * sitemaps-bundle copy, breaking the propagation gate. The monolith deploy
+ * leaves the env unset → behaviour is byte-identical to the old timestamp.
+ * The override is sanitised to digits only so it stays a numeric stamp,
+ * preserving the `>=` (monotonic) comparison in wait-for-pages-propagation.mjs.
  * COMMIT_HASH / SHORT_COMMIT_HASH: build commit. Emitted to dist/commit-hash.txt
  * and read at runtime (version badge fetches it). Also NOT a `define`, same reason.
  * BASE_URL: canonical site origin used across all static-page generators.
@@ -18,7 +28,8 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
 
-export const BUILD_ID = String(Date.now());
+const DEPLOY_BUILD_ID_OVERRIDE = (process.env.DEPLOY_BUILD_ID || '').replace(/\D/g, '');
+export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());
 
 /**
  * Fail-fast guard for the externalised stylesheets that live in
