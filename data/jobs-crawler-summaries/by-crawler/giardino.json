@@ -1,16 +1,56 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-06-20T21:57:18.425Z",
-  "total": 0,
+  "generatedAt": "2026-06-21T11:35:12.021Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 4334,
+  "avgDurationMs": 4334,
+  "durationHistory": [
+    4334
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "giardino-a70fdbb79832",
+      "slug": "housekeeping-attendant-giardino-group-ascona",
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Housekeeping Attendant",
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-21T11:35:10.131Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Housekeeping",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
+      "firstSeenAt": "2026-06-19T21:49:01.621Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
