@@ -2828,7 +2828,8 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-06-10T12:43:10.810Z",
       "previousSlugs": [
-        "senior-microsoft-365-ingegnere-die-schweizerische-post-bellinzona"
+        "senior-microsoft-365-ingegnere-die-schweizerische-post-bellinzona",
+        "ingegnere-microsoft-365-senior-die-schweizerische-post-bellinzona"
       ]
     },
     {
@@ -3304,7 +3305,10 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "postalCode": "5000",
-      "firstSeenAt": "2026-06-10T23:18:16.329Z"
+      "firstSeenAt": "2026-06-10T23:18:16.329Z",
+      "previousSlugs": [
+        "vice-ceo-swiss-post-cargo-die-schweizerische-post-dintikon"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Immobilienbewirtschafterin/73643-de_DE",
@@ -6946,10 +6950,10 @@
       "country": "CH",
       "description": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
       "descriptionByLocale": {
-        "it": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
-        "en": "Descrizione - Do you have an innate sense of organization, do you appreciate variety and would you like to discover different areas?",
-        "de": "Beschreibung – Haben Sie ein angeborenes Organisationsgefühl, schätzen Sie Abwechslung und möchten Sie verschiedene Bereiche entdecken?",
-        "fr": "## Descrizione - Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
+        "it": "Descrizione - Hai un innato senso di organizzazione, apprezzi la varietà e vuoi scoprire diversi campi?",
+        "en": "Descrizione - You have an innate sense of organization, you appreciate variety and you would like to discover different fields?",
+        "de": "Descrizione - Sie haben ein angeborenes Organisationsgefühl, schätzen Vielfalt und möchten verschiedene Bereiche entdecken?",
+        "fr": "## Descrizione\n- Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
         "it": "Apprendimento dei dipendenti SWC, Servizi e Amministrazione aziendale - Jura",
@@ -6979,7 +6983,6 @@
         "location": "Porrentruy"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-754685691e32",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7014,7 +7017,9 @@
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post",
         "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-jura-la-poste-suisse-porrentruy"
       ],
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 117
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-AFP-Vaud/73242-fr_FR",
@@ -7510,10 +7515,10 @@
       "country": "CH",
       "description": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
       "descriptionByLocale": {
-        "it": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
-        "en": "Descrizione - Do you have an innate sense of organization, do you appreciate variety and would you like to discover different areas?",
-        "de": "Beschreibung – Haben Sie ein angeborenes Organisationsgefühl, schätzen Sie Abwechslung und möchten Sie verschiedene Bereiche entdecken?",
-        "fr": "## Descrizione - Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
+        "it": "Descrizione - Hai un innato senso di organizzazione, apprezzi la varietà e vuoi scoprire diversi campi?",
+        "en": "Descrizione - You have an innate sense of organization, you appreciate variety and you would like to discover different fields?",
+        "de": "Descrizione - Sie haben ein angeborenes Organisationsgefühl, schätzen Vielfalt und möchten verschiedene Bereiche entdecken?",
+        "fr": "## Descrizione\n- Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
         "it": "Servizi di apprendimento e amministrazione dei dipendenti - Vaud",
@@ -7543,7 +7548,6 @@
         "location": "Daillens"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-116ed51d61ea",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7579,7 +7583,9 @@
         "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-vaud-post",
         "apprendistato-come-dipendente-commerciale-efz-servizi-e-amministrazione-vaud-la-poste-suisse-daillens"
       ],
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 117
     },
     {
       "url": "https://job.post.ch/default/job/Development-Platform-and-DevEx-Engineer/73669-en_US",
