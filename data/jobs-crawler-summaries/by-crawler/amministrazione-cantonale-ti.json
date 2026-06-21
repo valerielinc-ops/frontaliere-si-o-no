@@ -1,18 +1,49 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-21T12:34:18.583Z",
-  "total": 15,
-  "newCount": 0,
+  "generatedAt": "2026-06-21T22:56:45.623Z",
+  "total": 16,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 17620,
-  "avgDurationMs": 17620,
+  "durationMs": 18353,
+  "avgDurationMs": 18353,
   "durationHistory": [
-    17620
+    18353
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213hq1",
+      "slug": "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-pieno-100-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servizio-medico",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Operatore/trice sociale I (opzione: educatore/trice), a tempo pieno (100%), presso l’Organizzazione sociopsichiatrica cantonale (OSC) / Servizio medico-psicologico (SMP) per minorenni, Lugano Viganello",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "health",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-21",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4216",
+      "source": "Company Careers Crawler",
+      "salaryMin": 68456,
+      "salaryMax": 107475,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-06-21T22:56:40.618Z",
+      "firstSeenAt": "2026-06-21T22:56:40.618Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213j37",
