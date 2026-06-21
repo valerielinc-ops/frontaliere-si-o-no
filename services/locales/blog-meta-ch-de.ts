@@ -254,6 +254,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-lavoro-casa.title': 'Zu heiß zum Arbeiten oder Schlafen: Ihre Rechte',
     'blog.article.caldo-lavoro-casa.excerpt': 'Was sagt das Gesetz über extreme Hitze am Arbeitsplatz, in der Schule und zu Hause',
     'blog.article.caldo-lavoro-casa.imageAlt': 'Schweizer Büromitarbeiter, die unter der Hitzewelle leiden',
+    'blog.article.vivere-senza-big-tech.title': 'Leben und arbeiten ohne Big Tech?',
+    'blog.article.vivere-senza-big-tech.excerpt': 'Zwei Journalisten von Swissinfo haben versucht, die Verbindungen zu den US-amerikanischen Tech-Giganten abzubrechen. Hier ist passiert, was passiert ist.',
+    'blog.article.vivere-senza-big-tech.imageAlt': 'Eine Person, die an einem Computer mit einem leeren Bildschirm arbeitet',
 };
 
 export default blogMetaChDe;

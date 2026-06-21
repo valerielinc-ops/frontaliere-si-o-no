@@ -106,6 +106,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lpp-prestazioni-tassazione-svizzera': { it: 'lpp-prestazioni-tassazione-svizzera', en: 'swiss-lpp-benefits-taxation', de: 'schweizer-bvg-leistungen-besteuerung', fr: 'prestations-lpp-suisse-imposition' },
  'caritas-ticino-poverta-2025': { it: 'caritas-ticino-poverta-2025', en: 'caritas-ticino-poverty-2025', de: 'caritas-ticino-armut-2025', fr: 'caritas-ticino-pauvrete-2025' },
  'caldo-lavoro-casa': { it: 'caldo-lavoro-casa', en: 'workers-rights-summer-heat', de: 'arbeiterrechte-sommerhitze', fr: 'droits-travailleurs-chaud-ete' },
+ 'vivere-senza-big-tech': { it: 'vivere-senza-big-tech', en: 'living-without-big-tech', de: 'ohne-big-tech-leben', fr: 'vivre-sans-les-big-tech' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

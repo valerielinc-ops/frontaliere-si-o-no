@@ -4092,6 +4092,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lpp-prestazioni-tassazione-svizzera': { name: 'Tassazione LPP', path: '/articoli-svizzera/lpp-prestazioni-tassazione-svizzera/', parent: 'blog' },
     'blog-caritas-ticino-poverta-2025': { name: 'Caritas Ticino', path: '/articoli-svizzera/caritas-ticino-poverta-2025/', parent: 'blog' },
     'blog-caldo-lavoro-casa': { name: 'Caldo estivo', path: '/articoli-svizzera/caldo-lavoro-casa/', parent: 'blog' },
+    'blog-vivere-senza-big-tech': { name: 'Tecnologia', path: '/articoli-svizzera/vivere-senza-big-tech/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

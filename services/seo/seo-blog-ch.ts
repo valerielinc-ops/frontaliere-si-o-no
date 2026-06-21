@@ -3218,6 +3218,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-senza-big-tech': {
+    title: 'È possibile vivere e lavorare senza le Big Tech?',
+    description: 'Due giornalisti di Swissinfo hanno provato a tagliare i ponti con i giganti tecnologici statunitensi. Scopri cosa è successo e cosa significa per la tua vita',
+    keywords: 'frontalieri, ticino, svizzera, italia, possibile, vivere, lavorare, senza',
+    ogTitle: 'Vivere e lavorare senza le Big Tech',
+    ogDescription: 'Due giornalisti di Swissinfo hanno provato a tagliare i ponti con i giganti tecnologici statunitensi. Scopri cosa è successo e cosa significa per la tua vita',
+    canonicalPath: '/articoli-svizzera/vivere-senza-big-tech/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "È possibile vivere e lavorare senza le Big Tech?",
+      "description": "Due giornalisti di Swissinfo hanno provato a tagliare i ponti con i giganti tecnologici statunitensi. Scopri cosa è successo e cosa significa per la tua vita",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-senza-big-tech.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona che lavora al computer con uno schermo vuoto"
+      },
+      "datePublished": "2026-06-21T09:54:56+00:00",
+      "dateModified": "2026-06-21T09:54:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vivere-senza-big-tech/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
