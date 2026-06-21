@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-06-20T21:47:03.897Z",
+  "assembledAt": "2026-06-21T11:24:41.833Z",
   "jobs": [
     {
       "id": "csvm-mustair-2ca53ce6ff78",
@@ -34,7 +34,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T21:47:01.598Z",
+      "crawledAt": "2026-06-21T11:24:39.903Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -79,15 +79,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:25.014Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       }
@@ -124,7 +124,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T21:47:01.101Z",
+      "crawledAt": "2026-06-21T11:24:39.591Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T21:47:00.596Z",
+      "crawledAt": "2026-06-21T11:24:39.180Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T21:46:59.768Z",
+      "crawledAt": "2026-06-21T11:24:38.666Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -362,7 +362,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T21:46:58.101Z",
+      "crawledAt": "2026-06-21T11:24:37.448Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -391,15 +391,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T22:13:17.730Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       }
