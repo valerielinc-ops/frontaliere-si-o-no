@@ -283,8 +283,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Title MUST use the standard "Workflow Failure: <name>" prefix so the
+          # central reconciler (close-recovered-failure-issues.mjs, TITLE_RE
+          # ^(?:Workflow|Crawler|CI) Failure:) auto-closes it once the next run is
+          # green. The old literal "Translation Pipeline Failure" never matched →
+          # the failure issue stayed open forever on recovery (e.g. #2538). The
+          # <name> here equals `name:` so `gh run list -w` resolves the run.
           node scripts/lib/github-issue-creator.mjs \
-            --title "Translation Pipeline Failure" \
+            --title "Workflow Failure: Translate Pending Jobs" \
             --description "## Pipeline fallita
 
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
