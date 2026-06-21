@@ -11398,5 +11398,119 @@
         "pending": 8
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-21T15:01:39.163Z",
+    "label": "before",
+    "total": 17264,
+    "needsRetranslation": 8625,
+    "suppressed": 587,
+    "incomplete": 1597,
+    "complete": 15667,
+    "missingByLocale": {
+      "it": 813,
+      "en": 519,
+      "de": 748,
+      "fr": 418
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 991
+      },
+      {
+        "company": "Richemont",
+        "pending": 102
+      },
+      {
+        "company": "Manor AG",
+        "pending": 101
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 26
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 23
+      },
+      {
+        "company": "Geberit",
+        "pending": 21
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 21
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-21T16:57:53.124Z",
+    "label": "after",
+    "total": 17264,
+    "needsRetranslation": 2780,
+    "suppressed": 587,
+    "incomplete": 1329,
+    "complete": 15935,
+    "missingByLocale": {
+      "it": 630,
+      "en": 352,
+      "de": 736,
+      "fr": 239
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 907
+      },
+      {
+        "company": "Manor AG",
+        "pending": 101
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "UBS",
+        "pending": 46
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 26
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "Richemont",
+        "pending": 13
+      },
+      {
+        "company": "Decathlon",
+        "pending": 11
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 8
+      }
+    ]
   }
 ]
