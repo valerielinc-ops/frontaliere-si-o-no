@@ -1,7 +1,89 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-06-20T21:45:46.444Z",
+  "assembledAt": "2026-06-21T11:23:56.219Z",
   "jobs": [
+    {
+      "id": "corner-banca-f803e5cc9fe2",
+      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Candidatura spontanea apprendistato",
+      "titleByLocale": {
+        "it": "Candidatura spontanea apprendistato",
+        "en": "Unsolicited Application Apprenticeship",
+        "de": "Initiativbewerbung Lehre",
+        "fr": "Unsolicited Application Apprenticeship"
+      },
+      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+      "descriptionByLocale": {
+        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "en": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Luogo di lavoro: Lugano / Bedano / Chiasso Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "de": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "fr": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Luogo di lavoro: Lugano / Bedano / Chiasso Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
+      },
+      "requirements": [
+        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
+        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "en": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "de": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ]
+      },
+      "location": "Switzerland",
+      "canton": "TI",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-02",
+      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-06-21T11:23:53.730Z",
+      "previousSlugs": [
+        "initiativbewerbung-lehre-corner-banca-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "initiativbewerbung-lehre-corner-banca-switzerland"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:02:58.679Z",
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH"
+    },
     {
       "id": "corner-banca-b69f1f79bbe3",
       "slug": "customer-consulente-40-corner-banca-wallisellen",
@@ -64,7 +146,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.949Z",
+      "crawledAt": "2026-06-21T11:23:53.728Z",
       "previousSlugs": [
         "consulente-clienti-40-corner-banca-wallisellen",
         "customer-advisor-60-corner-banca-wallisellen",
@@ -90,6 +172,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -105,88 +188,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-f803e5cc9fe2",
-      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Candidatura spontanea apprendistato",
-      "titleByLocale": {
-        "it": "Candidatura spontanea apprendistato",
-        "en": "Unsolicited Application Apprenticeship",
-        "de": "Initiativbewerbung Lehre",
-        "fr": "Unsolicited Application Apprenticeship"
-      },
-      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-      "descriptionByLocale": {
-        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "en": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Luogo di lavoro: Lugano / Bedano / Chiasso Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "de": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "fr": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Luogo di lavoro: Lugano / Bedano / Chiasso Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
-      },
-      "requirements": [
-        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
-        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "en": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "de": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ]
-      },
-      "location": "Switzerland",
-      "canton": "TI",
-      "addressLocality": "Switzerland",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-02",
-      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-20T21:45:43.949Z",
-      "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "initiativbewerbung-lehre-corner-banca-switzerland"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T10:02:58.679Z",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
       "country": "CH"
     },
     {
@@ -257,7 +258,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-20T21:45:43.948Z",
+      "crawledAt": "2026-06-21T11:23:53.727Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -291,6 +292,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -374,7 +376,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.948Z",
+      "crawledAt": "2026-06-21T11:23:53.727Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -390,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -467,7 +470,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.946Z",
+      "crawledAt": "2026-06-21T11:23:53.726Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
       ],
@@ -477,6 +480,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T11:54:50.675Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -567,7 +571,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.945Z",
+      "crawledAt": "2026-06-21T11:23:53.725Z",
       "previousSlugs": [
         "employee-collection-team-zurich-corner-banca-wallisellen",
         "mitarbeitersammlung-team-zurich-corner-banca-wallisellen"
@@ -581,6 +585,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T22:29:56.932Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -660,7 +665,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.944Z",
+      "crawledAt": "2026-06-21T11:23:53.724Z",
       "previousSlugs": [
         "customer-advisor-60-team-zurich-corner-banca-wallisellen"
       ],
@@ -676,6 +681,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:44:36.978Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -762,7 +768,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.944Z",
+      "crawledAt": "2026-06-21T11:23:53.724Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen",
         "employee-front-office-corner-banca-wallisellen"
@@ -777,6 +783,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -860,8 +867,9 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.943Z",
+      "crawledAt": "2026-06-21T11:23:53.723Z",
       "firstSeenAt": "2026-05-18T12:11:07.111Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -942,7 +950,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.942Z",
+      "crawledAt": "2026-06-21T11:23:53.721Z",
       "previousSlugs": [
         "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
@@ -958,6 +966,7 @@
         ]
       },
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1039,7 +1048,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.941Z",
+      "crawledAt": "2026-06-21T11:23:53.720Z",
       "previousSlugs": [
         "legal-collection-case-manager-corner-banca-wallisellen"
       ],
@@ -1055,6 +1064,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:12:50.719Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1146,7 +1156,7 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.939Z",
+      "crawledAt": "2026-06-21T11:23:53.719Z",
       "previousSlugsByLocale": {
         "it": [
           "customer-analytics-officer-corner-banca-lugano",
@@ -1158,6 +1168,7 @@
         "customer-analytics-officer-corner-banca-wallisellen"
       ],
       "firstSeenAt": "2026-06-02T23:12:26.649Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "baseSalary": {
@@ -1251,7 +1262,7 @@
       "url": "https://jobs.corner.ch/o/marketing-project-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T21:45:43.938Z",
+      "crawledAt": "2026-06-21T11:23:53.717Z",
       "previousSlugs": [
         "marketing-project-manager-corner-banca-lugano"
       ],
@@ -1267,6 +1278,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T21:37:06.561Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
