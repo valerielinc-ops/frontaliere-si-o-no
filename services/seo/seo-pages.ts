@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2848,
+ "numberOfItems": 2849,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7492,7 +7492,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2845, "name": "Caritas Ticino: 1.047 persone accolte e deficit...", "url": `${BASE_URL}/articoli-frontaliere/caritas-ticino-poverta-2025` },
           { "@type": "ListItem", "position": 2846, "name": "Troppo caldo per lavorare o per dormire: quali ...", "url": `${BASE_URL}/articoli-frontaliere/caldo-lavoro-casa` },
           { "@type": "ListItem", "position": 2847, "name": "È possibile vivere e lavorare senza le Big Tech?", "url": `${BASE_URL}/articoli-frontaliere/vivere-senza-big-tech` },
-          { "@type": "ListItem", "position": 2848, "name": "Parlamento svizzero approva finanziamento parzi...", "url": `${BASE_URL}/articoli-frontaliere/finanziamento-parziale-13esima-avs` }
+          { "@type": "ListItem", "position": 2848, "name": "Parlamento svizzero approva finanziamento parzi...", "url": `${BASE_URL}/articoli-frontaliere/finanziamento-parziale-13esima-avs` },
+          { "@type": "ListItem", "position": 2849, "name": "Tassa salute frontalieri: ipotesi rinvio incont...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-rinvio-roma` }
  ]
  },
  {

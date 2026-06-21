@@ -3296,6 +3296,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-rinvio-roma': {
+    title: 'Tassa salute frontalieri: ipotesi rinvio incontro Roma',
+    description: 'Vertice a fine giugno tra Keller-Sutter e Giorgetti per congelare la tassa salute frontalieri. Ticino decide sui ristorni entro 30 giugno. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, ipotesi, rinvio',
+    ogTitle: 'Tassa salute frontalieri: ipotesi rinvio incontro Roma',
+    ogDescription: 'Vertice a fine giugno tra Keller-Sutter e Giorgetti per congelare la tassa salute frontalieri. Ticino decide sui ristorni entro 30 giugno.',
+    canonicalPath: '/articoli-svizzera/tassa-salute-frontalieri-rinvio-roma/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: ipotesi rinvio incontro Roma",
+      "description": "Vertice a fine giugno tra Keller-Sutter e Giorgetti per congelare la tassa salute frontalieri. Ticino decide sui ristorni entro 30 giugno. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-rinvio-roma.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Governo a Bellinzona, sede del Consiglio di Stato ticinese"
+      },
+      "datePublished": "2026-06-21T12:40:35+00:00",
+      "dateModified": "2026-06-21T12:40:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassa-salute-frontalieri-rinvio-roma/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
