@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-06-20T22:09:33.224Z",
+  "assembledAt": "2026-06-21T11:51:00.601Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:20.846Z",
+      "crawledAt": "2026-06-21T11:50:49.874Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:20.225Z",
+      "crawledAt": "2026-06-21T11:50:49.257Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -200,6 +201,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -245,7 +247,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:19.601Z",
+      "crawledAt": "2026-06-21T11:50:48.639Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -306,6 +308,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -351,7 +354,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:18.981Z",
+      "crawledAt": "2026-06-21T11:50:48.021Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -412,6 +415,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -457,7 +461,7 @@
       "url": "https://apply.refline.ch/514915/2644/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:18.361Z",
+      "crawledAt": "2026-06-21T11:50:47.404Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -538,7 +542,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:17.740Z",
+      "crawledAt": "2026-06-21T11:50:46.786Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -584,9 +588,9 @@
     },
     {
       "id": "kanton-gr-61b4bd8f9444",
-      "slug": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+      "slug": "systems-engineer-in-windows-server-kanton-gr-ch",
       "slugByLocale": {
-        "it": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+        "it": "systems-engineer-in-windows-server-kanton-gr-ch",
         "en": "systems-engineer-in-windows-server-kantonale-verwaltung-graubunden-chur",
         "de": "systems-engineer-in-windows-server-kanton-gr-ch",
         "fr": "systems-engineer-in-windows-server-kanton-gr-ch"
@@ -613,7 +617,7 @@
       "url": "https://apply.refline.ch/514915/2738/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:17.101Z",
+      "crawledAt": "2026-06-21T11:50:46.169Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -635,7 +639,7 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "systems-engineer-in-windows-server-kanton-gr-ch",
+        "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur",
         "systems-engineer-in-per-applicazioni-windows-kantonale-verwaltung-graubunden-chur",
@@ -645,6 +649,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
           "systems-engineer-in-windows-server-kanton-gr-ch"
         ],
         "fr": [
@@ -653,6 +658,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:01.610Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -698,7 +704,7 @@
       "url": "https://apply.refline.ch/514915/2743/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:16.489Z",
+      "crawledAt": "2026-06-21T11:50:45.550Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -728,6 +734,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:00.957Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -773,7 +780,7 @@
       "url": "https://apply.refline.ch/514915/2741/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:15.869Z",
+      "crawledAt": "2026-06-21T11:50:44.932Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -858,7 +865,7 @@
       "url": "https://apply.refline.ch/514915/2745/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:15.246Z",
+      "crawledAt": "2026-06-21T11:50:44.314Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -933,7 +940,7 @@
       "url": "https://apply.refline.ch/514915/2737/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:14.625Z",
+      "crawledAt": "2026-06-21T11:50:43.695Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1023,7 +1030,7 @@
       "url": "https://apply.refline.ch/514915/2730/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:14.003Z",
+      "crawledAt": "2026-06-21T11:50:43.078Z",
       "addressLocality": "Davos Frauenkirch",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1074,10 +1081,10 @@
       "id": "kanton-gr-411b4f827a54",
       "slug": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
+        "it": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1101,7 +1108,7 @@
       "url": "https://apply.refline.ch/514915/2711/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:13.380Z",
+      "crawledAt": "2026-06-21T11:50:42.457Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1125,18 +1132,21 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-kanton-gr-ch",
         "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-        "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
+        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-kanton-gr-ch",
-          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis"
+          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
+          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
           "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-06-18T12:32:57.645Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1182,7 +1192,7 @@
       "url": "https://apply.refline.ch/514915/2727/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:12.758Z",
+      "crawledAt": "2026-06-21T11:50:41.839Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1260,7 +1270,7 @@
       "url": "https://apply.refline.ch/514915/2739/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:12.139Z",
+      "crawledAt": "2026-06-21T11:50:41.223Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1341,7 +1351,7 @@
       "url": "https://apply.refline.ch/514915/2721/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:11.527Z",
+      "crawledAt": "2026-06-21T11:50:40.575Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1416,7 +1426,7 @@
       "url": "https://apply.refline.ch/514915/2731/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:10.905Z",
+      "crawledAt": "2026-06-21T11:50:39.958Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1490,7 +1500,7 @@
       "url": "https://apply.refline.ch/514915/2734/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:10.281Z",
+      "crawledAt": "2026-06-21T11:50:39.340Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1565,7 +1575,7 @@
       "url": "https://apply.refline.ch/514915/2719/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:09.661Z",
+      "crawledAt": "2026-06-21T11:50:38.724Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1646,7 +1656,7 @@
       "url": "https://apply.refline.ch/514915/2735/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:09.034Z",
+      "crawledAt": "2026-06-21T11:50:38.107Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1721,7 +1731,7 @@
       "url": "https://apply.refline.ch/514915/2729/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:08.414Z",
+      "crawledAt": "2026-06-21T11:50:37.490Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1785,7 +1795,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Streetkeeper/in",
+        "it": "Strassenwart/-in",
         "en": "Streetkeeper/in",
         "de": "Strassenwart/-in",
         "fr": "Gardien de rue/in"
@@ -1802,7 +1812,7 @@
       "url": "https://apply.refline.ch/514915/2728/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:07.793Z",
+      "crawledAt": "2026-06-21T11:50:36.872Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1885,7 +1895,7 @@
       "url": "https://apply.refline.ch/514915/2699/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:07.162Z",
+      "crawledAt": "2026-06-21T11:50:36.242Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1948,6 +1958,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1993,7 +2004,7 @@
       "url": "https://apply.refline.ch/514915/2724/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:06.543Z",
+      "crawledAt": "2026-06-21T11:50:35.628Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2068,7 +2079,7 @@
       "url": "https://apply.refline.ch/514915/2725/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:05.924Z",
+      "crawledAt": "2026-06-21T11:50:35.010Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2099,6 +2110,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:53.758Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2144,7 +2156,7 @@
       "url": "https://apply.refline.ch/514915/2722/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:05.304Z",
+      "crawledAt": "2026-06-21T11:50:34.391Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2230,7 +2242,7 @@
       "url": "https://apply.refline.ch/514915/2726/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:04.684Z",
+      "crawledAt": "2026-06-21T11:50:33.773Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2266,6 +2278,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:52.468Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2311,7 +2324,7 @@
       "url": "https://apply.refline.ch/514915/2723/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:04.063Z",
+      "crawledAt": "2026-06-21T11:50:33.155Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2389,7 +2402,7 @@
       "url": "https://apply.refline.ch/514915/2720/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:03.443Z",
+      "crawledAt": "2026-06-21T11:50:32.537Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2472,7 +2485,7 @@
       "url": "https://apply.refline.ch/514915/2714/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:02.812Z",
+      "crawledAt": "2026-06-21T11:50:31.904Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2553,7 +2566,7 @@
       "url": "https://apply.refline.ch/514915/2715/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:02.191Z",
+      "crawledAt": "2026-06-21T11:50:31.287Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2583,6 +2596,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:49.867Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2628,7 +2642,7 @@
       "url": "https://apply.refline.ch/514915/2716/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:01.564Z",
+      "crawledAt": "2026-06-21T11:50:30.657Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2703,7 +2717,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:00.953Z",
+      "crawledAt": "2026-06-21T11:50:30.038Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2733,6 +2747,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.927Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2778,7 +2793,7 @@
       "url": "https://apply.refline.ch/514915/2712/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:09:00.333Z",
+      "crawledAt": "2026-06-21T11:50:29.417Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2808,6 +2823,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.260Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2853,7 +2869,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T22:08:59.084Z",
+      "crawledAt": "2026-06-21T11:50:28.167Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2917,6 +2933,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
