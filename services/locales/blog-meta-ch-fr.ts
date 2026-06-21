@@ -260,6 +260,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.finanziamento-parziale-13esima-avs.title': 'Parlement suisse approuve financement partiel 13e AVS',
     'blog.article.finanziamento-parziale-13esima-avs.excerpt': 'Hausse TVA de 0,4% adoptée, cotisations salariales rejetées : seuls la moitié des coûts de la 13e AVS sont couverts',
     'blog.article.finanziamento-parziale-13esima-avs.imageAlt': 'Vue du Parlement suisse avec des drapeaux suisses symbolisant les décisions politiques nationales sur les retraites',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.title': 'Taxe santé frontaliers: report possible du sommet à Rome',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.excerpt': 'Sommet fin juin entre Keller-Sutter et Giorgetti pour geler la taxe santé frontaliers. Le Tessin décidera sur les remboursements d\'ici le 30 juin.',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.imageAlt': 'Palais du gouvernement à Bellinzona, siège du Conseil d\'État du Tessin',
 };
 
 export default blogMetaChFr;

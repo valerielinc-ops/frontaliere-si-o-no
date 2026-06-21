@@ -260,6 +260,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.finanziamento-parziale-13esima-avs.title': 'Schweizer Parlament genehmigt Teilfinanzierung 13. AHV',
     'blog.article.finanziamento-parziale-13esima-avs.excerpt': 'MwSt-Erhöhung um 0,4% beschlossen, Lohnbeiträge abgelehnt: Nur die Hälfte der Kosten für die 13. AHV ist gedeckt',
     'blog.article.finanziamento-parziale-13esima-avs.imageAlt': 'Ansicht des Schweizer Parlaments mit Schweizer Flaggen, die nationale Rentenpolitikentscheidungen symbolisieren',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.title': 'Grenzgänger-Gesundheitssteuer: Vertagung Rom im Raum',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.excerpt': 'Spitzentreffen Ende Juni zwischen Keller-Sutter und Giorgetti zur Einfrierung der Grenzgänger-Gesundheitssteuer. Der Tessin entscheidet bis 30. Juni über die Rückerstattungen.',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.imageAlt': 'Regierungsgebäude in Bellinzona, Sitz des Ticino Staatsrates',
 };
 
 export default blogMetaChDe;

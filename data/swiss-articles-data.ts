@@ -782,6 +782,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'tassa-salute-frontalieri-rinvio-roma',
+    category: 'fiscale',
+    date: '2026-06-21T12:40:35.272Z',
+    image: '/images/blog/tassa-salute-frontalieri-rinvio-roma.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

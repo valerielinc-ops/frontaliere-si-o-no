@@ -260,6 +260,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.finanziamento-parziale-13esima-avs.title': 'Swiss Parliament Approves Partial Funding for 13th AVS Pension',
     'blog.article.finanziamento-parziale-13esima-avs.excerpt': '0.4% VAT increase approved, wage contributions rejected: only half the 13th AVS pension costs covered',
     'blog.article.finanziamento-parziale-13esima-avs.imageAlt': 'View of the Swiss Parliament with Swiss flags symbolizing national pension policy decisions',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.title': 'Frontalier Health Tax: Possible Delay in Rome Meeting',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.excerpt': 'Meeting between Keller-Sutter and Giorgetti in late June to freeze the health tax for cross-border workers. Ticino decides on restaurants by June 30th.',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.imageAlt': 'Government Palace in Bellinzona, seat of the Ticino State Council',
 };
 
 export default blogMetaChEn;

@@ -260,6 +260,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.finanziamento-parziale-13esima-avs.title': 'Parlamento svizzero approva finanziamento parziale per la 13esima AVS',
     'blog.article.finanziamento-parziale-13esima-avs.excerpt': 'Aumento IVA del 0,4% approvato, contributi salariali bocciati: solo metà costi 13esima AVS coperti',
     'blog.article.finanziamento-parziale-13esima-avs.imageAlt': 'Vista del Parlamento svizzero con bandiere elvetiche che simboleggiano le decisioni sulla previdenza nazionale',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.title': 'Tassa salute frontalieri: ipotesi rinvio incontro Roma',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.excerpt': 'Vertice a fine giugno tra Keller-Sutter e Giorgetti per congelare la tassa salute frontalieri. Ticino decide sui ristorni entro 30 giugno.',
+    'blog.article.tassa-salute-frontalieri-rinvio-roma.imageAlt': 'Palazzo del Governo a Bellinzona, sede del Consiglio di Stato ticinese',
 };
 
 export default blogMetaChIt;
