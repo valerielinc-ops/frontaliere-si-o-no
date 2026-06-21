@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-06-20T22:58:02.538Z",
+  "assembledAt": "2026-06-21T12:34:18.581Z",
   "jobs": [
     {
       "id": "company-213hqw",
@@ -112,7 +112,7 @@
         "it": "segretari-e-giudiziari-e-i-oppure-segretari-e-giudiziari-e-ii-a-tempo-pieno-100-presso-il-ministero-pubblico-lugano-o-bellinzona-orario-di-l-213hqy",
         "en": "public-ministry-amministrazione-cantonale-ticino-lugano",
         "de": "ministero-pubblico-amministrazione-cantonale-ticino-lugano",
-        "fr": "ministere-public-amministrazione-cantonale-ticino-lugano"
+        "fr": "segretari-e-giudiziari-e-i-oppure-segretari-e-giudiziari-e-ii-a-tempo-pieno-100-presso-il-ministero-pubblico-lugano-o-bellinzona-orario-di-l-213hqy"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -125,13 +125,15 @@
         ],
         "fr": [
           "ministero-pubblico-amministrazione-cantonale-ticino-lugano-213hqy",
-          "ministere-public-amministrazione-cantonale-ticino-lugano-213hqy"
+          "ministere-public-amministrazione-cantonale-ticino-lugano-213hqy",
+          "ministere-public-amministrazione-cantonale-ticino-lugano"
         ]
       },
       "previousSlugs": [
         "segretari-e-giudiziari-e-i-oppure-segretari-e-giudiziari-e-ii-a-tempo-pieno-100-presso-il-ministero-pubblico-lugano-o-bellinzona-orario-di-l",
         "ministero-pubblico-amministrazione-cantonale-ticino-lugano-213hqy",
-        "ministere-public-amministrazione-cantonale-ticino-lugano-213hqy"
+        "ministere-public-amministrazione-cantonale-ticino-lugano-213hqy",
+        "ministere-public-amministrazione-cantonale-ticino-lugano"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -217,7 +219,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hqz",
@@ -298,7 +301,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0l",
@@ -372,7 +376,8 @@
       },
       "previousSlugs": [
         "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213i9v",
@@ -698,7 +703,8 @@
         "concorso-generale-2026-aiuto-cucina-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-am",
         "allgemeiner-wettbewerb-2026-kuchenhilfe-buro-fur-verpflegung-und-schultransport-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rappor",
         "concours-general-2026-aide-cuisine-office-de-la-restauration-et-des-transports-scolaires-bellinzona-orario-di-lavoro-42-ore-settimanali-per-"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213j37",
@@ -938,7 +944,8 @@
         "en": [
           "general-competition-2026-employees-administratives-manufacturers-hospitallers-insured-persons-iii-telephone-advisers"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0o",
@@ -1014,7 +1021,8 @@
         "general-competition-2026-medical-head-in-psychiatry-at-the-cantonal-sociopsychiatric-organization-osc-mendrisio",
         "generalwettbewerb-2026-medizinischer-leiter-der-psychiatrie-an-der-kantonalen-sozipsychiatrischen-organisation-osc",
         "concours-general-2026-responsable-medical-en-psychiatrie-a-l-organisation-sociopsychiatrique-cantonale-osc-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0g",
