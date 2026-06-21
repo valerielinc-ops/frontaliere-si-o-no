@@ -3311,10 +3311,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-paie-et-assurances-sociales-richemont-meyrin",
-        "stellvertretender-salonleiter-a-lange-und-sohne-zurich",
-        "assistent-des-salons-a-lange-und-sohne-zurich",
-        "specialista-in-paghe-e-assicurazioni-sociali-richemont-meyrin",
         "spezialist-fur-gehalt-und-sozialversicherung-richemont-schaffhausen",
         "specialista-paga-e-assicurazione-sociale-richemont-schaffhausen",
         "payroll-and-social-insurance-manager-richemont-meyrin",
@@ -3329,7 +3325,12 @@
         "specialista-paghe-e-assicurazioni-sociali-richemont-meyrin",
         "lohn-und-sozialversicherungsfachkraft-richemont-meyrin",
         "specialiste-paie-et-assurances-sociales-richemont-meyrin",
-        "specialista-in-paghe-e-assicurazioni-sociali-richemont-schaffhausen"
+        "specialista-in-paghe-e-assicurazioni-sociali-richemont-schaffhausen",
+        "lohn-und-sozialversicherungsspezialist-richemont-schaffhausen",
+        "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-schaffhausen",
+        "payroll-e-social-insurance-specialist-richemont-schaffhausen",
+        "assistente-manager-del-salone-a-lange-und-sohne-zurich",
+        "payroll-and-social-insurance-specialist-richemont-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3338,13 +3339,18 @@
           "assistent-des-salons-a-lange-und-sohne-zurich",
           "specialista-in-paghe-e-assicurazioni-sociali-richemont-meyrin",
           "spezialist-fur-gehalt-und-sozialversicherung-richemont-schaffhausen",
-          "specialista-paga-e-assicurazione-sociale-richemont-schaffhausen"
+          "specialista-paga-e-assicurazione-sociale-richemont-schaffhausen",
+          "lohn-und-sozialversicherungsspezialist-richemont-schaffhausen",
+          "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-schaffhausen"
         ],
         "en": [
           "payroll-and-social-insurance-manager-richemont-meyrin",
           "assistant-salon-manager-richemont-zurich",
           "assistente-al-salon-manager-a-lange-und-sohne-zurich",
-          "manager-payroll-and-social-insurance-richemont-meyrin"
+          "manager-payroll-and-social-insurance-richemont-meyrin",
+          "payroll-e-social-insurance-specialist-richemont-schaffhausen",
+          "assistente-manager-del-salone-a-lange-und-sohne-zurich",
+          "payroll-and-social-insurance-specialist-richemont-schaffhausen"
         ],
         "de": [
           "gestionnaire-paie-et-assurances-sociales-richemont-meyrin",
@@ -3931,7 +3937,8 @@
           "m-a-tirocinante-richemont-bellevue",
           "stagista-m-a-richemont-bellevue",
           "stagista-in-ambito-m-a-richemont-bellevue",
-          "m-a-intern-richemont-bellevue"
+          "m-a-intern-richemont-bellevue",
+          "m-a-associe-richemont-bellevue"
         ],
         "fr": [
           "stagiaire-en-m-a-richemont-bellevue",
@@ -3957,7 +3964,8 @@
         "associato-m-a-richemont-bellevue",
         "m-a-associate-richemont-bellevue",
         "m-a-assoziiert-richemont-bellevue",
-        "associe-aux-fusions-et-acquisitions-richemont-bellevue"
+        "associe-aux-fusions-et-acquisitions-richemont-bellevue",
+        "m-a-associe-richemont-bellevue"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-11T13:58:02.487Z",
