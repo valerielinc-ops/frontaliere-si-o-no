@@ -262,11 +262,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Standard "Workflow Failure: <name>" prefix so the central reconciler
+          # (close-recovered-failure-issues.mjs) auto-closes on recovery; <name> equals
+          # name: so gh run list -w resolves the run. (Was the non-standard literal
+          # "Publish post-deploy fallita" -> failure issue stayed orphan on green.)
           node scripts/lib/github-issue-creator.mjs \
-            # Standard "Workflow Failure: <name>" prefix so the central reconciler
-            # (close-recovered-failure-issues.mjs) auto-closes on recovery; <name> equals
-            # name: so gh run list -w resolves the run. (Was the non-standard literal
-            # "Publish post-deploy fallita" → failure issue stayed orphan on green.)
             --title "Workflow Failure: Post-deploy Publish (side-effects + mark good)" \
             --description "## Publish post-deploy fallita
           **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
