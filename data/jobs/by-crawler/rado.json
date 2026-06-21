@@ -24,7 +24,7 @@
       "firstSeenAt": "2026-06-21T12:33:24.625Z",
       "slugByLocale": {
         "it": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
-        "en": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb",
+        "en": "senior-buyer-100-the-swatch-group-research-and-development-ltd-ticino",
         "de": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
         "fr": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb"
       },
@@ -59,7 +59,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "2074",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb"
+        ]
+      },
+      "previousSlugs": [
+        "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb"
+      ]
     },
     {
       "id": "company-7ubdqr",
@@ -131,7 +139,7 @@
     },
     {
       "id": "company-7ubd6z",
-      "slug": "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z",
+      "slug": "esterno-del-costruttore-al-100-hamilton-international-ltd-ticino",
       "company": "Hamilton International Ltd",
       "title": "Constructeur-trice Habillage 100%",
       "location": "Ticino",
@@ -152,9 +160,9 @@
       "crawledAt": "2026-06-21T12:33:24.625Z",
       "firstSeenAt": "2026-06-21T12:33:24.625Z",
       "slugByLocale": {
-        "it": "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z",
-        "en": "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z",
-        "de": "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z",
+        "it": "esterno-del-costruttore-al-100-hamilton-international-ltd-ticino",
+        "en": "builder-exterior-100-hamilton-international-ltd-ticino",
+        "de": "builder-exterior-zu-100-hamilton-international-ltd-ticino",
         "fr": "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z"
       },
       "titleByLocale": {
@@ -196,7 +204,21 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z"
+        ],
+        "en": [
+          "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z"
+        ],
+        "de": [
+          "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-trice-habillage-100-hamilton-international-ltd-longue-rue-langgasse-85-2504-biel-bienne-bern-suisse-adresse-de-l-entreprise-7ubd6z"
+      ]
     },
     {
       "id": "company-7tw0jv",
@@ -220,9 +242,9 @@
       "firstSeenAt": "2026-06-21T12:33:24.625Z",
       "slugByLocale": {
         "it": "apprendistato-oberflachenbeschichter-in-cfc-3-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-niklaus-wengistrasse-65-2540-grenchen-7tw0jv",
-        "en": "lehrstelle-oberflachenbeschichter-in-efz-3-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-niklaus-wengistrasse-65-2540-grenchen-sol-7tw0jv",
+        "en": "apprenticeship-surface-coater-efz-3-years-grenchen-2026-eta-sa-manufacture-horlogere-suisse-ticino",
         "de": "lehrstelle-oberflachenbeschichter-in-efz-3-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-niklaus-wengistrasse-65-2540-grenchen-sol-7tw0jv",
-        "fr": "lehrstelle-oberflachenbeschichter-in-efz-3-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-niklaus-wengistrasse-65-2540-grenchen-sol-7tw0jv"
+        "fr": "apprentissage-en-revetement-de-surface-efz-3-ans-grenchen-2026-eta-sa-manufacture-horlogere-suisse-ticino"
       },
       "titleByLocale": {
         "de": "Lehrstelle Oberflächenbeschichter/in EFZ (3 Jahre) Grenchen 2026",
@@ -255,7 +277,18 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "2540",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "lehrstelle-oberflachenbeschichter-in-efz-3-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-niklaus-wengistrasse-65-2540-grenchen-sol-7tw0jv"
+        ],
+        "fr": [
+          "lehrstelle-oberflachenbeschichter-in-efz-3-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-niklaus-wengistrasse-65-2540-grenchen-sol-7tw0jv"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-oberflachenbeschichter-in-efz-3-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-niklaus-wengistrasse-65-2540-grenchen-sol-7tw0jv"
+      ]
     },
     {
       "id": "company-7tw0jr",
@@ -279,9 +312,9 @@
       "firstSeenAt": "2026-06-21T12:33:24.625Z",
       "slugByLocale": {
         "it": "apprendistato-konstrukteur-in-cfc-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-7tw0jr",
-        "en": "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr",
+        "en": "apprenticeship-design-engineer-efz-4-years-grenchen-2026-eta-sa-manufacture-horlogere-suisse-ticino",
         "de": "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr",
-        "fr": "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr"
+        "fr": "apprentissage-constructeur-dans-efz-4-ans-grenchen-2026-eta-sa-manufacture-horlogere-suisse-ticino"
       },
       "titleByLocale": {
         "de": "Lehrstelle Konstrukteur/in EFZ (4 Jahre) Grenchen 2026",
@@ -314,7 +347,18 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "2540",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr"
+        ],
+        "fr": [
+          "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr"
+      ]
     },
     {
       "id": "company-7ubdu7",

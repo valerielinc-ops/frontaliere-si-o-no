@@ -2213,8 +2213,8 @@
       "slugByLocale": {
         "it": "assistente-nella-direzione-della-filiale-denner-flawil",
         "de": "assistent-in-filialleitung-denner-ag-flawil-l51ecj",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-flawil",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-flawil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2287,6 +2287,12 @@
       "firstSeenAt": "2026-06-21T11:26:25.654Z",
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
           "assistent-in-filialleitung-denner"
         ]
       },

@@ -2865,8 +2865,8 @@
       "slugByLocale": {
         "de": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
         "it": "assistente-di-progetto-data-center-80-100-f-m-d-implenia-glattpark-opfikon",
-        "en": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
-        "fr": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
+        "en": "project-assistance-datacenter-80-100-w-m-d-implenia-glattpark-opfikon",
+        "fr": "centre-de-donnees-d-aide-au-projet-80-100-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2924,6 +2924,12 @@
       "firstSeenAt": "2026-06-21T11:48:46.790Z",
       "previousSlugsByLocale": {
         "it": [
+          "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
+        ],
+        "en": [
+          "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
+        ],
+        "fr": [
           "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
         ]
       },

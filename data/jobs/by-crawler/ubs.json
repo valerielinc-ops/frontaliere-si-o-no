@@ -9,7 +9,7 @@
         "de": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
         "it": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
         "en": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
-        "fr": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs"
+        "fr": "pret-hypothecaire-conseiller-a-distance-ventes-a-distance-et-conseils-de-basel-80-100-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -78,25 +78,16 @@
         "remote-berater-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
         "remote-conseiller-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
         "remote-advisor-hypothek-remote-sales-advice-basel-80-100-ubs-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "pret-hypothecaire-conseiller-a-distance-ventes-a-distance-et-conseils-de-basel-80-100-ubs-ticino",
-          "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs"
-        ],
-        "it": [
-          "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs"
-        ]
-      }
+      ]
     },
     {
       "id": "ubs-3ff07e23b12e",
-      "slug": "private-equity-investment-associate-ubs",
+      "slug": "investimento-privato-associato-ubs-ticino",
       "slugByLocale": {
         "en": "private-equity-investment-associate-ubs",
-        "it": "private-equity-investment-associate-ubs",
+        "it": "investimento-privato-associato-ubs-ticino",
         "de": "private-equity-investment-associate-ubs",
-        "fr": "private-equity-investment-associate-ubs"
+        "fr": "investissement-prive-associe-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -160,11 +151,10 @@
       },
       "firstSeenAt": "2026-06-20T22:57:11.903Z",
       "previousSlugs": [
-        "investimento-privato-associato-ubs-ticino"
+        "private-equity-investment-associate-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "investissement-prive-associe-ubs-ticino",
           "private-equity-investment-associate-ubs"
         ],
         "it": [
@@ -174,12 +164,12 @@
     },
     {
       "id": "ubs-0c23ccdb8f73",
-      "slug": "registered-client-associate-ubs",
+      "slug": "cliente-associato-registrato-ubs-ticino",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "registered-client-associate-ubs",
+        "it": "cliente-associato-registrato-ubs-ticino",
         "de": "registered-client-associate-ubs",
-        "fr": "registered-client-associate-ubs"
+        "fr": "client-enregistre-associe-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -241,16 +231,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T12:34:09.418Z"
+      "firstSeenAt": "2026-06-21T12:34:09.418Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs"
+        ],
+        "fr": [
+          "registered-client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-c5dd9e4ffd41",
-      "slug": "registered-client-associate-ubs-2",
+      "slug": "cliente-associato-registrato-ubs-ticino-4b0642",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "registered-client-associate-ubs-2",
+        "it": "cliente-associato-registrato-ubs-ticino-4b0642",
         "de": "registered-client-associate-ubs-2",
-        "fr": "registered-client-associate-ubs-2"
+        "fr": "client-enregistre-associe-ubs-ticino-4b0642"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -312,16 +313,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T12:34:09.417Z"
+      "firstSeenAt": "2026-06-21T12:34:09.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs-2"
+        ],
+        "fr": [
+          "registered-client-associate-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs-2"
+      ]
     },
     {
       "id": "ubs-2722586f1e86",
-      "slug": "registered-client-service-associate-ubs",
+      "slug": "servizio-clienti-registrato-associato-ubs-ticino",
       "slugByLocale": {
         "en": "registered-client-service-associate-ubs",
-        "it": "registered-client-service-associate-ubs",
+        "it": "servizio-clienti-registrato-associato-ubs-ticino",
         "de": "registered-client-service-associate-ubs",
-        "fr": "registered-client-service-associate-ubs"
+        "fr": "associe-de-service-a-la-clientele-enregistre-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -383,7 +395,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T12:34:09.415Z"
+      "firstSeenAt": "2026-06-21T12:34:09.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-service-associate-ubs"
+        ],
+        "fr": [
+          "registered-client-service-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-service-associate-ubs"
+      ]
     },
     {
       "id": "ubs-352697e41c47",
@@ -471,7 +494,7 @@
         "en": "real-estate-portfolio-manager-taiwan-ubs",
         "it": "real-estate-portfolio-manager-taiwan-ubs",
         "de": "real-estate-portfolio-manager-taiwan-ubs",
-        "fr": "real-estate-portfolio-manager-taiwan-ubs"
+        "fr": "gestionnaire-de-portefeuille-immobilier-taiwan-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -533,12 +556,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-20T22:57:11.921Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-de-portefeuille-immobilier-taiwan-ubs-ticino"
-        ]
-      }
+      "firstSeenAt": "2026-06-20T22:57:11.921Z"
     },
     {
       "id": "ubs-dff5cb9fd5c7",
@@ -1297,12 +1315,12 @@
     },
     {
       "id": "ubs-4c55974f3540",
-      "slug": "operations-officer-ubs",
+      "slug": "agente-operativo-ubs-ticino",
       "slugByLocale": {
         "en": "operations-officer-ubs",
-        "it": "operations-officer-ubs",
+        "it": "agente-operativo-ubs-ticino",
         "de": "operations-officer-ubs",
-        "fr": "operations-officer-ubs"
+        "fr": "specialiste-des-operations-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1364,7 +1382,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T12:34:09.397Z"
+      "firstSeenAt": "2026-06-21T12:34:09.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-officer-ubs"
+        ],
+        "fr": [
+          "operations-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "operations-officer-ubs"
+      ]
     },
     {
       "id": "ubs-e0088f6afaf4",
@@ -1515,12 +1544,12 @@
     },
     {
       "id": "ubs-234618a4760b",
-      "slug": "research-analyst-industrials-ubs",
+      "slug": "ricerca-analista-industrials-ubs-ticino",
       "slugByLocale": {
         "en": "research-analyst-industrials-ubs",
-        "it": "research-analyst-industrials-ubs",
+        "it": "ricerca-analista-industrials-ubs-ticino",
         "de": "research-analyst-industrials-ubs",
-        "fr": "research-analyst-industrials-ubs"
+        "fr": "recherche-analyste-industrials-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1584,11 +1613,10 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.347Z",
       "previousSlugs": [
-        "ricerca-analista-industrials-ubs-ticino"
+        "research-analyst-industrials-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "recherche-analyste-industrials-ubs-ticino",
           "research-analyst-industrials-ubs"
         ],
         "it": [
@@ -1598,12 +1626,12 @@
     },
     {
       "id": "ubs-6b245a1f964d",
-      "slug": "client-associate-ubs",
+      "slug": "cliente-associato-ubs-ticino",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs",
+        "it": "cliente-associato-ubs-ticino",
         "de": "client-associate-ubs",
-        "fr": "client-associate-ubs"
+        "fr": "client-associe-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1667,14 +1695,13 @@
       },
       "firstSeenAt": "2026-06-17T23:34:45.659Z",
       "previousSlugs": [
-        "cliente-associato-ubs-ticino",
         "client-associe-ubs-ticino-6c4f9e",
         "client-associate-ubs-2",
+        "client-associate-ubs",
         "cliente-associato-ubs-ticino-6c4f9e"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "client-associe-ubs-ticino",
           "client-associe-ubs-ticino-6c4f9e",
           "client-associate-ubs-2",
           "client-associate-ubs"
@@ -1832,12 +1859,12 @@
     },
     {
       "id": "ubs-4f78a16a464c",
-      "slug": "speditionsfachfrau-mann-ubs",
+      "slug": "specialista-di-spedizione-ubs-ticino",
       "slugByLocale": {
-        "en": "speditionsfachfrau-mann-ubs",
-        "it": "speditionsfachfrau-mann-ubs",
+        "en": "freight-forwarding-specialist-ubs-ticino",
+        "it": "specialista-di-spedizione-ubs-ticino",
         "de": "speditionsfachfrau-mann-ubs",
-        "fr": "speditionsfachfrau-mann-ubs"
+        "fr": "specialiste-du-transport-de-marchandises-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1902,15 +1929,13 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-17T23:34:45.655Z",
       "previousSlugs": [
-        "specialista-di-spedizione-ubs-ticino"
+        "speditionsfachfrau-mann-ubs"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "freight-forwarding-specialist-ubs-ticino",
           "speditionsfachfrau-mann-ubs"
         ],
         "fr": [
-          "specialiste-du-transport-de-marchandises-ubs-ticino",
           "speditionsfachfrau-mann-ubs"
         ],
         "it": [
@@ -1920,12 +1945,12 @@
     },
     {
       "id": "ubs-43c38322433a",
-      "slug": "edelmetall-kassierer-in-ubs",
+      "slug": "prezioso-cassiere-in-metallo-ubs-ticino",
       "slugByLocale": {
-        "en": "edelmetall-kassierer-in-ubs",
-        "it": "edelmetall-kassierer-in-ubs",
+        "en": "precious-metal-cashier-in-ubs-ticino",
+        "it": "prezioso-cassiere-in-metallo-ubs-ticino",
         "de": "edelmetall-kassierer-in-ubs",
-        "fr": "edelmetall-kassierer-in-ubs"
+        "fr": "precieux-caissier-metal-in-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1990,15 +2015,13 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-17T23:34:45.655Z",
       "previousSlugs": [
-        "prezioso-cassiere-in-metallo-ubs-ticino"
+        "edelmetall-kassierer-in-ubs"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "precious-metal-cashier-in-ubs-ticino",
           "edelmetall-kassierer-in-ubs"
         ],
         "fr": [
-          "precieux-caissier-metal-in-ubs-ticino",
           "edelmetall-kassierer-in-ubs"
         ],
         "it": [
@@ -2169,12 +2192,12 @@
     },
     {
       "id": "ubs-3ee4e7409662",
-      "slug": "registered-client-associate-ubs-3",
+      "slug": "cliente-associato-registrato-ubs-ticino-e43e90",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "registered-client-associate-ubs-3",
+        "it": "cliente-associato-registrato-ubs-ticino-e43e90",
         "de": "registered-client-associate-ubs-3",
-        "fr": "registered-client-associate-ubs-3"
+        "fr": "client-enregistre-associe-ubs-ticino-e43e90"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2238,8 +2261,9 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.604Z",
       "previousSlugs": [
-        "cliente-associato-registrato-ubs-ticino-e43e90",
-        "registered-client-associate-ubs-4"
+        "registered-client-associate-ubs-2",
+        "registered-client-associate-ubs-4",
+        "registered-client-associate-ubs-3"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2247,24 +2271,25 @@
           "registered-client-associate-ubs-4"
         ],
         "fr": [
-          "client-enregistre-associe-ubs-ticino-e43e90",
           "registered-client-associate-ubs-4",
-          "registered-client-associate-ubs-2"
+          "registered-client-associate-ubs-2",
+          "registered-client-associate-ubs-3"
         ],
         "it": [
           "registered-client-associate-ubs-4",
-          "registered-client-associate-ubs-2"
+          "registered-client-associate-ubs-2",
+          "registered-client-associate-ubs-3"
         ]
       }
     },
     {
       "id": "ubs-c061e82212a2",
-      "slug": "client-associate-registered-ubs",
+      "slug": "cliente-associato-registrato-ubs-ticino-633ac5",
       "slugByLocale": {
         "en": "client-associate-registered-ubs",
-        "it": "client-associate-registered-ubs",
+        "it": "cliente-associato-registrato-ubs-ticino-633ac5",
         "de": "client-associate-registered-ubs",
-        "fr": "client-associate-registered-ubs"
+        "fr": "associe-client-enregistre-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2328,11 +2353,10 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.614Z",
       "previousSlugs": [
-        "cliente-associato-registrato-ubs-ticino-633ac5"
+        "client-associate-registered-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "associe-client-enregistre-ubs-ticino",
           "client-associate-registered-ubs"
         ],
         "it": [
@@ -2342,12 +2366,12 @@
     },
     {
       "id": "ubs-fa005dcc31f6",
-      "slug": "client-associate-ubs-2",
+      "slug": "cliente-associato-ubs-ticino-29b88b",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs-2",
+        "it": "cliente-associato-ubs-ticino-29b88b",
         "de": "client-associate-ubs-2",
-        "fr": "client-associate-ubs-2"
+        "fr": "client-associe-ubs-ticino-29b88b"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2411,12 +2435,11 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.603Z",
       "previousSlugs": [
-        "cliente-associato-ubs-ticino-29b88b",
-        "client-associate-ubs-3"
+        "client-associate-ubs-3",
+        "client-associate-ubs-2"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "client-associe-ubs-ticino-29b88b",
           "client-associate-ubs-3",
           "client-associate-ubs-2"
         ],
@@ -2726,12 +2749,12 @@
     },
     {
       "id": "ubs-9ce7282d7ccd",
-      "slug": "clearing-relationship-manager-ubs",
+      "slug": "gestione-delle-relazioni-di-compensazione-ubs-ticino",
       "slugByLocale": {
         "en": "clearing-relationship-manager-ubs",
-        "it": "clearing-relationship-manager-ubs",
+        "it": "gestione-delle-relazioni-di-compensazione-ubs-ticino",
         "de": "clearing-relationship-manager-ubs",
-        "fr": "clearing-relationship-manager-ubs"
+        "fr": "gestionnaire-de-relations-de-compensation-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2795,11 +2818,10 @@
       },
       "firstSeenAt": "2026-06-18T13:20:32.602Z",
       "previousSlugs": [
-        "gestione-delle-relazioni-di-compensazione-ubs-ticino"
+        "clearing-relationship-manager-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-de-relations-de-compensation-ubs-ticino",
           "clearing-relationship-manager-ubs"
         ],
         "it": [
@@ -2813,8 +2835,8 @@
       "slugByLocale": {
         "en": "global-banking-hong-kong-ubs",
         "it": "global-banking-hong-kong-ubs",
-        "de": "global-banking-hong-kong-ubs",
-        "fr": "global-banking-hong-kong-ubs"
+        "de": "global-banking-hongkong-ubs-ticino",
+        "fr": "banque-mondiale-hong-kong-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2876,15 +2898,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T13:20:32.601Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "global-banking-hongkong-ubs-ticino"
-        ],
-        "fr": [
-          "banque-mondiale-hong-kong-ubs-ticino"
-        ]
-      }
+      "firstSeenAt": "2026-06-18T13:20:32.601Z"
     },
     {
       "id": "ubs-5d4ea5f37576",
@@ -2959,12 +2973,12 @@
     },
     {
       "id": "ubs-9ac838b2f2f5",
-      "slug": "internship-in-client-lifecycle-management-ubs",
+      "slug": "stage-nella-gestione-del-ciclo-di-vita-del-cliente-ubs-ticino",
       "slugByLocale": {
         "en": "internship-in-client-lifecycle-management-ubs",
-        "it": "internship-in-client-lifecycle-management-ubs",
+        "it": "stage-nella-gestione-del-ciclo-di-vita-del-cliente-ubs-ticino",
         "de": "internship-in-client-lifecycle-management-ubs",
-        "fr": "internship-in-client-lifecycle-management-ubs"
+        "fr": "stage-en-gestion-du-cycle-de-vie-des-clients-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3028,11 +3042,10 @@
       },
       "firstSeenAt": "2026-06-19T13:35:02.476Z",
       "previousSlugs": [
-        "stage-nella-gestione-del-ciclo-di-vita-del-cliente-ubs-ticino"
+        "internship-in-client-lifecycle-management-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "stage-en-gestion-du-cycle-de-vie-des-clients-ubs-ticino",
           "internship-in-client-lifecycle-management-ubs"
         ],
         "it": [
@@ -3042,12 +3055,12 @@
     },
     {
       "id": "ubs-f7e7956e3bfb",
-      "slug": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
+      "slug": "software-engineer-fullstack-java-ottieni-soluzioni-pensione-ubs-ticino",
       "slugByLocale": {
         "en": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-        "it": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-        "de": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-        "fr": "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
+        "it": "software-engineer-fullstack-java-ottieni-soluzioni-pensione-ubs-ticino",
+        "de": "software-engineer-fullstack-java-rentenlosungen-erhalten-ubs-ticino",
+        "fr": "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-retraite-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3111,30 +3124,27 @@
       },
       "firstSeenAt": "2026-06-19T13:35:02.475Z",
       "previousSlugs": [
+        "softwareingenieur-fullstack-java-rentenlosungen-erhalten-ubs-ticino",
+        "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
+        "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-pension-ubs-ticino",
+        "ingenieur-logiciel-java-fullstack-solutions-retraites-ubs-ticino",
+        "ingegnere-software-java-fullstack-soluzioni-pensioni-ubs-ticino",
         "ingegnere-del-software-fullstack-java-ottenere-soluzioni-pensionistiche-ubs-ticino",
         "software-ingegnere-fullstack-java-obtain-pension-solutions-ubs-ticino",
-        "software-ingenieur-fullstack-java-obtain-pension-solutions-ubs-ticino",
-        "software-engineer-fullstack-java-ottieni-soluzioni-pensione-ubs-ticino",
-        "software-engineer-fullstack-java-rentenlosungen-erhalten-ubs-ticino",
-        "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-pension-ubs-ticino",
-        "ingegnere-software-java-fullstack-soluzioni-pensioni-ubs-ticino",
-        "ingenieur-logiciel-java-fullstack-solutions-retraites-ubs-ticino"
+        "software-ingenieur-fullstack-java-obtain-pension-solutions-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
           "softwareingenieur-fullstack-java-rentenlosungen-erhalten-ubs-ticino",
-          "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-          "software-engineer-fullstack-java-rentenlosungen-erhalten-ubs-ticino"
+          "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
         ],
         "fr": [
-          "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-retraite-ubs-ticino",
           "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
           "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-pension-ubs-ticino",
           "ingenieur-logiciel-java-fullstack-solutions-retraites-ubs-ticino"
         ],
         "it": [
           "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-          "software-engineer-fullstack-java-ottieni-soluzioni-pensione-ubs-ticino",
           "ingegnere-software-java-fullstack-soluzioni-pensioni-ubs-ticino"
         ]
       }
@@ -3146,7 +3156,7 @@
         "en": "local-credit-risk-officer-korea-ubs",
         "it": "local-credit-risk-officer-korea-ubs",
         "de": "local-credit-risk-officer-korea-ubs",
-        "fr": "local-credit-risk-officer-korea-ubs"
+        "fr": "specialiste-du-risque-de-credit-local-coree-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3209,11 +3219,6 @@
         }
       },
       "firstSeenAt": "2026-06-11T13:41:34.033Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "specialiste-du-risque-de-credit-local-coree-ubs-ticino"
-        ]
-      },
       "previousSlugs": [
         "responsabile-locale-del-rischio-di-credito-corea-ubs-ticino"
       ]
@@ -3362,12 +3367,12 @@
     },
     {
       "id": "ubs-10831a25ddf3",
-      "slug": "specialiste-credits-80-100-ubs",
+      "slug": "stanziamenti-specializzati-80-100-ubs-ticino",
       "slugByLocale": {
         "fr": "specialiste-credits-80-100-ubs",
-        "it": "specialiste-credits-80-100-ubs",
-        "en": "specialiste-credits-80-100-ubs",
-        "de": "specialiste-credits-80-100-ubs"
+        "it": "stanziamenti-specializzati-80-100-ubs-ticino",
+        "en": "specialist-appropriations-80-100-ubs-ticino",
+        "de": "spezialisierte-mittel-80-100-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3431,15 +3436,13 @@
       },
       "firstSeenAt": "2026-06-19T22:48:08.796Z",
       "previousSlugs": [
-        "stanziamenti-specializzati-80-100-ubs-ticino"
+        "specialiste-credits-80-100-ubs"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "specialist-appropriations-80-100-ubs-ticino",
           "specialiste-credits-80-100-ubs"
         ],
         "de": [
-          "spezialisierte-mittel-80-100-ubs-ticino",
           "specialiste-credits-80-100-ubs"
         ],
         "it": [
@@ -3616,12 +3619,12 @@
     },
     {
       "id": "ubs-692cf7395ea7",
-      "slug": "stage-juridique-au-service-juridique-d-ubs-ubs",
+      "slug": "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino",
       "slugByLocale": {
         "fr": "stage-juridique-au-service-juridique-d-ubs-ubs",
-        "it": "stage-juridique-au-service-juridique-d-ubs-ubs",
-        "en": "stage-juridique-au-service-juridique-d-ubs-ubs",
-        "de": "stage-juridique-au-service-juridique-d-ubs-ubs"
+        "it": "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino",
+        "en": "legal-training-course-at-the-legal-service-of-ubs-ubs-ticino",
+        "de": "juristische-ausbildung-im-juristischen-dienst-der-ubs-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3686,15 +3689,13 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-19T13:35:02.476Z",
       "previousSlugs": [
-        "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino"
+        "stage-juridique-au-service-juridique-d-ubs-ubs"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "legal-training-course-at-the-legal-service-of-ubs-ubs-ticino",
           "stage-juridique-au-service-juridique-d-ubs-ubs"
         ],
         "de": [
-          "juristische-ausbildung-im-juristischen-dienst-der-ubs-ubs-ticino",
           "stage-juridique-au-service-juridique-d-ubs-ubs"
         ],
         "it": [
@@ -3775,12 +3776,12 @@
     },
     {
       "id": "ubs-31bf357b70be",
-      "slug": "receptionniste-geneve-100-ubs",
+      "slug": "receptionist-ginevra-100-ubs-ticino",
       "slugByLocale": {
         "fr": "receptionniste-geneve-100-ubs",
-        "it": "receptionniste-geneve-100-ubs",
-        "en": "receptionniste-geneve-100-ubs",
-        "de": "receptionniste-geneve-100-ubs"
+        "it": "receptionist-ginevra-100-ubs-ticino",
+        "en": "receptionist-geneva-100-ubs-ticino",
+        "de": "empfangsdame-genf-100-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3844,15 +3845,13 @@
       },
       "firstSeenAt": "2026-06-20T12:04:57.083Z",
       "previousSlugs": [
-        "receptionist-ginevra-100-ubs-ticino"
+        "receptionniste-geneve-100-ubs"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "receptionist-geneva-100-ubs-ticino",
           "receptionniste-geneve-100-ubs"
         ],
         "de": [
-          "empfangsdame-genf-100-ubs-ticino",
           "receptionniste-geneve-100-ubs"
         ],
         "it": [
@@ -3862,12 +3861,12 @@
     },
     {
       "id": "ubs-e6da856f2843",
-      "slug": "client-relationship-manager-channel-sales-ubs",
+      "slug": "responsabile-delle-relazioni-con-i-clienti-vendite-canale-ubs-ticino",
       "slugByLocale": {
         "en": "client-relationship-manager-channel-sales-ubs",
-        "it": "client-relationship-manager-channel-sales-ubs",
-        "de": "client-relationship-manager-channel-sales-ubs",
-        "fr": "client-relationship-manager-channel-sales-ubs"
+        "it": "responsabile-delle-relazioni-con-i-clienti-vendite-canale-ubs-ticino",
+        "de": "kundenbeziehungsmanager-channel-sales-ubs-ticino",
+        "fr": "responsable-de-la-relation-client-ventes-de-canal-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3931,10 +3930,22 @@
       },
       "firstSeenAt": "2026-06-21T12:34:09.359Z",
       "previousSlugs": [
+        "client-relationship-manager-channel-sales-ubs",
         "gestione-delle-relazioni-cliente-ubs-ticino",
         "client-relationship-manager-ubs",
         "gestionnaire-de-relations-avec-les-clients-ubs-ticino"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-manager-channel-sales-ubs"
+        ],
+        "de": [
+          "client-relationship-manager-channel-sales-ubs"
+        ],
+        "fr": [
+          "client-relationship-manager-channel-sales-ubs"
+        ]
+      }
     }
   ]
 }
