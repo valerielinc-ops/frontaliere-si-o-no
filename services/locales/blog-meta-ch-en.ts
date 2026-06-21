@@ -251,6 +251,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caritas-ticino-poverta-2025.title': 'Caritas Ticino: 1,047 People Helped, Deficit Reduced',
     'blog.article.caritas-ticino-poverta-2025.excerpt': 'The annual assembly on June 16 highlights an increase in poverty and loneliness cases, but signals a financial improvement for 2025.',
     'blog.article.caritas-ticino-poverta-2025.imageAlt': 'Castelgrande Bellinzona',
+    'blog.article.caldo-lavoro-casa.title': 'Too hot to work or sleep: what are your rights',
+    'blog.article.caldo-lavoro-casa.excerpt': 'What the law says about excessive heat at work, school and home',
+    'blog.article.caldo-lavoro-casa.imageAlt': 'Swiss office workers suffering from heatwave',
 };
 
 export default blogMetaChEn;

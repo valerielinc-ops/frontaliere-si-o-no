@@ -755,6 +755,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'caldo-lavoro-casa',
+    category: 'pratico',
+    date: '2026-06-21T00:09:17.573Z',
+    image: '/images/blog/caldo-lavoro-casa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
