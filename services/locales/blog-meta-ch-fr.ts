@@ -254,6 +254,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caldo-lavoro-casa.title': 'Trop chaud pour travailler ou dormir : quels sont vos droits',
     'blog.article.caldo-lavoro-casa.excerpt': 'Ce que dit la loi sur la chaleur excessive sur le lieu de travail, à l\'école et à la maison',
     'blog.article.caldo-lavoro-casa.imageAlt': 'Travailleurs suisses souffrant de la vague de chaleur',
+    'blog.article.vivere-senza-big-tech.title': 'Vivre sans les Big Tech, c\'est possible?',
+    'blog.article.vivere-senza-big-tech.excerpt': 'Deux journalistes de Swissinfo ont tenté de rompre les liens avec les géants technologiques américains. Voici ce qui s\'est passé.',
+    'blog.article.vivere-senza-big-tech.imageAlt': 'Une personne travaillant sur un ordinateur avec un écran vide',
 };
 
 export default blogMetaChFr;

@@ -764,6 +764,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'vivere-senza-big-tech',
+    category: 'novita',
+    date: '2026-06-21T09:54:56.064Z',
+    image: '/images/blog/vivere-senza-big-tech.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
