@@ -360,14 +360,15 @@ step_pack_tar() {
     --exclude=.github \
     --exclude=.write-collisions.json \
     --exclude=.write-collisions-data \
-    .
+    . || return 1
   # Surface size early so a regression past the 1 GB Pages
   # threshold is visible in the workflow log right after pack
   # (instead of only at the deploy-pages "Deployment failed"
   # tail) — the artifact size is the binding constraint.
   ls -lh "$RUNNER_TEMP/artifact.tar"
   # Export for downstream report step (Audit dist bytes).
-  TAR_BYTES=$(stat -c %s "$RUNNER_TEMP/artifact.tar")
+  TAR_BYTES=$(stat -c %s "$RUNNER_TEMP/artifact.tar") || return 1
+  [ -n "$TAR_BYTES" ] || return 1
   export TAR_BYTES
   export_env TAR_BYTES "$TAR_BYTES"
 }
@@ -400,22 +401,40 @@ step_refresh_url_first_seen() {
 }
 
 # ── Orchestration (preserve ORDER + fatal/non-fatal exactly) ──────────────────
+# FATAL step runner: abort the whole script (non-zero exit) if a fatal step
+# fails, mirroring the monolith where each fatal step was its own `run:` that
+# failed the build job. WITHOUT this, main()'s trailing `echo` would mask a
+# fatal failure and return 0 — e.g. step_drop_assets' `return 1` (CDN push
+# failed → dist HTML already rebased to a CDN that has no assets) would be
+# swallowed and a broken github-pages artifact (JS/CSS 404) would deploy live.
+# (The script intentionally does NOT use a global `set -e`: the step functions
+# have their own internal error handling — explicit returns, grep exit codes —
+# that a global -e would break. So fatality is enforced here, per-step.)
+run_fatal() {
+  local label="$1"; shift
+  if "$@"; then
+    return 0
+  fi
+  echo "::error::[deploy-it-pages-prep] FATAL step failed — aborting deploy prep (last good stays live): ${label}"
+  exit 1
+}
+
 main() {
   PREP_CWD="$(pwd)"
   export PREP_CWD
 
-  step_spa_fallback                                                  # FATAL
+  run_fatal "SPA fallback" step_spa_fallback                        # FATAL
   run_nonfatal "Push generated assets to CDN repo" step_push_cdn     # non-fatal
   run_nonfatal "Offload og refs + data base into dist" step_offload  # non-fatal
   run_nonfatal "Prune superseded CDN asset hashes" step_prune_cdn    # non-fatal
-  step_drop_assets                                                   # FATAL
+  run_fatal "Drop dist/assets after CDN push" step_drop_assets       # FATAL
   run_nonfatal "Capture pre-deploy sitemap URLs" step_capture_sitemaps   # non-fatal
   run_nonfatal "Pack new sitemap URLs from dist/" step_pack_new_sitemaps # non-fatal
   run_nonfatal "Stage sitemaps bundle" step_stage_bundle            # non-fatal
-  step_pack_tar                                                      # FATAL
-  step_audit_bytes                                                   # FATAL
+  run_fatal "Pack dist/ into Pages tar archive" step_pack_tar        # FATAL
+  run_fatal "Audit dist bytes" step_audit_bytes                      # FATAL
   run_nonfatal "File delta vs previous deploy" step_file_delta      # non-fatal
-  step_refresh_url_first_seen                                        # FATAL
+  run_fatal "Refresh url-first-seen" step_refresh_url_first_seen     # FATAL
 
   echo "✅ deploy-it-pages-prep complete"
 }
