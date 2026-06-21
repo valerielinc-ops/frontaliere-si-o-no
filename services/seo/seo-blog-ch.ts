@@ -3257,6 +3257,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanziamento-parziale-13esima-avs': {
+    title: 'Parlamento svizzero approva finanziamento parziale per la 13esima AVS',
+    description: 'Il Parlamento svizzero approva un aumento IVA per finanziare solo parzialmente la 13esima AVS. Voto popolare nel 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, svizzero, approva, finanziamento',
+    ogTitle: 'Aumento IVA parziale per finanziare la 13esima AVS in Svizzera',
+    ogDescription: 'Il Parlamento svizzero approva un aumento IVA, ma il finanziamento della 13esima AVS resta parziale. Referendum previsto per novembre 2026.',
+    canonicalPath: '/articoli-svizzera/finanziamento-parziale-13esima-avs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parlamento svizzero approva finanziamento parziale per la 13esima AVS",
+      "description": "Il Parlamento svizzero approva un aumento IVA per finanziare solo parzialmente la 13esima AVS. Voto popolare nel 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanziamento-parziale-13esima-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Parlamento svizzero con bandiere elvetiche che simboleggiano le decisioni sulla previdenza nazionale"
+      },
+      "datePublished": "2026-06-21T10:59:06+00:00",
+      "dateModified": "2026-06-21T10:59:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanziamento-parziale-13esima-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

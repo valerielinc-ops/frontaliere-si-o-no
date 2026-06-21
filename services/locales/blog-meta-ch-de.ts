@@ -257,6 +257,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vivere-senza-big-tech.title': 'Leben und arbeiten ohne Big Tech?',
     'blog.article.vivere-senza-big-tech.excerpt': 'Zwei Journalisten von Swissinfo haben versucht, die Verbindungen zu den US-amerikanischen Tech-Giganten abzubrechen. Hier ist passiert, was passiert ist.',
     'blog.article.vivere-senza-big-tech.imageAlt': 'Eine Person, die an einem Computer mit einem leeren Bildschirm arbeitet',
+    'blog.article.finanziamento-parziale-13esima-avs.title': 'Schweizer Parlament genehmigt Teilfinanzierung 13. AHV',
+    'blog.article.finanziamento-parziale-13esima-avs.excerpt': 'MwSt-Erhöhung um 0,4% beschlossen, Lohnbeiträge abgelehnt: Nur die Hälfte der Kosten für die 13. AHV ist gedeckt',
+    'blog.article.finanziamento-parziale-13esima-avs.imageAlt': 'Ansicht des Schweizer Parlaments mit Schweizer Flaggen, die nationale Rentenpolitikentscheidungen symbolisieren',
 };
 
 export default blogMetaChDe;
