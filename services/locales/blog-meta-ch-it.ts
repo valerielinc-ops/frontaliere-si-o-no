@@ -251,6 +251,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caritas-ticino-poverta-2025.title': 'Caritas Ticino: 1.047 persone accolte e deficit ridotto nel 2025',
     'blog.article.caritas-ticino-poverta-2025.excerpt': 'L\'assemblea annuale del 16 giugno evidenzia aumento dei casi di povertà e solitudine, ma segnala un miglioramento finanziario per il 2025.',
     'blog.article.caritas-ticino-poverta-2025.imageAlt': 'Castelgrande a Bellinzona',
+    'blog.article.caldo-lavoro-casa.title': 'Troppo caldo per lavorare o per dormire: quali sono i vostri diritti',
+    'blog.article.caldo-lavoro-casa.excerpt': 'Cosa dice la legge sul caldo eccessivo sul posto di lavoro, a scuola e in casa',
+    'blog.article.caldo-lavoro-casa.imageAlt': 'Lavoratori svizzeri in ufficio che soffrono l\'onda di caldo',
 };
 
 export default blogMetaChIt;
