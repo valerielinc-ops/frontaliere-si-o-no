@@ -12846,8 +12846,8 @@
       "slugByLocale": {
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
-        "de": "strategischer-account-executive-pathologielabor-roche-basel",
-        "fr": "responsable-de-comptes-strategique-laboratoire-de-pathologie-roche-basel"
+        "de": "strategisches-konto-executive-pathologie-lab-roche-basel",
+        "fr": "executif-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -12888,24 +12888,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strategic-account-executive-pathology-lab-roche-ch",
+        "strategischer-account-executive-pathologielabor-roche-basel",
         "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
         "executive-account-strategique-laboratoire-de-pathologie-roche-basel",
         "executif-comptable-strategique-laboratoire-de-pathologie-roche-basel",
-        "account-executive-strategique-laboratoire-de-pathologie-roche-basel"
+        "account-executive-strategique-laboratoire-de-pathologie-roche-basel",
+        "responsable-de-comptes-strategique-laboratoire-de-pathologie-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "de": [
-          "strategic-account-executive-pathology-lab-roche-ch"
+          "strategic-account-executive-pathology-lab-roche-ch",
+          "strategischer-account-executive-pathologielabor-roche-basel"
         ],
         "fr": [
           "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
           "executive-account-strategique-laboratoire-de-pathologie-roche-basel",
           "executif-comptable-strategique-laboratoire-de-pathologie-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch",
-          "account-executive-strategique-laboratoire-de-pathologie-roche-basel"
+          "account-executive-strategique-laboratoire-de-pathologie-roche-basel",
+          "responsable-de-comptes-strategique-laboratoire-de-pathologie-roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-03T15:21:13.554Z",
@@ -25642,12 +25646,12 @@
     },
     {
       "id": "roche-53ff69b5abb1",
-      "slug": "responsabile-dell-area-terapeutica-area-terapeutica-oftalmica-lanzhou-roche-basel",
+      "slug": "manager-area-terapeutica-oftalmologia-lanzhou-roche-basel",
       "slugByLocale": {
-        "it": "responsabile-dell-area-terapeutica-area-terapeutica-oftalmica-lanzhou-roche-basel",
+        "it": "manager-area-terapeutica-oftalmologia-lanzhou-roche-basel",
         "en": "roche-basel",
         "de": "therapeutic-area-manager-therapeutischer-bereich-augenheilkunde-lanzhou-roche-basel",
-        "fr": "responsable-d-aire-therapeutique-aire-therapeutique-ophtalmique-lanzhou-roche-basel"
+        "fr": "responsable-de-domaine-therapeutique-ophtalmologie-lanzhou-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25692,7 +25696,8 @@
           "roche-basel",
           "terreno-della-societa-registrati-locali-roche-basel",
           "gestore-della-salute-oculistica-roche-basel",
-          "roche-ch"
+          "roche-ch",
+          "responsabile-dell-area-terapeutica-area-terapeutica-oftalmica-lanzhou-roche-basel"
         ],
         "de": [
           "klassisch-eingehalten-roche-basel",
@@ -25703,7 +25708,8 @@
           "c-est-pas-vrai-roche-basel",
           "roche-basel",
           "en-anglais-seulement-roche-basel-9d29f5",
-          "gestionnaire-de-sante-oculistique-lanzhou-roche-basel"
+          "gestionnaire-de-sante-oculistique-lanzhou-roche-basel",
+          "responsable-d-aire-therapeutique-aire-therapeutique-ophtalmique-lanzhou-roche-basel"
         ],
         "en": [
           "roche-ch"
@@ -25715,11 +25721,13 @@
         "terreno-della-societa-registrati-locali-roche-basel",
         "gestore-della-salute-oculistica-roche-basel",
         "roche-ch",
+        "responsabile-dell-area-terapeutica-area-terapeutica-oftalmica-lanzhou-roche-basel",
         "klassisch-eingehalten-roche-basel",
         "gesundheitsmanager-augenheilkunde-lanzhou-roche-basel",
         "c-est-pas-vrai-roche-basel",
         "en-anglais-seulement-roche-basel-9d29f5",
         "gestionnaire-de-sante-oculistique-lanzhou-roche-basel",
+        "responsable-d-aire-therapeutique-aire-therapeutique-ophtalmique-lanzhou-roche-basel",
         "roche-ch-6"
       ],
       "firstSeenAt": "2026-06-18T23:46:27.149Z",
@@ -62118,7 +62126,6 @@
         "responsable-de-comptes-strategique-laboratoire-de-pathologie-roche-basel",
         "executive-account-strategique-laboratoire-de-pathologie-roche-basel",
         "executif-comptable-strategique-laboratoire-de-pathologie-roche-basel",
-        "strategic-account-executive-pathology-lab-roche-ch",
         "account-executive-strategique-laboratoire-de-pathologie-roche-basel",
         "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel"
       ],
