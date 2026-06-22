@@ -3384,6 +3384,8 @@ Regole:
  'publisherApply.error': 'Invio non riuscito. Riprova più tardi.',
  'publisherApply.successTitle': 'Candidatura inviata!',
  'publisherApply.successMessage': 'I tuoi dati sono stati inoltrati al datore di lavoro. In bocca al lupo!',
+ 'publisherApply.alreadyTitle': 'Ti sei già candidato per questa posizione',
+ 'publisherApply.alreadyMessage': 'Abbiamo registrato la tua candidatura e l\'abbiamo inoltrata al datore di lavoro. Puoi rivederla nel tuo profilo.',
  'publisher.error': 'Si è verificato un errore. Riprova.',
  'publisher.error.description': 'La descrizione deve contenere almeno 50 parole.',
  'publisher.error.locations': 'Aggiungi almeno una sede di lavoro.',

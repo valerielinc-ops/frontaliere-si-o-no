@@ -3294,6 +3294,8 @@ Rules:
  'publisherApply.error': 'Submission failed. Please try again later.',
  'publisherApply.successTitle': 'Application sent!',
  'publisherApply.successMessage': 'Your details were forwarded to the employer. Good luck!',
+ 'publisherApply.alreadyTitle': 'You have already applied for this position',
+ 'publisherApply.alreadyMessage': 'We have recorded your application and forwarded it to the employer. You can review it in your profile.',
  'publisher.error': 'Something went wrong. Please try again.',
  'publisher.error.description': 'The description must contain at least 50 words.',
  'publisher.error.locations': 'Add at least one work location.',

@@ -17,7 +17,7 @@ import { recaptchaService } from '@/services/recaptchaService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, serverTimestamp, query, where, limit, getDocs } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { useAuth, getAuthEmail, getUserDisplayName } from '@/services/authService';
 import { trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
@@ -55,6 +55,40 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
   // getDownloadURL() would 403 here; we store the path and let the server sign.
   const [cvPath, setCvPath] = useState('');
   const [cvFileName, setCvFileName] = useState('');
+  // Whether the signed-in user has already applied to this job. A prior
+  // `applications` doc (denormalised candidateUid + jobId) means we suppress the
+  // form and show a "you already applied" notice instead of letting them
+  // re-submit. 'checking' avoids flashing the form before the lookup resolves;
+  // logged-out users stay 'none' (no uid to match → form always shown).
+  const [alreadyApplied, setAlreadyApplied] = useState<'checking' | 'applied' | 'none'>('none');
+
+  // Look up an existing application for (this user, this job). firestore.rules
+  // allow a candidate to read their own applications (candidateUid == uid); the
+  // two equality filters are served by single-field indexes (zigzag merge), so
+  // no composite index is needed. Best-effort: any failure leaves the form open.
+  useEffect(() => {
+    const uid = user?.uid;
+    if (!uid || !jobId) { setAlreadyApplied('none'); return; }
+    let cancelled = false;
+    setAlreadyApplied('checking');
+    (async () => {
+      try {
+        const db = getFirestore(await getApp());
+        const snap = await getDocs(
+          query(
+            collection(db, 'applications'),
+            where('candidateUid', '==', uid),
+            where('jobId', '==', jobId),
+            limit(1),
+          ),
+        );
+        if (!cancelled) setAlreadyApplied(snap.empty ? 'none' : 'applied');
+      } catch {
+        if (!cancelled) setAlreadyApplied('none');
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [user, jobId]);
 
   // Prefill name/email for a logged-in user (no clobber once they start typing).
   // Email is always reliable; name only from a real display name (never the
@@ -175,6 +209,27 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
         </div>
       </div>
     );
+  }
+
+  // The signed-in user already applied to this job: suppress the form and show a
+  // notice instead so they don't submit a duplicate.
+  if (alreadyApplied === 'applied') {
+    return (
+      <div className="flex items-start gap-2 p-4 rounded-xl bg-success-subtle border border-success-border">
+        <CheckCircle className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="font-semibold text-strong">{t('publisherApply.alreadyTitle')}</p>
+          <p className="text-sm text-subtle">{t('publisherApply.alreadyMessage')}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // While the lookup is in flight, reserve the form's footprint so we never
+  // flash the full form and then collapse it to the notice ([contain:layout]
+  // + matching min-height keep CLS at zero).
+  if (alreadyApplied === 'checking') {
+    return <div className="mt-4 min-h-[420px] [contain:layout]" aria-hidden="true" />;
   }
 
   return (
