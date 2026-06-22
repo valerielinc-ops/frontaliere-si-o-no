@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-03T08:32:17.247Z",
-    "label": "before",
-    "total": 9133,
-    "needsRetranslation": 2534,
-    "suppressed": 22,
-    "incomplete": 733,
-    "complete": 8400,
-    "missingByLocale": {
-      "it": 488,
-      "en": 368,
-      "de": 255,
-      "fr": 463
-    },
-    "topPending": [
-      {
-        "company": "Marché Restaurants Schweiz AG",
-        "pending": 94
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 76
-      },
-      {
-        "company": "Coopers Group AG",
-        "pending": 46
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 41
-      },
-      {
-        "company": "Roche",
-        "pending": 39
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 38
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "BLS AG",
-        "pending": 23
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 20
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-03T12:10:17.080Z",
-    "label": "after",
-    "total": 9133,
-    "needsRetranslation": 2014,
-    "suppressed": 22,
-    "incomplete": 599,
-    "complete": 8534,
-    "missingByLocale": {
-      "it": 384,
-      "en": 286,
-      "de": 230,
-      "fr": 362
-    },
-    "topPending": [
-      {
-        "company": "Marché Restaurants Schweiz AG",
-        "pending": 94
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 76
-      },
-      {
-        "company": "Roche",
-        "pending": 39
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 38
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 24
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 20
-      },
-      {
-        "company": "IWC",
-        "pending": 17
-      },
-      {
-        "company": "Nestlé",
-        "pending": 16
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-03T12:52:22.591Z",
-    "label": "before",
-    "total": 9546,
-    "needsRetranslation": 2381,
-    "suppressed": 22,
-    "incomplete": 637,
-    "complete": 8909,
-    "missingByLocale": {
-      "it": 420,
-      "en": 325,
-      "de": 237,
-      "fr": 398
-    },
-    "topPending": [
-      {
-        "company": "Marché Restaurants Schweiz AG",
-        "pending": 89
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 76
-      },
-      {
-        "company": "Roche",
-        "pending": 39
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 38
-      },
-      {
-        "company": "AFRY",
-        "pending": 36
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 20
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 19
-      },
-      {
-        "company": "IWC",
-        "pending": 17
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-03T15:35:47.793Z",
-    "label": "after",
-    "total": 9546,
-    "needsRetranslation": 1972,
-    "suppressed": 22,
-    "incomplete": 547,
-    "complete": 8999,
-    "missingByLocale": {
-      "it": 355,
-      "en": 260,
-      "de": 212,
-      "fr": 348
-    },
-    "topPending": [
-      {
-        "company": "Marché Restaurants Schweiz AG",
-        "pending": 89
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 76
-      },
-      {
-        "company": "Roche",
-        "pending": 39
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 18
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 18
-      },
-      {
-        "company": "IWC",
-        "pending": 17
-      },
-      {
-        "company": "Nestlé",
-        "pending": 16
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 15
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-03T16:03:21.995Z",
     "label": "before",
     "total": 9695,
@@ -11510,6 +11282,120 @@
       {
         "company": "Bürgenstock Hotels AG",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-22T14:08:03.644Z",
+    "label": "before",
+    "total": 17010,
+    "needsRetranslation": 3205,
+    "suppressed": 578,
+    "incomplete": 973,
+    "complete": 16037,
+    "missingByLocale": {
+      "it": 369,
+      "en": 333,
+      "de": 608,
+      "fr": 176
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 837
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 19
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Decathlon",
+        "pending": 12
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 11
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 8
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 4
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 4
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-22T16:12:57.874Z",
+    "label": "after",
+    "total": 17010,
+    "needsRetranslation": 2348,
+    "suppressed": 588,
+    "incomplete": 921,
+    "complete": 16089,
+    "missingByLocale": {
+      "it": 326,
+      "en": 293,
+      "de": 600,
+      "fr": 128
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 837
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 11
+      },
+      {
+        "company": "Decathlon",
+        "pending": 5
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 4
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 3
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
       }
     ]
   }
