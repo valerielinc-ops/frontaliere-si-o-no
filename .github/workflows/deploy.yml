@@ -563,12 +563,22 @@ jobs:
           # regularly out-race a 3×5 s window. The extended budget hits
           # a ~95 s total wait before giving up, which empirically
           # covers every observed conflict cluster on the main branch.
+          # A `pull --rebase` that hits a conflict (concurrent producer added
+          # rows to data/dist-size-history.jsonl / url-first-seen.json) leaves
+          # the tree mid-rebase. Without aborting, every later attempt dies on
+          # "Pulling is not possible because you have unmerged files" and the
+          # loop wedges until the job is canceled (run 27976954013). The
+          # merge=union .gitattributes resolves the JSONL append cleanly, and
+          # the abort below recovers from any residual conflict so each retry
+          # starts from a clean tree. `--abort` is a safe no-op when no rebase
+          # is in progress (e.g. a push-rejected race).
           for i in 1 2 3 4 5; do
             if git -c rebase.autoStash=true pull --rebase origin main \
                 && git push origin HEAD:main; then
               echo "[dist-history] pushed on attempt $i"
               exit 0
             fi
+            git rebase --abort 2>/dev/null || true
             case "$i" in
               1) sleep 5 ;;
               2) sleep 10 ;;
