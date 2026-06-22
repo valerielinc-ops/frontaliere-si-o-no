@@ -19,8 +19,8 @@ import {
 } from '../services/newsletter-content.mjs';
 
 const activeJobs = [
-  { title: 'Dev', slug: 'dev-acme', company: 'Acme SA', location: 'Lugano' },
-  { title: 'Ops', slug: 'ops-jumbo', company: 'Jumbo', location: 'Bellinzona' },
+  { title: 'Dev', slug: 'dev-acme', company: 'Acme SA', location: 'Lugano', description: 'Sviluppo software full-stack a Lugano.' },
+  { title: 'Ops', slug: 'ops-jumbo', company: 'Jumbo', location: 'Bellinzona', description: 'Addetto vendite a Bellinzona.' },
 ];
 
 describe('buildCompanyHubSlugSet', () => {
@@ -34,6 +34,22 @@ describe('buildCompanyHubSlugSet', () => {
   it('is empty for empty/missing input', () => {
     expect(buildCompanyHubSlugSet([]).size).toBe(0);
     expect(buildCompanyHubSlugSet(undefined).size).toBe(0);
+  });
+
+  it('excludes a company on a description-less / field-incomplete job — mirrors emitter validJobs gate (#2608 item 2)', () => {
+    const jobs = [
+      { title: 'Dev', company: 'Acme SA', location: 'Lugano', description: 'Ruolo completo.' },
+      { title: 'X', company: 'NoDesc SA', location: 'Lugano' },          // missing description → no hub emitted
+      { title: 'Y', company: 'NoLoc SA', description: 'ha desc' },        // missing location
+      { company: 'NoTitle SA', location: 'Lugano', description: 'd' },    // missing title
+      { title: 'Z', company: 'ByLocale SA', location: 'Chiasso', descriptionByLocale: { it: 'ok' } }, // descriptionByLocale counts
+    ];
+    const set = buildCompanyHubSlugSet(jobs);
+    expect(set.has('acme-sa')).toBe(true);
+    expect(set.has('bylocale-sa')).toBe(true); // descriptionByLocale satisfies the gate
+    expect(set.has('nodesc-sa')).toBe(false);
+    expect(set.has('noloc-sa')).toBe(false);
+    expect(set.has('notitle-sa')).toBe(false);
   });
 });
 
