@@ -3,6 +3,7 @@ const enCore: Record<string, string> = {
  'app.subtitle': 'Calculate and compare your net salary as a cross-border worker',
  'app.fullscreen': 'Fullscreen',
  'app.exitFullscreen': 'Exit Fullscreen',
+ 'a11y.skipToContent': 'Skip to main content',
  'app.lightMode': 'Switch to light mode',
  'app.resetConfirm': 'Clear cache, cookies and local data? The site will reload as if it were your first visit.',
  'app.darkMode': 'Switch to dark mode',
