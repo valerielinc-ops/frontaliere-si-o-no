@@ -67,7 +67,7 @@ import {
   type BorderCrossingSlug,
   type BorderWaitLocale,
 } from './borderWaitData';
-import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { generateRelatedLinksBlock, JOB_LISTING_ROOT } from './shared/relatedLinks';
 import {
   BORDER_WAIT_HYDRATION_JS,
   BORDER_WAIT_HYDRATION_ASSET_PATH,
@@ -133,32 +133,40 @@ function buildDiscoverMoreCtas(locale: BorderWaitLocale): ReadonlyArray<Discover
       '/',
     );
 
-  const titles: Record<BorderWaitLocale, { diesel: string; jobMarket: string; hiring: string }> = {
+  const titles: Record<
+    BorderWaitLocale,
+    { diesel: string; jobMarket: string; hiring: string; jobBoard: string }
+  > = {
     it: {
       diesel: 'Prezzi diesel oggi',
       jobMarket: 'Mercato del lavoro Ticino',
       hiring: 'Aziende che assumono',
+      jobBoard: 'Offerte di lavoro in Ticino',
     },
     en: {
       diesel: 'Diesel prices today',
       jobMarket: 'Ticino job market',
       hiring: 'Companies hiring',
+      jobBoard: 'Job openings in Ticino',
     },
     de: {
       diesel: 'Dieselpreise heute',
       jobMarket: 'Arbeitsmarkt Tessin',
       hiring: 'Einstellende Unternehmen',
+      jobBoard: 'Stellenangebote im Tessin',
     },
     fr: {
       diesel: "Prix du diesel aujourd'hui",
       jobMarket: 'Marché du travail Tessin',
       hiring: 'Entreprises qui recrutent',
+      jobBoard: "Offres d'emploi au Tessin",
     },
   };
 
   const t = titles[locale];
   return [
     { title: t.diesel, href: dieselHref },
+    { title: t.jobBoard, href: JOB_LISTING_ROOT[locale] },
     { title: t.jobMarket, href: jobMarketHref },
     { title: t.hiring, href: hiringHref },
   ];
