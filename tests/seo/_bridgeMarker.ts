@@ -40,3 +40,29 @@ export const isNoindexHtml = (html: string): boolean =>
 // noindex archived/redirect stubs, not real indexable job pages.
 export const isArchivedStubHtml = (html: string): boolean =>
   isBridgePageHtml(html) || isNoindexHtml(html);
+
+// The `rel=canonical` href of a page, or '' if absent. Two-step (find the
+// canonical <link> tag, then its href) so attribute order rel/href doesn't
+// matter; quote-flexible because dist-shrink may strip attribute quotes.
+export const canonicalHref = (html: string): string => {
+  const tag = html.match(/<link\b[^>]*\brel=["']?canonical["']?[^>]*>/i);
+  if (!tag) return '';
+  const href = tag[0].match(/\bhref=["']?([^"'\s>]+)/i);
+  return href ? href[1] : '';
+};
+
+// A relocation/drift copy a canton-round-trip sampler MUST skip even if it
+// somehow escaped the noindex marker (isArchivedStubHtml): its rel=canonical
+// points OUTSIDE the section dir it lives under (e.g. a /cerca-lavoro-zurigo/
+// <slug>/ copy whose canonical is /cerca-lavoro-ticino/<slug>/ — a #2661/#2676
+// IT canton-drift orphan that legitimately carries the SOURCE canton's
+// hreflang). A genuine section page is self-canonical under its own section, so
+// its canonical href contains `/<sectionPath>/`. Belt-and-suspenders next to
+// isNoindexHtml: the copy is *meant* to be noindex, but a build that emits it
+// index,follow (validate-dist flake #2679) would otherwise be sampled and fail
+// the round-trip assertion for hreflang it isn't supposed to declare.
+export const isCrossSectionCanonical = (html: string, sectionPath: string): boolean => {
+  const href = canonicalHref(html);
+  if (!href) return false; // no canonical → don't over-skip a real page
+  return !href.includes(`/${sectionPath}/`);
+};
