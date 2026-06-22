@@ -34,9 +34,14 @@ routes = [
   # proxies this apex path to the jobAlertUnsubscribe Cloud Function (in-code
   # UNSUB_PROXY_PATH branch — method + query + body preserved for the one-click POST).
   # Volume is tiny (a few clicks/day) so the extra Worker invocations are negligible.
-  # Both the trailing-slash and bare forms are routed so a POST never hits a 301.
-  { pattern = "frontaliereticino.ch/disiscrivi-alert/", zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/disiscrivi-alert",  zone_name = "frontaliereticino.ch" },
+  # WILDCARD is REQUIRED: a Cloudflare route WITHOUT a trailing `*` matches only the
+  # exact URL with NO query string — but every emitted unsubscribe link carries
+  # `?alertId=…&token=…`, so the bare/slash exact routes (#2611) silently missed all
+  # real traffic (verified live: `/disiscrivi-alert/` → 400 from the function, but
+  # `/disiscrivi-alert/?…` → apex 404). `…/disiscrivi-alert*` covers the bare + slash
+  # forms with or without a query string; look-alike paths (e.g. /disiscrivi-alertX)
+  # are rejected by the in-code isUnsubProxyPath guard → harmless passthrough.
+  { pattern = "frontaliereticino.ch/disiscrivi-alert*", zone_name = "frontaliereticino.ch" },
   # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
   # Since #1665 the shard locale HTML references those static paths CDN-absolute
   # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the
