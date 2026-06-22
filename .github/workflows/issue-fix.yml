@@ -154,6 +154,10 @@ jobs:
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
 
+      - name: Setup Headroom compression proxy
+        if: steps.preflight.outputs.already_resolved != 'true'
+        uses: ./.github/actions/setup-headroom
+
       - name: Run Claude fix
         id: claude_review
         if: steps.preflight.outputs.already_resolved != 'true'
