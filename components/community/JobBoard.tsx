@@ -6327,7 +6327,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {authPendingNoticeJsx}
 
- {/* Single-column gate body — desktop rails earned €0.06–0.10 RPM (FRO-2026-04-26 prune). */}
+ {/* 3-column rail grid: left rail | gate body | right rail. Re-enables the
+     full-height desktop side rails on the auth-gate view (matching the active
+     job-detail + expired/orphan layouts), shrinking the central gate content
+     on desktop (xl+) to host the half-page creatives. Rails widen 180px→300px
+     at xlw (≥1400) and only serve there; below xl it's a single column.
+     NOTE: overrides the FRO-2026-04-26 prune (rails earned €0.06–0.10 RPM on
+     the gate) per explicit owner request. */}
+ <div className="xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+
+ {/* ── Left Rail (desktop xl only) ── */}
+ <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ </aside>
+
+ {/* ── Center gate content ── */}
  <div className="space-y-4">
 
  {/* Job header — always visible */}
@@ -6550,6 +6564,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  fullWidthResponsive={AD_SLOTS.JOBDETAIL_AUTH_GATE.fullWidthResponsive}
  />
  )}
+ </div>
+
+ {/* ── Right Rail (desktop xl only) ── */}
+ <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
+ </aside>
+
  </div>
 
  {/* AdSense — end multiplex below gate */}
