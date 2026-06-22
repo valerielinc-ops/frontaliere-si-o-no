@@ -8134,6 +8134,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.erba-sintetica-scuole-ticino-rischi.title': 'Artificial turf in Ticino schools: risks for kids and hidden costs',
     'blog.article.erba-sintetica-scuole-ticino-rischi.excerpt': 'Parents and experts warn about the dangers of artificial turf in Ticinese schoolyards: excessive heat, microplastics, and environmental impact. Everything you need to know about a choice that’s also under scrutiny across Europe.',
     'blog.article.erba-sintetica-scuole-ticino-rischi.imageAlt': 'Ticino schoolyard with synthetic grass under hot sun, children playing in the foreground',
+    'blog.article.public-eye-denuncia-salari-on-ticino.title': 'Public Eye denounces starvation wages in a company that works for the On brand',
+    'blog.article.public-eye-denuncia-salari-on-ticino.excerpt': 'The Public Eye report denounces minimum wages and precarious conditions in a subcontractor of On, with investigation and stop orders by the company.',
+    'blog.article.public-eye-denuncia-salari-on-ticino.imageAlt': 'Photorealistic image of the Swiss-Italian border crossing near Mendrisio with commuters and workers',
 };
 
 export default blogMetaEn;

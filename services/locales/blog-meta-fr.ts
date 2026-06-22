@@ -8135,6 +8135,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.erba-sintetica-scuole-ticino-rischi.title': 'Erba synthétique dans les écoles du Tessin : risques et coûts',
     'blog.article.erba-sintetica-scuole-ticino-rischi.excerpt': 'Parents et experts dénoncent les dangers des **gazons synthétiques** dans les cours d’école tessinoises : chaleur excessive, microplastiques et impact environnemental. Tout ce qu’il faut savoir sur un choix contesté, même au niveau européen.',
     'blog.article.erba-sintetica-scuole-ticino-rischi.imageAlt': 'Cour d\'école au Tessin avec gazon synthétique sous un soleil brûlant, enfants jouant au premier plan',
+    'blog.article.public-eye-denuncia-salari-on-ticino.title': 'Public Eye dénonce les salaires de misère chez On',
+    'blog.article.public-eye-denuncia-salari-on-ticino.excerpt': 'Le rapport de Public Eye dénonce les salaires minimums et les conditions précaires chez un sous-traitant d\'On, avec enquête et arrêt des commandes de la part de l\'entreprise.',
+    'blog.article.public-eye-denuncia-salari-on-ticino.imageAlt': 'Image photoréaliste du passage frontalier Suisse-Italie près de Mendrisio avec des navetteurs et travailleurs',
 };
 
 export default blogMetaFr;

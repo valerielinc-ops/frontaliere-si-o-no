@@ -8135,6 +8135,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.erba-sintetica-scuole-ticino-rischi.title': 'Erba sintetica nelle scuole Ticino: rischi per bambini e costi nascosti',
     'blog.article.erba-sintetica-scuole-ticino-rischi.excerpt': 'Genitori e esperti denunciano i pericoli dell\'erba sintetica nei cortili scolastici ticinesi: calore eccessivo, microplastiche e impatto ambientale. Tutto ciò che c\'è da sapere su una scelta contestata anche a livello europeo.',
     'blog.article.erba-sintetica-scuole-ticino-rischi.imageAlt': 'Cortile scolastico in Ticino con erba sintetica al sole, bambini che giocano in primo piano',
+    'blog.article.public-eye-denuncia-salari-on-ticino.title': 'Public Eye denuncia salari da fame in un\'azienda che lavora per il marchio On',
+    'blog.article.public-eye-denuncia-salari-on-ticino.excerpt': 'Il rapporto di Public Eye denuncia salari minimi e condizioni precarie in un sub-fornitore di On, con indagine e stop ordini da parte dell\'azienda.',
+    'blog.article.public-eye-denuncia-salari-on-ticino.imageAlt': 'Immagine fotorealistica del valico di frontiera tra Svizzera e Italia vicino a Mendrisio con pendolari e lavoratori',
 };
 
 export default blogMetaIt;
