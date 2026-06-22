@@ -1,18 +1,155 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-06-21T21:19:23.704Z",
-  "total": 51,
-  "newCount": 0,
+  "generatedAt": "2026-06-22T13:29:53.805Z",
+  "total": 55,
+  "newCount": 4,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 45,
-  "durationMs": 71327,
-  "avgDurationMs": 71327,
+  "durationMs": 76490,
+  "avgDurationMs": 76490,
   "durationHistory": [
-    71327
+    76490
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-ev3ftz",
+      "slug": "senior-research-scientist-in-software-systems-engineering-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "(Senior) Research Scientist in Software Systems Engineering (80-100%)",
+      "location": "Baden-Daettwil, Aargau",
+      "canton": "AG",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00015262EXTERNALENGLOBAL/XMLNAME--Senior--Research-Scientist-in-Software-Systems-Engineering--80-100--_JR00015262-1",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Baden-Daettwil, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-22T13:29:51.090Z",
+      "firstSeenAt": "2026-06-22T13:29:51.090Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-gs7of6",
+      "slug": "global-engineering-manager-abb-svizzera-sede-ticino-baden-aargau",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Global Engineering Manager",
+      "location": "Baden, Aargau",
+      "canton": "AG",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00021636EXTERNALENGLOBAL/Global-Engineering-Manager",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Baden, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-22T13:29:51.090Z",
+      "firstSeenAt": "2026-06-22T13:29:51.090Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 53,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-fahghi",
+      "slug": "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "IS Solution-Architekt f/m/d (Lernendenübernahme)",
+      "location": "Untersiggenthal, Aargau",
+      "canton": "AG",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00037022EXTERNALENGLOBAL/IS-Solution-Architekt-f-m-d--Lernendenbernahme",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Untersiggenthal, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-22T13:29:51.090Z",
+      "firstSeenAt": "2026-06-22T13:29:51.090Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 51,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 2,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-mzc5zr",
+      "slug": "abb-discovery-trainee-mining-service-80-100-abb-svizzera-sede-ticino-baden-aargau",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "ABB Discovery Trainee – Mining Service (80-100%)",
+      "location": "Baden, Aargau",
+      "canton": "AG",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00038954EXTERNALENGLOBAL/ABB-Discovery-Trainee---Mining-Service--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Baden, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-22T13:29:51.090Z",
+      "firstSeenAt": "2026-06-22T13:29:51.090Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 9,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-l0920y",
