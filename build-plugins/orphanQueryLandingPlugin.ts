@@ -917,16 +917,36 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       // full 4-locale + x-default set on every shard. Deriving it from the
       // emit-gated `indexableByLocale` (populated only for the shard's own
       // locale on a non-it shard) collapsed the en/de/fr hubs to 2 hreflang
-      // entries and failed audit-hreflang (deploy 27923956556). Mirrors the
-      // monolith exactly: `indexableByLocale.X.length > 0` ⇔ "some cluster of
-      // locale X has ≥MIN_MATCHING_JOBS matches" — which is precisely what this
-      // ungated pass recomputes, so EMIT_ALL_LOCALES output is byte-identical.
+      // entries and failed audit-hreflang (deploy 27923956556).
+      //
+      // The predicate MUST mirror the hub-EMISSION gate below (`if
+      // (indexableByLocale[loc].length === 0) continue;`), which keys on
+      // `render.indexable = matchingJobs>=MIN_MATCHING_JOBS && wordCount>=
+      // MIN_INDEXABLE_WORDS` — i.e. BOTH gates. A jobs-only test
+      // (`filterMatchingJobs(...).length >= MIN_MATCHING_JOBS`) is a strict
+      // superset: a locale whose jobs-passing clusters all fall under
+      // MIN_INDEXABLE_WORDS would be flagged available here yet never get a hub
+      // page emitted → hreflang alternate pointing at a 404. So we recompute
+      // the FULL render predicate per cluster. `renderPage` is side-effect-free
+      // (`buildSeoPageHtml` returns a string; no file writes), so this ungated
+      // pass is safe, and the per-locale short-circuit caps it to one indexable
+      // cluster per locale. This makes `hubHreflangAvailability.X` exactly
+      // `indexableByLocale.X.length > 0` site-wide → byte-identical to the
+      // monolith under EMIT_ALL_LOCALES, and 404-free on per-locale shards.
       const hubHreflangAvailability: Record<OrphanLandingLocale, boolean> = {
         it: false, en: false, de: false, fr: false,
       };
       for (const cluster of clusters) {
         if (hubHreflangAvailability[cluster.locale]) continue;
-        if (filterMatchingJobs(jobs, cluster, 15).length >= MIN_MATCHING_JOBS) {
+        const availabilityRender = renderPage({
+          cluster,
+          matchingJobs: filterMatchingJobs(jobs, cluster, 15),
+          strings: localeStrings[cluster.locale] || {},
+          dateStamp,
+          knownSlugsByLocale,
+          distDir,
+        });
+        if (availabilityRender.indexable) {
           hubHreflangAvailability[cluster.locale] = true;
         }
       }
