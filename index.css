@@ -525,18 +525,16 @@ body.modal-open .google-auto-placed {
    in-flow sibling injected above <main> from displacing <main> downward.
 
    <TopAutoAdReserve> renders `.autoad-top-reserve` as a column child at first
-   paint, reserving the same 250px the injected ad container takes, so <main>
-   starts at its post-ad position. The instant the ad lands as a direct column
-   child, the `:has` rule below collapses the placeholder to 0 in the same
-   style/layout pass — so total gap (ad + placeholder) stays constant and
-   <main> never moves, regardless of the order Google injects relative to it.
-   `> .google-auto-placed` matches ONLY the top-of-content ad (a direct column
-   child), never the in-article ads nested deeper inside <main>/<footer>. */
+   paint with this 250px floor, so <main> starts at its post-ad position. The
+   component then mirrors the ad's effective height via a MutationObserver
+   (collapse to 0 when the ad occupies space, re-expand to 250 when the ad is
+   absent / unfilled / empty), keeping the total gap constant so <main> never
+   moves either way. A pure-CSS `:has()` collapse can't express the unfilled
+   case ("ad exists AND not unfilled") because `:has()` may not be nested —
+   keying only on existence left <main> jumping up 250px when AdSense collapsed
+   an unfilled ad (observed live), so the collapse logic lives in JS instead. */
 .autoad-top-reserve {
   min-height: 250px;
-}
-.app-shell-col:has(> .google-auto-placed) > .autoad-top-reserve {
-  min-height: 0;
 }
 @media (max-width: 767px) {
   .google-auto-placed {
