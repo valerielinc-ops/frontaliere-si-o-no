@@ -32,7 +32,7 @@ describe('hreflang round-trip non-TI canton (P3-B)', () => {
       html = candidate;
       break;
     }
-    if (!sample) return;
+    expect(sample, 'sampler exhausted — no real indexable ZH page found under cerca-lavoro-zurigo').toBeDefined();
     // Quote-flexible: scripts/dist-shrink.mjs strips attribute quotes.
     // `hreflang="en" href="…"` is DOM-equivalent to `hreflang=en href=…`.
     expect(html, 'EN alt missing').toMatch(
