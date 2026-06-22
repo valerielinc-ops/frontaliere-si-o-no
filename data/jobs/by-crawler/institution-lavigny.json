@@ -483,12 +483,12 @@
     },
     {
       "id": "institution-lavigny-786e108066d8",
-      "slug": "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny",
+      "slug": "infermieri-con-contratti-permanenti-all-80-100-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny",
-        "it": "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny",
-        "en": "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny",
-        "de": "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny"
+        "it": "infermieri-con-contratti-permanenti-all-80-100-institution-de-lavigny-lavigny",
+        "en": "nurse-at-80-100-cdi-institution-de-lavigny-lavigny",
+        "de": "krankenschwester-bei-80-100-cdi-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -546,11 +546,23 @@
       },
       "firstSeenAt": "2026-06-21T22:04:57.747Z",
       "previousSlugs": [
+        "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny",
         "infermiere-i-a-80-100-cdi-institution-de-lavigny-lavigny",
         "registered-nurse-80-100-cdi-institution-de-lavigny-lavigny",
         "gesundheits-und-krankenpfleger-in-80-100-cdi-institution-de-lavigny-lavigny",
         "infirmier-ere-s-a-80-100-cdi-80-a-100-institution-lavigny-lavigny"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny"
+        ],
+        "en": [
+          "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny"
+        ],
+        "de": [
+          "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny"
+        ]
+      }
     },
     {
       "id": "institution-lavigny-f25b3714120e",

@@ -1197,8 +1197,8 @@
       "slugByLocale": {
         "de": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
         "it": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "en": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "fr": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        "en": "senior-calculator-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "fr": "calculatrice-senior-construction-en-bois-m-f-d-80-100-implenia-rumlang"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1329,12 +1329,12 @@
     },
     {
       "id": "implenia-95ef097ca0d2",
-      "slug": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "de": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
-        "it": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
+        "it": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
         "en": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
-        "fr": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
+        "fr": "foreman-timber-construction-l-f-d-80-100-implenia-rumlang"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1389,7 +1389,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T22:04:57.671Z"
+      "firstSeenAt": "2026-06-21T22:04:57.671Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
+          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-c0bbfbc455f7",
@@ -1397,8 +1408,8 @@
       "slugByLocale": {
         "de": "zimmermann-efz-m-w-d-80-100-implenia-ch",
         "it": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang",
-        "en": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang",
-        "fr": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
+        "en": "carpenter-efz-m-f-d-80-100-implenia-rumlang",
+        "fr": "carpenter-efz-l-f-d-80-100-implenia-rumlang"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1546,7 +1557,7 @@
         "de": "senior-bewirtschafter-corporate-real-estate-management-m-w-d-bern-100-implenia-ch",
         "it": "senior-bewirtschafter-corporate-real-estate-management-m-w-d-bern-100-implenia-ch",
         "en": "senior-bewirtschafter-corporate-real-estate-management-m-w-d-bern-100-implenia-ch",
-        "fr": "senior-bewirtschafter-corporate-real-estate-management-m-w-d-bern-100-implenia-ch"
+        "fr": "aine-directeur-general-gestion-immobiliere-m-f-d-berne-100-implenia-laupenstrasse-19-postfach-3001-bern"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1677,12 +1688,12 @@
     },
     {
       "id": "implenia-3d88eb17bdcd",
-      "slug": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
+      "slug": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
       "slugByLocale": {
         "de": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-        "it": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-        "en": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-        "fr": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        "it": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+        "en": "rental-specialist-real-estate-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+        "fr": "location-de-biens-immobiliers-specialises-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1737,16 +1748,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T22:04:55.644Z"
+      "firstSeenAt": "2026-06-21T22:04:55.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        ],
+        "en": [
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        ],
+        "fr": [
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-e26c8e63e816",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
+      "slug": "gestione-della-proprieta-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
       "slugByLocale": {
         "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-        "it": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-        "en": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        "it": "gestione-della-proprieta-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "en": "property-management-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "fr": "gestion-immobiliere-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1801,7 +1826,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T22:04:55.190Z"
+      "firstSeenAt": "2026-06-21T22:04:55.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -1875,12 +1914,12 @@
     },
     {
       "id": "implenia-bede1cec8d87",
-      "slug": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch",
+      "slug": "direttore-tecnico-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-zurich-masch",
       "slugByLocale": {
         "de": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
-        "it": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch",
-        "en": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
-        "fr": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        "it": "direttore-tecnico-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-zurich-masch",
+        "en": "technical-director-commercial-real-estate-m-f-d-basel-80-100-implenia-zurich-masch",
+        "fr": "directeur-technique-immobilier-commercial-m-f-d-bale-80-100-implenia-zurich-masch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1925,11 +1964,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch"
+        ],
+        "en": [
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        ],
+        "fr": [
           "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
+        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -1947,12 +1994,12 @@
     },
     {
       "id": "implenia-df802621fa29",
-      "slug": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch",
+      "slug": "contabilita-del-processo-del-personale-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
       "slugByLocale": {
         "de": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch",
-        "it": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch",
-        "en": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch",
-        "fr": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+        "it": "contabilita-del-processo-del-personale-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "en": "personnel-process-accounting-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "fr": "comptabilite-des-processus-de-personnel-m-f-j-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2007,16 +2054,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T22:04:53.806Z"
+      "firstSeenAt": "2026-06-21T22:04:53.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-3e012d993f5a",
-      "slug": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
+      "slug": "senior-amministratore-immobiliare-commerciale-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
       "slugByLocale": {
         "de": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-        "it": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-        "en": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-        "fr": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+        "it": "senior-amministratore-immobiliare-commerciale-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
+        "en": "senior-managor-of-commercial-real-estate-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
+        "fr": "aine-managor-de-biens-immobiliers-commerciaux-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2071,7 +2132,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T22:04:53.380Z"
+      "firstSeenAt": "2026-06-21T22:04:53.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+        ],
+        "en": [
+          "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+        ],
+        "fr": [
+          "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+      ]
     },
     {
       "id": "implenia-90acad10a3e9",
@@ -2443,12 +2518,12 @@
     },
     {
       "id": "implenia-768610a7e5f2",
-      "slug": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck",
+      "slug": "responsabile-commerciale-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
       "slugByLocale": {
         "de": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
-        "it": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck",
-        "en": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
-        "fr": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        "it": "responsabile-commerciale-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
+        "en": "commercial-manager-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
+        "fr": "directeur-commercial-directeur-principal-m-f-d-bale-klybeck-80-100-implenia-basel-klybeck"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2493,11 +2568,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck"
+        ],
+        "en": [
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        ],
+        "fr": [
           "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
+        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -4474,8 +4557,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
         "it": "collaboratore-trice-bauablaufplanung-avor-m-w-d-80-100-implenia-glattpark-opfikon",
-        "en": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
-        "fr": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        "en": "employee-construction-scheduling-avor-m-f-d-80-100-implenia-glattpark-opfikon",
+        "fr": "calendrier-de-construction-des-employes-avor-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4520,6 +4603,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
           "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
         ]
       },

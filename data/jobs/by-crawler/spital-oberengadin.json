@@ -689,8 +689,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
         "it": "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan",
-        "en": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
-        "fr": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
+        "en": "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
+        "fr": "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -739,6 +739,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
+        ],
+        "fr": [
           "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
         ]
       },
