@@ -116,6 +116,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'marchesi-zali-lista-autonomi': { it: 'marchesi-zali-lista-autonomi', en: 'piero-marchesi-claudio-zali-independent-list', de: 'piero-marchesi-claudio-zali-eigene-liste', fr: 'piero-marchesi-claudio-zali-liste-autonome' },
  'affitti-ticino-mercato-proprietari': { it: 'affitti-ticino-mercato-proprietari', en: 'rentals-ticino-market-landlords', de: 'mieten-tessin-markt-eigentumer', fr: 'locations-tessin-marque-proprietaires' },
  'emigrare-svizzera-aspetti-fiscali': { it: 'emigrare-svizzera-aspetti-fiscali', en: 'emigrating-switzerland-tax-aspects', de: 'auswandern-schweiz-steueraspekte', fr: 'emigrer-suisse-aspects-fiscaux' },
+ 'brexit-impatti-svizzera-ue': { it: 'brexit-impatti-svizzera-ue', en: 'brexit-impacts-switzerland-eu', de: 'brexit-auswirkungen-schweiz-eu', fr: 'brexit-impacts-suisse-ue' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

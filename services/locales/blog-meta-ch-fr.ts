@@ -284,6 +284,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.emigrare-svizzera-aspetti-fiscali.title': 'Quitter la Suisse: obligations fiscales et infos clés',
     'blog.article.emigrare-svizzera-aspetti-fiscali.excerpt': 'Quitter la Suisse ne signifie pas toujours dire adieu aux impôts. Voici ce que vous devez savoir avant de déménager à l\'étranger.',
     'blog.article.emigrare-svizzera-aspetti-fiscali.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes, une personne tenant un passeport suisse et des documents fiscaux',
+    'blog.article.brexit-impatti-svizzera-ue.title': 'Brexit : leçons pour la Suisse 10 ans après',
+    'blog.article.brexit-impatti-svizzera-ue.excerpt': 'À 10 ans du Brexit, les défis du Royaume-Uni offrent des pistes à la Suisse sur les relations avec l\'UE.',
+    'blog.article.brexit-impatti-svizzera-ue.imageAlt': 'Vue aérienne du lac de Lugano avec les drapeaux suisse et UE au premier plan',
 };
 
 export default blogMetaChFr;
