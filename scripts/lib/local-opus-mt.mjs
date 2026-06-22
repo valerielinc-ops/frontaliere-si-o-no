@@ -110,8 +110,13 @@ async function getTranslator(modelId) {
   return _pipelines.get(modelId);
 }
 
-/** Translate text through ONE direct Opus-MT model (chunked). '' on failure. */
-async function runDirect(text, modelId) {
+/**
+ * Translate text through ONE direct Opus-MT model (chunked). '' on failure.
+ * @param {boolean} [identityGuard] When true, abort and return '' if any chunk's
+ *   output is identical to its input (passthrough guard for pivot intermediate legs:
+ *   an echoed src→en chunk fed into en→tgt produces output in the source language).
+ */
+async function runDirect(text, modelId, identityGuard = false) {
   const translator = await getTranslator(modelId);
   if (!translator) return '';
   const chunks = chunkForOpusMt(text);
@@ -123,6 +128,7 @@ async function runDirect(text, modelId) {
       ? (res[0]?.translation_text || '')
       : (res?.translation_text || '');
     if (!piece) return '';
+    if (identityGuard && normalizeSpace(piece).toLowerCase() === normalizeSpace(chunk).toLowerCase()) return '';
     parts.push(normalizeSpace(piece));
   }
   return normalizeSpace(parts.join('\n\n'));
@@ -154,7 +160,9 @@ export async function translateWithLocalOpusMt(text, sourceLang, targetLang) {
       out = await runDirect(clean, modelId(`${sourceLang}-${targetLang}`));
     } else {
       // Pivot through English (src→en→tgt) — only the 6 reliable EN-paired models.
-      const viaEn = await runDirect(clean, modelId(`${sourceLang}-en`));
+      // Identity guard on the intermediate leg: if any chunk echoes its input the
+      // en→tgt model would receive source-language text and produce wrong output.
+      const viaEn = await runDirect(clean, modelId(`${sourceLang}-en`), true);
       out = viaEn ? await runDirect(viaEn, modelId(`en-${targetLang}`)) : '';
     }
     if (out && out.toLowerCase() !== clean.toLowerCase()) return out;
