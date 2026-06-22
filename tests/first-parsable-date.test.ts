@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { firstParsableMs } from '../build-plugins/shared/firstParsableDate';
+import { firstParsableMs, firstParsableDateStr } from '../build-plugins/shared/firstParsableDate';
 
 describe('firstParsableMs', () => {
   it('returns the timestamp of the first parseable value', () => {
@@ -27,5 +27,25 @@ describe('firstParsableMs', () => {
     const older = '2026-01-01T00:00:00Z';
     const newer = '2026-12-31T00:00:00Z';
     expect(firstParsableMs(older, newer)).toBe(new Date(older).getTime());
+  });
+});
+
+describe('firstParsableDateStr', () => {
+  it('returns the raw string of the first parseable value', () => {
+    expect(firstParsableDateStr('2026-06-10', '2026-01-01')).toBe('2026-06-10');
+  });
+
+  it('falls through a malformed first value to the next parseable raw string', () => {
+    expect(firstParsableDateStr('30/05/26', '2026-06-10T00:00:00Z')).toBe('2026-06-10T00:00:00Z');
+  });
+
+  it('returns empty string when nothing parses', () => {
+    expect(firstParsableDateStr('30/05/26', 'nope', '', null, undefined)).toBe('');
+    expect(firstParsableDateStr()).toBe('');
+  });
+
+  it('stringifies a parseable non-string value', () => {
+    const ms = new Date('2026-06-10T00:00:00Z').getTime();
+    expect(firstParsableDateStr(ms)).toBe(String(ms));
   });
 });

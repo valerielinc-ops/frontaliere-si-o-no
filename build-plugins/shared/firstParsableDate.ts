@@ -21,3 +21,21 @@ export function firstParsableMs(...values: unknown[]): number {
   }
   return 0;
 }
+
+/**
+ * Like {@link firstParsableMs} but returns the original RAW value (as a string)
+ * of the first candidate that parses, else ''. Use when downstream code needs
+ * the source date string (display formatting, relative-label, slice(0,10))
+ * rather than a timestamp — so a malformed first field doesn't reach a string
+ * consumer and render "Invalid Date" / a broken freshness badge.
+ *
+ * @param values candidate date values in priority order (most-trusted first)
+ * @returns the first value (stringified) that parses, else ''
+ */
+export function firstParsableDateStr(...values: unknown[]): string {
+  for (const v of values) {
+    if (v === null || v === undefined || v === '') continue;
+    if (Number.isFinite(new Date(v as string | number | Date).getTime())) return String(v);
+  }
+  return '';
+}
