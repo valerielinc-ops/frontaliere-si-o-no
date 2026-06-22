@@ -1725,6 +1725,13 @@ const App: React.FC = () => {
  setContactPrefill, glossaryTerm, setGlossaryTerm,
  }), [inputs, deferredResult, isResultStale, handleCalculate, showDeferredHomeWidgets, seoLanding, userProfile, authUser, authLoading, isPrivilegedAdmin, googleSignIn, facebookSignIn, adminGoogleButtonReady, taxReturnCountry, borderCrossing, blogArticle, jobSlug, navigateTo, glossaryTerm]);
 
+ // Desktop side-rail ads (≥1400px): wrap the SPA <main> in the 3-col rail grid
+ // on content tabs that have empty desktop gutters (index.css already reserves
+ // them for side-rails). Excludes tabs that own their rails (blog→BlogArticles,
+ // job-board→JobBoard) or are full-width (admin). Below xlw / on excluded tabs
+ // the wrapper is `display:contents`, so layout is byte-identical to before.
+ const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board'].includes(activeTab);
+
  return (
  <ErrorBoundary>
  <TabContentContext.Provider value={tabContentValue}>
@@ -1745,6 +1752,19 @@ const App: React.FC = () => {
   *  - Per-page `disableAutoAds` in build-plugins/htmlTemplate.ts is preserved
   *    for "drive-by" SEO landings where bounce ≥97% (F8/F6/F2). */}
  <div className={`app-shell-col ${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
+ {/* Skip-to-content: first focusable element so keyboard users — and browser
+  * AI agents reading the accessibility tree — can bypass the nav/header chrome
+  * and jump straight to <main id="main-content"> (WCAG 2.4.1 Bypass Blocks;
+  * Google AI agent-readiness guidance). Rendered only on SPA routes where the
+  * React <main> is mounted, so the anchor target always resolves. */}
+ {!staticOverlay && (
+ <a
+ href="#main-content"
+ className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[300] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-on-accent focus:text-sm focus:font-semibold focus:shadow-lg focus:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
+ >
+ {t('a11y.skipToContent')}
+ </a>
+ )}
  <div className="absolute inset-0 bg-surface-alt -z-20 [contain:strict]"></div>
 
  {/* LinkedIn OAuth2 callback processing overlay */}
@@ -2316,7 +2336,13 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
- <main id="main-content" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
+ <div className={sideRailEligible ? 'contents xlw:grid xlw:flex-grow xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-6' : 'contents'}>
+ {sideRailEligible && (
+ <aside className="hidden xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ </aside>
+ )}
+ <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10 ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-3 sm:px-4'
  }`}>
  <Suspense fallback={<LazyFallback />}>
@@ -2605,6 +2631,12 @@ const App: React.FC = () => {
  </p>
  )}
  </main>
+ {sideRailEligible && (
+ <aside className="hidden xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
+ </aside>
+ )}
+ </div>
  )}
 
  {/* Side-rail ads — on staticOverlay (static SEO landing) pages, portal the
