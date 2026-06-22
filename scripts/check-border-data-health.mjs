@@ -89,14 +89,30 @@ export function evaluateStaleness(doc, nowMs, staleHours = DEFAULT_STALE_HOURS) 
   return { stale: false, ageMinutes, timestamp: ts, reason: null };
 }
 
-// Active window (UTC) during which fresh wait-time data is EXPECTED, mirroring
-// the traffic-scheduler operating hours (weekday ~03:00–18:00 UTC, weekend
-// 04:00–18:00). Outside it the snapshot is naturally stale (scheduler idle
-// overnight), so the coarse staleness backstop must NOT fire — otherwise the
-// 00:00 UTC watchdog run pages a false "degraded" every night (worse over the
-// weekend), causing alert fatigue that buries real degradation. Webcam-health
-// and all-mock checks are time-independent and always run.
-const STALE_ACTIVE_START_UTC_HOUR = 5;
+// Active window (UTC) during which a fresh wait-time snapshot is GUARANTEED to
+// exist, so the coarse staleness backstop can page without false positives.
+// Outside it the snapshot is legitimately old (scheduler idle overnight), and
+// webcam-health + all-mock checks are time-independent so they always run.
+//
+// The START is deliberately LATER than the traffic-scheduler's first morning
+// cron, not aligned to it. The scheduler's morning ramp is `*/30 4-7` UTC
+// (weekday) / `0 6,…` (weekend), but two effects make data NOT reliably fresh
+// at 05:00:
+//   1. GitHub Actions delivers scheduled runs LATE (top-of-hour crons routinely
+//      lag 10–60+ min), so the 04:00/04:30 collections may not have LANDED yet.
+//   2. isStalenessCheckActive() is evaluated at EXECUTION time, not the nominal
+//      cron time — so a delayed *overnight* watchdog run (e.g. the 00:00 cron
+//      delivered at 05:05) leaks into the window while the freshest snapshot is
+//      still the prior evening's ~19:00 collection (>6h old → false page).
+// Both bit us in issue #2587 (00:00 run executed 05:05 Mon, snapshot 591 min
+// old). Arming at 08:00 clears the entire morning ramp + cron-lag margin: by
+// then the 04:00–07:30 weekday (or 06:00 weekend) collections have certainly
+// landed, so any snapshot older than the 6h threshold is a REAL freeze. The
+// fast 90-min freshness loop (traffic-data-freshness.yml) still covers the
+// commute window, and this backstop only needs to catch a fully-frozen pipeline
+// — which the 12:00/18:00 runs still detect. If the scheduler's morning cron
+// moves, revisit this constant.
+const STALE_ACTIVE_START_UTC_HOUR = 8;
 const STALE_ACTIVE_END_UTC_HOUR = 20; // exclusive
 
 /**
