@@ -266,6 +266,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sanita-farmaceutica-svizzera.title': 'KI-Boom in der Schweiz: Revolution in der Pharmaforschung',
     'blog.article.sanita-farmaceutica-svizzera.excerpt': 'Schweizer Pharmaunternehmen investieren in künstliche Intelligenz, um die Entdeckung neuer Medikamente zu beschleunigen und klinische Tests zu verbessern',
     'blog.article.sanita-farmaceutica-svizzera.imageAlt': 'Panoramablick auf Lugano mit modernen und Krankenhausgebäuden',
+    'blog.article.dati-salariali-frontalieri-ticino.title': 'Gehaltsdaten alter Grenzgänger in der Steuererklärung',
+    'blog.article.dati-salariali-frontalieri-ticino.excerpt': 'Bedenken bei alten Grenzgängern: Gehaltsdaten an Italien übermittelt mit Fehlern und Unstimmigkeiten',
+    'blog.article.dati-salariali-frontalieri-ticino.imageAlt': 'Grenzgänger besorgt über die Übertragung von Gehaltsdaten zwischen der Schweiz und Italien',
 };
 
 export default blogMetaChDe;
