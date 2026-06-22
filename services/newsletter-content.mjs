@@ -88,9 +88,16 @@ function resolveLogoUrl(job) {
 // ─── Job matching ───────────────────────────────────────────
 
 function toDateValue(job) {
-  const raw = job?.postedDate || job?.crawledAt || job?.publishedAt || job?.firstSeenAt || '';
-  const ts = raw ? new Date(raw).getTime() : 0;
-  return Number.isFinite(ts) ? ts : 0;
+  // Pick the first field that PARSES, not the first truthy one: ~0.3% of jobs
+  // carry a malformed postedDate (e.g. "30/05/26", DD/MM/YY → Invalid Date)
+  // that would otherwise shadow a perfectly good firstSeenAt and force the job
+  // into decayFactor's neutral UNDATED branch (date present ≠ date usable).
+  for (const raw of [job?.postedDate, job?.crawledAt, job?.publishedAt, job?.firstSeenAt]) {
+    if (!raw) continue;
+    const ts = new Date(raw).getTime();
+    if (Number.isFinite(ts)) return ts;
+  }
+  return 0;
 }
 
 // ─── Popularity decay (anti-evergreen-freeze) ───────────────

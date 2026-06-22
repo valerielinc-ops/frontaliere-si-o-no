@@ -36,8 +36,11 @@ import { extractKeywords } from './newsletter-content.mjs';
  * @property {TokenSet}  hardKeywords  Explicit user keywords (hard filter when non-empty).
  * @property {TokenSet}  softTokens    Intent tokens from source job + newsletter profile.
  * @property {string}    company       Normalized company affinity token ('' when none).
- * @property {string[]}  locations     Lowercased location signals.
- * @property {string[]}  cantons       Lowercased canton codes (cantonFilter).
+ * @property {string[]}  locations     Lowercased location signals (soft — ranking only).
+ * @property {string[]}  alertLocations Lowercased locations the user explicitly set ON THE ALERT.
+ *                                       HARD filter when non-empty: a job outside these (and the
+ *                                       cantons) is dropped even if keywords match.
+ * @property {string[]}  cantons       Lowercased canton codes (cantonFilter) — HARD geo filter too.
  * @property {string[]}  sectors       Lowercased sector / category signals.
  * @property {string[]}  contractTypes Lowercased contract-type signals.
  * @property {string[]}  specificJobIds    Exact job ids this alert is pinned to (hard scope).
@@ -113,9 +116,15 @@ export function buildAlertProfile(alert, subscriber = null) {
   // 3. Company affinity — same employer the user already engaged with.
   const company = normalizeCompanyToken(sub.job_company);
 
-  // 4. Location signals — alert filters + newsletter geo/interest + pref cities.
+  // 4. Location signals.
+  //    `alertLocations` = the locations the user explicitly picked ON THE ALERT
+  //    → HARD geo filter (see scoreJobForAlert). `locations` = that set PLUS
+  //    soft profile-derived signals (newsletter geo/interest + pref cities),
+  //    used only for the +2 ranking boost so a profile city never silently
+  //    constrains an alert the user scoped differently.
+  const alertLocations = uniq((a.locations || []).map((l) => String(l || '').toLowerCase()));
   const locations = uniq([
-    ...(a.locations || []).map((l) => String(l || '').toLowerCase()),
+    ...alertLocations,
     String(sub.location_interest || '').toLowerCase(),
     String(sub.job_location || '').toLowerCase(),
     String(sub.geo_city || '').toLowerCase(),
@@ -143,7 +152,7 @@ export function buildAlertProfile(alert, subscriber = null) {
   const specificCompanyKey = normalizeCompanyToken(a.specificCompanyKey);
 
   return {
-    hardKeywords, softTokens, company, locations, cantons, sectors, contractTypes,
+    hardKeywords, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
     specificJobIds, specificCompanyKey,
   };
 }
@@ -213,6 +222,22 @@ export function scoreJobForAlert(job, profile) {
 
   // Location.
   const jobLoc = `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase();
+
+  // HARD geo filter: when the user scoped the alert to explicit locations and/or
+  // cantons, a job OUTSIDE that geography is dropped — even when keywords or
+  // company/sector match. Without this the location was only a +2 ranking nudge,
+  // so a "Lugano, Mendrisio, Bellinzona" alert still surfaced Basel/Lausanne jobs
+  // whose title matched the keyword. Only the alert's OWN locations/cantons are
+  // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
+  const hasGeoScope = profile.alertLocations.length > 0 || profile.cantons.length > 0;
+  if (hasGeoScope) {
+    const jobCanton = String(job.canton || '').toLowerCase();
+    const geoHit =
+      profile.alertLocations.some((l) => l && jobLoc.includes(l)) ||
+      (profile.cantons.length > 0 && jobCanton && profile.cantons.includes(jobCanton));
+    if (!geoHit) return 0;
+  }
+
   const locationMatch = profile.locations.some((l) => jobLoc.includes(l));
   if (locationMatch) score += 2;
   const cantonMatch = profile.cantons.length > 0 && profile.cantons.includes(String(job.canton || '').toLowerCase());

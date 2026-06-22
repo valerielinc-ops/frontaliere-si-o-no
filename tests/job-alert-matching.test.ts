@@ -119,6 +119,47 @@ describe('jobAlertMatching — pure location/sector alerts (legacy contract)', (
   });
 });
 
+describe('jobAlertMatching — explicit location/canton is a HARD filter', () => {
+  // Regression: a "Lugano, Mendrisio, Bellinzona" alert surfaced Roche·Basel /
+  // EPFL·Lausanne because location was only a +2 ranking nudge while the keyword
+  // was the sole hard filter. With explicit alert locations, out-of-area jobs
+  // must be dropped even when the keyword matches.
+  it('drops a keyword-matching job OUTSIDE the alert locations', () => {
+    const baselJob = job({
+      title: 'Senior Scientist Neuroscience',
+      description: 'Computational biology, neuroscience and rare diseases.',
+      company: 'Roche', companyKey: 'roche',
+      location: 'Basel', addressLocality: 'Basel', addressRegion: 'BS', canton: 'BS',
+    });
+    expect(score(baselJob, { keywords: ['neuroscience'], locations: ['Lugano', 'Mendrisio', 'Bellinzona'] })).toBe(0);
+  });
+
+  it('keeps a keyword-matching job INSIDE the alert locations', () => {
+    const luganoJob = job({
+      title: 'Neuroscience Research Engineer',
+      location: 'Lugano', addressLocality: 'Lugano', addressRegion: 'TI', canton: 'TI',
+    });
+    expect(score(luganoJob, { keywords: ['neuroscience'], locations: ['Lugano', 'Mendrisio', 'Bellinzona'] })).toBeGreaterThan(0);
+  });
+
+  it('cantonFilter is a hard geo filter too: out-of-canton keyword job → 0', () => {
+    const geneva = job({ location: 'Geneva', addressLocality: 'Geneva', addressRegion: 'GE', canton: 'GE' });
+    expect(score(geneva, { keywords: ['engineer'], cantonFilter: ['TI'] })).toBe(0);
+  });
+
+  it('a matching canton satisfies the geo filter when alert locations are empty', () => {
+    expect(score(job(), { keywords: ['engineer'], cantonFilter: ['TI'] })).toBeGreaterThan(0);
+  });
+
+  it('soft profile location (pref city) does NOT hard-filter — only the alert\'s own locations do', () => {
+    // Alert has no explicit locations; subscriber pref city is Lugano. A
+    // keyword-matching job elsewhere must still surface (pref city only ranks).
+    const sub = { preferences: { lugano: true } };
+    const zurichJob = job({ location: 'Zurich', addressLocality: 'Zurich', addressRegion: 'ZH', canton: 'ZH' });
+    expect(score(zurichJob, { keywords: ['engineer'] }, sub)).toBeGreaterThan(0);
+  });
+});
+
 describe('jobAlertMatching — job-specific scope (per-job / per-employer alert)', () => {
   it('specificJobId: surfaces ONLY the pinned job', () => {
     const target = job({ id: 'pub-canary-owner-demo-lugano' });

@@ -274,6 +274,14 @@ describe('popularity decay (anti-evergreen-freeze)', () => {
   it('never exceeds 1 for future-dated jobs (clamped age)', () => {
     expect(decayFactor({ postedDate: daysAgoIso(-10) }, NOW)).toBeLessThanOrEqual(1);
   });
+
+  it('falls through a malformed postedDate to a valid firstSeenAt (date present ≠ usable)', () => {
+    // ~0.3% of real jobs carry a DD/MM/YY postedDate that `new Date()` rejects.
+    // It must not shadow a good firstSeenAt and force the neutral 0.5 branch.
+    const job = { postedDate: '30/05/26', firstSeenAt: daysAgoIso(0) };
+    expect(decayFactor(job, NOW)).toBeCloseTo(1, 5);
+    expect(decayFactor({ postedDate: '30/05/26', firstSeenAt: daysAgoIso(30) }, NOW)).toBeCloseTo(0.5, 5);
+  });
 });
 
 describe('no-profile job blend + backfill-slug relevance', () => {
