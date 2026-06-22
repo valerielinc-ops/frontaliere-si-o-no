@@ -22,6 +22,7 @@
 
 import { translateWithMyMemory } from './mymemory-translate.mjs';
 import { applyGlossaryCorrections } from './translation-glossary.mjs';
+import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
 // DeepL: support multiple API keys with automatic rotation on quota exhaustion.
@@ -1056,6 +1057,18 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
   const t2c = await tryTier('googleCloud', () => translateWithGoogleCloud(clean, sourceLang, targetLang));
   if (t2c) return finalize(t2c);
 
+  // Tier 3a: Local Opus-MT (Helsinki-NLP via @huggingface/transformers, on-runner).
+  // Free, deterministic, offline, no rate limit — replaces the dead self-hosted
+  // LibreTranslate container as the primary FREE workhorse once premium keys are
+  // exhausted/unset. Same EN/DE/FR-only promotion as self-hosted LT (Tier 3b):
+  // Opus-MT's IT-target quality is weaker, and IT is the primary indexed locale,
+  // so for IT it stays a post-MyMemory fallback (Tier 4a' below). Opt-in via
+  // MT_LOCAL_OPUSMT; no-op (returns '') when disabled or the model can't load.
+  if (targetLang !== 'it' && localOpusMtEnabled()) {
+    const t3a = await tryTier('localOpusMt', () => translateWithLocalOpusMt(clean, sourceLang, targetLang));
+    if (t3a) return finalize(t3a);
+  }
+
   // Tier 3b: LibreTranslate self-hosted (CI service container — unlimited, no
   // rate limits, no shared throttle). Promoted ABOVE MyMemory ONLY for EN/DE/FR
   // targets: once the premium tiers (DeepL/Azure/Google Cloud) are exhausted, the
@@ -1096,6 +1109,14 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
     return '';
   });
   if (t2) return finalize(t2);
+
+  // Tier 4a': Local Opus-MT — IT-target ONLY (kept below MyMemory for IT quality,
+  // mirroring the self-hosted LT IT gate). Pivots through English for it↔de/fr.
+  // Opt-in via MT_LOCAL_OPUSMT; no-op when disabled or the model can't load.
+  if (targetLang === 'it' && localOpusMtEnabled()) {
+    const t3aFallback = await tryTier('localOpusMt', () => translateWithLocalOpusMt(clean, sourceLang, targetLang));
+    if (t3aFallback) return finalize(t3aFallback);
+  }
 
   // Tier 4a: LibreTranslate self-hosted — IT-target ONLY. For IT this is the
   // first (and only) self-hosted attempt, kept below MyMemory by the EN/DE/FR
