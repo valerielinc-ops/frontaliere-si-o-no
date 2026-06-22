@@ -147,6 +147,23 @@ describe('jobAlertMatching — explicit location/canton is a HARD filter', () =>
     expect(score(geneva, { keywords: ['engineer'], cantonFilter: ['TI'] })).toBe(0);
   });
 
+  it('does NOT keep an out-of-area job via a substring city collision (#2630: "bern" ⊄ "bernex")', () => {
+    const bernex = job({
+      title: 'Software Engineer',
+      location: 'Bernex', addressLocality: 'Bernex', addressRegion: 'GE', canton: 'GE',
+    });
+    // Alert for Bern (BE) must NOT match a Bernex (GE) job via includes('bern').
+    expect(score(bernex, { keywords: ['engineer'], locations: ['Bern'] })).toBe(0);
+  });
+
+  it('whole-token match still keeps a hyphen/comma-delimited city ("lugano" in "Lugano-Paradiso")', () => {
+    const luganoParadiso = job({
+      title: 'Software Engineer',
+      location: 'Lugano-Paradiso', addressLocality: 'Lugano-Paradiso', addressRegion: 'TI', canton: 'TI',
+    });
+    expect(score(luganoParadiso, { keywords: ['engineer'], locations: ['Lugano'] })).toBeGreaterThan(0);
+  });
+
   it('a matching canton satisfies the geo filter when alert locations are empty', () => {
     expect(score(job(), { keywords: ['engineer'], cantonFilter: ['TI'] })).toBeGreaterThan(0);
   });
