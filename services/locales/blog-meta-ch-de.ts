@@ -290,6 +290,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sicurezza-paziente-2026-svizzera.title': 'Patientensicherheit in der Schweiz: Neuheiten und Herausforderungen im Jahr 2026',
     'blog.article.sicurezza-paziente-2026-svizzera.excerpt': 'Das Universitätsklinikum Genf hat im Jahr 2026 einen Hantavirus-Stamm als eine der Herausforderungen für die nationale Gesundheitssicherheit identifiziert.',
     'blog.article.sicurezza-paziente-2026-svizzera.imageAlt': 'Innenansicht eines Schweizer Krankenhauses mit Schwerpunkt auf Patientensicherheit',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.title': 'Olimpiade 2038: Schweiz, keine Referendum, 200 Millionen',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.excerpt': 'Der Bundesrat hat angekündigt, dass es keine Volksabstimmung über die Schweizer Kandidatur für die Olympischen Spiele 2038 geben wird. Die Bestätigung von 200 Millionen Franken ging an das Parlament.',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.imageAlt': 'Szene einer Schweizer Stadt mit Olympischen Symbolen nahe einem See',
 };
 
 export default blogMetaChDe;
