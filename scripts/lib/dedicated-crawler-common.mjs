@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { detectLanguage, detectLanguageWithConfidence } from './detect-language.mjs';
-import { freeTranslateWithRetry } from './free-translate.mjs';
+import { freeTranslateWithRetry, getCascadeStats } from './free-translate.mjs';
 import {
   translateTextWithLocalPipeline,
   localizeJobContentWithPipeline,
@@ -3791,6 +3791,39 @@ export async function runDedicatedBaseCrawler({
   await runSharedCrawlerInProcess({ root, env });
 }
 
+/**
+ * Decide whether the translation INFRASTRUCTURE (not an individual job's
+ * translation) is down, so untranslated descriptions should defer to
+ * translate-pending.yml instead of hard-failing the dedicated crawler.
+ *
+ * Two independent layers can fail:
+ *  - LLM model pool (ai-models.mjs): no model available, or ≥3 models exhausted;
+ *  - free-translate cascade (Azure/MyMemory/NLLB/Libre/Lingva/...): exercised
+ *    this run (`calls > 0`) but produced zero successes ⇒ every provider down.
+ *
+ * Pure + side-effect-free so the gate behaviour is unit-testable without the
+ * ai-models / free-translate module-global singletons.
+ *
+ * @param {Object} o
+ * @param {boolean} [o.aiModelsLoaded=false] whether ai-models.mjs was imported.
+ * @param {boolean|null} [o.aiModelsAvailable=null] `isAnyModelAvailable()` (null on error/unknown).
+ * @param {number} [o.aiExhaustedCount=0] number of exhausted LLM models.
+ * @param {{calls:number,successes:number}|null} [o.cascade=null] free-translate cascade stats.
+ * @returns {{ llmDown: boolean, cascadeDown: boolean, infraDown: boolean }}
+ */
+export function isTranslationInfraDown({
+  aiModelsLoaded = false,
+  aiModelsAvailable = null,
+  aiExhaustedCount = 0,
+  cascade = null,
+} = {}) {
+  const llmDown =
+    aiModelsLoaded && (aiModelsAvailable === false || (aiExhaustedCount ?? 0) >= 3);
+  const cascadeDown =
+    Boolean(cascade) && (cascade.calls ?? 0) > 0 && (cascade.successes ?? 0) === 0;
+  return { llmDown, cascadeDown, infraDown: llmDown || cascadeDown };
+}
+
 export function validateDedicatedLocaleCoverage({
   strictEnvVar,
   label,
@@ -3812,6 +3845,8 @@ export function validateDedicatedLocaleCoverage({
   sampleLimit = 30,
   minSourceDescriptionCharsForHardValidation = minDescriptionChars,
   maxToleratedMissingDescriptions = 0,
+  // Injectable for tests; defaults to the live free-translate cascade metrics.
+  getCascadeStatsFn = getCascadeStats,
 }) {
   const resolvedDataJobsPath = dataJobsPath || jobsPath;
 
@@ -3967,21 +4002,41 @@ export function validateDedicatedLocaleCoverage({
       'missing_title', 'untranslated_title',
     ]);
     let effectiveTolerance = maxToleratedMissingDescriptions;
-    let allAiExhausted = false;
-    let aiInfrastructureFailure = false;
+
+    // Detect whether the translation INFRASTRUCTURE is down (vs an individual
+    // job's translation being absent). Two independent layers can fail: the LLM
+    // model pool (ai-models.mjs) and the free-translate cascade (Azure / MyMemory
+    // / NLLB / Libre / Lingva / ...). Until #2536/#2570 the gate only inspected
+    // the LLM pool, so when every Azure key 401'd and the free tiers were
+    // off/empty — `_aiModels` reporting "0 exhausted" because it was never the
+    // bottleneck — untranslated descriptions hard-failed the dedicated crawler
+    // and discarded successfully-crawled jobs. `isTranslationInfraDown` now ORs
+    // in the cascade signal (exercised this run but zero successes ⇒ every
+    // provider down). Side-effect-free + injectable so the gate is unit-testable.
+    let aiModelStats = null;
+    let aiModelsAvailable = null;
     if (_aiModels) {
-      try {
-        const stats = _aiModels.getStats();
-        allAiExhausted = !_aiModels.isAnyModelAvailable();
-        aiInfrastructureFailure =
-          allAiExhausted || (stats.exhaustedModels && stats.exhaustedModels.length >= 3);
-        if (aiInfrastructureFailure) {
-          const translationIssueCount = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason)).length;
-          console.warn(`⚠️  AI quota exhaustion detected (${stats.exhaustedModels?.length || 0} models exhausted). ` +
-            `${translationIssueCount} jobs have incomplete translations — saved with needsRetranslation flag. ` +
-            `Run translate-pending workflow before deploying.`);
-        }
-      } catch { /* stats not available */ }
+      try { aiModelStats = _aiModels.getStats(); } catch { /* stats not available */ }
+      try { aiModelsAvailable = _aiModels.isAnyModelAvailable(); } catch { /* not available */ }
+    }
+    let cascade = null;
+    try { cascade = getCascadeStatsFn(); } catch { /* cascade stats not available */ }
+
+    const infra = isTranslationInfraDown({
+      aiModelsLoaded: Boolean(_aiModels),
+      aiModelsAvailable,
+      aiExhaustedCount: aiModelStats?.exhaustedModels?.length ?? 0,
+      cascade,
+    });
+    const aiInfrastructureFailure = infra.infraDown;
+    if (aiInfrastructureFailure) {
+      const translationIssueCount = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason)).length;
+      const detail = infra.cascadeDown && !infra.llmDown
+        ? `free-translate cascade exhausted (${cascade.calls} calls, 0 successes — all translation providers down)`
+        : `AI quota exhaustion (${aiModelStats?.exhaustedModels?.length || 0} models exhausted)`;
+      console.warn(`⚠️  Translation infrastructure failure: ${detail}. ` +
+        `${translationIssueCount} jobs have incomplete translations — saved with needsRetranslation flag. ` +
+        `Run translate-pending workflow before deploying.`);
     }
 
     // Treat SKIP_AI_TRANSLATION=1 and confirmed AI quota exhaustion as the same
