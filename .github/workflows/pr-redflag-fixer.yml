@@ -249,6 +249,10 @@ jobs:
         if: steps.guard.outputs.proceed == 'true'
         run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+      - name: Setup Headroom compression proxy
+        if: steps.guard.outputs.proceed == 'true'
+        uses: ./.github/actions/setup-headroom
+
       - name: Run Claude 🔴-fix
         id: claude_review
         if: steps.guard.outputs.proceed == 'true'

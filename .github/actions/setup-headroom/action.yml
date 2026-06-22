@@ -1,0 +1,61 @@
+name: "Setup Headroom compression proxy"
+description: >-
+  Install Headroom and start the local compression proxy in the runner, then
+  route Claude Code through it via ANTHROPIC_BASE_URL. Fail-open by design: if
+  the proxy cannot install or become ready, ANTHROPIC_BASE_URL is left unset so
+  Claude talks directly to Anthropic (uncompressed) and the review/fix gate is
+  NEVER blocked by a compression-layer problem.
+inputs:
+  port:
+    description: "Local proxy port."
+    default: "8787"
+  extras:
+    description: "headroom-ai pip extras to install (no heavy ML model in CI)."
+    default: "proxy,code"
+runs:
+  using: "composite"
+  steps:
+    - name: Install Headroom
+      shell: bash
+      run: |
+        set -eo pipefail
+        # pipx is preinstalled on GitHub-hosted runners; fall back to pip --user
+        # for self-hosted/externally-managed environments.
+        if pipx install "headroom-ai[${{ inputs.extras }}]"; then
+          :
+        else
+          python3 -m pip install --user --break-system-packages "headroom-ai[${{ inputs.extras }}]" || true
+        fi
+        echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+    - name: Start Headroom proxy
+      shell: bash
+      run: |
+        set -eo pipefail
+        export PATH="$HOME/.local/bin:$PATH"
+        if ! command -v headroom >/dev/null 2>&1; then
+          echo "::warning::headroom not installed — skipping compression (Claude runs direct)."
+          exit 0
+        fi
+        nohup headroom proxy --port "${{ inputs.port }}" --stateless \
+          > "$RUNNER_TEMP/headroom-proxy.log" 2>&1 &
+        for _ in $(seq 1 30); do
+          if curl -sf "http://127.0.0.1:${{ inputs.port }}/readyz" >/dev/null 2>&1; then
+            echo "Headroom proxy ready on port ${{ inputs.port }}."
+            exit 0
+          fi
+          sleep 1
+        done
+        echo "::warning::Headroom proxy did not become ready in 30s — skipping compression."
+        cat "$RUNNER_TEMP/headroom-proxy.log" 2>/dev/null || true
+
+    - name: Route Claude through Headroom
+      shell: bash
+      run: |
+        set -eo pipefail
+        if curl -sf "http://127.0.0.1:${{ inputs.port }}/readyz" >/dev/null 2>&1; then
+          echo "ANTHROPIC_BASE_URL=http://127.0.0.1:${{ inputs.port }}" >> "$GITHUB_ENV"
+          echo "Claude routed through Headroom (http://127.0.0.1:${{ inputs.port }})."
+        else
+          echo "::notice::Headroom proxy unavailable — ANTHROPIC_BASE_URL left unset; Claude talks directly to Anthropic."
+        fi
