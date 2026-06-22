@@ -1,49 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-06-21T22:30:29.147Z",
-  "total": 2,
+  "generatedAt": "2026-06-22T14:50:44.441Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 6783,
-  "avgDurationMs": 6783,
+  "durationMs": 9814,
+  "avgDurationMs": 9814,
   "durationHistory": [
-    6783
+    9814
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "prada-64995bda5ddc",
-      "slug": "purchasing-intern-prada-group-arezzo-purchasing-intern",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Purchasing intern",
-      "location": "Arezzo Purchasing intern",
-      "canton": "TI",
-      "addressLocality": "Arezzo Purchasing intern",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-21",
-      "url": "https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-21T22:30:26.530Z",
-      "firstSeenAt": "2026-06-21T12:13:32.025Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -64,7 +34,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-21T22:30:24.777Z",
+      "crawledAt": "2026-06-22T14:50:38.285Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -75,8 +45,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "prada-64995bda5ddc",
       "slug": "purchasing-intern-prada-group-arezzo-purchasing-intern",
@@ -111,7 +80,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -132,7 +103,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-21T22:30:24.777Z",
+      "crawledAt": "2026-06-22T14:50:38.285Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
