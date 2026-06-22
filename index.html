@@ -121,6 +121,12 @@
     <meta name="google-adsense-account" content="ca-pub-8628054934855353">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <!-- Google Publisher Tag (GPT) host — serves the desktop article side-rail
+         half-page ad units (components/shared/GptAdSlot.tsx loads gpt.js +
+         pubads_impl.js from here). Preconnect warms the TLS/DNS so the lazy,
+         idle-deferred rail ads fill faster once a rail scrolls into view. -->
+    <link rel="preconnect" href="https://securepubads.g.doubleclick.net" crossorigin>
+    <link rel="dns-prefetch" href="https://securepubads.g.doubleclick.net">
     <!-- Funding Choices ad-recovery messaging (loaded post-LCP via deferred script
          below). Preconnect saves ~150-300ms on mobile when the script is eventually
          fetched, without contributing to LCP blocking. -->

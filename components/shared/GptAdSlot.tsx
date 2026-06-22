@@ -133,7 +133,16 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     const defineAndDisplay = () => {
       if (defined) return;
       defined = true;
-      ensureGptScript();
+      // Queue the GPT framework (enableServices) BEFORE this slot's display().
+      // An above-the-fold slot (e.g. the article side-rails on ≥1400px) has its
+      // IntersectionObserver fire on mount — before the idle-deferred
+      // initGptFramework() above runs — so without this its display() would be
+      // queued ahead of enableServices() and pubads would never fetch: the slot
+      // stays empty with zero gampad/ads requests (observed live). initGptFramework
+      // is idempotent (guarded), so slots that intersect after the idle init are
+      // unaffected; this only repairs the early-intersect race. It also calls
+      // ensureGptScript() internally, so the script is still requested here.
+      initGptFramework();
       const gt = gtag();
       gt.cmd.push(() => {
         try {
