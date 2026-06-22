@@ -208,9 +208,15 @@ function mergeFirestoreContacts(contacts, fsContacts) {
   for (const [key, d] of fsContacts) {
     const prev = contacts[key] || {};
     const next = { ...prev };
-    // email: dashboard is authoritative — set non-empty, or clear when explicitly emptied.
-    if (typeof d.email === 'string') next.email = d.email.trim();
-    if (d.emailInferred !== undefined) next.emailInferred = String(d.emailInferred || '');
+    // email: a NON-EMPTY dashboard value wins. An empty value is "not set in the
+    // dashboard" → must NOT clobber a valid email already in contacts.json (the
+    // default case: employer_contacts is empty while the local file holds the
+    // address). An intentional clear is gated behind an explicit `clearEmail`
+    // flag the admin POST sets only when emptying a previously dashboard-set
+    // address.
+    if (d.email) next.email = String(d.email).trim();
+    else if (d.clearEmail === true) next.email = '';
+    if (d.emailInferred) next.emailInferred = String(d.emailInferred);
     if (d.contactName) next.contactName = String(d.contactName);
     if (d.topRole) next.topRole = String(d.topRole);
     contacts[key] = next;

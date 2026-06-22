@@ -135,16 +135,26 @@ async function handleUpsertContact(db, req, adminEmail) {
     updatedBy: adminEmail || 'admin',
   };
 
-  // Email: empty string clears it; any non-empty value must be a valid address.
-  if (raw.email !== undefined) {
+  // Email handling. A blank input is NOT a clear by default — otherwise an admin
+  // tweaking only the name/role would silently wipe the address (the local
+  // contacts.json email isn't visible to this GET, so the field always shows
+  // blank initially). An intentional clear must set `clearEmail: true`.
+  if (raw.clearEmail === true) {
+    update.email = '';
+    update.clearEmail = true;
+  } else {
     const email = String(raw.email || '').trim().toLowerCase();
-    if (email && !EMAIL_RE.test(email)) {
-      return { status: 400, body: { ok: false, error: 'invalid_email' } };
+    if (email) {
+      if (!EMAIL_RE.test(email)) {
+        return { status: 400, body: { ok: false, error: 'invalid_email' } };
+      }
+      update.email = email;
+      // A manual edit is the authoritative address → drop any inferred guess and
+      // any prior clear flag so it never shadows the human-entered value.
+      update.emailInferred = '';
+      update.clearEmail = false;
     }
-    update.email = email;
-    // A manual edit is the authoritative address → drop any inferred guess so it
-    // never shadows the human-entered value downstream.
-    if (email) update.emailInferred = '';
+    // email empty + no clearEmail → leave the stored email untouched.
   }
   if (raw.contactName !== undefined) update.contactName = String(raw.contactName || '').trim().slice(0, 120);
   if (raw.topRole !== undefined) update.topRole = String(raw.topRole || '').trim().slice(0, 160);

@@ -39,8 +39,10 @@ export interface EmployerInsightsRow {
 /** Editable fields the admin can push back for one company's outreach contact. */
 export interface EmployerContactUpdate {
   companyKey: string;
-  /** Empty string clears the address. */
+  /** Non-empty sets the address; empty/omitted leaves it untouched (see clearEmail). */
   email?: string;
+  /** Explicit intent to wipe a previously dashboard-set address. */
+  clearEmail?: boolean;
   contactName?: string;
   topRole?: string;
 }

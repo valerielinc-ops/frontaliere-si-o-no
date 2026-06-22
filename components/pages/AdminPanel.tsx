@@ -560,24 +560,32 @@ export default function AdminPanel() {
 
  const saveContact = async () => {
  if (!contactModalRow) return;
- const email = contactEmailDraft.trim();
- // Simple client-side guard (server re-validates); empty clears the field.
+ // Server stores lowercase — mirror it so the optimistic row matches what's persisted.
+ const email = contactEmailDraft.trim().toLowerCase();
+ // Simple client-side guard (server re-validates).
  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
  setContactSaveMsg('✗ Email non valida.');
  return;
  }
+ // Empty input is a no-op for the email field UNLESS we're wiping a previously
+ // dashboard-set address → only then send the explicit clear flag. This stops an
+ // admin editing only name/role from blanking the address.
+ const clearEmail = !email && !!contactModalRow.contactEmail;
  setContactSaving(true);
  setContactSaveMsg(null);
  try {
  await updateEmployerContact(user, {
  companyKey: contactModalRow.companyKey,
- email,
+ ...(email ? { email } : {}),
+ ...(clearEmail ? { clearEmail: true } : {}),
  contactName: contactNameDraft.trim(),
  topRole: contactRoleDraft.trim(),
  });
- // Reflect the saved values locally without a full refetch.
+ // Reflect the saved values locally without a full refetch. Email only changes
+ // when set or explicitly cleared; otherwise keep the existing value.
+ const nextEmail = email ? email : (clearEmail ? '' : contactModalRow.contactEmail);
  setInsightsRows(prev => prev.map(r => r.companyKey === contactModalRow.companyKey
- ? { ...r, contactEmail: email, contactName: contactNameDraft.trim(), topRole: contactRoleDraft.trim() }
+ ? { ...r, contactEmail: nextEmail, contactName: contactNameDraft.trim(), topRole: contactRoleDraft.trim() }
  : r));
  setContactSaveMsg('✓ Contatto salvato.');
  } catch (err) {
