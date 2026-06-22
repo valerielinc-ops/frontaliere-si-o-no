@@ -153,6 +153,20 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         .sort((a, b) => (b.hits || 0) - (a.hits || 0))
         .slice(0, MAX_EMIT);
 
+      // OPT-IN equity-SEO variant (DEFAULT OFF): the IT canton-moved full-content
+      // copies below are forced noindex so they recover UX + a 200 status without
+      // competing for index equity. With CF_HOT_404_IT_INDEX=1 the forced noindex
+      // is dropped: the copied page stays indexable and its own
+      // <link rel=canonical>/og:url already point at the CURRENT canton (`to`), so
+      // Google consolidates equity to the live page (the canonical index+canonical
+      // pattern) instead of dropping the URL. DEFAULT OFF because flipping ~65k
+      // verbatim copies to indexable is a duplicate-content judgement call (Google
+      // may consolidate via canonical, or may treat the mass-duplication as soft
+      // doppione) — activate only after evaluating the duplicate-content impact,
+      // exactly as the noindex was a deliberate choice. Mirrors the accumulator
+      // opt-in above: a deploy/owner flag flip, never a default behaviour change.
+      const itIndexable = process.env.CF_HOT_404_IT_INDEX === '1';
+
       let emitted = 0;
       let emittedFull = 0;
       let skippedExisting = 0;
@@ -178,27 +192,32 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         // Canton-drift recovery as a REAL 200 page WITH the job's full content.
         // For an IT canton-moved orphan (the apex is NOT behind the locale Worker,
         // so without this it only ever gets a soft-404/JS redirect or a thin
-        // bridge), copy the slug's already-built canonical page HTML verbatim and
-        // force noindex. The copied HTML's own <link rel=canonical>/og:url/hreflang
-        // already point at the current canton, so ranking signals consolidate
-        // there while this URL serves a full 200 instead of a 404. en/de/fr are
-        // intentionally left to the thin bridge below: the locale Worker 301s them
-        // at the edge (strictly better than a duplicate 200). Falls through to the
-        // thin bridge if the canonical file isn't on disk (e.g. job pruned).
+        // bridge), copy the slug's already-built canonical page HTML verbatim. The
+        // copied HTML's own <link rel=canonical>/og:url/hreflang already point at
+        // the current canton, so ranking signals consolidate there while this URL
+        // serves a full 200 instead of a 404. By default the copy is forced
+        // noindex (UX + 200, no index competition); with CF_HOT_404_IT_INDEX=1 the
+        // forced noindex is dropped so the copy stays indexable and consolidates
+        // equity to `to` via its embedded canonical (see itIndexable note above).
+        // en/de/fr are intentionally left to the thin bridge below: the locale
+        // Worker 301s them at the edge (strictly better than a duplicate 200).
+        // Falls through to the thin bridge if the canonical file isn't on disk.
         const isItPath = !/^\/(en|de|fr)\//.test(from);
         if (kind === 'canton-moved' && isItPath) {
           const canonFile = path.join(distDir, to.slice(1), 'index.html');
           if (fs.existsSync(canonFile)) {
             let canonHtml = fs.readFileSync(canonFile, 'utf-8');
-            canonHtml = /<meta\s+name=["']robots["']/i.test(canonHtml)
-              ? canonHtml.replace(
-                  /<meta\s+name=["']robots["'][^>]*>/i,
-                  '<meta name="robots" content="noindex,follow">',
-                )
-              : canonHtml.replace(
-                  /<head(\s[^>]*)?>/i,
-                  (m) => `${m}<meta name="robots" content="noindex,follow">`,
-                );
+            if (!itIndexable) {
+              canonHtml = /<meta\s+name=["']robots["']/i.test(canonHtml)
+                ? canonHtml.replace(
+                    /<meta\s+name=["']robots["'][^>]*>/i,
+                    '<meta name="robots" content="noindex,follow">',
+                  )
+                : canonHtml.replace(
+                    /<head(\s[^>]*)?>/i,
+                    (m) => `${m}<meta name="robots" content="noindex,follow">`,
+                  );
+            }
             fs.mkdirSync(outDir, { recursive: true });
             fs.writeFileSync(path.join(outDir, 'index.html'), canonHtml, 'utf-8');
             emitted++;
@@ -232,7 +251,8 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         const heapMb = Math.round(process.memoryUsage().heapUsed / 1048576);
         console.log(
           `\x1b[36m[cf-hot-404-bridge]\x1b[0m Recovered ${emitted} Cloudflare/GSC-confirmed 404s ` +
-            `(${emittedFull} full-content canton-moved copies, ${emitted - emittedFull} thin bridges; ` +
+            `(${emittedFull} full-content canton-moved copies [${itIndexable ? 'indexable+canonical' : 'noindex'}], ` +
+            `${emitted - emittedFull} thin bridges; ` +
             `cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved). ` +
             `[mem] heapUsed=${heapMb}MB after emit.`,
         );
