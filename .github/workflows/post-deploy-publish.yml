@@ -1,6 +1,7 @@
 name: Post-deploy Publish (side-effects + mark good)
 
-# Reusable workflow called from deploy.yml as the `publish` job.
+# Reusable workflow called from deploy-publish.yml as the `publish` job
+# (was deploy.yml before the build/publish split).
 # Runs ONLY when build + deploy + validate-dist + validate-live have all
 # succeeded — i.e. the new dist is live AND has passed every gate. This
 # is the right place for IRREVERSIBLE side-effects:
@@ -30,6 +31,11 @@ on:
         description: 'github.event_name from the caller (workflow_dispatch / push / etc.)'
         required: true
         type: string
+      deploy_ref:
+        description: 'Commit SHA of the build the artifacts came from. Pass when the caller runs at a different SHA than the build (e.g. deploy-publish.yml on workflow_run). Empty = checkout the caller default.'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   publish:
@@ -39,8 +45,10 @@ jobs:
       actions: read     # for download-artifact same-run
       issues: write     # for github-issue-creator on publish failure
     steps:
-      - name: Checkout (same SHA as deploy — invariant in workflow_call)
+      - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.deploy_ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -75,13 +83,17 @@ jobs:
       - name: Load secrets from Remote Config (FB + LinkedIn + Reddit tokens)
         run: node scripts/load-rc-env.mjs
 
-      # Small JSON artifacts only — NO github-pages download here.
+      # Small JSON artifacts only — NO github-pages download here. All keyed on
+      # `deploy_run_id` (the BUILD run); run-id + token makes the fetch work both
+      # same-run (legacy caller) and cross-run (deploy-publish.yml workflow_run).
       - name: Download pre-deploy sitemap snapshot (optional)
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
           name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
           path: /tmp/pre-deploy-snapshot
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download previous-slug winners (optional)
         uses: actions/download-artifact@v7
@@ -89,6 +101,8 @@ jobs:
         with:
           name: winners-${{ inputs.deploy_run_id }}
           path: /tmp/winners
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download sitemaps bundle (pre-deploy + new + build-id)
         uses: actions/download-artifact@v7
@@ -96,6 +110,8 @@ jobs:
         with:
           name: sitemaps-${{ inputs.deploy_run_id }}
           path: /tmp/sitemaps-bundle
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Master jobs.json (titleByLocale/slugByLocale) is GITIGNORED and
       # stripped from the Pages artifact (jobsJsonDistCleanupPlugin, PR #712),
@@ -112,6 +128,8 @@ jobs:
         with:
           name: jobs-master-${{ inputs.deploy_run_id }}
           path: /tmp/jobs-master
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Stage downloaded data files
         run: |

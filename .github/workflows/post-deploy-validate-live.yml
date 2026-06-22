@@ -1,15 +1,15 @@
 name: Post-deploy Validate (live)
 
-# Reusable workflow called from deploy.yml as the `validate-live` job.
-# Runs AFTER `actions/deploy-pages@v5` has published the new dist to
-# GitHub Pages. READ-ONLY by design: live smoke (probe 5xx + e2e:live)
-# fetched directly from the deployed site.
+# Reusable workflow called from deploy-publish.yml as the `validate-live` job
+# (was deploy.yml before the build/publish split). Runs AFTER
+# `actions/deploy-pages@v5` has published the new dist to GitHub Pages.
+# READ-ONLY by design: live smoke (probe 5xx + e2e:live) fetched directly
+# from the deployed site.
 #
-# NOTE (2026-06-12): the `rollback` job in deploy.yml is currently DISABLED
-# (`if: false`, explicit user request). References below to rollback firing
-# describe the failure-classification contract (`failure_kind` output), which
-# is unchanged and still consumed by the (gated-off) rollback condition — kept
-# intact so re-enabling rollback needs no changes here.
+# NOTE: the `rollback` job was DISABLED (`if: false`) since 2026-06-12 and was
+# REMOVED entirely in the build/publish split. The `failure_kind` output below
+# is now unconsumed (kept harmless so re-introducing rollback needs no signal
+# changes here); its references to "rollback firing" are historical.
 #
 # Side-effects (Facebook/LinkedIn post, IndexNow/GSC submission, winners
 # git push, mark last_known_good) used to live here but were extracted
@@ -34,6 +34,11 @@ on:
         description: 'github.event_name from the caller (workflow_dispatch / push / etc.)'
         required: true
         type: string
+      deploy_ref:
+        description: 'Commit SHA of the build the artifacts came from. Pass when the caller runs at a different SHA than the build (e.g. deploy-publish.yml on workflow_run). Empty = checkout the caller default.'
+        required: false
+        type: string
+        default: ''
     outputs:
       # Lets the caller (deploy.yml) distinguish a PROPAGATION-TIMEOUT failure
       # (our build-id never went live within the window — the live site is an
@@ -56,8 +61,10 @@ jobs:
       actions: read     # for download-artifact same-run
       issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
     steps:
-      - name: Checkout (same SHA as deploy — invariant in workflow_call)
+      - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.deploy_ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -96,6 +103,8 @@ jobs:
         with:
           name: sitemaps-${{ inputs.deploy_run_id }}
           path: /tmp/sitemaps-bundle
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Stage build-id.txt into dist/
         run: |

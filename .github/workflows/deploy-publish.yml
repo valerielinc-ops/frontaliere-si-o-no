@@ -1,0 +1,327 @@
+name: Publish to GitHub Pages (deploy + validate)
+
+# Second half of the build→publish split (see deploy.yml's concurrency comment).
+# deploy.yml now only BUILDS (matrix-setup → prep → build-locale ×4) under a
+# workflow-level `pages-build-run` lock that releases the moment the build
+# finishes. This workflow runs the rest — deploy to Pages + validate + publish —
+# triggered by a successful build run via `workflow_run`. It carries its own
+# `pages-deploy` lock so a new build can proceed while the previous build's
+# deploy/validate/publish tail runs here independently.
+#
+# Cross-run handoff: every artifact the deploy/validate/publish steps need was
+# produced by the BUILD run (`github.event.workflow_run.id`). The reusable
+# validators already fetch by `deploy_run_id`; the github-pages Pages artifact is
+# re-materialised into THIS run below (actions/deploy-pages can only publish an
+# artifact that lives in the current run).
+
+on:
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  issues: write     # for github-issue-creator on deploy failure
+  actions: read     # for cross-run download-artifact
+
+# One Pages publish cycle at a time, newest-wins (cancel-in-progress: false →
+# GitHub's 1 running + 1 pending cap drops the superseded middle). Decoupled
+# from deploy.yml's build lock: a new build can run while this publish proceeds.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  # ───────────────────────────────────────────────────────────────────────
+  # deploy: publish the build run's dist/ to GitHub Pages.
+  #
+  # ⚠️ KNOWN FUNNEL-CRITICAL GAP — issue #987: at the current site scale
+  # (~13 GB / ~470k files) actions/deploy-pages aborts at its 10-min polling
+  # cap, so this job can go RED even though GitHub Pages often finishes the
+  # publish server-side afterwards. The extended server-side poll below keeps
+  # the job GREEN when Pages reports the publish succeeded, so validate-live /
+  # publish still run.
+  # ───────────────────────────────────────────────────────────────────────
+  deploy:
+    # Only publish when the BUILD run succeeded. A failed it-shard makes the
+    # build-locale matrix job (fail-fast: false) → run conclusion failure → this
+    # never fires, which is correct: no github-pages artifact was produced.
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+      issues: write
+      actions: read       # cross-run download-artifact
+      deployments: read   # the extended server-side poll reads /deployments + /statuses
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      # Cross-run handoff of the Pages artifact. The `github-pages` artifact (a
+      # single ~720 MB gzip tarball, `artifact.tar`) was uploaded by the BUILD
+      # run. actions/deploy-pages can only publish an artifact that lives in the
+      # CURRENT run (Pages binds the deployment to the run via OIDC), so download
+      # the build's artifact and re-upload it here under the same name. This is a
+      # download+upload of one tarball, not a rebuild.
+      - name: Download github-pages artifact from the build run
+        uses: actions/download-artifact@v7
+        with:
+          name: github-pages
+          path: pages-artifact
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Re-upload github-pages artifact into this run
+        uses: actions/upload-artifact@v7
+        with:
+          name: github-pages
+          path: pages-artifact/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+          # Already a gzip tarball — storing (level 0) avoids a pointless
+          # re-deflate of incompressible data. deploy-pages extracts the zip
+          # envelope and hands artifact.tar to the Pages backend regardless.
+          compression-level: 0
+
+      # Reset a stuck Pages `errored` state BEFORE publishing. After bursts of
+      # failed/cancelled deployments GitHub Pages can latch into status=errored
+      # and then refuse to ACTIVATE even successful deployments → the site
+      # freezes on an old build (prod outage 2026-06-05). Clearing the state
+      # first lets THIS deploy's deployment activate. Conditional: no-op unless
+      # currently errored, so healthy deploys are untouched.
+      - name: Reset Pages errored state (only if stuck)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          R="${GITHUB_REPOSITORY}"
+          st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+          echo "pages status before publish: $st"
+          if [ "$st" != "errored" ]; then echo "not errored — no reset needed"; exit 0; fi
+          echo "::warning::Pages stuck 'errored' — resetting so this deploy can activate"
+          gh api -X POST "repos/$R/pages/builds" >/dev/null 2>&1 || true
+          sleep 15
+          st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+          echo "after safe reset: $st"
+          if [ "$st" = "errored" ]; then
+            echo "toggling build_type legacy(gh-pages) -> workflow"
+            printf '{"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}' | gh api -X PUT "repos/$R/pages" --input - >/dev/null 2>&1 || true
+            sleep 8
+            printf '{"build_type":"workflow"}' | gh api -X PUT "repos/$R/pages" --input - >/dev/null 2>&1 || true
+            sleep 10
+            st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+            echo "after toggle: $st"
+          fi
+          [ "$st" = "errored" ] && echo "::warning::still errored after reset — deploy may not activate; manual unstick-pages may be needed" || echo "✅ pages state cleared"
+
+      # GitHub Pages allows only one deployment at a time. When concurrent
+      # pushes trigger this workflow, the second run can hit "in progress
+      # deployment" errors. Retry once after a short wait to handle this.
+      #
+      # `actions/deploy-pages@v5` ALSO caps its internal status polling at
+      # 10 minutes (the `timeout: 1800000` we pass is silently clamped to
+      # 600000 — see the warning emitted at start of the step). For sites
+      # with >1M files the Pages backend's `syncing_files` phase can run
+      # well past 10 minutes, causing the action to abort with
+      # `Timeout reached, aborting!` even though the deployment itself
+      # eventually completes server-side. The deployment-status extended
+      # poll below recognises that case and keeps the job green when Pages
+      # reports the publish succeeded.
+      - name: Deploy to GitHub Pages
+        id: deployment_first
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+        with:
+          timeout: 1800000
+          error_count: 100
+
+      - name: Wait for previous Pages deployment to finish
+        if: steps.deployment_first.outcome == 'failure'
+        run: |
+          echo "::warning::First deploy attempt failed (likely Pages busy or 10-minute polling cap). Retrying in 30s..."
+          sleep 30
+
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment
+        if: steps.deployment_first.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+        with:
+          timeout: 1800000
+          error_count: 100
+
+      # actions/deploy-pages aborts at its 10-min polling cap (clamped from our
+      # `timeout: 1800000`), but for a ~13 GB / ~470k-file site GitHub Pages
+      # finishes publishing SERVER-SIDE afterwards. Proven 2026-05-30: run
+      # 26665087347 went red at the cap, yet ~32 min later the github-pages
+      # deployment for its sha reached state=success and the live build-id
+      # advanced (1780052190433 → 1780096323338). So a double action-failure is
+      # NOT a real deploy failure — it just means the publish is still syncing.
+      #
+      # This polls the github-pages DEPLOYMENT(s) for THIS sha for up to 40 min
+      # and goes GREEN when Pages reports success — so validate-live → publish
+      # (IndexNow, Google Indexing API, GSC, previous-slug-winners sync,
+      # last_known_good) finally run (issue #987).
+      #
+      # ONLY `success` is a terminal GREEN. The action emits two attempts
+      # (deployment_first + retry) → two Deployment objects per sha; on abort at
+      # the 10-min cap it may stamp a transient `error`/`failure`/cancel status
+      # BEFORE Pages finishes server-side. So `error`/`failure` are NOT treated
+      # as terminal — we keep polling. We check ALL deployments for the sha and
+      # succeed if ANY is success; we give up early only when EVERY deployment
+      # for the sha is `inactive` (definitively superseded by a newer deploy).
+      - name: Wait for server-side Pages publish (extended, beyond the 10-min action cap)
+        if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          deadline=$(( $(date +%s) + 40*60 ))
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            ids=$(gh api "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
+            if [ -n "$ids" ]; then
+              any_active=0
+              for d in $ids; do
+                st=$(gh api "repos/${GITHUB_REPOSITORY}/deployments/${d}/statuses?per_page=1" --jq '.[0].state // empty' 2>/dev/null || echo "")
+                echo "$(date -u +%H:%M:%S) github-pages deployment ${d} state=${st:-<none>}"
+                if [ "$st" = "success" ]; then
+                  echo "✅ GitHub Pages completed the publish server-side (after the action's 10-min cap)."
+                  exit 0
+                fi
+                # error/failure/in_progress/pending/<none> may still reach success → keep waiting
+                if [ "$st" != "inactive" ]; then any_active=1; fi
+              done
+              if [ "$any_active" = "0" ]; then
+                echo "::warning::All github-pages deployments for ${GITHUB_SHA} are inactive (superseded by a newer deploy) — not waiting further."
+                exit 1
+              fi
+            else
+              echo "$(date -u +%H:%M:%S) no github-pages deployment for ${GITHUB_SHA} yet — waiting"
+            fi
+            sleep 60
+          done
+          echo "::error::GitHub Pages did not report success within 40 min for ${GITHUB_SHA} (publish stuck or genuinely failed)."
+          exit 1
+
+      - name: Report failure to GitHub Issues (deploy)
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure (deploy): ${{ github.workflow }}" \
+            --description "## Deploy fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Build run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Branch:** ${{ github.event.workflow_run.head_branch }}
+          **Trigger:** ${{ github.event.workflow_run.event }}" \
+            --priority 1 \
+            --reopen-within-hours 6 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve deploy GitHub Issue on success
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Deploy succeeded → close the canonical "CI Failure (deploy)" issue if
+          # open. Paired with --reopen-within-hours 6 above so close↔reopen stay
+          # on ONE canonical issue. Idempotent no-op when nothing is open.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CI Failure (deploy): ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  # ───────────────────────────────────────────────────────────────────────
+  # validate-dist: dist-side gates (bfs-depth, text-html-ratio, ...). Needs
+  # only the build run's artifacts (fetched by deploy_run_id), so it runs in
+  # PARALLEL with deploy — not gated on the live publish.
+  # ───────────────────────────────────────────────────────────────────────
+  validate-dist:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    uses: ./.github/workflows/post-deploy-validate-dist.yml
+    with:
+      deploy_run_id: ${{ github.event.workflow_run.id }}
+      deploy_event_name: ${{ github.event.workflow_run.event }}
+      deploy_ref: ${{ github.event.workflow_run.head_sha }}
+    secrets: inherit
+    permissions:
+      contents: read    # checkout
+      actions: read     # cross-run download-artifact
+      issues: write     # github-issue-creator on validation failure (must be declared at the caller too or the reusable startup_failures)
+
+  # ───────────────────────────────────────────────────────────────────────
+  # validate-live: live-site gates (build-id propagation, live meta). Needs the
+  # Pages publish to have happened → gated on deploy.
+  # ───────────────────────────────────────────────────────────────────────
+  validate-live:
+    needs: deploy
+    if: ${{ !cancelled() && needs.deploy.result == 'success' }}
+    uses: ./.github/workflows/post-deploy-validate-live.yml
+    with:
+      deploy_run_id: ${{ github.event.workflow_run.id }}
+      deploy_event_name: ${{ github.event.workflow_run.event }}
+      deploy_ref: ${{ github.event.workflow_run.head_sha }}
+    secrets: inherit
+    permissions:
+      contents: write   # sync previous-slug winners (git push)
+      actions: read     # cross-run download-artifact
+      issues: write     # github-issue-creator on validation failure
+
+  # ───────────────────────────────────────────────────────────────────────
+  # publish: post-deploy side effects (IndexNow, Google Indexing API, GSC,
+  # previous-slug-winners sync, LinkedIn/Reddit article posting). Runs only
+  # after both validators pass.
+  # ───────────────────────────────────────────────────────────────────────
+  publish:
+    needs: [deploy, validate-dist, validate-live]
+    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-dist.result == 'success' && needs.validate-live.result == 'success' }}
+    uses: ./.github/workflows/post-deploy-publish.yml
+    with:
+      deploy_run_id: ${{ github.event.workflow_run.id }}
+      deploy_event_name: ${{ github.event.workflow_run.event }}
+      deploy_ref: ${{ github.event.workflow_run.head_sha }}
+    secrets: inherit
+    permissions:
+      contents: write   # sync previous-slug winners (git push)
+      actions: read     # cross-run download small artifacts (sitemaps, winners)
+      issues: write     # github-issue-creator on publish failure
