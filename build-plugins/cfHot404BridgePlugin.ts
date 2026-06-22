@@ -154,6 +154,7 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         .slice(0, MAX_EMIT);
 
       let emitted = 0;
+      let emittedFull = 0;
       let skippedExisting = 0;
       let skippedUnresolved = 0;
 
@@ -173,6 +174,39 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
 
         const to = withSlash(resolution.canonicalPath);
         const kind = resolution.kind;
+
+        // Canton-drift recovery as a REAL 200 page WITH the job's full content.
+        // For an IT canton-moved orphan (the apex is NOT behind the locale Worker,
+        // so without this it only ever gets a soft-404/JS redirect or a thin
+        // bridge), copy the slug's already-built canonical page HTML verbatim and
+        // force noindex. The copied HTML's own <link rel=canonical>/og:url/hreflang
+        // already point at the current canton, so ranking signals consolidate
+        // there while this URL serves a full 200 instead of a 404. en/de/fr are
+        // intentionally left to the thin bridge below: the locale Worker 301s them
+        // at the edge (strictly better than a duplicate 200). Falls through to the
+        // thin bridge if the canonical file isn't on disk (e.g. job pruned).
+        const isItPath = !/^\/(en|de|fr)\//.test(from);
+        if (kind === 'canton-moved' && isItPath) {
+          const canonFile = path.join(distDir, to.slice(1), 'index.html');
+          if (fs.existsSync(canonFile)) {
+            let canonHtml = fs.readFileSync(canonFile, 'utf-8');
+            canonHtml = /<meta\s+name=["']robots["']/i.test(canonHtml)
+              ? canonHtml.replace(
+                  /<meta\s+name=["']robots["'][^>]*>/i,
+                  '<meta name="robots" content="noindex,follow">',
+                )
+              : canonHtml.replace(
+                  /<head(\s[^>]*)?>/i,
+                  (m) => `${m}<meta name="robots" content="noindex,follow">`,
+                );
+            fs.mkdirSync(outDir, { recursive: true });
+            fs.writeFileSync(path.join(outDir, 'index.html'), canonHtml, 'utf-8');
+            emitted++;
+            emittedFull++;
+            continue;
+          }
+        }
+
         // canton-moved: the canonical IS the same job at its current canton path
         // (a real 200 page), so word the bridge as a relocation and point the CTA
         // straight at it. Other kinds land on a listing/landing.
@@ -198,7 +232,8 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         const heapMb = Math.round(process.memoryUsage().heapUsed / 1048576);
         console.log(
           `\x1b[36m[cf-hot-404-bridge]\x1b[0m Recovered ${emitted} Cloudflare/GSC-confirmed 404s ` +
-            `(cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved). ` +
+            `(${emittedFull} full-content canton-moved copies, ${emitted - emittedFull} thin bridges; ` +
+            `cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved). ` +
             `[mem] heapUsed=${heapMb}MB after emit.`,
         );
       }
