@@ -121,7 +121,9 @@ jobs:
               exit 0
             fi
             echo "⚠️  Push attempt $attempt failed — rebasing..."
-            git pull --rebase origin main || true
+            # Abort a conflicting rebase so the next attempt starts clean
+            # instead of wedging on "unmerged files".
+            git pull --rebase origin main || { git rebase --abort 2>/dev/null || true; }
             sleep 3
           done
           echo "❌ Push failed after 3 attempts"
