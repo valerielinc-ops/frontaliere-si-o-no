@@ -317,7 +317,7 @@ export default function CalcolatoreTabContent() {
  {/* Homepage end-of-page multiplex — only shown after a result so we don't
   * compete with the hero/input on first paint. Backfills the home undermonetization
   * (only HOMEPAGE_MID_DISPLAY was previously firing here, €0.21/30d). */}
- <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] [contain:content]" />}>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}
  adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format}
@@ -332,7 +332,7 @@ export default function CalcolatoreTabContent() {
 
  // ── Sub-calculator views — each gets a bottom AdSense multiplex ──
  const adBottom = (
- <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] [contain:content]" />}>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>
  <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
  </Suspense>
  );
