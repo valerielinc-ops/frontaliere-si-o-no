@@ -125,6 +125,18 @@ const BRAND_ALIASES = new Map([
 // Strip common legal suffixes so "Banca Cler AG" matches "banca-cler.png".
 const LEGAL_SUFFIX_RE = /[- ](?:sa|sagl|s-a|ag|gmbh|s-r-l|srl|spa|s-p-a|holding|group|international|svizzera|suisse|ticino)(?:[- ](?:sa|sagl|ag|gmbh|holding|group))?$/;
 
+// First PARSEABLE date among candidates → epoch ms (0 if none). Local twin of
+// build-plugins/shared/firstParsableDate.ts (runtime .mjs, cannot import .ts):
+// stops a malformed postedDate from shadowing crawledAt in the freshness window.
+function firstParsableMs(...values) {
+  for (const v of values) {
+    if (v === null || v === undefined || v === '') continue;
+    const ts = new Date(v).getTime();
+    if (Number.isFinite(ts)) return ts;
+  }
+  return 0;
+}
+
 function trySlug(slug) {
   if (!slug) return null;
   const aliased = BRAND_ALIASES.get(slug) || slug;
@@ -415,7 +427,7 @@ function loadRecentJobs() {
 
   const cutoff = Date.now() - MATCH_WINDOW_MS;
   return jobs.filter((j) => {
-    const crawledAt = new Date(j.crawledAt || j.postedDate || 0).getTime();
+    const crawledAt = firstParsableMs(j.crawledAt, j.postedDate);
     return crawledAt >= cutoff;
   });
 }

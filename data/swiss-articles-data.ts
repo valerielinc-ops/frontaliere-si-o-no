@@ -818,6 +818,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-pensioni-estero-condizioni',
+    category: 'pensione',
+    date: '2026-06-22T09:06:27.982Z',
+    image: '/images/blog/avs-pensioni-estero-condizioni.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'marchesi-zali-lista-autonomi',
+    category: 'fiscale',
+    date: '2026-06-22T10:20:26.152Z',
+    image: '/images/blog/marchesi-zali-lista-autonomi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
