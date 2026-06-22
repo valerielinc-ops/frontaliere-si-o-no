@@ -6334,7 +6334,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      at xlw (≥1400) and only serve there; below xl it's a single column.
      NOTE: overrides the FRO-2026-04-26 prune (rails earned €0.06–0.10 RPM on
      the gate) per explicit owner request. */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop xl only) ── */}
  <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
@@ -7056,7 +7056,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      half-page creatives — same full-height side-rail layout as the article
      detail (BlogArticles) and expired-job views. Rail creatives only
      materialise at xlw; the narrow xl tier shows empty gutters. */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop xl only) ── */}
  <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">

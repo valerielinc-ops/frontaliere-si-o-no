@@ -530,7 +530,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  {/* 3-column grid: left rail | content | right rail. 180px at xl (1280–1399),
      300px at xlw (≥1400) to host ArticleRailAd half-page creatives. */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop xl only) ── */}
  <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
