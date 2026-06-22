@@ -4355,6 +4355,7 @@ ${terminologyByLang[targetLang] || ''}`;
     // affected field in isolation or falls back to the IT source — same
     // graceful-degradation philosophy already used for FAQ below.
     const onTranslateFail = (label) => (err) => {
+      if (err instanceof TypeError || err instanceof ReferenceError) throw err;
       console.error(`  ⚠️  ${label} translation failed: ${err.message} — fallback al recupero per-campo`);
       return {};
     };
