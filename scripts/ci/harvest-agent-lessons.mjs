@@ -276,9 +276,19 @@ export function isAvoidableAlreadyFixed(title, labels) {
 // the genuine signal — a fixable loop the budget should have covered → countable.
 // Same feedback-loop class as isAvoidableAlreadyFixed. Pure → unit-tested.
 // `labels` is an array of label-name strings.
-export function isAvoidableMaxTurns(title, labels) {
+//   3. The run ALREADY SHIPPED A PR (`hasDeliveredPr`, i.e. the issue carries a
+//      `<!-- FIX_OUTCOME: pr-created -->` marker): the cap was hit on harmless
+//      POST-delivery churn (telemetry comment, sibling-sweep verify, a second
+//      item). The workflow's own `Classify outcome` step already treats this as
+//      job-SUCCESS ("false-failure: lavoro consegnato"). Counting it as burn was
+//      the false positive driving escalation #2653 (3/5 examples — #2590/#2560/
+//      #2476 — opened a MERGED PR then overran). By-construction: a run that
+//      delivered a PR can never inflate the bucket, mirroring the workflow.
+export function isAvoidableMaxTurns(title, labels, hasDeliveredPr = false) {
   const names = Array.isArray(labels) ? labels : [];
   const t = String(title || '');
+  // (3) a PR was delivered → cap hit on post-delivery overrun, not a fixable loop.
+  if (hasDeliveredPr) return false;
   // (2) drainer already parked it as structurally non-fixable → expected death.
   if (names.includes('needs-human')) return false;
   // (1) aggregate multi-item → over-budget by construction (circuit-breaker target),
@@ -399,6 +409,12 @@ async function main() {
     // Lo stesso principio dedup-per-sorgente vale per i reviewer-finding sopra,
     // dove la chiave è la PR (vedi tallyFindings).
     const seenThisIssue = new Set();
+    // A `pr-created` marker anywhere on the issue means a fixer run delivered a PR
+    // (open or merged) — so a `max-turns` death is post-delivery overrun, not a
+    // fixable loop (escalation #2653). Pre-scan once; per-issue dedup already
+    // collapses re-queued runs, and a delivered PR means the work landed.
+    const hasDeliveredPr = comments.some((c) =>
+      /<!--\s*FIX_OUTCOME:\s*pr-created\s*-->/i.test(String(c.body || '')));
     for (const c of comments) {
       const m = String(c.body || '').match(/<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i);
       if (!m) continue;
@@ -440,7 +456,7 @@ async function main() {
       // actionable structural fix beyond what shipped (#2291 + circuit-breaker), so
       // don't escalate it (root cause of #2439: bucket re-fired at 14/14d, examples
       // dominated by aggregate / parked runs). Single-item still-routable deaths count.
-      if (code === 'max-turns' && !isAvoidableMaxTurns(issue.title, labelNames)) continue;
+      if (code === 'max-turns' && !isAvoidableMaxTurns(issue.title, labelNames, hasDeliveredPr)) continue;
       const k = `fix-outcome:${code}`;
       if (seenThisIssue.has(k)) continue;
       seenThisIssue.add(k);
