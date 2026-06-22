@@ -1764,7 +1764,19 @@ jobs:
     if: ${{ vars.LOCALE_MATRIX_BUILD == 'true' || github.event.inputs.force_matrix == 'true' }}
     needs: [matrix-setup, prep]
     runs-on: ubuntu-latest
-    # NO job-level concurrency: the matrix legs must NOT cancel each other.
+    # Per-LOCALE concurrency group: keyed on matrix.locale so the four legs of a
+    # SINGLE run (it/en/de/fr) get distinct groups and run concurrently, while the
+    # SAME locale across DIFFERENT runs serialises (cancel-in-progress: false →
+    # queue, never cancel). This restores the serialisation the monolith got from
+    # its single `pages-build` group: each shard repo (frontaliere-<loc>) and the
+    # IT-leg CDN push are force-push targets, so two concurrent matrix deploys
+    # would race/clobber them. Per-locale grouping prevents that cross-run race
+    # without serialising the within-run fan-out. (A single shared group would
+    # make the legs cancel/queue each other; a workflow-level group would be too
+    # coarse and also gate the monolith path.)
+    concurrency:
+      group: pages-shard-${{ matrix.locale }}
+      cancel-in-progress: false
     permissions:
       contents: write
       pages: write
