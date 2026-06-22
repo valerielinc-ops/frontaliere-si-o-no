@@ -440,6 +440,11 @@ function renderPage(opts: {
 
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
   const jobBoardUrl = `${BASE_URL}${buildJobBoardUrl(locale)}`;
+  // Bottom primary CTA deep-links to the profession's sector hub (filtered
+  // job-board search), same as the featured-jobs CTA — never the generic root.
+  // The breadcrumb below intentionally keeps the root job board as parent
+  // (position 2). Falls back to root when the profession has no mapped sector.
+  const ctaJobsUrl = `${BASE_URL}${buildProfessionAllJobsUrl(id, locale)}`;
   const calculatorUrl = `${BASE_URL}${CALCULATOR_URL[locale]}`;
 
   const breadcrumbLd = inlineScriptJson({
@@ -569,7 +574,7 @@ function renderPage(opts: {
     </section>
     ${relatedHtml}
     <section class="s-p1QaOi">
-      <a href="${esc(jobBoardUrl)}" class="s-cta">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(ctaJobsUrl)}" class="s-cta">${esc(copy.ctaJobs)}</a>
       <a class="s-eXgANZ" href="${esc(calculatorUrl)}">${esc(copy.ctaSimulator)}</a>
     </section>
     <section class="s-GCEyQg" aria-label="${esc(copy.h1)}">
