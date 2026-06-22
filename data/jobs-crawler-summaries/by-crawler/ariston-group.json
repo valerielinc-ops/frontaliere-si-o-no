@@ -1,18 +1,49 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-06-22T13:37:27.489Z",
-  "total": 22,
-  "newCount": 0,
+  "generatedAt": "2026-06-22T22:12:58.771Z",
+  "total": 23,
+  "newCount": 1,
   "updatedCount": 21,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 11089,
-  "avgDurationMs": 11089,
+  "durationMs": 12070,
+  "avgDurationMs": 12070,
   "durationHistory": [
-    11089
+    12070
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "AI & AGENTIC SOLUTIONS ENGINEER",
+      "slug": "ai-agentic-solutions-engineer-ariston-group-milano-it-20121",
+      "url": "https://careers.aristongroup.com/job/Milano-AI-&-AGENTIC-SOLUTIONS-ENGINEER-Mila-20121/1407096133/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1407096133/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Milano, IT, 20121",
+      "addressLocality": "Milano, IT, 20121",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "canton": "",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-07-22",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "VERKAUFSBERATER FÜR HEIZTECHNIK (M/W/D) IM VERKAUFSGEBIET OST-BADEN-WÜRTTEMBERG",
@@ -768,45 +799,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "HR REGION MITTE & DOMOTEC",
-      "slug": "hr-region-mitte-domotec-ariston-group-aarburg-ch-4663",
-      "url": "https://careers.aristongroup.com/job/Aarburg-HR-REGION-MITTE-&-DOMOTEC-Aarb-4663/1366954633/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1366954633/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Aarburg, CH, 4663",
-      "addressLocality": "Aarburg, CH, 4663",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-21",
-      "id": "ariston-group-f1c5a93352d1",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "4663",
-      "firstSeenAt": "2026-05-17T09:38:09.822Z",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "TECNICO DI SERVIZIO ENERGIE RINNOVABILI",
