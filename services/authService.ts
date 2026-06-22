@@ -13,46 +13,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
 import { isNewsletterAutologinInFlight, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
-
-// ─── Resilient Dynamic Import ────────────────────────────────
-// After a deploy, old chunk hashes no longer exist on the CDN.
-// When the user clicks a button that triggers a dynamic import (e.g.
-// LinkedIn sign-in → import firebase), the import fails with
-// "TypeError: Importing a module script failed".
-// This helper clears caches and retries once before giving up.
-
-function isChunkLoadError(err: unknown): boolean {
- const msg = (err as Error)?.message || '';
- return msg.includes('Importing a module script failed') ||
- msg.includes('Failed to fetch dynamically imported module') ||
- msg.includes('error loading dynamically imported module') ||
- (err as Error)?.name === 'ChunkLoadError';
-}
-
-async function resilientImport<T>(factory: () => Promise<T>): Promise<T> {
- try {
- return await factory();
- } catch (err) {
- if (!isChunkLoadError(err)) throw err;
- // Clear all caches so the browser fetches fresh chunks
- if ('caches' in window) {
- const names = await caches.keys();
- await Promise.all(names.map(n => caches.delete(n)));
- }
- // Retry once after cache clear
- try {
- return await factory();
- } catch {
- // Chunk truly gone — reload page to get fresh HTML with new hashes
- const reloadKey = '_authChunkReload';
- if (!sessionStorage.getItem(reloadKey)) {
- sessionStorage.setItem(reloadKey, '1');
- window.location.reload();
- }
- throw err;
- }
- }
-}
+import { resilientImport } from '@/services/resilientImport';
 
 // ─── Lazy Firebase Auth Loading ────────────────────────────────
 
@@ -115,8 +76,8 @@ async function ensureFirebaseAuth(): Promise<void> {
  try {
  logAuthDebug('ensureFirebaseAuth:start');
  const [firebaseModule, authModule] = await Promise.all([
- import('@/services/firebase'),
- import('firebase/auth'),
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
+ resilientImport(() => import('firebase/auth'), (m) => typeof m.getAuth === 'function'),
  ]);
  _authModule = authModule;
  const appInstance = await firebaseModule.getApp();
@@ -171,8 +132,8 @@ export async function saveUserProfileToFirestore(user: any, provider: 'google' |
  if (!email) return;
 
  const [{ getApp }, fsModule] = await Promise.all([
- import('@/services/firebase'),
- import('firebase/firestore'),
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
+ resilientImport(() => import('firebase/firestore'), (m) => typeof m.getFirestore === 'function'),
  ]);
 
  const db = fsModule.getFirestore(await getApp());
@@ -869,7 +830,7 @@ const LINKEDIN_CF_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions
  */
 export async function isLinkedInSignInAvailable(): Promise<boolean> {
  try {
- const { getConfigValue } = await import('@/services/firebase');
+ const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const clientId = await getConfigValue('LINKEDIN_SIGNIN_CLIENT_ID');
  return Boolean(clientId && clientId.trim().length > 0);
  } catch {
@@ -914,7 +875,7 @@ export function consumeAuthJobContext(): AuthJobContext | null {
  */
 export async function signInWithLinkedIn(redirectPath?: string): Promise<void> {
  try {
- const { getConfigValue } = await resilientImport(() => import('@/services/firebase'));
+ const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const { Analytics } = await resilientImport(() => import('@/services/analytics'));
 
  const clientId = await getConfigValue('LINKEDIN_SIGNIN_CLIENT_ID');
@@ -1309,7 +1270,7 @@ export async function initOneTap(): Promise<boolean> {
  try {
  // Get client ID from Remote Config
  if (!clientId) {
- const { getConfigValue } = await import('@/services/firebase');
+ const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  clientId = await getConfigValue('GOOGLE_OAUTH_CLIENT_ID');
  if (!clientId) {
  console.warn('⚠️ GOOGLE_OAUTH_CLIENT_ID not found in Remote Config');
@@ -1373,9 +1334,9 @@ async function persistOneTapSubscriber(user: { email?: string | null; displayNam
  if (typeof window !== 'undefined' && window.localStorage?.getItem('newsletter_subscribed') === 'true') return;
  try {
  const [{ getFirestore }, { getApp }, newsletterModule] = await Promise.all([
- import('firebase/firestore'),
- import('@/services/firebase'),
- import('@/services/newsletterSubscribers'),
+ resilientImport(() => import('firebase/firestore'), (m) => typeof m.getFirestore === 'function'),
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
+ resilientImport(() => import('@/services/newsletterSubscribers'), (m) => typeof m.normalizeNewsletterEmail === 'function'),
  ]);
  const db = getFirestore(await getApp());
  const normalizedEmail = newsletterModule.normalizeNewsletterEmail(rawEmail);

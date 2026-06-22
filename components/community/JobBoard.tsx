@@ -7,6 +7,7 @@
 
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
+import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
@@ -1892,7 +1893,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
  useEffect(() => {
- import('@/services/firebase').then(({ getConfigValue }) =>
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function').then(({ getConfigValue }) =>
  getConfigValue('ENABLE_JOB_ALERTS').then((v) => setEnableJobAlerts(v === 'true'))
  ).catch(() => {});
  }, []);

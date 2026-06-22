@@ -19,6 +19,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Headphones, ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { resilientImport } from '@/services/resilientImport';
 import { Analytics } from '@/services/analytics';
 import { useNavigationOptional } from '@/services/NavigationContext';
 
@@ -55,7 +56,7 @@ export const ConsultingCTA: React.FC<Props> = ({ enabledOverride }) => {
  let cancelled = false;
  (async () => {
  try {
- const { getConfigValue } = await import('@/services/firebase');
+ const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const raw = await getConfigValue(FLAG_KEY);
  if (cancelled) return;
  setEnabled(parseBooleanFlag(raw));

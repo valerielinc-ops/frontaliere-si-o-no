@@ -21,6 +21,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { resilientImport } from '@/services/resilientImport';
 
 export type KillSwitchKey =
   | 'fuelDaily'
@@ -78,7 +79,7 @@ export function useKillSwitches(): KillSwitchState {
 
     (async () => {
       try {
-        const { getConfigValue } = await import('@/services/firebase');
+        const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
         const entries = await Promise.all(
           (Object.keys(KILL_SWITCH_RC_KEYS) as KillSwitchKey[]).map(async (key) => {
             try {

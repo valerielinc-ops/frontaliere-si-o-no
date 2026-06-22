@@ -13,6 +13,7 @@
 
 import { isAnalyticsGranted } from '@/services/consentService';
 import { reportCaughtError } from '@/services/errorReporter';
+import { resilientImport } from '@/services/resilientImport';
 
 let _initialized = false;
 
@@ -36,7 +37,7 @@ export async function initClarity(): Promise<void> {
  }
 
  try {
- const { getConfigValue } = await import('@/services/firebase');
+ const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const projectId = await getConfigValue('CLARITY_PROJECT_ID');
 
  if (!projectId) {
@@ -56,7 +57,8 @@ export async function initClarity(): Promise<void> {
  t.crossOrigin = 'anonymous';
  t.src = 'https://www.clarity.ms/tag/' + i;
  const s = l.getElementsByTagName(r)[0];
- s.parentNode?.insertBefore(t, s);
+ if (s && s.parentNode) s.parentNode.insertBefore(t, s);
+ else (l.head || l.documentElement).appendChild(t);
  })(window, document, 'clarity', 'script', projectId);
 
  if (import.meta.env.DEV) {
