@@ -20,7 +20,7 @@
  *   reports/ai-visibility-latest.md           — Human-readable markdown summary
  */
 
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, appendFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,6 +28,11 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, '..');
 const REPORTS_DIR = join(PROJECT_ROOT, 'reports');
+// Full reports live in the gitignored reports/ dir (artifacts only). The
+// trend needs a previous score that survives a fresh CI checkout, so a compact
+// append-only summary is committed here instead (mirrors
+// data/quality-alerts-history.jsonl).
+const HISTORY_FILE = join(PROJECT_ROOT, 'data', 'ai-visibility-history.jsonl');
 
 const SITE_DOMAIN = 'frontaliereticino.ch';
 const SITE_URL = `https://${SITE_DOMAIN}`;
@@ -449,6 +454,21 @@ async function runCheck() {
   await writeFile(mdPath, generateMarkdown(report));
   console.log(`📝 Markdown report: ${mdPath}`);
 
+  // Append a compact summary to the committed history file so the next monthly
+  // run can compute trend (reports/ is gitignored → never survives a fresh
+  // checkout, so the JSON reports there cannot back the trend in CI).
+  const historyEntry = {
+    date: dateStr,
+    score: citedCount,
+    scoreMax: QUERIES.length,
+    scorePercent: report.meta.scorePercent,
+    platformsChecked: availablePlatforms,
+    results: Object.fromEntries(results.map(r => [r.query, r.citedByAny])),
+  };
+  await mkdir(dirname(HISTORY_FILE), { recursive: true });
+  await appendFile(HISTORY_FILE, JSON.stringify(historyEntry) + '\n');
+  console.log(`🗂  History: ${HISTORY_FILE}`);
+
   // ── Summary ─────────────────────────────────────────────────────────────
 
   console.log(`\n${'═'.repeat(60)}`);
@@ -481,6 +501,33 @@ function buildCompetitorSummary(results) {
 // ─── Load previous report for trend ─────────────────────────────────────────
 
 async function loadPreviousReport(currentDate) {
+  // Primary source: committed append-only history file. reports/ is gitignored,
+  // so in CI it starts empty every run — only this file survives across the
+  // monthly schedule and can back the trend.
+  try {
+    if (existsSync(HISTORY_FILE)) {
+      const lines = (await readFile(HISTORY_FILE, 'utf8'))
+        .split('\n')
+        .map(l => l.trim())
+        .filter(Boolean);
+      for (let i = lines.length - 1; i >= 0; i--) {
+        let entry;
+        try { entry = JSON.parse(lines[i]); } catch { continue; }
+        if (!entry?.date || entry.date === currentDate) continue;
+        return {
+          previousDate: entry.date,
+          previousScore: entry.score ?? 0,
+          previousFile: 'data/ai-visibility-history.jsonl',
+          previousResults: entry.results || {},
+        };
+      }
+    }
+  } catch {
+    // fall through to the legacy reports/ scan below
+  }
+
+  // Legacy fallback: scan the gitignored reports/ dir. Only useful in local dev
+  // where prior full reports may still be present.
   try {
     const files = (await import('node:fs')).readdirSync(REPORTS_DIR)
       .filter(f => f.startsWith('ai-visibility-') && f.endsWith('.json') && !f.includes(currentDate))
@@ -498,11 +545,6 @@ async function loadPreviousReport(currentDate) {
     for (const r of (prevData.results || [])) {
       prevByQuery[r.query] = r.citedByAny;
     }
-
-    const gained = [];
-    const lost = [];
-    // We'll compare after current results are computed externally
-    // For now, just return basic trend data
 
     return {
       previousDate: prevDate,
