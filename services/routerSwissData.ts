@@ -113,6 +113,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dati-salariali-frontalieri-ticino': { it: 'dati-salariali-frontalieri-ticino', en: 'frontalieri-salary-data-ticino', de: 'gehaltsdaten-frontalieri-tessin', fr: 'donnees-salariales-frontaliers-tessin' },
  'boom-lavoro-ia-svizzera-frontalieri': { it: 'boom-lavoro-ia-svizzera-frontalieri', en: 'ai-jobs-boom-switzerland-frontalieri', de: 'ki-arbeits-boom-schweiz-grenzganger', fr: 'boom-emplois-ia-suisse-frontaliers' },
  'avs-pensioni-estero-condizioni': { it: 'avs-pensioni-estero-condizioni', en: 'swiss-pension-abroad-requirements', de: 'ahv-rente-ausland-bedingungen', fr: 'pensions-avs-a-letranger-conditions' },
+ 'marchesi-zali-lista-autonomi': { it: 'marchesi-zali-lista-autonomi', en: 'piero-marchesi-claudio-zali-independent-list', de: 'piero-marchesi-claudio-zali-eigene-liste', fr: 'piero-marchesi-claudio-zali-liste-autonome' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

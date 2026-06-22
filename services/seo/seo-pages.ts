@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2853,
+ "numberOfItems": 2854,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7497,7 +7497,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2850, "name": "La Svizzera punta sull'IA per rivoluzionare la ...", "url": `${BASE_URL}/articoli-frontaliere/sanita-farmaceutica-svizzera` },
           { "@type": "ListItem", "position": 2851, "name": "Dati salariali dei vecchi frontalieri nella dic...", "url": `${BASE_URL}/articoli-frontaliere/dati-salariali-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2852, "name": "Boom lavoro IA: 25.000 opportunità in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/boom-lavoro-ia-svizzera-frontalieri` },
-          { "@type": "ListItem", "position": 2853, "name": "Pensioni AVS all'estero: condizioni e convenzioni", "url": `${BASE_URL}/articoli-frontaliere/avs-pensioni-estero-condizioni` }
+          { "@type": "ListItem", "position": 2853, "name": "Pensioni AVS all'estero: condizioni e convenzioni", "url": `${BASE_URL}/articoli-frontaliere/avs-pensioni-estero-condizioni` },
+          { "@type": "ListItem", "position": 2854, "name": "Marchesi: pronti a correre da soli se Zali in l...", "url": `${BASE_URL}/articoli-frontaliere/marchesi-zali-lista-autonomi` }
  ]
  },
  {
