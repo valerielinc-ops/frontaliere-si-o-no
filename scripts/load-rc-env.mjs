@@ -38,6 +38,12 @@ const RC_TO_ENV = {
   PAGESPEED_API_KEY:              ['PAGESPEED_API_KEY'],
   FB_PAGE_ID:                     ['FB_PAGE_ID'],
   GITHUB_PAT:                     ['GITHUB_PAT', 'GH_MODELS_PAT'],
+  // Extra GitHub Models PATs from additional free accounts. GitHub Models'
+  // free-tier rate limit is per-account, so each extra PAT multiplies the free
+  // generation quota; ai-models.mjs rotates across them on daily-limit/429.
+  // Optional — absent RC params are simply skipped (no-op until added).
+  GH_MODELS_PAT_2:                ['GH_MODELS_PAT_2'],
+  GH_MODELS_PAT_3:                ['GH_MODELS_PAT_3'],
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
   TOMTOM_API_KEY:             ['TOMTOM_API_KEY'],
   HERE_API_KEY:               ['HERE_API_KEY'],
