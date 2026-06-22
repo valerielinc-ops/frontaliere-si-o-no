@@ -185,10 +185,10 @@
     },
     {
       "id": "vista-56cb1cbd639b",
-      "slug": "augenoptiker-in-60-vista-brugg-ag",
+      "slug": "ottico-60-vista-augenpraxen-kliniken-brugg-ag",
       "slugByLocale": {
         "de": "augenoptiker-in-60-vista-brugg-ag",
-        "it": "augenoptiker-in-60-vista-brugg-ag",
+        "it": "ottico-60-vista-augenpraxen-kliniken-brugg-ag",
         "en": "augenoptiker-in-60-vista-brugg-ag",
         "fr": "augenoptiker-in-60-vista-brugg-ag"
       },
@@ -198,7 +198,7 @@
       "title": "Augenoptiker/-in 60%",
       "titleByLocale": {
         "de": "Augenoptiker/-in 60%",
-        "it": "Augenoptiker/-in 60%",
+        "it": "Ottico 60%",
         "en": "Augenoptiker/-in 60%",
         "fr": "Augenoptiker/-in 60%"
       },
@@ -251,7 +251,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:31:22.238Z"
+      "firstSeenAt": "2026-06-22T15:31:22.238Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "augenoptiker-in-60-vista-brugg-ag"
+        ]
+      },
+      "previousSlugs": [
+        "augenoptiker-in-60-vista-brugg-ag"
+      ]
     },
     {
       "id": "vista-96ed5f5f958c",

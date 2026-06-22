@@ -20,6 +20,7 @@ const unlockAchievement = (id: string) => {
 
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 const NewsletterPopup = lazyRetry(() => import('@/components/community/NewsletterPopup'));
+const FeatureSurvey = lazyRetry(() => import('@/components/community/FeatureSurvey'));
 const OfferwallNewsletterGate = lazyRetry(() => import('@/components/community/OfferwallNewsletterGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const NewsletterMount = lazyRetry(() => import('@/components/community/NewsletterMount'));
@@ -1758,7 +1759,14 @@ const App: React.FC = () => {
   *    churn during SPA navigation (AdSenseBanner.tsx:141).
   *  - Per-page `disableAutoAds` in build-plugins/htmlTemplate.ts is preserved
   *    for "drive-by" SEO landings where bounce ≥97% (F8/F6/F2). */}
- <div className={`app-shell-col ${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
+ {/* overflow-x-clip (not overflow-hidden): still clips horizontal overflow from
+     3rd-party widgets/auto-ads, but — unlike `hidden` — does NOT turn this into
+     a scroll container, so window-relative `position: sticky` keeps working for
+     the desktop side-rail ad chain below. `hidden` here silently broke every
+     sticky descendant (the rails went blank past the first screenful on long
+     articles). overflow-y stays visible (the min-h-screen column grows with
+     content, so nothing vertical was ever clipped). */}
+ <div className={`app-shell-col ${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-x-clip`}>
  {/* Skip-to-content: first focusable element so keyboard users — and browser
   * AI agents reading the accessibility tree — can bypass the nav/header chrome
   * and jump straight to <main id="main-content"> (WCAG 2.4.1 Bypass Blocks;
@@ -3420,6 +3428,7 @@ const App: React.FC = () => {
 
  <Suspense fallback={null}>
  <NewsletterPopup />
+ <FeatureSurvey />
  <OfferwallNewsletterGate />
  <NewsletterMount />
  {showWhatsNew && (

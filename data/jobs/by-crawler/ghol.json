@@ -854,10 +854,10 @@
     },
     {
       "id": "ghol-a45826bed7d3",
-      "slug": "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "segretaria-medica-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "segretaria-medica-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "de": "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
@@ -867,7 +867,7 @@
       "title": "Secrétaire médical.e",
       "titleByLocale": {
         "fr": "Secrétaire médical.e",
-        "it": "Secrétaire médical.e",
+        "it": "Segretaria medica.e",
         "en": "Secrétaire médical.e",
         "de": "Secrétaire médical.e"
       },
@@ -911,7 +911,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T14:17:55.716Z"
+      "firstSeenAt": "2026-06-22T14:17:55.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     }
   ]
 }

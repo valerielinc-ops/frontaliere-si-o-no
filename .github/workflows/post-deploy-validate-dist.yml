@@ -1,6 +1,8 @@
 name: Post-deploy Validate (dist)
 
-# Reusable workflow called from deploy.yml as the `validate-dist` job.
+# Reusable workflow called from deploy-publish.yml as the `validate-dist` job
+# (was deploy.yml before the build/publish split). Fetches the build run's
+# artifacts by `deploy_run_id` (cross-run from the workflow_run-triggered caller).
 # Runs in PARALLEL with `deploy` (the actual Pages publication), starting
 # as soon as the `build` job finishes uploading the `github-pages`
 # artifact. Everything here reads from `dist/` only — no live site
@@ -27,6 +29,11 @@ on:
         description: 'github.event_name from the caller. Used to gate Facebook/LinkedIn posting and live-meta wait to workflow_dispatch deploys (article publishing pipeline).'
         required: true
         type: string
+      deploy_ref:
+        description: 'Commit SHA of the build the artifacts came from. Pass when the caller runs at a different SHA than the build (e.g. deploy-publish.yml on workflow_run) so the validator scripts match the built code. Empty = checkout the caller default.'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   validate-dist:
@@ -35,8 +42,10 @@ jobs:
       actions: read     # for download-artifact same-run (github-pages, sitemaps)
       issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
     steps:
-      - name: Checkout (same SHA as deploy — invariant in workflow_call)
+      - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.deploy_ref }}
 
       # Reclaim ~25 GB of preinstalled SDKs we never use (dotnet, android,
       # haskell, CodeQL, powershell). Run 26287421188 OOM'd the runner mid
@@ -113,16 +122,17 @@ jobs:
       # Sequential layout: download → tar → run each validator one at a time
       # and emit a per-gate ✅/❌ row. Adds ~10-15s wall vs parallel but is
       # deterministic, easier to reason about, and avoids the race entirely.
-      # Same-run artifact download. `actions/download-artifact@v7` reads
-      # from the current run's artifact storage synchronously — no API
-      # propagation lag, no retry, no `gh run download --name` lookup
-      # quirks. This is the architectural payoff of unifying deploy +
-      # validate in one workflow.
+      # Artifact download keyed on `deploy_run_id` (the BUILD run that produced
+      # them). When the caller IS that run (deploy_run_id == github.run_id) this
+      # is a same-run read; when the caller is deploy-publish.yml (workflow_run),
+      # the same `run-id` + token fetches them cross-run from the build run.
       - name: Download GitHub Pages artifact
         uses: actions/download-artifact@v7
         with:
           name: github-pages
           path: /tmp/github-pages-artifact
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download pre-deploy sitemap snapshot (optional)
         uses: actions/download-artifact@v7
@@ -130,6 +140,8 @@ jobs:
         with:
           name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
           path: /tmp/pre-deploy-snapshot
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Master jobs.json artifact (uploaded by deploy.yml). The deploy
       # pipeline strips dist/data/jobs.json via jobsJsonDistCleanupPlugin
@@ -142,6 +154,8 @@ jobs:
         with:
           name: jobs-master-${{ inputs.deploy_run_id }}
           path: /tmp/jobs-master
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download previous-slug winners (optional)
         # The build job only uploads `winners-${RUN_ID}` when

@@ -683,8 +683,8 @@
       "slugByLocale": {
         "it": "phone-operator-union-bancaire-privee-geneva-switzerland",
         "en": "phone-operator-ubp-ch",
-        "de": "phone-operator-ubp-ch",
-        "fr": "phone-operator-ubp-ch"
+        "de": "telefonbetreiber-union-bancaire-privee-geneva-switzerland",
+        "fr": "phone-operateur-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -726,20 +726,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phone-operator-ubp-ch",
-        "telefonbetreiber-union-bancaire-privee-geneva-switzerland",
-        "phone-operateur-union-bancaire-privee-geneva-switzerland"
+        "phone-operator-ubp-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "phone-operator-ubp-ch"
         ],
         "de": [
-          "telefonbetreiber-union-bancaire-privee-geneva-switzerland",
           "phone-operator-ubp-ch"
         ],
         "fr": [
-          "phone-operateur-union-bancaire-privee-geneva-switzerland",
           "phone-operator-ubp-ch"
         ]
       },
@@ -2305,11 +2301,11 @@
     },
     {
       "id": "ubp-a98ca2f3d610",
-      "slug": "graduate-programme-investment-services-ubp-ch",
+      "slug": "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
       "slugByLocale": {
-        "it": "graduate-programme-investment-services-ubp-ch",
+        "it": "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
         "en": "graduate-programme-investment-services-ubp-ch",
-        "de": "graduate-programme-investment-services-ubp-ch",
+        "de": "graduiertenprogramm-investment-services-union-bancaire-privee-singapore-singapore",
         "fr": "graduate-programme-investment-services-union-bancaire-privee-singapore-singapore"
       },
       "company": "Union Bancaire Privée",
@@ -2352,16 +2348,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
-        "graduiertenprogramm-investment-services-union-bancaire-privee-singapore-singapore"
+        "graduate-programme-investment-services-ubp-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
           "graduate-programme-investment-services-ubp-ch"
         ],
         "de": [
-          "graduiertenprogramm-investment-services-union-bancaire-privee-singapore-singapore",
           "graduate-programme-investment-services-ubp-ch"
         ]
       },
@@ -3726,10 +3719,10 @@
     },
     {
       "id": "ubp-263a1040d857",
-      "slug": "contract-compliance-officer-ubp-ch",
+      "slug": "responsabile-della-conformita-contrattuale-union-bancaire-privee-hong-kong-hong-kong",
       "slugByLocale": {
         "en": "contract-compliance-officer-ubp-ch",
-        "it": "contract-compliance-officer-ubp-ch",
+        "it": "responsabile-della-conformita-contrattuale-union-bancaire-privee-hong-kong-hong-kong",
         "de": "contract-compliance-officer-ubp-ch",
         "fr": "contract-compliance-officer-union-bancaire-privee-hong-kong-hong-kong"
       },
@@ -3740,7 +3733,7 @@
       "titleByLocale": {
         "en": "Contract Compliance Officer",
         "fr": "Contract Compliance Officer",
-        "it": "Contract Compliance Officer",
+        "it": "Responsabile della Conformità Contrattuale",
         "de": "Contract Compliance Officer"
       },
       "description": "Role Overview:\n This person provides support to the Hong Kong Compliance team, handling the day-to-day spectrum of compliance activities for the Hong Kong branch, to ensure that the business operations adhere to the requirements of the Hong Kong Monetary Authority, Securities and Futures Commission, the Swiss Financial Market Supervisory Authority (FINMA), and all relevant compliance-related laws and regulations, including anti-money laundering/sanctions/countering of terrorist financing/ anti-bribery and corruption laws and regulations; as well as internal compliance policies and procedures.\n Responsibilities:\n\n• Assist the Head of Financial Crime to establish, review and update the AML related guidelines, policies and procedural manuals to ensure they are in line with Group and regulatory requirements.\n\n• Review and investigate transactions triggered by monitoring systems or escalated by front office or other monitoring parties for potential financial crime risks. Report suspicious transactions and escalate for management oversight timely to ensure adequate follow up actions and ongoing monitoring.\n\n• Monitor effective operation of AML tools and processes for transaction monitoring, client screening, payment screening and client risk assessment. Escalate issues for timely resolution and manage necessary remediation.\n\n• Conduct regular recalibration and tuning of parameters and drive enhancements for AML tools and systems.\n\n• Review escalated alerts stopped on payment screening system and escalate transactions potentially related to money laundering and sanctions.\n\n• Review alerts from ongoing client screening and manage the escalation of true hits for risk reclassification and monitoring follow up actions.\n\n• Trigger follow up actions and KYC updates upon irregularities noted from transaction monitoring or client screening.\n\n• Assist the Head of AML / Compliance in preparing internal AML training materials.\n\n• Prepare materials for periodic AML governance meetings.\n\n• Perform ad hoc tasks as assigned by Head of AML/Compliance from time to time.\n\n• Assist in audits and inspections, and investigations where required\n\n• Involvement in special work projects as and when required\n\n• Assist Head of Compliance, Hong Kong and the Compliance team in any other work matters.\n\nCompetencies:\n\n• Basic bachelor degree;\n\n• 5 – 8 years of relevant experience in general compliance and financial crime compliance, preferably in a Hong Kong private bank\n\n• A keen interest to learn and perform compliance matters;\n\n• Good interactive, communication and writing skills;\n\n• Able to provide alternative solutions to business;\n\n• Motivated and innovative; able to handle issues and resolve challenges in collaboration with colleagues;\n\n• Team player",
@@ -3787,7 +3780,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:11:29.003Z"
+      "firstSeenAt": "2026-06-22T15:11:29.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "contract-compliance-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "contract-compliance-officer-ubp-ch"
+      ]
     }
   ]
 }

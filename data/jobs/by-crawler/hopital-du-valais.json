@@ -1906,8 +1906,7 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
+          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion"
         ],
         "de": [
           "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
@@ -1988,8 +1987,7 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
+          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion"
         ],
         "de": [
           "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
@@ -3866,10 +3864,10 @@
     },
     {
       "id": "hopital-du-valais-81810de17c4a",
-      "slug": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
+      "slug": "infermiere-80-100-medicina-3-est-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
-        "it": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
+        "it": "infermiere-80-100-medicina-3-est-hopital-du-valais-visp",
         "en": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
         "fr": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
       },
@@ -3880,7 +3878,7 @@
       "titleByLocale": {
         "de": "Pflegefachperson 80-100%, Medizin 3 Ost",
         "en": "Pflegefachperson 80-100%, Medizin 3 Ost",
-        "it": "Pflegefachperson 80-100%, Medizin 3 Ost",
+        "it": "Infermiere 80-100%, Medicina 3 Est",
         "fr": "Pflegefachperson 80-100%, Medizin 3 Ost"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Bettenstation Medizin 3 Ost eine:\n\nPflegefachperson 80-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Teilnahme am kontinuierlichen Veränderungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Hohe Fach- und Sozialkompetenz\n\n• Wertschätzung im Umgang mit den Patienten\n\n• Initiative, belastbare Persönlichkeit mit ausgeprägtem Organisationstalent\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
@@ -3929,14 +3927,22 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-22T14:16:19.086Z"
+      "firstSeenAt": "2026-06-22T14:16:19.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-3b36c26f4331",
-      "slug": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
+      "slug": "infermiere-40-100-medicina-3-ovest-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
-        "it": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
+        "it": "infermiere-40-100-medicina-3-ovest-hopital-du-valais-visp",
         "en": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
         "fr": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
       },
@@ -3947,7 +3953,7 @@
       "titleByLocale": {
         "de": "Pflegefachperson 40-100%, Medizin 3 West",
         "en": "Pflegefachperson 40-100%, Medizin 3 West",
-        "it": "Pflegefachperson 40-100%, Medizin 3 West",
+        "it": "Infermiere 40-100%, Medicina 3 ovest",
         "fr": "Pflegefachperson 40-100%, Medizin 3 West"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Bettenstation Medizin 3 West eine:\n\nPflegefachperson 40-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Teilnahme am kontinuierlichen Veränderungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Hohe Fach- und Sozialkompetenz\n\n• Wertschätzung im Umgang mit den Patienten\n\n• Initiative, belastbare Persönlichkeit mit ausgeprägtem Organisationstalent\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
@@ -3996,14 +4002,22 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-22T14:16:18.727Z"
+      "firstSeenAt": "2026-06-22T14:16:18.727Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-067c516f98d3",
-      "slug": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion",
+      "slug": "farmacisti-nel-settore-produttivo-dal-40-all-80-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion",
-        "it": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion",
+        "it": "farmacisti-nel-settore-produttivo-dal-40-all-80-hopital-du-valais-sion",
         "en": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion",
         "de": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion"
       },
@@ -4013,7 +4027,7 @@
       "title": "Pharmaciens-nes dans le secteur de production de 40% à 80%",
       "titleByLocale": {
         "fr": "Pharmaciens-nes dans le secteur de production de 40% à 80%",
-        "it": "Pharmaciens-nes dans le secteur de production de 40% à 80%",
+        "it": "Farmacisti nel settore produttivo dal 40% all'80%",
         "en": "Pharmaciens-nes dans le secteur de production de 40% à 80%",
         "de": "Pharmaciens-nes dans le secteur de production de 40% à 80%"
       },
@@ -4063,14 +4077,22 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-22T14:16:18.385Z"
+      "firstSeenAt": "2026-06-22T14:16:18.385Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-ac27c4f2def3",
-      "slug": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion",
+      "slug": "medico-primario-di-clinica-80-100-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion",
-        "it": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion",
+        "it": "medico-primario-di-clinica-80-100-hopital-du-valais-sion",
         "en": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion",
         "de": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion"
       },
@@ -4080,7 +4102,7 @@
       "title": "Médecin chef-fe de clinique (80-100 %)",
       "titleByLocale": {
         "fr": "Médecin chef-fe de clinique (80-100 %)",
-        "it": "Médecin chef-fe de clinique (80-100 %)",
+        "it": "Medico primario di clinica (80-100%)",
         "en": "Médecin chef-fe de clinique (80-100 %)",
         "de": "Médecin chef-fe de clinique (80-100 %)"
       },
@@ -4130,7 +4152,15 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-22T14:16:18.024Z"
+      "firstSeenAt": "2026-06-22T14:16:18.024Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion"
+      ]
     }
   ]
 }

@@ -13,9 +13,12 @@ name: Lighthouse CI
 # DEPLOYED site, so it only makes sense to run it AFTER a deploy has propagated
 # — never on a PR (the PR build is never live; a pre-merge run just re-measures
 # already-deployed prod). Triggers:
-#   - workflow_run on "Deploy to GitHub Pages" completed → runs only when that
-#     deploy concluded `success` (deploy.yml's validate-live job already waits
-#     for the new build-id to go live, so prod reflects this deploy).
+#   - workflow_run on "Publish to GitHub Pages (deploy + validate)" completed →
+#     runs only when that publish concluded `success` (its validate-live job
+#     waits for the new build-id to go live, so prod reflects this deploy). The
+#     build/publish split moved deploy+validate out of "Deploy to GitHub Pages"
+#     (now build-only) into deploy-publish.yml, so we key on the publish run —
+#     keying on the build run would audit prod BEFORE the new dist went live.
 #   - workflow_dispatch for manual re-runs.
 #
 # Outcome handling (the audit stays NON-blocking — there is nothing to block
@@ -28,7 +31,7 @@ name: Lighthouse CI
 
 on:
   workflow_run:
-    workflows: ["Deploy to GitHub Pages"]
+    workflows: ["Publish to GitHub Pages (deploy + validate)"]
     types: [completed]
   workflow_dispatch:
 

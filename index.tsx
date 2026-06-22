@@ -82,7 +82,7 @@ const mountApp = async () => {
  mounted = true;
 
  const homeCritical = isHomeCriticalPath(window.location.pathname);
- const staticPage = hasStaticContent();
+ let staticPage = hasStaticContent();
 
  const [{ default: App }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
  import('./App'),
@@ -102,6 +102,37 @@ const mountApp = async () => {
 
  if (homeCritical && i18n) {
  await i18n.itReady;
+ }
+
+ // CLS handoff fix: SPA-takeover pages (router staticOverlay=false — job detail,
+ // search, …) emit their crawler fallback <main class="seo-static-content"> as a
+ // sibling OUTSIDE #root, which paints at SSG time then App.tsx hides post-
+ // hydration — collapsing ~800px and jumping the footer (live desktop CLS ~0.2
+ // job detail, up to ~0.9 thin search). MOVE the fallback into #root so React+s
+ // createRoot().render() replaces it IN-PLACE (reusing the reserve+crossfade
+ // below) instead of an external collapse. parsePath is dynamic-imported (NOT a
+ // static entry import) so router+s heavy route registries stay out of the entry
+ // chunk — it is already loaded with App above, so this resolves from cache.
+ // Gated on staticOverlay so true static landings keep their overlay; crawlers
+ // (no JS) still get the fallback verbatim.
+ let movedTallFallback = false;
+ try {
+   const { parsePath } = await import('./services/router');
+   if (!parsePath(window.location.pathname).route.staticOverlay) {
+     const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
+     if (fallback && !rootElement.contains(fallback)) {
+       const railWrap = fallback.closest<HTMLElement>('.ft-rail-grid');
+       fallback.style.removeProperty('display');
+       rootElement.appendChild(fallback);
+       if (railWrap) railWrap.style.display = 'none';
+       staticPage = hasStaticContent();
+       // Tall fallback (e.g. the search index): its SPA view fills progressively,
+       // so hold the #root floor until it catches up rather than releasing early.
+       movedTallFallback = fallback.offsetHeight > window.innerHeight;
+     }
+   }
+ } catch {
+   /* router/DOM edge case — fall through to existing handling */
  }
 
  if (staticPage) {
@@ -164,13 +195,29 @@ const mountApp = async () => {
  // Safety timeout: if transitionend doesn't fire (prefers-reduced-motion,
  // DOM removal, browser quirk) the minHeight floor would persist for the
  // whole SPA session, pushing AdSense units off-viewport on shorter pages.
- const t = setTimeout(() => { rootElement.style.minHeight = ''; }, 200);
- rootElement.addEventListener('transitionend', () => {
- clearTimeout(t);
- rootElement.style.transition = '';
- rootElement.style.opacity = '';
- rootElement.style.minHeight = '';
- }, { once: true });
+ const clearFade = () => { rootElement.style.transition = ''; rootElement.style.opacity = ''; };
+ if (movedTallFallback) {
+   // SPA-takeover page whose moved fallback is taller than the viewport (the
+   // search index): its React view fills progressively, so releasing the #root
+   // floor at first paint lets the footer bounce UP while the list renders.
+   // Hold the floor until #root content REACHES the reserved height (list
+   // done) — or a 4s cap so a permanently-shorter render can't keep the floor
+   // for the whole session (the AdSense-off-viewport hazard the simple path guards).
+   rootElement.addEventListener('transitionend', clearFade, { once: true });
+   let released = false;
+   const release = () => { if (!released) { released = true; rootElement.style.minHeight = ''; ro.disconnect(); } };
+   const reserved = parseInt(rootElement.style.minHeight, 10) || 0;
+   const ro = new ResizeObserver(() => { if (rootElement.scrollHeight >= reserved - 4) release(); });
+   ro.observe(rootElement);
+   setTimeout(release, 4000);
+ } else {
+   const t = setTimeout(() => { rootElement.style.minHeight = ''; }, 200);
+   rootElement.addEventListener('transitionend', () => {
+     clearTimeout(t);
+     clearFade();
+     rootElement.style.minHeight = '';
+   }, { once: true });
+ }
  }
 
  document.getElementById('loading-shell')?.remove();

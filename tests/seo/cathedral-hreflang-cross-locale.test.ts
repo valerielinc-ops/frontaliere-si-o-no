@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { isBridgePageHtml } from './_bridgeMarker';
+import { isArchivedStubHtml, isCrossSectionCanonical } from './_bridgeMarker';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
@@ -15,22 +15,29 @@ describe('hreflang round-trip non-TI canton (P3-B)', () => {
       .readdirSync(zhDir, { withFileTypes: true })
       .filter((e) => e.isDirectory())
       .map((e) => e.name);
-    // Sample a REAL ZH job page, not a cf-hot-404 / canton-orphan bridge: those
-    // legitimately live under this same dir, are noindex, and carry no hreflang
-    // alternates — sampling one would fail the round-trip assertion below for a
-    // page that is not supposed to have hreflang at all.
+    // Sample a REAL, indexable ZH job page — skip archived stubs that
+    // legitimately live under this same dir: cf-hot-404 / canton-orphan bridges
+    // (noindex, no hreflang) AND the full-content but noindex IT canton-drift
+    // relocation copies (#2661/#2676), which carry the SOURCE canton's hreflang
+    // and would fail the ZH round-trip assertion below for a page not meant to
+    // resolve under ZH at all. See isArchivedStubHtml.
     let sample: string | undefined;
     let html = '';
     for (const s of slugs) {
       const f = path.join(zhDir, s, 'index.html');
       if (!fs.existsSync(f)) continue;
       const candidate = fs.readFileSync(f, 'utf8');
-      if (isBridgePageHtml(candidate)) continue;
+      if (isArchivedStubHtml(candidate)) continue;
+      // Also skip canton-drift relocation copies that escaped the noindex
+      // marker: a page whose rel=canonical points outside this ZH section is a
+      // TI/other-canton orphan carrying the SOURCE canton's hreflang, not a real
+      // ZH-canonical page (validate-dist flake #2679).
+      if (isCrossSectionCanonical(candidate, 'cerca-lavoro-zurigo')) continue;
       sample = s;
       html = candidate;
       break;
     }
-    if (!sample) return;
+    expect(sample, 'sampler exhausted — no real indexable ZH page found under cerca-lavoro-zurigo').toBeDefined();
     // Quote-flexible: scripts/dist-shrink.mjs strips attribute quotes.
     // `hreflang="en" href="…"` is DOM-equivalent to `hreflang=en href=…`.
     expect(html, 'EN alt missing').toMatch(

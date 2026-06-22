@@ -79,12 +79,12 @@
     },
     {
       "id": "mobiliar-3d41d8256c07",
-      "slug": "quality-architect-w-m-d-mobiliar-ch",
+      "slug": "quality-architetto-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "quality-architect-w-m-d-mobiliar-ch",
+        "it": "quality-architetto-w-m-d-die-mobiliar-bern",
         "en": "quality-architect-w-m-d-die-mobiliar-bern",
         "de": "quality-architect-w-m-d-mobiliar-ch",
-        "fr": "quality-architect-w-m-d-mobiliar-ch"
+        "fr": "qualite-architecte-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -141,8 +141,7 @@
       "sfJobId": "1164803555",
       "previousSlugs": [
         "architetto-di-qualita-m-d-die-mobiliar-bern",
-        "quality-architetto-w-m-d-die-mobiliar-bern",
-        "qualite-architecte-w-m-d-die-mobiliar-bern",
+        "quality-architect-w-m-d-mobiliar-ch",
         "master-di-qualita-w-m-d-die-mobiliar-bern",
         "quality-master-w-m-d-die-mobiliar-bern",
         "quality-master-w-m-d-mobiliar-ch",
@@ -151,11 +150,9 @@
       "previousSlugsByLocale": {
         "it": [
           "architetto-di-qualita-m-d-die-mobiliar-bern",
-          "quality-architetto-w-m-d-die-mobiliar-bern",
           "quality-architect-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "qualite-architecte-w-m-d-die-mobiliar-bern",
           "quality-architect-w-m-d-mobiliar-ch"
         ]
       },
@@ -258,12 +255,12 @@
     },
     {
       "id": "mobiliar-0bd9b00a6bec",
-      "slug": "it-security-architect-w-m-d-mobiliar-ch",
+      "slug": "it-security-architetto-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "it-security-architect-w-m-d-mobiliar-ch",
-        "it": "it-security-architect-w-m-d-mobiliar-ch",
+        "it": "it-security-architetto-w-m-d-die-mobiliar-bern",
         "en": "it-security-architect-w-m-d-mobiliar-ch",
-        "fr": "it-security-architect-w-m-d-mobiliar-ch"
+        "fr": "it-security-architecte-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -341,7 +338,18 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-22T15:11:09.751Z"
+      "firstSeenAt": "2026-06-22T15:11:09.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-security-architect-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "it-security-architect-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-security-architect-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-44461ee6d30a",
@@ -445,7 +453,7 @@
       "titleByLocale": {
         "de": "Data Scientist (w/m/d)",
         "en": "Data Scientist (w/m/d)",
-        "it": "Data Scientist (w/m/d)",
+        "it": "Data Scientist (f/m/d)",
         "fr": "Data Scientist (w/m/d)"
       },
       "description": "Das erwartet dich:\nIn dieser Stelle bist du Teil eines interdisziplinären Scrum-Teams und entwickelst KI-Lösungen von der Idee bis in den produktiven Betrieb. Dabei verbindest du klassische Methoden mit modernen generativen KI-Ansätzen und bist Teil einer aktiven Data-Science-Community.\n\nDas bewirkst du bei uns:\nDu entwickelst datenbasierte Produkte und KI-Lösungen mit direktem Mehrwert für das Versicherungsgeschaeft. Gemeinsam mit internen Stakeholdern identifizierst du relevante Use Cases, beurteilst deren Machbarkeit und übersetzt fachliche Anforderungen in nachhaltige technische Lösungen.\n\nAls Versicherung verfügen wir über grosse Mengen an unstrukturierten Daten in unterschiedlichsten Dokumenten. Diese Informationen sind für uns sehr wertvoll, heute jedoch oft nur mit manuellem Aufwand nutzbar. Als Teil des agilen Input-Management-Teams fokussierst du dich darauf, diese Daten effizient zu erschliessen und in die Prozesse zu integrieren. Damit reduzierst oder eliminierst du manuelle Prozessschritte und verkürzt Durchlaufzeiten spürbar.\n\nGleichzeitig schaffst du die Grundlage für neue KI-Anwendungen, indem du strukturierte und qualitativ hochwertige Daten bereitstellst. Dabei setzt du moderne Methoden ein, insbesondere Large Language Models, und bringst diese zuverlässig in die Produktion. Durch geeignete Evaluation und Monitoring stellst du Qualität, Stabilität und Weiterentwicklung im Betrieb sicher. Mit deinem Know-how treibst du die Weiterentwicklung unserer KI- und Data-Science-Landschaft aktiv voran und gestaltest Architektur, Tools und Arbeitsweisen mit. Als lösungsorientierte:r Teamplayer:in arbeitest du eng mit Fach- und IT-Bereichen zusammen und unterstützt Veränderungen proaktiv.\n\nDas bringst du mit:\n•\n Abgeschlossenes Masterstudium (Uni/ETH, FH, HF) in einem quantitativen Fachgebiet\n\n•\n Mehrjährige praktische Erfahrung in der Entwicklung und Produktivsetzung von Data-Science-Lösungen\n\n•\n Fundierte Kenntnisse in Deep Learning, Transfer Learning und im Einsatz von Large Language Models z.B. RAG\n\n• Qualitätsorientierte Arbeitsweise entlang von DevOps-, MLOps- und LLMOps-Prinzipien\n\n•\n Sehr gute Programmierkenntnisse in Python sowie sehr sicherer Umgang mit Git\n\n•\n Vertrautheit mit automatisiertem Testen sowie CI/CD\n\n•\n Erfahrung mit Cloud-Plattformen und -Frameworks, idealerweise Azure\n\n•\n Teamorientierte, lösungsorientierte Persönlichkeit mit Neugier für neue Technologien\n\n•\n Freude daran, Wissen zu teilen und andere für Daten und KI zu begeistern\n\n•\n Fliessendes Deutsch sowie gute Englischkenntnisse, Französisch von Vorteil\n\nBei uns arbeiten:\nDich erwartet ein moderner Daten- & Analytik-Bereich, der die Entwicklung und Skalierung von KI innerhalb der Mobiliar aktiv vorantreibt. Wir arbeiten offen, kollaborativ und experimentierfreudig und bieten Raum für Eigeninitiative und neue Ideen. Das Team arbeitet in Bern und Zürich, eine gewisse Reisebereitschaft gehört dazu.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
@@ -1051,9 +1059,9 @@
       "slug": "jurist-wohnen-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
+        "en": "projektmanagement-m-d-die-mobiliar-bern",
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
+        "fr": "juriste-wohnen-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1112,9 +1120,7 @@
       "sfJobId": "1164779155",
       "previousSlugs": [
         "jurist-wohnen-w-m-d-mobiliar-ch",
-        "projektmanagement-m-d-die-mobiliar-bern-489f62",
-        "projektmanagement-m-d-die-mobiliar-bern",
-        "juriste-wohnen-m-j-die-mobiliar-bern"
+        "projektmanagement-m-d-die-mobiliar-bern-489f62"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1122,11 +1128,9 @@
         ],
         "en": [
           "projektmanagement-m-d-die-mobiliar-bern-489f62",
-          "projektmanagement-m-d-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "juriste-wohnen-m-j-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },

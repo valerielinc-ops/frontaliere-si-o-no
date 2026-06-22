@@ -616,10 +616,10 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-4df22cba14f2",
-      "slug": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "infermiere-dipl-sss-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "infermiere-dipl-sss-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       },
@@ -630,7 +630,7 @@
       "titleByLocale": {
         "de": "Dipl. Pflegefachperson HF (m/w/d)",
         "en": "Dipl. Pflegefachperson HF (m/w/d)",
-        "it": "Dipl. Pflegefachperson HF (m/w/d)",
+        "it": "Infermiere dipl. SSS (m/f/d)",
         "fr": "Dipl. Pflegefachperson HF (m/w/d)"
       },
       "description": "Du sorgst auf der Notfallstation für eine hochwertige Betreuung und betreust in der Aufnahmeklinik prä- und postoperative Patient:innen sowie Infusionstherapien.\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
@@ -677,7 +677,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T14:24:33.939Z"
+      "firstSeenAt": "2026-06-22T14:24:33.939Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     }
   ]
 }

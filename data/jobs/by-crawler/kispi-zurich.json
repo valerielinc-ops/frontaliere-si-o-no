@@ -467,10 +467,10 @@
     },
     {
       "id": "kispi-zurich-4e83e14e0e49",
-      "slug": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+      "slug": "formatrice-infermieristica-m-f-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "it": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "it": "formatrice-infermieristica-m-f-universitats-kinderspital-zurich-kispi-zurich",
         "en": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
         "fr": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
       },
@@ -480,7 +480,7 @@
       "title": "Berufsbildnerin Pflege (m/w)",
       "titleByLocale": {
         "de": "Berufsbildnerin Pflege (m/w)",
-        "it": "Berufsbildnerin Pflege (m/w)",
+        "it": "Formatrice infermieristica (m/f)",
         "en": "Berufsbildnerin Pflege (m/w)",
         "fr": "Berufsbildnerin Pflege (m/w)"
       },
@@ -528,7 +528,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T14:44:21.273Z"
+      "firstSeenAt": "2026-06-22T14:44:21.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-e620b36f36c0",

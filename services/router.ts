@@ -622,6 +622,14 @@ export interface AppRoute {
  /** Job detail slug under job-board route (e.g. /cerca-lavoro-ticino/software-engineer-...). */
  jobSlug?: string;
  /**
+  * Company key path segment for the private per-company insights page
+  * (`/azienda/<companyKey>/?t=<token>`). Carried in the route so locale-boot
+  * canonicalization (updatePathForLocale, pushRoute) reconstructs the segment
+  * instead of collapsing the URL to the empty-key `/azienda/` — which made the
+  * page read an empty key and render "Link non valido o scaduto".
+  */
+ companyKey?: string;
+ /**
   * Canonical geo-hub key when the URL matches a city-hub path
   * (e.g. /cerca-lavoro-ticino/lugano/ → `jobBoardCity: 'lugano'`).
   * When set, {@link jobSlug} is also populated with the corresponding
@@ -2242,7 +2250,7 @@ export function parsePath(pathname: string): ParseResult {
  // not in site nav. The companyKey is a path segment; EmployerInsightsPage reads
  // it + the token itself. Any non-empty second segment is a valid company key.
  if (parts[0] === 'azienda' && parts[1]) {
-   return { route: { activeTab: 'employer-insights' }, locale };
+   return { route: { activeTab: 'employer-insights', companyKey: decodeURIComponent(parts[1]) }, locale };
  }
 
  // Fuel-daily static SEO pages (F6) — /prezzi-diesel/oggi/, /en/diesel-price-switzerland/today/, etc.
@@ -3369,9 +3377,11 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.forEmployers}${hashSuffix}`);
  case 'employer-insights':
  // Per-company stats page; the real per-company link (with ?t=token) is
- // generated server-side (scripts/lib/employer-insights-token.mjs). buildPath
- // only needs the base for exhaustiveness/soft-nav.
- return finish(`${prefix}/azienda/${hashSuffix}`);
+ // generated server-side (scripts/lib/employer-insights-token.mjs). The
+ // companyKey segment MUST be re-emitted so locale-boot canonicalization
+ // (updatePathForLocale → buildPath) doesn't collapse the URL to the
+ // empty-key `/azienda/` and break the token-gated read.
+ return finish(`${prefix}/azienda/${route.companyKey ? `${encodeURIComponent(route.companyKey)}/` : ''}${hashSuffix}`);
  case 'partners':
  return finish(`${prefix}/${table.partners}${hashSuffix}`);
  case 'consulting':

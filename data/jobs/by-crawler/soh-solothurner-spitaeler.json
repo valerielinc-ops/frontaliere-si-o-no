@@ -2492,9 +2492,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten",
+        "en": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-olten",
         "de": "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch",
-        "fr": "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
+        "fr": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -2580,9 +2580,11 @@
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-olten",
         "radiology-technician-male-female-solothurner-spitaler-ag-soh-olten",
         "radiology-technician-m-f-solothurner-spitaler-soh-olten",
+        "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
         "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten",
-        "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten"
+        "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten",
+        "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
       ],
       "firstSeenAt": "2026-05-19T13:04:13.041Z",
       "salaryMin": 62000,
@@ -6384,10 +6386,10 @@
       "id": "soh-solothurner-spitaeler-e7154d14024a",
       "slug": "ergoterapista-ergoterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "ergoterapista-ergoterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
+        "it": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-        "fr": "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
+        "fr": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -6453,17 +6455,15 @@
           "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "it": [
-          "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+          "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
           "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:46.224Z",
       "salaryMin": 62000,
@@ -8063,9 +8063,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-dornach",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-dornach",
-        "en": "radiology-technician-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-dornach",
         "de": "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch",
-        "fr": "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-solothurn"
+        "fr": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -8153,8 +8153,10 @@
         "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "radiology-specialist-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "radiology-technician-m-f-d-solothurner-spitaler-soh-dornach",
+        "radiology-technician-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "specialiste-en-radiologie-h-f-solothurner-spitaler-ag-soh-solothurn",
-        "technicien-en-radiologie-h-f-solothurner-spitaler-soh-dornach"
+        "technicien-en-radiologie-h-f-solothurner-spitaler-soh-dornach",
+        "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:33.231Z",
       "salaryMin": 62000,
@@ -8174,10 +8176,10 @@
       "id": "soh-solothurner-spitaeler-c653eb28ba3d",
       "slug": "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
-        "fr": "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
+        "fr": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -8245,17 +8247,15 @@
           "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn"
         ],
         "it": [
-          "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn",
-          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
+          "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
           "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn",
-        "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:32.618Z",
       "salaryMin": 62000,
@@ -8359,10 +8359,10 @@
       "id": "soh-solothurner-spitaeler-55528212cfed",
       "slug": "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
+        "it": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
-        "fr": "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
+        "fr": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -8432,17 +8432,15 @@
           "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "it": [
-          "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+          "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
           "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:30.374Z",
       "salaryMin": 62000,
@@ -10209,8 +10207,7 @@
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-solothurner-spitaeler",
-          "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch"
+          "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "en": [
           "radiology-specialist-w-m-d-solothurner-spitaler-ag-soh-solothurn"
@@ -10694,9 +10691,9 @@
       "slug": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "it": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn",
-        "en": "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten",
+        "en": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch",
-        "fr": "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten"
+        "fr": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -10767,7 +10764,9 @@
         "consulente-senior-m-d-solothurner-spitaler-ag-soh-olten",
         "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "senior-consultant-m-d-solothurner-spitaler-soh-solothurn",
-        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn"
+        "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten",
+        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn",
+        "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten"
       ],
       "firstSeenAt": "2026-05-21T13:16:26.167Z",
       "salaryMin": 85500,
@@ -10788,9 +10787,9 @@
       "slug": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten",
+        "en": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
         "de": "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch",
-        "fr": "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten"
+        "fr": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -10855,9 +10854,11 @@
         "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten-bcc53f",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten",
+        "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten-bcc53f",
         "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-8c3c55",
-        "consultant-principal-m-j-solothurner-spitaler-soh-olten"
+        "consultant-principal-m-j-solothurner-spitaler-soh-olten",
+        "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten"
       ],
       "firstSeenAt": "2026-05-22T23:29:50.696Z",
       "salaryMin": 85500,
@@ -11160,8 +11161,7 @@
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-solothurner-spitaler-ag-soh-olten",
           "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-ag-soh-olten",
-          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-ag-soh-olten",
-          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
+          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-solothurner-spitaeler"
@@ -11482,8 +11482,7 @@
         ],
         "fr": [
           "comptabilite-des-controleurs-superieurs-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-          "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-          "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
+          "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-06-01T16:07:15.035Z",
@@ -12701,10 +12700,10 @@
     },
     {
       "id": "soh-solothurner-spitaeler-f2c234896148",
-      "slug": "op-disponentin-op-disponent-m-w-d-solothurner-spitaler-ag-soh-dornach",
+      "slug": "operatore-or-f-m-d-solothurner-spitaler-ag-soh-dornach",
       "slugByLocale": {
         "de": "op-disponentin-op-disponent-w-m-d-soh-solothurner-spitaeler-dornach",
-        "it": "op-disponentin-op-disponent-m-w-d-solothurner-spitaler-ag-soh-dornach",
+        "it": "operatore-or-f-m-d-solothurner-spitaler-ag-soh-dornach",
         "en": "op-disponentin-op-disponent-w-m-d-soh-solothurner-spitaeler-dornach",
         "fr": "op-disponentin-op-disponent-w-m-d-soh-solothurner-spitaeler-dornach"
       },
@@ -12714,7 +12713,7 @@
       "title": "OP-Disponentin / OP-Disponent (w/m/d)",
       "titleByLocale": {
         "de": "OP-Disponentin / OP-Disponent (w/m/d)",
-        "it": "OP-Disponentin / OP-Disponent (w/m/d)",
+        "it": "Operatore OR (f/m/d)",
         "en": "OP-Disponentin / OP-Disponent (w/m/d)",
         "fr": "OP-Disponentin / OP-Disponent (w/m/d)"
       },
@@ -12752,11 +12751,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "op-disponentin-op-disponent-w-m-d-soh-solothurner-spitaeler-dornach"
+          "op-disponentin-op-disponent-w-m-d-soh-solothurner-spitaeler-dornach",
+          "op-disponentin-op-disponent-m-w-d-solothurner-spitaler-ag-soh-dornach"
         ]
       },
       "previousSlugs": [
-        "op-disponentin-op-disponent-w-m-d-soh-solothurner-spitaeler-dornach"
+        "op-disponentin-op-disponent-w-m-d-soh-solothurner-spitaeler-dornach",
+        "op-disponentin-op-disponent-m-w-d-solothurner-spitaler-ag-soh-dornach"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

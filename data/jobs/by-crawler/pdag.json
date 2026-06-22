@@ -4687,7 +4687,7 @@
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -4731,7 +4731,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch-2",
-        "ergotherapeutin-ergotherapeut-pdag-windisch"
+        "ergotherapeutin-ergotherapeut-pdag-windisch",
+        "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4739,7 +4740,6 @@
           "ergotherapeutin-ergotherapeut-pdag-windisch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-pdag-windisch-2",
           "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
@@ -5790,10 +5790,10 @@
     },
     {
       "id": "pdag-24704bec830d",
-      "slug": "leitung-fachentwicklung-pflege-sozialpadagogik-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "capo-del-dipartimento-di-sviluppo-specialistico-in-infermieristica-e-pedagogia-sociale-psychiatrische-dienste-aargau",
       "slugByLocale": {
         "de": "leitung-fachentwicklung-pflege-amp-sozialpadagogik-pdag-windisch",
-        "it": "leitung-fachentwicklung-pflege-sozialpadagogik-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "capo-del-dipartimento-di-sviluppo-specialistico-in-infermieristica-e-pedagogia-sociale-psychiatrische-dienste-aargau",
         "en": "leitung-fachentwicklung-pflege-sozialpadagogik-psychiatrische-dienste-aargau-pdag-windisch",
         "fr": "leitung-fachentwicklung-pflege-sozialpadagogik-psychiatrische-dienste-aargau-pdag-windisch"
       },
@@ -5803,7 +5803,7 @@
       "title": "Leitung Fachentwicklung Pflege & Sozialpädagogik",
       "titleByLocale": {
         "de": "Leitung Fachentwicklung Pflege & Sozialpädagogik",
-        "it": "Leitung Fachentwicklung Pflege & Sozialpädagogik",
+        "it": "Capo del Dipartimento di Sviluppo Specialistico in Infermieristica e Pedagogia Sociale",
         "en": "Leitung Fachentwicklung Pflege & Sozialpädagogik",
         "fr": "Leitung Fachentwicklung Pflege & Sozialpädagogik"
       },
@@ -5841,11 +5841,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leitung-fachentwicklung-pflege-amp-sozialpadagogik-pdag-windisch"
+          "leitung-fachentwicklung-pflege-amp-sozialpadagogik-pdag-windisch",
+          "leitung-fachentwicklung-pflege-sozialpadagogik-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "leitung-fachentwicklung-pflege-amp-sozialpadagogik-pdag-windisch"
+        "leitung-fachentwicklung-pflege-amp-sozialpadagogik-pdag-windisch",
+        "leitung-fachentwicklung-pflege-sozialpadagogik-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

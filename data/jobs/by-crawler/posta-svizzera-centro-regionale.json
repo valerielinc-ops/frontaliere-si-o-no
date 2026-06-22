@@ -19,7 +19,7 @@
         "fr": "Stehst du gerne früh auf und geniesst es, selbstständig auf der Strasse unterwegs zu sein? Dann bist du bei uns genau richtig!"
       },
       "titleByLocale": {
-        "it": "Zusteller:in Pakete",
+        "it": "Corriere pacchi",
         "de": "Zusteller:in Pakete",
         "en": "Zusteller:in Pakete",
         "fr": "Zusteller:in Pakete"
@@ -97,9 +97,9 @@
         "en": "Zusteller:in Briefe und Pakete",
         "fr": "Zusteller:in Briefe und Pakete"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gumligen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gumligen",
         "en": "zusteller-in-briefe-und-pakete-post",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "zusteller-in-briefe-und-pakete-post"
@@ -139,7 +139,15 @@
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-06-22T15:16:16.205Z"
+      "firstSeenAt": "2026-06-22T15:16:16.205Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Stv_-Leiterin-Distributionsgebiet-%28Entwicklungsprogramm-Avanti%29/73785-de_DE",
@@ -293,9 +301,9 @@
         "en": "Zusteller:in Briefe und Pakete",
         "fr": "Zusteller:in Briefe und Pakete"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
         "en": "zusteller-in-briefe-und-pakete-post-2",
         "de": "zusteller-in-briefe-und-pakete-post-2",
         "fr": "zusteller-in-briefe-und-pakete-post-2"
@@ -319,11 +327,13 @@
       "id": "posta-svizzera-centro-regionale-7deddf12aeb4",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6975,14 +6985,14 @@
         "fr": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
-        "it": "Apprentissage d'employé-e de commerce CFC, Services et administration - Berne (francophone)",
+        "it": "Apprendistato Commerciale EFZ, Servizi e Amministrazione - Berna (francofono)",
         "fr": "Apprentissage d'employé-e de commerce CFC, Services et administration - Berne (francophone)",
         "en": "Apprentissage d'employé-e de commerce CFC, Services et administration - Berne (francophone)",
         "de": "Apprentissage d'employé-e de commerce CFC, Services et administration - Berne (francophone)"
       },
-      "slug": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post",
+      "slug": "apprendistato-commerciale-efz-servizi-e-amministrazione-berna-francofono-la-poste-suisse-bienne",
       "slugByLocale": {
-        "it": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post",
+        "it": "apprendistato-commerciale-efz-servizi-e-amministrazione-berna-francofono-la-poste-suisse-bienne",
         "en": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post",
         "de": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post",
         "fr": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-la-poste-suisse-bienne"
@@ -7021,7 +7031,15 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-22T15:16:16.205Z"
+      "firstSeenAt": "2026-06-22T15:16:16.205Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-CDD-6-mois%2C-Aubonne%2CGimel/74056-fr_FR",

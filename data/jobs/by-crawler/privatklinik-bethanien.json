@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "privatklinik-bethanien-36a526295d7c",
-      "slug": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
+      "slug": "posizionamento-della-sala-operatoria-dell-infermiera-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "de": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-        "it": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
+        "it": "posizionamento-della-sala-operatoria-dell-infermiera-privatklinik-bethanien-zurich",
         "en": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
         "fr": "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
       },
@@ -17,7 +17,7 @@
       "title": "Lagerungspfleger/-in Operationssaal",
       "titleByLocale": {
         "de": "Lagerungspfleger/-in Operationssaal",
-        "it": "Lagerungspfleger/-in Operationssaal",
+        "it": "Posizionamento della sala operatoria dell'infermiera",
         "en": "Lagerungspfleger/-in Operationssaal",
         "fr": "Lagerungspfleger/-in Operationssaal"
       },
@@ -66,7 +66,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:19:52.562Z"
+      "firstSeenAt": "2026-06-22T15:19:52.562Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ]
+      },
+      "previousSlugs": [
+        "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+      ]
     },
     {
       "id": "privatklinik-bethanien-017ee59e789f",

@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "stadler-rail-8aa4f06b29fb",
-      "slug": "lackierer-in-stadler-rail-ch",
+      "slug": "pittore-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "lackierer-in-stadler-rail-ch",
-        "it": "lackierer-in-stadler-rail-ch",
+        "it": "pittore-stadler-rail-bussnang",
         "en": "lackierer-in-stadler-rail-ch",
         "fr": "lackierer-in-stadler-rail-ch"
       },
@@ -17,7 +17,7 @@
       "title": "Lackierer:in",
       "titleByLocale": {
         "de": "Lackierer:in",
-        "it": "Lackierer:in",
+        "it": "Pittore",
         "en": "Lackierer:in",
         "fr": "Lackierer:in"
       },
@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:07:01.325Z"
+      "firstSeenAt": "2026-06-22T15:07:01.325Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lackierer-in-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lackierer-in-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-bb43cddea6f0",
@@ -13807,10 +13815,10 @@
     },
     {
       "id": "stadler-rail-5e6c95f98023",
-      "slug": "kommerzieller-teilprojektleiter-stadler-rail-ch",
+      "slug": "responsabile-di-progetto-commerciale-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "kommerzieller-teilprojektleiter-stadler-rail-ch",
-        "it": "kommerzieller-teilprojektleiter-stadler-rail-ch",
+        "it": "responsabile-di-progetto-commerciale-stadler-rail-st-margrethen",
         "en": "kommerzieller-teilprojektleiter-stadler-rail-ch",
         "fr": "kommerzieller-teilprojektleiter-stadler-rail-ch"
       },
@@ -13820,7 +13828,7 @@
       "title": "Kommerzieller Teilprojektleiter",
       "titleByLocale": {
         "de": "Kommerzieller Teilprojektleiter",
-        "it": "Kommerzieller Teilprojektleiter",
+        "it": "Responsabile di Progetto Commerciale",
         "en": "Kommerzieller Teilprojektleiter",
         "fr": "Kommerzieller Teilprojektleiter"
       },
@@ -13868,7 +13876,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:05:27.469Z"
+      "firstSeenAt": "2026-06-22T15:05:27.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kommerzieller-teilprojektleiter-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kommerzieller-teilprojektleiter-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-ce24dabc5edc",

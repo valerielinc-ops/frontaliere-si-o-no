@@ -943,10 +943,10 @@
     },
     {
       "id": "weisse-arena-c801e73870c9",
-      "slug": "nachtportier-in-weisse-arena-ch",
+      "slug": "portatore-notturno-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "nachtportier-in-weisse-arena-ch",
-        "it": "nachtportier-in-weisse-arena-ch",
+        "it": "portatore-notturno-weisse-arena-gruppe-laax",
         "en": "nachtportier-in-weisse-arena-ch",
         "fr": "nachtportier-in-weisse-arena-ch"
       },
@@ -956,7 +956,7 @@
       "title": "Nachtportier:in",
       "titleByLocale": {
         "de": "Nachtportier:in",
-        "it": "Nachtportier:in",
+        "it": "Portatore notturno",
         "en": "Nachtportier:in",
         "fr": "Nachtportier:in"
       },
@@ -1008,7 +1008,15 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-22T15:11:23.123Z"
+      "firstSeenAt": "2026-06-22T15:11:23.123Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtportier-in-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nachtportier-in-weisse-arena-ch"
+      ]
     }
   ]
 }
