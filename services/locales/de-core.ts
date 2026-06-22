@@ -3417,6 +3417,28 @@ Regeln:
  'whatsNew.v3500.title': 'Überarbeitetes Arbeitgeberportal',
  'whatsNew.v3500.publisherRedesign.title': 'Inserate aufgeben: neuer Look und Dashboard',
  'whatsNew.v3500.publisherRedesign.desc': 'Die Arbeitgeberseiten wirken wärmer und klarer: Gratis- und Gesponsert-Plan im Vergleich sowie ein „Meine Inserate“-Dashboard mit animierten Statistiken und Konversionstrichter pro Inserat.',
+
+  // ─── Feature request survey ──────────────────────────────
+  'survey.feature.title': 'Welche Funktion wünschst du dir?',
+  'survey.feature.subtitle': 'Hilf uns zu entscheiden, was wir bauen (10 Sek.)',
+  'survey.feature.option.salary_tools': 'Lohn-Tools',
+  'survey.feature.option.traffic_alerts': 'Verkehrsmeldungen',
+  'survey.feature.option.job_match': 'Passende Jobs',
+  'survey.feature.option.tax_guide': 'Steuer-Guide',
+  'survey.feature.option.insurance': 'Versicherungsvergleich',
+  'survey.feature.option.mobile_app': 'Mobile App',
+  'survey.feature.option.other': 'Andere',
+  'survey.feature.otherPlaceholder': 'Sag uns, was du brauchst…',
+  'survey.feature.submit': 'Senden',
+  'survey.feature.dismiss': 'Nicht jetzt',
+  'survey.feature.close': 'Schliessen',
+  'survey.feature.aria': 'Funktions-Umfrage',
+  'survey.feature.thanks.title': 'Danke!',
+  'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
+
+  'whatsNew.v3540.title': 'Sag uns, welche Funktion du willst',
+  'whatsNew.v3540.featureSurvey.title': 'Funktions-Umfrage',
+  'whatsNew.v3540.featureSurvey.desc': 'Eine kurze Umfrage fragt, welche Funktion du als Nächstes möchtest: Lohn-Tools, Verkehrsmeldungen, passende Stellenangebote und mehr. Es dauert zehn Sekunden und hilft uns zu entscheiden, was wir als Nächstes bauen.',
 };
 
 export default deCore;

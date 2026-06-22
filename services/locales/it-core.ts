@@ -3504,5 +3504,27 @@ Regole:
  'whatsNew.v3500.title': 'Portale aziende rinnovato',
  'whatsNew.v3500.publisherRedesign.title': 'Pubblica offerte: nuova veste e dashboard',
  'whatsNew.v3500.publisherRedesign.desc': 'Le pagine per le aziende hanno un look più caldo e chiaro: piani Gratis e Sponsorizzato a confronto e una dashboard “I miei annunci” con statistiche animate e imbuto di conversione per ogni annuncio.',
+
+  // ─── Feature request survey ──────────────────────────────
+  'survey.feature.title': 'Quale funzione vorresti?',
+  'survey.feature.subtitle': 'Aiutaci a decidere cosa costruire (10 sec)',
+  'survey.feature.option.salary_tools': 'Strumenti stipendio',
+  'survey.feature.option.traffic_alerts': 'Avvisi traffico',
+  'survey.feature.option.job_match': 'Offerte su misura',
+  'survey.feature.option.tax_guide': 'Guida fiscale',
+  'survey.feature.option.insurance': 'Confronto assicurazioni',
+  'survey.feature.option.mobile_app': 'App mobile',
+  'survey.feature.option.other': 'Altro',
+  'survey.feature.otherPlaceholder': 'Dicci cosa ti servirebbe…',
+  'survey.feature.submit': 'Invia',
+  'survey.feature.dismiss': 'Non ora',
+  'survey.feature.close': 'Chiudi',
+  'survey.feature.aria': 'Sondaggio funzionalità',
+  'survey.feature.thanks.title': 'Grazie!',
+  'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
+
+  'whatsNew.v3540.title': 'Dicci che funzione vuoi',
+  'whatsNew.v3540.featureSurvey.title': 'Sondaggio funzionalità',
+  'whatsNew.v3540.featureSurvey.desc': 'Un breve sondaggio ti chiede quale funzione vorresti vedere prossimamente: strumenti per lo stipendio, avvisi traffico, offerte su misura e altro. Bastano dieci secondi e ci aiuti a decidere cosa costruire dopo.',
 };
 export default translations;
