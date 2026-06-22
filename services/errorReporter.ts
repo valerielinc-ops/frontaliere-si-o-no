@@ -19,6 +19,7 @@
  */
 
 import { Analytics } from '@/services/analytics';
+import { isBenignErrorMessage } from '@/services/benignErrorPatterns';
 
 type ErrorType =
  | 'api_error'
@@ -40,58 +41,11 @@ const recentlyReported = new Map<string, number>();
 const MAX_REPORTS_PER_SESSION = 25;
 let reportsThisSession = 0;
 
-// Benign-noise deny-list. Errors matching any pattern below are dropped at the
-// reporter so they never reach GA4. Rationale per pattern is documented inline;
-// each entry was chosen from the May 2026 GA4 audit (3,543 errors / 30d, of
-// which ~58% were environmental noise with no actionable stack trace).
-const NOISE_PATTERNS: ReadonlyArray<RegExp> = [
- // Adblockers/privacy extensions block accounts.google.com/gsi/client.
- // We already degrade gracefully (One Tap simply doesn't show); reporting
- // is pure noise. (181/3543 in May 2026 audit.)
- /Failed to load Google Identity Services/i,
- // Browser-internal layout signal — not a bug, not actionable. Chrome/Safari
- // emit this when a ResizeObserver callback queues a mutation that resizes
- // observed elements. (22+ in audit.)
- /ResizeObserver loop/i,
- // Cross-origin script errors with no stack — opaque by design (browser CORS).
- // We can't fix what we can't see. (1,783 in audit — single biggest bucket.)
- /^Script error\.?$/i,
- // Firebase/Firestore offline state during tab suspension on iOS Safari.
- // Recoverable; the SDK retries automatically. (20+ in audit.)
- /Failed to get document because the client is offline/i,
- // Module preload failure on flaky networks. The SW recovery path
- // (sw_cache_stale) handles the visible cases; bare rejections without
- // a recovery hook are noise. (16+ in audit.)
- /Importing a module script failed/i,
- // ── 2026-05-18 PostHog triage additions ──
- // Microsoft Office in-app browser bridge postMessage noise. 363 events /
- // 30d across 5 Id buckets — pure host-app noise.
- /Object Not Found Matching Id:\d+, MethodName:update, ParamCount:4/i,
- // Firebase Installations/RemoteConfig offline — SDK retries automatically.
- // 65+53+32+29+21+25 = ~225 events / 30d, all environmental.
- /Installations:.*Application offline\b/i,
- /Remote Config:.*Original error:.*(Failed to fetch|Load failed|aborted|Database deleted|client is offline)/i,
- // IndexedDB lifecycle noise from iOS tab suspension / user clearing site
- // data. Already auto-recovered by `recoverFromIndexedDbLoss()`; reporting
- // is duplicate noise. 252+128+33+25 = ~440 events / 30d.
- /Connection to Indexed Database server lost/i,
- /Failed to execute 'transaction' on 'IDBDatabase'/i,
- /UnknownError.*IDBDatabase/i,
- /Database deleted by request of the user/i,
- // Safari generic transport failure with no actionable source. 69+18 events
- // / 30d in unhandled_rejection bucket alone.
- /^TypeError: Load failed$/i,
- // Twelve Data CHF/EUR exchange-rate fetch flakes ~140 events / 30d. Caller
- // has full Firebase RC fallback, so this is recoverable noise.
- // TODO(2026-05-18): if Firestore fallback also fails we lose CHF/EUR
- // display — add a sentinel event for double-failure instead of dropping
- // both. Tracked via `endpoint=config/exchange_rate` slice.
- /\[exchangeRate\.twelveDataFetch\]/i,
-];
-
-function isNoise(message: string): boolean {
- return NOISE_PATTERNS.some((re) => re.test(message));
-}
+// Benign-noise deny-list lives in `services/benignErrorPatterns.ts` — the
+// single source of truth shared with the global error handlers in
+// `services/analytics.ts` so the two app_error pipelines cannot drift.
+// Errors matching any pattern there are dropped at the reporter so they never
+// reach GA4 / PostHog.
 
 /** @internal — only for use in tests to clear shared module-level state. */
 export function _resetThrottleMapForTests(): void {
@@ -138,7 +92,7 @@ export function reportCaughtError(
 
  // ── Drop benign environmental noise (adblock, browser quirks, offline) ──
  // Console.warn above still runs so devs can see it locally; GA4 doesn't.
- if (isNoise(message)) return;
+ if (isBenignErrorMessage(message)) return;
 
  // ── Per-page-load cap to prevent flood storms ──
  if (reportsThisSession >= MAX_REPORTS_PER_SESSION) return;
