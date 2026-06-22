@@ -210,6 +210,9 @@ jobs:
       # shard push failed stays in the main artifact and is left untouched).
       - name: Rehydrate locale shards into dist/ (when sharding active)
         if: ${{ vars.LOCALE_SHARDS_LIVE == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           set -euo pipefail
           for loc in en de fr; do
@@ -224,6 +227,28 @@ jobs:
               echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
               continue
             fi
+
+            # PRIMARY: the same-run per-locale shard-dist artifact the en/de/fr
+            # build-locale shard uploaded from its already-pruned, CDN-offloaded
+            # dist (byte-identical to what push-locale-shard.sh force-pushed).
+            # Fetched with `gh run download` (same-run, no API propagation lag) so
+            # the ~14min git clone collapses to a small artifact download. `gh` in
+            # the `if` condition is exempt from `set -e`, so a missing/failed
+            # download simply falls through to the git-clone FALLBACK below — a
+            # locale is NEVER silently un-validated.
+            dl="$RUNNER_TEMP/locale-dist-$loc"
+            rm -rf "$dl"; mkdir -p "$dl"
+            if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -d "$dl/$loc" ]; then
+              rm -rf "dist/$loc"
+              cp -r "$dl/$loc" "dist/$loc"
+              if [ -f "$dl/$loc.html" ]; then cp "$dl/$loc.html" "dist/$loc.html"; fi
+              echo "rehydrated $loc from artifact: $(find "dist/$loc" -type f | wc -l) files"
+              rm -rf "$dl"
+              continue
+            fi
+            rm -rf "$dl"
+            echo "[rehydrate] $loc artifact absent — falling back to git clone"
+
             tmp="$RUNNER_TEMP/rehydrate-$loc"
             rm -rf "$tmp"
             git clone --depth 1 --single-branch --branch main \
