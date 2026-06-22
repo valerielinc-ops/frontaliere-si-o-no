@@ -1854,10 +1854,10 @@ function BlogArticles({
      letting `xl:` and `xlw:` both match ≥1400: in v4 the `xl:` rule emits
      after `xlw:` and would win the cascade, pinning the rails at 180px and
      making a 300px creative overflow the article (see index.css @theme). */}
- <div className="xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop only) ── */}
- <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
  {/* Top content rides the gutter top: sticky at the narrow xl tier, static at
      xlw so the ad chain below can claim the full column height. */}
  <div className="space-y-3 xl:max-xlw:sticky xl:max-xlw:top-6 xlw:flex-none">
@@ -2409,7 +2409,7 @@ function BlogArticles({
  </article>
 
  {/* ── Right Rail (desktop only) ── */}
- <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
  {/* Top content (TOC + resources) rides the gutter top: sticky at the narrow
      xl tier, static at xlw so the ad chain below claims the full column. */}
  <div className="space-y-3 xl:max-xlw:sticky xl:max-xlw:top-6 xlw:flex-none">

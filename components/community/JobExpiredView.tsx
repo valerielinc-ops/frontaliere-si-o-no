@@ -702,10 +702,10 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  {/* 3-column grid: left rail | content | right rail. 180px at xl (1280–1399),
      300px at xlw (≥1400) to host ArticleRailAd half-page creatives. */}
- <div className="xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop xl only) ── */}
- <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
  <ArticleRailAdStack side="left" />
  </aside>
 
@@ -834,7 +834,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
- <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
  <ArticleRailAdStack side="right" />
  </aside>
 
