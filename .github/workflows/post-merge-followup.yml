@@ -64,6 +64,10 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: node scripts/ci/is-followup-fix-pr.mjs
 
+      - name: Setup Headroom compression proxy
+        if: steps.gchild.outputs.is_followup_fix != 'true'
+        uses: ./.github/actions/setup-headroom
+
       - name: Run Claude follow-up triage
         id: followup
         # Skip quando la PR è essa stessa un fix-di-follow-up (rompe il self-feed

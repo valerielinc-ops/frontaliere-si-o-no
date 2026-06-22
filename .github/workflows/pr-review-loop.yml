@@ -184,6 +184,10 @@ jobs:
             set_tier normal claude-sonnet-4-6 25
           fi
 
+      - name: Setup Headroom compression proxy
+        if: steps.guard.outputs.skip != 'true'
+        uses: ./.github/actions/setup-headroom
+
       - name: Run Claude review
         id: claude_review
         if: steps.guard.outputs.skip != 'true'
