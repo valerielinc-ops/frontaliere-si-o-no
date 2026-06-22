@@ -9,6 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
+import { locTokenHit } from './locToken.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -87,14 +88,36 @@ function resolveLogoUrl(job) {
 
 // ─── Job matching ───────────────────────────────────────────
 
+// Parse a single date field to a timestamp, or NaN if unusable.
+// `new Date(raw)` reads a slash date as US MM/DD/YY, so a European DD/MM/YY
+// posted date is either Invalid (day>12, e.g. "30/05/26") OR — the silent bug
+// (#2630) — reinterpreted as a valid-but-WRONG date when day≤12 (e.g.
+// "05/06/26" → 5 Jun is read as 6 May). Both are wrong: these fields are
+// European DD/MM. Detect the bare `d/m/y` slash form and parse it as DD/MM
+// explicitly; everything else (ISO, RFC, timestamps) goes through `new Date`.
+export function parseDateField(raw) {
+  const m = /^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/.exec(String(raw).trim());
+  if (m) {
+    const day = Number(m[1]);
+    const month = Number(m[2]);
+    let year = Number(m[3]);
+    if (year < 100) year += 2000; // "26" → 2026
+    // Reject impossible DD/MM (e.g. month>12) → caller falls through to the
+    // next field rather than trusting a misparse.
+    if (day < 1 || day > 31 || month < 1 || month > 12) return NaN;
+    return Date.UTC(year, month - 1, day);
+  }
+  return new Date(raw).getTime();
+}
+
 function toDateValue(job) {
-  // Pick the first field that PARSES, not the first truthy one: ~0.3% of jobs
-  // carry a malformed postedDate (e.g. "30/05/26", DD/MM/YY → Invalid Date)
-  // that would otherwise shadow a perfectly good firstSeenAt and force the job
-  // into decayFactor's neutral UNDATED branch (date present ≠ date usable).
+  // Pick the first field that PARSES, not the first truthy one: a slice of jobs
+  // carry a malformed/ambiguous postedDate (European DD/MM/YY) that would
+  // otherwise shadow a perfectly good firstSeenAt and force the job into
+  // decayFactor's neutral UNDATED branch (date present ≠ date usable).
   for (const raw of [job?.postedDate, job?.crawledAt, job?.publishedAt, job?.firstSeenAt]) {
     if (!raw) continue;
-    const ts = new Date(raw).getTime();
+    const ts = parseDateField(raw);
     if (Number.isFinite(ts)) return ts;
   }
   return 0;
@@ -395,7 +418,7 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, subsc
   if (subscriberLocation) {
     const subLoc = subscriberLocation.toLowerCase();
     const jobLoc = `${String(job.location || '')} ${String(job.addressLocality || '')} ${String(job.addressRegion || '')} ${String(job.canton || '')}`.toLowerCase();
-    if (jobLoc.includes(subLoc)) score += 2;
+    if (locTokenHit(jobLoc, subLoc)) score += 2;
   }
 
   return score;
@@ -591,12 +614,10 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   // Pre-filter by location if specified (applied before scoring for performance)
   let candidates = pool;
   if (location) {
-    const locationFiltered = pool.filter((j) =>
-      String(j.location || '').toLowerCase().includes(location) ||
-      String(j.addressLocality || '').toLowerCase().includes(location) ||
-      String(j.addressRegion || '').toLowerCase().includes(location) ||
-      String(j.canton || '').toLowerCase().includes(location)
-    );
+    const locationFiltered = pool.filter((j) => {
+      const jobLoc = `${String(j.location || '')} ${String(j.addressLocality || '')} ${String(j.addressRegion || '')} ${String(j.canton || '')}`.toLowerCase();
+      return locTokenHit(jobLoc, location);
+    });
     if (locationFiltered.length >= limit) candidates = locationFiltered;
   }
 
