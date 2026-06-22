@@ -28,6 +28,7 @@ import {
   pickBestRelatedSearchForPrompt,
   DEFAULT_CANTON_DISPLAY,
   stripSearchQueryBoilerplate,
+  isJunkSearchKeyword,
 } from '@/services/relatedSearchClusters';
 import { renderSearchQueryIntro } from '../build-plugins/shared/jobBoardCommuterContext';
 
@@ -238,6 +239,77 @@ describe('extractRelatedTopicTokens — stopword + length gate', () => {
     const tokens = extractRelatedTopicTokens('Café Café CAFÉ');
     expect(tokens).toContain('cafe');
     expect(tokens.length).toBe(1);
+  });
+});
+
+// ── isJunkSearchKeyword — thin-doorway keyword denylist ─────────────────
+
+describe('isJunkSearchKeyword — drops generic filler / noise, keeps real intents', () => {
+  it('flags single generic-filler / connective / scraped-noise keywords as junk', () => {
+    // These produced thin doorway landings like /…/ricerca-cookie-bern/.
+    for (const junk of ['cookie', 'sowie', 'pazienti', 'patienten', 'unterstutzung',
+      'gestione', 'sviluppo', 'professionale', 'qualita', 'oltre', 'nell', 'dati',
+      'requirements', 'responsibilities', 'skills']) {
+      expect(isJunkSearchKeyword(junk)).toBe(true);
+    }
+  });
+
+  it('treats case / diacritics / surrounding punctuation uniformly', () => {
+    expect(isJunkSearchKeyword('Cookie')).toBe(true);
+    expect(isJunkSearchKeyword('Qualità')).toBe(true);
+    expect(isJunkSearchKeyword('  Sowie  ')).toBe(true);
+  });
+
+  it('flags an all-junk multi-word keyword (e.g. boilerplate salary padding)', () => {
+    expect(isJunkSearchKeyword('stipendio')).toBe(true);
+  });
+
+  it('keeps real single-word job-search intents (role nouns)', () => {
+    for (const real of ['ospedale', 'medico', 'infermiere', 'vendita', 'stage',
+      'manager', 'formazione', 'assistenza', 'sicurezza', 'cuoco']) {
+      expect(isJunkSearchKeyword(real)).toBe(false);
+    }
+  });
+
+  it('keeps multi-word keywords when at least one token carries intent', () => {
+    // "data center technician", "senior associate" and role+city stay indexable
+    // even though some tokens are generic — only ALL-junk keywords are dropped.
+    expect(isJunkSearchKeyword('data center technician')).toBe(false);
+    expect(isJunkSearchKeyword('senior associate')).toBe(false);
+    expect(isJunkSearchKeyword('ospedale lugano')).toBe(false);
+  });
+
+  it('flags empty / whitespace-only / numeric-only as junk', () => {
+    expect(isJunkSearchKeyword('')).toBe(true);
+    expect(isJunkSearchKeyword('   ')).toBe(true);
+    expect(isJunkSearchKeyword('1234')).toBe(true);
+  });
+});
+
+describe('buildRelatedSearches — drops junk body tokens', () => {
+  function makeJunkJob(): JobListing {
+    return {
+      id: 'job-junk',
+      title: 'Software Engineer',
+      company: 'TechCo',
+      location: 'Bellinzona',
+    } as unknown as JobListing;
+  }
+
+  it('never emits a junk-token landing (cookie / sowie / pazienti)', () => {
+    const out = buildRelatedSearches({
+      job: makeJunkJob(),
+      locale: 'it',
+      summary: ['Cookie cookie cookie sowie sowie pazienti pazienti gestione gestione.'],
+      requirements: ['Cookie e gestione dei pazienti.'],
+      aiKeywords: [],
+    });
+    for (const term of out) {
+      const lower = term.toLowerCase();
+      expect(lower).not.toContain('cookie');
+      expect(lower).not.toContain('sowie');
+      expect(lower).not.toContain('pazienti');
+    }
   });
 });
 

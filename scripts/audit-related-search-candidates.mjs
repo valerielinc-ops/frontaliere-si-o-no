@@ -33,6 +33,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serializeCandidatesFile } from './lib/related-search-serialize.mjs';
+import { RELATED_SEARCH_JUNK_TERMS } from '../services/relatedSearchJunkTerms.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
@@ -285,8 +286,11 @@ function buildRelatedSearches({ job, locale }) {
     .toLowerCase()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '');
+  // Mirror of services/relatedSearchClusters.ts: drop the junk filler / DE
+  // connectives / scraped UI noise so future regens never re-seed thin doorway
+  // candidates (e.g. "cookie bern", "sowie basel"). See relatedSearchJunkTerms.mjs.
   const bodyTokens = extractRelatedTopicTokens(`${description} ${requirementsText}`, 6)
-    .filter((token) => token !== locationToken);
+    .filter((token) => token !== locationToken && !RELATED_SEARCH_JUNK_TERMS.has(token));
 
   const generated = locale === 'it'
     ? bodyTokens.map((token) => `${token} ${location || DEFAULT_CANTON_DISPLAY.toLowerCase()}`.trim())
