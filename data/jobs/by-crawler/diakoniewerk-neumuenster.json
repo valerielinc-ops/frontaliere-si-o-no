@@ -388,8 +388,8 @@
       "slugByLocale": {
         "de": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
         "it": "disponent-disponentin-medizinisches-ambulatorium-con-geregelten-arbeitszeiten-von-montag-bis-freitag-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zolli",
-        "en": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
-        "fr": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
+        "en": "disponent-disponent-medical-ambulatorium-with-regulated-working-hours-from-monday-to-friday-middle-office-diakoniewerk",
+        "fr": "deposant-deposant-ambulatoire-medical-avec-des-heures-de-travail-reglementees-du-lundi-au-vendredi-middle-office"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -434,6 +434,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
+        ],
+        "en": [
+          "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
+        ],
+        "fr": [
           "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
         ]
       },

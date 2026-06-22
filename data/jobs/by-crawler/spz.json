@@ -3513,12 +3513,12 @@
     },
     {
       "id": "spz-4c95cd5cf5e7",
-      "slug": "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil",
+      "slug": "assistente-medico-neurochirurgia-ortepedics-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "de": "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil",
-        "it": "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil",
-        "en": "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil",
-        "fr": "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil"
+        "it": "assistente-medico-neurochirurgia-ortepedics-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "en": "assistant-physician-neurosurgery-orthopedics-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "medecin-adjoint-neurochirurgie-orthopedie-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3575,10 +3575,22 @@
       },
       "firstSeenAt": "2026-06-22T15:02:07.542Z",
       "previousSlugs": [
+        "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil",
         "medico-specialista-in-neurochirurgia-chirurgia-ortopedica-schweizer-paraplegiker-zentrum-spz-nottwil",
         "assistant-physician-in-neurosurgery-orthopedic-surgery-schweizer-paraplegiker-zentrum-spz-nottwil",
         "medecin-assistant-en-neurochirurgie-chirurgie-orthopedique-schweizer-paraplegiker-zentrum-spz-nottwil"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil"
+        ],
+        "en": [
+          "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil"
+        ],
+        "fr": [
+          "assistenzarzt-arztin-neurochirurgie-orthopadie-spz-nottwil"
+        ]
+      }
     }
   ]
 }

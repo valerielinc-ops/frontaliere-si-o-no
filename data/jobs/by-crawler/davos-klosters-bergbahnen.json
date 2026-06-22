@@ -511,10 +511,10 @@
     },
     {
       "id": "davos-klosters-bergbahnen-7616c1c8e0b7",
-      "slug": "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
+      "slug": "cucina-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
-        "it": "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
+        "it": "cucina-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos",
         "en": "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
         "fr": "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
       },
@@ -568,14 +568,22 @@
       "postalCode": "7270",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-22T14:37:20.018Z"
+      "firstSeenAt": "2026-06-22T14:37:20.018Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-7fd2202b6ea7",
-      "slug": "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
+      "slug": "tuttofare-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
-        "it": "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
+        "it": "tuttofare-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos",
         "en": "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
         "fr": "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
       },
@@ -629,7 +637,15 @@
       "postalCode": "7270",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-22T14:37:18.881Z"
+      "firstSeenAt": "2026-06-22T14:37:18.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
+      ]
     }
   ]
 }

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ksw-8431a2546525",
-      "slug": "werkstudent-management-support-ksw-ch",
+      "slug": "assistenza-per-la-gestione-degli-studenti-di-lavoro-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "werkstudent-management-support-ksw-ch",
-        "it": "werkstudent-management-support-ksw-ch",
+        "it": "assistenza-per-la-gestione-degli-studenti-di-lavoro-kantonsspital-winterthur-ksw-winterthur",
         "en": "werkstudent-management-support-ksw-ch",
-        "fr": "werkstudent-management-support-ksw-ch"
+        "fr": "soutien-a-la-gestion-des-etudiants-en-activite-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -65,7 +65,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T14:23:29.069Z"
+      "firstSeenAt": "2026-06-22T14:23:29.069Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-management-support-ksw-ch"
+        ],
+        "fr": [
+          "werkstudent-management-support-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-management-support-ksw-ch"
+      ]
     },
     {
       "id": "ksw-c2e301ef3ff2",
@@ -658,12 +669,12 @@
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -706,16 +717,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
@@ -815,7 +823,7 @@
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -861,8 +869,6 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
         "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -870,7 +876,7 @@
           "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-01T15:16:02.879Z",
@@ -1911,8 +1917,8 @@
       "slugByLocale": {
         "de": "leiterin-leiter-medizinische-kodierung-ksw-ch",
         "it": "leiterin-leiter-medizinische-kodierung-kantonsspital-winterthur-ksw-winterthur",
-        "en": "leiterin-leiter-medizinische-kodierung-ksw-ch",
-        "fr": "leiterin-leiter-medizinische-kodierung-ksw-ch"
+        "en": "head-of-medical-coding-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "chef-du-codage-medical-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1958,6 +1964,12 @@
       "department": "Qualitäts- und Erlösmanagement",
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-medizinische-kodierung-ksw-ch"
+        ],
+        "en": [
+          "leiterin-leiter-medizinische-kodierung-ksw-ch"
+        ],
+        "fr": [
           "leiterin-leiter-medizinische-kodierung-ksw-ch"
         ]
       },

@@ -3612,16 +3612,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
+          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex"
         ],
         "en": [
-          "social-educator-in-psychiatry-80-hug-thonex",
-          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
+          "social-educator-in-psychiatry-80-hug-thonex"
         ],
         "de": [
-          "sozialpadagoge-in-der-psychiatrie-80-hug-thonex",
-          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
+          "sozialpadagoge-in-der-psychiatrie-80-hug-thonex"
         ]
       },
       "firstSeenAt": "2026-06-19T12:44:48.177Z",
@@ -4064,12 +4061,12 @@
     },
     {
       "id": "hug-4e08e86400ec",
-      "slug": "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva",
+      "slug": "laurea-magistrale-in-risorse-umane-directorate-conformita-al-diritto-del-lavoro-80-hug-geneva",
       "slugByLocale": {
         "fr": "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva",
-        "it": "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva",
-        "en": "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva",
-        "de": "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva"
+        "it": "laurea-magistrale-in-risorse-umane-directorate-conformita-al-diritto-del-lavoro-80-hug-geneva",
+        "en": "master-s-degree-in-the-human-resources-directorate-compliance-labour-law-80-hug-geneva",
+        "de": "master-in-personalabteilung-compliance-arbeitsrecht-80-hug-geneva"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4125,16 +4122,30 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-22T14:43:18.316Z"
+      "firstSeenAt": "2026-06-22T14:43:18.316Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva"
+        ],
+        "en": [
+          "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva"
+        ],
+        "de": [
+          "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "stage-bachelor-master-a-la-drh-conformite-loi-sur-le-travail-80-hug-geneva"
+      ]
     },
     {
       "id": "hug-b13ab1cccf58",
-      "slug": "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve",
+      "slug": "segreteria-medica-o-medica-presso-il-dipartimento-di-oncologia-80-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve",
-        "it": "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve",
-        "en": "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve",
-        "de": "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve"
+        "it": "segreteria-medica-o-medica-presso-il-dipartimento-di-oncologia-80-hug-geneve",
+        "en": "medical-or-medical-secretary-at-the-department-of-oncology-80-hug-geneve",
+        "de": "medizinischer-oder-medizinischer-sekretar-am-institut-fur-onkologie-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4190,16 +4201,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-22T14:43:18.314Z"
+      "firstSeenAt": "2026-06-22T14:43:18.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-ou-medicale-au-service-d-oncologie-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-ab94020e90f3",
-      "slug": "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva",
+      "slug": "servizio-civile-centro-di-innovazione-centrale-100-hug-geneva",
       "slugByLocale": {
         "fr": "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva",
-        "it": "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva",
+        "it": "servizio-civile-centro-di-innovazione-centrale-100-hug-geneva",
         "en": "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva",
-        "de": "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva"
+        "de": "offentlicher-dienst-zentrales-innovationszentrum-100-hug-geneva"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4255,16 +4280,27 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-22T14:43:18.313Z"
+      "firstSeenAt": "2026-06-22T14:43:18.313Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva"
+        ],
+        "de": [
+          "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva"
+      ]
     },
     {
       "id": "hug-18c54e92c87e",
-      "slug": "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20",
+      "slug": "specialista-clinico-di-fisioterapista-in-ferita-e-guarigione-20-hug-geneve",
       "slugByLocale": {
         "fr": "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20",
-        "it": "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20",
-        "en": "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20",
-        "de": "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20"
+        "it": "specialista-clinico-di-fisioterapista-in-ferita-e-guarigione-20-hug-geneve",
+        "en": "physiotherapist-clinical-specialist-in-wound-and-healing-20-hug-geneve",
+        "de": "physiotherapeutischer-klinischer-spezialist-fur-wund-und-heilung-20-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4320,16 +4356,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-22T14:43:18.311Z"
+      "firstSeenAt": "2026-06-22T14:43:18.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20"
+        ],
+        "en": [
+          "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20"
+        ],
+        "de": [
+          "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-specialiste-clinique-dans-le-domaine-des-plaies-et-de-la-cicatrisation-20"
+      ]
     },
     {
       "id": "hug-48a93e79515e",
-      "slug": "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve",
+      "slug": "custode-o-bagni-a-beau-sejour-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve",
-        "it": "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve",
-        "en": "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve",
-        "de": "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve"
+        "it": "custode-o-bagni-a-beau-sejour-80-al-100-hug-geneve",
+        "en": "custodian-or-bathguard-in-beau-sejour-80-to-100-hug-geneve",
+        "de": "huter-oder-badegarde-in-beau-sejour-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4385,7 +4435,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-22T14:43:18.301Z"
+      "firstSeenAt": "2026-06-22T14:43:18.301Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "gardien-ou-gardienne-de-bains-a-beau-sejour-80-a-100-hug-geneve"
+      ]
     }
   ]
 }

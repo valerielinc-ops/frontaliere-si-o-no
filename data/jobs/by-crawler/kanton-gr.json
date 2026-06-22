@@ -428,12 +428,12 @@
     },
     {
       "id": "kanton-gr-8e7c70756246",
-      "slug": "sozialarbeiter-in-kanton-gr-ch",
+      "slug": "assistente-sociale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "sozialarbeiter-in-kanton-gr-ch",
-        "it": "sozialarbeiter-in-kanton-gr-ch",
-        "en": "sozialarbeiter-in-kanton-gr-ch",
-        "fr": "sozialarbeiter-in-kanton-gr-ch"
+        "it": "assistente-sociale-kantonale-verwaltung-graubunden-chur",
+        "en": "social-workers-kantonale-verwaltung-graubunden-chur",
+        "fr": "travailleurs-sociaux-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -493,7 +493,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-22T14:44:21.828Z"
+      "firstSeenAt": "2026-06-22T14:44:21.828Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ],
+        "en": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-19cb03b3a1e9",
@@ -653,9 +667,9 @@
     },
     {
       "id": "kanton-gr-61b4bd8f9444",
-      "slug": "systems-engineer-in-windows-server-kanton-gr-ch",
+      "slug": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "systems-engineer-in-windows-server-kanton-gr-ch",
+        "it": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
         "en": "systems-engineer-in-windows-server-kantonale-verwaltung-graubunden-chur",
         "de": "systems-engineer-in-windows-server-kanton-gr-ch",
         "fr": "systems-engineer-in-windows-server-kanton-gr-ch"
@@ -704,7 +718,7 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+        "systems-engineer-in-windows-server-kanton-gr-ch",
         "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur",
         "systems-engineer-in-per-applicazioni-windows-kantonale-verwaltung-graubunden-chur",
@@ -714,7 +728,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
           "systems-engineer-in-windows-server-kanton-gr-ch"
         ],
         "fr": [
@@ -1147,7 +1160,7 @@
         "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1195,8 +1208,6 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-kanton-gr-ch",
         "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
-        "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
         "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
@@ -1205,7 +1216,7 @@
           "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+          "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-06-18T12:32:57.645Z",

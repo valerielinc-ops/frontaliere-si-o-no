@@ -2712,12 +2712,12 @@
     },
     {
       "id": "cnp-ee0a8aa1c2f0",
-      "slug": "infirmier-ere-en-pedopsychiatrie-cnp-la-tene",
+      "slug": "infermiera-in-psichiatria-infantile-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
       "slugByLocale": {
         "fr": "infirmier-ere-en-pedopsychiatrie-cnp-la-tene",
-        "it": "infirmier-ere-en-pedopsychiatrie-cnp-la-tene",
-        "en": "infirmier-ere-en-pedopsychiatrie-cnp-la-tene",
-        "de": "infirmier-ere-en-pedopsychiatrie-cnp-la-tene"
+        "it": "infermiera-in-psichiatria-infantile-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "en": "nurse-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "de": "krankenschwester-in-der-kinderpsychiatrie-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2772,7 +2772,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T13:54:15.378Z"
+      "firstSeenAt": "2026-06-22T13:54:15.378Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-pedopsychiatrie-cnp-la-tene"
+        ],
+        "en": [
+          "infirmier-ere-en-pedopsychiatrie-cnp-la-tene"
+        ],
+        "de": [
+          "infirmier-ere-en-pedopsychiatrie-cnp-la-tene"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-pedopsychiatrie-cnp-la-tene"
+      ]
     }
   ]
 }

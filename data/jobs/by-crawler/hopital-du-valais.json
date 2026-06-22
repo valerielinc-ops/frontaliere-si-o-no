@@ -1844,9 +1844,9 @@
     },
     {
       "id": "hopital-du-valais-47cdde9e836d",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-100-hopital-du-valais-sion",
         "de": "apotheker-in-der-krankenhausapotheke-80-100-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
@@ -1895,7 +1895,6 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
         ],
         "de": [
@@ -1904,7 +1903,7 @@
       },
       "previousSlugs": [
         "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
         "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-06-03T23:52:48.467Z",
@@ -1926,9 +1925,9 @@
     },
     {
       "id": "hopital-du-valais-c8e757d35e02",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-hopital-du-valais-sion",
         "de": "pharmazist-spezialist-fur-krankenhausapotheke-80-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
@@ -1977,7 +1976,6 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ],
         "de": [
@@ -1989,7 +1987,7 @@
       },
       "previousSlugs": [
         "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
         "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
         "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion",
         "apotheker-im-krankenhaus-apotheke-80-hopital-du-valais-sion",
@@ -3849,12 +3847,12 @@
     },
     {
       "id": "hopital-du-valais-81810de17c4a",
-      "slug": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
+      "slug": "infermiera-80-100-medicina-3-est-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
-        "it": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
-        "en": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
-        "fr": "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
+        "it": "infermiera-80-100-medicina-3-est-hopital-du-valais-visp",
+        "en": "nurse-80-100-medicine-3-east-hopital-du-valais-visp",
+        "fr": "infirmiere-80-100-medecine-3-est-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3911,16 +3909,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-22T14:16:19.086Z"
+      "firstSeenAt": "2026-06-22T14:16:19.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
+        ],
+        "en": [
+          "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-3b36c26f4331",
-      "slug": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
+      "slug": "infermiera-40-100-medicina-3-west-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
-        "it": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
-        "en": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp",
-        "fr": "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
+        "it": "infermiera-40-100-medicina-3-west-hopital-du-valais-visp",
+        "en": "nurse-40-100-medicine-3-west-hopital-du-valais-visp",
+        "fr": "infirmiere-40-100-medecine-3-ouest-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3977,16 +3989,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-22T14:16:18.727Z"
+      "firstSeenAt": "2026-06-22T14:16:18.727Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
+        ],
+        "en": [
+          "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-40-100-medizin-3-west-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-067c516f98d3",
-      "slug": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion",
+      "slug": "farmacisti-nel-settore-della-produzione-dal-40-all-80-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion",
-        "it": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion",
-        "en": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion",
-        "de": "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion"
+        "it": "farmacisti-nel-settore-della-produzione-dal-40-all-80-hopital-du-valais-sion",
+        "en": "pharmacists-in-the-production-sector-from-40-to-80-hopital-du-valais-sion",
+        "de": "apotheker-im-produktionssektor-von-40-bis-80-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4043,16 +4069,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-22T14:16:18.385Z"
+      "firstSeenAt": "2026-06-22T14:16:18.385Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion"
+        ],
+        "en": [
+          "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion"
+        ],
+        "de": [
+          "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "pharmaciens-nes-dans-le-secteur-de-production-de-40-a-80-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-ac27c4f2def3",
-      "slug": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion",
+      "slug": "medico-clinico-capo-80-100-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion",
-        "it": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion",
-        "en": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion",
-        "de": "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion"
+        "it": "medico-clinico-capo-80-100-hopital-du-valais-sion",
+        "en": "chief-clinical-physician-80-100-hopital-du-valais-sion",
+        "de": "chefarzt-80-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4109,7 +4149,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-22T14:16:18.024Z"
+      "firstSeenAt": "2026-06-22T14:16:18.024Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-de-clinique-80-100-hopital-du-valais-sion"
+      ]
     }
   ]
 }
