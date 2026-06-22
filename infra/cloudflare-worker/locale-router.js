@@ -69,6 +69,24 @@ const SHARD_ORIGIN = {
 // to these prefixes; this regex is the in-code guard.)
 const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 
+// Job-alert one-click unsubscribe proxy (RFC 8058). The unsubscribe links and
+// the List-Unsubscribe header in job-alert emails (scripts/send-job-alerts.mjs)
+// MUST live on the sending domain (frontaliereticino.ch) or the URL↔From-domain
+// mismatch trips spam filters. The actual handler is the jobAlertUnsubscribe
+// Cloud Function; this Worker transparently proxies the apex path to it so the
+// public URL never leaves the apex. The proxy preserves method + query + body so
+// the List-Unsubscribe-Post one-click POST reaches the function unchanged (a 301
+// would not be re-issued as a POST by mail clients). Tiny volume (a few
+// clicks/day); never cached (stateful, and links always carry a query string so
+// the it-apex-html-cache rule — query eq "" only — never matches anyway).
+const UNSUB_PROXY_PATH = '/disiscrivi-alert';
+const UNSUB_FUNCTION_ORIGIN =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/jobAlertUnsubscribe';
+
+function isUnsubProxyPath(pathname) {
+  return pathname === UNSUB_PROXY_PATH || pathname === `${UNSUB_PROXY_PATH}/`;
+}
+
 // Edge-cache TTLs for shard pages. Two layers, deliberately different:
 //
 //   ORIGIN_CACHE_TTL (2h) — `cf.cacheTtl` on the origin fetch: CF caches the
@@ -292,6 +310,27 @@ async function serveStaleOnError(url, reason) {
 export default {
   async fetch(request, _env, ctx) {
     const url = new URL(request.url);
+
+    // Job-alert one-click unsubscribe: transparently proxy to the
+    // jobAlertUnsubscribe Cloud Function, preserving method + query + body so the
+    // RFC 8058 one-click POST works and the public URL stays on the sending
+    // domain. Runs BEFORE the locale logic (this path is not a locale prefix, so
+    // it would otherwise fall through to the apex passthrough → GitHub Pages 404).
+    if (isUnsubProxyPath(url.pathname)) {
+      const upstream = new URL(UNSUB_FUNCTION_ORIGIN);
+      upstream.search = url.search; // carry alertId/email/token/action
+      try {
+        // new Request(url, request) copies method/headers/body; the upstream host
+        // comes from `url` (the Cloud Function ignores the forwarded Host).
+        return await fetch(new Request(upstream.toString(), request));
+      } catch {
+        return new Response('Unsubscribe service temporarily unavailable', {
+          status: 503,
+          headers: { 'Retry-After': '30' },
+        });
+      }
+    }
+
     const match = url.pathname.match(LOCALE_RE);
 
     if (!match) {

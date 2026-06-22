@@ -603,7 +603,13 @@ export const jobAlertUnsubscribe = onRequest(
  return;
  }
 
- const params = req.method === 'GET' ? req.query : req.body;
+ // RFC 8058 one-click POST carries alertId/email/token in the URI QUERY STRING
+ // (the body is only `List-Unsubscribe=One-Click`), so a POST must read the
+ // identifiers from the query too — not just req.body. Merge both (body wins on
+ // the rare key collision) so both the footer GET link and the header one-click
+ // POST resolve the same params. A POST that read body-only verified an empty
+ // email/token → 403 → never unsubscribed, which also hurts sender reputation.
+ const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
  const alertId = String(params.alertId || '').trim();
  const email = String(params.email || '').trim();
  const token = String(params.token || '').trim();
