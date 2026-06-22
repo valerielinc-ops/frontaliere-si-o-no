@@ -17,7 +17,7 @@
  */
 
 import slugRegistryFile from '../../data/slug-registry.json';
-import jobsFile from '../../data/jobs.json';
+import { loadJobsJson } from './loadJobsJson';
 
 type RegistryEntry = {
   canonicalSlug?: string;
@@ -45,7 +45,7 @@ function build(): Map<string, string> {
       }
     }
   }
-  const jobs = jobsFile as JobEntry[];
+  const jobs = loadJobsJson<JobEntry>();
   for (const job of jobs) {
     const canton = String(job?.canton || 'TI').toUpperCase().trim() || 'TI';
     if (job?.slug) map.set(job.slug, canton);
