@@ -1,6 +1,7 @@
 /**
- * Slug → canton reverse index, built once at module load from
- * `data/slug-registry.json` + `data/jobs.json`.
+ * Slug → canton reverse index, built lazily on first lookup from
+ * `data/slug-registry.json` + `data/jobs.json` (both read at plugin-runtime via
+ * the shared lazy loader — never statically imported, see `loadDataJson.ts`).
  *
  * Used by jobOrphanBridgePlugin to infer which canton section a *matched/current*
  * job-slug should redirect to. (searchConsoleCompat no longer uses it: since
@@ -16,7 +17,7 @@
  *   itself is emitted by `jobsSeoPagesPlugin` on the correct section path.
  */
 
-import slugRegistryFile from '../../data/slug-registry.json';
+import { loadDataJson } from './loadDataJson';
 import { loadJobsJson } from './loadJobsJson';
 
 type RegistryEntry = {
@@ -35,7 +36,7 @@ let slugToCanton: Map<string, string> | null = null;
 
 function build(): Map<string, string> {
   const map = new Map<string, string>();
-  const registry = slugRegistryFile as Record<string, RegistryEntry>;
+  const registry = loadDataJson<Record<string, RegistryEntry>>('data/slug-registry.json');
   for (const entry of Object.values(registry)) {
     const canton = String(entry?.canton || 'TI').toUpperCase().trim() || 'TI';
     if (entry?.canonicalSlug) map.set(entry.canonicalSlug, canton);

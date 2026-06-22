@@ -22,23 +22,19 @@
  * overhead). Defining the read path ONCE here makes the static-import
  * anti-pattern impossible to reintroduce by copy-paste.
  */
-import fs from 'node:fs';
-import path from 'node:path';
-
-let cache: { path: string; data: unknown[] } | null = null;
+import { loadDataJson } from './loadDataJson';
 
 /**
  * Read `data/jobs.json` from disk and parse it. Cached per resolved path so
  * repeated calls within a single build don't re-read/re-parse ~150 MB.
+ *
+ * Thin wrapper over the shared {@link loadDataJson} read-path so the lazy-load
+ * anti-pattern guard (see that module's header) lives in exactly one place.
  *
  * @param rootDir Repo root to resolve `data/jobs.json` against. Defaults to
  *   `process.cwd()`, which is the project root during a Vite build. Plugins
  *   that already receive a `rootDir` should pass it for robustness.
  */
 export function loadJobsJson<T = unknown>(rootDir: string = process.cwd()): T[] {
-  const jobsPath = path.resolve(rootDir, 'data/jobs.json');
-  if (cache && cache.path === jobsPath) return cache.data as T[];
-  const data = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
-  cache = { path: jobsPath, data };
-  return data as T[];
+  return loadDataJson<T[]>('data/jobs.json', rootDir);
 }
