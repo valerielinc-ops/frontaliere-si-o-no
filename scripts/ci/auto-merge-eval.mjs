@@ -22,9 +22,11 @@
  *      l'unico caso di merge MANUALE residuo). Un `🔴` reale blocca comunque.
  *   3. check-run `vitest (unit + integration)` sulla HEAD == `success`
  *      (NON solo != failure: richiede success → niente merge su pending/missing).
- *   4. Collision gate (P3): se la PR ha label `collision-risk` ED è behind
- *      origin/main → NON mergiare (va prima rebasata oltre la PR collidente;
- *      pr-autorebase la rebasa). `collision-risk` ma 0 behind → consentito.
+ *   4. Collision gate (P3, preciso #2424): se la PR ha label `collision-risk`
+ *      ED è behind origin/main, blocca SOLO se un peer collidente già MERGIATO
+ *      (dai marker `<!-- COLLISION:N -->`) non è ancora incluso in head — il
+ *      vero hazard #1454. Behind per soli commit main NON correlati → consentito
+ *      (evita starvation/livelock sotto main trafficato). 0 behind → consentito.
  *
  * Se tutti i gate passano → squash-merge con PAT (stesso meccanismo di prima:
  * PRIMARY_TOKEN=GITHUB_PAT per il cascade deploy/followup, fallback GITHUB_TOKEN).
@@ -188,6 +190,58 @@ const PR_BODY_NONIMPL_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
 export function prBodyContractOk(body = '') {
   if (!PR_BODY_IMPL_RE.test(body) || !PR_BODY_NONIMPL_RE.test(body)) return false;
   return checkClosesLines(body).ok;
+}
+
+/**
+ * Estrae i numeri delle PR collidenti registrate da `pr-collision-detector.mjs`
+ * come marker `<!-- COLLISION:N -->` nel flusso commenti di una PR.
+ * @param {string} commentsText concatenazione dei body dei commenti.
+ * @returns {number[]} numeri di PR peer (dedup, ordine di apparizione).
+ */
+export function parseCollisionPeers(commentsText = '') {
+  const peers = [];
+  const seen = new Set();
+  const re = /<!-- COLLISION:(\d+) -->/g;
+  let m;
+  while ((m = re.exec(commentsText)) !== null) {
+    const n = parseInt(m[1], 10);
+    if (!seen.has(n)) { seen.add(n); peers.push(n); }
+  }
+  return peers;
+}
+
+/**
+ * Gate collision PRECISO (#2424). Una PR `collision-risk` dietro main è sicura
+ * da mergiare sse OGNI peer collidente GIÀ MERGIATO è incluso in head — l'unico
+ * vero hazard #1454 — invece di esigere 0-behind rispetto a TUTTO main (che
+ * sotto main trafficato causa starvation/livelock: un merge non correlato
+ * riporta la PR behind>0 → re-rebase → re-vitest all'infinito).
+ *
+ * I peer ancora OPEN non portano hazard: se questa PR mergia per prima, il
+ * detector forza loro il rebase (flow esistente). I peer CLOSED-non-merged
+ * idem. Solo i peer MERGIATI il cui commit non è ancora in head bloccano.
+ *
+ * Puro e side-effect-free → unit-testabile senza `gh`. Il caller calcola
+ * `includedInHead` per ogni peer mergiato via compare API (ancestry).
+ *
+ * @param {{ behind?: number, mergedPeers?: {number:number, includedInHead:boolean}[] }} o
+ * @returns {{ allow: boolean, reason: string }}
+ */
+export function collisionGateDecision({ behind = 0, mergedPeers = [] } = {}) {
+  if (behind <= 0) return { allow: true, reason: '0 dietro main' };
+  const missing = mergedPeers.filter((p) => !p.includedInHead);
+  if (missing.length > 0) {
+    return {
+      allow: false,
+      reason: `peer collidenti mergiati non ancora inclusi in head: ${missing.map((p) => `#${p.number}`).join(', ')} — serve rebase oltre quei peer (pr-autorebase la gestisce)`,
+    };
+  }
+  return {
+    allow: true,
+    reason: mergedPeers.length > 0
+      ? `behind ${behind} commit ma tutti i ${mergedPeers.length} peer collidenti mergiati sono inclusi in head → hazard #1454 assente`
+      : `behind ${behind} commit ma nessun peer collidente mergiato (solo commit main non correlati) → hazard #1454 assente`,
+  };
 }
 
 /**
@@ -383,9 +437,54 @@ function main() {
       return fail(`collision-risk PR #${PR}: impossibile calcolare behind_by (${String(e).slice(0, 120)}) — skip conservativo.`);
     }
     if (behind > 0) {
-      return fail(`collision-risk PR #${PR} è ${behind} commit dietro main — skip; va rebasata oltre la PR collidente prima del merge (pr-autorebase la gestisce).`);
+      // Gate PRECISO (#2424): blocca SOLO se un peer collidente già MERGIATO non
+      // è ancora incluso in head (il vero hazard #1454) — non per il semplice
+      // fatto che head sia dietro commit di main NON correlati (causa di
+      // starvation/livelock sotto main trafficato). Recupera i peer dai marker
+      // `<!-- COLLISION:N -->` lasciati da pr-collision-detector, e per ogni peer
+      // MERGIATO verifica via compare API che il suo merge-commit sia antenato di
+      // head (status ahead/identical).
+      let peers = [];
+      try {
+        const comments = gh(['api', `repos/${REPO}/issues/${PR}/comments`, '--paginate',
+          '--jq', '[.[].body] | join("\\n")'], { json: false }) || '';
+        peers = parseCollisionPeers(comments);
+      } catch (e) {
+        return fail(`collision-risk PR #${PR}: impossibile leggere i commenti per i peer collidenti (${String(e).slice(0, 120)}) — skip conservativo.`);
+      }
+      const mergedPeers = [];
+      for (const peer of peers) {
+        let pv;
+        try {
+          pv = gh(['pr', 'view', String(peer), '--repo', REPO, '--json', 'state,mergeCommit']);
+        } catch {
+          // Peer non leggibile: non posso escludere sia un hazard mergiato →
+          // conservativo, trattalo come non-incluso (blocca, pr-autorebase risolve).
+          mergedPeers.push({ number: peer, includedInHead: false });
+          continue;
+        }
+        // Solo i peer MERGIATI portano hazard; OPEN / CLOSED-non-merged no.
+        if (!pv || pv.state !== 'MERGED' || !pv.mergeCommit?.oid) continue;
+        const oid = pv.mergeCommit.oid;
+        let included = false;
+        try {
+          const status = gh(['api', `repos/${REPO}/compare/${oid}...${head}`, '--jq', '.status'],
+            { json: false }).trim();
+          included = status === 'ahead' || status === 'identical';
+        } catch {
+          // Inclusione indeterminabile → conservativo: non-incluso (blocca).
+          included = false;
+        }
+        mergedPeers.push({ number: peer, includedInHead: included });
+      }
+      const decision = collisionGateDecision({ behind, mergedPeers });
+      if (!decision.allow) {
+        return fail(`collision-risk PR #${PR}: ${decision.reason}.`);
+      }
+      console.log(`Gate collision (#2424 preciso): ${decision.reason} → consentito ✔`);
+    } else {
+      console.log(`Gate collision: collision-risk ma 0 dietro main → consentito ✔`);
     }
-    console.log(`Gate collision: collision-risk ma 0 dietro main → consentito ✔`);
   }
 
   // Tutti i gate passano → squash-merge.
