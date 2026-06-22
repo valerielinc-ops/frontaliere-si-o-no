@@ -250,7 +250,12 @@ function renderFeaturedJobs(
     locale,
     emptyStateHtml: emptyHtml,
   });
-  const ctaHref = buildJobBoardUrl(locale);
+  // "See all N offers" CTA → the landing's sector hub (e.g. nurses →
+  // /cerca-lavoro-ticino/infermieri/) so the visitor lands on a filtered
+  // search, not the generic root. Reuses CTA_SECTOR; null (healthcare-ticino,
+  // whose copy says "all openings") falls back to the unfiltered hub.
+  const ctaSector = CTA_SECTOR[id];
+  const ctaHref = ctaSector ? buildSectorHubPath(locale, ctaSector) : buildJobBoardUrl(locale);
   const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');

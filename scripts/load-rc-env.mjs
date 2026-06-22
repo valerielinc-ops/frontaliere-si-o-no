@@ -44,6 +44,12 @@ const RC_TO_ENV = {
   // Optional — absent RC params are simply skipped (no-op until added).
   GH_MODELS_PAT_2:                ['GH_MODELS_PAT_2'],
   GH_MODELS_PAT_3:                ['GH_MODELS_PAT_3'],
+  GH_MODELS_PAT_4:                ['GH_MODELS_PAT_4'],
+  GH_MODELS_PAT_5:                ['GH_MODELS_PAT_5'],
+  GH_MODELS_PAT_6:                ['GH_MODELS_PAT_6'],
+  GH_MODELS_PAT_7:                ['GH_MODELS_PAT_7'],
+  GH_MODELS_PAT_8:                ['GH_MODELS_PAT_8'],
+  GH_MODELS_PAT_9:                ['GH_MODELS_PAT_9'],
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
   TOMTOM_API_KEY:             ['TOMTOM_API_KEY'],
   HERE_API_KEY:               ['HERE_API_KEY'],

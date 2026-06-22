@@ -57,6 +57,25 @@ describe('isAvoidableMaxTurns — non escalare la morte al cap che è determinis
     expect(isAvoidableMaxTurns('follow-up(#9): 1 item deferred — fix(x)', ['follow-up'])).toBe(true);
   });
 
+  it('PR consegnato (hasDeliveredPr) → NON contabile, anche single-item routable (#2653: overrun post-delivery)', () => {
+    // 3/5 esempi dell'escalation #2653 (#2590/#2560/#2476) hanno aperto un PR poi
+    // mergiato, poi sforato il cap su churn post-delivery. Un run che ha consegnato
+    // un PR è SUCCESS (come lo classifica già issue-fix.yml) → mai burn evitabile.
+    expect(isAvoidableMaxTurns(
+      'follow-up(#2590): 1 item deferred — fix(x)',
+      ['follow-up', 'agent:triaged'],
+      true,
+    )).toBe(false);
+    // senza PR consegnato la stessa issue single-item resta il segnale genuino
+    expect(isAvoidableMaxTurns(
+      'follow-up(#2590): 1 item deferred — fix(x)',
+      ['follow-up', 'agent:triaged'],
+      false,
+    )).toBe(true);
+    // hasDeliveredPr domina anche su aggregate/parked (irrilevante, ma esplicito)
+    expect(isAvoidableMaxTurns('follow-up(#x): 3 items deferred', ['follow-up'], true)).toBe(false);
+  });
+
   it('input degeneri → contabile-safe non gonfia (proceed: solo le esclusioni esplicite scartano)', () => {
     // nessuna label needs-human, nessun marcatore aggregate → resta contabile,
     // ma in pratica un titolo vuoto non fa scattare nulla a valle (count basso).

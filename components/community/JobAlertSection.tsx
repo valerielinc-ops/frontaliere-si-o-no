@@ -1,5 +1,6 @@
 import { Suspense, useEffect, useState } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
+import { resilientImport } from '@/services/resilientImport';
 import { useAuth } from '@/services/authService';
 
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
@@ -14,7 +15,7 @@ export default function JobAlertSection({ initialKeyword = '', onRequireAuth }: 
  const [enabled, setEnabled] = useState<boolean | null>(null);
 
  useEffect(() => {
- import('@/services/firebase')
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function')
  .then(({ getConfigValue }) => getConfigValue('ENABLE_JOB_ALERTS'))
  .then((v) => setEnabled(v === 'true'))
  .catch(() => setEnabled(false));

@@ -853,6 +853,9 @@ const _exhaustedModels = new Set();
 // subsequent GitHub calls skip them and go straight to a fresh account's PAT.
 // Reset per run (resetState) — daily limits reset on the provider side anyway.
 const _ghExhaustedPats = new Set();
+// modelId → reason it was exhausted ('quota' | 'timeout' | 'content' | 'stale' |
+// 'nonretryable'). Gates the GitHub multi-PAT skip-exemption (quota only).
+const _exhaustReason = new Map();
 // Tracks which exhausted models have already been logged this run, so a model
 // that's been exhausted since startup doesn't produce a "Skipped — exhausted"
 // line every time the fallback chain ticks past it.
@@ -1340,7 +1343,7 @@ export async function _discoverProvider(cfg) {
     for (const model of DEFAULT_CHAIN) {
       if (!model.startsWith(cfg.prefix)) continue;
       if (!offeredIds.has(model.slice(prefixLen))) {
-        markModelExhausted(model);
+        markModelExhausted(model, 'stale');
         stale++;
       }
     }
@@ -1476,6 +1479,9 @@ export async function initScoreStore() {
           : new Date(data.exhaustedUntil); // ISO string fallback
         if (resetTime > now) {
           _exhaustedModels.add(modelId);
+          // Persisted exhaustedUntil is the daily-limit (quota) path → eligible
+          // for the GitHub multi-PAT skip-exemption.
+          _exhaustReason.set(modelId, 'quota');
           exhaustedRestored++;
           console.warn(`🚫 [ScoreStore] ${modelId} still exhausted until ${resetTime.toISOString().slice(0, 16)}`);
         }
@@ -1638,7 +1644,7 @@ export function recordModelContentFailure(modelId) {
   const count = (_consecutiveContentFailures.get(modelId) || 0) + 1;
   _consecutiveContentFailures.set(modelId, count);
   if (count >= MAX_CONSECUTIVE_CONTENT_FAILURES) {
-    markModelExhausted(modelId);
+    markModelExhausted(modelId, 'content');
     _stats.exhausted++;
     console.warn(`🚫 [${modelId}] Exhausted after ${count} consecutive content-quality failures`);
   }
@@ -1693,16 +1699,43 @@ function sortChainByScore(chain) {
  * It will be skipped for the remainder of this process
  * and persisted to Firestore so other workflows also skip it.
  */
-export function markModelExhausted(modelId) {
+// `reason` records WHY a model was exhausted so the GitHub multi-PAT exemption
+// only resurrects quota/daily-limit exhaustion (account-specific → rotation to a
+// fresh PAT can fix it), NOT timeout / content-failure / stale / non-retryable
+// exhaustion (account-independent → rotation cannot help, and re-trying would
+// neutralise those circuit-breakers). Default 'quota' covers the daily-limit and
+// rate-limit paths; the non-quota breakers pass an explicit reason.
+export function markModelExhausted(modelId, reason = 'quota') {
   _exhaustedModels.add(modelId);
+  _exhaustReason.set(modelId, reason);
   _dirtyModels.add(modelId);
   _schedulePersist();
-  console.warn(`🚫 Model ${modelId} marked as exhausted — will be skipped for rest of run`);
+  console.warn(`🚫 Model ${modelId} marked as exhausted (${reason}) — will be skipped for rest of run`);
+}
+
+// Whether the chain runner should SKIP a model because it's exhausted.
+// For GitHub models this is NOT just `_exhaustedModels.has(model)`: a persisted
+// daily-limit was recorded against ONE GitHub account, but with multiple PATs a
+// different account's fresh quota can still serve the model. So while any PAT is
+// un-exhausted this run, GitHub models stay eligible — `_callGitHub` rotates to
+// the fresh account. Without this, a model marked exhausted by account #1
+// earlier today would be skipped on every later run, never reaching rotation.
+function _shouldSkipExhausted(model) {
+  if (!_exhaustedModels.has(model)) return false;
+  // Only QUOTA/daily-limit exhaustion is account-specific and thus fixable by
+  // rotating to a fresh PAT. Timeout / content-failure / stale / non-retryable
+  // exhaustion would recur on every account, so those keep skipping (otherwise
+  // the circuit-breaker is neutralised and full timeouts re-incur per attempt).
+  if (getProvider(model) === PROVIDER.GITHUB && _exhaustReason.get(model) === 'quota') {
+    const pats = getGhModelsPats();
+    if (pats.length > 1 && pats.some((_, i) => !_ghExhaustedPats.has(i))) return false;
+  }
+  return true;
 }
 
 /** Check whether a model is still usable this run */
 export function isModelAvailable(modelId) {
-  if (_exhaustedModels.has(modelId)) return false;
+  if (_shouldSkipExhausted(modelId)) return false;
   // Check that we have the API key for the model's provider
   return !!getApiKeyForProvider(getProvider(modelId));
 }
@@ -1756,6 +1789,7 @@ export function printRunSummary() {
 export function resetState() {
   _exhaustedModels.clear();
   _ghExhaustedPats.clear();
+  _exhaustReason.clear();
   _exhaustedLogged.clear();
   _providerCooldown.clear();
   _modelScores.clear();
@@ -2164,7 +2198,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         const nrc = classifyNonRetryableError(res.status, raw);
         if (nrc.nonRetryable) {
           if (nrc.markExhausted) {
-            markModelExhausted(modelForTracking);
+            markModelExhausted(modelForTracking, 'nonretryable');
             _stats.exhausted++;
           }
           const err = new Error(`[${displayModel}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
@@ -2672,7 +2706,7 @@ export async function callSingleModel(messages, opts = {}) {
   const o = { ...DEFAULT_OPTS, ...opts };
   const model = o.model || AI_MODELS.GPT4O;
 
-  if (_exhaustedModels.has(model)) {
+  if (_shouldSkipExhausted(model)) {
     throw new Error(`[${model}] Model is exhausted for this run`);
   }
 
@@ -2747,7 +2781,7 @@ export async function callLLM(messages, opts = {}) {
     // to avoid log floods like "[mistral/nemo] Skipped — exhausted" repeated
     // 300+ times in a single run (one per fallback attempt × per fact-check
     // retry × per generation retry).
-    if (_exhaustedModels.has(model)) {
+    if (_shouldSkipExhausted(model)) {
       if (!_exhaustedLogged.has(model)) {
         console.warn(`⏭️  [${model}] Skipped — exhausted (daily limit, future hits silenced)`);
         _exhaustedLogged.add(model);
@@ -2851,7 +2885,7 @@ export async function callLLM(messages, opts = {}) {
       // exhausted so subsequent callLLM invocations skip it entirely.
       const isTimeoutFailure = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(msg);
       if (isTimeoutFailure) {
-        markModelExhausted(model);
+        markModelExhausted(model, 'timeout');
         _stats.exhausted++;
       }
       recordModelFailure(model, {
