@@ -1997,12 +1997,13 @@ const App: React.FC = () => {
  </div>
  )}
 
- {/* Language selector — always visible */}
- <Suspense fallback={null}><LanguageSelector /></Suspense>
+ {/* Language selector — always visible. Sized fallback reserves the 44x44
+  * button box so the lazy chunk mounting doesn't shift the header row (CLS). */}
+ <Suspense fallback={<div className="min-w-[44px] min-h-[44px]" aria-hidden="true" />}><LanguageSelector /></Suspense>
 
  {/* WhatsNew bell — desktop only */}
  <div className="hidden md:block">
- <Suspense fallback={null}><WhatsNewBellLazy onClick={() => setShowWhatsNew(true)} /></Suspense>
+ <Suspense fallback={<div className="min-w-[44px] min-h-[44px]" aria-hidden="true" />}><WhatsNewBellLazy onClick={() => setShowWhatsNew(true)} /></Suspense>
  </div>
 
  {/* Dark mode toggle — desktop only */}
@@ -2471,7 +2472,13 @@ const App: React.FC = () => {
  <PressKit />
  </div>
  ) : activeTab === 'job-board' ? (
- <div className="max-w-7xl mx-auto">
+ // Widen past max-w-7xl (1280) at ≥1400px so the job-detail view's 3-column
+ // rail grid (300px | content | 300px) gets room for BOTH rails AND a readable
+ // centre — otherwise the 600px of rails collapse the content column to ~630px
+ // inside the 1280 cap (measured live). Mutually-exclusive ranges (`max-xlw:` <
+ // 1400, `xlw:` ≥ 1400) so the v4 cascade can't pin it to 7xl. Inner list view
+ // self-caps (max-w-6xl), so only the rail'd detail/gate views use the width.
+ <div className="max-xlw:max-w-7xl xlw:max-w-[1900px] mx-auto">
  <JobBoard
  initialJobSlug={jobSlug || undefined}
  initialFilterParams={jobBoardFilterParams}

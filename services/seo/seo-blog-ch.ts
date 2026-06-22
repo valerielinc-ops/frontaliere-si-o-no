@@ -3452,6 +3452,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-pensioni-estero-condizioni': {
+    title: 'Pensioni AVS all\'estero: condizioni e convenzioni',
+    description: 'Condizioni per ricevere pensioni AVS/SV in 21 Paesi fuori UE, requisiti contributivi e convenzioni sociali. Calcolo rendite e procedure ufficiali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensioni, estero, condizioni, convenzioni',
+    ogTitle: 'Pensioni all\'estero: requisiti AVS e diritti',
+    ogDescription: 'Informazioni ufficiali sull\'iscrizione AVS/AI facoltativa, procedure e Paesi autorizzati. Confronto finanziario e regole attuali.',
+    canonicalPath: '/articoli-svizzera/avs-pensioni-estero-condizioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensioni AVS all'estero: condizioni e convenzioni",
+      "description": "Condizioni per ricevere pensioni AVS/SV in 21 Paesi fuori UE, requisiti contributivi e convenzioni sociali. Calcolo rendite e procedure ufficiali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-pensioni-estero-condizioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Svizzeri in pensione con documenti finanziari accanto al Lago di Lugano"
+      },
+      "datePublished": "2026-06-22T09:06:27+00:00",
+      "dateModified": "2026-06-22T09:06:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-pensioni-estero-condizioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-marchesi-zali-lista-autonomi': {
+    title: 'Marchesi: pronti a correre da soli se Zali in lista',
+    description: 'Il Consigliere nazionale Piero Marchesi apre alla possibilità che la Lega corra da sola alle elezioni cantonali in Ticino, se Claudio Zali si candidasse in una',
+    keywords: 'frontalieri, ticino, svizzera, italia, marchesi, pronti, correre, soli',
+    ogTitle: 'Marchesi: pronti a correre da soli se Zali in lista',
+    ogDescription: 'Il Consigliere nazionale Piero Marchesi valuta la corsa solitaria della Lega in Ticino, condizionata dalla candidatura di Claudio Zali. Decisione attesa in',
+    canonicalPath: '/articoli-svizzera/marchesi-zali-lista-autonomi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Marchesi: pronti a correre da soli se Zali in lista",
+      "description": "Il Consigliere nazionale Piero Marchesi apre alla possibilità che la Lega corra da sola alle elezioni cantonali in Ticino, se Claudio Zali si candidasse in una",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/marchesi-zali-lista-autonomi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Governo a Bellinzona, Svizzera, sede delle decisioni cantonali"
+      },
+      "datePublished": "2026-06-22T10:20:26+00:00",
+      "dateModified": "2026-06-22T10:20:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/marchesi-zali-lista-autonomi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
