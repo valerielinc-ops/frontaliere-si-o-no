@@ -44,7 +44,13 @@ const PROVIDERS = [
   { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
-  { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
+  // maileroo: DISABLED — its sending domain has no DKIM published for
+  // frontaliereticino.ch, so with DMARC at p=quarantine its mail fails
+  // authentication and lands in spam (Gmail "non autenticato"). Every other
+  // provider is DMARC-aligned (mailgun/resend/mailjet DKIM + mailtrap DKIM CNAMEs
+  // + cloudflare cf2024-1 DKIM). Re-enable only after publishing Maileroo's DKIM
+  // record for the domain (Maileroo dashboard → Domains → DNS).
+  // { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
   // Cloudflare Email Service: limit is MONTHLY (3000/mo included on Workers Paid),
   // there is no documented per-day cap. dailyLimit is the 3000/30 ≈ 100/day spread
   // so the in-memory guard keeps a single day from burning a disproportionate
