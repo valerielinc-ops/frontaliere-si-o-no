@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 const { buildNewsletter, FEATURED_TOOLS, directUrl } = await import('@/services/newsletter-template.mjs');
-const { matchJobsForSubscriber, validateJobUrls, getFallbackBriefing, FALLBACK_SUBJECT } = await import('@/services/newsletter-content.mjs');
+const { matchJobsForSubscriber, validateJobUrls, getFallbackBriefing, FALLBACK_SUBJECT, decayFactor } = await import('@/services/newsletter-content.mjs');
 
 const SAMPLE_EXCHANGE = { rate: 1.0942, previousRate: 1.0885 };
 const SAMPLE_FACT = { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' };
@@ -252,6 +252,65 @@ describe('validateJobUrls resilience', () => {
     const result = validateJobUrls(mixed, ALL_JOBS);
     expect(result).toHaveLength(2);
     expect(result.find((j) => j.title === 'Ghost')).toBeUndefined();
+  });
+});
+
+describe('popularity decay (anti-evergreen-freeze)', () => {
+  const NOW = new Date('2026-06-22T00:00:00.000Z').getTime();
+  const daysAgoIso = (n: number) => new Date(NOW - n * 86400000).toISOString();
+
+  it('halves the popularity weight every 30 days of job age', () => {
+    expect(decayFactor({ postedDate: daysAgoIso(0) }, NOW)).toBeCloseTo(1, 5);
+    expect(decayFactor({ postedDate: daysAgoIso(30) }, NOW)).toBeCloseTo(0.5, 5);
+    expect(decayFactor({ postedDate: daysAgoIso(60) }, NOW)).toBeCloseTo(0.25, 5);
+    expect(decayFactor({ postedDate: daysAgoIso(90) }, NOW)).toBeCloseTo(0.125, 5);
+  });
+
+  it('applies a neutral mid-life factor to jobs with no parseable date', () => {
+    expect(decayFactor({}, NOW)).toBe(0.5);
+    expect(decayFactor({ postedDate: 'not-a-date' }, NOW)).toBe(0.5);
+  });
+
+  it('never exceeds 1 for future-dated jobs (clamped age)', () => {
+    expect(decayFactor({ postedDate: daysAgoIso(-10) }, NOW)).toBeLessThanOrEqual(1);
+  });
+});
+
+describe('no-profile job blend + backfill-slug relevance', () => {
+  // No interest profile: the newest jobs must be represented, not just the
+  // all-time popular ones — this is what makes the section rotate.
+  it('represents the freshest jobs for a no-profile subscriber', () => {
+    const jobs = Array.from({ length: 8 }, (_, i) => ({
+      title: `Job ${i}`,
+      company: `Co ${i}`,
+      location: 'Lugano',
+      slug: `job-${i}-co-${i}`,
+      postedDate: new Date(Date.now() - i * 86400000).toISOString(),
+    }));
+    const matched = matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 4);
+    // job-0 is the newest; with all views=0 the blend orders by recency, so the
+    // newest listing must appear.
+    expect(matched.map((j) => j.slug)).toContain('job-0-co-0');
+    expect(matched).toHaveLength(4);
+    // Company diversity preserved.
+    const companies = matched.map((j) => j.company);
+    expect(new Set(companies).size).toBe(companies.length);
+  });
+
+  // A subscriber whose ONLY job signal is the retroactively-recovered
+  // job_context_backfill_slug must still get a relevance-ranked match.
+  it('ranks a matching job first using job_context_backfill_slug', () => {
+    const jobs = [
+      { title: 'Sviluppatore software backend', company: 'TechCo', location: 'Lugano', slug: 'sviluppatore-software-techco', category: 'IT', sector: 'IT' },
+      { title: 'Infermiere reparto medicina', company: 'Clinica', location: 'Lugano', slug: 'infermiere-medicina-clinica', category: 'Sanita', sector: 'Sanita' },
+    ];
+    const matched = matchJobsForSubscriber(
+      { locationInterest: null, sectorInterest: null, job_context_backfill_slug: 'infermiere-pediatria-ospedale-lugano' },
+      jobs,
+      2,
+    );
+    // The nurse job shares keywords with the backfill slug → ranks first.
+    expect(matched[0].slug).toBe('infermiere-medicina-clinica');
   });
 });
 
