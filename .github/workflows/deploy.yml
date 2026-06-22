@@ -2100,6 +2100,16 @@ jobs:
       # (`matrix.locale != 'it'`) → matrix-equivalence sha256 intact.
       - name: Upload locale shard dist for post-deploy validation
         if: matrix.locale != 'it'
+        # MUST stay continue-on-error: this is a non-essential speedup artifact.
+        # deploy + validate-dist gate on `needs.build-locale.result == 'success'`
+        # (in matrix mode `build` is skipped), and build-locale has
+        # fail-fast: false, so a single leg failing here would make
+        # build-locale.result == failure → deploy blocked = no Pages publish.
+        # A transient artifact-service error or an empty dist/<loc> must instead
+        # degrade gracefully: validate-dist's git-clone fallback then rehydrates
+        # the locale (the documented resilience path). Mirrors the adjacent
+        # `Push locale shard` step, which is continue-on-error for the same reason.
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: locale-dist-${{ matrix.locale }}-${{ github.run_id }}
