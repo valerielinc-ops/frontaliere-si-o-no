@@ -96,7 +96,16 @@ export function evaluateStaleness(doc, nowMs, staleHours = DEFAULT_STALE_HOURS) 
 // 00:00 UTC watchdog run pages a false "degraded" every night (worse over the
 // weekend), causing alert fatigue that buries real degradation. Webcam-health
 // and all-mock checks are time-independent and always run.
-const STALE_ACTIVE_START_UTC_HOUR = 5;
+//
+// START is 06:00 UTC (not 05:00): the first weekday morning scheduler cron is
+// 04:00 UTC (`*/30 4-7`), but GitHub Actions scheduled runs routinely lag
+// 30–60+ min or are silently dropped under load, so fresh morning data may not
+// land until ~05:30–06:00. Activating the backstop at 05:00 paged a false
+// "591 min stale" at 05:08 (#2587) on overnight data, before the morning peak
+// could refresh. Starting at 06:00 gives the 04:00–07:00 peak + cron jitter a
+// ~2h runway; a genuinely frozen pipeline (no run for 11h+) still trips at
+// 06:00 and the always-on all-mock/webcam checks catch hard failures any hour.
+const STALE_ACTIVE_START_UTC_HOUR = 6;
 const STALE_ACTIVE_END_UTC_HOUR = 20; // exclusive
 
 /**

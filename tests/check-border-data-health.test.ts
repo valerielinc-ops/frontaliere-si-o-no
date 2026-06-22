@@ -186,8 +186,11 @@ describe('isStalenessCheckActive (active-window gate)', () => {
     expect(isStalenessCheckActive(atUtcHour(0))).toBe(false);
   });
 
-  it('is INACTIVE before 05:00 UTC (scheduler idle overnight)', () => {
+  it('is INACTIVE before 06:00 UTC (overnight idle + morning-cron jitter runway, #2587)', () => {
     expect(isStalenessCheckActive(atUtcHour(4))).toBe(false);
+    // 05:00 UTC is now INACTIVE: the 04:00–07:00 morning peak + GitHub cron
+    // jitter needs runway to land fresh data before the backstop fires (#2587).
+    expect(isStalenessCheckActive(atUtcHour(5))).toBe(false);
   });
 
   it('is ACTIVE for the 06/12/18 UTC runs (scheduler operating hours)', () => {
