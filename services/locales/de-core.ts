@@ -3297,6 +3297,8 @@ Regeln:
  'publisherApply.error': 'Senden fehlgeschlagen. Bitte später erneut versuchen.',
  'publisherApply.successTitle': 'Bewerbung gesendet!',
  'publisherApply.successMessage': 'Ihre Daten wurden an den Arbeitgeber weitergeleitet. Viel Erfolg!',
+ 'publisherApply.alreadyTitle': 'Sie haben sich bereits auf diese Stelle beworben',
+ 'publisherApply.alreadyMessage': 'Wir haben Ihre Bewerbung erfasst und an den Arbeitgeber weitergeleitet. Sie können sie in Ihrem Profil einsehen.',
  'publisher.error': 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',
  'publisher.error.description': 'Die Beschreibung muss mindestens 50 Wörter enthalten.',
  'publisher.error.locations': 'Fügen Sie mindestens einen Arbeitsort hinzu.',

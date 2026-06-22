@@ -3297,6 +3297,8 @@ Règles :
  'publisherApply.error': 'Échec de l\'envoi. Réessayez plus tard.',
  'publisherApply.successTitle': 'Candidature envoyée !',
  'publisherApply.successMessage': 'Vos informations ont été transmises à l\'employeur. Bonne chance !',
+ 'publisherApply.alreadyTitle': 'Vous avez déjà postulé pour ce poste',
+ 'publisherApply.alreadyMessage': 'Nous avons enregistré votre candidature et l\'avons transmise à l\'employeur. Vous pouvez la consulter dans votre profil.',
  'publisher.error': 'Une erreur s\'est produite. Veuillez réessayer.',
  'publisher.error.description': 'La description doit contenir au moins 50 mots.',
  'publisher.error.locations': 'Ajoutez au moins un lieu de travail.',
