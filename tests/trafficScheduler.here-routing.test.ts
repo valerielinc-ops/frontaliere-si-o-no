@@ -14,7 +14,9 @@
  *     the HERE Router v8 /routes response.
  *  2. getTomTomFlowSegmentData — computes congestion ratio from
  *     the TomTom Traffic Flow Segment /flowSegmentData response.
- *  3. resolveTrafficProvider priority: HERE > TomTom > Google Maps > null
+ *  3. resolveTrafficProvider priority: TomTom > HERE > Google Maps > null
+ *     (TomTom preferred over HERE since #2180 — HERE bills per call and its
+ *     free tier is exhausted ~day 6/month; TomTom's free tier covers full demand.)
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
@@ -346,11 +348,26 @@ describe('computeHereBudgetDecision', () => {
 // ─── resolveTrafficProvider priority ─────────────────────────────
 
 describe('resolveTrafficProvider', () => {
-  // resolveTrafficProvider is currently private inside trafficSchedulerCore.js;
-  // we verify the priority indirectly through runTrafficCollection / fetchCrossingTraffic
-  // by inspecting which API URL gets called when multiple keys are present.
+  // Direct priority assertions (function exported since #2180) + indirect
+  // verification through fetchCrossingTraffic (which API URL is called).
   //
-  // Expected priority: HERE > TomTom > Google Maps > null
+  // Expected priority: TomTom > HERE > Google Maps > null
+
+  it('prefers TomTom over HERE when both keys are present (#2180 — avoids HERE billing)', async () => {
+    const { resolveTrafficProvider } = await import('../functions/src/trafficSchedulerCore.js');
+    expect(resolveTrafficProvider({ hereApiKey: 'h', tomtomApiKey: 't' })).toBe('tomtom');
+  });
+
+  it('falls back to HERE when only hereApiKey is set', async () => {
+    const { resolveTrafficProvider } = await import('../functions/src/trafficSchedulerCore.js');
+    expect(resolveTrafficProvider({ hereApiKey: 'h' })).toBe('here');
+  });
+
+  it('falls back to Google Maps when only googleApiKey is set; null when no keys', async () => {
+    const { resolveTrafficProvider } = await import('../functions/src/trafficSchedulerCore.js');
+    expect(resolveTrafficProvider({ googleApiKey: 'g' })).toBe('google-maps');
+    expect(resolveTrafficProvider({})).toBe(null);
+  });
 
   let fetchCrossingTraffic: (
     crossing: { name: string; lat: number; lng: number },
@@ -377,11 +394,11 @@ describe('resolveTrafficProvider', () => {
     vi.restoreAllMocks();
   });
 
-  it('uses HERE when hereApiKey is provided alongside tomtomApiKey', async () => {
+  it('uses TomTom when tomtomApiKey is provided alongside hereApiKey (#2180 — HERE billing avoided)', async () => {
     // fetchCrossingTraffic calls two segments → mock fetch twice
     global.fetch = vi.fn()
-      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => hereRouteResponse, text: async () => '' } as unknown as Response)
-      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => hereRouteResponse, text: async () => '' } as unknown as Response);
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => tomtomRouteResponse, text: async () => '' } as unknown as Response)
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => tomtomRouteResponse, text: async () => '' } as unknown as Response);
 
     const result = await fetchCrossingTraffic(fakeCrossing, {
       hereApiKey: 'here-key',
@@ -391,10 +408,12 @@ describe('resolveTrafficProvider', () => {
     const calledUrls = (global.fetch as ReturnType<typeof vi.fn>).mock.calls.map(
       c => c[0] as string,
     );
-    // At least one call must be to the HERE Router endpoint, not TomTom Routing
+    // No call must hit the HERE Router endpoint; TomTom is now primary.
     const usedHere = calledUrls.some(url => url.includes('router.hereapi.com') || url.includes('here.com'));
-    expect(usedHere).toBe(true);
-    expect(result.source).toBe('here');
+    const usedTomTom = calledUrls.some(url => url.includes('tomtom.com'));
+    expect(usedHere).toBe(false);
+    expect(usedTomTom).toBe(true);
+    expect(result.source).toBe('tomtom');
   });
 
   it('uses TomTom when only tomtomApiKey is provided', async () => {
