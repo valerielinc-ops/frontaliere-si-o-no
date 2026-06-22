@@ -3,6 +3,7 @@ const frCore: Record<string, string> = {
  'app.subtitle': 'Calculez et comparez votre salaire net en tant que travailleur frontalier',
  'app.fullscreen': 'Plein écran',
  'app.exitFullscreen': 'Quitter le plein écran',
+ 'a11y.skipToContent': 'Aller au contenu principal',
  'app.lightMode': 'Activer le thème clair',
  'app.resetConfirm': 'Vider le cache, les cookies et les données locales ? Le site se rechargera comme lors de votre première visite.',
  'app.darkMode': 'Activer le thème sombre',
