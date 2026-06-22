@@ -422,7 +422,16 @@ export function companyPageUrl(companySlug, locale = 'it') {
 export function buildCompanyHubSlugSet(jobs) {
   const set = new Set();
   for (const j of jobs || []) {
-    if (j && j.company) {
+    // Mirror the emitter's `validJobs` gate (jobsSeoPagesPlugin.ts ~1255): a hub
+    // is emitted only for a company on a job that ALSO has title, location and a
+    // description. A company appearing only on description-/title-/location-less
+    // jobs gets no emitted primary hub, so it must not be allow-listed either —
+    // otherwise the gate still links a 404 (#2608 item 2). The company-slug
+    // algorithm here (slugifyCompanyName) is byte-identical to the emitter's
+    // slugifyCompanyBuild, and brand-alias raw slugs are covered by 200 bridges
+    // from companyHubBridgePlugin's crawler-known coverage (#2608 item 3), so the
+    // raw slug is the correct allow-set key.
+    if (j && j.title && j.company && j.location && (j.description || j.descriptionByLocale)) {
       const slug = slugifyCompanyName(j.company);
       if (slug) set.add(slug);
     }
