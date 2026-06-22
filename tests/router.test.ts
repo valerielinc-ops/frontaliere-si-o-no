@@ -365,6 +365,40 @@ describe('Router — locale-aware job detail updates', () => {
   });
 });
 
+/* ─────────── Employer insights (private per-company page) ─────────── */
+
+describe('Router — employer insights companyKey segment', () => {
+  const companyKey = 'eoc-ente-ospedaliero-cantonale';
+  const token = 'e10bb7f63d0c2d9c972fb4a5658ff42000cb6333689cc11fca4b2e97f1cff621';
+
+  it('parsePath captures the companyKey path segment', () => {
+    const { route } = parsePath(`/azienda/${companyKey}/`);
+    expect(route.activeTab).toBe('employer-insights');
+    expect(route.companyKey).toBe(companyKey);
+  });
+
+  it('buildPath round-trips the companyKey segment', () => {
+    expect(buildPath({ activeTab: 'employer-insights', companyKey })).toBe(`/azienda/${companyKey}/`);
+  });
+
+  it('locale-boot canonicalization preserves companyKey + ?t= token (no collapse to /azienda/)', () => {
+    // Repro of the live bug: updatePathForLocale rebuilt the URL from the
+    // route model, which dropped the companyKey → /azienda/?t=… → empty key →
+    // "Link non valido o scaduto". With companyKey carried in the route, the
+    // segment (and the private token in the query) survive the rewrite.
+    window.history.replaceState(
+      { route: parsePath(`/azienda/${companyKey}/`).route },
+      '',
+      `/azienda/${companyKey}/?t=${token}`,
+    );
+
+    updatePathForLocale('it');
+
+    expect(window.location.pathname).toBe(`/azienda/${companyKey}/`);
+    expect(window.location.search).toBe(`?t=${token}`);
+  });
+});
+
 /* ─────────── Backward compatibility ─────────── */
 
 describe('Router — backward compatibility', () => {
