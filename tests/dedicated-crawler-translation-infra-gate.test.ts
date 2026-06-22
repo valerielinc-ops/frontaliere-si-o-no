@@ -96,6 +96,62 @@ describe('isTranslationInfraDown — translation infrastructure detection', () =
     expect(r.infraDown).toBe(true);
   });
 
+  it('masking: titles translate but every description rejected → down via per-field-type split (#2590)', () => {
+    // Cumulative successes>0 (the titles), so the aggregate check alone would
+    // say NOT down and leave description-only gaps on the base tolerance.
+    const r = isTranslationInfraDown({
+      aiModelsLoaded: true,
+      aiModelsAvailable: true,
+      aiExhaustedCount: 0,
+      cascade: {
+        calls: 30,
+        successes: 15, // all from the short titles
+        byFieldType: {
+          title: { calls: 15, successes: 15 },
+          description: { calls: 15, successes: 0 }, // every long description rejected
+        },
+      },
+    });
+    expect(r.cascadeDown).toBe(true);
+    expect(r.infraDown).toBe(true);
+  });
+
+  it('per-field-type all healthy → NOT down (titles and descriptions both translating)', () => {
+    const r = isTranslationInfraDown({
+      aiModelsLoaded: true,
+      aiModelsAvailable: true,
+      aiExhaustedCount: 0,
+      cascade: {
+        calls: 20,
+        successes: 18,
+        byFieldType: {
+          title: { calls: 10, successes: 10 },
+          description: { calls: 10, successes: 8 }, // a couple genuine per-job gaps
+        },
+      },
+    });
+    expect(r.cascadeDown).toBe(false);
+    expect(r.infraDown).toBe(false);
+  });
+
+  it('per-field-type: a field never exercised (calls=0) does not trigger a false defer', () => {
+    const r = isTranslationInfraDown({
+      aiModelsLoaded: true,
+      aiModelsAvailable: true,
+      aiExhaustedCount: 0,
+      cascade: {
+        calls: 10,
+        successes: 10,
+        byFieldType: {
+          title: { calls: 10, successes: 10 },
+          description: { calls: 0, successes: 0 }, // no descriptions needed translating
+        },
+      },
+    });
+    expect(r.cascadeDown).toBe(false);
+    expect(r.infraDown).toBe(false);
+  });
+
   it('missing/null inputs → safe default (not down)', () => {
     expect(isTranslationInfraDown({}).infraDown).toBe(false);
     expect(isTranslationInfraDown().infraDown).toBe(false);
