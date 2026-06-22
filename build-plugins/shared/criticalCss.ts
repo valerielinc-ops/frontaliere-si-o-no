@@ -68,13 +68,20 @@
  */
 export const RAIL_RESERVE_CSS =
   '.ft-rail-aside{display:none}' +
+  '.ft-rail-aside-x{display:none}' +
   '.ft-rail-grid-spa{display:contents}' +
+  '@media(min-width:1280px) and (max-width:1399.98px){' +
+  '.ft-rail-grid-x{display:grid;grid-template-columns:180px minmax(0,1fr) 180px;gap:1.5rem}' +
+  '.ft-rail-aside-x{display:block}' +
+  '}' +
   '@media(min-width:1400px){' +
   'main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 360px)}' +
   '.ft-rail-grid{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1.5rem;margin-inline:auto;max-width:1768px}' +
   '.ft-rail-grid-spa{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1.5rem}' +
-  '.ft-rail-aside{display:flex;flex-direction:column;min-height:600px}' +
-  '}';
+  '.ft-rail-grid-x{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1.5rem}' +
+  '.ft-rail-aside,.ft-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
+  '}' +
+  '@media(min-width:1800px){main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 420px)}}';
 
 export const CRITICAL_CSS =
   '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}' +

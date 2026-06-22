@@ -41,7 +41,7 @@ describe('static SEO landing pages — full-height side-rail ad gutters', () => 
     // the inline critical CSS now carries a `main:not(.seo-static-content)` rule in
     // the <head>, so a substring search would match the CSS selector before the
     // body element and mis-order the assertion (the DOM order is unchanged).
-    const main = html.indexOf('<main');
+    const main = html.indexOf('<main'); // the real <main> tag — the `<` guarantees the body element, never the `main:not(.seo-static-content)` CSS selector in the <head>
     const right = html.indexOf('rail-right-root');
     const footer = html.indexOf('footer-root');
 
