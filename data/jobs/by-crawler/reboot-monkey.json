@@ -4002,10 +4002,10 @@
     },
     {
       "id": "reboot-monkey-82b75718ba1a",
-      "slug": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+      "slug": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
       "slugByLocale": {
         "en": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "it": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+        "it": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "de": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
         "fr": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
       },
@@ -4075,11 +4075,13 @@
       "remote": false,
       "previousSlugsByLocale": {
         "it": [
-          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
         ]
       },
       "previousSlugs": [
-        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -13286,10 +13286,10 @@
     },
     {
       "id": "stadler-rail-620b851e9742",
-      "slug": "migration-specialist-sap-stadler-rail-ch",
+      "slug": "specialista-in-migrazione-sap-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "migration-specialist-sap-stadler-rail-ch",
-        "it": "migration-specialist-sap-stadler-rail-ch",
+        "it": "specialista-in-migrazione-sap-stadler-rail-bussnang",
         "en": "migration-specialist-sap-stadler-rail-ch",
         "fr": "migration-specialist-sap-stadler-rail-ch"
       },
@@ -13346,16 +13346,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T22:49:03.910Z"
+      "firstSeenAt": "2026-06-21T22:49:03.910Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "migration-specialist-sap-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "migration-specialist-sap-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-0bf926817b48",
-      "slug": "directory-service-engineer-stadler-rail-ch",
+      "slug": "ingegnere-del-servizio-directory-stadler-rail-st-margrethen",
       "slugByLocale": {
         "en": "directory-service-engineer-stadler-rail-ch",
-        "it": "directory-service-engineer-stadler-rail-ch",
-        "de": "directory-service-engineer-stadler-rail-ch",
-        "fr": "directory-service-engineer-stadler-rail-ch"
+        "it": "ingegnere-del-servizio-directory-stadler-rail-st-margrethen",
+        "de": "verzeichnisservice-ingenieur-stadler-rail-st-margrethen",
+        "fr": "ingenieur-service-d-annuaire-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13410,7 +13418,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-21T22:49:03.311Z"
+      "firstSeenAt": "2026-06-21T22:49:03.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directory-service-engineer-stadler-rail-ch"
+        ],
+        "de": [
+          "directory-service-engineer-stadler-rail-ch"
+        ],
+        "fr": [
+          "directory-service-engineer-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "directory-service-engineer-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-2c037eaad7ff",
