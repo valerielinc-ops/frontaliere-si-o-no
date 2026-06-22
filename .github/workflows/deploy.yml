@@ -632,13 +632,59 @@ jobs:
           if-no-files-found: error
 
       - name: Push locale shard
+        id: push-shard
         if: matrix.locale != 'it'
+        # Stays continue-on-error (transient shard-repo/network errors must NOT
+        # block the whole Pages publish — build-locale has fail-fast:false, a
+        # hard failure here would flip build-locale.result→failure→no publish).
+        # The PREVIOUS gap (#2658): a failed push then shipped a STALE live
+        # locale SILENTLY (deploy green, no signal). The surfacing step below
+        # closes that — keeps the resilience, removes the silence.
         continue-on-error: true
         env:
           SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
           SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
         run: bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+
+      - name: Surface a stale-locale shard push failure (#2658)
+        # A push failure leaves the live ${{ matrix.locale }} shard serving STALE
+        # content while the deploy still goes green. Don't fail the deploy (the
+        # continue-on-error resilience is deliberate) — but make it LOUD: warning
+        # annotation + a deduped tracking issue so the stale locale is never
+        # shipped silently. Self-resolves on the next green push (reopen-within).
+        if: matrix.locale != 'it' && steps.push-shard.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "::warning title=Stale locale shard::Push of the ${{ matrix.locale }} shard failed — the live ${{ matrix.locale }} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant); investigate the shard repo / deploy key."
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
+            --description "## Push locale shard fallito — locale live STALE
+          Il push dello shard \`${{ matrix.locale }}\` è fallito: le pagine live di quel locale servono contenuto **stale** finché un deploy successivo non ripush con successo. Il deploy resta verde per design (resilienza a errori transienti dello shard-repo), ma la mancata propagazione è ora segnalata.
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Locale:** ${{ matrix.locale }}
+          **Branch:** ${{ github.ref_name }}
+          Probabili cause: errore transiente di rete/artifact-service, conflitto di push, deploy key shard scaduta." \
+            --priority 1 \
+            --reopen-within-hours 6 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve stale-locale shard issue on successful push (#2658)
+        # Mirror of the surfacing step: a green push closes the canonical
+        # stale-locale issue if open (close↔reopen on ONE issue, no per-run storm).
+        if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Report failure to GitHub Issues (build)
         if: failure()
