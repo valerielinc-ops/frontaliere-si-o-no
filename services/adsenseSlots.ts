@@ -2,7 +2,11 @@
  *
  * `placeholderMinHeight` reserves layout space before the ad loads, preventing CLS (FRO-385).
  * Heights are sized conservatively above real median ad heights measured in production:
- * - autorelaxed multiplex: 380-450px on mobile → 400px
+ * - autorelaxed multiplex: 380-450px on mobile → 400px; ~550-650px on desktop
+ *   (≥1280px) where the wider grid fits more ad rows. AdSenseBanner +
+ *   the Suspense fallbacks reserve 600px on desktop (see getPlaceholderMinHeight
+ *   and the `xl:min-h-[600px]` fallback classes); these constants are the
+ *   mobile/SSR floor.
  * - fluid in-article: ~220px → 220px
  * - auto display: ~250-300px → 280px
  *
