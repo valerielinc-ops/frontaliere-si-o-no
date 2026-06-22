@@ -262,7 +262,13 @@ export const AI_MODELS = Object.freeze({
 
   // ── Cloudflare Workers AI (OpenAI-compatible, free tier — 10K neurons/day) ──
   CF_LLAMA_3_3_70B:    'cf/@cf/meta/llama-3.3-70b-instruct-fp8-fast',
-  CF_LLAMA_4_SCOUT:    'cf/@cf/meta/llama-4-scout-17b-16e-instruct',
+  // CF_LLAMA_4_SCOUT removed — Cloudflare returns a non-string payload that crashes
+  //                            the response handler with "text.replace is not a function"
+  //                            on every call (runs 27951273347 / 27957791379 — dozens of
+  //                            failures/run, never marked exhausted because the crash is a
+  //                            JS exception, not a 4xx). Same wrapper-shape bug as the
+  //                            removed CF_QWEN_25_CODER_32B (see below). Re-evaluate once
+  //                            `_callCloudflareRaw` hardens its response decoding.
   CF_MISTRAL_SM_31:    'cf/@cf/mistralai/mistral-small-3.1-24b-instruct',
   CF_QWQ_32B:          'cf/@cf/qwen/qwq-32b',
   CF_QWEN3_30B:        'cf/@cf/qwen/qwen3-30b-a3b-fp8',
@@ -393,7 +399,7 @@ export const DEFAULT_CHAIN = [
   //                                 `gemini-3.1-flash-lite` (AI_MODELS.GEMINI_31_FLASH_LITE_GA) is already in the chain below at the "replacements" block.
   AI_MODELS.MISTRAL_CODESTRAL,  // 26. Codestral latest       (Mistral AI direct)
   // AI_MODELS.GPT_5_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
-  AI_MODELS.CF_LLAMA_4_SCOUT,   // 28. Llama 4 Scout          (Cloudflare Workers AI)
+  // CF_LLAMA_4_SCOUT removed — wrapper crash "text.replace is not a function" (runs 27951273347 / 27957791379)
   // CF_GEMMA_4_26B removed — returns empty responses (2026-04)
   // CF_KIMI_K2_5 removed — returns empty responses (2026-04)
   AI_MODELS.CF_NV_NEMOTRON_120B,// 28c. Nemotron 120B MoE     (Cloudflare Workers AI)
@@ -1014,6 +1020,18 @@ const NVIDIA_ALLOW_FAMILY_RE = /(?:^|\/)(?:llama-3\.[13]-nemotron|nemotron|llama
 // Vision/code-only specialisations even within an allowed family are not general
 // chat (e.g. llama-3.2-*-vision-instruct, *-code-instruct).
 const NVIDIA_SPECIALISED_RE = /vision|\bcode\b|codegemma|codellama|starcoder/i;
+// Specific Nemotron / Llama-Nemotron ids NVIDIA advertises in /v1/models but this
+// account is NOT entitled to call → HTTP 404 "Not found for account …" on every
+// request (runs 27949428878 / 27957791379). They parse as allowed chat families
+// (NVIDIA_ALLOW_FAMILY_RE matches "nemotron" / "llama-3.1-nemotron"), so the
+// allowlist lets them through and discovery re-injects them every run; per-run
+// exhaustion only skips them AFTER the first wasted 404, then they return next
+// run. Deny up-front. Scoped tightly to the observed-dead sizes so live siblings
+// (e.g. nvidia/llama-3.3-nemotron-super-49b-v1, nemotron-3.5-content-safety, and
+// non-nemotron meta/llama-3.1-70b-instruct) keep flowing. If NVIDIA later serves
+// these to the account, drop the relevant alternation (one-liner) — same
+// maintenance pattern as the allowlist above.
+const NVIDIA_DEAD_RE = /nemotron-4-340b|nemotron-nano-3-30b|llama-3\.1-nemotron-(?:ultra-253b|70b|51b)/i;
 
 // Exported for unit testing provider `pick`/alias matching (issue #892).
 export const DISCOVERY_PROVIDERS = Object.freeze([
@@ -1067,6 +1085,11 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
     pick(m) {
       const id = m?.id;
       if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      // Mistral "Labs" models (e.g. labs-leanstral-2603) are gated: calling them
+      // returns HTTP 403 "Labs model. To use Labs models, an admin must enable
+      // them in your organization settings" (runs 27949428878 / 27957791379).
+      // Not entitled on this account → deny so discovery stops re-injecting them.
+      if (/(?:^|\/)labs-/i.test(id)) return null;
       // Mistral exposes per-model capabilities; require chat completion when present.
       if (m.capabilities && m.capabilities.completion_chat === false) return null;
       if ((m.max_context_length || m.context_length || 0) < 8192) return null;
@@ -1094,6 +1117,7 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
       const id = m?.id;
       if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
       if (NVIDIA_SPECIALISED_RE.test(id)) return null;
+      if (NVIDIA_DEAD_RE.test(id)) return null;
       if (!NVIDIA_ALLOW_FAMILY_RE.test(id)) return null;
       return id;
     },
