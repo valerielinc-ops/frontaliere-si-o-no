@@ -12,6 +12,7 @@ import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -163,10 +164,65 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  setToast(msg);
  setTimeout(() => setToast(null), 3000);
  }, []);
+  const buildConfig = useCallback((): JobAlertConfig => ({
+    keywords: keyword.trim() ? keyword.trim().split(/[,;]+/).map((k) => k.trim()).filter(Boolean) : [],
+    locations: selectedLocations,
+    contractTypes: selectedContracts,
+    sectors: selectedSectors,
+    // Cathedral CH-wide geo scoping: empty selection = "all cantons", explicit codes scope it.
+    cantonFilter: selectedCantons.length > 0 ? selectedCantons : null,
+    frequency,
+    locale: locale as "it" | "en" | "de" | "fr",
+  }), [keyword, selectedLocations, selectedContracts, selectedSectors, selectedCantons, frequency, locale]);
+
+  const configIsEmpty = (c: JobAlertConfig): boolean => c.keywords.length === 0 && c.locations.length === 0;
+
+  const persistAlert = useCallback(
+    async (uid: string, email: string, config: JobAlertConfig, surface: 'inline_card' | 'post_auth_auto'): Promise<void> => {
+      const { createAlert } = await import("@/services/jobAlertService");
+      const alert = await createAlert(uid, email, config);
+      setAlerts((prev) => [alert, ...prev]);
+      import("@/services/analytics")
+        .then(({ Analytics }) =>
+          Analytics.trackJobAlertCreated({
+            keywords: config.keywords.join(", "),
+            location: config.locations.join(", "),
+            frequency: config.frequency,
+            surface,
+          }),
+        )
+        .catch(() => {});
+    },
+    [],
+  );
+
+  // After the auth round-trip, replay a stashed alert intent so a logged-out
+  // "create" completes itself instead of forcing a re-entry + re-submit
+  // (the 536 click -> 39 create / 93% drop at exactly this step).
+  const pendingConsumedRef = useRef(false);
+  useEffect(() => {
+    if (!authUser || pendingConsumedRef.current) return;
+    const pending = consumePendingJobAlert();
+    if (!pending) return;
+    pendingConsumedRef.current = true;
+    (async () => {
+      try {
+        await persistAlert(authUser.uid, authUser.email || "", pending, "post_auth_auto");
+        showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
+      } catch {
+        // Re-stash so a transient failure can retry on a later auth-ready render.
+        savePendingJobAlert(pending);
+        pendingConsumedRef.current = false;
+      }
+    })();
+  }, [authUser, persistAlert, showToast, t]);
+
 
  const handleCreate = async () => {
  if (!authUser) {
- onRequireAuth?.();
+ const pendingConfig = buildConfig();
+          if (!configIsEmpty(pendingConfig)) savePendingJobAlert(pendingConfig);
+          onRequireAuth?.();
  return;
  }
 
@@ -177,29 +233,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  setSaving(true);
  try {
- const { createAlert } = await import('@/services/jobAlertService');
- const config: JobAlertConfig = {
- keywords: keyword.trim() ? keyword.trim().split(/[,;]+/).map((k) => k.trim()).filter(Boolean) : [],
- locations: selectedLocations,
- contractTypes: selectedContracts,
- sectors: selectedSectors,
- // Cathedral CH-wide geo scoping (CATHEDRAL-STATUS #12): empty selection
- // = "all cantons" (legacy behaviour), explicit codes scope the alert.
- cantonFilter: selectedCantons.length > 0 ? selectedCantons : null,
- frequency,
- locale: locale as 'it' | 'en' | 'de' | 'fr',
- };
- const alert = await createAlert(authUser.uid, authUser.email || '', config);
- setAlerts((prev) => [alert, ...prev]);
- // FRO-334: Track alert creation
- import('@/services/analytics').then(({ Analytics }) => {
- Analytics.trackJobAlertCreated({
- keywords: config.keywords.join(', '),
- location: config.locations.join(', '),
- frequency: config.frequency,
- surface: 'inline_card',
- });
- }).catch(() => {});
+ const config = buildConfig();
+      await persistAlert(authUser.uid, authUser.email || '', config, 'inline_card');
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  // Reset form
  setKeyword('');
