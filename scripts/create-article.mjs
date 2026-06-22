@@ -2414,10 +2414,19 @@ Rispondi SOLO in JSON valido:
 Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fatti_inventati, persone, geografia, eu_svizzera, rilevanza_topica`;
 
   // ── Multi-model consensus: query 2 models, require agreement ──
+  // Order matters: the consensus pair is `verificationModels.slice(0, 2)`, so the
+  // first two entries MUST span two independent providers. Previously both were
+  // GitHub Models (GPT_4_1 + GPT4O) — when that free tier is down or emits
+  // non-JSON (the common failure, 2026-06), BOTH primary queries fail in lockstep
+  // every attempt, exhausting all FACTCHECK_INFRA_RETRIES before the lone Gemini
+  // fallback runs. That inflated per-attempt wall time and was a primary driver of
+  // the frontaliere section stall (#2675/#2672). Interleaving Gemini (Gemini API
+  // free) into the pair makes a GitHub Models outage survivable on the first pass
+  // and also strengthens consensus (two model families, not two OpenAI siblings).
   const verificationModels = [
-    AI_MODELS.GPT_4_1,
-    AI_MODELS.GPT4O,
-    AI_MODELS.GEMINI_FLASH,
+    AI_MODELS.GPT_4_1,        // GitHub Models (OpenAI flagship)
+    AI_MODELS.GEMINI_FLASH,   // Gemini API free — distinct provider → pair survives a GH Models outage
+    AI_MODELS.GPT4O,          // GitHub Models — fallback when the primary pair yields nothing
   ].filter(Boolean);
 
   const modelResults = [];
