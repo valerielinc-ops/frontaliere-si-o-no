@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/system-engineer-m-w-d/f61dd9e2-3c5e-48f7-a37e-3a431ca35ebc",
     "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/0dee34f0-b9d3-4a4e-8702-cb265ebf8e11",
     "https://jobs.ems-group.com/offene-stellen/senior-legal-counsel-m-w-d/5500695c-d10c-49d9-98bc-aeead343350b",
     "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/ac042745-ee17-4aec-8b19-59f3610b6ef8",
@@ -17,6 +18,10 @@
     "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern-m-w-d/e8c1c439-1378-4e96-8c13-8d612a941b43"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/system-engineer-m-w-d/f61dd9e2-3c5e-48f7-a37e-3a431ca35ebc": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/0dee34f0-b9d3-4a4e-8702-cb265ebf8e11": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -47,5 +52,5 @@
     }
   },
   "notes": "Specialty chemicals company HQ in Domat/Ems (GR). Career page HTML crawler.",
-  "updatedAt": "2026-06-22T14:15:59.206Z"
+  "updatedAt": "2026-06-22T22:36:36.768Z"
 }
