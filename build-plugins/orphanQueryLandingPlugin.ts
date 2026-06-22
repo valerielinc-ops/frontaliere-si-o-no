@@ -92,15 +92,21 @@ export function buildOrphanLandingHubUrl(locale: OrphanLandingLocale): string {
 export function renderOrphanLandingHubHreflang(
   hasEntriesByLocale: Record<OrphanLandingLocale, boolean>,
 ): string {
-  const availableLocales = ORPHAN_LANDING_LOCALES.filter((alt) => hasEntriesByLocale[alt]);
-  if (availableLocales.length === 0) return '';
+  // All-or-nothing, mirroring the leaf `renderPage` hreflang contract
+  // (`hasFullCluster`, L514) and the shared `build-plugins/shared/hreflang.ts`
+  // helper: audit-hreflang requires either ZERO alternates or the FULL
+  // 4-locale + x-default set. A partial set — e.g. a locale whose orphan
+  // clusters are all sub-MIN (no indexable hub) → 3 locales + x-default = 4
+  // entries with only 3 declared — trips audit-hreflang `[tooFew]`, the same
+  // gate this plugin fixes. Emit only when every locale has indexable entries.
+  const hasAll = ORPHAN_LANDING_LOCALES.every((alt) => hasEntriesByLocale[alt]);
+  if (!hasAll) return '';
 
-  const lines = availableLocales.map(
+  const lines = ORPHAN_LANDING_LOCALES.map(
     (alt) => `    <link rel="alternate" hreflang="${alt}" href="${buildOrphanLandingHubUrl(alt)}">`,
   );
-  const xDefaultLocale = availableLocales.includes('it') ? 'it' : availableLocales[0];
   lines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${buildOrphanLandingHubUrl(xDefaultLocale)}">`,
+    `    <link rel="alternate" hreflang="x-default" href="${buildOrphanLandingHubUrl('it')}">`,
   );
   return lines.join('\n');
 }
@@ -909,6 +915,48 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         }
       }
 
+      // Cross-locale hreflang availability for the hub pages — computed over
+      // ALL clusters, INDEPENDENT of the BUILD_LOCALE emit filter. The hub's
+      // hreflang block is a cross-locale CONSTANT (per localeEmitFilter.ts
+      // contract: the emit filter only gates which FILES are written, never
+      // which locales appear in an alternates block) and MUST enumerate the
+      // full 4-locale + x-default set on every shard. Deriving it from the
+      // emit-gated `indexableByLocale` (populated only for the shard's own
+      // locale on a non-it shard) collapsed the en/de/fr hubs to 2 hreflang
+      // entries and failed audit-hreflang (deploy 27923956556).
+      //
+      // The predicate MUST mirror the hub-EMISSION gate below (`if
+      // (indexableByLocale[loc].length === 0) continue;`), which keys on
+      // `render.indexable = matchingJobs>=MIN_MATCHING_JOBS && wordCount>=
+      // MIN_INDEXABLE_WORDS` — i.e. BOTH gates. A jobs-only test
+      // (`filterMatchingJobs(...).length >= MIN_MATCHING_JOBS`) is a strict
+      // superset: a locale whose jobs-passing clusters all fall under
+      // MIN_INDEXABLE_WORDS would be flagged available here yet never get a hub
+      // page emitted → hreflang alternate pointing at a 404. So we recompute
+      // the FULL render predicate per cluster. `renderPage` is side-effect-free
+      // (`buildSeoPageHtml` returns a string; no file writes), so this ungated
+      // pass is safe, and the per-locale short-circuit caps it to one indexable
+      // cluster per locale. This makes `hubHreflangAvailability.X` exactly
+      // `indexableByLocale.X.length > 0` site-wide → byte-identical to the
+      // monolith under EMIT_ALL_LOCALES, and 404-free on per-locale shards.
+      const hubHreflangAvailability: Record<OrphanLandingLocale, boolean> = {
+        it: false, en: false, de: false, fr: false,
+      };
+      for (const cluster of clusters) {
+        if (hubHreflangAvailability[cluster.locale]) continue;
+        const availabilityRender = renderPage({
+          cluster,
+          matchingJobs: filterMatchingJobs(jobs, cluster, 15),
+          strings: localeStrings[cluster.locale] || {},
+          dateStamp,
+          knownSlugsByLocale,
+          distDir,
+        });
+        if (availabilityRender.indexable) {
+          hubHreflangAvailability[cluster.locale] = true;
+        }
+      }
+
       // ── Hub pages — one per locale, listing ALL indexable orphan-landings.
       // Without this hub, every cron-published cluster lands in
       // `sitemap-orphan-landings.xml` with zero `<a>` inbound and trips the
@@ -993,12 +1041,12 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           },
         });
 
-        const hreflangHtml = renderOrphanLandingHubHreflang({
-          it: indexableByLocale.it.length > 0,
-          en: indexableByLocale.en.length > 0,
-          de: indexableByLocale.de.length > 0,
-          fr: indexableByLocale.fr.length > 0,
-        });
+        // hreflang availability is computed over ALL locales site-wide
+        // (ungated), NOT just the locales this shard emitted — see
+        // hubHreflangAvailability above. The renderer is all-or-nothing: it
+        // emits the full 4-locale + x-default set only when every locale has an
+        // indexable hub, else '' (audit-hreflang rejects a partial set).
+        const hreflangHtml = renderOrphanLandingHubHreflang(hubHreflangAvailability);
 
         // Locale-aware "how it works" + "who it's for" prose. Without it,
         // the hub renders as breadcrumb + h1 + intro + list — under 50 visible
