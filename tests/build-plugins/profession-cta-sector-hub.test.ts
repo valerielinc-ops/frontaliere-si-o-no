@@ -52,13 +52,13 @@ const EXPECTED: Array<[string, string]> = [
 ];
 
 const ctaHrefOf = (html: string): string | null => {
-  // The CTA is the last anchor in the featured-jobs section.
-  const matches = [...html.matchAll(/<a href="([^"]+)"[^>]*>[^<]*offer/gi)];
-  if (matches.length > 0) return matches[matches.length - 1][1];
-  // Fallback: any anchor carrying the link-accent CTA styling.
-  const styled = [...html.matchAll(/<a href="([^"]+)"[^>]*font-weight:700/gi)];
-  return styled.length > 0 ? styled[styled.length - 1][1] : null;
+  // The "see all" CTA is the only anchor styled with `margin-top:14px`
+  // (locale-agnostic — the visible label differs per language).
+  const matches = [...html.matchAll(/<a href="([^"]+)"[^>]*margin-top:14px/gi)];
+  return matches.length > 0 ? matches[matches.length - 1][1] : null;
 };
+
+const ROOT_RE = /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)$/;
 
 describe('profession landing "see all offers" CTA links to the sector hub', () => {
   for (const locale of ['it', 'en', 'de', 'fr'] as const) {
@@ -71,13 +71,43 @@ describe('profession landing "see all offers" CTA links to the sector hub', () =
         });
         const href = ctaHrefOf(html);
         expect(href, `no CTA anchor rendered for ${profession}/${locale}`).toBeTruthy();
-        const expectedPath = buildSectorHubPath(locale, sector as any);
-        expect(href).toBe(expectedPath);
+        expect(href).toBe(buildSectorHubPath(locale, sector as any));
         // Never the bare job-board root, never a robots-disallowed ?q= link.
         expect(href).not.toMatch(/\?q=/);
-        expect(href!.replace(/\/+$/, '')).not.toMatch(
-          /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)$/,
-        );
+        expect(href!.replace(/\/+$/, '')).not.toMatch(ROOT_RE);
+      });
+    }
+  }
+});
+
+// Nursing landings are profession landings too; same CTA, same fix
+// (reusing the pre-existing CTA_SECTOR map). `healthcare-ticino` is the
+// deliberate null/root case (its copy says "all openings").
+const NURSING_EXPECTED: Array<[string, string | null]> = [
+  ['nurses', 'infermieri'],
+  ['oss', 'case-anziani'],
+  ['healthcare-ticino', null],
+];
+
+describe('nursing landing "see all offers" CTA links to the sector hub', () => {
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    for (const [id, sector] of NURSING_EXPECTED) {
+      it(`${id} (${locale}) → ${sector ?? 'root'}`, async () => {
+        const mod: any = await import('../../build-plugins/nursingLandingsPlugin');
+        const html = mod.renderNursingFeaturedJobsForTest(id, locale, {
+          ...SNAPSHOT_BASE,
+          featured: [FIXTURE_JOB],
+        });
+        const href = ctaHrefOf(html);
+        expect(href, `no CTA anchor rendered for ${id}/${locale}`).toBeTruthy();
+        expect(href).not.toMatch(/\?q=/);
+        if (sector) {
+          expect(href).toBe(buildSectorHubPath(locale, sector as any));
+          expect(href!.replace(/\/+$/, '')).not.toMatch(ROOT_RE);
+        } else {
+          // null → unfiltered job-board root (deliberate).
+          expect(href!.replace(/\/+$/, '')).toMatch(ROOT_RE);
+        }
       });
     }
   }
