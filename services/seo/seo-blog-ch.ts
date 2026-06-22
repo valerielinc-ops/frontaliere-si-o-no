@@ -3530,6 +3530,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-ticino-mercato-proprietari': {
+    title: 'Mercato affitti: immobili sfitti e nuova gestione',
+    description: 'Il mercato delle locazioni è cambiato. Vecchie regole non funzionano più. Scopri come adattarsi per proteggere i ricavi immobiliari in Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, immobili, sfitti',
+    ogTitle: 'Mercato affitti: immobili sfitti e nuova gestione',
+    ogDescription: 'Il mercato delle locazioni è cambiato. Vecchie regole non funzionano più. Scopri come adattarsi per proteggere i ricavi immobiliari.',
+    canonicalPath: '/articoli-svizzera/affitti-ticino-mercato-proprietari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato affitti: immobili sfitti e nuova gestione",
+      "description": "Il mercato delle locazioni è cambiato. Vecchie regole non funzionano più. Scopri come adattarsi per proteggere i ricavi immobiliari in Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-ticino-mercato-proprietari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero con cartello di affitto alla finestra"
+      },
+      "datePublished": "2026-06-22T11:29:20+00:00",
+      "dateModified": "2026-06-22T11:29:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-ticino-mercato-proprietari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
