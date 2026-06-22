@@ -2085,6 +2085,40 @@ jobs:
           CDN_BASE: 'https://cdn.frontaliereticino.ch'
         run: node scripts/offload-generated-images-cdn.mjs
 
+      # Same-run shard-dist artifact for post-deploy-validate-dist rehydrate.
+      # validate-dist previously rehydrated each en/de/fr subtree by
+      # `git clone --depth 1` of the shard repo (~14min wall, serial). The pruned
+      # dist here — dist/<locale> + dist/<locale>.html — is byte-for-byte what
+      # push-locale-shard.sh force-pushes next, so uploading it lets validate-dist
+      # fetch it via `gh run download` (same-run, no API lag) instead of cloning.
+      # Uploaded AFTER "Offload shard refs to CDN" so the HTML carries the same
+      # CDN-rewritten /data refs the pushed shard serves (the clone-rehydrate it
+      # replaces consumed post-offload content) — keeps the rehydrated dist
+      # byte-identical to the git-clone path. validate-dist still falls back to the
+      # git clone when this artifact is missing (e.g. a failed shard push/upload),
+      # so a locale is NEVER silently un-validated. IT/main shard untouched
+      # (`matrix.locale != 'it'`) → matrix-equivalence sha256 intact.
+      - name: Upload locale shard dist for post-deploy validation
+        if: matrix.locale != 'it'
+        # MUST stay continue-on-error: this is a non-essential speedup artifact.
+        # deploy + validate-dist gate on `needs.build-locale.result == 'success'`
+        # (in matrix mode `build` is skipped), and build-locale has
+        # fail-fast: false, so a single leg failing here would make
+        # build-locale.result == failure → deploy blocked = no Pages publish.
+        # A transient artifact-service error or an empty dist/<loc> must instead
+        # degrade gracefully: validate-dist's git-clone fallback then rehydrates
+        # the locale (the documented resilience path). Mirrors the adjacent
+        # `Push locale shard` step, which is continue-on-error for the same reason.
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: locale-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            dist/${{ matrix.locale }}
+            dist/${{ matrix.locale }}.html
+          retention-days: 1
+          if-no-files-found: error
+
       - name: Push locale shard
         if: matrix.locale != 'it'
         continue-on-error: true
