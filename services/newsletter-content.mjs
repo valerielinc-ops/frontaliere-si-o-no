@@ -105,7 +105,12 @@ export function parseDateField(raw) {
     // Reject impossible DD/MM (e.g. month>12) → caller falls through to the
     // next field rather than trusting a misparse.
     if (day < 1 || day > 31 || month < 1 || month > 12) return NaN;
-    return Date.UTC(year, month - 1, day);
+    const ts = Date.UTC(year, month - 1, day);
+    // Round-trip: reject calendar-impossible dates (31/04, 31/02) silently
+    // overflowed by Date.UTC instead of returning NaN.
+    const d = new Date(ts);
+    if (d.getUTCDate() !== day || d.getUTCMonth() !== month - 1) return NaN;
+    return ts;
   }
   return new Date(raw).getTime();
 }

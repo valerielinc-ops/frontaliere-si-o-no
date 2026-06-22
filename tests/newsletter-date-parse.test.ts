@@ -37,4 +37,23 @@ describe('parseDateField — European DD/MM slash dates (#2630)', () => {
   it('returns NaN for junk', () => {
     expect(Number.isNaN(parseDateField('not-a-date'))).toBe(true);
   });
+
+  it('returns NaN for calendar-impossible date 31/04 (April has 30 days) — rollover guard (#2727)', () => {
+    expect(Number.isNaN(parseDateField('31/04/26'))).toBe(true);
+  });
+
+  it('returns NaN for calendar-impossible date 31/02 (February has ≤29 days) — rollover guard (#2727)', () => {
+    expect(Number.isNaN(parseDateField('31/02/26'))).toBe(true);
+  });
+
+  it('returns NaN for 29/02 in a non-leap year — rollover guard (#2727)', () => {
+    expect(Number.isNaN(parseDateField('29/02/26'))).toBe(true); // 2026 is not a leap year
+  });
+
+  it('still accepts 29/02 in a leap year', () => {
+    const d = new Date(parseDateField('29/02/28'));
+    expect(d.getUTCFullYear()).toBe(2028);
+    expect(d.getUTCMonth()).toBe(1); // February
+    expect(d.getUTCDate()).toBe(29);
+  });
 });
