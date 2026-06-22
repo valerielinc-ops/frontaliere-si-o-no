@@ -25,4 +25,24 @@ describe('locTokenHit — whole-token geo match (#2630)', () => {
   it('empty needle never matches', () => {
     expect(locTokenHit('lugano', '')).toBe(false);
   });
+
+  // #2727 item 2: align .mjs accent-folding + whitespace normalization with the
+  // .ts isLocationMatch path so the two funnels stop drifting.
+  it('folds diacritics on both needle and haystack', () => {
+    expect(locTokenHit('zurich zh', 'zürich')).toBe(true);
+    expect(locTokenHit('zürich zh', 'zurich')).toBe(true);
+    expect(locTokenHit('geneve ge', 'genève')).toBe(true);
+    expect(locTokenHit('genève ge', 'geneve')).toBe(true);
+  });
+
+  it('collapses whitespace and hyphens in the needle', () => {
+    expect(locTokenHit('san gallo sg', 'san-gallo')).toBe(true);
+    expect(locTokenHit('san gallo sg', 'san  gallo')).toBe(true);
+    expect(locTokenHit('san gallo sg', ' san gallo ')).toBe(true);
+  });
+
+  it('still rejects substring collisions after normalization', () => {
+    expect(locTokenHit('bernex geneve ge', 'bern')).toBe(false);
+    expect(locTokenHit('zurichsee zh', 'zurich')).toBe(false);
+  });
 });
