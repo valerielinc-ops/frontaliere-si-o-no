@@ -16,11 +16,13 @@ import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleOutreachUnsubscribe } from './src/outreachUnsubscribe.js';
+import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
+import { handleAdminEmployerInsights } from './src/adminEmployerInsights.js';
 import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
@@ -115,6 +117,29 @@ export const getAdminGithubToken = onRequest(
  res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },
+);
+
+// Admin-only employer traffic insights list. Returns the lean per-company
+// totals + the tokenized "open as company" stats-proof URL for every
+// employer_insights doc, gated by the admin's Firebase ID token (same
+// allowlist as getAdminGithubToken). Powers the dashboard's "Insights
+// Aziende" section. The private per-company data never reaches non-admins.
+export const adminEmployerInsights = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: true,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleAdminEmployerInsights(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[adminEmployerInsights]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
 );
 
 // Browser-safe Remote Config: returns ONLY the allowlisted client params
@@ -678,6 +703,36 @@ export const outreachUnsubscribe = onRequest(
  } catch (error) {
  console.error('[outreachUnsubscribe] Error:', error);
  res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
+ }
+ },
+);
+
+/**
+ * employerInsights — HMAC-gated JSON read API for the per-company stats page
+ * (/azienda/<companyKey>/). GET ?c=<companyKey>&t=<token> → returns the
+ * employer_insights/{companyKey} doc. cors:true so the SPA can fetch it.
+ */
+export const employerInsights = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'GET') {
+ res.status(405).json({ error: 'method_not_allowed' });
+ return;
+ }
+ const companyKey = String(req.query.c || '').trim();
+ const token = String(req.query.t || '').trim();
+ try {
+ const { newsletterSecret } = await getNewsletterSecrets();
+ const result = await handleEmployerInsights({ companyKey, token, secret: newsletterSecret });
+ res.status(result.status).json(result.body);
+ } catch (error) {
+ console.error('[employerInsights] Error:', error);
+ res.status(500).json({ error: 'internal' });
  }
  },
 );

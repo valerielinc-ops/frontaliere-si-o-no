@@ -79,7 +79,7 @@ ${periodLabel} vi abbiamo mandato ${candidates} persone alla vostra ${pagina} da
 
 Il punto è che quei click arrivano sul vostro sito e spesso si perdono. Possiamo farveli arrivare come candidature dirette, CV incluso, nella vostra casella.
 
-Ha senso che vi mostri come, sul vostro annuncio più visto?
+Ho preparato i vostri dati reali (annunci, visite, candidati) qui: {{INSIGHTS_URL}}
 
 Valerie`,
     },

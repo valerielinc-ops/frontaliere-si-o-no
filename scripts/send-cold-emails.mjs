@@ -40,6 +40,7 @@ import { fileURLToPath } from 'node:url';
 import { buildSequence, OPTOUT_EMAIL } from './generate-cold-emails.mjs';
 import { classifySector } from './lib/employer-sectors.mjs';
 import { buildUnsubUrl } from './lib/outreach-unsubscribe-token.mjs';
+import { buildInsightsUrl } from './lib/employer-insights-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -261,8 +262,12 @@ async function run() {
     // anche secret mancante con fallback alla home). Sostituisce il placeholder
     // {{UNSUB_URL}} iniettato nel footer da generate-cold-emails.mjs.
     const unsubUrl = buildUnsubUrl(m.key || m.company);
-    const html = String(m.html).split('{{UNSUB_URL}}').join(unsubUrl);
-    const text = String(m.text).split('{{UNSUB_URL}}').join(unsubUrl);
+    // Per-company stats "proof" page link ({{INSIGHTS_URL}}) — the primary CTA,
+    // HMAC-gated (employerInsights CF). Same secret-missing→home fallback.
+    const insightsUrl = buildInsightsUrl(m.key || m.company);
+    const sub = (s) => String(s).split('{{UNSUB_URL}}').join(unsubUrl).split('{{INSIGHTS_URL}}').join(insightsUrl);
+    const html = sub(m.html);
+    const text = sub(m.text);
     // List-Unsubscribe (RFC 8058 + RFC 2369): HTTPS one-click PRIMA, mailto come
     // fallback. List-Unsubscribe-Post abilita il vero one-click (POST). Il
     // subject del mailto porta la company key così l'opt-out resta tracciabile.

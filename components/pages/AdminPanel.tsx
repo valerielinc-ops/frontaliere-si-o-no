@@ -8,11 +8,13 @@ import { getSerpExperimentDiagnostics } from '@/services/seoService';
 import { useAuth } from '@/services/authService';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import { fetchAdminEmployerInsights, type EmployerInsightsRow } from '@/services/adminInsights';
 import {
  Shield, Copy, Check, ExternalLink,
  AlertTriangle, CheckCircle2, Eye,
  Mail, Users, Send, RefreshCw, ToggleLeft, ToggleRight, Database, Activity, Calendar, Terminal,
- Play, Loader2, Clock3, ListChecks, FileText, ArrowUp, ArrowDown, Search, ChevronDown, ChevronRight, RotateCcw, Zap
+ Play, Loader2, Clock3, ListChecks, FileText, ArrowUp, ArrowDown, Search, ChevronDown, ChevronRight, RotateCcw, Zap,
+ Building2, TrendingDown, UserCheck
 } from 'lucide-react';
 
 /* ─── Types ─── */
@@ -101,6 +103,7 @@ interface CrawlerSummaryRow {
 }
 
 type CrawlerSortColumn = 'title' | 'schedule' | 'lastRun' | 'total' | 'newCount' | 'updatedCount' | 'removedCount' | 'unchangedCount' | 'duration' | 'status' | 'quality';
+type InsightsSortColumn = 'companyName' | 'views' | 'candidates' | 'lost' | 'adsCount' | 'conversionRate' | 'generatedAt';
 type CrawlerSortDirection = 'asc' | 'desc';
 
 type WorkflowContext = 'jobs' | 'content' | 'seo' | 'analytics';
@@ -272,7 +275,7 @@ export default function AdminPanel() {
  const { user } = useAuth();
  const hasPreloadedWorkflowSnapshots = useRef(false);
  const [copiedCmd, setCopiedCmd] = useState(false);
- const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | WorkflowContext>('jobs');
+ const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | WorkflowContext>('jobs');
  const [ownerTab] = useState<'overview'>('overview');
  const [workflowStates, setWorkflowStates] = useState<Record<string, WorkflowRunState>>({});
  const [copiedAiPromptFor, setCopiedAiPromptFor] = useState<string | null>(null);
@@ -327,6 +330,15 @@ export default function AdminPanel() {
  const [parserApplyConfig, setParserApplyConfig] = useState(false);
  const [parserDispatchLoading, setParserDispatchLoading] = useState(false);
  const [parserDispatchMessage, setParserDispatchMessage] = useState<string | null>(null);
+ // Insights Aziende (employer traffic) state
+ const [insightsRows, setInsightsRows] = useState<EmployerInsightsRow[]>([]);
+ const [insightsLoading, setInsightsLoading] = useState(false);
+ const [insightsError, setInsightsError] = useState<string | null>(null);
+ const [insightsFilter, setInsightsFilter] = useState('');
+ const [insightsSort, setInsightsSort] = useState<{ column: InsightsSortColumn; direction: 'asc' | 'desc' }>({
+ column: 'views',
+ direction: 'desc',
+ });
  // Crawler table filters & expansion
  const [crawlerNameFilter, setCrawlerNameFilter] = useState('');
  const [crawlerChangeFilter, setCrawlerChangeFilter] = useState<'all' | 'new' | 'updated' | 'removed' | 'none'>('all');
@@ -493,6 +505,26 @@ export default function AdminPanel() {
  }
  })();
  return () => { cancelled = true; };
+ }, [activeSection]);
+
+ // Load employer insights when the "Insights Aziende" tab is opened.
+ const loadEmployerInsights = async () => {
+ setInsightsLoading(true);
+ setInsightsError(null);
+ try {
+ const rows = await fetchAdminEmployerInsights(user);
+ setInsightsRows(rows);
+ } catch (err) {
+ setInsightsError(err instanceof Error ? err.message : 'Errore sconosciuto');
+ } finally {
+ setInsightsLoading(false);
+ }
+ };
+
+ useEffect(() => {
+ if (activeSection !== 'insights') return;
+ loadEmployerInsights();
+ // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [activeSection]);
 
  useEffect(() => {
@@ -2710,6 +2742,68 @@ export default function AdminPanel() {
  }
  };
 
+ // ── Insights Aziende: derived rows (filter + sort) + totals ──
+ const toggleInsightsSort = (column: InsightsSortColumn) => {
+ setInsightsSort(prev =>
+ prev.column === column
+ ? { column, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
+ : { column, direction: column === 'companyName' ? 'asc' : 'desc' },
+ );
+ };
+
+ const insightsFiltered = useMemo(() => {
+ const q = insightsFilter.trim().toLowerCase();
+ const filtered = q
+ ? insightsRows.filter(r =>
+ r.companyName.toLowerCase().includes(q) || r.companyKey.toLowerCase().includes(q))
+ : insightsRows;
+ const { column, direction } = insightsSort;
+ const dir = direction === 'asc' ? 1 : -1;
+ const sorted = [...filtered].sort((a, b) => {
+ switch (column) {
+ case 'companyName':
+ return a.companyName.localeCompare(b.companyName) * dir;
+ case 'generatedAt':
+ return String(a.generatedAt || '').localeCompare(String(b.generatedAt || '')) * dir;
+ case 'views':
+ return (a.totals.views - b.totals.views) * dir;
+ case 'candidates':
+ return (a.totals.candidates - b.totals.candidates) * dir;
+ case 'lost':
+ return (a.totals.lost - b.totals.lost) * dir;
+ case 'adsCount':
+ return (a.totals.adsCount - b.totals.adsCount) * dir;
+ case 'conversionRate':
+ return (a.totals.conversionRate - b.totals.conversionRate) * dir;
+ default:
+ return 0;
+ }
+ });
+ return sorted;
+ }, [insightsRows, insightsFilter, insightsSort]);
+
+ const insightsTotals = useMemo(() => insightsRows.reduce(
+ (acc, r) => {
+ acc.views += r.totals.views;
+ acc.candidates += r.totals.candidates;
+ acc.lost += r.totals.lost;
+ return acc;
+ },
+ { views: 0, candidates: 0, lost: 0 },
+ ), [insightsRows]);
+
+ const formatInsightsDate = (iso: string | null): string => {
+ if (!iso) return '—';
+ const d = new Date(iso);
+ if (Number.isNaN(d.getTime())) return '—';
+ return d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
+ };
+
+ const insightsSortIndicator = (column: InsightsSortColumn): 'ascending' | 'descending' | 'none' =>
+ insightsSort.column === column
+ ? (insightsSort.direction === 'asc' ? 'ascending' : 'descending')
+ : 'none';
+
  return (
  <div className="space-y-6">
  {/* Header */}
@@ -2732,6 +2826,7 @@ export default function AdminPanel() {
  { id: 'content' as const, label: 'Contenuti', icon: FileText },
  { id: 'seo' as const, label: 'SEO/Qualità', icon: Shield },
  { id: 'analytics' as const, label: 'Dati', icon: Database },
+ { id: 'insights' as const, label: 'Insights Aziende', icon: Building2 },
  { id: 'newsletter' as const, label: 'Newsletter', icon: Mail },
  ].map(tab => {
  const summary = ['jobs', 'content', 'seo', 'analytics'].includes(tab.id)
@@ -2918,6 +3013,187 @@ export default function AdminPanel() {
 
  {(['jobs', 'content', 'seo', 'analytics'] as WorkflowContext[]).includes(activeSection as WorkflowContext) &&
  renderWorkflowControlRoom(activeSection as WorkflowContext)}
+
+ {/* Insights Aziende section */}
+ {activeSection === 'insights' && (
+ <div className="space-y-4">
+ <div className="flex items-center justify-between gap-3 flex-wrap">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
+ <Building2 size={20} className="text-accent" />
+ Insights Aziende
+ </h2>
+ <button
+ onClick={loadEmployerInsights}
+ disabled={insightsLoading}
+ className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors disabled:opacity-60"
+ >
+ {insightsLoading ? <Loader2 size={14} className="animate-spin" /> : <RefreshCw size={14} />}
+ Aggiorna
+ </button>
+ </div>
+
+ <div className="bg-surface rounded-xl border border-edge px-4 py-2">
+ <p className="text-sm text-muted">
+ Traffico reale per azienda crawlata. Usa &laquo;Apri come azienda&raquo; per vedere la pagina
+ prova-statistiche esattamente come la riceve l&apos;azienda (link tokenizzato privato).
+ </p>
+ </div>
+
+ {insightsError && (
+ <div className="bg-danger-subtle border border-danger-border rounded-lg px-3 py-2 text-sm text-danger">
+ {insightsError}
+ </div>
+ )}
+
+ {/* Totals overview */}
+ <div className="grid grid-cols-3 gap-3">
+ <div className="bg-surface rounded-xl border border-edge p-4">
+ <div className="flex items-center gap-2 text-subtle text-sm mb-1">
+ <Eye size={16} /> Visualizzazioni
+ </div>
+ <div className="text-2xl font-bold text-strong">
+ {insightsLoading ? '…' : insightsTotals.views.toLocaleString('it-IT')}
+ </div>
+ </div>
+ <div className="bg-surface rounded-xl border border-edge p-4">
+ <div className="flex items-center gap-2 text-subtle text-sm mb-1">
+ <UserCheck size={16} /> Candidati
+ </div>
+ <div className="text-2xl font-bold text-strong">
+ {insightsLoading ? '…' : insightsTotals.candidates.toLocaleString('it-IT')}
+ </div>
+ </div>
+ <div className="bg-surface rounded-xl border border-edge p-4">
+ <div className="flex items-center gap-2 text-subtle text-sm mb-1">
+ <TrendingDown size={16} /> Persi
+ </div>
+ <div className="text-2xl font-bold text-strong">
+ {insightsLoading ? '…' : insightsTotals.lost.toLocaleString('it-IT')}
+ </div>
+ </div>
+ </div>
+
+ {/* Filter */}
+ <div className="relative">
+ <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+ <input
+ type="text"
+ value={insightsFilter}
+ onChange={e => setInsightsFilter(e.target.value)}
+ placeholder="Cerca azienda…"
+ aria-label="Cerca azienda per nome"
+ className="w-full pl-9 pr-3 py-2 rounded-lg border border-edge bg-surface text-strong text-sm"
+ />
+ </div>
+
+ <p className="text-[11px] text-muted">
+ {insightsLoading
+ ? 'Caricamento…'
+ : `${insightsFiltered.length} aziende${insightsFilter ? ` (di ${insightsRows.length})` : ''}`}
+ </p>
+
+ {/* Desktop table */}
+ <div className="hidden md:block overflow-x-auto rounded-xl border border-edge">
+ <table className="w-full text-sm">
+ <caption className="sr-only">Insights di traffico per azienda crawlata</caption>
+ <thead className="bg-surface-alt text-subtle">
+ <tr>
+ {([
+ { col: 'companyName' as const, label: 'Azienda', align: 'left' },
+ { col: 'views' as const, label: 'Visualizzazioni', align: 'right' },
+ { col: 'candidates' as const, label: 'Candidati', align: 'right' },
+ { col: 'lost' as const, label: 'Persi', align: 'right' },
+ { col: 'adsCount' as const, label: '#Annunci', align: 'right' },
+ { col: 'conversionRate' as const, label: 'Conversione', align: 'right' },
+ { col: 'generatedAt' as const, label: 'Data', align: 'right' },
+ ]).map(h => (
+ <th
+ key={h.col}
+ scope="col"
+ aria-sort={insightsSortIndicator(h.col)}
+ className={`px-3 py-2 font-semibold ${h.align === 'right' ? 'text-right' : 'text-left'}`}
+ >
+ <button
+ type="button"
+ onClick={() => toggleInsightsSort(h.col)}
+ className={`inline-flex items-center gap-1 hover:text-strong transition-colors ${h.align === 'right' ? 'flex-row-reverse' : ''}`}
+ >
+ {h.label}
+ {insightsSort.column === h.col && (
+ insightsSort.direction === 'asc'
+ ? <ArrowUp size={12} aria-hidden="true" />
+ : <ArrowDown size={12} aria-hidden="true" />
+ )}
+ </button>
+ </th>
+ ))}
+ <th scope="col" className="px-3 py-2 text-right font-semibold">Azione</th>
+ </tr>
+ </thead>
+ <tbody>
+ {insightsFiltered.map(row => (
+ <tr key={row.companyKey} className="border-t border-edge hover:bg-surface-alt/50">
+ <td className="px-3 py-2 text-strong font-medium">{row.companyName}</td>
+ <td className="px-3 py-2 text-right text-body">{row.totals.views.toLocaleString('it-IT')}</td>
+ <td className="px-3 py-2 text-right text-body">{row.totals.candidates.toLocaleString('it-IT')}</td>
+ <td className="px-3 py-2 text-right text-body">{row.totals.lost.toLocaleString('it-IT')}</td>
+ <td className="px-3 py-2 text-right text-body">{row.totals.adsCount.toLocaleString('it-IT')}</td>
+ <td className="px-3 py-2 text-right text-body">{(row.totals.conversionRate * 100).toFixed(1)}%</td>
+ <td className="px-3 py-2 text-right text-muted whitespace-nowrap">{formatInsightsDate(row.generatedAt)}</td>
+ <td className="px-3 py-2 text-right">
+ <a
+ href={row.insightsUrl}
+ target="_blank"
+ rel="noopener noreferrer"
+ className="inline-flex items-center gap-1 px-2 py-1 rounded bg-accent-subtle text-accent hover:bg-accent-subtle/80 text-xs font-medium transition-colors"
+ aria-label={`Apri la pagina statistiche di ${row.companyName} come azienda`}
+ >
+ Apri come azienda <ExternalLink size={12} aria-hidden="true" />
+ </a>
+ </td>
+ </tr>
+ ))}
+ {!insightsLoading && insightsFiltered.length === 0 && (
+ <tr>
+ <td colSpan={8} className="px-3 py-6 text-center text-muted">
+ Nessuna azienda trovata.
+ </td>
+ </tr>
+ )}
+ </tbody>
+ </table>
+ </div>
+
+ {/* Mobile cards */}
+ <div className="md:hidden space-y-3">
+ {insightsFiltered.map(row => (
+ <div key={row.companyKey} className="bg-surface rounded-xl border border-edge p-4 space-y-2">
+ <div className="font-semibold text-strong">{row.companyName}</div>
+ <div className="grid grid-cols-3 gap-2 text-xs">
+ <div><span className="block text-muted">Views</span><span className="text-body">{row.totals.views.toLocaleString('it-IT')}</span></div>
+ <div><span className="block text-muted">Candidati</span><span className="text-body">{row.totals.candidates.toLocaleString('it-IT')}</span></div>
+ <div><span className="block text-muted">Persi</span><span className="text-body">{row.totals.lost.toLocaleString('it-IT')}</span></div>
+ <div><span className="block text-muted">#Annunci</span><span className="text-body">{row.totals.adsCount.toLocaleString('it-IT')}</span></div>
+ <div><span className="block text-muted">Conv.</span><span className="text-body">{(row.totals.conversionRate * 100).toFixed(1)}%</span></div>
+ <div><span className="block text-muted">Data</span><span className="text-body">{formatInsightsDate(row.generatedAt)}</span></div>
+ </div>
+ <a
+ href={row.insightsUrl}
+ target="_blank"
+ rel="noopener noreferrer"
+ className="inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-accent text-on-accent text-sm font-medium w-full justify-center"
+ aria-label={`Apri la pagina statistiche di ${row.companyName} come azienda`}
+ >
+ Apri come azienda <ExternalLink size={14} aria-hidden="true" />
+ </a>
+ </div>
+ ))}
+ {!insightsLoading && insightsFiltered.length === 0 && (
+ <p className="text-center text-muted py-6">Nessuna azienda trovata.</p>
+ )}
+ </div>
+ </div>
+ )}
 
  {/* Newsletter section */}
  {activeSection === 'newsletter' && (

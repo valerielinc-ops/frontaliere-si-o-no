@@ -171,7 +171,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -2237,6 +2237,14 @@ export function parsePath(pathname: string): ParseResult {
  const table = SLUG_TABLES[locale];
  const revTop = REVERSE_TOP[locale];
 
+ // Per-company "stats proof" page (/azienda/<companyKey>/) — private, reached
+ // only via the HMAC-tokenized link in cold-outreach emails (?t=…), noindex,
+ // not in site nav. The companyKey is a path segment; EmployerInsightsPage reads
+ // it + the token itself. Any non-empty second segment is a valid company key.
+ if (parts[0] === 'azienda' && parts[1]) {
+   return { route: { activeTab: 'employer-insights' }, locale };
+ }
+
  // Fuel-daily static SEO pages (F6) — /prezzi-diesel/oggi/, /en/diesel-price-switzerland/today/, etc.
  // These are build-time static HTML rendered OUTSIDE `#root` (see
  // build-plugins/htmlTemplate.ts seoContentOutsideRoot). Soft-nav still
@@ -3359,6 +3367,11 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.publisherDashboard}${hashSuffix}`);
  case 'for-employers':
  return finish(`${prefix}/${table.forEmployers}${hashSuffix}`);
+ case 'employer-insights':
+ // Per-company stats page; the real per-company link (with ?t=token) is
+ // generated server-side (scripts/lib/employer-insights-token.mjs). buildPath
+ // only needs the base for exhaustiveness/soft-nav.
+ return finish(`${prefix}/azienda/${hashSuffix}`);
  case 'partners':
  return finish(`${prefix}/${table.partners}${hashSuffix}`);
  case 'consulting':
