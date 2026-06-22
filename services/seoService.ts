@@ -4100,6 +4100,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-boom-lavoro-ia-svizzera-frontalieri': { name: 'Boom lavoro IA', path: '/articoli-svizzera/boom-lavoro-ia-svizzera-frontalieri/', parent: 'blog' },
     'blog-avs-pensioni-estero-condizioni': { name: 'Pensioni estero', path: '/articoli-svizzera/avs-pensioni-estero-condizioni/', parent: 'blog' },
     'blog-marchesi-zali-lista-autonomi': { name: 'Marchesi: lista autonoma', path: '/articoli-svizzera/marchesi-zali-lista-autonomi/', parent: 'blog' },
+    'blog-affitti-ticino-mercato-proprietari': { name: 'Mercato Immobiliare', path: '/articoli-svizzera/affitti-ticino-mercato-proprietari/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

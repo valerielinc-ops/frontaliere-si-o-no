@@ -278,6 +278,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.marchesi-zali-lista-autonomi.title': 'Marchesi: ready to run alone if Zali is on the list',
     'blog.article.marchesi-zali-lista-autonomi.excerpt': 'Statements by National Councillor Piero Marchesi open up cantonal political scenarios in Ticino. The position on the electoral list.',
     'blog.article.marchesi-zali-lista-autonomi.imageAlt': 'Government Palace in Bellinzona, Switzerland, seat of cantonal decisions',
+    'blog.article.affitti-ticino-mercato-proprietari.title': 'Rent Market: Vacant Properties and New Management',
+    'blog.article.affitti-ticino-mercato-proprietari.excerpt': 'The rental market has changed. Old rules no longer apply. Here\'s how to adapt and protect your property income. 📊💡⚠️',
+    'blog.article.affitti-ticino-mercato-proprietari.imageAlt': 'Swiss residential building with rental sign in window',
 };
 
 export default blogMetaChEn;
