@@ -3,6 +3,7 @@ import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRig
 // jsPDF and autoTable are lazy-imported inside exportPDF() — only needed on user click (~134KB gzip saved from critical path)
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../../types';
 import { lazyRetry } from '@/services/lazyRetry';
+import { resilientImport } from '@/services/resilientImport';
 import DataFreshness from '@/components/shared/DataFreshness';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 // ComparisonChart is lazy-loaded to avoid pulling vendor-charts (~114KB gzip) into the critical path
@@ -243,7 +244,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  let cancelled = false;
  (async () => {
  try {
- const { getConfigValue } = await import('@/services/firebase');
+ const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const val = await getConfigValue('ENABLE_CALCULATOR_PAYWALL');
  if (!cancelled) setPaywallEnabled(val === 'true');
  } catch { /* RC unavailable — feature stays off */ }
