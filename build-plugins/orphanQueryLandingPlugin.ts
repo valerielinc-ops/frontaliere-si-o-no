@@ -92,15 +92,21 @@ export function buildOrphanLandingHubUrl(locale: OrphanLandingLocale): string {
 export function renderOrphanLandingHubHreflang(
   hasEntriesByLocale: Record<OrphanLandingLocale, boolean>,
 ): string {
-  const availableLocales = ORPHAN_LANDING_LOCALES.filter((alt) => hasEntriesByLocale[alt]);
-  if (availableLocales.length === 0) return '';
+  // All-or-nothing, mirroring the leaf `renderPage` hreflang contract
+  // (`hasFullCluster`, L514) and the shared `build-plugins/shared/hreflang.ts`
+  // helper: audit-hreflang requires either ZERO alternates or the FULL
+  // 4-locale + x-default set. A partial set — e.g. a locale whose orphan
+  // clusters are all sub-MIN (no indexable hub) → 3 locales + x-default = 4
+  // entries with only 3 declared — trips audit-hreflang `[tooFew]`, the same
+  // gate this plugin fixes. Emit only when every locale has indexable entries.
+  const hasAll = ORPHAN_LANDING_LOCALES.every((alt) => hasEntriesByLocale[alt]);
+  if (!hasAll) return '';
 
-  const lines = availableLocales.map(
+  const lines = ORPHAN_LANDING_LOCALES.map(
     (alt) => `    <link rel="alternate" hreflang="${alt}" href="${buildOrphanLandingHubUrl(alt)}">`,
   );
-  const xDefaultLocale = availableLocales.includes('it') ? 'it' : availableLocales[0];
   lines.push(
-    `    <link rel="alternate" hreflang="x-default" href="${buildOrphanLandingHubUrl(xDefaultLocale)}">`,
+    `    <link rel="alternate" hreflang="x-default" href="${buildOrphanLandingHubUrl('it')}">`,
   );
   return lines.join('\n');
 }
@@ -1035,10 +1041,11 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           },
         });
 
-        // hreflang enumerates ALL locales that have indexable clusters
-        // site-wide (ungated), NOT just the locales this shard emitted — see
-        // hubHreflangAvailability above. Byte-identical to the old
-        // `indexableByLocale.X.length > 0` form in the monolith.
+        // hreflang availability is computed over ALL locales site-wide
+        // (ungated), NOT just the locales this shard emitted — see
+        // hubHreflangAvailability above. The renderer is all-or-nothing: it
+        // emits the full 4-locale + x-default set only when every locale has an
+        // indexable hub, else '' (audit-hreflang rejects a partial set).
         const hreflangHtml = renderOrphanLandingHubHreflang(hubHreflangAvailability);
 
         // Locale-aware "how it works" + "who it's for" prose. Without it,

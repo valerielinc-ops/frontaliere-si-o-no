@@ -117,6 +117,18 @@ describe('orphanQueryData — path helpers', () => {
     expect(html).toContain('hreflang="x-default"');
   });
 
+  // All-or-nothing contract: if ANY locale has zero indexable orphan clusters
+  // site-wide (reachable when a locale's clusters all fall under
+  // MIN_MATCHING_JOBS/MIN_INDEXABLE_WORDS), the renderer must emit '' — NOT a
+  // partial set. A partial 3-locale + x-default block (4 entries, 3 declared)
+  // trips audit-hreflang `[tooFew]`, the same gate this plugin fixes. Mirrors
+  // the leaf `renderPage` `hasFullCluster` gate.
+  it('emits nothing when any locale has no indexable clusters (no partial set)', () => {
+    expect(renderOrphanLandingHubHreflang({ it: true, en: true, de: true, fr: false })).toBe('');
+    expect(renderOrphanLandingHubHreflang({ it: true, en: false, de: false, fr: false })).toBe('');
+    expect(renderOrphanLandingHubHreflang({ it: false, en: false, de: false, fr: false })).toBe('');
+  });
+
   it('buildOrphanLandingRoutes emits one route per cluster', () => {
     const clusters: OrphanQueryCluster[] = [
       makeCluster('it', 'chauffeur-jobs', 20, ['chauffeur'], ['svizzera']),
