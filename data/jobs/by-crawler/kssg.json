@@ -516,8 +516,7 @@
           "pflegeexpert-in-apn-70-kssg-ch"
         ],
         "en": [
-          "care-expert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "pflegeexpert-in-apn-70-hoch-health-st-gallen"
+          "care-expert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
@@ -1003,9 +1002,9 @@
       "slug": "tirocinio-infermieristico-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "it": "tirocinio-infermieristico-hoch-health-ostschweiz-uznach",
-        "en": "internship-in-care-hoch-health-ostschweiz-uznach",
+        "en": "internship-in-care-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "de": "praktikum-in-der-pflege-hoch-health-uznach",
-        "fr": "stages-en-soins-hoch-health-ostschweiz-uznach"
+        "fr": "stages-en-soins-kantonsspital-st-gallen-kssg-hoch-praktikum"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -1055,18 +1054,22 @@
         ],
         "en": [
           "praktikum-in-der-pflege-kantonsspital-st-gallen-kssg-hoch-praktikum",
-          "internship-in-nursing-kantonsspital-st-gallen-kssg-hoch-praktikum"
+          "internship-in-nursing-kantonsspital-st-gallen-kssg-hoch-praktikum",
+          "internship-in-care-hoch-health-ostschweiz-uznach"
         ],
         "fr": [
           "praktikum-in-der-pflege-kantonsspital-st-gallen-kssg-hoch-praktikum",
-          "stages-en-soins-infirmiers-kantonsspital-st-gallen-kssg-hoch-praktikum"
+          "stages-en-soins-infirmiers-kantonsspital-st-gallen-kssg-hoch-praktikum",
+          "stages-en-soins-hoch-health-ostschweiz-uznach"
         ]
       },
       "previousSlugs": [
         "praktikum-in-der-pflege-kssg-ch",
         "praktikum-in-der-pflege-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "internship-in-nursing-kantonsspital-st-gallen-kssg-hoch-praktikum",
-        "stages-en-soins-infirmiers-kantonsspital-st-gallen-kssg-hoch-praktikum"
+        "internship-in-care-hoch-health-ostschweiz-uznach",
+        "stages-en-soins-infirmiers-kantonsspital-st-gallen-kssg-hoch-praktikum",
+        "stages-en-soins-hoch-health-ostschweiz-uznach"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-13T11:15:15.786Z",
@@ -1751,8 +1754,7 @@
           "dipl-experte-expertin-intensivpflege-80-100-kssg-ch"
         ],
         "en": [
-          "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen"
+          "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
@@ -2005,9 +2007,9 @@
       "slug": "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st",
       "slugByLocale": {
         "it": "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st",
-        "en": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
+        "en": "dipl-radiology-specialist-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
-        "fr": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
+        "fr": "dipl-specialiste-en-radiologie-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -2056,18 +2058,15 @@
           "dipl-radiologiefachfrau-mann-hf-80-100-kssg-ch"
         ],
         "en": [
-          "dipl-radiology-specialist-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
         ],
         "fr": [
-          "dipl-specialiste-en-radiologie-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-80-100-kssg-ch",
-        "dipl-radiology-specialist-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "dipl-specialiste-en-radiologie-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-14T11:39:15.322Z",
@@ -2773,9 +2772,9 @@
       "slug": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
+        "en": "dipl-care-specialist-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-        "fr": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
+        "fr": "dipl-specialiste-des-soins-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -2835,6 +2834,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-100-kssg-ch",
         "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1d4632",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
         "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1d4632"
       ],
       "needsRetranslation": true,
@@ -3927,9 +3927,9 @@
       "slug": "operatore-logistico-a-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "it": "operatore-logistico-a-100-hoch-health-ostschweiz-grabs",
-        "en": "logistics-100-hoch-health-ostschweiz-grabs",
+        "en": "logistics-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-859645",
         "de": "logistiker-in-100-hoch-health-grabs",
-        "fr": "logistique-100-hoch-health-ostschweiz-grabs"
+        "fr": "logistique-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-859645"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -3978,16 +3978,16 @@
           "logistiker-in-100-kssg-ch"
         ],
         "en": [
-          "logistics-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-859645"
+          "logistics-100-hoch-health-ostschweiz-grabs"
         ],
         "fr": [
-          "logistique-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-859645"
+          "logistique-100-hoch-health-ostschweiz-grabs"
         ]
       },
       "previousSlugs": [
         "logistiker-in-100-kssg-ch",
-        "logistics-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-859645",
-        "logistique-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-859645"
+        "logistics-100-hoch-health-ostschweiz-grabs",
+        "logistique-100-hoch-health-ostschweiz-grabs"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T13:55:57.347Z",
@@ -4009,9 +4009,9 @@
       "slug": "operatore-logistico-a-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "it": "operatore-logistico-a-100-hoch-health-ostschweiz-uznach",
-        "en": "logistics-100-hoch-health-ostschweiz-uznach",
+        "en": "logistics-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-98a7de",
         "de": "logistiker-in-100-hoch-health-uznach",
-        "fr": "logistique-100-hoch-health-ostschweiz-uznach"
+        "fr": "logistique-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-98a7de"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -4060,16 +4060,16 @@
           "logistiker-in-100-kssg-ch"
         ],
         "en": [
-          "logistics-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-98a7de"
+          "logistics-100-hoch-health-ostschweiz-uznach"
         ],
         "fr": [
-          "logistique-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-98a7de"
+          "logistique-100-hoch-health-ostschweiz-uznach"
         ]
       },
       "previousSlugs": [
         "logistiker-in-100-kssg-ch",
-        "logistics-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-98a7de",
-        "logistique-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-98a7de"
+        "logistics-100-hoch-health-ostschweiz-uznach",
+        "logistique-100-hoch-health-ostschweiz-uznach"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T13:56:06.342Z",
@@ -4142,8 +4142,7 @@
           "dipl-pflegefachfrau-mann-springerpool-80-100-kssg-ch"
         ],
         "en": [
-          "dipl-care-specialist-springerpool-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen"
+          "dipl-care-specialist-springerpool-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
@@ -7756,7 +7755,7 @@
       "slug": "sub-assistente-2028-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "it": "sub-assistente-2028-hoch-health-ostschweiz-wil",
-        "en": "subassistance-in-2028-hoch-health-ostschweiz-wil",
+        "en": "subassistance-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "de": "unterassistent-in-2028-hoch-health-wil",
         "fr": "sous-assistance-en-2028-hoch-health-ostschweiz-wil"
       },
@@ -7807,7 +7806,8 @@
           "unterassistent-in-2028-kssg-ch"
         ],
         "en": [
-          "sub-assistant-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-7658d8"
+          "sub-assistant-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-7658d8",
+          "subassistance-in-2028-hoch-health-ostschweiz-wil"
         ],
         "fr": [
           "sous-assistant-en-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-7658d8"
@@ -7816,6 +7816,7 @@
       "previousSlugs": [
         "unterassistent-in-2028-kssg-ch",
         "sub-assistant-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-7658d8",
+        "subassistance-in-2028-hoch-health-ostschweiz-wil",
         "sous-assistant-en-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-7658d8"
       ],
       "firstSeenAt": "2026-06-19T12:58:46.540Z",
@@ -8822,8 +8823,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
         "it": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
-        "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-        "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
+        "en": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-53c6ec",
+        "fr": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-53c6ec"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8872,10 +8873,17 @@
         ],
         "de": [
           "dipl-pflegefachfrau-mann-80-100-kssg-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-80-100-kssg-ch"
+        "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
       ],
       "needsRetranslation": true,
       "salaryMin": 57500,

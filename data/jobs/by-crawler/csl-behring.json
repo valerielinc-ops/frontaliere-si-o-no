@@ -3180,9 +3180,7 @@
         "ricercatore-tech-ops-csl-behring-bern",
         "scientist-tech-ops-csl-behring-ch",
         "wissenschaftler-tech-ops-csl-behring-bern",
-        "scientifique-tech-ops-csl-behring-bern",
-        "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
-        "senior-laboratoriumspezialist-tech-ops-csl-behring-bern"
+        "scientifique-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3700,10 +3698,10 @@
     },
     {
       "id": "csl-behring-3afcb1dd3162",
-      "slug": "executive-assistant-csl-behring-ch",
+      "slug": "assistente-esecutivo-csl-behring-bern",
       "slugByLocale": {
         "en": "executive-assistant-csl-behring-ch",
-        "it": "executive-assistant-csl-behring-ch",
+        "it": "assistente-esecutivo-csl-behring-bern",
         "de": "executive-assistent-csl-behring-bern",
         "fr": "executive-assistant-csl-behring-ch"
       },
@@ -3761,7 +3759,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-22T14:05:49.317Z"
+      "firstSeenAt": "2026-06-22T14:05:49.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-csl-behring-ch"
+      ]
     }
   ]
 }

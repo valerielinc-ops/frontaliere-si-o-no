@@ -232,9 +232,9 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-b1e1661a297e",
-      "slug": "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
+      "slug": "segretaria-medica-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
-        "it": "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
+        "it": "segretaria-medica-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
         "en": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
         "de": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
         "fr": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
@@ -281,11 +281,13 @@
       "externalId": "3a34181e1d31",
       "previousSlugs": [
         "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
+        "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
         "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
+          "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
+          "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:04.968Z",
@@ -309,7 +311,7 @@
         "it": "qualita-dei-rispondenti-per-l-igiene-degli-endoscopi-e-responsabile-della-rielaborazione-degli-endoscopi-flessibili-20",
         "en": "respondent-quality-for-endoscope-hygiene-and-responsible-for-reprocessing-flexible-endoscopes-20-hopital-fribourgeois",
         "de": "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des",
-        "fr": "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
+        "fr": "e-qualite-pour-l-hy-des-endoscopes-et-zonsable-du-trace-des-endoscopes-hopital-fribourgeois-hfr-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -360,11 +362,14 @@
         ],
         "en": [
           "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
+        ],
+        "fr": [
+          "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
         ]
       },
       "previousSlugs": [
-        "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des",
-        "befragtenqualitat-fur-endoskophygiene-und-verantwortlich-fur-die-wiederaufbereitung-flexibler-endoskope-20-hopital"
+        "befragtenqualitat-fur-endoskophygiene-und-verantwortlich-fur-die-wiederaufbereitung-flexibler-endoskope-20-hopital",
+        "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
       ],
       "firstSeenAt": "2026-06-17T12:52:03.571Z",
       "salaryMin": 113000,
@@ -382,12 +387,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-0c0a42b63575",
-      "slug": "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin",
+      "slug": "psicologo-specialista-in-neuropsicologia-fsp-ean-tasso-da-definire-psicologo-psicologo-mit-spezialisierung-in",
       "slugByLocale": {
         "fr": "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin",
-        "it": "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin",
-        "en": "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin",
-        "de": "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin"
+        "it": "psicologo-specialista-in-neuropsicologia-fsp-ean-tasso-da-definire-psicologo-psicologo-mit-spezialisierung-in",
+        "en": "psychologist-specialist-in-neuropsychology-fsp-ean-rate-to-be-defined-psychologe-psychologin-mit-spezialisierung-in",
+        "de": "psychologe-spezialist-fur-neuropsychologie-fsp-ean-zu-definierende-rate-psychologe-psychologin-mit-109-in-der"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -443,7 +448,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T14:52:47.448Z"
+      "firstSeenAt": "2026-06-22T14:52:47.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin"
+        ],
+        "en": [
+          "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin"
+        ],
+        "de": [
+          "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-a23f8840ce01",
@@ -2537,12 +2556,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-9675b6ed5fb6",
-      "slug": "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois",
+      "slug": "assistente-amministrativo-fr-50-70-verwaltungsas-fr-50-70-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
         "fr": "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois",
-        "it": "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois",
-        "en": "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois",
-        "de": "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois"
+        "it": "assistente-amministrativo-fr-50-70-verwaltungsas-fr-50-70-hopital-fribourgeois-hfr-fribourg",
+        "en": "administrative-assistant-fr-50-70-verwaltungsas-fr-50-70-hopital-fribourgeois-hfr-fribourg",
+        "de": "verwaltungsassistent-50-70-verwaltungsangestellte-50-70-hopital-fribourgeois-hfr-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -2598,7 +2617,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T14:52:31.979Z"
+      "firstSeenAt": "2026-06-22T14:52:31.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois"
+        ],
+        "de": [
+          "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70-hfr-hopital-fribourgeois"
+      ]
     }
   ]
 }

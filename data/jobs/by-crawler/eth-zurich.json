@@ -7486,12 +7486,12 @@
     },
     {
       "id": "eth-zurich-c9fc77ba566e",
-      "slug": "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch",
+      "slug": "polimeccanico-nella-produzione-ricerca-e-sviluppo-m-p-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch",
-        "it": "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch",
-        "en": "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch",
-        "fr": "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch"
+        "it": "polimeccanico-nella-produzione-ricerca-e-sviluppo-m-p-d-eth-zurich-zurich",
+        "en": "polymechanic-in-manufacturing-research-development-m-w-d-eth-zurich-zurich",
+        "fr": "polymecanique-dans-la-fabrication-recherche-et-developpement-m-p-p-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7546,16 +7546,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-22T14:45:56.922Z"
+      "firstSeenAt": "2026-06-22T14:45:56.922Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-in-fertigung-forschung-entwicklung-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-d89fb20ec673",
-      "slug": "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch",
+      "slug": "dottorato-di-ricerca-in-calcolo-quantico-ai-per-l-ottimizzazione-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch",
-        "it": "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch",
-        "de": "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch",
-        "fr": "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch"
+        "it": "dottorato-di-ricerca-in-calcolo-quantico-ai-per-l-ottimizzazione-eth-zurich-zurich",
+        "de": "phd-zum-quantenrechnen-ki-zur-optimierung-eth-zurich-zurich",
+        "fr": "doctorat-sur-l-informatique-quantique-ai-pour-l-optimisation-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7610,7 +7624,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-22T14:45:56.366Z"
+      "firstSeenAt": "2026-06-22T14:45:56.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-on-quantum-computing-ai-for-optimization-eth-zurich-ch"
+      ]
     }
   ]
 }
