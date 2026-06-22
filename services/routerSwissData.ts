@@ -110,6 +110,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'finanziamento-parziale-13esima-avs': { it: 'finanziamento-parziale-13esima-avs', en: 'partial-funding-13th-pension', de: 'teilfinanzierung-13-rente', fr: 'financement-partiel-13e-retraite' },
  'tassa-salute-frontalieri-rinvio-roma': { it: 'tassa-salute-frontalieri-rinvio-roma', en: 'health-tax-cross-border-workers-delay-rome', de: 'gesundheitssteuer-grenzarbeiter-verschiebung-rom', fr: 'taxe-sante-frontaliers-retard-rome' },
  'sanita-farmaceutica-svizzera': { it: 'sanita-farmaceutica-svizzera', en: 'swiss-health-pharmaceutical', de: 'schweiz-gesundheit-pharmazeutik', fr: 'suisse-sante-pharmaceutique' },
+ 'dati-salariali-frontalieri-ticino': { it: 'dati-salariali-frontalieri-ticino', en: 'frontalieri-salary-data-ticino', de: 'gehaltsdaten-frontalieri-tessin', fr: 'donnees-salariales-frontaliers-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

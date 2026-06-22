@@ -266,6 +266,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sanita-farmaceutica-svizzera.title': 'La Svizzera punta sull\'IA per rivoluzionare la ricerca farmaceutica',
     'blog.article.sanita-farmaceutica-svizzera.excerpt': 'Le aziende farmaceutiche svizzere investono nell\'intelligenza artificiale per accelerare la scoperta di nuovi farmaci e migliorare le sperimentazioni cliniche',
     'blog.article.sanita-farmaceutica-svizzera.imageAlt': 'Vista panoramica di Lugano con edifici moderni e ospedalieri',
+    'blog.article.dati-salariali-frontalieri-ticino.title': 'Dati salariali dei vecchi frontalieri nella dichiarazione dei redditi',
+    'blog.article.dati-salariali-frontalieri-ticino.excerpt': 'Preoccupazione tra i vecchi frontalieri: dati salariali trasmessi all\'Italia tra errori e scorrettezze',
+    'blog.article.dati-salariali-frontalieri-ticino.imageAlt': 'Frontalieri preoccupati per la trasmissione dei dati salariali tra Svizzera e Italia',
 };
 
 export default blogMetaChIt;

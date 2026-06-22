@@ -1,0 +1,40 @@
+{
+  "id": "dati-salariali-frontalieri-ticino",
+  "slug": "dati-salariali-frontalieri-ticino",
+  "publishedAt": "2026-06-22T05:43:04.355Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.463274620972914,
+    "confidence": 0.8,
+    "finalScore": 5.170619696778331,
+    "topK": [
+      {
+        "slug": "lavoretti-estivi-2026-regole-frontaliere",
+        "cosine": 0.8608252841452032
+      },
+      {
+        "slug": "tassa-salute-frontalieri-accordo-frontalieri",
+        "cosine": 0.8594114773847487
+      },
+      {
+        "slug": "frontalieri-disoccupati-svizzera-indennita",
+        "cosine": 0.8590597269971858
+      },
+      {
+        "slug": "impatriati-fiscalita-frontalieri",
+        "cosine": 0.8578536093845067
+      },
+      {
+        "slug": "stipendi-frontalieri-inflazione-ticino",
+        "cosine": 0.8576821485209547
+      }
+    ],
+    "score": 5.170619696778331,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

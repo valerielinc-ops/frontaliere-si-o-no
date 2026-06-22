@@ -266,6 +266,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sanita-farmaceutica-svizzera.title': 'La Suisse mise sur l\'IA pour révolutionner la recherche pharmaceutique',
     'blog.article.sanita-farmaceutica-svizzera.excerpt': 'Les entreprises pharmaceutiques suisses investissent dans l\'intelligence artificielle pour accélérer la découverte de nouveaux médicaments et améliorer les essais cliniques',
     'blog.article.sanita-farmaceutica-svizzera.imageAlt': 'Vue panoramique de Lugano avec des bâtiments modernes et hospitaliers',
+    'blog.article.dati-salariali-frontalieri-ticino.title': 'Salaires des anciens frontaliers dans la déclaration',
+    'blog.article.dati-salariali-frontalieri-ticino.excerpt': 'Inquiétude parmi les anciens frontaliers : des erreurs et des irrégularités dans les données salariales transmises à l\'Italie',
+    'blog.article.dati-salariali-frontalieri-ticino.imageAlt': 'Frontaliers inquiets de la transmission des données salariales entre la Suisse et l\'Italie',
 };
 
 export default blogMetaChFr;
