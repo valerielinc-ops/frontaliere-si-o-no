@@ -7954,10 +7954,20 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         const err = new Error(`Articolo rigettato da fact-check: ${factResult.issues.length} problemi: ${issuesSummary}`);
         if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
           // Feed the flagged claims into the next attempt's prompt so the model
-          // fixes exactly what it invented instead of regenerating blind.
+          // fixes exactly what it invented instead of regenerating blind. Cap
+          // the injected list (issues are already the blocking subset, severity-
+          // ordered by llmFactCheck) so a long violation list can't bloat an
+          // already-large prompt past the input window of the degraded free
+          // models this fix targets (adversarial review PR #2615). Surface the
+          // truncation rather than silently dropping the tail.
+          const FACTCHECK_FEEDBACK_CAP = 8;
           lastFactCheckErrors = factResult.issues
+            .slice(0, FACTCHECK_FEEDBACK_CAP)
             .map(i => `- [${i.category || '?'}] "${(i.claim || '').slice(0, 90)}" — ${(i.reason || 'non nella fonte').slice(0, 110)}`)
             .join('\n');
+          if (factResult.issues.length > FACTCHECK_FEEDBACK_CAP) {
+            lastFactCheckErrors += `\n(+${factResult.issues.length - FACTCHECK_FEEDBACK_CAP} altre violazioni: applica lo STESSO principio a tutto il testo, non solo a queste)`;
+          }
           console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
           continue;
         }
