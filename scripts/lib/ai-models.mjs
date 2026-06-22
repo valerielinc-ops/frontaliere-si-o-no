@@ -2182,6 +2182,11 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
       // Parse response
       const data = JSON.parse(raw);
       let text = data?.choices?.[0]?.message?.content || '';
+      // Guard: some providers (e.g. Cloudflare) return non-string content (array, object).
+      // Surface as a proper error so the retry/exhaustion path handles it instead of crashing
+      // with "text.replace is not a function" inside stripThinkTags (observed: CF_LLAMA_4_SCOUT,
+      // CF_QWEN_25_CODER_32B — latent for remaining CF models until this guard lands).
+      if (text && typeof text !== 'string') throw new Error(`[${displayModel}] non-string content: ${typeof text}`);
       // Strip <think> reasoning tags — apply universally (safe: no valid
       // translation output contains <think> XML; catches models not yet in
       // REASONING_MODELS set that still emit chain-of-thought tags)
