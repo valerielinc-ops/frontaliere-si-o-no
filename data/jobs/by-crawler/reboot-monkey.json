@@ -3879,7 +3879,8 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2"
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2",
+        "technicien-data-center-suisse-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3998,7 +3999,25 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-21T22:33:21.887Z"
+      "firstSeenAt": "2026-06-21T22:33:21.887Z",
+      "previousSlugs": [
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
+        "technicien-data-center-suisse-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
+        "data-center-techniker-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
+        "data-center-technicien-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
+        ],
+        "de": [
+          "data-center-techniker-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
+        ],
+        "fr": [
+          "data-center-technicien-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
+        ]
+      }
     },
     {
       "id": "reboot-monkey-82b75718ba1a",
@@ -4081,7 +4100,8 @@
       },
       "previousSlugs": [
         "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+        "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6014,21 +6034,22 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen-2",
-        "data-center-technician-ch-st-gallen-in-loco-reboot-monkey-st-gallen",
-        "data-center-techniker-ch-st-gallen-on-site-reboot-monkey-st-gallen",
         "data-center-technicien-ch-st-gallen-on-site-reboot-monkey-st-gallen",
-        "technicien-data-center-ch-saint-gall-sur-site-reboot-monkey-st-gallen"
+        "technicien-data-center-ch-saint-gall-sur-site-reboot-monkey-st-gallen",
+        "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen",
+        "data-center-technician-ch-st-gallen-in-loco-reboot-monkey-st-gallen",
+        "data-center-techniker-ch-st-gallen-on-site-reboot-monkey-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen-2",
           "data-center-technician-ch-st-gallen-in-loco-reboot-monkey-st-gallen"
         ],
-        "de": [
-          "data-center-techniker-ch-st-gallen-on-site-reboot-monkey-st-gallen"
-        ],
         "fr": [
           "data-center-technicien-ch-st-gallen-on-site-reboot-monkey-st-gallen"
+        ],
+        "de": [
+          "data-center-techniker-ch-st-gallen-on-site-reboot-monkey-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-17T10:55:52.823Z",
@@ -6423,20 +6444,21 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil",
-        "data-center-technician-ch-urswil-vor-ort-reboot-monkey-urswil",
         "technicien-en-centre-de-donnees-ch-urswil-sur-place-reboot-monkey-urswil",
-        "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2"
+        "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2",
+        "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
+        "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil",
+        "data-center-technician-ch-urswil-vor-ort-reboot-monkey-urswil"
       ],
       "previousSlugsByLocale": {
+        "fr": [
+          "technicien-en-centre-de-donnees-ch-urswil-sur-place-reboot-monkey-urswil"
+        ],
         "it": [
           "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil"
         ],
         "de": [
           "data-center-technician-ch-urswil-vor-ort-reboot-monkey-urswil"
-        ],
-        "fr": [
-          "technicien-en-centre-de-donnees-ch-urswil-sur-place-reboot-monkey-urswil"
         ]
       },
       "firstSeenAt": "2026-05-17T10:55:52.813Z",
@@ -6629,21 +6651,22 @@
       },
       "remote": false,
       "previousSlugs": [
-        "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
-        "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
         "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix",
         "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2",
-        "technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix"
+        "technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix",
+        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
+        "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
+        "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix"
       ],
       "previousSlugsByLocale": {
+        "fr": [
+          "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix"
+        ],
         "it": [
           "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix"
         ],
         "de": [
           "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix"
-        ],
-        "fr": [
-          "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix"
         ]
       },
       "firstSeenAt": "2026-05-17T10:55:52.808Z",
@@ -7129,21 +7152,22 @@
       },
       "remote": false,
       "previousSlugs": [
-        "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
-        "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains",
         "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains",
         "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2",
-        "tecnico-data-center-ch-widnau-presenza-in-sede-reboot-monkey-widnau"
+        "tecnico-data-center-ch-widnau-presenza-in-sede-reboot-monkey-widnau",
+        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
+        "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
+        "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
+        "fr": [
+          "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains"
+        ],
         "it": [
           "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains"
         ],
         "de": [
           "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains"
-        ],
-        "fr": [
-          "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-05-17T10:55:52.796Z",

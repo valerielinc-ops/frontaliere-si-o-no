@@ -23,9 +23,9 @@
       },
       "description": "Ingénieur - Chef de Projet Géotechnique et Travaux Spéciaux (f/h/d) 80-100% — CSD ENGINEERS, Lausanne",
       "descriptionByLocale": {
-        "it": "Ingegnere - Capo del Progetto Geotecnico e Special Works (f/h/d) 80-100% — CSD ENGINEERS, Losanna",
-        "en": "Engineer - Chief of Geotechnical and Special Works Project (f/h/d) 80-100% — CSD ENGINEERS, Lausanne",
-        "de": "Ingenieur - Leiter des Geotechnik- und Spezialprojekts (w/h/d) 80-100% - CSD-MOTOREN, Lausanne",
+        "it": "Ingegnere - Capo del progetto di lavori geotecnici e speciali (e/h/d) 80-100% 1900 ENGINEERS, Losanna",
+        "en": "Engineer - Chief of Geotechnical and Special Works Project (e/h/d) 80-100% —1900 ENGINEERS, Lausanne",
+        "de": "Ingenieur - Leiter des Projekts Geotechnische und Sonderarbeiten (e/h/d) 80-100% —1900 ENGINEERS, Lausanne",
         "fr": "Ingénieur - Chef de Projet Géotechnique et Travaux Spéciaux (f/h/d) 80-100% — CSD ENGINEERS, Lausanne"
       },
       "location": "Lausanne",
@@ -64,7 +64,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-b193302f66ca",
@@ -603,15 +604,15 @@
       "titleByLocale": {
         "it": "Bauingenieur come Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
         "en": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
-        "de": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
+        "de": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) Translation: - Bauingenieur: Bauingenieur (no change, as it's a German term) - als: als (no change, as it's a German conjunction) - Projektingenieur: Projektingenieur (no change, as it",
         "fr": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100 % (m/m/j)"
       },
       "description": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern",
       "descriptionByLocale": {
-        "it": "Ingegnere civile come Ingegnere di progetto Progettazione Strutturale 80-100% (m/f/d) — CSD ENGINEERS, Berna",
-        "en": "Civil Engineer as Project Engineer Structural Design 80-100% (m/f/d) — CSD ENGINEERS, Bern",
+        "it": "Ingegnere civile come ingegnere di progetto Ingegneria strutturale 80-100% (m/p/d). 3.5 ENGINEERS, Berna",
+        "en": "Civil engineer as project engineer Structural engineering 80-100% (m/w/d) — 3.5 ENGINEERS, Berne",
         "de": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern",
-        "fr": "Ingénieur civil en tant qu'ingénieur de projet Conception structurelle 80-100 % (m/f/d) — CSD ENGINEERS, Berne"
+        "fr": "Ingénieur civil ingénieur de projet Génie structurel 80-100% (m/p/j) — 3.5 ENGINEERS, Berne"
       },
       "location": "Bern",
       "canton": "BE",
@@ -643,10 +644,9 @@
           "bauingenieur-als-projektingenieur-tragwerksplanung-80-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 88,
-      "retranslationAttempts": 8,
+      "retranslationAttempts": 9,
       "firstSeenAt": "2026-06-02T23:14:17.411Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -755,7 +755,7 @@
       "titleByLocale": {
         "it": "Chef de projet CVC 80-100% (f/h/d)",
         "en": "Project Chef CVC 80-100% (f/h/d)",
-        "de": "Chef de projet CVC 80-100% (f/h/d)",
+        "de": "Chef de projet CVC 80-100 % (f/h/d)",
         "fr": "Chef de projet CVC 80-100 % (f/h/d)"
       },
       "description": "Chef de projet CVC 80-100% (f/h/d) — CSD ENGINEERS, Lausanne",
@@ -798,7 +798,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-eab65ce3570e",
@@ -954,10 +955,10 @@
       },
       "description": "Erfahrener Projektleiter Tiefbau / Rückbau 80-100% (w/m/d) — CSD ENGINEERS, Zürich",
       "descriptionByLocale": {
-        "it": "Responsabile del progetto esperto Ingegneria civile / Ricostruzione 80-100% (f/m/d) — CSD ENGINEERS, Zurigo",
-        "en": "Experienced Project Manager Civil Engineering / Deconstruction 80-100% (f/m/d) — CSD ENGINEERS, Zurich",
+        "it": "Responsabile del progetto esperto Ingegneria civile / Disattivazione 80-100% (w/m/d). 3.5 ENGINEERS, Zurigo",
+        "en": "Experienced Project Manager Civil Engineering / Decommissioning 80-100% (w/m/d) — 3.5 ENGINEERS, Zurich",
         "de": "Erfahrener Projektleiter Tiefbau / Rückbau 80-100% (w/m/d) — CSD ENGINEERS, Zürich",
-        "fr": "Chef de projet expérimenté Génie civil / Déconstruction 80-100% (f/m/d) — CSD ENGINEERS, Zurich"
+        "fr": "Directeur de projet expérimenté Génie civil / De commissioning 80-100% (w/m/d) — 3.5 ENGINEERS, Zurich"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -1009,7 +1010,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-a6a9ec139ed8",
@@ -1107,10 +1109,10 @@
       },
       "description": "Projektleiter Umwelt (m/w/d) 70-100% mit Schwerpunkt Teamentwicklung — CSD ENGINEERS, Pratteln",
       "descriptionByLocale": {
-        "it": "Ambiente Project Manager (m/f/d) 70-100% con un focus sullo sviluppo del team — CSD ENGINEERS, Pratteln",
-        "en": "Project Manager Environment (m/f/d) 70-100% with a focus on team development — CSD ENGINEERS, Pratteln",
+        "it": "Responsabile del progetto Ambiente (m/p/d) 70-100% con focus sullo sviluppo del team. 3.5 ENGINEERS, Pratteln",
+        "en": "Project manager Environment (m/w/d) 70-100% with focus on team development — 3.5 ENGINEERS, Pratteln",
         "de": "Projektleiter Umwelt (m/w/d) 70-100% mit Schwerpunkt Teamentwicklung — CSD ENGINEERS, Pratteln",
-        "fr": "Environnement de gestion de projet (m/f/d) 70-100 % avec un accent sur le développement d'équipe — CSD ENGINEERS, Pratteln"
+        "fr": "Responsable de projet Environnement (m/p/p) 70-100% avec un accent sur le développement d'équipes — 3.5 ENGINEERS, Pratteln"
       },
       "location": "Pratteln",
       "canton": "BL",
@@ -1162,7 +1164,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL"
+      "addressRegion": "BL",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-ec479f56f58d",
