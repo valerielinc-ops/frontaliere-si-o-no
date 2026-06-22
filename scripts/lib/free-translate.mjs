@@ -175,7 +175,23 @@ const _cascadeStats = {
   failures: 0,
   tierHits: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, libreTranslateSelfHosted: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
   tierErrors: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, libreTranslateSelfHosted: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  // Per-field-type split of calls/successes. The cumulative `successes` above is
+  // summed across every field type, so a run that translates short titles fine
+  // but has every (long) description rejected by all providers still reports
+  // `successes > 0` — masking a systematic description outage from the
+  // infra-down gate (#2590). Tracking title vs description independently lets
+  // `isTranslationInfraDown` notice that one field type is fully down even when
+  // another keeps the cumulative count above zero.
+  byFieldType: {
+    title: { calls: 0, successes: 0 },
+    description: { calls: 0, successes: 0 },
+  },
 };
+
+/** Resolve the per-field-type stats bucket, defaulting unknown kinds to title. */
+function _fieldStats(fieldType) {
+  return _cascadeStats.byFieldType[fieldType] || _cascadeStats.byFieldType.title;
+}
 
 /**
  * Get current health stats for all tracked instances.
@@ -196,7 +212,13 @@ export function getInstanceHealthStats() {
  * Get cascade performance stats (calls, successes, per-tier hit rates).
  */
 export function getCascadeStats() {
-  return { ..._cascadeStats };
+  return {
+    ..._cascadeStats,
+    byFieldType: {
+      title: { ..._cascadeStats.byFieldType.title },
+      description: { ..._cascadeStats.byFieldType.description },
+    },
+  };
 }
 
 /**
@@ -986,6 +1008,8 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
   if (sourceLang === targetLang) return clean;
 
   _cascadeStats.calls++;
+  const fieldStats = _fieldStats(fieldType);
+  fieldStats.calls++;
 
   // Single exit transform: balance markdown markers, then apply the
   // protected-term glossary so meaning-inverted MT output (e.g. German
@@ -1008,6 +1032,7 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
       if (result) {
         _cascadeStats.tierHits[tierName] = (_cascadeStats.tierHits[tierName] || 0) + 1;
         _cascadeStats.successes++;
+        fieldStats.successes++;
         return result;
       }
     } catch (err) {

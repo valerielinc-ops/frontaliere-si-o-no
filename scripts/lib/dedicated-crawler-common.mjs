@@ -3801,6 +3801,16 @@ export async function runDedicatedBaseCrawler({
  *  - free-translate cascade (Azure/MyMemory/NLLB/Libre/Lingva/...): exercised
  *    this run (`calls > 0`) but produced zero successes ⇒ every provider down.
  *
+ * The cascade signal also checks each field type independently. `successes` is
+ * cumulative across all field types, so a run that translates short titles fine
+ * but has every (long) description rejected by all providers — e.g. providers
+ * refusing the description body for length — would still report `successes > 0`
+ * and keep `cascadeDown=false`, leaving description-only gaps to fall on the
+ * base tolerance and possibly hard-fail (#2590). When the per-field-type split
+ * is present, any field type exercised this run (`calls > 0`) with zero
+ * successes marks the cascade down for that field — a systematic outage, not a
+ * single job's gap — so those issues defer to translate-pending instead.
+ *
  * Pure + side-effect-free so the gate behaviour is unit-testable without the
  * ai-models / free-translate module-global singletons.
  *
@@ -3808,7 +3818,7 @@ export async function runDedicatedBaseCrawler({
  * @param {boolean} [o.aiModelsLoaded=false] whether ai-models.mjs was imported.
  * @param {boolean|null} [o.aiModelsAvailable=null] `isAnyModelAvailable()` (null on error/unknown).
  * @param {number} [o.aiExhaustedCount=0] number of exhausted LLM models.
- * @param {{calls:number,successes:number}|null} [o.cascade=null] free-translate cascade stats.
+ * @param {{calls:number,successes:number,byFieldType?:Object.<string,{calls:number,successes:number}>}|null} [o.cascade=null] free-translate cascade stats.
  * @returns {{ llmDown: boolean, cascadeDown: boolean, infraDown: boolean }}
  */
 export function isTranslationInfraDown({
@@ -3819,8 +3829,15 @@ export function isTranslationInfraDown({
 } = {}) {
   const llmDown =
     aiModelsLoaded && (aiModelsAvailable === false || (aiExhaustedCount ?? 0) >= 3);
+  // A field type fully down even if another (shorter) field type kept the
+  // cumulative successes above zero — catches "descriptions systematically
+  // rejected while titles translate" that the aggregate counter masks.
+  const anyFieldTypeDown = Object.values(cascade?.byFieldType ?? {}).some(
+    (f) => (f?.calls ?? 0) > 0 && (f?.successes ?? 0) === 0,
+  );
   const cascadeDown =
-    Boolean(cascade) && (cascade.calls ?? 0) > 0 && (cascade.successes ?? 0) === 0;
+    Boolean(cascade) &&
+    (((cascade.calls ?? 0) > 0 && (cascade.successes ?? 0) === 0) || anyFieldTypeDown);
   return { llmDown, cascadeDown, infraDown: llmDown || cascadeDown };
 }
 
