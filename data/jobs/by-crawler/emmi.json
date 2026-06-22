@@ -4219,12 +4219,12 @@
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "account-manager-emmi-ch",
+      "slug": "gestione-account-emmi-luzern-luzern",
       "slugByLocale": {
-        "it": "account-manager-emmi-ch",
+        "it": "gestione-account-emmi-luzern-luzern",
         "en": "account-manager-emmi-luzern",
         "de": "account-manager-emmi-ch",
-        "fr": "account-manager-emmi-ch"
+        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -4282,16 +4282,13 @@
         ]
       },
       "previousSlugs": [
-        "gestione-account-emmi-luzern-luzern",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "account-manager-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-account-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ]
       },
@@ -5027,12 +5024,12 @@
     },
     {
       "id": "emmi-53cefdbcffdf",
-      "slug": "anlagenfuhrer-in-mischerei-emmi-ch",
+      "slug": "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-mischerei-emmi-ch",
-        "it": "anlagenfuhrer-in-mischerei-emmi-ch",
-        "en": "anlagenfuhrer-in-mischerei-emmi-ch",
-        "fr": "anlagenfuhrer-in-mischerei-emmi-ch"
+        "it": "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau",
+        "en": "plant-manager-in-mixing-plant-emmi-suhr-aargau",
+        "fr": "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5101,10 +5098,22 @@
       },
       "firstSeenAt": "2026-06-22T13:57:35.181Z",
       "previousSlugs": [
+        "anlagenfuhrer-in-mischerei-emmi-ch",
         "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
         "plant-manager-mixing-plant-emmi-suhr",
         "conducteur-d-installation-en-melange-emmi-suhr"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-mischerei-emmi-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-mischerei-emmi-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-mischerei-emmi-ch"
+        ]
+      }
     }
   ]
 }

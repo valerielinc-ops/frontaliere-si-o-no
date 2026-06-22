@@ -2081,10 +2081,10 @@
     },
     {
       "id": "tally-weijl-c05ba4b32106",
-      "slug": "auxilaire-20-tally-weijl-nyon",
+      "slug": "ausiliare-20-tally-weijl-nyon",
       "slugByLocale": {
         "fr": "auxilaire-20-tally-weijl-nyon",
-        "it": "auxilaire-20-tally-weijl-nyon",
+        "it": "ausiliare-20-tally-weijl-nyon",
         "en": "auxilaire-20-tally-weijl-nyon",
         "de": "auxilaire-20-tally-weijl-nyon"
       },
@@ -2142,7 +2142,15 @@
       },
       "postalCode": "1260",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-22T15:13:41.520Z"
+      "firstSeenAt": "2026-06-22T15:13:41.520Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auxilaire-20-tally-weijl-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "auxilaire-20-tally-weijl-nyon"
+      ]
     },
     {
       "id": "tally-weijl-111f0a6245f6",

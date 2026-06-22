@@ -5214,10 +5214,10 @@
     },
     {
       "id": "tether-003b9d357dde",
-      "slug": "portfolio-associate-reporting-tether-ch",
+      "slug": "associato-al-portafoglio-reporting-tether-operations-geneve-geneve",
       "slugByLocale": {
         "en": "portfolio-associate-reporting-tether-ch",
-        "it": "portfolio-associate-reporting-tether-ch",
+        "it": "associato-al-portafoglio-reporting-tether-operations-geneve-geneve",
         "de": "portfolio-associate-reporting-tether-ch",
         "fr": "portfolio-associate-reporting-tether-ch"
       },
@@ -5278,7 +5278,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:02:15.001Z"
+      "firstSeenAt": "2026-06-22T15:02:15.001Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "portfolio-associate-reporting-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "portfolio-associate-reporting-tether-ch"
+      ]
     }
   ]
 }

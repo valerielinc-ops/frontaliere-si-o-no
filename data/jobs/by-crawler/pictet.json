@@ -692,10 +692,10 @@
     },
     {
       "id": "pictet-d75452704e8d",
-      "slug": "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
+      "slug": "responsabile-fatturazione-e-pagamenti-contratto-a-tempo-determinato-di-12-mesi-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
-        "it": "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
+        "it": "responsabile-fatturazione-e-pagamenti-contratto-a-tempo-determinato-di-12-mesi-pictet-group-luxembourg",
         "de": "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
         "fr": "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
       },
@@ -754,7 +754,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-22T15:14:53.973Z"
+      "firstSeenAt": "2026-06-22T15:14:53.973Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
+      ]
     }
   ]
 }

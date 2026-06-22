@@ -373,10 +373,10 @@
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
+        "it": "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva",
         "de": "travelling-destination-manager-msc-geneva",
         "fr": "travelling-destination-manager-msc-geneva"
       },
@@ -437,16 +437,17 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-21T12:08:32.902Z",
       "previousSlugs": [
+        "reisezielmanager-msc-group-geneva",
+        "travelling-destination-manager-msc-geneva",
+        "gestionnaire-de-destination-itinerante-msc-group-geneva",
         "gestione-delle-destinazioni-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "reisezielmanager-msc-group-geneva",
-          "travelling-destination-manager-msc-geneva"
+          "reisezielmanager-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-de-destination-itinerante-msc-group-geneva",
-          "travelling-destination-manager-msc-geneva"
+          "gestionnaire-de-destination-itinerante-msc-group-geneva"
         ],
         "it": [
           "travelling-destination-manager-msc-geneva"
@@ -870,8 +871,7 @@
           "junior-architect-port-development-intern-msc-geneva"
         ],
         "de": [
-          "junior-architect-port-development-intern-msc-geneva",
-          "junior-architect-port-development-praktikant-msc-group-geneva"
+          "junior-architect-port-development-intern-msc-geneva"
         ],
         "fr": [
           "junior-architect-port-development-intern-msc-geneva"

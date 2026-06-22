@@ -252,12 +252,12 @@
     },
     {
       "id": "bachem-3902df971957",
-      "slug": "group-leader-plant-engineering-infra-geb-k-a-100-bachem-bubendorf",
+      "slug": "leader-del-gruppo-ingegneria-delle-piante-infra-geb-k-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "group-leader-plant-engineering-infra-geb-k-a-100-bachem-bubendorf",
-        "it": "group-leader-plant-engineering-infra-geb-k-a-100-bachem-bubendorf",
+        "it": "leader-del-gruppo-ingegneria-delle-piante-infra-geb-k-a-100-bachem-ag-bubendorf",
         "en": "group-leader-plant-engineering-infra-geb-k-a-100-bachem-bubendorf",
-        "fr": "group-leader-plant-engineering-infra-geb-k-a-100-bachem-bubendorf"
+        "fr": "chef-de-groupe-ingenierie-des-installations-infra-geb-k-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -312,7 +312,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T13:36:55.343Z"
+      "firstSeenAt": "2026-06-22T13:36:55.343Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-plant-engineering-infra-geb-k-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "group-leader-plant-engineering-infra-geb-k-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-plant-engineering-infra-geb-k-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-c8f952512ed8",
@@ -548,8 +559,8 @@
       "slugByLocale": {
         "it": "tirocinio-junior-event-manager-a-6-12-mesi-bachem-ag-bubendorf",
         "en": "internship-junior-event-manager-a-6-12-months-bachem-bubendorf",
-        "de": "internship-junior-event-manager-a-6-12-months-bachem-bubendorf",
-        "fr": "stage-junior-event-manager-a-6-12-mois-bachem-ag-bubendorf"
+        "de": "praktikum-junior-event-manager-a-6-12-monate-bachem-ag-bubendorf",
+        "fr": "gestionnaire-d-evenement-junior-de-stage-a-6-12-mois-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -592,19 +603,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "praktikum-junior-event-manager-a-6-12-monate-bachem-ag-bubendorf",
           "internship-junior-event-manager-a-6-12-months-bachem-bubendorf"
         ],
         "it": [
           "internship-junior-event-manager-a-6-12-months-bachem-bubendorf"
         ],
         "fr": [
-          "internship-junior-event-manager-a-6-12-months-bachem-bubendorf"
+          "internship-junior-event-manager-a-6-12-months-bachem-bubendorf",
+          "stage-junior-event-manager-a-6-12-mois-bachem-ag-bubendorf"
         ]
       },
       "previousSlugs": [
         "internship-junior-event-manager-a-6-12-months-bachem-bubendorf",
-        "praktikum-junior-event-manager-a-6-12-monate-bachem-ag-bubendorf"
+        "stage-junior-event-manager-a-6-12-mois-bachem-ag-bubendorf"
       ],
       "firstSeenAt": "2026-06-19T21:21:26.265Z",
       "salaryMin": 52000,
@@ -2911,9 +2922,9 @@
     },
     {
       "id": "bachem-39a816a13858",
-      "slug": "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-di-dati-100-a-bachem-ag-bubendorf",
+      "slug": "ingegnere-di-automazione-ingegnere-di-progetto-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-di-dati-100-a-bachem-ag-bubendorf",
+        "it": "ingegnere-di-automazione-ingegnere-di-progetto-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf",
         "en": "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
         "de": "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
         "fr": "ingenieur-en-automatisation-ingenieur-projet-fabrication-numerique-et-laboratoire-de-donnees-100-a-bachem-ag-bubendorf"
@@ -2961,6 +2972,7 @@
         "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
         "automazione-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf",
         "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem",
+        "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-di-dati-100-a-bachem-ag-bubendorf",
         "automatisierungsingenieur-projektingenieur-digitale-fertigung-und-datenlabor-100-m-w-d-bachem-ag-bubendorf",
         "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf",
         "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf",
@@ -2970,7 +2982,8 @@
         "it": [
           "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
           "automazione-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf",
-          "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem"
+          "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem",
+          "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-di-dati-100-a-bachem-ag-bubendorf"
         ],
         "de": [
           "automatisierungsingenieur-projektingenieur-digitale-fertigung-und-datenlabor-100-m-w-d-bachem-ag-bubendorf"
@@ -7393,12 +7406,12 @@
     },
     {
       "id": "bachem-84fec76fae81",
-      "slug": "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
+      "slug": "agente-creditore-a-80-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "en": "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
-        "it": "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
+        "en": "agent-creditor-a-80-100-bachem-ag-bubendorf",
+        "it": "agente-creditore-a-80-100-bachem-ag-bubendorf",
         "de": "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
-        "fr": "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf"
+        "fr": "agent-creancier-a-80-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -7453,7 +7466,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T13:36:06.540Z"
+      "firstSeenAt": "2026-06-22T13:36:06.540Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf"
+        ],
+        "en": [
+          "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-f33d28c81d7d",
@@ -7721,9 +7748,9 @@
     },
     {
       "id": "bachem-ad565c34dfb7",
-      "slug": "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf",
+      "slug": "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf",
+        "it": "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
         "en": "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
         "de": "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
         "fr": "technicien-de-laboratoire-r-d-lpps-taps-p-m-j-100-bachem-ag-bubendorf"
@@ -7771,8 +7798,8 @@
         "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
         "lab-technician-r-d-lpps-taps-a-100-bachem-bubendorf",
         "tecnico-di-laboratorio-r-d-lpps-tap-con-lavoro-lavoro-100-bachem-ag-bubendorf",
-        "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
         "technico-di-laboratorio-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
+        "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf",
         "labortechniker-r-d-lpps-taps-w-m-d-100-bachem-ag-bubendorf",
         "lab-technician-r-d-a-100-bachem-ag-bubendorf",
         "tecnico-di-laboratorio-r-d-u-m-d-100-bachem-ag-bubendorf",
@@ -7789,8 +7816,8 @@
           "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
           "lab-technician-r-d-lpps-taps-a-100-bachem-bubendorf",
           "tecnico-di-laboratorio-r-d-lpps-tap-con-lavoro-lavoro-100-bachem-ag-bubendorf",
-          "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
-          "technico-di-laboratorio-r-d-lpps-taps-a-100-bachem-ag-bubendorf"
+          "technico-di-laboratorio-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
+          "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf"
         ],
         "de": [
           "labortechniker-r-d-lpps-taps-w-m-d-100-bachem-ag-bubendorf"

@@ -1546,10 +1546,10 @@
     },
     {
       "id": "spitex-ch-8eba47d55eba",
-      "slug": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
+      "slug": "esperto-di-infermieristica-mscn-40-60-bundner-spital-und-heimverband-chur",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
-        "it": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
+        "it": "esperto-di-infermieristica-mscn-40-60-bundner-spital-und-heimverband-chur",
         "en": "pflegeexpertin-pflegeexperte-mscn-40-60-bundner-spital-und-heimverband-chur",
         "fr": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
       },
@@ -1608,7 +1608,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:25:58.646Z"
+      "firstSeenAt": "2026-06-22T15:25:58.646Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+      ]
     },
     {
       "id": "spitex-ch-8c55e14f37cc",
@@ -1686,10 +1694,10 @@
     },
     {
       "id": "spitex-ch-a678502ed3c4",
-      "slug": "pflegehelfer-in-40-80-spitex-ch-liestal",
+      "slug": "assistente-infermieristico-40-80-spitex-regio-liestal-liestal",
       "slugByLocale": {
         "de": "pflegehelfer-in-40-80-spitex-ch-liestal",
-        "it": "pflegehelfer-in-40-80-spitex-ch-liestal",
+        "it": "assistente-infermieristico-40-80-spitex-regio-liestal-liestal",
         "en": "pflegehelfer-in-40-80-spitex-ch-liestal",
         "fr": "pflegehelfer-in-40-80-spitex-ch-liestal"
       },
@@ -1748,7 +1756,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:25:57.214Z"
+      "firstSeenAt": "2026-06-22T15:25:57.214Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-40-80-spitex-ch-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-40-80-spitex-ch-liestal"
+      ]
     },
     {
       "id": "spitex-ch-ab4a960c445b",

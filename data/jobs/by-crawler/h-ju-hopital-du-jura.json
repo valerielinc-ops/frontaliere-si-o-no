@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "h-ju-hopital-du-jura-2d8c91b0c5f0",
-      "slug": "medecin-urgentiste-h-ju-hopital-du-jura-delemont",
+      "slug": "e-tu-che-lavoro-fai-sono-un-dottore-al-pronto-soccorso-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont",
-        "it": "medecin-urgentiste-h-ju-hopital-du-jura-delemont",
+        "it": "e-tu-che-lavoro-fai-sono-un-dottore-al-pronto-soccorso-hopital-du-jura-h-ju-delemont",
         "en": "medecin-urgentiste-h-ju-hopital-du-jura-delemont",
         "de": "medecin-urgentiste-h-ju-hopital-du-jura-delemont"
       },
@@ -66,7 +66,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T13:03:11.923Z"
+      "firstSeenAt": "2026-05-19T13:03:11.923Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-urgentiste-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-urgentiste-h-ju-hopital-du-jura-delemont"
+      ]
     }
   ]
 }

@@ -364,8 +364,7 @@
           "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch"
         ],
         "en": [
-          "dipl-nurse-hf-fh-f-m-d-acute-care-department-privatklinik-wyss-munchenbuchsee",
-          "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch"
+          "dipl-nurse-hf-fh-f-m-d-acute-care-department-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:09.669Z",
@@ -484,10 +483,10 @@
     },
     {
       "id": "privatklinik-wyss-6a2c86e2d37a",
-      "slug": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
+      "slug": "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
-        "it": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
+        "it": "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee",
         "en": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
         "fr": "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
       },
@@ -548,7 +547,15 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-22T15:02:55.484Z"
+      "firstSeenAt": "2026-06-22T15:02:55.484Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegedirektor-in-m-w-d-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegedirektor-in-m-w-d-privatklinik-wyss-ch"
+      ]
     }
   ]
 }
