@@ -26,6 +26,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -199,12 +200,8 @@ async function main() {
 
   if (!APPLY) { console.log('\n(dry-run — pass --apply to write Firestore employer_insights/*)'); return; }
 
-  const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-  if (!credPath || !fs.existsSync(credPath)) throw new Error('GOOGLE_APPLICATION_CREDENTIALS required for --apply');
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) initializeApp({ credential: cert(JSON.parse(fs.readFileSync(credPath, 'utf8'))) });
-  const db = getFirestore();
+  const { FieldValue } = await import('firebase-admin/firestore');
+  const db = await getFirestoreDb();
   let written = 0;
   for (let i = 0; i < docs.length; i += 400) {
     const batch = db.batch();

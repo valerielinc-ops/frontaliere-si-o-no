@@ -1,0 +1,69 @@
+name: Refresh Employer Outreach Contacts
+
+# Weekly: discover an HR/contact email per company in the admin "Insights
+# Aziende" dashboard and upsert it to Firestore `employer_contacts/{companyKey}`,
+# so the contact column fills in (and the cold-email sender has a recipient).
+# Best-effort, open-data only (jobs.json own-domain + registry + web search →
+# scrape contact/impressum/careers pages). Idempotent: only fills the still-empty
+# ones, never clobbers an admin-edited address. Zero-Claude (deterministic).
+
+on:
+  schedule:
+    - cron: '30 4 * * 1'  # weekly, Monday 04:30 UTC (after the daily traffic refresh)
+  workflow_dispatch:
+    inputs:
+      min_views:
+        description: 'Only enrich companies with at least this many dashboard views'
+        required: false
+        default: '5'
+      limit:
+        description: 'Cap the number of companies processed (0 = no cap)'
+        required: false
+        default: '0'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: employer-contacts-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ FIREBASE_SERVICE_ACCOUNT_JSON not set — aborting"; exit 1
+          fi
+
+      - name: Assemble jobs dataset (own-domain source)
+        run: node scripts/assemble-jobs-dataset.mjs --stats || true
+
+      - name: Discover + upsert employer contacts (Firestore)
+        run: |
+          node scripts/sync-employer-contacts-to-firestore.mjs \
+            --apply \
+            --min-views "${{ github.event.inputs.min_views || '5' }}" \
+            --limit "${{ github.event.inputs.limit || '0' }}"
