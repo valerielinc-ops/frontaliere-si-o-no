@@ -70,6 +70,7 @@ import {
  type WinnersFile as PreviousSlugWinnersFile,
 } from '../services/previousSlugWinners';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
+import { isLocationMatch } from '../services/textUtils';
 import {
  BRAND_CANONICAL_MAP,
  isBrandAlias,
@@ -8246,7 +8247,7 @@ ${staticAnalyticsHtml}
  }, (job) => {
  const loc = normalizeSearchTerm(job?.location || '');
  const comp = normalizeSearchTerm([job?.company, job?.companyKey].filter(Boolean).join(' '));
- return loc.includes(normCity) && comp.includes(normComp);
+ return isLocationMatch(loc, normCity) && comp.includes(normComp);
  });
  comboCount++;
  }
@@ -8288,7 +8289,7 @@ ${staticAnalyticsHtml}
  },
  }, (job) => {
  const loc = normalizeSearchTerm(job?.location || '');
- return loc.includes(normCity) && ct.match.includes(String(job?.contract || '').toLowerCase());
+ return isLocationMatch(loc, normCity) && ct.match.includes(String(job?.contract || '').toLowerCase());
  });
  comboCount++;
  }
