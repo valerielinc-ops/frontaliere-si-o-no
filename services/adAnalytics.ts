@@ -27,7 +27,13 @@ import { captureEvent as posthogCapture } from './posthog';
 // historical `@/services/adAnalytics` import path used by <AdSenseBanner> + tests.
 export { isLikelyBot } from './botPatterns';
 
-export type AdEvent = 'ad_request' | 'ad_filled' | 'ad_unfilled' | 'ad_collapsed' | 'ad_bot_skip';
+export type AdEvent =
+  | 'ad_request'
+  | 'ad_filled'
+  | 'ad_unfilled'
+  | 'ad_collapsed'
+  | 'ad_bot_skip'
+  | 'ad_viewable';
 
 export interface AdEventProps {
   slot: string;
@@ -35,6 +41,14 @@ export interface AdEventProps {
   page_path?: string;
   page_template?: string;
   reason?: string;
+  /**
+   * Ad network that produced the event. Defaults to 'adsense' when omitted so
+   * historical AdSense events keep their meaning; GPT/GAM slots pass 'gpt' so
+   * fill-rate and viewability can be segmented per network (the un-tagged GPT
+   * no-fills were what made the blended PostHog fill-rate look like a crash —
+   * GAM side-rail no-fills were invisible in the metric).
+   */
+  network?: 'adsense' | 'gpt';
 }
 
 function getPagePath(): string {
@@ -69,6 +83,7 @@ export function trackAdEvent(event: AdEvent, props: AdEventProps): void {
       ad_format: props.format,
       page_path: path,
       page_template: props.page_template ?? classifyTemplate(path),
+      network: props.network ?? 'adsense',
       ...(props.reason ? { reason: props.reason } : {}),
     };
     posthogCapture(event, payload);
