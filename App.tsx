@@ -2343,14 +2343,14 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
- <div className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:grid-cols-[160px_minmax(0,1fr)_160px] xlw:gap-6' : 'contents'}>
+ <div className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:grid-cols-[160px_minmax(0,1fr)_160px] xlw:gap-4' : 'contents'}>
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
  <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
  </aside>
  )}
  <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10 ${
- activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-3 sm:px-4'
+ activeTab === 'admin' ? 'w-full px-3 sm:px-6' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${sideRailEligible ? ' xlw:!w-full' : ''}`
  }`}>
  <Suspense fallback={<LazyFallback />}>
  {notFoundPath ? (
