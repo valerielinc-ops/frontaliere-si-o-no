@@ -37,7 +37,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildSequence } from './generate-cold-emails.mjs';
+import { buildSequence, OPTOUT_EMAIL } from './generate-cold-emails.mjs';
 import { classifySector } from './lib/employer-sectors.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -206,6 +206,10 @@ function run() {
       if (!to) { console.warn(`↷ skip ${m.company}: nessuna email verificata (inferita "${m.inferred}" non usata)`); continue; }
     }
     const subjectPrefix = isTest ? `[TEST → ${m.company}] ` : '';
+    // List-Unsubscribe (RFC 2369): abilita il pulsante "Annulla iscrizione" nativo
+    // di Gmail/Outlook. Solo mailto (niente One-Click: nessun endpoint HTTPS); il
+    // subject porta la company key così l'opt-out è tracciabile alla sorgente.
+    const unsubKey = encodeURIComponent(m.key || m.company);
     queue.push({
       payload: {
         from,
@@ -213,6 +217,7 @@ function run() {
         subject: subjectPrefix + m.subject,
         html: m.html,
         text: m.text,
+        headers: { 'List-Unsubscribe': `<mailto:${OPTOUT_EMAIL}?subject=unsubscribe%20${unsubKey}>` },
         tags: [{ name: 'type', value: 'cold-outreach' }, { name: 'company', value: (m.key || m.company).slice(0, 40) }],
       },
       recipient: { email: to },
