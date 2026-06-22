@@ -102,19 +102,27 @@ permissions:
   id-token: write
   issues: write     # for github-issue-creator on build/deploy failure
 
-# Workflow-level serialisation: ONE deploy run at a time, newest-wins.
-# GitHub cancels any previously *pending* run in this group when a newer one
-# queues, while the in-progress run finishes (cancel-in-progress: false). So
-# while a build is running no other deploy starts, and when it finishes only the
-# LATEST queued run proceeds (intermediate queued runs are superseded). This
-# restores the monolith's pages-build behaviour for the MATRIX path, which is a
-# 3-job sub-pipeline (matrix-setup → prep → build-locale ×4) that a per-job
-# concurrency group cannot serialise without the matrix legs cancelling each
-# other. It also removes the race on the CDN / frontaliere-<loc> force-push
-# targets by construction (no two deploys ever overlap).
-concurrency:
-  group: deploy-to-github-pages
-  cancel-in-progress: false
+# NO workflow-level concurrency on purpose. A workflow-level group
+# (`deploy-to-github-pages`, cancel-in-progress: false) used to serialise the
+# WHOLE run, but that blocked a new push from even starting its build until the
+# previous run had finished EVERY step — including the deploy job's up-to-40-min
+# server-side Pages poll, validate-live and publish. The next build sat idle for
+# ~1h ("This workflow is waiting for Deploy to GitHub Pages #N to complete before
+# running"), even though nothing it does conflicts with the prior run's
+# post-build steps.
+#
+# Serialisation is instead applied at the JOB boundary, exactly where a race can
+# happen, so a new run can build while the previous run is still deploying /
+# validating / publishing:
+#   - monolith `build`        → group `pages-build`               (one build at a time)
+#   - matrix `build-locale`   → group `pages-build-locale-<loc>`  (per-locale: the 4
+#       legs of ONE run never collide — distinct groups — but the SAME locale
+#       serialises across runs, so two runs never race the same CDN / frontaliere-<loc>
+#       force-push target; the CDN push lives only in the `it` leg)
+#   - `deploy`                → group `pages-deploy`              (one Pages publish at a time)
+# Each group is newest-wins (cancel-in-progress: false → GitHub's 1 running + 1
+# pending cap drops the superseded middle run), which is correct for a cumulative
+# cron-driven site where the latest build already contains the intermediate ones.
 
 jobs:
   build:
@@ -1778,10 +1786,18 @@ jobs:
     if: ${{ vars.LOCALE_MATRIX_BUILD == 'true' || github.event.inputs.force_matrix == 'true' }}
     needs: [matrix-setup, prep]
     runs-on: ubuntu-latest
-    # NO job-level concurrency: the matrix legs must NOT cancel each other, and
-    # cross-run serialisation (no two deploys racing the CDN / frontaliere-<loc>
-    # force-push targets) is now handled by the WORKFLOW-LEVEL concurrency group
-    # at the top of this file (one deploy run at a time, newest-wins).
+    # Per-LOCALE concurrency: the group is keyed on matrix.locale, so the 4 legs
+    # of ONE run get 4 distinct groups and never cancel each other, while the
+    # SAME locale serialises ACROSS runs. That prevents two runs racing the same
+    # CDN / frontaliere-<loc> force-push target (the CDN push lives only in the
+    # `it` leg → `pages-build-locale-it` serialises it) WITHOUT a workflow-level
+    # lock that would otherwise stall the next build behind the prior run's
+    # deploy/validate/publish tail. newest-wins (cancel-in-progress: false →
+    # 1 running + 1 pending, superseded middle dropped) — the cumulative build
+    # makes the latest a superset of any dropped intermediate.
+    concurrency:
+      group: pages-build-locale-${{ matrix.locale }}
+      cancel-in-progress: false
     permissions:
       contents: write
       pages: write
