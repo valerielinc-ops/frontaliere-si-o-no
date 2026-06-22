@@ -48,13 +48,44 @@ jobs:
       - name: Assemble jobs dataset from per-crawler slices
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
-      - name: Build
-        # Use build:ci (12 GB heap, fits the 16 GB runner) — the same full-SSG
-        # build the deploy pipeline runs. build:prod's 18 GB heap exceeds the
-        # runner's physical RAM and was OOM-prone; it only ever "passed" here by
-        # crashing earlier at config-load. Full SSG (no FAST_BUILD skips) so the
-        # AdSense audit still inspects every production page type.
-        run: npm run build:ci
+      # ── Pre-build data prep — MUST mirror deploy.yml's build job ──────────
+      # The audit reads `dist/`, so this workflow must emit the SAME dist
+      # deploy.yml ships. deploy dedups + migrates + cleans the dataset BEFORE
+      # build:ci; building the RAW assembled set (~12.1k jobs × 4 locales)
+      # OOMs the 16 GB runner (exit 134) before the audit runs (issue #2121).
+      # The shared composite action keeps this in lockstep with deploy.yml and
+      # cathedral-seo-gates-check.yml (the read-only sibling that audits the
+      # same dist). None of its steps require secrets.
+      - name: SEO build data-prep (shared with deploy.yml)
+        uses: ./.github/actions/seo-build-data-prep
+
+      - name: Build dist (full SEO output)
+        # Mirror cathedral-seo-gates-check.yml: same full-SSG build the deploy
+        # pipeline runs, so the AdSense audit inspects production-identical
+        # pages. build:ci sets its own inline `--max-old-space-size=12288
+        # --expose-gc` (fits the 16 GB runner); build:prod's 18 GB exceeds
+        # physical RAM. The two env knobs are deploy.yml's documented OOM
+        # controls (build OOM #1290) — they cap the dominant memory term so the
+        # full SEO build fits at 12 GB alongside the data-prep reduction above.
+        env:
+          # Override any inherited FAST_BUILD=1, which would silently skip half
+          # the SEO landings and shrink audit coverage (CLAUDE.md FAST_BUILD trap).
+          FAST_BUILD: ''
+          # Cap the post-walk worker pool so it doesn't structured-clone the full
+          # path list into cpus()-many workers at once (the #1290 blowup).
+          POST_WALK_WORKERS: '2'
+          # Force sequential plugin closeBundle: peak heap = max(single plugin)
+          # instead of Σ(overlap). Always sequential here (scheduled/dispatch).
+          SEQUENTIAL_PROFILE: '1'
+        run: |
+          set -euo pipefail
+          npm run build:ci &
+          build_pid=$!
+          while kill -0 "$build_pid" 2>/dev/null; do
+            sleep 60
+            echo "[build keepalive] still running at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          done
+          wait "$build_pid"
 
       - name: Run AdSense pre-review audit
         run: |
