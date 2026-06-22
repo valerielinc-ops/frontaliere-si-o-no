@@ -134,6 +134,38 @@ describe('local-opus-mt — guards (fail closed)', () => {
   });
 });
 
+describe('local-opus-mt — pivot intermediate identity guard', () => {
+  it('returns "" when the src→en leg echoes its entire input (whole-text passthrough)', async () => {
+    // Simulates a model that returns the input unchanged — passthrough on all chunks.
+    setLocalOpusMtForTests((modelId: string) => async (text: string) => [{ translation_text: text }]);
+    expect(await translateWithLocalOpusMt('Wir suchen einen Pfleger', 'de', 'fr')).toBe('');
+  });
+
+  it('returns "" when the src→en leg echoes a single chunk of a multi-chunk input', async () => {
+    // First call (de-en) echoes its input; second call (en-fr) would produce garbage.
+    let callCount = 0;
+    setLocalOpusMtForTests((modelId: string) => async (text: string) => {
+      callCount++;
+      // de-en model: echo chunk (passthrough failure on first chunk)
+      if (modelId.endsWith('-de-en')) return [{ translation_text: text }];
+      // en-fr model: should NOT be reached
+      return [{ translation_text: `[en-fr] ${text}` }];
+    });
+    const out = await translateWithLocalOpusMt('Wir suchen einen Pfleger', 'de', 'fr');
+    expect(out).toBe('');
+  });
+
+  it('proceeds normally when the src→en leg produces real translation', async () => {
+    setLocalOpusMtForTests((modelId: string) => async (text: string) => {
+      if (modelId.endsWith('-de-en')) return [{ translation_text: `[en] ${text}` }];
+      return [{ translation_text: `[fr] ${text}` }];
+    });
+    const out = await translateWithLocalOpusMt('Wir suchen', 'de', 'fr');
+    expect(out).toContain('[fr]');
+    expect(out).not.toBe('');
+  });
+});
+
 describe('local-opus-mt — chunking long text', () => {
   it('splits text over the chunk budget into multiple model calls', async () => {
     const f = fakeFactory();
