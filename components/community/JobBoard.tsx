@@ -5182,6 +5182,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  ) : null;
 
+ // Hero (badge + H1 + subtitle) for listing/search/location routes. Defined
+ // BEFORE the jobsLoading gate so it can render DURING loading too — otherwise
+ // this H1/subtitle (the LCP element) only paints after the ~1.9MB job index
+ // downloads + the 5564-job parse/normalize finishes (#2350: lab LCP 4.5s,
+ // render-delay 97%). Painting it on first mount (~2s) makes it the LCP; the
+ // later loaded re-render is the same element/size so LCP isn't pushed back,
+ // and the matching position keeps the hero shift-free (CLS).
+ const listingHero = (
+ <div className="text-center space-y-3">
+ <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-subtle text-accent rounded-full text-xs font-medium">
+ <Briefcase className="w-4 h-4" />
+ {t('jobBoard.badge')}
+ </div>
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-heading">
+ {companyDisplayName
+ ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...cantonI18n })
+ : locationDisplayName
+ ? t('jobBoard.locationPageTitle', { location: locationDisplayName, ...cantonI18n })
+ : searchHeadingQuery
+ ? t('jobBoard.searchPageTitle', { query: searchHeadingQuery })
+ : t('jobBoard.title', cantonI18n)}
+ </h1>
+ <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', cantonI18n)}</p>
+ </div>
+ );
+
  if (jobsLoading) {
  // Expired job pages with seeded data: render the expired view immediately
  // instead of a spinner. Google's WRS executes JS and would otherwise see
@@ -5212,6 +5238,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // synchronously above. (#1511)
  if (initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !seeded) {
  return <SkeletonJobDetail />;
+ }
+ // Listing / search / location loading: paint the real hero (the LCP element,
+ // #2350) on first mount, above a list skeleton, instead of waiting for the
+ // full job-index fetch. Mirrors the loaded layout (hero → search → 10 cards)
+ // so the hero reconciles in place and the footer stays below the fold (CLS).
+ // Company-brand pages keep the generic skeleton — their loaded hero is the
+ // richer EmployerBrandHub, not this text hero.
+ if (!companySlugFilter) {
+ return (
+ <div className="space-y-6 min-h-[80vh]">
+ {listingHero}
+ <div className="h-14 rounded-2xl bg-surface-raised animate-pulse" />
+ <div className="space-y-3">
+ {Array.from({ length: 10 }).map((_, i) => (
+ <div key={i} className="h-24 sm:h-[120px] rounded-xl bg-surface-raised animate-pulse" />
+ ))}
+ </div>
+ </div>
+ );
  }
  return (
  // Reserve realistic page height during the async job fetch. Search/filter
@@ -7406,22 +7451,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  emitStructuredData={false}
  />
  ) : (
- <div className="text-center space-y-3">
- <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-subtle text-accent rounded-full text-xs font-medium">
- <Briefcase className="w-4 h-4" />
- {t('jobBoard.badge')}
- </div>
- <h1 className="text-2xl sm:text-3xl font-bold font-display text-heading">
- {companyDisplayName
- ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...cantonI18n })
- : locationDisplayName
- ? t('jobBoard.locationPageTitle', { location: locationDisplayName, ...cantonI18n })
- : searchHeadingQuery
- ? t('jobBoard.searchPageTitle', { query: searchHeadingQuery })
- : t('jobBoard.title', cantonI18n)}
- </h1>
- <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', cantonI18n)}</p>
- </div>
+ listingHero
  )}
 
  {/* ─── Search & Filters ─── */}
