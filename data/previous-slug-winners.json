@@ -534,7 +534,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-7deddf12aeb4",
     "winnerCanonical": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
     "decidedAt": "2026-06-11T00:00:00.000Z",
-    "lastSeenAt": "2026-06-18T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 3,
     "canton": "AG"
@@ -4019,6 +4019,15 @@
     "decidedAt": "2026-06-02T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::vendeur-produits-frais-coop-genossenschaft-zurich-1dc0ee": {
+    "winnerJobIdentifier": "company-5i8dp3",
+    "winnerCanonical": "verkaufer-in-frischprodukte-coop-riehen-basel-stadt-5i8dp3",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.0714,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -20519,6 +20528,15 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::en::sales-consultant-coop-genossenschaft-st-gallen-asj6na": {
+    "winnerJobIdentifier": "company-mqc03t",
+    "winnerCanonical": "verkaufsberater-in-papeterie-coop-city-st-gallen-sankt-gallen-mqc03t",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.2308,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::en::sales-consultant-coop-genossenschaft-st-gallen-vjs08d": {
     "winnerJobIdentifier": "company-vjs08d",
     "winnerCanonical": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-vjs08d",
@@ -22568,6 +22586,15 @@
     "decidedAt": "2026-06-12T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::verkaufer-in-food-coop-city-st-gallen-sankt-gallen-2n04u9": {
+    "winnerJobIdentifier": "company-vn2cuz",
+    "winnerCanonical": "verkaufer-in-food-coop-rorschach-sankt-gallen-vn2cuz",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.5455,
     "candidatesCount": 2,
     "canton": "SG"
   },
@@ -35802,12 +35829,12 @@
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zu-dtq80w": {
-    "winnerJobIdentifier": "puk-zuerich-a78af0b3ba29",
-    "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
-    "decidedAt": "2026-06-17T00:00:00.000Z",
+    "winnerJobIdentifier": "puk-zuerich-535706855cd2",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.3077,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::de::dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -40986,8 +41013,8 @@
     "canton": "ZH"
   },
   "ZH::it::assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-45ada3375711",
-    "winnerCanonical": "polimeccanico-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "winnerJobIdentifier": "hitachi-energy-351094616114",
+    "winnerCanonical": "pianificatore-80-100-f-m-d-hitachi-energy-zurich-switzerland",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.6667,
@@ -42642,10 +42669,10 @@
     "canton": "ZH"
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-veind0": {
-    "winnerJobIdentifier": "company-7q5u4d",
+    "winnerJobIdentifier": "company-edgl9j",
     "winnerCanonical": "macellaio-specialista-della-carne-coop-genossenschaft-winterthur",
-    "decidedAt": "2026-06-17T00:00:00.000Z",
-    "lastSeenAt": "2026-06-17T00:00:00.000Z",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.1538,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -42894,8 +42921,8 @@
     "canton": "ZH"
   },
   "ZH::it::produktionsregler-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-45ada3375711",
-    "winnerCanonical": "polimeccanico-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "winnerJobIdentifier": "hitachi-energy-351094616114",
+    "winnerCanonical": "pianificatore-80-100-f-m-d-hitachi-energy-zurich-switzerland",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.8182,
@@ -43749,11 +43776,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-coop-zurich": {
-    "winnerJobIdentifier": "company-n5twea",
-    "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
-    "decidedAt": "2026-06-18T00:00:00.000Z",
+    "winnerJobIdentifier": "company-zh31qt",
+    "winnerCanonical": "venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8333,
+    "score": 0.0909,
     "candidatesCount": 2,
     "canton": "ZH"
   },
