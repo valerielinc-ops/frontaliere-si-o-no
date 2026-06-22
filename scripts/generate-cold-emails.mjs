@@ -46,6 +46,8 @@ function arg(name, def) {
 }
 
 const PRICE = 'CHF 49 al mese per annuncio';
+// Indirizzo opt-out: chi risponde qui (o "STOP") va messo `suppressed` nel send-log.
+export const OPTOUT_EMAIL = 'valerie@frontaliereticino.ch';
 
 /**
  * Le 4 email della sequenza. Personalizzazione Livello 4 (skill cold-email):
@@ -61,7 +63,10 @@ export function buildSequence({ company, candidates, periodLabel, contactName, t
   const role = (topRole || '').replace(/\s+/g, ' ').trim();
   const GENERIC_ROLE = /lavora con noi|lavorare con noi|concors|careers?|^jobs?$|offerte di lavoro|posizioni aperte|unsolicited|spontane/i;
   const pagina = role && !GENERIC_ROLE.test(role) ? `pagina di "${role.slice(0, 48)}"` : 'pagina lavoro';
-  return [
+  // Opt-out obbligatorio su ogni touch (norma cold-email B2B + deliverability).
+  // Footer leggibile dall'umano; l'header List-Unsubscribe lo aggiunge il sender.
+  const footer = `\n\n—\nSe non volete più ricevere queste email, rispondete con "STOP" (o scrivete a ${OPTOUT_EMAIL}) e vi rimuoviamo subito.`;
+  const seq = [
     {
       touch: 1, gapDays: 0, subject: 'candidati inviati',
       body: `${hi}
@@ -105,6 +110,8 @@ Se più avanti volete amplificarlo, sapete dove trovarmi.
 Valerie`,
     },
   ];
+  // Append the opt-out footer to every touch so drafts and real sends match.
+  return seq.map((m) => ({ ...m, body: m.body + footer }));
 }
 
 function loadJson(p, def) {

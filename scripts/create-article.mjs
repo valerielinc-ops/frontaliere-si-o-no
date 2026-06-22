@@ -3896,6 +3896,23 @@ ${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttem
 - ⚠️ PREVIOUS ATTEMPT WAS REJECTED: ${sourceContext._headlineRefinement}. Rewrite the IT title and seo.headline so both are journalistic, specific, factual, and pass the rules above.`
     : '';
 
+  // Fact-check refinement: when the previous attempt was rejected by the LLM
+  // fact-checker, feed the EXACT flagged claims back into this attempt so the
+  // model removes/corrects them instead of regenerating blind and re-inventing
+  // similar figures (the dominant failure mode on fact-dense frontaliere
+  // articles under degraded free-model quality — drafts stuck since 2026-06-18).
+  // Targeted feedback, NOT a relaxed gate: every flagged claim must be dropped
+  // or restated strictly from SOURCE CONTENT.
+  const factCheckRefinementInstruction = sourceContext?._factCheckRefinement
+    ? `\n\n═══ ⚠️ TENTATIVO PRECEDENTE RIGETTATO DAL FACT-CHECK — CORREGGI QUESTE AFFERMAZIONI ═══
+Il fact-checker indipendente ha bocciato la bozza precedente perché le seguenti affermazioni NON sono supportate dal SOURCE CONTENT:
+${sourceContext._factCheckRefinement}
+ISTRUZIONI TASSATIVE per questo tentativo:
+- Per OGNI affermazione elencata sopra: RIMUOVILA del tutto, oppure riscrivila usando SOLO ciò che è LETTERALMENTE nel SOURCE CONTENT.
+- NON sostituire una cifra/data/legge/istituzione inventata con un'altra inventata: se il dato non è nella fonte, OMETTILO e raggiungi il minimo parole con procedure, scenari e confronti (come da REGOLA #1).
+- NON reintrodurre lo stesso tipo di invenzione altrove nel testo.`
+    : '';
+
   // ── Multi-call generation with automatic model fallback ──
   // Supports model override via sourceContext._forceModel and temperature via sourceContext._temperature
   const forceModel = sourceContext?._forceModel;
@@ -3932,7 +3949,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     // Skipped when data/article-performance.json is missing or empty so the
     // prompt is byte-identical to today's behavior.
     ...(_winnerFingerprintMessage ? [{ role: 'system', content: _winnerFingerprintMessage }] : []),
-    { role: 'user', content: prompt + minWordsInstruction + headlineRefinementInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
+    { role: 'user', content: prompt + minWordsInstruction + headlineRefinementInstruction + factCheckRefinementInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
   ];
 
   // Pass a strict JSON schema so providers that support it (OpenAI/GitHub
@@ -7725,6 +7742,10 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   let headlineRetryBudget = 1;
   /** @type {string|null} */
   let lastHeadlineErrors = null;
+  // Carries the previous attempt's fact-check rejection summary into the next
+  // generation so callGemini can feed the exact flagged claims back to the model.
+  /** @type {string|null} */
+  let lastFactCheckErrors = null;
 
   // Adaptive min-words: scale target down when source is thin to prevent
   // hallucination cascade (was 900 fixed → forced model to invent facts
@@ -7755,6 +7776,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       // A5: surface the headline error from the previous iteration so the
       // refined prompt block in callGemini knows what to ask the model to fix.
       _headlineRefinement: lastHeadlineErrors || undefined,
+      // Surface the previous attempt's fact-check rejections so callGemini can
+      // tell the model exactly which invented claims to remove/correct.
+      _factCheckRefinement: lastFactCheckErrors || undefined,
     };
 
     let rawData;
@@ -7929,6 +7953,21 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         const issuesSummary = factResult.issues.map(i => `[${i.category || '?'}] "${(i.claim || '').slice(0, 60)}" — ${(i.reason || '').slice(0, 80)}`).join('; ');
         const err = new Error(`Articolo rigettato da fact-check: ${factResult.issues.length} problemi: ${issuesSummary}`);
         if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+          // Feed the flagged claims into the next attempt's prompt so the model
+          // fixes exactly what it invented instead of regenerating blind. Cap
+          // the injected list (issues are already the blocking subset, severity-
+          // ordered by llmFactCheck) so a long violation list can't bloat an
+          // already-large prompt past the input window of the degraded free
+          // models this fix targets (adversarial review PR #2615). Surface the
+          // truncation rather than silently dropping the tail.
+          const FACTCHECK_FEEDBACK_CAP = 8;
+          lastFactCheckErrors = factResult.issues
+            .slice(0, FACTCHECK_FEEDBACK_CAP)
+            .map(i => `- [${i.category || '?'}] "${(i.claim || '').slice(0, 90)}" — ${(i.reason || 'non nella fonte').slice(0, 110)}`)
+            .join('\n');
+          if (factResult.issues.length > FACTCHECK_FEEDBACK_CAP) {
+            lastFactCheckErrors += `\n(+${factResult.issues.length - FACTCHECK_FEEDBACK_CAP} altre violazioni: applica lo STESSO principio a tutto il testo, non solo a queste)`;
+          }
           console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
           continue;
         }
