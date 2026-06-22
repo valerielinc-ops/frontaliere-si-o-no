@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-06-21T21:19:27.889Z",
+  "generatedAt": "2026-06-22T13:28:45.649Z",
   "total": 15,
   "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 1036,
-  "avgDurationMs": 1036,
+  "durationMs": 1289,
+  "avgDurationMs": 1289,
   "durationHistory": [
-    1036
+    1289
   ],
   "newJobs": [
     {
@@ -147,7 +147,6 @@
       "postalCode": "1725",
       "firstSeenAt": "2026-06-03T12:31:41.261Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
