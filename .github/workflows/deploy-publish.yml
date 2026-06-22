@@ -92,8 +92,9 @@ jobs:
           fi
 
       # Cross-run handoff of the Pages artifact. The `github-pages` artifact (a
-      # single ~720 MB gzip tarball, `artifact.tar`) was uploaded by the BUILD
-      # run. actions/deploy-pages can only publish an artifact that lives in the
+      # single ~816 MB zip envelope over an uncompressed `artifact.tar`) was
+      # uploaded by the BUILD run.
+      # actions/deploy-pages can only publish an artifact that lives in the
       # CURRENT run (Pages binds the deployment to the run via OIDC), so download
       # the build's artifact and re-upload it here under the same name. This is a
       # download+upload of one tarball, not a rebuild.
@@ -112,10 +113,16 @@ jobs:
           path: pages-artifact/artifact.tar
           retention-days: 1
           if-no-files-found: error
-          # Already a gzip tarball — storing (level 0) avoids a pointless
-          # re-deflate of incompressible data. deploy-pages extracts the zip
-          # envelope and hands artifact.tar to the Pages backend regardless.
-          compression-level: 0
+          # artifact.tar is an UNCOMPRESSED tar (deploy-it-pages-prep.sh packs it
+          # with `tar -cf`, no -z) — all the size reduction comes from the zip
+          # envelope upload-artifact wraps it in. The build run uploads at
+          # compression-level 9 (816 MB envelope over a ~6.5 GB tar). Re-upload at
+          # the SAME level here: a previous `compression-level: 0` stored the tar
+          # raw → the github-pages artifact ballooned 816 MB → 6.5 GB, an 8× blob
+          # for deploy-pages to push to the Pages backend (slower, hits the 10-min
+          # cap, wastes storage). Served content is identical either way — Pages
+          # extracts the tar — so the only effect of level 0 was the bloat.
+          compression-level: 9
 
       # Reset a stuck Pages `errored` state BEFORE publishing. After bursts of
       # failed/cancelled deployments GitHub Pages can latch into status=errored
