@@ -72,6 +72,10 @@ jobs:
           HARVEST_EMIT_ESCALATIONS: 'true'
         run: node scripts/ci/harvest-agent-lessons.mjs
 
+      - name: Setup Headroom compression proxy
+        if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
+        uses: ./.github/actions/setup-headroom
+
       - name: Draft doc-rule proposal (Claude — only if NOVEL patterns)
         # Escalations are auto-filed by the harvest step above → Claude is spent
         # ONLY when a genuinely-new (novel) recurring pattern needs a doc rule.
