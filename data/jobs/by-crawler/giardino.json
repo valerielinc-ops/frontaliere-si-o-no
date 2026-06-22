@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-06-22T14:31:18.792Z",
+  "assembledAt": "2026-06-22T22:44:17.186Z",
   "jobs": [
     {
       "id": "giardino-a70fdbb79832",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:31:16.633Z",
+      "crawledAt": "2026-06-22T22:44:15.302Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -80,6 +80,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T21:49:01.621Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
