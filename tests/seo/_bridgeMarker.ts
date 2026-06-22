@@ -22,3 +22,21 @@
 // real pages and potentially masking a canton-boundary leak.
 export const isBridgePageHtml = (html: string): boolean =>
   /<link[^>]+href="[^"]*bridge\.css[^"]*"/.test(html);
+
+// A page carrying `<meta name="robots" content="noindex…">`. Quote-flexible
+// (dist-shrink may strip attribute quotes): `name=robots content=noindex` is
+// DOM-equivalent to `name="robots" content="noindex"`.
+export const isNoindexHtml = (html: string): boolean =>
+  /<meta\s+name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html);
+
+// A page that "real indexable content page" dist-samplers MUST skip: either a
+// thin canonical-bridge stub (bridge.css, above) OR a full-content but noindex
+// relocation copy. The latter is the IT canton-drift orphan recovery emitted by
+// cfHot404BridgePlugin (#2661/#2676): it copies the slug's canonical page HTML
+// VERBATIM (no bridge.css link → invisible to isBridgePageHtml) and forces
+// `<meta name="robots" content="noindex,follow">`. Because the copy keeps the
+// SOURCE canton's hreflang/canonical, it fails a canton-round-trip assertion
+// when sampled under the orphan's own (different) canton dir. Both kinds are
+// noindex archived/redirect stubs, not real indexable job pages.
+export const isArchivedStubHtml = (html: string): boolean =>
+  isBridgePageHtml(html) || isNoindexHtml(html);
