@@ -751,7 +751,8 @@ describe('job alert email — unsubscribe links match the sending domain (anti-s
       path.resolve(__dirname, '../infra/cloudflare-worker/locale-router.js'),
       'utf8',
     );
-    expect(worker).toMatch(/UNSUB_PROXY_PATH\s*=\s*'\/disiscrivi-alert'/);
+    // UNSUB_PROXIES maps the apex path → its Cloud Function origin.
+    expect(worker).toMatch(/'\/disiscrivi-alert':\s*`?\$\{CF_FN_BASE\}\/jobAlertUnsubscribe`?/);
     expect(worker).toContain('jobAlertUnsubscribe');
     const wrangler = fs.readFileSync(
       path.resolve(__dirname, '../infra/cloudflare-worker/wrangler.toml'),
