@@ -8133,6 +8133,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.erba-sintetica-scuole-ticino-rischi.title': 'Kunststoffrasen auf Ticiner Schulhöfen: Risiken für Kinder und versteckte Kosten',
     'blog.article.erba-sintetica-scuole-ticino-rischi.excerpt': 'Eltern und Experten warnen vor den Gefahren von Kunststoffrasen auf den Schulhöfen des Tessin: übermäßige Hitze, Mikroplastik und ökologische Belastung. Alles Wissenswerte zu einer umstrittenen Wahl, die auch in Europa diskutiert wird.',
     'blog.article.erba-sintetica-scuole-ticino-rischi.imageAlt': 'Schulhof im Tessin mit Kunstrasen bei starker Sonne, Kinder spielen im Vordergrund',
+    'blog.article.public-eye-denuncia-salari-on-ticino.title': 'Public Eye meldet Hungerlöhne bei On',
+    'blog.article.public-eye-denuncia-salari-on-ticino.excerpt': 'Der Bericht von Public Eye prangert Mindestlöhne und prekäre Bedingungen bei einem Unterlieferanten von On an, mit Untersuchung und Stopp von Aufträgen durch das Unternehmen.',
+    'blog.article.public-eye-denuncia-salari-on-ticino.imageAlt': 'Fotorealistisches Bild des Grenzübergangs Schweiz-Italien bei Mendrisio mit Pendlern und Arbeitern',
 };
 
 export default blogMetaDe;

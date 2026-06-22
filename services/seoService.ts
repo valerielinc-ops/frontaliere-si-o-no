@@ -4104,6 +4104,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-emigrare-svizzera-aspetti-fiscali': { name: 'Emigrare Svizzera', path: '/articoli-svizzera/emigrare-svizzera-aspetti-fiscali/', parent: 'blog' },
     'blog-erba-sintetica-scuole-ticino-rischi': { name: 'Scuole Ticino', path: '/articoli-frontaliere/erba-sintetica-scuole-ticino-rischi', parent: 'blog' },
     'blog-brexit-impatti-svizzera-ue': { name: 'Brexit Svizzera', path: '/articoli-svizzera/brexit-impatti-svizzera-ue/', parent: 'blog' },
+    'blog-public-eye-denuncia-salari-on-ticino': { name: 'Salari On', path: '/articoli-frontaliere/public-eye-denuncia-salari-on-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
