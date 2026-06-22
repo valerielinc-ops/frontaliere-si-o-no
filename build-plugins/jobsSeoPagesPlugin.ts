@@ -2089,6 +2089,28 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  * so that expired soft-landing pages never overwrite a live job page. */
  const activeJobDirs = new Set<string>();
 
+ /**
+  * Tracks every legacy-TI bridge path (`cerca-lavoro-ticino/<slug>/`,
+  * `de/jobs-im-tessin/<slug>/`, …) written by the AUTHORITATIVE active
+  * cross-canton bridge — i.e. the bridge a non-TI job emits at the legacy
+  * TI section for its OWN current slug, whose `<link rel=canonical>` points
+  * back at the job's canton-aware URL.
+  *
+  * Unlike the canton-aware section, the legacy TI section collapses EVERY
+  * canton into one namespace, so two unrelated non-TI jobs can claim the
+  * same `/cerca-lavoro-ticino/<slug>/` path: one as its active slug, another
+  * as a stale `previousSlugs` alias (multi-city postings cross-pollinate each
+  * other's previousSlugs — e.g. the same Schindler role in Ebikon/LU and
+  * Bern/BE each list the other's slug). Without this guard the previousSlug
+  * TI mirror (~line 11717) overwrites the active job's TI bridge
+  * non-deterministically, flipping its canonical to the WRONG canton and
+  * tripping tests/seo/cathedral-job-detail-canton.test.ts (issue #2545).
+  *
+  * Same role `activeJobDirs` plays for the canton-aware namespace, extended
+  * to the canton-blind TI mirror. Keyed by the slug-relative path.
+  */
+ const legacyTiBridgeDirs = new Set<string>();
+
  /** Caches active job page HTML by `${locale}:${slug}` so bridge pages
  * (previousSlugs) can serve identical full-content pages with only the
  * canonical URL pointing to the current slug. */
@@ -3364,7 +3386,8 @@ ${staticAnalyticsHtml}
  if (jobCanton !== 'TI') {
  const __tCrossCantonLegacy = startTimer();
  const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
- if (!activeJobDirs.has(legacyTIRel.replace(/\/+$/, ''))) {
+ const legacyTIKey = legacyTIRel.replace(/\/+$/, '');
+ if (!activeJobDirs.has(legacyTIKey)) {
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
  const legacyTIIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
  const legacyTIDir = np.join(distDir, legacyTIRel);
@@ -3372,6 +3395,10 @@ ${staticAnalyticsHtml}
  _qw(np.join(legacyTIDir, 'index.html'), legacyTIIndexHtml);
  const legacyTIFlat = np.join(distDir, legacyTIRel + '.html');
  _qwFlatFull(legacyTIFlat, legacyTIIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ // Claim this TI-mirror path as the AUTHORITATIVE active bridge so the
+ // canton-blind previousSlug TI mirror (~line 11717) can't later
+ // overwrite it with a stale alias from a different non-TI job (#2545).
+ legacyTiBridgeDirs.add(legacyTIKey);
  }
  recordEmit('active-job-cross-canton-legacy', __tCrossCantonLegacy);
  }
@@ -11716,7 +11743,21 @@ ${staticAnalyticsHtml}
  // per-locale previousSlug too.
  if (jobCantonForBridge !== 'TI') {
  const legacyTIRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
- if (!activeJobDirs.has(legacyTIRelPath.replace(/\/+$/, ''))) {
+ const legacyTIKey = legacyTIRelPath.replace(/\/+$/, '');
+ // The legacy TI section is canton-blind: every non-TI job collapses
+ // here, so this oldSlug mirror can collide with (a) an active job's
+ // authoritative TI bridge that owns the SAME slug under its own
+ // canton, or (b) another non-TI job's previousSlug mirror that lists
+ // the same oldSlug (multi-city postings cross-pollinate previousSlugs).
+ // Skip when an authoritative active bridge already owns the path, and
+ // first-claimant-wins among previousSlug mirrors so the canonical at
+ // this TI path stays deterministic across builds instead of flipping
+ // to whichever job happened to write last (#2545).
+ if (
+ !activeJobDirs.has(legacyTIKey) &&
+ !legacyTiBridgeDirs.has(legacyTIKey)
+ ) {
+ legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
  _md(legacyTIOutDir);
