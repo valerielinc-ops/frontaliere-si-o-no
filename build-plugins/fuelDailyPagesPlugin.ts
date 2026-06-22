@@ -59,7 +59,7 @@ import {
   type FuelZone,
   type ItalianCityEntry,
 } from './fuelDailyData';
-import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { generateRelatedLinksBlock, JOB_LISTING_ROOT } from './shared/relatedLinks';
 import {
   generateFuelIndexPages,
   renderFuelIndexHubLinks,
@@ -146,32 +146,40 @@ function buildFuelDiscoverMoreCtas(
       '/',
     );
 
-  const titles: Record<FuelDailyLocale, { border: string; hiring: string; jobMarket: string }> = {
+  const titles: Record<
+    FuelDailyLocale,
+    { border: string; hiring: string; jobMarket: string; jobBoard: string }
+  > = {
     it: {
       border: 'Tempi di attesa alle dogane',
       hiring: 'Aziende che assumono a Chiasso',
       jobMarket: 'Mercato del lavoro Ticino',
+      jobBoard: 'Offerte di lavoro in Ticino',
     },
     en: {
       border: 'Border crossing wait times',
       hiring: 'Companies hiring in Chiasso',
       jobMarket: 'Ticino job market',
+      jobBoard: 'Job openings in Ticino',
     },
     de: {
       border: 'Wartezeiten an der Grenze',
       hiring: 'Unternehmen die in Chiasso einstellen',
       jobMarket: 'Arbeitsmarkt Tessin',
+      jobBoard: 'Stellenangebote im Tessin',
     },
     fr: {
       border: "Temps d'attente aux douanes",
       hiring: 'Entreprises qui recrutent à Chiasso',
       jobMarket: 'Marché du travail Tessin',
+      jobBoard: "Offres d'emploi au Tessin",
     },
   };
 
   const t = titles[locale];
   return [
     { title: t.border, href: BORDER_WAIT_HUB_PATH[locale] },
+    { title: t.jobBoard, href: JOB_LISTING_ROOT[locale] },
     { title: t.hiring, href: chiassoHiringHref },
     { title: t.jobMarket, href: jobMarketHref },
   ];
