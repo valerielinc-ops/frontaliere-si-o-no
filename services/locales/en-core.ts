@@ -3414,6 +3414,28 @@ Rules:
  'whatsNew.v3500.title': 'Refreshed employer portal',
  'whatsNew.v3500.publisherRedesign.title': 'Post jobs: new look and dashboard',
  'whatsNew.v3500.publisherRedesign.desc': 'The employer pages got a warmer, clearer look: Free vs Sponsored plans side by side, and a “My ads” dashboard with animated stats and a conversion funnel for every listing.',
+
+  // ─── Feature request survey ──────────────────────────────
+  'survey.feature.title': 'Which feature would you like?',
+  'survey.feature.subtitle': 'Help us decide what to build (10 sec)',
+  'survey.feature.option.salary_tools': 'Salary tools',
+  'survey.feature.option.traffic_alerts': 'Traffic alerts',
+  'survey.feature.option.job_match': 'Tailored jobs',
+  'survey.feature.option.tax_guide': 'Tax guide',
+  'survey.feature.option.insurance': 'Insurance compare',
+  'survey.feature.option.mobile_app': 'Mobile app',
+  'survey.feature.option.other': 'Other',
+  'survey.feature.otherPlaceholder': 'Tell us what you need…',
+  'survey.feature.submit': 'Send',
+  'survey.feature.dismiss': 'Not now',
+  'survey.feature.close': 'Close',
+  'survey.feature.aria': 'Feature survey',
+  'survey.feature.thanks.title': 'Thank you!',
+  'survey.feature.thanks.body': 'Your feedback helps us improve.',
+
+  'whatsNew.v3540.title': 'Tell us which feature you want',
+  'whatsNew.v3540.featureSurvey.title': 'Feature survey',
+  'whatsNew.v3540.featureSurvey.desc': 'A short survey asks which feature you would like next: salary tools, traffic alerts, tailored job offers and more. It takes ten seconds and helps us decide what to build next.',
 };
 
 export default enCore;
