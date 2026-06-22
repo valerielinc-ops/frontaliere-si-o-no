@@ -24,29 +24,48 @@ const RAIL_AD_UNIT_PATHS = {
 } as const;
 
 // Premium vertical display sizes first, box + fluid as fallback — must match
-// what the GAM ad unit allows (see scripts/gam-create-rail-units.mjs).
+// what the GAM ad unit allows (see scripts/gam-create-rail-units.mjs). Used on
+// the wide (300px) reading-page rails (blog / job / static SEO).
 const RAIL_SIZES: GptSize[] = [[300, 600], [160, 600], [300, 250], 'fluid'];
+// Narrow rail (160px SPA tool-page gutter): only 160-wide creatives + fluid, so
+// GAM can't serve a 300-wide creative that would overflow the 160px column into
+// the content/gap at ≥1400px.
+const RAIL_SIZES_NARROW: GptSize[] = [[160, 600], 'fluid'];
 
 export interface ArticleRailAdProps {
   side: keyof typeof RAIL_AD_UNIT_PATHS;
   /** Article-eligibility gate (long-enough body), wired from BlogArticles. */
   enabled?: boolean;
+  /**
+   * Reserve the 600px CLS placeholder. Only the first (near-fold) panel of the
+   * rail stack needs it; lower panels pass `false` so an unfilled slot collapses
+   * to zero (GptAdSlot drops empty slots from layout) instead of leaving a blank
+   * 600px box down the gutter.
+   */
+  reserve?: boolean;
+  /**
+   * Narrow (160px) gutter — the SPA tool-page rail. Restricts requested sizes to
+   * 160-wide so no creative overflows the column. Reading-page rails (300px)
+   * omit this and keep the full premium size set.
+   */
+  narrow?: boolean;
 }
 
-const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true }) => {
+const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, reserve = true, narrow = false }) => {
   const { articleRailAds: killed } = useKillSwitches();
   return (
     <GptAdSlot
       adUnitPath={RAIL_AD_UNIT_PATHS[side]}
-      sizes={RAIL_SIZES}
+      sizes={narrow ? RAIL_SIZES_NARROW : RAIL_SIZES}
       killed={killed}
       enabled={enabled}
-      minHeight={600}
-      // Not sticky itself — it sits inside the rail's `sticky top-6` stack so it
-      // rides down the gutter. CSS-gated to the widened (≥1400px) rail via the
+      minHeight={reserve ? 600 : 0}
+      // One panel in the rail stack; the stack stacks several back-to-back to
+      // fill the gutter top-to-bottom (separation comes from the stack's flex
+      // gap, so no `mt-*` here). CSS-gated to the widened (≥1400px) rail via the
       // `xlw` breakpoint (the arbitrary `min-[1400px]:` variant lost the v4
       // cascade to `xl:`, so the rail never widened — see index.css @theme).
-      className="hidden xlw:block w-full text-center mt-3"
+      className="hidden xlw:block w-full text-center"
     />
   );
 };

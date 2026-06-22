@@ -113,9 +113,20 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   style,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  // GPT slot + its slotRenderEnded handler, kept so unmount can tear both down
+  // (remove the global pubads listener and destroy the slot).
+  const slotRef = useRef<any>(null);
+  const slotHandlerRef = useRef<((event: any) => void) | null>(null);
   // Stable, unique DOM id for this slot instance (GPT needs a real element id).
   const divIdRef = useRef<string>(`gpt-slot-${++slotSeq}`);
   const [rendered, setRendered] = useState(false);
+  // GPT reported this slot as unfilled (no creative / no backfill). We then
+  // collapse the wrapper to zero so the reserved `minHeight` placeholder never
+  // leaves a blank box — the cause of the empty gaps down the side-rail stack
+  // (collapseEmptyDivs only collapses GPT's inner div, not this CLS-reserve
+  // wrapper). Stacked rail slots that don't fill simply vanish, so the filled
+  // ones butt together with no whitespace.
+  const [empty, setEmpty] = useState(false);
   const active = GPT_ENABLED && enabled && IS_PROD && !SKIP_FOR_BOT && !killed;
 
   useEffect(() => {
@@ -148,6 +159,17 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
         try {
           const slot = gt.defineSlot(adUnitPath, sizes, divId)?.addService(gt.pubads());
           if (!slot) return;
+          slotRef.current = slot;
+          // Collapse this wrapper to zero when GPT renders the slot empty (no
+          // creative AND no AdSense backfill) so the reserved placeholder never
+          // shows as a blank box. Scoped to this slot via identity match.
+          // Held in a ref so unmount can remove it — otherwise every slot leaks
+          // a global pubads listener that re-fires for every other slot.
+          const handler = (event: any) => {
+            if (event?.slot === slot) setEmpty(!!event.isEmpty);
+          };
+          slotHandlerRef.current = handler;
+          gt.pubads().addEventListener('slotRenderEnded', handler);
           gt.display(divId);
           setRendered(true);
         } catch {
@@ -169,7 +191,24 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       { rootMargin: '200px 0px' },
     );
     io.observe(wrapper);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      // Tear down the slot + its listener so SPA navigations don't accumulate
+      // global pubads listeners (each would re-fire for every other slot).
+      try {
+        const gt = gtag();
+        if (slotHandlerRef.current) {
+          gt.pubads().removeEventListener('slotRenderEnded', slotHandlerRef.current);
+          slotHandlerRef.current = null;
+        }
+        if (slotRef.current) {
+          gt.destroySlots?.([slotRef.current]);
+          slotRef.current = null;
+        }
+      } catch {
+        /* fail-soft */
+      }
+    };
   }, [active, adUnitPath, sizes]);
 
   if (!active) return null;
@@ -177,10 +216,13 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   return (
     <div
       ref={wrapperRef}
-      aria-hidden={!rendered}
+      aria-hidden={!rendered || empty}
       // Reserve space to avoid CLS when the creative fills (mirrors
-      // placeholderMinHeight in services/adsenseSlots.ts).
-      style={{ minHeight, contain: 'layout', ...style }}
+      // placeholderMinHeight in services/adsenseSlots.ts). Once GPT reports the
+      // slot empty we drop it from layout entirely (`display:none`) so it adds
+      // neither reserved height nor a flex-gap slot — keeping the side-rail
+      // stack gapless.
+      style={empty ? { display: 'none' } : { minHeight, contain: 'layout', ...style }}
       className={className}
     >
       <div id={divIdRef.current} />
