@@ -20,6 +20,7 @@
 
 import type { JobBoardLocale } from './jobBoardSeo';
 import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoContentTokens';
+import { firstParsableMs } from './shared/firstParsableDate';
 
 export type SectorHubKey =
   | 'infermieri'
@@ -916,8 +917,10 @@ export function filterSectorJobs(
     if (jobMatchesSector(job, sector)) matches.push(job);
   }
   matches.sort((a, b) => {
-    const at = Date.parse(String(a.datePosted || a.postedDate || '')) || 0;
-    const bt = Date.parse(String(b.datePosted || b.postedDate || '')) || 0;
+    // First PARSEABLE date, not first truthy: a malformed datePosted must not
+    // collapse to 0 and sink a still-fresh job below the slice(maxJobs) cut.
+    const at = firstParsableMs(a.datePosted, a.postedDate);
+    const bt = firstParsableMs(b.datePosted, b.postedDate);
     return bt - at;
   });
   return matches.slice(0, maxJobs);

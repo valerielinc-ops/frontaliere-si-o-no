@@ -225,15 +225,29 @@ const JOB_BOARD_PREFIX = {
   fr: '/fr/trouver-emploi-tessin/',
 };
 
+// First PARSEABLE date among the candidates → epoch ms (0 if none parse).
+// Local twin of build-plugins/shared/firstParsableDate.ts — this is a runtime
+// .js script and cannot import the .ts helper. Avoids a malformed postedDate
+// (e.g. "30/05/26") shadowing a valid crawledAt and sinking the URL in the
+// recency sort below (it would defer indexing under MAX_PER_DEPLOY).
+function firstParsableMs(...values) {
+  for (const v of values) {
+    if (v === null || v === undefined || v === '') continue;
+    const ts = new Date(v).getTime();
+    if (Number.isFinite(ts)) return ts;
+  }
+  return 0;
+}
+
 function buildJobUrls(jobs) {
   const urls = [];
   for (const job of jobs) {
-    const date = job?.postedDate || job?.crawledAt || '';
+    const dateMs = firstParsableMs(job?.postedDate, job?.crawledAt);
     for (const [locale, prefix] of Object.entries(JOB_BOARD_PREFIX)) {
       const slug = job?.slugByLocale?.[locale] || job?.slugByLocale?.it || job?.slug;
       if (!slug) continue;
       const url = `${SITE_URL}${prefix}${slug}/`;
-      urls.push({ url, date });
+      urls.push({ url, dateMs });
     }
   }
   return urls;
@@ -251,9 +265,7 @@ function sortAndLimit(urls, alreadySubmitted) {
     const aSubmitted = alreadySubmitted.has(a.url) ? 1 : 0;
     const bSubmitted = alreadySubmitted.has(b.url) ? 1 : 0;
     if (aSubmitted !== bSubmitted) return aSubmitted - bSubmitted;
-    const da = Date.parse(a.date || '') || 0;
-    const db = Date.parse(b.date || '') || 0;
-    return db - da;
+    return (b.dateMs || 0) - (a.dateMs || 0);
   });
 
   // Filter out already-submitted URLs and cap to per-deploy max
