@@ -60,7 +60,15 @@ const initializedAdElements = new WeakSet<Element>();
 function getPlaceholderMinHeight(adFormat: string, adLayout?: string): number {
  // Heights match AD_SLOTS.placeholderMinHeight values in adsenseSlots.ts (FRO-385).
  // Sized to cover the majority of real ad renders and prevent CLS when ads expand.
- if (adFormat === 'autorelaxed') return 400;
+ if (adFormat === 'autorelaxed') {
+   // Multiplex/autorelaxed renders ~380-450px on mobile but ~550-650px on
+   // desktop (wider grid → more ad rows). A flat 400px under-reserves desktop
+   // by ~200px, so the unit pushes content + footer down when it fills —
+   // measured live on /cerca-lavoro-ticino/ricerca/ at 1440px (end multiplex
+   // reserved 400px, rendered 600px → footer shift). Reserve per-viewport so
+   // desktop matches the real render; SSR/build has no window → mobile floor.
+   return (typeof window !== 'undefined' && window.innerWidth >= 1280) ? 600 : 400;
+ }
  if (adLayout === 'in-article') return 220;
  if (adFormat === 'fluid') return 220;
  return 280;
