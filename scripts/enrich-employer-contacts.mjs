@@ -22,11 +22,10 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import dns from 'node:dns/promises';
 import { fileURLToPath } from 'node:url';
 import { classifySector, slugify } from './lib/employer-sectors.mjs';
-import { apexDomain, extractCompanyEmails, pickBestEmail, inferPatternEmail } from './lib/email-finder.mjs';
-import { extractDdgDomains, guessDomains, rankDomains } from './lib/domain-finder.mjs';
+import { apexDomain, pickBestEmail, inferPatternEmail } from './lib/email-finder.mjs';
+import { ATS_DOMAINS, mxOk, findDomain, scrapeCompanyEmails } from './lib/email-enrichment.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -36,76 +35,6 @@ function arg(name, def) {
   if (i < 0) return def;
   const n = process.argv[i + 1];
   return n && !n.startsWith('--') ? n : true;
-}
-
-// Third-party ATS / job-board domains: a careers/website URL pointing here is
-// NOT the employer's own domain, so its apex would be wrong (e.g. emailing
-// ncoreplat.com). Skip email-scraping when the resolved apex is one of these.
-const ATS_DOMAINS = new Set([
-  'lever.co', 'greenhouse.io', 'myworkdayjobs.com', 'workday.com', 'smartrecruiters.com',
-  'personio.de', 'personio.com', 'recruitee.com', 'ncoreplat.com', 'ostendis.com',
-  'refline.ch', 'prospective.ch', 'jobs.ch', 'jobscout24.ch', 'indeed.com',
-  'jobcloud.ch', 'softgarden.io', 'teamtailor.com', 'workable.com', 'bamboohr.com',
-  'orior.ch', 'oraclecloud.com', 'taleo.net', 'successfactors.com', 'eu.greenhouse.io',
-]);
-
-async function fetchText(url, timeoutMs = 8000) {
-  try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), timeoutMs);
-    const r = await fetch(url, { signal: ctrl.signal, redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0 (compatible; frontaliereticino-enrichment/1.0)' } });
-    clearTimeout(t);
-    if (!r.ok) return '';
-    return (await r.text()).slice(0, 500_000);
-  } catch { return ''; }
-}
-
-async function mxOk(domain) {
-  try { const mx = await dns.resolveMx(domain); return Array.isArray(mx) && mx.length > 0; } catch { return false; }
-}
-
-// Find the employer's own domain when the registry lacks it: web search +
-// heuristic guesses, validated by MX + a name-token match (rejects directories).
-let _lastDdg = 0;
-async function findDomain(name) {
-  const wait = 2500 - (Date.now() - _lastDdg); // space DDG calls (avoid throttling)
-  if (wait > 0) await new Promise((r) => setTimeout(r, wait));
-  _lastDdg = Date.now();
-  let candidates = [];
-  try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 9000);
-    const r = await fetch('https://html.duckduckgo.com/html/?q=' + encodeURIComponent(name + ' sito ufficiale'),
-      { signal: ctrl.signal, headers: { 'User-Agent': 'Mozilla/5.0', 'Accept-Language': 'it' } });
-    clearTimeout(t);
-    if (r.ok) candidates = extractDdgDomains(await r.text());
-  } catch { /* search unavailable → fall back to guesses */ }
-  candidates.push(...guessDomains(name));
-  const valid = [];
-  for (const d of [...new Set(candidates)]) { if (!ATS_DOMAINS.has(d) && await mxOk(d)) valid.push(d); if (valid.length >= 6) break; }
-  return rankDomains(valid, name)[0] || '';
-}
-
-/**
- * Deep-scrape the employer's OWN domain (contact/impressum/careers pages) and
- * return the on-domain emails found (third-party noise dropped by the domain
- * filter in email-finder). Returns [] for unknown/ATS domains.
- */
-async function scrapeCompanyEmails(domain) {
-  if (!domain || ATS_DOMAINS.has(domain)) return [];
-  const paths = ['', '/contatti', '/contatti/', '/it/contatti', '/contact', '/contact/', '/kontakt', '/impressum', '/chi-siamo', '/lavora-con-noi', '/lavora-con-noi/', '/jobs', '/careers', '/azienda/contatti'];
-  const origins = [`https://www.${domain}`, `https://${domain}`];
-  const found = new Set();
-  for (const origin of origins) {
-    for (const p of paths) {
-      const html = await fetchText(origin + p);
-      if (!html) continue;
-      for (const e of extractCompanyEmails(html, domain)) found.add(e);
-      if (found.size >= 8) return [...found];
-    }
-    if (found.size) break;
-  }
-  return [...found];
 }
 
 /** Registry: company key → own website domain (apex), excluding ATS hosts. */
