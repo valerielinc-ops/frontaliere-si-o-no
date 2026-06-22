@@ -50,12 +50,17 @@ export interface ArticleRailAdStackProps {
 
 // Approx height of one half-page rail panel (600px creative + flex gap).
 const PANEL_PX = 620;
+// Minimum gutter height to render any panel — below this, even one 600px
+// creative would overflow or reserve an unfilled CLS slot.
+const MIN_FILL_PX = 600;
 // Bound the number of same-unit requests; tall pages cap here, short pages get 1.
 const MAX_PANELS = 6;
 
 const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [panels, setPanels] = useState(1);
+  // Start at 0 — ResizeObserver sets the correct count after mount, avoiding
+  // a premature 600px CLS reservation on pages whose gutter is below MIN_FILL_PX.
+  const [panels, setPanels] = useState(0);
   const maxPanels = Math.max(1, count ?? MAX_PANELS);
 
   useEffect(() => {
@@ -63,9 +68,10 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
     if (!el || typeof ResizeObserver === 'undefined') return;
     const measure = () => {
       const h = el.getBoundingClientRect().height;
-      // Match the gutter height as closely as possible: round so the chain
-      // neither under-fills (blank tail) nor badly over-fills (pushes the row).
-      const next = Math.max(1, Math.min(maxPanels, Math.round(h / PANEL_PX)));
+      // Below MIN_FILL_PX there is no room for even one 600px creative: skip all
+      // panels so no CLS slot is reserved on ultra-short tool pages.
+      const next =
+        h < MIN_FILL_PX ? 0 : Math.max(1, Math.min(maxPanels, Math.round(h / PANEL_PX)));
       setPanels((prev) => (prev === next ? prev : next));
     };
     measure();
