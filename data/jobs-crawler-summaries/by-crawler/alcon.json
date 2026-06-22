@@ -1,16 +1,16 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-06-22T13:34:07.725Z",
+  "generatedAt": "2026-06-22T22:08:47.521Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3415,
-  "avgDurationMs": 3415,
+  "durationMs": 3858,
+  "avgDurationMs": 3858,
   "durationHistory": [
-    3415
+    3858
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Territory-Sales-Manager--m-w-d----Medical-Devices--Ophthalmology--Switzerland-_R-2026-47026-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T13:34:05.848Z",
+      "crawledAt": "2026-06-22T22:08:45.182Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -52,47 +52,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "alcon-738f6d10999b",
-      "slug": "risorse-umane-tirocinante-alcon-fribourg",
-      "company": "Alcon",
-      "companyKey": "alcon",
-      "companyDomain": "alcon.com",
-      "title": "HR Intern",
-      "needsRetranslation": false,
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/HR-Intern_R-2026-47802",
-      "source": "Alcon Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-21T21:19:55.841Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Medtech / Cura della vista",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/HR-Intern_R-2026-47802",
-      "jobReqId": "R-2026-47802",
-      "firstSeenAt": "2026-06-18T22:14:18.257Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "postalCode": "1700",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
