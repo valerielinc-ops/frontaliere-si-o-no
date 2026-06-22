@@ -10,8 +10,8 @@ import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SN
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { resolveCantonSection, resolveJobCanton, type CantonLocale } from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
-import jobsFile from '../data/jobs.json';
 
 /** Hreflang entry extracted from sitemap XML. */
 interface HreflangEntry {
@@ -326,7 +326,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // 301-style bridge pages pointing to the new canton section URL.
  // TI jobs are unaffected (byte-identical).
  try {
- const jobs = jobsFile as Array<{ canton?: string; location?: string; slug?: string; slugByLocale?: Record<string, string> }>;
+ const jobs = loadJobsJson<{ canton?: string; location?: string; slug?: string; slugByLocale?: Record<string, string> }>(rootDir);
  const locales: CantonLocale[] = ['it', 'en', 'de', 'fr'];
  const localePrefix: Record<CantonLocale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
  for (const job of jobs) {
