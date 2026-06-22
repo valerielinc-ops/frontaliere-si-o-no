@@ -9792,8 +9792,28 @@ ${staticAnalyticsHtml}
  // Skip fixture-data slugs leaked from earlier local builds.
  if (isFixtureSlug(slug)) break;
  if (!tracking[slug]) tracking[slug] = {};
- if ((tracking[slug] as Record<string, string>)[locale]) break; // locale path already known
- (tracking[slug] as Record<string, string>)[locale] = `${prefix}${slug}`;
+ const known = (tracking[slug] as Record<string, string>)[locale];
+ const compatPath = `${prefix}${slug}`;
+ // Canton-drift recovery (follow-up #2600 item 1). Previously we
+ // skipped (`break`) whenever the ledger already held a locale path
+ // for this slug, giving priority to the active path. That left
+ // canton-drifted orphans — a job re-pinned to another canton (e.g.
+ // active at /cerca-lavoro-berna/<slug> while the old TI URL
+ // /cerca-lavoro-ticino/<slug>/ is still indexed and now 404s) — with
+ // only the thin accumulator bridge (cfHot404BridgePlugin). Registering
+ // the canton-less compat path here lets those orphans get the richer
+ // soft-landing instead. Safety: the on-disk ledger is already
+ // persisted above (data/all-known-job-slugs.json) so this in-memory
+ // override never mutates the ledger; the accumulator bridge
+ // (enforce:'post', last position, existsSync gap-fill) skips any path
+ // this richer page already emitted, so there is no double-emit; and
+ // soft-landings with an incomplete locale cluster emit zero hreflang
+ // (below), so the audit-hreflang gate stays green.
+ // REVERT-TRIGGER: the full SSG emit only validates post-merge on
+ // `main` (local SEO build OOMs). If the next deploy regresses the
+ // hreflang/canonical audits or OOMs, restore the `if (known) break`.
+ if (known === compatPath) break; // already the canonical path — no-op
+ (tracking[slug] as Record<string, string>)[locale] = compatPath;
  compatAdded++;
  break;
  }
