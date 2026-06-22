@@ -161,14 +161,19 @@ export default function CalcolatoreTabContent() {
  </Suspense>
  </div>
 
- {/* Desktop: side-by-side layout */}
+ {/* Desktop: side-by-side layout. Form holds 4/12 (33%) across all desktop
+     tiers — it was xl:col-span-3 (25%), but on desktop the calculator now
+     always sits inside the side-rail grid (sideRailEligible), so 25% squeezed
+     the form below the width its CHF income input + steppers need and clipped
+     them on narrower desktops. 4/12 keeps the form usable; results take 8/12,
+     still ample for the dual Svizzera|Italia comparison. */}
  <div className="hidden md:grid grid-cols-12 gap-6 h-full">
- <div className="md:col-span-4 lg:col-span-4 xl:col-span-3 h-full">
+ <div className="md:col-span-4 lg:col-span-4 xl:col-span-4 h-full">
  <Suspense fallback={<SkeletonInputCard />}>
  <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} result={result} />
  </Suspense>
  </div>
- <div className={`md:col-span-8 lg:col-span-8 xl:col-span-9 h-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
+ <div className={`md:col-span-8 lg:col-span-8 xl:col-span-8 h-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
  {result && (
  <Suspense fallback={<LazyFallback />}>
  <ResultsView result={result} inputs={inputs} />
