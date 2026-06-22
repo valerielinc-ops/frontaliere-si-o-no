@@ -28,6 +28,11 @@ on:
         required: false
         type: string
         default: ''
+      runner:
+        description: 'Where to run: github (GitHub-hosted, default) or self-hosted (Oracle free VM — non-Actions IP so GitHub Models PATs are not IP-throttled).'
+        required: false
+        type: string
+        default: ''
 
 concurrency:
   # Shared group: only 1 run active at a time, next run queues (not skipped).
@@ -43,7 +48,13 @@ permissions:
 jobs:
   generate:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
-    runs-on: ubuntu-latest
+    # Opt-in self-hosted routing. Defaults to GitHub-hosted, so nothing breaks if
+    # no self-hosted runner exists. Set repo variable ARTICLE_RUNNER=self-hosted
+    # (or dispatch with runner=self-hosted) once an Oracle-free-VM runner with the
+    # `article-gen` label is online — that runs from a non-Actions IP so GitHub
+    # Models PATs (+ multi-PAT rotation) aren't IP-throttled. See
+    # docs/SELFHOSTED-RUNNER.md. Falls back to ubuntu-latest otherwise.
+    runs-on: ${{ (github.event.inputs.runner || vars.ARTICLE_RUNNER) == 'self-hosted' && fromJSON('["self-hosted","article-gen"]') || 'ubuntu-latest' }}
     timeout-minutes: 360
     steps:
       # NOTE: the deploy.yml-style "Free disk space" toolchain cleanup was
