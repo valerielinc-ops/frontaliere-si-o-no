@@ -34,6 +34,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifySector } from './lib/employer-sectors.mjs';
+// Sequence lives in ONE pure module shared with the browser admin preview
+// (AGENTS.md Non-Negotiable #6: no copy-paste of the touch bodies). Re-exported
+// here so send-cold-emails.mjs keeps importing { buildSequence, OPTOUT_EMAIL }
+// from this file unchanged.
+import { buildSequence, OPTOUT_EMAIL } from './lib/cold-email-sequence.mjs';
+
+export { buildSequence, OPTOUT_EMAIL };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -43,79 +50,6 @@ function arg(name, def) {
   if (i < 0) return def;
   const next = process.argv[i + 1];
   return next && !next.startsWith('--') ? next : true; // boolean flags
-}
-
-const PRICE = 'CHF 49 al mese per annuncio';
-// Indirizzo opt-out: chi risponde qui (o "STOP") va messo `suppressed` nel send-log.
-export const OPTOUT_EMAIL = 'valerie@frontaliereticino.ch';
-
-/**
- * Le 4 email della sequenza. Personalizzazione Livello 4 (skill cold-email):
- * numero REALE di candidati + RUOLO più cliccato, connessi al problema (i click
- * si perdono). Tono da pari, una sola call-to-action a basso attrito per touch.
- */
-export function buildSequence({ company, candidates, periodLabel, contactName, topRole }) {
-  // Solo il nome di battesimo nel saluto ("Ciao Denise,"), non nome+cognome.
-  const firstName = (contactName || '').trim().split(/\s+/)[0];
-  const hi = firstName ? `Ciao ${firstName},` : 'Buongiorno,';
-  // Ruolo accorciato per leggibilità; fallback neutro se assente o generico
-  // (titoli-pagina tipo "Lavora con noi", "Concorsi", "Careers" non sono ruoli).
-  const role = (topRole || '').replace(/\s+/g, ' ').trim();
-  const GENERIC_ROLE = /lavora con noi|lavorare con noi|concors|careers?|^jobs?$|offerte di lavoro|posizioni aperte|unsolicited|spontane/i;
-  const pagina = role && !GENERIC_ROLE.test(role) ? `pagina di "${role.slice(0, 48)}"` : 'pagina lavoro';
-  // Opt-out obbligatorio su ogni touch (norma cold-email B2B + deliverability).
-  // Footer leggibile dall'umano; l'header List-Unsubscribe lo aggiunge il sender.
-  // One-click opt-out link ({{UNSUB_URL}}) is substituted at send time by
-  // send-cold-emails.mjs (buildUnsubUrl(companyKey)). The STOP/email reply path
-  // is kept as a fallback for clients that don't render the link. Drafts keep
-  // the literal placeholder (no companyKey context).
-  const footer = `\n\n—\nPer non ricevere più queste email: {{UNSUB_URL}}\nIn alternativa rispondete con "STOP" (o scrivete a ${OPTOUT_EMAIL}) e vi rimuoviamo subito.`;
-  const seq = [
-    {
-      touch: 1, gapDays: 0, subject: 'candidati inviati',
-      body: `${hi}
-
-${periodLabel} vi abbiamo mandato ${candidates} persone alla vostra ${pagina} da frontaliereticino.ch — gratis, dagli annunci che pubblichiamo per voi.
-
-Il punto è che quei click arrivano sul vostro sito e spesso si perdono. Possiamo farveli arrivare come candidature dirette, CV incluso, nella vostra casella.
-
-Ho preparato i vostri dati reali (annunci, visite, candidati) qui: {{INSIGHTS_URL}}
-
-Valerie`,
-    },
-    {
-      touch: 2, gapDays: 4, subject: 'di quei click',
-      body: `${hi}
-
-Di quei ${candidates} candidati che vi abbiamo mandato ${periodLabel}, quanti si sono poi candidati davvero da voi?
-
-Con l'annuncio sponsorizzato la candidatura arriva diretta nella vostra casella — niente form esterni, niente dispersione. Vi mando un esempio reale?
-
-Valerie`,
-    },
-    {
-      touch: 3, gapDays: 5, subject: '49 vs migliaia',
-      body: `${hi}
-
-Diverse aziende ticinesi hanno già reso sponsorizzati i loro ruoli da noi. Costa ${PRICE} — contro la fee di un recruiter (migliaia di CHF a ruolo) o un singolo posting su jobs.ch.
-
-Se vi aiuta a coprire anche un solo ruolo, si ripaga da solo. Provo a mostrarvelo sul vostro annuncio più visto?
-
-Valerie`,
-    },
-    {
-      touch: 4, gapDays: 7, subject: 'chiudo',
-      body: `${hi}
-
-Non vi disturbo oltre. In ogni caso vi lascio il riepilogo dei candidati che vi abbiamo mandato finora — usatelo come volete.
-
-Se più avanti volete amplificarlo, sapete dove trovarmi.
-
-Valerie`,
-    },
-  ];
-  // Append the opt-out footer to every touch so drafts and real sends match.
-  return seq.map((m) => ({ ...m, body: m.body + footer }));
 }
 
 function loadJson(p, def) {
