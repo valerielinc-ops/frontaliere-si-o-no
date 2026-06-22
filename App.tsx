@@ -23,6 +23,7 @@ const OfferwallNewsletterGate = lazyRetry(() => import('@/components/community/O
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const NewsletterMount = lazyRetry(() => import('@/components/community/NewsletterMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
+const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
 // WhatsNewModal/Bell are non-critical UI; use React.lazy (not lazyRetry) so a
 // post-deploy chunk-hash miss silently degrades via SilentErrorBoundary instead
@@ -2593,6 +2594,25 @@ const App: React.FC = () => {
  )}
  </main>
  )}
+
+ {/* Side-rail ads — on staticOverlay (static SEO landing) pages, portal the
+   * full-height GPT half-page rail chain into the #rail-left-root /
+   * #rail-right-root gutter asides emitted by build-plugins/htmlTemplate.ts
+   * (same portal mechanism as the footer below). Reuses ArticleRailAdStack so
+   * the GAM rail units + Remote Config kill-switch match the article/job rails.
+   * Both the static aside and the stack itself are CSS-gated to ≥1400px (xlw),
+   * so narrower viewports render a single unchanged column. */}
+ {staticOverlay && (() => {
+   const leftTarget = document.getElementById('rail-left-root');
+   const rightTarget = document.getElementById('rail-right-root');
+   if (!leftTarget && !rightTarget) return null;
+   return (
+ <Suspense fallback={null}>
+ {leftTarget && createPortal(<ArticleRailAdStack side="left" />, leftTarget)}
+ {rightTarget && createPortal(<ArticleRailAdStack side="right" />, rightTarget)}
+ </Suspense>
+   );
+ })()}
 
  {/* Footer — on staticOverlay pages it is portalled into #footer-root which
    * lives AFTER <main class="seo-static-content"> in the DOM, so the footer
