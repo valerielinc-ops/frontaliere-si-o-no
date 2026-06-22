@@ -37,4 +37,33 @@ describe('parseDateField — European DD/MM slash dates (#2630)', () => {
   it('returns NaN for junk', () => {
     expect(Number.isNaN(parseDateField('not-a-date'))).toBe(true);
   });
+
+  // #2727 item 3: in-range but calendar-impossible dates pass the day<=31 &&
+  // month<=12 guard, and Date.UTC silently rolls them to the next month
+  // (31/04 → 1 May, 31/02 → 3 Mar). The round-trip check must reject them so
+  // the caller falls through to firstSeenAt rather than trusting a shifted ts.
+  it('returns NaN for an in-range but impossible day (31/04)', () => {
+    expect(Number.isNaN(parseDateField('31/04/26'))).toBe(true);
+  });
+
+  it('returns NaN for 31/02 (February rollover)', () => {
+    expect(Number.isNaN(parseDateField('31/02/26'))).toBe(true);
+  });
+
+  it('returns NaN for 29/02 in a non-leap year', () => {
+    expect(Number.isNaN(parseDateField('29/02/26'))).toBe(true);
+  });
+
+  it('accepts 29/02 in a leap year', () => {
+    const d = new Date(parseDateField('29/02/24'));
+    expect(d.getUTCFullYear()).toBe(2024);
+    expect(d.getUTCMonth()).toBe(1); // February
+    expect(d.getUTCDate()).toBe(29);
+  });
+
+  it('accepts a valid end-of-month date (30/04)', () => {
+    const d = new Date(parseDateField('30/04/26'));
+    expect(d.getUTCMonth()).toBe(3); // April
+    expect(d.getUTCDate()).toBe(30);
+  });
 });
