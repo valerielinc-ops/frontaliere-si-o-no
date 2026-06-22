@@ -176,6 +176,13 @@ export function parseKlinikGutListing(html = '') {
 
     const detailUrl = new URL(rawHref, ORIGIN).toString();
     if (RESTRICTED_PATHS.has(new URL(detailUrl).pathname)) continue;
+    // Skip cards linking off the klinik-gut.ch domain — e.g. the "Social Media"
+    // / "Folgen Sie uns" card whose `infobox__more` href is the Instagram profile
+    // (https://www.instagram.com/klinikgut/). Those are not job openings; left in,
+    // they'd be crawled as a job with an off-domain URL and fail strict
+    // localization validation (url_not_klinik-gut_domain + untranslated teaser,
+    // since the social detail fetch 429s), failing the whole crawl. #2680
+    if (!isTrustedDomain(detailUrl)) continue;
 
     const id = pathSlug(detailUrl);
     if (!id || seen.has(id)) continue;
