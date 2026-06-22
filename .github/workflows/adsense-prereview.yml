@@ -27,10 +27,16 @@ permissions:
 jobs:
   adsense-prereview:
     runs-on: ubuntu-latest
-    # Full SSG build (~43 min) + npm ci + dataset assemble + 140-page audit.
-    # The old 45 min ceiling cancelled the build mid-SSG once it stopped failing
-    # fast at config-load (see Build step note). 90 min leaves comfortable slack.
-    timeout-minutes: 90
+    # The audit needs the COMPLETE dist (homepage + blog + every landing type),
+    # so it runs the monolith full SSG build — the same one deploy.yml's monolith
+    # path runs, measured at ~143 min (deploy run 27822078795). The earlier 45→90
+    # min ceilings cancelled the build mid-SSG (run 27935218721 cancelled at 87 min,
+    # build still in_progress, no error); the sibling cathedral-seo-gates-check.yml
+    # hits the same wall at 90 min. 180 min clears ~143 min with growth headroom.
+    # (Auditing the deployed github-pages artifact instead was rejected: the
+    # matrix deploy's artifact is per-locale/partial — missing homepage + blog —
+    # so it produces all-FAIL false negatives. See ## Non implementato in the PR.)
+    timeout-minutes: 180
 
     steps:
       - name: Checkout
