@@ -3417,6 +3417,28 @@ Règles :
  'whatsNew.v3500.title': 'Portail employeurs renouvelé',
  'whatsNew.v3500.publisherRedesign.title': 'Publier des offres : nouveau look et tableau de bord',
  'whatsNew.v3500.publisherRedesign.desc': 'Les pages employeurs ont un aspect plus chaleureux et clair : forfaits Gratuit et Sponsorisé comparés, et un tableau de bord « Mes annonces » avec statistiques animées et entonnoir de conversion par annonce.',
+
+  // ─── Feature request survey ──────────────────────────────
+  'survey.feature.title': 'Quelle fonctionnalité aimeriez-vous ?',
+  'survey.feature.subtitle': 'Aidez-nous à décider quoi créer (10 s)',
+  'survey.feature.option.salary_tools': 'Outils salaire',
+  'survey.feature.option.traffic_alerts': 'Alertes trafic',
+  'survey.feature.option.job_match': 'Offres sur mesure',
+  'survey.feature.option.tax_guide': 'Guide fiscal',
+  'survey.feature.option.insurance': 'Comparateur assurances',
+  'survey.feature.option.mobile_app': 'Appli mobile',
+  'survey.feature.option.other': 'Autre',
+  'survey.feature.otherPlaceholder': 'Dites-nous ce qu’il vous faut…',
+  'survey.feature.submit': 'Envoyer',
+  'survey.feature.dismiss': 'Plus tard',
+  'survey.feature.close': 'Fermer',
+  'survey.feature.aria': 'Sondage fonctionnalités',
+  'survey.feature.thanks.title': 'Merci !',
+  'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
+
+  'whatsNew.v3540.title': 'Dites-nous quelle fonctionnalité vous voulez',
+  'whatsNew.v3540.featureSurvey.title': 'Sondage fonctionnalités',
+  'whatsNew.v3540.featureSurvey.desc': 'Un court sondage vous demande quelle fonctionnalité vous aimeriez ensuite : outils de salaire, alertes trafic, offres d’emploi sur mesure et plus. Cela prend dix secondes et nous aide à décider quoi créer ensuite.',
 };
 
 export default frCore;
