@@ -184,6 +184,28 @@ const EMPTY_OK_CRAWLERS = new Set([
   // #1245 as fragile/per-tenant.
   'paraplegie',
   'upd',
+  // Würth International (Chur, GR): the careers listing
+  // (https://www.wurth-international.com/web/en/wurthinternational/jobs_career/jobs/Jobs.php)
+  // returns HTTP 200 with its unchanged structure but currently shows "Keine
+  // Stellen" (no positions) and zero job-detail links. The Würth holding's Chur
+  // HQ legitimately has stretches with no open roles; the parser correctly
+  // returns 0 and re-arms when a vacancy reappears. Same legitimately-empty
+  // small-employer case as linnea and banca-raiffeisen-vedeggio-cassarate.
+  'wuerth-international',
+  // Suchtfachstelle Zürich: the careers page
+  // (https://www.suchtfachstelle.zuerich/ueber-uns/offene-stellen) returns
+  // HTTP 200 with the employer section intact but currently lists zero
+  // "/stellenausschreibung-*" openings. A single addiction-counselling NGO
+  // legitimately has no vacancies for weeks; the parser/regex is healthy and
+  // re-arms when an opening is published.
+  'suchtfachstelle-zuerich',
+  // Clinica Moncucco (Lugano, TI): the careers page
+  // (https://www.moncucco.ch/lavora-con-noi.php) returns HTTP 200 and its
+  // ".listing-job" container explicitly states "Nessun annuncio presente al
+  // momento" with zero ".item-job" children. The hospital legitimately has no
+  // open competitions right now; the selector is healthy and re-arms when a
+  // listing reappears.
+  'moncucco',
 ]);
 
 /** Read JSON file, return null on any error. */
