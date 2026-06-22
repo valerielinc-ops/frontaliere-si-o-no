@@ -287,6 +287,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.brexit-impatti-svizzera-ue.title': 'Brexit: lezioni per la Svizzera a 10 anni dall\'uscita del Regno Unito',
     'blog.article.brexit-impatti-svizzera-ue.excerpt': 'A 10 anni dalla Brexit, le sfide del Regno Unito offrono spunti per la Svizzera sui rapporti con l\'UE.',
     'blog.article.brexit-impatti-svizzera-ue.imageAlt': 'Vista aerea del lago di Lugano con bandiere svizzera e UE in primo piano',
+    'blog.article.sicurezza-paziente-2026-svizzera.title': 'Sicurezza del paziente in Svizzera: novità e sfide nel 2026',
+    'blog.article.sicurezza-paziente-2026-svizzera.excerpt': 'L\'Ospedale universitario di Ginevra ha identificato un ceppo di hantavirus nel 2026, tra le sfide della sicurezza sanitaria nazionale.',
+    'blog.article.sicurezza-paziente-2026-svizzera.imageAlt': 'Interno di un ospedale svizzero con attenzione alla sicurezza del paziente',
 };
 
 export default blogMetaChIt;

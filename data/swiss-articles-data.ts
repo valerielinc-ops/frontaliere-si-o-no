@@ -863,6 +863,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sicurezza-paziente-2026-svizzera',
+    category: 'novita',
+    date: '2026-06-22T20:56:49.385Z',
+    image: '/images/blog/sicurezza-paziente-2026-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

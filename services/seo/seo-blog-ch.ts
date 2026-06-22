@@ -3647,6 +3647,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-paziente-2026-svizzera': {
+    title: 'Sicurezza del paziente in Svizzera: novità e sfide nel 2026',
+    description: 'Nel 2026 l\'Ospedale di Ginevra ha identificato un ceppo di hantavirus e la Svizzera affronta sfide nella sicurezza sanitaria nazionale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, paziente, novità, sfide',
+    ogTitle: 'Sicurezza del paziente in Svizzera: novità 2026',
+    ogDescription: 'Ginevra identifica un ceppo di hantavirus nel 2026 mentre la Svizzera discute innovazione e sicurezza sanitaria.',
+    canonicalPath: '/articoli-svizzera/sicurezza-paziente-2026-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza del paziente in Svizzera: novità e sfide nel 2026",
+      "description": "Nel 2026 l'Ospedale di Ginevra ha identificato un ceppo di hantavirus e la Svizzera affronta sfide nella sicurezza sanitaria nazionale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sicurezza-paziente-2026-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un ospedale svizzero con attenzione alla sicurezza del paziente"
+      },
+      "datePublished": "2026-06-22T20:56:49+00:00",
+      "dateModified": "2026-06-22T20:56:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sicurezza-paziente-2026-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

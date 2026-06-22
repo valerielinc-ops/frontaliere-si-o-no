@@ -287,6 +287,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.brexit-impatti-svizzera-ue.title': 'Brexit: lessons for Switzerland 10 years after UK\'s exit',
     'blog.article.brexit-impatti-svizzera-ue.excerpt': 'Ten years after Brexit, the UK\'s challenges offer insights for Switzerland on EU relations.',
     'blog.article.brexit-impatti-svizzera-ue.imageAlt': 'Aerial view of Lugano lake with Swiss and EU flags in the foreground',
+    'blog.article.sicurezza-paziente-2026-svizzera.title': 'Patient safety in Switzerland: news and challenges in 2026',
+    'blog.article.sicurezza-paziente-2026-svizzera.excerpt': 'The University Hospital of Geneva identified a strain of hantavirus in 2026, among the challenges of national health security.',
+    'blog.article.sicurezza-paziente-2026-svizzera.imageAlt': 'Interior of a Swiss hospital focusing on patient safety',
 };
 
 export default blogMetaChEn;
