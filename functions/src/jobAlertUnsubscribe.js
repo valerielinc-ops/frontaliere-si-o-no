@@ -198,12 +198,14 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  const alertDoc = await alertRef.get();
 
  if (!alertDoc.exists) {
+ // Idempotent success: alert already gone (deleted or never existed after prior unsub).
+ // Mail providers retry POST on non-200; returning 404 here degrades sender reputation.
  return {
- status: 404,
+ status: 200,
  html: buildConfirmationHtml({
- title: 'Alert non trovata',
- message: 'Questa alert non esiste più. Potrebbe essere già stata rimossa.',
- success: false,
+ title: 'Già disiscritto',
+ message: 'Questa alert non esiste più o era già stata rimossa. Non riceverai più email per questa alert.',
+ success: true,
  }),
  };
  }
