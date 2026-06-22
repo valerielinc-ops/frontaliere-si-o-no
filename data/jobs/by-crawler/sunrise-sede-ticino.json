@@ -546,12 +546,14 @@
           "vertriebsagent-rapperswil-60-100-sunrise-communications-ag-rapperswil"
         ],
         "fr": [
-          "sales-agent-rapperswil-60-100-sunrise-rapperswil"
+          "sales-agent-rapperswil-60-100-sunrise-rapperswil",
+          "vendeur-rapperswil-60-100-sunrise-communications-ag-rapperswil"
         ]
       },
       "previousSlugs": [
         "sales-agent-rapperswil-60-100-sunrise-rapperswil",
-        "vertriebsagent-rapperswil-60-100-sunrise-communications-ag-rapperswil"
+        "vertriebsagent-rapperswil-60-100-sunrise-communications-ag-rapperswil",
+        "vendeur-rapperswil-60-100-sunrise-communications-ag-rapperswil"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -988,7 +990,8 @@
         "fr": [
           "sales-agent-luzern-weinmarkt-80-sunrise-luzern",
           "agent-commercial-marche-du-vin-lucerne-80-sunrise-communications-ag-luzern",
-          "agent-commercial-luzern-weinmarkt-80-sunrise-communications-ag-luzern"
+          "agent-commercial-luzern-weinmarkt-80-sunrise-communications-ag-luzern",
+          "agent-de-vente-luzern-weinmarkt-80-sunrise-communications-ag-luzern"
         ],
         "de": [
           "verkaufsvertreter-luzern-weinmarkt-80-sunrise-communications-ag-luzern"
@@ -1001,7 +1004,8 @@
         "sales-agent-luzern-weinmarkt-80-sunrise-luzern",
         "agent-commercial-marche-du-vin-lucerne-80-sunrise-communications-ag-luzern",
         "agent-commercial-luzern-weinmarkt-80-sunrise-communications-ag-luzern",
-        "verkaufsvertreter-luzern-weinmarkt-80-sunrise-communications-ag-luzern"
+        "verkaufsvertreter-luzern-weinmarkt-80-sunrise-communications-ag-luzern",
+        "agent-de-vente-luzern-weinmarkt-80-sunrise-communications-ag-luzern"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -1219,11 +1223,15 @@
       },
       "firstSeenAt": "2026-06-11T13:38:57.481Z",
       "previousSlugs": [
-        "filialleiter-mels-80-100-sunrise-communications-ag-mels"
+        "filialleiter-mels-80-100-sunrise-communications-ag-mels",
+        "le-store-manager-mels-80-100-sunrise-communications-ag-mels"
       ],
       "previousSlugsByLocale": {
         "de": [
           "filialleiter-mels-80-100-sunrise-communications-ag-mels"
+        ],
+        "fr": [
+          "le-store-manager-mels-80-100-sunrise-communications-ag-mels"
         ]
       },
       "needsRetranslation": true

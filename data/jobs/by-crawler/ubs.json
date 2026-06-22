@@ -2451,7 +2451,8 @@
         "specialist-appropriations-80-100-ubs-ticino",
         "specialiste-credits-80-100-ubs",
         "spezialisierte-mittel-80-100-ubs-ticino",
-        "stanziamenti-specializzati-80-100-ubs-ticino"
+        "stanziamenti-specializzati-80-100-ubs-ticino",
+        "stanziamenti-specialistici-80-100-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -2461,7 +2462,8 @@
           "spezialisierte-mittel-80-100-ubs-ticino"
         ],
         "it": [
-          "specialiste-credits-80-100-ubs"
+          "specialiste-credits-80-100-ubs",
+          "stanziamenti-specialistici-80-100-ubs-ticino"
         ]
       }
     },
@@ -2541,17 +2543,21 @@
         "legal-training-course-at-the-legal-service-of-ubs-ubs-ticino",
         "stage-juridique-au-service-juridique-d-ubs-ubs",
         "juristische-ausbildung-im-juristischen-dienst-der-ubs-ubs-ticino",
-        "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino"
+        "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino",
+        "formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino",
+        "legal-training-at-the-legal-service-of-ubs-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "legal-training-course-at-the-legal-service-of-ubs-ubs-ticino"
+          "legal-training-course-at-the-legal-service-of-ubs-ubs-ticino",
+          "legal-training-at-the-legal-service-of-ubs-ubs-ticino"
         ],
         "de": [
           "juristische-ausbildung-im-juristischen-dienst-der-ubs-ubs-ticino"
         ],
         "it": [
-          "stage-juridique-au-service-juridique-d-ubs-ubs"
+          "stage-juridique-au-service-juridique-d-ubs-ubs",
+          "formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino"
         ]
       }
     },
@@ -4251,12 +4257,14 @@
         "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
         "remote-berater-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
         "remote-conseiller-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
-        "remote-advisor-hypothek-remote-sales-advice-basel-80-100-ubs-ticino"
+        "remote-advisor-hypothek-remote-sales-advice-basel-80-100-ubs-ticino",
+        "conseiller-hypothecaire-a-distance-ventes-conseil-a-distance-bale-80-100-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "conseiller-hypothecaire-a-distance-ventes-et-conseil-a-distance-bale-80-100-ubs-ticino",
-          "pret-hypothecaire-conseiller-a-distance-ventes-a-distance-et-conseils-de-basel-80-100-ubs-ticino"
+          "pret-hypothecaire-conseiller-a-distance-ventes-a-distance-et-conseils-de-basel-80-100-ubs-ticino",
+          "conseiller-hypothecaire-a-distance-ventes-conseil-a-distance-bale-80-100-ubs-ticino"
         ]
       }
     },
@@ -4334,11 +4342,13 @@
       "previousSlugs": [
         "investissement-prive-associe-ubs-ticino",
         "private-equity-investment-associate-ubs",
-        "investimento-privato-associato-ubs-ticino"
+        "investimento-privato-associato-ubs-ticino",
+        "societe-d-investissement-privee-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "investissement-prive-associe-ubs-ticino"
+          "investissement-prive-associe-ubs-ticino",
+          "societe-d-investissement-privee-ubs-ticino"
         ],
         "it": [
           "private-equity-investment-associate-ubs"
