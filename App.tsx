@@ -1730,6 +1730,12 @@ const App: React.FC = () => {
  // them for side-rails). Excludes tabs that own their rails (blog→BlogArticles,
  // job-board→JobBoard) or are full-width (admin). Below xlw / on excluded tabs
  // the wrapper is `display:contents`, so layout is byte-identical to before.
+ // Rails here are NARROW (160px, 160x600 skyscraper) — not the 300px half-page
+ // rails of blog/job-detail. These tabs are wide interactive tools (calculator
+ // form | results), not single-column reading content, so a 300px×2 + gap
+ // reservation squeezed the centre cell to ~840px at 1500px and cramped the
+ // form/results columns (the calculator was unreadable on desktop). 160px keeps
+ // the centre ~1120px at 1500px while still serving side-rail ads ≥1400px.
  const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board'].includes(activeTab);
 
  return (
@@ -2337,7 +2343,7 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
- <div className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-6' : 'contents'}>
+ <div className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:grid-cols-[160px_minmax(0,1fr)_160px] xlw:gap-6' : 'contents'}>
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
  <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
