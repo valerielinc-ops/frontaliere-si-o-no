@@ -269,6 +269,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dati-salariali-frontalieri-ticino.title': 'Old cross-border workers\' salaries in tax returns',
     'blog.article.dati-salariali-frontalieri-ticino.excerpt': 'Concern among old cross-border workers: salary data sent to Italy includes errors and inaccuracies',
     'blog.article.dati-salariali-frontalieri-ticino.imageAlt': 'Frontalieri worried about the transmission of salary data between Switzerland and Italy',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.title': 'AI Job Boom: 25,000 Opportunities in Switzerland',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.excerpt': 'Record AI job openings in 2025. Impact on cross-border workers and salaries.',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.imageAlt': 'Modern office in Lugano with team working on data analysis and AI',
 };
 
 export default blogMetaChEn;

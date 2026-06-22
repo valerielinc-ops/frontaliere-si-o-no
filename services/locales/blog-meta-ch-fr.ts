@@ -269,6 +269,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dati-salariali-frontalieri-ticino.title': 'Salaires des anciens frontaliers dans la déclaration',
     'blog.article.dati-salariali-frontalieri-ticino.excerpt': 'Inquiétude parmi les anciens frontaliers : des erreurs et des irrégularités dans les données salariales transmises à l\'Italie',
     'blog.article.dati-salariali-frontalieri-ticino.imageAlt': 'Frontaliers inquiets de la transmission des données salariales entre la Suisse et l\'Italie',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.title': 'IA en Suisse : 25 000 opportunités d\'emploi en 2025',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.excerpt': 'En 2025, record d\'offres d\'emploi en intelligence artificielle. Impact sur les frontaliers et les salaires.',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.imageAlt': 'Bureau moderne à Lugano avec une équipe travaillant sur l\'analyse de données et l\'IA',
 };
 
 export default blogMetaChFr;

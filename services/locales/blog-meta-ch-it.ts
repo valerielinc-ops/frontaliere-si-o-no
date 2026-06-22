@@ -269,6 +269,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dati-salariali-frontalieri-ticino.title': 'Dati salariali dei vecchi frontalieri nella dichiarazione dei redditi',
     'blog.article.dati-salariali-frontalieri-ticino.excerpt': 'Preoccupazione tra i vecchi frontalieri: dati salariali trasmessi all\'Italia tra errori e scorrettezze',
     'blog.article.dati-salariali-frontalieri-ticino.imageAlt': 'Frontalieri preoccupati per la trasmissione dei dati salariali tra Svizzera e Italia',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.title': 'Boom lavoro IA: 25.000 opportunità in Svizzera',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.excerpt': 'Nel 2025 record di offerte lavoro intelligenza artificiale. Impatto su frontalieri e salari.',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.imageAlt': 'Ufficio moderno a Lugano con team al lavoro su analisi dati e IA',
 };
 
 export default blogMetaChIt;

@@ -269,6 +269,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dati-salariali-frontalieri-ticino.title': 'Gehaltsdaten alter Grenzgänger in der Steuererklärung',
     'blog.article.dati-salariali-frontalieri-ticino.excerpt': 'Bedenken bei alten Grenzgängern: Gehaltsdaten an Italien übermittelt mit Fehlern und Unstimmigkeiten',
     'blog.article.dati-salariali-frontalieri-ticino.imageAlt': 'Grenzgänger besorgt über die Übertragung von Gehaltsdaten zwischen der Schweiz und Italien',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.title': 'IA-Arbeitsboom: 25.000 Chancen in der Schweiz',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.excerpt': '2025: Rekord an AI-Jobangeboten. Auswirkungen auf Grenzgänger und Löhne.',
+    'blog.article.boom-lavoro-ia-svizzera-frontalieri.imageAlt': 'Modernes Büro in Lugano mit Team bei der Arbeit an Datenanalyse und KI',
 };
 
 export default blogMetaChDe;

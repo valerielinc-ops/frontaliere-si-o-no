@@ -4097,6 +4097,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-salute-frontalieri-rinvio-roma': { name: 'Tassa salute frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-rinvio-roma/', parent: 'blog' },
     'blog-sanita-farmaceutica-svizzera': { name: 'Sanità e Farmaceutica', path: '/articoli-svizzera/sanita-farmaceutica-svizzera/', parent: 'blog' },
     'blog-dati-salariali-frontalieri-ticino': { name: 'Dati salariali dei vecchi frontalieri', path: '/articoli-svizzera/dati-salariali-frontalieri-ticino/', parent: 'blog' },
+    'blog-boom-lavoro-ia-svizzera-frontalieri': { name: 'Boom lavoro IA', path: '/articoli-svizzera/boom-lavoro-ia-svizzera-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
