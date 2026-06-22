@@ -31,10 +31,10 @@ import { loadDataJson } from './loadDataJson';
  * Thin wrapper over the shared {@link loadDataJson} read-path so the lazy-load
  * anti-pattern guard (see that module's header) lives in exactly one place.
  *
- * @param rootDir Repo root to resolve `data/jobs.json` against. Defaults to
- *   `process.cwd()`, which is the project root during a Vite build. Plugins
- *   that already receive a `rootDir` should pass it for robustness.
+ * @param rootDir Optional repo root to resolve `data/jobs.json` against; see
+ *   {@link loadDataJson}'s resolution order (#2594). Plugins that already
+ *   receive a `rootDir` should pass it.
  */
-export function loadJobsJson<T = unknown>(rootDir: string = process.cwd()): T[] {
+export function loadJobsJson<T = unknown>(rootDir?: string): T[] {
   return loadDataJson<T[]>('data/jobs.json', rootDir);
 }

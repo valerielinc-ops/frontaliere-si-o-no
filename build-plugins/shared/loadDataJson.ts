@@ -24,20 +24,57 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const cache = new Map<string, unknown>();
+
+/**
+ * Resolve a repo-root-relative data path to an absolute path, robustly (#2594).
+ *
+ * Tries, in order, and returns the FIRST candidate where the file exists:
+ *   1. an explicit `rootDir` (passed by plugins that already have one, e.g.
+ *      `legacyRedirectsPlugin`);
+ *   2. `process.cwd()` — the project root for every real Vite build;
+ *   3. a module-relative anchor (`../..` from this file).
+ *
+ * Trying multiple anchors hardens two failure modes a single default can't
+ * cover at once:
+ *   - a non-repo-root `cwd` would ENOENT a bare `process.cwd()` default
+ *     (callers like `slugCantonIndex` pass no `rootDir`);
+ *   - a module-relative-ONLY default would mis-resolve when Vite bundles
+ *     `vite.config.ts`'s import graph (this file included) into a temp location
+ *     via esbuild, where `import.meta.url` points at the temp bundle, not here.
+ *
+ * If none exist, returns the rootDir/cwd candidate so `readFileSync` throws a
+ * clear ENOENT at the expected path rather than a confusing module-relative one.
+ */
+function resolveDataPath(relPath: string, rootDir?: string): string {
+  const roots: string[] = [];
+  if (rootDir) roots.push(rootDir);
+  roots.push(process.cwd());
+  try {
+    roots.push(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'));
+  } catch {
+    // import.meta.url not a file URL (bundled/browser context) — skip anchor 3.
+  }
+  for (const root of roots) {
+    const abs = path.resolve(root, relPath);
+    if (fs.existsSync(abs)) return abs;
+  }
+  return path.resolve(rootDir ?? process.cwd(), relPath);
+}
 
 /**
  * Read and parse a repo-relative JSON data file. Cached per resolved absolute
  * path so repeated calls within a single build don't re-read/re-parse the file.
  *
  * @param relPath Repo-root-relative path, e.g. `data/jobs.json`.
- * @param rootDir Repo root to resolve `relPath` against. Defaults to
- *   `process.cwd()`, which is the project root during a Vite build. Plugins that
- *   already receive a `rootDir` should pass it for robustness.
+ * @param rootDir Optional repo root to resolve `relPath` against; see
+ *   {@link resolveDataPath} for the full resolution order. Plugins that already
+ *   receive a `rootDir` should pass it.
  */
-export function loadDataJson<T = unknown>(relPath: string, rootDir: string = process.cwd()): T {
-  const abs = path.resolve(rootDir, relPath);
+export function loadDataJson<T = unknown>(relPath: string, rootDir?: string): T {
+  const abs = resolveDataPath(relPath, rootDir);
   const hit = cache.get(abs);
   if (hit !== undefined) return hit as T;
   const data = JSON.parse(fs.readFileSync(abs, 'utf-8')) as T;
