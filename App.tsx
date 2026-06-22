@@ -2346,7 +2346,7 @@ const App: React.FC = () => {
  <div className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:grid-cols-[160px_minmax(0,1fr)_160px] xlw:gap-4' : 'contents'}>
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="left" narrow /></Suspense>
  </aside>
  )}
  <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10 ${
@@ -2646,7 +2646,7 @@ const App: React.FC = () => {
  </main>
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="right" narrow /></Suspense>
  </aside>
  )}
  </div>

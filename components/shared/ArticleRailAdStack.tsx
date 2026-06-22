@@ -40,6 +40,12 @@ export interface ArticleRailAdStackProps {
    * is still height-driven — this is only the ceiling.
    */
   count?: number;
+  /**
+   * Narrow (160px) gutter — the SPA tool-page rail. Forwarded to ArticleRailAd
+   * so it requests only 160-wide creatives (no overflow). Reading-page rails
+   * (300px) omit this.
+   */
+  narrow?: boolean;
 }
 
 // Approx height of one half-page rail panel (600px creative + flex gap).
@@ -47,7 +53,7 @@ const PANEL_PX = 620;
 // Bound the number of same-unit requests; tall pages cap here, short pages get 1.
 const MAX_PANELS = 6;
 
-const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count }) => {
+const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [panels, setPanels] = useState(1);
   const maxPanels = Math.max(1, count ?? MAX_PANELS);
@@ -75,7 +81,7 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
     // tier (1280–1399) shows no rail ads, exactly as before.
     <div ref={ref} className="hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0 gap-2">
       {Array.from({ length: panels }, (_, i) => (
-        <ArticleRailAd key={i} side={side} enabled={enabled} reserve={i === 0} />
+        <ArticleRailAd key={i} side={side} enabled={enabled} reserve={i === 0} narrow={narrow} />
       ))}
     </div>
   );

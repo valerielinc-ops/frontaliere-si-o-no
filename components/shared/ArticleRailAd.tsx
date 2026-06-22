@@ -24,8 +24,13 @@ const RAIL_AD_UNIT_PATHS = {
 } as const;
 
 // Premium vertical display sizes first, box + fluid as fallback — must match
-// what the GAM ad unit allows (see scripts/gam-create-rail-units.mjs).
+// what the GAM ad unit allows (see scripts/gam-create-rail-units.mjs). Used on
+// the wide (300px) reading-page rails (blog / job / static SEO).
 const RAIL_SIZES: GptSize[] = [[300, 600], [160, 600], [300, 250], 'fluid'];
+// Narrow rail (160px SPA tool-page gutter): only 160-wide creatives + fluid, so
+// GAM can't serve a 300-wide creative that would overflow the 160px column into
+// the content/gap at ≥1400px.
+const RAIL_SIZES_NARROW: GptSize[] = [[160, 600], 'fluid'];
 
 export interface ArticleRailAdProps {
   side: keyof typeof RAIL_AD_UNIT_PATHS;
@@ -38,14 +43,20 @@ export interface ArticleRailAdProps {
    * 600px box down the gutter.
    */
   reserve?: boolean;
+  /**
+   * Narrow (160px) gutter — the SPA tool-page rail. Restricts requested sizes to
+   * 160-wide so no creative overflows the column. Reading-page rails (300px)
+   * omit this and keep the full premium size set.
+   */
+  narrow?: boolean;
 }
 
-const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, reserve = true }) => {
+const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, reserve = true, narrow = false }) => {
   const { articleRailAds: killed } = useKillSwitches();
   return (
     <GptAdSlot
       adUnitPath={RAIL_AD_UNIT_PATHS[side]}
-      sizes={RAIL_SIZES}
+      sizes={narrow ? RAIL_SIZES_NARROW : RAIL_SIZES}
       killed={killed}
       enabled={enabled}
       minHeight={reserve ? 600 : 0}

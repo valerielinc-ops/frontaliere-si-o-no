@@ -113,6 +113,10 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   style,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  // GPT slot + its slotRenderEnded handler, kept so unmount can tear both down
+  // (remove the global pubads listener and destroy the slot).
+  const slotRef = useRef<any>(null);
+  const slotHandlerRef = useRef<((event: any) => void) | null>(null);
   // Stable, unique DOM id for this slot instance (GPT needs a real element id).
   const divIdRef = useRef<string>(`gpt-slot-${++slotSeq}`);
   const [rendered, setRendered] = useState(false);
@@ -155,12 +159,17 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
         try {
           const slot = gt.defineSlot(adUnitPath, sizes, divId)?.addService(gt.pubads());
           if (!slot) return;
+          slotRef.current = slot;
           // Collapse this wrapper to zero when GPT renders the slot empty (no
           // creative AND no AdSense backfill) so the reserved placeholder never
           // shows as a blank box. Scoped to this slot via identity match.
-          gt.pubads().addEventListener('slotRenderEnded', (event: any) => {
+          // Held in a ref so unmount can remove it — otherwise every slot leaks
+          // a global pubads listener that re-fires for every other slot.
+          const handler = (event: any) => {
             if (event?.slot === slot) setEmpty(!!event.isEmpty);
-          });
+          };
+          slotHandlerRef.current = handler;
+          gt.pubads().addEventListener('slotRenderEnded', handler);
           gt.display(divId);
           setRendered(true);
         } catch {
@@ -182,7 +191,24 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       { rootMargin: '200px 0px' },
     );
     io.observe(wrapper);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      // Tear down the slot + its listener so SPA navigations don't accumulate
+      // global pubads listeners (each would re-fire for every other slot).
+      try {
+        const gt = gtag();
+        if (slotHandlerRef.current) {
+          gt.pubads().removeEventListener('slotRenderEnded', slotHandlerRef.current);
+          slotHandlerRef.current = null;
+        }
+        if (slotRef.current) {
+          gt.destroySlots?.([slotRef.current]);
+          slotRef.current = null;
+        }
+      } catch {
+        /* fail-soft */
+      }
+    };
   }, [active, adUnitPath, sizes]);
 
   if (!active) return null;
