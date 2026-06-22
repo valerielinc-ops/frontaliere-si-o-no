@@ -28,6 +28,7 @@ import {
 } from './careerLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
 import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -236,9 +237,11 @@ function jobCityString(job: JobRecord): string {
 
 function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  const postedDate = job.postedDate || job.firstSeenAt || '';
-  const ts = postedDate ? Date.parse(postedDate) : NaN;
-  const daysAgo = Number.isFinite(ts) ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
+  // First PARSEABLE date, not first truthy: a malformed postedDate must not
+  // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
+  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
+  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   // Type-safe slugByLocale: jobs.json keys are arbitrary 2-char strings, but at
   // build-time we only need the CareerLocale subset — drop anything else.
   const slugByLocale: Partial<Record<CareerLocale, string>> = {};
@@ -276,8 +279,8 @@ function pickFeatured(matches: readonly JobRecord[], now: number, limit: number)
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = a.postedDate ? Date.parse(a.postedDate) : 0;
-    const bTs = b.postedDate ? Date.parse(b.postedDate) : 0;
+    const aTs = firstParsableMs(a.postedDate, a.firstSeenAt);
+    const bTs = firstParsableMs(b.postedDate, b.firstSeenAt);
     return bTs - aTs;
   });
   const out: CareerFeaturedJob[] = [];
@@ -293,8 +296,8 @@ function fresh30Count(matches: readonly JobRecord[], now: number): number {
   const cutoff = now - 30 * DAY_MS;
   let n = 0;
   for (const job of matches) {
-    const ts = job.postedDate ? Date.parse(job.postedDate) : NaN;
-    if (Number.isFinite(ts) && ts >= cutoff) n++;
+    const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+    if (ts && ts >= cutoff) n++;
   }
   return n;
 }
