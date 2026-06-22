@@ -6309,9 +6309,9 @@
       },
       "descriptionByLocale": {
         "de": "Mit den berufsbegleitenden Quereinsteigerprogrammen schaffst du neue Perspektiven für deine berufliche Karriere.",
-        "it": "Con i programmi part-time per il cambio di carriera, creerai nuove prospettive per la tua carriera professionale.",
-        "en": "With the part-time career changer programs, you will create new perspectives for your professional career.",
-        "fr": "Avec les programmes de changement de carrière à temps partiel, vous créerez de nouvelles perspectives pour votre carrière professionnelle."
+        "it": "Con i programmi di avvicinamento professionale è possibile creare nuove prospettive per la propria carriera professionale.",
+        "en": "With the career-accompanying cross-starting programs you can create new perspectives for your professional career.",
+        "fr": "Avec les programmes de cross-Starting qui accompagnent votre carrière, vous pouvez créer de nouvelles perspectives pour votre carrière professionnelle."
       },
       "slugByLocale": {
         "it": "erfolgreich-durch-einen-cambio-carriera-bei-coop-fust-ticino",
@@ -6357,7 +6357,8 @@
       "postalCode": "6500",
       "country": "CH",
       "streetAddress": "",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-m9fk7m",
