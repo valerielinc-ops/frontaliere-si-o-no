@@ -187,7 +187,7 @@ export type RelatedLinksCtx = RelatedLinksContext;
 
 // ── Evergreen paths (not covered by feature-specific builders) ──
 
-const JOB_LISTING_ROOT: Record<LinkLocale, string> = {
+export const JOB_LISTING_ROOT: Record<LinkLocale, string> = {
   it: '/cerca-lavoro-ticino/',
   en: '/en/find-jobs-ticino/',
   de: '/de/jobs-im-tessin/',

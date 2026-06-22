@@ -9,6 +9,8 @@
  * Italian editorial content remains inline in staticPagesPlugin.ts.
  */
 
+import { adSlotHtml } from './lib/adSlotHtml';
+
 export type SectionEditorialMap = Record<string, Record<string, string[]>>;
 
 // ── Helper: ponti-2026 hero block (stat tiles + advice + CTA + holiday table) ──
@@ -3138,6 +3140,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '<p>Il calendario delle <strong>vacanze scolastiche in Canton Ticino</strong> è stabilito ogni anno dal <em>Dipartimento dell\'educazione, della cultura e dello sport (DECS)</em> e pubblicato sul sito ti.ch/decs. Si applica alle <strong>scuole dell\'infanzia (3-6 anni), elementari (6-11 anni), medie (11-15 anni)</strong> pubbliche del cantone. Le scuole private seguono generalmente lo stesso calendario ma possono avere deviazioni di 1-2 giorni comunicate ai genitori a inizio anno. Le scuole italiane di confine (Como, Varese, Valtellina) hanno un calendario completamente diverso: chi ha figli divisi tra sistemi svizzero e italiano deve pianificare con attenzione ferie e custodia alternativa.</p>',
  '<h2 class="s-FoMhWG">Date vacanze 2026-2027</h2>',
  '<p>Per l\'anno scolastico <strong>2026-2027</strong> le date ufficiali DECS in Canton Ticino sono: <strong>inizio anno scolastico</strong> lunedì 31 agosto 2026; <strong>vacanze autunnali</strong> da sabato 31 ottobre a domenica 8 novembre 2026; <strong>vacanze di Natale</strong> da giovedì 24 dicembre 2026 a mercoledì 6 gennaio 2027; <strong>vacanze di carnevale</strong> da sabato 6 a domenica 14 febbraio 2027; <strong>vacanze di Pasqua</strong> da venerdì 26 marzo a domenica 4 aprile 2027; <strong>Ascensione</strong> giovedì 6 maggio 2027, con ponte fino a domenica 9 maggio (venerdì 7 maggio è giorno di vacanza); <strong>Lunedì di Pentecoste</strong> 17 maggio 2027; <strong>Corpus Domini</strong> giovedì 27 maggio 2027; <strong>fine anno scolastico</strong> mercoledì 16 giugno 2027. Le vacanze estive iniziano da giovedì 17 giugno 2027. Sono inoltre giorni di scuola chiusa l\'Immacolata (martedì 8 dicembre 2026) e San Giuseppe (venerdì 19 marzo 2027).</p>',
+ `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`,
  '<h2 class="s-FoMhWG">Scuole dell\'infanzia (SI)</h2>',
  '<p>Le <strong>scuole dell\'infanzia ticinesi</strong> seguono il calendario delle elementari con alcune differenze: inizio più graduale a settembre (prime due settimane "inserimento progressivo"), chiusura estiva anticipata di circa 1 settimana rispetto alle elementari, pausa pranzo più strutturata. Gli orari standard sono 8:30-16:00 lunedì-venerdì con mensa interna facoltativa. Per i genitori frontalieri che lavorano orari lunghi sono disponibili <strong>centri extra-scolastici</strong> e <strong>doposcuola comunali</strong> aperti fino alle 18:00 (tariffa variabile da CHF 5 a CHF 25/giorno in base al reddito). Alcuni Comuni (Lugano, Bellinzona, Mendrisio, Chiasso) offrono anche servizio di <em>colonie diurne</em> durante le vacanze estive (8:00-17:00, CHF 20-40/giorno con pranzo).</p>',
  '<h2 class="s-FoMhWG">Mensa, trasporti e assicurazione scolastica</h2>',
@@ -3146,6 +3149,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '<p>Per iscrivere un figlio alla scuola pubblica ticinese servono: <strong>residenza del bambino in Canton Ticino</strong> (quindi solo per frontalieri con permesso B, non G), certificato di nascita, documenti di identità dei genitori, certificato vaccinale. Le iscrizioni aprono in <strong>gennaio-febbraio</strong> per l\'anno scolastico successivo con scadenza entro il 31 marzo. Per i figli di frontalieri con permesso G la situazione è più complessa: le scuole svizzere non sono obbligate ad ammettere alunni residenti in Italia, salvo accordi specifici di confine o iscrizione a scuole private. Esistono <strong>scuole bilingui italo-svizzere</strong> a pagamento (SEL Sorengo, Liceo di Lugano) che accettano frontalieri con rette annuali tra CHF 15.000 e CHF 35.000.</p>',
  '<h2 class="s-FoMhWG">Calendario italiano per figli oltre confine</h2>',
  '<p>Per confronto, il calendario scolastico <strong>italiano (Lombardia, Piemonte)</strong> 2026-2027 prevede: inizio anno 14 settembre 2026, vacanze di Natale 24 dicembre - 6 gennaio, carnevale 15-17 febbraio 2027, Pasqua 25 marzo - 6 aprile 2027, fine anno 10 giugno 2027. Le vacanze estive italiane sono leggermente più lunghe (quasi 12 settimane contro le ~11 svizzere). La mancanza di vacanze autunnali italiane è compensata da numerosi ponti festivi primaverili. Per famiglie divise tra i due sistemi è consigliabile consultare in anticipo il calendario USR (Ufficio Scolastico Regionale) competente e il calendario DECS ticinese per identificare finestre di ferie comuni.</p>',
+ `<div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>`,
  ],
  en: [
  buildSchoolCalendarHero('en'),
@@ -3153,8 +3157,10 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '<p>The <strong>school holiday calendar in Canton Ticino</strong> is set annually by the Department of Education, Culture and Sport (DECS) and applies to public kindergartens (ages 3-6), primary schools (6-11) and lower secondary schools (11-15). Private schools generally follow the same calendar with 1-2 day deviations.</p>',
  '<h2 class="s-FoMhWG">2026-2027 holiday dates</h2>',
  '<p>For the 2026-2027 school year the official DECS dates in Canton Ticino are: school start Monday 31 August 2026; autumn break Saturday 31 October - Sunday 8 November 2026; Christmas holidays Thursday 24 December 2026 - Wednesday 6 January 2027; carnival Saturday 6 - Sunday 14 February 2027; Easter Friday 26 March - Sunday 4 April 2027; Ascension Thursday 6 May 2027 with a long weekend to Sunday 9 May (Friday 7 May is a day off); Whit Monday 17 May 2027; Corpus Christi Thursday 27 May 2027; end of school year Wednesday 16 June 2027. Summer holidays start on Thursday 17 June 2027. The Immaculate Conception (Tuesday 8 December 2026) and St Joseph (Friday 19 March 2027) are additional days off.</p>',
+ `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`,
  '<h2 class="s-FoMhWG">Enrolment and cost</h2>',
  '<p>To enrol a child in a Ticino public school the child must be resident in Ticino (so only for B-permit cross-border workers, not G). Enrolment opens in January-February. For G-permit children there are bilingual private schools (SEL Sorengo, Liceo di Lugano) charging CHF 15,000-35,000 per year. School meals cost about CHF 8-12 per meal, subsidies available for low-income families.</p>',
+ `<div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>`,
  ],
  de: [
  buildSchoolCalendarHero('de'),
@@ -3162,8 +3168,10 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '<p>Der <strong>Schulferienkalender im Kanton Tessin</strong> wird jährlich vom Departement für Bildung, Kultur und Sport (DECS) festgelegt und gilt für öffentliche Kindergärten (3-6 Jahre), Primar- (6-11) und Sekundarschulen (11-15). Privatschulen folgen im Allgemeinen demselben Kalender mit Abweichungen von 1-2 Tagen.</p>',
  '<h2 class="s-FoMhWG">Ferientermine 2026-2027</h2>',
  '<p>Für das Schuljahr 2026-2027 gelten folgende offizielle DECS-Daten im Kanton Tessin: Schulbeginn Montag 31. August 2026; Herbstferien Samstag 31. Oktober - Sonntag 8. November 2026; Weihnachtsferien Donnerstag 24. Dezember 2026 - Mittwoch 6. Januar 2027; Fasnacht Samstag 6. - Sonntag 14. Februar 2027; Osterferien Freitag 26. März - Sonntag 4. April 2027; Auffahrt Donnerstag 6. Mai 2027 mit Brücke bis Sonntag 9. Mai (Freitag 7. Mai ist schulfrei); Pfingstmontag 17. Mai 2027; Fronleichnam Donnerstag 27. Mai 2027; Schulende Mittwoch 16. Juni 2027. Die Sommerferien beginnen am Donnerstag 17. Juni 2027. Schulfrei sind ausserdem Mariä Empfängnis (Dienstag 8. Dezember 2026) und Josephstag (Freitag 19. März 2027).</p>',
+ `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`,
  '<h2 class="s-FoMhWG">Anmeldung und Kosten</h2>',
  '<p>Für die Anmeldung an einer öffentlichen Tessiner Schule muss das Kind im Tessin wohnhaft sein (also nur für Grenzgänger mit B-Bewilligung, nicht G). Die Anmeldung öffnet im Januar-Februar. Für G-Kinder stehen zweisprachige Privatschulen (SEL Sorengo, Liceo di Lugano) mit Jahresgebühren von CHF 15.000-35.000 zur Verfügung. Schulmahlzeiten kosten etwa CHF 8-12; Subventionen für Familien mit niedrigem Einkommen erhältlich.</p>',
+ `<div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>`,
  ],
  fr: [
  buildSchoolCalendarHero('fr'),
@@ -3171,8 +3179,10 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '<p>Le <strong>calendrier des vacances scolaires au Tessin</strong> est fixé annuellement par le Département de l\'éducation, de la culture et du sport (DECS) et s\'applique aux écoles maternelles publiques (3-6 ans), primaires (6-11 ans) et secondaires (11-15 ans). Les écoles privées suivent généralement le même calendrier avec 1-2 jours d\'écart.</p>',
  '<h2 class="s-FoMhWG">Dates de vacances 2026-2027</h2>',
  '<p>Pour l\'année scolaire 2026-2027 les dates officielles DECS au Tessin sont : rentrée lundi 31 août 2026 ; vacances d\'automne samedi 31 octobre - dimanche 8 novembre 2026 ; vacances de Noël jeudi 24 décembre 2026 - mercredi 6 janvier 2027 ; carnaval samedi 6 - dimanche 14 février 2027 ; Pâques vendredi 26 mars - dimanche 4 avril 2027 ; Ascension jeudi 6 mai 2027 avec pont jusqu\'au dimanche 9 mai (vendredi 7 mai est un jour de congé) ; lundi de Pentecôte 17 mai 2027 ; Fête-Dieu jeudi 27 mai 2027 ; fin de l\'année mercredi 16 juin 2027. Les vacances d\'été commencent le jeudi 17 juin 2027. L\'Immaculée Conception (mardi 8 décembre 2026) et la Saint-Joseph (vendredi 19 mars 2027) sont aussi des jours sans école.</p>',
+ `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`,
  '<h2 class="s-FoMhWG">Inscription et coûts</h2>',
  '<p>Pour inscrire un enfant à l\'école publique tessinoise, l\'enfant doit résider au Tessin (donc uniquement pour les frontaliers avec permis B, pas G). Les inscriptions ouvrent en janvier-février. Pour les enfants de frontaliers G, des écoles privées bilingues (SEL Sorengo, Liceo di Lugano) acceptent les inscriptions avec des frais annuels de CHF 15.000-35.000. Les repas scolaires coûtent CHF 8-12 ; des subventions sont disponibles pour les familles à bas revenus.</p>',
+ `<div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>`,
  ],
  },
 
