@@ -791,13 +791,18 @@ const DISCOVER_MORE_HEADING: Record<string, string> = {
 };
 
 /**
- * Render a "Scopri di più" (Discover more) section with 3 feature-specific
+ * Render a "Scopri di più" (Discover more) section with up to 4 feature-specific
  * CTA links. Each plugin passes its own curated list so users see relevant
  * next steps instead of generic/affiliate-feel suggestions.
  *
+ * The cap is 4 (was 3): plugins that insert the high-RPM job-board CTA at idx 1
+ * (borderWait/fuelDaily/healthPremiums) grow their list to 4, and a cap of 3
+ * would silently drop the last funnel CTA (hiring/jobMarket/dogane). Rendering
+ * all 4 keeps every cross-link alive instead of swapping one out invisibly.
+ *
  * @param locale  - Page locale (it/en/de/fr).
- * @param ctas    - Ordered list of exactly 3 CTAs. Excess items are silently
- *                  truncated; fewer than 3 are shown as-is.
+ * @param ctas    - Ordered list of up to 4 CTAs. Excess items are silently
+ *                  truncated; fewer than 4 are shown as-is.
  */
 export function renderDiscoverMore(
   locale: string,
@@ -805,7 +810,7 @@ export function renderDiscoverMore(
 ): string {
   if (!ctas || ctas.length === 0) return '';
   const heading = DISCOVER_MORE_HEADING[locale] ?? DISCOVER_MORE_HEADING['it'];
-  const items = ctas.slice(0, 3)
+  const items = ctas.slice(0, 4)
     .map(
       (cta) =>
         `<li class="s-6FVpHG"><a href="${esc(cta.href)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:8px 0;font-weight:600;font-size:15px">${esc(cta.title)} →</a></li>`,
