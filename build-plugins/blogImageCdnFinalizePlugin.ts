@@ -28,6 +28,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { CDN_BLOG_BASE } from './shared/blogImageCdn';
+import { shouldEmitPath } from './shared/localeEmitFilter';
 
 const ORIGIN = 'https://frontaliereticino.ch';
 const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
@@ -72,8 +73,23 @@ function walk(dir: string, fn: (fp: string) => void, root: string = dir): void {
       // while keeping the (huge) top-level dist/data skip. The dist/images/blog
       // deletion loop below is a separate explicit readdirSync of blogDir.
       if (dir === root && (e.name === 'assets' || e.name === 'data' || e.name === 'images')) continue;
+      // Per-locale matrix shard (BUILD_LOCALE): skip a non-owned top-level locale
+      // subtree (e.g. dist/en on the `it` shard, or any non-`en` tree on the `en`
+      // shard). Those files are deleted post-build by prune-locale-shard.mjs, so
+      // they never ship from this shard — walking + rewriting + leak-scanning
+      // them is the bulk of this plugin's ~200s wasted I/O on each shard. The
+      // leak-guard's no-404 contract is preserved because every file this shard
+      // SHIPS (its owned locale + the root/`it`-classified shared tree) is still
+      // walked and scanned. shouldEmitPath returns true for ALL paths on the
+      // default all-locale build (EMIT_ALL_LOCALES) → no-op, full coverage.
+      if (dir === root && !shouldEmitPath(fp, root)) continue;
       walk(fp, fn, root);
-    } else if (SCAN_EXT.has(path.extname(e.name))) fn(fp);
+    } else if (SCAN_EXT.has(path.extname(e.name))) {
+      // Same shard-ownership gate for root-level files (e.g. dist/index.html on
+      // an en/de/fr shard) — pruned post-build, never shipped from here.
+      if (!shouldEmitPath(fp, root)) continue;
+      fn(fp);
+    }
   }
 }
 
