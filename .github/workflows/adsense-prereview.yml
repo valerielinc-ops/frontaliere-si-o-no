@@ -27,7 +27,10 @@ permissions:
 jobs:
   adsense-prereview:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # Full SSG build (~43 min) + npm ci + dataset assemble + 140-page audit.
+    # The old 45 min ceiling cancelled the build mid-SSG once it stopped failing
+    # fast at config-load (see Build step note). 90 min leaves comfortable slack.
+    timeout-minutes: 90
 
     steps:
       - name: Checkout
@@ -46,7 +49,12 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Build
-        run: npm run build:prod
+        # Use build:ci (12 GB heap, fits the 16 GB runner) — the same full-SSG
+        # build the deploy pipeline runs. build:prod's 18 GB heap exceeds the
+        # runner's physical RAM and was OOM-prone; it only ever "passed" here by
+        # crashing earlier at config-load. Full SSG (no FAST_BUILD skips) so the
+        # AdSense audit still inspects every production page type.
+        run: npm run build:ci
 
       - name: Run AdSense pre-review audit
         run: |
