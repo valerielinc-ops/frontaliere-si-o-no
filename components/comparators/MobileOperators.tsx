@@ -465,14 +465,14 @@ const MobileOperators: React.FC = () => {
  const currency = op.country === 'IT' ? '€' : 'CHF';
  const roamingLabel = limit === 'illimitati' ? t('mobile.roamingUnlimited') : `${limit} GB`;
  return (
- <li key={op.name} className="flex items-baseline justify-between gap-3">
+ <li key={op.name} className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
  <span className="flex items-baseline gap-2 min-w-0">
  <span className="text-success font-bold tabular-nums">{rank}.</span>
  <strong className="text-strong truncate">{op.name}</strong>
  </span>
- <span className="flex items-baseline gap-2 flex-shrink-0">
+ <span className="flex items-baseline gap-2 min-w-0 pl-6 sm:pl-0 sm:flex-shrink-0">
  <span className="text-body font-bold tabular-nums whitespace-nowrap">{op.monthlyCost} {currency}</span>
- <span className="px-2 py-0.5 rounded-full bg-success-strong text-on-accent text-xs font-medium whitespace-nowrap">{roamingLabel}</span>
+ <span className="px-2 py-0.5 rounded-full bg-success-strong text-on-accent text-xs font-medium truncate">{roamingLabel}</span>
  </span>
  </li>
  );
