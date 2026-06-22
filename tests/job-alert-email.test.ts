@@ -757,6 +757,8 @@ describe('job alert email — unsubscribe links match the sending domain (anti-s
       path.resolve(__dirname, '../infra/cloudflare-worker/wrangler.toml'),
       'utf8',
     );
-    expect(wrangler).toContain('frontaliereticino.ch/disiscrivi-alert/');
+    // Route MUST be a wildcard (`*`): an exact route does not match URLs with a
+    // query string, and every emitted unsub link carries `?alertId=…&token=…`.
+    expect(wrangler).toContain('frontaliereticino.ch/disiscrivi-alert*');
   });
 });
