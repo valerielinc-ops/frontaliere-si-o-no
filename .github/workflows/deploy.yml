@@ -1711,10 +1711,19 @@ jobs:
       - name: Pack prepared snapshot (generated data + thumbnails)
         run: |
           set -eo pipefail
+          # public/data holds the assemble-generated, GITIGNORED runtime JSON
+          # (jobs.json, jobs-stats.json, expired-jobs.json) that Vite copies into
+          # dist/data. A fresh shard checkout does NOT have them (gitignored) and
+          # they are not regenerated per-shard (assemble runs only here in prep),
+          # so they MUST travel in the snapshot — otherwise dist/data/jobs-stats.json
+          # is missing on the IT shard (validate-critical-dist-pages fail) and the
+          # SPA's /data/jobs.json 404s live. (fuel-prices/health-premiums/etc. are
+          # CDN-managed by their own crons, not produced by the deploy.)
           tar -czf /tmp/prepared-snapshot.tgz \
             data \
+            public/data \
             public/images/blog/thumbnails public/images/places/thumbnails 2>/dev/null || \
-            tar -czf /tmp/prepared-snapshot.tgz data
+            tar -czf /tmp/prepared-snapshot.tgz data public/data
           ls -lh /tmp/prepared-snapshot.tgz
       - name: Upload prepared snapshot
         uses: actions/upload-artifact@v7
