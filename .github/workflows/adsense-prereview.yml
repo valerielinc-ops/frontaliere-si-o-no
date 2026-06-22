@@ -39,6 +39,29 @@ jobs:
     timeout-minutes: 180
 
     steps:
+      # Free ~25-30 GB before the full SSG build emits dist/ (33k+ pages × 4
+      # locales). ubuntu-latest ships ~14 GB free on / — the monolith build
+      # fills it mid-Vite-emit and dies with "No space left on device", and the
+      # worker dies before logs flush so the Build step log vanishes from the
+      # archive (scheduled run 27952579135). deploy.yml's build job already does
+      # this; mirror it here. Deletes only toolchains this repo never uses.
+      - name: Free disk space (remove unused toolchains)
+        shell: bash
+        run: |
+          echo "::group::Disk usage BEFORE cleanup"
+          df -h /
+          echo "::endgroup::"
+          sudo rm -rf /usr/local/lib/android &
+          sudo rm -rf /usr/share/dotnet &
+          sudo rm -rf /opt/ghc &
+          sudo rm -rf /usr/local/share/boost &
+          sudo rm -rf /opt/hostedtoolcache/CodeQL &
+          sudo rm -rf /usr/share/swift &
+          wait
+          echo "::group::Disk usage AFTER cleanup"
+          df -h /
+          echo "::endgroup::"
+
       - name: Checkout
         uses: actions/checkout@v5
 
