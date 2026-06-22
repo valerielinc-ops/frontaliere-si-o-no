@@ -97,6 +97,22 @@ jobs:
           name: sitemaps-${{ inputs.deploy_run_id }}
           path: /tmp/sitemaps-bundle
 
+      # Master jobs.json (titleByLocale/slugByLocale) is GITIGNORED and
+      # stripped from the Pages artifact (jobsJsonDistCleanupPlugin, PR #712),
+      # so it is NOT present in this checkout. The Google Indexing API job
+      # submitter (submit-google-indexing-jobs.js) reads public/data/jobs.json
+      # to build per-job board URLs — without this it logs "Unable to read
+      # jobs.json" and silently skips submission on every deploy. Restore it
+      # from the same dedicated artifact post-deploy-validate-dist uses.
+      # continue-on-error: profile_sequential builds don't upload it, and the
+      # submitter already exits 0 gracefully when jobs.json is absent.
+      - name: Download master jobs.json (for indexing API)
+        uses: actions/download-artifact@v7
+        continue-on-error: true
+        with:
+          name: jobs-master-${{ inputs.deploy_run_id }}
+          path: /tmp/jobs-master
+
       - name: Stage downloaded data files
         run: |
           if [ -f /tmp/sitemaps-bundle/pre-deploy-sitemap-urls.json ]; then
@@ -106,6 +122,15 @@ jobs:
           fi
           if [ -f /tmp/winners/previous-slug-winners.json ]; then
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
+          fi
+          # Expose master jobs.json to the indexing API submitter, which
+          # reads public/data/jobs.json (same staging as post-deploy-validate-dist).
+          if [ -f /tmp/jobs-master/jobs.json ]; then
+            mkdir -p public/data
+            cp -f /tmp/jobs-master/jobs.json public/data/jobs.json
+            echo "[jobs-master] staged public/data/jobs.json ($(wc -c < public/data/jobs.json) bytes)"
+          else
+            echo "[jobs-master] artifact not present — indexing API job submit will skip"
           fi
 
       - name: Sync previous-slug winners registry
