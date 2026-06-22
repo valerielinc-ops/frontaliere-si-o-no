@@ -267,20 +267,12 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // class is swept here (AGENTS.md #6): publish/dashboard/employer → live job board;
  // partner-services (thin utility) → home; press-kit → about; newsletter-prefs
  // (token-gated, no standalone content) → the live morning/newsletter landing.
- // Publish-a-job + my-listings + for-employers → the live job board (the product
- // these funnel into; where published jobs appear).
- '/pubblica-offerta/': '/cerca-lavoro-ticino/', // cathedral-allow: TI legacy section (it)
- '/i-miei-annunci/': '/cerca-lavoro-ticino/', // cathedral-allow: TI legacy section (it)
- '/per-le-aziende/': '/cerca-lavoro-ticino/', // cathedral-allow: TI legacy section (it)
- '/en/post-a-job/': '/en/find-jobs-ticino/', // cathedral-allow: TI legacy section (en)
- '/en/my-listings/': '/en/find-jobs-ticino/', // cathedral-allow: TI legacy section (en)
- '/en/for-employers/': '/en/find-jobs-ticino/', // cathedral-allow: TI legacy section (en)
- '/de/stelle-aufgeben/': '/de/jobs-im-tessin/', // cathedral-allow: TI legacy section (de)
- '/de/meine-anzeigen/': '/de/jobs-im-tessin/', // cathedral-allow: TI legacy section (de)
- '/de/fuer-unternehmen/': '/de/jobs-im-tessin/', // cathedral-allow: TI legacy section (de)
- '/fr/publier-une-offre/': '/fr/trouver-emploi-tessin/', // cathedral-allow: TI legacy section (fr)
- '/fr/mes-annonces/': '/fr/trouver-emploi-tessin/', // cathedral-allow: TI legacy section (fr)
- '/fr/pour-les-entreprises/': '/fr/trouver-emploi-tessin/', // cathedral-allow: TI legacy section (fr)
+ // NB: the publisher section — publish (/pubblica-offerta/, /en/post-a-job/, …),
+ // my-listings (/i-miei-annunci/, …) and for-employers (/per-le-aziende/, …) in
+ // all 4 locales — is the ACTIVE monetization funnel (Piano Azienda checkout,
+ // dashboard, employer landing). It must NOT be legacy-redirected: those routes
+ // are served live by the SPA (services/router.ts). The Cathedral-era redirects
+ // to the job board were removed — re-adding them takes the publish form offline.
  // Partner services (thin utility tab) → locale home.
  '/servizi-partner/': '/',
  '/en/partner-services/': '/en/',
