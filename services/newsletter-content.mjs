@@ -88,9 +88,39 @@ function resolveLogoUrl(job) {
 // ─── Job matching ───────────────────────────────────────────
 
 function toDateValue(job) {
-  const raw = job?.postedDate || job?.crawledAt || '';
+  const raw = job?.postedDate || job?.crawledAt || job?.publishedAt || job?.firstSeenAt || '';
   const ts = raw ? new Date(raw).getTime() : 0;
   return Number.isFinite(ts) ? ts : 0;
+}
+
+// ─── Popularity decay (anti-evergreen-freeze) ───────────────
+// Raw job_views are cumulative all-time (scripts/fetch-job-popularity.mjs),
+// so a handful of big-employer evergreens stay frozen at the top of every
+// newsletter. We decay the view count by job age at read time so stale
+// popular jobs stop crowding out fresher listings. Half-life 30d: a 30-day
+// old job counts half, 60d a quarter, 90d an eighth.
+const POPULARITY_HALFLIFE_DAYS = 30;
+const DAY_MS = 24 * 60 * 60 * 1000;
+// Jobs with no parseable date can't be aged, so we apply a neutral mid-life
+// dampening (~1 half-life) instead of trusting their raw all-time count.
+const UNDATED_DECAY_FACTOR = 0.5;
+// No-profile subscribers get 2 popular (decayed) + 2 fresh slots so the
+// section visibly rotates week-over-week instead of collapsing onto the
+// all-time most-viewed jobs.
+const NO_PROFILE_POPULAR_SLOTS = 2;
+
+export function decayFactor(job, now) {
+  const ts = toDateValue(job);
+  if (!ts) return UNDATED_DECAY_FACTOR;
+  const ageDays = Math.max(0, (now - ts) / DAY_MS);
+  return Math.pow(0.5, ageDays / POPULARITY_HALFLIFE_DAYS);
+}
+
+/** Age-decayed popularity: cumulative views damped by job freshness. */
+function decayedPopularity(job, popularity, now) {
+  const views = getJobPopularityCount(job, popularity);
+  if (views <= 0) return 0;
+  return views * decayFactor(job, now);
 }
 
 function normalizeLocation(location) {
@@ -323,8 +353,8 @@ function parseSourceField(source) {
  * Score a job against a set of subscriber interest keywords.
  * Returns 0–10 relevance score.
  */
-function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) {
-  if (subscriberKeywords.size === 0 && !subscriberCompany) return 0;
+function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, subscriberLocation = '') {
+  if (subscriberKeywords.size === 0 && !subscriberCompany && !subscriberLocation) return 0;
   let score = 0;
   const jobTitle = String(job.titleByLocale?.it || job.title || '').toLowerCase();
   const jobCategory = String(job.category || job.sector || '').toLowerCase();
@@ -349,6 +379,16 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) {
     if (subscriberKeywords.size > 0 && overlap > 0) {
       score += Math.min(6, Math.round((overlap / subscriberKeywords.size) * 6));
     }
+  }
+
+  // Location match: the job's town/canton matches the subscriber's saved job
+  // location/interest. Location is also used as a pre-filter, but ranking it
+  // here lets same-town jobs win over far ones when the pre-filter is skipped
+  // (too few in-location results to fill the limit).
+  if (subscriberLocation) {
+    const subLoc = subscriberLocation.toLowerCase();
+    const jobLoc = `${String(job.location || '')} ${String(job.addressLocality || '')} ${String(job.addressRegion || '')} ${String(job.canton || '')}`.toLowerCase();
+    if (jobLoc.includes(subLoc)) score += 2;
   }
 
   return score;
@@ -507,6 +547,11 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   const slugKeywords = extractKeywords(jobSlug);
   const categoryKeywords = extractKeywords(jobCategory);
   const searchKeywords = extractKeywords(jobSearchQuery);
+  // Slug recovered retroactively by scripts/backfill-newsletter-job-context.mjs
+  // for subscribers who signed up before job context was captured (or from a
+  // job page whose source slug since expired). It carries the same job
+  // signal as job_slug, so feed it into the keyword profile too.
+  const backfillSlugKeywords = extractKeywords(subscriber?.job_context_backfill_slug || '');
   const sourceJobTitleKeywords = sourceJob?.title ? extractKeywords(sourceJob.title) : new Set();
   const sourceJobCategoryKeywords = sourceJob?.category || sourceJob?.sector
     ? extractKeywords(`${sourceJob.category || ''} ${sourceJob.sector || ''}`)
@@ -519,6 +564,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     ...slugKeywords,
     ...categoryKeywords,
     ...searchKeywords,
+    ...backfillSlugKeywords,
     ...sourceJobTitleKeywords,
     ...sourceJobCategoryKeywords,
     ...sourceTitleKeywords,
@@ -558,28 +604,61 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     if (sectorFiltered.length >= limit) candidates = sectorFiltered;
   }
 
-  // Sort: keyword relevance first, then popularity, then recency
-  const scored = candidates.map((job) => {
-    const relevance = hasInterestProfile ? keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) : 0;
-    const views = hasPopularity ? getJobPopularityCount(job, popularity) : 0;
-    return { job, relevance, views, date: toDateValue(job) };
-  });
+  // Score each candidate: keyword/company/location relevance, age-decayed
+  // popularity (anti-evergreen-freeze), and recency.
+  const now = Date.now();
+  const scored = candidates.map((job) => ({
+    job,
+    relevance: hasInterestProfile
+      ? keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, location)
+      : 0,
+    decayedViews: hasPopularity ? decayedPopularity(job, popularity, now) : 0,
+    date: toDateValue(job),
+  }));
 
-  scored.sort((a, b) => {
-    // Primary: relevance score (keyword + company match)
-    if (b.relevance !== a.relevance) return b.relevance - a.relevance;
-    // Secondary: popularity
-    if (b.views !== a.views) return b.views - a.views;
-    // Tertiary: recency
-    return b.date - a.date;
-  });
-
-  // Company diversity: max 1 job per company (by companyKey or normalized company name)
   const companyKey = (j) => (j.companyKey || j.company || '').toLowerCase();
-  const companyDiverse = dedupeBy(
-    scored.map((s) => s.job),
-    companyKey,
-  );
+
+  let ordered;
+  if (hasInterestProfile) {
+    // Relevance-first: keyword/company/location match, then age-decayed
+    // popularity, then recency.
+    ordered = [...scored]
+      .sort((a, b) =>
+        (b.relevance - a.relevance) ||
+        (b.decayedViews - a.decayedViews) ||
+        (b.date - a.date))
+      .map((s) => s.job);
+  } else {
+    // No interest profile (the common case): reserve the first
+    // NO_PROFILE_POPULAR_SLOTS slots for age-decayed popularity leaders, then
+    // fill the rest with the freshest listings — company-diverse, no repeats.
+    // This stops the section collapsing onto the all-time most-viewed jobs and
+    // guarantees visible week-over-week rotation.
+    const byPopular = [...scored].sort((a, b) => (b.decayedViews - a.decayedViews) || (b.date - a.date));
+    const byFresh = [...scored].sort((a, b) => (b.date - a.date) || (b.decayedViews - a.decayedViews));
+    const picked = [];
+    const usedCompanies = new Set();
+    const usedSlugs = new Set();
+    const take = (list, max) => {
+      for (const s of list) {
+        if (picked.length >= max) break;
+        const ck = companyKey(s.job);
+        if (s.job.slug && usedSlugs.has(s.job.slug)) continue;
+        if (ck && usedCompanies.has(ck)) continue;
+        picked.push(s.job);
+        if (s.job.slug) usedSlugs.add(s.job.slug);
+        if (ck) usedCompanies.add(ck);
+      }
+    };
+    take(byPopular, Math.min(NO_PROFILE_POPULAR_SLOTS, limit)); // popular leaders
+    take(byFresh, limit);                                       // fill with fresh
+    take(byPopular, limit);                                     // backfill leftovers
+    ordered = picked;
+  }
+
+  // Company diversity: max 1 job per company (defensive — the no-profile blend
+  // already dedupes by company, but the relevance-first path does not).
+  const companyDiverse = dedupeBy(ordered, companyKey);
 
   // Backfill: if location/sector filtering left too few diverse companies,
   // fill remaining slots from the full pool (excluding already-selected companies)
@@ -588,8 +667,8 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     const usedCompanies = new Set(companyDiverse.map(companyKey));
     const backfillScored = pool
       .filter((j) => !usedCompanies.has(companyKey(j)))
-      .map((job) => ({ job, views: hasPopularity ? getJobPopularityCount(job, popularity) : 0, date: toDateValue(job) }))
-      .sort((a, b) => b.views - a.views || b.date - a.date);
+      .map((job) => ({ job, decayedViews: hasPopularity ? decayedPopularity(job, popularity, now) : 0, date: toDateValue(job) }))
+      .sort((a, b) => b.decayedViews - a.decayedViews || b.date - a.date);
     const backfill = dedupeBy(backfillScored.map((s) => s.job), companyKey);
     finalJobs = [...companyDiverse, ...backfill];
   }

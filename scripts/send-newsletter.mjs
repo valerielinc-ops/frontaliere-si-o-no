@@ -1272,7 +1272,10 @@ function buildJobContextIndex(jobs) {
 }
 
 function enrichSubscriberJobContext(subscriber, jobIndex) {
-  const savedSlug = subscriber?.job_slug;
+  // Resolve the source job from the saved slug, falling back to the slug the
+  // backfill recovered (scripts/backfill-newsletter-job-context.mjs) for
+  // subscribers whose original job_slug expired or was never captured.
+  const savedSlug = subscriber?.job_slug || subscriber?.job_context_backfill_slug;
   const sourceJob = savedSlug ? jobIndex.get(savedSlug) : null;
   if (!sourceJob) return subscriber;
   return {
@@ -1303,6 +1306,7 @@ function subscriberFromFirestoreRow(row) {
     job_location: row.job_location || null,
     job_category: row.job_category || null,
     job_search_query: row.job_search_query || null,
+    job_context_backfill_slug: row.job_context_backfill_slug || null,
     source: row.source || null,
     preferences: row.preferences || {},
     type: row.type || null,
