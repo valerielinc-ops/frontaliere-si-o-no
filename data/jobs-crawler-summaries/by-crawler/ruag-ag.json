@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-22T14:49:33.684Z",
+  "generatedAt": "2026-06-22T23:28:20.383Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9211,
-  "avgDurationMs": 9211,
+  "durationMs": 10690,
+  "avgDurationMs": 10690,
   "durationHistory": [
-    9211
+    10690
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,6 +50,42 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "System Engineer Zutrittssysteme 80-100% (w/m/d)",
+      "slug": "system-engineer-zutrittssysteme-80-100-w-m-d-ruag-ag-emmen",
+      "url": "https://jobs.ruag.ch/offene-stellen/system-engineer-zutrittssysteme/661dc2c7-b62f-4eee-a88b-15c8651a2a2e",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/661dc2c7-b62f-4eee-a88b-15c8651a2a2e",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Emmen",
+      "addressLocality": "Emmen",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "canton": "LU",
+      "country": "CH",
+      "category": "admin",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-08",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "2053-08-22",
+      "id": "ruag-ag-a0e3f8fc8800",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-06-22T14:49:33.683Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -160,42 +196,6 @@
         "richness": 24,
         "translation": 25,
         "completeness": 25
-      }
-    },
-    {
-      "title": "Software Entwickler Linux/C++ 60-100% (w/m/d)",
-      "slug": "software-entwickler-linux-c-60-100-w-m-d-ruag-ag-zurich-seebach",
-      "url": "https://jobs.ruag.ch/offene-stellen/software-entwickler-linux-c++/29c86e67-40cb-407c-a7ac-b89e2eb51778",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/29c86e67-40cb-407c-a7ac-b89e2eb51778",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Zürich Seebach",
-      "addressLocality": "Zürich Seebach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-18",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "validThrough": "2053-11-01",
-      "id": "ruag-ag-215232d2a304",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-18T23:30:13.406Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
       }
     }
   ]
