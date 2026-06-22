@@ -8,13 +8,16 @@ import { getSerpExperimentDiagnostics } from '@/services/seoService';
 import { useAuth } from '@/services/authService';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
 import { cdnDataUrl } from '@/services/cdnDataBase';
-import { fetchAdminEmployerInsights, type EmployerInsightsRow } from '@/services/adminInsights';
+import { fetchAdminEmployerInsights, updateEmployerContact, type EmployerInsightsRow } from '@/services/adminInsights';
+// Cold-email sequence: single shared source so the admin preview is byte-identical
+// to what send-cold-emails.mjs actually sends (AGENTS.md Non-Negotiable #6).
+import { buildSequence } from '../../scripts/lib/cold-email-sequence.mjs';
 import {
  Shield, Copy, Check, ExternalLink,
  AlertTriangle, CheckCircle2, Eye,
  Mail, Users, Send, RefreshCw, ToggleLeft, ToggleRight, Database, Activity, Calendar, Terminal,
  Play, Loader2, Clock3, ListChecks, FileText, ArrowUp, ArrowDown, Search, ChevronDown, ChevronRight, RotateCcw, Zap,
- Building2, TrendingDown, UserCheck
+ Building2, TrendingDown, UserCheck, Pencil, Save, X
 } from 'lucide-react';
 
 /* ─── Types ─── */
@@ -339,6 +342,14 @@ export default function AdminPanel() {
  column: 'views',
  direction: 'desc',
  });
+ // Contact + email-preview drawer for a single company (null = closed)
+ const [contactModalKey, setContactModalKey] = useState<string | null>(null);
+ const [contactEmailDraft, setContactEmailDraft] = useState('');
+ const [contactNameDraft, setContactNameDraft] = useState('');
+ const [contactRoleDraft, setContactRoleDraft] = useState('');
+ const [contactSaving, setContactSaving] = useState(false);
+ const [contactSaveMsg, setContactSaveMsg] = useState<string | null>(null);
+ const [previewTouch, setPreviewTouch] = useState(1);
  // Crawler table filters & expansion
  const [crawlerNameFilter, setCrawlerNameFilter] = useState('');
  const [crawlerChangeFilter, setCrawlerChangeFilter] = useState<'all' | 'new' | 'updated' | 'removed' | 'none'>('all');
@@ -526,6 +537,75 @@ export default function AdminPanel() {
  loadEmployerInsights();
  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [activeSection]);
+
+ // ── Contact + email-preview drawer ────────────────────────────────
+ const contactModalRow = useMemo(
+ () => insightsRows.find(r => r.companyKey === contactModalKey) || null,
+ [insightsRows, contactModalKey],
+ );
+
+ const openContactModal = (row: EmployerInsightsRow) => {
+ setContactModalKey(row.companyKey);
+ setContactEmailDraft(row.contactEmail || '');
+ setContactNameDraft(row.contactName || '');
+ setContactRoleDraft(row.topRole || '');
+ setContactSaveMsg(null);
+ setPreviewTouch(1);
+ };
+
+ const closeContactModal = () => {
+ setContactModalKey(null);
+ setContactSaveMsg(null);
+ };
+
+ const saveContact = async () => {
+ if (!contactModalRow) return;
+ const email = contactEmailDraft.trim();
+ // Simple client-side guard (server re-validates); empty clears the field.
+ if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+ setContactSaveMsg('✗ Email non valida.');
+ return;
+ }
+ setContactSaving(true);
+ setContactSaveMsg(null);
+ try {
+ await updateEmployerContact(user, {
+ companyKey: contactModalRow.companyKey,
+ email,
+ contactName: contactNameDraft.trim(),
+ topRole: contactRoleDraft.trim(),
+ });
+ // Reflect the saved values locally without a full refetch.
+ setInsightsRows(prev => prev.map(r => r.companyKey === contactModalRow.companyKey
+ ? { ...r, contactEmail: email, contactName: contactNameDraft.trim(), topRole: contactRoleDraft.trim() }
+ : r));
+ setContactSaveMsg('✓ Contatto salvato.');
+ } catch (err) {
+ setContactSaveMsg(`✗ ${err instanceof Error ? err.message : 'Errore salvataggio.'}`);
+ } finally {
+ setContactSaving(false);
+ }
+ };
+
+ // Email preview built from the SAME sequence the sender uses, personalized with
+ // the live drafts (so editing name/role updates the preview instantly).
+ const contactPreviewTouches = useMemo(() => {
+ if (!contactModalRow) return [];
+ const touches = buildSequence({
+ company: contactModalRow.companyName,
+ candidates: contactModalRow.totals.candidates,
+ periodLabel: 'Negli ultimi 3 mesi',
+ contactName: contactNameDraft,
+ topRole: contactRoleDraft,
+ });
+ // Fill the real INSIGHTS_URL; UNSUB_URL is per-send → human-readable note here.
+ return touches.map(t => ({
+ ...t,
+ body: t.body
+ .split('{{INSIGHTS_URL}}').join(contactModalRow.insightsUrl)
+ .split('{{UNSUB_URL}}').join('[link disiscrizione one-click — generato all’invio]'),
+ }));
+ }, [contactModalRow, contactNameDraft, contactRoleDraft]);
 
  useEffect(() => {
  const refresh = () => setSerpDiagnostics(getSerpExperimentDiagnostics());
@@ -3133,14 +3213,33 @@ export default function AdminPanel() {
  <tbody>
  {insightsFiltered.map(row => (
  <tr key={row.companyKey} className="border-t border-edge hover:bg-surface-alt/50">
- <td className="px-3 py-2 text-strong font-medium">{row.companyName}</td>
+ <td className="px-3 py-2">
+ <div className="text-strong font-medium">{row.companyName}</div>
+ <div className="mt-0.5 flex items-center gap-1 text-xs">
+ <Mail size={11} aria-hidden="true" className={row.contactEmail ? 'text-success' : 'text-muted'} />
+ {row.contactEmail
+ ? <span className="text-muted truncate max-w-[220px]">{row.contactEmail}</span>
+ : row.contactEmailInferred
+ ? <span className="text-warning truncate max-w-[220px]" title="Email inferita (mai inviata in automatico)">{row.contactEmailInferred} (inferita)</span>
+ : <span className="text-muted italic">contatto mancante</span>}
+ </div>
+ </td>
  <td className="px-3 py-2 text-right text-body">{row.totals.views.toLocaleString('it-IT')}</td>
  <td className="px-3 py-2 text-right text-body">{row.totals.candidates.toLocaleString('it-IT')}</td>
  <td className="px-3 py-2 text-right text-body">{row.totals.lost.toLocaleString('it-IT')}</td>
  <td className="px-3 py-2 text-right text-body">{row.totals.adsCount.toLocaleString('it-IT')}</td>
  <td className="px-3 py-2 text-right text-body">{(row.totals.conversionRate * 100).toFixed(1)}%</td>
  <td className="px-3 py-2 text-right text-muted whitespace-nowrap">{formatInsightsDate(row.generatedAt)}</td>
- <td className="px-3 py-2 text-right">
+ <td className="px-3 py-2 text-right whitespace-nowrap">
+ <div className="inline-flex items-center gap-1.5">
+ <button
+ type="button"
+ onClick={() => openContactModal(row)}
+ className="inline-flex items-center gap-1 px-2 py-1 rounded bg-surface-raised text-body hover:bg-surface-alt text-xs font-medium transition-colors"
+ aria-label={`Contatto e anteprima email per ${row.companyName}`}
+ >
+ <Mail size={12} aria-hidden="true" /> Email
+ </button>
  <a
  href={row.insightsUrl}
  target="_blank"
@@ -3150,6 +3249,7 @@ export default function AdminPanel() {
  >
  Apri come azienda <ExternalLink size={12} aria-hidden="true" />
  </a>
+ </div>
  </td>
  </tr>
  ))}
@@ -3169,6 +3269,14 @@ export default function AdminPanel() {
  {insightsFiltered.map(row => (
  <div key={row.companyKey} className="bg-surface rounded-xl border border-edge p-4 space-y-2">
  <div className="font-semibold text-strong">{row.companyName}</div>
+ <div className="flex items-center gap-1 text-xs">
+ <Mail size={12} aria-hidden="true" className={row.contactEmail ? 'text-success' : 'text-muted'} />
+ {row.contactEmail
+ ? <span className="text-muted truncate">{row.contactEmail}</span>
+ : row.contactEmailInferred
+ ? <span className="text-warning truncate">{row.contactEmailInferred} (inferita)</span>
+ : <span className="text-muted italic">contatto mancante</span>}
+ </div>
  <div className="grid grid-cols-3 gap-2 text-xs">
  <div><span className="block text-muted">Views</span><span className="text-body">{row.totals.views.toLocaleString('it-IT')}</span></div>
  <div><span className="block text-muted">Candidati</span><span className="text-body">{row.totals.candidates.toLocaleString('it-IT')}</span></div>
@@ -3177,21 +3285,178 @@ export default function AdminPanel() {
  <div><span className="block text-muted">Conv.</span><span className="text-body">{(row.totals.conversionRate * 100).toFixed(1)}%</span></div>
  <div><span className="block text-muted">Data</span><span className="text-body">{formatInsightsDate(row.generatedAt)}</span></div>
  </div>
+ <div className="grid grid-cols-2 gap-2">
+ <button
+ type="button"
+ onClick={() => openContactModal(row)}
+ className="inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-raised text-body text-sm font-medium justify-center"
+ aria-label={`Contatto e anteprima email per ${row.companyName}`}
+ >
+ <Mail size={14} aria-hidden="true" /> Email
+ </button>
  <a
  href={row.insightsUrl}
  target="_blank"
  rel="noopener noreferrer"
- className="inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-accent text-on-accent text-sm font-medium w-full justify-center"
+ className="inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-accent text-on-accent text-sm font-medium justify-center"
  aria-label={`Apri la pagina statistiche di ${row.companyName} come azienda`}
  >
- Apri come azienda <ExternalLink size={14} aria-hidden="true" />
+ Azienda <ExternalLink size={14} aria-hidden="true" />
  </a>
+ </div>
  </div>
  ))}
  {!insightsLoading && insightsFiltered.length === 0 && (
  <p className="text-center text-muted py-6">Nessuna azienda trovata.</p>
  )}
  </div>
+
+ {/* Contact + email-preview drawer */}
+ {contactModalRow && (
+ <div
+ className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 p-0 sm:p-4"
+ role="dialog"
+ aria-modal="true"
+ aria-label={`Contatto e anteprima email per ${contactModalRow.companyName}`}
+ onClick={closeContactModal}
+ >
+ <div
+ className="bg-surface w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-edge shadow-xl"
+ onClick={(e) => e.stopPropagation()}
+ >
+ {/* Header */}
+ <div className="sticky top-0 bg-surface border-b border-edge px-4 py-3 flex items-center justify-between gap-3">
+ <div className="min-w-0">
+ <h3 className="text-base font-bold text-strong truncate flex items-center gap-2">
+ <Building2 size={18} className="text-accent shrink-0" aria-hidden="true" />
+ {contactModalRow.companyName}
+ </h3>
+ <p className="text-xs text-muted">{contactModalRow.totals.candidates.toLocaleString('it-IT')} candidati · {contactModalRow.totals.views.toLocaleString('it-IT')} visite</p>
+ </div>
+ <button
+ type="button"
+ onClick={closeContactModal}
+ className="shrink-0 p-1.5 rounded-lg hover:bg-surface-alt text-muted"
+ aria-label="Chiudi"
+ >
+ <X size={18} aria-hidden="true" />
+ </button>
+ </div>
+
+ <div className="px-4 py-4 space-y-5">
+ {/* Contact editor */}
+ <section className="space-y-3">
+ <h4 className="text-sm font-semibold text-strong flex items-center gap-1.5">
+ <Pencil size={14} className="text-accent" aria-hidden="true" /> Contatto destinatario
+ </h4>
+ <label className="block text-xs text-subtle">
+ Email contatto
+ <input
+ type="email"
+ inputMode="email"
+ value={contactEmailDraft}
+ onChange={(e) => setContactEmailDraft(e.target.value)}
+ placeholder="es. hr@azienda.ch (vuoto = nessun invio)"
+ aria-label="Email contatto azienda"
+ className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm"
+ />
+ </label>
+ {contactModalRow.contactEmailInferred && !contactEmailDraft.trim() && (
+ <p className="text-[11px] text-warning">
+ Suggerimento inferito (mai inviato in automatico):{' '}
+ <button type="button" className="underline" onClick={() => setContactEmailDraft(contactModalRow.contactEmailInferred)}>
+ {contactModalRow.contactEmailInferred}
+ </button>
+ </p>
+ )}
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+ <label className="block text-xs text-subtle">
+ Nome contatto <span className="text-muted">(saluto email)</span>
+ <input
+ type="text"
+ value={contactNameDraft}
+ onChange={(e) => setContactNameDraft(e.target.value)}
+ placeholder="es. Denise"
+ aria-label="Nome contatto"
+ className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm"
+ />
+ </label>
+ <label className="block text-xs text-subtle">
+ Ruolo più cliccato <span className="text-muted">(personalizza)</span>
+ <input
+ type="text"
+ value={contactRoleDraft}
+ onChange={(e) => setContactRoleDraft(e.target.value)}
+ placeholder="es. Infermiere/a"
+ aria-label="Ruolo più cliccato"
+ className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm"
+ />
+ </label>
+ </div>
+ <div className="flex items-center gap-3 flex-wrap">
+ <button
+ type="button"
+ onClick={saveContact}
+ disabled={contactSaving}
+ className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-semibold transition-colors disabled:opacity-60"
+ >
+ {contactSaving ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
+ {contactSaving ? 'Salvataggio…' : 'Salva contatto'}
+ </button>
+ {contactSaveMsg && (
+ <span className={`text-xs ${contactSaveMsg.startsWith('✓') ? 'text-success' : 'text-danger'}`}>{contactSaveMsg}</span>
+ )}
+ </div>
+ </section>
+
+ {/* Email preview */}
+ <section className="space-y-3">
+ <h4 className="text-sm font-semibold text-strong flex items-center gap-1.5">
+ <Eye size={14} className="text-accent" aria-hidden="true" /> Anteprima email che invieremo
+ </h4>
+ <p className="text-[11px] text-muted">
+ Sequenza reale (4 touch) personalizzata coi dati sopra. Identica a ciò che invia lo script di outreach.
+ </p>
+ <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Touch della sequenza">
+ {contactPreviewTouches.map((t) => (
+ <button
+ key={t.touch}
+ type="button"
+ role="tab"
+ aria-selected={previewTouch === t.touch}
+ onClick={() => setPreviewTouch(t.touch)}
+ className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors border ${
+ previewTouch === t.touch
+ ? 'border-accent bg-accent-subtle text-accent'
+ : 'border-edge bg-surface-alt text-body hover:bg-surface-raised'
+ }`}
+ >
+ Touch {t.touch}{t.gapDays ? ` · +${t.gapDays}g` : ''}
+ </button>
+ ))}
+ </div>
+ {contactPreviewTouches.filter((t) => t.touch === previewTouch).map((t) => (
+ <div key={t.touch} className="rounded-lg border border-edge bg-surface-alt overflow-hidden">
+ <div className="px-3 py-2 border-b border-edge bg-surface-raised">
+ <span className="text-[10px] uppercase tracking-wide text-muted">Oggetto</span>
+ <div className="text-sm font-semibold text-strong">{t.subject}</div>
+ </div>
+ <pre className="px-3 py-3 text-sm text-body whitespace-pre-wrap font-sans leading-relaxed">{t.body}</pre>
+ </div>
+ ))}
+ <a
+ href={contactModalRow.insightsUrl}
+ target="_blank"
+ rel="noopener noreferrer"
+ className="inline-flex items-center gap-1 text-xs text-accent hover:underline"
+ >
+ Apri la pagina statistiche come la vede l’azienda <ExternalLink size={12} aria-hidden="true" />
+ </a>
+ </section>
+ </div>
+ </div>
+ </div>
+ )}
  </div>
  )}
 

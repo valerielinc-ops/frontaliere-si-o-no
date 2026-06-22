@@ -156,6 +156,68 @@ async function loadFirestoreSuppression() {
   return suppressed;
 }
 
+/**
+ * Read the Firestore-backed editable contacts written by the admin dashboard
+ * (collection `employer_contacts`, doc id = companyKey, via the
+ * adminEmployerInsights Cloud Function POST). Returns Map(companyKey → fields).
+ *
+ * Best-effort, same contract as loadFirestoreSuppression: missing SA / any error
+ * → empty Map (falls back to the local contacts.json). Admin edits made in the
+ * dashboard win over the local file so the recipient/personalization the admin
+ * fixed there actually reaches the send (no parallel source of truth).
+ */
+async function loadFirestoreContacts() {
+  const map = new Map();
+  try {
+    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+    if (!credPath || !fs.existsSync(credPath)) {
+      console.warn('↷ Firestore contacts: GOOGLE_APPLICATION_CREDENTIALS non impostato — uso solo contacts.json locale.');
+      return map;
+    }
+    const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
+    const { getFirestore } = await import('firebase-admin/firestore');
+    if (getApps().length === 0) {
+      const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
+      if (cred.project_id) {
+        initializeApp({ credential: cert(cred) });
+      } else {
+        initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
+      }
+    }
+    const db = getFirestore();
+    const snap = await db.collection('employer_contacts').get();
+    snap.forEach((doc) => {
+      const d = doc.data() || {};
+      const key = (d.companyKey || doc.id || '').trim();
+      if (key) map.set(key, d);
+    });
+    console.log(`📇 Firestore contacts: ${map.size} contatti editati dal pannello admin.`);
+  } catch (err) {
+    console.warn(`↷ Firestore contacts non disponibile (${err.message}) — uso solo contacts.json locale.`);
+  }
+  return map;
+}
+
+/**
+ * Merge admin-edited Firestore contacts over the local contacts.json: a non-empty
+ * Firestore field (email / contactName / topRole) overrides the local one; a
+ * cleared (empty) email from the dashboard also clears the local one. Mutates and
+ * returns `contacts`.
+ */
+function mergeFirestoreContacts(contacts, fsContacts) {
+  for (const [key, d] of fsContacts) {
+    const prev = contacts[key] || {};
+    const next = { ...prev };
+    // email: dashboard is authoritative — set non-empty, or clear when explicitly emptied.
+    if (typeof d.email === 'string') next.email = d.email.trim();
+    if (d.emailInferred !== undefined) next.emailInferred = String(d.emailInferred || '');
+    if (d.contactName) next.contactName = String(d.contactName);
+    if (d.topRole) next.topRole = String(d.topRole);
+    contacts[key] = next;
+  }
+  return contacts;
+}
+
 // ─────────────────────────────────────────────────────────────
 
 async function run() {
@@ -176,6 +238,10 @@ async function run() {
   const report = loadJson(reportPath, null);
   if (!report || !Array.isArray(report.employers)) { console.error(`report illeggibile: ${reportPath}`); process.exit(1); }
   const contacts = loadJson(contactsPath, {});
+  // Overlay admin-edited contacts (Firestore) on the local file so the recipient
+  // / personalization fixed in the dashboard actually reaches dry-run, test and
+  // real sends. Best-effort: no SA creds → no-op, local file is used as-is.
+  mergeFirestoreContacts(contacts, await loadFirestoreContacts());
   const sendLog = loadSendLog(logPath);
 
   const topExplicit = process.argv.includes('--top');
