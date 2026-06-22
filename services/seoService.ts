@@ -4105,6 +4105,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-erba-sintetica-scuole-ticino-rischi': { name: 'Scuole Ticino', path: '/articoli-frontaliere/erba-sintetica-scuole-ticino-rischi', parent: 'blog' },
     'blog-brexit-impatti-svizzera-ue': { name: 'Brexit Svizzera', path: '/articoli-svizzera/brexit-impatti-svizzera-ue/', parent: 'blog' },
     'blog-public-eye-denuncia-salari-on-ticino': { name: 'Salari On', path: '/articoli-frontaliere/public-eye-denuncia-salari-on-ticino', parent: 'blog' },
+    'blog-sicurezza-paziente-2026-svizzera': { name: 'Sicurezza Paziente 2026', path: '/articoli-svizzera/sicurezza-paziente-2026-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
