@@ -65,6 +65,13 @@ import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError } from './lib/ai-models.mjs';
+// Quota-free MT cascade (DeepL-free / Google / MyMemory / LibreTranslate /
+// local Opus-MT) — the SAME translator the job crawlers + FAQ batch use
+// (scripts/lib/dedicated-crawler-common.mjs, batch-add-faq-to-articles.mjs).
+// Routing article translation through it instead of the generation LLM frees
+// ~60% of per-article LLM calls for actual generation (the quota bottleneck).
+import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
+import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
@@ -4189,6 +4196,69 @@ ISTRUZIONI:
  * Translate article content from Italian to EN/DE/FR.
  * Called AFTER duplicate check to avoid wasting API calls on duplicates.
  */
+// ── Quota-free article translation (2026-06-22) ──────────────────────────
+// Route per-field translation through the dedicated free MT cascade
+// (freeTranslateWithRetry) instead of the generation LLM, so the LLM daily
+// quota is spent on GENERATION, not translation (~60% of per-article calls).
+// Opt-out: ARTICLE_TRANSLATE_FREE_MT=0 falls back to the legacy LLM path.
+// Masking / per-field logic lives in ./lib/article-free-mt.mjs (unit-testable;
+// this script runs main() on import so its internals can't be imported).
+const ARTICLE_TRANSLATE_FREE_MT = String(process.env.ARTICLE_TRANSLATE_FREE_MT ?? '1') !== '0';
+
+// Thin in-script wrapper: bind the lib field-translator to the prod MT cascade,
+// markdown repair, and logger. Returns '' on any failure so the caller's
+// per-field recovery (LLM retry → IT fallback) takes over.
+function freeMtField(text, sourceLang, targetLang, fieldType) {
+  return translateFieldFreeMt({
+    text,
+    sourceLang,
+    targetLang,
+    fieldType,
+    translate: freeTranslateWithRetry,
+    balanceMarkdown: balanceMarkdownMarkers,
+    onWarn: (msg) => console.error(`  ⚠️  ${msg} — recupero per-campo`),
+  });
+}
+
+// Free-MT replacement for translateContent: same return shape ({title, excerpt,
+// body1..3, faq?}) but each field via the quota-free cascade. Missing/failed
+// fields are simply omitted → the existing missing-field recovery loop in
+// translateArticle re-translates them (LLM) or falls back to IT.
+async function translateContentFreeMt(sourceLang, targetLang, targetLabel, sourceContent) {
+  console.error(`🌍 [${targetLabel}] Traduzione ${targetLang.toUpperCase()} via cascade MT gratuita (no quota LLM)...`);
+  const [title, excerpt, body1, body2, body3] = await Promise.all([
+    freeMtField(sourceContent.title, sourceLang, targetLang, 'title'),
+    freeMtField(sourceContent.excerpt, sourceLang, targetLang, 'description'),
+    freeMtField(sourceContent.body1, sourceLang, targetLang, 'description'),
+    freeMtField(sourceContent.body2, sourceLang, targetLang, 'description'),
+    freeMtField(sourceContent.body3, sourceLang, targetLang, 'description'),
+  ]);
+
+  let faq;
+  if (Array.isArray(sourceContent.faq) && sourceContent.faq.length > 0) {
+    try {
+      faq = await Promise.all(sourceContent.faq.map(async (item) => {
+        const q = await freeMtField(item?.q, sourceLang, targetLang, 'title');
+        const a = await freeMtField(item?.a, sourceLang, targetLang, 'description');
+        return { q: q || item?.q || '', a: a || item?.a || '' };
+      }));
+    } catch (err) {
+      console.error(`  ⚠️  free-MT ${targetLang}:faq fallita (${err?.message || err}) — fallback IT`);
+      faq = sourceContent.faq;
+    }
+  }
+
+  const out = {};
+  if (title) out.title = title;
+  if (excerpt) out.excerpt = excerpt;
+  if (body1) out.body1 = sanitizeBodyText(body1);
+  if (body2) out.body2 = sanitizeBodyText(body2);
+  if (body3) out.body3 = sanitizeBodyText(body3);
+  if (faq) out.faq = faq;
+  console.error(`  ✅ ${targetLang.toUpperCase()} (MT gratuita) completato`);
+  return out;
+}
+
 async function translateArticle(data) {
   async function callWithRetry(prompt, maxTokens, label) {
     const raw = await callLLM(
@@ -4233,6 +4303,13 @@ async function translateArticle(data) {
   }
 
   async function translateContent(sourceLang, targetLang, targetLabel, sourceContent) {
+    // Quota-free path: route through the dedicated free MT cascade so the LLM
+    // daily quota is reserved for generation. Per-field failures are omitted and
+    // recovered downstream (LLM retry → IT fallback), so this never degrades
+    // below the legacy path's worst case. Opt-out via ARTICLE_TRANSLATE_FREE_MT=0.
+    if (ARTICLE_TRANSLATE_FREE_MT) {
+      return translateContentFreeMt(sourceLang, targetLang, targetLabel, sourceContent);
+    }
     // Use scored chain (no model pinning) — falls back through all models automatically
     const langName = targetLang === 'en' ? 'inglese' : targetLang === 'de' ? 'tedesco' : 'francese';
     console.error(`🤖 [${targetLabel}] Traduzione ${targetLang.toUpperCase()} tramite catena AI...`);
