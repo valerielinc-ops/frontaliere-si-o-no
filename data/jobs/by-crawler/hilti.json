@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hilti",
-  "assembledAt": "2026-06-22T14:13:37.013Z",
+  "assembledAt": "2026-06-22T22:48:45.554Z",
   "jobs": [
     {
       "id": "hilti-14822-en",
@@ -33,7 +33,7 @@
       "url": "https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T14:13:34.967Z",
+      "crawledAt": "2026-06-22T22:48:43.345Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "St. Gallen",
@@ -59,6 +59,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.629Z",
+      "needsRetranslation": true,
       "salaryMin": 54000,
       "salaryMax": 91500,
       "baseSalary": {
@@ -103,7 +104,7 @@
       "url": "https://careers.hilti.group/en/jobs/14902-de/career-starter-marketing-sales-region-basel-100-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:13:34.966Z",
+      "crawledAt": "2026-06-22T22:48:43.343Z",
       "addressLocality": "Münchenstein",
       "postalCode": "",
       "addressRegion": "Basel",
@@ -153,6 +154,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.628Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -197,7 +199,7 @@
       "url": "https://careers.hilti.group/en/jobs/11963-en/intern-cybersecurity-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T14:13:34.964Z",
+      "crawledAt": "2026-06-22T22:48:43.342Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "St. Gallen",
@@ -267,7 +269,7 @@
       "url": "https://careers.hilti.group/en/jobs/16530-de/verkaufsberater-in-der-region-basel-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:13:34.963Z",
+      "crawledAt": "2026-06-22T22:48:43.341Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "Basel",
@@ -302,6 +304,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.626Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -330,7 +333,7 @@
       "title": "Technical Sales Engineer für die Region Bern (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Technical Sales Ingegnere per la Region Bern (m/w/d) 80-100%",
-        "en": "Technical Sales Engineer for the Bern region (m/f/d) 80-100 %",
+        "en": "Technical Sales Engineer für die Region Bern (m/w/d) 80-100%",
         "de": "Technical Sales Ingenieur für die Region Bern (m/w/d) 80-100%",
         "fr": "Technical Sales Ingénieur für die Region Bern (m/w/d) 80-100%"
       },
@@ -346,7 +349,7 @@
       "url": "https://careers.hilti.group/en/jobs/17006-de/technical-sales-engineer-fur-die-region-bern-m-w-d-80-100/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:13:34.962Z",
+      "crawledAt": "2026-06-22T22:48:43.340Z",
       "addressLocality": "Basel / Bern",
       "postalCode": "4001",
       "addressRegion": "Bern",
@@ -400,107 +403,6 @@
       }
     },
     {
-      "id": "hilti-17711-de",
-      "slug": "consulente-vendite-in-rete-regione-grigioni-senza-engadina-m-w-d-100-o-job-sharing-50-70-possibile-hilti-chur",
-      "slugByLocale": {
-        "it": "consulente-vendite-in-rete-regione-grigioni-senza-engadina-m-w-d-100-o-job-sharing-50-70-possibile-hilti-chur",
-        "en": "sales-representative-in-the-field-region-of-graubunden-without-engadin-m-w-d-100-or-job-sharing-50-70-possible-hilti",
-        "de": "verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing",
-        "fr": "vendeur-en-region-des-grisons-sans-engadine-m-w-d-100-ou-job-sharing-50-70-possible-hilti-chur"
-      },
-      "company": "Hilti",
-      "companyKey": "hilti",
-      "companyDomain": "hilti.group",
-      "title": "Verkaufsberater im Aussendienst, Region Graubünden ohne Engadin (m/w/d) (100% oder Jobsharing 50-70% möglich)",
-      "titleByLocale": {
-        "it": "Consulente Vendite in Rete, Regione Grigioni Senza Engadina (m/w/d) (100% o Job Sharing 50-70% possibile)",
-        "en": "Sales Representative in the Field, Region of Graubünden without Engadin (m/w/d) (100% or Job Sharing 50-70% possible)",
-        "de": "Verkaufsberater im Aussendienst, Region Graubünden ohne Engadin (m/w/d) (100% oder Jobsharing 50-70% möglich)",
-        "fr": "Vendeur en Région des Grisons sans Engadine (m/w/d) (100% ou Job Sharing 50-70% possible)"
-      },
-      "description": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Deine Stärke liegt im Präsentieren, Erklären, Beraten, Kontakte pflegen, Überzeugen und Verkaufen. Wichtig ist uns vor allem dein Mindset: Du gehst gerne proaktiv auf Kunden zu und möchtest eine nachhaltige Partnerschaft aufbauen. Unsere Kunden sind Fachleute aus dem Bau. Hier wird pragmatisch, bodenständig und «to-the-point» kommuniziert – genau dein Stil. Hier fühlst du dich wohl, hier passt du hinein und kannst dein Leistungspotenzial entfalten. Dafür bieten wir dir attraktive Arbeitsbedingungen in einem top-professionellen Umfeld. Dein Profil '- Hohes Mass an Eigenmotivation sowie gutes Selbst- und Zeitmanagement\n• Resultat- und Zielorientierung, strukturierte Arbeitsweise und vernetzte Denkweise\n• Freude am täglichen Kundenkontakt und daran, in deinem Bereich unterwegs zu sein\n• Berufserfahrung im Verkauf und Aussendienst von Vorteil\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern. Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-      "descriptionByLocale": {
-        "it": "Consulenza, convincere, vendere - la tua occasione nel settore edile! La tua forza sta nel presentare, spiegare, consigliare, mantenere i contatti, convincere e vendere. Ciò che ci importa di più è il tuo mindset: vai volentieri proattivamente dai clienti e vuoi costruire una partnership duratura. I nostri clienti sono esperti del settore edile. Qui si comunica in modo pragmatico, diretto e senza fronzoli - esattamente il tuo stile. Qui ti sentirai a tuo agio, qui ti sentirai a casa e potrai sviluppare il tuo potenziale. Per questo offriamo condizioni di lavoro atraenti in un ambiente professionale di alto livello. Il tuo profilo - Alta motivazione personale e buon autocontrollo e gestione del tempo\n• Orientamento ai risultati e ai obiettivi, stile di lavoro strutturato e pensiero connesso\n• Piacere del contatto quotidiano con i clienti e di essere in viaggio nel tuo settore\n• Esperienza lavorativa nel settore delle vendite e in rete è di vantaggio\n• Una formazione tecnica conclusa è di vantaggio\n• Buona conoscenza del tedesco e del tedesco svizzero\n• Patente di guida valida Impressum Se ci siamo attirati la tua attenzione, per lavorare con uno dei migliori datori di lavoro della Svizzera? Allora ci piacerebbe ricevere la tua candidatura online convincente. Le tue informazioni complete (lettera di motivazione, CV, attestati) le riceviamo esclusivamente tramite il nostro strumento di carriera online. La signora Joëlle Ochsner, HR Talent Partner, si compiace della tua lettera di candidatura e si offre di rispondere a eventuali domande: chteamhrrecruiting@hilti.com Cosa puoi aspettarti quando ti candidi a Hilti?\n• Ci impegniamo a esaminare tutte le candidature da un essere umano. Anche se nessuno è infallibile, ci impegniamo a mantenere il nostro approccio centrato sull'essere umano.\n• Non appena hai inviato la tua candidatura, riceverai notifiche automatiche dal nostro sistema (gestite dal nostro team di reclutamento).\n• Le candidature che non raggiungono l'intervista con un manager incaricato non ricevono un feedback personalizzato.\n• Puoi aspettarti di ricevere una risposta da noi entro 2-3 settimane (media) - indipendentemente dal risultato. Il processo di assunzione può durare tra 5 e 6 settimane. Ti auguriamo buona fortuna nel tuo processo di candidatura. Per ulteriori informazioni sulla candidatura e sull'intervista, consulta le nostre domande frequenti sulla carriera. Se si verificano problemi tecnici durante la candidatura, contattaci al mycareer-techsupport@hilti.com. Impegno per l'inclusione L'inclusione è un aspetto centrale della nostra attività, del nostro stile di leadership e del nostro sviluppo comune. Ci impegniamo attivamente per la diversità di pensiero e per un ambiente inclusivo per tutti e ovunque. Ci sforziamo di garantire che ogni voce sia ascoltata e che ogni membro del team si senta a proprio agio nel contribuire. Creando questo fondamento, rinforziamo i nostri team, l'innovazione e l'impatto, per migliorare insieme l'edilizia. Perché Hilti Hilti è un'azienda leader globale nell'innovazione edilizia con oltre 34.000 membri del team in 120 paesi. Il nostro obiettivo è migliorare l'edilizia. Per questo ci impegniamo a imparare, crescere e trovare nuove strade per ottenere un impatto duraturo. Ecco dove puoi portare le tue competenze, lavorare con un team globale e inclusivo e sfidarti in modo significativo. A Hilti puoi trasformare le tue idee in realtà e crescita attraverso un approccio mirato, passione e teamwork.",
-        "en": "Advise, convince, sell - your chance in the construction field! Your strength lies in presenting, explaining, advising, maintaining contacts, convincing and selling. What matters most to us is your mindset: you go proactively to customers and want to build a sustainable partnership. Our customers are construction experts. Here, we communicate in a practical, down-to-earth and to-the-point way - exactly your style. Here you will feel at ease, here you will fit in and can develop your performance potential. For this, we offer attractive working conditions in a top-professional environment. Your profile - High level of self-motivation and good self- and time management\n• Result- and goal-oriented, structured working style and connected thinking\n• Enjoy daily customer contact and being on the road in your area\n• Sales and field experience is an advantage\n• A completed technical education is an advantage\n• Fluent German and Swiss German knowledge\n• Valid driving license Impressum If we have piqued your interest in working with one of the best employers in Switzerland? Then we look forward to receiving your convincing online application. Your complete documents (cover letter, CV, certificates) we receive exclusively through our online career tool. Mrs. Joëlle Ochsner, HR Talent Partner, looks forward to your application and is happy to answer any questions: chteamhrrecruiting@hilti.com What can you expect when you apply to Hilti?\n• We commit to examining all applications from a human. Although no one is infallible, we stand by our human-centered approach.\n• As soon as you have submitted your application, you will receive automatic notifications from our system (managed by our recruitment team).\n• Applications that do not make it to the interview with a hiring manager will not receive personalized feedback.\n• You can expect to hear from us within 2-3 weeks (on average) - regardless of the outcome. The entire hiring process can take between 5 and 6 weeks. We wish you good luck in your application process. For more information on the application and the interview, please refer to our frequently asked questions about careers. If technical problems occur during the application, please contact mycareer-techsupport@hilti.com. Commitment to inclusion Inclusion is a central aspect of our work, our leadership style and our common growth. We actively engage in promoting diversity of thought and an inclusive environment for all and everywhere. We strive to ensure that every voice is heard and that every team member feels comfortable contributing. By creating this foundation, we strengthen our teams, innovation and impact, to improve the construction industry together. Why Hilti Hilti is a global leading company in construction innovation with over 34,000 team members in 120 countries. Our goal is to improve the construction industry. For this, we commit to learning, growing and finding new ways to achieve a lasting impact. Here you can bring your strengths, work with a global and inclusive team and challenge yourself meaningfully. At Hilti, you can transform your ideas into reality and growth through a targeted approach, passion and teamwork.",
-        "de": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Deine Stärke liegt im Präsentieren, Erklären, Beraten, Kontakte pflegen, Überzeugen und Verkaufen. Wichtig ist uns vor allem dein Mindset: Du gehst gerne proaktiv auf Kunden zu und möchtest eine nachhaltige Partnerschaft aufbauen. Unsere Kunden sind Fachleute aus dem Bau. Hier wird pragmatisch, bodenständig und «to-the-point» kommuniziert – genau dein Stil. Hier fühlst du dich wohl, hier passt du hinein und kannst dein Leistungspotenzial entfalten. Dafür bieten wir dir attraktive Arbeitsbedingungen in einem top-professionellen Umfeld. Dein Profil '- Hohes Mass an Eigenmotivation sowie gutes Selbst- und Zeitmanagement\n• Resultat- und Zielorientierung, strukturierte Arbeitsweise und vernetzte Denkweise\n• Freude am täglichen Kundenkontakt und daran, in deinem Bereich unterwegs zu sein\n• Berufserfahrung im Verkauf und Aussendienst von Vorteil\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern. Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-        "fr": "Conseiller, convaincre, vendre - votre chance dans le domaine de la construction ! Votre force réside dans la présentation, l'explication, le conseil, la maintenance des contacts, la conviction et la vente. Ce qui compte le plus pour nous, c'est votre mindset : vous allez proactivement vers les clients et vous voulez construire une partenariat durable. Nos clients sont des experts du domaine de la construction. Ici, on communique de manière pratique, terre-à-terre et directe - exactement votre style. Ici, vous vous sentirez à l'aise, ici, vous vous sentirez chez vous et vous pourrez développer votre potentiel de performance. Pour cela, nous offrons des conditions de travail attractives dans un environnement professionnel de haut niveau. Votre profil - Haut niveau de motivation personnelle et bonne gestion de soi et du temps\n• Orienté vers les résultats et les objectifs, style de travail structuré et pensée connectée\n• Jouir du contact quotidien avec les clients et d'être en route dans votre secteur\n• Expérience de vente et de vente en terrain est un avantage\n• Une formation technique complétée est un avantage\n• Connaissances fluides du français et du français suisse\n• Permis de conduire valide Impressum Si nous avons piqué votre intérêt pour travailler avec l'un des meilleurs employeurs de la Suisse ? Alors nous nous réjouissons de recevoir votre candidature en ligne convaincante. Vos documents complets (lettre de motivation, CV, attestations) nous les recevons exclusivement par notre outil de carrière en ligne. Madame Joëlle Ochsner, Responsable des talents RH, se réjouit de votre candidature et est heureuse de répondre à vos questions : chteamhrrecruiting@hilti.com Qu'est-ce que vous pouvez attendre lorsque vous postulez à Hilti ?\n• Nous nous engageons à examiner toutes les candidatures d'un être humain. Même si personne n'est infallible, nous nous engageons à maintenir notre approche centrée sur l'être humain.\n• Dès que vous avez soumis votre candidature, vous recevrez des notifications automatiques de notre système (gérées par notre équipe de recrutement).\n• Les candidatures qui ne parviennent pas à l'entretien avec un manager chargé ne recevront pas de feedback personnalisé.\n• Vous pouvez attendre d'entendre de nous dans les 2-3 semaines (en moyenne) - quel que soit le résultat. Le processus d'embauche peut durer entre 5 et 6 semaines. Nous vous souhaitons bonne chance dans votre processus de candidature. Pour plus d'informations sur la candidature et l'entretien, veuillez consulter nos questions fréquentes sur les carrières. Si des problèmes techniques se produisent pendant la candidature, veuillez contacter mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion L'inclusion est un aspect central de notre travail, de notre style de leadership et de notre croissance commune. Nous nous engageons activement à promouvoir la diversité de pensée et un environnement inclusif pour tous et partout. Nous nous efforçons de garantir que chaque voix est entendue et que chaque membre d'équipe se sent à l'aise pour contribuer. En créant cette fondation, nous renforçons nos équipes, l'innovation et l'impact, pour améliorer l'industrie de la construction ensemble. Pourquoi Hilti Hilti est une entreprise leader mondiale dans l'innovation de la construction avec plus de 34 000 membres d'équipe dans 120 pays. Notre objectif est d'améliorer l'industrie de la construction. Pour cela, nous nous engageons à apprendre, à grandir et à trouver de nouvelles voies pour obtenir un impact durable. Voici où vous pouvez apporter vos forces, travailler avec un équipe mondiale et inclusive et vous mettre en situation de défis significatifs. A Hilti, vous pouvez transformer vos idées en réalité et en croissance grâce à une approche ciblée, à la passion et au travail d'équipe."
-      },
-      "location": "Chur, Graubünden, Schweiz",
-      "canton": "GR",
-      "url": "https://careers.hilti.group/en/jobs/17711-de/verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing-50-70-moglich/",
-      "source": "Hilti Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:13:34.961Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Construction tools & fastening technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-30",
-      "applyUrl": "https://careers.hilti.group/en/jobs/17711-de/verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing-50-70-moglich/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Hohes Maß an Eigenmotivation und gutes Selbst- und Zeitmanagement",
-          "Resultat- und Zielorientierung, strukturierte Arbeitsweise und vernetzte Denkweise",
-          "Freude am täglichen Kundenkontakt und daran, in deinem Bereich unterwegs zu sein",
-          "Berufserfahrung im Verkauf und Aussendienst von Vorteil",
-          "Eine abgeschlossene technische Ausbildung von Vorteil",
-          "Fließende Deutsch- und Schweizerdeutschkenntnisse",
-          "Gültiger Führerausweis",
-          "Gutes Selbst- und Zeitmanagement"
-        ],
-        "en": [
-          "High level of self-motivation and good self- and time management",
-          "Result- and goal-oriented, structured working style and connected thinking",
-          "Enjoy daily customer contact and being on the road in your area",
-          "Sales and field experience is an advantage",
-          "A completed technical education is an advantage",
-          "Fluent German and Swiss German knowledge",
-          "Valid driving license",
-          "Good self- and time management"
-        ],
-        "fr": [
-          "Haut niveau de motivation personnelle et bonne gestion de soi et du temps",
-          "Orienté vers les résultats et les objectifs, style de travail structuré et pensée connectée",
-          "Jouir du contact quotidien avec les clients et d'être en route dans votre secteur",
-          "Expérience de vente et de vente en terrain est un avantage",
-          "Une formation technique complétée est un avantage",
-          "Connaissances fluides du français et du français suisse",
-          "Permis de conduire valide",
-          "Bonne gestion de soi et du temps"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:55:38.618Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hilti-17041-de",
       "slug": "consulente-di-vendita-hilti-store-munchenstein-80-100-m-f-d-jobsharing-possibile-hilti-basel-munchenstein",
       "slugByLocale": {
@@ -531,7 +433,7 @@
       "url": "https://careers.hilti.group/en/jobs/17041-de/verkaufsberater-in-hilti-store-munchenstein-80-100-m-w-d-m-w-d-jobsharing-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:13:34.961Z",
+      "crawledAt": "2026-06-22T22:48:43.339Z",
       "addressLocality": "Basel | Münchenstein",
       "postalCode": "",
       "addressRegion": "Basel",
@@ -588,6 +490,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.619Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -597,6 +500,108 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hilti-17711-de",
+      "slug": "consulente-vendite-in-rete-regione-grigioni-senza-engadina-m-w-d-100-o-job-sharing-50-70-possibile-hilti-chur",
+      "slugByLocale": {
+        "it": "consulente-vendite-in-rete-regione-grigioni-senza-engadina-m-w-d-100-o-job-sharing-50-70-possibile-hilti-chur",
+        "en": "sales-representative-in-the-field-region-of-graubunden-without-engadin-m-w-d-100-or-job-sharing-50-70-possible-hilti",
+        "de": "verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing",
+        "fr": "vendeur-en-region-des-grisons-sans-engadine-m-w-d-100-ou-job-sharing-50-70-possible-hilti-chur"
+      },
+      "company": "Hilti",
+      "companyKey": "hilti",
+      "companyDomain": "hilti.group",
+      "title": "Verkaufsberater im Aussendienst, Region Graubünden ohne Engadin (m/w/d) (100% oder Jobsharing 50-70% möglich)",
+      "titleByLocale": {
+        "it": "Consulente Vendite in Rete, Regione Grigioni Senza Engadina (m/w/d) (100% o Job Sharing 50-70% possibile)",
+        "en": "Sales Representative in the Field, Region of Graubünden without Engadin (m/w/d) (100% or Job Sharing 50-70% possible)",
+        "de": "Verkaufsberater im Aussendienst, Region Graubünden ohne Engadin (m/w/d) (100% oder Jobsharing 50-70% möglich)",
+        "fr": "Vendeur en Région des Grisons sans Engadine (m/w/d) (100% ou Job Sharing 50-70% possible)"
+      },
+      "description": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Deine Stärke liegt im Präsentieren, Erklären, Beraten, Kontakte pflegen, Überzeugen und Verkaufen. Wichtig ist uns vor allem dein Mindset: Du gehst gerne proaktiv auf Kunden zu und möchtest eine nachhaltige Partnerschaft aufbauen. Unsere Kunden sind Fachleute aus dem Bau. Hier wird pragmatisch, bodenständig und «to-the-point» kommuniziert – genau dein Stil. Hier fühlst du dich wohl, hier passt du hinein und kannst dein Leistungspotenzial entfalten. Dafür bieten wir dir attraktive Arbeitsbedingungen in einem top-professionellen Umfeld. Dein Profil '- Hohes Mass an Eigenmotivation sowie gutes Selbst- und Zeitmanagement\n• Resultat- und Zielorientierung, strukturierte Arbeitsweise und vernetzte Denkweise\n• Freude am täglichen Kundenkontakt und daran, in deinem Bereich unterwegs zu sein\n• Berufserfahrung im Verkauf und Aussendienst von Vorteil\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern. Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+      "descriptionByLocale": {
+        "it": "Consulenza, convincere, vendere - la tua occasione nel settore edile! La tua forza sta nel presentare, spiegare, consigliare, mantenere i contatti, convincere e vendere. Ciò che ci importa di più è il tuo mindset: vai volentieri proattivamente dai clienti e vuoi costruire una partnership duratura. I nostri clienti sono esperti del settore edile. Qui si comunica in modo pragmatico, diretto e senza fronzoli - esattamente il tuo stile. Qui ti sentirai a tuo agio, qui ti sentirai a casa e potrai sviluppare il tuo potenziale. Per questo offriamo condizioni di lavoro atraenti in un ambiente professionale di alto livello. Il tuo profilo - Alta motivazione personale e buon autocontrollo e gestione del tempo\n• Orientamento ai risultati e ai obiettivi, stile di lavoro strutturato e pensiero connesso\n• Piacere del contatto quotidiano con i clienti e di essere in viaggio nel tuo settore\n• Esperienza lavorativa nel settore delle vendite e in rete è di vantaggio\n• Una formazione tecnica conclusa è di vantaggio\n• Buona conoscenza del tedesco e del tedesco svizzero\n• Patente di guida valida Impressum Se ci siamo attirati la tua attenzione, per lavorare con uno dei migliori datori di lavoro della Svizzera? Allora ci piacerebbe ricevere la tua candidatura online convincente. Le tue informazioni complete (lettera di motivazione, CV, attestati) le riceviamo esclusivamente tramite il nostro strumento di carriera online. La signora Joëlle Ochsner, HR Talent Partner, si compiace della tua lettera di candidatura e si offre di rispondere a eventuali domande: chteamhrrecruiting@hilti.com Cosa puoi aspettarti quando ti candidi a Hilti?\n• Ci impegniamo a esaminare tutte le candidature da un essere umano. Anche se nessuno è infallibile, ci impegniamo a mantenere il nostro approccio centrato sull'essere umano.\n• Non appena hai inviato la tua candidatura, riceverai notifiche automatiche dal nostro sistema (gestite dal nostro team di reclutamento).\n• Le candidature che non raggiungono l'intervista con un manager incaricato non ricevono un feedback personalizzato.\n• Puoi aspettarti di ricevere una risposta da noi entro 2-3 settimane (media) - indipendentemente dal risultato. Il processo di assunzione può durare tra 5 e 6 settimane. Ti auguriamo buona fortuna nel tuo processo di candidatura. Per ulteriori informazioni sulla candidatura e sull'intervista, consulta le nostre domande frequenti sulla carriera. Se si verificano problemi tecnici durante la candidatura, contattaci al mycareer-techsupport@hilti.com. Impegno per l'inclusione L'inclusione è un aspetto centrale della nostra attività, del nostro stile di leadership e del nostro sviluppo comune. Ci impegniamo attivamente per la diversità di pensiero e per un ambiente inclusivo per tutti e ovunque. Ci sforziamo di garantire che ogni voce sia ascoltata e che ogni membro del team si senta a proprio agio nel contribuire. Creando questo fondamento, rinforziamo i nostri team, l'innovazione e l'impatto, per migliorare insieme l'edilizia. Perché Hilti Hilti è un'azienda leader globale nell'innovazione edilizia con oltre 34.000 membri del team in 120 paesi. Il nostro obiettivo è migliorare l'edilizia. Per questo ci impegniamo a imparare, crescere e trovare nuove strade per ottenere un impatto duraturo. Ecco dove puoi portare le tue competenze, lavorare con un team globale e inclusivo e sfidarti in modo significativo. A Hilti puoi trasformare le tue idee in realtà e crescita attraverso un approccio mirato, passione e teamwork.",
+        "en": "Advise, convince, sell - your chance in the construction field! Your strength lies in presenting, explaining, advising, maintaining contacts, convincing and selling. What matters most to us is your mindset: you go proactively to customers and want to build a sustainable partnership. Our customers are construction experts. Here, we communicate in a practical, down-to-earth and to-the-point way - exactly your style. Here you will feel at ease, here you will fit in and can develop your performance potential. For this, we offer attractive working conditions in a top-professional environment. Your profile - High level of self-motivation and good self- and time management\n• Result- and goal-oriented, structured working style and connected thinking\n• Enjoy daily customer contact and being on the road in your area\n• Sales and field experience is an advantage\n• A completed technical education is an advantage\n• Fluent German and Swiss German knowledge\n• Valid driving license Impressum If we have piqued your interest in working with one of the best employers in Switzerland? Then we look forward to receiving your convincing online application. Your complete documents (cover letter, CV, certificates) we receive exclusively through our online career tool. Mrs. Joëlle Ochsner, HR Talent Partner, looks forward to your application and is happy to answer any questions: chteamhrrecruiting@hilti.com What can you expect when you apply to Hilti?\n• We commit to examining all applications from a human. Although no one is infallible, we stand by our human-centered approach.\n• As soon as you have submitted your application, you will receive automatic notifications from our system (managed by our recruitment team).\n• Applications that do not make it to the interview with a hiring manager will not receive personalized feedback.\n• You can expect to hear from us within 2-3 weeks (on average) - regardless of the outcome. The entire hiring process can take between 5 and 6 weeks. We wish you good luck in your application process. For more information on the application and the interview, please refer to our frequently asked questions about careers. If technical problems occur during the application, please contact mycareer-techsupport@hilti.com. Commitment to inclusion Inclusion is a central aspect of our work, our leadership style and our common growth. We actively engage in promoting diversity of thought and an inclusive environment for all and everywhere. We strive to ensure that every voice is heard and that every team member feels comfortable contributing. By creating this foundation, we strengthen our teams, innovation and impact, to improve the construction industry together. Why Hilti Hilti is a global leading company in construction innovation with over 34,000 team members in 120 countries. Our goal is to improve the construction industry. For this, we commit to learning, growing and finding new ways to achieve a lasting impact. Here you can bring your strengths, work with a global and inclusive team and challenge yourself meaningfully. At Hilti, you can transform your ideas into reality and growth through a targeted approach, passion and teamwork.",
+        "de": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Deine Stärke liegt im Präsentieren, Erklären, Beraten, Kontakte pflegen, Überzeugen und Verkaufen. Wichtig ist uns vor allem dein Mindset: Du gehst gerne proaktiv auf Kunden zu und möchtest eine nachhaltige Partnerschaft aufbauen. Unsere Kunden sind Fachleute aus dem Bau. Hier wird pragmatisch, bodenständig und «to-the-point» kommuniziert – genau dein Stil. Hier fühlst du dich wohl, hier passt du hinein und kannst dein Leistungspotenzial entfalten. Dafür bieten wir dir attraktive Arbeitsbedingungen in einem top-professionellen Umfeld. Dein Profil '- Hohes Mass an Eigenmotivation sowie gutes Selbst- und Zeitmanagement\n• Resultat- und Zielorientierung, strukturierte Arbeitsweise und vernetzte Denkweise\n• Freude am täglichen Kundenkontakt und daran, in deinem Bereich unterwegs zu sein\n• Berufserfahrung im Verkauf und Aussendienst von Vorteil\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern. Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "fr": "Conseiller, convaincre, vendre - votre chance dans le domaine de la construction ! Votre force réside dans la présentation, l'explication, le conseil, la maintenance des contacts, la conviction et la vente. Ce qui compte le plus pour nous, c'est votre mindset : vous allez proactivement vers les clients et vous voulez construire une partenariat durable. Nos clients sont des experts du domaine de la construction. Ici, on communique de manière pratique, terre-à-terre et directe - exactement votre style. Ici, vous vous sentirez à l'aise, ici, vous vous sentirez chez vous et vous pourrez développer votre potentiel de performance. Pour cela, nous offrons des conditions de travail attractives dans un environnement professionnel de haut niveau. Votre profil - Haut niveau de motivation personnelle et bonne gestion de soi et du temps\n• Orienté vers les résultats et les objectifs, style de travail structuré et pensée connectée\n• Jouir du contact quotidien avec les clients et d'être en route dans votre secteur\n• Expérience de vente et de vente en terrain est un avantage\n• Une formation technique complétée est un avantage\n• Connaissances fluides du français et du français suisse\n• Permis de conduire valide Impressum Si nous avons piqué votre intérêt pour travailler avec l'un des meilleurs employeurs de la Suisse ? Alors nous nous réjouissons de recevoir votre candidature en ligne convaincante. Vos documents complets (lettre de motivation, CV, attestations) nous les recevons exclusivement par notre outil de carrière en ligne. Madame Joëlle Ochsner, Responsable des talents RH, se réjouit de votre candidature et est heureuse de répondre à vos questions : chteamhrrecruiting@hilti.com Qu'est-ce que vous pouvez attendre lorsque vous postulez à Hilti ?\n• Nous nous engageons à examiner toutes les candidatures d'un être humain. Même si personne n'est infallible, nous nous engageons à maintenir notre approche centrée sur l'être humain.\n• Dès que vous avez soumis votre candidature, vous recevrez des notifications automatiques de notre système (gérées par notre équipe de recrutement).\n• Les candidatures qui ne parviennent pas à l'entretien avec un manager chargé ne recevront pas de feedback personnalisé.\n• Vous pouvez attendre d'entendre de nous dans les 2-3 semaines (en moyenne) - quel que soit le résultat. Le processus d'embauche peut durer entre 5 et 6 semaines. Nous vous souhaitons bonne chance dans votre processus de candidature. Pour plus d'informations sur la candidature et l'entretien, veuillez consulter nos questions fréquentes sur les carrières. Si des problèmes techniques se produisent pendant la candidature, veuillez contacter mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion L'inclusion est un aspect central de notre travail, de notre style de leadership et de notre croissance commune. Nous nous engageons activement à promouvoir la diversité de pensée et un environnement inclusif pour tous et partout. Nous nous efforçons de garantir que chaque voix est entendue et que chaque membre d'équipe se sent à l'aise pour contribuer. En créant cette fondation, nous renforçons nos équipes, l'innovation et l'impact, pour améliorer l'industrie de la construction ensemble. Pourquoi Hilti Hilti est une entreprise leader mondiale dans l'innovation de la construction avec plus de 34 000 membres d'équipe dans 120 pays. Notre objectif est d'améliorer l'industrie de la construction. Pour cela, nous nous engageons à apprendre, à grandir et à trouver de nouvelles voies pour obtenir un impact durable. Voici où vous pouvez apporter vos forces, travailler avec un équipe mondiale et inclusive et vous mettre en situation de défis significatifs. A Hilti, vous pouvez transformer vos idées en réalité et en croissance grâce à une approche ciblée, à la passion et au travail d'équipe."
+      },
+      "location": "Chur, Graubünden, Schweiz",
+      "canton": "GR",
+      "url": "https://careers.hilti.group/en/jobs/17711-de/verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing-50-70-moglich/",
+      "source": "Hilti Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-22T22:48:43.338Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Construction tools & fastening technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://careers.hilti.group/en/jobs/17711-de/verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing-50-70-moglich/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Hohes Maß an Eigenmotivation und gutes Selbst- und Zeitmanagement",
+          "Resultat- und Zielorientierung, strukturierte Arbeitsweise und vernetzte Denkweise",
+          "Freude am täglichen Kundenkontakt und daran, in deinem Bereich unterwegs zu sein",
+          "Berufserfahrung im Verkauf und Aussendienst von Vorteil",
+          "Eine abgeschlossene technische Ausbildung von Vorteil",
+          "Fließende Deutsch- und Schweizerdeutschkenntnisse",
+          "Gültiger Führerausweis",
+          "Gutes Selbst- und Zeitmanagement"
+        ],
+        "en": [
+          "High level of self-motivation and good self- and time management",
+          "Result- and goal-oriented, structured working style and connected thinking",
+          "Enjoy daily customer contact and being on the road in your area",
+          "Sales and field experience is an advantage",
+          "A completed technical education is an advantage",
+          "Fluent German and Swiss German knowledge",
+          "Valid driving license",
+          "Good self- and time management"
+        ],
+        "fr": [
+          "Haut niveau de motivation personnelle et bonne gestion de soi et du temps",
+          "Orienté vers les résultats et les objectifs, style de travail structuré et pensée connectée",
+          "Jouir du contact quotidien avec les clients et d'être en route dans votre secteur",
+          "Expérience de vente et de vente en terrain est un avantage",
+          "Une formation technique complétée est un avantage",
+          "Connaissances fluides du français et du français suisse",
+          "Permis de conduire valide",
+          "Bonne gestion de soi et du temps"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:38.618Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -632,7 +637,7 @@
       "url": "https://careers.hilti.group/en/jobs/16292-de/verkaufsberater-im-aussendienst-grossraum-luzern-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:13:34.960Z",
+      "crawledAt": "2026-06-22T22:48:43.337Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "Zentralschweiz",
@@ -688,6 +693,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.617Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -732,7 +738,7 @@
       "url": "https://careers.hilti.group/en/jobs/17921-de/bauingenieur-im-aussendienst-in-der-region-ostschweiz-st-gallen-chur-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:13:34.959Z",
+      "crawledAt": "2026-06-22T22:48:43.336Z",
       "addressLocality": "Ostschweiz St.Gallen / Chur",
       "postalCode": "7000",
       "addressRegion": "St. Gallen",
@@ -828,7 +834,7 @@
       "url": "https://careers.hilti.group/en/jobs/18312-fr/inside-sales-account-manager-en-francais-h-f-d-100-ou-possibilite-de-jobsharing-50-70/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:13:34.958Z",
+      "crawledAt": "2026-06-22T22:48:43.335Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Adliswil / Zurich",
@@ -854,6 +860,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.614Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -898,7 +905,7 @@
       "url": "https://careers.hilti.group/en/jobs/12079-de/verkaufsberater-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:13:34.956Z",
+      "crawledAt": "2026-06-22T22:48:43.333Z",
       "addressLocality": "Thun, Spiez, Interlaken",
       "postalCode": "3600",
       "addressRegion": "Berner Oberland",
@@ -955,6 +962,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.563Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -999,7 +1007,7 @@
       "url": "https://careers.hilti.group/en/jobs/18313-fr/conseiller-de-vente-en-externe-lausanne-h-f-d-100-ou-possibilite-de-jobsharing/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:13:34.954Z",
+      "crawledAt": "2026-06-22T22:48:43.331Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Suisse romande",
@@ -1082,7 +1090,7 @@
       "url": "https://careers.hilti.group/en/jobs/16790-fr/comptable-h-f-d-50-70/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:13:34.952Z",
+      "crawledAt": "2026-06-22T22:48:43.329Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Adliswil / Zurich",
@@ -1111,6 +1119,7 @@
         "comptable-h-f-d-50-70-hilti-ch"
       ],
       "firstSeenAt": "2026-06-17T13:06:31.271Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
