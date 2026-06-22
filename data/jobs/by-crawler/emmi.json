@@ -4219,12 +4219,12 @@
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "gestione-account-emmi-luzern-luzern",
+      "slug": "account-manager-emmi-ch",
       "slugByLocale": {
-        "it": "gestione-account-emmi-luzern-luzern",
+        "it": "account-manager-emmi-ch",
         "en": "account-manager-emmi-luzern",
         "de": "account-manager-emmi-ch",
-        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
+        "fr": "account-manager-emmi-ch"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -4282,13 +4282,16 @@
         ]
       },
       "previousSlugs": [
-        "account-manager-emmi-ch"
+        "gestione-account-emmi-luzern-luzern",
+        "gestionnaire-de-compte-emmi-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gestione-account-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ],
         "fr": [
+          "gestionnaire-de-compte-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ]
       },
@@ -4459,8 +4462,7 @@
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs"
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4905,8 +4907,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "conduttore-della-macchina-in-emmi-emmen",
-        "conducteur-conductrice-de-machines-emmi-emmen",
-        "maschinenfuhrer-in-emmi-emmen-cegxx1"
+        "conducteur-conductrice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5024,12 +5025,12 @@
     },
     {
       "id": "emmi-53cefdbcffdf",
-      "slug": "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau",
+      "slug": "anlagenfuhrer-in-mischerei-emmi-ch",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-mischerei-emmi-ch",
-        "it": "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau",
-        "en": "plant-manager-in-mixing-plant-emmi-suhr-aargau",
-        "fr": "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau"
+        "it": "anlagenfuhrer-in-mischerei-emmi-ch",
+        "en": "anlagenfuhrer-in-mischerei-emmi-ch",
+        "fr": "anlagenfuhrer-in-mischerei-emmi-ch"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5044,9 +5045,9 @@
       "description": "• Du richtest deine vielseitigen Anlagen ein im Bereich Annahme und Mischerei und kontrollierst die Produktionsprozesse nach den Vorgaben.\n\n• Die zuverlässige Bedienung und Einhaltung der Hygiene- und Sicherheitsvorschriften liegen dir und du schaffst es Produktverluste oder Stillstände an der Linie zu minimieren und zu beheben.\n\n• Bevor du deinen wohlverdienten Feierabend geniesst bist du bedacht, eine saubere, genaue und gut dokumentierte Schichtübergabe zu machen.\n\n• Dein innovatives Denken ermöglichen es dir Verbesserungsvorschläge anzubringen um die Prozessoptimierung voranzubringen.\n\n• Du verfügst über eine abgeschlossene Ausbildung im Lebensmittelbereich (Milch- oder Lebensmitteltechnologe /-technologin, Koch, Metzger, etc.) und bringst vielleicht schon erste Erfahrung als AnlagenführerIn mit.\n\n• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.\n\n• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.\n\n• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP).\n\n• Deine körperliche und geistige Fitness motiviert und befähigt dich zu Höchstleistungen, du bist belastbar und kommst auch in Stresssituationen nicht aus der Ruhe.",
       "descriptionByLocale": {
         "de": "• Du richtest deine vielseitigen Anlagen ein im Bereich Annahme und Mischerei und kontrollierst die Produktionsprozesse nach den Vorgaben.\n\n• Die zuverlässige Bedienung und Einhaltung der Hygiene- und Sicherheitsvorschriften liegen dir und du schaffst es Produktverluste oder Stillstände an der Linie zu minimieren und zu beheben.\n\n• Bevor du deinen wohlverdienten Feierabend geniesst bist du bedacht, eine saubere, genaue und gut dokumentierte Schichtübergabe zu machen.\n\n• Dein innovatives Denken ermöglichen es dir Verbesserungsvorschläge anzubringen um die Prozessoptimierung voranzubringen.\n\n• Du verfügst über eine abgeschlossene Ausbildung im Lebensmittelbereich (Milch- oder Lebensmitteltechnologe /-technologin, Koch, Metzger, etc.) und bringst vielleicht schon erste Erfahrung als AnlagenführerIn mit.\n\n• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.\n\n• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.\n\n• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP).\n\n• Deine körperliche und geistige Fitness motiviert und befähigt dich zu Höchstleistungen, du bist belastbar und kommst auch in Stresssituationen nicht aus der Ruhe.",
-        "it": "• I sistemi di controllo e controllo dei processi produttivi sono i vostri sistemi di controllo e controllo del processo di accettazione e miscelazione, in base alle specifiche. • Il funzionamento affidabile e la conformità alle norme igieniche e di sicurezza sono i vostri e potete ridurre al minimo e correggere le perdite di prodotto o i tempi di fermo sulla linea. • Prima di godervi la serata di lavoro meritata, siete attenti a effettuare un trasferimento di turno pulito, accurato e ben documentato. • Il vostro pensiero innovativo vi permette di mettere in suggerimenti per migliorare al fine di accelerare l'ottimizzazione dei processi.\n\n• Hai una formazione completa nel settore alimentare (latte o tecnologo alimentare / tecnologo, cuoco, mitzger, ecc) e forse già avere la vostra prima esperienza come leader di impianti. • Mostra la tua flessibilità nella volontà di lavorare in 4 strati. • Si padroneggia la lingua tedesca in parole e scrittura e hanno un tocco tecnico. • Si impara rapidamente e presto gestire il funzionamento dei sistemi operativi (MES/SAP).\n\n• Il vostro fitness fisico e mentale è di duecentosettantasette anni e vi permette di eseguire al massimo livello, siete resistenti e non uscite dalla pace anche in situazioni di stress.",
+        "it": "• I sistemi di controllo e controllo dei processi produttivi sono i vostri sistemi di controllo e controllo del prodotto in base alle specifiche. • Il funzionamento affidabile e la conformità alle norme igieniche e di sicurezza sono i vostri e potete ridurre al minimo e correggere le perdite di prodotto o i tempi di fermo sulla linea. • Prima di godervi la serata di lavoro meritata, siete attenti a effettuare un trasferimento pulito, accurato e ben documentato del turno. • Il vostro pensiero innovativo vi permette di mettere in suggerimenti per migliorare al fine di accelerare l'ottimizzazione del processo.\n\n• Hai una formazione completa nel settore alimentare (latte o tecnologo alimentare / tecnologo, cuoco, mitzger, ecc) e forse già avere la vostra prima esperienza come leader di una pianta. • Mostra la tua flessibilità nella volontà di lavorare in 4 strati. • Si padroneggia la lingua tedesca in parole e scrittura e hanno un tocco tecnico. • Si impara rapidamente e presto gestire il funzionamento dei sistemi operativi (MES/SAP).\n\n• Il vostro fitness fisico e mentale è di duecentosettantasette anni e vi permette di eseguire al massimo livello, siete resistenti e non uscite dalla pace anche in situazioni di stress.",
         "en": "• You set up your versatile systems in the area of acceptance and mixing and control the production processes according to the specifications. • Reliable operation and compliance with hygiene and safety regulations are yours and you can minimize and fix product losses or downtimes on the line. • Before enjoying your well-deserved work evening, you are careful to make a clean, accurate and well-documented shift transfer. • Your innovative thinking allows you to put in suggestions for improvement in order to advance process optimization.\n\n• You have a complete education in the food sector (milk or food technologist / technologist, cook, mitzger, etc.) and perhaps already have your first experience as a plant leader. • You show your flexibility in your willingness to work in 4-layers. • You master the German language in word and writing and have a technical flair. • You learn quickly and soon manage the operation of the operating systems (MES/SAP).\n\n• Your physical and mental fitness motivates and enables you to perform at maximum levels, you are resilient and do not get out of peace even in stress situations.",
-        "fr": "• Vous avez mis en place vos systèmes polyvalents dans le domaine de l'acceptation et du mélange et contrôlez les processus de production selon les spécifications. • Fonctionnement fiable et conformité aux règles d'hygiène et de sécurité sont les vôtres et vous pouvez minimiser et fixer les pertes ou les temps d'arrêt sur la ligne. • Avant de profiter de votre soirée bien méritée de travail, vous faites attention à faire un transfert de poste propre, précis et bien documenté. • Votre pensée innovante vous permet de proposer des améliorations afin d'améliorer l'optimisation des processus.\n\n• Vous avez une formation complète dans le secteur alimentaire (technologue/technologue du lait ou de l'alimentation, cuisinier, mitsger, etc.) et avez peut-être déjà votre première expérience en tant que leader d'usine. • Vous montrez votre flexibilité dans votre volonté de travailler en 4 couches. • Vous maîtrisez l'allemand en paroles et en écriture et avez un style technique. • Vous apprenez rapidement et rapidement à gérer le fonctionnement des systèmes d'exploitation (MES/SAP).\n\n• Votre condition physique et mentale motive et vous permet de réaliser à des niveaux maximums, vous êtes résilient et ne sortez pas de la paix même dans les situations de stress."
+        "fr": "• Vous avez mis en place vos systèmes polyvalents dans le domaine de l'acceptation et du mélange et contrôlez les processus de production selon les spécifications. • Fonctionnement fiable et conformité aux règles d'hygiène et de sécurité sont les vôtres et vous pouvez minimiser et fixer les pertes de produits ou les temps d'arrêt sur la ligne. • Avant de profiter de votre soirée bien méritée de travail, vous faites attention à faire un transfert de poste propre, précis et bien documenté. • Votre pensée innovante vous permet de proposer des améliorations afin d'améliorer l'optimisation des processus.\n\n• Vous avez une formation complète dans le secteur alimentaire (technologue/technologue du lait ou de l'alimentation, cuisinier, mitsger, etc.) et avez peut-être déjà votre première expérience en tant que leader d'usine. • Vous montrez votre flexibilité dans votre volonté de travailler en 4 couches. • Vous maîtrisez l'allemand en paroles et en écriture et avez un style technique. • Vous apprenez rapidement et rapidement à gérer le fonctionnement des systèmes d'exploitation (MES/SAP).\n\n• Votre condition physique et mentale motive et vous permet de réaliser à des niveaux maximums, vous êtes résilient et ne sortez pas de la paix même dans les situations de stress."
       },
       "location": "Suhr, Aargau",
       "canton": "AG",
@@ -5096,24 +5097,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T13:57:35.181Z",
-      "previousSlugs": [
-        "anlagenfuhrer-in-mischerei-emmi-ch",
-        "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
-        "plant-manager-mixing-plant-emmi-suhr",
-        "conducteur-d-installation-en-melange-emmi-suhr"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-mischerei-emmi-ch"
-        ],
-        "en": [
-          "anlagenfuhrer-in-mischerei-emmi-ch"
-        ],
-        "fr": [
-          "anlagenfuhrer-in-mischerei-emmi-ch"
-        ]
-      }
+      "firstSeenAt": "2026-06-22T13:57:35.181Z"
     }
   ]
 }

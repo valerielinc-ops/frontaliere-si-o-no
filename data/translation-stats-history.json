@@ -11398,5 +11398,119 @@
         "pending": 3
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-22T16:53:26.773Z",
+    "label": "before",
+    "total": 17113,
+    "needsRetranslation": 6855,
+    "suppressed": 578,
+    "incomplete": 1320,
+    "complete": 15793,
+    "missingByLocale": {
+      "it": 622,
+      "en": 539,
+      "de": 669,
+      "fr": 356
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 837
+      },
+      {
+        "company": "Manor AG",
+        "pending": 115
+      },
+      {
+        "company": "Elsa Group",
+        "pending": 46
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 32
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Geberit",
+        "pending": 21
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 19
+      },
+      {
+        "company": "Denner",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Decathlon",
+        "pending": 12
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-22T21:06:09.688Z",
+    "label": "after",
+    "total": 17113,
+    "needsRetranslation": 2718,
+    "suppressed": 578,
+    "incomplete": 1203,
+    "complete": 15910,
+    "missingByLocale": {
+      "it": 507,
+      "en": 427,
+      "de": 643,
+      "fr": 259
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 837
+      },
+      {
+        "company": "Manor AG",
+        "pending": 115
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Geberit",
+        "pending": 20
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 16
+      },
+      {
+        "company": "Denner",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 13
+      },
+      {
+        "company": "Decathlon",
+        "pending": 12
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 12
+      }
+    ]
   }
 ]
