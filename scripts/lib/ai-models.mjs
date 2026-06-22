@@ -704,7 +704,9 @@ function getApiModelId(model) {
 /** Get the API key for a given provider */
 function getApiKeyForProvider(provider) {
   switch (provider) {
-    case PROVIDER.GITHUB:      return getGhModelsPat();
+    // First available PAT (primary or any extra) — so a config that supplies
+    // only GH_MODELS_PAT_2 still registers GitHub as available to the gate.
+    case PROVIDER.GITHUB:      return getGhModelsPats()[0] || '';
     case PROVIDER.GEMINI:      return getGeminiApiKey();
     case PROVIDER.GROQ:        return getGroqApiKey();
     case PROVIDER.OPENROUTER:  return getOpenRouterApiKey();
@@ -2286,7 +2288,11 @@ async function _callGitHub(model, messages, opts) {
       return await _callOpenAICompatible(model, messages, opts, {
         endpoint: GH_MODELS_BASE,
         apiKey: pats[idx],
-        providerName: `GitHub#${idx + 1}`,
+        // MUST stay the canonical 'GitHub' so provider-name-keyed logic
+        // (shouldUseSchemaMode / strict-JSON-schema, getProvider, cooldown,
+        // stats) behaves identically to single-PAT. The PAT index is tracked
+        // separately (idx / _ghExhaustedPats), not encoded in the name.
+        providerName: 'GitHub',
         // Until the LAST PAT, a daily-limit on this account must NOT mark the
         // model/provider globally exhausted — the model is still usable on the
         // next account's separate quota. The error still propagates so we rotate.
@@ -2296,6 +2302,7 @@ async function _callGitHub(model, messages, opts) {
       lastErr = err;
       if (!isLast && _isGhPatQuotaError(err)) {
         _ghExhaustedPats.add(idx);
+        console.error(`🔁 [GitHub] PAT #${idx + 1} esaurito (quota account) — ruoto al PAT #${idx + 2}`);
         continue;
       }
       throw err;

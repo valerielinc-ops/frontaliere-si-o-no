@@ -84,6 +84,31 @@ describe('GitHub Models PAT rotation', () => {
     expect(seen).toContain('pat2');
   });
 
+  it('keeps strict JSON-schema mode in multi-PAT (providerName stays "GitHub")', async () => {
+    // Regression guard: passing providerName "GitHub#2" would drop the model
+    // from PROVIDERS_WITH_STRICT_JSON_SCHEMA → silently disable strict schema →
+    // the model could omit required body fields. The rotated call must still
+    // send response_format: json_schema.
+    process.env.GH_MODELS_PAT = 'pat1';
+    process.env.GH_MODELS_PAT_2 = 'pat2';
+    let pat2Body: Record<string, unknown> | null = null;
+    globalThis.fetch = (async (_url: string, init?: RequestInit) => {
+      const tok = bearer(init);
+      if (tok === 'pat1') {
+        return { ok: false, status: 429, headers: { get: () => null }, text: async () => 'userbymodelbyday limit' } as unknown as Response;
+      }
+      pat2Body = JSON.parse(String(init?.body || '{}'));
+      return { ok: true, status: 200, headers: { get: () => null }, text: async () => JSON.stringify({ choices: [{ message: { content: '{"ok":true}' } }] }) } as unknown as Response;
+    }) as typeof globalThis.fetch;
+
+    await callLLM([{ role: 'user', content: 'hi' }], {
+      chain: [AI_MODELS.GPT4O], maxRetriesPerModel: 1,
+      jsonSchema: { name: 'r', schema: { type: 'object', properties: { ok: { type: 'boolean' } }, required: ['ok'] } },
+    });
+    expect(pat2Body).not.toBeNull();
+    expect((pat2Body as Record<string, { type?: string }>)?.response_format?.type).toBe('json_schema');
+  });
+
   it('single PAT: a daily limit is NOT swallowed (no phantom rotation)', async () => {
     process.env.GH_MODELS_PAT = 'solo';
     globalThis.fetch = (async () =>
