@@ -284,6 +284,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.emigrare-svizzera-aspetti-fiscali.title': 'Aus der Schweiz emigrieren: steuerliche Pflichten und was man wissen muss',
     'blog.article.emigrare-svizzera-aspetti-fiscali.excerpt': 'Die Schweiz zu verlassen bedeutet nicht immer, dass man den Steuern sagt Auf Wiedersehen. Hier ist, was Sie wissen müssen, bevor Sie ins Ausland umziehen.',
     'blog.article.emigrare-svizzera-aspetti-fiscali.imageAlt': 'Luftaufnahme von Lugano mit See und Bergen, eine Person mit Schweizer Pass und Steuerunterlagen',
+    'blog.article.brexit-impatti-svizzera-ue.title': 'Brexit: Lehren für die Schweiz 10 Jahre nach dem Austritt',
+    'blog.article.brexit-impatti-svizzera-ue.excerpt': 'Zehn Jahre nach dem Brexit bieten die Herausforderungen des Vereinigten Königreichs Anregungen für die Schweiz in Bezug auf die Beziehungen zur EU.',
+    'blog.article.brexit-impatti-svizzera-ue.imageAlt': 'Luftaufnahme des Luganer Sees mit Schweizer und EU-Flaggen im Vordergrund',
 };
 
 export default blogMetaChDe;

@@ -854,6 +854,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'brexit-impatti-svizzera-ue',
+    category: 'novita',
+    date: '2026-06-22T13:52:03.039Z',
+    image: '/images/blog/brexit-impatti-svizzera-ue.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

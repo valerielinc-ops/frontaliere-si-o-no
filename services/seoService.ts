@@ -4103,6 +4103,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-affitti-ticino-mercato-proprietari': { name: 'Mercato Immobiliare', path: '/articoli-svizzera/affitti-ticino-mercato-proprietari/', parent: 'blog' },
     'blog-emigrare-svizzera-aspetti-fiscali': { name: 'Emigrare Svizzera', path: '/articoli-svizzera/emigrare-svizzera-aspetti-fiscali/', parent: 'blog' },
     'blog-erba-sintetica-scuole-ticino-rischi': { name: 'Scuole Ticino', path: '/articoli-frontaliere/erba-sintetica-scuole-ticino-rischi', parent: 'blog' },
+    'blog-brexit-impatti-svizzera-ue': { name: 'Brexit Svizzera', path: '/articoli-svizzera/brexit-impatti-svizzera-ue/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
