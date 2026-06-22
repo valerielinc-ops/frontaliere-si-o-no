@@ -82,7 +82,7 @@ const mountApp = async () => {
  mounted = true;
 
  const homeCritical = isHomeCriticalPath(window.location.pathname);
- const staticPage = hasStaticContent();
+ let staticPage = hasStaticContent();
 
  const [{ default: App }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
  import('./App'),
@@ -102,6 +102,33 @@ const mountApp = async () => {
 
  if (homeCritical && i18n) {
  await i18n.itReady;
+ }
+
+ // CLS handoff fix: SPA-takeover pages (router staticOverlay=false — job detail,
+ // search, …) emit their crawler fallback <main class="seo-static-content"> as a
+ // sibling OUTSIDE #root, which paints at SSG time then App.tsx hides post-
+ // hydration — collapsing ~800px and jumping the footer (live desktop CLS ~0.2
+ // job detail, up to ~0.9 thin search). MOVE the fallback into #root so React+s
+ // createRoot().render() replaces it IN-PLACE (reusing the reserve+crossfade
+ // below) instead of an external collapse. parsePath is dynamic-imported (NOT a
+ // static entry import) so router+s heavy route registries stay out of the entry
+ // chunk — it is already loaded with App above, so this resolves from cache.
+ // Gated on staticOverlay so true static landings keep their overlay; crawlers
+ // (no JS) still get the fallback verbatim.
+ try {
+   const { parsePath } = await import('./services/router');
+   if (!parsePath(window.location.pathname).route.staticOverlay) {
+     const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
+     if (fallback && !rootElement.contains(fallback)) {
+       const railWrap = fallback.closest<HTMLElement>('.ft-rail-grid');
+       fallback.style.removeProperty('display');
+       rootElement.appendChild(fallback);
+       if (railWrap) railWrap.style.display = 'none';
+       staticPage = hasStaticContent();
+     }
+   }
+ } catch {
+   /* router/DOM edge case — fall through to existing handling */
  }
 
  if (staticPage) {
