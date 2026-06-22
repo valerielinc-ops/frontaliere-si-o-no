@@ -4355,6 +4355,7 @@ ${terminologyByLang[targetLang] || ''}`;
     // affected field in isolation or falls back to the IT source — same
     // graceful-degradation philosophy already used for FAQ below.
     const onTranslateFail = (label) => (err) => {
+      if (err instanceof TypeError || err instanceof ReferenceError) throw err;
       console.error(`  ⚠️  ${label} translation failed: ${err.message} — fallback al recupero per-campo`);
       return {};
     };
@@ -4396,6 +4397,11 @@ ${terminologyByLang[targetLang] || ''}`;
     try {
       return await translateContent('it', target, label, itContent);
     } catch (err) {
+      // Rethrow programming errors (bugs inside translateContent itself) so they
+      // fail hard instead of silently producing IT content under /en /de /fr.
+      // AI/network errors (quota, timeout, JSON parse) are expected transient
+      // failures and should fall back to per-field recovery downstream (#1266).
+      if (err instanceof TypeError || err instanceof ReferenceError) throw err;
       console.error(`  ⚠️  ${target.toUpperCase()} translation aborted (${err?.message || err}) — recupero per-campo downstream (#1266)`);
       return {};
     }
