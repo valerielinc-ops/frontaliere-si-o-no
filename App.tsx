@@ -1997,12 +1997,13 @@ const App: React.FC = () => {
  </div>
  )}
 
- {/* Language selector — always visible */}
- <Suspense fallback={null}><LanguageSelector /></Suspense>
+ {/* Language selector — always visible. Sized fallback reserves the 44x44
+  * button box so the lazy chunk mounting doesn't shift the header row (CLS). */}
+ <Suspense fallback={<div className="min-w-[44px] min-h-[44px]" aria-hidden="true" />}><LanguageSelector /></Suspense>
 
  {/* WhatsNew bell — desktop only */}
  <div className="hidden md:block">
- <Suspense fallback={null}><WhatsNewBellLazy onClick={() => setShowWhatsNew(true)} /></Suspense>
+ <Suspense fallback={<div className="min-w-[44px] min-h-[44px]" aria-hidden="true" />}><WhatsNewBellLazy onClick={() => setShowWhatsNew(true)} /></Suspense>
  </div>
 
  {/* Dark mode toggle — desktop only */}
