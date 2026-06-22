@@ -11,7 +11,7 @@ const aiModels = (await import('../../scripts/lib/ai-models.mjs')) as unknown as
   callLLM: (messages: unknown, opts?: Record<string, unknown>) => Promise<string>;
   getGhModelsPats: () => string[];
   resetState: () => void;
-  markModelExhausted: (m: string) => void;
+  markModelExhausted: (m: string, reason?: string) => void;
   isModelAvailable: (m: string) => boolean;
   AI_MODELS: Record<string, string>;
 };
@@ -118,8 +118,22 @@ describe('GitHub Models PAT rotation', () => {
     // remain available so rotation to the fresh account can happen.
     process.env.GH_MODELS_PAT = 'pat1';
     process.env.GH_MODELS_PAT_2 = 'pat2';
-    markModelExhausted(AI_MODELS.GPT4O);
+    markModelExhausted(AI_MODELS.GPT4O, 'quota');
     expect(isModelAvailable(AI_MODELS.GPT4O)).toBe(true); // exempt: pat2 still fresh
+  });
+
+  it('does NOT resurrect a GitHub model exhausted for timeout/content (rotation cannot fix)', () => {
+    process.env.GH_MODELS_PAT = 'pat1';
+    process.env.GH_MODELS_PAT_2 = 'pat2';
+    // Timeout/content-failure are account-independent → must keep skipping even
+    // with fresh PATs, or the circuit-breaker is neutralised.
+    markModelExhausted(AI_MODELS.GPT4O, 'timeout');
+    expect(isModelAvailable(AI_MODELS.GPT4O)).toBe(false);
+    resetState();
+    process.env.GH_MODELS_PAT = 'pat1';
+    process.env.GH_MODELS_PAT_2 = 'pat2';
+    markModelExhausted(AI_MODELS.GPT4O, 'content');
+    expect(isModelAvailable(AI_MODELS.GPT4O)).toBe(false);
   });
 
   it('single PAT: an exhausted GitHub model is NOT resurrected', () => {
