@@ -281,6 +281,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-ticino-mercato-proprietari.title': 'Immobilienmarkt: Leerstand und neue Verwaltung',
     'blog.article.affitti-ticino-mercato-proprietari.excerpt': 'Der Markt der Mietwohnungen hat sich geändert. Alte Regeln funktionieren nicht mehr. Hier erfahren Sie, wie Sie sich anpassen können, um Ihre Immobilienrevenuen zu schützen. 📊💡⚠️',
     'blog.article.affitti-ticino-mercato-proprietari.imageAlt': 'Schweizer Wohngebäude mit Mietanschlag am Fenster',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.title': 'Aus der Schweiz emigrieren: steuerliche Pflichten und was man wissen muss',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.excerpt': 'Die Schweiz zu verlassen bedeutet nicht immer, dass man den Steuern sagt Auf Wiedersehen. Hier ist, was Sie wissen müssen, bevor Sie ins Ausland umziehen.',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.imageAlt': 'Luftaufnahme von Lugano mit See und Bergen, eine Person mit Schweizer Pass und Steuerunterlagen',
 };
 
 export default blogMetaChDe;

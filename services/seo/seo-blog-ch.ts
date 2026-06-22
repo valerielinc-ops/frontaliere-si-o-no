@@ -3569,6 +3569,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-emigrare-svizzera-aspetti-fiscali': {
+    title: 'Emigrare dalla Svizzera: obblighi fiscali e cosa sapere',
+    description: 'Lasciare la Svizzera non significa sempre dire addio alle tasse. Scopri cosa devi sapere prima di trasferirti all\'estero. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, emigrare, dalla, obblighi, fiscali',
+    ogTitle: 'Emigrare dalla Svizzera: obblighi fiscali e cosa sapere',
+    ogDescription: 'Lasciare la Svizzera non significa sempre dire addio alle tasse. Scopri cosa devi sapere prima di trasferirti all\'estero.',
+    canonicalPath: '/articoli-svizzera/emigrare-svizzera-aspetti-fiscali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emigrare dalla Svizzera: obblighi fiscali e cosa sapere",
+      "description": "Lasciare la Svizzera non significa sempre dire addio alle tasse. Scopri cosa devi sapere prima di trasferirti all'estero. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/emigrare-svizzera-aspetti-fiscali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne, una persona con passaporto svizzero e documenti fiscali"
+      },
+      "datePublished": "2026-06-22T12:29:57+00:00",
+      "dateModified": "2026-06-22T12:29:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/emigrare-svizzera-aspetti-fiscali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

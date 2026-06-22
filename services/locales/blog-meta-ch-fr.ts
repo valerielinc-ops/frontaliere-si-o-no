@@ -281,6 +281,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-ticino-mercato-proprietari.title': 'Marché des locations : immobilier vacant et nouvelle gestion',
     'blog.article.affitti-ticino-mercato-proprietari.excerpt': 'Le marché des locations a changé. Les anciennes règles ne fonctionnent plus. Découvrez comment adapter pour protéger vos revenus immobiliers. 📊💡⚠️',
     'blog.article.affitti-ticino-mercato-proprietari.imageAlt': 'Immeuble résidentiel suisse avec panneau de location à la fenêtre',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.title': 'Quitter la Suisse: obligations fiscales et infos clés',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.excerpt': 'Quitter la Suisse ne signifie pas toujours dire adieu aux impôts. Voici ce que vous devez savoir avant de déménager à l\'étranger.',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes, une personne tenant un passeport suisse et des documents fiscaux',
 };
 
 export default blogMetaChFr;

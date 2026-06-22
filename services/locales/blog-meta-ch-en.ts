@@ -281,6 +281,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-ticino-mercato-proprietari.title': 'Rent Market: Vacant Properties and New Management',
     'blog.article.affitti-ticino-mercato-proprietari.excerpt': 'The rental market has changed. Old rules no longer apply. Here\'s how to adapt and protect your property income. 📊💡⚠️',
     'blog.article.affitti-ticino-mercato-proprietari.imageAlt': 'Swiss residential building with rental sign in window',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.title': 'Moving from Switzerland: tax obligations and what to know',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.excerpt': 'Leaving Switzerland doesn\'t always mean saying goodbye to taxes. Here\'s what you need to know before moving abroad.',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.imageAlt': 'Aerial view of Lugano with lake and mountains, a person holding a Swiss passport and tax documents',
 };
 
 export default blogMetaChEn;
