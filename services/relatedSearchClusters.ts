@@ -4,6 +4,9 @@
 
 import type { Locale } from '@/services/i18n';
 import type { JobListing } from '@/components/community/JobBoard';
+import { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword } from './relatedSearchJunkTerms.mjs';
+
+export { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword };
 
 export const DEFAULT_CANTON_DISPLAY = 'Ticino';
 
@@ -300,7 +303,10 @@ export function buildRelatedSearches(params: {
  .normalize('NFD')
  .replace(/[̀-ͯ]/g, '');
  const bodyTokens = extractRelatedTopicTokens(`${summary.join(' ')} ${requirements.join(' ')}`, 6)
- .filter((token) => token !== locationToken);
+ // Drop generic filler / cross-language connectives / scraped UI noise so the
+ // `${token} ${location}` candidates never become thin doorway landings
+ // (e.g. "cookie bern", "sowie basel"). See relatedSearchJunkTerms.mjs.
+ .filter((token) => token !== locationToken && !RELATED_SEARCH_JUNK_TERMS.has(token));
 
  const generated = locale === 'it'
  ? bodyTokens.map((token) => `${token} ${location || DEFAULT_CANTON_DISPLAY.toLowerCase()}`.trim())

@@ -67,6 +67,7 @@ import {
   getSearchSlugPrefix,
   stripSearchQueryBoilerplate,
 } from '../services/relatedSearchClusters';
+import { isJunkSearchKeyword } from '../services/relatedSearchJunkTerms.mjs';
 import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
 import {
   AGGREGATE_KEY,
@@ -942,6 +943,17 @@ export function buildClusterContext(
   // `candidate.slug` (already markdown-free), so canonical URLs are unaffected.
   const keyword = stripLiteralMarkdown(stripCityFromKeyword(sampleTerm, city));
   if (!keyword) {
+    profileRecord('bc:tokenize', __tTokenize);
+    return null;
+  }
+
+  // Drop junk keywords (generic filler / cross-language connectives / scraped
+  // UI noise like "cookie", "sowie", "pazienti") even when they survive in the
+  // already-committed candidates file. This guard runs at emit time, so it
+  // cleans the LIVE /…/ricerca/ hub + stops emitting the thin doorway landings
+  // (e.g. /…/ricerca-cookie-bern/) without waiting for the weekly audit regen.
+  // Net-reducing consolidation — a moratorium exception. See relatedSearchJunkTerms.mjs.
+  if (isJunkSearchKeyword(keyword)) {
     profileRecord('bc:tokenize', __tTokenize);
     return null;
   }

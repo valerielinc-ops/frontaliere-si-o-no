@@ -113,6 +113,25 @@ describe('Klinik Gut crawler parser', () => {
       );
     });
 
+    it('drops a card linking off-domain to a social profile (#2680 Instagram)', () => {
+      const html = `<ul>
+    <li class="rz-infobox__item">
+      <h3>Social Media</h3>
+      <div class="infobox__text">Folgen Sie uns auf Instagram</div>
+      <a href="https://www.instagram.com/klinikgut/" class="infobox__more btn btn-primary">Mehr Informationen</a>
+    </li>
+    <li class="rz-infobox__item">
+      <h3>Dipl. Pflegefachperson HF</h3>
+      <div class="infobox__text">Pflege in St. Moritz</div>
+      <a href="https://www.klinik-gut.ch/de/dipl-pflegefachperson-hf" class="infobox__more btn btn-primary">Mehr Informationen</a>
+    </li>
+  </ul>`;
+      const rows = parseKlinikGutListing(html);
+      // The Instagram "Social Media" card is filtered; only the real opening remains.
+      expect(rows.map((r) => r.id)).toEqual(['dipl-pflegefachperson-hf']);
+      expect(rows.every((r) => r.detailUrl.includes('klinik-gut.ch'))).toBe(true);
+    });
+
     it('uses the stable path slug as canonical id', () => {
       const rows = parseKlinikGutListing(LISTING_HTML);
       expect(rows[0].id).toBe('wahlstudienjahr-praktisches-jahr');
