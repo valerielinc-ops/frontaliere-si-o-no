@@ -303,6 +303,10 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
     if (AUTO_PUSH) {
       const pr = safeExec('git pull --rebase --autostash origin main 2>&1');
       if (!pr.startsWith('__ERR__:')) safeExec('git push --no-verify origin main 2>&1');
+      // A conflicting rebase leaves an in-progress state that wedges later batches on
+      // the same runner; abort it so the next commitBatch isn't blocked (mirrors the
+      // `git rebase --abort` recovery added to the bash loops in #2721).
+      else safeExec('git rebase --abort 2>&1');
     }
     process.stdout.write(`💾 [${locale}] committed batch (${lines.length} files)\n`);
   };

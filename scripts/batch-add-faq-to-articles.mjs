@@ -267,6 +267,10 @@ function gitCommitAndPush(label) {
         execSync('git push origin main', { cwd: ROOT, stdio: 'pipe', timeout: 60000 });
         console.error(`💾 Checkpoint pushed (after rebase): ${label}`);
       } catch {
+        // A conflicting rebase leaves an in-progress rebase state that wedges every
+        // subsequent run on the same runner; abort it so the loop can't stay stuck
+        // (mirrors the `git rebase --abort` recovery added to the bash loops in #2721).
+        try { execSync('git rebase --abort', { cwd: ROOT, stdio: 'pipe', timeout: 30000 }); } catch { /* no rebase in progress */ }
         console.error(`⚠️  Checkpoint committed but push failed: ${pushErr.message?.slice(0, 100)}`);
       }
     }
