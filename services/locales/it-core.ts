@@ -4,6 +4,7 @@ const translations: Record<string, string> = {
  'app.subtitle': 'Calcola e confronta il tuo stipendio netto come lavoratore frontaliero',
  'app.fullscreen': 'Schermo intero',
  'app.exitFullscreen': 'Esci da Schermo intero',
+ 'a11y.skipToContent': 'Salta al contenuto principale',
  'app.lightMode': 'Attiva tema chiaro',
  'app.darkMode': 'Attiva tema scuro',
  'app.resetConfirm': 'Vuoi svuotare cache, cookie e dati locali? Il sito si ricaricherà come alla prima visita.',

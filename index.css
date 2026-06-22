@@ -183,6 +183,19 @@ button, a, [role="button"], input, select, textarea, label, summary {
   touch-action: manipulation;
 }
 
+/* Pointer cursor on interactive controls. Tailwind v4's Preflight no longer
+ * sets this, so a native <button> shows the default arrow cursor. Google's AI
+ * agent-readiness guidance calls cursor:pointer a strong signal that an element
+ * is interactive (for browser agents reading the rendered page as well as for
+ * humans). In @layer base so any explicit cursor-* utility (cursor-help on info
+ * triggers, cursor-not-allowed on disabled states, …) still overrides it.
+ * Disabled buttons are excluded so they keep the default cursor. */
+@layer base {
+  button:not(:disabled), summary, [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
+
 /* Tabular numbers for financial data alignment */
 .tabular-nums, [data-numeric], td, th, output, .font-mono {
   font-variant-numeric: tabular-nums;

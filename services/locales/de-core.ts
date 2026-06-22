@@ -3,6 +3,7 @@ const deCore: Record<string, string> = {
  'app.subtitle': 'Berechnen und vergleichen Sie Ihr Nettogehalt als Grenzgänger',
  'app.fullscreen': 'Vollbild',
  'app.exitFullscreen': 'Vollbild beenden',
+ 'a11y.skipToContent': 'Zum Hauptinhalt springen',
  'app.lightMode': 'Helles Design aktivieren',
  'app.resetConfirm': 'Cache, Cookies und lokale Daten löschen? Die Seite wird neu geladen, als wäre es Ihr erster Besuch.',
  'app.darkMode': 'Dunkles Design aktivieren',

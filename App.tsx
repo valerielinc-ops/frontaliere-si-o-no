@@ -1745,6 +1745,19 @@ const App: React.FC = () => {
   *  - Per-page `disableAutoAds` in build-plugins/htmlTemplate.ts is preserved
   *    for "drive-by" SEO landings where bounce ≥97% (F8/F6/F2). */}
  <div className={`app-shell-col ${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
+ {/* Skip-to-content: first focusable element so keyboard users — and browser
+  * AI agents reading the accessibility tree — can bypass the nav/header chrome
+  * and jump straight to <main id="main-content"> (WCAG 2.4.1 Bypass Blocks;
+  * Google AI agent-readiness guidance). Rendered only on SPA routes where the
+  * React <main> is mounted, so the anchor target always resolves. */}
+ {!staticOverlay && (
+ <a
+ href="#main-content"
+ className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[300] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-on-accent focus:text-sm focus:font-semibold focus:shadow-lg focus:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
+ >
+ {t('a11y.skipToContent')}
+ </a>
+ )}
  <div className="absolute inset-0 bg-surface-alt -z-20 [contain:strict]"></div>
 
  {/* LinkedIn OAuth2 callback processing overlay */}
@@ -2316,7 +2329,7 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
- <main id="main-content" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
+ <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10 ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-3 sm:px-4'
  }`}>
  <Suspense fallback={<LazyFallback />}>
