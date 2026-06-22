@@ -44573,6 +44573,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-erba-sintetica-scuole-ticino-rischi': {
+    title: 'Erba sintetica nelle scuole Ticino: rischi per bambini e costi nascosti',
+    description: 'Genitori e Avs denunciano erba sintetica bollente nelle scuole Ticino: microplastiche, surriscaldamento e impatto ambientale. Come segnalare il problema e quali',
+    keywords: 'frontalieri, ticino, svizzera, italia, erba, sintetica, nelle, scuole',
+    ogTitle: 'Erba sintetica nelle scuole Ticino: bollente e pericolosa per i bambini',
+    ogDescription: 'Scopri perché l’erba sintetica nei cortili scolastici ticinesi è stata denunciata come pericolosa e cosa puoi fare se la tua scuola ne è dotata.',
+    canonicalPath: '/articoli-frontaliere/erba-sintetica-scuole-ticino-rischi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Erba sintetica nelle scuole Ticino: rischi per bambini e costi nascosti",
+      "description": "Genitori e Avs denunciano erba sintetica bollente nelle scuole Ticino: microplastiche, surriscaldamento e impatto ambientale. Come segnalare il problema e quali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/erba-sintetica-scuole-ticino-rischi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cortile scolastico in Ticino con erba sintetica al sole, bambini che giocano in primo piano"
+      },
+      "datePublished": "2026-06-22T12:40:38+00:00",
+      "dateModified": "2026-06-22T12:40:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/erba-sintetica-scuole-ticino-rischi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

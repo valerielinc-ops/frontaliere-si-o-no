@@ -8132,6 +8132,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.title': 'Agences Lugano',
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.excerpt': 'Présentation des agences d\'intérim à Lugano, opportunités pour les frontaliers et procédures d\'insertion sur le marché tessinois.',
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.imageAlt': 'Centre-ville de Lugano avec bureaux et personnes en déplacement.',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.title': 'Erba synthétique dans les écoles du Tessin : risques et coûts',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.excerpt': 'Parents et experts dénoncent les dangers des **gazons synthétiques** dans les cours d’école tessinoises : chaleur excessive, microplastiques et impact environnemental. Tout ce qu’il faut savoir sur un choix contesté, même au niveau européen.',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.imageAlt': 'Cour d\'école au Tessin avec gazon synthétique sous un soleil brûlant, enfants jouant au premier plan',
 };
 
 export default blogMetaFr;

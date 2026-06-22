@@ -4102,6 +4102,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-marchesi-zali-lista-autonomi': { name: 'Marchesi: lista autonoma', path: '/articoli-svizzera/marchesi-zali-lista-autonomi/', parent: 'blog' },
     'blog-affitti-ticino-mercato-proprietari': { name: 'Mercato Immobiliare', path: '/articoli-svizzera/affitti-ticino-mercato-proprietari/', parent: 'blog' },
     'blog-emigrare-svizzera-aspetti-fiscali': { name: 'Emigrare Svizzera', path: '/articoli-svizzera/emigrare-svizzera-aspetti-fiscali/', parent: 'blog' },
+    'blog-erba-sintetica-scuole-ticino-rischi': { name: 'Scuole Ticino', path: '/articoli-frontaliere/erba-sintetica-scuole-ticino-rischi', parent: 'blog' },
  };
 
  const info = sectionNames[section];
