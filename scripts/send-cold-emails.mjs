@@ -39,6 +39,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSequence, OPTOUT_EMAIL } from './generate-cold-emails.mjs';
 import { classifySector } from './lib/employer-sectors.mjs';
+import { buildUnsubUrl } from './lib/outreach-unsubscribe-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -114,9 +115,49 @@ function logStatus(log, key, touchNum, maxTouches) {
   return sent.length === 0 ? '● nuovo' : `${sent.length} touch precedenti`;
 }
 
+/**
+ * Read the Firestore-backed one-click suppression list written by the
+ * outreachUnsubscribe Cloud Function (collection `employer_outreach_suppression`,
+ * doc id = companyKey). Returns a Set of suppressed companyKeys.
+ *
+ * Best-effort: a missing service account or any Firestore error logs a warning
+ * and returns an empty Set so the send falls back to local send-log suppression
+ * only — it must never crash the send.
+ */
+async function loadFirestoreSuppression() {
+  const suppressed = new Set();
+  try {
+    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+    if (!credPath || !fs.existsSync(credPath)) {
+      console.warn('↷ Firestore suppression: GOOGLE_APPLICATION_CREDENTIALS non impostato — uso solo send-log locale.');
+      return suppressed;
+    }
+    const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
+    const { getFirestore } = await import('firebase-admin/firestore');
+    if (getApps().length === 0) {
+      const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
+      if (cred.project_id) {
+        initializeApp({ credential: cert(cred) });
+      } else {
+        initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
+      }
+    }
+    const db = getFirestore();
+    const snap = await db.collection('employer_outreach_suppression').get();
+    snap.forEach((doc) => {
+      const key = (doc.data()?.companyKey || doc.id || '').trim();
+      if (key) suppressed.add(key);
+    });
+    console.log(`🛡  Firestore suppression: ${suppressed.size} aziende disiscritte (one-click).`);
+  } catch (err) {
+    console.warn(`↷ Firestore suppression non disponibile (${err.message}) — uso solo send-log locale.`);
+  }
+  return suppressed;
+}
+
 // ─────────────────────────────────────────────────────────────
 
-function run() {
+async function run() {
   const reportPath = arg('--report', path.join(ROOT, 'data/employer-outreach/report.json'));
   const contactsPath = arg('--contacts', path.join(ROOT, 'data/employer-outreach/contacts.json'));
   const logPath = arg('--log', path.join(ROOT, 'data/employer-outreach/send-log.json'));
@@ -178,11 +219,20 @@ function run() {
   if (isTest && (!targetEmail || targetEmail === true)) { console.error('--test richiede --target-email <addr>'); process.exit(2); }
   if (isSend && !has('--confirm')) { console.error('⛔ --send richiede anche --confirm (invio reale ai contatti). Annullato.'); process.exit(2); }
 
+  // One-click suppression (Firestore, scritta dalla Cloud Function
+  // outreachUnsubscribe). Si aggiunge — non sostituisce — alla suppression
+  // locale del send-log. Best-effort: errori/SA mancante → Set vuoto, nessun crash.
+  const firestoreSuppressed = (isSend) ? await loadFirestoreSuppression() : new Set();
+
   // Costruisci la coda per la cascade, applicando suppression/cap/dedup.
   const queue = [];
   for (const m of messages) {
     // Suppression/cap check applicato SOLO in invio reale (--send), non in --test.
     if (isSend && m.key) {
+      if (firestoreSuppressed.has(m.key)) {
+        console.warn(`↷ skip ${m.company}: disiscritto one-click (Firestore employer_outreach_suppression).`);
+        continue;
+      }
       if (isSuppressed(sendLog, m.key)) {
         console.warn(`↷ skip ${m.company}: in suppression list (${sendLog[m.key].suppressedReason || 'no reason'})`);
         continue;
@@ -206,18 +256,28 @@ function run() {
       if (!to) { console.warn(`↷ skip ${m.company}: nessuna email verificata (inferita "${m.inferred}" non usata)`); continue; }
     }
     const subjectPrefix = isTest ? `[TEST → ${m.company}] ` : '';
-    // List-Unsubscribe (RFC 2369): abilita il pulsante "Annulla iscrizione" nativo
-    // di Gmail/Outlook. Solo mailto (niente One-Click: nessun endpoint HTTPS); il
-    // subject porta la company key così l'opt-out è tracciabile alla sorgente.
+    // One-click opt-out URL firmato (RFC 8058), per company key. Manca la chiave
+    // (target legacy senza key) → URL generico alla home (buildUnsubUrl gestisce
+    // anche secret mancante con fallback alla home). Sostituisce il placeholder
+    // {{UNSUB_URL}} iniettato nel footer da generate-cold-emails.mjs.
+    const unsubUrl = buildUnsubUrl(m.key || m.company);
+    const html = String(m.html).split('{{UNSUB_URL}}').join(unsubUrl);
+    const text = String(m.text).split('{{UNSUB_URL}}').join(unsubUrl);
+    // List-Unsubscribe (RFC 8058 + RFC 2369): HTTPS one-click PRIMA, mailto come
+    // fallback. List-Unsubscribe-Post abilita il vero one-click (POST). Il
+    // subject del mailto porta la company key così l'opt-out resta tracciabile.
     const unsubKey = encodeURIComponent(m.key || m.company);
     queue.push({
       payload: {
         from,
         to: [to],
         subject: subjectPrefix + m.subject,
-        html: m.html,
-        text: m.text,
-        headers: { 'List-Unsubscribe': `<mailto:${OPTOUT_EMAIL}?subject=unsubscribe%20${unsubKey}>` },
+        html,
+        text,
+        headers: {
+          'List-Unsubscribe': `<${unsubUrl}>, <mailto:${OPTOUT_EMAIL}?subject=unsubscribe%20${unsubKey}>`,
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+        },
         tags: [{ name: 'type', value: 'cold-outreach' }, { name: 'company', value: (m.key || m.company).slice(0, 40) }],
       },
       recipient: { email: to },
@@ -258,4 +318,6 @@ function run() {
   });
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) run();
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  run().catch((err) => { console.error(err); process.exitCode = 1; });
+}

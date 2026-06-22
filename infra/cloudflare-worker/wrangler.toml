@@ -32,7 +32,7 @@ routes = [
   # header in job-alert emails MUST live on the sending domain (frontaliereticino.ch)
   # or the URL↔From-domain mismatch trips spam filters. The Worker transparently
   # proxies this apex path to the jobAlertUnsubscribe Cloud Function (in-code
-  # UNSUB_PROXY_PATH branch — method + query + body preserved for the one-click POST).
+  # UNSUB_PROXIES branch — method + query + body preserved for the one-click POST).
   # Volume is tiny (a few clicks/day) so the extra Worker invocations are negligible.
   # WILDCARD is REQUIRED: a Cloudflare route WITHOUT a trailing `*` matches only the
   # exact URL with NO query string — but every emitted unsubscribe link carries
@@ -40,8 +40,18 @@ routes = [
   # real traffic (verified live: `/disiscrivi-alert/` → 400 from the function, but
   # `/disiscrivi-alert/?…` → apex 404). `…/disiscrivi-alert*` covers the bare + slash
   # forms with or without a query string; look-alike paths (e.g. /disiscrivi-alertX)
-  # are rejected by the in-code isUnsubProxyPath guard → harmless passthrough.
+  # are rejected by the in-code unsubProxyOrigin guard → harmless passthrough.
   { pattern = "frontaliereticino.ch/disiscrivi-alert*", zone_name = "frontaliereticino.ch" },
+  # Cold-email (employer outreach) one-click unsubscribe (RFC 8058). Same
+  # deliberate non-locale exception as /disiscrivi-alert above: the unsubscribe
+  # link + List-Unsubscribe header in cold-outreach emails MUST live on the
+  # sending domain (frontaliereticino.ch) or the URL↔From-domain mismatch trips
+  # spam filters. The Worker transparently proxies this apex path to the
+  # outreachUnsubscribe Cloud Function (in-code UNSUB_PROXIES branch — method +
+  # query + body preserved for the one-click POST). WILDCARD required: every
+  # emitted link carries `?c=…&t=…`, so a non-wildcard route would silently miss
+  # all real traffic (#2611). Look-alike paths rejected by the in-code guard.
+  { pattern = "frontaliereticino.ch/disiscrivi-outreach*", zone_name = "frontaliereticino.ch" },
   # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
   # Since #1665 the shard locale HTML references those static paths CDN-absolute
   # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the
