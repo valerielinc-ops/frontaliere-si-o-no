@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-06-22T14:17:57.969Z",
+  "assembledAt": "2026-06-22T22:43:39.826Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.725Z",
+      "crawledAt": "2026-06-22T22:43:37.525Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -145,7 +146,8 @@
       "applyUrl": "https://app.beehire.com/invite/bpjuF3PTM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.725Z",
+      "crawledAt": "2026-06-22T22:43:37.525Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza positiva in un ambiente ospedaliero",
@@ -255,7 +257,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.724Z",
+      "crawledAt": "2026-06-22T22:43:37.524Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -357,7 +360,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.723Z",
+      "crawledAt": "2026-06-22T22:43:37.523Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -432,7 +435,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.723Z",
+      "crawledAt": "2026-06-22T22:43:37.523Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -469,81 +473,6 @@
           "@type": "QuantitativeValue",
           "minValue": 86500,
           "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-703dfa6bf50e",
-      "slug": "infermiera-responsabile-della-sorveglianza-delle-infezioni-del-sito-chirurgico-ssi-swissnoso-groupement-hospitalier-de-l",
-      "slugByLocale": {
-        "it": "infermiera-responsabile-della-sorveglianza-delle-infezioni-del-sito-chirurgico-ssi-swissnoso-groupement-hospitalier-de-l",
-        "en": "nurse-in-charge-of-surveillance-of-surgical-site-infections-ssi-swissnoso-groupement-hospitalier-de-l-ouest-lemanique",
-        "de": "krankenschwester-fur-die-uberwachung-von-chirurgischen-infektionen-vor-ort-ssi-swissnoso-groupement-hospitalier-de-l",
-        "fr": "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Infirmière en charge de la surveillance des infections du site chirurgical (SSI) Swissnoso",
-      "titleByLocale": {
-        "it": "Infermiera responsabile della sorveglianza delle infezioni del sito chirurgico (SSI) Swissnoso",
-        "en": "Nurse in charge of surveillance of surgical site infections (SSI) Swissnoso",
-        "de": "Krankenschwester für die Überwachung von chirurgischen Infektionen vor Ort (SSI) Swissnoso",
-        "fr": "Infirmière en charge de la surveillance des infections du site chirurgical (SSI) Swissnoso"
-      },
-      "description": "Contexte et mission\n Swissnoso, centre national pour la prévention des infections nosocomiales, mandate la surveillance prospective des infections du site chirurgical (SSI) dans les hôpitaux suisses depuis 2009.\n La surveillance épidémiologique des SSI est une méthode prospective de suivi des patients opérés dans le but de détecter et diagnostiquer les infections selon une méthode validée et basée sur des critères cliniques internationaux. Elle constitue une activité permanente de recueil, d’analyse, d’interprétation des données et de restitution de résultats\n L’infirmière en charge de la surveillance des infections du site chirurgical assure un suivi actif des patients post-opératoires pour détecter les infections selon une méthode validée et basée sur des critères cliniques et internationaux. Elle exerce son activité sous la supervision de la responsable HPCI.\n Tâches principales\n • Surveiller activement l'évolution clinique des patients opérés (suivi hospitalier, post-sortie jusqu'à 30-90 jours, entretiens téléphoniques, revue de dossiers).\n • Saisir les données standardisées (patients, interventions, infections) sur la plateforme Swissnoso et valider les cas infectieux sous la supervision de la responsable HPCI\n • Participer aux formations obligatoires Swissnoso (introduction et ateliers annuels)\n Formation et qualifications requises\n • Diplôme d'infirmière\n • Au moins 2 ans d’expérience en chirurgie ou au bloc opératoire\n • Taux d'activité : 20 %\n Compétences et qualités\n • Maîtrise des protocoles chirurgicaux : préparation du patient à la chirurgie, lecture et compréhension des rapports opératoires et des feuilles d’anesthésie\n • Compétences en analyse de données\n • Aisance dans la communication\n • Autonomie, rigueur et travail transversal\n Est rattachée au service HPCI\n Responsable hiérarchique : Responsable HPCI\n Disponibilité : a partir du mois de juin 2026",
-      "descriptionByLocale": {
-        "it": "Contesto e missione Swissnoso, il centro nazionale per la prevenzione delle infezioni nosocomiali, è stato incaricato di monitorare le infezioni dei siti chirurgici (SSI) negli ospedali svizzeri dal 2009. La sorveglianza epidemiologica dell'ISS è un metodo prospettico di monitoraggio dei pazienti operato per rilevare e diagnosticare le infezioni utilizzando un metodo convalidato basato su criteri clinici internazionali. Si tratta di un'attività permanente per la raccolta, l'analisi, l'interpretazione dei dati e il ritorno dei risultati L'infermiera responsabile della sorveglianza delle infezioni dei siti chirurgici garantisce il follow-up attivo dei pazienti post-operativi per rilevare le infezioni utilizzando un metodo convalidato basato su criteri clinici e internazionali. Funziona sotto la supervisione di HPCI. Principali compiti\n• Monitorare attivamente l'evoluzione clinica dei pazienti operati ( follow-up ospedaliero, post-uscita fino a 30-90 giorni, interviste telefoniche, recensione dei file).\n• Immettere dati standardizzati (pazienti, interventi, infezioni) sulla piattaforma Swissnoso e convalidare casi infettivi sotto la supervisione di HPCI\n• Partecipazione alla formazione obbligatoria di Swissnoso (introduzione e workshop annuali) Formazione e qualifiche richieste\n• Diploma di infermiera\n• Almeno 2 anni di esperienza in chirurgia o chirurgia\n• Tasso di attività: 20% Competenze e qualifiche\n• Controllo dei protocolli chirurgici: preparazione del paziente per la chirurgia, la lettura e la comprensione dei rapporti operativi e dei fogli di anestesia\n• Capacità di analisi dei dati\n• Pertinenza della comunicazione\n• Autonomia, rigore e lavoro di taglio incrociato È collegato al servizio HPCI Responsabile: HPCI Disponibilità: da giugno 2026",
-        "en": "Background and mission Swissnoso, the national centre for the prevention of nosocomial infections, has been mandated to monitor surgical site infections (SSI) in Swiss hospitals since 2009. Epidemiologic surveillance of ISS is a prospective method of monitoring patients operated to detect and diagnose infections using a validated method based on international clinical criteria. It is a permanent activity for the collection, analysis, interpretation of data and the return of results The nurse in charge of surveillance of surgical site infections ensures active follow-up of post-operative patients to detect infections using a validated method based on clinical and international criteria. It operates under the supervision of HPCI. Main tasks\n• Actively monitor the clinical evolution of patients operated (hospital follow-up, post-exit up to 30-90 days, telephone interviews, file review).\n• Enter standardized data (patients, interventions, infections) on the Swissnoso platform and validate infectious cases under the supervision of HPCI\n• Participate in compulsory Swissnoso training (introduction and annual workshops) Training and qualifications required\n• Diploma of Nurse\n• At least 2 years experience in surgery or surgery\n• Activity rate: 20% Skills and qualifications\n• Control of surgical protocols: patient preparation for surgery, reading and understanding of operational reports and anaesthesia sheets\n• Data analysis skills\n• Communication relevance\n• Autonomy, rigor and cross-cutting work Is attached to HPCI service Manager: HPCI Availability: from June 2026",
-        "de": "Hintergrund und Mission Swissnoso, das nationale Zentrum zur Prävention von Nosocomial-Infektionen, wurde seit 2009 beauftragt, chirurgische Standortinfektionen (SSI) in Schweizer Krankenhäusern zu überwachen. Epidemiologische Überwachung von ISS ist eine prospektive Methode zur Überwachung von Patienten, die zur Erkennung und Diagnose von Infektionen mit einer validierten Methode auf Basis internationaler klinischer Kriterien betrieben werden. Es ist eine ständige Tätigkeit für die Erhebung, Analyse, Interpretation von Daten und die Rückgabe von Ergebnissen Die Krankenschwester, die für die Überwachung von chirurgischen Standortinfektionen verantwortlich ist, sorgt für eine aktive Nachverfolgung von postoperativen Patienten, um Infektionen mit einer validierten Methode basierend auf klinischen und internationalen Kriterien zu erkennen. Es arbeitet unter der Aufsicht von HPCI. Hauptaufgaben\n• Aktive Überwachung der klinischen Entwicklung der betriebenen Patienten (hospitale Nachverfolgung, Nachbezug bis zu 30-90 Tage, Telefoninterviews, Dateiüberprüfung).\n• Geben Sie standardisierte Daten (Patienten, Interventionen, Infektionen) auf der Swissnoso-Plattform ein und validieren Sie infektiöse Fälle unter der Aufsicht von HPCI\n• Teilnahme an der obligatorischen Swissnoso-Ausbildung (Einführung und jährliche Workshops) Ausbildung und Qualifikation erforderlich\n• Diplom der Krankenschwester\n• mindestens 2 Jahre Erfahrung in der Chirurgie oder Chirurgie\n• Aktivitätsrate: 20% Fähigkeiten und Qualifikationen\n• Kontrolle von chirurgischen Protokollen: Patientenvorbereitung für Chirurgie, Lesen und Verständnis von operativen Berichten und Narkoseblättern\n• Kenntnisse der Datenanalyse\n• Relevanz der Kommunikation\n• Autonome, strenge und querschneidende Arbeit Ist an HPCI-Service angeschlossen Manager: HPCI Verfügbarkeit: ab Juni 2026",
-        "fr": "Contexte et mission Swissnoso, centre national pour la prévention des infections nosocomiales, mandate la surveillance prospective des infections du site chirurgical (SSI) dans les hôpitaux suisses depuis 2009. La surveillance épidémiologique des SSI est une méthode prospective de suivi des patients opérés dans le but de détecter et diagnostiquer les infections selon une méthode validée et basée sur des critères cliniques internationaux. Elle constitue une activité permanente de recueil, d’analyse, d’interprétation des données et de restitution de résultats L’infirmière en charge de la surveillance des infections du site chirurgical assure un suivi actif des patients post-opératoires pour détecter les infections selon une méthode validée et basée sur des critères cliniques et internationaux. Elle exerce son activité sous la supervision de la responsable HPCI. Tâches principales\n• Surveiller activement l'évolution clinique des patients opérés (suivi hospitalier, post-sortie jusqu'à 30-90 jours, entretiens téléphoniques, revue de dossiers).\n• Saisir les données standardisées (patients, interventions, infections) sur la plateforme Swissnoso et valider les cas infectieux sous la supervision de la responsable HPCI\n• Participer aux formations obligatoires Swissnoso (introduction et ateliers annuels) Formation et qualifications requises\n• Diplôme d'infirmière\n• Au moins 2 ans d’expérience en chirurgie ou au bloc opératoire\n• Taux d'activité : 20 % Compétences et qualités\n• Maîtrise des protocoles chirurgicaux : préparation du patient à la chirurgie, lecture et compréhension des rapports opératoires et des feuilles d’anesthésie\n• Compétences en analyse de données\n• Aisance dans la communication\n• Autonomie, rigueur et travail transversal Est rattachée au service HPCI Responsable hiérarchique : Responsable HPCI Disponibilité : a partir du mois de juin 2026"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://app.beehire.com/invite/9HnYY9NDt",
-      "applyUrl": "https://app.beehire.com/invite/9HnYY9NDt",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.722Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
-        ],
-        "en": [
-          "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
-        ],
-        "de": [
-          "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T22:30:21.753Z",
-      "salaryMin": 116500,
-      "salaryMax": 162500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 116500,
-          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -593,7 +522,8 @@
       "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.720Z",
+      "crawledAt": "2026-06-22T22:43:37.521Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -618,6 +548,81 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-703dfa6bf50e",
+      "slug": "infermiera-responsabile-della-sorveglianza-delle-infezioni-del-sito-chirurgico-ssi-swissnoso-groupement-hospitalier-de-l",
+      "slugByLocale": {
+        "it": "infermiera-responsabile-della-sorveglianza-delle-infezioni-del-sito-chirurgico-ssi-swissnoso-groupement-hospitalier-de-l",
+        "en": "nurse-in-charge-of-surveillance-of-surgical-site-infections-ssi-swissnoso-groupement-hospitalier-de-l-ouest-lemanique",
+        "de": "krankenschwester-fur-die-uberwachung-von-chirurgischen-infektionen-vor-ort-ssi-swissnoso-groupement-hospitalier-de-l",
+        "fr": "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Infirmière en charge de la surveillance des infections du site chirurgical (SSI) Swissnoso",
+      "titleByLocale": {
+        "it": "Infermiera responsabile della sorveglianza delle infezioni del sito chirurgico (SSI) Swissnoso",
+        "en": "Nurse in charge of surveillance of surgical site infections (SSI) Swissnoso",
+        "de": "Krankenschwester für die Überwachung von chirurgischen Infektionen vor Ort (SSI) Swissnoso",
+        "fr": "Infirmière en charge de la surveillance des infections du site chirurgical (SSI) Swissnoso"
+      },
+      "description": "Contexte et mission\n Swissnoso, centre national pour la prévention des infections nosocomiales, mandate la surveillance prospective des infections du site chirurgical (SSI) dans les hôpitaux suisses depuis 2009.\n La surveillance épidémiologique des SSI est une méthode prospective de suivi des patients opérés dans le but de détecter et diagnostiquer les infections selon une méthode validée et basée sur des critères cliniques internationaux. Elle constitue une activité permanente de recueil, d’analyse, d’interprétation des données et de restitution de résultats\n L’infirmière en charge de la surveillance des infections du site chirurgical assure un suivi actif des patients post-opératoires pour détecter les infections selon une méthode validée et basée sur des critères cliniques et internationaux. Elle exerce son activité sous la supervision de la responsable HPCI.\n Tâches principales\n • Surveiller activement l'évolution clinique des patients opérés (suivi hospitalier, post-sortie jusqu'à 30-90 jours, entretiens téléphoniques, revue de dossiers).\n • Saisir les données standardisées (patients, interventions, infections) sur la plateforme Swissnoso et valider les cas infectieux sous la supervision de la responsable HPCI\n • Participer aux formations obligatoires Swissnoso (introduction et ateliers annuels)\n Formation et qualifications requises\n • Diplôme d'infirmière\n • Au moins 2 ans d’expérience en chirurgie ou au bloc opératoire\n • Taux d'activité : 20 %\n Compétences et qualités\n • Maîtrise des protocoles chirurgicaux : préparation du patient à la chirurgie, lecture et compréhension des rapports opératoires et des feuilles d’anesthésie\n • Compétences en analyse de données\n • Aisance dans la communication\n • Autonomie, rigueur et travail transversal\n Est rattachée au service HPCI\n Responsable hiérarchique : Responsable HPCI\n Disponibilité : a partir du mois de juin 2026",
+      "descriptionByLocale": {
+        "it": "Contesto e missione Swissnoso, il centro nazionale per la prevenzione delle infezioni nosocomiali, è stato incaricato di monitorare le infezioni dei siti chirurgici (SSI) negli ospedali svizzeri dal 2009. La sorveglianza epidemiologica dell'ISS è un metodo prospettico di monitoraggio dei pazienti operato per rilevare e diagnosticare le infezioni utilizzando un metodo convalidato basato su criteri clinici internazionali. Si tratta di un'attività permanente per la raccolta, l'analisi, l'interpretazione dei dati e il ritorno dei risultati L'infermiera responsabile della sorveglianza delle infezioni dei siti chirurgici garantisce il follow-up attivo dei pazienti post-operativi per rilevare le infezioni utilizzando un metodo convalidato basato su criteri clinici e internazionali. Funziona sotto la supervisione di HPCI. Principali compiti\n• Monitorare attivamente l'evoluzione clinica dei pazienti operati ( follow-up ospedaliero, post-uscita fino a 30-90 giorni, interviste telefoniche, recensione dei file).\n• Immettere dati standardizzati (pazienti, interventi, infezioni) sulla piattaforma Swissnoso e convalidare casi infettivi sotto la supervisione di HPCI\n• Partecipazione alla formazione obbligatoria di Swissnoso (introduzione e workshop annuali) Formazione e qualifiche richieste\n• Diploma di infermiera\n• Almeno 2 anni di esperienza in chirurgia o chirurgia\n• Tasso di attività: 20% Competenze e qualifiche\n• Controllo dei protocolli chirurgici: preparazione del paziente per la chirurgia, la lettura e la comprensione dei rapporti operativi e dei fogli di anestesia\n• Capacità di analisi dei dati\n• Pertinenza della comunicazione\n• Autonomia, rigore e lavoro di taglio incrociato È collegato al servizio HPCI Responsabile: HPCI Disponibilità: da giugno 2026",
+        "en": "Background and mission Swissnoso, the national centre for the prevention of nosocomial infections, has been mandated to monitor surgical site infections (SSI) in Swiss hospitals since 2009. Epidemiologic surveillance of ISS is a prospective method of monitoring patients operated to detect and diagnose infections using a validated method based on international clinical criteria. It is a permanent activity for the collection, analysis, interpretation of data and the return of results The nurse in charge of surveillance of surgical site infections ensures active follow-up of post-operative patients to detect infections using a validated method based on clinical and international criteria. It operates under the supervision of HPCI. Main tasks\n• Actively monitor the clinical evolution of patients operated (hospital follow-up, post-exit up to 30-90 days, telephone interviews, file review).\n• Enter standardized data (patients, interventions, infections) on the Swissnoso platform and validate infectious cases under the supervision of HPCI\n• Participate in compulsory Swissnoso training (introduction and annual workshops) Training and qualifications required\n• Diploma of Nurse\n• At least 2 years experience in surgery or surgery\n• Activity rate: 20% Skills and qualifications\n• Control of surgical protocols: patient preparation for surgery, reading and understanding of operational reports and anaesthesia sheets\n• Data analysis skills\n• Communication relevance\n• Autonomy, rigor and cross-cutting work Is attached to HPCI service Manager: HPCI Availability: from June 2026",
+        "de": "Hintergrund und Mission Swissnoso, das nationale Zentrum zur Prävention von Nosocomial-Infektionen, wurde seit 2009 beauftragt, chirurgische Standortinfektionen (SSI) in Schweizer Krankenhäusern zu überwachen. Epidemiologische Überwachung von ISS ist eine prospektive Methode zur Überwachung von Patienten, die zur Erkennung und Diagnose von Infektionen mit einer validierten Methode auf Basis internationaler klinischer Kriterien betrieben werden. Es ist eine ständige Tätigkeit für die Erhebung, Analyse, Interpretation von Daten und die Rückgabe von Ergebnissen Die Krankenschwester, die für die Überwachung von chirurgischen Standortinfektionen verantwortlich ist, sorgt für eine aktive Nachverfolgung von postoperativen Patienten, um Infektionen mit einer validierten Methode basierend auf klinischen und internationalen Kriterien zu erkennen. Es arbeitet unter der Aufsicht von HPCI. Hauptaufgaben\n• Aktive Überwachung der klinischen Entwicklung der betriebenen Patienten (hospitale Nachverfolgung, Nachbezug bis zu 30-90 Tage, Telefoninterviews, Dateiüberprüfung).\n• Geben Sie standardisierte Daten (Patienten, Interventionen, Infektionen) auf der Swissnoso-Plattform ein und validieren Sie infektiöse Fälle unter der Aufsicht von HPCI\n• Teilnahme an der obligatorischen Swissnoso-Ausbildung (Einführung und jährliche Workshops) Ausbildung und Qualifikation erforderlich\n• Diplom der Krankenschwester\n• mindestens 2 Jahre Erfahrung in der Chirurgie oder Chirurgie\n• Aktivitätsrate: 20% Fähigkeiten und Qualifikationen\n• Kontrolle von chirurgischen Protokollen: Patientenvorbereitung für Chirurgie, Lesen und Verständnis von operativen Berichten und Narkoseblättern\n• Kenntnisse der Datenanalyse\n• Relevanz der Kommunikation\n• Autonome, strenge und querschneidende Arbeit Ist an HPCI-Service angeschlossen Manager: HPCI Verfügbarkeit: ab Juni 2026",
+        "fr": "Contexte et mission Swissnoso, centre national pour la prévention des infections nosocomiales, mandate la surveillance prospective des infections du site chirurgical (SSI) dans les hôpitaux suisses depuis 2009. La surveillance épidémiologique des SSI est une méthode prospective de suivi des patients opérés dans le but de détecter et diagnostiquer les infections selon une méthode validée et basée sur des critères cliniques internationaux. Elle constitue une activité permanente de recueil, d’analyse, d’interprétation des données et de restitution de résultats L’infirmière en charge de la surveillance des infections du site chirurgical assure un suivi actif des patients post-opératoires pour détecter les infections selon une méthode validée et basée sur des critères cliniques et internationaux. Elle exerce son activité sous la supervision de la responsable HPCI. Tâches principales\n• Surveiller activement l'évolution clinique des patients opérés (suivi hospitalier, post-sortie jusqu'à 30-90 jours, entretiens téléphoniques, revue de dossiers).\n• Saisir les données standardisées (patients, interventions, infections) sur la plateforme Swissnoso et valider les cas infectieux sous la supervision de la responsable HPCI\n• Participer aux formations obligatoires Swissnoso (introduction et ateliers annuels) Formation et qualifications requises\n• Diplôme d'infirmière\n• Au moins 2 ans d’expérience en chirurgie ou au bloc opératoire\n• Taux d'activité : 20 % Compétences et qualités\n• Maîtrise des protocoles chirurgicaux : préparation du patient à la chirurgie, lecture et compréhension des rapports opératoires et des feuilles d’anesthésie\n• Compétences en analyse de données\n• Aisance dans la communication\n• Autonomie, rigueur et travail transversal Est rattachée au service HPCI Responsable hiérarchique : Responsable HPCI Disponibilité : a partir du mois de juin 2026"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "url": "https://app.beehire.com/invite/9HnYY9NDt",
+      "applyUrl": "https://app.beehire.com/invite/9HnYY9NDt",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-22T22:43:37.521Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+        ],
+        "en": [
+          "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+        ],
+        "de": [
+          "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+        ]
+      },
+      "firstSeenAt": "2026-05-21T22:30:21.753Z",
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 116500,
+          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -667,7 +672,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.719Z",
+      "crawledAt": "2026-06-22T22:43:37.519Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -742,7 +747,7 @@
       "applyUrl": "https://app.beehire.com/invite/etyOQWpII",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.718Z",
+      "crawledAt": "2026-06-22T22:43:37.518Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
@@ -817,7 +822,7 @@
       "applyUrl": "https://app.beehire.com/invite/ue0iaht7b",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.717Z",
+      "crawledAt": "2026-06-22T22:43:37.517Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -851,27 +856,27 @@
       "id": "ghol-a45826bed7d3",
       "slug": "segretaria-medica-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "fr": "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "it": "segretaria-medica-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "medical-secretary-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "arztliche-sekretarin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "de": "arztliche-sekretarin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
       "title": "Secrétaire médical.e",
       "titleByLocale": {
-        "fr": "Secrétaire médical.e",
         "it": "Segretaria medica.e",
         "en": "Medical Secretary",
-        "de": "Ärztliche Sekretärin"
+        "de": "Ärztliche Sekretärin",
+        "fr": "Secrétaire médical.e"
       },
       "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon, Rolle et St-Cergue. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à,\n\n• Gérer les agendas des médecins\n\n• Gérer la boîte mail du service\n\n• Recevoir et gérer les appels, assurer les prises de RDV\n\n• Convoquer la patientèle\n\n• Rapatrier les documents médicaux auprès des cabinets et établissement externes, les archiver dans les dossiers patients-es\n\n• Préparer les dossiers de consultation\n\n• Accueillir et orienter les patientses\n\n• Prendre les RDV de suivi au départ des patientses\n\n• Imprimer/remettre les certificats et ordonnances au départ des patientses\n\n• Transcrire/relire, valider et assurer l’envoi des rapports médicaux\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Proactivité, dynamisme, esprit d'initiative, capacité à anticiper les besoins, à apporter des solutions\n\n• Attrait pour le travail en équipe, l'approche multidisciplinaire\n\n• Intérêt et capacité à rechercher l'information\n\n• Aisance au niveau de la communication, de l'identification des canaux de transmission\n\n• Facilité d'adaptation, maîtrise de la gestion simultanée des tâches, polyvalence\n\n• Aptitude à organiser son travail, définir les priorités, monitorer et suivre l'activité\n\n• Maîtrise des équipements de bureautique et des outils informatiques Windows, et spécifiques au milieu hospitalier\n\n• Maîtrise de l’orthographe et de la syntaxe française, de la terminologie médicale\n\n• Rigueur, conscience professionnelle, approche positive, discrétion\n Niveau de formation :\n Diplôme de secrétaire médicale ou CFC de commerce, ou formation jugée équivalente\n Au minimum 3 années d’expérience en tant que secrétaire médicale, ou expérience à évaluer\n Avantages :\n Vous effectuez des tâches intéressantes et diversifiées, en collaboration directe avec le personnel médical du service.\n Vous occupez un poste central, au sein d'un service dynamique et en recherche constante de développements pour la qualité de la prise en charge des patient×e×s.",
       "descriptionByLocale": {
-        "fr": "Présentation\nLe GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon, Rolle et St-Cergue. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n\nDescrizione\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à,\n\n- Gérer les agendas des médecins\n- Gérer la boîte mail du service\n- Recevoir et gérer les appels, assurer les prises de RDV\n- Convoquer la patientèle\n- Rapatrier les documents médicaux auprès des cabinets et établissement externes, les archiver dans les dossiers patients-es\n- Préparer les dossiers de consultation\n- Accueillir et orienter les patientses\n- Prendre les RDV de suivi au départ des patientses\n- Imprimer/remettre les certificats et ordonnances au départ des patientses\n- Transcrire/relire, valider et assurer l’envoi des rapports médicaux\n\nProfil requis\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n- Proactivité, dynamisme, esprit d'initiative, capacité à anticiper les besoins, à apporter des solutions\n- Attrait pour le travail en équipe, l'approche multidisciplinaire\n- Intérêt et capacité à rechercher l'information\n- Aisance au niveau de la communication, de l'identification des canaux de transmission\n- Facilité d'adaptation, maîtrise de la gestion simultanée des tâches, polyvalence\n- Aptitude à organiser son travail, définir les priorités, monitorer et suivre l'activité\n- Maîtrise des équipements de bureautique et des outils informatiques Windows, et spécifiques au milieu hospitalier\n- Maîtrise de l’orthographe et de la syntaxe française, de la terminologie médicale\n- Rigueur, conscience professionnelle, approche positive, discrétion\n\nNiveau de formation\n- Diplôme de secrétaire médicale ou CFC de commerce, ou formation jugée équivalente\n- Au minimum 3 années d’expérience en tant que secrétaire médicale, ou expérience à évaluer\n\nAvantages\n- Vous effectuez des tâches intéressantes et diversifiées, en collaboration directe avec le personnel médical du service.\n- Vous occupez un poste central, au sein d'un service dynamique et en recherche constante de développements pour la qualité de la prise en charge des patient×e×s.\n\nContatto\nPas de coordonnées fournies.",
-        "it": "Presentazione Il GHOL è l’ospedale di riferimento per il Lemano occidentale con le sue strutture su Nyon, Rolle e St-Cergue. Domani ti proponiamo di continuare la tua crescita professionale coinvolgendoti nelle tue nuove missioni e partecipando allo sviluppo del GHOL. Descrizione Descrizione del lavoro: Nelle tue nuove funzioni, le tue missioni hanno un impatto sulla qualità dell'assistenza ai pazienti. Il vostro ruolo consisterà in particolare in, - Gestire le agende dei medici - Gestire la casella di posta elettronica del servizio - Ricevere e gestire le chiamate, assicurare le prese di appuntamento - Convocare la paziente - Rimpatriare i documenti medici presso gli studi e le istituzioni esterne, archiviarli nelle cartelle cliniche dei pazienti - Preparare i fascicoli di consultazione - Accogliere e orientare le pazienti - Prendere gli appuntamenti di follow-up alla partenza delle pazienti - Stampare/consegnare i certificati e le prescrizioni alla partenza delle pazienti - Trascrivere/rileggere, convalidare e garantire l’invio dei rapporti medici Profilo richiesto Siamo convinti del vostro rapido successo nelle vostre future funzioni grazie al vostro/ai vostri: - Proattività, dinamismo, spirito d'iniziativa, capacità di anticipare i bisogni, di fornire soluzioni - Attributo per il lavoro di squadra, l'approccio multidisciplinare - Interesse e capacità di ricercare le informazioni - Competenza a livello di comunicazione, identificazione dei canali di trasmissione - Facilità",
-        "en": "Presentation The GHOL is the reference hospital for the Lemanic West with its structures on Nyon, Rolle and St-Cergue. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of the GHOL. Descrizione Position Description: In your new functions, your missions have an impact on the quality of care of patients.\n\nYour role will include: - Managing physician's agendas - Managing the service's mailbox - Receiving and managing calls, ensuring patient caretakes - Calling patients - Rapatriating medical documents to external offices and institutions, the Archivers in patient care files - Preparing consultation files - Welcoming and guiding patients - Taking follow-up appointments from patients - Printing/remitting certificates and prescriptions from patients - Transcriminating/relate, validating and ensuring the sending of medical reports Profile\n\nWe are confident of your rapid success in your future functions through your: - Proactivity, dynamism, initiative, ability to anticipate needs, to bring solutions - Attrait for team work, multidisciplinary approach - Interest and ability to search for information - Ability to communicate, identify transmission channels - Ease of adaptation, control of simultaneous task management, versatility - Ability to organize work, define priorities, monitor and monitor activity - Mastery of tasks\n\nOffice automation equipment and Windows computer tools, and specific to the hospital environment - Master's degree in spelling and French language, medical terminology - Rigor, professional awareness, positive approach, discretion Level of training - Diploma of medical secretary, e or CFC of trade, or equivalent training - At least 3 years d, experience as medical secretary, e, or experience to be evaluated Benefits - You perform interesting and diverse tasks, in direct collaboration with the medical staff of the service.\n\n- You are in a central position, within a dynamic service and constantly looking for developments for the quality of care of patients×e×s. Contatto No contact details provided.",
-        "de": "Präsentation Das GHOL ist das Referenzkrankenhaus für den Lemanischen Westen mit seinen Strukturen auf Nyon, Rolle und St-Cergue. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbinden und an der Entwicklung des GHOL teilnehmen. Beschreibung der Beschreibung der Position: In Ihren neuen Funktionen haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung.\n\nIhre Aufgabe umfasst: - Verwaltung der Arztpläne - Verwaltung des Postfachs des Dienstes - Empfangen und Verwalten von Anrufen, Sicherstellung der Patientenbetreuung - Anrufende Patienten - Rapatriierung medizinischer Dokumente in externe Büros und Institutionen, die Archiver in Patientenversorgungsdateien - Vorbereitung von Konsultationsdateien - Begegnung und Leitung von Patienten - Aufnahme von Follow-up-Terminen von Patienten - Druck/Übung von Zertifikaten und Verschreibungen von Patienten - Transkriminierung/Verlängerung, Validierung und Sicherstellung der Zusendung von medizinischen Berichten Profil\n\nWir sind zuversichtlich, dass Sie in Ihren zukünftigen Funktionen schnell erfolgreich sind, indem Sie: - Proaktivität, Dynamik, Initiative, Fähigkeit, Bedürfnisse vorauszusehen, Lösungen zu bringen - Attrait für Teamarbeit, multidisziplinärer Ansatz - Interesse und Fähigkeit, nach Informationen zu suchen - Fähigkeit, Kommunikations-, Identifizierungskanäle - Einfache Anpassung, Kontrolle des gleichzeitigen Task-Managements, Vielseitigkeit - Fähigkeit, Arbeit zu organisieren, Prioritäten festzulegen, zu überwachen und zu überwachen - Beherrschung der Aufgaben\n\nBüroautomationsgeräte und Windows-Computer-Tools, und speziell für die Krankenhausumgebung - Master-Abschluss in Rechtschreibung und Französisch Sprache, medizinische Terminologie - Rigor, professionelles Bewusstsein, positive Ansatz, Diskretion Niveau der Ausbildung - Diplom des medizinischen Sekretärs, e oder CFC des Handels, oder gleichwertige Ausbildung - Mindestens 3 Jahre d, Erfahrung als medizinische Sekretärin, e, oder Erfahrung zu bewerten Vorteile - Sie führen interessante und vielfältige Aufgaben, in direkter Zusammenarbeit mit dem medizinischen Personal des Dienstes.\n\n- Sie befinden sich in zentraler Lage, in einem dynamischen Service und suchen ständig nach Entwicklungen für die Qualität der Versorgung von Patienten×e×s. Contatto Keine Kontaktdaten angegeben."
+        "it": "Presentazione Il GHOL è l’ospedale di riferimento per il Lemano occidentale con le sue strutture su Nyon, Rolle e St-Cergue. Domani ti proponiamo di continuare la tua crescita professionale coinvolgendoti nelle tue nuove missioni e partecipando allo sviluppo del GHOL. Descrizione Descrizione del lavoro: Nelle tue nuove funzioni, le tue missioni hanno un impatto sulla qualità dell'assistenza ai pazienti. Il vostro ruolo consisterà in particolare in, - Gestire le agende dei medici - Gestire la casella di posta elettronica del servizio - Ricevere e gestire le chiamate, assicurare le prese di appuntamento - Convocare la paziente - Rimpatriare i documenti medici presso gli studi e le istituzioni esterne, archiviarli nelle cartelle cliniche dei pazienti - Preparare i fascicoli di consultazione - Accogliere e orientare le pazienti - Prendere gli appuntamenti di follow-up alla partenza delle pazienti - Stampare/consegnare i certificati e le prescrizioni alla partenza delle pazienti - Trascrivere/rileggere, convalidare e garantire l’invio dei rapporti medici \n• Profilo richiesto Siamo convinti del vostro rapido successo nelle vostre future funzioni grazie al vostro/ai vostri: - Proattività, dinamismo, spirito d'iniziativa, capacità di anticipare i bisogni, di fornire soluzioni - Attributo per il lavoro di squadra, l'approccio multidisciplinare - Interesse e capacità di ricercare le informazioni - Competenza a livello di comunicazione, identificazione dei canali di trasmissione - Facilità",
+        "en": "Presentation The GHOL is the reference hospital for the Lemanic West with its structures on Nyon, Rolle and St-Cergue. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of the GHOL. Descrizione Position Description: In your new functions, your missions have an impact on the quality of care of patients. Your role will include: - Managing physician's agendas - Managing the service's mailbox - Receiving and managing calls, ensuring patient caretakes - Calling patients - Rapatriating medical documents to external offices and institutions, the Archivers in patient care files - Preparing consultation files - Welcoming and guiding patients - Taking follow-up appointments from patients - Printing/remitting certificates and prescriptions from patients - Transcriminating/relate, validating and ensuring the sending of medical reports \n• Profile We are confident of your rapid success in your future functions through your: - Proactivity, dynamism, initiative, ability to anticipate needs, to bring solutions - Attrait for team work, multidisciplinary approach - Interest and ability to search for information - Ability to communicate, identify transmission channels - Ease of adaptation, control of simultaneous task management, versatility - Ability to organize work, define priorities, monitor and monitor activity - Mastery of tasks Office automation equipment and Windows computer tools, and specific to the hospital environment - Master's degree in spelling and French language, medical terminology - Rigor, professional awareness, positive approach, discretion Level of training - Diploma of medical secretary, e or CFC of trade, or equivalent training - At least 3 years d, experience as medical secretary, e, or experience to be evaluated Benefits - You perform interesting and diverse tasks, in direct collaboration with the medical staff of the service. - You are in a central position, within a dynamic service and constantly looking for developments for the quality of care of patients×e×s. Contatto No contact details provided.",
+        "de": "Präsentation Das GHOL ist das Referenzkrankenhaus für den Lemanischen Westen mit seinen Strukturen auf Nyon, Rolle und St-Cergue. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbinden und an der Entwicklung des GHOL teilnehmen. Beschreibung der Beschreibung der Position: In Ihren neuen Funktionen haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Aufgabe umfasst: - Verwaltung der Arztpläne - Verwaltung des Postfachs des Dienstes - Empfangen und Verwalten von Anrufen, Sicherstellung der Patientenbetreuung - Anrufende Patienten - Rapatriierung medizinischer Dokumente in externe Büros und Institutionen, die Archiver in Patientenversorgungsdateien - Vorbereitung von Konsultationsdateien - Begegnung und Leitung von Patienten - Aufnahme von Follow-up-Terminen von Patienten - Druck/Übung von Zertifikaten und Verschreibungen von Patienten - Transkriminierung/Verlängerung, Validierung und Sicherstellung der Zusendung von medizinischen Berichten Profil Wir sind zuversichtlich, dass Sie in Ihren zukünftigen Funktionen schnell erfolgreich sind, indem Sie: - Proaktivität, Dynamik, Initiative, Fähigkeit, Bedürfnisse vorauszusehen, Lösungen zu bringen - Attrait für Teamarbeit, multidisziplinärer Ansatz - Interesse und Fähigkeit, nach Informationen zu suchen - Fähigkeit, Kommunikations-, Identifizierungskanäle - Einfache Anpassung, Kontrolle des gleichzeitigen Task-Managements, Vielseitigkeit - Fähigkeit, Arbeit zu organisieren, Prioritäten festzulegen, zu überwachen und zu überwachen - Beherrschung der \n• Aufgaben Büroautomationsgeräte und Windows-Computer-Tools, und speziell für die Krankenhausumgebung - Master-Abschluss in Rechtschreibung und Französisch Sprache, medizinische Terminologie - Rigor, professionelles Bewusstsein, positive Ansatz, Diskretion Niveau der Ausbildung - Diplom des medizinischen Sekretärs, e oder CFC des Handels, oder gleichwertige Ausbildung - Mindestens 3 Jahre d, Erfahrung als medizinische Sekretärin, e, oder Erfahrung zu bewerten Vorteile - Sie führen interessante und vielfältige \n• Aufgaben, in direkter Zusammenarbeit mit dem medizinischen Personal des Dienstes. - Sie befinden sich in zentraler Lage, in einem dynamischen Service und suchen ständig nach Entwicklungen für die Qualität der Versorgung von Patienten×e×s. Contatto Keine Kontaktdaten angegeben.",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon, Rolle et St-Cergue. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL. Descriptif du poste : Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à,\n• Gérer les agendas des médecins\n• Gérer la boîte mail du service\n• Recevoir et gérer les appels, assurer les prises de RDV\n• Convoquer la patientèle\n• Rapatrier les documents médicaux auprès des cabinets et établissement externes, les archiver dans les dossiers patients-es\n• Préparer les dossiers de consultation\n• Accueillir et orienter les patientses\n• Prendre les RDV de suivi au départ des patientses\n• Imprimer/remettre les certificats et ordonnances au départ des patientses\n• Transcrire/relire, valider et assurer l’envoi des rapports médicaux Profil requis : Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n• Proactivité, dynamisme, esprit d'initiative, capacité à anticiper les besoins, à apporter des solutions\n• Attrait pour le travail en équipe, l'approche multidisciplinaire\n• Intérêt et capacité à rechercher l'information\n• Aisance au niveau de la communication, de l'identification des canaux de transmission\n• Facilité d'adaptation, maîtrise de la gestion simultanée des tâches, polyvalence\n• Aptitude à organiser son travail, définir les priorités, monitorer et suivre l'activité\n• Maîtrise des équipements de bureautique et des outils informatiques Windows, et spécifiques au milieu hospitalier\n• Maîtrise de l’orthographe et de la syntaxe française, de la terminologie médicale\n• Rigueur, conscience professionnelle, approche positive, discrétion Niveau de formation : Diplôme de secrétaire médicale ou CFC de commerce, ou formation jugée équivalente Au minimum 3 années d’expérience en tant que secrétaire médicale, ou expérience à évaluer Avantages : Vous effectuez des tâches intéressantes et diversifiées, en collaboration directe avec le personnel médical du service. Vous occupez un poste central, au sein d'un service dynamique et en recherche constante de développements pour la qualité de la prise en charge des patient×e×s."
       },
       "location": "Nyon",
       "canton": "VD",
@@ -892,20 +897,11 @@
       "applyUrl": "https://app.beehire.com/invite/-lccfnCIk",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:17:55.716Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-22T14:17:55.716Z",
+      "crawledAt": "2026-06-22T22:43:37.516Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -917,9 +913,19 @@
           "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
-      "previousSlugs": [
-        "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ]
+      "firstSeenAt": "2026-06-22T14:17:55.716Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
