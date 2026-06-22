@@ -276,11 +276,13 @@ describe('popularity decay (anti-evergreen-freeze)', () => {
   });
 
   it('falls through a malformed postedDate to a valid firstSeenAt (date present ≠ usable)', () => {
-    // ~0.3% of real jobs carry a DD/MM/YY postedDate that `new Date()` rejects.
-    // It must not shadow a good firstSeenAt and force the neutral 0.5 branch.
-    const job = { postedDate: '30/05/26', firstSeenAt: daysAgoIso(0) };
+    // ~0.3% of real jobs carry a present-but-unusable postedDate — e.g. an
+    // impossible DD/MM like 30/13 that parseDateField rejects as NaN (a valid
+    // DD/MM such as 30/05 now parses per #2630 and is decayed on its own date).
+    // The unusable case must not shadow a good firstSeenAt and force the neutral 0.5 branch.
+    const job = { postedDate: '30/13/26', firstSeenAt: daysAgoIso(0) };
     expect(decayFactor(job, NOW)).toBeCloseTo(1, 5);
-    expect(decayFactor({ postedDate: '30/05/26', firstSeenAt: daysAgoIso(30) }, NOW)).toBeCloseTo(0.5, 5);
+    expect(decayFactor({ postedDate: '30/13/26', firstSeenAt: daysAgoIso(30) }, NOW)).toBeCloseTo(0.5, 5);
   });
 });
 

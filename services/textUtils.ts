@@ -92,12 +92,20 @@ export function isCategoryMatch(a: string, b: string): boolean {
  return !!a && !!b && a === b;
 }
 
-/** Check if two location values match (normalized substring). */
+/** Check if two location values match (normalized, whole-token). */
 export function isLocationMatch(a: string, b: string): boolean {
  if (!a || !b) return false;
  const na = normalizeSearchText(a);
  const nb = normalizeSearchText(b);
- return na === nb || na.includes(nb) || nb.includes(na);
+ if (!na || !nb) return false;
+ if (na === nb) return true;
+ // Whole-token containment, NOT bare substring: "bern" must not match a job in
+ // "bernex"/"berna" (#2630). normalizeSearchText already yields space-delimited
+ // ASCII tokens, so a space-padded includes is a correct word-boundary test and
+ // still matches "lugano" inside "lugano paradiso".
+ const naP = ` ${na} `;
+ const nbP = ` ${nb} `;
+ return naP.includes(nbP) || nbP.includes(naP);
 }
 
 /** Check if two company values match (normalized exact). */
