@@ -320,11 +320,32 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  //    Caller's bodyHtml gets wrapped in `<main class="static-job-page">`
  //    inside `<div id="root">` — legacy job SEO pages.
  const preMainSection = preMainHtml ? `\n${preMainHtml}` : '';
+ // Full-height left/right side-rail gutters for the static SEO content, mirroring
+ // the article-detail / job-detail rail layout (BlogArticles, JobBoard). The
+ // <main> becomes the centre column of a 3-col grid that only materialises at
+ // `xlw` (≥1400px) — below that the page is an unchanged single column. The two
+ // <aside> elements are PORTAL TARGETS: App.tsx mounts <ArticleRailAdStack> into
+ // `#rail-left-root` / `#rail-right-root` on staticOverlay pages (same pattern as
+ // the `#footer-root` portal), so the GPT half-page ads reuse the React slot and
+ // its Remote Config kill-switch instead of duplicating GPT in static HTML.
+ // Reserved 300px columns mean zero CLS. Suppressed on `disableAutoAds` drive-by
+ // pages (≥97% bounce) to honour their deliberate no-ad opt-out.
+ const railsEnabled = seoContentOutsideRoot && !disableAutoAds;
+ const railGridOpen = railsEnabled
+   ? ` <div class="xlw:grid xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-6 xlw:mx-auto xlw:max-w-[1768px]">
+ <aside id="rail-left-root" class="hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>`
+   : '';
+ const railGridClose = railsEnabled
+   ? `
+ <aside id="rail-right-root" class="hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>
+ </div>`
+   : '';
  const bodySection = seoContentOutsideRoot
    ? ` <div id="root"></div>${preMainSection}
+${railGridOpen}
  <main class="${seoMainClass}">
 ${bodyHtml}
- </main>
+ </main>${railGridClose}
  <div id="footer-root"></div>`
    : ` <div id="root">
 ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </main>`}
