@@ -9766,6 +9766,13 @@ ${staticAnalyticsHtml}
  // The compat file is a manual GSC export; the orphan pipeline now subsumes it.
  // Handles all locales: IT (/cerca-lavoro-ticino/), DE (/de/jobs-im-tessin/), FR (/fr/trouver-emploi-tessin/)
  const compatPathsFile = np.resolve(rootDir, 'data/seo-404-compat-paths.json');
+ // Slugs whose compat-merge OVERWROTE a pre-existing (different-canton) locale
+ // path. For these the surviving sibling-locale entries still point at the
+ // OTHER canton's live pages, so the soft-landing emit below MUST force zero
+ // hreflang (see the emit-site guard) — a mixed TI/other-canton cluster would
+ // be non-reciprocal and could trip audit-hreflang #4. Declared in the merge
+ // scope so the emit loop (same closure, reads `tracking` directly) can read it.
+ const cantonDriftCompatSlugs = new Set<string>();
  try {
  const compatData = JSON.parse(fs.readFileSync(compatPathsFile, 'utf-8'));
  const compatPaths: string[] = Array.isArray(compatData?.paths) ? compatData.paths : [];
@@ -9795,8 +9802,41 @@ ${staticAnalyticsHtml}
  // Skip fixture-data slugs leaked from earlier local builds.
  if (isFixtureSlug(slug)) break;
  if (!tracking[slug]) tracking[slug] = {};
- if ((tracking[slug] as Record<string, string>)[locale]) break; // locale path already known
- (tracking[slug] as Record<string, string>)[locale] = `${prefix}${slug}`;
+ const known = (tracking[slug] as Record<string, string>)[locale];
+ const compatPath = `${prefix}${slug}`;
+ // Canton-drift recovery (follow-up #2600 item 1). Previously we
+ // skipped (`break`) whenever the ledger already held a locale path
+ // for this slug, giving priority to the active path. That left
+ // canton-drifted orphans — a job re-pinned to another canton (e.g.
+ // active at /cerca-lavoro-berna/<slug> while the old TI URL
+ // /cerca-lavoro-ticino/<slug>/ is still indexed and now 404s) — with
+ // only the thin accumulator bridge (cfHot404BridgePlugin). Registering
+ // the canton-less compat path here lets those orphans get the richer
+ // soft-landing instead. Safety: the on-disk ledger is already
+ // persisted above (data/all-known-job-slugs.json) so this in-memory
+ // override never mutates the ledger; the accumulator bridge
+ // (enforce:'post', last position, existsSync gap-fill) skips any path
+ // this richer page already emitted, so there is no double-emit.
+ //
+ // HREFLANG SAFETY (#2626 review fix): when we OVERWRITE a pre-existing
+ // locale path, the slug belongs to an active job whose OTHER locale
+ // entries still point at the other canton's LIVE pages (e.g. it→TI
+ // soft-landing, but en/de/fr→/…-berna/…). Left untouched the cluster
+ // would look "full" (4 locales) → the emit would write a 4-locale
+ // hreflang block mixing this noindex TI page with the live, non-
+ // reciprocal Bern pages and tripping audit-hreflang #4 (every target
+ // must exist in dist; ledger sibling paths can be stale). So record the
+ // slug and force ZERO hreflang at emit — matching the documented intent
+ // ("incomplete cluster → zero hreflang, rely on canonical + html lang").
+ // Net-new registrations (no pre-existing `known`) are reciprocal TI
+ // paths and keep their normal cluster.
+ // REVERT-TRIGGER: the full SSG emit only validates post-merge on
+ // `main` (local SEO build OOMs). If the next deploy regresses the
+ // hreflang/canonical audits or OOMs, restore the `if (known) break`.
+ const knownNorm = known ? known.replace(/\/+$/, '') : known;
+ if (knownNorm === compatPath) break; // already the canonical path — no-op
+ if (known) cantonDriftCompatSlugs.add(slug);
+ (tracking[slug] as Record<string, string>)[locale] = compatPath;
  compatAdded++;
  break;
  }
@@ -10675,7 +10715,13 @@ ${staticAnalyticsHtml}
  const expiredLocaleHreflangs = localeList
  .map((l) => (paths[l] ? { lang: l as 'it' | 'en' | 'de' | 'fr', href: `${BASE_URL}${withSlash(paths[l])}` } : null))
  .filter((x): x is { lang: 'it' | 'en' | 'de' | 'fr'; href: string } => x !== null);
- const expiredHasFullCluster = expiredLocaleHreflangs.length === localeList.length;
+ // Canton-drift compat overrides (#2626) produce a MIXED cluster: the
+ // overwritten locale points at this noindex TI soft-landing while the
+ // surviving siblings point at another canton's live, non-reciprocal
+ // pages. Such a cluster must NOT be treated as full — force zero hreflang
+ // so the audit-hreflang invariants (esp. #4) never see the mismatched set.
+ const expiredHasFullCluster = expiredLocaleHreflangs.length === localeList.length
+ && !cantonDriftCompatSlugs.has(slug);
  // When emitting the cluster, force x-default to be present alongside the
  // 4 locale entries — fall back to the IT alternate href when paths.it
  // happens to be empty (defensive; full-cluster guarantees paths.it is set).
