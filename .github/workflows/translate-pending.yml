@@ -76,6 +76,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Cache the local Opus-MT ONNX weights (~50-80MB/q8 model, 6 models for the
+      # IT/EN/DE/FR directions). First run downloads from the HF CDN once (~minutes,
+      # one-time); cached runs reuse them so the in-cascade local tier pays no
+      # cold-start. Mirrors the embedding-build workflows' .cache/transformers cache.
+      - name: Cache Opus-MT models
+        uses: actions/cache@v5
+        with:
+          path: .cache/transformers
+          key: opus-mt-models-v1
+          restore-keys: opus-mt-models-
+
       - name: Prepare Firebase credentials (optional)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -153,9 +164,18 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          # Local Opus-MT tier (Helsinki-NLP via @huggingface/transformers, on-runner) —
+          # the IN-CASCADE successor to the dead self-hosted LibreTranslate container.
+          # Free, deterministic, offline, no rate limit; reuses the ONNX runtime already
+          # proven in prod for embeddings. Sits below the premium key tiers and above the
+          # fragile public proxies (IT stays a post-MyMemory fallback for quality). q8
+          # models are small (~50-80MB each, cached below); the Argos mop-up still runs
+          # after as the final safety net. Set MT_LOCAL_OPUSMT='' (or remove) to disable.
+          MT_LOCAL_OPUSMT: '1'
+          TRANSFORMERS_CACHE: .cache/transformers
           # Self-hosted LibreTranslate removed (see note above the steps): it was 100%
-          # dead on the runner. The cascade now uses premium tiers + MyMemory + PUBLIC
-          # LibreTranslate, which were already doing all the real work.
+          # dead on the runner. The cascade now uses premium tiers + local Opus-MT +
+          # MyMemory + PUBLIC LibreTranslate, which were already doing all the real work.
           # NB: the AI-localization wall-clock budget is set DYNAMICALLY per-company by
           # relocalize-pending-jobs.mjs (JOBS_AI_LOCALIZATION_TIME_BUDGET_MS = remaining
           # time until its 250min run-wide cascade deadline), so it is intentionally NOT
