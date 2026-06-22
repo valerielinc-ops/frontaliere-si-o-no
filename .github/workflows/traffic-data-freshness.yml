@@ -24,13 +24,35 @@ jobs:
         id: check
         run: |
           CURRENT_HOUR=$(date -u +%H)
-          # Active window 05:00-20:00 UTC (covers morning commute ≈ 07:00 CEST).
-          # Overnight is intentionally skipped to conserve HERE quota.
+          # SELF-HEAL window 05:00-20:00 UTC (covers morning commute ≈ 07:00 CEST):
+          # a stale snapshot here re-dispatches the scheduler so commuters still get
+          # fresh data. Overnight is intentionally skipped to conserve HERE quota.
           if [ "$CURRENT_HOUR" -lt 5 ] || [ "$CURRENT_HOUR" -ge 20 ]; then
             echo "Outside peak hours, skipping freshness check"
             echo "STALE=false" >> "$GITHUB_OUTPUT"
             echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
+            echo "PAGEABLE=false" >> "$GITHUB_OUTPUT"
             exit 0
+          fi
+
+          # ISSUE-PAGEABLE window: only ≥08:00 UTC is a stale reading GUARANTEED to
+          # be a real freeze. Before 08:00 the scheduler's morning ramp (*/30 4-7)
+          # may not have LANDED yet (GitHub delivers crons 10-60+ min late), so a
+          # stale snapshot is expected lag — NOT a bug. In that window we self-heal
+          # silently and never open an issue (the cause of the #2617 false page:
+          # 674-min "stale" at 06:30 Mon after the weekend gap, before the lagged
+          # morning collection arrived). Single source of truth: isStalenessCheckActive()
+          # in scripts/check-border-data-health.mjs — the sibling watchdog was fixed
+          # the same way at 08:00 (#2587/#2599). Reusing it keeps the 08:00 boundary
+          # drift-proof by-construction (no duplicated hour literal). If the gate
+          # errors, it fails CLOSED (PAGEABLE=false) — safe: no false page, and the
+          # 6h border-watchdog backstop still catches a truly frozen pipeline.
+          if node -e "import('./scripts/check-border-data-health.mjs').then(m => process.exit(m.isStalenessCheckActive(Date.now()) ? 0 : 1)).catch(() => process.exit(1))"; then
+            echo "PAGEABLE=true" >> "$GITHUB_OUTPUT"
+            echo "In issue-pageable window (≥08:00 UTC) — a stale reading is a real freeze."
+          else
+            echo "PAGEABLE=false" >> "$GITHUB_OUTPUT"
+            echo "In commute self-heal window (05:00-08:00 UTC) — stale self-heals silently, no issue."
           fi
 
           FILE="data/border-wait-current.json"
@@ -154,8 +176,11 @@ jobs:
           done
 
       # Debounced opener: first stale reading → pending. Second consecutive → promote to confirmed.
+      # Gated on PAGEABLE so we only ever open/promote an issue ≥08:00 UTC, once the
+      # morning collection ramp has certainly landed — staleness before then is
+      # expected cron-lag, already self-healed above, and must NOT raise a page.
       - name: Open / debounce stale issue
-        if: steps.check.outputs.STALE == 'true'
+        if: steps.check.outputs.STALE == 'true' && steps.check.outputs.PAGEABLE == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REASON: ${{ steps.check.outputs.REASON }}
