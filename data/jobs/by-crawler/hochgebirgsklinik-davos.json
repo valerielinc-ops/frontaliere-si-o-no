@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-06-21T11:41:45.712Z",
+  "assembledAt": "2026-06-21T22:00:59.968Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.337Z",
+      "crawledAt": "2026-06-21T22:00:57.878Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -102,6 +102,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -147,7 +148,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.336Z",
+      "crawledAt": "2026-06-21T22:00:57.877Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -198,6 +199,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.482Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -243,7 +245,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.335Z",
+      "crawledAt": "2026-06-21T22:00:57.876Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -300,6 +302,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -345,7 +348,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.334Z",
+      "crawledAt": "2026-06-21T22:00:57.875Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -396,6 +399,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -441,7 +445,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.333Z",
+      "crawledAt": "2026-06-21T22:00:57.874Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -492,6 +496,7 @@
         "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
       ],
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -501,6 +506,90 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-9b9d35d55ba4",
+      "slug": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
+        "en": "senior-consultant-m-w-80-100-hochgebirgsklinik-davos-davos",
+        "de": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
+        "fr": "consultant-principal-m-m-80-100-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Oberarzt / Oberärztin Kardiologie (m/w) 80-100%",
+      "titleByLocale": {
+        "it": "Consulente senior (m/w) 80-100 %",
+        "en": "Senior Consultant (m/w) 80-100 %",
+        "de": "Oberarzt / Oberärztin Kardiologie (m/w) 80-100%",
+        "fr": "Consultant principal (m/m) 80-100 %"
+      },
+      "description": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären Patientinnen und Patienten nach einem kardialen Akutereignis, fortgeschrittene Herzinsuffizienz, Herztransplantiere Patienten, LVAD-Patienten, Kardio-Onkologische Patienten\n• Internistische Mitbetreuung stationärer Patienten aller Indikationen\n• Gesamte nicht invasive Kardiologie in Diagnostik und Therapie\n• Interdisziplinäre Zusammenarbeit mit Kollegen aus den anderen Disziplinen\n• Beteiligung an der Aus- und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Teilnahme am allgemeininternistischen Hintergrunddienst\n• Ambulante Sprechstunde | Anforderungen:\n• Facharzttitel Allgemeine Innere Medizin FMH und Facharzttitel Kardiologie FMH\n• Fundierte Kenntnisse in der Echokardiographie, Herzschrittmacher, Spiroergometrie, wenn möglich Abdomen Sonographie\n• Langjährige Erfahrung im Schweizer Gesundheitssystem ist Voraussetzung\n• Selbständige und kunden-/patientenorientierte Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1) | Wir bieten: Sie sind ein versierter Kardiologe mit dem Herz am rechten Fleck? Dann sollten wir uns kennen lernen!",
+      "descriptionByLocale": {
+        "it": "Mansioni - Chiarimento, trattamento e assistenza di pazienti ricoverati dopo un evento acuto cardiaco, insufficienza cardiaca in stadio avanzato, pazienti trapiantati di cuore, pazienti LVAD, pazienti cardio-oncologici - Co-cura interna di pazienti ricoverati di tutte le indicazioni - Cardiologia non invasiva totale in diagnostica e terapia - Collaborazione interdisciplinare con colleghi delle altre discipline - Partecipazione alla formazione e al perfezionamento degli assistenti medici - Partecipazione al servizio di base di internistica generale - Consulenza ambulatoriale ##\n• Requisiti - Titoli specialistici di medicina interna generale FMH e titoli specialistici di cardiologia FMH - Conoscenza approfondita dell'ecocardiografia, dei pacemaker cardiaci, della spiroergometria, se possibile, dell'ecografia addominale - L'esperienza pluriennale nel sistema sanitario svizzero è un prerequisito - Lavoro autonomo e orientato al cliente/paziente - Capacità di carico, flessibilità, senso di responsabilità e capacità di squadra - Ottima conoscenza della lingua tedesca e scrittura (livello C1 # offriamo #) - Sei un cardiologo con il cuore destro? Allora dovremmo conoscerci! ## Contatto - (no contact information provided)",
+        "en": "Mansioni - Clarification, treatment and care of inpatients after an acute cardiac event, advanced heart failure, heart transplant patients, LVAD patients, cardio-oncological patients - Internal co-supervision of inpatients of all indications - Overall non-invasive cardiology in diagnostics and therapy - Interdisciplinary cooperation with colleagues from the other disciplines - Participation in the training and further education of resident doctors - Participation in the general internal medicine background service - Outpatient consultation hours ##\n• Requisiti - Specialist title General Internal Medicine FMH and Specialist title Cardiology FMH - Sound knowledge in echocardiography, cardiac pacemakers, spiroergometry, if possible abdominal sonography - Long-term experience in the Swiss health system is a prerequisite - Independent and customer/patient-oriented way of working - Resilience, flexibility, responsibility and teamwork - Very good German language skills (level C1) ##\n• Cosa offriamo - Are you an accomplished cardiologist with your heart in the right place? Then we should get to know each other! ## Contatto - (no contact information provided)",
+        "de": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären Patientinnen und Patienten nach einem kardialen Akutereignis, fortgeschrittene Herzinsuffizienz, Herztransplantiere Patienten, LVAD-Patienten, Kardio-Onkologische Patienten\n• Internistische Mitbetreuung stationärer Patienten aller Indikationen\n• Gesamte nicht invasive Kardiologie in Diagnostik und Therapie\n• Interdisziplinäre Zusammenarbeit mit Kollegen aus den anderen Disziplinen\n• Beteiligung an der Aus- und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Teilnahme am allgemeininternistischen Hintergrunddienst\n• Ambulante Sprechstunde | Anforderungen:\n• Facharzttitel Allgemeine Innere Medizin FMH und Facharzttitel Kardiologie FMH\n• Fundierte Kenntnisse in der Echokardiographie, Herzschrittmacher, Spiroergometrie, wenn möglich Abdomen Sonographie\n• Langjährige Erfahrung im Schweizer Gesundheitssystem ist Voraussetzung\n• Selbständige und kunden-/patientenorientierte Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1) | Wir bieten: Sie sind ein versierter Kardiologe mit dem Herz am rechten Fleck? Dann sollten wir uns kennen lernen!",
+        "fr": "Mansioni - Evaluation, traitement et prise en charge de patients hospitalisés après un événement cardiaque aigu, insuffisance cardiaque avancée, patients transplantés cardiaques, patients atteints de DAVG, patients cardio-oncologiques - Prise en charge interne de patients hospitalisés de toutes indications - Cardiologie non invasive totale en diagnostic et en thérapie - Collaboration interdisciplinaire avec des collègues des autres disciplines - Participation à la formation initiale et continue des médecins-assistants - Participation au service de base de l'interniste général - Consultation ambulatoire ##\n• Requisiti - Titre de spécialiste en médecine interne FMH et titre de spécialiste en cardiologie FMH - Connaissances approfondies en échocardiographie, en stimulateur cardiaque, en ergométrie spirométrique, si possible en échographie abdominale - De nombreuses années d'expérience dans le système de santé suisse sont une condition préalable - Travail indépendant et axé sur le client/patient - Résilience, flexibilité, sens des responsabilités et capacité d'équipe - Très bonne connaissance de l'allemand verbal et écrit (niveau C1) #\n• Cosa offriamo - Êtes-vous un cardiologue expérimenté avec la tache droite du cœur ? Alors nous devrions apprendre à nous connaître ! ## Contatto - (aucune information de contact fournie)"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-21T22:00:57.873Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/641/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
+      "previousSlugs": [
+        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-15T21:45:59.207Z",
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -537,7 +626,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.332Z",
+      "crawledAt": "2026-06-21T22:00:57.873Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -591,6 +680,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -636,7 +726,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.331Z",
+      "crawledAt": "2026-06-21T22:00:57.872Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -689,89 +779,6 @@
       "addressRegion": "GR"
     },
     {
-      "id": "hochgebirgsklinik-davos-9b9d35d55ba4",
-      "slug": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos",
-        "en": "senior-consultant-m-w-80-100-hochgebirgsklinik-davos-davos",
-        "de": "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "consultant-principal-m-m-80-100-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Oberarzt / Oberärztin Kardiologie (m/w) 80-100%",
-      "titleByLocale": {
-        "it": "Consulente senior (m/w) 80-100 %",
-        "en": "Senior Consultant (m/w) 80-100 %",
-        "de": "Oberarzt / Oberärztin Kardiologie (m/w) 80-100%",
-        "fr": "Consultant principal (m/m) 80-100 %"
-      },
-      "description": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären Patientinnen und Patienten nach einem kardialen Akutereignis, fortgeschrittene Herzinsuffizienz, Herztransplantiere Patienten, LVAD-Patienten, Kardio-Onkologische Patienten\n• Internistische Mitbetreuung stationärer Patienten aller Indikationen\n• Gesamte nicht invasive Kardiologie in Diagnostik und Therapie\n• Interdisziplinäre Zusammenarbeit mit Kollegen aus den anderen Disziplinen\n• Beteiligung an der Aus- und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Teilnahme am allgemeininternistischen Hintergrunddienst\n• Ambulante Sprechstunde | Anforderungen:\n• Facharzttitel Allgemeine Innere Medizin FMH und Facharzttitel Kardiologie FMH\n• Fundierte Kenntnisse in der Echokardiographie, Herzschrittmacher, Spiroergometrie, wenn möglich Abdomen Sonographie\n• Langjährige Erfahrung im Schweizer Gesundheitssystem ist Voraussetzung\n• Selbständige und kunden-/patientenorientierte Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1) | Wir bieten: Sie sind ein versierter Kardiologe mit dem Herz am rechten Fleck? Dann sollten wir uns kennen lernen!",
-      "descriptionByLocale": {
-        "it": "Mansioni - Chiarimento, trattamento e assistenza di pazienti ricoverati dopo un evento acuto cardiaco, insufficienza cardiaca in stadio avanzato, pazienti trapiantati di cuore, pazienti LVAD, pazienti cardio-oncologici - Co-cura interna di pazienti ricoverati di tutte le indicazioni - Cardiologia non invasiva totale in diagnostica e terapia - Collaborazione interdisciplinare con colleghi delle altre discipline - Partecipazione alla formazione e al perfezionamento degli assistenti medici - Partecipazione al servizio di base di internistica generale - Consulenza ambulatoriale ##\n• Requisiti - Titoli specialistici di medicina interna generale FMH e titoli specialistici di cardiologia FMH - Conoscenza approfondita dell'ecocardiografia, dei pacemaker cardiaci, della spiroergometria, se possibile, dell'ecografia addominale - L'esperienza pluriennale nel sistema sanitario svizzero è un prerequisito - Lavoro autonomo e orientato al cliente/paziente - Capacità di carico, flessibilità, senso di responsabilità e capacità di squadra - Ottima conoscenza della lingua tedesca e scrittura (livello C1 # offriamo #) - Sei un cardiologo con il cuore destro? Allora dovremmo conoscerci! ## Contatto - (no contact information provided)",
-        "en": "Mansioni - Clarification, treatment and care of inpatients after an acute cardiac event, advanced heart failure, heart transplant patients, LVAD patients, cardio-oncological patients - Internal co-supervision of inpatients of all indications - Overall non-invasive cardiology in diagnostics and therapy - Interdisciplinary cooperation with colleagues from the other disciplines - Participation in the training and further education of resident doctors - Participation in the general internal medicine background service - Outpatient consultation hours ##\n• Requisiti - Specialist title General Internal Medicine FMH and Specialist title Cardiology FMH - Sound knowledge in echocardiography, cardiac pacemakers, spiroergometry, if possible abdominal sonography - Long-term experience in the Swiss health system is a prerequisite - Independent and customer/patient-oriented way of working - Resilience, flexibility, responsibility and teamwork - Very good German language skills (level C1) ##\n• Cosa offriamo - Are you an accomplished cardiologist with your heart in the right place? Then we should get to know each other! ## Contatto - (no contact information provided)",
-        "de": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären Patientinnen und Patienten nach einem kardialen Akutereignis, fortgeschrittene Herzinsuffizienz, Herztransplantiere Patienten, LVAD-Patienten, Kardio-Onkologische Patienten\n• Internistische Mitbetreuung stationärer Patienten aller Indikationen\n• Gesamte nicht invasive Kardiologie in Diagnostik und Therapie\n• Interdisziplinäre Zusammenarbeit mit Kollegen aus den anderen Disziplinen\n• Beteiligung an der Aus- und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Teilnahme am allgemeininternistischen Hintergrunddienst\n• Ambulante Sprechstunde | Anforderungen:\n• Facharzttitel Allgemeine Innere Medizin FMH und Facharzttitel Kardiologie FMH\n• Fundierte Kenntnisse in der Echokardiographie, Herzschrittmacher, Spiroergometrie, wenn möglich Abdomen Sonographie\n• Langjährige Erfahrung im Schweizer Gesundheitssystem ist Voraussetzung\n• Selbständige und kunden-/patientenorientierte Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1) | Wir bieten: Sie sind ein versierter Kardiologe mit dem Herz am rechten Fleck? Dann sollten wir uns kennen lernen!",
-        "fr": "Mansioni - Evaluation, traitement et prise en charge de patients hospitalisés après un événement cardiaque aigu, insuffisance cardiaque avancée, patients transplantés cardiaques, patients atteints de DAVG, patients cardio-oncologiques - Prise en charge interne de patients hospitalisés de toutes indications - Cardiologie non invasive totale en diagnostic et en thérapie - Collaboration interdisciplinaire avec des collègues des autres disciplines - Participation à la formation initiale et continue des médecins-assistants - Participation au service de base de l'interniste général - Consultation ambulatoire ##\n• Requisiti - Titre de spécialiste en médecine interne FMH et titre de spécialiste en cardiologie FMH - Connaissances approfondies en échocardiographie, en stimulateur cardiaque, en ergométrie spirométrique, si possible en échographie abdominale - De nombreuses années d'expérience dans le système de santé suisse sont une condition préalable - Travail indépendant et axé sur le client/patient - Résilience, flexibilité, sens des responsabilités et capacité d'équipe - Très bonne connaissance de l'allemand verbal et écrit (niveau C1) #\n• Cosa offriamo - Êtes-vous un cardiologue expérimenté avec la tache droite du cœur ? Alors nous devrions apprendre à nous connaître ! ## Contatto - (aucune information de contact fournie)"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.331Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/641/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ärztlicher/medizinischer Dienst",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "0814173078",
-      "previousSlugs": [
-        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-15T21:45:59.207Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "hochgebirgsklinik-davos-e6b4d1c87ad7",
       "slug": "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
@@ -802,7 +809,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.330Z",
+      "crawledAt": "2026-06-21T22:00:57.871Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -865,6 +872,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.476Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -910,7 +918,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.329Z",
+      "crawledAt": "2026-06-21T22:00:57.870Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -950,6 +958,88 @@
         ]
       },
       "firstSeenAt": "2026-05-27T12:42:17.137Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-21ad22215625",
+      "slug": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
+      "slugByLocale": {
+        "it": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
+        "en": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "de": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "fr": "psychologue-parent-enfant-et-jeune-station-m-f-j-80-100-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
+      "titleByLocale": {
+        "it": "Psicologo genitori-figlio e stazione giovanile (m/f/d) 80 - 100 %",
+        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
+        "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
+        "fr": "Psychologue parent-enfant et jeune station (m/f/j) 80 - 100 %"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
+      "descriptionByLocale": {
+        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Per ulteriori informazioni potete contattare il Dott. Raschid Gharbo, responsabile del reparto di psicosomatica, +41 81 417 30 83, sarà lieto di aiutarvi. Mansioni - Pianificazione e realizzazione autonoma di diagnosi psichiatriche e psicologiche infantili e dell'adolescenza nonché di psicoterapie individuali - Pianificazione e gestione di terapie di gruppo tematiche - Realizzazione di gruppi psicoeducativi e formazione per pazienti e familiari - Istruzioni per procedure di rilassamento - Documentazione corretta e responsabile e redazione di rapporti secondo le linee guida della clinica - Collaborazione interdisciplinare attiva\n• Requisiti - Master in psicologia - Esperienza in neuropsicologia - Conoscenza di test diagnostici ambulatoriali - Formazione in psicoterapia riconosciuta a livello federale completata o iniziata - Piacere e interesse per il lavoro orientato al paziente - Elevate abilità sociali e modo di lavorare indipendente e affidabile - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra - Buone capacità di utilizzo del PC",
+        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. For additional information, please contact Dr. Raschid Gharbo, Head of Psychosomatics, +41 81 417 30 83 is happy to help. Mansioni - Independent planning and implementation of child and adolescent psychiatric and psychological diagnostics as well as individual psychotherapies - Planning and management of topic-specific group therapies - Implementation of psychoeducational groups and training for patients and their relatives - Instruction in relaxation procedures - Correct and responsible documentation and creation of reports according to the clinic's guidelines - Active interdisciplinary collaboration\n• Requisiti - Master's degree in psychology - Experience in neuropsychology - Knowledge of outpatient test diagnostics - Completed or begun federally recognized psychotherapy training - Enjoyment and interest in patient-oriented work - High social skills and independent and reliable way of working - Resilience, sense of responsibility, flexibility and ability to work in a team - Good PC user skills",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
+        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Pour plus d'informations, veuillez contacter le Dr Raschid Gharbo, responsable du département psychosomatique, +41 81 417 30 83, qui se fera un plaisir de vous aider. Mansioni - Planification et mise en œuvre indépendantes de diagnostics psychiatriques et psychologiques pour enfants et adolescents ainsi que de psychothérapies individuelles - Planification et gestion de thérapies de groupe thématiques - Mise en place de groupes psychoéducatifs et formation pour les patients et leurs proches - Instruction sur les procédures de relaxation - Documentation correcte et responsable et création de rapports selon les directives de la clinique - Collaboration interdisciplinaire active\n• Requisiti - Master en psychologie - Expérience en neuropsychologie - Connaissance des diagnostics de tests ambulatoires - Terminé ou commencé au niveau fédéral formation en psychothérapie - Appréciation et intérêt pour le travail axé sur le patient - Compétences sociales élevées et mode de travail indépendant et fiable - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe - Bonnes compétences d'utilisation de PC"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ5&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-21T22:00:57.867Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Psicologia",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/649/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Psychologie",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T13:35:51.730Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -995,7 +1085,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.326Z",
+      "crawledAt": "2026-06-21T22:00:57.866Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1048,86 +1138,6 @@
       "addressRegion": "GR"
     },
     {
-      "id": "hochgebirgsklinik-davos-21ad22215625",
-      "slug": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
-      "slugByLocale": {
-        "it": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
-        "en": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "de": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "psychologue-parent-enfant-et-jeune-station-m-f-j-80-100-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
-      "titleByLocale": {
-        "it": "Psicologo genitori-figlio e stazione giovanile (m/f/d) 80 - 100 %",
-        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
-        "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
-        "fr": "Psychologue parent-enfant et jeune station (m/f/j) 80 - 100 %"
-      },
-      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
-      "descriptionByLocale": {
-        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Per ulteriori informazioni potete contattare il Dott. Raschid Gharbo, responsabile del reparto di psicosomatica, +41 81 417 30 83, sarà lieto di aiutarvi. Mansioni - Pianificazione e realizzazione autonoma di diagnosi psichiatriche e psicologiche infantili e dell'adolescenza nonché di psicoterapie individuali - Pianificazione e gestione di terapie di gruppo tematiche - Realizzazione di gruppi psicoeducativi e formazione per pazienti e familiari - Istruzioni per procedure di rilassamento - Documentazione corretta e responsabile e redazione di rapporti secondo le linee guida della clinica - Collaborazione interdisciplinare attiva\n• Requisiti - Master in psicologia - Esperienza in neuropsicologia - Conoscenza di test diagnostici ambulatoriali - Formazione in psicoterapia riconosciuta a livello federale completata o iniziata - Piacere e interesse per il lavoro orientato al paziente - Elevate abilità sociali e modo di lavorare indipendente e affidabile - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra - Buone capacità di utilizzo del PC",
-        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. For additional information, please contact Dr. Raschid Gharbo, Head of Psychosomatics, +41 81 417 30 83 is happy to help. Mansioni - Independent planning and implementation of child and adolescent psychiatric and psychological diagnostics as well as individual psychotherapies - Planning and management of topic-specific group therapies - Implementation of psychoeducational groups and training for patients and their relatives - Instruction in relaxation procedures - Correct and responsible documentation and creation of reports according to the clinic's guidelines - Active interdisciplinary collaboration\n• Requisiti - Master's degree in psychology - Experience in neuropsychology - Knowledge of outpatient test diagnostics - Completed or begun federally recognized psychotherapy training - Enjoyment and interest in patient-oriented work - High social skills and independent and reliable way of working - Resilience, sense of responsibility, flexibility and ability to work in a team - Good PC user skills",
-        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
-        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Pour plus d'informations, veuillez contacter le Dr Raschid Gharbo, responsable du département psychosomatique, +41 81 417 30 83, qui se fera un plaisir de vous aider. Mansioni - Planification et mise en œuvre indépendantes de diagnostics psychiatriques et psychologiques pour enfants et adolescents ainsi que de psychothérapies individuelles - Planification et gestion de thérapies de groupe thématiques - Mise en place de groupes psychoéducatifs et formation pour les patients et leurs proches - Instruction sur les procédures de relaxation - Documentation correcte et responsable et création de rapports selon les directives de la clinique - Collaboration interdisciplinaire active\n• Requisiti - Master en psychologie - Expérience en neuropsychologie - Connaissance des diagnostics de tests ambulatoires - Terminé ou commencé au niveau fédéral formation en psychothérapie - Appréciation et intérêt pour le travail axé sur le patient - Compétences sociales élevées et mode de travail indépendant et fiable - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe - Bonnes compétences d'utilisation de PC"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ5&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.326Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Psicologia",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/649/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Psychologie",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
-      "previousSlugs": [
-        "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T13:35:51.730Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "hochgebirgsklinik-davos-d446aeb8d2aa",
       "slug": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
@@ -1158,7 +1168,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.325Z",
+      "crawledAt": "2026-06-21T22:00:57.865Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1193,6 +1203,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T22:57:32.542Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1238,7 +1249,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.324Z",
+      "crawledAt": "2026-06-21T22:00:57.864Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1321,7 +1332,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.323Z",
+      "crawledAt": "2026-06-21T22:00:57.863Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1404,7 +1415,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.322Z",
+      "crawledAt": "2026-06-21T22:00:57.862Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1487,7 +1498,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.320Z",
+      "crawledAt": "2026-06-21T22:00:57.861Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1525,6 +1536,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T11:51:46.132Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1570,7 +1582,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-21T11:41:43.311Z",
+      "crawledAt": "2026-06-21T22:00:57.851Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",

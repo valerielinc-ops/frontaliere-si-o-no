@@ -1,16 +1,16 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-06-21T12:15:31.717Z",
+  "generatedAt": "2026-06-21T22:36:39.484Z",
   "total": 96,
   "newCount": 0,
-  "updatedCount": 96,
+  "updatedCount": 94,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 303302,
-  "avgDurationMs": 303302,
+  "unchangedCount": 2,
+  "durationMs": 340860,
+  "avgDurationMs": 340860,
   "durationHistory": [
-    303302
+    340860
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1283,5 +1283,97 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Jura/73607-fr_FR",
+      "applyUrl": "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Jura/73607-fr_FR",
+      "title": "Apprentissage d'employé-e de commerce CFC, Services et administration - Jura",
+      "company": "La Poste Suisse",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Porrentruy",
+      "canton": "JU",
+      "country": "CH",
+      "slug": "apprendimento-dei-dipendenti-swc-servizi-e-amministrazione-aziendale-jura-la-poste-suisse-porrentruy",
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-06-10",
+      "validThrough": "",
+      "source": "postch-careers-crawler",
+      "employmentType": "INTERN",
+      "experienceLevel": "",
+      "sector": "Formazione",
+      "workload": "",
+      "_targetScope": {
+        "canton": "JU",
+        "location": "Porrentruy"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-754685691e32",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "addressLocality": "Porrentruy",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-06-10T23:18:16.329Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 117,
+      "needsRetranslation": true,
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9eemploy%C3%A9-de-commerce-CFC-way-up-Services-et-administration-Vaud/73213-fr_FR",
+      "applyUrl": "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9eemploy%C3%A9-de-commerce-CFC-way-up-Services-et-administration-Vaud/73213-fr_FR",
+      "title": "Apprentissage d'employée/employé de commerce CFC way-up Services et administration - Vaud",
+      "company": "La Poste Suisse",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Daillens",
+      "canton": "VD",
+      "country": "CH",
+      "slug": "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-vaud-la-poste-suisse-daillens",
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-06-10",
+      "validThrough": "",
+      "source": "postch-careers-crawler",
+      "employmentType": "INTERN",
+      "experienceLevel": "",
+      "sector": "Formazione",
+      "workload": "",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Daillens"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-116ed51d61ea",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "addressLocality": "Daillens",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-06-10T23:18:16.329Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 117,
+      "needsRetranslation": true,
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ]
 }
