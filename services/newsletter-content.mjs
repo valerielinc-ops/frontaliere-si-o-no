@@ -406,6 +406,50 @@ export function companyPageUrl(companySlug, locale = 'it') {
   return `${BASE_URL}/${boardPath}/${prefix}-${companySlug}/`;
 }
 
+/**
+ * Set of company-hub slugs the build actually emits — one per company that has
+ * ≥1 ACTIVE job (`data/jobs.json`). The build emits a company hub for every
+ * active company (and brand-alias slugs additionally get 200 bridge pages), so
+ * a company whose name exists ONLY on EXPIRED jobs has NO emitted hub: linking
+ * it silently 404s (#2530, e.g. `jumbo-divisione-di-coop-societa-cooperativa`,
+ * a name present only in `data/expired-jobs.json`). Built from the same active
+ * jobs array and the same `slugifyCompanyName` the link builder uses, so the
+ * allow-set matches the emitted set by construction.
+ *
+ * @param {object[]} jobs active jobs array (data/jobs.json)
+ * @returns {Set<string>} emitted company-hub slugs
+ */
+export function buildCompanyHubSlugSet(jobs) {
+  const set = new Set();
+  for (const j of jobs || []) {
+    if (j && j.company) {
+      const slug = slugifyCompanyName(j.company);
+      if (slug) set.add(slug);
+    }
+  }
+  return set;
+}
+
+/**
+ * Company-hub URL only when the build emitted that hub (company present in the
+ * active set); '' otherwise — defense-in-depth mirroring `validateJobUrls` so
+ * the newsletter never links a 404 company hub (#2530). When `emittedSlugs` is
+ * empty/missing the gate is skipped (returns the URL) to avoid silently
+ * dropping every company link on a bad/empty dataset, matching `validateJobUrls`.
+ *
+ * @param {string} company raw company name
+ * @param {string} locale
+ * @param {Set<string>} [emittedSlugs] from {@link buildCompanyHubSlugSet}
+ * @returns {string} hub URL or ''
+ */
+export function companyHubUrlIfEmitted(company, locale = 'it', emittedSlugs) {
+  if (!company) return '';
+  const slug = slugifyCompanyName(company);
+  if (!slug) return '';
+  if (emittedSlugs && emittedSlugs.size > 0 && !emittedSlugs.has(slug)) return '';
+  return companyPageUrl(slug, locale);
+}
+
 export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it', recentlyFeaturedSlugs = []) {
   if (!jobs || jobs.length === 0) return [];
 
@@ -542,6 +586,11 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   }
 
   const boardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
+  // Company hubs are emitted only for companies present in the ACTIVE dataset.
+  // A matched job sourced from an expired posting can carry a company-name
+  // variant absent from active data → its hub is never emitted → 404 (#2530).
+  // Gate companyUrl on the emitted-hub allow-set built from `jobs`.
+  const emittedCompanyHubs = buildCompanyHubSlugSet(jobs);
 
   return finalJobs
     .slice(0, limit)
@@ -558,7 +607,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
         sector: job.sector || job.category || '',
         rawContract: job.contract || '',
         logoUrl: resolveLogoUrl(job),
-        companyUrl: job.company ? companyPageUrl(slugifyCompanyName(job.company), locale) : '',
+        companyUrl: companyHubUrlIfEmitted(job.company, locale, emittedCompanyHubs),
       };
     });
 }
@@ -676,8 +725,12 @@ export function buildBriefingPrompt(ctx) {
       const postedInfo = j.postedDate || j.crawledAt || j.createdAt
         ? ` (posted: ${new Date(j.postedDate || j.crawledAt || j.createdAt).toLocaleDateString('it-CH')})`
         : '';
-      const companySlug = j.company ? slugifyCompanyName(j.company) : '';
-      const companyUrl = companyPageUrl(companySlug, locale);
+      // Reuse the upstream-validated hub URL from matchJobsForSubscriber (gated
+      // on the emitted-hub allow-set, #2530) instead of re-deriving an UNGATED
+      // slug here — re-deriving was the duplicate path that re-introduced the
+      // 404 (a company present only on expired jobs has no emitted hub). Absent
+      // companyUrl → omit the link (safe: the AI just won't reference a hub).
+      const companyUrl = j.companyUrl || '';
       return `- ${j.title} at ${j.company} (${j.location})${postedInfo} → JOB_URL: ${url}${companyUrl ? ` | COMPANY_URL: ${companyUrl}` : ''}`;
     })
     .filter(Boolean)
