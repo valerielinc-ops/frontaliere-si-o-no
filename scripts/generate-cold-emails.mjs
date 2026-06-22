@@ -65,7 +65,11 @@ export function buildSequence({ company, candidates, periodLabel, contactName, t
   const pagina = role && !GENERIC_ROLE.test(role) ? `pagina di "${role.slice(0, 48)}"` : 'pagina lavoro';
   // Opt-out obbligatorio su ogni touch (norma cold-email B2B + deliverability).
   // Footer leggibile dall'umano; l'header List-Unsubscribe lo aggiunge il sender.
-  const footer = `\n\n—\nSe non volete più ricevere queste email, rispondete con "STOP" (o scrivete a ${OPTOUT_EMAIL}) e vi rimuoviamo subito.`;
+  // One-click opt-out link ({{UNSUB_URL}}) is substituted at send time by
+  // send-cold-emails.mjs (buildUnsubUrl(companyKey)). The STOP/email reply path
+  // is kept as a fallback for clients that don't render the link. Drafts keep
+  // the literal placeholder (no companyKey context).
+  const footer = `\n\n—\nPer non ricevere più queste email: {{UNSUB_URL}}\nIn alternativa rispondete con "STOP" (o scrivete a ${OPTOUT_EMAIL}) e vi rimuoviamo subito.`;
   const seq = [
     {
       touch: 1, gapDays: 0, subject: 'candidati inviati',

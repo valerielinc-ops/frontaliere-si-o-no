@@ -15,6 +15,7 @@ import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSe
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
+import { handleOutreachUnsubscribe } from './src/outreachUnsubscribe.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
@@ -633,6 +634,49 @@ export const jobAlertUnsubscribe = onRequest(
  }
  } catch (error) {
  console.error('[jobAlertUnsubscribe] Error:', error);
+ res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
+ }
+ },
+);
+
+export const outreachUnsubscribe = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'GET' && req.method !== 'POST') {
+ res.status(405).send('Method not allowed');
+ return;
+ }
+
+ // RFC 8058 one-click POST carries c (companyKey) + t (token) in the URI QUERY
+ // STRING (the body is only `List-Unsubscribe=One-Click`), so a POST must read
+ // identifiers from the query too — not just req.body. Merge both (body wins on
+ // the rare key collision) so the footer GET link and the header one-click POST
+ // resolve the same params. Mirrors jobAlertUnsubscribe.
+ const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
+ const companyKey = String(params.c || '').trim();
+ const token = String(params.t || '').trim();
+
+ try {
+ const { newsletterSecret } = await getNewsletterSecrets();
+ const result = await handleOutreachUnsubscribe({
+ companyKey,
+ token,
+ secret: newsletterSecret,
+ });
+
+ // RFC 8058 POST returns 200 with no body
+ if (req.method === 'POST') {
+ res.status(result.status).type('text').send(result.status === 200 ? 'OK' : 'Error');
+ } else {
+ res.status(result.status).type('html').send(result.html);
+ }
+ } catch (error) {
+ console.error('[outreachUnsubscribe] Error:', error);
  res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
  }
  },
