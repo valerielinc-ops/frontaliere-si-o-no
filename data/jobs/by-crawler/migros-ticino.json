@@ -1358,9 +1358,9 @@
       "firstSeenAt": "2026-06-21T12:13:47.514Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal-d47c8f",
+        "en": "seller-denner-ag-langenthal",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-d47c8f"
+        "fr": "vendeur-denner-ag-langenthal-634638"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -1408,44 +1408,20 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-langenthal"
+          "seller-denner-ag-langenthal",
+          "seller-denner-ag-langenthal-d47c8f"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-634638"
-        ],
-        "it": [
-          "verkaufer-in-denner-ag-wilderswil",
-          "verkaufer-in-denner-ag-chur-s710og",
-          "verkaufer-in-denner-ag-sulgen-ylgjxe",
-          "verkaufer-in-denner-ag-sulgen",
-          "verkaufer-in-denner-ag-frick-7j5ksm",
-          "verkaufer-in-denner-ag-langenthal-2",
-          "verkaufer-in-denner-ag-langenthal-oggkv1",
-          "verkaufer-in-denner-ag-chur-2",
-          "verkaufer-in-denner-ag-chur",
-          "verkaufer-in-denner-ag-wattwil-v6p61a",
-          "verkaufer-in-denner-ag-wattwil-2",
-          "verkaufer-in-denner-ag-wattwil",
-          "verkaufer-in-denner-ag-allschwil-b1y7ze"
+          "vendeur-denner-ag-langenthal-634638",
+          "vendeur-denner-ag-langenthal-d47c8f"
         ]
       },
       "previousSlugs": [
         "seller-denner-ag-langenthal",
         "vendeur-denner-ag-langenthal-634638",
         "venditore-denner-ag-langenthal-634638",
-        "verkaufer-in-denner-ag-wilderswil",
-        "verkaufer-in-denner-ag-chur-s710og",
-        "verkaufer-in-denner-ag-sulgen-ylgjxe",
-        "verkaufer-in-denner-ag-sulgen",
-        "verkaufer-in-denner-ag-frick-7j5ksm",
-        "verkaufer-in-denner-ag-langenthal-2",
-        "verkaufer-in-denner-ag-langenthal-oggkv1",
-        "verkaufer-in-denner-ag-chur-2",
-        "verkaufer-in-denner-ag-chur",
-        "verkaufer-in-denner-ag-wattwil-v6p61a",
-        "verkaufer-in-denner-ag-wattwil-2",
-        "verkaufer-in-denner-ag-wattwil",
-        "verkaufer-in-denner-ag-allschwil-b1y7ze"
+        "seller-denner-ag-langenthal-d47c8f",
+        "vendeur-denner-ag-langenthal-d47c8f"
       ]
     },
     {
@@ -2538,8 +2514,8 @@
       "firstSeenAt": "2026-06-20T11:50:45.016Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-wetzikon",
-        "en": "seller-denner-ag-wetzikon",
-        "fr": "vendeur-denner-ag-wetzikon",
+        "en": "seller-denner-ag-wetzikon-8e6f7a",
+        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
       "titleByLocale": {
@@ -2575,22 +2551,22 @@
         ],
         "en": [
           "seller-denner-ag-sulgen",
-          "seller-denner-ag-wetzikon-8e6f7a"
+          "seller-denner-ag-wetzikon-8e6f7a",
+          "seller-denner-ag-wetzikon"
         ],
         "fr": [
           "vendeur-denner-ag-sulgen",
-          "vendeur-denner-ag-wetzikon-8e6f7a"
+          "vendeur-denner-ag-wetzikon-8e6f7a",
+          "vendeur-denner-ag-wetzikon"
         ],
         "it": [
-          "venditore-denner-ag-sulgen",
-          "verkaufer-in-denner-ag-allschwil",
-          "venditore-denner-ag-zurich-1ed56c",
-          "verkaufer-in-denner-ag-frick-7j5ksm",
-          "verkaufer-in-denner-ag-interlaken-vz3gdz",
-          "venditore-denner-ag-wetzikon-8e6f7a"
+          "venditore-denner-ag-sulgen"
         ]
       },
       "previousSlugs": [
+        "verkaufer-in-denner-ag-wetzikon-douzkp",
+        "verkaufer-in-denner-ag-sulgen",
+        "seller-denner-ag-sulgen",
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-sulgen",
         "vendeur-denner-ag-wetzikon-8e6f7a",
@@ -2606,11 +2582,8 @@
         "verkaufer-in-denner-ag-zurich-fzpktp",
         "verkaufer-in-denner-ag-frick",
         "verkaufer-in-denner-ag-allschwil-2",
-        "verkaufer-in-denner-ag-allschwil",
-        "venditore-denner-ag-zurich-1ed56c",
-        "verkaufer-in-denner-ag-frick-7j5ksm",
-        "verkaufer-in-denner-ag-interlaken-vz3gdz",
-        "venditore-denner-ag-wetzikon-8e6f7a"
+        "seller-denner-ag-wetzikon",
+        "vendeur-denner-ag-wetzikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
