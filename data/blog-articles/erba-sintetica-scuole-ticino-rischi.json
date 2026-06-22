@@ -1,0 +1,19 @@
+{
+  "id": "erba-sintetica-scuole-ticino-rischi",
+  "slug": "erba-sintetica-scuole-ticino-rischi",
+  "publishedAt": "2026-06-22T12:40:40.000Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "comozero.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 135.74328967111109,
+    "confidence": 1,
+    "finalScore": 135.74328967111109,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 135.74328967111109,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

@@ -8131,6 +8131,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.title': 'Temporary employment agencies in Lugano: practical guide',
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.excerpt': 'Overview of placement agencies in Lugano, opportunities for cross-border workers, and procedures for entering the Ticino job market.',
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.imageAlt': 'Lugano city center with offices and people commuting.',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.title': 'Artificial turf in Ticino schools: risks for kids and hidden costs',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.excerpt': 'Parents and experts warn about the dangers of artificial turf in Ticinese schoolyards: excessive heat, microplastics, and environmental impact. Everything you need to know about a choice that’s also under scrutiny across Europe.',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.imageAlt': 'Ticino schoolyard with synthetic grass under hot sun, children playing in the foreground',
 };
 
 export default blogMetaEn;

@@ -8132,6 +8132,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.title': 'Agenzie di lavoro temporaneo a Lugano: guida pratica per frontalieri',
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.excerpt': 'Panoramica sulle agenzie di placement a Lugano, opportunità per frontalieri e procedure di inserimento nel mercato ticinese.',
     'blog.article.agenzie-interim-lugano-ticino-frontaliere.imageAlt': 'Panorama del centro di Lugano con uffici e persone in movimento.',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.title': 'Erba sintetica nelle scuole Ticino: rischi per bambini e costi nascosti',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.excerpt': 'Genitori e esperti denunciano i pericoli dell\'erba sintetica nei cortili scolastici ticinesi: calore eccessivo, microplastiche e impatto ambientale. Tutto ciò che c\'è da sapere su una scelta contestata anche a livello europeo.',
+    'blog.article.erba-sintetica-scuole-ticino-rischi.imageAlt': 'Cortile scolastico in Ticino con erba sintetica al sole, bambini che giocano in primo piano',
 };
 
 export default blogMetaIt;
