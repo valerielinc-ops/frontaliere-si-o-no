@@ -100,6 +100,35 @@ describe('orphanQueryData — path helpers', () => {
     expect(html).not.toContain('https:/frontaliereticino.ch');
   });
 
+  // Regression guard for the per-locale matrix-build hreflang bug (deploy
+  // 27923956556): on a non-it shard the hub call site used to derive
+  // availability from the emit-gated `indexableByLocale`, so en/de/fr hubs
+  // collapsed to 2 entries (their own locale + x-default) and failed
+  // audit-hreflang. The renderer itself is correct — a FULL availability map
+  // must always yield 5 entries — and the plugin now ALWAYS passes the full
+  // (ungated) map. This pins the renderer's full-map contract so a future
+  // refactor cannot quietly reintroduce a partial map at the call site.
+  it('emits the full 4-locale + x-default set whenever every locale has clusters (shard contract)', () => {
+    const html = renderOrphanLandingHubHreflang({ it: true, en: true, de: true, fr: true });
+    expect(html.match(/rel="alternate"/g)).toHaveLength(5);
+    for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+      expect(html).toContain(`hreflang="${loc}"`);
+    }
+    expect(html).toContain('hreflang="x-default"');
+  });
+
+  // All-or-nothing contract: if ANY locale has zero indexable orphan clusters
+  // site-wide (reachable when a locale's clusters all fall under
+  // MIN_MATCHING_JOBS/MIN_INDEXABLE_WORDS), the renderer must emit '' — NOT a
+  // partial set. A partial 3-locale + x-default block (4 entries, 3 declared)
+  // trips audit-hreflang `[tooFew]`, the same gate this plugin fixes. Mirrors
+  // the leaf `renderPage` `hasFullCluster` gate.
+  it('emits nothing when any locale has no indexable clusters (no partial set)', () => {
+    expect(renderOrphanLandingHubHreflang({ it: true, en: true, de: true, fr: false })).toBe('');
+    expect(renderOrphanLandingHubHreflang({ it: true, en: false, de: false, fr: false })).toBe('');
+    expect(renderOrphanLandingHubHreflang({ it: false, en: false, de: false, fr: false })).toBe('');
+  });
+
   it('buildOrphanLandingRoutes emits one route per cluster', () => {
     const clusters: OrphanQueryCluster[] = [
       makeCluster('it', 'chauffeur-jobs', 20, ['chauffeur'], ['svizzera']),
