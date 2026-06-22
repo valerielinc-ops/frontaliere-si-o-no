@@ -86,8 +86,45 @@ import {
   renderEmployerCardListHtml,
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
+import {
+  buildSectorHubPath,
+  type SectorHubKey,
+} from './jobSectorLanding';
 
 // ── Helpers ──────────────────────────────────────────────────────
+
+/**
+ * Maps each profession landing to the job-board sector hub that lists its
+ * openings (e.g. /lavoro-ticino-autista/ → /cerca-lavoro-ticino/autisti/).
+ * The "see all N offers" CTA deep-links here instead of the generic job-board
+ * root, so the visitor lands on a search already filtered to the profession.
+ *
+ * Every target is a crawlable, indexed sector-hub PATH (emitted unconditionally
+ * by jobSectorPagesPlugin) — NOT a robots-disallowed `?q=` query URL — so it
+ * stays internal-link/crawl safe (no rel="nofollow"; see no-internal-nofollow
+ * test). A profession without a sound sector match falls back to the root.
+ */
+const PROFESSION_SECTOR_HUB: Partial<Record<ProfessionId, SectorHubKey>> = {
+  infermiere: 'infermieri',
+  operaio: 'industria',
+  impiegato: 'commercio',
+  ingegnere: 'ingegneri',
+  educatore: 'educatori',
+  autista: 'autisti',
+  muratore: 'edilizia',
+  cuoco: 'cuochi',
+  cameriere: 'camerieri',
+  elettricista: 'elettricisti',
+};
+
+/**
+ * CTA target for the "see all offers" link on a profession landing: the
+ * profession's sector hub when mapped, else the generic job-board root.
+ */
+function buildProfessionAllJobsUrl(id: ProfessionId, locale: ProfessionLocale): string {
+  const sector = PROFESSION_SECTOR_HUB[id];
+  return sector ? buildSectorHubPath(locale, sector) : buildJobBoardUrl(locale);
+}
 
 function esc(s: unknown): string {
   return String(s ?? '')
@@ -193,11 +230,15 @@ function renderFeaturedJobs(
     locale,
     emptyStateHtml: emptyHtml,
   });
-  // Link the "see all" CTA to the job-board root (crawlable, indexed). NOT a
-  // `?q=` keyword deep-link: robots.txt disallows `/*?q=*`, so an internal
-  // `?q=` link is a "disallowed outlink" (SearchAtlas/GSC) and rel="nofollow"
-  // is banned on internal links (tests/no-internal-nofollow.test.tsx).
-  const ctaHref = buildJobBoardUrl(locale);
+  // Link the "see all N offers" CTA to the profession's sector hub
+  // (e.g. /cerca-lavoro-ticino/autisti/) so the visitor lands on a job-board
+  // search already filtered to the profession, not the generic root. The hub
+  // is a crawlable, indexed PATH — NOT a `?q=` keyword deep-link: robots.txt
+  // disallows `/*?q=*`, so an internal `?q=` link is a "disallowed outlink"
+  // (SearchAtlas/GSC) and rel="nofollow" is banned on internal links
+  // (tests/no-internal-nofollow.test.tsx). Falls back to root when the
+  // profession has no mapped sector.
+  const ctaHref = buildProfessionAllJobsUrl(id, locale);
   const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
