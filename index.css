@@ -502,6 +502,29 @@ body.modal-open .google-auto-placed {
   aspect-ratio: 4 / 1;
   min-height: 250px;
 }
+
+/* ===== Top in-page Auto Ad CLS reserve (homepage) ════════════════════════
+   Google injects `.google-auto-placed` as a flow sibling directly above
+   <main> on the homepage, pushing content down ~250-298px after hydration
+   (measured live CLS 0.19 desktop / 0.25 mobile — the dominant shift). The
+   #2190 mitigation above (contain/aspect/min-height) CANNOT prevent this:
+   `contain: layout` isolates a box's INTERNAL layout, it does not stop an
+   in-flow sibling injected above <main> from displacing <main> downward.
+
+   <TopAutoAdReserve> renders `.autoad-top-reserve` as a column child at first
+   paint, reserving the same 250px the injected ad container takes, so <main>
+   starts at its post-ad position. The instant the ad lands as a direct column
+   child, the `:has` rule below collapses the placeholder to 0 in the same
+   style/layout pass — so total gap (ad + placeholder) stays constant and
+   <main> never moves, regardless of the order Google injects relative to it.
+   `> .google-auto-placed` matches ONLY the top-of-content ad (a direct column
+   child), never the in-article ads nested deeper inside <main>/<footer>. */
+.autoad-top-reserve {
+  min-height: 250px;
+}
+.app-shell-col:has(> .google-auto-placed) > .autoad-top-reserve {
+  min-height: 0;
+}
 @media (max-width: 767px) {
   .google-auto-placed {
     max-height: 250px;
