@@ -730,6 +730,20 @@ describe('job alert email — unsubscribe links match the sending domain (anti-s
     );
   });
 
+  it('jobAlertUnsubscribe reads identifiers from the query on POST (one-click works)', () => {
+    // RFC 8058 one-click POST carries alertId/email/token in the query string,
+    // not the body — so the function MUST merge the query into POST params or the
+    // one-click verifies an empty token (403) and never unsubscribes.
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../functions/index.js'),
+      'utf8',
+    );
+    const handler = src.slice(src.indexOf('export const jobAlertUnsubscribe'));
+    expect(handler).toMatch(
+      /req\.method === 'GET' \? req\.query : \{\s*\.\.\.req\.query,\s*\.\.\.req\.body\s*\}/,
+    );
+  });
+
   it('the locale-router Worker proxies the same /disiscrivi-alert path (no drift)', () => {
     // Pairs the email path to the Worker proxy: if one changes without the other,
     // the apex link 404s. Lock both ends.
