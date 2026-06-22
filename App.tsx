@@ -1725,6 +1725,13 @@ const App: React.FC = () => {
  setContactPrefill, glossaryTerm, setGlossaryTerm,
  }), [inputs, deferredResult, isResultStale, handleCalculate, showDeferredHomeWidgets, seoLanding, userProfile, authUser, authLoading, isPrivilegedAdmin, googleSignIn, facebookSignIn, adminGoogleButtonReady, taxReturnCountry, borderCrossing, blogArticle, jobSlug, navigateTo, glossaryTerm]);
 
+ // Desktop side-rail ads (≥1400px): wrap the SPA <main> in the 3-col rail grid
+ // on content tabs that have empty desktop gutters (index.css already reserves
+ // them for side-rails). Excludes tabs that own their rails (blog→BlogArticles,
+ // job-board→JobBoard) or are full-width (admin). Below xlw / on excluded tabs
+ // the wrapper is `display:contents`, so layout is byte-identical to before.
+ const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board'].includes(activeTab);
+
  return (
  <ErrorBoundary>
  <TabContentContext.Provider value={tabContentValue}>
@@ -2316,6 +2323,12 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
+ <div className={sideRailEligible ? 'contents xlw:grid xlw:flex-grow xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-6' : 'contents'}>
+ {sideRailEligible && (
+ <aside className="hidden xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ </aside>
+ )}
  <main id="main-content" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-3 sm:px-4'
  }`}>
@@ -2605,6 +2618,12 @@ const App: React.FC = () => {
  </p>
  )}
  </main>
+ {sideRailEligible && (
+ <aside className="hidden xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
+ </aside>
+ )}
+ </div>
  )}
 
  {/* Side-rail ads — on staticOverlay (static SEO landing) pages, portal the
