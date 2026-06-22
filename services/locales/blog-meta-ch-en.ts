@@ -272,6 +272,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.title': 'AI Job Boom: 25,000 Opportunities in Switzerland',
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.excerpt': 'Record AI job openings in 2025. Impact on cross-border workers and salaries.',
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.imageAlt': 'Modern office in Lugano with team working on data analysis and AI',
+    'blog.article.avs-pensioni-estero-condizioni.title': 'AVS Pensions Abroad: Conditions and Agreements',
+    'blog.article.avs-pensioni-estero-condizioni.excerpt': 'Swiss residents in 21 non-EU/Schengen countries can voluntarily pay AVS contributions. Social conventions guarantee equal treatment.',
+    'blog.article.avs-pensioni-estero-condizioni.imageAlt': 'Swiss retirees reviewing documents near Lake Lugano with Alps view',
 };
 
 export default blogMetaChEn;

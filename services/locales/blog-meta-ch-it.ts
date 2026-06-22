@@ -272,6 +272,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.title': 'Boom lavoro IA: 25.000 opportunità in Svizzera',
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.excerpt': 'Nel 2025 record di offerte lavoro intelligenza artificiale. Impatto su frontalieri e salari.',
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.imageAlt': 'Ufficio moderno a Lugano con team al lavoro su analisi dati e IA',
+    'blog.article.avs-pensioni-estero-condizioni.title': 'Pensioni AVS all\'estero: condizioni e convenzioni',
+    'blog.article.avs-pensioni-estero-condizioni.excerpt': 'Isvizzeri residenti in 21 Paesi fuori UE/AELS possono pagare contributi AVS volonteri. Convenzioni sociali garantiscono parità di trattamento.',
+    'blog.article.avs-pensioni-estero-condizioni.imageAlt': 'Svizzeri in pensione con documenti finanziari accanto al Lago di Lugano',
 };
 
 export default blogMetaChIt;

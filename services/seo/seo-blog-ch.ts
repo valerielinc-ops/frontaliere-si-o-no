@@ -3452,6 +3452,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-pensioni-estero-condizioni': {
+    title: 'Pensioni AVS all\'estero: condizioni e convenzioni',
+    description: 'Condizioni per ricevere pensioni AVS/SV in 21 Paesi fuori UE, requisiti contributivi e convenzioni sociali. Calcolo rendite e procedure ufficiali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensioni, estero, condizioni, convenzioni',
+    ogTitle: 'Pensioni all\'estero: requisiti AVS e diritti',
+    ogDescription: 'Informazioni ufficiali sull\'iscrizione AVS/AI facoltativa, procedure e Paesi autorizzati. Confronto finanziario e regole attuali.',
+    canonicalPath: '/articoli-svizzera/avs-pensioni-estero-condizioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensioni AVS all'estero: condizioni e convenzioni",
+      "description": "Condizioni per ricevere pensioni AVS/SV in 21 Paesi fuori UE, requisiti contributivi e convenzioni sociali. Calcolo rendite e procedure ufficiali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-pensioni-estero-condizioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Svizzeri in pensione con documenti finanziari accanto al Lago di Lugano"
+      },
+      "datePublished": "2026-06-22T09:06:27+00:00",
+      "dateModified": "2026-06-22T09:06:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-pensioni-estero-condizioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
