@@ -4098,6 +4098,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sanita-farmaceutica-svizzera': { name: 'Sanità e Farmaceutica', path: '/articoli-svizzera/sanita-farmaceutica-svizzera/', parent: 'blog' },
     'blog-dati-salariali-frontalieri-ticino': { name: 'Dati salariali dei vecchi frontalieri', path: '/articoli-svizzera/dati-salariali-frontalieri-ticino/', parent: 'blog' },
     'blog-boom-lavoro-ia-svizzera-frontalieri': { name: 'Boom lavoro IA', path: '/articoli-svizzera/boom-lavoro-ia-svizzera-frontalieri/', parent: 'blog' },
+    'blog-avs-pensioni-estero-condizioni': { name: 'Pensioni estero', path: '/articoli-svizzera/avs-pensioni-estero-condizioni/', parent: 'blog' },
+    'blog-marchesi-zali-lista-autonomi': { name: 'Marchesi: lista autonoma', path: '/articoli-svizzera/marchesi-zali-lista-autonomi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

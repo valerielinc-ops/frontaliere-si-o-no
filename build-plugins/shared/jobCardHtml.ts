@@ -17,6 +17,7 @@
  */
 
 import { escHtml } from './htmlEscape';
+import { firstParsableDateStr } from './firstParsableDate';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './stripLiteralMarkdown';
 import { resolveJobLogoSrc as resolveJobCardLogo } from './companyLogoResolver';
 import { LOGO_FALLBACK_SCRIPT } from './logoFallbackScript';
@@ -315,7 +316,10 @@ export function renderJobCardHtml(
       ? `${salary} ${SALARY_ESTIMATE_SUFFIX[locale]}`
       : salary;
   const contractLbl = localizedContract(job.contract, locale);
-  const postedRaw = String(job.postedDate || job.datePosted || '').trim();
+  // First PARSEABLE date string, not first truthy: a malformed postedDate must
+  // not shadow a valid datePosted and feed "Invalid Date" into the relative
+  // label / "new" freshness badge on indexed job cards.
+  const postedRaw = firstParsableDateStr(job.postedDate, job.datePosted).trim();
   const postedLabel = relativePostedLabel(postedRaw, locale);
   const postedIso = postedRaw.slice(0, 10);
   const fresh = isJobNew(postedRaw);
