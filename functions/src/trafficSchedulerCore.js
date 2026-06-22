@@ -73,9 +73,26 @@ export function estimateWaitFromCongestion(congestionScore) {
  return 30;
 }
 
-function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey }) {
- if (hereApiKey) return 'here';
+/**
+ * Pick the live-routing provider by preference order.
+ *
+ * TomTom is preferred over HERE (#2180): HERE bills every routing call as a
+ * "Time Aware Routing" transaction and the scheduled demand (~21k/month) is
+ * ~4.6× HERE's 4,500/month free tier, so HERE exhausts ~day 6 and the run
+ * already falls back to TomTom for the rest of the month — i.e. TomTom already
+ * serves the large majority of the month. TomTom's free tier (2,500 req/day ≈
+ * 75k/month) comfortably covers full demand and is unmetered here, so making it
+ * primary keeps live routing consistent ALL month at $0 and stops the real
+ * monthly HERE overage (6,350/4,500 billed in 2026-06). HERE stays as the
+ * fallback when no TomTom key is configured (its budget guard below still
+ * caps any spend). Google Maps is the last resort.
+ *
+ * @param {{hereApiKey?:string, tomtomApiKey?:string, googleApiKey?:string}} keys
+ * @returns {'tomtom'|'here'|'google-maps'|null}
+ */
+export function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey }) {
  if (tomtomApiKey) return 'tomtom';
+ if (hereApiKey) return 'here';
  if (googleApiKey) return 'google-maps';
  return null;
 }
