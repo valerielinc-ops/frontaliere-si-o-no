@@ -4366,10 +4366,27 @@ ${terminologyByLang[targetLang] || ''}`;
   }
 
   const itContent = data.content.it;
+  // Outer-level resilience (#2586): translateContent can still throw from a path
+  // OUTSIDE the per-call wrapped translations above — the chunking loop,
+  // makePrompt, a malformed `sourceContent`, or translateBodyField's own
+  // per-chunk Promise.all (line ~4308, no inner catch). Such a throw would reject
+  // THIS Promise.all and discard ALL three locales + the whole otherwise-fine
+  // article. Catch at the locale boundary and return {} so the downstream
+  // missing-field validation (#1266) re-translates each field in isolation or
+  // falls back to the IT source — the same graceful-degradation contract as
+  // onTranslateFail, applied one level up.
+  const translateLocaleSafe = async (target, label) => {
+    try {
+      return await translateContent('it', target, label, itContent);
+    } catch (err) {
+      console.error(`  ⚠️  ${target.toUpperCase()} translation aborted (${err?.message || err}) — recupero per-campo downstream (#1266)`);
+      return {};
+    }
+  };
   const [enContent, deContent, frContent] = await Promise.all([
-    translateContent('it', 'en', '2/5', itContent),
-    translateContent('it', 'de', '3/5', itContent),
-    translateContent('it', 'fr', '4/5', itContent),
+    translateLocaleSafe('en', '2/5'),
+    translateLocaleSafe('de', '3/5'),
+    translateLocaleSafe('fr', '4/5'),
   ]);
   console.error(`  ✅ Tutte le traduzioni completate`);
 
