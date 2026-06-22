@@ -14,6 +14,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
@@ -7054,7 +7055,9 @@ ${staticAnalyticsHtml}
  const SECTOR_FRESH_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
  const sectorFreshCutoff = Date.parse(`${dateStamp}T00:00:00Z`) - SECTOR_FRESH_WINDOW_MS;
  const sFreshCount = sJobs.filter((j: any) => {
- const t = Date.parse(String(j.datePosted || j.postedDate || j.crawledAt || '')) || 0;
+ // First PARSEABLE date, not first truthy: a malformed postedDate must not
+ // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
+ const t = firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
  return t >= sectorFreshCutoff;
  }).length;
  const intro = (() => {
