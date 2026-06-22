@@ -263,6 +263,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-rinvio-roma.title': 'Taxe santé frontaliers: report possible du sommet à Rome',
     'blog.article.tassa-salute-frontalieri-rinvio-roma.excerpt': 'Sommet fin juin entre Keller-Sutter et Giorgetti pour geler la taxe santé frontaliers. Le Tessin décidera sur les remboursements d\'ici le 30 juin.',
     'blog.article.tassa-salute-frontalieri-rinvio-roma.imageAlt': 'Palais du gouvernement à Bellinzona, siège du Conseil d\'État du Tessin',
+    'blog.article.sanita-farmaceutica-svizzera.title': 'La Suisse mise sur l\'IA pour révolutionner la recherche pharmaceutique',
+    'blog.article.sanita-farmaceutica-svizzera.excerpt': 'Les entreprises pharmaceutiques suisses investissent dans l\'intelligence artificielle pour accélérer la découverte de nouveaux médicaments et améliorer les essais cliniques',
+    'blog.article.sanita-farmaceutica-svizzera.imageAlt': 'Vue panoramique de Lugano avec des bâtiments modernes et hospitaliers',
 };
 
 export default blogMetaChFr;

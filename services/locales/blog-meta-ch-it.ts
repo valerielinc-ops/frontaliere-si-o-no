@@ -263,6 +263,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-rinvio-roma.title': 'Tassa salute frontalieri: ipotesi rinvio incontro Roma',
     'blog.article.tassa-salute-frontalieri-rinvio-roma.excerpt': 'Vertice a fine giugno tra Keller-Sutter e Giorgetti per congelare la tassa salute frontalieri. Ticino decide sui ristorni entro 30 giugno.',
     'blog.article.tassa-salute-frontalieri-rinvio-roma.imageAlt': 'Palazzo del Governo a Bellinzona, sede del Consiglio di Stato ticinese',
+    'blog.article.sanita-farmaceutica-svizzera.title': 'La Svizzera punta sull\'IA per rivoluzionare la ricerca farmaceutica',
+    'blog.article.sanita-farmaceutica-svizzera.excerpt': 'Le aziende farmaceutiche svizzere investono nell\'intelligenza artificiale per accelerare la scoperta di nuovi farmaci e migliorare le sperimentazioni cliniche',
+    'blog.article.sanita-farmaceutica-svizzera.imageAlt': 'Vista panoramica di Lugano con edifici moderni e ospedalieri',
 };
 
 export default blogMetaChIt;

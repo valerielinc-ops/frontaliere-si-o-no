@@ -263,6 +263,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-rinvio-roma.title': 'Grenzgänger-Gesundheitssteuer: Vertagung Rom im Raum',
     'blog.article.tassa-salute-frontalieri-rinvio-roma.excerpt': 'Spitzentreffen Ende Juni zwischen Keller-Sutter und Giorgetti zur Einfrierung der Grenzgänger-Gesundheitssteuer. Der Tessin entscheidet bis 30. Juni über die Rückerstattungen.',
     'blog.article.tassa-salute-frontalieri-rinvio-roma.imageAlt': 'Regierungsgebäude in Bellinzona, Sitz des Ticino Staatsrates',
+    'blog.article.sanita-farmaceutica-svizzera.title': 'KI-Boom in der Schweiz: Revolution in der Pharmaforschung',
+    'blog.article.sanita-farmaceutica-svizzera.excerpt': 'Schweizer Pharmaunternehmen investieren in künstliche Intelligenz, um die Entdeckung neuer Medikamente zu beschleunigen und klinische Tests zu verbessern',
+    'blog.article.sanita-farmaceutica-svizzera.imageAlt': 'Panoramablick auf Lugano mit modernen und Krankenhausgebäuden',
 };
 
 export default blogMetaChDe;
