@@ -25686,11 +25686,11 @@
     "canton": "TG"
   },
   "TG::de::neuropsychologen-in-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psychologe-in-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.0556,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -26154,12 +26154,12 @@
     "canton": "TG"
   },
   "TG::en::neuropsychologen-in-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-e4dcde94c1f6",
+    "winnerCanonical": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 1,
+    "score": 0.5714,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::neuropsychologen-in-stgag-ch": {
@@ -26649,11 +26649,11 @@
     "canton": "TG"
   },
   "TG::fr::neuropsychologen-in-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psychologe-in-stgag-ch",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.2222,
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -27791,6 +27791,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::de::client-relationship-manager-channel-sales-ubs": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "kundenbeziehungsmanager-channel-sales-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::de::consulente-verkauf-lwp-ledermann-wieting-partners-mendrisio": {
     "winnerJobIdentifier": "lwphr-6421a8aa2f7c",
     "winnerCanonical": "personalwesen-spezialist-lwp-ledermann-wieting-partners-lugano",
@@ -27995,6 +28004,24 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::gestione-delle-relazioni-cliente-ubs-ticino": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "kundenbeziehungsmanager-channel-sales-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::gestionnaire-de-relations-avec-les-clients-ubs-ticino": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "kundenbeziehungsmanager-channel-sales-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.1818,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -29132,6 +29159,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::gestione-delle-relazioni-cliente-ubs-ticino": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "client-relationship-manager-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::gestionnaire-de-relations-avec-les-clients-ubs-ticino": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "client-relationship-manager-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
     "winnerJobIdentifier": "company-x29n62",
     "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -30104,6 +30149,15 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::fr::client-relationship-manager-channel-sales-ubs": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "responsable-de-la-relation-client-ventes-de-canal-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::clinicien-en-chef-medecine-interne-eoc-ente-ospedaliero-cantonale-mendrisio": {
     "winnerJobIdentifier": "company-uil1yp",
     "winnerCanonical": "chief-medical-medecine-interne-eoc-ente-ospedaliero-cantonale-mendrisio",
@@ -30275,6 +30329,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::gestione-delle-relazioni-cliente-ubs-ticino": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "responsable-de-la-relation-client-ventes-de-canal-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::gestionnaire-de-comptes-m-m-banca-cler-bellinzona": {
     "winnerJobIdentifier": "company-a7q9i9",
     "winnerCanonical": "gestionnaire-de-comptes-m-m-bank-cler-solothurn",
@@ -30290,6 +30353,15 @@
     "decidedAt": "2026-04-30T15:42:20.795Z",
     "lastSeenAt": "2026-05-25T00:00:00.000Z",
     "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::gestionnaire-de-relations-avec-les-clients-ubs-ticino": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "responsable-de-la-relation-client-ventes-de-canal-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.2143,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -31211,6 +31283,24 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::it::client-relationship-manager-channel-sales-ubs": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "responsabile-delle-relazioni-con-i-clienti-vendite-canale-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.0667,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::client-relationship-manager-ubs": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "responsabile-delle-relazioni-con-i-clienti-vendite-canale-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.0769,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::consulente-vendita-lwp-ledermann-wieting-partners-mendrisio": {
     "winnerJobIdentifier": "lwphr-6421a8aa2f7c",
     "winnerCanonical": "consulente-patrimoniale-senior-ch-lwp-ledermann-wieting-partners-lugano",
@@ -31443,6 +31533,24 @@
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::it::gestione-delle-relazioni-cliente-ubs-ticino": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "responsabile-delle-relazioni-con-i-clienti-vendite-canale-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::gestionnaire-de-relations-avec-les-clients-ubs-ticino": {
+    "winnerJobIdentifier": "ubs-344df7b4f15c",
+    "winnerCanonical": "responsabile-delle-relazioni-con-i-clienti-vendite-canale-ubs-ticino",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.125,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::it::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
