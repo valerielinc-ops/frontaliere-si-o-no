@@ -2336,9 +2336,9 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
- <div className={sideRailEligible ? 'contents xlw:grid xlw:flex-grow xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-6' : 'contents'}>
+ <div className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-6' : 'contents'}>
  {sideRailEligible && (
- <aside className="hidden xlw:flex xlw:flex-col">
+ <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
  <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
  </aside>
  )}
@@ -2632,7 +2632,7 @@ const App: React.FC = () => {
  )}
  </main>
  {sideRailEligible && (
- <aside className="hidden xlw:flex xlw:flex-col">
+ <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
  <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
  </aside>
  )}

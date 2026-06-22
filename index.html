@@ -260,6 +260,25 @@
       .dark #loading-shell .sh-subtab-bar { background: #0f172a; border-color: #1e293b; }
       .dark #loading-shell .sh-skel { background: #1e293b; }
       .dark #loading-shell .sh-card { background: #1e293b; border-color: #334155; }
+
+      /* CLS — desktop side-rail reservation, mirrored from the async entry sheet
+         (index.css) into this synchronous block. The rail grid wrapping <main>
+         on SPA content pages (App.tsx) and static SEO landings is styled only by
+         the async Tailwind sheet, which swaps in ~500ms after first paint →
+         <main> repaints full-width block → centred grid column and everything
+         below jumps (live-measured dominant desktop shift 0.47; CF Web Analytics
+         desktop CLS p75 0.22→0.65 on 2026-06-22 after the rails shipped).
+         Reserving the IDENTICAL grid here pins the final layout at first paint.
+         Keep in sync with RAIL_RESERVE_CSS in build-plugins/shared/criticalCss.ts
+         (the static-page twin). Pure space reservation. */
+      .ft-rail-aside { display: none; }
+      .ft-rail-grid-spa { display: contents; }
+      @media (min-width: 1400px) {
+        main:not(.seo-static-content):not(.cluster-seo-prose) { max-width: calc(100vw - 360px); }
+        .ft-rail-grid { display: grid; grid-template-columns: 300px minmax(0,1fr) 300px; gap: 1.5rem; margin-inline: auto; max-width: 1768px; }
+        .ft-rail-grid-spa { display: grid; grid-template-columns: 300px minmax(0,1fr) 300px; gap: 1.5rem; }
+        .ft-rail-aside { display: flex; flex-direction: column; min-height: 600px; }
+      }
     </style>
 
     <!-- Google AdSense: deferred until after page is interactive to avoid
