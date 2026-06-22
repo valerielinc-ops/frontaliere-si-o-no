@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-06-21T21:29:50.447Z",
+  "generatedAt": "2026-06-22T13:39:03.119Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 15841,
-  "avgDurationMs": 15841,
+  "durationMs": 20688,
+  "avgDurationMs": 20688,
   "durationHistory": [
-    15841
+    20688
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Teamleader Production (w/m/div.) - REF287851S",
+      "slug": "teamleader-production-w-m-div-ref287851s-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF287851S-teamleader-production-w-m-div-ref287851s",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000133342420-teamleader-production-w-m-div-ref287851s?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-22",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Servicetechniker – Bereich Hydraulik 100% (w/m/div.) REF289394Q",
@@ -229,10 +260,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Servicetechniker Öl / Gas Region Bern (w/m/div.) REF285265T",
-      "slug": "servicetechniker-ol-gas-region-bern-w-m-div-ref285265t-bosch-steinhausen",
+      "slug": "servicetechniker-ol-gas-region-bern-w-m-div-ref285265-bosch-thermotechnik-ag-steinhausen",
       "url": "https://jobs.bosch.com/en/job/REF285265T-servicetechniker-oel-gas-region-bern-w-m-div-ref285265t",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124561544-servicetechniker-ol-gas-region-bern-w-m-div-ref285265t?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -267,7 +300,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Key Account Manager – Bosch Building Technologies 100% (w/m/div.) REF287492K",
