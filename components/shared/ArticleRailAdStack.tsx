@@ -1,22 +1,28 @@
 /**
- * ArticleRailAdStack — full-length desktop side-rail ad chain.
+ * ArticleRailAdStack — desktop side-rail ad chain that stays in view.
  *
- * Fills the tall desktop gutter top-to-bottom with a vertical chain of ad
- * panels so the rail is *continuous* — no blank stretch below the first
- * creative (the complaint the screenshots show: one ad rides the top, the rest
- * of the gutter stays empty).
+ * Keeps the tall desktop gutter monetised top-to-bottom WITHOUT trying to
+ * physically tile the whole column (which an article can outgrow — a 12k-px post
+ * left ~10k px of blank rail below the first few ads, the complaint the
+ * screenshots show). Instead a small cluster of half-page panels is pinned with
+ * `position: sticky`, so it rides the viewport for the entire scroll and the
+ * gutter never goes blank.
  *
- * How the gap-free fill works:
- *  - The stack measures its own rendered height (it `flex-1`-stretches to the
- *    grid row = the article column height) and asks for ~one half-page panel per
- *    ~620px of gutter, so a tall page gets more panels and a short one fewer.
- *  - Panels flow naturally (NOT `flex-1`-stretched) and butt together with a
- *    small flex gap — no panel is taller than its creative, so there's no empty
- *    slack inside a panel.
+ * How it works:
+ *  - The outer `flex-1` div claims the full gutter height (so the cluster has
+ *    room to travel and layout/CLS is reserved); the inner `sticky top-6` div
+ *    holds the panels and pins to the viewport top as the column scrolls.
+ *  - Panel count is VIEWPORT-driven: just enough half-page panels (~620px each)
+ *    to cover the visible viewport — more would sit below the fold, pinned and
+ *    never seen (wasted ad requests). A short gutter caps it lower.
  *  - Only the first panel reserves the 600px CLS placeholder; the rest pass
  *    `reserve={false}`. Combined with GptAdSlot collapsing any slot GPT reports
- *    empty (`display:none`), unfilled panels vanish from layout instead of
- *    leaving a blank box, so the filled panels stay flush.
+ *    empty (`display:none`), unfilled panels vanish instead of leaving a blank
+ *    box, so the filled panels stay flush.
+ *
+ * Sticky requires no overflow-clipping scroll ancestor: the app shell uses
+ * `overflow-x: clip` (NOT `overflow: hidden`, which would make it a scroll
+ * container and silently break this) — see App.tsx app-shell-col.
  *
  * The whole track only materialises at the widened (≥1400px / `xlw`) rail,
  * matching ArticleRailAd's own CSS gate.
@@ -53,13 +59,14 @@ const PANEL_PX = 620;
 // Minimum gutter height to render any panel — below this, even one 600px
 // creative would overflow or reserve an unfilled CLS slot.
 const MIN_FILL_PX = 600;
-// Bound the number of same-unit requests; tall pages cap here, short pages get 1.
+// Bound the number of same-unit requests (ceiling; the real count is the lower
+// of "panels that cover the viewport" and "panels the gutter holds").
 const MAX_PANELS = 6;
 
 const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false }) => {
   const ref = useRef<HTMLDivElement>(null);
-  // Start at 0 — ResizeObserver sets the correct count after mount, avoiding
-  // a premature 600px CLS reservation on pages whose gutter is below MIN_FILL_PX.
+  // Start at 0 — measurement sets the correct count after mount, avoiding a
+  // premature 600px CLS reservation on pages whose gutter is below MIN_FILL_PX.
   const [panels, setPanels] = useState(0);
   const maxPanels = Math.max(1, count ?? MAX_PANELS);
 
@@ -67,28 +74,46 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
     const el = ref.current;
     if (!el || typeof ResizeObserver === 'undefined') return;
     const measure = () => {
-      const h = el.getBoundingClientRect().height;
+      const gutter = el.getBoundingClientRect().height;
       // Below MIN_FILL_PX there is no room for even one 600px creative: skip all
       // panels so no CLS slot is reserved on ultra-short tool pages.
-      const next =
-        h < MIN_FILL_PX ? 0 : Math.max(1, Math.min(maxPanels, Math.round(h / PANEL_PX)));
+      if (gutter < MIN_FILL_PX) {
+        setPanels((prev) => (prev === 0 ? prev : 0));
+        return;
+      }
+      // The cluster is sticky, so it only needs enough panels to cover the
+      // VIEWPORT — extra panels would sit below the fold (pinned, never seen).
+      // Cap by the caller's ceiling and by what the gutter physically holds.
+      const byViewport = Math.ceil(window.innerHeight / PANEL_PX);
+      const byGutter = Math.round(gutter / PANEL_PX);
+      const next = Math.max(1, Math.min(maxPanels, byViewport, byGutter));
       setPanels((prev) => (prev === next ? prev : next));
     };
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
-    return () => ro.disconnect();
+    // Viewport height changes (window resize) don't always change the gutter el,
+    // so re-measure on resize too.
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
   }, [maxPanels]);
 
   return (
-    // `flex-1` stretches the stack to the full gutter height so the measurement
-    // reflects the article column. Panels flow top-to-bottom with a tight gap.
-    // Only the widened rail (`xlw`, ≥1400px) hosts the chain — the narrow xl
-    // tier (1280–1399) shows no rail ads, exactly as before.
-    <div ref={ref} className="hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0 gap-2">
-      {Array.from({ length: panels }, (_, i) => (
-        <ArticleRailAd key={i} side={side} enabled={enabled} reserve={i === 0} narrow={narrow} />
-      ))}
+    // Outer `flex-1` claims the full gutter height so the sticky cluster has room
+    // to travel and the layout/CLS slot is reserved. Only the widened rail
+    // (`xlw`, ≥1400px) hosts the chain — the narrow xl tier (1280–1399) shows no
+    // rail ads, exactly as before.
+    <div ref={ref} className="hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0">
+      {/* Inner cluster pins to the viewport top and rides the whole scroll, so a
+          tall article's gutter never goes blank below the physical ads. */}
+      <div className="sticky top-6 flex flex-col gap-2">
+        {Array.from({ length: panels }, (_, i) => (
+          <ArticleRailAd key={i} side={side} enabled={enabled} reserve={i === 0} narrow={narrow} />
+        ))}
+      </div>
     </div>
   );
 };
