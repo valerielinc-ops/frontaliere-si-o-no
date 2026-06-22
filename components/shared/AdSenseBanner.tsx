@@ -382,13 +382,16 @@ export default function AdSenseBanner({
  // AdSense before it can report unfilled, leaving a 400px reservation
  // on every blocked slot for 90s. Multiple slots × 400px = 800-1200px
  // of visible dead-space below the fold on every page load (S7).
- // 8s is plenty for genuine fills (real fills land <2s in practice).
+ // Most genuine fills land <2s, but Privacy Sandbox / Attestation auctions
+ // can legitimately settle slower; an 8s cutoff false-collapsed late fills
+ // and logged them as ad_collapsed, depressing the measured fill-rate. 12s
+ // keeps the dead-space short while giving slow auctions room to fill.
  fillTimeoutRef.current = setTimeout(() => {
  const status = el.getAttribute('data-ad-status');
  if (status === 'filled') return;
  cleanupAsyncWatchers();
  collapseWhenLayoutSafe(`fill timeout (status=${status})`);
- }, 8_000);
+ }, 12_000);
 
  return true;
  };
