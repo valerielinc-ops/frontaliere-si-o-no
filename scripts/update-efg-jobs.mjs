@@ -32,6 +32,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/
 import { parseEfgOracleDescription } from './lib/efg-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { isTargetCanton } from './lib/crawler-location-config.mjs';
+import { locTokenHit } from '../services/locToken.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -193,7 +194,9 @@ function extractCity(primaryLocation = '') {
 function detectCanton(location = '') {
   const loc = normalize(location);
   for (const [city, canton] of Object.entries(SWISS_CITY_CANTON)) {
-    if (loc.includes(city)) return canton;
+    // Whole-token match (#2630): bare loc.includes(city) assigned BE to a
+    // Geneva job ("bern" ⊂ "bernex"); the canton drives geo/SEO routing.
+    if (locTokenHit(loc, city)) return canton;
   }
   return '';
 }

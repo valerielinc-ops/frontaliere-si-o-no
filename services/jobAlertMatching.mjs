@@ -28,6 +28,7 @@
  */
 
 import { extractKeywords } from './newsletter-content.mjs';
+import { locTokenHit } from './locToken.mjs';
 
 /** @typedef {Set<string>} TokenSet */
 
@@ -233,12 +234,12 @@ export function scoreJobForAlert(job, profile) {
   if (hasGeoScope) {
     const jobCanton = String(job.canton || '').toLowerCase();
     const geoHit =
-      profile.alertLocations.some((l) => l && jobLoc.includes(l)) ||
+      profile.alertLocations.some((l) => locTokenHit(jobLoc, l)) ||
       (profile.cantons.length > 0 && jobCanton && profile.cantons.includes(jobCanton));
     if (!geoHit) return 0;
   }
 
-  const locationMatch = profile.locations.some((l) => jobLoc.includes(l));
+  const locationMatch = profile.locations.some((l) => locTokenHit(jobLoc, l));
   if (locationMatch) score += 2;
   const cantonMatch = profile.cantons.length > 0 && profile.cantons.includes(String(job.canton || '').toLowerCase());
   if (cantonMatch) score += 1;

@@ -787,7 +787,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </Suspense>
 
  {/* AdSense: in-page multiplex after high-intent simulation_complete moment — reserve space to prevent CLS */}
- <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.CALCULATOR_POST_RESULT.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] [contain:content]" />}>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.CALCULATOR_POST_RESULT.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>
  <AdSenseBanner
  adSlot={AD_SLOTS.CALCULATOR_POST_RESULT.slot}
  adFormat={AD_SLOTS.CALCULATOR_POST_RESULT.format}
