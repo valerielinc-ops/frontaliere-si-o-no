@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-15T09:41:04.501Z",
-  "totalQueriesAnalyzed": 3385,
-  "qualifyingQueries": 242,
-  "clustersFound": 119,
+  "generatedAt": "2026-06-22T09:26:21.609Z",
+  "totalQueriesAnalyzed": 3438,
+  "qualifyingQueries": 248,
+  "clustersFound": 122,
   "pages": [
     {
       "slug": "offerte-lavoro-poschiavo",
@@ -31,14 +31,36 @@
       }
     },
     {
+      "slug": "case-anziani-ticino-offerte-di-lavoro",
+      "query": "case anziani ticino offerte di lavoro",
+      "filterKeywords": [
+        "case",
+        "anziani"
+      ],
+      "totalClicks": 39,
+      "totalImpressions": 691,
+      "queryCount": 2,
+      "allQueries": [
+        "case anziani ticino offerte di lavoro",
+        "case anziani lugano posti di lavoro"
+      ],
+      "copy": {
+        "it": {
+          "title": "Case Anziani Ticino Offerte di Lavoro | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"case anziani ticino offerte di lavoro\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Case Anziani Ticino Offerte di Lavoro"
+        }
+      }
+    },
+    {
       "slug": "assistente-di-cura-offerte-di-lavoro",
       "query": "assistente di cura offerte di lavoro",
       "filterKeywords": [
         "assistente",
         "cura"
       ],
-      "totalClicks": 38,
-      "totalImpressions": 410,
+      "totalClicks": 39,
+      "totalImpressions": 413,
       "queryCount": 4,
       "allQueries": [
         "assistente di cura offerte di lavoro",
@@ -62,8 +84,8 @@
         "ultimi",
         "giorni"
       ],
-      "totalClicks": 37,
-      "totalImpressions": 2295,
+      "totalClicks": 38,
+      "totalImpressions": 2304,
       "queryCount": 11,
       "allQueries": [
         "offerte di lavoro ticino negli ultimi 3 giorni",
@@ -87,24 +109,50 @@
       }
     },
     {
-      "slug": "case-anziani-ticino-offerte-di-lavoro",
-      "query": "case anziani ticino offerte di lavoro",
+      "slug": "offerte-lavoro-casa-di-riposo-svizzera",
+      "query": "offerte lavoro casa di riposo svizzera",
       "filterKeywords": [
-        "case",
-        "anziani"
+        "casa",
+        "riposo"
       ],
-      "totalClicks": 23,
-      "totalImpressions": 569,
+      "totalClicks": 30,
+      "totalImpressions": 378,
       "queryCount": 2,
       "allQueries": [
-        "case anziani ticino offerte di lavoro",
-        "case anziani lugano posti di lavoro"
+        "offerte lavoro casa di riposo svizzera",
+        "offerte di lavoro casa di riposo svizzera"
       ],
       "copy": {
         "it": {
-          "title": "Case Anziani Ticino Offerte di Lavoro | Frontaliere Ticino",
-          "description": "Offerte di lavoro per \"case anziani ticino offerte di lavoro\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
-          "heading": "Case Anziani Ticino Offerte di Lavoro"
+          "title": "Offerte Lavoro Casa di Riposo Svizzera in Ticino | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"offerte lavoro casa di riposo svizzera\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Offerte Lavoro Casa di Riposo Svizzera in Ticino"
+        }
+      }
+    },
+    {
+      "slug": "offerte-di-lavoro-casa-anziani-ticino",
+      "query": "offerte di lavoro casa anziani ticino",
+      "filterKeywords": [
+        "casa",
+        "anziani"
+      ],
+      "totalClicks": 24,
+      "totalImpressions": 358,
+      "queryCount": 6,
+      "allQueries": [
+        "offerte di lavoro casa anziani ticino",
+        "casa anziani chiasso lavoro",
+        "offerte lavoro casa anziani ticino",
+        "casa anziani comunale bellinzona offerte di lavoro",
+        "casa anziani paradiso offerta lavoro",
+        "casa anziani mendrisio lavoro"
+      ],
+      "copy": {
+        "it": {
+          "title": "Offerte di Lavoro Casa Anziani Ticino | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"offerte di lavoro casa anziani ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Offerte di Lavoro Casa Anziani Ticino"
         }
       }
     },
@@ -145,28 +193,6 @@
       }
     },
     {
-      "slug": "offerte-di-lavoro-casa-di-riposo-svizzera",
-      "query": "offerte di lavoro casa di riposo svizzera",
-      "filterKeywords": [
-        "casa",
-        "riposo"
-      ],
-      "totalClicks": 19,
-      "totalImpressions": 285,
-      "queryCount": 2,
-      "allQueries": [
-        "offerte di lavoro casa di riposo svizzera",
-        "offerte lavoro casa di riposo svizzera"
-      ],
-      "copy": {
-        "it": {
-          "title": "Offerte di Lavoro Casa di Riposo Svizzera in Ticino | Frontaliere Ticino",
-          "description": "Offerte di lavoro per \"offerte di lavoro casa di riposo svizzera\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
-          "heading": "Offerte di Lavoro Casa di Riposo Svizzera in Ticino"
-        }
-      }
-    },
-    {
       "slug": "offerte-lavoro-stabio-svizzera",
       "query": "offerte lavoro stabio svizzera",
       "filterKeywords": [
@@ -187,31 +213,6 @@
           "title": "Offerte Lavoro Stabio Svizzera - Posizioni Aperte | Frontaliere Ticino",
           "description": "Offerte di lavoro per \"offerte lavoro stabio svizzera\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
           "heading": "Offerte Lavoro Stabio Svizzera"
-        }
-      }
-    },
-    {
-      "slug": "offerte-di-lavoro-casa-anziani-ticino",
-      "query": "offerte di lavoro casa anziani ticino",
-      "filterKeywords": [
-        "casa",
-        "anziani"
-      ],
-      "totalClicks": 16,
-      "totalImpressions": 260,
-      "queryCount": 5,
-      "allQueries": [
-        "offerte di lavoro casa anziani ticino",
-        "casa anziani chiasso lavoro",
-        "offerte lavoro casa anziani ticino",
-        "casa anziani paradiso offerta lavoro",
-        "casa anziani mendrisio lavoro"
-      ],
-      "copy": {
-        "it": {
-          "title": "Offerte di Lavoro Casa Anziani Ticino | Frontaliere Ticino",
-          "description": "Offerte di lavoro per \"offerte di lavoro casa anziani ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
-          "heading": "Offerte di Lavoro Casa Anziani Ticino"
         }
       }
     },
@@ -461,6 +462,28 @@
       }
     },
     {
+      "slug": "educatore-sociale-offerte-lavoro-ticino",
+      "query": "educatore sociale offerte lavoro ticino",
+      "filterKeywords": [
+        "educatore",
+        "sociale"
+      ],
+      "totalClicks": 6,
+      "totalImpressions": 20,
+      "queryCount": 2,
+      "allQueries": [
+        "educatore sociale offerte lavoro ticino",
+        "offerte di lavoro educatore ticino"
+      ],
+      "copy": {
+        "it": {
+          "title": "Educatore Sociale Offerte Lavoro Ticino | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"educatore sociale offerte lavoro ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Educatore Sociale Offerte Lavoro Ticino"
+        }
+      }
+    },
+    {
       "slug": "groupe-mutuel-emploi",
       "query": "groupe mutuel emploi",
       "filterKeywords": [
@@ -527,6 +550,27 @@
           "title": "Job Durabilité in Ticino - Posizioni Aperte | Frontaliere Ticino",
           "description": "Offerte di lavoro per \"job durabilité\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
           "heading": "Job Durabilité in Ticino"
+        }
+      }
+    },
+    {
+      "slug": "offerte-di-lavoro-educatrice-svizzera-italiana",
+      "query": "offerte di lavoro educatrice svizzera italiana",
+      "filterKeywords": [
+        "educatrice",
+        "italiana"
+      ],
+      "totalClicks": 5,
+      "totalImpressions": 11,
+      "queryCount": 1,
+      "allQueries": [
+        "offerte di lavoro educatrice svizzera italiana"
+      ],
+      "copy": {
+        "it": {
+          "title": "Offerte di Lavoro Educatrice Svizzera Italiana in Ticino | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"offerte di lavoro educatrice svizzera italiana\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Offerte di Lavoro Educatrice Svizzera Italiana in Ticino"
         }
       }
     },
