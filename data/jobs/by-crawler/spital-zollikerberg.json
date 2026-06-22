@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-06-22T15:23:41.403Z",
+  "assembledAt": "2026-06-22T23:34:36.693Z",
   "jobs": [
     {
       "id": "spital-zollikerberg-b42d40292e71",
@@ -34,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=e34343d2-9568-4744-8dda-dc59ce3c7e37,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:23:39.374Z",
+      "crawledAt": "2026-06-22T23:34:34.734Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -57,6 +57,83 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-und-gynakologie-mitarbeitende-im-fokus"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-zollikerberg-cfc1774102d2",
+      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
+      "slugByLocale": {
+        "it": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
+        "en": "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-spital",
+        "de": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
+        "fr": "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old"
+      },
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen",
+      "titleByLocale": {
+        "it": "Centro vecchio Hottingen Dipl. Infermieristica professionale / Dipl. Infermieristica – Spitex Old Age Centre Hottingen",
+        "en": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen",
+        "de": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen",
+        "fr": "Centre de vieillesse Hottingen Dipl. Professionnels des soins infirmiers / Dipl. Spécialiste des soins infirmiers – Spitex Old Age Centre Hottingen"
+      },
+      "description": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "descriptionByLocale": {
+        "it": "Centro vecchio Hottingen Dipl. Infermieristica professionale / Dipl. Infermieristica specialista – Spitex Alterszentrum Hottingen – Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Old age center Hottingen Dipl. Nursing professional / Dipl. Nursing specialist – Spitex Alterszentrum Hottingen – Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Centre de vieillesse Hottingen Dipl. Spécialiste des soins infirmiers – Spitex Alterszentrum Hottingen – Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c73c1f6a-559b-4b98-ba0e-2beda0492ca5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-22T23:34:34.733Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c73c1f6a-559b-4b98-ba0e-2beda0492ca5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        ],
+        "en": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        ],
+        "fr": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -105,7 +182,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=af6b4ed9-fa12-46ff-8a2b-cdf1c786dabd,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:23:39.373Z",
+      "crawledAt": "2026-06-22T23:34:34.733Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -182,7 +259,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=6f1a2a8d-30f1-44d4-b671-2737e0fd1f2f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:23:39.373Z",
+      "crawledAt": "2026-06-22T23:34:34.733Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -259,7 +336,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=aa7822cb-9f73-4e75-8a21-8d762eb9f4c5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:23:39.372Z",
+      "crawledAt": "2026-06-22T23:34:34.732Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -305,89 +382,12 @@
       }
     },
     {
-      "id": "spital-zollikerberg-cfc1774102d2",
-      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
-      "slugByLocale": {
-        "it": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
-        "en": "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-spital",
-        "de": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
-        "fr": "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen",
-      "titleByLocale": {
-        "it": "Centro vecchio Hottingen Dipl. Infermieristica professionale / Dipl. Infermieristica – Spitex Old Age Centre Hottingen",
-        "en": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen",
-        "de": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen",
-        "fr": "Centre de vieillesse Hottingen Dipl. Professionnels des soins infirmiers / Dipl. Spécialiste des soins infirmiers – Spitex Old Age Centre Hottingen"
-      },
-      "description": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "it": "Centro vecchio Hottingen Dipl. Infermieristica professionale / Dipl. Infermieristica specialista – Spitex Alterszentrum Hottingen – Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Old age center Hottingen Dipl. Nursing professional / Dipl. Nursing specialist – Spitex Alterszentrum Hottingen – Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
-        "de": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Centre de vieillesse Hottingen Dipl. Spécialiste des soins infirmiers – Spitex Alterszentrum Hottingen – Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
-      },
-      "needsRetranslation": true,
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c73c1f6a-559b-4b98-ba0e-2beda0492ca5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:23:39.372Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c73c1f6a-559b-4b98-ba0e-2beda0492ca5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
-        ],
-        "en": [
-          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
-        ],
-        "fr": [
-          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "spital-zollikerberg-6b93ce5eb7aa",
       "slug": "disponent-disponentin-medizinisches-ambulatorium-con-geregelten-arbeitszeiten-von-montag-bis-freitag-middle-office-spital-zollikerberg",
       "slugByLocale": {
-        "de": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
         "it": "disponent-disponentin-medizinisches-ambulatorium-con-geregelten-arbeitszeiten-von-montag-bis-freitag-middle-office-spital-zollikerberg",
         "en": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
+        "de": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
         "fr": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
       },
       "company": "Spital Zollikerberg",
@@ -395,17 +395,17 @@
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office /",
       "titleByLocale": {
-        "de": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office /",
         "it": "Disponent / Disponentin Medizinisches Ambulatorium - con geregelten Arbeitszeiten von Montag bis Freitag Middle Office /",
         "en": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office /",
+        "de": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office /",
         "fr": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office /"
       },
       "description": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "de": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "en": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
+        "it": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "en": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "de": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Disponent / Disponentin Medizinisches Ambulatorium - Mit geregelten Arbeitszeiten von Montag bis Freitag Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
       },
       "needsRetranslation": true,
       "location": "Zollikerberg",
@@ -413,7 +413,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5558a324-7637-47e5-bc10-8c8a5ed61dcf,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:23:39.369Z",
+      "crawledAt": "2026-06-22T23:34:34.731Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -429,17 +429,16 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5558a324-7637-47e5-bc10-8c8a5ed61dcf,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
         ]
       },
-      "previousSlugs": [
-        "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
-      ],
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -451,8 +450,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      }
     }
   ]
 }
