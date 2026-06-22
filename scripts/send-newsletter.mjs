@@ -32,7 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl, isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
@@ -276,9 +276,11 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
 
   for (const j of jobs.slice(0, 3)) {
     const jobUrl = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
-    // Company page slug is derived from company display name (mirrors build plugin logic)
-    const companySlug = j.company ? slugifyCompanyName(j.company) : '';
-    const companyUrl = companyPageUrl(companySlug, locale);
+    // Reuse the upstream-validated hub URL from matchJobsForSubscriber (gated on
+    // the emitted-hub allow-set, #2530) rather than re-deriving an UNGATED slug
+    // here — a company present only on expired jobs has no emitted hub and would
+    // 404. Absent companyUrl → omit the company link (safe).
+    const companyUrl = j.companyUrl || '';
 
     let foundTitle = false;
 
