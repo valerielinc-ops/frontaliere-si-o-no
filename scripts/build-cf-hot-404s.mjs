@@ -55,11 +55,77 @@ const MAX_PATHS = Number(process.env.CF_HOT_404_MAX) || 250000;
 // Google + returning visitors.
 const MIN_HITS = 2;
 
-// Ticino + nationwide sections are owned by jobsSeoPagesPlugin; never include.
+// Ticino + nationwide sections are owned by jobsSeoPagesPlugin; never include —
+// EXCEPT cross-canton drift orphans (see isCrossCantonTicinoOrphan below). A job
+// whose URL section re-derives away from Ticino (sharedResolveJobCanton, e.g.
+// the pre-pin default-to-TI fallback) leaves its old `/cerca-lavoro-ticino/<slug>/`
+// indexed URL orphaned; jobsSeoPagesPlugin's compat-merge drops it (it skips a
+// slug whose `tracking[slug][locale]` is already set to the now-active non-TI
+// canton), so it 404s with no soft-landing. Those ARE in scope here.
 const TICINO_RE =
   /^\/(cerca-lavoro-ticino|en\/(find-jobs?|job-search)-ticino|de\/(jobs-im|jobsuche|stellenangebote)-tessin|fr\/(trouver-emploi|recherche-emploi|emplois)-tessin)\//;
 const AGGREGATE_RE =
   /^\/(cerca-lavoro-svizzera|en\/find-jobs-switzerland|de\/jobs-in-schweiz|fr\/trouver-emploi-suisse)\//;
+
+// Slug → per-locale CURRENT canonical section prefix, from the committed ledger
+// data/all-known-job-slugs.json (same source jobCanonRedirectMapPlugin shards for
+// the 404.html runtime resolver). Used ONLY to tell a genuine cross-canton Ticino
+// orphan (slug's canonical now lives under a DIFFERENT section) from a legit
+// Ticino job (canonical IS Ticino → already emitted by the main loop) or an
+// expired/unknown slug (handled by the seo-404-compat-paths.json compat-merge).
+// Best-effort: a missing/unreadable ledger leaves Ticino fully excluded (the
+// historical behaviour), never throws.
+const slugCanonicalSection = (() => {
+  const map = new Map();
+  try {
+    const ledger = JSON.parse(
+      fs.readFileSync(path.join(ROOT, 'data', 'all-known-job-slugs.json'), 'utf8'),
+    );
+    for (const key of Object.keys(ledger)) {
+      const entry = ledger[key];
+      if (!entry || typeof entry !== 'object') continue;
+      for (const loc of ['it', 'en', 'de', 'fr']) {
+        const p = entry[loc];
+        if (typeof p !== 'string' || !p.startsWith('/')) continue;
+        const norm = p.replace(/\/+$/, '');
+        const cut = norm.lastIndexOf('/');
+        if (cut <= 0) continue;
+        const slug = norm.slice(cut + 1);
+        const section = norm.slice(0, cut); // e.g. /cerca-lavoro-berna, /de/jobs-in-bern
+        if (slug && !map.has(slug)) map.set(slug, {});
+        const rec = map.get(slug);
+        if (rec && !(loc in rec)) rec[loc] = section;
+      }
+    }
+  } catch {
+    /* no ledger → Ticino stays fully excluded (historical behaviour) */
+  }
+  return map;
+})();
+
+// Locale (it default) + section prefix + slug for a normalized job-detail path.
+function parseJobPath(p) {
+  const segs = p.replace(/\/+$/, '').split('/').filter(Boolean);
+  if (segs.length < 2) return null;
+  const locale = segs[0] === 'en' || segs[0] === 'de' || segs[0] === 'fr' ? segs[0] : 'it';
+  const slug = segs[segs.length - 1];
+  const section = '/' + segs.slice(0, -1).join('/');
+  return { locale, slug, section };
+}
+
+// A Ticino-section path is in scope ONLY when its slug is a known job whose
+// CURRENT canonical (for that locale) lives under a DIFFERENT section — i.e. a
+// real canton-drift orphan with a live 200 page elsewhere. Legit Ticino jobs
+// (canonical == this section) and expired/unknown slugs stay excluded.
+function isCrossCantonTicinoOrphan(p) {
+  const parsed = parseJobPath(p);
+  if (!parsed) return false;
+  const rec = slugCanonicalSection.get(parsed.slug);
+  if (!rec) return false;
+  const canon = rec[parsed.locale];
+  return Boolean(canon) && canon !== parsed.section;
+}
+
 // A non-Ticino per-canton job-detail path: optional locale prefix, a job-board
 // section stem + canton slug, then exactly ONE slug segment.
 const JOB_DETAIL_RE =
@@ -86,7 +152,11 @@ function readExisting() {
 function isHotCandidate(p) {
   if (typeof p !== 'string' || !p.startsWith('/')) return false;
   if (!JOB_DETAIL_RE.test(p)) return false;
-  if (TICINO_RE.test(p) || AGGREGATE_RE.test(p)) return false;
+  if (AGGREGATE_RE.test(p)) return false;
+  // Ticino sections are normally owned by jobsSeoPagesPlugin, but cross-canton
+  // drift orphans (slug's canonical now under a different section) fall through
+  // its compat-merge → recover them here too.
+  if (TICINO_RE.test(p)) return isCrossCantonTicinoOrphan(p);
   return true;
 }
 
