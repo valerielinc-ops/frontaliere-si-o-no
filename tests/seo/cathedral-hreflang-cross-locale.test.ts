@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { isArchivedStubHtml } from './_bridgeMarker';
+import { isArchivedStubHtml, isCrossSectionCanonical } from './_bridgeMarker';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
@@ -28,6 +28,11 @@ describe('hreflang round-trip non-TI canton (P3-B)', () => {
       if (!fs.existsSync(f)) continue;
       const candidate = fs.readFileSync(f, 'utf8');
       if (isArchivedStubHtml(candidate)) continue;
+      // Also skip canton-drift relocation copies that escaped the noindex
+      // marker: a page whose rel=canonical points outside this ZH section is a
+      // TI/other-canton orphan carrying the SOURCE canton's hreflang, not a real
+      // ZH-canonical page (validate-dist flake #2679).
+      if (isCrossSectionCanonical(candidate, 'cerca-lavoro-zurigo')) continue;
       sample = s;
       html = candidate;
       break;
