@@ -4330,6 +4330,17 @@ ${terminologyByLang[targetLang] || ''}`;
         })
       : Promise.resolve({});
 
+    // Per-call resilience: a single malformed-JSON / quota-exhausted translation
+    // call must NOT reject the whole Promise.all and discard the entire article
+    // (run 27924137758: de:meta JSON parse failure after 3 retries hard-threw and
+    // killed an otherwise-fine article). Each call falls back to `{}`; the
+    // downstream missing-field validation loop (#1266) then re-translates the
+    // affected field in isolation or falls back to the IT source — same
+    // graceful-degradation philosophy already used for FAQ below.
+    const onTranslateFail = (label) => (err) => {
+      console.error(`  ⚠️  ${label} translation failed: ${err.message} — fallback al recupero per-campo`);
+      return {};
+    };
     const [partMeta, partB1, partB2, partB3, partFaq] = await Promise.all([
       // Call 1: title + excerpt (small, ~300 tokens output)
       // VINCOLO TITOLO: il title tradotto DEVE restare ≤ 60 caratteri (gate SEO Semrush).
@@ -4338,11 +4349,11 @@ ${terminologyByLang[targetLang] || ''}`;
       callWithRetry(makePrompt(
         `CONTENUTO ITALIANO DA TRADURRE:\n- title: ${sourceContent.title}\n- excerpt: ${sourceContent.excerpt}\n\nVINCOLI OBBLIGATORI per il title tradotto:\n- MASSIMO 60 caratteri totali (target 50-55).\n- NON includere "| Frontaliere Ticino" (aggiunto automaticamente).\n- Mantieni la keyword principale; abbrevia o riformula se necessario per restare entro 60 caratteri.`,
         '{"title": "...", "excerpt": "..."}',
-      ), 1000, `${targetLang}:meta`),
+      ), 1000, `${targetLang}:meta`).catch(onTranslateFail(`${targetLang}:meta`)),
       // Call 2-4: body fields with dynamic sizing + sub-chunking safety
-      translateBodyField('body1', sourceContent.body1, targetLang),
-      translateBodyField('body2', sourceContent.body2, targetLang),
-      translateBodyField('body3', sourceContent.body3, targetLang),
+      translateBodyField('body1', sourceContent.body1, targetLang).catch(onTranslateFail(`${targetLang}:body1`)),
+      translateBodyField('body2', sourceContent.body2, targetLang).catch(onTranslateFail(`${targetLang}:body2`)),
+      translateBodyField('body3', sourceContent.body3, targetLang).catch(onTranslateFail(`${targetLang}:body3`)),
       // Call 5: FAQ (optional)
       faqTranslation,
     ]);
