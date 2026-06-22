@@ -413,6 +413,30 @@ function fetchJobDetail(jobId: string): Promise<Partial<JobListing>> {
  return jobDetailCache.get(jobId)!;
 }
 
+/**
+ * Resilient variant of fetchJobDetail. window.__JOB_SEED__ bakes the job's
+ * stable id at build time, but that id is a hash of a URL-derived fingerprint
+ * (buildStableId) and is NOT carried forward when a crawled job's source URL
+ * rotates (e.g. Coop's UUID-keyed posting URLs). The already-deployed static
+ * page then carries an id that no longer exists in the regenerated dataset, so
+ * /data/job-detail/<seed-id>.json 404s and the detail view shows the generic
+ * "scovato nel monitoraggio" placeholder behind the unlock gate instead of the
+ * real description.
+ *
+ * The slug, unlike the id, IS bridged (previousSlugs) and the live
+ * jobs-slug-map.json maps it → the current id. So when the baked id misses,
+ * resolve the current id from the slug map and retry once — mirroring the
+ * slug→id bridge already used for cross-canton shard resolution.
+ */
+async function fetchJobDetailResilient(jobId: string, slug?: string | null): Promise<Partial<JobListing>> {
+ const primary = await fetchJobDetail(jobId);
+ if (Object.keys(primary).length > 0 || !slug) return primary;
+ await ensureJobSlugMapLoaded();
+ const liveId = getJobMetaForSlug(slug)?.id;
+ if (!liveId || liveId === jobId) return primary;
+ return fetchJobDetail(liveId);
+}
+
 const ARTICLE_STOP_WORDS = new Set(['2025', '2026', '2027', 'del', 'dei', 'per', 'con', 'sul', 'fra', 'tra', 'una', 'non', 'che', 'come', 'cosa', 'dal', 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);
 
 function slugTopicWordsJob(id: string): Set<string> {
@@ -2472,10 +2496,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // instead of fetching the full locale file (~11MB). Merges detail fields into
  // the jobs state so selectedJob recomputes with complete data automatically.
  const selectedJobId = selectedJob?.id ?? null;
+ const selectedJobSlug = selectedJob?.slug ?? null;
  useEffect(() => {
  if (!selectedJobId) return;
  setEnrichmentLoading(true);
- fetchJobDetail(selectedJobId).then((detail) => {
+ // Pass the slug so a stale seed id (URL-rotation drift between the baked
+ // __JOB_SEED__ and the regenerated detail files) falls back to slug→live-id
+ // resolution instead of leaving the body empty. See fetchJobDetailResilient.
+ fetchJobDetailResilient(selectedJobId, selectedJobSlug).then((detail) => {
  if (Object.keys(detail).length === 0) return;
  setJobs((prev) => prev.map((j) => (j.id === selectedJobId ? { ...j, ...detail } : j)));
  }).catch(() => {
@@ -2483,7 +2511,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }).finally(() => {
  setEnrichmentLoading(false);
  });
- }, [selectedJobId]);
+ }, [selectedJobId, selectedJobSlug]);
 
  // Job-detail alert prompt — gating + 1.5 s reveal timer.
  // Trigger: single-job-detail view, logged-in user with email, feature flag on,

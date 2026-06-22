@@ -345,5 +345,28 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       expect(guardIdx).toBeGreaterThan(0);
       expect(loaderIdx).toBeGreaterThan(guardIdx);
     });
+
+    it('falls back to slug→live-id resolution when the baked seed id 404s (stale __JOB_SEED__ id drift)', () => {
+      // A crawled job whose source URL rotates gets a fresh buildStableId, so the
+      // already-deployed page's window.__JOB_SEED__ carries an id that no longer
+      // exists in the regenerated /data/job-detail/<id>.json → 404 → empty body →
+      // the detail view shows the generic "scovato nel monitoraggio" placeholder
+      // behind the unlock gate. The resilient fetch must retry with the CURRENT id
+      // resolved from the live slug map (slug → id) before giving up.
+      expect(src).toMatch(/async function fetchJobDetailResilient\(jobId: string, slug\?: string \| null\)/);
+      // On a miss it loads the slug map and resolves the live id from the slug.
+      expect(src).toMatch(/await ensureJobSlugMapLoaded\(\)/);
+      expect(src).toMatch(/const liveId = getJobMetaForSlug\(slug\)\?\.id/);
+      // Only retries when the resolved id actually differs (avoids a redundant 404).
+      expect(src).toMatch(/if \(!liveId \|\| liveId === jobId\) return primary/);
+      expect(src).toMatch(/return fetchJobDetail\(liveId\)/);
+    });
+
+    it('the detail-enrichment effect uses the resilient fetch with the slug (not the bare seed id)', () => {
+      expect(src).toMatch(/const selectedJobSlug = selectedJob\?\.slug \?\? null/);
+      expect(src).toMatch(/fetchJobDetailResilient\(selectedJobId, selectedJobSlug\)/);
+      // slug must be in the effect deps so a slug change re-runs resolution.
+      expect(src).toMatch(/\}, \[selectedJobId, selectedJobSlug\]\)/);
+    });
   });
 });
