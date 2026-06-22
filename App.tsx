@@ -2337,9 +2337,9 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
- <div className={sideRailEligible ? 'contents xlw:grid xlw:flex-grow xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-6' : 'contents'}>
+ <div className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-6' : 'contents'}>
  {sideRailEligible && (
- <aside className="hidden xlw:flex xlw:flex-col">
+ <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
  <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
  </aside>
  )}
@@ -2472,7 +2472,13 @@ const App: React.FC = () => {
  <PressKit />
  </div>
  ) : activeTab === 'job-board' ? (
- <div className="max-w-7xl mx-auto">
+ // Widen past max-w-7xl (1280) at ≥1400px so the job-detail view's 3-column
+ // rail grid (300px | content | 300px) gets room for BOTH rails AND a readable
+ // centre — otherwise the 600px of rails collapse the content column to ~630px
+ // inside the 1280 cap (measured live). Mutually-exclusive ranges (`max-xlw:` <
+ // 1400, `xlw:` ≥ 1400) so the v4 cascade can't pin it to 7xl. Inner list view
+ // self-caps (max-w-6xl), so only the rail'd detail/gate views use the width.
+ <div className="max-xlw:max-w-7xl xlw:max-w-[1900px] mx-auto">
  <JobBoard
  initialJobSlug={jobSlug || undefined}
  initialFilterParams={jobBoardFilterParams}
@@ -2633,7 +2639,7 @@ const App: React.FC = () => {
  )}
  </main>
  {sideRailEligible && (
- <aside className="hidden xlw:flex xlw:flex-col">
+ <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
  <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
  </aside>
  )}

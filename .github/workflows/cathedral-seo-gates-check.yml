@@ -42,7 +42,11 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # Same monolith full SSG build as adsense-prereview.yml (~143 min, deploy run
+    # 27822078795). 90 min chronically cancelled this gate mid-build (3 of the
+    # last 5 runs were timeout-cancelled at 90 min). 180 min clears ~143 min with
+    # growth headroom — same sibling-class fix applied to both audit workflows.
+    timeout-minutes: 180
     # Skip draft PR runs + closed-PR re-runs. The workflow does not subscribe
     # to pull_request events; this `if` is belt-and-braces for any future
     # operator who adds one without rereading the safety contract.

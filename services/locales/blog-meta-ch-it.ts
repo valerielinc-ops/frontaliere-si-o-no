@@ -272,6 +272,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.title': 'Boom lavoro IA: 25.000 opportunità in Svizzera',
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.excerpt': 'Nel 2025 record di offerte lavoro intelligenza artificiale. Impatto su frontalieri e salari.',
     'blog.article.boom-lavoro-ia-svizzera-frontalieri.imageAlt': 'Ufficio moderno a Lugano con team al lavoro su analisi dati e IA',
+    'blog.article.avs-pensioni-estero-condizioni.title': 'Pensioni AVS all\'estero: condizioni e convenzioni',
+    'blog.article.avs-pensioni-estero-condizioni.excerpt': 'Isvizzeri residenti in 21 Paesi fuori UE/AELS possono pagare contributi AVS volonteri. Convenzioni sociali garantiscono parità di trattamento.',
+    'blog.article.avs-pensioni-estero-condizioni.imageAlt': 'Svizzeri in pensione con documenti finanziari accanto al Lago di Lugano',
+    'blog.article.marchesi-zali-lista-autonomi.title': 'Marchesi: pronti a correre da soli se Zali in lista',
+    'blog.article.marchesi-zali-lista-autonomi.excerpt': 'Dichiarazioni del consigliere nazionale Piero Marchesi aprono scenari politici cantonali in Ticino. La posizione sulla lista elettorale.',
+    'blog.article.marchesi-zali-lista-autonomi.imageAlt': 'Palazzo del Governo a Bellinzona, Svizzera, sede delle decisioni cantonali',
 };
 
 export default blogMetaChIt;

@@ -14,6 +14,7 @@
 
 import type { Plugin } from 'vite';
 import { clampMetaDescription } from './shared/titleSuffix';
+import { firstParsableMs } from './shared/firstParsableDate';
 import {
   BASE_URL,
   FAVICON_LINKS,
@@ -57,6 +58,7 @@ import {
 } from './jobSectorLanding';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -460,6 +462,18 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
 
       for (const sector of SECTOR_HUB_KEYS) {
         for (const locale of LOCALES) {
+          // Per-locale shard render-skip (BUILD_LOCALE matrix builds). The full
+          // page render below (buildSectorLandingHtml + the two fs.writeFileSync
+          // emits) is the bulk of this plugin's ~150s closeBundle cost, and on a
+          // shard build 3 of every 4 locales it produces are deleted afterwards
+          // by scripts/ci/prune-locale-shard.mjs. Skipping the non-owned locales
+          // here removes that wasted render. SAFE for cross-locale SEO: the
+          // sitemap-sector.xml entry (with its 4-locale xhtml:link alternates) is
+          // built ONLY in the `locale === 'it'` branch below from buildSectorHubPath
+          // path-builders — independent of whether en/de/fr iterations ran — and
+          // the it/main shard never skips `it`, so its sitemap stays complete.
+          // No-op (always true) on the default all-locale build.
+          if (!shouldEmitLocale(locale)) continue;
           const count = counts[locale][sector];
           // Cap embedded JobPosting cards at 30 per landing. The full count
           // is still surfaced via the stat tile + H1 ("X open positions"),
@@ -482,7 +496,9 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           const FRESH_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
           const freshCutoff = Date.parse(`${dateStamp}T00:00:00Z`) - FRESH_WINDOW_MS;
           const freshCount = allMatching.filter((j) => {
-            const t = Date.parse(String(j.datePosted || j.postedDate || '')) || 0;
+            // First PARSEABLE date, not first truthy: a malformed postedDate must
+            // not collapse the timestamp to 0 and undercount the fresh tile.
+            const t = firstParsableMs(j.datePosted, j.postedDate);
             return t >= freshCutoff;
           }).length;
 

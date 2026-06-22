@@ -817,9 +817,10 @@ export function buildBriefingPrompt(ctx) {
     .map((j) => {
       const url = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
       if (!url) return null; // Skip jobs without URLs — AI must not mention unlinkable jobs
-      const postedInfo = j.postedDate || j.crawledAt || j.createdAt
-        ? ` (posted: ${new Date(j.postedDate || j.crawledAt || j.createdAt).toLocaleDateString('it-CH')})`
-        : '';
+      // First PARSEABLE date via the module's hardened resolver (not first
+      // truthy) so a malformed postedDate can't render "(posted: Invalid Date)".
+      const postedMs = toDateValue(j);
+      const postedInfo = postedMs ? ` (posted: ${new Date(postedMs).toLocaleDateString('it-CH')})` : '';
       // Reuse the upstream-validated hub URL from matchJobsForSubscriber (gated
       // on the emitted-hub allow-set, #2530) instead of re-deriving an UNGATED
       // slug here — re-deriving was the duplicate path that re-introduced the
