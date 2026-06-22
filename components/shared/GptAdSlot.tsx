@@ -19,6 +19,7 @@
  */
 
 import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { trackAdEvent } from '@/services/adAnalytics';
 import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 
@@ -117,6 +118,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   // (remove the global pubads listener and destroy the slot).
   const slotRef = useRef<any>(null);
   const slotHandlerRef = useRef<((event: any) => void) | null>(null);
+  const viewableHandlerRef = useRef<((event: any) => void) | null>(null);
   // Stable, unique DOM id for this slot instance (GPT needs a real element id).
   const divIdRef = useRef<string>(`gpt-slot-${++slotSeq}`);
   const [rendered, setRendered] = useState(false);
@@ -166,10 +168,31 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           // Held in a ref so unmount can remove it — otherwise every slot leaks
           // a global pubads listener that re-fires for every other slot.
           const handler = (event: any) => {
-            if (event?.slot === slot) setEmpty(!!event.isEmpty);
+            if (event?.slot !== slot) return;
+            const isEmpty = !!event.isEmpty;
+            setEmpty(isEmpty);
+            // Telemetry so the blended PostHog fill-rate is interpretable: GAM
+            // side-rail no-fills were previously invisible (CSS-hidden, no event),
+            // which dragged the blended ad_filled/ad_collapsed ratio down and made
+            // a stable real fill-rate look like a crash. Tagged network:'gpt'.
+            trackAdEvent(isEmpty ? 'ad_collapsed' : 'ad_filled', {
+              slot: adUnitPath,
+              format: 'gpt',
+              network: 'gpt',
+              ...(isEmpty ? { reason: 'gpt_no_fill' } : {}),
+            });
           };
           slotHandlerRef.current = handler;
           gt.pubads().addEventListener('slotRenderEnded', handler);
+          // Viewability is the real RPM driver (AdSense ACTIVE_VIEW_VIEWABILITY
+          // fell ~0.46→0.33 while fill stayed stable). Emit ad_viewable per slot
+          // so the SPA can track per-page viewability of the rail units.
+          const viewableHandler = (event: any) => {
+            if (event?.slot !== slot) return;
+            trackAdEvent('ad_viewable', { slot: adUnitPath, format: 'gpt', network: 'gpt' });
+          };
+          viewableHandlerRef.current = viewableHandler;
+          gt.pubads().addEventListener('impressionViewable', viewableHandler);
           gt.display(divId);
           setRendered(true);
         } catch {
@@ -200,6 +223,10 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
         if (slotHandlerRef.current) {
           gt.pubads().removeEventListener('slotRenderEnded', slotHandlerRef.current);
           slotHandlerRef.current = null;
+        }
+        if (viewableHandlerRef.current) {
+          gt.pubads().removeEventListener('impressionViewable', viewableHandlerRef.current);
+          viewableHandlerRef.current = null;
         }
         if (slotRef.current) {
           gt.destroySlots?.([slotRef.current]);
