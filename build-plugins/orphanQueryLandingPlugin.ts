@@ -869,6 +869,25 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         it: [], en: [], de: [], fr: [],
       };
 
+      // Single source of truth for the renderPage(...) arg set + the
+      // `filterMatchingJobs(jobs, cluster, 15)` literal shared by the emission
+      // pass (below) and the hub-hreflang availability pass (further down).
+      // The availability predicate (`hubHreflangAvailability`) keys on the same
+      // `render.indexable` the emission pass uses to populate
+      // `indexableByLocale`; if the two arg sets ever drifted, a hub could
+      // advertise an hreflang alternate to a locale that never gets a page
+      // emitted → 404 (funnel-critical: SEO). Deriving both from this one
+      // helper makes that drift impossible by construction.
+      const renderClusterPage = (cluster: OrphanQueryCluster): RenderedPageResult =>
+        renderPage({
+          cluster,
+          matchingJobs: filterMatchingJobs(jobs, cluster, 15),
+          strings: localeStrings[cluster.locale] || {},
+          dateStamp,
+          knownSlugsByLocale,
+          distDir,
+        });
+
       for (const cluster of clusters) {
         // Per-locale shard build (BUILD_LOCALE): a pure non-it shard renders
         // ONLY its own locale's orphan landings. The it/main shard (EMIT_LOCALES
@@ -877,15 +896,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         // rendered indexability (matchingJobs>=3 && wordCount>=MIN) — not
         // derivable without rendering. No-op in the default all-locale build.
         if (!shouldEmitLocale(cluster.locale) && !EMIT_LOCALES.has('it')) continue;
-        const matching = filterMatchingJobs(jobs, cluster, 15);
-        const render = renderPage({
-          cluster,
-          matchingJobs: matching,
-          strings: localeStrings[cluster.locale] || {},
-          dateStamp,
-          knownSlugsByLocale,
-          distDir,
-        });
+        const render = renderClusterPage(cluster);
 
         // Enforce quality gates. We still WRITE the page (so existing
         // crawled URLs get something back) but we mark it noindex and
@@ -944,14 +955,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       };
       for (const cluster of clusters) {
         if (hubHreflangAvailability[cluster.locale]) continue;
-        const availabilityRender = renderPage({
-          cluster,
-          matchingJobs: filterMatchingJobs(jobs, cluster, 15),
-          strings: localeStrings[cluster.locale] || {},
-          dateStamp,
-          knownSlugsByLocale,
-          distDir,
-        });
+        const availabilityRender = renderClusterPage(cluster);
         if (availabilityRender.indexable) {
           hubHreflangAvailability[cluster.locale] = true;
         }
