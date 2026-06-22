@@ -685,10 +685,10 @@
     },
     {
       "id": "spital-sts-4aa2dcf206f5",
-      "slug": "sommerjob-in-der-pflege-befristet-spital-sts-thun",
+      "slug": "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun",
       "slugByLocale": {
         "de": "sommerjob-in-der-pflege-befristet-spital-sts-thun",
-        "it": "sommerjob-in-der-pflege-befristet-spital-sts-thun",
+        "it": "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun",
         "en": "sommerjob-in-der-pflege-befristet-spital-sts-thun",
         "fr": "sommerjob-in-der-pflege-befristet-spital-sts-thun"
       },
@@ -746,7 +746,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T15:21:57.854Z"
+      "firstSeenAt": "2026-06-22T15:21:57.854Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sommerjob-in-der-pflege-befristet-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "sommerjob-in-der-pflege-befristet-spital-sts-thun"
+      ]
     }
   ]
 }

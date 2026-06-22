@@ -2063,12 +2063,12 @@
     },
     {
       "id": "sulzer-da553708c3b9",
-      "slug": "electrical-fitter-sulzer-ch",
+      "slug": "apparecchi-elettrici-sulzer-winterthur",
       "slugByLocale": {
-        "it": "electrical-fitter-sulzer-ch",
+        "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
         "de": "electrical-fitter-sulzer-winterthur",
-        "fr": "electrical-fitter-sulzer-ch"
+        "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2109,16 +2109,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apparecchi-elettrici-sulzer-winterthur",
-        "avertisseur-electrique-sulzer-winterthur"
+        "electrical-fitter-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apparecchi-elettrici-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ],
         "fr": [
-          "avertisseur-electrique-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ]
       },
@@ -6697,11 +6694,11 @@
     },
     {
       "id": "sulzer-0d5749c831c9",
-      "slug": "engenheiro-a-de-aplicacao-sulzer-ch",
+      "slug": "ing-di-applicazione-sulzer-winterthur",
       "slugByLocale": {
-        "it": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "it": "ing-di-applicazione-sulzer-winterthur",
         "en": "engenheiro-a-de-aplicacao-sulzer-ch",
-        "de": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "de": "anwendungstechniker-sulzer-winterthur",
         "fr": "engenheiro-a-de-aplicacao-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -6744,19 +6741,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingegnere-applicazioni-sulzer-winterthur",
-        "ing-di-applicazione-sulzer-winterthur",
-        "anwendungsingenieur-sulzer-winterthur",
-        "anwendungstechniker-sulzer-winterthur"
+        "engenheiro-a-de-aplicacao-sulzer-ch",
+        "anwendungsingenieur-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-applicazioni-sulzer-winterthur",
-          "ing-di-applicazione-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ],
         "de": [
           "anwendungsingenieur-sulzer-winterthur",
-          "anwendungstechniker-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ]
       },
@@ -16600,12 +16594,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -16647,17 +16641,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-manager-w-m-d-sulzer-ch",
-        "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-w-m-d-sulzer-ch",
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -23000,10 +22991,10 @@
     },
     {
       "id": "sulzer-7b84953b69e1",
-      "slug": "strategic-initiatives-senior-executive-sulzer-ch",
+      "slug": "iniziative-strategiche-dirigente-senior-sulzer-winterthur",
       "slugByLocale": {
         "en": "strategic-initiatives-senior-executive-sulzer-ch",
-        "it": "strategic-initiatives-senior-executive-sulzer-ch",
+        "it": "iniziative-strategiche-dirigente-senior-sulzer-winterthur",
         "de": "strategic-initiatives-senior-executive-sulzer-ch",
         "fr": "strategic-initiatives-senior-executive-sulzer-ch"
       },
@@ -23061,14 +23052,22 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-22T15:12:43.544Z"
+      "firstSeenAt": "2026-06-22T15:12:43.544Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-initiatives-senior-executive-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-initiatives-senior-executive-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-90980d8ed9bd",
-      "slug": "project-manager-sulzer-ch-5",
+      "slug": "responsabile-del-progetto-sulzer-suzhou-7a9c8f",
       "slugByLocale": {
         "en": "project-manager-sulzer-ch",
-        "it": "project-manager-sulzer-ch-5",
+        "it": "responsabile-del-progetto-sulzer-suzhou-7a9c8f",
         "de": "project-manager-sulzer-ch-5",
         "fr": "project-manager-sulzer-ch-5"
       },
@@ -23126,15 +23125,23 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-22T15:12:42.640Z"
+      "firstSeenAt": "2026-06-22T15:12:42.640Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-sulzer-ch-5"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-sulzer-ch-5"
+      ]
     },
     {
       "id": "sulzer-356ad87e08ca",
-      "slug": "tendering-engineer-sulzer-ch-2",
+      "slug": "tendering-ingegnere-sulzer-winterthur",
       "slugByLocale": {
         "en": "tendering-engineer-sulzer-ch",
-        "it": "tendering-engineer-sulzer-ch-2",
-        "de": "tendering-engineer-sulzer-ch-2",
+        "it": "tendering-ingegnere-sulzer-winterthur",
+        "de": "tendering-ingenieur-sulzer-winterthur",
         "fr": "tendering-engineer-sulzer-ch-2"
       },
       "company": "Sulzer",
@@ -23191,16 +23198,27 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-22T15:12:41.840Z"
+      "firstSeenAt": "2026-06-22T15:12:41.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tendering-engineer-sulzer-ch-2"
+        ],
+        "de": [
+          "tendering-engineer-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "tendering-engineer-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-bddb757d4228",
-      "slug": "r-d-intern-sulzer-ch",
+      "slug": "r-d-tirocinante-sulzer-singapore",
       "slugByLocale": {
         "en": "r-d-intern-sulzer-ch",
-        "it": "r-d-intern-sulzer-ch",
-        "de": "r-d-intern-sulzer-ch",
-        "fr": "r-d-intern-sulzer-ch"
+        "it": "r-d-tirocinante-sulzer-singapore",
+        "de": "r-d-praktikant-sulzer-singapore",
+        "fr": "r-d-stagiaire-sulzer-singapore"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23256,14 +23274,28 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-22T15:12:40.372Z"
+      "firstSeenAt": "2026-06-22T15:12:40.372Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-intern-sulzer-ch"
+        ],
+        "de": [
+          "r-d-intern-sulzer-ch"
+        ],
+        "fr": [
+          "r-d-intern-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-intern-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-7ea90cb7686a",
-      "slug": "painter-sulzer-ch",
+      "slug": "pittore-sulzer-portland",
       "slugByLocale": {
         "en": "painter-sulzer-ch",
-        "it": "painter-sulzer-ch",
+        "it": "pittore-sulzer-portland",
         "de": "painter-sulzer-ch",
         "fr": "painter-sulzer-ch"
       },
@@ -23321,7 +23353,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-22T15:12:39.175Z"
+      "firstSeenAt": "2026-06-22T15:12:39.175Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "painter-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "painter-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-7ff047600912",
@@ -23404,12 +23444,12 @@
     },
     {
       "id": "sulzer-369f0f238c8d",
-      "slug": "service-coordinator-sulzer-ch",
+      "slug": "service-coordinatore-sulzer-winterthur",
       "slugByLocale": {
         "en": "service-coordinator-sulzer-ch",
-        "it": "service-coordinator-sulzer-ch",
-        "de": "service-coordinator-sulzer-ch",
-        "fr": "service-coordinator-sulzer-ch"
+        "it": "service-coordinatore-sulzer-winterthur",
+        "de": "service-koordinator-sulzer-winterthur",
+        "fr": "service-coordinateur-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23465,7 +23505,21 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-22T15:12:37.447Z"
+      "firstSeenAt": "2026-06-22T15:12:37.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-coordinator-sulzer-ch"
+        ],
+        "de": [
+          "service-coordinator-sulzer-ch"
+        ],
+        "fr": [
+          "service-coordinator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-coordinator-sulzer-ch"
+      ]
     }
   ]
 }

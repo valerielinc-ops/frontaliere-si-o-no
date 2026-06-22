@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "air-zermatt-a08ba50768a4",
-      "slug": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
+      "slug": "borsa-di-studio-atc-fondazione-svizzera-sherpa-air-zermatt-ag-raron",
       "slugByLocale": {
         "fr": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
-        "it": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
+        "it": "borsa-di-studio-atc-fondazione-svizzera-sherpa-air-zermatt-ag-raron",
         "en": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
-        "de": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt"
+        "de": "stipendium-atc-sherpa-stiftung-schweiz-air-zermatt-ag-raron"
       },
       "company": "Air Zermatt AG",
       "companyKey": "air-zermatt",
@@ -62,11 +62,20 @@
       },
       "firstSeenAt": "2026-06-22T13:34:52.331Z",
       "previousSlugs": [
+        "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "scholarship-atc-swiss-sherpa-foundation-air-zermatt-ag-raron",
         "stipendium-atc-swiss-sherpa-foundation-air-zermatt",
         "bourse-atc-fondation-suisse-sherpa-air-zermatt-ag-raron",
         "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt"
+        ],
+        "de": [
+          "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt"
+        ]
+      }
     }
   ]
 }

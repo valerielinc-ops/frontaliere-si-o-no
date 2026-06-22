@@ -1454,9 +1454,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-spital-wetzikon",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-spital-wetzikon",
-        "en": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch",
+        "en": "certified-nurse-hf-dialysis-80-gzo-spital-wetzikon-wetzikon",
         "de": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch",
-        "fr": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
+        "fr": "infirmiere-certifiee-en-dialyse-cardiaque-80-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1501,20 +1501,16 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch",
-        "certified-nurse-hf-dialysis-80-gzo-spital-wetzikon-wetzikon",
-        "infirmiere-certifiee-en-dialyse-cardiaque-80-gzo-spital-wetzikon-wetzikon"
+        "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
         ],
         "en": [
-          "certified-nurse-hf-dialysis-80-gzo-spital-wetzikon-wetzikon",
           "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
         ],
         "fr": [
-          "infirmiere-certifiee-en-dialyse-cardiaque-80-gzo-spital-wetzikon-wetzikon",
           "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
         ]
       },
@@ -1963,10 +1959,10 @@
     },
     {
       "id": "gzo-wetzikon-133800a2fecd",
-      "slug": "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo-spital-wetzikon",
+      "slug": "assistente-farmaceutico-o-farmacista-100-eventualmente-anche-in-job-sharing-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo",
-        "it": "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo-spital-wetzikon",
+        "it": "assistente-farmaceutico-o-farmacista-100-eventualmente-anche-in-job-sharing-gzo-spital-wetzikon-wetzikon",
         "en": "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo",
         "fr": "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo"
       },
@@ -2016,11 +2012,13 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo"
+          "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo",
+          "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo-spital-wetzikon"
         ]
       },
       "previousSlugs": [
-        "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo"
+        "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo",
+        "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo-spital-wetzikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

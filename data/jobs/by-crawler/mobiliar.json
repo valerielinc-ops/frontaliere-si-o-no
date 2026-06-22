@@ -79,12 +79,12 @@
     },
     {
       "id": "mobiliar-3d41d8256c07",
-      "slug": "quality-architect-w-m-d-mobiliar-ch",
+      "slug": "quality-architetto-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "quality-architect-w-m-d-mobiliar-ch",
+        "it": "quality-architetto-w-m-d-die-mobiliar-bern",
         "en": "quality-architect-w-m-d-die-mobiliar-bern",
         "de": "quality-architect-w-m-d-mobiliar-ch",
-        "fr": "quality-architect-w-m-d-mobiliar-ch"
+        "fr": "qualite-architecte-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -141,8 +141,7 @@
       "sfJobId": "1164803555",
       "previousSlugs": [
         "architetto-di-qualita-m-d-die-mobiliar-bern",
-        "quality-architetto-w-m-d-die-mobiliar-bern",
-        "qualite-architecte-w-m-d-die-mobiliar-bern",
+        "quality-architect-w-m-d-mobiliar-ch",
         "master-di-qualita-w-m-d-die-mobiliar-bern",
         "quality-master-w-m-d-die-mobiliar-bern",
         "quality-master-w-m-d-mobiliar-ch",
@@ -151,11 +150,9 @@
       "previousSlugsByLocale": {
         "it": [
           "architetto-di-qualita-m-d-die-mobiliar-bern",
-          "quality-architetto-w-m-d-die-mobiliar-bern",
           "quality-architect-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "qualite-architecte-w-m-d-die-mobiliar-bern",
           "quality-architect-w-m-d-mobiliar-ch"
         ]
       },
@@ -258,12 +255,12 @@
     },
     {
       "id": "mobiliar-0bd9b00a6bec",
-      "slug": "it-security-architect-w-m-d-mobiliar-ch",
+      "slug": "it-security-architetto-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "it-security-architect-w-m-d-mobiliar-ch",
-        "it": "it-security-architect-w-m-d-mobiliar-ch",
+        "it": "it-security-architetto-w-m-d-die-mobiliar-bern",
         "en": "it-security-architect-w-m-d-mobiliar-ch",
-        "fr": "it-security-architect-w-m-d-mobiliar-ch"
+        "fr": "it-security-architecte-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -341,7 +338,18 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-22T15:11:09.751Z"
+      "firstSeenAt": "2026-06-22T15:11:09.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-security-architect-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "it-security-architect-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-security-architect-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-44461ee6d30a",
@@ -1051,9 +1059,9 @@
       "slug": "jurist-wohnen-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
+        "en": "projektmanagement-m-d-die-mobiliar-bern",
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
+        "fr": "juriste-wohnen-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1112,9 +1120,7 @@
       "sfJobId": "1164779155",
       "previousSlugs": [
         "jurist-wohnen-w-m-d-mobiliar-ch",
-        "projektmanagement-m-d-die-mobiliar-bern-489f62",
-        "projektmanagement-m-d-die-mobiliar-bern",
-        "juriste-wohnen-m-j-die-mobiliar-bern"
+        "projektmanagement-m-d-die-mobiliar-bern-489f62"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1122,11 +1128,9 @@
         ],
         "en": [
           "projektmanagement-m-d-die-mobiliar-bern-489f62",
-          "projektmanagement-m-d-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "juriste-wohnen-m-j-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },

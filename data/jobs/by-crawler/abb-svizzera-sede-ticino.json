@@ -116,7 +116,7 @@
         "it": "global-engineering-manager-abb-svizzera-sede-ticino-baden-aargau-gs7of6",
         "en": "global-engineering-manager-abb-svizzera-sede-ticino-baden-aargau-gs7of6",
         "de": "global-engineering-manager-abb-svizzera-sede-ticino-baden-aargau-gs7of6",
-        "fr": "global-engineering-manager-abb-svizzera-sede-ticino-baden-aargau-gs7of6"
+        "fr": "directeur-du-genie-mondial-abb-svizzera-sede-ticino-baden-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -149,7 +149,7 @@
     },
     {
       "id": "company-fahghi",
-      "slug": "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau-fahghi",
+      "slug": "architetto-di-soluzioni-is-f-m-d-assunzione-di-un-tirocinante-abb-svizzera-sede-ticino-untersiggenthal-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "IS Solution-Architekt f/m/d (Lernendenübernahme)",
       "location": "Untersiggenthal, Aargau",
@@ -186,7 +186,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau-fahghi",
+        "it": "architetto-di-soluzioni-is-f-m-d-assunzione-di-un-tirocinante-abb-svizzera-sede-ticino-untersiggenthal-aargau",
         "en": "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau-fahghi",
         "de": "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau-fahghi",
         "fr": "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau-fahghi"
@@ -196,11 +196,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau"
+          "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+          "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau-fahghi"
         ]
       },
       "previousSlugs": [
-        "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau"
+        "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+        "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau-fahghi"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,

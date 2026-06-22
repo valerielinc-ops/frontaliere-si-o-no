@@ -4313,12 +4313,12 @@
     },
     {
       "id": "coopers-bcd3f9d1dd2a",
-      "slug": "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern",
+      "slug": "ingegnere-software-senior-fornitura-software-abilitato-per-l-ai-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
         "en": "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern",
-        "it": "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern",
+        "it": "ingegnere-software-senior-fornitura-software-abilitato-per-l-ai-m-f-d-coopers-group-ag-bern",
         "de": "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern",
-        "fr": "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern"
+        "fr": "ingenieur-principal-en-logiciels-livraison-de-logiciels-compatibles-avec-l-ia-m-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4387,7 +4387,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-22T14:02:01.610Z"
+      "firstSeenAt": "2026-06-22T14:02:01.610Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern"
+        ],
+        "fr": [
+          "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-027b19e00a5a",
@@ -4396,7 +4407,7 @@
         "de": "senior-scrum-master-m-w-d-coopers-luzern",
         "it": "senior-scrum-master-m-w-d-coopers-luzern",
         "en": "senior-scrum-master-m-w-d-coopers-luzern",
-        "fr": "senior-scrum-master-m-w-d-coopers-luzern"
+        "fr": "maitre-d-equipe-senior-m-f-d-coopers-group-ag-luzern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",

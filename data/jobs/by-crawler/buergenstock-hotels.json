@@ -3241,8 +3241,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-sicherheit-m-w-i-buergenstock-hotels-obburgen",
         "it": "collaboratore-trice-sicherheit-m-w-i-burgenstock-hotels-ag-obburgen",
-        "en": "mitarbeiter-sicherheit-m-w-i-burgenstock-hotels-ag-obburgen",
-        "fr": "mitarbeiter-sicherheit-m-w-i-burgenstock-hotels-ag-obburgen"
+        "en": "employee-safety-m-f-i-burgenstock-hotels-ag-obburgen",
+        "fr": "securite-des-employes-m-f-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3288,10 +3288,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-sicherheit-m-w-i-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "mitarbeiter-sicherheit-m-w-i-burgenstock-hotels-ag-obburgen"
+        ],
+        "fr": [
+          "mitarbeiter-sicherheit-m-w-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-sicherheit-m-w-i-buergenstock-hotels-obburgen"
+        "mitarbeiter-sicherheit-m-w-i-buergenstock-hotels-obburgen",
+        "mitarbeiter-sicherheit-m-w-i-burgenstock-hotels-ag-obburgen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

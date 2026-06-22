@@ -4188,10 +4188,10 @@
     },
     {
       "id": "novartis-4bf2c1986c04",
-      "slug": "head-ai-product-management-and-program-delivery-novartis-ch",
+      "slug": "responsabile-della-gestione-del-prodotto-ai-e-consegna-dei-programmi-novartis-basel-city",
       "slugByLocale": {
         "en": "head-ai-product-management-and-program-delivery-novartis-ch",
-        "it": "head-ai-product-management-and-program-delivery-novartis-ch",
+        "it": "responsabile-della-gestione-del-prodotto-ai-e-consegna-dei-programmi-novartis-basel-city",
         "de": "head-ai-product-management-and-program-delivery-novartis-ch",
         "fr": "head-ai-product-management-and-program-delivery-novartis-ch"
       },
@@ -4249,14 +4249,22 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-22T14:39:58.290Z"
+      "firstSeenAt": "2026-06-22T14:39:58.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-ai-product-management-and-program-delivery-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-ai-product-management-and-program-delivery-novartis-ch"
+      ]
     },
     {
       "id": "novartis-ff8604ccb583",
-      "slug": "head-ai-strategy-and-governance-novartis-ch",
+      "slug": "responsabile-della-strategia-e-governance-dell-ia-novartis-basel-city",
       "slugByLocale": {
         "en": "head-ai-strategy-and-governance-novartis-ch",
-        "it": "head-ai-strategy-and-governance-novartis-ch",
+        "it": "responsabile-della-strategia-e-governance-dell-ia-novartis-basel-city",
         "de": "head-ai-strategy-and-governance-novartis-ch",
         "fr": "head-ai-strategy-and-governance-novartis-ch"
       },
@@ -4314,7 +4322,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-22T14:39:57.430Z"
+      "firstSeenAt": "2026-06-22T14:39:57.430Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-ai-strategy-and-governance-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-ai-strategy-and-governance-novartis-ch"
+      ]
     }
   ]
 }
