@@ -2021,7 +2021,10 @@ function listEmittedHubPagePaths(distDir: string, locale: Locale): string[] {
  * Both classes are detected by the same per-loc HTML read, so we fold
  * them into a single pass. Cheap: O(locs) reads of small HTML files.
  */
-const NOINDEX_RE = /<meta[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i;
+// Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
+// attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`). A
+// quote-mandatory regex fails to detect minified noindex metas → false negative.
+const NOINDEX_RE = /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i;
 const CANONICAL_HREF_RE = /<link\b[^>]*rel\s*=\s*["']?canonical["']?[^>]*href\s*=\s*["']([^"']+)["']/i;
 const CANONICAL_HREF_REVERSED_RE = /<link\b[^>]*href\s*=\s*["']([^"']+)["'][^>]*rel\s*=\s*["']?canonical["']?/i;
 function normalizeLocForCanonicalCmp(u: string): string {
