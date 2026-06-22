@@ -1700,9 +1700,25 @@ export function markModelExhausted(modelId) {
   console.warn(`🚫 Model ${modelId} marked as exhausted — will be skipped for rest of run`);
 }
 
+// Whether the chain runner should SKIP a model because it's exhausted.
+// For GitHub models this is NOT just `_exhaustedModels.has(model)`: a persisted
+// daily-limit was recorded against ONE GitHub account, but with multiple PATs a
+// different account's fresh quota can still serve the model. So while any PAT is
+// un-exhausted this run, GitHub models stay eligible — `_callGitHub` rotates to
+// the fresh account. Without this, a model marked exhausted by account #1
+// earlier today would be skipped on every later run, never reaching rotation.
+function _shouldSkipExhausted(model) {
+  if (!_exhaustedModels.has(model)) return false;
+  if (getProvider(model) === PROVIDER.GITHUB) {
+    const pats = getGhModelsPats();
+    if (pats.length > 1 && pats.some((_, i) => !_ghExhaustedPats.has(i))) return false;
+  }
+  return true;
+}
+
 /** Check whether a model is still usable this run */
 export function isModelAvailable(modelId) {
-  if (_exhaustedModels.has(modelId)) return false;
+  if (_shouldSkipExhausted(modelId)) return false;
   // Check that we have the API key for the model's provider
   return !!getApiKeyForProvider(getProvider(modelId));
 }
@@ -2672,7 +2688,7 @@ export async function callSingleModel(messages, opts = {}) {
   const o = { ...DEFAULT_OPTS, ...opts };
   const model = o.model || AI_MODELS.GPT4O;
 
-  if (_exhaustedModels.has(model)) {
+  if (_shouldSkipExhausted(model)) {
     throw new Error(`[${model}] Model is exhausted for this run`);
   }
 
@@ -2747,7 +2763,7 @@ export async function callLLM(messages, opts = {}) {
     // to avoid log floods like "[mistral/nemo] Skipped — exhausted" repeated
     // 300+ times in a single run (one per fallback attempt × per fact-check
     // retry × per generation retry).
-    if (_exhaustedModels.has(model)) {
+    if (_shouldSkipExhausted(model)) {
       if (!_exhaustedLogged.has(model)) {
         console.warn(`⏭️  [${model}] Skipped — exhausted (daily limit, future hits silenced)`);
         _exhaustedLogged.add(model);

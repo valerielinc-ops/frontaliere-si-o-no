@@ -11,9 +11,11 @@ const aiModels = (await import('../../scripts/lib/ai-models.mjs')) as unknown as
   callLLM: (messages: unknown, opts?: Record<string, unknown>) => Promise<string>;
   getGhModelsPats: () => string[];
   resetState: () => void;
+  markModelExhausted: (m: string) => void;
+  isModelAvailable: (m: string) => boolean;
   AI_MODELS: Record<string, string>;
 };
-const { callLLM, getGhModelsPats, resetState, AI_MODELS } = aiModels;
+const { callLLM, getGhModelsPats, resetState, markModelExhausted, isModelAvailable, AI_MODELS } = aiModels;
 
 const PAT_ENV = ['GH_MODELS_PAT', 'GH_MODELS_PAT_2', 'GH_MODELS_PAT_3'] as const;
 let saved: Record<string, string | undefined>;
@@ -107,6 +109,23 @@ describe('GitHub Models PAT rotation', () => {
     });
     expect(pat2Body).not.toBeNull();
     expect((pat2Body as Record<string, { type?: string }>)?.response_format?.type).toBe('json_schema');
+  });
+
+  it('a GitHub model marked exhausted stays eligible while another PAT is fresh', () => {
+    // The real-world gap (run 27974308840): gpt-4o was marked exhausted (persisted
+    // from account #1's daily limit) and SKIPPED on every later run, so _callGitHub
+    // — and thus PAT rotation — was never reached. With ≥2 PATs the model must
+    // remain available so rotation to the fresh account can happen.
+    process.env.GH_MODELS_PAT = 'pat1';
+    process.env.GH_MODELS_PAT_2 = 'pat2';
+    markModelExhausted(AI_MODELS.GPT4O);
+    expect(isModelAvailable(AI_MODELS.GPT4O)).toBe(true); // exempt: pat2 still fresh
+  });
+
+  it('single PAT: an exhausted GitHub model is NOT resurrected', () => {
+    process.env.GH_MODELS_PAT = 'solo';
+    markModelExhausted(AI_MODELS.GPT4O);
+    expect(isModelAvailable(AI_MODELS.GPT4O)).toBe(false);
   });
 
   it('single PAT: a daily limit is NOT swallowed (no phantom rotation)', async () => {
