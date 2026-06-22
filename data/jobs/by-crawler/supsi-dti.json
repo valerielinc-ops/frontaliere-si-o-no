@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-06-21T23:30:06.051Z",
+  "assembledAt": "2026-06-22T15:39:29.615Z",
   "jobs": [
     {
       "id": "company-l4u556",
@@ -100,7 +100,8 @@
         "mathematics-lecturer-supsi-dti-lugano",
         "dozent-in-fur-mathematik-supsi-dti-lugano",
         "enseignant-e-de-mathematiques-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u555",
@@ -178,7 +179,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u554",
@@ -322,7 +324,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s84t",
@@ -445,7 +448,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s845",
@@ -550,7 +554,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-lr4hby",
@@ -648,7 +653,8 @@
         "hilfskraft-fur-das-studienfach-pflege-supsi-dti-manno",
         "assistant-pour-le-baccalaureat-en-sciences-infirmieres-supsi-dti-manno",
         "assistant-pour-le-cours-de-diplome-en-soins-infirmiers-supsi-dti-manno"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u553",
@@ -799,7 +805,8 @@
       },
       "previousSlugs": [
         "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u552",
@@ -903,7 +910,8 @@
         "collaborateurs-scientifiques-en-informatique-et-en-sciences-appliquees-des-donnees-supsi-dti-lugano",
         "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
         "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s84r",
@@ -1017,7 +1025,8 @@
       "addressLocality": "manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54d",
@@ -1109,7 +1118,8 @@
       },
       "previousSlugs": [
         "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54f",
@@ -1211,7 +1221,8 @@
         "master-mse-in-elektrotechnik-supsi-dti-lugano",
         "baccalaureat-en-education-master-mse-en-genie-electrique-supsi-dti-lugano",
         "master-mse-en-genie-electrique-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54g",
@@ -1343,7 +1354,8 @@
       },
       "previousSlugs": [
         "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54e",
@@ -1615,7 +1627,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl58",
@@ -2003,7 +2016,8 @@
         "fr": [
           "assistante-au-baccalaureat-es-arts-en-conception-d-interaction-supsi-dti-mendrisio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl4l",
@@ -2043,8 +2057,8 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
         "en": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
-        "de": "doktorand-in-dynamik-fortschrittlicher-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
-        "fr": "doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio"
+        "de": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
+        "fr": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
       },
       "titleByLocale": {
         "en": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
@@ -2120,14 +2134,16 @@
           "dottoranda-dottorando-in-dinamica-der-zusammengesetzten-materialien-fur-drohnen-supsi-dti-mendrisio",
           "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
           "phd-phd-in-dynamik-von-fortschrittlichen-verbundwerkstoffen-fur-drohnen-supsi-dti-mendrisio",
-          "promotionsstelle-fur-dynamische-hochleistungsverbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio"
+          "promotionsstelle-fur-dynamische-hochleistungsverbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
+          "doktorand-in-dynamik-fortschrittlicher-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio"
         ],
         "fr": [
           "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
           "doctorant-e-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
           "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-l4rl4l",
           "doctorat-doctorat-en-dynamisme-de-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
-          "doctorante-doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio"
+          "doctorante-doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
+          "doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
@@ -2141,9 +2157,11 @@
         "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
         "phd-phd-in-dynamik-von-fortschrittlichen-verbundwerkstoffen-fur-drohnen-supsi-dti-mendrisio",
         "promotionsstelle-fur-dynamische-hochleistungsverbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
+        "doktorand-in-dynamik-fortschrittlicher-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
         "doctorant-e-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
         "doctorat-doctorat-en-dynamisme-de-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
         "doctorante-doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
+        "doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
         "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-men",
         "dottoranda-dottorando-in-dinamica-dei-materiali-composti-avanzati-per-droni-supsi-dti-manno"
       ],
@@ -2549,7 +2567,8 @@
           "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano",
           "assistants-bachelor-pour-mse-en-data-science-supsi-dti-lugano"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti2z",
@@ -2809,7 +2828,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s840",
@@ -2909,7 +2929,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl4m",
