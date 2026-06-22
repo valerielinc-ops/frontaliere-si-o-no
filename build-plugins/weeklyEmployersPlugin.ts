@@ -39,6 +39,7 @@ import {
   countHtmlBodyWords,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
@@ -1003,10 +1004,14 @@ export function buildCompanyCityStats(opts: {
   const employer = String(matching[0].company || '').trim();
 
   // Sort by recency desc (postedDate/datePosted descending, missing last).
+  // First *parsable* date, not first truthy: a malformed `postedDate`
+  // ("30/05/26") is truthy and sorts lexically above ISO, floating a stale job
+  // to the top of the slice and dropping a fresh one from the indexed employer
+  // page. See firstParsableMs.
   const sorted = [...matching].sort((a, b) => {
-    const da = String(a.postedDate || a.datePosted || '');
-    const db = String(b.postedDate || b.datePosted || '');
-    return db.localeCompare(da);
+    const da = firstParsableMs(a.postedDate, a.datePosted);
+    const db = firstParsableMs(b.postedDate, b.datePosted);
+    return db - da;
   });
 
   const activeJobs: CompanyCityActiveJob[] = sorted.slice(0, limitJobs).map((j) => {

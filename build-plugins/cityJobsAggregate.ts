@@ -33,6 +33,7 @@ import {
   type ColLocale,
 } from './costOfLivingLandingsData';
 import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -197,9 +198,11 @@ function toFeatured(
   isCantonalFallback: boolean,
 ): CityFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  const postedDate = job.postedDate || job.firstSeenAt || '';
-  const ts = postedDate ? Date.parse(postedDate) : NaN;
-  const daysAgo = Number.isFinite(ts) ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
+  // First PARSEABLE date, not first truthy: a malformed postedDate must not
+  // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
+  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
+  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
     id: job.id,
     title: job.title,
@@ -228,8 +231,8 @@ function sortByFreshness(records: readonly JobRecord[]): JobRecord[] {
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = a.postedDate ? Date.parse(a.postedDate) : 0;
-    const bTs = b.postedDate ? Date.parse(b.postedDate) : 0;
+    const aTs = firstParsableMs(a.postedDate, a.firstSeenAt);
+    const bTs = firstParsableMs(b.postedDate, b.firstSeenAt);
     return bTs - aTs;
   });
 }
@@ -247,8 +250,8 @@ function buildSnapshotForCity(
   const last30 = now - 30 * DAY_MS;
   let fresh30 = 0;
   for (const job of matches) {
-    const ts = job.postedDate ? Date.parse(job.postedDate) : NaN;
-    if (Number.isFinite(ts) && ts >= last30) fresh30++;
+    const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+    if (ts && ts >= last30) fresh30++;
   }
 
   const medianSalary = realSalaryMedianChf(matches);

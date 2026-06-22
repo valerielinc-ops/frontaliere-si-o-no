@@ -14,6 +14,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
@@ -6108,8 +6109,8 @@ ${staticAnalyticsHtml}
  }
  cantonJobTotals.set(canton, total);
  flat.sort((a: any, b: any) => {
-   const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
-   const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+   const da = firstParsableMs(b.crawledAt, b.datePosted);
+   const db = firstParsableMs(a.crawledAt, a.datePosted);
    if (da !== db) return da - db;
    return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
@@ -6194,8 +6195,8 @@ ${staticAnalyticsHtml}
  // as a "0 results" fallback so the page is never a dead end.
  const sortedCityJobs = cityJobs.length > 0
    ? [...cityJobs].sort((a: any, b: any) => {
-     const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
-     const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+     const da = firstParsableMs(b.crawledAt, b.datePosted);
+     const db = firstParsableMs(a.crawledAt, a.datePosted);
      if (da !== db) return da - db;
      return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
    })
@@ -6390,8 +6391,8 @@ ${staticAnalyticsHtml}
  const JOBS_PER_LISTING_PAGE = 20;
  const MAX_LISTING_PAGES = 25;
  const sortedForPagination = [...validJobs].sort((a: any, b: any) => {
- const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
- const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ const da = firstParsableMs(b.crawledAt, b.datePosted);
+ const db = firstParsableMs(a.crawledAt, a.datePosted);
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
@@ -6516,8 +6517,8 @@ ${staticAnalyticsHtml}
  const cJobs = jobsByCanton.get(canton) ?? [];
  if (cJobs.length < 2 * JOBS_PER_LISTING_PAGE) continue;
  const cSorted = [...cJobs].sort((a: any, b: any) => {
- const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
- const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ const da = firstParsableMs(b.crawledAt, b.datePosted);
+ const db = firstParsableMs(a.crawledAt, a.datePosted);
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
@@ -6794,8 +6795,8 @@ ${staticAnalyticsHtml}
  if (catJobs.length < 3) continue;
  // Sort like the global one to preserve consistent feed ordering.
  catJobs.sort((a: any, b: any) => {
- const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
- const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ const da = firstParsableMs(b.crawledAt, b.datePosted);
+ const db = firstParsableMs(a.crawledAt, a.datePosted);
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
@@ -6972,8 +6973,8 @@ ${staticAnalyticsHtml}
  // so the hub deep-links it instead of a robots-disallowed `?q=` URL.
  markCantonSectorPage(canton, sector);
  const sSorted = [...sJobs].sort((a: any, b: any) => {
- const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
- const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ const da = firstParsableMs(b.crawledAt, b.datePosted);
+ const db = firstParsableMs(a.crawledAt, a.datePosted);
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
@@ -7054,7 +7055,9 @@ ${staticAnalyticsHtml}
  const SECTOR_FRESH_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
  const sectorFreshCutoff = Date.parse(`${dateStamp}T00:00:00Z`) - SECTOR_FRESH_WINDOW_MS;
  const sFreshCount = sJobs.filter((j: any) => {
- const t = Date.parse(String(j.datePosted || j.postedDate || j.crawledAt || '')) || 0;
+ // First PARSEABLE date, not first truthy: a malformed postedDate must not
+ // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
+ const t = firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
  return t >= sectorFreshCutoff;
  }).length;
  const intro = (() => {
@@ -7198,8 +7201,8 @@ ${staticAnalyticsHtml}
  for (const [cSlug, { name: companyName, jobs: companyJobs }] of byCompany) {
  if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) continue;
  const sortedJobs = [...companyJobs].sort((a: any, b: any) => {
- const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
- const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ const da = firstParsableMs(b.crawledAt, b.datePosted);
+ const db = firstParsableMs(a.crawledAt, a.datePosted);
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
@@ -7421,8 +7424,8 @@ ${staticAnalyticsHtml}
  for (const [citySlug, { name: companyName, cityDisplay, jobs: ccJobs }] of byCity) {
  if (ccJobs.length < MIN_JOBS_PER_CANTON_COMPANY_CITY) continue;
  const sortedJobs = [...ccJobs].sort((a: any, b: any) => {
- const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
- const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ const da = firstParsableMs(b.crawledAt, b.datePosted);
+ const db = firstParsableMs(a.crawledAt, a.datePosted);
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });

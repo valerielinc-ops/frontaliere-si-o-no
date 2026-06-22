@@ -8,6 +8,8 @@
  * router. No I/O, no side effects.
  */
 
+import { firstParsableMs } from './shared/firstParsableDate';
+
 export type OrphanLandingLocale = 'it' | 'en' | 'de' | 'fr';
 
 export const ORPHAN_LANDING_LOCALES: ReadonlyArray<OrphanLandingLocale> = ['it', 'en', 'de', 'fr'] as const;
@@ -255,9 +257,13 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
 ): T[] {
   const matches = jobs.filter((j) => jobMatchesCluster(j, cluster));
   matches.sort((a, b) => {
-    const ad = String(a.postedDate || a.datePosted || '');
-    const bd = String(b.postedDate || b.datePosted || '');
-    return bd.localeCompare(ad);
+    // First *parsable* date (not first truthy): a malformed `postedDate`
+    // ("30/05/26") is truthy and sorts lexically above ISO strings, floating a
+    // stale job to the top of the slice and pushing a fresh one out of the
+    // indexed list. See firstParsableMs.
+    const ad = firstParsableMs(a.postedDate, a.datePosted);
+    const bd = firstParsableMs(b.postedDate, b.datePosted);
+    return bd - ad;
   });
   return matches.slice(0, limit);
 }

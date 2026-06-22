@@ -21,6 +21,19 @@ const SLUG_MAX = 120;
 // A publisher ad is "live" (projected into the slice) when sponsored+paid or free+published.
 const LIVE_STATUSES = new Set(['paid', 'published']);
 
+// First PARSEABLE date among the candidates → epoch ms (0 if none parse).
+// Local twin of build-plugins/shared/firstParsableDate.ts (this module stays
+// import-free per its contract). Stops a malformed postedDate from shadowing a
+// valid firstSeenAt in the featured-slot recency sort below.
+function firstParsableMs(...values) {
+  for (const v of values) {
+    if (v === null || v === undefined || v === '') continue;
+    const ts = new Date(v).getTime();
+    if (Number.isFinite(ts)) return ts;
+  }
+  return 0;
+}
+
 /** Lowercase ASCII slug; collapses non-alphanumerics to single hyphens. */
 export function slugifyPublisher(input = '') {
   return String(input)
@@ -265,8 +278,8 @@ export function applyFeaturedSlotCap(records, cap = FEATURED_SLOTS_PER_CANTON) {
   for (const group of byCanton.values()) {
     if (group.length <= cap) continue;
     group.sort((a, b) => {
-      const ta = Date.parse(a.postedDate || a.firstSeenAt || '') || 0;
-      const tb = Date.parse(b.postedDate || b.firstSeenAt || '') || 0;
+      const ta = firstParsableMs(a.postedDate, a.firstSeenAt);
+      const tb = firstParsableMs(b.postedDate, b.firstSeenAt);
       return tb - ta; // most recently paid first
     });
     group.slice(cap).forEach((r) => { r.featured = false; });

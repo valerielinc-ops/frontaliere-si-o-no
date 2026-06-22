@@ -14,6 +14,7 @@
 
 import type { Plugin } from 'vite';
 import { clampMetaDescription } from './shared/titleSuffix';
+import { firstParsableMs } from './shared/firstParsableDate';
 import {
   BASE_URL,
   FAVICON_LINKS,
@@ -482,7 +483,9 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           const FRESH_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
           const freshCutoff = Date.parse(`${dateStamp}T00:00:00Z`) - FRESH_WINDOW_MS;
           const freshCount = allMatching.filter((j) => {
-            const t = Date.parse(String(j.datePosted || j.postedDate || '')) || 0;
+            // First PARSEABLE date, not first truthy: a malformed postedDate must
+            // not collapse the timestamp to 0 and undercount the fresh tile.
+            const t = firstParsableMs(j.datePosted, j.postedDate);
             return t >= freshCutoff;
           }).length;
 
