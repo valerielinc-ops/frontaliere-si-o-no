@@ -71,7 +71,7 @@ export const RAIL_RESERVE_CSS =
   '.ft-rail-aside-x{display:none}' +
   '.ft-rail-grid-spa{display:contents}' +
   '@media(min-width:1280px) and (max-width:1399.98px){' +
-  '.ft-rail-grid-x{display:grid;grid-template-columns:180px minmax(0,1fr) 180px;gap:1rem}' +
+  '.ft-rail-grid-x{display:grid;grid-template-columns:180px 1fr 180px;gap:1rem}' +
   '.ft-rail-aside-x{display:block}' +
   '}' +
   '@media(min-width:1400px){' +
