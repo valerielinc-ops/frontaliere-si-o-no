@@ -845,6 +845,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'emigrare-svizzera-aspetti-fiscali',
+    category: 'fiscale',
+    date: '2026-06-22T12:29:57.928Z',
+    image: '/images/blog/emigrare-svizzera-aspetti-fiscali.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

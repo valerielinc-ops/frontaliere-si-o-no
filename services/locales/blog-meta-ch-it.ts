@@ -281,6 +281,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-ticino-mercato-proprietari.title': 'Mercato affitti: immobili sfitti e nuova gestione',
     'blog.article.affitti-ticino-mercato-proprietari.excerpt': 'Il mercato delle locazioni è cambiato. Vecchie regole non funzionano più. Ecco come adattarsi per proteggere i ricavi immobiliari.',
     'blog.article.affitti-ticino-mercato-proprietari.imageAlt': 'Edificio residenziale svizzero con cartello di affitto alla finestra',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.title': 'Emigrare dalla Svizzera: obblighi fiscali e cosa sapere',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.excerpt': 'Lasciare la Svizzera non significa sempre dire addio alle tasse. Ecco cosa devi sapere prima di trasferirti all\'estero.',
+    'blog.article.emigrare-svizzera-aspetti-fiscali.imageAlt': 'Vista aerea di Lugano con il lago e le montagne, una persona con passaporto svizzero e documenti fiscali',
 };
 
 export default blogMetaChIt;
