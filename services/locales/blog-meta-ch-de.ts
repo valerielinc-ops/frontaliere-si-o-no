@@ -287,6 +287,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.brexit-impatti-svizzera-ue.title': 'Brexit: Lehren für die Schweiz 10 Jahre nach dem Austritt',
     'blog.article.brexit-impatti-svizzera-ue.excerpt': 'Zehn Jahre nach dem Brexit bieten die Herausforderungen des Vereinigten Königreichs Anregungen für die Schweiz in Bezug auf die Beziehungen zur EU.',
     'blog.article.brexit-impatti-svizzera-ue.imageAlt': 'Luftaufnahme des Luganer Sees mit Schweizer und EU-Flaggen im Vordergrund',
+    'blog.article.sicurezza-paziente-2026-svizzera.title': 'Patientensicherheit in der Schweiz: Neuheiten und Herausforderungen im Jahr 2026',
+    'blog.article.sicurezza-paziente-2026-svizzera.excerpt': 'Das Universitätsklinikum Genf hat im Jahr 2026 einen Hantavirus-Stamm als eine der Herausforderungen für die nationale Gesundheitssicherheit identifiziert.',
+    'blog.article.sicurezza-paziente-2026-svizzera.imageAlt': 'Innenansicht eines Schweizer Krankenhauses mit Schwerpunkt auf Patientensicherheit',
 };
 
 export default blogMetaChDe;

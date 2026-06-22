@@ -117,6 +117,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'affitti-ticino-mercato-proprietari': { it: 'affitti-ticino-mercato-proprietari', en: 'rentals-ticino-market-landlords', de: 'mieten-tessin-markt-eigentumer', fr: 'locations-tessin-marque-proprietaires' },
  'emigrare-svizzera-aspetti-fiscali': { it: 'emigrare-svizzera-aspetti-fiscali', en: 'emigrating-switzerland-tax-aspects', de: 'auswandern-schweiz-steueraspekte', fr: 'emigrer-suisse-aspects-fiscaux' },
  'brexit-impatti-svizzera-ue': { it: 'brexit-impatti-svizzera-ue', en: 'brexit-impacts-switzerland-eu', de: 'brexit-auswirkungen-schweiz-eu', fr: 'brexit-impacts-suisse-ue' },
+ 'sicurezza-paziente-2026-svizzera': { it: 'sicurezza-paziente-2026-svizzera', en: 'patient-safety-2026-switzerland', de: 'patientensicherheit-2026-schweiz', fr: 'securite-patient-2026-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
