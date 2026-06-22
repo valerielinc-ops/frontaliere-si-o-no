@@ -275,6 +275,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-pensioni-estero-condizioni.title': 'Pensions AVS à l\'étranger: conditions et conventions',
     'blog.article.avs-pensioni-estero-condizioni.excerpt': 'Les Suisses résidant dans 21 pays hors UE/AELS peuvent payer des cotisations AVS volontaires. Les conventions sociales garantissent l\'égalité de traitement.',
     'blog.article.avs-pensioni-estero-condizioni.imageAlt': 'Retraités suisses consultent des documents au bord du lac de Lugano',
+    'blog.article.marchesi-zali-lista-autonomi.title': 'Marchesi: prêts à se présenter seuls si Zali est listé',
+    'blog.article.marchesi-zali-lista-autonomi.excerpt': 'Les déclarations du conseiller national Piero Marchesi ouvrent des scénarios politiques cantonaux au Tessin. La position sur la liste électorale.',
+    'blog.article.marchesi-zali-lista-autonomi.imageAlt': 'Palais du gouvernement à Bellinzona, Suisse, siège des décisions cantonales',
 };
 
 export default blogMetaChFr;
