@@ -836,6 +836,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'affitti-ticino-mercato-proprietari',
+    category: 'pratico',
+    date: '2026-06-22T11:29:20.485Z',
+    image: '/images/blog/affitti-ticino-mercato-proprietari.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

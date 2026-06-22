@@ -278,6 +278,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.marchesi-zali-lista-autonomi.title': 'Marchesi: pronti a correre da soli se Zali in lista',
     'blog.article.marchesi-zali-lista-autonomi.excerpt': 'Dichiarazioni del consigliere nazionale Piero Marchesi aprono scenari politici cantonali in Ticino. La posizione sulla lista elettorale.',
     'blog.article.marchesi-zali-lista-autonomi.imageAlt': 'Palazzo del Governo a Bellinzona, Svizzera, sede delle decisioni cantonali',
+    'blog.article.affitti-ticino-mercato-proprietari.title': 'Mercato affitti: immobili sfitti e nuova gestione',
+    'blog.article.affitti-ticino-mercato-proprietari.excerpt': 'Il mercato delle locazioni è cambiato. Vecchie regole non funzionano più. Ecco come adattarsi per proteggere i ricavi immobiliari.',
+    'blog.article.affitti-ticino-mercato-proprietari.imageAlt': 'Edificio residenziale svizzero con cartello di affitto alla finestra',
 };
 
 export default blogMetaChIt;

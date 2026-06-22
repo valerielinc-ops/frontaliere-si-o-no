@@ -278,6 +278,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.marchesi-zali-lista-autonomi.title': 'Marchesi: prêts à se présenter seuls si Zali est listé',
     'blog.article.marchesi-zali-lista-autonomi.excerpt': 'Les déclarations du conseiller national Piero Marchesi ouvrent des scénarios politiques cantonaux au Tessin. La position sur la liste électorale.',
     'blog.article.marchesi-zali-lista-autonomi.imageAlt': 'Palais du gouvernement à Bellinzona, Suisse, siège des décisions cantonales',
+    'blog.article.affitti-ticino-mercato-proprietari.title': 'Marché des locations : immobilier vacant et nouvelle gestion',
+    'blog.article.affitti-ticino-mercato-proprietari.excerpt': 'Le marché des locations a changé. Les anciennes règles ne fonctionnent plus. Découvrez comment adapter pour protéger vos revenus immobiliers. 📊💡⚠️',
+    'blog.article.affitti-ticino-mercato-proprietari.imageAlt': 'Immeuble résidentiel suisse avec panneau de location à la fenêtre',
 };
 
 export default blogMetaChFr;
