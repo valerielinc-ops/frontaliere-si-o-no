@@ -50,6 +50,7 @@ const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
 const PublisherPublishPage = lazyRetry(() => import('@/components/pages/PublisherPublishPage'));
 const PublisherDashboardPage = lazyRetry(() => import('@/components/pages/PublisherDashboardPage'));
 const ForEmployersPage = lazyRetry(() => import('@/components/pages/ForEmployersPage'));
+const EmployerInsightsPage = lazyRetry(() => import('@/components/pages/EmployerInsightsPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
 const DonationBanner = lazyRetry(() => import('@/components/shared/DonationBanner'));
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
@@ -2459,6 +2460,8 @@ const App: React.FC = () => {
  <div className="max-w-7xl mx-auto">
  <ForEmployersPage />
  </div>
+ ) : activeTab === 'employer-insights' ? (
+ <EmployerInsightsPage />
  ) : activeTab === 'partners' ? (
  <div className="max-w-7xl mx-auto">
  <PartnerServices />
