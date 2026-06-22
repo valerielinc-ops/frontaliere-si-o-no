@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import {
   buildAlertEmail,
   mailerooMetaOnSent,
@@ -681,5 +681,82 @@ describe('job alert maileroo meta — open/click attribution writer (#1140)', ()
     expect(onSentWirings.length).toBeGreaterThanOrEqual(2);
     // Guard the retry call specifically.
     expect(src).toMatch(/sendEmailCascade\(retryEmails,\s*\{[^}]*onSent:\s*mailerooMetaOnSent/s);
+  });
+});
+
+describe('job alert email — unsubscribe links match the sending domain (anti-spam)', () => {
+  // Spam filters flag emails whose link host differs from the From domain
+  // (alerts@frontaliereticino.ch). The unsubscribe links + List-Unsubscribe
+  // header previously pointed at the raw Cloud Function host
+  // (europe-west6-frontaliere-ticino.cloudfunctions.net) — a hard mismatch. They
+  // now use an apex path (/disiscrivi-alert/) that the locale-router Worker
+  // proxies to the function. The real proxy path is only emitted when
+  // NEWSLETTER_SECRET is set (otherwise the builders return a canonical-domain
+  // fallback), so exercise the signed path here.
+  let prevSecret: string | undefined;
+  beforeEach(() => {
+    prevSecret = process.env.NEWSLETTER_SECRET;
+    process.env.NEWSLETTER_SECRET = 'test-secret-for-unsub-urls';
+  });
+  afterEach(() => {
+    if (prevSecret === undefined) delete process.env.NEWSLETTER_SECRET;
+    else process.env.NEWSLETTER_SECRET = prevSecret;
+  });
+
+  it('never links to the raw cloudfunctions.net host (HTML or plaintext)', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    expect(result.html).not.toContain('cloudfunctions.net');
+    expect(result.text).not.toContain('cloudfunctions.net');
+    expect(result.unsubscribeUrl).not.toContain('cloudfunctions.net');
+  });
+
+  it('single-alert + all-alerts unsubscribe links use the apex /disiscrivi-alert/ path', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    // Single-alert unsubscribe (also the List-Unsubscribe header value).
+    expect(result.html).toMatch(
+      /https:\/\/frontaliereticino\.ch\/disiscrivi-alert\/\?alertId=[^"]*&token=/,
+    );
+    // All-alerts unsubscribe.
+    expect(result.html).toMatch(
+      /https:\/\/frontaliereticino\.ch\/disiscrivi-alert\/\?email=[^"]*&action=unsubscribe_all/,
+    );
+    expect(result.text).toMatch(/https:\/\/frontaliereticino\.ch\/disiscrivi-alert\//);
+  });
+
+  it('the List-Unsubscribe header value (unsubscribeUrl) is on the sending domain', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    expect(result.unsubscribeUrl).toMatch(
+      /^https:\/\/frontaliereticino\.ch\/disiscrivi-alert\//,
+    );
+  });
+
+  it('jobAlertUnsubscribe reads identifiers from the query on POST (one-click works)', () => {
+    // RFC 8058 one-click POST carries alertId/email/token in the query string,
+    // not the body — so the function MUST merge the query into POST params or the
+    // one-click verifies an empty token (403) and never unsubscribes.
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../functions/index.js'),
+      'utf8',
+    );
+    const handler = src.slice(src.indexOf('export const jobAlertUnsubscribe'));
+    expect(handler).toMatch(
+      /req\.method === 'GET' \? req\.query : \{\s*\.\.\.req\.query,\s*\.\.\.req\.body\s*\}/,
+    );
+  });
+
+  it('the locale-router Worker proxies the same /disiscrivi-alert path (no drift)', () => {
+    // Pairs the email path to the Worker proxy: if one changes without the other,
+    // the apex link 404s. Lock both ends.
+    const worker = fs.readFileSync(
+      path.resolve(__dirname, '../infra/cloudflare-worker/locale-router.js'),
+      'utf8',
+    );
+    expect(worker).toMatch(/UNSUB_PROXY_PATH\s*=\s*'\/disiscrivi-alert'/);
+    expect(worker).toContain('jobAlertUnsubscribe');
+    const wrangler = fs.readFileSync(
+      path.resolve(__dirname, '../infra/cloudflare-worker/wrangler.toml'),
+      'utf8',
+    );
+    expect(wrangler).toContain('frontaliereticino.ch/disiscrivi-alert/');
   });
 });

@@ -52,8 +52,15 @@ if (TARGET_EMAIL_RAW) {
   console.log(`🎯 TARGET_EMAIL set — limiting send to: ${TARGET_EMAIL_RAW}`);
 }
 
-// Cloud Function URL for one-click unsubscribe (RFC 8058)
-const UNSUB_FUNCTION_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/jobAlertUnsubscribe';
+// One-click unsubscribe endpoint (RFC 8058). MUST live on the sending domain
+// (frontaliereticino.ch) or the URL↔sending-domain mismatch trips spam filters —
+// the raw europe-west6-frontaliere-ticino.cloudfunctions.net/jobAlertUnsubscribe
+// host differs from the From domain (alerts@frontaliereticino.ch). This apex path
+// is transparently proxied to that Cloud Function by the locale-router Worker
+// (infra/cloudflare-worker/locale-router.js — method + query + body preserved, so
+// the List-Unsubscribe-Post one-click POST still reaches the function). Trailing
+// slash is canonical (site convention) and dodges a no-slash→slash 301 on POST.
+const UNSUB_URL = `${BASE_URL}/disiscrivi-alert/`;
 
 // Locale-aware job board URL paths (must match router.ts slug tables)
 const JOB_BOARD_PATHS = {
@@ -322,7 +329,7 @@ function makeAlertUnsubscribeUrl(alertId, email) {
   const token = createHmac('sha256', secret)
     .update(`job_alert_unsub:${alertId}:${email.toLowerCase().trim()}`)
     .digest('hex');
-  return `${UNSUB_FUNCTION_URL}?alertId=${encodeURIComponent(alertId)}&email=${encodeURIComponent(email)}&token=${token}`;
+  return `${UNSUB_URL}?alertId=${encodeURIComponent(alertId)}&email=${encodeURIComponent(email)}&token=${token}`;
 }
 
 function makeAllAlertsUnsubscribeUrl(email) {
@@ -331,7 +338,7 @@ function makeAllAlertsUnsubscribeUrl(email) {
   const token = createHmac('sha256', secret)
     .update(`job_alert_unsub_all:${email.toLowerCase().trim()}`)
     .digest('hex');
-  return `${UNSUB_FUNCTION_URL}?email=${encodeURIComponent(email)}&token=${token}&action=unsubscribe_all`;
+  return `${UNSUB_URL}?email=${encodeURIComponent(email)}&token=${token}&action=unsubscribe_all`;
 }
 
 // ── Autologin (reuse newsletter pattern) ────────────────────
