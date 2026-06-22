@@ -599,6 +599,22 @@ const ZAI_API_BASE         = 'https://api.z.ai/api/paas/v4/chat/completions';
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
+// GitHub Models free-tier rate limits are PER-ACCOUNT (per PAT), not per-model,
+// and all ~25 GitHub-hosted models in the chain share that one account budget.
+// Supplying PATs from additional free GitHub accounts (GH_MODELS_PAT_2/3/…) and
+// rotating on daily-limit/429 multiplies the free generation quota at $0.
+// Returns the primary first, then numbered extras (deduped). Single-PAT setups
+// get a 1-element array → identical behaviour to before.
+export function getGhModelsPats() {
+  const pats = [];
+  const primary = (process.env.GH_MODELS_PAT || '').trim();
+  if (primary) pats.push(primary);
+  for (let i = 2; i <= 9; i++) {
+    const extra = (process.env[`GH_MODELS_PAT_${i}`] || '').trim();
+    if (extra && !pats.includes(extra)) pats.push(extra);
+  }
+  return pats;
+}
 function getGeminiApiKey()      { return (process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '').trim(); }
 function getGroqApiKey()        { return (process.env.GROQ_API_KEY || '').trim(); }
 function getOpenRouterApiKey()  { return (process.env.OPENROUTER_API_KEY || '').trim(); }
@@ -688,7 +704,9 @@ function getApiModelId(model) {
 /** Get the API key for a given provider */
 function getApiKeyForProvider(provider) {
   switch (provider) {
-    case PROVIDER.GITHUB:      return getGhModelsPat();
+    // First available PAT (primary or any extra) — so a config that supplies
+    // only GH_MODELS_PAT_2 still registers GitHub as available to the gate.
+    case PROVIDER.GITHUB:      return getGhModelsPats()[0] || '';
     case PROVIDER.GEMINI:      return getGeminiApiKey();
     case PROVIDER.GROQ:        return getGroqApiKey();
     case PROVIDER.OPENROUTER:  return getOpenRouterApiKey();
@@ -831,6 +849,10 @@ function sanitizeSchemaForGemini(schema) {
 
 // ── Run-level state (reset only between process invocations) ─
 const _exhaustedModels = new Set();
+// GitHub Models PAT indices that hit their per-account daily limit this run, so
+// subsequent GitHub calls skip them and go straight to a fresh account's PAT.
+// Reset per run (resetState) — daily limits reset on the provider side anyway.
+const _ghExhaustedPats = new Set();
 // Tracks which exhausted models have already been logged this run, so a model
 // that's been exhausted since startup doesn't produce a "Skipped — exhausted"
 // line every time the fallback chain ticks past it.
@@ -1733,6 +1755,7 @@ export function printRunSummary() {
 /** Reset exhausted models and scores (useful for long-running processes or tests) */
 export function resetState() {
   _exhaustedModels.clear();
+  _ghExhaustedPats.clear();
   _exhaustedLogged.clear();
   _providerCooldown.clear();
   _modelScores.clear();
@@ -2061,7 +2084,7 @@ const MODEL_MAX_OUTPUT_TOKENS = {
  * @param {object} opts — Merged options
  * @param {object} provider — { endpoint, apiKey, providerName, trackAs, extraHeaders }
  */
-async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, extraHeaders }) {
+async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, extraHeaders, _suppressExhaustionMark = false }) {
   if (!apiKey) throw new Error(`${providerName} API key not set`);
   const modelForTracking = trackAs || apiModel;
   const displayModel = providerName === 'GitHub' ? apiModel : `${providerName}/${apiModel}`;
@@ -2128,9 +2151,12 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
       const raw = await res.text().catch(() => '');
 
       if (!res.ok) {
-        // Daily limit — mark exhausted immediately
+        // Daily limit — mark exhausted immediately. When a caller still has
+        // another credential to try (GitHub multi-PAT: _suppressExhaustionMark),
+        // do NOT mark the model globally exhausted — it's only out on THIS
+        // account; the error still propagates so the caller can rotate.
         if (isDailyLimitError(res.status, raw)) {
-          markModelExhausted(modelForTracking);
+          if (!_suppressExhaustionMark) markModelExhausted(modelForTracking);
           _stats.exhausted++;
           throw new Error(`[${displayModel}] Daily request limit reached`);
         }
@@ -2156,8 +2182,11 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
             throw Object.assign(new Error(`[${displayModel}] Daily quota: ${raw.slice(0, 150)}`), { exhausted: true });
           }
           _stats.retries++;
-          // On 429: cool down the entire provider so sibling models are skipped
-          if (is429) {
+          // On 429: cool down the entire provider so sibling models are skipped.
+          // Skip the cooldown when the caller can rotate credentials (GitHub
+          // multi-PAT): a 429 on one account must not freeze every GitHub model
+          // for the run when another account's quota is still available.
+          if (is429 && !_suppressExhaustionMark) {
             cooldownProvider(getProvider(modelForTracking));
             _stats.providerCooldowns++;
           }
@@ -2225,12 +2254,61 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
 
 // ── Provider-specific callers ────────────────────────────────
 
-function _callGitHub(model, messages, opts) {
-  return _callOpenAICompatible(model, messages, opts, {
-    endpoint: GH_MODELS_BASE,
-    apiKey: getGhModelsPat(),
-    providerName: 'GitHub',
-  });
+// Detect a per-account daily/quota/rate-limit failure — the only error class
+// that warrants rotating to another GitHub PAT (a different account's separate
+// free budget). Unknown-model / bad-request errors are account-independent and
+// must NOT trigger rotation (they'd fail identically on every PAT).
+function _isGhPatQuotaError(err) {
+  if (!err) return false;
+  if (err.exhausted) return true;
+  const msg = String(err.message || '');
+  return /daily request limit|daily quota|rate limit|HTTP 429|too many requests/i.test(msg);
+}
+
+async function _callGitHub(model, messages, opts) {
+  const pats = getGhModelsPats();
+  if (pats.length === 0) throw new Error('GitHub API key not set');
+  // Single-PAT (the default): identical behaviour to before — one normal call.
+  if (pats.length === 1) {
+    return _callOpenAICompatible(model, messages, opts, {
+      endpoint: GH_MODELS_BASE,
+      apiKey: pats[0],
+      providerName: 'GitHub',
+    });
+  }
+  // Multi-PAT: try non-exhausted PATs first; if all are flagged exhausted this
+  // run, fall back to trying them all again (a daily limit may have lifted).
+  const fresh = pats.map((_, i) => i).filter((i) => !_ghExhaustedPats.has(i));
+  const order = fresh.length ? fresh : pats.map((_, i) => i);
+  let lastErr;
+  for (let j = 0; j < order.length; j++) {
+    const idx = order[j];
+    const isLast = j === order.length - 1;
+    try {
+      return await _callOpenAICompatible(model, messages, opts, {
+        endpoint: GH_MODELS_BASE,
+        apiKey: pats[idx],
+        // MUST stay the canonical 'GitHub' so provider-name-keyed logic
+        // (shouldUseSchemaMode / strict-JSON-schema, getProvider, cooldown,
+        // stats) behaves identically to single-PAT. The PAT index is tracked
+        // separately (idx / _ghExhaustedPats), not encoded in the name.
+        providerName: 'GitHub',
+        // Until the LAST PAT, a daily-limit on this account must NOT mark the
+        // model/provider globally exhausted — the model is still usable on the
+        // next account's separate quota. The error still propagates so we rotate.
+        _suppressExhaustionMark: !isLast,
+      });
+    } catch (err) {
+      lastErr = err;
+      if (!isLast && _isGhPatQuotaError(err)) {
+        _ghExhaustedPats.add(idx);
+        console.error(`🔁 [GitHub] PAT #${idx + 1} esaurito (quota account) — ruoto al PAT #${idx + 2}`);
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw lastErr;
 }
 
 /**
