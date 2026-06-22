@@ -105,6 +105,19 @@ jobs:
         env:
           CREATE_ARTICLE_REPORT_FILE: .tmp/create-article-run-report.json
           TARGET_SECTION: ${{ steps.section.outputs.section }}
+          # Section-aware wall-clock budget. The `frontaliere` pipeline is
+          # gate-heavier than `svizzera`: it carries the frontaliere-density
+          # relevance gate (>=8 keyword hits) on top of the shared fact-check /
+          # quality gates, so it needs several full-article attempts per run and
+          # each free-tier generation+fact-check pass is slow. The flat 30-min
+          # internal budget added 2026-06-16 starved it -- frontaliere fell to
+          # 0 articles/day Jun 19-21 while svizzera (no density gate, completes
+          # in minutes) kept producing, stalling the /articoli-frontaliere/
+          # revenue feed. Job `timeout-minutes` is 360 and runs already tolerate
+          # ~35min uncancelled (concurrency `cancel-in-progress: false`), so a
+          # 55-min frontaliere budget is safe and well under the hard cap.
+          # svizzera keeps the original 30-min cap (it never approaches it).
+          CREATE_ARTICLE_MAX_WALL_MS: ${{ steps.section.outputs.section == 'svizzera' && '1800000' || '3300000' }}
         run: |
           echo "📰 Generating blog article (section=$TARGET_SECTION)..."
           if [ -n "${{ inputs.url }}" ]; then
