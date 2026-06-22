@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { isArchivedStubHtml } from './_bridgeMarker';
+import { isArchivedStubHtml, isCrossSectionCanonical } from './_bridgeMarker';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
@@ -19,7 +19,12 @@ function listJobHtmlUnder(cantonSection: string): string[] {
     if (!entry.isDirectory()) continue;
     const file = path.join(dir, entry.name, 'index.html');
     if (!fs.existsSync(file)) continue;
-    if (isArchivedStubHtml(fs.readFileSync(file, 'utf8'))) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    if (isArchivedStubHtml(html)) continue;
+    // Skip relocation copies whose canonical points outside this section dir
+    // (canton-drift orphans that escaped the noindex marker) so they don't
+    // register as a real job of `cantonSection` (validate-dist flake #2679).
+    if (isCrossSectionCanonical(html, cantonSection)) continue;
     out.push(entry.name);
   }
   return out;
