@@ -157,6 +157,19 @@ jobs:
       - name: Run Claude fix
         id: claude_review
         if: steps.preflight.outputs.already_resolved != 'true'
+        # Non far fallire il job sull'exit non-zero della CLI: lo step finale
+        # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
+        # per la issue), non al subtype della CLI. Un `error_max_turns` DOPO che
+        # l'agent ha gia' aperto la PR (passo 7) NON e' un fallimento del run:
+        # campione 7gg (#1951) = 4/11 fail issue-fix avevano una PR creata (3
+        # gia' MERGED) ma la CLI moriva al cap turni DOPO `gh pr create` → job
+        # RED = false-failure che gonfia il failure-rate del loop-health. Stessa
+        # filosofia di #2514 (redflag-fixer): colore = work-done, non CLI exit.
+        # I fail genuini (nessuna PR) restano RED via il classify → segnale
+        # preservato per loop-health + followup-drainer. `outcome` resta
+        # 'failure' (pre-continue-on-error) → i due step di telemetria sotto
+        # (Mark error_max_turns / FIX_OUTCOME backstop) continuano a firare.
+        continue-on-error: true
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -290,3 +303,41 @@ jobs:
           if [ -n "${PR:-}" ]; then OUT=pr-created; else OUT=no-pr-unspecified; fi
           echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
           gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")" || true
+
+      # Colore del job = LAVORO reale del run, non l'exit della CLI Claude.
+      #  • PR aperta o gia' MERGED per la issue (`fix/issue-<N>`)  → run SUCCESS
+      #    (la PR e' in pr-review-loop / gia' mergiata). Vale ANCHE se la CLI e'
+      #    morta `error_max_turns` DOPO `gh pr create` (false-failure: #1951 = 4/11
+      #    fail avevano una PR, 3 gia' MERGED).
+      #  • nessuna PR + CLI FAILED  → non-delivery reale (budget esaurito senza PR,
+      #    oppure branch pushato ma PR mai aperta) → RED (segnale preservato per
+      #    loop-health-report + followup-drainer). NON mascherato: il run non ha
+      #    consegnato una PR.
+      #  • nessuna PR + CLI SUCCESS → terminale pulito (capability-guard / overlap
+      #    / already-fixed / no-root-cause: l'agent ha deciso di NON aprire PR) →
+      #    GREEN, comportamento invariato vs oggi.
+      # I fail infra a monte (npm ci, setup, pre-flight) restano RED da soli:
+      # quegli step non hanno continue-on-error. Nessun gate abbassato: la PR
+      # passa comunque dal reviewer (cfr. #2514 / #2288 — disambigua intenzionale
+      # vs crash, colore != gate).
+      - name: Classify outcome (work-done, not CLI exit)
+        if: always() && steps.preflight.outputs.already_resolved != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+        run: |
+          set -uo pipefail
+          # PR aperta o gia' mergiata sul branch di questa issue (head esatto).
+          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | .[0].number // empty' 2>/dev/null || true)
+          echo "issue=$ISSUE pr(head fix/issue-$ISSUE, open|merged)=${PR_STATE:-<none>} claude=$CLAUDE_OUTCOME"
+          if [ -n "${PR_STATE:-}" ]; then
+            echo "✓ PR #$PR_STATE esiste (open/merged) per la issue → run SUCCESS. Job verde anche se la CLI e' uscita '$CLAUDE_OUTCOME' (false-failure: lavoro consegnato)."
+            exit 0
+          fi
+          if [ "$CLAUDE_OUTCOME" = "failure" ]; then
+            echo "::error::issue-fix #$ISSUE: nessuna PR aperta/mergiata e la CLI e' fallita ('$CLAUDE_OUTCOME') → non-delivery reale. Job RED (segnale preservato per loop-health + drainer)."
+            exit 1
+          fi
+          echo "Nessuna PR ma la CLI e' uscita pulita ('$CLAUDE_OUTCOME') → terminale legittimo (blocked/already-fixed/no-root-cause). Job verde."
