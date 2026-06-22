@@ -186,12 +186,18 @@ describe('isStalenessCheckActive (active-window gate)', () => {
     expect(isStalenessCheckActive(atUtcHour(0))).toBe(false);
   });
 
-  it('is INACTIVE before 05:00 UTC (scheduler idle overnight)', () => {
+  it('is INACTIVE before 08:00 UTC — the morning scheduler ramp + GitHub cron-lag is not yet guaranteed landed (issue #2587)', () => {
     expect(isStalenessCheckActive(atUtcHour(4))).toBe(false);
+    // 05:00–07:00 is the danger zone: a delayed overnight watchdog run (00:00
+    // cron delivered at 05:05, issue #2587) must NOT arm while the prior
+    // evening's snapshot is still the freshest one.
+    expect(isStalenessCheckActive(atUtcHour(5))).toBe(false);
+    expect(isStalenessCheckActive(atUtcHour(6))).toBe(false);
+    expect(isStalenessCheckActive(atUtcHour(7))).toBe(false);
   });
 
-  it('is ACTIVE for the 06/12/18 UTC runs (scheduler operating hours)', () => {
-    expect(isStalenessCheckActive(atUtcHour(6))).toBe(true);
+  it('is ACTIVE for the 08/12/18 UTC runs (after the morning collection is guaranteed fresh)', () => {
+    expect(isStalenessCheckActive(atUtcHour(8))).toBe(true);
     expect(isStalenessCheckActive(atUtcHour(12))).toBe(true);
     expect(isStalenessCheckActive(atUtcHour(18))).toBe(true);
   });
@@ -199,5 +205,30 @@ describe('isStalenessCheckActive (active-window gate)', () => {
   it('is INACTIVE at/after 20:00 UTC', () => {
     expect(isStalenessCheckActive(atUtcHour(20))).toBe(false);
     expect(isStalenessCheckActive(atUtcHour(23))).toBe(false);
+  });
+});
+
+describe('staleness page-gate (issue #2587 regression)', () => {
+  // Reproduces the orchestration's `stale.stale && stalenessActive` page
+  // condition: the 00:00 UTC watchdog cron delivered late at 05:05 Mon, with the
+  // freshest snapshot being the prior Sunday 19:14 collection (591 min old).
+  // Before the fix this paged a false "degraded"; now the gate is inactive at
+  // 05:05 so it does NOT page, while a genuine daytime freeze still does.
+  const PAGE = (snapshotIso: string, nowMs: number): boolean => {
+    const stale = evaluateStaleness({ updatedAt: snapshotIso }, nowMs, 6);
+    return stale.stale && isStalenessCheckActive(nowMs);
+  };
+
+  it('does NOT page for the overnight-aged snapshot seen by a delayed 05:05 run', () => {
+    const now = Date.UTC(2026, 5, 22, 5, 5, 20); // Mon 05:05:20 UTC
+    const snapshot = '2026-06-21T19:14:05Z'; // Sun 19:14 — 591 min old
+    expect(evaluateStaleness({ updatedAt: snapshot }, now, 6).ageMinutes).toBe(591);
+    expect(PAGE(snapshot, now)).toBe(false);
+  });
+
+  it('DOES page for a genuine freeze during the active window (08:00+)', () => {
+    const now = Date.UTC(2026, 5, 22, 12, 0, 0); // Mon 12:00 UTC, in-window
+    const snapshot = '2026-06-22T02:00:00Z'; // 10h old — pipeline truly frozen
+    expect(PAGE(snapshot, now)).toBe(true);
   });
 });
