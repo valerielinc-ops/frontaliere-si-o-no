@@ -595,6 +595,32 @@ jobs:
           # computes — ZERO extra hashing, just a serialization walk. See
           # build-plugins/writeRegistryLifecyclePlugin.ts + scripts/deploy-file-delta.mjs.
           DEPLOY_CONTENT_MANIFEST: '1'
+          # Recover canton-drift 404 orphans as real 200 bridge pages. The
+          # canton URL section is re-derived per crawl (sharedResolveJobCanton),
+          # so a job indexed under /cerca-lavoro-<oldCanton>/<slug>/ orphans to a
+          # live 404 once it re-pins to a different canton. cfHot404BridgePlugin
+          # already emits a 200 bridge (noindex, canonical → the slug's CURRENT
+          # canonical page via resolveSearchConsoleCompatTarget 'canton-moved')
+          # for paths in the bounded cf-hot-404s + GSC-coverage lists — but those
+          # MISS the long tail (the CF query is row-capped and the canton×slug
+          # universe rotates faster than it captures, and TI sections are excluded
+          # from cf-hot-404s by TICINO_RE). The persistent accumulator
+          # data/seo-404-compat-paths.json (~935k observed orphan paths, ~383k
+          # cross-canton with a KNOWN slug) is the only source that remembers the
+          # rotated tail AND carries the TI orphans. This flag unions it as the
+          # third bridge source so those orphans become 200 instead of soft-404.
+          # Measured (2026-06-22): live-404 is IT-job-detail dominated; the
+          # dominant recoverable buckets (non-TI slug-known-but-uncaptured + TI
+          # excluded) are exactly what the accumulator covers; resolver verified
+          # to return canton-moved → the real 200 page for these.
+          # Emit is STREAMING (mkdir+writeFileSync per path, no HTML in heap) and
+          # MAX_EMIT (CF_HOT_404_MAX, default 250000) still hard-caps it; gap-fill
+          # skips any path that already has a richer page. SSG mem/wall-time is
+          # NOT measurable on pull_request (full build runs post-merge on main).
+          # REVERT-TRIGGER: if the next deploy OOMs (systemd-oomd / exit 143) or
+          # build wall-time regresses materially, set this back to '' (or lower
+          # CF_HOT_404_MAX) — env-gated, 1-line revert, no code rollback needed.
+          CF_HOT_404_INCLUDE_ACCUMULATOR: '1'
         shell: bash
         run: |
           set -o pipefail
