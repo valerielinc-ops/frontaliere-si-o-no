@@ -102,6 +102,20 @@ permissions:
   id-token: write
   issues: write     # for github-issue-creator on build/deploy failure
 
+# Workflow-level serialisation: ONE deploy run at a time, newest-wins.
+# GitHub cancels any previously *pending* run in this group when a newer one
+# queues, while the in-progress run finishes (cancel-in-progress: false). So
+# while a build is running no other deploy starts, and when it finishes only the
+# LATEST queued run proceeds (intermediate queued runs are superseded). This
+# restores the monolith's pages-build behaviour for the MATRIX path, which is a
+# 3-job sub-pipeline (matrix-setup → prep → build-locale ×4) that a per-job
+# concurrency group cannot serialise without the matrix legs cancelling each
+# other. It also removes the race on the CDN / frontaliere-<loc> force-push
+# targets by construction (no two deploys ever overlap).
+concurrency:
+  group: deploy-to-github-pages
+  cancel-in-progress: false
+
 jobs:
   build:
     # Monolithic build path — the DEFAULT. Skipped only when the per-locale
@@ -1764,19 +1778,10 @@ jobs:
     if: ${{ vars.LOCALE_MATRIX_BUILD == 'true' || github.event.inputs.force_matrix == 'true' }}
     needs: [matrix-setup, prep]
     runs-on: ubuntu-latest
-    # Per-LOCALE concurrency group: keyed on matrix.locale so the four legs of a
-    # SINGLE run (it/en/de/fr) get distinct groups and run concurrently, while the
-    # SAME locale across DIFFERENT runs serialises (cancel-in-progress: false →
-    # queue, never cancel). This restores the serialisation the monolith got from
-    # its single `pages-build` group: each shard repo (frontaliere-<loc>) and the
-    # IT-leg CDN push are force-push targets, so two concurrent matrix deploys
-    # would race/clobber them. Per-locale grouping prevents that cross-run race
-    # without serialising the within-run fan-out. (A single shared group would
-    # make the legs cancel/queue each other; a workflow-level group would be too
-    # coarse and also gate the monolith path.)
-    concurrency:
-      group: pages-shard-${{ matrix.locale }}
-      cancel-in-progress: false
+    # NO job-level concurrency: the matrix legs must NOT cancel each other, and
+    # cross-run serialisation (no two deploys racing the CDN / frontaliere-<loc>
+    # force-push targets) is now handled by the WORKFLOW-LEVEL concurrency group
+    # at the top of this file (one deploy run at a time, newest-wins).
     permissions:
       contents: write
       pages: write
