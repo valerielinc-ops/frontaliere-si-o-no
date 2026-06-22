@@ -2378,9 +2378,13 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   validate-live:
     needs: deploy
-    if: |
-      success() &&
-      github.event.inputs.profile_sequential != 'true'
+    # Explicit needs.<job>.result + !cancelled() instead of bare success():
+    # in the MATRIX path the monolith `build` job is skipped, and bare success()
+    # is tripped by a skipped job anywhere in the transitive needs graph
+    # (deploy needs [build, build-locale]) → validate-live would be wrongly
+    # skipped, taking publish (last_known_good / indexing / winners sync) down
+    # with it. Gate strictly on the deploy result, like deploy/validate-dist.
+    if: ${{ !cancelled() && needs.deploy.result == 'success' && github.event.inputs.profile_sequential != 'true' }}
     uses: ./.github/workflows/post-deploy-validate-live.yml
     with:
       deploy_run_id: ${{ github.run_id }}
@@ -2413,9 +2417,12 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   publish:
     needs: [deploy, validate-dist, validate-live]
-    if: |
-      success() &&
-      github.event.inputs.profile_sequential != 'true'
+    # Explicit result checks (not bare success()) for the same reason as
+    # validate-live: the skipped monolith `build` in the transitive needs graph
+    # trips success() under the MATRIX path. Require all three real producers to
+    # have SUCCEEDED — preserves the original gate (deploy+validate-dist+
+    # validate-live all green before the irreversible publish side-effects).
+    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-dist.result == 'success' && needs.validate-live.result == 'success' && github.event.inputs.profile_sequential != 'true' }}
     uses: ./.github/workflows/post-deploy-publish.yml
     with:
       deploy_run_id: ${{ github.run_id }}
