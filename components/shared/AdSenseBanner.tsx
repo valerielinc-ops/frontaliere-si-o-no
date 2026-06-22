@@ -58,7 +58,9 @@ type AdState = 'idle' | 'waiting_width' | 'loading' | 'filled' | 'collapsed';
 const initializedAdElements = new WeakSet<Element>();
 
 function getPlaceholderMinHeight(adFormat: string, adLayout?: string): number {
- // Heights match AD_SLOTS.placeholderMinHeight values in adsenseSlots.ts (FRO-385).
+ // Heights match AD_SLOTS.placeholderMinHeight (FRO-385), except autorelaxed
+ // multiplex which reserves more on desktop (≥1280px renders ~600px vs ~400px
+ // mobile) — kept in sync with the `xl:min-h-[600px]` Suspense fallbacks.
  // Sized to cover the majority of real ad renders and prevent CLS when ads expand.
  if (adFormat === 'autorelaxed') {
    // Multiplex/autorelaxed renders ~380-450px on mobile but ~550-650px on
