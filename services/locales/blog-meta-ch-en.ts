@@ -263,6 +263,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-rinvio-roma.title': 'Frontalier Health Tax: Possible Delay in Rome Meeting',
     'blog.article.tassa-salute-frontalieri-rinvio-roma.excerpt': 'Meeting between Keller-Sutter and Giorgetti in late June to freeze the health tax for cross-border workers. Ticino decides on restaurants by June 30th.',
     'blog.article.tassa-salute-frontalieri-rinvio-roma.imageAlt': 'Government Palace in Bellinzona, seat of the Ticino State Council',
+    'blog.article.sanita-farmaceutica-svizzera.title': 'Switzerland bets on AI to revolutionize pharma research',
+    'blog.article.sanita-farmaceutica-svizzera.excerpt': 'Swiss pharmaceutical companies are investing in artificial intelligence to accelerate the discovery of new drugs and improve clinical trials',
+    'blog.article.sanita-farmaceutica-svizzera.imageAlt': 'Panoramic view of Lugano with modern and hospital buildings',
 };
 
 export default blogMetaChEn;

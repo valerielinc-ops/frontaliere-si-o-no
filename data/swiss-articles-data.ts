@@ -791,6 +791,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sanita-farmaceutica-svizzera',
+    category: 'novita',
+    date: '2026-06-22T01:02:56.881Z',
+    image: '/images/blog/sanita-farmaceutica-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

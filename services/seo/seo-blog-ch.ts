@@ -3335,6 +3335,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sanita-farmaceutica-svizzera': {
+    title: 'La Svizzera punta sull\'IA per rivoluzionare la ricerca farmaceutica',
+    description: 'Le aziende farmaceutiche svizzere investono nell\'intelligenza artificiale per accelerare la scoperta di nuovi farmaci e migliorare le sperimentazioni cliniche',
+    keywords: 'frontalieri, ticino, svizzera, italia, punta, sull, rivoluzionare, ricerca',
+    ogTitle: 'La Svizzera rivoluziona la ricerca farmaceutica con l\'IA',
+    ogDescription: 'Le aziende farmaceutiche svizzere investono nell\'intelligenza artificiale per accelerare la scoperta di nuovi farmaci e migliorare le sperimentazioni cliniche',
+    canonicalPath: '/articoli-svizzera/sanita-farmaceutica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Svizzera punta sull'IA per rivoluzionare la ricerca farmaceutica",
+      "description": "Le aziende farmaceutiche svizzere investono nell'intelligenza artificiale per accelerare la scoperta di nuovi farmaci e migliorare le sperimentazioni cliniche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanita-farmaceutica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con edifici moderni e ospedalieri"
+      },
+      "datePublished": "2026-06-22T01:02:56+00:00",
+      "dateModified": "2026-06-22T01:02:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sanita-farmaceutica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
