@@ -82,7 +82,16 @@ main.seo-static-content h3:not([class]) {
   color: var(--color-heading);
 }
 main.seo-static-content h4:not([class]) { margin: 0; font-family: "Outfit", sans-serif; }
-main.seo-static-content { max-width: 1120px; margin: 0 auto; display: grid; gap: 12px; }
+main.seo-static-content { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+/* Mobile overflow guard: the implicit grid column defaults to `auto`, which sizes
+   to the max-content of children. A direct child wrapper with `margin: 0 auto` +
+   a wide `max-width` (e.g. 56rem) then sizes to that max-width instead of the
+   viewport, overflowing horizontally on phones (text clipped by body overflow-x:hidden).
+   `grid-template-columns: minmax(0, 1fr)` pins the track to the container width;
+   `width: 100%` makes each child fill that track (their own max-width still caps the
+   reading width + centers via margin auto on desktop). AdSense rail injection sets its
+   own grid-template-columns / per-ins width inline, so this leaves Auto Ads untouched. */
+main.seo-static-content > * { min-width: 0; width: 100%; }
 .proposal {
   border: 1px solid var(--color-edge);
   background: var(--color-surface);
