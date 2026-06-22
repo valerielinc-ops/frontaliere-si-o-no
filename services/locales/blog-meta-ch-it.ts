@@ -290,6 +290,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sicurezza-paziente-2026-svizzera.title': 'Sicurezza del paziente in Svizzera: novità e sfide nel 2026',
     'blog.article.sicurezza-paziente-2026-svizzera.excerpt': 'L\'Ospedale universitario di Ginevra ha identificato un ceppo di hantavirus nel 2026, tra le sfide della sicurezza sanitaria nazionale.',
     'blog.article.sicurezza-paziente-2026-svizzera.imageAlt': 'Interno di un ospedale svizzero con attenzione alla sicurezza del paziente',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.title': 'Olimpiadi 2038 in Svizzera: nessun referendum, conferma di 200 milioni',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.excerpt': 'Il Consiglio federale ha annunciato che non ci sarà voto popolare sulla candidatura svizzera per le Olimpiadi 2038. La conferma di 200 milioni di franchi è passata al Parlamento.',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.imageAlt': 'Scena di lago e città svizzera con simboli olimpici',
 };
 
 export default blogMetaChIt;

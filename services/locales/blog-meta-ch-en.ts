@@ -290,6 +290,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sicurezza-paziente-2026-svizzera.title': 'Patient safety in Switzerland: news and challenges in 2026',
     'blog.article.sicurezza-paziente-2026-svizzera.excerpt': 'The University Hospital of Geneva identified a strain of hantavirus in 2026, among the challenges of national health security.',
     'blog.article.sicurezza-paziente-2026-svizzera.imageAlt': 'Interior of a Swiss hospital focusing on patient safety',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.title': '2038 Olympics in Switzerland: no referendums, confirmation of 200 million',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.excerpt': 'The Federal Council has announced that there will be no popular vote on the Swiss bid for the 2038 Olympics. The confirmation of 200 million francs has passed to Parliament.',
+    'blog.article.olimpiadi-2038-svizzera-non-referendum.imageAlt': 'Scene of a Swiss city with Olympic symbols near a lake',
 };
 
 export default blogMetaChEn;

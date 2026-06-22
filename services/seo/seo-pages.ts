@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2860,
+ "numberOfItems": 2861,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7504,7 +7504,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2857, "name": "Erba sintetica nelle scuole Ticino: rischi per ...", "url": `${BASE_URL}/articoli-frontaliere/erba-sintetica-scuole-ticino-rischi` },
           { "@type": "ListItem", "position": 2858, "name": "Brexit: lezioni per la Svizzera a 10 anni dall'...", "url": `${BASE_URL}/articoli-frontaliere/brexit-impatti-svizzera-ue` },
           { "@type": "ListItem", "position": 2859, "name": "Public Eye denuncia salari da fame in un'aziend...", "url": `${BASE_URL}/articoli-frontaliere/public-eye-denuncia-salari-on-ticino` },
-          { "@type": "ListItem", "position": 2860, "name": "Sicurezza del paziente in Svizzera: novità e sf...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-paziente-2026-svizzera` }
+          { "@type": "ListItem", "position": 2860, "name": "Sicurezza del paziente in Svizzera: novità e sf...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-paziente-2026-svizzera` },
+          { "@type": "ListItem", "position": 2861, "name": "Olimpiadi 2038 in Svizzera: nessun referendum, ...", "url": `${BASE_URL}/articoli-frontaliere/olimpiadi-2038-svizzera-non-referendum` }
  ]
  },
  {
