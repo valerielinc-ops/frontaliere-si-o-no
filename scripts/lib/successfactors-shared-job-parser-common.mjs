@@ -375,8 +375,12 @@ export function createSuccessFactorsParser(config) {
     const url = normalize(job?.url || '');
     if (key === companyKey) return true;
     if (corporateHost) {
+      // Brand token from the domain (e.g. 'six-group' from six-group.com). Match
+      // hyphen- and space-insensitively so a company named "SIX Group" still
+      // matches a hyphenated domain.
       const brand = corporateHost.split('.')[0];
-      if (brand && company.includes(brand)) return true;
+      const brandSpaced = brand.replace(/-/g, ' ');
+      if (brand && (company.includes(brand) || company.includes(brandSpaced))) return true;
       if (url.includes(corporateHost)) return true;
     }
     if (careerHost && url.includes(careerHost)) return true;

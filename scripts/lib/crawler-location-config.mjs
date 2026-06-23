@@ -468,6 +468,17 @@ export const COMPANY_HQ = {
   'audemars-piguet': { city: 'Le Brassus', canton: 'VD', postalCode: '1348', addressRegion: 'VD' },
   'sonova': { city: 'Stäfa', canton: 'ZH', postalCode: '8712', addressRegion: 'ZH' },
   'straumann': { city: 'Basel', canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  // ── CH-wide direct-employer batch (2026-06-23) ──
+  'helvetia': { city: 'St. Gallen', canton: 'SG', postalCode: '9001', addressRegion: 'SG' },
+  'uzh': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  'buehler': { city: 'Uzwil', canton: 'SG', postalCode: '9240', addressRegion: 'SG' },
+  'unibe': { city: 'Bern', canton: 'BE', postalCode: '3012', addressRegion: 'BE' },
+  'helsana': { city: 'Dübendorf', canton: 'ZH', postalCode: '8600', addressRegion: 'ZH' },
+  'six-group': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  'vontobel': { city: 'Zürich', canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
+  'georg-fischer': { city: 'Schaffhausen', canton: 'SH', postalCode: '8201', addressRegion: 'SH' },
+  'temenos': { city: 'Genève', canton: 'GE', postalCode: '1196', addressRegion: 'GE' },
+  'galderma': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
 };
 
 /**
