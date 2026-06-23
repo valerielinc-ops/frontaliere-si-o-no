@@ -299,6 +299,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Shopping mall hires: salaries up to CHF 5,000',
     'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'A shopping centre hires staff offering high salaries, especially for border workers. Ticinese seem less likely to work in the industry.',
     'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Swiss shopping mall with shops and people',
+    'blog.article.economisti-adeguano-stime-crescita-2026.title': 'Economists adjust growth estimates for 2026',
+    'blog.article.economisti-adeguano-stime-crescita-2026.excerpt': 'Switzerland is moving towards 0.9% GDP growth in 2026, down from 1.0% in March',
+    'blog.article.economisti-adeguano-stime-crescita-2026.imageAlt': 'Aerial view of Monte Generoso with economic growth indicators',
+    'blog.article.frontalieri-checklist-2026.title': 'Frontier: first day of work checklist in Ticino 2026',
+    'blog.article.frontalieri-checklist-2026.excerpt': 'Required documents, permits and health insurance for cross-border workers in 2026',
+    'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontier worker presenting documents on first day of work in Lugano',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Frontier common choice residence Italy Switzerland 2026 single',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Subtitle with concrete data FROM THE SOURCE (max 160 chars)',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
 };
 
 export default blogMetaChEn;

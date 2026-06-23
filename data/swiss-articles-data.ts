@@ -899,6 +899,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'economisti-adeguano-stime-crescita-2026',
+    category: 'fiscale',
+    date: '2026-06-23T02:42:45.766Z',
+    image: '/images/blog/economisti-adeguano-stime-crescita-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'frontalieri-checklist-2026',
+    category: 'pratico',
+    date: '2026-06-23T03:20:46.806Z',
+    image: '/images/blog/frontalieri-checklist-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontaliere-scelta-comune-residenza-italia-svizzera-2026-single',
+    category: 'fiscale',
+    date: '2026-06-23T03:42:13.370Z',
+    image: '/images/blog/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
