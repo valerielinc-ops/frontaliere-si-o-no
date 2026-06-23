@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, useDeferredValue, Suspense } from 'react';
 import { useTranslation } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
@@ -714,6 +714,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
  const [filterProvince, setFilterProvince] = useState<string>('all');
  const [municipalitySearch, setMunicipalitySearch] = useState('');
+ // INP fix: the input stays bound to the immediate value (typing paints
+ // instantly), but the expensive filter/sort + 518-card/518-marker re-render
+ // reads a DEFERRED copy so it runs at low priority off the keystroke's
+ // critical path. Real-user INP p75 on this page was ~1728ms.
+ const deferredMunicipalitySearch = useDeferredValue(municipalitySearch);
  const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
  const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
@@ -764,7 +769,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  const filteredMunicipalities = useMemo(() => lombardyMunicipalities
  .filter(m => {
- const q = municipalitySearch.trim().toLowerCase();
+ const q = deferredMunicipalitySearch.trim().toLowerCase();
  if (q && !`${m.name} ${m.province} ${m.borderCrossing}`.toLowerCase().includes(q)) return false;
  if (filterProvince !== 'all' && m.province !== PROVINCE_NAMES[filterProvince]) return false;
  if (filterType === 'all') return true;
@@ -775,7 +780,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  .sort((a, b) => {
  if (sortBy === 'distance') return a.distance - b.distance;
  return b.population - a.population;
- }), [lombardyMunicipalities, filterProvince, filterType, sortBy, municipalitySearch]);
+ }), [lombardyMunicipalities, filterProvince, filterType, sortBy, deferredMunicipalitySearch]);
  const selectedMunicipalityIndex = selectedMunicipality
  ? filteredMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
  : -1;
@@ -969,7 +974,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {filteredMunicipalities.map((m, idx) => {
  const isSelected = selectedMunicipality?.name === m.name;
  return (
- <React.Fragment key={idx}>
+ // stable key (name is unique) so re-sorting/filtering doesn't churn the
+ // whole 518-card subtree — idx kept below only for the detail-insert slot
+ <React.Fragment key={m.name}>
  <div
  onClick={() => handleMunicipalityClick(m)}
  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleMunicipalityClick(m); } }}
@@ -1101,7 +1108,16 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
  <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-muted text-sm">Loading map…</span></div>}>
  <LazyLeafletMap>
- {({ MapContainer, TileLayer, Marker, Popup, L }) => (
+ {({ MapContainer, TileLayer, Marker, Popup, L }) => {
+ // Build the 3 icon variants once instead of calling createCustomIcon per
+ // marker (was 518×) — Leaflet icon construction is part of the long task
+ // the INP fix targets.
+ const iconByType: Record<'new' | 'old' | 'both', any> = {
+ new: createCustomIcon(L, 'new'),
+ old: createCustomIcon(L, 'old'),
+ both: createCustomIcon(L, 'both'),
+ };
+ return (
  <div className="h-[500px] rounded-xl overflow-hidden border-2 border-edge">
  <MapContainer
  center={[46.0, 9.2]}
@@ -1112,11 +1128,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
  />
- {filteredMunicipalities.map((m, idx) => (
+ {filteredMunicipalities.map((m) => (
  <Marker
- key={idx}
+ key={m.name}
  position={[m.lat, m.lng]}
- icon={createCustomIcon(L, m.type)}
+ icon={iconByType[m.type]}
  >
  <Popup>
  <div className="text-sm">
@@ -1145,7 +1161,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  ))}
  </MapContainer>
  </div>
- )}
+ );
+ }}
  </LazyLeafletMap>
  </Suspense>
  </div>
