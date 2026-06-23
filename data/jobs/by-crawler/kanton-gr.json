@@ -94,7 +94,6 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -201,7 +200,6 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -308,7 +306,6 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -415,7 +412,6 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -669,9 +665,9 @@
     },
     {
       "id": "kanton-gr-61b4bd8f9444",
-      "slug": "systems-engineer-in-windows-server-kanton-gr-ch",
+      "slug": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "systems-engineer-in-windows-server-kanton-gr-ch",
+        "it": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
         "en": "systems-engineer-in-windows-server-kantonale-verwaltung-graubunden-chur",
         "de": "systems-engineer-in-windows-server-kanton-gr-ch",
         "fr": "systems-engineer-in-windows-server-kanton-gr-ch"
@@ -720,7 +716,7 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+        "systems-engineer-in-windows-server-kanton-gr-ch",
         "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur",
         "systems-engineer-in-per-applicazioni-windows-kantonale-verwaltung-graubunden-chur",
@@ -730,7 +726,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
           "systems-engineer-in-windows-server-kanton-gr-ch"
         ],
         "fr": [
@@ -739,7 +734,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:01.610Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -815,7 +809,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:00.957Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1162,10 +1155,10 @@
       "id": "kanton-gr-411b4f827a54",
       "slug": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1213,21 +1206,18 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-kanton-gr-ch",
         "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+        "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-kanton-gr-ch",
-          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
           "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-06-18T12:32:57.645Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2040,7 +2030,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2192,7 +2181,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:53.758Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2360,7 +2348,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:52.468Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2678,7 +2665,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:49.867Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2829,7 +2815,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.927Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2939,7 +2924,6 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

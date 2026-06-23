@@ -76,9 +76,13 @@ export function adminDataPlugin(root: string): Plugin {
  // The admin panel is an internal tool and must never appear in SERPs,
  // so it is exempt from the site-wide BreadcrumbList requirement (D.2).
  let shell = fs.readFileSync(indexHtml, 'utf-8');
- if (/<meta\s+name=["']robots["'][^>]*>/i.test(shell)) {
+ // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
+ // attribute values lose their quotes in dist/ (`name=robots`). A quote-mandatory
+ // regex misses the minified shell meta → falls through to the <head> branch and
+ // injects a SECOND robots meta while the original survives.
+ if (/<meta\s+name=["']?robots["']?[^>]*>/i.test(shell)) {
  shell = shell.replace(
- /<meta\s+name=["']robots["'][^>]*>/i,
+ /<meta\s+name=["']?robots["']?[^>]*>/i,
  '<meta name="robots" content="noindex, nofollow" />'
  );
  } else {

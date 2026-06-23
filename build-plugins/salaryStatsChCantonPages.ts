@@ -43,13 +43,16 @@ import {
   type SalaryStatsLocale,
 } from './salaryStatsData';
 import {
-  HERO_EYEBROW_STYLE,
-  H1_STYLE,
-  LEDE_STYLE,
   BODY_STYLE,
   H2_STYLE,
-  BREADCRUMB_STYLE,
-  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_CLASS,
+  BREADCRUMB_LINK_CLASS,
+  CTA_PRIMARY_CLASS,
+  CARD_CLASS,
+  STAT_TILE_LABEL_CLASS,
+  STAT_TILE_VALUE_CLASS,
+  renderStatGrid,
+  type StatTileTone,
 } from './shared/seoContentTokens';
 
 const OG_LOCALE: Record<SalaryStatsLocale, string> = {
@@ -250,46 +253,71 @@ export function renderSalaryStatsPage(opts: {
   };
   const faq = { it: r1000(95000), finance: r1000(110000), pharma: r1000(105000), retail: r1000(55000) };
 
-  const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_STYLE}">
-  <a href="${homeHref}" class="${BREADCRUMB_LINK_STYLE}">${esc(c.breadcrumbHome)}</a>
+  const calcHref = CALC_HREF[locale as CantonSeoLocale];
+
+  const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
+  <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbHome)}</a>
   <span aria-hidden="true">›</span>
-  <a href="${homeHref}" class="${BREADCRUMB_LINK_STYLE}">${esc(c.breadcrumbCh)}</a>
+  <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbCh)}</a>
   <span aria-hidden="true">›</span>
   <span aria-current="page">${esc(cantonName)}</span>
 </nav>`;
 
-  const tiles = `<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4">
-  <div class="rounded-xl bg-surface-alt p-3"><div class="text-2xl font-bold text-heading">${esc(monthlyStr)}</div><div class="text-xs text-subtle">${esc(c.tileMedianMonth)}</div></div>
-  <div class="rounded-xl bg-surface-alt p-3"><div class="text-2xl font-bold text-heading">CHF ${fmtChf(annual, locale)}</div><div class="text-xs text-subtle">${esc(c.tileMedianYear)}</div></div>
-  <div class="rounded-xl bg-surface-alt p-3"><div class="text-2xl font-bold text-heading">${vsNational}%</div><div class="text-xs text-subtle">${esc(c.tileVsNational)}</div></div>
-  <div class="rounded-xl bg-surface-alt p-3"><div class="text-2xl font-bold text-heading">CHF ${fmtChf(band.grossLow, locale)}–${fmtChf(band.grossHigh, locale)}</div><div class="text-xs text-subtle">${esc(c.tileProfBand)}</div></div>
+  // Hero: soft accent gradient band (`sx-hero`) + animated emoji pill
+  // (`sx-kick` + `lh-emoji`, waves under `cl-fun`), mirroring the polished
+  // career/profession landings. Replaces the previous unstyled header (the old
+  // `class="${H1_STYLE}"` passed a CSS-declaration string into `class=`, which
+  // the browser ignored → bare browser-default header).
+  const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">📊</span>${esc(c.eyebrow)} · ${esc(cantonName)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(c.h1(cantonName))}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(cantonName, monthlyStr))}</p></header>`;
+
+  // Headline stat tiles via the shared `renderStatGrid` (styled `s-XENO3U`
+  // grid + tone classes — dark-mode safe, and staggered-rise + hover-pop
+  // animated under `cl-fun`). The headline median tile is a tap target to the
+  // net-salary calculator (absorbs $dead_click on the most prominent tile);
+  // `vs Swiss average` is colored by meaning (green ≥100%, amber below).
+  const vsTone: StatTileTone = vsNational >= 100 ? 'success' : 'warning';
+  const tiles = renderStatGrid([
+    { label: c.tileMedianMonth, value: monthlyStr, tone: 'accent', href: calcHref },
+    { label: c.tileMedianYear, value: `CHF ${fmtChf(annual, locale)}`, tone: 'neutral' },
+    { label: c.tileVsNational, value: `${vsNational}%`, tone: vsTone },
+    { label: c.tileProfBand, value: `CHF ${fmtChf(band.grossLow, locale)}–${fmtChf(band.grossHigh, locale)}`, tone: 'neutral' },
+  ]);
+
+  // Sector salaries: a horizontal bar chart (bar width ∝ annual gross, scaled
+  // to the top sector) replaces the flat two-column table — instantly readable
+  // ranking + a "wow" visual. Bars use the `.s-salbar` atoms (accent gradient,
+  // grow-in animation under `cl-fun`) defined in seo-static.css.
+  const sectorRows: ReadonlyArray<readonly [string, number, string]> = [
+    [c.sectorIt, faq.it, '💻'],
+    [c.sectorFinance, faq.finance, '🏦'],
+    [c.sectorPharma, faq.pharma, '💊'],
+    [c.sectorRetail, faq.retail, '🛍️'],
+  ];
+  const sectorMax = Math.max(...sectorRows.map(([, val]) => val));
+  const sectorBars = sectorRows
+    .map(([label, val, emoji]) => {
+      const pct = Math.max(10, Math.round((val / sectorMax) * 100));
+      return `<div class="my-3">
+  <div class="flex items-baseline justify-between gap-3 mb-1"><span class="text-sm font-medium text-body"><span aria-hidden="true">${emoji}</span> ${esc(label)}</span><span class="text-sm font-bold text-heading">CHF ${fmtChf(val, locale)}+</span></div>
+  <div class="s-salbar"><span style="width:${pct}%"></span></div>
+</div>`;
+    })
+    .join('');
+  const sectorTable = `<h2 style="${H2_STYLE}">${esc(c.sectorHeading)}</h2>
+<div class="${CARD_CLASS}" style="margin:0 0 8px">${sectorBars}</div>`;
+
+  // Net salary: two side-by-side metric cards (label + range) instead of a
+  // bare table row pair.
+  const netSuffix = locale === 'de' ? 'Mt.' : locale === 'it' ? 'mese' : locale === 'fr' ? 'mois' : 'mo';
+  const netBlock = `<h2 style="${H2_STYLE}">${esc(c.netHeading)}</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-2">
+  <div class="${CARD_CLASS}"><div class="${STAT_TILE_LABEL_CLASS}"><span aria-hidden="true">👤</span> ${esc(c.netSingle)}</div><div class="${STAT_TILE_VALUE_CLASS}">CHF ${fmtChf(band.netSingleLow, locale)}–${fmtChf(band.netSingleHigh, locale)}<span class="text-sm text-subtle font-semibold">/${netSuffix}</span></div></div>
+  <div class="${CARD_CLASS}"><div class="${STAT_TILE_LABEL_CLASS}"><span aria-hidden="true">👨‍👩‍👧</span> ${esc(c.netCouple)}</div><div class="${STAT_TILE_VALUE_CLASS}">CHF ${fmtChf(band.netCoupleLow, locale)}–${fmtChf(band.netCoupleHigh, locale)}<span class="text-sm text-subtle font-semibold">/${netSuffix}</span></div></div>
 </div>`;
 
-  const sectorRows = [
-    [c.sectorIt, faq.it],
-    [c.sectorFinance, faq.finance],
-    [c.sectorPharma, faq.pharma],
-    [c.sectorRetail, faq.retail],
-  ]
-    .map(
-      ([label, val]) =>
-        `<tr><td class="py-1 pr-4">${esc(label)}</td><td class="py-1 font-semibold text-heading">CHF ${fmtChf(Number(val), locale)}+</td></tr>`,
-    )
-    .join('');
+  const methodology = `<h2 style="${H2_STYLE}">${esc(c.methodologyHeading)}</h2><p style="${BODY_STYLE}">${esc(c.methodology(cantonName))}</p>`;
 
-  const sectorTable = `<h2 class="${H2_STYLE}">${esc(c.sectorHeading)}</h2>
-<table class="w-full text-sm my-2"><thead><tr class="text-subtle text-left"><th class="font-medium">${esc(c.sectorCol)}</th><th class="font-medium">${esc(c.sectorAnnual)}</th></tr></thead><tbody>${sectorRows}</tbody></table>`;
-
-  const netBlock = `<h2 class="${H2_STYLE}">${esc(c.netHeading)}</h2>
-<table class="w-full text-sm my-2"><tbody>
-<tr><td class="py-1 pr-4">${esc(c.netSingle)}</td><td class="py-1 font-semibold text-heading">CHF ${fmtChf(band.netSingleLow, locale)}–${fmtChf(band.netSingleHigh, locale)}/${locale === 'de' ? 'Mt.' : locale === 'it' ? 'mese' : locale === 'fr' ? 'mois' : 'mo'}</td></tr>
-<tr><td class="py-1 pr-4">${esc(c.netCouple)}</td><td class="py-1 font-semibold text-heading">CHF ${fmtChf(band.netCoupleLow, locale)}–${fmtChf(band.netCoupleHigh, locale)}</td></tr>
-</tbody></table>`;
-
-  const methodology = `<h2 class="${H2_STYLE}">${esc(c.methodologyHeading)}</h2><p class="${BODY_STYLE}">${esc(c.methodology(cantonName))}</p>`;
-
-  const calcHref = CALC_HREF[locale as CantonSeoLocale];
-  const cta = `<p class="my-4"><a href="${esc(calcHref)}" class="inline-block rounded-lg bg-info text-white px-4 py-2 font-medium">${esc(c.cta)} →</a></p>`;
+  const cta = `<p class="my-4"><a href="${esc(calcHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta)} →</a></p>`;
 
   // Reuse the canton-aware SEO prose (already carries per-canton salary copy +
   // FAQ) so the page comfortably clears the indexable-words gate and shares one
@@ -302,14 +330,17 @@ export function renderSalaryStatsPage(opts: {
     ctaLabel: c.cta,
   });
 
-  const main = `${breadcrumb}
-<header><p class="${HERO_EYEBROW_STYLE}">${esc(c.eyebrow)}</p><h1 class="${H1_STYLE}">${esc(c.h1(cantonName))}</h1><p class="${LEDE_STYLE}">${esc(c.lede(cantonName, monthlyStr))}</p></header>
+  // `cl-fun` wrapper turns on the shared micro-interaction layer (tile rise +
+  // hover pop, CTA glow, emoji wave, FAQ chevron) — all gated behind
+  // `prefers-reduced-motion: reduce` in seo-static.css.
+  const main = `<div class="cl-fun">${breadcrumb}
+${header}
 ${tiles}
 ${sectorTable}
 ${netBlock}
 ${cta}
 ${methodology}
-${prose}`;
+${prose}</div>`;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',
