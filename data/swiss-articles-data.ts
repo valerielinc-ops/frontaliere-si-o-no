@@ -1032,10 +1032,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorName: 'Laura Bianchi',
    },
    {
+
     id: 'permesso-g-pro-contro-frontalieri',
     category: 'pratico',
     date: '2026-06-23T20:17:08.028Z',
     image: '/images/blog/permesso-g-pro-contro-frontalieri.webp',
+    id: 'permesso-g-frontalieri-pro-contro',
+    category: 'pratico',
+    date: '2026-06-23T20:34:02.612Z',
+    image: '/images/blog/permesso-g-frontalieri-pro-contro.webp',
+
     hasCalculator: true,
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',

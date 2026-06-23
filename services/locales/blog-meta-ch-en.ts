@@ -345,9 +345,14 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.title': 'Border pension calculation: how AVS and INPS work',
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.excerpt': 'Complete guide to calculating the pension for frontier workers with Swiss AVS and Italian INPS contributions.',
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.imageAlt': 'View of Lake Lugano with a person calculating pension',
+
     'blog.article.permesso-g-pro-contro-frontalieri.title': 'Border permit G: full advantages and disadvantages',
     'blog.article.permesso-g-pro-contro-frontalieri.excerpt': 'Everything you need to know about the G permit for border workers: advantages, disadvantages and when it really suits you.',
     'blog.article.permesso-g-pro-contro-frontalieri.imageAlt': 'Panoramic view of Lake Lugano with the Swiss-Italian border in the background',
+    'blog.article.permesso-g-frontalieri-pro-contro.title': 'Border permit G: full advantages and disadvantages',
+    'blog.article.permesso-g-frontalieri-pro-contro.excerpt': 'Detailed analysis of the pros and cons of the G permit for border workers, with a focus on tax, social security and labour mobility.',
+    'blog.article.permesso-g-frontalieri-pro-contro.imageAlt': 'Scenic view of Lake Lugano with the Swiss and Italian border landscape',
+
 };
 
 export default blogMetaChEn;
