@@ -311,20 +311,28 @@
       main.seo-static-content > * { min-width: 0; width: 100%; }
 
       /* Static SEO hero — first-paint reservation mirrored from the async
-         seo-static.css hero rules (seoContentTokens.ts stable classes). Until
-         the sheet swaps in, the stat-tile container .s-XENO3U stacks as block
-         (tall) then collapses to a grid row — live desktop shift 0.39 (the top
-         residual after the page-grid fix #2740). Reserving the grid + tile box
-         + CTA flex makes first paint == final → no shift. Pure space
+         seo-static.css hero rules (stable hard-coded classes). Until the sheet
+         swaps in, the stat-tile container .s-XENO3U stacks as block (tall) then
+         collapses to a grid row — live desktop shift 0.39 (the top residual
+         after the page-grid fix #2740). The TI city/canton hubs
+         /cerca-lavoro-{canton}/{city}/ (dominant page type on that surface)
+         emit a PARALLEL grid system (.s-S6PRaY + .s-CGuDZg/.s-3kP_AL/.s-0kclVO
+         tiles, .s-9UotdJ values, .s-JFi4vt/.s-z4q8yI/.s-AnMfGC labels, .s-S_0cal
+         header) that does NOT reuse .s-XENO3U, so it collapsed the same way —
+         reserved below too. Makes first paint == final → no shift. Pure space
          reservation. Keep in sync with SEO_STATIC_HERO_RESERVE_CSS in
          build-plugins/shared/criticalCss.ts. */
       .s-XENO3U { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; margin: 0 0 24px; }
-      .s-tbase, .s-tacc, .s-tok, .s-twrn, .s-tdng { padding: 18px; border: 1px solid transparent; border-radius: 14px; }
-      .s-tlbl { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
-      .s-tval { margin-top: 8px; font-size: 28px; font-weight: 800; line-height: 1.1; }
+      .s-S6PRaY { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 14px; margin: 0 0 18px; }
+      .s-tbase, .s-tacc, .s-tok, .s-twrn, .s-tdng, .s-CGuDZg, .s-3kP_AL { padding: 18px; border: 1px solid transparent; border-radius: 14px; }
+      .s-0kclVO { padding: 18px; border: 1px solid transparent; border-radius: 22px; }
+      .s-tlbl, .s-JFi4vt, .s-z4q8yI { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+      .s-AnMfGC { font-size: 12px; font-weight: 700; text-transform: uppercase; }
+      .s-tval, .s-9UotdJ { margin-top: 8px; font-size: 28px; font-weight: 800; line-height: 1.1; }
       .s-bcr { margin: 0 0 14px; font-size: 13px; }
       .s-cta { display: inline-flex; align-items: center; gap: 6px; padding: 12px 20px; }
       .s-sy52lX { margin-bottom: 24px; }
+      .s-S_0cal { margin-bottom: 28px; }
     </style>
 
     <!-- Google AdSense: deferred until after page is interactive to avoid

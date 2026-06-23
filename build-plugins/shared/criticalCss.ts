@@ -148,24 +148,42 @@ export const SEO_STATIC_GRID_RESERVE_CSS =
  * page-grid 0.70 to ~0.17.
  *
  * Reserved values mirror the async rules VERBATIM (all hooks are STABLE atomic
- * class names exported by `seoContentTokens.ts`, not per-build hashes):
+ * class names hard-coded by `seoContentTokens.ts` + `jobsSeoPagesPlugin.ts`,
+ * not per-build hashes):
  *   - `.s-XENO3U` stat grid, `.s-cta` CTA flex, breadcrumb `.s-bcr` margin, the
  *     hero wrapper `.s-sy52lX` margin — the structural collapse.
  *   - tile box (`.s-tbase/.s-tacc/.s-tok/.s-twrn/.s-tdng`) `padding:18px` +
  *     `border:1px` and the tile `.s-tlbl`/`.s-tval` font metrics — so each
  *     tile's height (hence the grid row height) is identical at first paint.
+ *
+ * The TI city/canton job hubs `/cerca-lavoro-{canton}/{city}/` — the DOMINANT
+ * page type on the `/cerca-lavoro-*` surface — render a PARALLEL, independently
+ * hard-coded stat-grid system (`jobsSeoPagesPlugin.ts`: `<header class="s-S_0cal">`
+ * + `<section class="s-S6PRaY">` with `.s-CGuDZg`/`.s-3kP_AL`/`.s-0kclVO` tiles,
+ * `.s-9UotdJ` values, `.s-JFi4vt`/`.s-z4q8yI`/`.s-AnMfGC` labels) that does NOT
+ * reuse `renderStatGrid`/`.s-XENO3U`, so the reserve above never touched it and
+ * the SAME block→grid collapse still fired there. We mirror that system too:
+ *   - `.s-S6PRaY` grid (`minmax(220px)`, `margin:0 0 18px`) — the collapse, and
+ *     `.s-S_0cal` hero-wrapper margin (the city-hub twin of `.s-sy52lX`).
+ *   - its tile box + value/label metrics, grouped with the `.s-t*` twins where
+ *     layout-identical (`.s-9UotdJ`==`.s-tval`; `.s-JFi4vt`/`.s-z4q8yI`==`.s-tlbl`).
+ *
  * Borders use `transparent` (the async sheet paints the real colour — paint,
  * not layout). Pure space reservation (AGENTS.md §7): no ad/content/markup
  * change; the CTA/tiles are the same boxes before and after.
  */
 export const SEO_STATIC_HERO_RESERVE_CSS =
   '.s-XENO3U{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px}' +
-  '.s-tbase,.s-tacc,.s-tok,.s-twrn,.s-tdng{padding:18px;border:1px solid transparent;border-radius:14px}' +
-  '.s-tlbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}' +
-  '.s-tval{margin-top:8px;font-size:28px;font-weight:800;line-height:1.1}' +
+  '.s-S6PRaY{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px}' +
+  '.s-tbase,.s-tacc,.s-tok,.s-twrn,.s-tdng,.s-CGuDZg,.s-3kP_AL{padding:18px;border:1px solid transparent;border-radius:14px}' +
+  '.s-0kclVO{padding:18px;border:1px solid transparent;border-radius:22px}' +
+  '.s-tlbl,.s-JFi4vt,.s-z4q8yI{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}' +
+  '.s-AnMfGC{font-size:12px;font-weight:700;text-transform:uppercase}' +
+  '.s-tval,.s-9UotdJ{margin-top:8px;font-size:28px;font-weight:800;line-height:1.1}' +
   '.s-bcr{margin:0 0 14px;font-size:13px}' +
   '.s-cta{display:inline-flex;align-items:center;gap:6px;padding:12px 20px}' +
-  '.s-sy52lX{margin-bottom:24px}';
+  '.s-sy52lX{margin-bottom:24px}' +
+  '.s-S_0cal{margin-bottom:28px}';
 
 export const CRITICAL_CSS =
   '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}' +
