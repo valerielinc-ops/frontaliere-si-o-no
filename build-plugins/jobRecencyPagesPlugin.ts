@@ -11,6 +11,7 @@
 
 import type { Plugin } from 'vite';
 import { clampMetaDescription } from './shared/titleSuffix';
+import { railGutters } from './shared/railGutters';
 import {
   BASE_URL,
   FAVICON_LINKS,
@@ -310,6 +311,7 @@ ${alternates}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     <div id="root"></div>
+    ${railGutters(true).open}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-bcr">
         <a href="/" class="s-bcl">Home</a>
@@ -361,7 +363,7 @@ ${alternates}
           </div>
         </details>`;
       })()}
-    </main>
+    </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
