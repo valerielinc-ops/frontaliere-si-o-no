@@ -150,13 +150,17 @@ jobs:
       # thin output, Argos misses — where premium/LLM quota (when it recovers) actually
       # adds quality. Net: the bulk is done by the fast engine; the slow cascade no
       # longer grinds the whole backlog through onnxruntime.
-      # Kill-switch: set repo/workflow var TRANSLATE_ARGOS_FIRST=0 to fall back to
-      # cascade-first (Phase 2a + the re-assemble are skipped; the always()-guarded
-      # Phase 2c mop-up still drains the backlog exactly as before).
+      # Kill-switch: set repo/workflow var TRANSLATE_ARGOS_FIRST_DISABLE=1 to fall back
+      # to cascade-first (Phase 2a + the re-assemble are skipped; the always()-guarded
+      # Phase 2c mop-up still drains the backlog exactly as before). NB the disable
+      # value is '1', NOT '0': GitHub coerces an UNSET var ('') and '0' both to the
+      # number 0, so `vars.X != '0'` is FALSE when unset → Phase 2a would never run
+      # (the original gate's bug). `vars.X != '1'` is the proven pattern (mirrors
+      # LOCAL_MT_DISABLE): unset → 0 != 1 → runs; set to '1' → 1 != 1 → skips.
       # REVERT-TRIGGER (NOT measurable pre-merge — only the live scheduled run
       # exercises the ~17k-job backlog): if the next translate-pending run shows
       # wall-clock ≥ the prior baseline OR fewer jobs completed/run, set
-      # TRANSLATE_ARGOS_FIRST=0 (instant revert, zero code change) and investigate.
+      # TRANSLATE_ARGOS_FIRST_DISABLE=1 (instant revert, zero code change) and investigate.
       - name: Install Argos Translate (local MT engine)
         # Installed ONCE up front so BOTH the Phase 2a bulk pass and the
         # always()-guarded Phase 2c mop-up reuse it (pip + model cache persist for
@@ -183,7 +187,7 @@ jobs:
       # and clears needsRetranslation only when a locale actually became complete —
       # so re-running it (Phase 2c) or falling back to cascade-first is always safe.
       - name: "Phase 2a: Local MT bulk translate (Argos)"
-        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST != '0'
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
@@ -192,7 +196,7 @@ jobs:
       # Re-assemble so the cascade (which reads data/jobs.json) sees Argos's fills
       # and only queues the genuine remainder, not work Argos already finished.
       - name: Re-assemble dataset after Argos bulk
-        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST != '0'
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
         run: node scripts/assemble-jobs-dataset.mjs
 
       # Ext3 task 4 — flag jobs whose descriptionByLocale[X] contains text
@@ -217,8 +221,8 @@ jobs:
         # processes only the REMAINDER: contamination (wrong-language locale slots
         # that the mop-up's missing-slot logic does not touch), thin output, and any
         # job Argos failed on — plus it is where premium/LLM quota, WHEN it recovers,
-        # upgrades quality. When TRANSLATE_ARGOS_FIRST=0 it reverts to the old role
-        # (leads, with the Argos mop-up as the safety net).
+        # upgrades quality. When TRANSLATE_ARGOS_FIRST_DISABLE=1 it reverts to the old
+        # role (leads, with the Argos mop-up as the safety net).
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
@@ -258,8 +262,8 @@ jobs:
       # With Argos-first, the bulk was already drained in Phase 2a; this pass mops
       # up whatever the cascade (Phase 2b) freshly left incomplete — contamination
       # it deleted-and-couldn't-retranslate, fields the cascade ran out of budget
-      # on. (When TRANSLATE_ARGOS_FIRST=0 this is the ONLY local-MT pass and drains
-      # the whole backlog, exactly as before.) Argos Translate is loaded as a DIRECT
+      # on. (When TRANSLATE_ARGOS_FIRST_DISABLE=1 this is the ONLY local-MT pass and
+      # drains the whole backlog, exactly as before.) Argos Translate is loaded as a DIRECT
       # PYTHON LIBRARY — no HTTP server, no healthcheck race (the failure mode that
       # made the old self-hosted LibreTranslate service 100% dead: 1483 timeouts /
       # 0 hits). Models load ONCE per process; unlimited throughput, no external API.
