@@ -2892,8 +2892,11 @@ function parseDdMmYyyy(raw = '') {
   const d = Number(m[1]);
   const mm = Number(m[2]);
   const y = Number(m[3]);
-  const iso = new Date(Date.UTC(y, mm - 1, d)).toISOString();
-  return iso.slice(0, 10);
+  const iso = new Date(Date.UTC(y, mm - 1, d));
+  // Round-trip: reject calendar-impossible dates (31.04, 31.02) silently
+  // overflowed by Date.UTC instead of trusting a misparsed postedDate.
+  if (iso.getUTCDate() !== d || iso.getUTCMonth() !== mm - 1) return dateOnly(Date.now());
+  return iso.toISOString().slice(0, 10);
 }
 
 function inferTicinoCityFromText(text = '', fallback = 'Ticino') {

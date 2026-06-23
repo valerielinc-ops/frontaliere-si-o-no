@@ -32,6 +32,20 @@ export const SLIM_INDEX_FIELDS: ReadonlySet<string> = new Set([
   'companyLogo', 'tier', 'applyMode', 'publisherUid', 'publisherJobId',
 ]);
 
+/** Number of records in the first-page slim asset (jobs-<locale>-index-first.json).
+ * Sized well above the listing page size (10) so the SPA can paint page 1 — and a
+ * little scroll headroom — from a tiny payload, then swap in the full index in the
+ * background. Single source of truth shared by the emitter (localeJobsSplitPlugin)
+ * and the JobBoard fetch path so the two can't drift on the slice boundary. */
+export const FIRST_PAGE_SLICE_SIZE = 50;
+
+/** Asset path (relative to /data) of the first-page slim index for a locale.
+ * Keeping the path builder here means the emitter and the fetch path derive the
+ * same URL by construction (AGENTS.md §6: no literal-duplicated path string). */
+export function firstPageIndexFileName(locale: string): string {
+  return `jobs-${locale}-index-first.json`;
+}
+
 export interface JobEntry {
   id?: string;
   title?: string;
