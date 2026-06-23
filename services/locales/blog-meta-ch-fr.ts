@@ -305,6 +305,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-checklist-2026.title': 'Frontalier : checklist premier jour de travail au Tessin 2026',
     'blog.article.frontalieri-checklist-2026.excerpt': 'Documents nécessaires, permis et assurance maladie pour les travailleurs transfrontaliers en 2026',
     'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontalier présentant des documents le premier jour de travail à Lugano',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Frontière choix commune résidence Italie Suisse 2026 célibataire',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Sous-titre avec des données concrètes DE LA SOURCE (max 160 chars)',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
 };
 
 export default blogMetaChFr;
