@@ -34,7 +34,7 @@ import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import { captureLostSlugs, normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
-import { markRunStart } from './lib/translate-run-clock.mjs';
+import { markRunStart, readRunStartMs } from './lib/translate-run-clock.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -85,14 +85,18 @@ const COMPANY_KEY_FILTER = parseCompanyKey();
 // comfortable margin for the commit/deploy steps to run.
 const TIME_BUDGET_MS = 320 * 60 * 1000;
 
-// Process-wide start, captured once at module load (≈ run start). Used to make
-// the shared crawler's per-company localization budget ELAPSED-AWARE: each
-// runSharedCrawler() call gets `CASCADE_LOCALIZATION_DEADLINE_MS − elapsed`, not
-// a fresh full budget. Without this, a heavy company starting late would get a
-// brand-new budget and could run past the 350min job timeout (review #2205 🔴),
-// which would lose ALL uncommitted incremental writes. Capping the cascade at
-// 250min leaves ~100min for the Argos mop-up + commit/scatter/slug/deploy.
-const RUN_START_MS = Date.now();
+// SHARED run start (ms). Used to make the shared crawler's per-company
+// localization budget ELAPSED-AWARE: each runSharedCrawler() call gets
+// `CASCADE_LOCALIZATION_DEADLINE_MS − elapsed`, not a fresh full budget. Without
+// this, a heavy company starting late would get a brand-new budget and could run
+// past the 350min job timeout (review #2205 🔴), losing ALL uncommitted writes.
+// Prefer the run-clock marker (written write-once by the FIRST translation step):
+// under the Argos-first ordering the local-MT BULK pass (Phase 2a) runs before
+// this cascade and seeds the marker, so the cascade's 250min deadline correctly
+// counts the time Phase 2a already spent — keeping Phase 2a + cascade + mop-up
+// inside the 350min timeout. Falls back to now() when no marker exists
+// (cascade-first / standalone), identical to the prior behaviour.
+const RUN_START_MS = readRunStartMs() ?? Date.now();
 const CASCADE_LOCALIZATION_DEADLINE_MS = 250 * 60 * 1000;
 
 function readJson(filePath) {
