@@ -13,6 +13,7 @@
  */
 
 import type { Firestore } from 'firebase/firestore';
+import { resilientImport } from '@/services/resilientImport';
 
 let _db: Firestore | null = null;
 let _dbInit = false;
@@ -69,13 +70,22 @@ export async function trackJobView(slugOrJob: string | TrackableJob): Promise<vo
   try {
     if (!_dbInit) {
       _dbInit = true;
-      const { getFirestore } = await import('firebase/firestore');
-      const { app } = await import('@/services/firebase');
+      const { getFirestore } = await resilientImport(
+        () => import('firebase/firestore'),
+        (m) => typeof m.getFirestore === 'function',
+      );
+      const { app } = await resilientImport(
+        () => import('@/services/firebase'),
+        (m) => m.app !== undefined,
+      );
       _db = getFirestore(app);
     }
     if (!_db) return;
 
-    const { doc, setDoc, increment } = await import('firebase/firestore');
+    const { doc, setDoc, increment } = await resilientImport(
+      () => import('firebase/firestore'),
+      (m) => typeof m.doc === 'function',
+    );
     await setDoc(
       doc(_db, 'job_views', writeSlug),
       { views: increment(1), lastViewed: new Date() },

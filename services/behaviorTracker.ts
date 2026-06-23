@@ -7,6 +7,7 @@
  */
 
 import type { Firestore } from 'firebase/firestore';
+import { resilientImport } from '@/services/resilientImport';
 
 // ─── Types ──────────────────────────────────────────────────────
 
@@ -202,8 +203,14 @@ async function getDb(): Promise<Firestore | null> {
  if (!_dbInit) {
  _dbInit = true;
  try {
- const { getFirestore } = await import('firebase/firestore');
- const { app } = await import('@/services/firebase');
+ const { getFirestore } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { app } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => m.app !== undefined,
+ );
  _db = getFirestore(app);
  } catch {
  _db = null;
@@ -219,7 +226,10 @@ export async function syncToFirestore(email: string): Promise<void> {
  const db = await getDb();
  if (!db) return;
  const data = getBehaviorData();
- const { doc, setDoc } = await import('firebase/firestore');
+ const { doc, setDoc } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.doc === 'function',
+ );
  await setDoc(
  doc(db, 'newsletter_subscribers', email, 'private', 'personalization'),
  {
@@ -245,7 +255,10 @@ export async function hydrateFromFirestore(email: string): Promise<void> {
  try {
  const db = await getDb();
  if (!db) return;
- const { doc, getDoc } = await import('firebase/firestore');
+ const { doc, getDoc } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.doc === 'function',
+ );
  const snap = await getDoc(doc(db, 'newsletter_subscribers', email, 'private', 'personalization'));
  if (!snap.exists()) return;
  const remote = snap.data();
