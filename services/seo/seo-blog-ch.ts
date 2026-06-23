@@ -4254,6 +4254,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contributi-sociali-frontalieri-busta-paga': {
+    title: 'Guida ai contributi sociali svizzeri per frontalieri: dettaglio busta paga',
+    description: 'Scopri come sono suddivisi i contributi sociali in busta paga per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, contributi, sociali, svizzeri, dettaglio',
+    ogTitle: 'Guida ai contributi sociali svizzeri per frontalieri: dettaglio busta paga',
+    ogDescription: 'Scopri come sono suddivisi i contributi sociali in busta paga per i frontalieri che lavorano in Svizzera.',
+    canonicalPath: '/articoli-svizzera/contributi-sociali-frontalieri-busta-paga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida ai contributi sociali svizzeri per frontalieri: dettaglio busta paga",
+      "description": "Scopri come sono suddivisi i contributi sociali in busta paga per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/contributi-sociali-frontalieri-busta-paga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dettaglio di una busta paga svizzera con contributi sociali evidenziati sullo sfondo di Lugano"
+      },
+      "datePublished": "2026-06-23T17:46:05+00:00",
+      "dateModified": "2026-06-23T17:46:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/contributi-sociali-frontalieri-busta-paga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

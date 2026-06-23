@@ -336,7 +336,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.garanzie-aziende-elettriche-senza-proroga.title': 'Keine Verlängerung staatlicher Garantien für Elektrizitätsunternehmen',
     'blog.article.garanzie-aziende-elettriche-senza-proroga.excerpt': 'Ab 2027 müssen die Schweizer Stromversorger die Risiken ohne finanzielle Unterstützung des Bundes eigenständig managen.',
     'blog.article.garanzie-aziende-elettriche-senza-proroga.imageAlt': 'Wasserkraftwerk am Luganersee bei Sonnenuntergang',
-
+    'blog.article.contributi-sociali-frontalieri-busta-paga.title': 'Sozialbeiträge CH für Grenzgänger: Lohnabrechnung',
+    'blog.article.contributi-sociali-frontalieri-busta-paga.excerpt': 'Erfahren Sie, wie die Sozialbeiträge in Lohnabrechnungen für Grenzgänger, die in der Schweiz arbeiten, aufgeteilt sind.',
+    'blog.article.contributi-sociali-frontalieri-busta-paga.imageAlt': 'Detail eines Schweizer Gehaltsstreifens mit hervorgehobenen Sozialbeiträgen vor der Kulisse von Lugano',
 };
 
 export default blogMetaChDe;

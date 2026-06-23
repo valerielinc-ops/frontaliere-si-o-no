@@ -1004,6 +1004,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'contributi-sociali-frontalieri-busta-paga',
+    category: 'pratico',
+    date: '2026-06-23T17:46:05.128Z',
+    image: '/images/blog/contributi-sociali-frontalieri-busta-paga.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
