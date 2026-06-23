@@ -5215,7 +5215,7 @@
         "it": "associato-al-portafoglio-reporting-tether-operations-geneve-geneve",
         "en": "portfolio-associate-reporting-tether-ch",
         "de": "portfolio-associate-reporting-tether-ch",
-        "fr": "portfolio-associate-reporting-tether-ch"
+        "fr": "associe-de-portefeuille-rapports-tether-operations-geneve-geneve"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -5264,6 +5264,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "portfolio-associate-reporting-tether-ch"
+        ],
+        "fr": [
           "portfolio-associate-reporting-tether-ch"
         ]
       },

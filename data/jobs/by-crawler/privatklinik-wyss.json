@@ -482,9 +482,9 @@
       "slug": "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "it": "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee",
-        "en": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
+        "en": "nursing-director-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
-        "fr": "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
+        "fr": "directeur-des-soins-infirmiers-m-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -528,11 +528,18 @@
       "pensumMax": 90,
       "pensum": "90%",
       "previousSlugs": [
-        "pflegedirektor-in-m-w-d-privatklinik-wyss-ch"
+        "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
+        "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegedirektor-in-m-w-d-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "pflegedirektor-in-m-w-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-06-22T15:02:55.484Z",

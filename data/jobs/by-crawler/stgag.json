@@ -605,9 +605,9 @@
       "slug": "specialista-diplomato-in-tecnica-chirurgica-dell-inconsanguine-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "specialista-diplomato-in-tecnica-chirurgica-dell-inconsanguine-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-fachmann-frau-operationstechnik-hf-stgag-munsterlingen",
+        "en": "operating-room-technician-hf-spital-thurgau-stgag-munsterlingen",
         "de": "dipl-fachmann-frau-operationstechnik-hf-stgag-munsterlingen",
-        "fr": "dipl-fachmann-frau-operationstechnik-hf-stgag-munsterlingen"
+        "fr": "technicien-ne-en-salle-d-operation-es-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -656,6 +656,12 @@
         "it": [
           "dipl-fachmann-frau-operationstechnik-hf-stgag-munsterlingen",
           "dipl-fachmann-frau-operationstechnik-hf-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-fachmann-frau-operationstechnik-hf-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-fachmann-frau-operationstechnik-hf-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-06-22T15:22:19.964Z",
@@ -677,9 +683,9 @@
       "slug": "studenti-hf-ingegneria-chirurgica-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "studenti-hf-ingegneria-chirurgica-spital-thurgau-stgag-munsterlingen",
-        "en": "studierenden-e-hf-operationstechnik-stgag-munsterlingen",
+        "en": "students-e-hf-operationstechnik-spital-thurgau-stgag-munsterlingen",
         "de": "studierenden-e-hf-operationstechnik-stgag-munsterlingen",
-        "fr": "studierenden-e-hf-operationstechnik-stgag-munsterlingen"
+        "fr": "etudiants-e-hf-operationstechnik-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -725,6 +731,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "studierenden-e-hf-operationstechnik-stgag-munsterlingen"
+        ],
+        "en": [
+          "studierenden-e-hf-operationstechnik-stgag-munsterlingen"
+        ],
+        "fr": [
           "studierenden-e-hf-operationstechnik-stgag-munsterlingen"
         ]
       },

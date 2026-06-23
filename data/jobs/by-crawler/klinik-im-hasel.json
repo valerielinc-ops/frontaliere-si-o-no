@@ -346,12 +346,12 @@
     },
     {
       "id": "klinik-im-hasel-399ff35f5a04",
-      "slug": "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil",
+      "slug": "segretario-a-di-reparto-con-specializzazione-in-farmacia-f-m-d-50-klinik-im-hasel-gontenschwil",
       "slugByLocale": {
         "de": "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil",
-        "it": "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil",
-        "en": "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil",
-        "fr": "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil"
+        "it": "segretario-a-di-reparto-con-specializzazione-in-farmacia-f-m-d-50-klinik-im-hasel-gontenschwil",
+        "en": "ward-secretary-with-focus-on-pharmacy-f-m-d-50-klinik-im-hasel-gontenschwil",
+        "fr": "secretaire-de-service-avec-specialisation-en-pharmacie-f-h-d-50-klinik-im-hasel-gontenschwil"
       },
       "company": "Klinik im Hasel",
       "companyKey": "klinik-im-hasel",
@@ -406,7 +406,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T23:02:03.273Z"
+      "firstSeenAt": "2026-06-22T23:02:03.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil"
+        ],
+        "en": [
+          "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil"
+        ],
+        "fr": [
+          "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil"
+        ]
+      },
+      "previousSlugs": [
+        "stationssekretar-in-mit-schwerpunkt-apotheke-w-m-d-50-klinik-im-hasel-gontenschwil"
+      ]
     }
   ]
 }

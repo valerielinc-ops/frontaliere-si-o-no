@@ -543,12 +543,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-cbd28c121b67",
-      "slug": "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "tecnico-di-sala-operatoria-diplomato-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "tecnico-di-sala-operatoria-diplomato-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "technicien-en-salle-d-operation-diplome-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -603,7 +603,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T22:44:04.404Z"
+      "firstSeenAt": "2026-06-22T22:44:04.404Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-1999696e2600",

@@ -6999,9 +6999,9 @@
       "slug": "psicologa-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "it": "psicologa-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
-        "en": "psychologin-w-m-d-80-100-lups-st-urban",
+        "en": "psychologist-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
         "de": "psychologin-w-m-d-80-100-lups-st-urban",
-        "fr": "psychologin-w-m-d-80-100-lups-st-urban"
+        "fr": "psychologue-f-m-j-80-100-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7049,6 +7049,12 @@
       "previousSlugsByLocale": {
         "it": [
           "psychologin-w-m-d-80-100-lups-st-urban"
+        ],
+        "en": [
+          "psychologin-w-m-d-80-100-lups-st-urban"
+        ],
+        "fr": [
+          "psychologin-w-m-d-80-100-lups-st-urban"
         ]
       },
       "firstSeenAt": "2026-06-22T14:49:53.997Z",
@@ -7070,9 +7076,9 @@
       "slug": "infermiere-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "it": "infermiere-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
-        "en": "pflegefachperson-w-m-d-80-100-lups-st-urban",
+        "en": "nurse-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
         "de": "pflegefachperson-w-m-d-80-100-lups-st-urban",
-        "fr": "pflegefachperson-w-m-d-80-100-lups-st-urban"
+        "fr": "infirmiere-f-m-j-80-100-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7119,6 +7125,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-w-m-d-80-100-lups-st-urban"
+        ],
+        "en": [
+          "pflegefachperson-w-m-d-80-100-lups-st-urban"
+        ],
+        "fr": [
           "pflegefachperson-w-m-d-80-100-lups-st-urban"
         ]
       },

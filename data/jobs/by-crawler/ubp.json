@@ -3728,8 +3728,8 @@
       "slugByLocale": {
         "it": "responsabile-della-conformita-contrattuale-union-bancaire-privee-hong-kong-hong-kong",
         "en": "contract-compliance-officer-ubp-ch",
-        "de": "contract-compliance-officer-ubp-ch",
-        "fr": "contract-compliance-officer-union-bancaire-privee-hong-kong-hong-kong"
+        "de": "vertragskonformitatsbeauftragter-union-bancaire-privee-hong-kong-hong-kong",
+        "fr": "fonctionnaire-charge-du-respect-des-contrats-union-bancaire-privee-hong-kong-hong-kong"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3771,11 +3771,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "contract-compliance-officer-ubp-ch"
+        "contract-compliance-officer-ubp-ch",
+        "contract-compliance-officer-union-bancaire-privee-hong-kong-hong-kong"
       ],
       "previousSlugsByLocale": {
         "it": [
           "contract-compliance-officer-ubp-ch"
+        ],
+        "de": [
+          "contract-compliance-officer-ubp-ch"
+        ],
+        "fr": [
+          "contract-compliance-officer-union-bancaire-privee-hong-kong-hong-kong"
         ]
       },
       "needsRetranslation": true,

@@ -694,8 +694,8 @@
       "slugByLocale": {
         "it": "responsabile-fatturazione-e-pagamenti-contratto-a-tempo-determinato-di-12-mesi-pictet-group-luxembourg",
         "en": "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
-        "de": "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
-        "fr": "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
+        "de": "billing-payments-officer-festvertrag-12-monate-pictet-group-luxembourg",
+        "fr": "agent-de-facturation-et-de-paiement-contrat-a-duree-determinee-de-12-mois-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -741,6 +741,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
+        ],
+        "de": [
+          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
+        ],
+        "fr": [
           "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
         ]
       },

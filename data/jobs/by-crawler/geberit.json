@@ -1272,12 +1272,12 @@
     },
     {
       "id": "geberit-1922",
-      "slug": "manutenzione-automatica-elettrica-a-100-geberit-rapperswil-jona",
+      "slug": "automazione-elettricista-di-manutenzione-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "automatiker-elektriker-instandhaltung-a-100-geberit-ch",
-        "it": "manutenzione-automatica-elettrica-a-100-geberit-rapperswil-jona",
+        "it": "automazione-elettricista-di-manutenzione-a-100-geberit-rapperswil-jona",
         "en": "automatic-electrician-maintenance-a-100-geberit-rapperswil-jona",
-        "fr": "automatiker-elektriker-instandhaltung-a-100-geberit-ch"
+        "fr": "automaticien-electricien-de-maintenance-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1337,6 +1337,7 @@
         "automatiker-elektriker-instandhaltung-a-100-geberit-ch",
         "entretien-automatique-electrique-a-100-geberit-rapperswil-jona",
         "automatisation-entretien-des-electriciens-a-100-geberit-rapperswil-jona",
+        "manutenzione-automatica-elettrica-a-100-geberit-rapperswil-jona",
         "automazione-manutenzione-degli-elettricisti-a-al-100-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
@@ -1345,10 +1346,12 @@
         ],
         "fr": [
           "entretien-automatique-electrique-a-100-geberit-rapperswil-jona",
-          "automatisation-entretien-des-electriciens-a-100-geberit-rapperswil-jona"
+          "automatisation-entretien-des-electriciens-a-100-geberit-rapperswil-jona",
+          "automatiker-elektriker-instandhaltung-a-100-geberit-ch"
         ],
         "it": [
-          "automatiker-elektriker-instandhaltung-a-100-geberit-ch"
+          "automatiker-elektriker-instandhaltung-a-100-geberit-ch",
+          "manutenzione-automatica-elettrica-a-100-geberit-rapperswil-jona"
         ]
       }
     },
@@ -1436,8 +1439,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-werkzeugservice-lager-a-100-geberit-ch",
         "it": "collaboratore-trice-werkzeugservice-magazzino-a-100-geberit-rapperswil-jona",
-        "en": "mitarbeiter-werkzeugservice-lager-a-100-geberit-rapperswil-jona",
-        "fr": "mitarbeiter-werkzeugservice-lager-a-100-geberit-rapperswil-jona"
+        "en": "tool-service-storage-specialist-100-geberit-rapperswil-jona",
+        "fr": "specialiste-de-service-et-de-stockage-d-outils-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1486,16 +1489,21 @@
         ],
         "en": [
           "employee-tool-service-warehouse-a-100-geberit-rapperswil-jona",
-          "mitarbeiter-werkzeugservice-lager-a-100-geberit-ch"
+          "mitarbeiter-werkzeugservice-lager-a-100-geberit-ch",
+          "mitarbeiter-werkzeugservice-lager-a-100-geberit-rapperswil-jona"
         ],
         "fr": [
           "service-d-outils-pour-employes-et-entrepot-a-100-geberit-rapperswil-jona",
           "service-d-outils-et-entrepot-pour-employes-a-100-geberit-rapperswil-jona",
-          "mitarbeiter-werkzeugservice-lager-a-100-geberit-ch"
+          "mitarbeiter-werkzeugservice-lager-a-100-geberit-ch",
+          "mitarbeiter-werkzeugservice-lager-a-100-geberit-rapperswil-jona"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-werkzeugservice-lager-a-100-geberit-ch",
+        "employee-tool-service-warehouse-a-100-geberit-rapperswil-jona",
+        "mitarbeiter-werkzeugservice-lager-a-100-geberit-rapperswil-jona",
+        "service-d-outils-pour-employes-et-entrepot-a-100-geberit-rapperswil-jona",
         "service-d-outils-et-entrepot-pour-employes-a-100-geberit-rapperswil-jona",
         "servizio-utensili-e-magazzino-a-100-geberit-rapperswil-jona"
       ],
@@ -1519,8 +1527,8 @@
       "slugByLocale": {
         "de": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch",
         "it": "regionalverkaufsleiter-zurich-e-zentralschweiz-a-100-geberit-sales-switzerland",
-        "en": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch",
-        "fr": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+        "en": "regional-sales-manager-zurich-and-central-switzerland-a-100-geberit-sales-switzerland",
+        "fr": "directeur-regional-des-ventes-zurich-et-suisse-centrale-a-100-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1568,10 +1576,10 @@
           "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ],
         "en": [
-          "regional-sales-manager-zurich-and-central-switzerland-a-100-geberit-sales-switzerland"
+          "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ],
         "fr": [
-          "directeur-regional-des-ventes-zurich-et-suisse-centrale-a-100-geberit-sales-switzerland"
+          "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ]
       },
       "previousSlugs": [
@@ -1598,7 +1606,7 @@
         "it": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
         "en": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
         "de": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
-        "fr": "gestionnaire-des-risques-et-de-la-diligence-raisonnable-approvisionnement-ministeriel-a-100-geberit-rapperswil-jona"
+        "fr": "manager-des-risques-et-due-diligence-achats-corporatifs-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1641,11 +1649,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsable-des-risques-et-de-la-diligence-raisonnable-achats-d-entreprise-a-a-100-geberit-rapperswil-jona",
+        "gestionnaire-des-risques-et-de-la-diligence-raisonnable-approvisionnement-ministeriel-a-100-geberit-rapperswil-jona",
         "responsabile-risk-and-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "responsable-des-risques-et-de-la-diligence-raisonnable-achats-d-entreprise-a-a-100-geberit-rapperswil-jona"
+          "responsable-des-risques-et-de-la-diligence-raisonnable-achats-d-entreprise-a-a-100-geberit-rapperswil-jona",
+          "gestionnaire-des-risques-et-de-la-diligence-raisonnable-approvisionnement-ministeriel-a-100-geberit-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-06-18T12:19:10.274Z",
@@ -1664,12 +1674,12 @@
     },
     {
       "id": "geberit-1942",
-      "slug": "quality-claims-manager-a-100-geberit-ch",
+      "slug": "responsabile-dei-reclami-di-qualita-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "quality-claims-manager-a-100-geberit-ch",
-        "it": "quality-claims-manager-a-100-geberit-ch",
+        "it": "responsabile-dei-reclami-di-qualita-a-100-geberit-rapperswil-jona",
         "en": "quality-claims-manager-a-100-geberit-ch",
-        "fr": "quality-claims-manager-a-100-geberit-ch"
+        "fr": "gestionnaire-des-reclamations-qualite-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1726,13 +1736,18 @@
       },
       "firstSeenAt": "2026-06-19T12:34:55.133Z",
       "previousSlugs": [
-        "gestione-dei-reclami-di-qualita-a-100-geberit-rapperswil-jona",
         "responsable-des-reclamations-qualite-a-a-100-geberit-rapperswil-jona",
+        "quality-claims-manager-a-100-geberit-ch",
+        "gestione-dei-reclami-di-qualita-a-100-geberit-rapperswil-jona",
         "responsabile-dei-sinistri-di-qualita-a-al-100-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "responsable-des-reclamations-qualite-a-a-100-geberit-rapperswil-jona"
+          "responsable-des-reclamations-qualite-a-a-100-geberit-rapperswil-jona",
+          "quality-claims-manager-a-100-geberit-ch"
+        ],
+        "it": [
+          "quality-claims-manager-a-100-geberit-ch"
         ]
       }
     },
@@ -1740,7 +1755,7 @@
       "id": "geberit-1987",
       "slug": "service-controller-a-80-100-geberit-ch",
       "slugByLocale": {
-        "de": "service-controller-a-80-100-geberit-ch",
+        "de": "f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f-f",
         "it": "service-controller-a-80-100-geberit-ch",
         "en": "service-controller-a-80-100-geberit-ch",
         "fr": "service-controller-a-80-100-geberit-ch"
