@@ -1,6 +1,6 @@
 {
   "crawlerKey": "reha-bellikon",
-  "assembledAt": "2026-06-23T12:35:13.628Z",
+  "assembledAt": "2026-06-23T22:56:34.072Z",
   "jobs": [
     {
       "id": "reha-bellikon-6c6dc0ceb2c0",
@@ -34,7 +34,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Vorpraktikantin-Vorpraktikant-Medizinstudium/7f6718af-3bb2-4a07-83f2-e4501b605a1c",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:11.576Z",
+      "crawledAt": "2026-06-23T22:56:32.097Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Neuropsychologin-Neuropsychologe/d9ebb63c-e012-44ec-afe2-6c3186508776",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:11.086Z",
+      "crawledAt": "2026-06-23T22:56:31.630Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -238,7 +238,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Freiwillige-Mitarbeitende-im-Bereich-Begleitung-extern-ehrenamtlich/31674ecb-d45a-4c69-b03e-8c28c7cce989",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:10.603Z",
+      "crawledAt": "2026-06-23T22:56:31.159Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Freiwillige-Mitarbeitende-im-Bereich-Interne-Patientenbegleitung-ehrenamtlich/ccae8bed-5e5a-4a28-84ad-c52eaf13a6e6",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:10.078Z",
+      "crawledAt": "2026-06-23T22:56:30.691Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -439,7 +439,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Praktikantin-Praktikant-Pflege/ea8f556e-dc81-43b7-ae39-f7ae6896b76e",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:09.599Z",
+      "crawledAt": "2026-06-23T22:56:30.225Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -544,7 +544,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Praktikantin-Praktikant-Leistungsdiagnostik/e090fb59-92a0-4fb1-85c1-b81bd16b1f0f",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:09.105Z",
+      "crawledAt": "2026-06-23T22:56:29.759Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -650,7 +650,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Koch-Koechin-EFZ/2cd27f7b-7c70-4854-8f2e-ade9dc8850e3",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:08.623Z",
+      "crawledAt": "2026-06-23T22:56:29.292Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -712,6 +712,90 @@
       }
     },
     {
+      "id": "reha-bellikon-45701426c825",
+      "slug": "apprendista-r-entwickler-in-digitales-business-cfc-rehaklinik-bellikon-bellikon",
+      "slugByLocale": {
+        "it": "apprendista-r-entwickler-in-digitales-business-cfc-rehaklinik-bellikon-bellikon",
+        "en": "learning-r-developer-in-digital-business-efz-rehaklinik-bellikon-bellikon",
+        "de": "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
+        "fr": "apprenti-e-r-entwickler-in-digitales-business-efz-rehaklinik-bellikon-bellikon"
+      },
+      "company": "Rehaklinik Bellikon",
+      "companyKey": "reha-bellikon",
+      "companyDomain": "rehabellikon.ch",
+      "title": "Lernende /r Entwickler/in digitales Business EFZ",
+      "titleByLocale": {
+        "it": "Apprendista /r Entwickler/in digitales Business CFC",
+        "en": "Learning /r Developer/in Digital Business EFZ",
+        "de": "Lernende /r Entwickler/in digitales Business EFZ",
+        "fr": "Apprenti/e /r Entwickler/in digitales Business EFZ"
+      },
+      "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDu bist digital unterwegs, denkst gerne mit und möchtest verstehen, wie moderne Technologien den Alltag im Gesundheitswesen verbessern können? Dann ist die Lehrstelle als Entwickler/in digitales Business EFZ genau das Richtige für dich!\n\nAufgaben\n\n• Digitale Prozesse analysieren und optimieren\n• Daten auswerten sowie Präsentationen und Dokumentationen erstellen\n• In spannenden IT- und Digitalisierungsprojekten mitarbeiten\n• Neue digitale Tools und Anwendungen testen und einführen\n• Mitarbeitende bei digitalen Anwendungen unterstützen\n• Anforderungen aus verschiedenen Bereichen aufnehmen und Lösungen mitentwickeln\n\nProfil\n\n• Interesse an Informatik, Wirtschaft und digitalen Technologien\n• Freude am Analysieren, Organisieren und Problemlösen\n• Teamfähigkeit sowie gute Kommunikationsfähigkeiten\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Motivation, Neues zu lernen und Verantwortung zu übernehmen\n• Abgeschlossene obligatorische Schulbildung\n• Gute Kenntnisse in Mathematik, Deutsch und Englisch\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
+      "descriptionByLocale": {
+        "it": "Affiliazione, sensualità e competenza Con un team esperto, accompagniamo i pazienti attraverso altezze e profondità e li aiutiamo a trovare il loro modo di tornare alla vita o alla carriera dopo incidente o malattia. Sei digitalmente in movimento, come pensare con te e vuoi capire come le moderne tecnologie possono migliorare la vita quotidiana nella sanità? Allora l'apprendistato come sviluppatore / nel business digitale EFZ è giusto per voi!\n• Analisi e ottimizzazione dei processi digitali\n• Valutare i dati e creare presentazioni e documentazione\n• Lavorare in entusiasmanti progetti IT e digitalizzazione\n• Testare e introdurre nuovi strumenti e applicazioni digitali\n• Supportare i dipendenti nelle applicazioni digitali\n• Interessi in informatica, business e tecnologie digitali\n• Piacere di analizzare, organizzare e risolvere i problemi\n• Capacità di squadra e buone capacità di comunicazione\n• Lavoro autonomo, affidabile e attento\n• Motivazione per imparare nuove cose e assumersi responsabilità\n• Completare la scuola obbligatoria",
+        "en": "Affiliation, sensuality and competence With an experienced team, we accompany patients through heights and depths and help them find their way back to life or career after accident or illness. You are digitally on the move, like to think with you and want to understand how modern technologies can improve everyday life in healthcare? Then the apprenticeship as a developer/in digital business EFZ is just right for you! Tasks\n• Analyze and optimize digital processes\n• Evaluate data and create presentations and documentation\n• Work in exciting IT and digitization projects\n• Test and introduce new digital tools and applications\n• Support employees in digital applications\n• Recording requirements from different areas and developing solutions Profile\n• Interest in computer science, business and digital technologies\n• Joy in analyzing, organizing and solving problems\n• Team skills and good communication skills\n• Self-employed, reliable and careful operation\n• Motivation to learn new things and take responsibility\n• Complete compulsory schooling\n• Good knowledge of mathematics, German and English Pensum: 100% Order: fixed Entrance: 2027-08-01",
+        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Du bist digital unterwegs, denkst gerne mit und möchtest verstehen, wie moderne Technologien den Alltag im Gesundheitswesen verbessern können? Dann ist die Lehrstelle als Entwickler/in digitales Business EFZ genau das Richtige für dich! Aufgaben\n• Digitale Prozesse analysieren und optimieren\n• Daten auswerten sowie Präsentationen und Dokumentationen erstellen\n• In spannenden IT- und Digitalisierungsprojekten mitarbeiten\n• Neue digitale Tools und Anwendungen testen und einführen\n• Mitarbeitende bei digitalen Anwendungen unterstützen\n• Anforderungen aus verschiedenen Bereichen aufnehmen und Lösungen mitentwickeln Profil\n• Interesse an Informatik, Wirtschaft und digitalen Technologien\n• Freude am Analysieren, Organisieren und Problemlösen\n• Teamfähigkeit sowie gute Kommunikationsfähigkeiten\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Motivation, Neues zu lernen und Verantwortung zu übernehmen\n• Abgeschlossene obligatorische Schulbildung\n• Gute Kenntnisse in Mathematik, Deutsch und Englisch Pensum: 100% Anstellung: befristet Eintritt: 2027-08-01",
+        "fr": "Affiliation, sensualité et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauteurs et des profondeurs et les aidons à retrouver leur chemin vers la vie ou la carrière après un accident ou une maladie. Vous êtes en mouvement numérique, comme penser avec vous et voulez comprendre comment les technologies modernes peuvent améliorer la vie quotidienne dans les soins de santé? Ensuite, l'apprentissage en tant que développeur/dans le commerce numérique EFZ est juste pour vous! Tâche\n• Analyser et optimiser les processus numériques\n• Évaluer les données et créer des présentations et de la documentation\n• Travailler dans des projets passionnants de TI et de numérisation\n• Tester et introduire de nouveaux outils et applications numériques\n• Soutenir les employés dans les applications numériques\n• Enregistrement des besoins dans différents domaines et développement de solutions Profil\n• Intérêt pour l'informatique, les entreprises et les technologies numériques\n• Joy dans l'analyse, l'organisation et la résolution des problèmes\n• Compétences en équipe et bonne communication\n• Travail indépendant, fonctionnement fiable et soigné\n• Motivation pour apprendre de nouvelles choses et prendre la responsabilité\n• Achèvement de la scolarité obligatoire\n• Bonne connaissance des mathématiques, de l'allemand et de l'anglais Pensum: 100% Ordre: fixé Entrée : 2027-08-01"
+      },
+      "needsRetranslation": false,
+      "location": "Bellikon",
+      "canton": "AG",
+      "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Entwicklerin-digitales-Business-EFZ/0134dcde-7572-485e-9e9a-63c3efb8ba57",
+      "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-23T22:56:28.824Z",
+      "addressLocality": "Bellikon",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5454",
+      "category": "IT",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-26",
+      "applyUrl": "https://job.rehabellikon.ch/apply/0134dcde-7572-485e-9e9a-63c3efb8ba57/website",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0134dcde-7572-485e-9e9a-63c3efb8ba57",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "contractDuration": "temporary",
+      "previousSlugs": [
+        "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
+        "apprendimento-r-sviluppatore-in-digital-business-efz-rehaklinik-bellikon-bellikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
+          "apprendimento-r-sviluppatore-in-digital-business-efz-rehaklinik-bellikon-bellikon"
+        ],
+        "en": [
+          "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon"
+        ]
+      },
+      "firstSeenAt": "2026-05-26T23:59:05.514Z",
+      "salaryMin": 58000,
+      "salaryMax": 99000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 99000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "reha-bellikon-f836e871cce2",
       "slug": "apprendista-r-fachfrau-fachmann-gesundheit-cfc-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
@@ -743,7 +827,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Fachfrau-Fachmann-Gesundheit-EFZ/28f71cf4-f03b-41c4-af9f-2f7a10443e32",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:06.244Z",
+      "crawledAt": "2026-06-23T22:56:28.340Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -798,90 +882,6 @@
       }
     },
     {
-      "id": "reha-bellikon-57ff40de5d6f",
-      "slug": "apprendista-r-kochin-koch-cfc-rehaklinik-bellikon-bellikon",
-      "slugByLocale": {
-        "it": "apprendista-r-kochin-koch-cfc-rehaklinik-bellikon-bellikon",
-        "en": "learning-r-cook-cook-efz-rehaklinik-bellikon-bellikon",
-        "de": "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
-        "fr": "apprenti-e-r-kochin-koch-efz-rehaklinik-bellikon-bellikon"
-      },
-      "company": "Rehaklinik Bellikon",
-      "companyKey": "reha-bellikon",
-      "companyDomain": "rehabellikon.ch",
-      "title": "Lernende /r Köchin / Koch EFZ",
-      "titleByLocale": {
-        "it": "Apprendista /r Köchin / Koch CFC",
-        "en": "Apprentice /r Köchin / Koch EFZ",
-        "de": "Lernende /r Köchin / Koch EFZ",
-        "fr": "Apprenti/e /r Köchin / Koch EFZ"
-      },
-      "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDu liebst es, kreativ zu kochen, willst mit Lebensmitteln mehr machen als nur „Rezept nachkochen“ – und suchst einen Beruf mit Sinn? Dann bist du bei uns genau richtig! In deiner Ausbildung zum Koch / zur Köchin EFZ wirst du zum Allround-Talent in der Küche. Du zauberst täglich mit Leidenschaft leckere Gerichte für unsere Patienten, Mitarbeitenden, externe Gäste und für besondere Events wie Caterings oder Apéros. Bei uns erhältst du eine Ausbildung in einer modernen Küche, in der du von Anfang an echte Aufgaben übernimmst und Verantwortung trägst. Du arbeitest in einem sinnvollen Umfeld, in dem dein Essen einen direkten Beitrag zur Gesundheit und zum Wohlbefinden anderer Menschen leistet. Dabei kannst du deine Kreativität einbringen, Neues ausprobieren und dich fachlich wie persönlich weiterentwickeln. Ein motiviertes Team steht dir zur Seite und begleitet dich auf deinem Weg zum Küchenprofi.\n\nAufgaben\n\n• Du arbeitest mit im Team bei der Zubereitung von warmen & kalten Speisen – vom Menü für Patienten bis zum Apéro-Häppchen fürs nächste Event\n• Du lernst alle Bereiche der Küche kennen: Free Flow, Bankette, à la carte Service und Caterings.\n• Hygiene, Sicherheit und saubere Abläufe – du wirst zum Profi, der auch hinter den Kulissen den Überblick behält.\n\nProfil\n\n• Abgeschlossene obligatorische Schulzeit\n• Leidenschaft fürs Kochen und ein gutes Gespür für Lebensmittel\n• Interesse an Ernährung und daran, was gutes Essen für die Gesundheit tun kann\n• Du bist offen, kommunikativ und arbeitest gerne im Team\n• Selbständigkeit, Zuverlässigkeit und Verantwortungsbewusstsein gehören für dich dazu\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
-      "descriptionByLocale": {
-        "it": "Affiliazione, sensualità e competenza Con un team esperto, accompagniamo i pazienti attraverso altezze e profondità e li aiutiamo a trovare il loro modo di tornare alla vita o alla carriera dopo incidente o malattia. Ti piace cucinare creativamente, vuoi fare di più con il cibo che semplicemente “cook ricetta” – e cercare una professione con significato? Allora hai ragione con noi! Nella vostra formazione per cucinare / cucinare EFZ, diventerete un talento tutto intorno in cucina. Ogni giorno si coniugano deliziosi piatti per i nostri pazienti, dipendenti, ospiti esterni e eventi speciali come catering o aperitivo. Con noi riceverete una formazione in una cucina moderna dove prenderete i compiti reali e prendetevi la responsabilità fin dall'inizio. Si lavora in un ambiente ragionevole in cui il vostro cibo dà un contributo diretto alla salute e al benessere di altre persone. Puoi contribuire alla tua creatività, provare cose nuove e svilupparti professionalmente e personalmente. Un team motivato vi aiuterà e vi accompagnerà sulla strada per il professionista della cucina. Compiti Si lavora con il team per preparare piatti caldi e freddi – dal menu per i pazienti allo spuntino Apéro per il prossimo evento\n• Potrete conoscere tutte le aree della cucina: Free Flow, banchetto, servizio à la carte e catering.\n• Igiene, sicurezza e procedure pulite – si diventa un professionista che mantiene anche una panoramica dietro le quinte. Profilo\n• Scuola obbligatoria completa\n• Passione per la cucina e una buona sensazione per il cibo\n• Interesse per la nutrizione e in che cosa il buon cibo può fare per la salute\n• Sei aperto, comunicativo e come lavorare nel team\n• L'autooccupazione, l'affidabilità e il senso di responsabilità includono Pensum: 100% occupazione: limitato Ingresso: 2027-08-01",
-        "en": "Affiliation, sensuality and competence With an experienced team, we accompany patients through heights and depths and help them find their way back to life or career after accident or illness. You love to cook creatively, want to make more with food than just “cook recipe” – and seek a profession with meaning? Then you're right with us! In your training to cook / cook EFZ, you will become an all-round talent in the kitchen. Every day you conjure delicious dishes for our patients, employees, external guests and special events such as catering or aperitif. With us you will receive a training in a modern kitchen where you will take real tasks and take responsibility from the very beginning. You work in a sensible environment where your food makes a direct contribution to the health and well-being of other people. You can contribute your creativity, try new things and develop yourself professionally and personally. A motivated team will help you and accompany you on your way to the kitchen professional. Tasks\n• You work with the team to prepare warm & cold dishes – from the menu for patients to the Apéro snack for the next event\n• You will get to know all areas of the kitchen: Free Flow, banquet, à la carte service and catering.\n• Hygiene, safety and clean procedures – you become a professional who also keeps an overview behind the scenes. Profile\n• Complete compulsory schooling\n• Passion for cooking and a good feel for food\n• Interest in nutrition and in what good food can do for health\n• You are open, communicative and like to work in the team\n• Self-employment, reliability and sense of responsibility are yours Pensum: 100% Order: fixed Entrance: 2027-08-01",
-        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Du liebst es, kreativ zu kochen, willst mit Lebensmitteln mehr machen als nur „Rezept nachkochen“ – und suchst einen Beruf mit Sinn? Dann bist du bei uns genau richtig! In deiner Ausbildung zum Koch / zur Köchin EFZ wirst du zum Allround-Talent in der Küche. Du zauberst täglich mit Leidenschaft leckere Gerichte für unsere Patienten, Mitarbeitenden, externe Gäste und für besondere Events wie Caterings oder Apéros. Bei uns erhältst du eine Ausbildung in einer modernen Küche, in der du von Anfang an echte Aufgaben übernimmst und Verantwortung trägst. Du arbeitest in einem sinnvollen Umfeld, in dem dein Essen einen direkten Beitrag zur Gesundheit und zum Wohlbefinden anderer Menschen leistet. Dabei kannst du deine Kreativität einbringen, Neues ausprobieren und dich fachlich wie persönlich weiterentwickeln. Ein motiviertes Team steht dir zur Seite und begleitet dich auf deinem Weg zum Küchenprofi. Aufgaben\n• Du arbeitest mit im Team bei der Zubereitung von warmen & kalten Speisen – vom Menü für Patienten bis zum Apéro-Häppchen fürs nächste Event\n• Du lernst alle Bereiche der Küche kennen: Free Flow, Bankette, à la carte Service und Caterings.\n• Hygiene, Sicherheit und saubere Abläufe – du wirst zum Profi, der auch hinter den Kulissen den Überblick behält. Profil\n• Abgeschlossene obligatorische Schulzeit\n• Leidenschaft fürs Kochen und ein gutes Gespür für Lebensmittel\n• Interesse an Ernährung und daran, was gutes Essen für die Gesundheit tun kann\n• Du bist offen, kommunikativ und arbeitest gerne im Team\n• Selbständigkeit, Zuverlässigkeit und Verantwortungsbewusstsein gehören für dich dazu Pensum: 100% Anstellung: befristet Eintritt: 2027-08-01",
-        "fr": "Affiliation, sensualité et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauteurs et des profondeurs et les aidons à retrouver leur chemin vers la vie ou la carrière après un accident ou une maladie. Vous aimez cuisiner de façon créative, voulez faire plus avec de la nourriture que juste la recette de cuisson – et chercher une profession avec le sens? Alors tu as raison avec nous ! Dans votre entraînement pour cuisiner / cuisiner EFZ, vous deviendrez un talent complet dans la cuisine. Chaque jour, vous conjurez de délicieux plats pour nos patients, employés, invités externes et des événements spéciaux comme la restauration ou l'apéritif. Avec nous vous recevrez une formation dans une cuisine moderne où vous prendrez des tâches réelles et prendrez la responsabilité dès le début. Vous travaillez dans un environnement raisonnable où votre alimentation contribue directement à la santé et au bien-être des autres. Vous pouvez contribuer à votre créativité, essayer de nouvelles choses et vous développer professionnellement et personnellement. Une équipe motivée vous aidera et vous accompagnera sur votre chemin vers le professionnel de la cuisine. Tâche\n• Vous travaillez avec l'équipe pour préparer des plats chauds et froids – du menu pour les patients à la collation Apéro pour le prochain événement\n• Vous apprendrez à connaître tous les domaines de la cuisine: Free Flow, banquet, service à la carte et restauration.\n• Hygiène, sécurité et procédures propres – vous devenez un professionnel qui garde également une vue d'ensemble en coulisses. Profil\n• Achèvement de la scolarité obligatoire\n• Passion pour la cuisine et une bonne sensation pour la nourriture\n• Intérêt pour la nutrition et pour la bonne alimentation\n• Vous êtes ouvert, communicatif et aimez travailler dans l'équipe\n• Le travail indépendant, la fiabilité et le sens des responsabilités sont les vôtres Pensum: 100% Ordre: fixé Entrée : 2027-08-01"
-      },
-      "needsRetranslation": false,
-      "location": "Bellikon",
-      "canton": "AG",
-      "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Koechin-Koch-EFZ/54b47a80-0321-45f1-a574-a31dcf587236",
-      "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:07.672Z",
-      "addressLocality": "Bellikon",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5454",
-      "category": "IT",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://job.rehabellikon.ch/apply/54b47a80-0321-45f1-a574-a31dcf587236/website",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "54b47a80-0321-45f1-a574-a31dcf587236",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "contractDuration": "temporary",
-      "previousSlugs": [
-        "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
-        "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
-          "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
-        ],
-        "en": [
-          "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
-        ],
-        "fr": [
-          "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T23:59:03.615Z",
-      "salaryMin": 58000,
-      "salaryMax": 99000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 99000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "reha-bellikon-6916876e9784",
       "slug": "apprendista-r-fachfrau-fachmann-reinigungstechnik-cfc-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
@@ -913,7 +913,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernender-r-Fachfrau-Fachmann-Reinigungstechnik-EFZ/38e8a7e3-5946-43ff-b0f6-a5d9684068e1",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:07.194Z",
+      "crawledAt": "2026-06-23T22:56:27.870Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -999,7 +999,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Restaurantfachfrau-Restaurantfachmann-EFZ/97ad3665-0743-4419-be7b-3fece8eaaaa8",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:06.721Z",
+      "crawledAt": "2026-06-23T22:56:27.402Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1052,38 +1052,38 @@
       }
     },
     {
-      "id": "reha-bellikon-45701426c825",
-      "slug": "apprendista-r-entwickler-in-digitales-business-cfc-rehaklinik-bellikon-bellikon",
+      "id": "reha-bellikon-57ff40de5d6f",
+      "slug": "apprendista-r-kochin-koch-cfc-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "apprendista-r-entwickler-in-digitales-business-cfc-rehaklinik-bellikon-bellikon",
-        "en": "learning-r-developer-in-digital-business-efz-rehaklinik-bellikon-bellikon",
-        "de": "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
-        "fr": "apprenti-e-r-entwickler-in-digitales-business-efz-rehaklinik-bellikon-bellikon"
+        "it": "apprendista-r-kochin-koch-cfc-rehaklinik-bellikon-bellikon",
+        "en": "learning-r-cook-cook-efz-rehaklinik-bellikon-bellikon",
+        "de": "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
+        "fr": "apprenti-e-r-kochin-koch-efz-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
       "companyDomain": "rehabellikon.ch",
-      "title": "Lernende /r Entwickler/in digitales Business EFZ",
+      "title": "Lernende /r Köchin / Koch EFZ",
       "titleByLocale": {
-        "it": "Apprendista /r Entwickler/in digitales Business CFC",
-        "en": "Learning /r Developer/in Digital Business EFZ",
-        "de": "Lernende /r Entwickler/in digitales Business EFZ",
-        "fr": "Apprenti/e /r Entwickler/in digitales Business EFZ"
+        "it": "Apprendista /r Köchin / Koch CFC",
+        "en": "Apprentice /r Köchin / Koch EFZ",
+        "de": "Lernende /r Köchin / Koch EFZ",
+        "fr": "Apprenti/e /r Köchin / Koch EFZ"
       },
-      "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDu bist digital unterwegs, denkst gerne mit und möchtest verstehen, wie moderne Technologien den Alltag im Gesundheitswesen verbessern können? Dann ist die Lehrstelle als Entwickler/in digitales Business EFZ genau das Richtige für dich!\n\nAufgaben\n\n• Digitale Prozesse analysieren und optimieren\n• Daten auswerten sowie Präsentationen und Dokumentationen erstellen\n• In spannenden IT- und Digitalisierungsprojekten mitarbeiten\n• Neue digitale Tools und Anwendungen testen und einführen\n• Mitarbeitende bei digitalen Anwendungen unterstützen\n• Anforderungen aus verschiedenen Bereichen aufnehmen und Lösungen mitentwickeln\n\nProfil\n\n• Interesse an Informatik, Wirtschaft und digitalen Technologien\n• Freude am Analysieren, Organisieren und Problemlösen\n• Teamfähigkeit sowie gute Kommunikationsfähigkeiten\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Motivation, Neues zu lernen und Verantwortung zu übernehmen\n• Abgeschlossene obligatorische Schulbildung\n• Gute Kenntnisse in Mathematik, Deutsch und Englisch\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
+      "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nDu liebst es, kreativ zu kochen, willst mit Lebensmitteln mehr machen als nur „Rezept nachkochen“ – und suchst einen Beruf mit Sinn? Dann bist du bei uns genau richtig! In deiner Ausbildung zum Koch / zur Köchin EFZ wirst du zum Allround-Talent in der Küche. Du zauberst täglich mit Leidenschaft leckere Gerichte für unsere Patienten, Mitarbeitenden, externe Gäste und für besondere Events wie Caterings oder Apéros. Bei uns erhältst du eine Ausbildung in einer modernen Küche, in der du von Anfang an echte Aufgaben übernimmst und Verantwortung trägst. Du arbeitest in einem sinnvollen Umfeld, in dem dein Essen einen direkten Beitrag zur Gesundheit und zum Wohlbefinden anderer Menschen leistet. Dabei kannst du deine Kreativität einbringen, Neues ausprobieren und dich fachlich wie persönlich weiterentwickeln. Ein motiviertes Team steht dir zur Seite und begleitet dich auf deinem Weg zum Küchenprofi.\n\nAufgaben\n\n• Du arbeitest mit im Team bei der Zubereitung von warmen & kalten Speisen – vom Menü für Patienten bis zum Apéro-Häppchen fürs nächste Event\n• Du lernst alle Bereiche der Küche kennen: Free Flow, Bankette, à la carte Service und Caterings.\n• Hygiene, Sicherheit und saubere Abläufe – du wirst zum Profi, der auch hinter den Kulissen den Überblick behält.\n\nProfil\n\n• Abgeschlossene obligatorische Schulzeit\n• Leidenschaft fürs Kochen und ein gutes Gespür für Lebensmittel\n• Interesse an Ernährung und daran, was gutes Essen für die Gesundheit tun kann\n• Du bist offen, kommunikativ und arbeitest gerne im Team\n• Selbständigkeit, Zuverlässigkeit und Verantwortungsbewusstsein gehören für dich dazu\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2027-08-01",
       "descriptionByLocale": {
-        "it": "Affiliazione, sensualità e competenza Con un team esperto, accompagniamo i pazienti attraverso altezze e profondità e li aiutiamo a trovare il loro modo di tornare alla vita o alla carriera dopo incidente o malattia. Sei digitalmente in movimento, come pensare con te e vuoi capire come le moderne tecnologie possono migliorare la vita quotidiana nella sanità? Allora l'apprendistato come sviluppatore / nel business digitale EFZ è giusto per voi!\n• Analisi e ottimizzazione dei processi digitali\n• Valutare i dati e creare presentazioni e documentazione\n• Lavorare in entusiasmanti progetti IT e digitalizzazione\n• Testare e introdurre nuovi strumenti e applicazioni digitali\n• Supportare i dipendenti nelle applicazioni digitali\n• Interessi in informatica, business e tecnologie digitali\n• Piacere di analizzare, organizzare e risolvere i problemi\n• Capacità di squadra e buone capacità di comunicazione\n• Lavoro autonomo, affidabile e attento\n• Motivazione per imparare nuove cose e assumersi responsabilità\n• Completare la scuola obbligatoria",
-        "en": "Affiliation, sensuality and competence With an experienced team, we accompany patients through heights and depths and help them find their way back to life or career after accident or illness. You are digitally on the move, like to think with you and want to understand how modern technologies can improve everyday life in healthcare? Then the apprenticeship as a developer/in digital business EFZ is just right for you! Tasks\n• Analyze and optimize digital processes\n• Evaluate data and create presentations and documentation\n• Work in exciting IT and digitization projects\n• Test and introduce new digital tools and applications\n• Support employees in digital applications\n• Recording requirements from different areas and developing solutions Profile\n• Interest in computer science, business and digital technologies\n• Joy in analyzing, organizing and solving problems\n• Team skills and good communication skills\n• Self-employed, reliable and careful operation\n• Motivation to learn new things and take responsibility\n• Complete compulsory schooling\n• Good knowledge of mathematics, German and English Pensum: 100% Order: fixed Entrance: 2027-08-01",
-        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Du bist digital unterwegs, denkst gerne mit und möchtest verstehen, wie moderne Technologien den Alltag im Gesundheitswesen verbessern können? Dann ist die Lehrstelle als Entwickler/in digitales Business EFZ genau das Richtige für dich! Aufgaben\n• Digitale Prozesse analysieren und optimieren\n• Daten auswerten sowie Präsentationen und Dokumentationen erstellen\n• In spannenden IT- und Digitalisierungsprojekten mitarbeiten\n• Neue digitale Tools und Anwendungen testen und einführen\n• Mitarbeitende bei digitalen Anwendungen unterstützen\n• Anforderungen aus verschiedenen Bereichen aufnehmen und Lösungen mitentwickeln Profil\n• Interesse an Informatik, Wirtschaft und digitalen Technologien\n• Freude am Analysieren, Organisieren und Problemlösen\n• Teamfähigkeit sowie gute Kommunikationsfähigkeiten\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Motivation, Neues zu lernen und Verantwortung zu übernehmen\n• Abgeschlossene obligatorische Schulbildung\n• Gute Kenntnisse in Mathematik, Deutsch und Englisch Pensum: 100% Anstellung: befristet Eintritt: 2027-08-01",
-        "fr": "Affiliation, sensualité et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauteurs et des profondeurs et les aidons à retrouver leur chemin vers la vie ou la carrière après un accident ou une maladie. Vous êtes en mouvement numérique, comme penser avec vous et voulez comprendre comment les technologies modernes peuvent améliorer la vie quotidienne dans les soins de santé? Ensuite, l'apprentissage en tant que développeur/dans le commerce numérique EFZ est juste pour vous! Tâche\n• Analyser et optimiser les processus numériques\n• Évaluer les données et créer des présentations et de la documentation\n• Travailler dans des projets passionnants de TI et de numérisation\n• Tester et introduire de nouveaux outils et applications numériques\n• Soutenir les employés dans les applications numériques\n• Enregistrement des besoins dans différents domaines et développement de solutions Profil\n• Intérêt pour l'informatique, les entreprises et les technologies numériques\n• Joy dans l'analyse, l'organisation et la résolution des problèmes\n• Compétences en équipe et bonne communication\n• Travail indépendant, fonctionnement fiable et soigné\n• Motivation pour apprendre de nouvelles choses et prendre la responsabilité\n• Achèvement de la scolarité obligatoire\n• Bonne connaissance des mathématiques, de l'allemand et de l'anglais Pensum: 100% Ordre: fixé Entrée : 2027-08-01"
+        "it": "Affiliazione, sensualità e competenza Con un team esperto, accompagniamo i pazienti attraverso altezze e profondità e li aiutiamo a trovare il loro modo di tornare alla vita o alla carriera dopo incidente o malattia. Ti piace cucinare creativamente, vuoi fare di più con il cibo che semplicemente “cook ricetta” – e cercare una professione con significato? Allora hai ragione con noi! Nella vostra formazione per cucinare / cucinare EFZ, diventerete un talento tutto intorno in cucina. Ogni giorno si coniugano deliziosi piatti per i nostri pazienti, dipendenti, ospiti esterni e eventi speciali come catering o aperitivo. Con noi riceverete una formazione in una cucina moderna dove prenderete i compiti reali e prendetevi la responsabilità fin dall'inizio. Si lavora in un ambiente ragionevole in cui il vostro cibo dà un contributo diretto alla salute e al benessere di altre persone. Puoi contribuire alla tua creatività, provare cose nuove e svilupparti professionalmente e personalmente. Un team motivato vi aiuterà e vi accompagnerà sulla strada per il professionista della cucina. Compiti Si lavora con il team per preparare piatti caldi e freddi – dal menu per i pazienti allo spuntino Apéro per il prossimo evento\n• Potrete conoscere tutte le aree della cucina: Free Flow, banchetto, servizio à la carte e catering.\n• Igiene, sicurezza e procedure pulite – si diventa un professionista che mantiene anche una panoramica dietro le quinte. Profilo\n• Scuola obbligatoria completa\n• Passione per la cucina e una buona sensazione per il cibo\n• Interesse per la nutrizione e in che cosa il buon cibo può fare per la salute\n• Sei aperto, comunicativo e come lavorare nel team\n• L'autooccupazione, l'affidabilità e il senso di responsabilità includono Pensum: 100% occupazione: limitato Ingresso: 2027-08-01",
+        "en": "Affiliation, sensuality and competence With an experienced team, we accompany patients through heights and depths and help them find their way back to life or career after accident or illness. You love to cook creatively, want to make more with food than just “cook recipe” – and seek a profession with meaning? Then you're right with us! In your training to cook / cook EFZ, you will become an all-round talent in the kitchen. Every day you conjure delicious dishes for our patients, employees, external guests and special events such as catering or aperitif. With us you will receive a training in a modern kitchen where you will take real tasks and take responsibility from the very beginning. You work in a sensible environment where your food makes a direct contribution to the health and well-being of other people. You can contribute your creativity, try new things and develop yourself professionally and personally. A motivated team will help you and accompany you on your way to the kitchen professional. Tasks\n• You work with the team to prepare warm & cold dishes – from the menu for patients to the Apéro snack for the next event\n• You will get to know all areas of the kitchen: Free Flow, banquet, à la carte service and catering.\n• Hygiene, safety and clean procedures – you become a professional who also keeps an overview behind the scenes. Profile\n• Complete compulsory schooling\n• Passion for cooking and a good feel for food\n• Interest in nutrition and in what good food can do for health\n• You are open, communicative and like to work in the team\n• Self-employment, reliability and sense of responsibility are yours Pensum: 100% Order: fixed Entrance: 2027-08-01",
+        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Du liebst es, kreativ zu kochen, willst mit Lebensmitteln mehr machen als nur „Rezept nachkochen“ – und suchst einen Beruf mit Sinn? Dann bist du bei uns genau richtig! In deiner Ausbildung zum Koch / zur Köchin EFZ wirst du zum Allround-Talent in der Küche. Du zauberst täglich mit Leidenschaft leckere Gerichte für unsere Patienten, Mitarbeitenden, externe Gäste und für besondere Events wie Caterings oder Apéros. Bei uns erhältst du eine Ausbildung in einer modernen Küche, in der du von Anfang an echte Aufgaben übernimmst und Verantwortung trägst. Du arbeitest in einem sinnvollen Umfeld, in dem dein Essen einen direkten Beitrag zur Gesundheit und zum Wohlbefinden anderer Menschen leistet. Dabei kannst du deine Kreativität einbringen, Neues ausprobieren und dich fachlich wie persönlich weiterentwickeln. Ein motiviertes Team steht dir zur Seite und begleitet dich auf deinem Weg zum Küchenprofi. Aufgaben\n• Du arbeitest mit im Team bei der Zubereitung von warmen & kalten Speisen – vom Menü für Patienten bis zum Apéro-Häppchen fürs nächste Event\n• Du lernst alle Bereiche der Küche kennen: Free Flow, Bankette, à la carte Service und Caterings.\n• Hygiene, Sicherheit und saubere Abläufe – du wirst zum Profi, der auch hinter den Kulissen den Überblick behält. Profil\n• Abgeschlossene obligatorische Schulzeit\n• Leidenschaft fürs Kochen und ein gutes Gespür für Lebensmittel\n• Interesse an Ernährung und daran, was gutes Essen für die Gesundheit tun kann\n• Du bist offen, kommunikativ und arbeitest gerne im Team\n• Selbständigkeit, Zuverlässigkeit und Verantwortungsbewusstsein gehören für dich dazu Pensum: 100% Anstellung: befristet Eintritt: 2027-08-01",
+        "fr": "Affiliation, sensualité et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauteurs et des profondeurs et les aidons à retrouver leur chemin vers la vie ou la carrière après un accident ou une maladie. Vous aimez cuisiner de façon créative, voulez faire plus avec de la nourriture que juste la recette de cuisson – et chercher une profession avec le sens? Alors tu as raison avec nous ! Dans votre entraînement pour cuisiner / cuisiner EFZ, vous deviendrez un talent complet dans la cuisine. Chaque jour, vous conjurez de délicieux plats pour nos patients, employés, invités externes et des événements spéciaux comme la restauration ou l'apéritif. Avec nous vous recevrez une formation dans une cuisine moderne où vous prendrez des tâches réelles et prendrez la responsabilité dès le début. Vous travaillez dans un environnement raisonnable où votre alimentation contribue directement à la santé et au bien-être des autres. Vous pouvez contribuer à votre créativité, essayer de nouvelles choses et vous développer professionnellement et personnellement. Une équipe motivée vous aidera et vous accompagnera sur votre chemin vers le professionnel de la cuisine. Tâche\n• Vous travaillez avec l'équipe pour préparer des plats chauds et froids – du menu pour les patients à la collation Apéro pour le prochain événement\n• Vous apprendrez à connaître tous les domaines de la cuisine: Free Flow, banquet, service à la carte et restauration.\n• Hygiène, sécurité et procédures propres – vous devenez un professionnel qui garde également une vue d'ensemble en coulisses. Profil\n• Achèvement de la scolarité obligatoire\n• Passion pour la cuisine et une bonne sensation pour la nourriture\n• Intérêt pour la nutrition et pour la bonne alimentation\n• Vous êtes ouvert, communicatif et aimez travailler dans l'équipe\n• Le travail indépendant, la fiabilité et le sens des responsabilités sont les vôtres Pensum: 100% Ordre: fixé Entrée : 2027-08-01"
       },
       "needsRetranslation": false,
       "location": "Bellikon",
       "canton": "AG",
-      "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Entwicklerin-digitales-Business-EFZ/0134dcde-7572-485e-9e9a-63c3efb8ba57",
+      "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Koechin-Koch-EFZ/54b47a80-0321-45f1-a574-a31dcf587236",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:08.148Z",
+      "crawledAt": "2026-06-23T22:56:26.933Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1097,31 +1097,31 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-26",
-      "applyUrl": "https://job.rehabellikon.ch/apply/0134dcde-7572-485e-9e9a-63c3efb8ba57/website",
+      "applyUrl": "https://job.rehabellikon.ch/apply/54b47a80-0321-45f1-a574-a31dcf587236/website",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "0134dcde-7572-485e-9e9a-63c3efb8ba57",
+      "externalId": "54b47a80-0321-45f1-a574-a31dcf587236",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
-        "apprendimento-r-sviluppatore-in-digital-business-efz-rehaklinik-bellikon-bellikon"
+        "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
+        "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
-          "apprendimento-r-sviluppatore-in-digital-business-efz-rehaklinik-bellikon-bellikon"
+          "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
+          "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
         ],
         "en": [
-          "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon"
+          "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
         ],
         "fr": [
-          "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon"
+          "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
         ]
       },
-      "firstSeenAt": "2026-05-26T23:59:05.514Z",
+      "firstSeenAt": "2026-05-26T23:59:03.615Z",
       "salaryMin": 58000,
       "salaryMax": 99000,
       "baseSalary": {
@@ -1167,7 +1167,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Dienstaerztin-Dienstarzt-Nachtaerztin-Nachtarzt/7a539009-ca4d-49e1-b775-4a55e2b697dd",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:05.758Z",
+      "crawledAt": "2026-06-23T22:56:26.467Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1249,7 +1249,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Kreativ-Koordinatorin-Koordinator/9d8674c0-f6b9-4c13-9963-d4ec6f1b815a",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:05.276Z",
+      "crawledAt": "2026-06-23T22:56:25.996Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1331,7 +1331,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Pflegefachfrau-Pflegefachmann-HFFH/a163d5a4-a69b-4c01-8b26-cf914e734fca",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:04.789Z",
+      "crawledAt": "2026-06-23T22:56:25.525Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1413,7 +1413,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Fachmann-Fachfrau-Berufliche-Eingliederung-Standort-Chur/a1b7a5e8-1b0d-47e0-a3fb-1c407564d97d",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:04.305Z",
+      "crawledAt": "2026-06-23T22:56:25.055Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1495,7 +1495,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Assistenz-Qualitaets-und-Prozessmanagement/c8995dfb-96f2-4a9d-829a-01345826ac66",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:03.811Z",
+      "crawledAt": "2026-06-23T22:56:24.585Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1578,7 +1578,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Pflegefachfrau-Pflegefachmann-HFFH-Fruehrehabilitation/a57664da-38ab-4fa1-abcd-b8ed87b66b9c",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:03.325Z",
+      "crawledAt": "2026-06-23T22:56:24.117Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1628,9 +1628,9 @@
       "id": "reha-bellikon-36a558bf8314",
       "slug": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
       "slugByLocale": {
-        "de": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
         "it": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
         "en": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
+        "de": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
         "fr": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
@@ -1638,17 +1638,17 @@
       "companyDomain": "rehabellikon.ch",
       "title": "Ergotherapeutin / Ergotherapeut Neurologische Rehabilitation",
       "titleByLocale": {
-        "de": "Ergotherapeutin / Ergotherapeut Neurologische Rehabilitation",
-        "en": "Ergotherapeutin / Ergotherapeut Neurologische Rehabilitation",
         "it": "Ergotherapeutin / Ergotherapeut Neurologische Rehabilitation",
+        "en": "Ergotherapeutin / Ergotherapeut Neurologische Rehabilitation",
+        "de": "Ergotherapeutin / Ergotherapeut Neurologische Rehabilitation",
         "fr": "Ergotherapeutin / Ergotherapeut Neurologische Rehabilitation"
       },
       "description": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nWir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten.\n\nAufgaben\n\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen\n\nProfil\n\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet\n\nPensum: 80%\n\nAnstellung: befristet\n\nEintritt: 2026-08-01",
       "descriptionByLocale": {
-        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nWir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten.\n\nAufgaben\n\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen\n\nProfil\n\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet\n\nPensum: 80%\n\nAnstellung: befristet\n\nEintritt: 2026-08-01",
-        "it": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nWir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten.\n\nAufgaben\n\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen\n\nProfil\n\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet\n\nPensum: 80%\n\nAnstellung: befristet\n\nEintritt: 2026-08-01",
-        "en": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nWir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten.\n\nAufgaben\n\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen\n\nProfil\n\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet\n\nPensum: 80%\n\nAnstellung: befristet\n\nEintritt: 2026-08-01",
-        "fr": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nWir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten.\n\nAufgaben\n\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen\n\nProfil\n\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet\n\nPensum: 80%\n\nAnstellung: befristet\n\nEintritt: 2026-08-01"
+        "it": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Wir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten. Aufgaben\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen Profil\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet Pensum: 80% Anstellung: befristet Eintritt: 2026-08-01",
+        "en": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Wir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten. Aufgaben\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen Profil\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet Pensum: 80% Anstellung: befristet Eintritt: 2026-08-01",
+        "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Wir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten. Aufgaben\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen Profil\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet Pensum: 80% Anstellung: befristet Eintritt: 2026-08-01",
+        "fr": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Wir suchen als Vertretung für die Zeit vom 01. August 2026 bis 31. Dezember 2026 eine Ergotherapeutin / einen Ergotherapeuten. Aufgaben\n• Aktive Mitarbeit in einem interdisziplinären Behandlungsteam in der neurologischen Rehabilitation\n• Individuelle Förderung von Patientinnen und Patienten in modern eingerichteten Therapieräumen im Hinblick auf das Wohnen zu Hause und die soziokulturelle Teilhabe\n• Einzel- und Gruppentherapien\n• Regelmässige Teilnahme an Rapporten und Supervisionen Profil\n• Abgeschlossene Berufsausbildung als Ergotherapeutin / Ergotherapeut, SRK Anerkennung bei ausländischem Diplom\n• Interesse an der Arbeit in einem interdisziplinären Team\n• Initiative, Engagement, Flexibilität und Belastbarkeit\n• Teamorientierung, Kritikfähigkeit, selbstständige Arbeitsweise und Zuverlässigkeit\n• Ein 80%-Pensum wird auf 5 Tage verteilt\n• Diese befristete Stelle eignet sich hervorragend um sich in neurologische Behandlungskonzepte einzuarbeiten und dieses Fachgebiet für sich zu erschliessen. Eine gründliche Einarbeitung durch die Fachexpertin Ergotherapie ist gewährleistet Pensum: 80% Anstellung: befristet Eintritt: 2026-08-01"
       },
       "needsRetranslation": true,
       "location": "Bellikon",
@@ -1656,7 +1656,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Ergotherapeutin-Ergotherapeut-Neurologische-Rehabilitation/91f1a119-0370-441f-9993-6b45f3750999",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T12:35:02.828Z",
+      "crawledAt": "2026-06-23T22:56:23.642Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1672,14 +1672,13 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://job.rehabellikon.ch/apply/91f1a119-0370-441f-9993-6b45f3750999/website",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "91f1a119-0370-441f-9993-6b45f3750999",
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
       "contractDuration": "temporary",
+      "firstSeenAt": "2026-06-23T12:35:02.828Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1691,8 +1690,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-23T12:35:02.828Z"
+      }
     }
   ]
 }
