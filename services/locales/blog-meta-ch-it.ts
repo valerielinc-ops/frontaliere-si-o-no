@@ -352,7 +352,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-g-frontalieri-pro-contro.title': 'Permesso G frontalieri: vantaggi e svantaggi completi',
     'blog.article.permesso-g-frontalieri-pro-contro.excerpt': 'Analisi dettagliata dei pro e contro del permesso G per frontalieri, con focus su fisco, previdenza e mobilità lavorativa.',
     'blog.article.permesso-g-frontalieri-pro-contro.imageAlt': 'Vista panoramica del Lago di Lugano con il paesaggio di confine tra Svizzera e Italia',
-
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.title': 'Tassazione frontalieri 2026: le nuove regole dopo l\'accordo fiscale',
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.excerpt': 'Scopri come cambia la tassazione per i frontalieri dal 2026 con il nuovo accordo fiscale tra Svizzera e Italia.',
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.imageAlt': 'Vista panoramica del lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaChIt;
