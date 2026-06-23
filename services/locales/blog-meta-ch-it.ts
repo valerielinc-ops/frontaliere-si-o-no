@@ -326,6 +326,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parlamento-svizzero-accordi-avs.title': 'Il Parlamento svizzero fatica a trovare l’intesa su questioni importanti',
     'blog.article.parlamento-svizzero-accordi-avs.excerpt': 'Il Parlamento svizzero ha concluso la sessione estiva con pochi progressi su temi cruciali come il finanziamento delle pensioni AVS e gli accordi con l\'UE.',
     'blog.article.parlamento-svizzero-accordi-avs.imageAlt': 'Edificio del Parlamento svizzero a Berna con cielo blu e bandiera svizzera.',
+    'blog.article.calcolo-tasse-frontalieri-20km.title': 'Guida al calcolo tasse per frontalieri entro 20 km dal confine',
+    'blog.article.calcolo-tasse-frontalieri-20km.excerpt': 'Scopri come calcolare le tasse per i frontalieri che lavorano entro 20 km dal confine, con franchigia e credito d\'imposta.',
+    'blog.article.calcolo-tasse-frontalieri-20km.imageAlt': 'Vista aerea di Lugano con il lago e le montagne sullo sfondo',
 };
 
 export default blogMetaChIt;

@@ -4121,6 +4121,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-scoiattolo-export-usa-made-italy': { name: 'Scoiattolo New York', path: '/articoli-frontaliere/scoiattolo-export-usa-made-italy', parent: 'blog' },
     'blog-ethos-stipendi-ceo-sostenibilita': { name: 'Ethos critica stipendi', path: '/articoli-svizzera/ethos-stipendi-ceo-sostenibilita/', parent: 'blog' },
     'blog-parlamento-svizzero-accordi-avs': { name: 'Parlamento AVS', path: '/articoli-svizzera/parlamento-svizzero-accordi-avs/', parent: 'blog' },
+    'blog-calcolo-tasse-frontalieri-20km': { name: 'Calcolo tasse frontalieri', path: '/articoli-svizzera/calcolo-tasse-frontalieri-20km/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

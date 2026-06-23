@@ -980,6 +980,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'calcolo-tasse-frontalieri-20km',
+    category: 'fiscale',
+    date: '2026-06-23T14:39:37.182Z',
+    image: '/images/blog/calcolo-tasse-frontalieri-20km.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

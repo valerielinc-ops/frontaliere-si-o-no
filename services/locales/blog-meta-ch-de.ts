@@ -326,6 +326,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parlamento-svizzero-accordi-avs.title': 'Das Schweizer Parlament hat Schwierigkeiten, sich auf wichtige Fragen zu einigen',
     'blog.article.parlamento-svizzero-accordi-avs.excerpt': 'Das Schweizer Parlament beendete die Sommersession mit wenigen Fortschritten bei zentralen Themen wie der Finanzierung der AHV-Renten und den Abkommen mit der EU.',
     'blog.article.parlamento-svizzero-accordi-avs.imageAlt': 'Schweizer Parlamentsgebäude in Bern mit blauem Himmel und Schweizer Flagge.',
+    'blog.article.calcolo-tasse-frontalieri-20km.title': 'Gebührenberechnung für Grenzgänger bis 20 km',
+    'blog.article.calcolo-tasse-frontalieri-20km.excerpt': 'Erfahren Sie, wie Sie die Steuern für Grenzgänger berechnen, die innerhalb von 20 km von der Grenze arbeiten, mit Selbstbehalt und Steuergutschrift.',
+    'blog.article.calcolo-tasse-frontalieri-20km.imageAlt': 'Luftaufnahme der Stadt Lugano mit See und Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;

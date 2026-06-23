@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2875,
+ "numberOfItems": 2876,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7519,7 +7519,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2872, "name": "Dati frontalieri: nessun errore sistemico, dice...", "url": `${BASE_URL}/articoli-frontaliere/dati-frontalieri-errore-sistemico` },
           { "@type": "ListItem", "position": 2873, "name": "Scoiattolo porta i Giant Ravioli a New York: op...", "url": `${BASE_URL}/articoli-frontaliere/scoiattolo-export-usa-made-italy` },
           { "@type": "ListItem", "position": 2874, "name": "Ethos critica stipendi CEO e rapporti sostenibi...", "url": `${BASE_URL}/articoli-frontaliere/ethos-stipendi-ceo-sostenibilita` },
-          { "@type": "ListItem", "position": 2875, "name": "Il Parlamento svizzero fatica a trovare l’intes...", "url": `${BASE_URL}/articoli-frontaliere/parlamento-svizzero-accordi-avs` }
+          { "@type": "ListItem", "position": 2875, "name": "Il Parlamento svizzero fatica a trovare l’intes...", "url": `${BASE_URL}/articoli-frontaliere/parlamento-svizzero-accordi-avs` },
+          { "@type": "ListItem", "position": 2876, "name": "Guida al calcolo tasse per frontalieri entro 20...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-tasse-frontalieri-20km` }
  ]
  },
  {
