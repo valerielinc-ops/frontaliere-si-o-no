@@ -1,18 +1,60 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-06-23T12:02:27.394Z",
+  "generatedAt": "2026-06-23T22:29:30.483Z",
   "total": 10,
   "newCount": 10,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21029,
-  "avgDurationMs": 21029,
+  "durationMs": 24290,
+  "avgDurationMs": 24290,
   "durationHistory": [
-    21029
+    24290
   ],
   "newJobs": [
+    {
+      "id": "company-bm0ep4",
+      "slug": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
+      "company": "IBSA Institut Biochimique",
+      "title": "CMO Manager",
+      "location": "All Area All Clear Apply now » CMO Manager Location: Grancia",
+      "canton": "TI",
+      "category": "sales",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "url": "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "ibsa-institut-biochimique",
+      "companyDomain": "ibsa.ch",
+      "crawledAt": "2026-06-23T22:29:29.508Z",
+      "firstSeenAt": "2026-06-23T22:29:29.508Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "country": "CH",
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "streetAddress": "Via del Piano 29",
+      "postalCode": "6926",
+      "addressLocality": "All Area All Clear Apply now » CMO Manager Location: Grancia",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 18,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-u7vkyi",
       "slug": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
@@ -386,47 +428,6 @@
         "richness": 22,
         "translation": 25,
         "completeness": 25
-      }
-    },
-    {
-      "id": "company-bm0ep4",
-      "slug": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
-      "company": "IBSA Institut Biochimique",
-      "title": "CMO Manager",
-      "location": "Grancia",
-      "canton": "AG",
-      "category": "sales",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "url": "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "AG"
-      },
-      "companyKey": "ibsa-institut-biochimique",
-      "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-04-24T10:21:40.507Z",
-      "firstSeenAt": "2026-04-24T10:21:40.507Z",
-      "sourceLang": "it",
-      "country": "CH",
-      "salaryMin": 82500,
-      "salaryMax": 127000,
-      "streetAddress": "",
-      "postalCode": "6916",
-      "addressLocality": "Grancia",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
       }
     }
   ],
