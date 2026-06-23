@@ -352,7 +352,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-g-frontalieri-pro-contro.title': 'Grenzgänger-G-Genehmigung: Volle Vor- und Nachteile',
     'blog.article.permesso-g-frontalieri-pro-contro.excerpt': 'Detaillierte Analyse der Vor- und Nachteile der Bewilligung G für Grenzgänger mit Schwerpunkt auf Steuern, Vorsorge und Arbeitsmobilität.',
     'blog.article.permesso-g-frontalieri-pro-contro.imageAlt': 'Panoramablick auf den Luganersee mit der Grenzlandschaft zwischen der Schweiz und Italien',
-
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.title': 'Grenzgängerbesteuerung 2026: Die neuen Regeln nach der Steuervereinbarung',
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.excerpt': 'Erfahren Sie, wie sich die Besteuerung von Grenzgängern ab 2026 mit dem neuen Steuerabkommen zwischen der Schweiz und Italien ändert.',
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaChDe;

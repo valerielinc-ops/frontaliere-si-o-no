@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2881,
+ "numberOfItems": 2882,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7529,8 +7529,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2880, "name": "Calcolo pensione frontalieri: come funziona AVS...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontalieri-avs-italiana` },
 
           { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-pro-contro-frontalieri` }
-          { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-frontalieri-pro-contro` }
-
+          { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-frontalieri-pro-contro` },
+          { "@type": "ListItem", "position": 2882, "name": "Tassazione frontalieri 2026: le nuove regole do...", "url": `${BASE_URL}/articoli-frontaliere/tassazione-frontalieri-2026-nuovo-accordo` }
  ]
  },
  {

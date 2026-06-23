@@ -352,7 +352,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-g-frontalieri-pro-contro.title': 'Border permit G: full advantages and disadvantages',
     'blog.article.permesso-g-frontalieri-pro-contro.excerpt': 'Detailed analysis of the pros and cons of the G permit for border workers, with a focus on tax, social security and labour mobility.',
     'blog.article.permesso-g-frontalieri-pro-contro.imageAlt': 'Scenic view of Lake Lugano with the Swiss and Italian border landscape',
-
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.title': 'Border taxation 2026: the new rules after the tax agreement',
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.excerpt': 'Find out how the taxation for border workers changes from 2026 with the new tax agreement between Switzerland and Italy.',
+    'blog.article.tassazione-frontalieri-2026-nuovo-accordo.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaChEn;

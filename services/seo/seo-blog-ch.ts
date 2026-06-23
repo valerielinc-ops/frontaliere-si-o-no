@@ -4432,6 +4432,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassazione-frontalieri-2026-nuovo-accordo': {
+    title: 'Tassazione frontalieri 2026: le nuove regole dopo l\'accordo fiscale',
+    description: 'Scopri come cambia la tassazione per i frontalieri dal 2026 con il nuovo accordo fiscale tra Svizzera e Italia. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassazione, nuove, regole, dopo',
+    ogTitle: 'Tassazione frontalieri 2026: nuove regole dopo l\'accordo fiscale',
+    ogDescription: 'Scopri come cambia la tassazione per i frontalieri dal 2026 con il nuovo accordo fiscale tra Svizzera e Italia.',
+    canonicalPath: '/articoli-svizzera/tassazione-frontalieri-2026-nuovo-accordo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassazione frontalieri 2026: le nuove regole dopo l'accordo fiscale",
+      "description": "Scopri come cambia la tassazione per i frontalieri dal 2026 con il nuovo accordo fiscale tra Svizzera e Italia. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassazione-frontalieri-2026-nuovo-accordo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del lago di Lugano con le montagne circostanti"
+      },
+      "datePublished": "2026-06-23T21:12:22+00:00",
+      "dateModified": "2026-06-23T21:12:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassazione-frontalieri-2026-nuovo-accordo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
