@@ -293,6 +293,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.olimpiadi-2038-svizzera-non-referendum.title': '2038 Olympics in Switzerland: no referendums, confirmation of 200 million',
     'blog.article.olimpiadi-2038-svizzera-non-referendum.excerpt': 'The Federal Council has announced that there will be no popular vote on the Swiss bid for the 2038 Olympics. The confirmation of 200 million francs has passed to Parliament.',
     'blog.article.olimpiadi-2038-svizzera-non-referendum.imageAlt': 'Scene of a Swiss city with Olympic symbols near a lake',
+    'blog.article.pensioni-svizzera-2025.title': 'Swiss pensioners abroad: how to manage double residence',
+    'blog.article.pensioni-svizzera-2025.excerpt': 'More and more retired Swiss are splitting their time between Switzerland and abroad. Here\'s what you need to know about tax and social security implications.',
+    'blog.article.pensioni-svizzera-2025.imageAlt': 'Swiss pensioner enjoying a sunny day by Lake Lugano',
 };
 
 export default blogMetaChEn;

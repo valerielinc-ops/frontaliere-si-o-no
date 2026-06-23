@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2862,
+ "numberOfItems": 2863,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7506,7 +7506,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2859, "name": "Public Eye denuncia salari da fame in un'aziend...", "url": `${BASE_URL}/articoli-frontaliere/public-eye-denuncia-salari-on-ticino` },
           { "@type": "ListItem", "position": 2860, "name": "Sicurezza del paziente in Svizzera: novità e sf...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-paziente-2026-svizzera` },
           { "@type": "ListItem", "position": 2861, "name": "Olimpiadi 2038 in Svizzera: nessun referendum, ...", "url": `${BASE_URL}/articoli-frontaliere/olimpiadi-2038-svizzera-non-referendum` },
-          { "@type": "ListItem", "position": 2862, "name": "Secondo binario Locarnese: raggiunta un’importa...", "url": `${BASE_URL}/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa` }
+          { "@type": "ListItem", "position": 2862, "name": "Secondo binario Locarnese: raggiunta un’importa...", "url": `${BASE_URL}/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa` },
+          { "@type": "ListItem", "position": 2863, "name": "Pensionati svizzeri all'estero: come gestire la...", "url": `${BASE_URL}/articoli-frontaliere/pensioni-svizzera-2025` }
  ]
  },
  {

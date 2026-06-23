@@ -119,6 +119,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'brexit-impatti-svizzera-ue': { it: 'brexit-impatti-svizzera-ue', en: 'brexit-impacts-switzerland-eu', de: 'brexit-auswirkungen-schweiz-eu', fr: 'brexit-impacts-suisse-ue' },
  'sicurezza-paziente-2026-svizzera': { it: 'sicurezza-paziente-2026-svizzera', en: 'patient-safety-2026-switzerland', de: 'patientensicherheit-2026-schweiz', fr: 'securite-patient-2026-suisse' },
  'olimpiadi-2038-svizzera-non-referendum': { it: 'olimpiadi-2038-svizzera-non-referendum', en: 'olympics-2038-swiss-no-referendum', de: 'olympia-2038-schweiz-kein-referendum', fr: 'olympiades-2038-suisse-sans-referendum' },
+ 'pensioni-svizzera-2025': { it: 'pensioni-svizzera-2025', en: 'swiss-pensioners-abroad', de: 'schweizer-rentner-im-ausland', fr: 'retraites-suisses-a-l-etranger' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
