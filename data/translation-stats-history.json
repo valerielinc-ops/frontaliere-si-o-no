@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-04T08:03:56.572Z",
-    "label": "before",
-    "total": 10756,
-    "needsRetranslation": 3106,
-    "suppressed": 22,
-    "incomplete": 907,
-    "complete": 9849,
-    "missingByLocale": {
-      "it": 723,
-      "en": 358,
-      "de": 529,
-      "fr": 683
-    },
-    "topPending": [
-      {
-        "company": "Sulzer",
-        "pending": 204
-      },
-      {
-        "company": "The Swatch Group (U.S.) Inc.",
-        "pending": 103
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 77
-      },
-      {
-        "company": "Roche",
-        "pending": 42
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 36
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-04T10:25:43.185Z",
-    "label": "after",
-    "total": 10756,
-    "needsRetranslation": 2907,
-    "suppressed": 22,
-    "incomplete": 801,
-    "complete": 9955,
-    "missingByLocale": {
-      "it": 617,
-      "en": 333,
-      "de": 441,
-      "fr": 584
-    },
-    "topPending": [
-      {
-        "company": "Sulzer",
-        "pending": 185
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 77
-      },
-      {
-        "company": "Roche",
-        "pending": 42
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 36
-      },
-      {
-        "company": "The Swatch Group (U.S.) Inc.",
-        "pending": 30
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-04T11:07:00.267Z",
     "label": "before",
     "total": 10666,
@@ -11396,6 +11282,120 @@
       {
         "company": "Cartier",
         "pending": 13
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-23T06:27:08.909Z",
+    "label": "before",
+    "total": 17305,
+    "needsRetranslation": 2906,
+    "suppressed": 592,
+    "incomplete": 1400,
+    "complete": 15905,
+    "missingByLocale": {
+      "it": 694,
+      "en": 434,
+      "de": 688,
+      "fr": 296
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 958
+      },
+      {
+        "company": "Manor AG",
+        "pending": 114
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 91
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 21
+      },
+      {
+        "company": "Roche",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Cartier",
+        "pending": 13
+      },
+      {
+        "company": "Implenia",
+        "pending": 9
+      },
+      {
+        "company": "Geberit",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-23T09:59:22.320Z",
+    "label": "after",
+    "total": 17305,
+    "needsRetranslation": 2747,
+    "suppressed": 592,
+    "incomplete": 1353,
+    "complete": 15952,
+    "missingByLocale": {
+      "it": 647,
+      "en": 377,
+      "de": 696,
+      "fr": 242
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 956
+      },
+      {
+        "company": "Manor AG",
+        "pending": 114
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 91
+      },
+      {
+        "company": "UBS",
+        "pending": 45
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 21
+      },
+      {
+        "company": "Roche",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Cartier",
+        "pending": 13
+      },
+      {
+        "company": "Implenia",
+        "pending": 9
+      },
+      {
+        "company": "Luzerner Kantonsspital (LUKS)",
+        "pending": 7
       }
     ]
   }
