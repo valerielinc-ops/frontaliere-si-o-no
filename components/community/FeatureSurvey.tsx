@@ -54,6 +54,7 @@ const FeatureSurvey: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const timeReady = useRef(false);
   const requested = useRef(false);
+  const impressionFired = useRef(false);
 
   // Never show for bots/crawlers — they must see full page content, and we don't
   // want survey events polluting analytics. Mirrors the PostHog bot gate.
@@ -94,6 +95,18 @@ const FeatureSurvey: React.FC = () => {
       unsub();
     };
   }, [isBot]);
+
+  // Fire a single impression event once the survey is actually on screen (slot
+  // granted by the popup queue), so we can measure display→submit conversion.
+  // Without this, only submits are captured — a survey that never shows and one
+  // shown-but-ignored look identical in PostHog.
+  useEffect(() => {
+    if (isBot || !visible || !queueActive || impressionFired.current) return;
+    impressionFired.current = true;
+    const payload = { page: window.location.pathname };
+    captureEvent('feature_survey_impression', payload);
+    Analytics.trackEvent('feature_survey_impression', payload);
+  }, [isBot, visible, queueActive]);
 
   const persistCooldown = () => {
     localStorage.setItem(DISMISSED_KEY, String(Date.now()));
