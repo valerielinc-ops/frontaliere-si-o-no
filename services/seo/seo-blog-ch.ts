@@ -4154,6 +4154,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcolo-tasse-frontalieri-20km': {
+    title: 'Guida al calcolo tasse per frontalieri entro 20 km dal confine',
+    description: 'Scopri come calcolare le tasse per i frontalieri che lavorano entro 20 km dal confine, con franchigia e credito d\'imposta. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, tasse, entro, confine',
+    ogTitle: 'Guida al calcolo tasse per frontalieri entro 20 km dal confine',
+    ogDescription: 'Scopri come calcolare le tasse per i frontalieri che lavorano entro 20 km dal confine, con franchigia e credito d\'imposta.',
+    canonicalPath: '/articoli-svizzera/calcolo-tasse-frontalieri-20km/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida al calcolo tasse per frontalieri entro 20 km dal confine",
+      "description": "Scopri come calcolare le tasse per i frontalieri che lavorano entro 20 km dal confine, con franchigia e credito d'imposta. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolo-tasse-frontalieri-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-06-23T14:39:37+00:00",
+      "dateModified": "2026-06-23T14:39:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calcolo-tasse-frontalieri-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
