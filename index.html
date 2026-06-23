@@ -344,6 +344,24 @@
       .s-wU5Nrr { margin: 0 0 14px; font-size: 18px; line-height: 1.6; max-width: 860px; }
       .s-rDKEKn { margin: 0; line-height: 1.7; max-width: 860px; }
       @media (max-width: 639px) { .s-cta { display: flex; width: 100%; justify-content: center; } }
+      /* Search-index hub (relatedSearchClustersPlugin) — first-paint reservation
+         mirrored from the async seo-static.css (stable hard-coded classes). The
+         /cerca-lavoro-ticino/ricerca/ hub (path #1 by volume) renders an
+         <article class="s-haN35X"> whose padding, header/section margins and
+         H1/lede/H2 typography are async-only → cold-load the column reflows
+         downward ~0.886 when the sheet swaps in (~1.4s). After #2776 (staticOverlay,
+         kills the footer-bounce) + #2740 (page-grid), this inner subtree is the
+         residual. Reserving the resolved geometry → first paint == final → no shift.
+         Pure space reservation (in-flow ad slots unchanged). Keep in sync with
+         SEO_SEARCH_HUB_RESERVE_CSS in build-plugins/shared/criticalCss.ts. */
+      .s-haN35X { max-width: 1100px; margin: 0 auto; padding: 24px 16px 56px; }
+      .s-S1RSUf { margin-bottom: 18px; }
+      .s-JvjD5- { margin: 0 0 10px; font-size: clamp(1.6rem,4vw,2.4rem); line-height: 1.18; }
+      .s-zd3YWl { margin: 0; font-size: 16px; line-height: 1.55; max-width: 820px; }
+      .s-Znu67P { margin: 6px 0 0; font-size: 13px; }
+      .s-sOn5-B { margin: 0 0 12px; font-size: 22px; }
+      .s-h0CoDf { margin: 0 0 12px; }
+      .s-USY9TF { margin: 0 0 22px; }
     </style>
 
     <!-- Google AdSense: deferred until after page is interactive to avoid
