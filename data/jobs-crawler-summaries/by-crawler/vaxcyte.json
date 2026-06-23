@@ -1,18 +1,19 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-06-22T23:49:54.513Z",
+  "generatedAt": "2026-06-23T12:46:52.211Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2403,
-  "avgDurationMs": 2403,
+  "durationMs": 2254,
+  "avgDurationMs": 2254,
   "durationHistory": [
-    2403
+    2254
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "vaxcyte-f57d2d8f4e2b",
       "slug": "senior-manager-quality-assurance-vaxcyte-ch",
@@ -25,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T23:49:52.547Z",
+      "crawledAt": "2026-06-23T12:46:50.252Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -45,16 +46,15 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-06-22T23:49:52.547Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "vaxcyte-27b9ca402283",
       "slug": "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T23:49:52.495Z",
+      "crawledAt": "2026-06-23T12:46:50.185Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T23:49:52.560Z",
+      "crawledAt": "2026-06-23T12:46:50.270Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
