@@ -12,7 +12,7 @@ import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
-import { buildSimplePage, asyncCssHeadBlock } from './htmlTemplate';
+import { buildSimplePage, asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
@@ -3025,7 +3025,7 @@ ${hreflangHtml}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content static-job-page">
  <nav class="bn"><a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, getCantonDisplayLabel(String(job.canton || DEFAULT_CANTON), locale)))}</a></nav>
  <article class="proposal">
@@ -4702,7 +4702,7 @@ ${alternates}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content s-xzWvwM">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -4864,7 +4864,7 @@ ${alternates}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5032,7 +5032,7 @@ ${alternates}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5212,7 +5212,7 @@ ${alternates}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5388,7 +5388,7 @@ ${alternates}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content s-it71Rt">
  <nav class="s-bcr" aria-label="breadcrumb">
  <a href="${locale === 'it' ? '/' : `/${locale}/`}" class="s-bcl">${esc(homeLabel[locale])}</a>
@@ -5582,7 +5582,7 @@ ${alternates}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5800,7 +5800,7 @@ ${alternates}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5960,7 +5960,7 @@ ${alternates}
 ${staticAnalyticsHtml}
  </head>
  <body>
- <div id="root"></div>
+ ${rootShell(hasSpaBundle)}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>

@@ -9,7 +9,7 @@
 
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT } from './constants';
-import { asyncCssLink } from './htmlTemplate';
+import { asyncCssLink, rootShell } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
@@ -4629,7 +4629,7 @@ ${hrefTags}
  // markup via railGutters() keeps the grid drift-proof vs htmlTemplate.ts.
  const { open: railGridOpen, close: railGridClose } = railGutters(true);
  const bodySection = hubChromeSplit
- ? `<div id="root"></div>
+ ? `${rootShell(hasSpaBundle)}
 ${hubChromeSplit.subnavHtml}
 ${railGridOpen}
  <main class="seo-static-content">

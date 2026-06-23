@@ -128,6 +128,40 @@ export const HEAD_SUFFIX_WITH_SPA = ` ${SPA_ACTION_REDIRECT_SCRIPT}
 export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}`;
 
+/**
+ * Empty `#root` for SPA-shell SEO pages, with a first-paint header-height
+ * reservation spacer.
+ *
+ * The crawler-facing SEO content lives in a `<main class="seo-static-content">`
+ * body-sibling OUTSIDE `#root`; React mounts the SPA chrome (the sticky nav
+ * header, `h-14 md:h-20` = 56/80px) INTO `#root`, which — starting empty — would
+ * shove that sibling content down by the header height on mount (live: ~0.08
+ * desktop CLS on `/cerca-lavoro-*`). The `.ft-hdr-reserve` spacer (height pinned
+ * in {@link CRITICAL_CSS} via `ROOT_HEADER_RESERVE_CSS`) holds the header height
+ * from first paint so nothing jumps. `createRoot().render()` REPLACES #root's
+ * children (client render, not hydration), so the spacer leaves no residue and
+ * the real same-height header takes its place shift-free.
+ *
+ * Single source of truth so the literal `<div id="root"></div>` emitters in the
+ * funnel plugins (`jobsSeoPagesPlugin`, `seoHubsPlugin`, `jobSectorPagesPlugin`,
+ * `jobRecencyPagesPlugin`, `staticPagesPlugin`) and the `buildSimplePage` shell
+ * can't drift apart (AGENTS.md §6).
+ *
+ * GATED on the SPA bundle: the spacer is only safe when React actually mounts
+ * (createRoot replaces it with the real header). On a bundle-less page — e.g.
+ * when `resolveEntryAssets` returns '' on a stale/missing `dist/index.html`
+ * (silent catch, `seoPageShell.ts`) — there is no `<script type=module>`, React
+ * never mounts, and an unconditional spacer would sit as a PERMANENT 56/80px
+ * empty band above the indexed SEO content. So callers MUST pass the bundle
+ * flag (`!!entryJs` / `hasSpaBundle`); when false this returns a plain empty
+ * `#root` (the pre-fix harmless degrade — 0px, content at top).
+ */
+export function rootShell(hasSpaBundle: boolean): string {
+  return hasSpaBundle
+    ? '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>'
+    : '<div id="root"></div>';
+}
+
 /** HTML escape for attribute values and text content. */
 export function esc(s: string): string {
  return s
@@ -333,8 +367,20 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // pages (≥97% bounce) to honour their deliberate no-ad opt-out.
  const railsEnabled = seoContentOutsideRoot && !disableAutoAds;
  const { open: railGridOpen, close: railGridClose } = railGutters(railsEnabled);
+ // First-paint header reservation (rootShell below, gated on the bundle): on
+ // these staticOverlay pages `#root` is empty at first paint and the SEO content
+ // is a body-sibling below it; when React mounts, the sticky nav header
+ // (`h-14 md:h-20` = 56/80px) fills `#root` and shoves the sibling content (rail
+ // grid / `main.seo-static-content`) down by the header height — live: rail-grid
+ // +75px @944ms ≈ 0.08 CLS on city-hub, same residual on landings. The
+ // `.ft-hdr-reserve` spacer (height pinned in CRITICAL_CSS) holds that height
+ // from first paint so nothing jumps, AND makes index.tsx's `hasStaticContent()`
+ // true so its mount-time `#root` min-height floor engages, covering the
+ // createRoot()-empties-#root collapse too. `createRoot()` REPLACES #root's
+ // children (client render, not hydration) so the spacer leaves no residue — the
+ // real same-height header takes its place shift-free.
  const bodySection = seoContentOutsideRoot
-   ? ` <div id="root"></div>${preMainSection}
+   ? ` ${rootShell(!!entryJs)}${preMainSection}
 ${railGridOpen}
  <main class="${seoMainClass}">
 ${bodyHtml}

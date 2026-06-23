@@ -23,7 +23,7 @@ import {
   ADSENSE_SNIPPET,
   CDN_PRECONNECT_HINT,
 } from './constants';
-import { asyncCssHeadBlock } from './htmlTemplate';
+import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -424,7 +424,7 @@ ${alternates}
     ${ADSENSE_SNIPPET}
   </head>
   <body>
-    <div id="root"></div>
+    ${rootShell(hasSpaBundle)}
     ${railGutters(true).open}
     <main class="seo-static-content s-Ziv1Xn">
         <nav class="s-bcr">

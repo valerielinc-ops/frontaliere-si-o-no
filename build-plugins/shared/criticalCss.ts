@@ -235,6 +235,33 @@ export const SEO_STATIC_HERO_RESERVE_CSS =
   '@media(max-width:639px){.s-cta{display:flex;width:100%;justify-content:center}}';
 
 /**
+ * First-paint reservation for the SPA sticky-nav header height inside an
+ * otherwise-empty `#root`.
+ *
+ * On staticOverlay pages emitted via `buildSimplePage(seoContentOutsideRoot)`,
+ * `#root` is empty at first paint and the SEO content (rail grid /
+ * `main.seo-static-content`) is a body-sibling BELOW it. When React mounts, the
+ * sticky nav header (`<nav>`'s inner `h-14 md:h-20`) fills `#root` and pushes the
+ * sibling content down by the header height — live-measured rail-grid `24→99`
+ * (+75px) at ~944ms on /cerca-lavoro-argovia/bozberg/ (~0.08 CLS), the residual
+ * after the hero reserves landed (#2740/#2749). htmlTemplate emits a
+ * `<div class="ft-hdr-reserve">` spacer as the sole child of `#root`; pinning its
+ * height here makes `#root` already the header's height at first paint, so the
+ * content below starts where it ends up. `h-14`=56px (<md) / `md:h-20`=80px
+ * (≥768px) — matched exactly so neither breakpoint over/under-reserves.
+ *
+ * NOTE: this is the `#root`-height-floor fix WITHOUT touching `#root` itself —
+ * the gate `criticalCssRootHeight.test.ts` forbids any `#root{min-height}` in
+ * this block (the #1586/#2162 empty-band regression), so the height lives on the
+ * inner spacer class instead. `createRoot().render()` replaces #root's children,
+ * so the spacer is gone post-mount and the real header (same height) shows with
+ * no shift.
+ */
+export const ROOT_HEADER_RESERVE_CSS =
+  '.ft-hdr-reserve{height:56px}' +
+  '@media(min-width:768px){.ft-hdr-reserve{height:80px}}';
+
+/**
  * Search-index hub layout, mirrored from the ASYNC `seo-static.css` into this
  * SYNCHRONOUS first-paint block. This is the THIRD static-content page family —
  * the `relatedSearchClustersPlugin` curated hub at `/cerca-lavoro-ticino/ricerca/`
@@ -285,4 +312,5 @@ export const CRITICAL_CSS =
   RAIL_RESERVE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
   SEO_STATIC_HERO_RESERVE_CSS +
-  SEO_SEARCH_HUB_RESERVE_CSS;
+  SEO_SEARCH_HUB_RESERVE_CSS +
+  ROOT_HEADER_RESERVE_CSS;

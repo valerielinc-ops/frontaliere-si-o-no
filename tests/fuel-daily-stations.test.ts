@@ -482,9 +482,13 @@ describe('generateFuelStationPages() — Ticino only', () => {
   it('uses <body class="bg-surface-alt"> SPA shell with empty #root + static seo-content sibling', () => {
     const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
     expect(sample).toContain('bg-surface-alt');
-    // #root is left EMPTY on SEO pages so React's hydration cannot visually
-    // replace the static SEO content (bait-and-switch fix).
+    // #root carries NO SEO content (bait-and-switch fix). In this test env there
+    // is no SPA bundle (no dist/index.html), so the header-reserve spacer is
+    // gated OFF and #root is plain-empty — the safe no-bundle degrade. The
+    // spacer-when-bundled path is unit-tested directly in
+    // tests/build-plugins/rootShell.test.ts.
     expect(sample).toMatch(/<div\b[^>]*\bid=["']?root["']?(?=[\s>])[^>]*><\/div>/);
+    expect(sample).not.toMatch(/<div\b[^>]*\bid=["']?root["']?[^>]*>\s*<main/);
     // SEO content lives in a sibling `<main class="seo-static-content">`.
     expect(sample).toMatch(htmlTagWithClass('main', 'seo-static-content'));
   });
