@@ -129,7 +129,96 @@ export const SEO_STATIC_GRID_RESERVE_CSS =
   'main.seo-static-content{max-width:min(100%,1120px);margin:0 auto;padding:32px clamp(16px,4vw,32px) 56px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}' +
   'main.seo-static-content>*{min-width:0;width:100%}';
 
+/**
+ * Static SEO HERO layout, mirrored from the ASYNC `seo-static.css` into this
+ * SYNCHRONOUS first-paint block. The SECOND-order CLS residual that surfaced
+ * once {@link SEO_STATIC_GRID_RESERVE_CSS} removed the dominant page-grid
+ * reflow (PR #2740/#2748).
+ *
+ * Why (CLS fix): the hero rendered by `seoContentTokens.ts` (`renderStatGrid`,
+ * breadcrumb, stat tiles, primary CTA) is laid out PURELY by `seo-static.css`,
+ * which `media="print"`-swaps in ~400ms after first paint. The stat-tile
+ * container `.s-XENO3U` is the dominant offender: until the async sheet lands
+ * it renders as default `display:block`, so the 3–4 tiles STACK vertically
+ * (tall column); promotion to `display:grid` (auto-fit, 180px min) flows them
+ * into a single short row and everything below — the content `<section>` and
+ * the CTA — jumps up. Live desktop shift 0.39 at ~515ms (PerformanceObserver
+ * buffered, sources `header`, `.s-XENO3U`, `section`, `a.s-cta`) on
+ * `/cerca-lavoro-ticino/infermieri/`, the new top shift after #2740 cut the
+ * page-grid 0.70 to ~0.17.
+ *
+ * Reserved values mirror the async rules VERBATIM (all hooks are STABLE atomic
+ * class names hard-coded by `seoContentTokens.ts` + `jobsSeoPagesPlugin.ts`,
+ * not per-build hashes):
+ *   - `.s-XENO3U` stat grid, `.s-cta` CTA flex, breadcrumb `.s-bcr` margin, the
+ *     hero wrapper `.s-sy52lX` margin — the structural collapse.
+ *   - tile box (`.s-tbase/.s-tacc/.s-tok/.s-twrn/.s-tdng`) `padding:18px` +
+ *     `border:1px` and the tile `.s-tlbl`/`.s-tval` font metrics — so each
+ *     tile's height (hence the grid row height) is identical at first paint.
+ *
+ * The TI city/canton job hubs `/cerca-lavoro-{canton}/{city}/` — the DOMINANT
+ * page type on the `/cerca-lavoro-*` surface — render a PARALLEL, independently
+ * hard-coded stat-grid system (`jobsSeoPagesPlugin.ts`: `<header class="s-S_0cal">`
+ * + `<section class="s-S6PRaY">` with `.s-CGuDZg`/`.s-3kP_AL`/`.s-0kclVO` tiles,
+ * `.s-9UotdJ` values, `.s-JFi4vt`/`.s-z4q8yI`/`.s-AnMfGC` labels) that does NOT
+ * reuse `renderStatGrid`/`.s-XENO3U`, so the reserve above never touched it and
+ * the SAME block→grid collapse still fired there. We mirror that system too:
+ *   - `.s-S6PRaY` grid (`minmax(220px)`, `margin:0 0 18px`) — the collapse.
+ *   - its tile box + value/label metrics, grouped with the `.s-t*` twins where
+ *     layout-identical (`.s-9UotdJ`==`.s-tval`; `.s-JFi4vt`/`.s-z4q8yI`==`.s-tlbl`).
+ *   - the city-hub `<header>` is `.s-S_0cal sx-hero`; its async padding+margin
+ *     live on `.sx-hero` (reserved below), NOT `.s-S_0cal` (whose margin loses
+ *     the cascade to `.sx-hero` — see the `.sx-hero` note).
+ *
+ * Borders use `transparent` (the async sheet paints the real colour — paint,
+ * not layout). Pure space reservation (AGENTS.md §7): no ad/content/markup
+ * change; the CTA/tiles are the same boxes before and after.
+ */
+export const SEO_STATIC_HERO_RESERVE_CSS =
+  '.s-XENO3U{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px}' +
+  '.s-S6PRaY{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px}' +
+  '.s-tbase,.s-tacc,.s-tok,.s-twrn,.s-tdng,.s-CGuDZg,.s-3kP_AL{padding:18px;border:1px solid transparent;border-radius:14px}' +
+  '.s-0kclVO{padding:18px;border:1px solid transparent;border-radius:22px}' +
+  '.s-tlbl,.s-JFi4vt,.s-z4q8yI{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}' +
+  '.s-AnMfGC{font-size:12px;font-weight:700;text-transform:uppercase}' +
+  '.s-tval,.s-9UotdJ{margin-top:8px;font-size:28px;font-weight:800;line-height:1.1}' +
+  '.s-bcr{margin:0 0 14px;font-size:13px}' +
+  // font-weight:700 reserved so CTA glyph width (hence any adjacent inline
+  // element) is stable; mobile mirrors the async ≤639px full-width swap.
+  '.s-cta{display:inline-flex;align-items:center;gap:6px;padding:12px 20px;font-weight:700}' +
+  // hero <header> wrappers. `.sx-hero` (renderLandingHero + city/canton hub
+  // `<header class="s-S_0cal sx-hero">`) applies async-only padding
+  // (`20px 16px`→`24px 22px`@≥640) + `margin:0 0 20px` — verified live on
+  // /cerca-lavoro-argovia/bozberg/ (24px 22px, margin 20px desktop). At first
+  // paint padding is 0, so the swap expands the header ~48px and pushes the
+  // stat-grid/section/CTA down (review #2749 🔴); reserving it also keeps the
+  // header inner width constant so auto-fit can't recompute a column count.
+  // The async `.sx-hero{margin:0 0 20px}` (later in the sheet) WINS the cascade
+  // over `.s-S_0cal{margin-bottom:28px}`, so the final city-hub header margin is
+  // 20px — reserve `.sx-hero` (NOT `.s-S_0cal`, which would first-paint at 28px
+  // and shift 8px). The other header variant `.s-sy52lX` (profession/recency
+  // landings, e.g. /cerca-lavoro-ticino/infermieri/) has padding 0 (verified
+  // live) — reserve its 24px margin only.
+  '.sx-hero{padding:20px 16px;margin:0 0 20px}' +
+  '@media(min-width:640px){.sx-hero{padding:24px 22px}}' +
+  '.s-sy52lX{margin-bottom:24px}' +
+  // city-hub hero TYPOGRAPHY (jobsSeoPagesPlugin hardcoded classes): H1, kicker
+  // and intro paragraphs are async-only → at first paint the H1 falls to UA
+  // defaults (≈2em / line-height 1.5 / ~0.67em margin) and the kicker/intro lose
+  // their box/width, shifting the stat-grid below. Mirror the resolved metrics
+  // (live-measured on /cerca-lavoro-argovia/bozberg/: H1 font 51.2px=3.2rem,
+  // line-height 1.15, margin-bottom 14px). The LANDING hero (renderLandingHero /
+  // infermieri etc.) styles its H1 INLINE (`<h1 style="font-size:clamp(...)">`)
+  // so it is already first-paint-stable and needs no class reserve here.
+  '.s-P0Hs0W{margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.15}' +
+  '.sx-kick{display:inline-flex;align-items:center;gap:6px;border:1px solid transparent;border-radius:999px;padding:4px 12px;font-weight:600;margin:0 0 8px}' +
+  '.s-zNiFzy{margin:0 0 8px;font-size:13px;font-weight:700}' +
+  '.s-wU5Nrr{margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px}' +
+  '.s-rDKEKn{margin:0;line-height:1.7;max-width:860px}' +
+  '@media(max-width:639px){.s-cta{display:flex;width:100%;justify-content:center}}';
+
 export const CRITICAL_CSS =
   '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}' +
   RAIL_RESERVE_CSS +
-  SEO_STATIC_GRID_RESERVE_CSS;
+  SEO_STATIC_GRID_RESERVE_CSS +
+  SEO_STATIC_HERO_RESERVE_CSS;
