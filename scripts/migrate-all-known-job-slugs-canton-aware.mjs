@@ -29,7 +29,7 @@
 // path verbatim — resolveCantonSection short-circuits on 'TI'.
 import fs from 'node:fs';
 import path from 'node:path';
-import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const TRACKING_PATH = path.resolve('data/all-known-job-slugs.json');
 const JOBS_PATH = path.resolve('data/jobs.json');
@@ -44,10 +44,26 @@ const LOCALE_PREFIX = { it: '', en: '/en', de: '/de', fr: '/fr' };
 // JSON the raw-node runtime reads with `fs` (Vite consumers import it instead).
 const cantonSlugFile = JSON.parse(fs.readFileSync(CANTON_SLUGS_PATH, 'utf8'));
 const municipalitiesFile = JSON.parse(fs.readFileSync(MUNI_PATH, 'utf8'));
-const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({
+const { resolveCantonSection, resolveJobCanton, ALL_CANTON_CODES } = createCantonResolvers({
   cantonSlugFile,
   municipalitiesFile,
 });
+
+// Whitelist of every URL section the page-emit can legitimately produce, per
+// locale. This is the exact set of `resolveCantonSection` outputs over every
+// canton code (+ TI legacy + aggregate) — i.e. precisely the sections a real
+// job page is ever emitted under. We enumerate the resolver rather than
+// prefix-matching `SECTION_PREFIX_BY_LOCALE`, because a naive prefix check would
+// miss the `de` legacy section (`jobs-im-tessin`, prefix `jobs-im` ≠ `jobs-in`)
+// and any `dePrefix` canton, silently treating them as non-sections.
+const VALID_SECTIONS_BY_LOCALE = {};
+for (const locale of LOCALES) {
+  const sections = new Set();
+  for (const code of [...ALL_CANTON_CODES, 'TI', AGGREGATE_KEY]) {
+    sections.add(resolveCantonSection(locale, code));
+  }
+  VALID_SECTIONS_BY_LOCALE[locale] = sections;
+}
 
 // ── Migration body ─────────────────────────────────────────────────
 const tracking = JSON.parse(fs.readFileSync(TRACKING_PATH, 'utf8'));
@@ -76,6 +92,7 @@ for (const job of jobs) {
 let rewritten = 0;
 let kept = 0;
 let orphanKept = 0;
+let nonSectionSkipped = 0;
 const cantonStats = new Map();
 
 const out = {};
@@ -117,6 +134,17 @@ for (const [trackingSlug, entry] of Object.entries(tracking)) {
     }
     const m = afterLp.match(/^\/([^/]+)\/(.*)$/); // [, section, rest]
     if (!m) continue; // not a /<section>/<slug> path — leave it
+    // Guard the first-segment rewrite: only reconcile a path whose CURRENT
+    // section is one the resolver itself emits. A hand-edited or non-section
+    // entry (e.g. /chi-siamo/..., /blog/...) would otherwise have its first
+    // segment silently clobbered toward a canton section, 301'ing to a page
+    // that was never emitted. The current ledger is 100% section-shaped (this
+    // is a future-proofing guard, not a fix for live data).
+    if (!VALID_SECTIONS_BY_LOCALE[locale].has(m[1])) {
+      console.warn(`  [guard] skip non-section path (${locale}, ${trackingSlug}): ${oldPath}`);
+      nonSectionSkipped++;
+      continue;
+    }
     const rest = m[2]; // slug body + any trailing slash, preserved verbatim
     const newSection = resolveCantonSection(locale, canton);
     const newPath = `${lp}/${newSection}/${rest}`;
@@ -137,6 +165,7 @@ console.log(`  total tracking entries:      ${Object.keys(tracking).length}`);
 console.log(`  rewritten (non-TI job):      ${rewritten}`);
 console.log(`  kept (TI job — invariance):  ${kept}`);
 console.log(`  kept (orphan, no live job):  ${orphanKept}`);
+console.log(`  skipped (non-section path):  ${nonSectionSkipped}`);
 console.log('  canton distribution of matched jobs:');
 const cantonSorted = [...cantonStats.entries()].sort((a, b) => b[1] - a[1]);
 for (const [c, n] of cantonSorted) console.log(`    ${c.padEnd(6)} ${n}`);

@@ -4656,6 +4656,7 @@ ${hrefTags}
  ${DARK_MODE_SCRIPT}
  <style>${criticalCSS}</style>
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
