@@ -16,6 +16,7 @@ import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleOutreachUnsubscribe } from './src/outreachUnsubscribe.js';
+import { handleOutreachStopReply } from './src/outreachStopReply.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
@@ -703,6 +704,44 @@ export const outreachUnsubscribe = onRequest(
  } catch (error) {
  console.error('[outreachUnsubscribe] Error:', error);
  res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
+ }
+ },
+);
+
+/**
+ * outreachStopReply — server-side auto-suppress from a STOP / UNSUBSCRIBE reply
+ * (follow-up #2620, item 2). The Cloudflare Email Worker
+ * (infra/cloudflare-email-worker/stop-reply-handler.js) POSTs the parsed inbound
+ * reply { from, subject, body } with a shared secret (NEWSLETTER_SECRET) in the
+ * `x-stop-secret` header; this writes employer_outreach_suppression/{companyKey}
+ * the same way the one-click path does. POST-only, secret-gated.
+ */
+export const outreachStopReply = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: false,
+ },
+ async (req, res) => {
+ if (req.method !== 'POST') {
+ res.status(405).send('Method not allowed');
+ return;
+ }
+ try {
+ const { newsletterSecret } = await getNewsletterSecrets();
+ const body = req.body || {};
+ const result = await handleOutreachStopReply({
+ from: body.from,
+ subject: body.subject,
+ body: body.body,
+ secret: newsletterSecret,
+ providedSecret: String(req.get('x-stop-secret') || ''),
+ });
+ res.status(result.status).type('text').send(result.body);
+ } catch (error) {
+ console.error('[outreachStopReply] Error:', error);
+ res.status(500).type('text').send('error');
  }
  },
 );
