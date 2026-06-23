@@ -3803,6 +3803,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-economisti-adeguano-stime-crescita-2026': {
+    title: 'Economisti adeguano stime crescita per il 2026',
+    description: 'La Svizzera nel 2026 va verso una crescita del PIL dello 0,9%, un dato in calo rispetto all\'1,0% di marzo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, economisti, adeguano, stime, crescita',
+    ogTitle: 'Economisti adeguano stime crescita per il 2026',
+    ogDescription: 'La Svizzera nel 2026 va verso una crescita del PIL dello 0,9%, un dato in calo rispetto all\'1,0% di marzo',
+    canonicalPath: '/articoli-svizzera/economisti-adeguano-stime-crescita-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economisti adeguano stime crescita per il 2026",
+      "description": "La Svizzera nel 2026 va verso una crescita del PIL dello 0,9%, un dato in calo rispetto all'1,0% di marzo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economisti-adeguano-stime-crescita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Monte Generoso con indicatori di crescita economica"
+      },
+      "datePublished": "2026-06-23T02:42:45+00:00",
+      "dateModified": "2026-06-23T02:42:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economisti-adeguano-stime-crescita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

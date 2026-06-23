@@ -299,6 +299,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Einkaufszentrum stellt ein: Gehälter bis zu 5.000 Franken',
     'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'Ein Einkaufszentrum stellt Mitarbeiter ein, die hohe Gehälter anbieten, insbesondere Grenzgänger. Die Tessiner scheinen weniger geneigt zu sein, in der Branche zu arbeiten.',
     'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Schweizer Einkaufszentrum mit Geschäften und Menschen',
+    'blog.article.economisti-adeguano-stime-crescita-2026.title': 'Ökonomen passen Wachstumsschätzungen für 2026 an',
+    'blog.article.economisti-adeguano-stime-crescita-2026.excerpt': 'Die Schweiz steuert 2026 auf ein BIP-Wachstum von 0,9% zu, ein Rückgang gegenüber 1,0% im März',
+    'blog.article.economisti-adeguano-stime-crescita-2026.imageAlt': 'Luftaufnahme des Monte Generoso mit Wirtschaftswachstumsindikatoren',
 };
 
 export default blogMetaChDe;
