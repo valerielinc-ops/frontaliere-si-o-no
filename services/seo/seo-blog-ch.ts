@@ -4193,6 +4193,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nessuna-proroga-garanzie-aziende-elettriche': {
+    title: 'Nessuna proroga per le garanzie statali alle aziende elettriche',
+    description: 'La Commissione dell\'ambiente ha deciso di non prorogare le garanzie statali per le aziende elettriche oltre il 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, nessuna, proroga, garanzie, statali',
+    ogTitle: 'Nessuna proroga per le garanzie statali alle aziende elettriche',
+    ogDescription: 'La Commissione dell\'ambiente ha deciso di non prorogare le garanzie statali per le aziende elettriche oltre il 2026.',
+    canonicalPath: '/articoli-svizzera/nessuna-proroga-garanzie-aziende-elettriche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nessuna proroga per le garanzie statali alle aziende elettriche",
+      "description": "La Commissione dell'ambiente ha deciso di non prorogare le garanzie statali per le aziende elettriche oltre il 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nessuna-proroga-garanzie-aziende-elettriche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centrale idroelettrica svizzera vicino a un lago con montagne"
+      },
+      "datePublished": "2026-06-23T16:32:45+00:00",
+      "dateModified": "2026-06-23T16:32:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nessuna-proroga-garanzie-aziende-elettriche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

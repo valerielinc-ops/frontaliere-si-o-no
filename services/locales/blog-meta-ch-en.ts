@@ -329,6 +329,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calcolo-tasse-frontalieri-20km.title': 'Guide to calculating taxes for border workers within 20 km of the border',
     'blog.article.calcolo-tasse-frontalieri-20km.excerpt': 'Learn how to calculate taxes for border workers working within 20 km of the border, with an exemption and tax credit.',
     'blog.article.calcolo-tasse-frontalieri-20km.imageAlt': 'Aerial view of Lugano city with the lake and mountains in the background',
+    'blog.article.nessuna-proroga-garanzie-aziende-elettriche.title': 'No extension for state guarantees to electricity companies',
+    'blog.article.nessuna-proroga-garanzie-aziende-elettriche.excerpt': 'The States\' Commission on the Environment, Spatial Planning and Energy has decided not to extend state guarantees for electricity companies beyond 2026.',
+    'blog.article.nessuna-proroga-garanzie-aziende-elettriche.imageAlt': 'Swiss hydroelectric power station near a lake with mountains',
 };
 
 export default blogMetaChEn;
