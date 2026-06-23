@@ -215,7 +215,7 @@ const TicineseDialect: React.FC = () => {
  };
 
  useEffect(() => {
- Analytics.trackPageView('/dialetto-ticinese', 'Dialetto Ticinese');
+ Analytics.trackPageView('/dialetto-ticinese/', 'Dialetto Ticinese');
  Analytics.trackUIInteraction('dialect', 'page', 'dialect_page', 'view');
  }, []);
 

@@ -8138,6 +8138,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.public-eye-denuncia-salari-on-ticino.title': 'Public Eye denuncia salari da fame in un\'azienda che lavora per il marchio On',
     'blog.article.public-eye-denuncia-salari-on-ticino.excerpt': 'Il rapporto di Public Eye denuncia salari minimi e condizioni precarie in un sub-fornitore di On, con indagine e stop ordini da parte dell\'azienda.',
     'blog.article.public-eye-denuncia-salari-on-ticino.imageAlt': 'Immagine fotorealistica del valico di frontiera tra Svizzera e Italia vicino a Mendrisio con pendolari e lavoratori',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.title': 'Secondo binario Locarnese: raggiunta un’importante tappa dei lavori',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.excerpt': 'I lavori per il secondo binario nella regione del Locarnese hanno raggiunto un\'importante tappa, fondamentale per lo sviluppo dell\'infrastruttura ferroviaria.',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.imageAlt': 'Vista aerea della stazione di Locarno con lavori in corso per il secondo binario',
 };
 
 export default blogMetaIt;

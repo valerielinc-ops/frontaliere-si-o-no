@@ -293,6 +293,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.olimpiadi-2038-svizzera-non-referendum.title': '2038 Olympics in Switzerland: no referendums, confirmation of 200 million',
     'blog.article.olimpiadi-2038-svizzera-non-referendum.excerpt': 'The Federal Council has announced that there will be no popular vote on the Swiss bid for the 2038 Olympics. The confirmation of 200 million francs has passed to Parliament.',
     'blog.article.olimpiadi-2038-svizzera-non-referendum.imageAlt': 'Scene of a Swiss city with Olympic symbols near a lake',
+    'blog.article.pensioni-svizzera-2025.title': 'Swiss pensioners abroad: how to manage double residence',
+    'blog.article.pensioni-svizzera-2025.excerpt': 'More and more retired Swiss are splitting their time between Switzerland and abroad. Here\'s what you need to know about tax and social security implications.',
+    'blog.article.pensioni-svizzera-2025.imageAlt': 'Swiss pensioner enjoying a sunny day by Lake Lugano',
+    'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Shopping mall hires: salaries up to CHF 5,000',
+    'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'A shopping centre hires staff offering high salaries, especially for border workers. Ticinese seem less likely to work in the industry.',
+    'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Swiss shopping mall with shops and people',
+    'blog.article.economisti-adeguano-stime-crescita-2026.title': 'Economists adjust growth estimates for 2026',
+    'blog.article.economisti-adeguano-stime-crescita-2026.excerpt': 'Switzerland is moving towards 0.9% GDP growth in 2026, down from 1.0% in March',
+    'blog.article.economisti-adeguano-stime-crescita-2026.imageAlt': 'Aerial view of Monte Generoso with economic growth indicators',
+    'blog.article.frontalieri-checklist-2026.title': 'Frontier: first day of work checklist in Ticino 2026',
+    'blog.article.frontalieri-checklist-2026.excerpt': 'Required documents, permits and health insurance for cross-border workers in 2026',
+    'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontier worker presenting documents on first day of work in Lugano',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Frontier common choice residence Italy Switzerland 2026 single',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Subtitle with concrete data FROM THE SOURCE (max 160 chars)',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
 };
 
 export default blogMetaChEn;
