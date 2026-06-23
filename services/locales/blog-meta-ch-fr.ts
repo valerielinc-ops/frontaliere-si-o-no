@@ -317,6 +317,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bilancia-pagamenti-calo-svizzera.title': 'BNS : balance des paiements en baisse',
     'blog.article.bilancia-pagamenti-calo-svizzera.excerpt': 'Solde de la balance des paiements en forte baisse au premier trimestre pour l\'économie suisse. L\'excédent du compte courant s\'est élevé à 16 milliards de francs, soit 11 milliards de moins qu\'à la même période de l\'année précédente, a indiqué aujourd\'hui la Banque nationale suisse (BNS).',
     'blog.article.bilancia-pagamenti-calo-svizzera.imageAlt': 'Vue panoramique d\'une ville suisse avec un horizon large et une perspective suggestive',
+    'blog.article.dati-frontalieri-errore-sistemico.title': 'Données frontalières : pas d\'erreur systémique, dit le DFE',
+    'blog.article.dati-frontalieri-errore-sistemico.excerpt': 'Le directeur de la Division des contributions du DFE précise que les problèmes signalés sur les données des frontaliers ne concernent que des cas isolés.',
+    'blog.article.dati-frontalieri-errore-sistemico.imageAlt': 'Vue aérienne du lac de Lugano avec des travailleurs frontaliers traversant la frontière',
 };
 
 export default blogMetaChFr;

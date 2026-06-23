@@ -127,6 +127,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'banca-svizzera-segreto': { it: 'banca-svizzera-segreto', en: 'swiss-bank-secrecy', de: 'schweizer-bankgeheimnis', fr: 'secret-bancaire-suisse' },
  'trasporti-chiasso-lugano-2026': { it: 'trasporti-chiasso-lugano-2026', en: 'chiasso-lugano-transport-2026', de: 'verkehr-chiasso-lugano-2026', fr: 'transports-chiasso-lugano-2026' },
  'bilancia-pagamenti-calo-svizzera': { it: 'bilancia-pagamenti-calo-svizzera', en: 'swiss-balance-of-payments-decline', de: 'schweizer-zahlungsbilanz-rueckgang', fr: 'd-c3-a9s-c3-a9quilibre-payments-suisse-en-chute' },
+ 'dati-frontalieri-errore-sistemico': { it: 'dati-frontalieri-errore-sistemico', en: 'cross-border-workers-data-systemic-error', de: 'grenzganger-daten-systemfehler', fr: 'travailleurs-frontaliers-donnees-erreur-systemique' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

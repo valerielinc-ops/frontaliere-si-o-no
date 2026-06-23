@@ -4037,6 +4037,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dati-frontalieri-errore-sistemico': {
+    title: 'Dati frontalieri: nessun errore sistemico, dice il DFE',
+    description: 'Il direttore della Divisione delle contribuzioni del DFE precisa che i problemi segnalati sui dati dei frontalieri riguardano solo casi isolati. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, dati, nessun, errore, sistemico',
+    ogTitle: 'Dati frontalieri: nessun errore sistemico, dice il DFE',
+    ogDescription: 'Il direttore della Divisione delle contribuzioni del DFE precisa che i problemi segnalati sui dati dei frontalieri riguardano solo casi isolati.',
+    canonicalPath: '/articoli-svizzera/dati-frontalieri-errore-sistemico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dati frontalieri: nessun errore sistemico, dice il DFE",
+      "description": "Il direttore della Divisione delle contribuzioni del DFE precisa che i problemi segnalati sui dati dei frontalieri riguardano solo casi isolati. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dati-frontalieri-errore-sistemico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con frontalieri che attraversano il confine"
+      },
+      "datePublished": "2026-06-23T11:02:10+00:00",
+      "dateModified": "2026-06-23T11:02:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dati-frontalieri-errore-sistemico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
