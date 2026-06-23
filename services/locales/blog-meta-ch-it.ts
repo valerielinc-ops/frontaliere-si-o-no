@@ -302,6 +302,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.economisti-adeguano-stime-crescita-2026.title': 'Economisti adeguano stime crescita per il 2026',
     'blog.article.economisti-adeguano-stime-crescita-2026.excerpt': 'La Svizzera nel 2026 va verso una crescita del PIL dello 0,9%, un dato in calo rispetto all\'1,0% di marzo',
     'blog.article.economisti-adeguano-stime-crescita-2026.imageAlt': 'Vista aerea del Monte Generoso con indicatori di crescita economica',
+    'blog.article.frontalieri-checklist-2026.title': 'Frontaliere: checklist primo giorno di lavoro in Ticino 2026',
+    'blog.article.frontalieri-checklist-2026.excerpt': 'Documenti necessari, permessi e assicurazione sanitaria per lavoratori transfrontalieri nel 2026',
+    'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontaliere che presenta documenti al primo giorno di lavoro a Lugano',
 };
 
 export default blogMetaChIt;

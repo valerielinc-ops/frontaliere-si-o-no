@@ -4111,6 +4111,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensioni-svizzera-2025': { name: 'Pensioni Svizzera', path: '/articoli-svizzera/pensioni-svizzera-2025/', parent: 'blog' },
     'blog-stipendi-frontalieri-centro-commerciale': { name: 'Lavoro Frontalieri', path: '/articoli-svizzera/stipendi-frontalieri-centro-commerciale/', parent: 'blog' },
     'blog-economisti-adeguano-stime-crescita-2026': { name: 'Economia Svizzera', path: '/articoli-svizzera/economisti-adeguano-stime-crescita-2026/', parent: 'blog' },
+    'blog-frontalieri-checklist-2026': { name: 'Lavoro Frontaliere', path: '/articoli-svizzera/frontalieri-checklist-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
