@@ -78,7 +78,10 @@ describe('Thin content guard (post-build)', () => {
       const filePath = path.join(DIST_DIR, relPath, 'index.html');
       if (!existsSync(filePath)) continue;
       const html = readFileSync(filePath, 'utf-8');
-      if (/<meta[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) {
+      // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so dist
+      // metas are unquoted (`name=robots content=noindex`); a quote-mandatory
+      // regex would false-negative and let a noindex page slip into a sitemap.
+      if (/<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html)) {
         noindexPages.push(`[${sitemap}] /${relPath}`);
       }
     }

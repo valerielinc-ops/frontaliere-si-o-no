@@ -361,8 +361,10 @@ async function resolvePathToDistFile(distRoot, path) {
   }
 }
 
+// Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
+// attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
 const ROBOTS_NOINDEX_RE =
-  /<meta\s+[^>]*name\s*=\s*["']robots["'][^>]*content\s*=\s*["'][^"']*\bnoindex\b[^"']*["'][^>]*>/i;
+  /<meta\s+[^>]*name\s*=\s*["']?robots["']?[^>]*content\s*=\s*["']?[^"'>]*\bnoindex\b/i;
 
 function htmlHasNoindex(html) {
   return ROBOTS_NOINDEX_RE.test(html);

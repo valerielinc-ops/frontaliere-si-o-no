@@ -102,7 +102,8 @@ function inspectContent(html) {
       .trim()
       .length,
     selfBouncingRedirect: /<script>location\.replace\(['"][^'"]*['"]\+location\.hash\)<\/script>/.test(html),
-    noindex: /<meta\s+name="robots"\s+content="noindex/i.test(html),
+    // Quote-flexible: PR #478 baked removeAttributeQuotes upstream (dist `name=robots content=noindex`).
+    noindex: /<meta\s+name=["']?robots["']?\s+content=["']?[^"'>]*noindex/i.test(html),
     canonicalHref: (html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i) || [, null])[1],
     hasJobPosting: /<script[^>]+type="application\/ld\+json"[^>]*>\s*\{[^}]*"@type"\s*:\s*"JobPosting"/.test(html),
     hasCollectionPage: /<script[^>]+type="application\/ld\+json"[^>]*>\s*\{[^}]*"@type"\s*:\s*"CollectionPage"/.test(html),

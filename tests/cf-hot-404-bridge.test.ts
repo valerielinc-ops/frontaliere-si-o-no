@@ -63,3 +63,50 @@ describe('cfHot404BridgePlugin', () => {
     expect(fs.readFileSync(file, 'utf-8')).toBe('<html>RICHER</html>');
   });
 });
+
+/**
+ * Issue #2707: the canton-moved verbatim-copy path forces `noindex,follow` on the
+ * copied canonical HTML. PR #478 baked `removeAttributeQuotes` upstream, so the
+ * built dist HTML carries an UNQUOTED `<meta name=robots ...>`. A quote-mandatory
+ * detect/replace regex (`name=["']robots["']`) misses that minified meta, falls
+ * through to the <head>-inject branch, and emits a SECOND robots meta while the
+ * original `index,follow` one survives → the drift copy stays indexable.
+ *
+ * These assertions lock the regex contract: it must match robots metas whether or
+ * not the attribute value is quoted, replacing in place (single meta, noindex),
+ * and never injecting a duplicate.
+ */
+describe('cfHot404BridgePlugin robots regex (quote-flexible, issue #2707)', () => {
+  // Mirrors the detect + replace regex pair in cfHot404BridgePlugin.ts.
+  const DETECT_RE = /<meta\s+name=["']?robots["']?/i;
+  const REPLACE_RE = /<meta\s+name=["']?robots["']?[^>]*>/i;
+  const forceNoindex = (html: string): string =>
+    DETECT_RE.test(html)
+      ? html.replace(REPLACE_RE, '<meta name="robots" content="noindex,follow">')
+      : html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}<meta name="robots" content="noindex,follow">`);
+
+  const robotsCount = (html: string) => (html.match(/<meta\s+name=["']?robots/gi) || []).length;
+
+  it('replaces an UNQUOTED minified robots meta in place (no duplicate)', () => {
+    const minified = '<html><head><meta name=robots content=index,follow><title>x</title></head></html>';
+    const out = forceNoindex(minified);
+    expect(out).toContain('content="noindex,follow"');
+    expect(out).not.toContain('content=index,follow');
+    expect(robotsCount(out)).toBe(1);
+  });
+
+  it('replaces a QUOTED robots meta in place (no duplicate)', () => {
+    const quoted = '<html><head><meta name="robots" content="index,follow"><title>x</title></head></html>';
+    const out = forceNoindex(quoted);
+    expect(out).toContain('content="noindex,follow"');
+    expect(out).not.toContain('content="index,follow"');
+    expect(robotsCount(out)).toBe(1);
+  });
+
+  it('injects a robots meta into <head> when none is present', () => {
+    const none = '<html><head><title>x</title></head></html>';
+    const out = forceNoindex(none);
+    expect(out).toContain('content="noindex,follow"');
+    expect(robotsCount(out)).toBe(1);
+  });
+});

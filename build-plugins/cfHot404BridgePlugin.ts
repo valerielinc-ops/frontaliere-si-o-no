@@ -208,9 +208,14 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
           if (fs.existsSync(canonFile)) {
             let canonHtml = fs.readFileSync(canonFile, 'utf-8');
             if (!itIndexable) {
-              canonHtml = /<meta\s+name=["']robots["']/i.test(canonHtml)
+              // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so
+              // single-token attribute values lose their quotes in dist/ (`name=robots`).
+              // A quote-mandatory regex (`name=["']robots["']`) misses the minified meta,
+              // falls through to the <head> branch, and injects a SECOND robots meta while
+              // the original `index,follow` one survives — the drift copy stays indexable.
+              canonHtml = /<meta\s+name=["']?robots["']?/i.test(canonHtml)
                 ? canonHtml.replace(
-                    /<meta\s+name=["']robots["'][^>]*>/i,
+                    /<meta\s+name=["']?robots["']?[^>]*>/i,
                     '<meta name="robots" content="noindex,follow">',
                   )
                 : canonHtml.replace(

@@ -166,7 +166,8 @@ function extractCanonical(html) {
 }
 
 function isNoindex(html) {
- return /<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html);
+ // Quote-flexible — PR #478 baked removeAttributeQuotes upstream (matches extractCanonical above).
+ return /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noindex/i.test(html);
 }
 
 /**
