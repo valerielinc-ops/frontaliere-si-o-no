@@ -49,13 +49,12 @@ import {
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from './professionCantonData';
 import { resolveProfessionCantonsFlushed } from './shared/buildSignals';
 import {
-  HERO_EYEBROW_STYLE,
-  H1_STYLE,
-  LEDE_STYLE,
-  BODY_STYLE,
   H2_STYLE,
-  BREADCRUMB_STYLE,
-  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_CLASS,
+  BREADCRUMB_LINK_CLASS,
+  CTA_PRIMARY_CLASS,
+  renderStatGrid,
+  pickStatTileTone,
 } from './shared/seoContentTokens';
 
 /** Minimum real active jobs for a (canton, profession) page to be emitted. */
@@ -191,22 +190,27 @@ export function renderProfessionCantonPage(opts: {
   const median = snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : cantonAnnualMedian(cantonKey);
   const medianStr = median > 0 ? `CHF ${fmtChf(median, locale)}` : c.noSalary;
 
-  const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_STYLE}">
-  <a href="${homeHref}" class="${BREADCRUMB_LINK_STYLE}">${esc(c.breadcrumbHome)}</a>
+  const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
+  <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbHome)}</a>
   <span aria-hidden="true">›</span>
-  <a href="${homeHref}" class="${BREADCRUMB_LINK_STYLE}">${esc(c.breadcrumbCh)}</a>
+  <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbCh)}</a>
   <span aria-hidden="true">›</span>
   <span aria-current="page">${esc(role)} · ${esc(cantonName)}</span>
 </nav>`;
 
-  const tiles = `<div class="grid grid-cols-3 gap-3 my-4">
-  <div class="rounded-xl bg-surface-alt p-3"><div class="text-2xl font-bold text-heading">${snapshot.liveCount}</div><div class="text-xs text-subtle">${esc(c.tileLive)}</div></div>
-  <div class="rounded-xl bg-surface-alt p-3"><div class="text-2xl font-bold text-heading">${snapshot.fresh30Count}</div><div class="text-xs text-subtle">${esc(c.tileFresh)}</div></div>
-  <div class="rounded-xl bg-surface-alt p-3"><div class="text-2xl font-bold text-heading">${esc(medianStr)}${median > 0 ? `<span class="text-sm">${esc(c.perYear)}</span>` : ''}</div><div class="text-xs text-subtle">${esc(c.tileMedian)}</div></div>
-</div>`;
+  // Headline tiles via the shared styled+animated grid (dark-mode safe, staggered
+  // rise + hover pop under `cl-fun`). Tones carry meaning: openings count green
+  // when plentiful, "new in 30 days" green when >0, the median is the accent
+  // headline. (The previous markup passed `class="${H1_STYLE}"` etc. — a CSS
+  // string in a `class=` slot, silently ignored by the browser → bare header.)
+  const tiles = renderStatGrid([
+    { label: c.tileLive, value: String(snapshot.liveCount), tone: pickStatTileTone('openings', snapshot.liveCount) },
+    { label: c.tileFresh, value: String(snapshot.fresh30Count), tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
+    { label: c.tileMedian, value: median > 0 ? `${medianStr}${c.perYear}` : medianStr, tone: 'accent' },
+  ]);
 
   const employers = snapshot.topEmployers.length > 0
-    ? `<h2 class="${H2_STYLE}">${esc(c.employersHeading(cantonName))}</h2>
+    ? `<h2 style="${H2_STYLE}">${esc(c.employersHeading(cantonName))}</h2>
 <ul class="flex flex-wrap gap-2 my-2">${snapshot.topEmployers
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
         .join('')}</ul>`
@@ -228,12 +232,16 @@ export function renderProfessionCantonPage(opts: {
     ctaLabel: c.cta(cantonName),
   });
 
-  const main = `${breadcrumb}
-<header><p class="${HERO_EYEBROW_STYLE}">${esc(c.eyebrow)}</p><h1 class="${H1_STYLE}">${esc(c.h1(role, cantonName))}</h1><p class="${LEDE_STYLE}">${esc(c.lede(snapshot.liveCount, role, cantonName))}</p></header>
+  const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cantonName)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(c.h1(role, cantonName))}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cantonName))}</p></header>`;
+
+  // `cl-fun` wrapper enables the shared micro-interaction layer (tile rise +
+  // hover pop, CTA glow, emoji wave), all gated behind prefers-reduced-motion.
+  const main = `<div class="cl-fun">${breadcrumb}
+${header}
 ${tiles}
 ${employers}
-<p class="${BODY_STYLE}"><a href="${esc(ctaHref)}" class="inline-block rounded-lg bg-info text-white px-4 py-2 font-medium">${esc(c.cta(cantonName))} →</a></p>
-${prose}`;
+<p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cantonName))} →</a></p>
+${prose}</div>`;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

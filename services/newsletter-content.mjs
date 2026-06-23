@@ -106,10 +106,14 @@ export function parseDateField(raw) {
     // next field rather than trusting a misparse.
     if (day < 1 || day > 31 || month < 1 || month > 12) return NaN;
     const ts = Date.UTC(year, month - 1, day);
-    // Round-trip: reject calendar-impossible dates (31/04, 31/02) silently
-    // overflowed by Date.UTC instead of returning NaN.
-    const d = new Date(ts);
-    if (d.getUTCDate() !== day || d.getUTCMonth() !== month - 1) return NaN;
+    // The range guard above is necessary but NOT sufficient: in-range-but-
+    // impossible calendar dates (31/04, 31/02) pass it, and Date.UTC silently
+    // ROLLS them over to the next month (31/02 → 3 Mar) instead of failing —
+    // a valid-but-WRONG timestamp that bypasses the firstSeenAt fallthrough,
+    // the exact failure class #2630 set out to eliminate (#2727 item 3).
+    // Round-trip check: reject if UTC normalized the day/month away.
+    const back = new Date(ts);
+    if (back.getUTCDate() !== day || back.getUTCMonth() !== month - 1) return NaN;
     return ts;
   }
   return new Date(raw).getTime();

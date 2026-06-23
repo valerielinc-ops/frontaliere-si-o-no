@@ -165,7 +165,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
  // Prefill salary from user profile
  useEffect(() => {
- Analytics.trackPageView('/simulatori/ral-comparator', 'RAL Comparator');
+ Analytics.trackPageView('/simulatori/ral-comparator/', 'RAL Comparator');
  Analytics.trackUIInteraction('ral_comparator', 'screen', 'view', 'open', undefined, 'calculator.ral_comparator.open');
  }, []);
 

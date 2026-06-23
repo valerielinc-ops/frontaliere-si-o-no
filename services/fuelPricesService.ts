@@ -1,5 +1,6 @@
 import { reportCaughtError } from '@/services/errorReporter';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import { resilientImport } from '@/services/resilientImport';
 
 export type FuelComparisonCountry = 'IT' | 'CH' | 'SAME' | 'NO_DATA';
 
@@ -119,8 +120,14 @@ function isCacheFresh(): boolean {
 }
 
 async function fetchFromFirestore(): Promise<FuelPricesDataset> {
- const { getFirestore, doc, getDoc } = await import('firebase/firestore');
- const { getApp } = await import('@/services/firebase');
+ const { getFirestore, doc, getDoc } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const db = getFirestore(await getApp());
 
  const [metaSnap, italySnap, swissSnap] = await Promise.all([

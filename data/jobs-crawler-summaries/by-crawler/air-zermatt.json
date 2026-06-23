@@ -1,18 +1,19 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-06-22T13:34:54.098Z",
+  "generatedAt": "2026-06-22T22:10:37.737Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6576,
-  "avgDurationMs": 6576,
+  "durationMs": 4435,
+  "avgDurationMs": 4435,
   "durationHistory": [
-    6576
+    4435
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "air-zermatt-a08ba50768a4",
       "slug": "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
@@ -38,56 +39,17 @@
       "applyUrl": "https://www.air-zermatt.ch/en/service/vacancies/scholarship-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T13:34:52.331Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-06-22T22:10:36.380Z",
+      "firstSeenAt": "2026-06-22T13:34:52.331Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "air-zermatt-dfbbe85d1afb",
-      "slug": "scholarship-atc-swiss-sherpa-foundation-air-zermatt-ag-raron",
-      "company": "Air Zermatt AG",
-      "companyKey": "air-zermatt",
-      "companyDomain": "air-zermatt.ch",
-      "title": "Stipendium ATC & Swiss Sherpa Foundation",
-      "location": "Raron",
-      "canton": "VS",
-      "addressLocality": "Raron",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3942",
-      "category": "apprenticeship",
-      "sector": "Aviazione / Servizi di soccorso",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "featured": false,
-      "postedDate": "2026-06-20",
-      "url": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
-      "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
-      "source": "Air Zermatt Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-21T21:19:58.190Z",
-      "firstSeenAt": "2026-06-20T21:23:57.048Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

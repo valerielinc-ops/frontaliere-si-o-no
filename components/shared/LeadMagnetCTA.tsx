@@ -24,6 +24,7 @@ import {
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
+import { resilientImport } from '@/services/resilientImport';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
@@ -112,8 +113,8 @@ const initFirestore = async () => {
  if (firestoreDb) return firestoreDb;
  try {
  const [{ getFirestore }, { getApp }] = await Promise.all([
- import('firebase/firestore'),
- import('@/services/firebase'),
+ resilientImport(() => import('firebase/firestore'), (m) => typeof m.getFirestore === 'function'),
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
  ]);
  firestoreDb = getFirestore(await getApp());
  return firestoreDb;
@@ -800,8 +801,8 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  const tryAuth = async () => {
  try {
  const [{ getAuth }, { getApp }] = await Promise.all([
- import('firebase/auth'),
- import('@/services/firebase'),
+ resilientImport(() => import('firebase/auth'), (m) => typeof m.getAuth === 'function'),
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
  ]);
  const auth = getAuth(await getApp());
  const unsub = auth.onAuthStateChanged((u) => {

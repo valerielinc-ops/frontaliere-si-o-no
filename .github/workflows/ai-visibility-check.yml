@@ -65,27 +65,31 @@ jobs:
         with:
           name: ai-visibility-${{ github.run_number }}
           path: reports/ai-visibility-*
-          retention-days: 365
+          # 90 = repository maximum; higher values are silently clamped (and the
+          # committed data/ai-visibility-history.jsonl is the long-term record).
+          retention-days: 90
 
-      - name: Commit reports
+      - name: Commit visibility history
         if: inputs.dry_run != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add reports/ai-visibility-*.json reports/ai-visibility-latest.md
+          # Full reports live under reports/ which is gitignored (preserved as
+          # build artifacts only). Only the compact append-only history file is
+          # committed so the next monthly run can compute the trend.
+          git add data/ai-visibility-history.jsonl
           if git diff --cached --quiet; then
-            echo "No report changes to commit."
+            echo "No history changes to commit."
             exit 0
           fi
           DATE=$(date -u +%Y-%m-%d)
           git commit -m "📊 AI visibility report — ${DATE}"
-          # Centralized rebase-retry helper survives concurrent pushes.
-          # AI visibility reports are timestamped append-only files plus a
-          # single latest.md; on rebase conflict re-stage the artifacts we
-          # already produced on top of the new base.
+          # Centralized rebase-retry helper survives concurrent pushes from other
+          # workflows. The history file is append-only, so on a rebase conflict
+          # keep the local commit and union both sides instead of regenerating.
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --regenerate-cmd "git add reports/ai-visibility-*.json reports/ai-visibility-latest.md"
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
 
       - name: Create GitHub issue if citations dropped
         if: inputs.dry_run != 'true'
