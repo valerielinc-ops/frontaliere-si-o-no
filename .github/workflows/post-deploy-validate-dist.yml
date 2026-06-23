@@ -250,18 +250,32 @@ jobs:
             # the `if` condition is exempt from `set -e`, so a missing/failed
             # download simply falls through to the git-clone FALLBACK below — a
             # locale is NEVER silently un-validated.
+            #
+            # The artifact is a SINGLE tar (`locale-dist-<loc>.tar`, packed
+            # `-C dist`, members `<loc>/` + `<loc>.html`) — see deploy.yml "Pack
+            # locale shard dist (tar)". It used to be the raw ~410k-file tree, but
+            # upload-artifact@v7 stack-overflowed enumerating that many files so
+            # the artifact was never produced and this fast path was dead (every
+            # deploy paid the git-clone fallback). We untar straight into dist/ —
+            # no intermediate `cp -r` (the git-clone path's extra full-tree copy).
             dl="$RUNNER_TEMP/locale-dist-$loc"
             rm -rf "$dl"; mkdir -p "$dl"
-            if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -d "$dl/$loc" ]; then
-              rm -rf "dist/$loc"
-              cp -r "$dl/$loc" "dist/$loc"
-              if [ -f "$dl/$loc.html" ]; then cp "$dl/$loc.html" "dist/$loc.html"; fi
-              echo "rehydrated $loc from artifact: $(find "dist/$loc" -type f | wc -l) files"
+            if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
+              rm -rf "dist/$loc" "dist/$loc.html"
+              # `|| true`: a corrupt/truncated tar must fall through to the
+              # git-clone fallback (the `[ -d dist/$loc ]` check below), not abort
+              # the whole rehydrate step under `set -e` and skip the fallback.
+              tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
               rm -rf "$dl"
-              continue
+              if [ -d "dist/$loc" ]; then
+                echo "rehydrated $loc from tar artifact: $(find "dist/$loc" -type f | wc -l) files"
+                continue
+              fi
+              echo "[rehydrate] $loc tar present but no $loc/ subtree after extract — falling back to git clone"
+            else
+              rm -rf "$dl"
+              echo "[rehydrate] $loc artifact absent — falling back to git clone"
             fi
-            rm -rf "$dl"
-            echo "[rehydrate] $loc artifact absent — falling back to git clone"
 
             tmp="$RUNNER_TEMP/rehydrate-$loc"
             rm -rf "$tmp"
@@ -279,7 +293,10 @@ jobs:
             echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
             rm -rf "$tmp"
           done
-          echo "dist after rehydrate: $(du -sh dist | cut -f1)"
+          # Cheap disk-pressure readout instead of `du -sh dist` (a ~70s full
+          # stat-walk of ~1.27M files just for a log line). df is instant and is
+          # the metric that actually matters after rehydrating ~27G into dist/.
+          df -h / | tail -1
 
       - name: Migrate all-known-job-slugs to canton-aware paths
         # Phase 8c: the committed `data/all-known-job-slugs.json` accumulates
@@ -661,13 +678,21 @@ jobs:
       - name: Build size summary
         run: |
           echo "=== Recovered dist size summary ==="
-          du -sh dist/
+          # Was `du -sh dist/` — a full stat-walk of ~1.27M files (~76s) for a
+          # number that is ~27G every build (low signal) and is ALSO printed by
+          # the rehydrate step. Dropped; `df -h` shows the disk headroom that
+          # actually matters here (OOM/disk-full risk) for free.
+          df -h / | tail -1
           # The per-HTML `find … -exec du -sh {} +` over ~132k+ files (top-10 by
           # size) was ~2min of pure stat-walk for observability that nothing
           # consumes — dropped. Per-plugin byte attribution already lives in the
           # build job's "Audit dist bytes" step. Keep the cheap sitemap listing.
+          #
+          # `find dist -name sitemap*.xml` ALSO walked the full ~1.27M-file tree.
+          # The sitemap index + shards live at the dist root (and one level down
+          # for any per-locale set), so glob those paths directly — no full walk.
           echo "Sitemaps:"
-          find dist -name "sitemap*.xml" -exec du -sh {} + | sort -rh || true
+          du -sh dist/sitemap*.xml dist/*/sitemap*.xml 2>/dev/null | sort -rh || true
 
       # On failure, upload structured audit reports + sitemaps so a debug
       # agent can diagnose without rebuilding dist/. Each audit script writes

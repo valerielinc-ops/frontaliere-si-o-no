@@ -620,6 +620,35 @@ jobs:
       # git clone when this artifact is missing (e.g. a failed shard push/upload),
       # so a locale is NEVER silently un-validated. IT/main shard untouched
       # (`matrix.locale != 'it'`) → matrix-equivalence sha256 intact.
+      #
+      # PACK INTO ONE TAR FIRST. The previous version uploaded the raw
+      # `dist/<loc>` tree (~410k loose files) directly. actions/upload-artifact@v7
+      # enumerates every file before upload and STACK-OVERFLOWED on that count —
+      # "##[error]Maximum call stack size exceeded" — so the upload silently
+      # failed (continue-on-error → step shows green, no artifact produced). The
+      # fast path was therefore DEAD on every deploy: validate-dist's rehydrate
+      # always fell through to the ~675s git-clone fallback. Packing the subtree
+      # into a single artifact.tar (exactly how the github-pages artifact is
+      # shipped) makes upload enumerate ONE file → no stack overflow, and the
+      # validate-dist side untars it straight into dist/ (no extra cp copy).
+      - name: Pack locale shard dist (tar) for post-deploy validation
+        if: matrix.locale != 'it'
+        # continue-on-error for the same reason as the upload+push steps: a pack
+        # failure must degrade to validate-dist's git-clone fallback, never flip
+        # build-locale.result→failure (which would block the Pages publish).
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          members=( "${{ matrix.locale }}" )
+          # dist/<loc>.html (= the /{loc} homepage) is normally present; guard so
+          # a future strip that drops it can't make tar exit non-zero. NB: use a
+          # full `if` — `[ -f ] && members+=()` would itself exit non-zero (and
+          # abort the step under set -e) when the homepage is absent.
+          if [ -f "dist/${{ matrix.locale }}.html" ]; then
+            members+=( "${{ matrix.locale }}.html" )
+          fi
+          tar -C dist -cf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}"
+          ls -lh "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
       - name: Upload locale shard dist for post-deploy validation
         if: matrix.locale != 'it'
         # MUST stay continue-on-error: this is a non-essential speedup artifact.
@@ -635,9 +664,13 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: locale-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            dist/${{ matrix.locale }}
-            dist/${{ matrix.locale }}.html
+          # Single tar (see "Pack locale shard dist" above) — NOT the ~410k-file
+          # tree, which overflows the action's file enumerator.
+          path: ${{ runner.temp }}/locale-dist-${{ matrix.locale }}.tar
+          # compression-level 1: the tar is mostly HTML (very compressible) and
+          # this step gates the Pages publish, so favour a fast upload over a few
+          # extra MB. validate-dist downloads it over GitHub's internal network.
+          compression-level: 1
           retention-days: 1
           if-no-files-found: error
 
