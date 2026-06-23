@@ -61,7 +61,7 @@ import {
   type TriYearCantonDelta,
   type BracketTrend,
 } from './healthPremiumsData';
-import { generateRelatedLinksBlock, JOB_LISTING_ROOT } from './shared/relatedLinks';
+import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -2344,6 +2344,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${adviceBannerHtml}
   ${statsHtml}
   ${rankingLineHtml}
+  ${renderAboveFoldJobCta(locale)}
   <section class="s-ziawP1" aria-labelledby="comparatorCta">
     <h2 id="comparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
@@ -2652,6 +2653,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   ${adviceBannerHtml}
   ${statsHtml}
   ${rankingLineHtml}
+  ${renderAboveFoldJobCta(locale)}
   <section class="s-ziawP1" aria-labelledby="cantonComparatorCta">
     <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
@@ -2920,6 +2922,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
   </header>
   ${rootStatsHtml}
+  ${renderAboveFoldJobCta(locale)}
   <section class="s-ziawP1" aria-labelledby="rootComparatorCta">
     <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>

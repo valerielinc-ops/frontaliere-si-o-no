@@ -49,6 +49,7 @@ import {
   buildFuelItalianCityPath,
   buildFuelStationPath as buildLocalizedFuelStationPath,
   buildFuelTodayPath,
+  frFuelOf,
   type FuelDailyLocale,
   type FuelType,
   type FuelZone,
@@ -193,6 +194,20 @@ export const JOB_LISTING_ROOT: Record<LinkLocale, string> = {
   de: '/de/jobs-im-tessin/',
   fr: '/fr/trouver-emploi-tessin/',
 };
+
+/**
+ * Compact above-the-fold onward-nav CTA to the job board (the 5.34 PV-RPM page,
+ * 63% of site revenue). Rendered immediately AFTER a static data page's primary
+ * answer and BEFORE its long prose, to capture the ~85%-bounce daily-data
+ * visitors (border wait / fuel prices / health premiums) — who are prime
+ * cross-border job-seekers — before they leave. The existing bottom-of-page
+ * DiscoverMore/related-links only reach the ~15% who scroll the whole page.
+ * Links only (no ad slots → regression guard unaffected); reuses the shipped
+ * `s-cta` / `s-ziawP1` atoms so it renders at first paint with no CLS and no new CSS.
+ */
+export function renderAboveFoldJobCta(locale: LinkLocale): string {
+  return `<p class="s-ziawP1" style="margin:1.1rem 0"><a href="${escHtml(JOB_LISTING_ROOT[locale])}" class="s-cta" style="font-size:14px">${escHtml(COPY[locale].allJobs)} →</a></p>`;
+}
 
 const LAST_3_DAYS_PATH: Record<LinkLocale, string> = {
   it: '/cerca-lavoro-ticino/ultimi-3-giorni/',
@@ -497,9 +512,9 @@ const COPY: Record<LinkLocale, Copy> = {
       hubs: 'Pages principales',
       cross: 'Autres outils pour le frontalier',
     },
-    fuelToday: (f, z) => (z ? `Prix du ${f.toLowerCase()} aujourd'hui à ${z}` : `Prix du ${f.toLowerCase()} aujourd'hui au Tessin`),
+    fuelToday: (f, z) => (z ? `Prix ${frFuelOf(f)} aujourd'hui à ${z}` : `Prix ${frFuelOf(f)} aujourd'hui au Tessin`),
     fuelStation: (s, z) => `Station ${s} à ${z}`,
-    fuelItalianCity: (c, f) => `Prix du ${f.toLowerCase()} à ${c} (IT)`,
+    fuelItalianCity: (c, f) => `Prix ${frFuelOf(f)} à ${c} (IT)`,
     fuelStatsTab: 'Statistiques prix carburants',
     weeklyEmployers: (c) => `Entreprises qui recrutent à ${c} cette semaine`,
     weeklyEmployerCompany: (co, ci) => `${co} recrute à ${ci}`,

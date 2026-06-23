@@ -45,6 +45,10 @@ import {
   FUEL_ZONE_DISPLAY,
   FUEL_ITALIAN_CITIES,
   FUEL_ITALY_SLUG,
+  frFuelOf,
+  frFuelThe,
+  frFuelDe,
+  frFuelAt,
   buildFuelArchivePath,
   buildFuelTodayPath,
   buildFuelStationPath,
@@ -59,7 +63,7 @@ import {
   type FuelZone,
   type ItalianCityEntry,
 } from './fuelDailyData';
-import { generateRelatedLinksBlock, JOB_LISTING_ROOT } from './shared/relatedLinks';
+import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
 import {
   generateFuelIndexPages,
   renderFuelIndexHubLinks,
@@ -657,12 +661,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     ],
   },
   fr: {
-    regionalH1: (f) => `Prix du ${f.toLowerCase()} en Suisse aujourd'hui — Tessin`,
-    zoneH1: (f, z) => `Prix du ${f.toLowerCase()} aujourd'hui à ${z}`,
+    regionalH1: (f) => `Prix ${frFuelOf(f)} en Suisse aujourd'hui — Tessin`,
+    zoneH1: (f, z) => `Prix ${frFuelOf(f)} aujourd'hui à ${z}`,
     intro: (f, z, priceFmt, date) =>
-      `Mis à jour le ${date} : le prix moyen du ${f.toLowerCase()} à ${z} est de ${priceFmt} CHF par litre. Données provenant des stations suisses (TCS Benzinpreis) à moins de 20 km de la frontière italienne.`,
+      `Mis à jour le ${date} : le prix moyen ${frFuelOf(f)} à ${z} est de ${priceFmt} CHF par litre. Données provenant des stations suisses (TCS Benzinpreis) à moins de 20 km de la frontière italienne.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Aujourd'hui à ${z} le ${f.toLowerCase()} coûte ${price} CHF par litre en moyenne, ${dYest} par rapport à hier et ${d7} par rapport à il y a 7 jours. Cette page est régénérée chaque matin avec les données les plus récentes des stations de la région. Comparez les trois stations les moins chères et consultez la tendance hebdomadaire avant de faire le plein lors de votre trajet frontalier.`,
+      `Aujourd'hui à ${z} ${frFuelThe(f)} coûte ${price} CHF par litre en moyenne, ${dYest} par rapport à hier et ${d7} par rapport à il y a 7 jours. Cette page est régénérée chaque matin avec les données les plus récentes des stations de la région. Comparez les trois stations les moins chères et consultez la tendance hebdomadaire avant de faire le plein lors de votre trajet frontalier.`,
     historySection:
       "Le graphique ci-dessous montre l'évolution du prix dans le temps — utile pour décider si faire le plein aujourd'hui ou attendre. Utilisez les boutons pour changer la période (1 mois, 3 mois, 6 mois, 1 an, 5 ans). L'historique se construit jour après jour : les périodes plus longues deviennent disponibles au fil du temps.",
     updatedLabel: 'Mis à jour',
@@ -682,12 +686,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: "Moyenne 7 jours pas encore disponible : l'historique se remplit jour après jour.",
     periodAvgLabel: 'Moyenne 7 jours',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Tendance historique du prix du ${f.toLowerCase()} à ${z} : moyenne ${avgFmt} CHF/litre sur la période sélectionnée.`,
+      `Tendance historique du prix ${frFuelOf(f)} à ${z} : moyenne ${avgFmt} CHF/litre sur la période sélectionnée.`,
     faq: [
       {
         q: 'À quelle fréquence le prix est-il mis à jour ?',
         a: (f, z) =>
-          `Le prix du ${f.toLowerCase()} à ${z} est mis à jour chaque jour. Les données proviennent de TCS Benzinpreis, qui agrège en temps réel les tarifs des stations en Suisse.`,
+          `Le prix ${frFuelOf(f)} à ${z} est mis à jour chaque jour. Les données proviennent de TCS Benzinpreis, qui agrège en temps réel les tarifs des stations en Suisse.`,
       },
       {
         q: 'Est-il plus avantageux de faire le plein en Italie ou en Suisse ?',
@@ -839,7 +843,7 @@ function buildDailyEditorialAssessment(
   if (locale === 'fr') {
     return {
       heading: "Évaluation éditoriale du prix du jour",
-      body: `Frontaliere Ticino attribue ${scoreFmt}/5 au prix moyen du ${fuelLabel.toLowerCase()} à ${zoneLabel} : aujourd'hui le niveau est ${dayTrend === 'stable_or_down' ? 'stable ou en baisse par rapport à hier' : dayTrend === 'up' ? "en hausse par rapport à hier" : "encore sans comparaison avec hier"} et ${weekTrend === 'stable_or_down' ? 'reste compétitif sur 7 jours' : weekTrend === 'up' ? 'est moins compétitif qu’il y a 7 jours' : 'dispose encore de peu d’historique hebdomadaire'}. L’évaluation combine le prix moyen du jour (${priceFmt} CHF/litre), la direction récente de la tendance et la présence de stations avantageuses dans la sélection locale.`,
+      body: `Frontaliere Ticino attribue ${scoreFmt}/5 au prix moyen ${frFuelOf(fuelLabel)} à ${zoneLabel} : aujourd'hui le niveau est ${dayTrend === 'stable_or_down' ? 'stable ou en baisse par rapport à hier' : dayTrend === 'up' ? "en hausse par rapport à hier" : "encore sans comparaison avec hier"} et ${weekTrend === 'stable_or_down' ? 'reste compétitif sur 7 jours' : weekTrend === 'up' ? 'est moins compétitif qu’il y a 7 jours' : 'dispose encore de peu d’historique hebdomadaire'}. L’évaluation combine le prix moyen du jour (${priceFmt} CHF/litre), la direction récente de la tendance et la présence de stations avantageuses dans la sélection locale.`,
       ratingValue: score,
     };
   }
@@ -888,7 +892,7 @@ function buildStationEditorialAssessment(
   if (locale === 'fr') {
     return {
       heading: 'Évaluation éditoriale de la station',
-      body: `Frontaliere Ticino attribue ${scoreFmt}/5 à ${brandDisplay} ${city} pour le ${fuelLabel.toLowerCase()} : aujourd'hui la station occupe la position ${rankText} dans le classement local, avec un prix de ${priceFmt} CHF/litre contre une moyenne de zone de ${zoneAvgFmt} CHF/litre. Cette note reflète la compétitivité du prix du jour et le positionnement de la station face aux alternatives proches.`,
+      body: `Frontaliere Ticino attribue ${scoreFmt}/5 à ${brandDisplay} ${city} pour ${frFuelThe(fuelLabel)} : aujourd'hui la station occupe la position ${rankText} dans le classement local, avec un prix de ${priceFmt} CHF/litre contre une moyenne de zone de ${zoneAvgFmt} CHF/litre. Cette note reflète la compétitivité du prix du jour et le positionnement de la station face aux alternatives proches.`,
       ratingValue: score,
     };
   }
@@ -1434,13 +1438,13 @@ function renderFuelTodayMethodologyAndScenarios(args: {
     },
     fr: {
       methodologyH: `Comment se décompose le prix de ${priceFmt} CHF/litre à ${where}`,
-      methodologyP: `Le prix du ${fuelLower} affiché plus haut (${priceFmt} CHF/litre, relevé du ${dateStamp}) se décompose en quatre postes. Le premier est l'impôt fédéral sur les huiles minérales, fixé à CHF ${mineralTax}/litre pour le ${fuelLower} selon le tarif Confédération 2026 — c'est le poste le plus lourd et il ne varie pas d'une station à l'autre à ${where}. Le deuxième est la surtaxe CO₂ liée à la compensation climatique obligatoire, aujourd'hui estimée à CHF 0,08-0,12/litre selon le mix carburant de la station. Le troisième est la TVA à 8,1 %, qui sur ${priceFmt} CHF d'aujourd'hui équivaut à environ CHF ${ivaShare}/litre. Le quatrième est la marge de l'exploitant, le résidu qui à ${where} se situe aujourd'hui autour de CHF ${marginEstimate}/litre : c'est précisément la seule composante qui varie entre une station de marque proche du poste-frontière et une pompe indépendante en périphérie, et c'est là que se concentrent les écarts visibles dans le classement des 3 stations les moins chères plus haut. Les données sont collectées via TCS Benzinpreis (Touring Club Suisse) — le registre fédéral des prix auquel les stations suisses doivent contribuer par la loi — et notre pipeline les importe, les cartographie par zone tessinoise et les publie chaque matin.`,
+      methodologyP: `Le prix ${frFuelOf(fuelLower)} affiché plus haut (${priceFmt} CHF/litre, relevé du ${dateStamp}) se décompose en quatre postes. Le premier est l'impôt fédéral sur les huiles minérales, fixé à CHF ${mineralTax}/litre pour ${frFuelThe(fuelLower)} selon le tarif Confédération 2026 — c'est le poste le plus lourd et il ne varie pas d'une station à l'autre à ${where}. Le deuxième est la surtaxe CO₂ liée à la compensation climatique obligatoire, aujourd'hui estimée à CHF 0,08-0,12/litre selon le mix carburant de la station. Le troisième est la TVA à 8,1 %, qui sur ${priceFmt} CHF d'aujourd'hui équivaut à environ CHF ${ivaShare}/litre. Le quatrième est la marge de l'exploitant, le résidu qui à ${where} se situe aujourd'hui autour de CHF ${marginEstimate}/litre : c'est précisément la seule composante qui varie entre une station de marque proche du poste-frontière et une pompe indépendante en périphérie, et c'est là que se concentrent les écarts visibles dans le classement des 3 stations les moins chères plus haut. Les données sont collectées via TCS Benzinpreis (Touring Club Suisse) — le registre fédéral des prix auquel les stations suisses doivent contribuer par la loi — et notre pipeline les importe, les cartographie par zone tessinoise et les publie chaque matin.`,
       scenarioH: `Combien coûte au frontalier de faire le plein à ${where} ce mois-ci`,
-      scenarioP1: `Cas concret : un frontalier qui travaille à Lugano et habite à Côme parcourt environ 80 km par jour (40 km × 2). Sur 22 jours ouvrés cela représente 1'760 km/mois ; une voiture avec une consommation moyenne de 6 L/100 km utilise environ 105 litres par mois, soit environ 4 pleins de 50 litres. Au prix de ${priceFmt} CHF/litre à ${where} la facture mensuelle de ${fuelLower} si vous faites toujours le plein ici est d'environ CHF ${monthlyCostChf} (4 × 50 × ${priceFmt}). Pour quelqu'un qui pendule entre Varèse et Mendrisio (~60 km/jour) le même calcul donne ~80 L/mois et CHF ${(numericPrice * 80).toFixed(0)}. Comparez ces montants au prix italien du jour à Côme, Varèse ou Saronno : notre page côté italien affiche le même relevé MIMIT en EUR/litre, vous pouvez ainsi calculer l'écart transfrontalier réel.`,
+      scenarioP1: `Cas concret : un frontalier qui travaille à Lugano et habite à Côme parcourt environ 80 km par jour (40 km × 2). Sur 22 jours ouvrés cela représente 1'760 km/mois ; une voiture avec une consommation moyenne de 6 L/100 km utilise environ 105 litres par mois, soit environ 4 pleins de 50 litres. Au prix de ${priceFmt} CHF/litre à ${where} la facture mensuelle ${frFuelDe(fuelLower)} si vous faites toujours le plein ici est d'environ CHF ${monthlyCostChf} (4 × 50 × ${priceFmt}). Pour quelqu'un qui pendule entre Varèse et Mendrisio (~60 km/jour) le même calcul donne ~80 L/mois et CHF ${(numericPrice * 80).toFixed(0)}. Comparez ces montants au prix italien du jour à Côme, Varèse ou Saronno : notre page côté italien affiche le même relevé MIMIT en EUR/litre, vous pouvez ainsi calculer l'écart transfrontalier réel.`,
       scenarioP2: `Quand le plein à ${where} est-il vraiment rentable ? Le seuil dépend du taux CHF/EUR du jour et du détour nécessaire. Règle pratique : si le prix ici (${priceFmt} CHF) traduit en euros au taux actuel est inférieur d'au moins 0,08-0,10 EUR/litre au prix italien dans la commune frontalière la plus proche, le plein côté suisse est gagnant même après 30 minutes de file au poste-frontière. Si l'écart est plus faible, faites le plein en Italie avant le passage. Pour le calcul brut-net du salaire frontalier intégrant carburant et temps perdu à la frontière utilisez le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a> ; pour le taux CHF/EUR en direct consultez le comparateur de devises.`,
       extraFaqs: [
         {
-          q: `La surtaxe CO₂ suisse s'applique-t-elle aussi au ${fuelLower} ?`,
+          q: `La surtaxe CO₂ suisse s'applique-t-elle aussi ${frFuelAt(fuelLower)} ?`,
           a: `Oui. Depuis 2008 la Suisse applique une compensation CO₂ sur les carburants fossiles (loi sur le CO₂, art. 26 ss). Le montant varie avec le mix carburant de chaque station : à ${where} aujourd'hui la surtaxe CO₂ implicite sur les ${priceFmt} CHF/litre est estimée à environ CHF 0,08-0,12. Elle n'apparaît pas séparément sur le ticket — elle est déjà comprise dans le prix à la pompe affiché plus haut.`,
         },
         {
@@ -1449,7 +1453,7 @@ function renderFuelTodayMethodologyAndScenarios(args: {
         },
         {
           q: `Les prix à ${where} changent-ils le week-end ?`,
-          a: `Oui, légèrement. Les prix du ${fuelLower} au Tessin suivent trois cycles superposés : un cycle hebdomadaire (mardi-jeudi sont les jours les moins chers, alors que vendredi soir et dimanche affichent un supplément de 0,02-0,04 CHF/litre lié à la demande touristique), un cycle saisonnier (juin-août et décembre-janvier dépassent la moyenne annuelle de 5-8 %), et un cycle macroéconomique qui reflète les variations du Brent avec 2 à 4 semaines de retard. La valeur ci-dessus (${priceFmt} CHF/litre du ${dateStamp}) ne photographie qu'aujourd'hui.`,
+          a: `Oui, légèrement. Les prix ${frFuelOf(fuelLower)} au Tessin suivent trois cycles superposés : un cycle hebdomadaire (mardi-jeudi sont les jours les moins chers, alors que vendredi soir et dimanche affichent un supplément de 0,02-0,04 CHF/litre lié à la demande touristique), un cycle saisonnier (juin-août et décembre-janvier dépassent la moyenne annuelle de 5-8 %), et un cycle macroéconomique qui reflète les variations du Brent avec 2 à 4 semaines de retard. La valeur ci-dessus (${priceFmt} CHF/litre du ${dateStamp}) ne photographie qu'aujourd'hui.`,
         },
       ],
     },
@@ -1810,6 +1814,7 @@ function renderPage(inp: PageInputs): string {
     </div>
   </section>
   ${unavailableNoteHtml}
+  ${renderAboveFoldJobCta(locale)}
   <section class="s-card" style="margin:0 0 24px" aria-labelledby="fuelReview">
     <h2 id="fuelReview" class="s-h2">${esc(editorialAssessment.heading)}</h2>
     <p class="s-E7ZJqo">${esc(editorialAssessment.body)}</p>
@@ -1940,7 +1945,7 @@ function renderFuelArchiveProse(args: {
       p3: `Um Treibstoff in das reale Netto eines G-Bewilligungs-Inhabers zu integrieren, nutzen Sie den <a class="s-IjpSYt" href="${calcHref}">${calcLabel}</a>: das Modell rechnet 220 Arbeitstage × 6 L/100 km × typische Tessiner Grenzgänger-Distanz und zeigt den jährlichen Netto-Effekt. Über 13'200 km/Jahr (60 km Hin- und Rückfahrt) verschiebt eine Schwankung von CHF 0,10/Liter die Jahresausgabe um ~CHF 80 — wenig isoliert betrachtet, aber zusammen mit Fahrzeugverschleiss, Autobahnvignette und Motorfahrzeugsteuer erreicht man schnell CHF 3'000/Jahr Pendelkosten, die vom Brutto abzuziehen sind, um das echte Netto zu erhalten.`,
     },
     fr: {
-      h: `Méthodologie et contexte pour le prix du ${fuelLabel.toLowerCase()} à ${zoneLabel}`,
+      h: `Méthodologie et contexte pour le prix ${frFuelOf(fuelLabel)} à ${zoneLabel}`,
       p1: `Les prix quotidiens de cette page (${monthKey}, moyenne mensuelle ${avgFmt} CHF/litre) sont collectés par notre crawler nocturne depuis TCS Benzinpreis — la base de données du Touring Club Suisse qui agrège les tarifs officiels de toutes les stations suisses. Chaque jour nous moyennons les pompes situées dans un rayon de 20 km du passage frontalier le plus proche pour la zone ${zoneLabel}, en excluant les pompes self-service des aires d'autoroute (typiquement 8-12 % plus chères que la moyenne urbaine). Les données restent disponibles pendant 24 mois afin de comparer les tendances historiques saison après saison.`,
       p2: `Pour les frontaliers résidents italiens qui entrent au Tessin via Brogeda (Côme), Stabio-Gaggiolo (Varèse), Ponte Tresa ou Bizzarone, la moyenne mensuelle n'est qu'une moitié de la comparaison : l'autre moitié est le prix italien à la pompe dans la ville de résidence (Côme, Lecco, Varèse, Lugano italienne). Quand l'écart CH-IT descend sous 0,08 EUR/litre, faire le plein en Italie ne rentabilise pas le temps perdu au passage (~30 min × votre taux horaire) ; au-dessus de 0,15 EUR/litre, l'Italie gagne même après le coût d'opportunité. Comparez toujours avec le prix italien dans votre ville avant de décider où faire le plein.`,
       p3: `Pour intégrer le carburant dans le net réel d'un permis G, utilisez le <a class="s-IjpSYt" href="${calcHref}">${calcLabel}</a> : le modèle prend en compte 220 jours ouvrables × 6 L/100 km × la distance typique du trajet frontalier tessinois et affiche l'impact net annualisé. Sur 13'200 km/an (60 km aller-retour moyen), une variation de CHF 0,10/litre déplace la dépense annuelle d'environ CHF 80 — peu isolément, mais combiné à l'usure, à la vignette autoroutière et à la taxe de circulation, on atteint vite CHF 3'000/an de coûts de trajet à soustraire du brut pour obtenir le net réel.`,
@@ -1976,7 +1981,7 @@ function renderArchive(inp: ArchiveInputs): string {
     ? `${fuelLabel} price archive for ${zoneLabel} — ${monthKey}`
     : locale === 'de'
     ? `${fuelLabel}preis-Archiv ${zoneLabel} — ${monthKey}`
-    : `Archive du prix du ${fuelLabel.toLowerCase()} à ${zoneLabel} — ${monthKey}`;
+    : `Archive du prix ${frFuelOf(fuelLabel)} à ${zoneLabel} — ${monthKey}`;
 
   const intro = locale === 'it'
     ? `Questa pagina raccoglie il prezzo medio giornaliero del ${fuelLabel.toLowerCase()} a ${zoneLabel} per il mese ${monthKey}, con prezzo medio mensile di ${formatPrice(avg, locale)} CHF/litro. Utile per verificare l'andamento storico e decidere se il livello attuale è alto o basso rispetto al recente passato. I dati provengono dalle stazioni Svizzere monitorate ogni giorno dalla nostra pipeline basata su TCS Benzinpreis.`
@@ -1984,7 +1989,7 @@ function renderArchive(inp: ArchiveInputs): string {
     ? `This page collects the daily ${fuelLabel.toLowerCase()} price in ${zoneLabel} for month ${monthKey}, with a monthly average of ${formatPrice(avg, locale)} CHF/litre. Use it to check the historical trend and decide whether the current price is high or low. Data comes from Swiss stations monitored daily by our pipeline on top of TCS Benzinpreis.`
     : locale === 'de'
     ? `Diese Seite sammelt den täglichen ${fuelLabel}preis in ${zoneLabel} für den Monat ${monthKey}, mit einem Monatsdurchschnitt von ${formatPrice(avg, locale)} CHF/Liter. Nutzen Sie sie, um den historischen Verlauf einzuordnen und zu beurteilen, ob der aktuelle Preis hoch oder niedrig ist. Die Daten stammen von Schweizer Tankstellen, die täglich von unserer Pipeline auf Basis TCS Benzinpreis erfasst werden.`
-    : `Cette page rassemble le prix quotidien du ${fuelLabel.toLowerCase()} à ${zoneLabel} pour le mois ${monthKey}, avec une moyenne mensuelle de ${formatPrice(avg, locale)} CHF/litre. Utile pour évaluer la tendance historique et déterminer si le prix actuel est haut ou bas. Les données viennent des stations suisses surveillées chaque jour par notre pipeline basée sur TCS Benzinpreis.`;
+    : `Cette page rassemble le prix quotidien ${frFuelOf(fuelLabel)} à ${zoneLabel} pour le mois ${monthKey}, avec une moyenne mensuelle de ${formatPrice(avg, locale)} CHF/litre. Utile pour évaluer la tendance historique et déterminer si le prix actuel est haut ou bas. Les données viennent des stations suisses surveillées chaque jour par notre pipeline basée sur TCS Benzinpreis.`;
 
   // Above-the-fold tagline (≤120 chars). The full archive intro
   // migrates to the body section below the chart + table, preserving
@@ -2336,9 +2341,9 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
     ],
   },
   fr: {
-    h1: (b, st, c, f) => `Prix du ${f.toLowerCase()} ${b} ${st} à ${c}`,
-    intro: (b, c, p, f) => `La station ${b} à ${c} vend aujourd'hui du ${f.toLowerCase()} à ${p} CHF le litre. Les prix sont mis à jour chaque jour à partir des relevés TCS Benzinpreis des stations à moins de 20 km de la frontière italienne — utile pour planifier le plein avant ou après votre trajet frontalier.`,
-    paragraph: (b, c, p, zAvg, f) => `À la station ${b} de ${c}, le prix du ${f.toLowerCase()} est de ${p} CHF le litre contre une moyenne de zone de ${zAvg} CHF le litre. Utilisez cet écart pour choisir si faire le plein ici ou dans une station voisine. Croisez avec la tendance hebdomadaire de la zone, vérifiez le temps d'attente au poste-frontière le plus proche et consultez le guide frontalier pour l'ensemble du calcul du trajet.`,
+    h1: (b, st, c, f) => `Prix ${frFuelOf(f)} ${b} ${st} à ${c}`,
+    intro: (b, c, p, f) => `La station ${b} à ${c} vend aujourd'hui ${frFuelOf(f)} à ${p} CHF le litre. Les prix sont mis à jour chaque jour à partir des relevés TCS Benzinpreis des stations à moins de 20 km de la frontière italienne — utile pour planifier le plein avant ou après votre trajet frontalier.`,
+    paragraph: (b, c, p, zAvg, f) => `À la station ${b} de ${c}, le prix ${frFuelOf(f)} est de ${p} CHF le litre contre une moyenne de zone de ${zAvg} CHF le litre. Utilisez cet écart pour choisir si faire le plein ici ou dans une station voisine. Croisez avec la tendance hebdomadaire de la zone, vérifiez le temps d'attente au poste-frontière le plus proche et consultez le guide frontalier pour l'ensemble du calcul du trajet.`,
     ranking: (r, t, c) => `Classement à ${c} : ${r} (${t} stations observées).`,
     infoHeading: 'Infos station',
     infoBrand: 'Marque',
@@ -2428,7 +2433,7 @@ function buildStationSignaturePargaraph(inp: StationSignatureInput): string {
   if (locale === 'fr') {
     const parts = [
       `Cette fiche se réfère spécifiquement à la station ${brand} ${streetText || slug} à ${city} (zone ${zone})`,
-      `aujourd'hui cotée ${priceFmt} CHF/litre pour le ${fuelLabel.toLowerCase()} contre une moyenne de zone de ${zoneAvgFmt} CHF/litre, position ${rankText} dans le classement local`,
+      `aujourd'hui cotée ${priceFmt} CHF/litre pour ${frFuelThe(fuelLabel)} contre une moyenne de zone de ${zoneAvgFmt} CHF/litre, position ${rankText} dans le classement local`,
     ];
     if (coords) parts.push(`coordonnées ${coords}`);
     if (neighbour) parts.push(`commune italienne la plus proche : ${neighbour}${distanceKm ? ` (${distanceKm} km)` : ''}`);
@@ -2576,8 +2581,8 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyHeadingStation: (b) => `Tendance du prix chez ${b}`,
     historyDisclaimer: 'Historique par station pas encore disponible : la moyenne de la zone est affichée, cette station la suit de près.',
     historyCaptionStation: 'Série quotidienne des prix relevés à cette station spécifique.',
-    historyAriaLabel: (z, f, avg) => `Tendance historique du prix ${f.toLowerCase()} dans la zone ${z}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
-    historyAriaLabelStation: (b, f, avg) => `Tendance historique du prix ${f.toLowerCase()} chez ${b}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
+    historyAriaLabel: (z, f, avg) => `Tendance historique du prix ${frFuelOf(f)} dans la zone ${z}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
+    historyAriaLabelStation: (b, f, avg) => `Tendance historique du prix ${frFuelOf(f)} chez ${b}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
     historyTrendLabel: 'Tendance du prix',
     historyLastUpdated: (d) => `Dernière mise à jour : ${d}`,
     adviceCheaper: (delta, z) => `Bon choix : aujourd'hui cette station est ${delta} CHF/litre moins chère que la moyenne de la zone ${z}.`,
@@ -3433,9 +3438,9 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     ],
   },
   fr: {
-    h1: (f, c) => `Prix du ${f.toLowerCase()} à ${c} — stations les moins chères`,
-    intro: (f, c, p) => `À ${c} le prix le plus bas du ${f.toLowerCase()} observé aujourd'hui est de ${p} EUR par litre. Données MIMIT mises à jour quotidiennement depuis les stations italiennes de la commune. Utile pour les frontaliers qui arbitrent entre faire le plein en Italie ou en Suisse.`,
-    paragraph: (f, c, p, nz) => `Le prix minimum du ${f.toLowerCase()} à ${c} est de ${p} EUR par litre. Le tableau ci-dessous liste les stations actives triées par prix. Comparez avec la moyenne du ${f.toLowerCase()} dans la zone tessinoise ${nz} — le côté suisse le plus proche — pour savoir de quel côté de la frontière il est plus avantageux de faire le plein aujourd'hui. Un écart de 0,10-0,20 EUR par litre compense souvent un petit détour au poste-frontière. Pour une estimation du coût global du trajet quotidien, consultez le guide frontalier.`,
+    h1: (f, c) => `Prix ${frFuelOf(f)} à ${c} — stations les moins chères`,
+    intro: (f, c, p) => `À ${c} le prix le plus bas ${frFuelOf(f)} observé aujourd'hui est de ${p} EUR par litre. Données MIMIT mises à jour quotidiennement depuis les stations italiennes de la commune. Utile pour les frontaliers qui arbitrent entre faire le plein en Italie ou en Suisse.`,
+    paragraph: (f, c, p, nz) => `Le prix minimum ${frFuelOf(f)} à ${c} est de ${p} EUR par litre. Le tableau ci-dessous liste les stations actives triées par prix. Comparez avec la moyenne ${frFuelOf(f)} dans la zone tessinoise ${nz} — le côté suisse le plus proche — pour savoir de quel côté de la frontière il est plus avantageux de faire le plein aujourd'hui. Un écart de 0,10-0,20 EUR par litre compense souvent un petit détour au poste-frontière. Pour une estimation du coût global du trajet quotidien, consultez le guide frontalier.`,
     tableTitle: (c) => `Stations à ${c} — prix du jour`,
     tableStation: 'Station',
     tableAddress: 'Adresse',
@@ -3446,7 +3451,7 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     noData: 'Aucune donnée de station disponible aujourd\'hui — mise à jour en attente.',
     contextHeading: 'Comment lire les prix du carburant en tant que frontalier',
     contextParagraphs: (f, c, nz) => [
-      `Le prix du ${f.toLowerCase()} en Italie dépend de trois composantes : prix industriel (lié au Brent et au taux EUR/USD), accise fixe (environ 0,617 EUR/litre après l'alignement 2024) et TVA à 22 %. En Suisse la structure fiscale est différente : accise plus basse, mais taxe CO₂ et surtaxe sur les carburants importés portent le prix final dans une fourchette distincte. Pour un frontalier parcourant 80-120 km par jour, faire le plein du bon côté de la frontière peut valoir 15-35 EUR par mois.`,
+      `Le prix ${frFuelOf(f)} en Italie dépend de trois composantes : prix industriel (lié au Brent et au taux EUR/USD), accise fixe (environ 0,617 EUR/litre après l'alignement 2024) et TVA à 22 %. En Suisse la structure fiscale est différente : accise plus basse, mais taxe CO₂ et surtaxe sur les carburants importés portent le prix final dans une fourchette distincte. Pour un frontalier parcourant 80-120 km par jour, faire le plein du bon côté de la frontière peut valoir 15-35 EUR par mois.`,
       `À ${c} la bonne comparaison est avec la zone tessinoise ${nz}, le poste-frontière suisse le plus proche. Si le prix italien y est inférieur d'au moins 0,10-0,15 EUR/litre à la moyenne de zone suisse, il vaut mieux faire le plein avant la frontière ; si le Tessin est moins cher, mieux vaut attendre le retour. Capacité du réservoir : 50 litres à 0,20 EUR/litre d'écart valent 10 EUR par plein, 70 litres 14 EUR.`,
       `Le coût réel du trajet quotidien ne se limite pas au carburant : taxe auto, assurance, entretien, pneus et coût d'opportunité du temps comptent aussi. Le <a class="s-IjpSYt" href="/fr/calculer-salaire/">calculateur salarial</a> intègre ces coûts avec le salaire net pour montrer le gain réel d'un emploi suisse.`,
     ],
@@ -3554,7 +3559,7 @@ function renderItalianCityFrontalierExtra(args: {
     },
     fr: {
       h: `${fuelLabel} à ${cityDisplay} : mathématique du trajet pour les frontaliers`,
-      p1: `La structure du prix du ${fuelLabel.toLowerCase()} en Italie fait de ${cityDisplay} un point de référence utile pour la planification des pleins du frontalier. Le prix industriel (lié au Brent et au taux EUR/USD) représente environ 40 % du prix final ; les accises — fixées à environ 0,617 EUR/litre pour l'essence et 0,617 EUR/litre pour le diesel après l'alignement 2024 — pèsent encore 35 % ; la TVA à 22 % ferme le calcul. Lorsque le prix industriel baisse, l'effet se propage à la pompe en 3-5 jours : des pages comme celle-ci pour ${cityDisplay} aident précisément à saisir ces fenêtres. Le minimum d'aujourd'hui à ${cityDisplay} (${minPriceFmt} EUR/litre) doit être comparé à la moyenne suisse de la zone ${nearestZoneLabel} pour décider s'il convient de faire le plein avant la frontière ou au retour.`,
+      p1: `La structure du prix ${frFuelOf(fuelLabel)} en Italie fait de ${cityDisplay} un point de référence utile pour la planification des pleins du frontalier. Le prix industriel (lié au Brent et au taux EUR/USD) représente environ 40 % du prix final ; les accises — fixées à environ 0,617 EUR/litre pour l'essence et 0,617 EUR/litre pour le diesel après l'alignement 2024 — pèsent encore 35 % ; la TVA à 22 % ferme le calcul. Lorsque le prix industriel baisse, l'effet se propage à la pompe en 3-5 jours : des pages comme celle-ci pour ${cityDisplay} aident précisément à saisir ces fenêtres. Le minimum d'aujourd'hui à ${cityDisplay} (${minPriceFmt} EUR/litre) doit être comparé à la moyenne suisse de la zone ${nearestZoneLabel} pour décider s'il convient de faire le plein avant la frontière ou au retour.`,
       p2: `Calcul concret pour quelqu'un qui pendule depuis ${cityDisplay} vers le Tessin. Sur une année typique (220 jours ouvrables × 60 km aller-retour en moyenne = 13'200 km), une voiture avec une consommation de 6 L/100 km consomme environ 792 litres. Un écart de 0,15 EUR/litre entre l'Italie et le Tessin représente CHF 119 par an (CHF/EUR à 1,06) ; un écart de 0,30 EUR/litre le double à CHF 238. Ajoutez l'usure du véhicule (~CHF 0,15/km sur une voiture milieu de gamme = CHF 1'980/an), la taxe de circulation (CHF 200-400 selon la cylindrée), l'assurance responsabilité civile (CHF 600-1'200), le contrôle technique et l'entretien (~CHF 600/an) et le coût d'opportunité du temps perdu à la frontière (30 minutes × 220 jours × votre taux horaire) : le carburant ne représente typiquement que 15-25 % du coût total du trajet. Pour le calcul brut-net du salaire incluant ces coûts réels, utilisez le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire frontalier</a>.`,
     },
   };
@@ -4480,11 +4485,11 @@ const IT_STATION_COPY: Record<FuelDailyLocale, ItalianStationCopy> = {
     italyLabel: 'Italien',
   },
   fr: {
-    h1: (b, st, c, f) => `Prix du ${f.toLowerCase()} ${b} ${st} à ${c}`,
+    h1: (b, st, c, f) => `Prix ${frFuelOf(f)} ${b} ${st} à ${c}`,
     intro: (b, c, p, f) =>
-      `La station ${b} à ${c} vend aujourd'hui du ${f.toLowerCase()} à ${p} EUR le litre. Les prix sont mis à jour chaque jour à partir des données MIMIT des stations italiennes actives — utile pour planifier le plein avant le passage à la frontière.`,
+      `La station ${b} à ${c} vend aujourd'hui ${frFuelOf(f)} à ${p} EUR le litre. Les prix sont mis à jour chaque jour à partir des données MIMIT des stations italiennes actives — utile pour planifier le plein avant le passage à la frontière.`,
     paragraph: (b, c, p, cAvg, f) =>
-      `À la station ${b} de ${c} le prix du ${f.toLowerCase()} est de ${p} EUR le litre contre une moyenne ville de ${cAvg} EUR le litre. Comparez cet écart avec la moyenne tessinoise la plus proche pour choisir de quel côté de la frontière faire le plein aujourd'hui. L'écart typique Italie/Tessin est de 0,10-0,30 EUR/litre en faveur de l'Italie, mais vérifiez toujours la file au passage frontalier : 30 minutes d'attente peuvent annuler l'économie.`,
+      `À la station ${b} de ${c} le prix ${frFuelOf(f)} est de ${p} EUR le litre contre une moyenne ville de ${cAvg} EUR le litre. Comparez cet écart avec la moyenne tessinoise la plus proche pour choisir de quel côté de la frontière faire le plein aujourd'hui. L'écart typique Italie/Tessin est de 0,10-0,30 EUR/litre en faveur de l'Italie, mais vérifiez toujours la file au passage frontalier : 30 minutes d'attente peuvent annuler l'économie.`,
     ranking: (r, t, c) => `Classement à ${c} : ${r} (${t} stations observées).`,
     infoHeading: 'Infos station',
     infoBrand: 'Marque',
@@ -4551,7 +4556,7 @@ function renderItalianStationFrontalierExtra(args: {
     },
     fr: {
       h: `${stationLabel} à ${cityDisplay} : mathématique du plein pour le frontalier`,
-      p1: `Le prix d'aujourd'hui de ${priceFmt} EUR/litre à la pompe ${stationLabel} de ${cityDisplay} se décompose selon la structure typique du ${fuelLabel.toLowerCase()} italien : environ 40 % est le prix industriel (lié au Brent et au taux EUR/USD), 35 % est l'accise fixe (≈ 0,617 EUR/litre après l'alignement 2024), 22 % est la TVA et le reste correspond à la marge de l'exploitant — et c'est précisément cette dernière, et non la fiscalité, qui sépare une station de marque collée à la frontière d'une pompe indépendante en périphérie de ${cityDisplay}. Comparez le prix d'aujourd'hui (${priceFmt} EUR) avec la moyenne ville de ${cityAvgFmt} EUR et avec la moyenne tessinoise de la zone ${nearestZoneLabel} : quand l'écart Italie/Tessin dépasse 0,15 EUR/litre, faire le plein ici avant le passage est rentable même après 30 minutes d'attente ; en dessous de 0,08 EUR/litre il ne reste que l'avantage logistique (on rentre déjà fait le plein).`,
+      p1: `Le prix d'aujourd'hui de ${priceFmt} EUR/litre à la pompe ${stationLabel} de ${cityDisplay} se décompose selon la structure typique ${frFuelOf(fuelLabel)} italien : environ 40 % est le prix industriel (lié au Brent et au taux EUR/USD), 35 % est l'accise fixe (≈ 0,617 EUR/litre après l'alignement 2024), 22 % est la TVA et le reste correspond à la marge de l'exploitant — et c'est précisément cette dernière, et non la fiscalité, qui sépare une station de marque collée à la frontière d'une pompe indépendante en périphérie de ${cityDisplay}. Comparez le prix d'aujourd'hui (${priceFmt} EUR) avec la moyenne ville de ${cityAvgFmt} EUR et avec la moyenne tessinoise de la zone ${nearestZoneLabel} : quand l'écart Italie/Tessin dépasse 0,15 EUR/litre, faire le plein ici avant le passage est rentable même après 30 minutes d'attente ; en dessous de 0,08 EUR/litre il ne reste que l'avantage logistique (on rentre déjà fait le plein).`,
       p2: `Calcul annuel concret pour qui pendule depuis ${cityDisplay} vers le Tessin via cette station. Sur 220 jours ouvrables × 60 km aller-retour moyen = 13'200 km/an, une voiture consommant 6 L/100 km utilise environ 792 litres/an : à la pompe ${stationLabel} à ${priceFmt} EUR/litre cela représente environ 792 × ${priceFmt.replace(/[^0-9,.]/g, '').replace(',', '.')} EUR par an — typiquement 15-25 % du coût total du trajet. Les 75-85 % restants se composent d'usure du véhicule (~CHF 0,15/km × 13'200 km = CHF 1'980/an), taxe de circulation (CHF 200-400 selon la cylindrée), assurance responsabilité civile (CHF 600-1'200), contrôle technique et entretien (~CHF 600/an) et coût d'opportunité du temps perdu à la frontière (30 minutes × 220 jours × votre taux horaire CHF). Pour le calcul brut-net du salaire frontalier intégrant carburant, temps et usure, utilisez le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire frontalier</a> ; pour la rentabilité fiscale selon le nouvel accord 2026, comparez le régime du Permis G dans le comparateur dédié.`,
     },
   };
