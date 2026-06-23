@@ -68,12 +68,7 @@
       "firstSeenAt": "2026-06-21T22:27:06.965Z",
       "previousSlugs": [
         "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
-        ]
-      }
+      ]
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
@@ -374,12 +369,12 @@
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "gestione-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
-        "de": "travelling-destination-manager-msc-geneva",
-        "fr": "travelling-destination-manager-msc-geneva"
+        "it": "gestione-delle-destinazioni-msc-group-geneva",
+        "de": "reisezielmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-destination-itinerante-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -437,17 +432,15 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-21T12:08:32.902Z",
       "previousSlugs": [
-        "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva",
-        "reisezielmanager-msc-group-geneva",
-        "gestionnaire-de-destination-itinerante-msc-group-geneva",
-        "gestione-delle-destinazioni-msc-group-geneva"
+        "travelling-destination-manager-msc-geneva",
+        "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "reisezielmanager-msc-group-geneva"
+          "travelling-destination-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-destination-itinerante-msc-group-geneva"
+          "travelling-destination-manager-msc-geneva"
         ],
         "it": [
           "travelling-destination-manager-msc-geneva"
@@ -461,7 +454,7 @@
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "de": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
-        "fr": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -504,8 +497,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "casino-slots-and-technical-operations-manager-msc-geneva",
-        "casino-slots-und-technical-operations-manager-msc-group-geneva",
-        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
+        "casino-slots-und-technical-operations-manager-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -513,9 +505,6 @@
         ],
         "de": [
           "casino-slots-und-technical-operations-manager-msc-group-geneva"
-        ],
-        "fr": [
-          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -748,7 +737,7 @@
         "en": "brand-manager-brand-product-msc-geneva",
         "it": "brand-manager-brand-product-msc-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",

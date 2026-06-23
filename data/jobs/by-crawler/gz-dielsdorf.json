@@ -881,8 +881,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
         "it": "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-demenz-gesundheitszentrum-dielsdorf",
-        "en": "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "fr": "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        "en": "health-and-social-care-assistant-eba-dementia-specialist-gesundheitszentrum-dielsdorf-dielsdorf",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-eba-specialisation-demence-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -928,6 +928,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
         ]
       },
       "previousSlugs": [
@@ -949,12 +955,12 @@
     },
     {
       "id": "gz-dielsdorf-62f2bd308a5e",
-      "slug": "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
+      "slug": "operatore-socio-sanitario-oss-specializzazione-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "it": "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "en": "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "fr": "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        "it": "operatore-socio-sanitario-oss-specializzazione-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "healthcare-professional-fage-focus-on-dementia-gesundheitszentrum-dielsdorf-dielsdorf",
+        "fr": "professionnel-de-la-sante-fage-specialisation-demence-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1009,16 +1015,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T22:46:03.622Z"
+      "firstSeenAt": "2026-06-22T22:46:03.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+      ]
     },
     {
       "id": "gz-dielsdorf-42574c0bb4dc",
-      "slug": "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
+      "slug": "infermiere-a-diplomato-a-sss-specializzazione-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "it": "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
+        "it": "infermiere-a-diplomato-a-sss-specializzazione-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
         "en": "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "fr": "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        "fr": "infirmier-ere-diplome-e-es-specialisation-demence-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1073,7 +1093,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T22:46:03.598Z"
+      "firstSeenAt": "2026-06-22T22:46:03.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+      ]
     }
   ]
 }

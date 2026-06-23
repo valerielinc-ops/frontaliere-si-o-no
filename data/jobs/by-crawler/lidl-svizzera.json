@@ -196,7 +196,7 @@
     },
     {
       "id": "company-s3e1jy",
-      "slug": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy",
+      "slug": "venditore-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Dübendorf",
       "location": "Dübendorf",
@@ -220,10 +220,10 @@
       "crawledAt": "2026-06-22T23:10:32.446Z",
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy",
+        "it": "venditore-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf",
+        "en": "seller-m-f-d-20-80-dubendorf-lidl-svizzera-dubendorf",
         "de": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy"
+        "fr": "vendeur-m-f-j-20-80-dubendorf-lidl-svizzera-dubendorf"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Dübendorf",
@@ -256,7 +256,21 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8600"
+      "postalCode": "8600",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dubendorf-s3e1jy"
+      ]
     },
     {
       "id": "company-sr4p8h",
@@ -413,7 +427,7 @@
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-ggd1wl",
-        "en": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-ggd1wl",
+        "en": "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-ggd1wl",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-chur-ggd1wl"
       },
@@ -448,7 +462,15 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugsByLocale": {
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-ggd1wl"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-ggd1wl"
+      ]
     },
     {
       "id": "company-sqlqbe",
@@ -644,7 +666,7 @@
     },
     {
       "id": "company-f6k1ab",
-      "slug": "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab",
+      "slug": "venditore-venditore-m-f-d-40-lidl-svizzera-zurich",
       "company": "Lidl Svizzera",
       "title": "CH_Verkäufer / Verkäuferin (m/w/d) 40%",
       "location": "Zürich",
@@ -668,10 +690,10 @@
       "crawledAt": "2026-06-22T23:10:32.446Z",
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
-        "it": "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab",
-        "en": "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab",
+        "it": "venditore-venditore-m-f-d-40-lidl-svizzera-zurich",
+        "en": "ch-seller-seller-m-f-d-40-lidl-svizzera-zurich",
         "de": "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab",
-        "fr": "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab"
+        "fr": "ch-vendeur-vendeur-m-f-d-40-lidl-svizzera-zurich"
       },
       "titleByLocale": {
         "de": "CH_Verkäufer / Verkäuferin (m/w/d) 40%",
@@ -704,11 +726,25 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab"
+        ],
+        "en": [
+          "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab"
+        ],
+        "fr": [
+          "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab"
+        ]
+      },
+      "previousSlugs": [
+        "ch-verkaufer-verkauferin-m-w-d-40-lidl-svizzera-zurich-f6k1ab"
+      ]
     },
     {
       "id": "company-ovbxct",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct",
+      "slug": "venditore-m-f-d-20-40-altendorf-lidl-svizzera-altendorf",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40% — Altendorf",
       "location": "Altendorf",
@@ -732,10 +768,10 @@
       "crawledAt": "2026-06-22T23:10:32.446Z",
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct",
-        "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct",
+        "it": "venditore-m-f-d-20-40-altendorf-lidl-svizzera-altendorf",
+        "en": "seller-m-f-d-20-40-altendorf-lidl-svizzera-altendorf",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct"
+        "fr": "vendeur-m-f-j-20-40-altendorf-lidl-svizzera-altendorf"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin (m/w/d) 20-40% — Altendorf",
@@ -767,7 +803,21 @@
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-altendorf-ovbxct"
+      ]
     },
     {
       "id": "company-m9ujuy",
@@ -796,9 +846,9 @@
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy"
+        "fr": "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Wädenswil",
@@ -831,7 +881,18 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy"
+      ]
     },
     {
       "id": "company-yckctb",
@@ -860,7 +921,7 @@
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
+        "en": "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
       },
@@ -895,11 +956,19 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
+      ]
     },
     {
       "id": "company-qvgno5",
-      "slug": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5",
+      "slug": "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-80% 1 — Schlieren",
       "location": "Schlieren",
@@ -923,10 +992,10 @@
       "crawledAt": "2026-06-22T23:10:32.446Z",
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5",
+        "it": "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
+        "en": "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
         "de": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5"
+        "fr": "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin (m/w/d) 20-80% 1 — Schlieren",
@@ -959,7 +1028,21 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-qvgno5"
+      ]
     },
     {
       "id": "company-tgltzn",
@@ -988,7 +1071,7 @@
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
+        "en": "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
       },
@@ -1023,7 +1106,15 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "previousSlugsByLocale": {
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
+      ]
     },
     {
       "id": "company-v352fv",
@@ -1052,9 +1143,9 @@
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-seewen-lidl-svizzera-seewen",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv"
+        "fr": "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-seewen-lidl-svizzera-seewen"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Seewen",
@@ -1087,7 +1178,18 @@
       "addressRegion": "SO",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "4500"
+      "postalCode": "4500",
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-seewen-v352fv"
+      ]
     },
     {
       "id": "company-yqbqb",
@@ -1116,9 +1218,9 @@
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-stans-lidl-svizzera-stans",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb"
+        "fr": "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-stans-lidl-svizzera-stans"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Stans",
@@ -1150,11 +1252,22 @@
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-stans-0yqbqb"
+      ]
     },
     {
       "id": "company-louwqc",
-      "slug": "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc",
+      "slug": "venditore-venditore-m-f-d-20-80-zurigo-lidl-svizzera-zurich",
       "company": "Lidl Svizzera",
       "title": "CH_Verkäufer / Verkäuferin (m/w/d) 20-80% — Zürich",
       "location": "Zürich",
@@ -1178,10 +1291,10 @@
       "crawledAt": "2026-06-22T23:10:32.446Z",
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
-        "it": "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc",
-        "en": "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc",
+        "it": "venditore-venditore-m-f-d-20-80-zurigo-lidl-svizzera-zurich",
+        "en": "ch-seller-seller-m-f-d-20-80-zurich-lidl-svizzera-zurich",
         "de": "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc",
-        "fr": "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc"
+        "fr": "ch-vendeur-vendeur-m-f-d-20-80-zurich-lidl-svizzera-zurich"
       },
       "titleByLocale": {
         "de": "CH_Verkäufer / Verkäuferin (m/w/d) 20-80% — Zürich",
@@ -1214,7 +1327,21 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc"
+        ],
+        "en": [
+          "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc"
+        ],
+        "fr": [
+          "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc"
+        ]
+      },
+      "previousSlugs": [
+        "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-louwqc"
+      ]
     },
     {
       "id": "company-ehg9v1",
@@ -1282,7 +1409,7 @@
     },
     {
       "id": "company-fdn3z",
-      "slug": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z",
+      "slug": "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-80% 1 — Baden",
       "location": "Baden",
@@ -1306,10 +1433,10 @@
       "crawledAt": "2026-06-22T23:10:32.446Z",
       "firstSeenAt": "2026-06-22T23:10:32.446Z",
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z",
+        "it": "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden",
+        "en": "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden",
         "de": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z"
+        "fr": "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin (m/w/d) 20-80% 1 — Baden",
@@ -1342,7 +1469,21 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z"
+      ]
     },
     {
       "id": "company-928ok",
@@ -7151,12 +7292,7 @@
         "apprendista-nel-commercial-dettaglio-cfp-o-afc-inizio-2026-biasca-lidl-svizzera-biasca"
       ],
       "salaryMin": 41600,
-      "salaryMax": 63000,
-      "previousSlugsByLocale": {
-        "de": [
-          "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-biasca-lidl-svizzera-biasca-3t5gz5"
-        ]
-      }
+      "salaryMax": 63000
     },
     {
       "id": "company-zdpsyo",
@@ -21559,9 +21695,6 @@
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-3t5gz5",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-kscbfg",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-tyv50x"
-        ],
-        "de": [
-          "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano-ixk693"
         ]
       },
       "salaryMin": 41600,

@@ -7,9 +7,9 @@
       "slug": "infermiera-tertianum-rheinfelden",
       "slugByLocale": {
         "it": "infermiera-tertianum-rheinfelden",
-        "en": "pflegefachfrau-mann-tertianum-rheinfelden",
+        "en": "registered-nurse-tertianum-rheinfelden",
         "de": "pflegefachfrau-mann-tertianum-rheinfelden",
-        "fr": "pflegefachfrau-mann-tertianum-rheinfelden"
+        "fr": "infirmier-ere-diplome-e-tertianum-rheinfelden"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -55,6 +55,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-mann-tertianum-rheinfelden"
+        ],
+        "en": [
+          "pflegefachfrau-mann-tertianum-rheinfelden"
+        ],
+        "fr": [
           "pflegefachfrau-mann-tertianum-rheinfelden"
         ]
       },
@@ -450,9 +456,9 @@
       "slug": "cook-tertianum-zurich",
       "slugByLocale": {
         "it": "cook-tertianum-zurich",
-        "en": "kochin-koch-tertianum-zurich",
+        "en": "chef-tertianum-zurich",
         "de": "kochin-koch-tertianum-zurich",
-        "fr": "kochin-koch-tertianum-zurich"
+        "fr": "cuisinier-cuisiniere-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -498,6 +504,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kochin-koch-tertianum-zurich"
+        ],
+        "en": [
+          "kochin-koch-tertianum-zurich"
+        ],
+        "fr": [
           "kochin-koch-tertianum-zurich"
         ]
       },
@@ -1184,7 +1196,7 @@
       "slug": "collaboratore-trice-empfang-administration-tertianum-zollikerberg",
       "slugByLocale": {
         "it": "collaboratore-trice-empfang-administration-tertianum-zollikerberg",
-        "en": "mitarbeiter-in-empfang-administration-tertianum-zollikerberg",
+        "en": "reception-administration-tertianum-zollikerberg",
         "de": "mitarbeiter-in-empfang-administration-tertianum-zollikerberg",
         "fr": "mitarbeiter-in-empfang-administration-tertianum-zollikerberg"
       },
@@ -1233,6 +1245,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-empfang-administration-tertianum-zollikerberg"
+        ],
+        "en": [
           "mitarbeiter-in-empfang-administration-tertianum-zollikerberg"
         ]
       },
@@ -3174,7 +3189,6 @@
       "previousSlugs": [
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2"
       ],
       "firstSeenAt": "2026-05-19T12:23:09.661Z",
@@ -3821,9 +3835,6 @@
       "previousSlugs": [
         "kochin-koch-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-horgen",
-        "cuoco-cuoca-tertianum-horgen",
-        "chef-co-chef-tertianum-horgen",
-        "cuisinier-chef-cuisinier-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
@@ -6002,9 +6013,6 @@
         "assistent-in-gesundheit-soziales-40-100-tertianum-richterswil",
         "assistent-in-gesundheit-soziales-40-100-wahlbar-ob-im-tagdienst-oder-im-nachtdienst",
         "assistentin-assistent-gesundheit-und-soziales-eba-40-100-tertianum-richterswil",
-        "assistente-a-alla-salute-e-al-sociale-40-100-tertianum-solothurn",
-        "health-and-social-care-assistant-40-100-tertianum-solothurn",
-        "assistant-e-en-sante-et-social-40-100-tertianum-solothurn",
         "assistente-a-alla-salute-e-al-sociale-40-100-turni-diurni-o-notturni-tertianum-richterswil"
       ],
       "previousSlugsByLocale": {

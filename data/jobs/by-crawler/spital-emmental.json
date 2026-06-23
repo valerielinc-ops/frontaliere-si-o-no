@@ -2347,8 +2347,6 @@
         "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf",
         "health-professional-a-spital-emmental-burgdorf",
         "specialiste-de-la-sante-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
         "salute-specialistica-a-spital-emmental-burgdorf",
         "specialist-health-a-spital-emmental-burgdorf",
         "specialiste-de-la-sante-a-spital-emmental-burgdorf-83d675"
@@ -3350,8 +3348,7 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-infirmiere-a-spital-emmental-burgdorf",
-        "dipl-infermiera-a-spital-emmental-burgdorf"
+        "dipl-infirmiere-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4209,9 +4206,9 @@
       "slug": "arztsekretar-in-o-medizinische-n-praxisassistentin-praxisassistenten-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "arztsekretar-in-o-medizinische-n-praxisassistentin-praxisassistenten-spital-emmental-burgdorf",
-        "en": "arztsekretar-in-oder-medizinische-n-praxisassistentin-praxisassistenten-spital-emmental",
+        "en": "medical-assistant-in-or-medical-assistant-spital-emmental-burgdorf",
         "de": "arztsekretar-in-oder-medizinische-n-praxisassistentin-praxisassistenten-spital-emmental",
-        "fr": "arztsekretar-in-oder-medizinische-n-praxisassistentin-praxisassistenten-spital-emmental"
+        "fr": "secretaire-medical-e-ou-assistant-e-medical-e-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4263,6 +4260,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretar-in-oder-medizinische-n-praxisassistentin-praxisassistenten-spital-emmental"
+        ],
+        "en": [
+          "arztsekretar-in-oder-medizinische-n-praxisassistentin-praxisassistenten-spital-emmental"
+        ],
+        "fr": [
           "arztsekretar-in-oder-medizinische-n-praxisassistentin-praxisassistenten-spital-emmental"
         ]
       },

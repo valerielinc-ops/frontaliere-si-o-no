@@ -559,7 +559,7 @@
         "it": "tirocinio-junior-event-manager-a-6-12-mesi-bachem-ag-bubendorf",
         "en": "internship-junior-event-manager-a-6-12-months-bachem-bubendorf",
         "de": "praktikum-junior-event-manager-a-6-12-monate-bachem-ag-bubendorf",
-        "fr": "gestionnaire-d-evenement-junior-de-stage-a-6-12-mois-bachem-ag-bubendorf"
+        "fr": "stage-junior-event-manager-a-6-12-mois-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -609,12 +609,12 @@
         ],
         "fr": [
           "internship-junior-event-manager-a-6-12-months-bachem-bubendorf",
-          "stage-junior-event-manager-a-6-12-mois-bachem-ag-bubendorf"
+          "gestionnaire-d-evenement-junior-de-stage-a-6-12-mois-bachem-ag-bubendorf"
         ]
       },
       "previousSlugs": [
         "internship-junior-event-manager-a-6-12-months-bachem-bubendorf",
-        "stage-junior-event-manager-a-6-12-mois-bachem-ag-bubendorf"
+        "gestionnaire-d-evenement-junior-de-stage-a-6-12-mois-bachem-ag-bubendorf"
       ],
       "firstSeenAt": "2026-06-19T21:21:26.265Z",
       "salaryMin": 52000,
@@ -2925,8 +2925,8 @@
       "slugByLocale": {
         "it": "ingegnere-di-automazione-ingegnere-di-progetto-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf",
         "en": "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
-        "de": "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
-        "fr": "ingenieur-en-automatisation-ingenieur-projet-fabrication-numerique-et-laboratoire-de-donnees-100-a-bachem-ag-bubendorf"
+        "de": "automatisierungstechniker-projektingenieur-digitales-manufacturing-und-data-lab-100-bachem-ag-bubendorf",
+        "fr": "ingenieur-en-automatisation-ingenieur-de-projet-manufacture-numerique-et-data-lab-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -2975,6 +2975,7 @@
         "automatisierungsingenieur-projektingenieur-digitale-fertigung-und-datenlabor-100-m-w-d-bachem-ag-bubendorf",
         "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf",
         "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf",
+        "ingenieur-en-automatisation-ingenieur-projet-fabrication-numerique-et-laboratoire-de-donnees-100-a-bachem-ag-bubendorf",
         "automation-ingegnere-project-ingegnere-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
@@ -2985,11 +2986,13 @@
           "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-di-dati-100-a-bachem-ag-bubendorf"
         ],
         "de": [
-          "automatisierungsingenieur-projektingenieur-digitale-fertigung-und-datenlabor-100-m-w-d-bachem-ag-bubendorf"
+          "automatisierungsingenieur-projektingenieur-digitale-fertigung-und-datenlabor-100-m-w-d-bachem-ag-bubendorf",
+          "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem"
         ],
         "fr": [
           "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf",
-          "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf"
+          "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf",
+          "ingenieur-en-automatisation-ingenieur-projet-fabrication-numerique-et-laboratoire-de-donnees-100-a-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-28T11:45:42.147Z",
@@ -3651,7 +3654,7 @@
         "it": "senior-capex-project-controller-a-100-bachem-bubendorf",
         "en": "senior-capex-project-controller-a-100-bachem-bubendorf",
         "de": "senior-capex-project-controller-a-100-bachem-bubendorf",
-        "fr": "controleur-principal-de-projet-capex-a-100-bachem-ag-bubendorf"
+        "fr": "contr-ileur-de-projets-capex-senior-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -3704,7 +3707,15 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "controleur-principal-de-projet-capex-a-100-bachem-ag-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-principal-de-projet-capex-a-100-bachem-ag-bubendorf"
+      ]
     },
     {
       "id": "bachem-faeb7258727a",
@@ -3850,7 +3861,7 @@
         "it": "responsabile-qa-officina-100-f-m-d-bachem-ag-bubendorf",
         "en": "qa-shopfloor-manager-100-f-m-d-bachem-bubendorf",
         "de": "qa-shopfloor-manager-100-f-m-d-bachem-bubendorf",
-        "fr": "qa-gestionnaire-de-l-atelier-100-f-m-d-bachem-ag-bubendorf"
+        "fr": "responsable-qa-shopfloor-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -3894,6 +3905,7 @@
       "previousSlugs": [
         "qa-shopfloor-manager-100-f-m-d-bachem-bubendorf",
         "qa-shopfloor-manager-100-a-bachem-bubendorf",
+        "qa-gestionnaire-de-l-atelier-100-f-m-d-bachem-ag-bubendorf",
         "senior-manager-qa-100-m-f-d-bachem-bubendorf",
         "responsabile-progetti-assicurazione-qualita-f-m-d-100-bachem-ag-bubendorf",
         "manager-qa-projects-f-m-d-100-bachem-bubendorf",
@@ -3908,7 +3920,8 @@
           "qa-shopfloor-manager-100-a-bachem-bubendorf"
         ],
         "fr": [
-          "qa-shopfloor-manager-100-f-m-d-bachem-bubendorf"
+          "qa-shopfloor-manager-100-f-m-d-bachem-bubendorf",
+          "qa-gestionnaire-de-l-atelier-100-f-m-d-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-28T11:45:39.835Z",
@@ -7405,12 +7418,12 @@
     },
     {
       "id": "bachem-84fec76fae81",
-      "slug": "agente-creditore-a-80-100-bachem-ag-bubendorf",
+      "slug": "addetto-a-contabile-creditori-a-80-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "agente-creditore-a-80-100-bachem-ag-bubendorf",
-        "en": "person-in-charge-a-80-100-bachem-ag-bubendorf",
+        "it": "addetto-a-contabile-creditori-a-80-100-bachem-ag-bubendorf",
+        "en": "credit-controller-a-80-100-bachem-ag-bubendorf",
         "de": "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
-        "fr": "agent-creancier-a-80-100-bachem-ag-bubendorf"
+        "fr": "responsable-de-la-comptabilite-fournisseurs-a-80-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -7454,22 +7467,28 @@
       "previousSlugsByLocale": {
         "en": [
           "agent-creditor-a-80-100-bachem-ag-bubendorf",
-          "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf"
+          "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
+          "person-in-charge-a-80-100-bachem-ag-bubendorf"
         ],
         "it": [
           "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
-          "persone-in-carica-a-80-100-bachem-ag-bubendorf"
+          "persone-in-carica-a-80-100-bachem-ag-bubendorf",
+          "agente-creditore-a-80-100-bachem-ag-bubendorf"
         ],
         "fr": [
           "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
-          "responsable-a-80-100-bachem-ag-bubendorf"
+          "responsable-a-80-100-bachem-ag-bubendorf",
+          "agent-creancier-a-80-100-bachem-ag-bubendorf"
         ]
       },
       "previousSlugs": [
         "agent-creditor-a-80-100-bachem-ag-bubendorf",
         "sachbearbeiter-in-kreditoren-a-80-100-bachem-bubendorf",
+        "person-in-charge-a-80-100-bachem-ag-bubendorf",
         "persone-in-carica-a-80-100-bachem-ag-bubendorf",
-        "responsable-a-80-100-bachem-ag-bubendorf"
+        "agente-creditore-a-80-100-bachem-ag-bubendorf",
+        "responsable-a-80-100-bachem-ag-bubendorf",
+        "agent-creancier-a-80-100-bachem-ag-bubendorf"
       ],
       "firstSeenAt": "2026-06-22T13:36:06.540Z",
       "salaryMin": 62000,
@@ -7751,9 +7770,9 @@
     },
     {
       "id": "bachem-ad565c34dfb7",
-      "slug": "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
+      "slug": "tecnico-di-laboro-r-s-lpps-taps-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
+        "it": "tecnico-di-laboro-r-s-lpps-taps-a-100-bachem-ag-bubendorf",
         "en": "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
         "de": "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
         "fr": "technicien-de-laboratoire-r-d-lpps-taps-p-m-j-100-bachem-ag-bubendorf"
@@ -7803,6 +7822,7 @@
         "tecnico-di-laboratorio-r-d-lpps-tap-con-lavoro-lavoro-100-bachem-ag-bubendorf",
         "technico-di-laboratorio-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
         "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf",
+        "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
         "labortechniker-r-d-lpps-taps-w-m-d-100-bachem-ag-bubendorf",
         "lab-technician-r-d-a-100-bachem-ag-bubendorf",
         "tecnico-di-laboratorio-r-d-u-m-d-100-bachem-ag-bubendorf",
@@ -7820,7 +7840,8 @@
           "lab-technician-r-d-lpps-taps-a-100-bachem-bubendorf",
           "tecnico-di-laboratorio-r-d-lpps-tap-con-lavoro-lavoro-100-bachem-ag-bubendorf",
           "technico-di-laboratorio-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
-          "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf"
+          "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf",
+          "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf"
         ],
         "de": [
           "labortechniker-r-d-lpps-taps-w-m-d-100-bachem-ag-bubendorf"
