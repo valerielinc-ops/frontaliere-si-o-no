@@ -129,7 +129,46 @@ export const SEO_STATIC_GRID_RESERVE_CSS =
   'main.seo-static-content{max-width:min(100%,1120px);margin:0 auto;padding:32px clamp(16px,4vw,32px) 56px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}' +
   'main.seo-static-content>*{min-width:0;width:100%}';
 
+/**
+ * Static SEO HERO layout, mirrored from the ASYNC `seo-static.css` into this
+ * SYNCHRONOUS first-paint block. The SECOND-order CLS residual that surfaced
+ * once {@link SEO_STATIC_GRID_RESERVE_CSS} removed the dominant page-grid
+ * reflow (PR #2740/#2748).
+ *
+ * Why (CLS fix): the hero rendered by `seoContentTokens.ts` (`renderStatGrid`,
+ * breadcrumb, stat tiles, primary CTA) is laid out PURELY by `seo-static.css`,
+ * which `media="print"`-swaps in ~400ms after first paint. The stat-tile
+ * container `.s-XENO3U` is the dominant offender: until the async sheet lands
+ * it renders as default `display:block`, so the 3–4 tiles STACK vertically
+ * (tall column); promotion to `display:grid` (auto-fit, 180px min) flows them
+ * into a single short row and everything below — the content `<section>` and
+ * the CTA — jumps up. Live desktop shift 0.39 at ~515ms (PerformanceObserver
+ * buffered, sources `header`, `.s-XENO3U`, `section`, `a.s-cta`) on
+ * `/cerca-lavoro-ticino/infermieri/`, the new top shift after #2740 cut the
+ * page-grid 0.70 to ~0.17.
+ *
+ * Reserved values mirror the async rules VERBATIM (all hooks are STABLE atomic
+ * class names exported by `seoContentTokens.ts`, not per-build hashes):
+ *   - `.s-XENO3U` stat grid, `.s-cta` CTA flex, breadcrumb `.s-bcr` margin, the
+ *     hero wrapper `.s-sy52lX` margin — the structural collapse.
+ *   - tile box (`.s-tbase/.s-tacc/.s-tok/.s-twrn/.s-tdng`) `padding:18px` +
+ *     `border:1px` and the tile `.s-tlbl`/`.s-tval` font metrics — so each
+ *     tile's height (hence the grid row height) is identical at first paint.
+ * Borders use `transparent` (the async sheet paints the real colour — paint,
+ * not layout). Pure space reservation (AGENTS.md §7): no ad/content/markup
+ * change; the CTA/tiles are the same boxes before and after.
+ */
+export const SEO_STATIC_HERO_RESERVE_CSS =
+  '.s-XENO3U{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px}' +
+  '.s-tbase,.s-tacc,.s-tok,.s-twrn,.s-tdng{padding:18px;border:1px solid transparent;border-radius:14px}' +
+  '.s-tlbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}' +
+  '.s-tval{margin-top:8px;font-size:28px;font-weight:800;line-height:1.1}' +
+  '.s-bcr{margin:0 0 14px;font-size:13px}' +
+  '.s-cta{display:inline-flex;align-items:center;gap:6px;padding:12px 20px}' +
+  '.s-sy52lX{margin-bottom:24px}';
+
 export const CRITICAL_CSS =
   '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}' +
   RAIL_RESERVE_CSS +
-  SEO_STATIC_GRID_RESERVE_CSS;
+  SEO_STATIC_GRID_RESERVE_CSS +
+  SEO_STATIC_HERO_RESERVE_CSS;
