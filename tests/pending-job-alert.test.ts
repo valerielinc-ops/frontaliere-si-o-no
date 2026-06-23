@@ -18,6 +18,7 @@ const config: JobAlertConfig = {
 
 describe('pendingJobAlert', () => {
   beforeEach(() => {
+    localStorage.clear();
     sessionStorage.clear();
     vi.useRealTimers();
   });
@@ -64,7 +65,20 @@ describe('pendingJobAlert', () => {
   });
 
   it('returns null on malformed storage', () => {
-    sessionStorage.setItem('pending_job_alert', '{not json');
+    localStorage.setItem('pending_job_alert', '{not json');
     expect(consumePendingJobAlert()).toBeNull();
+  });
+
+  it('persists in localStorage (survives a new tab / autologin redirect), not sessionStorage', () => {
+    // Regression guard for #2730: sessionStorage is per-tab, so a logged-out
+    // user who filled the form in tab A and opened the newsletter-autologin
+    // email link in tab B lost the intent. localStorage is shared across tabs +
+    // persists across reloads, so the replay fires on every sign-in surface.
+    savePendingJobAlert(config);
+    expect(localStorage.getItem('pending_job_alert')).not.toBeNull();
+    expect(sessionStorage.getItem('pending_job_alert')).toBeNull();
+    // A fresh page context (new tab / post-redirect reload) reads the same
+    // shared localStorage and recovers the config.
+    expect(consumePendingJobAlert()).toEqual(config);
   });
 });
