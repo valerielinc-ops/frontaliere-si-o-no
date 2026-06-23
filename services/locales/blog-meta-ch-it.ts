@@ -305,6 +305,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-checklist-2026.title': 'Frontaliere: checklist primo giorno di lavoro in Ticino 2026',
     'blog.article.frontalieri-checklist-2026.excerpt': 'Documenti necessari, permessi e assicurazione sanitaria per lavoratori transfrontalieri nel 2026',
     'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontaliere che presenta documenti al primo giorno di lavoro a Lugano',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Frontaliere scelta comune residenza Italia Svizzera 2026 single',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Sottotitolo con dati concreti DALLA FONTE (max 160 chars)',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
 };
 
 export default blogMetaChIt;

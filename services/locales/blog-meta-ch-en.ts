@@ -305,6 +305,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-checklist-2026.title': 'Frontier: first day of work checklist in Ticino 2026',
     'blog.article.frontalieri-checklist-2026.excerpt': 'Required documents, permits and health insurance for cross-border workers in 2026',
     'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontier worker presenting documents on first day of work in Lugano',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Frontier common choice residence Italy Switzerland 2026 single',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Subtitle with concrete data FROM THE SOURCE (max 160 chars)',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
 };
 
 export default blogMetaChEn;
