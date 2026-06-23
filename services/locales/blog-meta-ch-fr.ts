@@ -339,6 +339,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.contributi-sociali-frontalieri-busta-paga.title': 'Guide des cotisations sociales suisses pour les frontaliers : détail de la paie',
     'blog.article.contributi-sociali-frontalieri-busta-paga.excerpt': 'Découvrez comment sont réparties les cotisations sociales versées aux frontaliers qui travaillent en Suisse.',
     'blog.article.contributi-sociali-frontalieri-busta-paga.imageAlt': 'Détail d\'un bulletin de salaire suisse avec les cotisations sociales mises en évidence sur le fond de Lugano',
+    'blog.article.costo-vita-lugano-frontaliere.title': 'Combien coûte la vie à Lugano en tant que frontalier : analyse détaillée',
+    'blog.article.costo-vita-lugano-frontaliere.excerpt': 'Découvrez les coûts réels pour vivre à Lugano en tant que frontalier : loyers, transports, assurances et dépenses alimentaires.',
+    'blog.article.costo-vita-lugano-frontaliere.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;

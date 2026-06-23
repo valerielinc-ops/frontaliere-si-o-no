@@ -1013,6 +1013,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costo-vita-lugano-frontaliere',
+    category: 'pratico',
+    date: '2026-06-23T18:28:30.118Z',
+    image: '/images/blog/costo-vita-lugano-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

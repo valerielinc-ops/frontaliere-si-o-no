@@ -339,6 +339,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.contributi-sociali-frontalieri-busta-paga.title': 'Guida ai contributi sociali svizzeri per frontalieri: dettaglio busta paga',
     'blog.article.contributi-sociali-frontalieri-busta-paga.excerpt': 'Scopri come sono suddivisi i contributi sociali in busta paga per i frontalieri che lavorano in Svizzera.',
     'blog.article.contributi-sociali-frontalieri-busta-paga.imageAlt': 'Dettaglio di una busta paga svizzera con contributi sociali evidenziati sullo sfondo di Lugano',
+    'blog.article.costo-vita-lugano-frontaliere.title': 'Quanto costa vivere a Lugano da frontaliere: analisi dettagliata',
+    'blog.article.costo-vita-lugano-frontaliere.excerpt': 'Scopri i costi reali per vivere a Lugano come frontaliere: affitti, trasporti, assicurazioni e spesa alimentare.',
+    'blog.article.costo-vita-lugano-frontaliere.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne sullo sfondo',
 };
 
 export default blogMetaChIt;

@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2878,
+ "numberOfItems": 2879,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7524,7 +7524,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
           { "@type": "ListItem", "position": 2877, "name": "Nessuna proroga per le garanzie statali alle az...", "url": `${BASE_URL}/articoli-frontaliere/nessuna-proroga-garanzie-aziende-elettriche` }
           { "@type": "ListItem", "position": 2877, "name": "Nessuna proroga per le garanzie statali alle az...", "url": `${BASE_URL}/articoli-frontaliere/garanzie-aziende-elettriche-senza-proroga` },
-          { "@type": "ListItem", "position": 2878, "name": "Guida ai contributi sociali svizzeri per fronta...", "url": `${BASE_URL}/articoli-frontaliere/contributi-sociali-frontalieri-busta-paga` }
+          { "@type": "ListItem", "position": 2878, "name": "Guida ai contributi sociali svizzeri per fronta...", "url": `${BASE_URL}/articoli-frontaliere/contributi-sociali-frontalieri-busta-paga` },
+          { "@type": "ListItem", "position": 2879, "name": "Quanto costa vivere a Lugano da frontaliere: an...", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-lugano-frontaliere` }
  ]
  },
  {

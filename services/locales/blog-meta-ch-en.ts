@@ -339,6 +339,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.contributi-sociali-frontalieri-busta-paga.title': 'Guide to Swiss social contributions for frontier workers: payroll detail',
     'blog.article.contributi-sociali-frontalieri-busta-paga.excerpt': 'Find out how social contributions are divided into paychecks for border workers working in Switzerland.',
     'blog.article.contributi-sociali-frontalieri-busta-paga.imageAlt': 'Detail of a Swiss pay slip with highlighted social contributions against Lugano\'s skyline',
+    'blog.article.costo-vita-lugano-frontaliere.title': 'How much does it cost to live in Lugano as a border worker: detailed analysis',
+    'blog.article.costo-vita-lugano-frontaliere.excerpt': 'Discover the real costs of living in Lugano as a border worker: rent, transport, insurance and food expenses.',
+    'blog.article.costo-vita-lugano-frontaliere.imageAlt': 'Panoramic view of Lugano with the lake and mountains in the background',
 };
 
 export default blogMetaChEn;
