@@ -340,8 +340,20 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  <aside id="rail-right-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>
  </div>`
    : '';
+ // First-paint header reservation: on these staticOverlay pages `#root` is empty
+ // at first paint and the SEO content is a body-sibling below it; when React
+ // mounts, the sticky nav header (`h-14 md:h-20` = 56/80px) fills `#root` and
+ // shoves the sibling content (rail grid / `main.seo-static-content`) down by the
+ // header height — live: rail-grid +75px @944ms ≈ 0.08 CLS on city-hub, same
+ // residual on landings. The `.ft-hdr-reserve` spacer (height pinned in
+ // CRITICAL_CSS) holds that height from first paint so nothing jumps, AND makes
+ // index.tsx's `hasStaticContent()` true so its mount-time `#root` min-height
+ // floor engages, covering the createRoot()-empties-#root collapse too.
+ // `createRoot()` REPLACES #root's children (this is client render, not
+ // hydration) so the spacer leaves no residue — the real same-height header
+ // takes its place shift-free.
  const bodySection = seoContentOutsideRoot
-   ? ` <div id="root"></div>${preMainSection}
+   ? ` <div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>${preMainSection}
 ${railGridOpen}
  <main class="${seoMainClass}">
 ${bodyHtml}

@@ -344,6 +344,15 @@
       .s-wU5Nrr { margin: 0 0 14px; font-size: 18px; line-height: 1.6; max-width: 860px; }
       .s-rDKEKn { margin: 0; line-height: 1.7; max-width: 860px; }
       @media (max-width: 639px) { .s-cta { display: flex; width: 100%; justify-content: center; } }
+      /* First-paint reservation for the sticky-nav header height inside an empty
+         #root (staticOverlay pages). The .ft-hdr-reserve spacer (sole child of
+         #root, emitted by buildSimplePage) holds h-14/md:h-20 = 56/80px so the
+         body-sibling SEO content doesn't jump when React fills #root with the
+         header. Kept off #root itself (criticalCssRootHeight gate forbids
+         #root{min-height}). Keep in sync with ROOT_HEADER_RESERVE_CSS in
+         build-plugins/shared/criticalCss.ts. */
+      .ft-hdr-reserve { height: 56px; }
+      @media (min-width: 768px) { .ft-hdr-reserve { height: 80px; } }
     </style>
 
     <!-- Google AdSense: deferred until after page is interactive to avoid
