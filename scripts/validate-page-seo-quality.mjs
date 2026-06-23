@@ -275,10 +275,12 @@ function extractMetaDescription(html) {
   return match ? match[1].trim() : '';
 }
 
-// Check if <meta name="robots"> contains "noindex"
+// Check if <meta name="robots"> contains "noindex".
+// Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
+// attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
 function hasNoindex(html) {
-  const match = html.match(/<meta[^>]*name\s*=\s*["']robots["'][^>]*content\s*=\s*["']([^"']*)["']/i)
-    || html.match(/<meta[^>]*content\s*=\s*["']([^"']*)["'][^>]*name\s*=\s*["']robots["']/i);
+  const match = html.match(/<meta[^>]*name\s*=\s*["']?robots["']?[^>]*content\s*=\s*["']?([^"'>]*)/i)
+    || html.match(/<meta[^>]*content\s*=\s*["']?([^"'>]*)["']?[^>]*name\s*=\s*["']?robots["']?/i);
   if (!match) return false;
   return match[1].toLowerCase().includes('noindex');
 }
