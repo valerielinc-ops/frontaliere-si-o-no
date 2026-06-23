@@ -989,6 +989,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'nessuna-proroga-garanzie-aziende-elettriche',
+    category: 'novita',
+    date: '2026-06-23T16:32:44.998Z',
+    image: '/images/blog/nessuna-proroga-garanzie-aziende-elettriche.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

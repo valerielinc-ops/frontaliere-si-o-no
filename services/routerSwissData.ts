@@ -131,6 +131,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ethos-stipendi-ceo-sostenibilita': { it: 'ethos-stipendi-ceo-sostenibilita', en: 'ethos-ceo-pay-sustainability', de: 'ethos-ceo-gehalt-nachhaltigkeit', fr: 'ethos-salaires-ceo-durabilite' },
  'parlamento-svizzero-accordi-avs': { it: 'parlamento-svizzero-accordi-avs', en: 'swiss-parliament-struggles-avs-agreements', de: 'schweizer-parlament-kaempft-avs-vereinbarungen', fr: 'parlement-suisse-lutte-accords-avs' },
  'calcolo-tasse-frontalieri-20km': { it: 'calcolo-tasse-frontalieri-20km', en: 'tax-calculation-cross-border-workers-within-20km', de: 'steuerberechnung-grenzganger-innerhalb-20km', fr: 'calcul-impots-frontaliers-20km' },
+ 'nessuna-proroga-garanzie-aziende-elettriche': { it: 'nessuna-proroga-garanzie-aziende-elettriche', en: 'no-extension-state-guarantees-electric-companies', de: 'keine-verlaengerung-staatsgarantien-elektrizitaetsunternehmen', fr: 'pas-de-prolongation-garanties-etat-entreprises-electriques' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -329,6 +329,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcolo-tasse-frontalieri-20km.title': 'Guida al calcolo tasse per frontalieri entro 20 km dal confine',
     'blog.article.calcolo-tasse-frontalieri-20km.excerpt': 'Scopri come calcolare le tasse per i frontalieri che lavorano entro 20 km dal confine, con franchigia e credito d\'imposta.',
     'blog.article.calcolo-tasse-frontalieri-20km.imageAlt': 'Vista aerea di Lugano con il lago e le montagne sullo sfondo',
+    'blog.article.nessuna-proroga-garanzie-aziende-elettriche.title': 'Nessuna proroga per le garanzie statali alle aziende elettriche',
+    'blog.article.nessuna-proroga-garanzie-aziende-elettriche.excerpt': 'La Commissione dell\'ambiente, della pianificazione del territorio e dell\'energia degli Stati ha deciso di non prorogare le garanzie statali per le aziende elettriche oltre il 2026.',
+    'blog.article.nessuna-proroga-garanzie-aziende-elettriche.imageAlt': 'Centrale idroelettrica svizzera vicino a un lago con montagne',
 };
 
 export default blogMetaChIt;
