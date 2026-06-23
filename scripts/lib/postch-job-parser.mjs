@@ -348,6 +348,9 @@ function parseTokenDate(raw = '', url = '') {
   if (!day || !month || !year) return '';
   const iso = new Date(Date.UTC(year, month - 1, day));
   if (Number.isNaN(iso.getTime())) return '';
+  // Round-trip: reject calendar-impossible dates (31/04, 31/02) silently
+  // overflowed by Date.UTC instead of returning empty.
+  if (iso.getUTCDate() !== day || iso.getUTCMonth() !== month - 1) return '';
   return iso.toISOString().slice(0, 10);
 }
 

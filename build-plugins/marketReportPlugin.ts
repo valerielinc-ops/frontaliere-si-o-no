@@ -38,6 +38,7 @@ import {
   BASE_URL,
   countHtmlBodyWords,
   MIN_INDEXABLE_WORDS,
+  DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
@@ -626,6 +627,7 @@ function renderReport(opts: {
       <p style="${LEDE_STYLE}">${esc(copy.ledeIntro)}</p>
     </header>
     ${statCards}
+    ${DRIVEBY_AD_SNIPPET}
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.topEmployersH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.topEmployersP)}</p>

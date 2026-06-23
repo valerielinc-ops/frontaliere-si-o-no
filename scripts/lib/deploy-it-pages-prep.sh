@@ -191,6 +191,14 @@ step_push_cdn() {
   if [ "$payload_bytes" -gt 950000000 ]; then
     echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; run the CDN assets/ janitor or split (e.g. keep blog heroes on jsDelivr)"
   fi
+  # Cross-shard atomicity marker (#2569): stamp THIS build's DEPLOY_BUILD_ID
+  # into the CDN payload so it is published in the SAME force-push as the
+  # assets/data. The non-IT shards (en/de/fr) poll cdn.frontaliereticino.ch/
+  # cdn-build-id.txt for this exact id BEFORE publishing → they never go live
+  # referencing a CDN that does not yet hold this build's /data + /assets.
+  # When DEPLOY_BUILD_ID is unset (local run / monolith path) the marker is
+  # written empty — harmless, the shard gate only enforces on a non-empty id.
+  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
   cd "$stage"
   git init -q
   git checkout -q -b main

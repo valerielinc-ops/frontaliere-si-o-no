@@ -820,6 +820,7 @@ const enCore: Record<string, string> = {
  'jobAlert.yourAlerts': 'Your alerts',
  'jobAlert.loading': 'Loading alerts...',
  'jobAlert.error.emptyFields': 'Enter at least one keyword or area.',
+ 'jobAlert.error.generic': 'Could not create the alert. Please try again.',
  'jobAlert.sector': 'Sector',
  'jobAlert.edit': 'Edit',
  'jobAlert.updated': 'Alert updated.',

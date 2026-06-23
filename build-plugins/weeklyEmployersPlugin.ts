@@ -37,6 +37,7 @@ import {
   BASE_URL,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
+  DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { firstParsableMs } from './shared/firstParsableDate';
@@ -2428,6 +2429,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   </header>
   ${topStatsHtml}
   ${topJobBoardCtaHtml}
+  ${DRIVEBY_AD_SNIPPET}
   ${renderCityHubsListBlock(locale)}
   <section class="s-KZc0LQ" aria-labelledby="weTopMethodology">
     <h2 id="weTopMethodology" style="${H2_STYLE}">${esc(LINKING_COPY[locale].cityHubsTitle)} — ${esc(copy.kickerCurrent)}</h2>
@@ -2443,6 +2445,9 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
 ${faqHtml}
   </section>
   ${renderLocaleSwitcherBlock(locale, (alt) => topHubPath(alt))}
+  <section class="s-sC82IX" aria-label="advertisement">
+    ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
+  </section>
   ${wrapHubSeoContextWeekly(locale, 'Ticino', true)}
 </article>`;
 
@@ -2976,6 +2981,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   ${cityAdviceBannerHtml}
   ${cityCtaHtml}
   ${archiveNote}
+  ${DRIVEBY_AD_SNIPPET}
   <section class="s-KZc0LQ" aria-labelledby="topCompanies">
     <h2 id="topCompanies" style="${H2_STYLE}"><span aria-hidden="true">🏆</span> ${esc(copy.topCompaniesTitle)}</h2>
     ${topCompaniesHtml}
@@ -3537,6 +3543,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   ${ccAdviceBannerHtml}
   ${ccCtaHtml}
   ${archiveNote}
+  ${DRIVEBY_AD_SNIPPET}
   <section class="s-KZc0LQ" aria-labelledby="companyCityJobs">
     <h2 id="companyCityJobs" style="${H2_STYLE}">${esc(copy.companyCityJobsHeading(employer, cityDisplay))}</h2>
     ${jobsListHtml}
