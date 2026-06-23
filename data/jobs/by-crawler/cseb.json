@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cseb",
-  "assembledAt": "2026-06-22T22:32:00.116Z",
+  "assembledAt": "2026-06-23T11:19:10.030Z",
   "jobs": [
     {
       "id": "cseb-e54bb7dc202c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e85699a6-f2e8-24ee-fc5b-541e90c75e7d",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.579Z",
+      "crawledAt": "2026-06-23T11:19:07.618Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -62,6 +62,7 @@
           "leiter-in-komplementarmedizinische-therapie-50-70-cseb-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T14:09:32.562Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -72,92 +73,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
-    },
-    {
-      "id": "cseb-9e31d2ecb03f",
-      "slug": "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
-      "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "employee-activation-40-60-center-da-sanadad-engiadina-bassa-scuol",
-        "de": "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
-        "fr": "activation-des-employes-40-60-center-da-sanadad-engiadina-bassa-scuol"
-      },
-      "company": "Center da Sanadad Engiadina Bassa",
-      "companyKey": "cseb",
-      "companyDomain": "cseb.ch",
-      "title": "Mitarbeiterin / Mitarbeiter Aktivierung (40-60%)",
-      "titleByLocale": {
-        "it": "Attivazione dei dipendenti (40-60%)",
-        "en": "Employee activation (40-60%)",
-        "de": "Mitarbeiterin / Mitarbeiter Aktivierung (40-60%)",
-        "fr": "Activation des employés (40-60%)"
-      },
-      "description": "Wir suchen als Verstärkung unseres Aktivierungsteams eine/-n\n\nAufgaben:\nHauptaufgaben\n\n• Du planst, organisierst und realisierst selbständig ressourcenorientierte Gruppen- und Einzelaktivitäten\n\n• Du planst und leitest Ausflüge, Anlässe und saisonale Aktivitäten\n\n• Du wirkst bei der Gestaltung von Dekorationen und dem Jahresaktivitäten-Kalender mit\n\n• Du arbeitest eng mit deinen Teamkolleginnen/-kollegen und den Pflegenden zusammen und beteiligst dich aktiv an Teamsitzungen\n\n• Du gibst Beobachtungen professionell weiter und dokumentierst diese wertefrei\n\nAnforderungen:\nAnforderungsprofil\n\n• Du verfügst über eine abgeschlossene Ausbildung als Fachperson Alltagsgestaltung und Aktivierung bzw. Fachfrau/Fachmann Betreuung, Sozialbetreuer/in oder eine vergleichbare Ausbildung - auch Quereinsteigende mit Bereitschaft zur Weiterbildung sind herzlich willkommen\n\n• Du bist kontaktfreudig, belastbar sowie kommunikativ und begegnest älteren Menschen mit Empathie, Geduld, Wertschätzung und einer professionellen Haltung\n\n• Du bist kreativ, hast gute organisatorische Fähigkeiten und Freude an Teamarbeit\n\n• Du bist bereit in den verschiedenen Chüra-Betrieben in Scuol & Zernez zu arbeiten und bist flexibel für vereinzelte Abend- und Wochenendeinsätze\n\n• Du verfügst über gute Deutsch- und idealerweise auch Romanisch Kenntnisse\n\nWir bieten:\nWir bieten Dir\n\n• eine sinnstiftende Arbeit mit viel Gestaltungsmöglichkeiten\n\n• eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld\n\n• attraktive, zeitgemässe Anstellungsbedingungen\n\n• grosszügige Unterstützung von Weiterbildungen\n\n• ein motiviertes und sehr engagiertes Team\n\nUnter dem Dach des «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Langzeitpflege im Unterengadin richtet sich nach einem ganzheitlichen Pflege- und Betreuungsmodell, bei welchem die bedürftigen Menschen im Zentrum stehen. Neben einer professionellen Pflege und empathischen Betreuung legen wir grossen Wert auf einen abwechslungsreichen und sinnstiftenden Alltag.\n\nSchlägt Dein Herz für ältere Menschen? Siehst Du die Möglichkeit, Deine Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, und damit einen positiven Einfluss auf die Lebensqualität unserer Bewohnenden zu nehmen? Dann freut sich ein engagiertes Aktivierungsteam auf Dich als neue/-n Kollegin/Kollegen.\n\nFür weitere Auskünfte steht Dir Agnes Kiesler, Leiterin Aktivierung, gerne zur Verfügung, Telefon +41 81 861 26 52 oder agnes.kiesler@cseb.ch.\n\nWir freuen uns auf Deine Online-Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Descrizione Siamo alla ricerca di compiti come un rinforzo del nostro team di attivazione: compiti principali - Pianifichi, organizzi e realizzi gruppi e attività individuali orientate alle risorse in modo indipendente - Pianifichi e guidi escursioni, eventi e attività stagionali - Si lavora a stretto contatto con i vostri compagni di squadra e assistenti nella progettazione di decorazioni e il calendario delle attività annuali - Si partecipa attivamente alle riunioni di squadra - Si passa le osservazioni professionalmente e documenta questo profilo di requisiti privo di valore - Si dispone di una formazione completa come design e attivazione di tutti i giorni specialista o cura specialistica, assistenza sociale o un'educazione comparabile - anche i partecipanti laterali con la volontà di ulteriore formazione sono benvenuti - Sei socievole, resiliente e comunicativo e comunicativo Sei creativo, avere buone capacità organizzative e godere del lavoro di squadra - Siete pronti a lavorare nelle varie aziende Chüra di Scuol & Zernez e sono flessibili per assegnazioni serali e weekend isolati - Hai una buona conoscenza del tedesco e idealmente anche romanico Cosa offrono Vi offriamo - un lavoro significativo con un sacco di possibilità di progettazione - un'attività responsabile e varia in un ambiente apprezzabile - attraente, condizioni di lavoro contemporaneo - generoso supporto per ulteriore formazione - un team motivato e molto impegnato Contatto Sotto il tetto del «Center da sandà» Engiadina Bassa» (CSEB) / \"Unterengadin Health Center\" - previsto nel Parco Nazionale Regione Si tratta di un ambiente meraviglioso con possibilità di svago e sport versatili. - L'assistenza a lungo termine nella Bassa Engadina si basa su un modello olistico di cura e cura, in cui le persone bisognose sono al centro. Oltre alla cura professionale e alla cura empatica, attribuiamo grande importanza ad una vita quotidiana varia e significativa. Il tuo cuore batte per gli anziani? Vedete l'opportunità di contribuire in modo significativo le vostre competenze e la vostra esperienza e quindi avere un'influenza positiva sulla qualità della vita dei nostri residenti? Poi un team di attivazione dedicato vi aspetta come nuovo collega/collega. Per ulteriori informazioni si prega di contattare Agnes Kiesler, Head of Activation, telefono +41 81 861 26 52 o agnes.kiesler@cseb.ch. Attendiamo con ansia la vostra applicazione online.",
-        "en": "Descrizione We are looking for tasks as a reinforcement of our activation team: main tasks - You plan, organize and realize independently resource-oriented group and individual activities - You plan and lead excursions, events and seasonal activities - You work closely with your teammates and carers in the design of decorations and the annual activities calendar - You actively participate in team meetings - You pass on observations professionally and document this value-free\n• Requirements profile - You have a completed training as a specialist everyday design and activation or Specialist care, social care or a comparable education - also lateral entrants with a willingness to further education are welcome - You are sociable, resilient and communicative and meet older people with empathy, patience, appreciation and a professional attitude - You are creative, have good organizational skills and enjoy teamwork - You are ready to work in the various Chüra companies in Scuol & Zernez and are flexible for isolated evening and weekend assignments - You have good knowledge of German and ideally also Romanesque\n• Cosa offriamo\n• We offer you - a meaningful work with a lot of design possibilities - a responsible and varied activity in an appreciative environment - attractive, contemporary employment conditions - generous support for further training - a motivated and very committed team Contatto Under the roof of the «Center da sandà» Engiadina Bassa\" (CSEB) / \"Unterengadin Health Center\" - Expected in the National Park Region It is a wonderful environment with versatile recreation and sports opportunities. - Long-term care in Lower Engadin is based on a holistic model of care and care, in which the people in need are at the centre. In addition to professional care and empathetic care, we attach great importance to a varied and meaningful everyday life. Is your heart beating for older people? Do you see the opportunity to contribute your skills and experience to us in a meaningful way and thus have a positive influence on the quality of life of our residents? Then a dedicated activation team looks forward to you as a new colleague/colleague. For further information please contact Agnes Kiesler, Head of Activation, telephone +41 81 861 26 52 or agnes.kiesler@cseb.ch. We look forward to your online application.",
-        "de": "Wir suchen als Verstärkung unseres Aktivierungsteams eine/-n Aufgaben: Hauptaufgaben\n• Du planst, organisierst und realisierst selbständig ressourcenorientierte Gruppen- und Einzelaktivitäten\n• Du planst und leitest Ausflüge, Anlässe und saisonale Aktivitäten\n• Du wirkst bei der Gestaltung von Dekorationen und dem Jahresaktivitäten-Kalender mit\n• Du arbeitest eng mit deinen Teamkolleginnen/-kollegen und den Pflegenden zusammen und beteiligst dich aktiv an Teamsitzungen\n• Du gibst Beobachtungen professionell weiter und dokumentierst diese wertefrei Anforderungen: Anforderungsprofil\n• Du verfügst über eine abgeschlossene Ausbildung als Fachperson Alltagsgestaltung und Aktivierung bzw. Fachfrau/Fachmann Betreuung, Sozialbetreuer/in oder eine vergleichbare Ausbildung - auch Quereinsteigende mit Bereitschaft zur Weiterbildung sind herzlich willkommen\n• Du bist kontaktfreudig, belastbar sowie kommunikativ und begegnest älteren Menschen mit Empathie, Geduld, Wertschätzung und einer professionellen Haltung\n• Du bist kreativ, hast gute organisatorische Fähigkeiten und Freude an Teamarbeit\n• Du bist bereit in den verschiedenen Chüra-Betrieben in Scuol & Zernez zu arbeiten und bist flexibel für vereinzelte Abend- und Wochenendeinsätze\n• Du verfügst über gute Deutsch- und idealerweise auch Romanisch Kenntnisse Wir bieten: Wir bieten Dir\n• eine sinnstiftende Arbeit mit viel Gestaltungsmöglichkeiten\n• eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld\n• attraktive, zeitgemässe Anstellungsbedingungen\n• grosszügige Unterstützung von Weiterbildungen\n• ein motiviertes und sehr engagiertes Team Unter dem Dach des «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. Die Langzeitpflege im Unterengadin richtet sich nach einem ganzheitlichen Pflege- und Betreuungsmodell, bei welchem die bedürftigen Menschen im Zentrum stehen. Neben einer professionellen Pflege und empathischen Betreuung legen wir grossen Wert auf einen abwechslungsreichen und sinnstiftenden Alltag. Schlägt Dein Herz für ältere Menschen? Siehst Du die Möglichkeit, Deine Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, und damit einen positiven Einfluss auf die Lebensqualität unserer Bewohnenden zu nehmen? Dann freut sich ein engagiertes Aktivierungsteam auf Dich als neue/-n Kollegin/Kollegen. Für weitere Auskünfte steht Dir Agnes Kiesler, Leiterin Aktivierung, gerne zur Verfügung, Telefon +41 81 861 26 52 oder agnes.kiesler@cseb.ch. Wir freuen uns auf Deine Online-Bewerbung.",
-        "fr": "Descrizione Nous recherchons des tâches pour renforcer notre équipe d'activation : tâches principales - Vous planifiez, organisez et réalisez des activités indépendantes de groupe et individuelles axées sur les ressources - Vous planifiez et dirigez des excursions, des événements et des activités saisonnières - Vous travaillez en étroite collaboration avec vos coéquipiers et aidants dans la conception des décorations et le calendrier annuel des activités - Vous participez activement à des réunions d'équipe - Vous transmettez des observations professionnellement et documentez ce profil d'exigences sans valeur - Vous avez une formation complète en tant que spécialiste de conception quotidienne et d'activation ou de soins spécialisés, de soins sociaux ou d'une éducation comparable - également les participants latéraux avec une volonté de poursuivre l'éducation sont les bienvenus - Vous êtes sociable, résilient et communicatif et rencontrez les personnes âgées avec empathie, patience, appréciation et une attitude professionnelle - Vous êtes créatif, avez de bonnes compétences organisationnelles et profitez du travail d'équipe - Vous êtes prêt à travailler dans les différentes entreprises de Chüra à Scuol & Zernez et sont flexibles pour des affectations isolées le soir et le week-end - Vous avez une bonne connaissance de l'allemand et idéalement aussi roman\n• Cosa offriamo Nous vous offrons - un travail significatif avec beaucoup de possibilités de conception - une activité responsable et variée dans un environnement appréciatif - des conditions d'emploi attractives, contemporaines - un soutien généreux pour la formation continue - une équipe motivée et très engagée Contatto Sous le toit du «Center da sandà» Engiadina Bassa (CSEB) / \"Unterengadin Health Center\" - Prévue dans la région du parc national C'est un environnement merveilleux avec des activités récréatives et sportives polyvalentes. - Les soins de longue durée à Lower Engadin sont basés sur un modèle holistique de soins et de soins, dans lequel les personnes dans le besoin sont au centre. En plus des soins professionnels et empathiques, nous attachons une grande importance à une vie quotidienne variée et significative. Votre cœur bat pour les personnes âgées ? Voyez-vous l'occasion de nous apporter vos compétences et votre expérience de façon significative et d'avoir ainsi une influence positive sur la qualité de vie de nos résidents? Ensuite, une équipe d'activation dédiée vous attend en tant que nouveau collègue/collège. Pour de plus amples informations, veuillez contacter Agnes Kiesler, Chef de l'Activation, tél. +41 81 861 26 52 ou agnes.kiesler@cseb.ch. Nous nous réjouissons de votre candidature en ligne."
-      },
-      "location": "Scuol",
-      "canton": "GR",
-      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/534b2d31-8165-2902-d3c2-b3657eb7c07c",
-      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.578Z",
-      "addressLocality": "Scuol",
-      "postalCode": "7550",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-12",
-      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/534b2d31-8165-2902-d3c2-b3657eb7c07c",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "streetAddress": "Via da la Dmura 421",
-      "pensumMin": 40,
-      "pensumMax": 60,
-      "pensum": "40 - 60%",
-      "contactPerson": "Corsina Feuerstein Betschart",
-      "previousSlugs": [
-        "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa-scuo",
-        "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
-        "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa-scuo",
-          "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch"
-        ],
-        "en": [
-          "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
-        ],
-        "fr": [
-          "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -194,7 +109,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.577Z",
+      "crawledAt": "2026-06-23T11:19:07.617Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -249,6 +164,90 @@
       "addressRegion": "GR"
     },
     {
+      "id": "cseb-9e31d2ecb03f",
+      "slug": "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
+      "slugByLocale": {
+        "it": "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
+        "en": "employee-activation-40-60-center-da-sanadad-engiadina-bassa-scuol",
+        "de": "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
+        "fr": "activation-des-employes-40-60-center-da-sanadad-engiadina-bassa-scuol"
+      },
+      "company": "Center da Sanadad Engiadina Bassa",
+      "companyKey": "cseb",
+      "companyDomain": "cseb.ch",
+      "title": "Mitarbeiterin / Mitarbeiter Aktivierung (40-60%)",
+      "titleByLocale": {
+        "it": "Attivazione dei dipendenti (40-60%)",
+        "en": "Employee activation (40-60%)",
+        "de": "Mitarbeiterin / Mitarbeiter Aktivierung (40-60%)",
+        "fr": "Activation des employés (40-60%)"
+      },
+      "description": "Wir suchen als Verstärkung unseres Aktivierungsteams eine/-n\n\nAufgaben:\nHauptaufgaben\n\n• Du planst, organisierst und realisierst selbständig ressourcenorientierte Gruppen- und Einzelaktivitäten\n\n• Du planst und leitest Ausflüge, Anlässe und saisonale Aktivitäten\n\n• Du wirkst bei der Gestaltung von Dekorationen und dem Jahresaktivitäten-Kalender mit\n\n• Du arbeitest eng mit deinen Teamkolleginnen/-kollegen und den Pflegenden zusammen und beteiligst dich aktiv an Teamsitzungen\n\n• Du gibst Beobachtungen professionell weiter und dokumentierst diese wertefrei\n\nAnforderungen:\nAnforderungsprofil\n\n• Du verfügst über eine abgeschlossene Ausbildung als Fachperson Alltagsgestaltung und Aktivierung bzw. Fachfrau/Fachmann Betreuung, Sozialbetreuer/in oder eine vergleichbare Ausbildung - auch Quereinsteigende mit Bereitschaft zur Weiterbildung sind herzlich willkommen\n\n• Du bist kontaktfreudig, belastbar sowie kommunikativ und begegnest älteren Menschen mit Empathie, Geduld, Wertschätzung und einer professionellen Haltung\n\n• Du bist kreativ, hast gute organisatorische Fähigkeiten und Freude an Teamarbeit\n\n• Du bist bereit in den verschiedenen Chüra-Betrieben in Scuol & Zernez zu arbeiten und bist flexibel für vereinzelte Abend- und Wochenendeinsätze\n\n• Du verfügst über gute Deutsch- und idealerweise auch Romanisch Kenntnisse\n\nWir bieten:\nWir bieten Dir\n\n• eine sinnstiftende Arbeit mit viel Gestaltungsmöglichkeiten\n\n• eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld\n\n• attraktive, zeitgemässe Anstellungsbedingungen\n\n• grosszügige Unterstützung von Weiterbildungen\n\n• ein motiviertes und sehr engagiertes Team\n\nUnter dem Dach des «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Langzeitpflege im Unterengadin richtet sich nach einem ganzheitlichen Pflege- und Betreuungsmodell, bei welchem die bedürftigen Menschen im Zentrum stehen. Neben einer professionellen Pflege und empathischen Betreuung legen wir grossen Wert auf einen abwechslungsreichen und sinnstiftenden Alltag.\n\nSchlägt Dein Herz für ältere Menschen? Siehst Du die Möglichkeit, Deine Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, und damit einen positiven Einfluss auf die Lebensqualität unserer Bewohnenden zu nehmen? Dann freut sich ein engagiertes Aktivierungsteam auf Dich als neue/-n Kollegin/Kollegen.\n\nFür weitere Auskünfte steht Dir Agnes Kiesler, Leiterin Aktivierung, gerne zur Verfügung, Telefon +41 81 861 26 52 oder agnes.kiesler@cseb.ch.\n\nWir freuen uns auf Deine Online-Bewerbung.",
+      "descriptionByLocale": {
+        "it": "Descrizione Siamo alla ricerca di compiti come un rinforzo del nostro team di attivazione: compiti principali - Pianifichi, organizzi e realizzi gruppi e attività individuali orientate alle risorse in modo indipendente - Pianifichi e guidi escursioni, eventi e attività stagionali - Si lavora a stretto contatto con i vostri compagni di squadra e assistenti nella progettazione di decorazioni e il calendario delle attività annuali - Si partecipa attivamente alle riunioni di squadra - Si passa le osservazioni professionalmente e documenta questo profilo di requisiti privo di valore - Si dispone di una formazione completa come design e attivazione di tutti i giorni specialista o cura specialistica, assistenza sociale o un'educazione comparabile - anche i partecipanti laterali con la volontà di ulteriore formazione sono benvenuti - Sei socievole, resiliente e comunicativo e comunicativo Sei creativo, avere buone capacità organizzative e godere del lavoro di squadra - Siete pronti a lavorare nelle varie aziende Chüra di Scuol & Zernez e sono flessibili per assegnazioni serali e weekend isolati - Hai una buona conoscenza del tedesco e idealmente anche romanico Cosa offrono Vi offriamo - un lavoro significativo con un sacco di possibilità di progettazione - un'attività responsabile e varia in un ambiente apprezzabile - attraente, condizioni di lavoro contemporaneo - generoso supporto per ulteriore formazione - un team motivato e molto impegnato Contatto Sotto il tetto del «Center da sandà» Engiadina Bassa» (CSEB) / \"Unterengadin Health Center\" - previsto nel Parco Nazionale Regione Si tratta di un ambiente meraviglioso con possibilità di svago e sport versatili. - L'assistenza a lungo termine nella Bassa Engadina si basa su un modello olistico di cura e cura, in cui le persone bisognose sono al centro. Oltre alla cura professionale e alla cura empatica, attribuiamo grande importanza ad una vita quotidiana varia e significativa. Il tuo cuore batte per gli anziani? Vedete l'opportunità di contribuire in modo significativo le vostre competenze e la vostra esperienza e quindi avere un'influenza positiva sulla qualità della vita dei nostri residenti? Poi un team di attivazione dedicato vi aspetta come nuovo collega/collega. Per ulteriori informazioni si prega di contattare Agnes Kiesler, Head of Activation, telefono +41 81 861 26 52 o agnes.kiesler@cseb.ch. Attendiamo con ansia la vostra applicazione online.",
+        "en": "Descrizione We are looking for tasks as a reinforcement of our activation team: main tasks - You plan, organize and realize independently resource-oriented group and individual activities - You plan and lead excursions, events and seasonal activities - You work closely with your teammates and carers in the design of decorations and the annual activities calendar - You actively participate in team meetings - You pass on observations professionally and document this value-free\n• Requirements profile - You have a completed training as a specialist everyday design and activation or Specialist care, social care or a comparable education - also lateral entrants with a willingness to further education are welcome - You are sociable, resilient and communicative and meet older people with empathy, patience, appreciation and a professional attitude - You are creative, have good organizational skills and enjoy teamwork - You are ready to work in the various Chüra companies in Scuol & Zernez and are flexible for isolated evening and weekend assignments - You have good knowledge of German and ideally also Romanesque\n• Cosa offriamo\n• We offer you - a meaningful work with a lot of design possibilities - a responsible and varied activity in an appreciative environment - attractive, contemporary employment conditions - generous support for further training - a motivated and very committed team Contatto Under the roof of the «Center da sandà» Engiadina Bassa\" (CSEB) / \"Unterengadin Health Center\" - Expected in the National Park Region It is a wonderful environment with versatile recreation and sports opportunities. - Long-term care in Lower Engadin is based on a holistic model of care and care, in which the people in need are at the centre. In addition to professional care and empathetic care, we attach great importance to a varied and meaningful everyday life. Is your heart beating for older people? Do you see the opportunity to contribute your skills and experience to us in a meaningful way and thus have a positive influence on the quality of life of our residents? Then a dedicated activation team looks forward to you as a new colleague/colleague. For further information please contact Agnes Kiesler, Head of Activation, telephone +41 81 861 26 52 or agnes.kiesler@cseb.ch. We look forward to your online application.",
+        "de": "Wir suchen als Verstärkung unseres Aktivierungsteams eine/-n Aufgaben: Hauptaufgaben\n• Du planst, organisierst und realisierst selbständig ressourcenorientierte Gruppen- und Einzelaktivitäten\n• Du planst und leitest Ausflüge, Anlässe und saisonale Aktivitäten\n• Du wirkst bei der Gestaltung von Dekorationen und dem Jahresaktivitäten-Kalender mit\n• Du arbeitest eng mit deinen Teamkolleginnen/-kollegen und den Pflegenden zusammen und beteiligst dich aktiv an Teamsitzungen\n• Du gibst Beobachtungen professionell weiter und dokumentierst diese wertefrei Anforderungen: Anforderungsprofil\n• Du verfügst über eine abgeschlossene Ausbildung als Fachperson Alltagsgestaltung und Aktivierung bzw. Fachfrau/Fachmann Betreuung, Sozialbetreuer/in oder eine vergleichbare Ausbildung - auch Quereinsteigende mit Bereitschaft zur Weiterbildung sind herzlich willkommen\n• Du bist kontaktfreudig, belastbar sowie kommunikativ und begegnest älteren Menschen mit Empathie, Geduld, Wertschätzung und einer professionellen Haltung\n• Du bist kreativ, hast gute organisatorische Fähigkeiten und Freude an Teamarbeit\n• Du bist bereit in den verschiedenen Chüra-Betrieben in Scuol & Zernez zu arbeiten und bist flexibel für vereinzelte Abend- und Wochenendeinsätze\n• Du verfügst über gute Deutsch- und idealerweise auch Romanisch Kenntnisse Wir bieten: Wir bieten Dir\n• eine sinnstiftende Arbeit mit viel Gestaltungsmöglichkeiten\n• eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld\n• attraktive, zeitgemässe Anstellungsbedingungen\n• grosszügige Unterstützung von Weiterbildungen\n• ein motiviertes und sehr engagiertes Team Unter dem Dach des «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. Die Langzeitpflege im Unterengadin richtet sich nach einem ganzheitlichen Pflege- und Betreuungsmodell, bei welchem die bedürftigen Menschen im Zentrum stehen. Neben einer professionellen Pflege und empathischen Betreuung legen wir grossen Wert auf einen abwechslungsreichen und sinnstiftenden Alltag. Schlägt Dein Herz für ältere Menschen? Siehst Du die Möglichkeit, Deine Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, und damit einen positiven Einfluss auf die Lebensqualität unserer Bewohnenden zu nehmen? Dann freut sich ein engagiertes Aktivierungsteam auf Dich als neue/-n Kollegin/Kollegen. Für weitere Auskünfte steht Dir Agnes Kiesler, Leiterin Aktivierung, gerne zur Verfügung, Telefon +41 81 861 26 52 oder agnes.kiesler@cseb.ch. Wir freuen uns auf Deine Online-Bewerbung.",
+        "fr": "Descrizione Nous recherchons des tâches pour renforcer notre équipe d'activation : tâches principales - Vous planifiez, organisez et réalisez des activités indépendantes de groupe et individuelles axées sur les ressources - Vous planifiez et dirigez des excursions, des événements et des activités saisonnières - Vous travaillez en étroite collaboration avec vos coéquipiers et aidants dans la conception des décorations et le calendrier annuel des activités - Vous participez activement à des réunions d'équipe - Vous transmettez des observations professionnellement et documentez ce profil d'exigences sans valeur - Vous avez une formation complète en tant que spécialiste de conception quotidienne et d'activation ou de soins spécialisés, de soins sociaux ou d'une éducation comparable - également les participants latéraux avec une volonté de poursuivre l'éducation sont les bienvenus - Vous êtes sociable, résilient et communicatif et rencontrez les personnes âgées avec empathie, patience, appréciation et une attitude professionnelle - Vous êtes créatif, avez de bonnes compétences organisationnelles et profitez du travail d'équipe - Vous êtes prêt à travailler dans les différentes entreprises de Chüra à Scuol & Zernez et sont flexibles pour des affectations isolées le soir et le week-end - Vous avez une bonne connaissance de l'allemand et idéalement aussi roman\n• Cosa offriamo Nous vous offrons - un travail significatif avec beaucoup de possibilités de conception - une activité responsable et variée dans un environnement appréciatif - des conditions d'emploi attractives, contemporaines - un soutien généreux pour la formation continue - une équipe motivée et très engagée Contatto Sous le toit du «Center da sandà» Engiadina Bassa (CSEB) / \"Unterengadin Health Center\" - Prévue dans la région du parc national C'est un environnement merveilleux avec des activités récréatives et sportives polyvalentes. - Les soins de longue durée à Lower Engadin sont basés sur un modèle holistique de soins et de soins, dans lequel les personnes dans le besoin sont au centre. En plus des soins professionnels et empathiques, nous attachons une grande importance à une vie quotidienne variée et significative. Votre cœur bat pour les personnes âgées ? Voyez-vous l'occasion de nous apporter vos compétences et votre expérience de façon significative et d'avoir ainsi une influence positive sur la qualité de vie de nos résidents? Ensuite, une équipe d'activation dédiée vous attend en tant que nouveau collègue/collège. Pour de plus amples informations, veuillez contacter Agnes Kiesler, Chef de l'Activation, tél. +41 81 861 26 52 ou agnes.kiesler@cseb.ch. Nous nous réjouissons de votre candidature en ligne."
+      },
+      "location": "Scuol",
+      "canton": "GR",
+      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/534b2d31-8165-2902-d3c2-b3657eb7c07c",
+      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-23T11:19:07.617Z",
+      "addressLocality": "Scuol",
+      "postalCode": "7550",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-12",
+      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/534b2d31-8165-2902-d3c2-b3657eb7c07c",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "streetAddress": "Via da la Dmura 421",
+      "pensumMin": 40,
+      "pensumMax": 60,
+      "pensum": "40 - 60%",
+      "contactPerson": "Corsina Feuerstein Betschart",
+      "previousSlugs": [
+        "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa-scuo",
+        "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
+        "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa-scuo",
+          "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
       "id": "cseb-5fa447124a26",
       "slug": "analista-biomedico-in-hf-med-techn-assistente-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
       "slugByLocale": {
@@ -279,7 +278,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.576Z",
+      "crawledAt": "2026-06-23T11:19:07.616Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -365,7 +364,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/630c63cd-074c-d1c6-63da-719353bfd0bb",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.575Z",
+      "crawledAt": "2026-06-23T11:19:07.615Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -446,7 +445,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0aae7b8e-6401-ca9e-3f64-552a05cd547d",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.574Z",
+      "crawledAt": "2026-06-23T11:19:07.614Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -478,6 +477,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -513,17 +513,17 @@
       },
       "description": "Im Rahmen dieser Erweiterung im Bereich stationärer Schmerztherapie suchen wir per Herbst 2026 oder nach Vereinbarung eine ärztliche Co-Leitung oder eine/-n Leitende/-n &Auml;rztin/Arzt. Gemeinsam mit Ihnen möchten wir die Zukunft der integrativen Medizin weiterentwickeln und die stationäre Schmerztherapie aufbauen.\n\nAufgaben:\nHauptaufgaben\n\n• &Auml;rztliche Leitung und strategische Weiterentwicklung der Clinica Curativa im Bereich der integrativen stationären Schmerztherapie\n\n• Klinische Tätigkeit im eigenen Fachgebiet mit Verantwortung für die ganzheitliche Patientenversorgung\n\n• Interdisziplinäre Zusammenarbeit mit den ärztlichen, psychologischen, therapeutischen und pflegerischen Teams\n\n• Förderung von Aus-, Weiter- und Fortbildung\n\n• Mitgestaltung innovativer Projekte\n\nAnforderungen:\nAnforderungsprofil\n\n• Fachärztin/Facharzt mit Erfahrung im Bereich der stationären Schmerztherapie idealerweise mit Schwerpunktbezeichung für interventionelle Schmerztherapie SSIPM und/oder Fähigkeitsausweis SPS Schmerzspezialist/-in und/oder Fähigkeitsausweis SAPPM oder äquivalente Zusatzausbildungen\n\n• Fachärztin/Facharzt Allgemeine Innere Medizin mit Fähigkeitsausweis in komplementärmedizinischen Methoden\n\n• Mehrjährige Führungserfahrung oder die Bereitschaft, Führungsverantwortung zu übernehmen\n\n• Engagement in evidenzbasierter Komplementärmedizin und Interesse an der multimodalen, interdisziplinären Behandlung chronischer Schmerzpatienten\n\n• Begeisterung für ein integratives, patientenzentriertes Behandlungskonzept\n\n• Digitale Kompetenz im Umgang mit einem integrierten KIS\n\n• Kommunikationsstarke, teamorientierte Persönlichkeit mit Innovationskraft und Gestaltungswillen\n\nWir bieten:\nUnser Angebot\n\n• Verantwortungsvolle Funktion (Kaderstelle) mit grossem Gestaltungsspielraum\n\n• Klar strukturierte Arbeitszeiten, hohe Lebensqualität in einer Ferienregion mit vielseitigen Erholungs- und Sportmöglichkeiten\n\n• Integration in ein engagiertes, multiprofessionelles Team in einem inspirierenden Umfeld im Engadin\n\n• Ausgezeichnete Zusammenarbeit mit dem Ospidal und den anderen Teilbetrieben des Gesundheitszentrums\n\n• Interdisziplinäres Arbeitsumfeld mit kurzen Entscheidungswegen\n\n• Attraktive Anstellungsbedingungen und Unterstützung bei Fort- und Weiterbildung\n\n• Möglichkeit zur Entwicklung integrativer Konzepte in der Schmerzmedizin\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg.\n\nDie Angebote des Regionalspitals, des Rettungsdiensts, der Rehabilitationsklinik, der Spitex, der Pflegegruppen, der Pflegeheime und des Mineralbads Bogn Engiadina werden optimal aufeinander abgestimmt. Mit diesem integrierten Versorgungsmodell hat das CSEB in der Region und über die Landesgrenzen hinaus Pionierarbeit geleistet.\n\nDie Clinica Curativa vereint schulmedizinische Exzellenz mit komplementär-medizinischen Kompetenzen. Unsere integrative Klinik steht für eine patientenzentrierte und ganzheitliche Behandlung in den Bereichen Komplementärmedizin, Psychosomatik und Onkologie. Sie befindet sich im Aufbau eines innovativen und integrativen Schmerzzentrums, das Patientinnen und Patienten mit akuten und chronischen Schmerzen in einem interdisziplinären und multimodalen Setting stationär betreut.\n\nFür Auskünfte steht Ihnen der designierte Co-Chefarzt Dr. med. Cem Yetimoglu oder der Direktor des Gesundheitszentrums Dr. med. Joachim Koppenberg gerne zur Verfügung. Sie erreichen uns unter +41 81 861 13 00.\n\nWir freuen uns auf Ihre Online-Bewerbung.",
       "descriptionByLocale": {
-        "it": "Descrizione Nell'ambito di questa espansione nel campo della terapia antidolorifici, stiamo cercando un co-direttore medico o una testa / fornitore / medico entro l'autunno 2026 o su appuntamento. Insieme a voi, vogliamo sviluppare ulteriormente il futuro della medicina integrativa e costruire la terapia del dolore stazionaria. Mansioni - Ädirezione e sviluppo strategico della Clinica Curativa nel campo della terapia integrativa del dolore ambulatoriale - Attività clinica nella propria area con responsabilità olistica della cura del paziente - Cooperazione interdisciplinare con i team medici, psicologici, terapeutici e infermieristici - Promozione della formazione, ulteriore formazione e formazione - Coordinamento di progetti innovativi Requisiti - Specialista con esperienza nel campo della terapia del dolore ospedaliero Le offerte dell'ospedale regionale, il servizio di ambulanza, la clinica di riabilitazione, la Spitex, i gruppi di cura, le case di cura e il bagno minerale Bogn Engiadina sono perfettamente coordinate. Con questo modello di approvvigionamento integrato, il CSEB è stato un pioniere del lavoro nella regione e oltre i confini nazionali. Clinica Curativa combina l'eccellenza medica convenzionale con competenze mediche complementari. La nostra clinica integrativa sta per il trattamento paziente-centrato e olistico nei settori della medicina complementare, della psicosomatica e dell'oncologia. È nel processo di creazione di un innovativo e integrativo centro di dolore che fornisce la cura inpatia per i pazienti con dolore acuto e cronico in un ambiente interdisciplinare e multimodale. Per informazioni, il medico co-capo designato Dr. med. Cem Yetimoglu o il direttore del centro sanitario Dr. med. Joachim Koppenberg è disponibile. Potete raggiungerci al +41 81 861 13 00. Attendiamo con ansia la vostra applicazione online.",
-        "en": "Descrizione As part of this expansion in the field of inpatient pain therapy, we are looking for a medical co-director or a head/supplier / doctor by autumn 2026 or by appointment. Together with you, we want to further develop the future of integrative medicine and build stationary pain therapy. Mansioni - Ädirection and strategic development of the Clinica Curativa in the field of integrative inpatient pain therapy - Clinical activity in its own area with responsibility for holistic patient care - Interdisciplinary cooperation with the medical, psychological, therapeutic and nursing teams - Promotion of training, further education and training - Coordinating innovative projects Requisiti - Specialist with experience in the field of inpatient pain therapy SSIPM and/or ability card SPS Pain specialist / in and/or ability card SAPPM or equivalent additional training - Specialist / Specialist General Internal Medicine with ability card in complementary medical methods - Multimodal management experience or the willingness to assume leadership responsibility - Enthusiasm in the multimodal, interdisciplinary treatment concept of chronic pain patients - Digital competence in dealing with an integrated KIS - Strong communication, team-oriented personality with innovative strength and willingness Cosa offriamo - Responsible function (cadre position) with great scope for design - Clearly structured working hours, high quality of life in a holiday region with versatile recreation and sports opportunities - Integration into a committed, multiprofes The offers of the regional hospital, the ambulance service, the rehabilitation clinic, the Spitex, the care groups, the nursing homes and the mineral bath Bogn Engiadina are optimally coordinated. With this integrated supply model, the CSEB has pioneered work in the region and beyond national borders. Clinica Curativa combines conventional medical excellence with complementary medical competences. Our integrative clinic stands for patient-centered and holistic treatment in the fields of complementary medicine, psychosomatics and oncology. It is in the process of establishing an innovative and integrative pain center that provides inpatient care for patients with acute and chronic pain in an interdisciplinary and multimodal setting. For information, the designated co-chief physician Dr. med. Cem Yetimoglu or the director of the health center Dr. med. Joachim Koppenberg is available. You can reach us at +41 81 861 13 00. We look forward to your online application.",
-        "de": "Descrizione\n\nIm Rahmen dieser Erweiterung im Bereich stationärer Schmerztherapie suchen wir per Herbst 2026 oder nach Vereinbarung eine ärztliche Co-Leitung oder eine/-n Leitende/-n &Auml;rztin/Arzt. Gemeinsam mit Ihnen möchten wir die Zukunft der integrativen Medizin weiterentwickeln und die stationäre Schmerztherapie aufbauen.\n\nMansioni\n\n- &Auml;rztliche Leitung und strategische Weiterentwicklung der Clinica Curativa im Bereich der integrativen stationären Schmerztherapie\n- Klinische Tätigkeit im eigenen Fachgebiet mit Verantwortung für die ganzheitliche Patientenversorgung\n- Interdisziplinäre Zusammenarbeit mit den ärztlichen, psychologischen, therapeutischen und pflegerischen Teams\n- Förderung von Aus-, Weiter- und Fortbildung\n- Mitgestaltung innovativer Projekte\n\nRequisiti\n\n- Fachärztin/Facharzt mit Erfahrung im Bereich der stationären Schmerztherapie idealerweise mit Schwerpunktbezeichung für interventionelle Schmerztherapie SSIPM und/oder Fähigkeitsausweis SPS Schmerzspezialist/-in und/oder Fähigkeitsausweis SAPPM oder äquivalente Zusatzausbildungen\n- Fachärztin/Facharzt Allgemeine Innere Medizin mit Fähigkeitsausweis in komplementärmedizinischen Methoden\n- Mehrjährige Führungserfahrung oder die Bereitschaft, Führungsverantwortung zu übernehmen\n- Engagement in evidenzbasierter Komplementärmedizin und Interesse an der multimodalen, interdisziplinären Behandlung chronischer Schmerzpatienten\n- Begeisterung für ein integratives, patientenzentriertes Behandlungskonzept\n- Digitale Kompetenz im Umgang mit einem integrierten KIS\n- Kommunikationsstarke, teamorientierte Persönlichkeit mit Innovationskraft und Gestaltungswillen\n\nCosa offriamo\n\n- Verantwortungsvolle Funktion (Kaderstelle) mit grossem Gestaltungsspielraum\n- Klar strukturierte Arbeitszeiten, hohe Lebensqualität in einer Ferienregion mit vielseitigen Erholungs- und Sportmöglichkeiten\n- Integration in ein engagiertes, multiprofessionelles Team in einem inspirierenden Umfeld im Engadin\n- Ausgezeichnete Zusammenarbeit mit dem Ospidal und den anderen Teilbetrieben des Gesundheitszentrums\n- Interdisziplinäres Arbeitsumfeld mit kurzen Entscheidungswegen\n- Attraktive Anstellungsbedingungen und Unterstützung bei Fort- und Weiterbildung\n- Möglichkeit zur Entwicklung integrativer Konzepte in der Schmerzmedizin\n\nContatto\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg.\n\nDie Angebote des Regionalspitals, des Rettungsdiensts, der Rehabilitationsklinik, der Spitex, der Pflegegruppen, der Pflegeheime und des Mineralbads Bogn Engiadina werden optimal aufeinander abgestimmt. Mit diesem integrierten Versorgungsmodell hat das CSEB in der Region und über die Landesgrenzen hinaus Pionierarbeit geleistet.\n\nDie Clinica Curativa vereint schulmedizinische Exzellenz mit komplementär-medizinischen Kompetenzen. Unsere integrative Klinik steht für eine patientenzentrierte und ganzheitliche Behandlung in den Bereichen Komplementärmedizin, Psychosomatik und Onkologie. Sie befindet sich im Aufbau eines innovativen und integrativen Schmerzzentrums, das Patientinnen und Patienten mit akuten und chronischen Schmerzen in einem interdisziplinären und multimodalen Setting stationär betreut.\n\nFür Auskünfte steht Ihnen der designierte Co-Chefarzt Dr. med. Cem Yetimoglu oder der Direktor des Gesundheitszentrums Dr. med. Joachim Koppenberg gerne zur Verfügung. Sie erreichen uns unter +41 81 861 13 00.\n\nWir freuen uns auf Ihre Online-Bewerbung.",
-        "fr": "Descrizione Dans le cadre de cette expansion dans le domaine de la thérapie de la douleur en établissement, nous cherchons un co-directeur médical ou un chef/fournisseur / médecin à l'automne 2026 ou sur rendez-vous. Avec vous, nous voulons développer davantage l'avenir de la médecine intégrative et construire une thérapie de la douleur stationnaire. Mansioni - Ädirection et développement stratégique de la Clinica Curativa dans le domaine de l'intégration de la douleur internatale - Activité clinique dans son propre domaine avec la responsabilité des soins holistiques du patient - Coopération interdisciplinaire avec les équipes médicales, psychologiques, thérapeutiques et infirmières - Promotion de la formation, de la formation continue et de la formation - Coordination de projets innovants Requisiti - Spécialiste de l'expérience dans le domaine de la thérapie intranatale de la douleur SSIPM et/ou carte d'aptitude SPS Spécialiste de la douleur / dans et/ou carte d'aptitude SAPPM ou formation complémentaire équivalente - Spécialiste / Spécialiste Général Médecine interne avec carte d'aptitude dans les méthodes médicales complémentaires - Expérience de gestion multimodale ou la volonté d'assumer la responsabilité de leadership - Enthousiasme dans le concept multimodal et interdisciplinaire de traitement des patients souffrant de douleur chronique - Compétence numérique dans le traitement d'un KIS intégré - Forte communication, personnalité axée sur l'équipe avec force et volonté innovantes Cosa offriamo - Fonction responsable (cadre) avec une grande marge pour la conception - Temps de travail clairement structuré, haute qualité de vie dans une région de vacances avec des loisirs et des Les offres de l'hôpital régional, le service d'ambulance, la clinique de réadaptation, le Spitex, les groupes de soins, les maisons de soins et le bain minéral Bogn Engiadina sont parfaitement coordonnés. Grâce à ce modèle d'approvisionnement intégré, le CSEB a été le pionnier dans la région et au-delà des frontières nationales. Clinica Curativa combine l'excellence médicale conventionnelle avec des compétences médicales complémentaires. Notre clinique intégrative représente un traitement holistique centré sur le patient dans les domaines de la médecine complémentaire, de la psychosomatique et de l'oncologie. Il est en train de mettre en place un centre de traitement de la douleur innovant et intégratif qui fournit des soins aux patients souffrant de douleur aiguë et chronique dans un cadre interdisciplinaire et multimodal. Pour information, le co-médecin désigné Dr. med. Cem Yetimoglu ou le directeur du centre de santé Dr. med. Joachim Koppenberg est disponible. Vous pouvez nous joindre au +41 81 861 13 00. Nous nous réjouissons de votre candidature en ligne."
+        "it": "Descrizione Nell'ambito di questa espansione nel campo della terapia antidolorifici, stiamo cercando un co-direttore medico o una testa / fornitore / medico entro l'autunno 2026 o su appuntamento. Insieme a voi, vogliamo sviluppare ulteriormente il futuro della medicina integrativa e costruire la terapia del dolore stazionaria. Mansioni - Ädirezione e sviluppo strategico della Clinica Curativa nel campo della terapia integrativa del dolore ambulatoriale - Attività clinica nella propria area con responsabilità olistica della cura del paziente - Cooperazione interdisciplinare con i team medici, psicologici, terapeutici e infermieristici - Promozione della formazione, ulteriore formazione e formazione - Coordinamento di progetti innovativi \n• Requisiti - Specialista con esperienza nel campo della terapia del dolore ospedaliero Le offerte dell'ospedale regionale, il servizio di ambulanza, la clinica di riabilitazione, la Spitex, i gruppi di cura, le case di cura e il bagno minerale Bogn Engiadina sono perfettamente coordinate. Con questo modello di approvvigionamento integrato, il CSEB è stato un pioniere del lavoro nella regione e oltre i confini nazionali. Clinica Curativa combina l'eccellenza medica convenzionale con competenze mediche complementari. La nostra clinica integrativa sta per il trattamento paziente-centrato e olistico nei settori della medicina complementare, della psicosomatica e dell'oncologia. È nel processo di creazione di un innovativo e integrativo centro di dolore che fornisce la cura inpatia per i pazienti con dolore acuto e cronico in un ambiente interdisciplinare e multimodale. Per informazioni, il medico co-capo designato Dr. med. Cem Yetimoglu o il direttore del centro sanitario Dr. med. Joachim Koppenberg è disponibile. Potete raggiungerci al +41 81 861 13 00. Attendiamo con ansia la vostra applicazione online.",
+        "en": "Descrizione As part of this expansion in the field of inpatient pain therapy, we are looking for a medical co-director or a head/supplier / doctor by autumn 2026 or by appointment. Together with you, we want to further develop the future of integrative medicine and build stationary pain therapy. Mansioni - Ädirection and strategic development of the Clinica Curativa in the field of integrative inpatient pain therapy - Clinical activity in its own area with responsibility for holistic patient care - Interdisciplinary cooperation with the medical, psychological, therapeutic and nursing teams - Promotion of training, further education and training - Coordinating innovative projects \n• Requisiti - Specialist with experience in the field of inpatient pain therapy SSIPM and/or ability card SPS Pain specialist / in and/or ability card SAPPM or equivalent additional training - Specialist / Specialist General Internal Medicine with ability card in complementary medical methods - Multimodal management experience or the willingness to assume leadership responsibility - Enthusiasm in the multimodal, interdisciplinary treatment concept of chronic pain patients - Digital competence in dealing with an integrated KIS - Strong communication, team-oriented personality with innovative strength and willingness \n• Cosa offriamo - Responsible",
+        "de": "Im Rahmen dieser Erweiterung im Bereich stationärer Schmerztherapie suchen wir per Herbst 2026 oder nach Vereinbarung eine ärztliche Co-Leitung oder eine/-n Leitende/-n &Auml;rztin/Arzt. Gemeinsam mit Ihnen möchten wir die Zukunft der integrativen Medizin weiterentwickeln und die stationäre Schmerztherapie aufbauen. Aufgaben: Hauptaufgaben\n• &Auml;rztliche Leitung und strategische Weiterentwicklung der Clinica Curativa im Bereich der integrativen stationären Schmerztherapie\n• Klinische Tätigkeit im eigenen Fachgebiet mit Verantwortung für die ganzheitliche Patientenversorgung\n• Interdisziplinäre Zusammenarbeit mit den ärztlichen, psychologischen, therapeutischen und pflegerischen Teams\n• Förderung von Aus-, Weiter- und Fortbildung\n• Mitgestaltung innovativer Projekte Anforderungen: Anforderungsprofil\n• Fachärztin/Facharzt mit Erfahrung im Bereich der stationären Schmerztherapie idealerweise mit Schwerpunktbezeichung für interventionelle Schmerztherapie SSIPM und/oder Fähigkeitsausweis SPS Schmerzspezialist/-in und/oder Fähigkeitsausweis SAPPM oder äquivalente Zusatzausbildungen\n• Fachärztin/Facharzt Allgemeine Innere Medizin mit Fähigkeitsausweis in komplementärmedizinischen Methoden\n• Mehrjährige Führungserfahrung oder die Bereitschaft, Führungsverantwortung zu übernehmen\n• Engagement in evidenzbasierter Komplementärmedizin und Interesse an der multimodalen, interdisziplinären Behandlung chronischer Schmerzpatienten\n• Begeisterung für ein integratives, patientenzentriertes Behandlungskonzept\n• Digitale Kompetenz im Umgang mit einem integrierten KIS\n• Kommunikationsstarke, teamorientierte Persönlichkeit mit Innovationskraft und Gestaltungswillen Wir bieten: Unser Angebot\n• Verantwortungsvolle Funktion (Kaderstelle) mit grossem Gestaltungsspielraum\n• Klar strukturierte Arbeitszeiten, hohe Lebensqualität in einer Ferienregion mit vielseitigen Erholungs- und Sportmöglichkeiten\n• Integration in ein engagiertes, multiprofessionelles Team in einem inspirierenden Umfeld im Engadin\n• Ausgezeichnete Zusammenarbeit mit dem Ospidal und den anderen Teilbetrieben des Gesundheitszentrums\n• Interdisziplinäres Arbeitsumfeld mit kurzen Entscheidungswegen\n• Attraktive Anstellungsbedingungen und Unterstützung bei Fort- und Weiterbildung\n• Möglichkeit zur Entwicklung integrativer Konzepte in der Schmerzmedizin Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. Die Angebote des Regionalspitals, des Rettungsdiensts, der Rehabilitationsklinik, der Spitex, der Pflegegruppen, der Pflegeheime und des Mineralbads Bogn Engiadina werden optimal aufeinander abgestimmt. Mit diesem integrierten Versorgungsmodell hat das CSEB in der Region und über die Landesgrenzen hinaus Pionierarbeit geleistet. Die Clinica Curativa vereint schulmedizinische Exzellenz mit komplementär-medizinischen Kompetenzen. Unsere integrative Klinik steht für eine patientenzentrierte und ganzheitliche Behandlung in den Bereichen Komplementärmedizin, Psychosomatik und Onkologie. Sie befindet sich im Aufbau eines innovativen und integrativen Schmerzzentrums, das Patientinnen und Patienten mit akuten und chronischen Schmerzen in einem interdisziplinären und multimodalen Setting stationär betreut. Für Auskünfte steht Ihnen der designierte Co-Chefarzt Dr. med. Cem Yetimoglu oder der Direktor des Gesundheitszentrums Dr. med. Joachim Koppenberg gerne zur Verfügung. Sie erreichen uns unter +41 81 861 13 00. Wir freuen uns auf Ihre Online-Bewerbung.",
+        "fr": "Descrizione Dans le cadre de cette expansion dans le domaine de la thérapie de la douleur en établissement, nous cherchons un co-directeur médical ou un chef/fournisseur / médecin à l'automne 2026 ou sur rendez-vous. Avec vous, nous voulons développer davantage l'avenir de la médecine intégrative et construire une thérapie de la douleur stationnaire. Mansioni - Ädirection et développement stratégique de la Clinica Curativa dans le domaine de l'intégration de la douleur internatale - Activité clinique dans son propre domaine avec la responsabilité des soins holistiques du patient - Coopération interdisciplinaire avec les équipes médicales, psychologiques, thérapeutiques et infirmières - Promotion de la formation, de la formation continue et de la formation - Coordination de projets innovants \n• Requisiti - Spécialiste de l'expérience dans le domaine de la thérapie intranatale de la douleur SSIPM et/ou carte d'aptitude SPS Spécialiste de la douleur / dans et/ou carte d'aptitude SAPPM ou formation complémentaire équivalente - Spécialiste / Spécialiste Général Médecine interne avec carte d'aptitude dans les méthodes médicales complémentaires - Expérience de gestion multimodale ou la volonté d'assumer la responsabilité de leadership - Enthousiasme dans le concept multimodal et interdisciplinaire de traitement des patients souffrant de douleur chronique - Compétence numérique dans le traitement d'un KIS intégré - Forte communication, personnalité axée sur l'équipe avec force et volonté innovantes \n• Cosa offriamo - Fonction responsable (cadre) avec une grande marge pour la conception - Temps de travail clairement structuré, haute qualité de vie dans une région de vacances avec des loisirs et des Les offres de l'hôpital régional, le service d'ambulance, la clinique de réadaptation, le Spitex, les groupes de soins, les maisons de soins et le bain minéral Bogn Engiadina sont parfaitement coordonnés. Grâce à ce modèle d'approvisionnement intégré, le CSEB a été le pionnier dans la région et au-delà des frontières nationales. Clinica Curativa combine l'excellence médicale conventionnelle avec des compétences médicales complémentaires. Notre clinique intégrative représente un traitement holistique centré sur le patient dans les domaines de la médecine complémentaire, de la psychosomatique et de l'oncologie. Il est en train de mettre en place un centre de traitement de la douleur innovant et intégratif qui fournit des soins aux patients souffrant de douleur aiguë et chronique dans un cadre interdisciplinaire et multimodal. Pour information, le co-médecin désigné Dr. med. Cem Yetimoglu ou le directeur du centre de santé Dr. med. Joachim Koppenberg est disponible. Vous pouvez nous joindre au +41 81 861 13 00. Nous nous réjouissons de votre candidature en ligne."
       },
       "location": "Scuol",
       "canton": "GR",
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/bf759db0-2db8-5938-ee9f-f182be500ecd",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.573Z",
+      "crawledAt": "2026-06-23T11:19:07.613Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -557,6 +557,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -602,7 +603,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/896bdfd5-dd52-ab4e-e9fb-b16d160fcca7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.571Z",
+      "crawledAt": "2026-06-23T11:19:07.611Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -689,7 +690,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/de22c979-5108-b752-c983-e0d5bc4bf2bf",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.570Z",
+      "crawledAt": "2026-06-23T11:19:07.610Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -731,6 +732,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -776,7 +778,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.569Z",
+      "crawledAt": "2026-06-23T11:19:07.609Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -862,7 +864,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.568Z",
+      "crawledAt": "2026-06-23T11:19:07.608Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -945,7 +947,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.566Z",
+      "crawledAt": "2026-06-23T11:19:07.607Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -989,6 +991,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1034,7 +1037,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.565Z",
+      "crawledAt": "2026-06-23T11:19:07.606Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1075,6 +1078,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1120,7 +1124,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.564Z",
+      "crawledAt": "2026-06-23T11:19:07.605Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1202,7 +1206,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.563Z",
+      "crawledAt": "2026-06-23T11:19:07.604Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1288,7 +1292,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.562Z",
+      "crawledAt": "2026-06-23T11:19:07.603Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1371,7 +1375,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.560Z",
+      "crawledAt": "2026-06-23T11:19:07.602Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1457,7 +1461,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.558Z",
+      "crawledAt": "2026-06-23T11:19:07.600Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1541,7 +1545,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:31:57.547Z",
+      "crawledAt": "2026-06-23T11:19:07.589Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1561,14 +1565,13 @@
       "contactPerson": "Corsina Feuerstein Betschart",
       "previousSlugs": [
         "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch",
+        "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
         "employee-activation-40-60-center-da-sanadad-engiadina-bassa-scuol",
         "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol",
         "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
         "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-scuol",
         "activation-des-employes-40-60-center-da-sanadad-engiadina-bassa-scuol",
-        "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
-        "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa-scuo",
-        "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
+        "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
