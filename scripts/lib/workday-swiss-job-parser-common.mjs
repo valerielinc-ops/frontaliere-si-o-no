@@ -224,12 +224,29 @@ export function createWorkdaySwissParser(config) {
       const title = normalizeSpace(listing.title || '');
       if (!title || title.length < 3) continue;
 
-      const rawLocation = listing.locationRaw || defaultCity;
+      // In strict mode (unfiltered board) never substitute the HQ city before
+      // the location gate: an empty `locationRaw` carries no per-site Swiss
+      // signal, and defaulting it to `defaultCity` here would make `cleaned`
+      // non-empty and slip the posting past the guard below, mislabelling it as
+      // the HQ canton. Keep the raw empty so the guard drops it. The facet path
+      // (board already CH-only) keeps the benign HQ fallback.
+      const rawLocation = listing.locationRaw || (strictSwiss ? '' : defaultCity);
       if (isLocationExplicitlyForeign(rawLocation)) {
         console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
         continue;
       }
       const cleaned = cleanWorkdayLocation(rawLocation);
+      // In strict mode an empty `cleaned` means the listing exposed no usable
+      // single Swiss location — a multi-site "N Locations" rollup, an
+      // unparseable string, or an absent location. Defaulting it to the HQ city
+      // (below) would let `inferSwissTargetCanton` resolve the HQ canton and
+      // silently pass the confidence gate, mislabelling a possibly mixed-/non-CH
+      // posting as the HQ canton. None of these carry per-site detail to recover
+      // the CH location from, so drop the posting instead of guessing HQ.
+      if (strictSwiss && !cleaned) {
+        console.log(`  ⏭️  Skipped unresolved multi-site/empty location: ${rawLocation} — ${title}`);
+        continue;
+      }
       const location = cleaned || defaultCity;
       const inferredCanton = inferSwissTargetCanton(location);
       // When the Swiss facet was applied the board is already CH-only, so a
