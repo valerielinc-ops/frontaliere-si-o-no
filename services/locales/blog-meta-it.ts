@@ -8141,6 +8141,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.title': 'Secondo binario Locarnese: raggiunta un’importante tappa dei lavori',
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.excerpt': 'I lavori per il secondo binario nella regione del Locarnese hanno raggiunto un\'importante tappa, fondamentale per lo sviluppo dell\'infrastruttura ferroviaria.',
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.imageAlt': 'Vista aerea della stazione di Locarno con lavori in corso per il secondo binario',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.title': 'Avs, domani alle 11 Angelo Bonelli in diretta all\'Adnkronos',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.excerpt': 'Il portavoce dei Verdi e deputato di Avs Angelo Bonelli sarà in diretta domani all\'Adnkronos',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.imageAlt': 'Angelo Bonelli in diretta all\'Adnkronos',
 };
 
 export default blogMetaIt;

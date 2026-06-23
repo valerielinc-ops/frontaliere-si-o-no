@@ -8139,6 +8139,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.title': 'Zweites Gleis Locarno: eine wichtige Etappe der Arbeiten erreicht',
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.excerpt': 'Die Arbeiten für das zweite Gleis in der Region Locarno haben einen wichtigen Meilenstein erreicht, der für die Entwicklung der Eisenbahninfrastruktur von grundlegender Bedeutung ist.',
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.imageAlt': 'Luftaufnahme des Bahnhofs Locarno mit Bauarbeiten für ein zweites Gleis',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.title': 'Avs, morgen um 11 Uhr Angelo Bonelli live bei Adnkronos',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.excerpt': 'Der Sprecher der Grünen und Abgeordnete von Avs Angelo Bonelli wird morgen live bei Adnkronos sein',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.imageAlt': 'Angelo Bonelli live bei Adnkronos',
 };
 
 export default blogMetaDe;

@@ -25803,6 +25803,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos',
+ category: 'novita',
+ date: '2026-06-23T10:43:49.437Z',
+ image: '/images/blog/avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

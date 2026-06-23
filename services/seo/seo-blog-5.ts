@@ -44690,6 +44690,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos': {
+    title: 'Avs, domani alle 11 Angelo Bonelli in diretta all\'Adnkronos',
+    description: 'Il portavoce dei Verdi e deputato di Avs Angelo Bonelli sarà in diretta domani all\'Adnkronos. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, domani, alle, angelo, bonelli',
+    ogTitle: 'Avs, domani alle 11 Angelo Bonelli in diretta all\'Adnkronos',
+    ogDescription: 'Il portavoce dei Verdi e deputato di Avs Angelo Bonelli sarà in diretta domani all\'Adnkronos. Scopri di più su Frontaliere Ticino',
+    canonicalPath: '/articoli-frontaliere/avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avs, domani alle 11 Angelo Bonelli in diretta all'Adnkronos",
+      "description": "Il portavoce dei Verdi e deputato di Avs Angelo Bonelli sarà in diretta domani all'Adnkronos. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Angelo Bonelli in diretta all'Adnkronos"
+      },
+      "datePublished": "2026-06-23T10:43:49+00:00",
+      "dateModified": "2026-06-23T10:43:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
