@@ -1967,6 +1967,15 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .sx-hero h1 { line-height:1.15;letter-spacing:-0.01em }
 /* Kicker pill: bordered so it reads on the gradient band (same subtle bg). */
 .sx-kick { display:inline-flex;align-items:center;gap:6px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);border-radius:999px;padding:4px 12px;font-weight:600;margin:0 0 8px }
+/* Salary sector bar chart (build-plugins/salaryStatsChCantonPages.ts): a track
+ * + accent-gradient fill whose inline width ∝ the sector's gross. Token-only
+ * (dark-mode safe), zero CLS (static height). The fill grows in once on load
+ * under `cl-fun` (scaleX from left), respecting prefers-reduced-motion below. */
+.s-salbar { height:10px;border-radius:999px;background:var(--color-edge);overflow:hidden }
+.s-salbar > span { display:block;height:100%;border-radius:999px;background:linear-gradient(90deg, var(--color-accent), var(--color-accent-strong));transform-origin:left center }
+@keyframes cl-grow { from { transform:scaleX(0) } to { transform:scaleX(1) } }
+.cl-fun .s-salbar > span { animation:cl-grow 700ms cubic-bezier(0.16,1,0.3,1) both }
+@media (prefers-reduced-motion: reduce){ .cl-fun .s-salbar > span { animation:none } }
 /* Tile values follow tile tone; s-9UotdJ = care-variant twins. */
 .s-tacc .s-tval, .s-CGuDZg .s-9UotdJ { color:var(--color-accent) }
 .s-tok .s-tval, .s-3kP_AL .s-9UotdJ { color:var(--color-success-strong, var(--color-success)) }
