@@ -329,9 +329,14 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calcolo-tasse-frontalieri-20km.title': 'Guide de calcul des taxes pour les frontaliers à moins de 20 km de la frontière',
     'blog.article.calcolo-tasse-frontalieri-20km.excerpt': 'Découvrez comment calculer les taxes pour les frontaliers travaillant à moins de 20 km de la frontière, avec franchise et crédit d\'impôt.',
     'blog.article.calcolo-tasse-frontalieri-20km.imageAlt': 'Vue aérienne de la ville de Lugano avec le lac et les montagnes en arrière-plan',
+
     'blog.article.nessuna-proroga-garanzie-aziende-elettriche.title': 'Pas de prolongation pour les garanties de l\'État aux entreprises d\'électricité',
     'blog.article.nessuna-proroga-garanzie-aziende-elettriche.excerpt': 'La Commission de l\'environnement, de l\'aménagement du territoire et de l\'énergie des États a décidé de ne pas prolonger les garanties de l\'État pour les entreprises d\'électricité au-delà de 2026.',
     'blog.article.nessuna-proroga-garanzie-aziende-elettriche.imageAlt': 'Centrale hydroélectrique suisse près d\'un lac avec des montagnes',
+    'blog.article.garanzie-aziende-elettriche-senza-proroga.title': 'Pas de prolongation pour les garanties de l\'État aux entreprises d\'électricité',
+    'blog.article.garanzie-aziende-elettriche-senza-proroga.excerpt': 'À partir de 2027, les entreprises d\'électricité suisses devront gérer elles-mêmes les risques, sans le soutien financier de la Confédération.',
+    'blog.article.garanzie-aziende-elettriche-senza-proroga.imageAlt': 'Centrale hydroélectrique sur le lac de Lugano au coucher du soleil',
+
 };
 
 export default blogMetaChFr;

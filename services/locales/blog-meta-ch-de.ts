@@ -329,9 +329,14 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcolo-tasse-frontalieri-20km.title': 'Gebührenberechnung für Grenzgänger bis 20 km',
     'blog.article.calcolo-tasse-frontalieri-20km.excerpt': 'Erfahren Sie, wie Sie die Steuern für Grenzgänger berechnen, die innerhalb von 20 km von der Grenze arbeiten, mit Selbstbehalt und Steuergutschrift.',
     'blog.article.calcolo-tasse-frontalieri-20km.imageAlt': 'Luftaufnahme der Stadt Lugano mit See und Bergen im Hintergrund',
+
     'blog.article.nessuna-proroga-garanzie-aziende-elettriche.title': 'Keine Verlängerung staatlicher Garantien für Elektrizitätsunternehmen',
     'blog.article.nessuna-proroga-garanzie-aziende-elettriche.excerpt': 'Die Landeskommission für Umwelt, Raumplanung und Energie hat beschlossen, die staatlichen Garantien für Elektrizitätswerke nicht über das Jahr 2026 hinaus zu verlängern.',
     'blog.article.nessuna-proroga-garanzie-aziende-elettriche.imageAlt': 'Schweizer Wasserkraftwerk in der Nähe eines Sees mit Bergen',
+    'blog.article.garanzie-aziende-elettriche-senza-proroga.title': 'Keine Verlängerung staatlicher Garantien für Elektrizitätsunternehmen',
+    'blog.article.garanzie-aziende-elettriche-senza-proroga.excerpt': 'Ab 2027 müssen die Schweizer Stromversorger die Risiken ohne finanzielle Unterstützung des Bundes eigenständig managen.',
+    'blog.article.garanzie-aziende-elettriche-senza-proroga.imageAlt': 'Wasserkraftwerk am Luganersee bei Sonnenuntergang',
+
 };
 
 export default blogMetaChDe;

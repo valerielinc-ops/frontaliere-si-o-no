@@ -990,10 +990,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorName: 'Marco Ferrari',
    },
    {
+
     id: 'nessuna-proroga-garanzie-aziende-elettriche',
     category: 'novita',
     date: '2026-06-23T16:32:44.998Z',
     image: '/images/blog/nessuna-proroga-garanzie-aziende-elettriche.webp',
+    id: 'garanzie-aziende-elettriche-senza-proroga',
+    category: 'novita',
+    date: '2026-06-23T16:38:46.965Z',
+    image: '/images/blog/garanzie-aziende-elettriche-senza-proroga.webp',
+
     hasCalculator: true,
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',

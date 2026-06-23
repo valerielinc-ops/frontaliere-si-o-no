@@ -4192,7 +4192,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
-
   'blog-nessuna-proroga-garanzie-aziende-elettriche': {
     title: 'Nessuna proroga per le garanzie statali alle aziende elettriche',
     description: 'La Commissione dell\'ambiente ha deciso di non prorogare le garanzie statali per le aziende elettriche oltre il 2026. Dati aggiornati 2026 per frontalieri in',
@@ -4200,11 +4199,22 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Nessuna proroga per le garanzie statali alle aziende elettriche',
     ogDescription: 'La Commissione dell\'ambiente ha deciso di non prorogare le garanzie statali per le aziende elettriche oltre il 2026.',
     canonicalPath: '/articoli-svizzera/nessuna-proroga-garanzie-aziende-elettriche/',
+  'blog-garanzie-aziende-elettriche-senza-proroga': {
+    title: 'Nessuna proroga per le garanzie statali alle aziende elettriche',
+    description: 'Dal 2027 le aziende elettriche svizzere gestiranno autonomamente i rischi. Scopri le implicazioni e cosa cambia per i consumatori. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nessuna, proroga, garanzie, statali',
+    ogTitle: 'Fine garanzie statali aziende elettriche Svizzera 2027',
+    ogDescription: 'Dal 2027 le aziende elettriche svizzere gestiranno autonomamente i rischi. Scopri le implicazioni e cosa cambia per i consumatori.',
+    canonicalPath: '/articoli-svizzera/garanzie-aziende-elettriche-senza-proroga/',
+
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Nessuna proroga per le garanzie statali alle aziende elettriche",
+
       "description": "La Commissione dell'ambiente ha deciso di non prorogare le garanzie statali per le aziende elettriche oltre il 2026. Dati aggiornati 2026 per frontalieri in",
+      "description": "Dal 2027 le aziende elettriche svizzere gestiranno autonomamente i rischi. Scopri le implicazioni e cosa cambia per i consumatori. Dati aggiornati 2026 per",
+
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
@@ -4212,6 +4222,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "creditText": "Frontaliere Ticino",
+
         "url": `${BASE_URL}/images/blog/nessuna-proroga-garanzie-aziende-elettriche.webp`,
         "width": 1200,
         "height": 675,
@@ -4219,6 +4230,14 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "datePublished": "2026-06-23T16:32:45+00:00",
       "dateModified": "2026-06-23T16:32:45+00:00",
+        "url": `${BASE_URL}/images/blog/garanzie-aziende-elettriche-senza-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centrale idroelettrica sul lago di Lugano al tramonto"
+      },
+      "datePublished": "2026-06-23T16:38:46+00:00",
+      "dateModified": "2026-06-23T16:38:46+00:00",
+
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -4227,7 +4246,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": "https://frontaliereticino.ch/autori/redazione/"
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nessuna-proroga-garanzie-aziende-elettriche/`,
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/garanzie-aziende-elettriche-senza-proroga/`,
+
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
