@@ -45,6 +45,7 @@ import {
   BASE_URL,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
+  DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
@@ -1742,6 +1743,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     </header>
     ${degradedNote}
     ${statTiles}
+    ${DRIVEBY_AD_SNIPPET}
     ${topRolesList}
     ${topEmployersList}
     ${cityBreakdown}
@@ -2018,6 +2020,7 @@ function renderHubPage(inp: HubPageInputs): string {
     ${degradedNote}
     ${heroStatsHtml}
     ${ctaHtml}
+    ${DRIVEBY_AD_SNIPPET}
     ${latestWeeksHtml}
     ${archiveHtml}
     ${sectorsHtml}
@@ -2983,6 +2986,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     </header>
     ${statTiles}
     ${ctaHtml}
+    ${DRIVEBY_AD_SNIPPET}
     ${topEmployersList}
     ${trendSection}
     ${frontalierContextHtml}
