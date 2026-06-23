@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-23T12:14:27.755Z",
+  "generatedAt": "2026-06-23T23:02:21.461Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 10308,
-  "avgDurationMs": 10308,
+  "durationMs": 13011,
+  "avgDurationMs": 13011,
   "durationHistory": [
-    10308
+    13011
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,6 +50,42 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Data Lakehouse Engineer / Senior Data Platform Engineer 80-100% (w/m/d)",
+      "slug": "data-lakehouse-engineer-senior-data-platform-engineer-80-100-w-m-d-ruag-ag-bern-emmen",
+      "url": "https://jobs.ruag.ch/offene-stellen/data-lakehouse-engineer-senior-data-platform-engineer/40022730-5315-4fc4-8623-f12669d70c7f",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/40022730-5315-4fc4-8623-f12669d70c7f",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Bern,Emmen",
+      "addressLocality": "Bern,Emmen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-18",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "2053-11-01",
+      "id": "ruag-ag-5837244c0f53",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-23T12:14:27.753Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -159,43 +195,6 @@
         "richness": 24,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "title": "Director Business Development Suisse Romandie 80-100% (w/m/d)",
-      "slug": "director-business-development-suisse-romandie-80-100-w-m-d-ruag-ag-flexibel",
-      "url": "https://jobs.ruag.ch/offene-stellen/director-business-development-suisse-romandie/a1c89ecd-0fda-4b4a-8d5c-9fac745f22c8",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/a1c89ecd-0fda-4b4a-8d5c-9fac745f22c8",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Flexibel",
-      "addressLocality": "Flexibel",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-18",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2053-11-01",
-      "id": "ruag-ag-5ef257bb856c",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna",
-      "postalCode": "6517",
-      "firstSeenAt": "2026-06-18T23:30:13.406Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
       }
     }
   ]
