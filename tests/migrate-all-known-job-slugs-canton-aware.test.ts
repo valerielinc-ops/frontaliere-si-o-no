@@ -116,6 +116,42 @@ describe('migrate-all-known-job-slugs-canton-aware', () => {
     }
   });
 
+  it('leaves a non-section first segment untouched instead of clobbering it', () => {
+    // Guard against first-segment clobber: if a ledger entry's first segment is
+    // NOT a section the resolver emits (hand-edited / non-section path), the
+    // migration must leave it verbatim rather than rewrite it toward a canton
+    // section that would 301 to a page that was never emitted.
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'migrate-canton-nonsection-'));
+    tmpDirs.push(tmp);
+    const dataDir = path.join(tmp, 'data');
+    fs.mkdirSync(dataDir);
+    fs.copyFileSync(path.join(repoRoot, 'data', 'canton-url-slugs.json'), path.join(dataDir, 'canton-url-slugs.json'));
+    fs.copyFileSync(path.join(repoRoot, 'data', 'canton-municipalities.json'), path.join(dataDir, 'canton-municipalities.json'));
+
+    const SLUG = 'data-analyst-acme-zurich';
+    // Job resolves to ZH, but the ledger path is under a non-section segment.
+    fs.writeFileSync(path.join(dataDir, 'jobs.json'), JSON.stringify([
+      { id: 'j4', slug: SLUG, canton: 'ZH', location: 'Zürich', slugByLocale: { it: SLUG, en: SLUG } },
+    ]));
+    const original = {
+      [SLUG]: {
+        it: `/chi-siamo/${SLUG}/`, // non-section first segment — must be left as-is
+        en: `/en/find-jobs-ticino/${SLUG}/`, // valid TI section — must reconcile to ZH
+      },
+    };
+    fs.writeFileSync(path.join(dataDir, 'all-known-job-slugs.json'), JSON.stringify(original));
+
+    execFileSync('node', [SCRIPT], { cwd: tmp, stdio: 'pipe' });
+
+    const out = JSON.parse(fs.readFileSync(path.join(dataDir, 'all-known-job-slugs.json'), 'utf-8'));
+    const entry = out[SLUG];
+    // Non-section path preserved verbatim (NOT clobbered to /cerca-lavoro-…/).
+    expect(entry.it).toBe(`/chi-siamo/${SLUG}/`);
+    // The genuine section path is still reconciled in the same entry.
+    expect(entry.en).toContain('/find-jobs-');
+    expect(entry.en).not.toContain('find-jobs-ticino');
+  });
+
   it('leaves TI jobs untouched (invariance)', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'migrate-canton-ti-'));
     tmpDirs.push(tmp);
