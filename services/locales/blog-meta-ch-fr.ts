@@ -336,7 +336,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.garanzie-aziende-elettriche-senza-proroga.title': 'Pas de prolongation pour les garanties de l\'État aux entreprises d\'électricité',
     'blog.article.garanzie-aziende-elettriche-senza-proroga.excerpt': 'À partir de 2027, les entreprises d\'électricité suisses devront gérer elles-mêmes les risques, sans le soutien financier de la Confédération.',
     'blog.article.garanzie-aziende-elettriche-senza-proroga.imageAlt': 'Centrale hydroélectrique sur le lac de Lugano au coucher du soleil',
-
+    'blog.article.contributi-sociali-frontalieri-busta-paga.title': 'Guide des cotisations sociales suisses pour les frontaliers : détail de la paie',
+    'blog.article.contributi-sociali-frontalieri-busta-paga.excerpt': 'Découvrez comment sont réparties les cotisations sociales versées aux frontaliers qui travaillent en Suisse.',
+    'blog.article.contributi-sociali-frontalieri-busta-paga.imageAlt': 'Détail d\'un bulletin de salaire suisse avec les cotisations sociales mises en évidence sur le fond de Lugano',
 };
 
 export default blogMetaChFr;

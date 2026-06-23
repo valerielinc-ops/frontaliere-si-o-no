@@ -336,7 +336,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.garanzie-aziende-elettriche-senza-proroga.title': 'Nessuna proroga per le garanzie statali alle aziende elettriche',
     'blog.article.garanzie-aziende-elettriche-senza-proroga.excerpt': 'Dal 2027 le aziende elettriche svizzere dovranno gestire autonomamente i rischi, senza il sostegno finanziario della Confederazione.',
     'blog.article.garanzie-aziende-elettriche-senza-proroga.imageAlt': 'Centrale idroelettrica sul lago di Lugano al tramonto',
-
+    'blog.article.contributi-sociali-frontalieri-busta-paga.title': 'Guida ai contributi sociali svizzeri per frontalieri: dettaglio busta paga',
+    'blog.article.contributi-sociali-frontalieri-busta-paga.excerpt': 'Scopri come sono suddivisi i contributi sociali in busta paga per i frontalieri che lavorano in Svizzera.',
+    'blog.article.contributi-sociali-frontalieri-busta-paga.imageAlt': 'Dettaglio di una busta paga svizzera con contributi sociali evidenziati sullo sfondo di Lugano',
 };
 
 export default blogMetaChIt;

@@ -4125,7 +4125,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
 
     'blog-nessuna-proroga-garanzie-aziende-elettriche': { name: 'Garanzie statali', path: '/articoli-svizzera/nessuna-proroga-garanzie-aziende-elettriche/', parent: 'blog' },
     'blog-garanzie-aziende-elettriche-senza-proroga': { name: 'Garanzie statali', path: '/articoli-svizzera/garanzie-aziende-elettriche-senza-proroga/', parent: 'blog' },
-
+    'blog-contributi-sociali-frontalieri-busta-paga': { name: 'Contributi sociali', path: '/articoli-svizzera/contributi-sociali-frontalieri-busta-paga/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

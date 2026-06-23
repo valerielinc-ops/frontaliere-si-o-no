@@ -336,7 +336,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.garanzie-aziende-elettriche-senza-proroga.title': 'No extension for state guarantees to electricity companies',
     'blog.article.garanzie-aziende-elettriche-senza-proroga.excerpt': 'From 2027, Swiss electricity companies will have to manage risks independently, without the financial support of the Confederation.',
     'blog.article.garanzie-aziende-elettriche-senza-proroga.imageAlt': 'Hydroelectric power plant on Lake Lugano at sunset',
-
+    'blog.article.contributi-sociali-frontalieri-busta-paga.title': 'Guide to Swiss social contributions for frontier workers: payroll detail',
+    'blog.article.contributi-sociali-frontalieri-busta-paga.excerpt': 'Find out how social contributions are divided into paychecks for border workers working in Switzerland.',
+    'blog.article.contributi-sociali-frontalieri-busta-paga.imageAlt': 'Detail of a Swiss pay slip with highlighted social contributions against Lugano\'s skyline',
 };
 
 export default blogMetaChEn;
