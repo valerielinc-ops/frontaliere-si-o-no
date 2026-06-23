@@ -308,6 +308,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Frontaliere scelta comune residenza Italia Svizzera 2026 single',
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Sottotitolo con dati concreti DALLA FONTE (max 160 chars)',
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
+    'blog.article.banca-svizzera-segreto.title': 'Banche svizzere: ancora rifugio per denaro sporco?',
+    'blog.article.banca-svizzera-segreto.excerpt': 'Analisi delle riforme del settore bancario svizzero e del segreto bancario.',
+    'blog.article.banca-svizzera-segreto.imageAlt': 'Vista panoramica di Lugano con il Lago Ceresio e le montagne circostanti.',
 };
 
 export default blogMetaChIt;
