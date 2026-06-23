@@ -59,6 +59,8 @@ import {
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { resolveSectorPagesFlushed } from './shared/buildSignals';
+import { SECTOR_HUB_SIBLINGS } from './shared/sectorHubClusters';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -128,6 +130,38 @@ function buildJobHref(
   const section = SECTOR_HUB_SECTION[locale];
   const slug = localizedJobSlug(job, locale);
   return `${BASE_URL}${prefix}/${section}/${slug}/`.replace(/([^:])\/+/g, '$1/');
+}
+
+/** Localized heading for the sibling-sector rail. */
+const SIBLING_RAIL_HEADING: Record<JobBoardLocale, string> = {
+  it: 'Settori correlati',
+  en: 'Related sectors',
+  de: 'Verwandte Branchen',
+  fr: 'Secteurs connexes',
+};
+
+/**
+ * Render a small `<nav>` rail linking the current sector hub to its 3-5
+ * nearest siblings (same vertical) so each hub is mutually reachable in the
+ * BFS-from-`/` graph instead of being an orphan with ~0 internal links.
+ *
+ * Hrefs come from {@link buildSectorHubPath} (trailing-slash by construction)
+ * and labels from {@link SECTOR_HUB_DISPLAY} (auto-localized). Returns an empty
+ * string when the sector has no curated siblings, so unmapped long-tail hubs
+ * simply render nothing rather than weak cross-links. The rail markup is a few
+ * hundred bytes — well inside the 195 KB page-weight budget.
+ */
+function renderSiblingSectorRail(locale: JobBoardLocale, sector: SectorHubKey): string {
+  const siblings = SECTOR_HUB_SIBLINGS[sector];
+  if (!siblings || siblings.length === 0) return '';
+  const items = siblings
+    .map((sib) => {
+      const href = buildSectorHubPath(locale, sib);
+      const label = SECTOR_HUB_DISPLAY[locale][sib];
+      return `<li class="s-sib-li"><a class="s-sib-a" href="${esc(href)}">${esc(label)}</a></li>`;
+    })
+    .join('');
+  return `<nav class="s-sib-rail" aria-label="${esc(SIBLING_RAIL_HEADING[locale])}"><p class="s-sib-h">${esc(SIBLING_RAIL_HEADING[locale])}</p><ul class="s-sib-ul">${items}</ul></nav>`;
 }
 
 export interface BuildSectorLandingHtmlOptions {
@@ -239,6 +273,11 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
       </section>
     </div>
   </details>`;
+
+  // Sibling-sector rail — links this hub to its 3-5 nearest siblings so the
+  // 49 sector hubs are mutually reachable in the BFS graph (the orphan fix).
+  // Empty string for unmapped long-tail sectors.
+  const siblingRailHtml = renderSiblingSectorRail(locale, sector);
 
   const sectionRootUrl = `${BASE_URL}${withSlash(
     `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}`.replace(/\/+/g, '/'),
@@ -410,6 +449,7 @@ ${alternates}
         ${prose.html}
         ${faqHtml}
         ${sectorContextHtml}
+        ${siblingRailHtml}
       </main>
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
@@ -605,6 +645,14 @@ ${sitemapEntries.join('\n')}
           console.warn('[job-sector-pages] sitemap-index patch failed', err);
         }
       }
+
+      // Signal downstream consumers (sectorHubLinksPlugin) that every sector-
+      // hub landing is on disk, so the injector can safely add anchors to them
+      // from the 4 job-board root hubs. Same fail-fast contract as
+      // resolveJobsSeoPagesFlushed: closeBundle has no early return, so this is
+      // reached on every normal exit. A thrown budget-error above propagates to
+      // Vite and fails the build (consumer terminates — not a deadlock).
+      resolveSectorPagesFlushed();
     },
   };
 }

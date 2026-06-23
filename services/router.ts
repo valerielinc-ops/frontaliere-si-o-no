@@ -3034,6 +3034,22 @@ export function parsePath(pathname: string): ParseResult {
  if (rawSecond && isCantonStaticOverlaySlug(rawSecond)) {
  return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
  }
+ // Bare search-index hub (/cerca-lavoro-ticino/ricerca/ + /…/ricerca/page-N/,
+ // and the en/search · de/suche · fr/recherche locale variants): relatedSearch-
+ // ClustersPlugin emits a CURATED static index of ~465 city-grouped cluster
+ // links (H1, breadcrumbs, structured data). Unlike the `ricerca-{slug}` cluster
+ // landings — which DO hydrate an interactive search view (handled below) — the
+ // BARE hub has no interactive SPA equivalent: jobSlug=`ricerca` has no hyphen so
+ // parseSearchSlugFilter never matches it, and JobBoard renders a generic/empty
+ // view that TEARS DOWN the curated static list — a progressive re-render that
+ // bounced the footer (live desktop CLS ~0.7 on /cerca-lavoro-ticino/ricerca/)
+ // and dropped the SEO content. staticOverlay keeps the static index visible
+ // (lite-shell), like the fuel-daily / health-premiums / weekly-employers hubs.
+ // Exact-equality match excludes the hyphenated `ricerca-{slug}` landings.
+ const SEARCH_HUB_PREFIX: Record<Locale, string> = { it: 'ricerca', en: 'search', de: 'suche', fr: 'recherche' };
+ if (rawSecond === SEARCH_HUB_PREFIX[locale]) {
+   return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ }
  const jobSlug = rawSecond;
  // P7.1 — legacy /cerca-lavoro-ticino/{slug?} → always TI canton filter.
  // Bare hub root (no jobSlug) is a build-time static page emitted by
