@@ -138,9 +138,61 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
 
-      # ── Phase 2: Translate pending jobs ──────────────────────────────────
+      # ── Phase 2: Translate pending jobs (ARGOS-FIRST) ────────────────────
+      # The FAST local engine leads, the slow HTTP cascade tops up.
+      # Measured baseline (run 27949678243): the cascade ("Phase 2b") burned
+      # 40-173min to translate only ~100 jobs — premium DeepL/Azure are chronically
+      # exhausted (0 hits), so the on-runner ONNX Opus-MT tier carried ~89% of the
+      # cascade but is ~15x slower PER FIELD than the CTranslate2 int8 Argos engine
+      # the mop-up already used (993 translations / 0 failures in 8.7min). So we now
+      # run Argos (CTranslate2) as the PRIMARY bulk pass FIRST (Phase 2a), re-assemble,
+      # then let the cascade (Phase 2b) upgrade only the small remainder — contamination,
+      # thin output, Argos misses — where premium/LLM quota (when it recovers) actually
+      # adds quality. Net: the bulk is done by the fast engine; the slow cascade no
+      # longer grinds the whole backlog through onnxruntime.
+      # Kill-switch: set repo/workflow var TRANSLATE_ARGOS_FIRST=0 to fall back to
+      # cascade-first (Phase 2a + the re-assemble are skipped; the always()-guarded
+      # Phase 2c mop-up still drains the backlog exactly as before).
+      # REVERT-TRIGGER (NOT measurable pre-merge — only the live scheduled run
+      # exercises the ~17k-job backlog): if the next translate-pending run shows
+      # wall-clock ≥ the prior baseline OR fewer jobs completed/run, set
+      # TRANSLATE_ARGOS_FIRST=0 (instant revert, zero code change) and investigate.
+      - name: Install Argos Translate (local MT engine)
+        # Installed ONCE up front so BOTH the Phase 2a bulk pass and the
+        # always()-guarded Phase 2c mop-up reuse it (pip + model cache persist for
+        # the job). always() so Argos is present even if an earlier step errored —
+        # the translation steps below are the safety net for the whole backlog.
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        run: |
+          python3 -m pip install --quiet --upgrade pip
+          # argostranslate pulls ctranslate2 + sentencepiece (the int8 CPU runtime).
+          python3 -m pip install --quiet argostranslate
+          # Download the it/en/de/fr xx<->en packages once (Argos pivots the cross
+          # pairs through English). Idempotent + retried inside the script.
+          python3 scripts/local-mt-translate.py --install
+
       - name: Assemble dataset
         if: inputs.skip_translate != true
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      # ── Phase 2a: Local MT BULK (Argos / CTranslate2) — PRIMARY workhorse ──
+      # Drains the whole backlog with the fast int8 engine BEFORE the slow cascade.
+      # Same script as the Phase 2c mop-up; here it LEADS. ADDITIVE + SAFE: only
+      # fills genuinely-missing locale fields, never overwrites a good translation,
+      # and clears needsRetranslation only when a locale actually became complete —
+      # so re-running it (Phase 2c) or falling back to cascade-first is always safe.
+      - name: "Phase 2a: Local MT bulk translate (Argos)"
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST != '0'
+        continue-on-error: true
+        env:
+          LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+        run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.mopup_max_jobs || '6000' }}
+
+      # Re-assemble so the cascade (which reads data/jobs.json) sees Argos's fills
+      # and only queues the genuine remainder, not work Argos already finished.
+      - name: Re-assemble dataset after Argos bulk
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST != '0'
         run: node scripts/assemble-jobs-dataset.mjs
 
       # Ext3 task 4 — flag jobs whose descriptionByLocale[X] contains text
@@ -160,17 +212,22 @@ jobs:
         if: inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs before
 
-      - name: "Phase 2: Translate pending jobs"
+      - name: "Phase 2b: Translate pending jobs (cascade top-up)"
+        # With Argos-first (Phase 2a) the bulk is already done, so this cascade now
+        # processes only the REMAINDER: contamination (wrong-language locale slots
+        # that the mop-up's missing-slot logic does not touch), thin output, and any
+        # job Argos failed on — plus it is where premium/LLM quota, WHEN it recovers,
+        # upgrades quality. When TRANSLATE_ARGOS_FIRST=0 it reverts to the old role
+        # (leads, with the Argos mop-up as the safety net).
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
-          # Local Opus-MT tier (Helsinki-NLP via @huggingface/transformers, on-runner) —
-          # the IN-CASCADE successor to the dead self-hosted LibreTranslate container.
-          # Free, deterministic, offline, no rate limit; reuses the ONNX runtime already
-          # proven in prod for embeddings. Sits below the premium key tiers and above the
-          # fragile public proxies (IT stays a post-MyMemory fallback for quality). q8
-          # models are small (~50-80MB each, cached below); the Argos mop-up still runs
-          # after as the final safety net. Set MT_LOCAL_OPUSMT='' (or remove) to disable.
+          # Local Opus-MT tier (Helsinki-NLP via @huggingface/transformers, on-runner).
+          # Free, deterministic, offline; reuses the ONNX runtime proven for embeddings.
+          # Kept ON as the cascade's local fallback for the remainder (and for the
+          # cascade-first revert path), but note it is ~15x slower per field than the
+          # CTranslate2 Argos engine that now leads in Phase 2a — so Argos-first keeps
+          # the slow ONNX tier off the bulk. Set MT_LOCAL_OPUSMT='' (or remove) to disable.
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
           # Self-hosted LibreTranslate removed (see note above the steps): it was 100%
@@ -197,70 +254,47 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
 
-      # ── Phase 2 mop-up: in-process, unlimited, $0 local MT ───────────────
-      # The cascade above burns premium/public-LibreTranslate/MyMemory quota
-      # first (all rate-limited / external). This step finishes whatever it left
-      # incomplete using Argos Translate loaded as a DIRECT PYTHON LIBRARY — no
-      # HTTP server, no healthcheck race (the failure mode that made the old
-      # self-hosted LibreTranslate service 100% dead: 1483 timeouts / 0 hits).
-      # Models load ONCE per process; unlimited throughput, no external API.
-      # ADDITIVE + SAFE: continue-on-error so a model-download/CDN hiccup can
-      # never fail the run; it only ever FILLS genuinely-missing locale fields
-      # (never overwrites a good translation) and clears needsRetranslation only
-      # when the locale actually became complete. The downstream
-      # mark-locale-mismatched-jobs / isIncomplete detector re-flags any bad
-      # output on the next run, so worst case is a no-op, never a regression.
+      # ── Phase 2c mop-up: catch the cascade's leftovers (in-process, $0) ──
+      # With Argos-first, the bulk was already drained in Phase 2a; this pass mops
+      # up whatever the cascade (Phase 2b) freshly left incomplete — contamination
+      # it deleted-and-couldn't-retranslate, fields the cascade ran out of budget
+      # on. (When TRANSLATE_ARGOS_FIRST=0 this is the ONLY local-MT pass and drains
+      # the whole backlog, exactly as before.) Argos Translate is loaded as a DIRECT
+      # PYTHON LIBRARY — no HTTP server, no healthcheck race (the failure mode that
+      # made the old self-hosted LibreTranslate service 100% dead: 1483 timeouts /
+      # 0 hits). Models load ONCE per process; unlimited throughput, no external API.
+      # Argos was already installed up front (before Phase 2a), so no install here.
+      # always() so it still runs even if the cascade errored or was cut by its time
+      # budget. continue-on-error so a mop-up failure can never fail the workflow.
+      # ADDITIVE + SAFE: only FILLS genuinely-missing locale fields (never overwrites
+      # a good translation), now also applies the markdown-balancer + protected-term
+      # glossary (parity with the cascade's finalize()), and clears needsRetranslation
+      # only when the locale actually became complete. mark-locale-mismatched-jobs /
+      # isIncomplete re-flags any weak output next run, so worst case is a no-op.
       # Gate: set LOCAL_MT_DISABLE=1 (repo/workflow var) to skip entirely.
-      # always() so Argos is installed even if the cascade step errored — the
-      # mop-up below (also always()) needs it to translate the leftovers.
-      - name: Install Argos Translate (local MT engine)
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
-        continue-on-error: true
-        run: |
-          python3 -m pip install --quiet --upgrade pip
-          # argostranslate pulls ctranslate2 + sentencepiece (the int8 CPU runtime).
-          python3 -m pip install --quiet argostranslate
-          # Download the it/en/de/fr xx<->en packages once (Argos pivots the cross
-          # pairs through English). Idempotent + retried inside the script.
-          python3 scripts/local-mt-translate.py --install
-
-      # always() so the local-MT mop-up still runs even if "Phase 2: Translate
-      # pending jobs" (the cascade) errored or was cut by its time budget — the
-      # mop-up is the safety net that translates whatever the cascade couldn't,
-      # and its results are committed by the always()-guarded commit step below.
-      # Still continue-on-error so a mop-up failure can never fail the workflow.
-      - name: "Phase 2 mop-up: local MT (Argos Translate, in-process)"
+      - name: "Phase 2c mop-up: local MT (Argos Translate, in-process)"
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         env:
-          # The mop-up is the FAST, $0, unlimited, reliable tier (Argos in-process:
-          # measured 197 translations / 0 failures in 237s on run 27606697505). The
-          # premium/free HTTP cascade above is the slow, quota- and network-bound part.
-          # So we give the mop-up a GENEROUS wall-clock budget (150min) and let the
-          # elapsed-aware MOPUP_DEADLINE_MS guard (320min from run start, baked into
-          # local-mt-mopup.mjs) cap it under the 350min job timeout — whichever is
-          # smaller wins, so commit/scatter/slug/deploy always keep their margin.
-          # Work-loss on timeout is NOT a risk: local-mt-translate.py streams one
-          # JSONL line per request (flush each), and the mop-up parses + commits the
-          # partial stdout captured before an ETIMEDOUT kill (see the timedOut branch).
-          # The old 80min cap left the mop-up time-rich but job-starved (it finished
-          # in 4min, capped at --max-jobs 100, leaving ~3000 jobs un-drained).
+          # GENEROUS wall-clock budget (150min); the elapsed-aware MOPUP_DEADLINE_MS
+          # guard (320min from run start, baked into local-mt-mopup.mjs) caps it under
+          # the 350min job timeout — whichever is smaller wins, so commit/scatter/slug/
+          # deploy always keep their margin. Work-loss on a timeout kill is NOT a risk:
+          # local-mt-translate.py flushes each request's JSONL as soon as its units
+          # resolve, and the mop-up parses + commits the partial stdout (timedOut branch).
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
-        # NB: --max-jobs here is DECOUPLED from the shared `max_jobs` input (which
-        # caps the quota-bound premium cascade). Argos is free + unlimited, so the
-        # mop-up drains the whole backlog in one run. ADDITIVE + SAFE: it only fills
-        # genuinely-missing locale fields, never overwrites a good translation, and
-        # downstream mark-locale-mismatched-jobs re-flags any weak output next run.
+        # --max-jobs is DECOUPLED from the `max_jobs` input (which caps the quota-bound
+        # cascade). Argos is free + unlimited, so the mop-up drains whatever remains.
         run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.mopup_max_jobs || '6000' }}
 
       - name: Commit translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
-      # ── Phase 2b: Fix source-copy titles (daily 06:00 only) ──────────────
+      # ── Phase 2d: Fix source-copy titles (daily 06:00 only) ──────────────
       # Only runs on the daily cron — no point retrying the same 30 failed titles
-      # every run. New jobs from crawlers will have source-copy titles that 2b fixes.
-      - name: "Phase 2b: Fix untranslated titles (free cascade)"
+      # every run. New jobs from crawlers will have source-copy titles that 2d fixes.
+      - name: "Phase 2d: Fix untranslated titles (free cascade)"
         if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
         # Self-hosted LibreTranslate removed (see note above the steps) — was 100% dead.
         run: node scripts/fix-untranslated-titles.mjs

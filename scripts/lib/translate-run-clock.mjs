@@ -14,9 +14,19 @@
  * commit/scatter/slug/deploy could approach the 350min job timeout → the job is
  * externally killed mid-batch and uncommitted incremental writes are lost (#2212).
  *
- * Fix: the cascade publishes its run-start epoch here when invoked directly; the
- * mop-up reads it back and bounds itself to (DEADLINE − elapsed-since-run-start),
- * exactly mirroring the cascade's own elapsed-aware budget.
+ * Fix: the FIRST translation step to run publishes its start epoch here; every
+ * later step (and process) reads it back and bounds itself to
+ * (DEADLINE − elapsed-since-run-start), exactly mirroring an elapsed-aware budget.
+ *
+ * WRITE-ONCE: markRunStart only writes when no valid marker exists yet, so the
+ * first writer wins and the epoch reflects the TRUE start of the whole translate
+ * job — regardless of step order. This matters for the Argos-first ordering
+ * (translate-pending.yml): the local-MT BULK pass (Phase 2a) now runs BEFORE the
+ * cascade (Phase 2b), so the bulk pass establishes the run start and the cascade's
+ * own elapsed-aware deadline then correctly accounts for the time the bulk already
+ * spent — without this the cascade would measure its 250min from its own (later)
+ * process start, and Phase 2a(≤150min)+cascade(250min) could exceed the 350min job
+ * timeout and lose uncommitted incremental writes (the very failure #2212 fixed).
  *
  * Storage: RUNNER_TEMP (per-job temp dir, persists across steps within a job but
  * is never part of the committed workspace), falling back to os.tmpdir() for
@@ -31,16 +41,21 @@ const MARKER_DIR = process.env.RUNNER_TEMP || os.tmpdir();
 export const MARKER_PATH = path.join(MARKER_DIR, 'translate-pending-run-start.txt');
 
 /**
- * Publish the run-start epoch (ms). Call this ONLY when the cascade is invoked
- * directly — never on import — so the mop-up importing the cascade module can't
- * overwrite the real run start with the mop-up's own start time.
+ * Publish the run-start epoch (ms), WRITE-ONCE: a no-op when a valid marker
+ * already exists, so the FIRST translation step of the job wins and the epoch is
+ * the true whole-job start regardless of which step runs first (cascade-first or
+ * Argos-first). Call this ONLY when a script is invoked directly — never on import
+ * — so a module importing the cascade/mop-up can't seed the marker with its own
+ * start time. Steps are sequential within a job, so there is no write race.
  */
 export function markRunStart(epochMs) {
   try {
+    // First writer wins: don't clobber an earlier step's (truer) run start.
+    if (readRunStartMs() !== null) return;
     fs.writeFileSync(MARKER_PATH, String(epochMs), 'utf-8');
   } catch {
-    // Best-effort: a marker-write failure must never break the cascade. The
-    // mop-up will simply fall back to its own start as the reference.
+    // Best-effort: a marker-write failure must never break the step. The reader
+    // will simply fall back to its own start as the reference.
   }
 }
 

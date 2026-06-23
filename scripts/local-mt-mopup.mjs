@@ -54,7 +54,9 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
-import { readRunStartMs } from './lib/translate-run-clock.mjs';
+import { readRunStartMs, markRunStart } from './lib/translate-run-clock.mjs';
+import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
+import { applyGlossaryCorrections } from './lib/translation-glossary.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -169,6 +171,15 @@ function normalizeCompanyKey(value = '') {
 }
 
 async function main() {
+  // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
+  // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
+  // run clock. The cascade (Phase 2b) and the leftover mop-up (Phase 2c) then bound
+  // their elapsed-aware deadlines to the TRUE whole-job start, keeping the total
+  // under the 350min timeout. No-op when a marker already exists (cascade-first, or
+  // this being the Phase 2c pass after the cascade seeded it). Uses this process's
+  // start (RUN_START_MS falls back to now() when no marker exists yet).
+  markRunStart(RUN_START_MS);
+
   // Elapsed-aware early-out (#2212): if the cascade already consumed the run-wide
   // window, there is no time to safely run a Python batch (spawn timeout =
   // TIME_BUDGET_MS - WRITE_RESERVE_MS would be non-positive, which spawnSync
@@ -348,13 +359,31 @@ async function main() {
       const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
       if (!job[bag] || typeof job[bag] !== 'object') job[bag] = {};
 
-      const incoming = String(text || '').trim();
-      if (!incoming) continue; // never write empty (safety guard)
+      const raw = String(text || '').trim();
+      if (!raw) continue; // never write empty (safety guard)
 
-      // Never write a value that is just a copy of the source (would re-flag).
+      // Source text for the copy guards — computed BEFORE glossary so corrections
+      // compare against the true source.
       const sourceText = field === 'title'
         ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
         : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
+
+      // Quality parity with the cascade's finalize() (free-translate.mjs): balance
+      // markdown markers, then apply the protected-term glossary. The raw Argos
+      // output skipped both, so the BULK of the mop-up-translated corpus (the
+      // workhorse tier) shipped lower quality than the cascade's — orphan `**`
+      // leaking as literal markers, and meaning-inverted MT (e.g. DE "Nachtwache"
+      // → IT "orologio notturno") never corrected. fieldType scopes the glossary's
+      // broad single-word fallbacks to titles only (body prose stays untouched).
+      const incoming = applyGlossaryCorrections({
+        sourceText,
+        translatedText: balanceMarkdownMarkers(raw),
+        targetLang: locale,
+        fieldType: field,
+      }).trim();
+      if (!incoming) continue;
+
+      // Never write a value that is just a copy of the source (would re-flag).
       if (incoming.toLowerCase() === sourceText.toLowerCase()) continue;
 
       const existing = String(job[bag][locale] || '').trim();
