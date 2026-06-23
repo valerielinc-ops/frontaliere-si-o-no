@@ -1031,6 +1031,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'permesso-g-pro-contro-frontalieri',
+    category: 'pratico',
+    date: '2026-06-23T20:17:08.028Z',
+    image: '/images/blog/permesso-g-pro-contro-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

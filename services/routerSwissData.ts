@@ -137,6 +137,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'contributi-sociali-frontalieri-busta-paga': { it: 'contributi-sociali-frontalieri-busta-paga', en: 'social-contributions-swiss-cross-border-payslip', de: 'sozialabgaben-grenzganger-schweiz-gehaltsabrechnung', fr: 'cotisations-sociales-frontaliers-suisse-bulletin-salaire' },
  'costo-vita-lugano-frontaliere': { it: 'costo-vita-lugano-frontaliere', en: 'cost-of-living-in-lugano-for-cross-border-workers', de: 'lebenskosten-in-lugano-fur-grenzganger', fr: 'cout-de-la-vie-a-lugano-pour-les-frontaliers' },
  'calcolo-pensione-frontalieri-avs-italiana': { it: 'calcolo-pensione-frontalieri-avs-italiana', en: 'calculating-pension-cross-border-workers-avs-italian', de: 'rente-berechnung-grenzgaenger-avs-italienisch', fr: 'calcul-pension-frontaliers-avs-italienne' },
+ 'permesso-g-pro-contro-frontalieri': { it: 'permesso-g-pro-contro-frontalieri', en: 'permit-g-pros-cons-cross-border-workers', de: 'bewilligung-g-vor-und-nachteile-grenzgaenger', fr: 'permis-g-pour-et-contre-frontaliers' },
 
 };
 

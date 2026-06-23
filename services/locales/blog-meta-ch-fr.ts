@@ -345,6 +345,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.title': 'Calcul des pensions frontalières : comment fonctionne l\'AVS et l\'INPS',
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.excerpt': 'Guide complet pour le calcul de la pension pour les frontaliers avec des cotisations AVS suisses et INPS italiennes.',
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.imageAlt': 'Vue sur le lac de Lugano avec une personne calculant la pension',
+    'blog.article.permesso-g-pro-contro-frontalieri.title': 'Permis G frontaliers : avantages et inconvénients complets',
+    'blog.article.permesso-g-pro-contro-frontalieri.excerpt': 'Tout ce que vous devez savoir sur le permis G pour frontaliers : avantages, inconvénients et quand cela convient vraiment.',
+    'blog.article.permesso-g-pro-contro-frontalieri.imageAlt': 'Vue panoramique du lac de Lugano avec la frontière italo-suisse en arrière-plan',
 };
 
 export default blogMetaChFr;
