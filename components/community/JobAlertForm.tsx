@@ -196,6 +196,16 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     [],
   );
 
+  const resetForm = useCallback(() => {
+    setKeyword('');
+    setSelectedLocations([]);
+    setSelectedContracts([]);
+    setSelectedSectors([]);
+    setSelectedCantons([]);
+    setCantonPickerOpen(false);
+    setExpanded(false);
+  }, []);
+
   // After the auth round-trip, replay a stashed alert intent so a logged-out
   // "create" completes itself instead of forcing a re-entry + re-submit
   // (the 536 click -> 39 create / 93% drop at exactly this step).
@@ -209,13 +219,17 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
       try {
         await persistAlert(authUser.uid, authUser.email || "", pending, "post_auth_auto");
         showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
-      } catch {
-        // Re-stash so a transient failure can retry on a later auth-ready render.
-        savePendingJobAlert(pending);
-        pendingConsumedRef.current = false;
+        // Reset like the manual path so the now-authenticated user can't re-submit
+        // the still-populated form and create a duplicate alert.
+        resetForm();
+      } catch (err: any) {
+        // Surface the failure (e.g. quota full = permanent) instead of swallowing
+        // it. Leave pendingConsumedRef set so we don't retry-loop on re-render;
+        // the now-authenticated user can re-submit manually if needed.
+        showToast(err?.message || (t("jobAlert.error.generic") as string) || "Errore durante la creazione dell'alert.");
       }
     })();
-  }, [authUser, persistAlert, showToast, t]);
+  }, [authUser, persistAlert, showToast, resetForm, t]);
 
 
  const handleCreate = async () => {
@@ -236,14 +250,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  const config = buildConfig();
       await persistAlert(authUser.uid, authUser.email || '', config, 'inline_card');
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
- // Reset form
- setKeyword('');
- setSelectedLocations([]);
- setSelectedContracts([]);
- setSelectedSectors([]);
- setSelectedCantons([]);
- setCantonPickerOpen(false);
- setExpanded(false);
+ resetForm();
  } catch (err: any) {
  showToast(err?.message || 'Errore durante la creazione dell\'alert.');
  } finally {
