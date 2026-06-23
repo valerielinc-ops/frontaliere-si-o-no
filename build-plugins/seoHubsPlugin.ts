@@ -19,6 +19,7 @@
 
 import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
+import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
 import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT } from './constants';
 import { asyncCssHeadBlock } from './htmlTemplate';
@@ -1204,6 +1205,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     <div id="root"></div>
+    ${railGutters(true).open}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-AxRVCF" aria-label="Breadcrumb">
         <a class="s-wfUMYx" href="/">Home</a>
@@ -1223,7 +1225,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       </section>
       ${pagination}
       ${proseAccordionHtml}
-    </main>
+    </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
@@ -1788,6 +1790,7 @@ function buildThinCantonHubHtml(args: {
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     <div id="root"></div>
+    ${railGutters(true).open}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-AxRVCF" aria-label="Breadcrumb">
         <a class="s-wfUMYx" href="/">${esc(homeLabel)}</a>
@@ -1822,7 +1825,7 @@ function buildThinCantonHubHtml(args: {
       </details>` : `<section class="s-T-y2if">
         <p class="s-0JJi_c">${esc(buildPageNCompactProse(locale, cantonLabel, hub, page, totalPages, totalItems))}</p>
       </section>`}
-    </main>
+    </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
