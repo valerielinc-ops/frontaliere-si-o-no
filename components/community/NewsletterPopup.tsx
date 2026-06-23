@@ -16,6 +16,7 @@ import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput'
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
+import { resilientImport } from '@/services/resilientImport';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
@@ -47,8 +48,8 @@ const initFirestore = async () => {
  if (firestoreDb) return firestoreDb;
  try {
  const [{ getFirestore }, { getApp }] = await Promise.all([
- import('firebase/firestore'),
- import('@/services/firebase'),
+ resilientImport(() => import('firebase/firestore'), (m) => typeof m.getFirestore === 'function'),
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
  ]);
  firestoreDb = getFirestore(await getApp());
  return firestoreDb;
@@ -103,8 +104,8 @@ const NewsletterPopup: React.FC = () => {
  const trySilentAuth = async () => {
  try {
  const [{ getAuth }, { getApp }] = await Promise.all([
- import('firebase/auth'),
- import('@/services/firebase'),
+ resilientImport(() => import('firebase/auth'), (m) => typeof m.getAuth === 'function'),
+ resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
  ]);
  const appInstance = await getApp();
  const auth = getAuth(appInstance);

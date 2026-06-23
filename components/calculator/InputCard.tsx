@@ -7,6 +7,7 @@ import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSE
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
+import { resilientImport } from '@/services/resilientImport';
 import { SegmentControl as SharedSegmentControl } from '@/components/shared/SegmentControl';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -293,7 +294,10 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  const fetchRate = async () => {
  setLoadingRate(true);
  try {
- const { fetchExchangeRate } = await import('../../services/exchangeRateService');
+ const { fetchExchangeRate } = await resilientImport(
+ () => import('../../services/exchangeRateService'),
+ (m) => typeof m.fetchExchangeRate === 'function',
+ );
  const rate = await fetchExchangeRate();
  handleChange('customExchangeRate', rate);
  setLastRateUpdate(new Date());
