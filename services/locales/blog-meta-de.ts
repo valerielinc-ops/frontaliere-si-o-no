@@ -8136,6 +8136,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.public-eye-denuncia-salari-on-ticino.title': 'Public Eye meldet Hungerlöhne bei On',
     'blog.article.public-eye-denuncia-salari-on-ticino.excerpt': 'Der Bericht von Public Eye prangert Mindestlöhne und prekäre Bedingungen bei einem Unterlieferanten von On an, mit Untersuchung und Stopp von Aufträgen durch das Unternehmen.',
     'blog.article.public-eye-denuncia-salari-on-ticino.imageAlt': 'Fotorealistisches Bild des Grenzübergangs Schweiz-Italien bei Mendrisio mit Pendlern und Arbeitern',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.title': 'Zweites Gleis Locarno: eine wichtige Etappe der Arbeiten erreicht',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.excerpt': 'Die Arbeiten für das zweite Gleis in der Region Locarno haben einen wichtigen Meilenstein erreicht, der für die Entwicklung der Eisenbahninfrastruktur von grundlegender Bedeutung ist.',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.imageAlt': 'Luftaufnahme des Bahnhofs Locarno mit Bauarbeiten für ein zweites Gleis',
 };
 
 export default blogMetaDe;

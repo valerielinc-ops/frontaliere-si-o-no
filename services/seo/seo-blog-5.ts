@@ -44651,6 +44651,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-secondo-binario-locarnese-raggiunta-tappa': {
+    title: 'Secondo binario Locarnese: raggiunta un’importante tappa dei lavori',
+    description: 'I lavori per il secondo binario nel Locarnese hanno raggiunto un\'importante tappa, fondamentale per lo sviluppo dell\'infrastruttura ferroviaria. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, secondo, binario, locarnese, raggiunta',
+    ogTitle: 'Secondo binario Locarnese: raggiunta un’importante tappa dei lavori',
+    ogDescription: 'I lavori per il secondo binario nel Locarnese hanno raggiunto un\'importante tappa, fondamentale per lo sviluppo dell\'infrastruttura ferroviaria.',
+    canonicalPath: '/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Secondo binario Locarnese: raggiunta un’importante tappa dei lavori",
+      "description": "I lavori per il secondo binario nel Locarnese hanno raggiunto un'importante tappa, fondamentale per lo sviluppo dell'infrastruttura ferroviaria. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-binario-locarnese-raggiunta-tappa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della stazione di Locarno con lavori in corso per il secondo binario"
+      },
+      "datePublished": "2026-06-23T00:27:18+00:00",
+      "dateModified": "2026-06-23T00:27:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
