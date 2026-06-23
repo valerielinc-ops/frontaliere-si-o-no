@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-06-22T23:22:48.874Z",
+  "generatedAt": "2026-06-23T12:06:28.992Z",
   "total": 62,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 54,
-  "durationMs": 160289,
-  "avgDurationMs": 160289,
+  "durationMs": 157470,
+  "avgDurationMs": 157470,
   "durationHistory": [
-    160289
+    157470
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -336,18 +336,18 @@
       "contractType": "temporary",
       "validThrough": "2026-07-31",
       "id": "pemsa-91c10c4e8343",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-22T15:00:37.452Z",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
