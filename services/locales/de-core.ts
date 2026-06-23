@@ -823,6 +823,7 @@ const deCore: Record<string, string> = {
  'jobAlert.yourAlerts': 'Ihre Alerts',
  'jobAlert.loading': 'Alerts werden geladen...',
  'jobAlert.error.emptyFields': 'Geben Sie mindestens ein Stichwort oder ein Gebiet ein.',
+ 'jobAlert.error.generic': 'Beim Erstellen des Alerts ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.',
  'jobAlert.sector': 'Branche',
  'jobAlert.edit': 'Bearbeiten',
  'jobAlert.updated': 'Alert aktualisiert.',

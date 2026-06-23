@@ -823,6 +823,7 @@ const frCore: Record<string, string> = {
  'jobAlert.yourAlerts': 'Vos alertes',
  'jobAlert.loading': 'Chargement des alertes...',
  'jobAlert.error.emptyFields': 'Saisissez au moins un mot-clé ou une zone.',
+ 'jobAlert.error.generic': "Une erreur s'est produite lors de la création de l'alerte. Veuillez réessayer.",
  'jobAlert.sector': 'Secteur',
  'jobAlert.edit': 'Modifier',
  'jobAlert.updated': 'Alerte mise à jour.',
