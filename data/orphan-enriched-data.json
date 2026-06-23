@@ -86248,7 +86248,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "collaboratore-trice-gastronomie-ca-puccini-coop-genossenschaft-zurich-xy2ri7",
+      "en": "associate-gastronomie-ca-puccini-coop-genossenschaft-zurich-xy2ri7",
+      "de": "mitarbeiter-in-gastronomie-ca-puccini-coop-genossenschaft-zurich-xy2ri7",
+      "fr": "collaborateur-trice-gastronomie-ca-puccini-coop-genossenschaft-zurich-xy2ri7"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/mitarbeiter-in-gastronomie-ca-puccini-coop-genossenschaft-zurich",
       "en": "/en/find-jobs-basel/mitarbeiter-in-gastronomie-ca-puccini-coop-genossenschaft-zurich",
@@ -86261,6 +86266,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
