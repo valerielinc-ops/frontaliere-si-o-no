@@ -18,7 +18,7 @@ import {
   ADSENSE_SNIPPET,
   CDN_PRECONNECT_HINT,
 } from './constants';
-import { asyncCssHeadBlock } from './htmlTemplate';
+import { asyncCssHeadBlock, EMPTY_ROOT_WITH_HEADER_RESERVE } from './htmlTemplate';
 import {
   JOB_RECENCY_LANDING_SLUGS,
   type JobRecencyVariant,
@@ -309,7 +309,7 @@ ${alternates}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
-    <div id="root"></div>
+    ${EMPTY_ROOT_WITH_HEADER_RESERVE}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-bcr">
         <a href="/" class="s-bcl">Home</a>

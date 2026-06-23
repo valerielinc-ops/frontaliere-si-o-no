@@ -21,7 +21,7 @@ import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import type npT from 'node:path';
 import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT } from './constants';
-import { asyncCssHeadBlock } from './htmlTemplate';
+import { asyncCssHeadBlock, EMPTY_ROOT_WITH_HEADER_RESERVE } from './htmlTemplate';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -1203,7 +1203,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
-    <div id="root"></div>
+    ${EMPTY_ROOT_WITH_HEADER_RESERVE}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-AxRVCF" aria-label="Breadcrumb">
         <a class="s-wfUMYx" href="/">Home</a>
@@ -1787,7 +1787,7 @@ function buildThinCantonHubHtml(args: {
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
-    <div id="root"></div>
+    ${EMPTY_ROOT_WITH_HEADER_RESERVE}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-AxRVCF" aria-label="Breadcrumb">
         <a class="s-wfUMYx" href="/">${esc(homeLabel)}</a>

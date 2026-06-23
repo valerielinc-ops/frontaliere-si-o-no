@@ -127,6 +127,30 @@ export const HEAD_SUFFIX_WITH_SPA = ` ${SPA_ACTION_REDIRECT_SCRIPT}
 export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}`;
 
+/**
+ * Empty `#root` for SPA-shell SEO pages, with a first-paint header-height
+ * reservation spacer.
+ *
+ * The crawler-facing SEO content lives in a `<main class="seo-static-content">`
+ * body-sibling OUTSIDE `#root`; React mounts the SPA chrome (the sticky nav
+ * header, `h-14 md:h-20` = 56/80px) INTO `#root`, which — starting empty — would
+ * shove that sibling content down by the header height on mount (live: ~0.08
+ * desktop CLS on `/cerca-lavoro-*`). The `.ft-hdr-reserve` spacer (height pinned
+ * in {@link CRITICAL_CSS} via `ROOT_HEADER_RESERVE_CSS`) holds the header height
+ * from first paint so nothing jumps. `createRoot().render()` REPLACES #root's
+ * children (client render, not hydration), so the spacer leaves no residue and
+ * the real same-height header takes its place shift-free.
+ *
+ * Single source of truth so the literal `<div id="root"></div>` emitters in the
+ * funnel plugins (`jobsSeoPagesPlugin`, `seoHubsPlugin`, `jobSectorPagesPlugin`,
+ * `jobRecencyPagesPlugin`) and the `buildSimplePage` shell can't drift apart
+ * (AGENTS.md §6). ONLY for the SPA-shell pattern (empty #root + seo-content
+ * sibling + SPA bundle): a no-bundle page would keep the spacer as a permanent
+ * gap, so do not use this where React never mounts.
+ */
+export const EMPTY_ROOT_WITH_HEADER_RESERVE =
+  '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>';
+
 /** HTML escape for attribute values and text content. */
 export function esc(s: string): string {
  return s
@@ -353,7 +377,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // hydration) so the spacer leaves no residue — the real same-height header
  // takes its place shift-free.
  const bodySection = seoContentOutsideRoot
-   ? ` <div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>${preMainSection}
+   ? ` ${EMPTY_ROOT_WITH_HEADER_RESERVE}${preMainSection}
 ${railGridOpen}
  <main class="${seoMainClass}">
 ${bodyHtml}

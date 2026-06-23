@@ -22,7 +22,7 @@ import {
   ADSENSE_SNIPPET,
   CDN_PRECONNECT_HINT,
 } from './constants';
-import { asyncCssHeadBlock } from './htmlTemplate';
+import { asyncCssHeadBlock, EMPTY_ROOT_WITH_HEADER_RESERVE } from './htmlTemplate';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -423,7 +423,7 @@ ${alternates}
     ${ADSENSE_SNIPPET}
   </head>
   <body>
-    <div id="root"></div>
+    ${EMPTY_ROOT_WITH_HEADER_RESERVE}
     <main class="seo-static-content s-Ziv1Xn">
         <nav class="s-bcr">
           <a href="/" class="s-bcl">Home</a>

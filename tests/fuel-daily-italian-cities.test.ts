@@ -200,8 +200,11 @@ describe('generateFuelItalianCityPages() — content quality', () => {
   it('uses SPA shell (bg-surface-alt) with empty #root + static seo-content sibling', () => {
     const comoPage = pages['/prezzi-benzina/italia/como/oggi/'];
     expect(comoPage).toContain('bg-surface-alt');
-    // Empty `#root` so React hydration cannot replace static SEO content.
-    expect(comoPage).toMatch(/<div\b[^>]*\bid=["']?root["']?(?=[\s>])[^>]*><\/div>/);
+    // #root holds ONLY the header-reserve spacer (no SEO content) so React's
+    // client render cannot replace the static SEO content; the spacer reserves
+    // the sticky-header height to prevent the mount-time CLS push (#2775).
+    expect(comoPage).toMatch(/<div\b[^>]*\bid=["']?root["']?[^>]*><div\b[^>]*\bclass=["']?ft-hdr-reserve\b[^>]*><\/div><\/div>/);
+    expect(comoPage).not.toMatch(/<div\b[^>]*\bid=["']?root["']?[^>]*>\s*<main/);
     expect(comoPage).toMatch(htmlTagWithClass('main', 'seo-static-content'));
   });
 
