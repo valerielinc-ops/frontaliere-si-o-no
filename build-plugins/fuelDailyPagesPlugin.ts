@@ -59,7 +59,7 @@ import {
   type FuelZone,
   type ItalianCityEntry,
 } from './fuelDailyData';
-import { generateRelatedLinksBlock, JOB_LISTING_ROOT } from './shared/relatedLinks';
+import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
 import {
   generateFuelIndexPages,
   renderFuelIndexHubLinks,
@@ -1810,6 +1810,7 @@ function renderPage(inp: PageInputs): string {
     </div>
   </section>
   ${unavailableNoteHtml}
+  ${renderAboveFoldJobCta(locale)}
   <section class="s-card" style="margin:0 0 24px" aria-labelledby="fuelReview">
     <h2 id="fuelReview" class="s-h2">${esc(editorialAssessment.heading)}</h2>
     <p class="s-E7ZJqo">${esc(editorialAssessment.body)}</p>

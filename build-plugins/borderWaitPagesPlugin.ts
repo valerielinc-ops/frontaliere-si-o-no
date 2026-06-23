@@ -67,7 +67,7 @@ import {
   type BorderCrossingSlug,
   type BorderWaitLocale,
 } from './borderWaitData';
-import { generateRelatedLinksBlock, JOB_LISTING_ROOT } from './shared/relatedLinks';
+import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
 import {
   BORDER_WAIT_HYDRATION_JS,
   BORDER_WAIT_HYDRATION_ASSET_PATH,
@@ -1760,6 +1760,7 @@ function renderLeafPage(inp: LeafInputs): string {
   </header>
   ${currentCardHtml}
   ${adviceBannerHtml}
+  ${renderAboveFoldJobCta(locale)}
   ${webcamHtml}
   ${hourlyHtml}
   ${weeklyHtml}
