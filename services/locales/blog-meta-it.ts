@@ -8144,6 +8144,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.title': 'Avs, domani alle 11 Angelo Bonelli in diretta all\'Adnkronos',
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.excerpt': 'Il portavoce dei Verdi e deputato di Avs Angelo Bonelli sarà in diretta domani all\'Adnkronos',
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.imageAlt': 'Angelo Bonelli in diretta all\'Adnkronos',
+    'blog.article.scoiattolo-export-usa-made-italy.title': 'Scoiattolo porta i Giant Ravioli a New York: opportunità per frontalieri',
+    'blog.article.scoiattolo-export-usa-made-italy.excerpt': 'L\'azienda Scoiattolo di Lonate Ceppino partecipa al Summer Fancy Food Show 2026 a New York, portando i suoi Giant Ravioli.',
+    'blog.article.scoiattolo-export-usa-made-italy.imageAlt': 'Scoiattolo presenta i Giant Ravioli al Summer Fancy Food Show',
 };
 
 export default blogMetaIt;

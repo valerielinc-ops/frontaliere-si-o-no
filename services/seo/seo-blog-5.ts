@@ -44729,6 +44729,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scoiattolo-export-usa-made-italy': {
+    title: 'Scoiattolo porta i Giant Ravioli a New York: opportunità per frontalieri',
+    description: 'Scoiattolo partecipa al Summer Fancy Food Show 2026 a New York, portando i suoi Giant Ravioli con nuovi ripieni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scoiattolo, porta, giant, ravioli',
+    ogTitle: 'Scoiattolo porta i Giant Ravioli a New York: opportunità',
+    ogDescription: 'Scoiattolo partecipa al Summer Fancy Food Show 2026 a New York, portando i suoi Giant Ravioli con nuovi ripieni.',
+    canonicalPath: '/articoli-frontaliere/scoiattolo-export-usa-made-italy',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scoiattolo porta i Giant Ravioli a New York: opportunità per frontalieri",
+      "description": "Scoiattolo partecipa al Summer Fancy Food Show 2026 a New York, portando i suoi Giant Ravioli con nuovi ripieni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scoiattolo-export-usa-made-italy.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scoiattolo presenta i Giant Ravioli al Summer Fancy Food Show"
+      },
+      "datePublished": "2026-06-23T11:54:36+00:00",
+      "dateModified": "2026-06-23T11:54:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scoiattolo-export-usa-made-italy`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
