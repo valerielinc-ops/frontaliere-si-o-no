@@ -60,7 +60,9 @@ function extractMain(html: string): string {
 }
 
 function extractRobots(html: string): string | null {
-  const m = html.match(/<meta\s+name="robots"\s+content="([^"]+)"/i);
+  // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so dist metas
+  // are unquoted (`name=robots content=...`); a quote-mandatory regex returns null.
+  const m = html.match(/<meta\s+name=["']?robots["']?\s+content=["']?([^"'>]+)/i);
   return m ? m[1] : null;
 }
 
@@ -110,7 +112,7 @@ describe('Phase 3B — company landing content gate', () => {
   // emitter). CI catches a real regression once the next deploy regenerates
   // the static HTML.
   const sample = readFileSync(pages[0], 'utf-8');
-  if (!/<meta\s+name="robots"/i.test(sample)) {
+  if (!/<meta\s+name=["']?robots["']?/i.test(sample)) {
     it.skip('dist/ not built with Phase 3B yet — skipping dist sweep', () => {});
     return;
   }

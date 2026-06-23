@@ -271,12 +271,25 @@ describe('isJunkSearchKeyword — drops generic filler / noise, keeps real inten
     }
   });
 
-  it('keeps multi-word keywords when at least one token carries intent', () => {
-    // "data center technician", "senior associate" and role+city stay indexable
-    // even though some tokens are generic — only ALL-junk keywords are dropped.
+  it('keeps multi-word keywords led by a real intent token', () => {
+    // Title-derived candidates lead with a real role, so they stay indexable
+    // even when a trailing token is generic or a city.
     expect(isJunkSearchKeyword('data center technician')).toBe(false);
     expect(isJunkSearchKeyword('senior associate')).toBe(false);
     expect(isJunkSearchKeyword('ospedale lugano')).toBe(false);
+    expect(isJunkSearchKeyword('infermiere baden')).toBe(false);
+  });
+
+  it('flags junk-led "term city" keywords even when the city is NOT stripped', () => {
+    // Regression: detectCity only strips KNOWN_CITIES, so unrecognized cities
+    // (Baden/Gossau/Meyrin/Solothurn) leave keywords like "pazienti baden"
+    // intact. A leading junk token must still drop them — these were the thin
+    // doorways /…/ricerca-pazienti-baden/, /…/ricerca-cura-baden/ that leaked.
+    expect(isJunkSearchKeyword('pazienti baden')).toBe(true);
+    expect(isJunkSearchKeyword('cura baden')).toBe(true);
+    expect(isJunkSearchKeyword('capacita gossau')).toBe(true);
+    expect(isJunkSearchKeyword('professionale solothurn')).toBe(true);
+    expect(isJunkSearchKeyword('compiti solothurn')).toBe(true);
   });
 
   it('flags empty / whitespace-only / numeric-only as junk', () => {

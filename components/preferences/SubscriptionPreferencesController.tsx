@@ -29,6 +29,7 @@ import {
  type JobAlertCreatePayload,
 } from '@/services/newsletterSubscribers';
 import { getLocale, type Locale } from '@/services/i18n';
+import { resilientImport } from '@/services/resilientImport';
 
 // ─── Types ──────────────────────────────────────────────────
 
@@ -275,8 +276,14 @@ async function authLoadFullStatus(email: string): Promise<{
  newsletter: { subscribed: boolean; autologinEnabled: boolean };
  alerts: SubscriptionAlertSummary[];
 }> {
- const { getFirestore, doc, getDoc, collection, getDocs } = await import('firebase/firestore');
- const { getApp } = await import('@/services/firebase');
+ const { getFirestore, doc, getDoc, collection, getDocs } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
@@ -322,8 +329,14 @@ async function authLoadFullStatus(email: string): Promise<{
 
 async function authToggleNewsletter(email: string, subscribed: boolean): Promise<void> {
  const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
- await import('firebase/firestore');
- const { getApp } = await import('@/services/firebase');
+ await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
@@ -369,10 +382,14 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
 }
 
 async function authToggleAutologin(email: string, enabled: boolean): Promise<void> {
- const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } = await import(
- 'firebase/firestore'
+ const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
  );
- const { getApp } = await import('@/services/firebase');
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
@@ -402,10 +419,15 @@ async function authUpdateAlert(
  alertId: string,
  patch: JobAlertPatch,
 ): Promise<SubscriptionAlertSummary> {
- const { getFirestore, doc, setDoc, getDoc, addDoc, collection, serverTimestamp } = await import(
- 'firebase/firestore'
+ const { getFirestore, doc, setDoc, getDoc, addDoc, collection, serverTimestamp } =
+ await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
  );
- const { getApp } = await import('@/services/firebase');
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
@@ -446,10 +468,14 @@ async function authCreateAlert(
  email: string,
  payload: JobAlertCreatePayload,
 ): Promise<SubscriptionAlertSummary> {
- const { getFirestore, doc, addDoc, collection, serverTimestamp, getDoc } = await import(
- 'firebase/firestore'
+ const { getFirestore, doc, addDoc, collection, serverTimestamp, getDoc } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
  );
- const { getApp } = await import('@/services/firebase');
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
@@ -493,10 +519,14 @@ async function authCreateAlert(
 }
 
 async function authDeleteAlert(email: string, alertId: string): Promise<void> {
- const { getFirestore, doc, deleteDoc, addDoc, collection, serverTimestamp } = await import(
- 'firebase/firestore'
+ const { getFirestore, doc, deleteDoc, addDoc, collection, serverTimestamp } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
  );
- const { getApp } = await import('@/services/firebase');
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
