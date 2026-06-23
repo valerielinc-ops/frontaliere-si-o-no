@@ -1022,6 +1022,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'calcolo-pensione-frontalieri-avs-italiana',
+    category: 'pensione',
+    date: '2026-06-23T19:18:26.611Z',
+    image: '/images/blog/calcolo-pensione-frontalieri-avs-italiana.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

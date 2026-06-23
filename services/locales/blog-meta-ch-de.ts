@@ -342,6 +342,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costo-vita-lugano-frontaliere.title': 'Was es kostet, als Grenzgänger in Lugano zu leben: eine detaillierte Analyse',
     'blog.article.costo-vita-lugano-frontaliere.excerpt': 'Entdecken Sie die tatsächlichen Kosten für das Leben als Grenzgänger in Lugano: Mieten, Transport, Versicherungen und Lebensmittelausgaben.',
     'blog.article.costo-vita-lugano-frontaliere.imageAlt': 'Panoramablick auf Lugano mit See und Bergen im Hintergrund',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.title': 'Berechnung der Grenzgängerrente: Wie AHV und INPS funktionieren',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.excerpt': 'Vollständiger Leitfaden zur Berechnung der Rente für Grenzgänger mit schweizerischen AHV-Beiträgen und italienischen INPS-Beiträgen.',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.imageAlt': 'Blick auf den Luganersee mit einer Person, die die Rente berechnet',
 };
 
 export default blogMetaChDe;
