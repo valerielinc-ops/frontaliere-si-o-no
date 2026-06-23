@@ -96,6 +96,7 @@ import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobS
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
+import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -2184,6 +2185,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
  'TI', 'GR', 'VS', 'ZH', 'BE', 'BS', 'GE', 'VD',
  ];
 
+ /**
+ * First-page slim asset (#2580): the first ~50 records of the slim index,
+ * a tiny payload that lets page-1 cards paint immediately instead of waiting
+ * on the ~1.9 MB full index + the synchronous normalize of all ~5.5k records.
+ * Returns null on any miss (asset CDN-offloaded / 404 / parse error) so the
+ * caller falls straight through to the full index — graceful degradation, no
+ * hard dependency on the new asset existing.
+ */
+ const loadFirstPageSlim = async (): Promise<JobListing[] | null> => {
+ try {
+ const res = await fetch(cdnDataUrl(`/data/${firstPageIndexFileName(locale)}`));
+ if (!res.ok) return null;
+ const data = (await res.json()) as unknown;
+ if (!Array.isArray(data) || data.length === 0) return null;
+ return data as JobListing[];
+ } catch {
+ return null;
+ }
+ };
+
  /** Legacy slim-index → locale → monolithic fallback (FRO-386). */
  const loadLegacyLocaleJobs = async (): Promise<JobListing[]> => {
  const slimIndexUrl = `/data/jobs-${locale}-index.json`;
@@ -2248,6 +2269,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Hoisted above try/catch so the catch block can scope its legacy
  // fallback to the same canton.
  const targetCanton = initialFilterCanton || getDefaultCantonForVisit();
+
+ // First-page fast paint (#2580): on listing routes (no build-time seed),
+ // fetch the tiny first-page slim asset first and paint page-1 cards before
+ // the full index lands. The full load below still runs and replaces `jobs`
+ // with the complete (canton-scoped) set + the unscoped cross-canton pool, so
+ // pagination/filtering/cross-canton search are unaffected. Best-effort: any
+ // miss (asset 404 / parse) leaves `jobsLoading` true and the full path takes
+ // over normally. Skipped for canton-scoped pages other than TI because the
+ // first-page asset is recency-ordered/TI-dominant — painting it for, say,
+ // /cerca-lavoro-zurigo/ would flash mostly-TI cards before the scoped set.
+ const firstPaintEligible =
+ !seededJob &&
+ (targetCanton === AGGREGATE_CANTON_CODE || targetCanton === 'TI');
+ if (firstPaintEligible) {
+ const firstPage = await loadFirstPageSlim();
+ if (firstPage && !cancelled) {
+ finalize(scopeJobsToCanton(firstPage, targetCanton));
+ }
+ }
+
  try {
  const shardJobs: RawJob[] =
  targetCanton === AGGREGATE_CANTON_CODE

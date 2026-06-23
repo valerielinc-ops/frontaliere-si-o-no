@@ -9,8 +9,12 @@
  *
  * We stash the intended alert config here BEFORE triggering auth and replay it
  * once the user is authenticated, auto-creating the alert they asked for.
- * sessionStorage (not in-memory) so it survives a redirect-based sign-in; a
- * short TTL so a config abandoned mid-auth never fires a surprise alert later.
+ * localStorage (not sessionStorage) so it survives EVERY sign-in surface — not
+ * just a same-tab redirect, but also the newsletter-autologin flow where the
+ * email link can open a *new* tab (sessionStorage is per-tab and would be lost
+ * there, silently degrading the 93%-drop funnel back to the old behaviour). The
+ * explicit TTL below is what keeps localStorage's longer lifetime safe: a config
+ * abandoned mid-auth never fires a surprise alert in a later session/visit.
  */
 
 import type { JobAlertConfig } from '@/services/jobAlertService';
@@ -18,6 +22,8 @@ import type { JobAlertConfig } from '@/services/jobAlertService';
 const KEY = 'pending_job_alert';
 // Long enough for a Google popup or newsletter-autologin token exchange, short
 // enough that an abandoned attempt never resurfaces in a later session/visit.
+// This TTL is load-bearing now that we use localStorage (cross-tab, persistent)
+// rather than sessionStorage (per-tab, tab-lifetime).
 const TTL_MS = 15 * 60 * 1000;
 
 interface StoredPendingAlert {
@@ -29,9 +35,9 @@ export function savePendingJobAlert(config: JobAlertConfig): void {
   if (typeof window === 'undefined') return;
   try {
     const payload: StoredPendingAlert = { config, savedAt: Date.now() };
-    window.sessionStorage.setItem(KEY, JSON.stringify(payload));
+    window.localStorage.setItem(KEY, JSON.stringify(payload));
   } catch {
-    /* sessionStorage unavailable (private mode) — degrade to no replay */
+    /* localStorage unavailable (private mode / quota) — degrade to no replay */
   }
 }
 
@@ -43,8 +49,8 @@ export function consumePendingJobAlert(): JobAlertConfig | null {
   if (typeof window === 'undefined') return null;
   let raw: string | null = null;
   try {
-    raw = window.sessionStorage.getItem(KEY);
-    if (raw) window.sessionStorage.removeItem(KEY);
+    raw = window.localStorage.getItem(KEY);
+    if (raw) window.localStorage.removeItem(KEY);
   } catch {
     return null;
   }
@@ -62,7 +68,7 @@ export function consumePendingJobAlert(): JobAlertConfig | null {
 export function clearPendingJobAlert(): void {
   if (typeof window === 'undefined') return;
   try {
-    window.sessionStorage.removeItem(KEY);
+    window.localStorage.removeItem(KEY);
   } catch {
     /* ignore */
   }
