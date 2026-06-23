@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "givaudan-c8dcbbd7d911",
-      "slug": "hr-coordinator-m-w-d-60-givaudan-ch",
+      "slug": "risorse-umane-coordinatore-m-w-d-60-givaudan-kemptthal-switzerland",
       "slugByLocale": {
         "de": "hr-coordinator-m-w-d-60-givaudan-ch",
-        "it": "hr-coordinator-m-w-d-60-givaudan-ch",
+        "it": "risorse-umane-coordinatore-m-w-d-60-givaudan-kemptthal-switzerland",
         "en": "hr-coordinator-m-w-d-60-givaudan-kemptthal",
-        "fr": "hr-coordinator-m-w-d-60-givaudan-ch"
+        "fr": "ressources-humaines-coordinateur-m-w-d-60-givaudan-kemptthal-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -65,7 +65,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T22:45:18.397Z"
+      "firstSeenAt": "2026-06-22T22:45:18.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-coordinator-m-w-d-60-givaudan-ch"
+        ],
+        "fr": [
+          "hr-coordinator-m-w-d-60-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-coordinator-m-w-d-60-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-dc49024d2d45",

@@ -1519,10 +1519,6 @@
         "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
         "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
-        "responsabile-revenue-management-marriott-international-geneva",
-        "revenue-manager-marriott-geneva",
-        "umsatzmanager-marriott-international-geneva",
-        "responsable-revenue-management-marriott-international-geneva",
         "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-06-12T22:49:35.890Z",
@@ -1863,9 +1859,6 @@
         "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
         "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
         "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier",
-        "mixologo-inverno-2026-2027-w-verbier-marriott-international-verbier",
-        "mixologe-winter-2026-2027-w-verbier-marriott-international-verbier",
-        "mixologue-hiver-2026-2027-w-verbier-marriott-international-verbier",
         "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -2157,11 +2150,11 @@
     },
     {
       "id": "marriott-3c3f3de376a9",
-      "slug": "guest-experience-expert-ays-marriott-zurich",
+      "slug": "esperto-esperienza-ospiti-ays-marriott-international-zurich",
       "slugByLocale": {
         "en": "guest-experience-expert-ays-marriott-zurich",
-        "it": "guest-experience-expert-ays-marriott-zurich",
-        "de": "guest-experience-expert-ays-marriott-zurich",
+        "it": "esperto-esperienza-ospiti-ays-marriott-international-zurich",
+        "de": "gasteerlebnis-experte-ays-marriott-international-zurich",
         "fr": "guest-experience-expert-ays-marriott-zurich"
       },
       "company": "Marriott International",
@@ -2229,12 +2222,21 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-22T23:15:20.372Z",
       "previousSlugs": [
+        "guest-experience-expert-ays-marriott-zurich",
         "esperienza-degli-ospiti-marriott-international-zurich",
         "guest-experience-expert-marriott-zurich",
         "gasteerlebnis-experte-marriott-international-zurich",
         "expert-d-experience-invite-marriott-international-zurich",
         "esperto-di-supporto-f-b-stewarding-marriott-international-zurich"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-expert-ays-marriott-zurich"
+        ],
+        "de": [
+          "guest-experience-expert-ays-marriott-zurich"
+        ]
+      }
     },
     {
       "id": "marriott-8efd5184da21",
