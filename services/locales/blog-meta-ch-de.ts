@@ -308,6 +308,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Grenzgänger Gemeindewahl Wohnsitz Italien Schweiz 2026 Single',
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Untertitel mit konkreten Daten AUS DER QUELLE (max 160 Chars)',
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
+    'blog.article.banca-svizzera-segreto.title': 'Schweizer Banken: Noch Unterschlupf für schmutziges Geld?',
+    'blog.article.banca-svizzera-segreto.excerpt': 'Analyse der Reformen des Schweizer Bankensektors und des Bankgeheimnisses.',
+    'blog.article.banca-svizzera-segreto.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee und den umliegenden Bergen.',
 };
 
 export default blogMetaChDe;

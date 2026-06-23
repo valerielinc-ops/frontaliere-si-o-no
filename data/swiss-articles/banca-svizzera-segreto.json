@@ -1,0 +1,40 @@
+{
+  "id": "banca-svizzera-segreto",
+  "slug": "banca-svizzera-segreto",
+  "publishedAt": "2026-06-23T08:43:15.252Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.457846265820083,
+    "confidence": 0.8,
+    "finalScore": 2.7662770126560665,
+    "topK": [
+      {
+        "slug": "banche-golfo-frontalieri-ticino-2026",
+        "cosine": 0.8644615664550207
+      },
+      {
+        "slug": "banche-ticino-disoccupazione",
+        "cosine": 0.8568453681582845
+      },
+      {
+        "slug": "banche-svizzere-pronti-clienti-golfo-2026",
+        "cosine": 0.8567429713749385
+      },
+      {
+        "slug": "bns-utile-calo-2025-impatto-ticino",
+        "cosine": 0.85573050487657
+      },
+      {
+        "slug": "svizzera-cashless-bns-sistema-equo",
+        "cosine": 0.8530522331829968
+      }
+    ],
+    "score": 2.7662770126560665,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}
