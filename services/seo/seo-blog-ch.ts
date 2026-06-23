@@ -3842,6 +3842,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-checklist-2026': {
+    title: 'Frontaliere: checklist primo giorno di lavoro in Ticino 2026',
+    description: 'Documenti necessari per lavoratori transfrontalieri nel 2026: permessi, assicurazione e dati bancari. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, checklist, primo, giorno, lavoro',
+    ogTitle: 'Frontaliere: checklist lavoro Ticino 2026',
+    ogDescription: 'Checklist per primo giorno di lavoro in Ticino: documenti, permessi e assicurazione sanitaria',
+    canonicalPath: '/articoli-svizzera/frontalieri-checklist-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere: checklist primo giorno di lavoro in Ticino 2026",
+      "description": "Documenti necessari per lavoratori transfrontalieri nel 2026: permessi, assicurazione e dati bancari. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-checklist-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che presenta documenti al primo giorno di lavoro a Lugano"
+      },
+      "datePublished": "2026-06-23T03:20:46+00:00",
+      "dateModified": "2026-06-23T03:20:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-checklist-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
