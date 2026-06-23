@@ -9,7 +9,7 @@
         "de": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
         "it": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
         "en": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
-        "fr": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
+        "fr": "dipl-infirmier-hf-psychiatrie-dipl-infirmier-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -56,10 +56,14 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
+        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen",
         "infirmiere-diplomee-en-psychiatrie-en-insuffisance-cardiaque-infirmiere-diplomee-en-psychiatrie-en-insuffisance-spitex",
         "dipl-infirmier-ere-es-psychiatrie-spitex-rebeno-ag-zollikofen"
       ],
@@ -1426,9 +1430,9 @@
       "slug": "dipl-pflegefachperson-hf-m-w-d-come-berufsbildner-in-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-m-w-d-come-berufsbildner-in-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "dipl-pflegefachperson-hf-m-w-d-als-berufsbildner-in-60-100-spitex-ch-ehrendingen",
+        "en": "registered-nurse-hf-as-trainer-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
         "de": "dipl-pflegefachperson-hf-m-w-d-als-berufsbildner-in-60-100-spitex-ch-ehrendingen",
-        "fr": "dipl-pflegefachperson-hf-m-w-d-als-berufsbildner-in-60-100-spitex-ch-ehrendingen"
+        "fr": "infirmier-diplome-hes-en-tant-que-formateur-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -1476,6 +1480,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-m-w-d-als-berufsbildner-in-60-100-spitex-ch-ehrendingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-m-w-d-als-berufsbildner-in-60-100-spitex-ch-ehrendingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-m-w-d-als-berufsbildner-in-60-100-spitex-ch-ehrendingen"
         ]
       },
       "firstSeenAt": "2026-06-22T15:25:59.272Z",
@@ -1499,7 +1509,7 @@
         "it": "esperto-di-infermieristica-mscn-40-60-bundner-spital-und-heimverband-chur",
         "en": "pflegeexpertin-pflegeexperte-mscn-40-60-bundner-spital-und-heimverband-chur",
         "de": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
-        "fr": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+        "fr": "expert-e-en-soins-mscn-40-60-bundner-spital-und-heimverband-chur"
       },
       "company": "Bündner Spital- und Heimverband",
       "companyKey": "spitex-ch",
@@ -1547,6 +1557,9 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
         ]
       },
       "firstSeenAt": "2026-06-22T15:25:58.646Z",
@@ -1568,9 +1581,9 @@
       "slug": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
         "it": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh",
-        "en": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh",
+        "en": "clinical-and-staff-leadership-psychiatry-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "de": "fachliche-und-personelle-teamleitung-psychiatrie-70-90-spitex-spitex-ch-weiningen-zh",
-        "fr": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh"
+        "fr": "responsable-d-equipe-en-psychiatrie-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -1636,12 +1649,12 @@
     },
     {
       "id": "spitex-ch-a678502ed3c4",
-      "slug": "assistente-infermieristico-40-80-spitex-regio-liestal-liestal",
+      "slug": "assistente-di-cura-spitex-regio-liestal-liestal",
       "slugByLocale": {
-        "it": "assistente-infermieristico-40-80-spitex-regio-liestal-liestal",
-        "en": "pflegehelfer-in-40-80-spitex-ch-liestal",
+        "it": "assistente-di-cura-spitex-regio-liestal-liestal",
+        "en": "care-assistant-40-80-spitex-regio-liestal-liestal",
         "de": "pflegehelfer-in-40-80-spitex-ch-liestal",
-        "fr": "pflegehelfer-in-40-80-spitex-ch-liestal"
+        "fr": "aide-soignant-e-40-80-spitex-regio-liestal-liestal"
       },
       "company": "Spitex Regio Liestal",
       "companyKey": "spitex-ch",
@@ -1684,10 +1697,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-40-80-spitex-ch-liestal"
+        "pflegehelfer-in-40-80-spitex-ch-liestal",
+        "assistente-infermieristico-40-80-spitex-regio-liestal-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelfer-in-40-80-spitex-ch-liestal",
+          "assistente-infermieristico-40-80-spitex-regio-liestal-liestal"
+        ],
+        "en": [
+          "pflegehelfer-in-40-80-spitex-ch-liestal"
+        ],
+        "fr": [
           "pflegehelfer-in-40-80-spitex-ch-liestal"
         ]
       },
@@ -1712,7 +1733,7 @@
         "it": "dipl-pflegefachperson-hf-fh-con-specializzazione-spezialisierte-palliative-care-40-bis-50-spitex-fricktal-ag-munchwilen-ag",
         "en": "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50",
         "de": "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50"
+        "fr": "infirmier-infirmiere-diplome-e-en-soins-palliatifs-40-50-spitex-fricktal-ag-munchwilen-ag"
       },
       "company": "Spitex Fricktal AG",
       "companyKey": "spitex-ch",
@@ -1760,6 +1781,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50"
         ]
       },
       "firstSeenAt": "2026-06-22T15:25:56.589Z",
@@ -1782,8 +1806,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch",
         "it": "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl",
-        "en": "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl",
-        "fr": "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl"
+        "en": "registered-nurse-hf-specializing-in-dementia-60-90-spitex-region-birs-gmbh-reinach-bl",
+        "fr": "infirmier-dipl-hf-specialiste-en-demence-60-90-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1933,7 +1957,7 @@
         "it": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
         "en": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
         "de": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "fr": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten"
+        "fr": "infirmier-diplome-en-psychiatrie-40-80-spitex-region-olten-olten"
       },
       "company": "Spitex Region Olten",
       "companyKey": "spitex-ch",

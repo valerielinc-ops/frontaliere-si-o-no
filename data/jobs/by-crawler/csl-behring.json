@@ -3102,9 +3102,7 @@
         "ricercatore-tech-ops-csl-behring-bern",
         "scientist-tech-ops-csl-behring-ch",
         "wissenschaftler-tech-ops-csl-behring-bern",
-        "scientifique-tech-ops-csl-behring-bern",
-        "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
-        "senior-laboratoriumspezialist-tech-ops-csl-behring-bern"
+        "scientifique-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3626,7 +3624,7 @@
       "slugByLocale": {
         "it": "assistente-esecutivo-csl-behring-bern",
         "en": "executive-assistant-csl-behring-ch",
-        "de": "executive-assistent-csl-behring-bern",
+        "de": "exekutivassistent-csl-behring-bern",
         "fr": "executive-assistant-csl-behring-ch"
       },
       "company": "CSL Behring",
@@ -3669,11 +3667,15 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "executive-assistant-csl-behring-ch"
+        "executive-assistant-csl-behring-ch",
+        "executive-assistent-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "executive-assistant-csl-behring-ch"
+        ],
+        "de": [
+          "executive-assistent-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-06-22T14:05:49.317Z",

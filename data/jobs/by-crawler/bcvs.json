@@ -470,11 +470,11 @@
     },
     {
       "id": "bcvs-a529502ccd83",
-      "slug": "expert-e-immobilier-senior-bcvs-sion",
+      "slug": "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "it": "expert-e-immobilier-senior-bcvs-sion",
+        "it": "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
         "en": "expert-e-immobilier-senior-banque-cantonale-du-valais-sion",
-        "de": "expert-e-immobilier-senior-bcvs-sion",
+        "de": "senior-immobilienexperte-banque-cantonale-du-valais-sion",
         "fr": "expert-e-immobilier-senior-bcvs-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -522,16 +522,13 @@
       ],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
-        "senior-immobilienexperte-banque-cantonale-du-valais-sion"
+        "expert-e-immobilier-senior-bcvs-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
           "expert-e-immobilier-senior-bcvs-sion"
         ],
         "de": [
-          "senior-immobilienexperte-banque-cantonale-du-valais-sion",
           "expert-e-immobilier-senior-bcvs-sion"
         ]
       },
@@ -552,12 +549,12 @@
     },
     {
       "id": "bcvs-15772aec343d",
-      "slug": "berater-in-customer-center-bcvs-sion",
+      "slug": "consulente-centro-clienti-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "it": "berater-in-customer-center-bcvs-sion",
+        "it": "consulente-centro-clienti-banque-cantonale-du-valais-sion",
         "en": "berater-in-customer-center-banque-cantonale-du-valais-sion",
         "de": "berater-in-customer-center-bcvs-sion",
-        "fr": "berater-in-customer-center-bcvs-sion"
+        "fr": "conseiller-conseillere-centre-client-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -599,8 +596,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consulente-centro-clienti-banque-cantonale-du-valais-sion",
-        "conseiller-conseillere-centre-client-banque-cantonale-du-valais-sion",
+        "berater-in-customer-center-bcvs-sion",
         "consulente-clienti-valorizzazione-banque-cantonale-du-valais-sion",
         "customer-advisor-for-credit-recovery-banque-cantonale-du-valais-sion",
         "kundenberaterin-fur-kreditwiederherstellung-banque-cantonale-du-valais-sion",
@@ -614,11 +610,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-centro-clienti-banque-cantonale-du-valais-sion",
           "berater-in-customer-center-bcvs-sion"
         ],
         "fr": [
-          "conseiller-conseillere-centre-client-banque-cantonale-du-valais-sion",
           "berater-in-customer-center-bcvs-sion"
         ]
       },

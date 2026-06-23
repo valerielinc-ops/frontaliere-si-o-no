@@ -1297,12 +1297,12 @@
     },
     {
       "id": "emil-frey-7cf657c85250",
-      "slug": "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh",
+      "slug": "coordinatore-del-workshop-in-in-una-settimana-di-4-giorni-emil-frey-wetzikon-zh",
       "slugByLocale": {
         "de": "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh",
-        "it": "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh",
-        "en": "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh",
-        "fr": "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh"
+        "it": "coordinatore-del-workshop-in-in-una-settimana-di-4-giorni-emil-frey-wetzikon-zh",
+        "en": "workshop-coordinator-in-in-a-4-day-week-emil-frey-wetzikon-zh",
+        "fr": "coordonnateur-de-l-atelier-dans-une-semaine-de-4-jours-emil-frey-wetzikon-zh"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -1358,7 +1358,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T22:37:02.961Z"
+      "firstSeenAt": "2026-06-22T22:37:02.961Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh"
+        ],
+        "en": [
+          "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh"
+        ],
+        "fr": [
+          "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh"
+        ]
+      },
+      "previousSlugs": [
+        "werkstattkoordinator-in-in-einer-4-tage-woche-emil-frey-wetzikon-zh"
+      ]
     },
     {
       "id": "emil-frey-0e51028ff5cf",
@@ -7636,12 +7650,12 @@
     },
     {
       "id": "emil-frey-91c067115a9d",
-      "slug": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf",
+      "slug": "specialista-automobilistico-specialista-della-meccatronica-automobilistica-in-emil-frey-dubendorf",
       "slugByLocale": {
         "de": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf",
-        "it": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf",
-        "en": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf",
-        "fr": "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf"
+        "it": "specialista-automobilistico-specialista-della-meccatronica-automobilistica-in-emil-frey-dubendorf",
+        "en": "automotive-specialist-automotive-mechatronics-specialist-in-emil-frey-dubendorf",
+        "fr": "specialiste-automobile-mecatronique-automobile-specialiste-in-emil-frey-dubendorf"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -7697,7 +7711,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-22T22:37:02.817Z"
+      "firstSeenAt": "2026-06-22T22:37:02.817Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf"
+        ],
+        "en": [
+          "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf"
+        ],
+        "fr": [
+          "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "automobil-fachmann-frau-automobil-mechatroniker-in-emil-frey-dubendorf"
+      ]
     }
   ]
 }

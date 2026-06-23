@@ -7639,12 +7639,12 @@
     },
     {
       "id": "eth-zurich-c73199c61c0d",
-      "slug": "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch",
+      "slug": "ricercatore-post-dottorato-in-modelli-di-ragionamento-multimodale-per-oncologia-eth-zurich-basel",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch",
-        "it": "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch",
-        "de": "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch",
-        "fr": "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch"
+        "it": "ricercatore-post-dottorato-in-modelli-di-ragionamento-multimodale-per-oncologia-eth-zurich-basel",
+        "de": "postdoktorand-in-multimodalen-argumentationsmodellen-fur-die-onkologie-eth-zurich-basel",
+        "fr": "chercheur-postdoctoral-en-modeles-de-raisonnement-multimodal-pour-l-oncologie-eth-zurich-basel"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7699,7 +7699,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-22T22:38:51.892Z"
+      "firstSeenAt": "2026-06-22T22:38:51.892Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-multimodal-reasoning-models-for-oncology-eth-zurich-ch"
+      ]
     }
   ]
 }

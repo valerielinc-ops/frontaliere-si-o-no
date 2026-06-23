@@ -1602,12 +1602,12 @@
     },
     {
       "id": "denner-320781522244",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-arlesheim",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-gestione-delle-branche-denner-arlesheim",
         "de": "assistent-in-filialleitung-denner-ag-arlesheim-yvf3vq",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-arlesheim",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-arlesheim"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1677,7 +1677,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-22T22:33:47.960Z"
+      "firstSeenAt": "2026-06-22T22:33:47.960Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-9caceb0b7fc8",
@@ -2704,12 +2718,12 @@
     },
     {
       "id": "denner-d22c0e4a7a3f",
-      "slug": "stv-filialleiter-in-denner-landquart",
+      "slug": "stv-branch-manager-in-denner-landquart",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-landquart",
+        "it": "stv-branch-manager-in-denner-landquart",
         "de": "stv-filialleiter-in-denner-ag-landquart-f4990z",
         "en": "stv-filialleiter-in-denner-landquart",
-        "fr": "stv-filialleiter-in-denner-landquart"
+        "fr": "directeur-de-succursale-stv-in-denner-landquart"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2768,11 +2782,16 @@
       "crawledAt": "2026-06-22T22:33:45.051Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-landquart"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-landquart"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-landquart"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
