@@ -317,6 +317,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bilancia-pagamenti-calo-svizzera.title': 'SNB: balance of payments declining',
     'blog.article.bilancia-pagamenti-calo-svizzera.excerpt': 'Balance of payments balance in significant decline in the first quarter for the Swiss economy. The current account surplus was 16 billion francs, 11 billion francs less than the same period last year, the Swiss National Bank (SNB) said today.',
     'blog.article.bilancia-pagamenti-calo-svizzera.imageAlt': 'Panoramic view of a Swiss city with a wide horizon and a suggestive perspective',
+    'blog.article.dati-frontalieri-errore-sistemico.title': 'Frontier data: no systemic error, says DFE',
+    'blog.article.dati-frontalieri-errore-sistemico.excerpt': 'The director of the Division of Contributions of the DFE specifies that the problems reported on the data of border workers concern only isolated cases.',
+    'blog.article.dati-frontalieri-errore-sistemico.imageAlt': 'Aerial view of Lugano Lake with cross-border workers crossing the border',
 };
 
 export default blogMetaChEn;

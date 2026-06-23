@@ -317,6 +317,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bilancia-pagamenti-calo-svizzera.title': 'BNS: bilancia dei pagamenti in calo',
     'blog.article.bilancia-pagamenti-calo-svizzera.excerpt': 'Saldo della bilancia dei pagamenti in sensibile calo nel primo trimestre per l\'economia svizzera. L\'avanzo del conto corrente è stato pari a 16 miliardi di franchi, ossia 11 miliardi in meno rispetto allo stesso periodo dell\'anno precedente, ha indicato oggi la Banca nazionale svizzera (BNS).',
     'blog.article.bilancia-pagamenti-calo-svizzera.imageAlt': 'Vista panoramica di una città svizzera con un orizzonte ampio e una prospettiva suggestiva',
+    'blog.article.dati-frontalieri-errore-sistemico.title': 'Dati frontalieri: nessun errore sistemico, dice il DFE',
+    'blog.article.dati-frontalieri-errore-sistemico.excerpt': 'Il direttore della Divisione delle contribuzioni del DFE precisa che i problemi segnalati sui dati dei frontalieri riguardano solo casi isolati.',
+    'blog.article.dati-frontalieri-errore-sistemico.imageAlt': 'Vista aerea del Lago di Lugano con frontalieri che attraversano il confine',
 };
 
 export default blogMetaChIt;

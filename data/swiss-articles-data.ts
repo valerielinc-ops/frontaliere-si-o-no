@@ -953,6 +953,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dati-frontalieri-errore-sistemico',
+    category: 'fiscale',
+    date: '2026-06-23T11:02:10.115Z',
+    image: '/images/blog/dati-frontalieri-errore-sistemico.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

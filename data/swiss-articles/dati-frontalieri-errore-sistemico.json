@@ -1,0 +1,18 @@
+{
+  "id": "dati-frontalieri-errore-sistemico",
+  "slug": "dati-frontalieri-errore-sistemico",
+  "publishedAt": "2026-06-23T11:02:11.218Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "fiscale",
+    "score": 0,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1
+  }
+}

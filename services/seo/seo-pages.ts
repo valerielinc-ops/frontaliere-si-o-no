@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2871,
+ "numberOfItems": 2872,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7515,7 +7515,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2868, "name": "Banche svizzere: ancora rifugio per denaro sporco?", "url": `${BASE_URL}/articoli-frontaliere/banca-svizzera-segreto` },
           { "@type": "ListItem", "position": 2869, "name": "Guida pratica ai trasporti Chiasso-Lugano per f...", "url": `${BASE_URL}/articoli-frontaliere/trasporti-chiasso-lugano-2026` },
           { "@type": "ListItem", "position": 2870, "name": "BNS: bilancia dei pagamenti in calo", "url": `${BASE_URL}/articoli-frontaliere/bilancia-pagamenti-calo-svizzera` },
-          { "@type": "ListItem", "position": 2871, "name": "Avs, domani alle 11 Angelo Bonelli in diretta a...", "url": `${BASE_URL}/articoli-frontaliere/avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos` }
+          { "@type": "ListItem", "position": 2871, "name": "Avs, domani alle 11 Angelo Bonelli in diretta a...", "url": `${BASE_URL}/articoli-frontaliere/avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos` },
+          { "@type": "ListItem", "position": 2872, "name": "Dati frontalieri: nessun errore sistemico, dice...", "url": `${BASE_URL}/articoli-frontaliere/dati-frontalieri-errore-sistemico` }
  ]
  },
  {
