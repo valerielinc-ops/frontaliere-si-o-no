@@ -105,6 +105,25 @@ export function frFuelThe(fuelLabel: string): string {
   return frFuelStartsWithVowel(lower) ? `l'${lower}` : `le ${lower}`;
 }
 
+/**
+ * French elision-aware partitive "of <fuel>" WITHOUT a preceding article
+ * ("facture de X", "Les prix de X"): "d'essence" for vowel-initial, "de gasoil"
+ * otherwise. Avoids the ungrammatical "de essence".
+ */
+export function frFuelDe(fuelLabel: string): string {
+  const lower = fuelLabel.toLowerCase();
+  return frFuelStartsWithVowel(lower) ? `d'${lower}` : `de ${lower}`;
+}
+
+/**
+ * French elision-aware "to/at the <fuel>" ("s'applique au X"): "à l'essence" for
+ * vowel-initial, "au gasoil" otherwise. Avoids the ungrammatical "au essence".
+ */
+export function frFuelAt(fuelLabel: string): string {
+  const lower = fuelLabel.toLowerCase();
+  return frFuelStartsWithVowel(lower) ? `à l'${lower}` : `au ${lower}`;
+}
+
 export interface FuelDailyPath {
   locale: FuelDailyLocale;
   fuel: FuelType;
