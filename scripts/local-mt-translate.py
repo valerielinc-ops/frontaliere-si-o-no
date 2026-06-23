@@ -245,21 +245,17 @@ def translate_stream():
         except Exception:  # noqa: BLE001
             return key, ""
 
-    keys = list(unit_cache.keys())
-    if workers <= 1 or len(keys) <= 1:
-        for key in keys:
-            _, out = _do(key)
-            unit_cache[key] = out
-    else:
-        with ThreadPoolExecutor(max_workers=workers) as pool:
-            for key, out in (f.result() for f in as_completed(
-                    [pool.submit(_do, k) for k in keys])):
-                unit_cache[key] = out
-
-    # ── Reassemble + emit each request ──────────────────────────────────────
+    # INCREMENTAL EMIT (partial-result safety, #2212): a request is reassembled
+    # and flushed the MOMENT all of its units resolve — interleaved with the pool,
+    # NOT in a final loop after the whole batch. So a timeout kill mid-pool still
+    # leaves every already-complete request written to stdout and parseable by the
+    # orchestrator's timedOut branch (the dedup-batch restructure would otherwise
+    # have buffered every emit until the end and lost the whole batch on a kill).
     ok = 0
     failed = 0
-    for req in requests:
+
+    def _emit(req):
+        nonlocal ok, failed
         rid, frm, to = req["id"], req["from"], req["to"]
         parts = []
         unit_total = 0
@@ -289,6 +285,42 @@ def translate_stream():
             ok += 1
             sys.stdout.write(json.dumps({"id": rid, "text": text}, ensure_ascii=False) + "\n")
         sys.stdout.flush()
+
+    # Dependency map: request -> set of still-unresolved unit keys; key -> the
+    # requests waiting on it. A request emits as soon as its pending set empties.
+    pending = {}   # id(req) -> set(key) | None (None = already emitted)
+    key_deps = {}  # key -> [req, ...]
+    for req in requests:
+        ks = {(u["content"], req["from"], req["to"]) for u in req["units"].values()}
+        pending[id(req)] = ks
+        for k in ks:
+            key_deps.setdefault(k, []).append(req)
+        if not ks:
+            # All-literal request (no translatable content): emit immediately.
+            pending[id(req)] = None
+            _emit(req)
+
+    def _resolve(key, out):
+        unit_cache[key] = out
+        for req in key_deps.get(key, ()):
+            s = pending.get(id(req))
+            if s is None:
+                continue
+            s.discard(key)
+            if not s:
+                pending[id(req)] = None  # guard against a second emit
+                _emit(req)
+
+    keys = list(unit_cache.keys())
+    if workers <= 1 or len(keys) <= 1:
+        for key in keys:
+            _, out = _do(key)
+            _resolve(key, out)
+    else:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            for key, out in (f.result() for f in as_completed(
+                    [pool.submit(_do, k) for k in keys])):
+                _resolve(key, out)
 
     elapsed = time.time() - started
     log(f"🏁 Argos translate: {ok} ok, {failed + bad} failed in {elapsed:.1f}s "
