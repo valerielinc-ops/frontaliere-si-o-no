@@ -6256,7 +6256,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  : '[@media(max-height:540px)]:hidden h-[clamp(0px,calc(100svh_-_540px),80px)]';
  const descriptionPreview = String(
  selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
- ).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, previewCharLimit);
+ )
+ .replace(/<br\s*\/?>/gi, '\n')
+ .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
+ .replace(/<[^>]+>/g, ' ')
+ .replace(/[^\S\n]+/g, ' ')
+ .replace(/\n[ \t]*/g, '\n')
+ .replace(/\n{3,}/g, '\n\n')
+ .trim()
+ .slice(0, previewCharLimit);
  // True while the slim index gave us no description but the per-job detail
  // fetch hasn't settled yet (cache miss on first render, or in flight).
  // Switches the always-mounted teaser box from static bars to a pulsing
@@ -6422,7 +6430,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  description-less jobs. */}
  <div className={`relative mt-3 w-full overflow-hidden rounded-stripe ${previewBoxClass}`}>
  {descriptionPreview ? (
- <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
+ <p className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
  {descriptionPreview}...
  </p>
  ) : teaserPending ? (
