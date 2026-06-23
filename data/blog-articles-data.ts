@@ -25794,6 +25794,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'secondo-binario-locarnese-raggiunta-tappa',
+ category: 'novita',
+ date: '2026-06-23T00:27:18.334Z',
+ image: '/images/blog/secondo-binario-locarnese-raggiunta-tappa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

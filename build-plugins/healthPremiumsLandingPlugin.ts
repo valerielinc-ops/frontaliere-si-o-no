@@ -61,7 +61,7 @@ import {
   type TriYearCantonDelta,
   type BracketTrend,
 } from './healthPremiumsData';
-import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { generateRelatedLinksBlock, JOB_LISTING_ROOT } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -113,21 +113,25 @@ const HEALTH_PREMIUMS_DISCOVER_MORE_CTAS: Record<
 > = {
   it: [
     { title: 'Confronto casse malati',                href: LAMAL_COMPARE_PATH.it },
+    { title: 'Offerte di lavoro in Ticino',           href: JOB_LISTING_ROOT.it },
     { title: 'Calcolatore stipendio frontaliere',     href: HOME_PATH.it },
     { title: 'Tempi di attesa alle dogane',           href: BORDER_WAIT_HUB_PATH.it },
   ],
   en: [
     { title: 'Compare health insurers',               href: LAMAL_COMPARE_PATH.en },
+    { title: 'Job openings in Ticino',                href: JOB_LISTING_ROOT.en },
     { title: 'Cross-border salary calculator',        href: HOME_PATH.en },
     { title: 'Border crossing wait times',            href: BORDER_WAIT_HUB_PATH.en },
   ],
   de: [
     { title: 'Krankenkassen vergleichen',             href: LAMAL_COMPARE_PATH.de },
+    { title: 'Stellenangebote im Tessin',             href: JOB_LISTING_ROOT.de },
     { title: 'Gehaltsrechner Grenzgänger',            href: HOME_PATH.de },
     { title: 'Wartezeiten an der Grenze',             href: BORDER_WAIT_HUB_PATH.de },
   ],
   fr: [
     { title: 'Comparer les caisses maladie',          href: LAMAL_COMPARE_PATH.fr },
+    { title: "Offres d'emploi au Tessin",             href: JOB_LISTING_ROOT.fr },
     { title: 'Calculateur salaire frontalier',        href: HOME_PATH.fr },
     { title: "Temps d'attente aux douanes",           href: BORDER_WAIT_HUB_PATH.fr },
   ],
@@ -2925,6 +2929,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <h2 id="cantonGrid" style="${H2_STYLE}">${esc(copy.cantonGridTitle)}</h2>
     ${cantonGridHtml}
   </section>
+  ${DRIVEBY_AD_SNIPPET}
   <section class="s-ziawP1" aria-labelledby="background">
     <h2 id="background" style="${H2_STYLE}">${esc(copy.rootBackgroundTitle)}</h2>
     <p class="s-KwuhOL">${esc(intro)}</p>

@@ -3686,6 +3686,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-olimpiadi-2038-svizzera-non-referendum': {
+    title: 'Olimpiadi 2038 in Svizzera: nessun referendum, conferma di 200 milioni',
+    description: 'Il Consiglio federale conferma il sostegno di 200 milioni di franchi per le Olimpiadi 2038, senza referendum federale. La candidatura sarà decentrata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, olimpiadi, 2038, nessun, referendum',
+    ogTitle: 'Olimpiadi 2038: nessun referendum in Svizzera',
+    ogDescription: 'La Svizzera si prepara alle Olimpiadi 2038 con un supporto di 200 milioni, senza referendum federale, coinvolgendo cantoni e cittadini locali.',
+    canonicalPath: '/articoli-svizzera/olimpiadi-2038-svizzera-non-referendum/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Olimpiadi 2038 in Svizzera: nessun referendum, conferma di 200 milioni",
+      "description": "Il Consiglio federale conferma il sostegno di 200 milioni di franchi per le Olimpiadi 2038, senza referendum federale. La candidatura sarà decentrata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/olimpiadi-2038-svizzera-non-referendum.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di lago e città svizzera con simboli olimpici"
+      },
+      "datePublished": "2026-06-22T21:12:44+00:00",
+      "dateModified": "2026-06-22T21:12:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/olimpiadi-2038-svizzera-non-referendum/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pensioni-svizzera-2025': {
+    title: 'Pensionati svizzeri all\'estero: come gestire la doppia residenza',
+    description: 'Scopri come gestire la doppia residenza come pensionato svizzero all\'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionati, svizzeri, estero, gestire',
+    ogTitle: 'Pensionati svizzeri all\'estero: guida alla doppia residenza',
+    ogDescription: 'Scopri come gestire la doppia residenza come pensionato svizzero all\'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.',
+    canonicalPath: '/articoli-svizzera/pensioni-svizzera-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionati svizzeri all'estero: come gestire la doppia residenza",
+      "description": "Scopri come gestire la doppia residenza come pensionato svizzero all'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensioni-svizzera-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pensionato svizzero che si gode una giornata di sole sul lago di Lugano"
+      },
+      "datePublished": "2026-06-23T00:33:12+00:00",
+      "dateModified": "2026-06-23T00:33:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensioni-svizzera-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stipendi-frontalieri-centro-commerciale': {
+    title: 'Centro commerciale assume: stipendi fino a 5mila franchi',
+    description: 'Scopri gli stipendi elevati offerti da un centro commerciale svizzero e come i frontalieri sono i principali impiegati. Analisi e implicazioni per il mercato',
+    keywords: 'frontalieri, ticino, svizzera, italia, centro, commerciale, assume, stipendi',
+    ogTitle: 'Stipendi fino a 5mila franchi OgTitle',
+    ogDescription: 'Scopri gli stipendi elevati nel centro commerciale svizzero e le implicazioni per i frontalieri e il mercato del lavoro locale.',
+    canonicalPath: '/articoli-svizzera/stipendi-frontalieri-centro-commerciale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Centro commerciale assume: stipendi fino a 5mila franchi",
+      "description": "Scopri gli stipendi elevati offerti da un centro commerciale svizzero e come i frontalieri sono i principali impiegati. Analisi e implicazioni per il mercato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendi-frontalieri-centro-commerciale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro commerciale in Svizzera con negozi e persone"
+      },
+      "datePublished": "2026-06-23T01:39:26+00:00",
+      "dateModified": "2026-06-23T01:39:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stipendi-frontalieri-centro-commerciale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-economisti-adeguano-stime-crescita-2026': {
+    title: 'Economisti adeguano stime crescita per il 2026',
+    description: 'La Svizzera nel 2026 va verso una crescita del PIL dello 0,9%, un dato in calo rispetto all\'1,0% di marzo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, economisti, adeguano, stime, crescita',
+    ogTitle: 'Economisti adeguano stime crescita per il 2026',
+    ogDescription: 'La Svizzera nel 2026 va verso una crescita del PIL dello 0,9%, un dato in calo rispetto all\'1,0% di marzo',
+    canonicalPath: '/articoli-svizzera/economisti-adeguano-stime-crescita-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economisti adeguano stime crescita per il 2026",
+      "description": "La Svizzera nel 2026 va verso una crescita del PIL dello 0,9%, un dato in calo rispetto all'1,0% di marzo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economisti-adeguano-stime-crescita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Monte Generoso con indicatori di crescita economica"
+      },
+      "datePublished": "2026-06-23T02:42:45+00:00",
+      "dateModified": "2026-06-23T02:42:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economisti-adeguano-stime-crescita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-checklist-2026': {
+    title: 'Frontaliere: checklist primo giorno di lavoro in Ticino 2026',
+    description: 'Documenti necessari per lavoratori transfrontalieri nel 2026: permessi, assicurazione e dati bancari. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, checklist, primo, giorno, lavoro',
+    ogTitle: 'Frontaliere: checklist lavoro Ticino 2026',
+    ogDescription: 'Checklist per primo giorno di lavoro in Ticino: documenti, permessi e assicurazione sanitaria',
+    canonicalPath: '/articoli-svizzera/frontalieri-checklist-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere: checklist primo giorno di lavoro in Ticino 2026",
+      "description": "Documenti necessari per lavoratori transfrontalieri nel 2026: permessi, assicurazione e dati bancari. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-checklist-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che presenta documenti al primo giorno di lavoro a Lugano"
+      },
+      "datePublished": "2026-06-23T03:20:46+00:00",
+      "dateModified": "2026-06-23T03:20:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-checklist-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-scelta-comune-residenza-italia-svizzera-2026-single': {
+    title: 'Frontaliere scelta comune residenza Italia Svizzera 2026 single',
+    description: 'Meta description 150-160 chars (HARD CAP: ≤ 160 caratteri). Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scelta, comune, residenza, single',
+    ogTitle: 'Frontaliere scelta comune residenza Italia Svizzera 2026 single',
+    ogDescription: 'OG desc (≤ 160 caratteri)',
+    canonicalPath: '/articoli-svizzera/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere scelta comune residenza Italia Svizzera 2026 single",
+      "description": "Meta description 150-160 chars (HARD CAP: ≤ 160 caratteri). Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "scena svizzera nazionale/cantonale"
+      },
+      "datePublished": "2026-06-23T03:42:13+00:00",
+      "dateModified": "2026-06-23T03:42:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

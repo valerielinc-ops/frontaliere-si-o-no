@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-06-22T15:22:06.188Z",
+  "assembledAt": "2026-06-22T23:36:35.890Z",
   "jobs": [
     {
       "id": "spital-sts-c3fba66bd07e",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c7c6e9a9-d32f-490c-9e6e-d36e7d25cf02/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:22:04.121Z",
+      "crawledAt": "2026-06-22T23:36:33.867Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/985404f9-e545-424f-a78d-991bffb30901/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:22:03.437Z",
+      "crawledAt": "2026-06-22T23:36:32.982Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9ebf5831-65b5-4230-a3da-722730d57695/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:22:02.806Z",
+      "crawledAt": "2026-06-22T23:36:32.273Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/bc26f779-c496-40b7-a82a-f408b43caf49/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:22:02.142Z",
+      "crawledAt": "2026-06-22T23:36:31.153Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/d7922b14-bc1f-47d7-a0f2-eefb871a7b57/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:22:01.469Z",
+      "crawledAt": "2026-06-22T23:36:29.975Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -407,7 +407,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7af25d74-121c-4534-9677-cab6a836fef8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:22:00.814Z",
+      "crawledAt": "2026-06-22T23:36:29.212Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -484,7 +484,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2c62d25b-df4c-4536-bad9-5b024ee5a7a6/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:21:59.764Z",
+      "crawledAt": "2026-06-22T23:36:28.138Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -561,7 +561,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5cf428e5-9bf4-4937-95d6-d1f4361271b8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:21:59.119Z",
+      "crawledAt": "2026-06-22T23:36:26.942Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -638,7 +638,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1953d39c-d8f1-45c3-9cd2-ad7010521204/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:21:58.504Z",
+      "crawledAt": "2026-06-22T23:36:25.796Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -687,9 +687,9 @@
       "id": "spital-sts-4aa2dcf206f5",
       "slug": "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun",
       "slugByLocale": {
-        "de": "sommerjob-in-der-pflege-befristet-spital-sts-thun",
         "it": "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun",
         "en": "sommerjob-in-der-pflege-befristet-spital-sts-thun",
+        "de": "sommerjob-in-der-pflege-befristet-spital-sts-thun",
         "fr": "sommerjob-in-der-pflege-befristet-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -697,17 +697,17 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Sommerjob in der Pflege (befristet)",
       "titleByLocale": {
-        "de": "Sommerjob in der Pflege (befristet)",
         "it": "Lavoro estivo in infermieristica (temporaneo)",
         "en": "Sommerjob in der Pflege (befristet)",
+        "de": "Sommerjob in der Pflege (befristet)",
         "fr": "Sommerjob in der Pflege (befristet)"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nZur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören...\n\nEintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n\n• Interdisziplinäre, lehrreiche Zusammenarbeit\n\nSo wirst du Teil unseres Teams\n\n• Interesse am Umgang mit kranken und alten Menschen\n\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n\n• Interesse an med. Themen und an der Pflege",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nZur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören...\n\nEintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n\n• Interdisziplinäre, lehrreiche Zusammenarbeit\n\nSo wirst du Teil unseres Teams\n\n• Interesse am Umgang mit kranken und alten Menschen\n\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n\n• Interesse an med. Themen und an der Pflege",
-        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nZur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören...\n\nEintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n\n• Interdisziplinäre, lehrreiche Zusammenarbeit\n\nSo wirst du Teil unseres Teams\n\n• Interesse am Umgang mit kranken und alten Menschen\n\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n\n• Interesse an med. Themen und an der Pflege",
-        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nZur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören...\n\nEintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n\n• Interdisziplinäre, lehrreiche Zusammenarbeit\n\nSo wirst du Teil unseres Teams\n\n• Interesse am Umgang mit kranken und alten Menschen\n\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n\n• Interesse an med. Themen und an der Pflege",
-        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nZur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören...\n\nEintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n\n• Interdisziplinäre, lehrreiche Zusammenarbeit\n\nSo wirst du Teil unseres Teams\n\n• Interesse am Umgang mit kranken und alten Menschen\n\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n\n• Interesse an med. Themen und an der Pflege"
+        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Zur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören... Eintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026 Das wartet auf dich\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n• Interdisziplinäre, lehrreiche Zusammenarbeit So wirst du Teil unseres Teams\n• Interesse am Umgang mit kranken und alten Menschen\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n• Interesse an med. Themen und an der Pflege",
+        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Zur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören... Eintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026 Das wartet auf dich\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n• Interdisziplinäre, lehrreiche Zusammenarbeit So wirst du Teil unseres Teams\n• Interesse am Umgang mit kranken und alten Menschen\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n• Interesse an med. Themen und an der Pflege",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Zur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören... Eintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026 Das wartet auf dich\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n• Interdisziplinäre, lehrreiche Zusammenarbeit So wirst du Teil unseres Teams\n• Interesse am Umgang mit kranken und alten Menschen\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n• Interesse an med. Themen und an der Pflege",
+        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Zur Entlastung unserer Teams suchen wir eine befristete Unterstützung. Zu deinen Aufgaben gehören... Eintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026 Das wartet auf dich\n• Abwechslungsreiche und spannende Tätigkeit am Patient und in der Hauswirtschaft\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n• Interdisziplinäre, lehrreiche Zusammenarbeit So wirst du Teil unseres Teams\n• Interesse am Umgang mit kranken und alten Menschen\n• Hohe Teamfähigkeit und belastbare Persönlichkeit\n• Interesse an med. Themen und an der Pflege"
       },
       "needsRetranslation": true,
       "location": "Thun",
@@ -715,7 +715,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e64cfd8c-92ce-45dd-aff7-6e1b1a65a034/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:21:57.854Z",
+      "crawledAt": "2026-06-22T23:36:24.693Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -731,9 +731,16 @@
       "postedDate": "2026-06-22",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/e64cfd8c-92ce-45dd-aff7-6e1b1a65a034",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sommerjob-in-der-pflege-befristet-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sommerjob-in-der-pflege-befristet-spital-sts-thun"
+        ]
       },
+      "firstSeenAt": "2026-06-22T15:21:57.854Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -745,16 +752,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-22T15:21:57.854Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sommerjob-in-der-pflege-befristet-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "sommerjob-in-der-pflege-befristet-spital-sts-thun"
-      ]
+      }
     }
   ]
 }
