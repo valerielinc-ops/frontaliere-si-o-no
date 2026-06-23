@@ -11,6 +11,7 @@ import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDI
 import { escapeInlineScript } from './shared/inlineJsonScript';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { CRITICAL_CSS } from './shared/criticalCss';
+import { railGutters } from './shared/railGutters';
 
 /**
  * Async-CSS swap snippet shared by every static page emitted through
@@ -331,15 +332,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // Reserved 300px columns mean zero CLS. Suppressed on `disableAutoAds` drive-by
  // pages (≥97% bounce) to honour their deliberate no-ad opt-out.
  const railsEnabled = seoContentOutsideRoot && !disableAutoAds;
- const railGridOpen = railsEnabled
-   ? ` <div class="ft-rail-grid xlw:grid xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-4 xlw:mx-auto xlw:max-w-[1768px]">
- <aside id="rail-left-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>`
-   : '';
- const railGridClose = railsEnabled
-   ? `
- <aside id="rail-right-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>
- </div>`
-   : '';
+ const { open: railGridOpen, close: railGridClose } = railGutters(railsEnabled);
  const bodySection = seoContentOutsideRoot
    ? ` <div id="root"></div>${preMainSection}
 ${railGridOpen}
