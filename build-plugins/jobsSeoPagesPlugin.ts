@@ -13,6 +13,7 @@ import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell } from './htmlTemplate';
+import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
@@ -4703,6 +4704,7 @@ ${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
  <main class="seo-static-content s-xzWvwM">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -4737,7 +4739,7 @@ ${staticAnalyticsHtml}
  ${renderJobList(model.sections.partTime.jobs)}
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-today' }))}
- </main>
+ </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
@@ -4865,6 +4867,7 @@ ${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -4898,7 +4901,7 @@ ${staticAnalyticsHtml}
  <div class="s-bRaq8r">${faqHtml}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}
- </main>
+ </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
@@ -5033,6 +5036,7 @@ ${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5068,7 +5072,7 @@ ${staticAnalyticsHtml}
  <div class="s-bRaq8r">${faqHtml}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-nursing' }))}
- </main>
+ </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
@@ -5213,6 +5217,7 @@ ${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5244,7 +5249,7 @@ ${staticAnalyticsHtml}
  <div class="s-bRaq8r">${faqHtml}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-part-time' }))}
- </main>
+ </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
@@ -5389,6 +5394,7 @@ ${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <nav class="s-bcr" aria-label="breadcrumb">
  <a href="${locale === 'it' ? '/' : `/${locale}/`}" class="s-bcl">${esc(homeLabel[locale])}</a>
@@ -5425,7 +5431,7 @@ ${staticAnalyticsHtml}
  <div class="s-J2fKgL">${siblingLinks}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé', cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-clinics' }))}
- </main>
+ </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
@@ -5583,6 +5589,7 @@ ${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5614,7 +5621,7 @@ ${staticAnalyticsHtml}
  <div class="s-J2fKgL">${sectorLinks}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location }))}
- </main>
+ </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
@@ -5801,6 +5808,7 @@ ${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5830,7 +5838,7 @@ ${staticAnalyticsHtml}
  <div class="s-J2fKgL">${siblingLinks}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location, sectorOrType: model.typeLabel }))}
- </main>
+ </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
@@ -5961,6 +5969,7 @@ ${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
  <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
@@ -5990,7 +5999,7 @@ ${staticAnalyticsHtml}
  <div class="s-J2fKgL">${siblingLinks}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location, sectorOrType: model.sectorLabel }))}
- </main>
+ </main>${railGutters(true).close}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
