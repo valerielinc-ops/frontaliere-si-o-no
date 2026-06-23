@@ -1,18 +1,19 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-06-23T11:48:39.678Z",
+  "generatedAt": "2026-06-23T22:21:09.163Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 54469,
-  "avgDurationMs": 54469,
+  "durationMs": 54892,
+  "avgDurationMs": 54892,
   "durationHistory": [
-    54469
+    54892
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "galderma-09b2bf38ae6c",
       "slug": "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head",
@@ -20,13 +21,13 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Global Head of Consumer Dermatological Skincare (Global Consumer Skincare Marketing Head)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Global-Head-of-Dermatological-Skincare_JR018459-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-23T11:48:35.920Z",
+      "crawledAt": "2026-06-23T22:21:05.972Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "postedDate": "2026-05-24",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Global-Head-of-Dermatological-Skincare_JR018459-1",
       "jobReqId": "JR018459",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-23T11:48:35.920Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -56,13 +58,13 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Facilities / Office Manager",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Facilities---Office-Manager_JR018397-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-23T11:48:37.157Z",
+      "crawledAt": "2026-06-23T22:21:07.038Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -77,16 +79,16 @@
       "postedDate": "2026-05-24",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Facilities---Office-Manager_JR018397-1",
       "jobReqId": "JR018397",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-23T11:48:37.157Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
