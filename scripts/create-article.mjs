@@ -7149,6 +7149,33 @@ function wallBudgetExceeded() {
   return (Date.now() - RUN_START_MS) > RUN_WALL_BUDGET_MS;
 }
 
+/**
+ * True when the error is a CONTENT/QUALITY rejection (fact-check block,
+ * topic-gate REGOLA #0 abort, fabrication, or a non-conformant headline that
+ * survived its retry budget) rather than an infrastructure bug.
+ *
+ * Such rejections mean "no acceptable article this run" — exactly the same
+ * disposition as a duplicate or an exhausted free-model pool. The retry loops
+ * rotate to the next headline/keyword on these; if every candidate is
+ * exhausted the run defers cleanly (exit 0) instead of hard-failing and raising
+ * a false-positive "Workflow Failure: Generate Blog Article" Bug issue
+ * (run 28000585473: a too-long headline after retry crashed the run with
+ * exit 1 → spurious issue #2750).
+ *
+ * Per CLAUDE.md non-negotiable #1 the quality gate itself is NEVER lowered —
+ * the slop is still refused; we only reclassify the disposition from
+ * "infrastructure failure" to "clean deferral". Single source of truth so the
+ * proven-pool catch, the evergreen catch, and the top-level main().catch can
+ * never drift apart (non-negotiable #6).
+ */
+function isQualityRejectError(e) {
+  if (!e) return false;
+  if (e.qualityReject === true || e.topicGateAbort === true) return true;
+  return /fact-check|rigettato|veridicità|fabricat|topic-gate abort|headline validation failed/i.test(
+    String(e.message || ''),
+  );
+}
+
 async function main() {
   // Positional <url> = first non-flag argv (so `--section=` can precede it).
   let url = process.argv.slice(2).find((a) => !a.startsWith('--'));
@@ -7571,8 +7598,7 @@ async function main() {
             // 2026-05-11). Same quality outcome (slop not published)
             // but workflow stays green and retry budget is honored.
             const isTopicGateAbort = e.topicGateAbort === true || /topic-gate abort/i.test(e.message);
-            const isQualityReject = isTopicGateAbort
-              || /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
+            const isQualityReject = isQualityRejectError(e);
             if (isQualityReject && attempt < MAX_DUPLICATE_RETRIES) {
               const tag = isTopicGateAbort ? 'topic-gate (REGOLA #0)' : 'qualità';
               console.error(`\n⚠️  Articolo rigettato per ${tag} — provo un altro headline... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
@@ -7727,8 +7753,7 @@ async function main() {
           // Includes REGOLA #0 topic-gate aborts — same rationale as the proven-pool
           // branch above (~line 5946).
           const isTopicGateAbort = e.topicGateAbort === true || /topic-gate abort/i.test(e.message);
-          const isQualityReject = isTopicGateAbort
-            || /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
+          const isQualityReject = isQualityRejectError(e);
           if (!isDuplicate && !isQualityReject) throw e; // Infrastructure error → propagate
 
           if (isTopicGateAbort) {
@@ -7961,13 +7986,20 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           continue;
         }
 
-        // Budget exhausted — hard-fail the run rather than publish a
-        // non-conformant article. Per CLAUDE.md rule #1: never lower
-        // validation thresholds as a workaround.
-        throw new Error(
+        // Budget exhausted — refuse to publish a non-conformant article. Per
+        // CLAUDE.md rule #1 we NEVER lower the validation threshold; the slop is
+        // dropped. But this is a content/quality rejection (the free model kept
+        // emitting an over-length title), NOT an infrastructure bug — tag it so
+        // the retry loops rotate to the next headline/keyword and, if every
+        // candidate is exhausted, the run defers cleanly (exit 0) instead of
+        // hard-failing and raising a spurious "Workflow Failure" Bug issue
+        // (run 28000585473 → issue #2750).
+        const headlineErr = new Error(
           `Headline validation failed after retry. ` +
           `Title: "${itTitle}" — Errors: ${summary}`,
         );
+        headlineErr.qualityReject = true;
+        throw headlineErr;
       }
 
       // Step 3a.0-titlesync: ensure <title> ↔ <h1> sync.
@@ -8427,6 +8459,17 @@ main().catch((e) => {
   if (isQuotaExhaustedError(e)) {
     finalizeRunReport('deferred', { notes: [...RUN_REPORT.notes, `Deferred (all free models exhausted): ${e.message}`] });
     console.error(`\n⚠️  Differito: tutti i modelli AI gratuiti sono temporaneamente esauriti (quota giornaliera). Riprovo al prossimo run. ${e.message}`);
+    process.exit(0);
+  }
+  // Content/quality rejection that bubbled all the way up (e.g. manual-URL mode,
+  // or every headline/keyword in a loop exhausted on quality grounds). The slop
+  // was correctly NOT published — but "no acceptable article this run" is a clean
+  // deferral, not an infrastructure failure: exit 0 so the self-trigger back-off
+  // retries later instead of marking the run red and raising a false-positive
+  // "Workflow Failure: Generate Blog Article" Bug issue (run 28000585473 → #2750).
+  if (isQualityRejectError(e)) {
+    finalizeRunReport('deferred', { notes: [...RUN_REPORT.notes, `Deferred (content quality rejected, slop not published): ${e.message}`] });
+    console.error(`\n⚠️  Differito: nessun articolo conforme prodotto in questa run (rigetto qualità — slop non pubblicato). Riprovo al prossimo run. ${e.message}`);
     process.exit(0);
   }
   finalizeRunReport('error', { notes: [...RUN_REPORT.notes, `Error: ${e.message}`] });
