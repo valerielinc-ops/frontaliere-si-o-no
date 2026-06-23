@@ -1,16 +1,16 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-06-23T11:27:17.478Z",
-  "total": 4,
+  "generatedAt": "2026-06-23T22:08:41.347Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 4225,
-  "avgDurationMs": 4225,
+  "durationMs": 3604,
+  "avgDurationMs": 3604,
   "durationHistory": [
-    4225
+    3604
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T11:27:14.122Z",
+      "crawledAt": "2026-06-23T22:08:38.571Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/rejoindre-pool-remplacants-2207.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T11:27:14.576Z",
+      "crawledAt": "2026-06-23T22:08:38.974Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/bottier-ere-orthopediste-2413.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T11:27:14.990Z",
+      "crawledAt": "2026-06-23T22:08:39.417Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -124,15 +124,17 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "crr-suva-sion-93b36d7098dc",
-      "slug": "specialiste-rh-en-gestion-de-la-sante-en-entreprise-gse-crr-suva-sion-sion",
+      "slug": "specialista-hr-nella-gestione-della-salute-in-azienda-gse-clinique-romande-de-readaptation-crr-suva-sion",
       "company": "Clinique romande de réadaptation (CRR Suva)",
       "companyKey": "crr-suva-sion",
       "companyDomain": "crr-suva.ch",
       "title": "Spécialiste RH en Gestion de la Santé en Entreprise (GSE)",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.crr-suva.ch/clinique-readaptation/specialiste-gestion-sante-entreprise-2395.html",
@@ -154,15 +156,16 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/specialiste-gestion-sante-entreprise-2395.html",
       "firstSeenAt": "2026-05-19T13:47:27.771Z",
-      "_qualityScore": 87,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
