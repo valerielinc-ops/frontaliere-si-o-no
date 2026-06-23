@@ -8143,6 +8143,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.title': 'Avs, tomorrow at 11 Angelo Bonelli live at Adnkronos',
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.excerpt': 'The spokesman of the Greens and deputy of Avs Angelo Bonelli will be live tomorrow at Adnkronos',
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.imageAlt': 'Angelo Bonelli in direct at Adnkronos',
+    'blog.article.scoiattolo-export-usa-made-italy.title': 'Squirrel brings Giant Ravioli to New York: opportunities for border workers',
+    'blog.article.scoiattolo-export-usa-made-italy.excerpt': 'The company Squirrel of Lonate Ceppino participates in the Summer Fancy Food Show 2026 in New York, bringing its Giant Ravioli.',
+    'blog.article.scoiattolo-export-usa-made-italy.imageAlt': 'Scoiattolo presents Giant Ravioli at Summer Fancy Food Show',
 };
 
 export default blogMetaEn;

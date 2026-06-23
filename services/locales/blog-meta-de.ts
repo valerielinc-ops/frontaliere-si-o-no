@@ -8142,6 +8142,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.title': 'Avs, morgen um 11 Uhr Angelo Bonelli live bei Adnkronos',
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.excerpt': 'Der Sprecher der Grünen und Abgeordnete von Avs Angelo Bonelli wird morgen live bei Adnkronos sein',
     'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.imageAlt': 'Angelo Bonelli live bei Adnkronos',
+    'blog.article.scoiattolo-export-usa-made-italy.title': 'Eichhörnchen bringt Giant Ravioli nach New York: Möglichkeiten für Grenzgänger',
+    'blog.article.scoiattolo-export-usa-made-italy.excerpt': 'Das Unternehmen Eichhörnchen aus Lonate Ceppino nimmt an der Summer Fancy Food Show 2026 in New York teil und bringt seine Giant Ravioli mit.',
+    'blog.article.scoiattolo-export-usa-made-italy.imageAlt': 'Scoiattolo präsentiert Giant Ravioli auf der Summer Fancy Food Show',
 };
 
 export default blogMetaDe;

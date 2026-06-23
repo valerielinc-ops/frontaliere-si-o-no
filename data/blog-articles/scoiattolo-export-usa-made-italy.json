@@ -1,0 +1,40 @@
+{
+  "id": "scoiattolo-export-usa-made-italy",
+  "slug": "scoiattolo-export-usa-made-italy",
+  "publishedAt": "2026-06-23T11:54:37.634Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.509532722285567,
+    "confidence": 0.8,
+    "finalScore": 10.007626177828454,
+    "topK": [
+      {
+        "slug": "coldiretti-brennero-made-italy-2026",
+        "cosine": 0.833968848152371
+      },
+      {
+        "slug": "banca-ditalia-varese-10-anni-dopo",
+        "cosine": 0.8326133646367201
+      },
+      {
+        "slug": "sfruttamento-corsieri-ticino-2026",
+        "cosine": 0.824639624142115
+      },
+      {
+        "slug": "frontaliers-sabotage-varese-successo",
+        "cosine": 0.8227136606681822
+      },
+      {
+        "slug": "beko-cassinetta-risultati-2026",
+        "cosine": 0.8182138554062116
+      }
+    ],
+    "score": 2.5019065444571136,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

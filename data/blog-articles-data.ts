@@ -25812,6 +25812,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'scoiattolo-export-usa-made-italy',
+ category: 'novita',
+ date: '2026-06-23T11:54:36.036Z',
+ image: '/images/blog/scoiattolo-export-usa-made-italy.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
