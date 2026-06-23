@@ -78,6 +78,7 @@ import { professionLandingsPlugin } from './build-plugins/professionLandingsPlug
 import { professionLandingsLinksPlugin } from './build-plugins/professionLandingsLinksPlugin';
 import { professionCantonLandingsLinksPlugin } from './build-plugins/professionCantonLandingsLinksPlugin';
 import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
+import { sectorHubLinksPlugin } from './build-plugins/sectorHubLinksPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
@@ -301,6 +302,14 @@ export default defineConfig(({ mode }) => {
  // staticPagesPlugin + salaryHubPlugin to avoid the parallel-flush race
  // that previously bit professionLandingsLinksPlugin.
  salaryHubIndexLinkPlugin(__dirname),
+ // Sector-hub orphan fix — patch the 4 job-board hubs (/cerca-lavoro-ticino/
+ // + 3 locale twins) with an <aside> linking the ~15 highest-demand sector
+ // hubs so the ~37 orphaned sector hubs (live but ~0 internal links) become
+ // reachable at depth 2 from the homepage's most-crawled page. Awaits explicit
+ // signals from staticPagesPlugin (hub HTML) + jobSectorPagesPlugin (the 49
+ // sector landings) to avoid the parallel-flush race. Idempotent via the
+ // `data-sector-hub-links` marker — coexists with the AE-3 profession block.
+ sectorHubLinksPlugin(__dirname),
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
  pdfWhitepapersPlugin(__dirname),
