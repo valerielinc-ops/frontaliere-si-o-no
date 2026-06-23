@@ -293,6 +293,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.olimpiadi-2038-svizzera-non-referendum.title': 'Jeux olympiques 2038 en Suisse : pas de référendum, 200 millions confirmés',
     'blog.article.olimpiadi-2038-svizzera-non-referendum.excerpt': 'Le Conseil fédéral a annoncé qu\'il n\'y aurait pas de vote populaire sur la candidature suisse aux Jeux olympiques de 2038. La confirmation de 200 millions de francs a été transmise au Parlement.',
     'blog.article.olimpiadi-2038-svizzera-non-referendum.imageAlt': 'Scène d\'une ville suisse avec symboles olympiques près d\'un lac',
+    'blog.article.pensioni-svizzera-2025.title': 'Retraités suisses à l\'étranger : comment gérer la double résidence',
+    'blog.article.pensioni-svizzera-2025.excerpt': 'De plus en plus de retraités suisses partagent leur temps entre la Suisse et l\'étranger. Voici ce qu\'il faut savoir sur les implications fiscales et sociales.',
+    'blog.article.pensioni-svizzera-2025.imageAlt': 'Un retraité suisse profitant d\'une journée ensoleillée au lac de Lugano',
+    'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Centre commercial prend en charge : salaires jusqu\'à 5 000 francs',
+    'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'Un centre commercial embauche du personnel offrant des salaires élevés, notamment frontaliers. Les Tessinois semblent moins enclins à travailler dans le secteur.',
+    'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Centre commercial suisse avec magasins et personnes',
+    'blog.article.economisti-adeguano-stime-crescita-2026.title': 'Les économistes ajustent leurs estimations de croissance pour 2026',
+    'blog.article.economisti-adeguano-stime-crescita-2026.excerpt': 'La Suisse en 2026 va vers une croissance du PIB de 0,9%, un chiffre en baisse par rapport au 1,0% de mars',
+    'blog.article.economisti-adeguano-stime-crescita-2026.imageAlt': 'Vue aérienne du Monte Generoso avec des indicateurs de croissance économique',
+    'blog.article.frontalieri-checklist-2026.title': 'Frontalier : checklist premier jour de travail au Tessin 2026',
+    'blog.article.frontalieri-checklist-2026.excerpt': 'Documents nécessaires, permis et assurance maladie pour les travailleurs transfrontaliers en 2026',
+    'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontalier présentant des documents le premier jour de travail à Lugano',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Frontière choix commune résidence Italie Suisse 2026 célibataire',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Sous-titre avec des données concrètes DE LA SOURCE (max 160 chars)',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
 };
 
 export default blogMetaChFr;

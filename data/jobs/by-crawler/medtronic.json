@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medtronic",
-  "assembledAt": "2026-06-22T14:50:46.587Z",
+  "assembledAt": "2026-06-22T23:13:03.724Z",
   "jobs": [
     {
       "id": "medtronic-2a411d7c404c",
@@ -34,7 +34,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Service-Specialist--m-w-d-_R58182-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T14:50:44.187Z",
+      "crawledAt": "2026-06-22T23:13:01.642Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Representative-Neurovascular--m-w-d-_R63231-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:50:42.543Z",
+      "crawledAt": "2026-06-22T23:13:01.033Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -210,12 +210,12 @@
     },
     {
       "id": "medtronic-f78f692e009a",
-      "slug": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
+      "slug": "sales-representative-ii-medtronic-ch",
       "slugByLocale": {
-        "it": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
+        "it": "sales-representative-ii-medtronic-ch",
         "en": "sales-representative-ii-medtronic-tolochenaz",
         "de": "sales-representative-ii-medtronic-ch",
-        "fr": "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
+        "fr": "sales-representative-ii-medtronic-ch"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -240,7 +240,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Zurich-Zurich-Switzerland/Business-Development-Sales-Representative---Ablation-Interventional-Schweiz_R67468-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:50:41.642Z",
+      "crawledAt": "2026-06-22T23:13:00.323Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -258,13 +258,16 @@
       "requirementsByLocale": {},
       "jobReqId": "R67468",
       "previousSlugs": [
-        "sales-representative-ii-medtronic-ch"
+        "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
+        "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
           "sales-representative-ii-medtronic-ch"
         ],
         "fr": [
+          "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz",
           "sales-representative-ii-medtronic-ch"
         ]
       },
@@ -285,12 +288,12 @@
     },
     {
       "id": "medtronic-d5d16714c6c7",
-      "slug": "consulente-tecnico-medtronic-bern",
+      "slug": "tech-consultant-medtronic-ch",
       "slugByLocale": {
-        "it": "consulente-tecnico-medtronic-bern",
+        "it": "tech-consultant-medtronic-ch",
         "en": "tech-consultant-medtronic-bern",
         "de": "tech-consultant-medtronic-ch",
-        "fr": "conseiller-technique-medtronic-bern"
+        "fr": "tech-consultant-medtronic-ch"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -315,7 +318,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Consultant-Cardiac-Rhythm-management--m-w-d-_R65639-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T14:50:40.644Z",
+      "crawledAt": "2026-06-22T23:12:59.568Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -333,13 +336,16 @@
       "requirementsByLocale": {},
       "jobReqId": "R65639",
       "previousSlugs": [
-        "tech-consultant-medtronic-ch"
+        "consulente-tecnico-medtronic-bern",
+        "conseiller-technique-medtronic-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "consulente-tecnico-medtronic-bern",
           "tech-consultant-medtronic-ch"
         ],
         "fr": [
+          "conseiller-technique-medtronic-bern",
           "tech-consultant-medtronic-ch"
         ]
       },
@@ -390,7 +396,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Specialist-Operating-Room-Essentials---Surgical-Innovations--h-f-d-_R65064-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:50:39.419Z",
+      "crawledAt": "2026-06-22T23:12:58.802Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -466,7 +472,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Intern-Operational-Excellence_R68883-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T14:50:37.499Z",
+      "crawledAt": "2026-06-22T23:12:58.015Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -513,90 +519,6 @@
       "postalCode": "1003"
     },
     {
-      "id": "medtronic-0aedcd69f796",
-      "slug": "supervisore-di-fabbricazione-cambio-notturno-medtronic-lausanne",
-      "slugByLocale": {
-        "it": "supervisore-di-fabbricazione-cambio-notturno-medtronic-lausanne",
-        "en": "manufacturing-supervisor-night-shift-medtronic-ch",
-        "de": "manufacturing-supervisor-nachtschicht-medtronic-lausanne",
-        "fr": "superviseur-de-fabrication-service-de-nuit-medtronic-lausanne"
-      },
-      "company": "Medtronic",
-      "companyKey": "medtronic",
-      "companyDomain": "medtronic.com",
-      "title": "Manufacturing Supervisor (night shift)",
-      "titleByLocale": {
-        "it": "Supervisore di fabbricazione (cambio notturno)",
-        "en": "Manufacturing Supervisor (night shift)",
-        "de": "Manufacturing Vorgesetzter (night shift)",
-        "fr": "Manufacturing Superviseur (night shift)"
-      },
-      "description": "At Medtronic you can begin a life-long career of exploration and innovation, while helping champion healthcare access and equity for all. You’ll lead with purpose, breaking down barriers to innovation in a more connected, compassionate world.\n\nA Day in the Life\nMedtronic, a leading global company in the MedTech domain, is hiring a Manufacturing Supervisor responsible for running and transforming the business within the Swiss Manufacturing Operational site (SMO). In the role, you will lead manufacturing operations, provide strategic recommendations on staffing and business needs, eventually committing to value stream accountability, change leadership, team development, as well as coaching and training.\n\nMoreover, you will cultivate an engaging and inclusive work environment, while also utilizing HR processes to address and manage ethical concerns, unplanned absenteeism, and employee performance matters, ensuring alignment with organizational values and policies, eventually overseeing the effective implementation and utilization of Medtronic Performance System (MPS) tools to ensure alignment with established standards to achieve operational consistency and excellence. Responsibilities may include the following and other duties may be assigned:\n\n• Lead manufacturing operations on a night shift to deliver results across safety, quality, delivery, cost, and inventory objectives, by leveraging the disciplined use of Medtronic Performance System, collaborate effectively with cross-functional support teams to drive resolution of abnormalities (5S, EHS risk, quality issues investigation & awareness), including maintenance, quality, engineering, and supply chain, to drive operational excellence and achieve business goals, maintain a strong Gemba presence to gain firsthand insights into operational challenges and provide timely, effective solutions to support shop floor teams\n\n• Communicate clearly and consistently, with a business-mindset, regarding the team's current state, expectations, and priorities, ensuring alignment across teams and execution of optimized production schedules, cultivate an engaging and inclusive work environment that enhances customer value through a motivated, committed and inspired team, with best-in-class standards, exemplifying daily Medtronic Mindset, provide strategic recommendations on staffing and business needs, including manufacturing shift patterns, direct labor recruitment, and prioritization of production activities\n\n• Take ownership of the night shift (people, safety, quality, compliance and delivery) and lead the development and support execution of the shopfloor transformation roadmap to drive operational excellence and deliver measurable business results, design and implement comprehensive development programs for team leaders and operators to develop high-performing teams, eventually cultivating best-in-class routines and establish strong leader standard work to ensure sustainable performance improvements, while also inspiring and engaging teams at all levels to embrace change in a culture of continuous improvement and collaboration, acting as a change agent to promote alignment with organizational goals.\n\n• Ensure alignment & connection with other 2 shifts & day shift support functions.\n\n• Oversee the effective implementation and utilization of Medtronic Performance System (MPS) tools, ensure alignment with established standards to achieve operational consistency and excellence, drive adherence to MPS standards, including tier management, 5S, 5 Whys, A3 problem-solving, and other lean methodologies.\n\n• Drive a culture of standards, leading by example and provide hands-on coaching to team leaders, reinforcing daily adherence to standards and best practices, eventually utilizing HR processes to address and manage ethical concerns, absenteeism, and employee performance matters, ensuring alignment with organizational values and policies.\n\nRequired knowledge and experience\n\n• Bachelor’s degree, pref",
-      "descriptionByLocale": {
-        "it": "In Medtronic puoi iniziare una carriera permanente di esplorazione e innovazione, aiutando al contempo a promuovere l'accesso all'assistenza sanitaria e l'equità per tutti. Condurrai la tua azienda con uno scopo, abbattendo le barriere all'innovazione in un mondo più connesso e compassionevole. Una giornata nella vita Medtronic, azienda leader a livello mondiale nel settore MedTech, sta assumendo un supervisore di produzione responsabile della gestione e della trasformazione dell'attività all'interno del sito operativo di produzione svizzero (SMO). Nel ruolo, guiderai le operazioni di produzione, fornirai raccomandazioni strategiche sul personale e sulle esigenze aziendali, impegnandoti infine a garantire la responsabilità del flusso di valore, il cambiamento della leadership, lo sviluppo del team, nonché il coaching e la formazione. Inoltre, coltiverai un ambiente di lavoro coinvolgente e inclusivo, utilizzando anche i processi delle risorse umane per affrontare e gestire preoccupazioni etiche, assenteismo non pianificato e questioni relative alle prestazioni dei dipendenti, garantendo l'allineamento con i valori e le politiche organizzative, supervisionando infine l'effettiva implementazione e utilizzo degli strumenti del Medtronic Performance System (MPS) per garantire l'allineamento con gli standard stabiliti per raggiungere coerenza operativa ed eccellenza. Le responsabilità possono includere quanto segue e altri compiti possono essere assegnati:\n• Dirigere le operazioni di produzione durante un turno di notte per fornire risultati rispetto agli obiettivi di sicurezza, qualità, consegna, costi e inventario, sfruttando l'uso disciplinato del Medtronic Performance System, collaborare efficacemente con team di supporto interfunzionali per guidare la risoluzione delle anomalie (5S, rischio EHS, indagine e consapevolezza dei problemi di qualità), inclusa manutenzione, qualità, ingegneria e catena di fornitura, per promuovere l'eccellenza operativa e raggiungere obiettivi aziendali, mantenere una forte presenza Gemba per ottenere informazioni di prima mano sulle sfide operative e fornire soluzioni tempestive ed efficaci per supportare i team di officina\n• Comunicare in modo chiaro e coerente, con una mentalità aziendale, riguardo allo stato attuale, alle aspettative e alle priorità del team, garantendo l'allineamento tra i team e l'esecuzione di programmi di produzione ottimizzati, coltivando un ambiente di lavoro coinvolgente e inclusivo che aumenti il valore del cliente attraverso un team motivato, impegnato e ispirato, con i migliori standard della categoria, esemplificando la mentalità quotidiana di Medtronic, fornendo raccomandazioni strategiche sulle esigenze di personale e aziendali, inclusi modelli di turni di produzione, reclutamento diretto di manodopera e definizione delle priorità delle attività produttive\n• Assumersi la responsabilità del turno di notte (persone, sicurezza, qualità, conformità e consegna) e guidare lo sviluppo e supportare l'esecuzione della tabella di marcia di trasformazione dell'officina per promuovere l'eccellenza operativa e fornire risultati aziendali misurabili, progettare e implementare programmi di sviluppo completi per team leader e operatori per sviluppare team ad alte prestazioni, coltivando infine routine migliori e stabilendo standard di lavoro di leader forti per garantire miglioramenti sostenibili delle prestazioni, ispirando e coinvolgendo anche team a tutti i livelli per abbracciare il cambiamento in una cultura di miglioramento continuo e collaborazione, agendo come un agente di cambiamento per promuovere l'allineamento con gli obiettivi organizzativi.\n• Garantire l'allineamento e la connessione con gli altri 2 turni e le funzioni di supporto del turno diurno.\n• Supervisionare l'implementazione e l'utilizzo efficaci degli strumenti Medtronic Performance System (MPS), garantire l'allineamento con gli standard stabiliti per raggiungere coerenza ed eccellenza operativa, promuovere l'adesione agli standard MPS, inclusa la gestione dei livelli, 5S, 5 Whys, risoluzione dei problemi A3 e altre metodologie snelle.\n• Promuovere una cultura degli standard, dare l'esempio e fornire coaching pratico ai team leader, rafforzando l'adesione quotidiana agli standard e alle migliori pratiche, utilizzando infine i processi delle risorse umane per affrontare e gestire le preoccupazioni etiche, l'assenteismo e le questioni relative alle prestazioni dei dipendenti, garantendo l'allineamento con i valori e le politiche dell'organizzazione. Conoscenze ed esperienze richieste\n• Laurea triennale, pref",
-        "en": "At Medtronic you can begin a life-long career of exploration and innovation, while helping champion healthcare access and equity for all. You’ll lead with purpose, breaking down barriers to innovation in a more connected, compassionate world. A Day in the Life Medtronic, a leading global company in the MedTech domain, is hiring a Manufacturing Supervisor responsible for running and transforming the business within the Swiss Manufacturing Operational site (SMO). In the role, you will lead manufacturing operations, provide strategic recommendations on staffing and business needs, eventually committing to value stream accountability, change leadership, team development, as well as coaching and training. Moreover, you will cultivate an engaging and inclusive work environment, while also utilizing HR processes to address and manage ethical concerns, unplanned absenteeism, and employee performance matters, ensuring alignment with organizational values and policies, eventually overseeing the effective implementation and utilization of Medtronic Performance System (MPS) tools to ensure alignment with established standards to achieve operational consistency and excellence. Responsibilities may include the following and other duties may be assigned:\n• Lead manufacturing operations on a night shift to deliver results across safety, quality, delivery, cost, and inventory objectives, by leveraging the disciplined use of Medtronic Performance System, collaborate effectively with cross-functional support teams to drive resolution of abnormalities (5S, EHS risk, quality issues investigation & awareness), including maintenance, quality, engineering, and supply chain, to drive operational excellence and achieve business goals, maintain a strong Gemba presence to gain firsthand insights into operational challenges and provide timely, effective solutions to support shop floor teams\n• Communicate clearly and consistently, with a business-mindset, regarding the team's current state, expectations, and priorities, ensuring alignment across teams and execution of optimized production schedules, cultivate an engaging and inclusive work environment that enhances customer value through a motivated, committed and inspired team, with best-in-class standards, exemplifying daily Medtronic Mindset, provide strategic recommendations on staffing and business needs, including manufacturing shift patterns, direct labor recruitment, and prioritization of production activities\n• Take ownership of the night shift (people, safety, quality, compliance and delivery) and lead the development and support execution of the shopfloor transformation roadmap to drive operational excellence and deliver measurable business results, design and implement comprehensive development programs for team leaders and operators to develop high-performing teams, eventually cultivating best-in-class routines and establish strong leader standard work to ensure sustainable performance improvements, while also inspiring and engaging teams at all levels to embrace change in a culture of continuous improvement and collaboration, acting as a change agent to promote alignment with organizational goals.\n• Ensure alignment & connection with other 2 shifts & day shift support functions.\n• Oversee the effective implementation and utilization of Medtronic Performance System (MPS) tools, ensure alignment with established standards to achieve operational consistency and excellence, drive adherence to MPS standards, including tier management, 5S, 5 Whys, A3 problem-solving, and other lean methodologies.\n• Drive a culture of standards, leading by example and provide hands-on coaching to team leaders, reinforcing daily adherence to standards and best practices, eventually utilizing HR processes to address and manage ethical concerns, absenteeism, and employee performance matters, ensuring alignment with organizational values and policies. Required knowledge and experience\n• Bachelor’s degree, pref",
-        "de": "Bei Medtronic können Sie eine lebenslange Karriere voller Forschung und Innovation beginnen und gleichzeitig dazu beitragen, den Zugang zur Gesundheitsversorgung und Gerechtigkeit für alle zu fördern. Sie werden zielstrebig führen und Innovationshindernisse in einer vernetzteren, mitfühlenderen Welt abbauen. Ein Tag im Leben Medtronic, ein führendes globales Unternehmen im MedTech-Bereich, stellt einen Fertigungsleiter ein, der für die Führung und Umgestaltung des Geschäfts am Swiss Manufacturing Operational Site (SMO) verantwortlich ist. In dieser Rolle leiten Sie Produktionsabläufe, geben strategische Empfehlungen zu Personal- und Geschäftsanforderungen und verpflichten sich schließlich zu Wertstromverantwortung, Change Leadership, Teamentwicklung sowie Coaching und Schulung. Darüber hinaus pflegen Sie ein ansprechendes und integratives Arbeitsumfeld und nutzen gleichzeitig HR-Prozesse, um ethische Bedenken, ungeplante Fehlzeiten und Fragen der Mitarbeiterleistung anzugehen und zu bewältigen, stellen die Übereinstimmung mit den Werten und Richtlinien der Organisation sicher und überwachen schließlich die effektive Implementierung und Nutzung der MPS-Tools (Medtronic Performance System), um die Übereinstimmung mit etablierten Standards sicherzustellen, um betriebliche Konsistenz und Exzellenz zu erreichen. Zu den Verantwortlichkeiten können die folgenden gehören und es können weitere Aufgaben zugewiesen werden:\n• Leitung von Fertigungsabläufen in einer Nachtschicht, um Ergebnisse in Bezug auf Sicherheits-, Qualitäts-, Liefer-, Kosten- und Bestandsziele zu liefern, durch Nutzung des disziplinierten Einsatzes des Medtronic Performance System, effektive Zusammenarbeit mit funktionsübergreifenden Supportteams, um die Lösung von Anomalien voranzutreiben (5S, EHS-Risiko, Untersuchung und Sensibilisierung von Qualitätsproblemen), einschließlich Wartung, Qualität, Technik und Lieferkette, um betriebliche Exzellenz voranzutreiben und Geschäftsziele zu erreichen, Aufrechterhaltung einer starken Gemba-Präsenz, um Einblicke in betriebliche Herausforderungen aus erster Hand zu gewinnen und Bereitstellung zeitnaher, effektiver Lösungen zur Unterstützung von Fertigungsteams\n• Kommunizieren Sie klar und konsistent mit einer geschäftlichen Denkweise über den aktuellen Zustand, die Erwartungen und Prioritäten des Teams, stellen Sie die Abstimmung zwischen den Teams und die Ausführung optimierter Produktionspläne sicher, pflegen Sie ein ansprechendes und integratives Arbeitsumfeld, das den Kundennutzen durch ein motiviertes, engagiertes und inspiriertes Team mit erstklassigen Standards erhöht, das die tägliche Medtronic-Denkweise verkörpert, geben Sie strategische Empfehlungen zu Personal- und Geschäftsanforderungen, einschließlich Schichtmustern in der Fertigung, direkter Arbeitskräfterekrutierung und Priorisierung von Produktionsaktivitäten\n• Übernehmen Sie die Verantwortung für die Nachtschicht (Personen, Sicherheit, Qualität, Compliance und Lieferung) und leiten Sie die Entwicklung und unterstützen Sie die Umsetzung der Roadmap für die Shopfloor-Transformation, um betriebliche Exzellenz voranzutreiben und messbare Geschäftsergebnisse zu liefern. Entwerfen und implementieren Sie umfassende Entwicklungsprogramme für Teamleiter und Bediener, um leistungsstarke Teams zu entwickeln, schließlich erstklassige Routinen zu kultivieren und eine starke Standardarbeit für Führungskräfte zu etablieren, um nachhaltige Leistungsverbesserungen sicherzustellen Ausrichtung auf organisatorische Ziele.\n• Stellen Sie die Ausrichtung und Verbindung mit anderen 2-Schicht- und Tagesschicht-Unterstützungsfunktionen sicher.\n• Überwachen Sie die effektive Implementierung und Nutzung der MPS-Tools (Medtronic Performance System), stellen Sie die Ausrichtung an etablierten Standards sicher, um betriebliche Konsistenz und Exzellenz zu erreichen, und fördern Sie die Einhaltung von MPS-Standards, einschließlich Tier-Management, 5S, 5 Whys, A3-Problemlösung und anderen Lean-Methoden.\n• Fördern Sie eine Kultur der Standards, gehen Sie mit gutem Beispiel voran und bieten Sie Teamleitern praktisches Coaching an, stärken Sie die tägliche Einhaltung von Standards und Best Practices und nutzen Sie schließlich HR-Prozesse, um ethische Bedenken, Fehlzeiten und Fragen der Mitarbeiterleistung anzugehen und zu bewältigen, und stellen Sie die Übereinstimmung mit den Werten und Richtlinien der Organisation sicher. Erforderliche Kenntnisse und Erfahrungen\n• Bachelor-Abschluss, bevorzugt",
-        "fr": "Chez Medtronic, vous pouvez commencer une carrière d’exploration et d’innovation tout au long de votre vie, tout en contribuant à défendre l’accès aux soins de santé et l’équité pour tous. Vous dirigerez avec détermination, en éliminant les obstacles à l’innovation dans un monde plus connecté et plus compatissant. Une journée dans la vie Medtronic, une entreprise mondiale leader dans le domaine MedTech, recrute un superviseur de fabrication responsable de la gestion et de la transformation de l'entreprise au sein du site opérationnel de fabrication suisse (SMO). Dans ce rôle, vous dirigerez les opérations de fabrication, formulerez des recommandations stratégiques sur le personnel et les besoins de l'entreprise, et vous vous engagerez éventuellement dans la responsabilité de la chaîne de valeur, le leadership du changement, le développement de l'équipe, ainsi que le coaching et la formation. De plus, vous cultiverez un environnement de travail engageant et inclusif, tout en utilisant également des processus RH pour répondre et gérer les problèmes éthiques, l'absentéisme imprévu et les questions de performance des employés, en garantissant l'alignement avec les valeurs et les politiques de l'organisation, et en supervisant éventuellement la mise en œuvre et l'utilisation efficaces des outils du Medtronic Performance System (MPS) pour garantir l'alignement avec les normes établies afin d'atteindre la cohérence et l'excellence opérationnelles. Les responsabilités peuvent inclure les tâches suivantes et d'autres tâches peuvent être assignées :\n• Diriger les opérations de fabrication sur une équipe de nuit pour obtenir des résultats en termes d'objectifs de sécurité, de qualité, de livraison, de coût et d'inventaire, en tirant parti de l'utilisation disciplinée du système de performance Medtronic, collaborer efficacement avec des équipes de support interfonctionnelles pour piloter la résolution des anomalies (5S, risque EHS, enquête et sensibilisation aux problèmes de qualité), y compris la maintenance, la qualité, l'ingénierie et la chaîne d'approvisionnement, pour favoriser l'excellence opérationnelle et atteindre les objectifs commerciaux, maintenir une forte présence Gemba pour obtenir un aperçu direct des défis opérationnels. et fournir des solutions rapides et efficaces pour soutenir les équipes d'atelier\n• Communiquer de manière claire et cohérente, avec un état d'esprit commercial, concernant l'état actuel, les attentes et les priorités de l'équipe, en assurant l'alignement entre les équipes et l'exécution de calendriers de production optimisés, cultiver un environnement de travail engageant et inclusif qui améliore la valeur client grâce à une équipe motivée, engagée et inspirée, avec les meilleures normes de sa catégorie, illustrant l'état d'esprit quotidien de Medtronic, fournir des recommandations stratégiques sur le personnel et les besoins commerciaux, y compris les modèles de changement de fabrication, le recrutement direct de main-d'œuvre et la priorisation des activités de production. Prendre en charge l'équipe de nuit (personnel, sécurité, qualité, conformité et livraison) et diriger le développement et soutenir l'exécution de la feuille de route de transformation de l'atelier pour favoriser l'excellence opérationnelle et fournir des résultats commerciaux mesurables, concevoir et mettre en œuvre des programmes de développement complets pour les chefs d'équipe et les opérateurs afin de développer des équipes hautement performantes, finalement cultiver les meilleures routines et établir des normes de travail solides pour garantir des améliorations durables des performances, tout en inspirant et en engageant les équipes à tous les niveaux à adopter le changement dans une culture d'amélioration continue et de collaboration, agissant en tant qu'agent de changement pour promouvoir l'alignement avec l'organisation. objectifs.\n• Assurer l'alignement et la connexion avec les autres fonctions de support des 2 équipes et de l'équipe de jour.\n• Superviser la mise en œuvre et l'utilisation efficaces des outils Medtronic Performance System (MPS), assurer l'alignement avec les normes établies pour atteindre la cohérence et l'excellence opérationnelles, favoriser le respect des normes MPS, y compris la gestion des niveaux, les 5S, les 5 Pourquoi, la résolution de problèmes A3 et d'autres méthodologies Lean.\n• Favoriser une culture de normes, en donnant l'exemple et en fournissant un encadrement pratique aux chefs d'équipe, en renforçant le respect quotidien des normes et des meilleures pratiques, en utilisant éventuellement les processus RH pour traiter et gérer les problèmes d'éthique, d'absentéisme et de performance des employés, en garantissant l'alignement avec les valeurs et les politiques de l'organisation. Connaissances et expérience requises\n• Baccalauréat, préf."
-      },
-      "needsRetranslation": false,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Manufacturing-Supervisor--night-shift-_R64324",
-      "source": "Medtronic Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-22T14:50:36.791Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Medtech / Dispositivi medici",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Manufacturing-Supervisor--night-shift-_R64324",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R64324",
-      "previousSlugs": [
-        "manufacturing-supervisor-night-shift-medtronic-ch",
-        "manufacturing-supervisore-night-shift-medtronic-lausanne",
-        "manufacturing-vorgesetzter-night-shift-medtronic-lausanne",
-        "manufacturing-superviseur-night-shift-medtronic-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manufacturing-supervisor-night-shift-medtronic-ch",
-          "manufacturing-supervisore-night-shift-medtronic-lausanne"
-        ],
-        "de": [
-          "manufacturing-supervisor-night-shift-medtronic-ch",
-          "manufacturing-vorgesetzter-night-shift-medtronic-lausanne"
-        ],
-        "fr": [
-          "manufacturing-supervisor-night-shift-medtronic-ch",
-          "manufacturing-superviseur-night-shift-medtronic-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T13:56:09.605Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003"
-    },
-    {
       "id": "medtronic-8ea99ba76015",
       "slug": "gestione-del-programma-di-sourcing-strategico-assemblee-elettroniche-medtronic-tolochenaz",
       "slugByLocale": {
@@ -628,7 +550,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Minneapolis-Minnesota-United-States-of-America/Strategic-Sourcing-Program-Manager-Electronic-Assemblies_R68333-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T14:50:35.448Z",
+      "crawledAt": "2026-06-22T23:12:57.266Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",

@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2861,
+ "numberOfItems": 2867,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7505,7 +7505,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2858, "name": "Brexit: lezioni per la Svizzera a 10 anni dall'...", "url": `${BASE_URL}/articoli-frontaliere/brexit-impatti-svizzera-ue` },
           { "@type": "ListItem", "position": 2859, "name": "Public Eye denuncia salari da fame in un'aziend...", "url": `${BASE_URL}/articoli-frontaliere/public-eye-denuncia-salari-on-ticino` },
           { "@type": "ListItem", "position": 2860, "name": "Sicurezza del paziente in Svizzera: novità e sf...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-paziente-2026-svizzera` },
-          { "@type": "ListItem", "position": 2861, "name": "Olimpiadi 2038 in Svizzera: nessun referendum, ...", "url": `${BASE_URL}/articoli-frontaliere/olimpiadi-2038-svizzera-non-referendum` }
+          { "@type": "ListItem", "position": 2861, "name": "Olimpiadi 2038 in Svizzera: nessun referendum, ...", "url": `${BASE_URL}/articoli-frontaliere/olimpiadi-2038-svizzera-non-referendum` },
+          { "@type": "ListItem", "position": 2862, "name": "Secondo binario Locarnese: raggiunta un’importa...", "url": `${BASE_URL}/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa` },
+          { "@type": "ListItem", "position": 2863, "name": "Pensionati svizzeri all'estero: come gestire la...", "url": `${BASE_URL}/articoli-frontaliere/pensioni-svizzera-2025` },
+          { "@type": "ListItem", "position": 2864, "name": "Centro commerciale assume: stipendi fino a 5mil...", "url": `${BASE_URL}/articoli-frontaliere/stipendi-frontalieri-centro-commerciale` },
+          { "@type": "ListItem", "position": 2865, "name": "Economisti adeguano stime crescita per il 2026", "url": `${BASE_URL}/articoli-frontaliere/economisti-adeguano-stime-crescita-2026` },
+          { "@type": "ListItem", "position": 2866, "name": "Frontaliere: checklist primo giorno di lavoro i...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-checklist-2026` },
+          { "@type": "ListItem", "position": 2867, "name": "Frontaliere scelta comune residenza Italia Sviz...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single` }
  ]
  },
  {

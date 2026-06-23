@@ -8138,6 +8138,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.public-eye-denuncia-salari-on-ticino.title': 'Public Eye dénonce les salaires de misère chez On',
     'blog.article.public-eye-denuncia-salari-on-ticino.excerpt': 'Le rapport de Public Eye dénonce les salaires minimums et les conditions précaires chez un sous-traitant d\'On, avec enquête et arrêt des commandes de la part de l\'entreprise.',
     'blog.article.public-eye-denuncia-salari-on-ticino.imageAlt': 'Image photoréaliste du passage frontalier Suisse-Italie près de Mendrisio avec des navetteurs et travailleurs',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.title': 'Deuxième voie Locarnese : une étape importante des travaux a été franchie',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.excerpt': 'Les travaux pour la deuxième voie dans la région de Locarnes ont atteint une étape importante, fondamentale pour le développement de l\'infrastructure ferroviaire.',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.imageAlt': 'Vue aérienne de la gare de Locarno avec des travaux de construction pour une deuxième voie ferrée',
 };
 
 export default blogMetaFr;
