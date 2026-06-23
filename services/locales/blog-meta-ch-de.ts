@@ -314,6 +314,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-chiasso-lugano-2026.title': 'Transportleitfaden Chiasso-Lugano für Grenzgänger 2026',
     'blog.article.trasporti-chiasso-lugano-2026.excerpt': 'Alles, was Sie über Züge, Autos, Parkplätze und Abos für Grenzgänger zwischen Chiasso und Lugano im Jahr 2026 wissen müssen.',
     'blog.article.trasporti-chiasso-lugano-2026.imageAlt': 'Panoramablick auf den Luganersee mit einem Bahnhof im Vordergrund',
+    'blog.article.bilancia-pagamenti-calo-svizzera.title': 'SNB: Zahlungsbilanz rückläufig',
+    'blog.article.bilancia-pagamenti-calo-svizzera.excerpt': 'Deutlich rückläufiger Zahlungsbilanzsaldo im ersten Quartal für die Schweizer Wirtschaft. Der Leistungsbilanzüberschuss belief sich auf 16 Milliarden Franken, das sind 11 Milliarden Franken weniger als im gleichen Zeitraum des Vorjahres, wie die Schweizerische Nationalbank (SNB) heute mitteilte.',
+    'blog.article.bilancia-pagamenti-calo-svizzera.imageAlt': 'Panoramische Aussicht auf eine Schweizer Stadt mit einem weiten Horizont und einer suggestiven Perspektive',
 };
 
 export default blogMetaChDe;

@@ -3998,6 +3998,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bilancia-pagamenti-calo-svizzera': {
+    title: 'BNS: bilancia dei pagamenti in calo | Frontaliere Ticino',
+    description: 'Il surplus della bilancia dei pagamenti si è fermato a 16 miliardi di franchi nel primo trimestre per l\'economia svizzera. La flessione è riconducibile',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilancia, pagamenti, calo, saldo',
+    ogTitle: 'BNS: bilancia dei pagamenti in calo | Frontaliere Ticino',
+    ogDescription: 'Il surplus della bilancia dei pagamenti si è fermato a 16 miliardi di franchi nel primo trimestre per l\'economia svizzera. La flessione è riconducibile',
+    canonicalPath: '/articoli-svizzera/bilancia-pagamenti-calo-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: bilancia dei pagamenti in calo",
+      "description": "Il surplus della bilancia dei pagamenti si è fermato a 16 miliardi di franchi nel primo trimestre per l'economia svizzera. La flessione è riconducibile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bilancia-pagamenti-calo-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di una città svizzera con un orizzonte ampio e una prospettiva suggestiva"
+      },
+      "datePublished": "2026-06-23T10:35:51+00:00",
+      "dateModified": "2026-06-23T10:35:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bilancia-pagamenti-calo-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

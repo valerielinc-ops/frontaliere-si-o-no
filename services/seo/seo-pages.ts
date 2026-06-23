@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2869,
+ "numberOfItems": 2870,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7513,7 +7513,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2866, "name": "Frontaliere: checklist primo giorno di lavoro i...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-checklist-2026` },
           { "@type": "ListItem", "position": 2867, "name": "Frontaliere scelta comune residenza Italia Sviz...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single` },
           { "@type": "ListItem", "position": 2868, "name": "Banche svizzere: ancora rifugio per denaro sporco?", "url": `${BASE_URL}/articoli-frontaliere/banca-svizzera-segreto` },
-          { "@type": "ListItem", "position": 2869, "name": "Guida pratica ai trasporti Chiasso-Lugano per f...", "url": `${BASE_URL}/articoli-frontaliere/trasporti-chiasso-lugano-2026` }
+          { "@type": "ListItem", "position": 2869, "name": "Guida pratica ai trasporti Chiasso-Lugano per f...", "url": `${BASE_URL}/articoli-frontaliere/trasporti-chiasso-lugano-2026` },
+          { "@type": "ListItem", "position": 2870, "name": "BNS: bilancia dei pagamenti in calo", "url": `${BASE_URL}/articoli-frontaliere/bilancia-pagamenti-calo-svizzera` }
  ]
  },
  {
