@@ -917,6 +917,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-scelta-comune-residenza-italia-svizzera-2026-single',
+    category: 'fiscale',
+    date: '2026-06-23T03:42:13.370Z',
+    image: '/images/blog/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
