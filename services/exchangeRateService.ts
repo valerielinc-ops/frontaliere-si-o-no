@@ -14,6 +14,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { reportCaughtError } from '@/services/errorReporter';
+import { resilientImport } from '@/services/resilientImport';
 
 const CACHE_KEY = 'exchange_rate_cache';
 const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
@@ -65,8 +66,14 @@ function setLocalCache(rate: number, source: RateSource): void {
 async function getFirestoreRate(): Promise<CacheEntry | null> {
  if (IS_TEST_ENV) return null;
  try {
- const { getFirestore, doc, getDoc } = await import('firebase/firestore');
- const { getApp } = await import('@/services/firebase');
+ const { getFirestore, doc, getDoc } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const db = getFirestore(await getApp());
  const snap = await getDoc(doc(db, 'config', 'exchange_rate'));
  if (snap.exists()) {
@@ -99,8 +106,14 @@ let firestoreWriteBlocked = false;
 async function saveFirestoreRate(rate: number): Promise<void> {
  if (IS_TEST_ENV || firestoreWriteBlocked) return;
  try {
- const { getFirestore, doc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
- const { getApp } = await import('@/services/firebase');
+ const { getFirestore, doc, getDoc, setDoc, serverTimestamp } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const db = getFirestore(await getApp());
  const ref = doc(db, 'config', 'exchange_rate');
  // Preserve previous rate for weekly comparison
@@ -317,8 +330,14 @@ function setLocalHistory(period: HistoryPeriod, points: HistoryPoint[]): void {
 async function getHistoryFromFirestore(period: HistoryPeriod): Promise<{ points: HistoryPoint[]; lastDate: string } | null> {
  if (IS_TEST_ENV) return null;
  try {
- const { getFirestore, doc, getDoc } = await import('firebase/firestore');
- const { getApp } = await import('@/services/firebase');
+ const { getFirestore, doc, getDoc } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
  const db = getFirestore(await getApp());
  const snap = await getDoc(doc(db, 'exchangeHistory', `chf-eur-${period}`));
  if (snap.exists()) {

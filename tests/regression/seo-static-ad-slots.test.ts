@@ -31,7 +31,8 @@ interface Spec {
 }
 
 const SPECS: Spec[] = [
-  // F5 weekly-employers — 2 render funcs, JOBLIST slot
+  // F5 weekly-employers — 3 render funcs, JOBLIST slot
+  { file: 'build-plugins/weeklyEmployersPlugin.ts', fn: 'renderTopHubPage', expectedSlot: 'JOBLIST_END_MULTIPLEX' },
   { file: 'build-plugins/weeklyEmployersPlugin.ts', fn: 'renderWeeklyEmployersPage', expectedSlot: 'JOBLIST_END_MULTIPLEX' },
   { file: 'build-plugins/weeklyEmployersPlugin.ts', fn: 'renderCompanyCityPage', expectedSlot: 'JOBLIST_END_MULTIPLEX' },
   // F2 health-premiums — 3 render funcs, ARTICLE slot

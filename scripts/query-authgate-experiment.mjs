@@ -22,6 +22,8 @@
  *                   properties set in earlier rounds (persistent via ph.register).
  *                   Example: --since 2026-06-01 for round-2 (launched 2026-06-01).
  *   --event <e>     funnel event name (default job_auth_funnel)
+ *   --prop <p>      super-property holding the arm: headline_variant (default,
+ *                   copy test) or gate_model (structural test, authgate-model-v1)
  */
 
 const args = process.argv.slice(2);
@@ -32,6 +34,9 @@ const getArg = (name, fallback) => {
 const days = Number(getArg('--days', '90'));
 const since = getArg('--since', null);
 const event = getArg('--event', 'job_auth_funnel');
+// Which super-property holds the arm: `headline_variant` (copy test, default) or
+// `gate_model` (structural test, flag authgate-model-v1).
+const prop = getArg('--prop', 'headline_variant');
 
 const key = process.env.POSTHOG_PERSONAL_API_KEY;
 const project = process.env.POSTHOG_PROJECT_ID;
@@ -82,13 +87,13 @@ function zTest(a, b) {
 const windowLabel = since ? `since ${since}` : `last ${days}d`;
 const sinceClause = since ? `  AND timestamp >= toDateTime('${since}')\n` : '';
 const hogql = `
-SELECT properties.headline_variant AS variant,
+SELECT properties.${prop} AS variant,
        uniqIf(person_id, properties.action = 'gate_view')    AS gate_persons,
        uniqIf(person_id, properties.action = 'auth_success') AS conv_persons
 FROM events
 WHERE event = '${event}'
   AND timestamp > now() - INTERVAL ${days} DAY
-${sinceClause}  AND properties.headline_variant IS NOT NULL
+${sinceClause}  AND properties.${prop} IS NOT NULL
 GROUP BY variant
 ORDER BY variant`;
 
@@ -103,7 +108,7 @@ for (const [variant, gate, conv] of rows) {
   arms.set(variant, { persons: Number(gate), conv: Number(conv) });
 }
 
-console.log(`=== Auth-gate headline experiment — ${event}, ${windowLabel} (per-person) ===`);
+console.log(`=== Auth-gate experiment [${prop}] — ${event}, ${windowLabel} (per-person) ===`);
 for (const [variant, a] of arms) {
   const cr = a.persons ? (a.conv / a.persons) * 100 : 0;
   console.log(`${variant.padEnd(13)} persons=${a.persons}  auth_success=${a.conv}  CR=${cr.toFixed(2)}%`);
