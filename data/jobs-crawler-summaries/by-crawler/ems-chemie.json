@@ -1,23 +1,23 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-06-22T14:16:01.102Z",
-  "total": 7,
+  "generatedAt": "2026-06-22T22:36:38.704Z",
+  "total": 8,
   "newCount": 1,
   "updatedCount": 6,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 3097,
-  "avgDurationMs": 3097,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 3684,
+  "avgDurationMs": 3684,
   "durationHistory": [
-    3097
+    3684
   ],
   "newJobs": [
     {
-      "title": "Raumpfleger (m/w/d) 20%",
+      "title": "System Engineer (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/0dee34f0-b9d3-4a4e-8702-cb265ebf8e11",
+      "url": "https://jobs.ems-group.com/offene-stellen/system-engineer-m-w-d/f61dd9e2-3c5e-48f7-a37e-3a431ca35ebc",
       "location": "Domat/Ems",
       "canton": "GR",
       "country": "CH",
@@ -30,7 +30,7 @@
       "category": "science",
       "postedDate": "2026-06-22",
       "source": "company-website",
-      "slug": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+      "slug": "system-engineer-m-w-d-100-ems-chemie-domat-ems",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -240,12 +240,13 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Laborant Forschung & Entwicklung (m/w/d) 100%",
+      "title": "System Engineer (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/laborant-forschung-entwicklung-m-w-d/5d9d9550-5ded-4f54-b21b-376c7240e0bd",
+      "url": "https://jobs.ems-group.com/offene-stellen/system-engineer-m-w-d/f61dd9e2-3c5e-48f7-a37e-3a431ca35ebc",
       "location": "Domat/Ems",
       "canton": "GR",
       "country": "CH",
@@ -256,26 +257,24 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "category": "science",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-22",
       "source": "company-website",
-      "slug": "gestione-del-prodotto-m-w-d-ems-chemie-ag-domat-ems",
+      "slug": "system-engineer-m-w-d-100-ems-chemie-domat-ems",
       "crawledAt": "",
-      "id": "ems-chemie-02a69ecc62a8",
+      "needsRetranslation": true,
+      "id": "ems-chemie-da1d64ec8036",
       "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-03T13:28:17.468Z",
-      "_qualityScore": 82,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 25,
+        "translation": 21,
         "completeness": 22
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Raumpfleger (m/w/d) 20%",
       "company": "EMS-Chemie AG",
@@ -295,17 +294,17 @@
       "source": "company-website",
       "slug": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-ed7f346f25fd",
       "sourceLang": "it",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
-      "_qualityScore": 73,
+      "firstSeenAt": "2026-06-22T14:16:01.101Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },

@@ -293,6 +293,57 @@
       @media (min-width: 1800px) {
         main:not(.seo-static-content):not(.cluster-seo-prose) { max-width: calc(100vw - 420px); }
       }
+
+      /* Static SEO body grid — first-paint reservation mirrored from the async
+         seo-static.css `main.seo-static-content{display:grid;…;gap:12px}`. Until
+         that sheet swaps in (~400ms), the static <main> stacks as default block
+         with collapsing margins; promotion to grid+gap reflows the whole column
+         — live desktop CLS 0.70 on /cerca-lavoro-* landings. Reserving the final
+         geometry here makes first paint == final → no shift. Grid/gap mirror
+         seo-static.css's main.seo-static-content rule; max-width min(100%,1120px)
+         + padding-inline clamp mirror index.css:254 byte-for-byte; padding-block
+         32/56 mirrors the .s-Ziv1Xn scoped class also on this <main> — dropping
+         any reintroduces a shift. Pure space reservation (in-flow ad slots are
+         grid children before AND after).
+         Keep in sync with SEO_STATIC_GRID_RESERVE_CSS in
+         build-plugins/shared/criticalCss.ts (the static-page twin). */
+      main.seo-static-content { max-width: min(100%,1120px); margin: 0 auto; padding: 32px clamp(16px,4vw,32px) 56px; display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; }
+      main.seo-static-content > * { min-width: 0; width: 100%; }
+
+      /* Static SEO hero — first-paint reservation mirrored from the async
+         seo-static.css hero rules (stable hard-coded classes). Until the sheet
+         swaps in, the stat-tile container .s-XENO3U stacks as block (tall) then
+         collapses to a grid row — live desktop shift 0.39 (the top residual
+         after the page-grid fix #2740). The TI city/canton hubs
+         /cerca-lavoro-{canton}/{city}/ (dominant page type on that surface)
+         emit a PARALLEL grid system (.s-S6PRaY + .s-CGuDZg/.s-3kP_AL/.s-0kclVO
+         tiles, .s-9UotdJ values, .s-JFi4vt/.s-z4q8yI/.s-AnMfGC labels, .s-S_0cal
+         header) that does NOT reuse .s-XENO3U, so it collapsed the same way —
+         reserved below too. Makes first paint == final → no shift. Pure space
+         reservation. Keep in sync with SEO_STATIC_HERO_RESERVE_CSS in
+         build-plugins/shared/criticalCss.ts. */
+      .s-XENO3U { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; margin: 0 0 24px; }
+      .s-S6PRaY { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 14px; margin: 0 0 18px; }
+      .s-tbase, .s-tacc, .s-tok, .s-twrn, .s-tdng, .s-CGuDZg, .s-3kP_AL { padding: 18px; border: 1px solid transparent; border-radius: 14px; }
+      .s-0kclVO { padding: 18px; border: 1px solid transparent; border-radius: 22px; }
+      .s-tlbl, .s-JFi4vt, .s-z4q8yI { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+      .s-AnMfGC { font-size: 12px; font-weight: 700; text-transform: uppercase; }
+      .s-tval, .s-9UotdJ { margin-top: 8px; font-size: 28px; font-weight: 800; line-height: 1.1; }
+      .s-bcr { margin: 0 0 14px; font-size: 13px; }
+      .s-cta { display: inline-flex; align-items: center; gap: 6px; padding: 12px 20px; font-weight: 700; }
+      /* hero <header> async padding+margin (.sx-hero, incl. city-hub .s-S_0cal sx-hero):
+         padding 0 at first paint → expands ~48px on swap. Reserve it; the async
+         .sx-hero margin wins the cascade over .s-S_0cal (28px) so reserve 20px here. */
+      .sx-hero { padding: 20px 16px; margin: 0 0 20px; }
+      @media (min-width: 640px) { .sx-hero { padding: 24px 22px; } }
+      .s-sy52lX { margin-bottom: 24px; }
+      /* city-hub hero typography (async-only classes); landing hero H1 is inline-styled (stable). */
+      .s-P0Hs0W { margin: 0 0 14px; font-size: clamp(2rem,5vw,3.2rem); line-height: 1.15; }
+      .sx-kick { display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; border-radius: 999px; padding: 4px 12px; font-weight: 600; margin: 0 0 8px; }
+      .s-zNiFzy { margin: 0 0 8px; font-size: 13px; font-weight: 700; }
+      .s-wU5Nrr { margin: 0 0 14px; font-size: 18px; line-height: 1.6; max-width: 860px; }
+      .s-rDKEKn { margin: 0; line-height: 1.7; max-width: 860px; }
+      @media (max-width: 639px) { .s-cta { display: flex; width: 100%; justify-content: center; } }
     </style>
 
     <!-- Google AdSense: deferred until after page is interactive to avoid

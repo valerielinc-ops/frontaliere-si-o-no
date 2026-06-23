@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-03T16:03:21.995Z",
-    "label": "before",
-    "total": 9695,
-    "needsRetranslation": 6003,
-    "suppressed": 22,
-    "incomplete": 950,
-    "complete": 8745,
-    "missingByLocale": {
-      "it": 583,
-      "en": 472,
-      "de": 325,
-      "fr": 571
-    },
-    "topPending": [
-      {
-        "company": "Richemont",
-        "pending": 101
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 95
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 78
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 57
-      },
-      {
-        "company": "Roche",
-        "pending": 39
-      },
-      {
-        "company": "AFRY",
-        "pending": 36
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 36
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 22
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 22
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-03T20:30:19.675Z",
-    "label": "after",
-    "total": 9695,
-    "needsRetranslation": 2203,
-    "suppressed": 22,
-    "incomplete": 754,
-    "complete": 8941,
-    "missingByLocale": {
-      "it": 466,
-      "en": 363,
-      "de": 278,
-      "fr": 465
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 94
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 77
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 57
-      },
-      {
-        "company": "Roche",
-        "pending": 39
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 36
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 22
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 21
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 19
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-04T01:31:01.429Z",
-    "label": "before",
-    "total": 10448,
-    "needsRetranslation": 6753,
-    "suppressed": 22,
-    "incomplete": 740,
-    "complete": 9708,
-    "missingByLocale": {
-      "it": 484,
-      "en": 346,
-      "de": 306,
-      "fr": 488
-    },
-    "topPending": [
-      {
-        "company": "Richemont",
-        "pending": 101
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 95
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 77
-      },
-      {
-        "company": "Roche",
-        "pending": 56
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 36
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 16
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-04T06:49:31.160Z",
-    "label": "after",
-    "total": 10448,
-    "needsRetranslation": 2738,
-    "suppressed": 22,
-    "incomplete": 592,
-    "complete": 9856,
-    "missingByLocale": {
-      "it": 417,
-      "en": 290,
-      "de": 254,
-      "fr": 405
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 77
-      },
-      {
-        "company": "Roche",
-        "pending": 42
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 36
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "Richemont",
-        "pending": 17
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 14
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-04T08:03:56.572Z",
     "label": "before",
     "total": 10756,
@@ -11396,6 +11168,234 @@
       {
         "company": "Kantonsspital Baden (KSB)",
         "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-22T16:53:26.773Z",
+    "label": "before",
+    "total": 17113,
+    "needsRetranslation": 6855,
+    "suppressed": 578,
+    "incomplete": 1320,
+    "complete": 15793,
+    "missingByLocale": {
+      "it": 622,
+      "en": 539,
+      "de": 669,
+      "fr": 356
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 837
+      },
+      {
+        "company": "Manor AG",
+        "pending": 115
+      },
+      {
+        "company": "Elsa Group",
+        "pending": 46
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 32
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Geberit",
+        "pending": 21
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 19
+      },
+      {
+        "company": "Denner",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Decathlon",
+        "pending": 12
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-22T21:06:09.688Z",
+    "label": "after",
+    "total": 17113,
+    "needsRetranslation": 2718,
+    "suppressed": 578,
+    "incomplete": 1203,
+    "complete": 15910,
+    "missingByLocale": {
+      "it": 507,
+      "en": 427,
+      "de": 643,
+      "fr": 259
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 837
+      },
+      {
+        "company": "Manor AG",
+        "pending": 115
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Geberit",
+        "pending": 20
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 16
+      },
+      {
+        "company": "Denner",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 13
+      },
+      {
+        "company": "Decathlon",
+        "pending": 12
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 12
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-22T23:53:22.384Z",
+    "label": "before",
+    "total": 17292,
+    "needsRetranslation": 8818,
+    "suppressed": 593,
+    "incomplete": 1688,
+    "complete": 15604,
+    "missingByLocale": {
+      "it": 914,
+      "en": 603,
+      "de": 756,
+      "fr": 527
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1018
+      },
+      {
+        "company": "Manor AG",
+        "pending": 114
+      },
+      {
+        "company": "Cartier",
+        "pending": 98
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 91
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Roche",
+        "pending": 48
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 21
+      },
+      {
+        "company": "Geberit",
+        "pending": 19
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 17
+      },
+      {
+        "company": "VOLG",
+        "pending": 17
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-23T04:05:46.316Z",
+    "label": "after",
+    "total": 17292,
+    "needsRetranslation": 3005,
+    "suppressed": 592,
+    "incomplete": 1572,
+    "complete": 15720,
+    "missingByLocale": {
+      "it": 850,
+      "en": 493,
+      "de": 802,
+      "fr": 405
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1015
+      },
+      {
+        "company": "Manor AG",
+        "pending": 114
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 91
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Roche",
+        "pending": 48
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 21
+      },
+      {
+        "company": "Geberit",
+        "pending": 19
+      },
+      {
+        "company": "VOLG",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Cartier",
+        "pending": 13
       }
     ]
   }
