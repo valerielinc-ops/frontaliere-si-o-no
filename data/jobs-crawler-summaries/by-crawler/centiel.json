@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-06-23T11:15:20.452Z",
+  "generatedAt": "2026-06-23T22:01:21.111Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3345,
-  "avgDurationMs": 3345,
+  "durationMs": 3360,
+  "avgDurationMs": 3360,
   "durationHistory": [
-    3345
+    3360
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,6 +43,7 @@
       "streetAddress": "Via Luserte 11",
       "postalCode": "6572",
       "firstSeenAt": "2026-06-19T12:14:25.157Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
