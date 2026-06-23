@@ -314,6 +314,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasporti-chiasso-lugano-2026.title': 'Guide pratique des transports Chiasso-Lugano pour les frontaliers en 2026',
     'blog.article.trasporti-chiasso-lugano-2026.excerpt': 'Tout ce que vous devez savoir sur les trains, les voitures, les parkings et les abonnements pour les frontaliers entre Chiasso et Lugano en 2026.',
     'blog.article.trasporti-chiasso-lugano-2026.imageAlt': 'Vue panoramique sur le lac de Lugano avec une gare en premier plan',
+    'blog.article.bilancia-pagamenti-calo-svizzera.title': 'BNS : balance des paiements en baisse',
+    'blog.article.bilancia-pagamenti-calo-svizzera.excerpt': 'Solde de la balance des paiements en forte baisse au premier trimestre pour l\'économie suisse. L\'excédent du compte courant s\'est élevé à 16 milliards de francs, soit 11 milliards de moins qu\'à la même période de l\'année précédente, a indiqué aujourd\'hui la Banque nationale suisse (BNS).',
+    'blog.article.bilancia-pagamenti-calo-svizzera.imageAlt': 'Vue panoramique d\'une ville suisse avec un horizon large et une perspective suggestive',
 };
 
 export default blogMetaChFr;

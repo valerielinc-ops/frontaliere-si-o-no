@@ -314,6 +314,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-chiasso-lugano-2026.title': 'Practical guide to Chiasso-Lugano transport for border workers in 2026',
     'blog.article.trasporti-chiasso-lugano-2026.excerpt': 'Everything you need to know about trains, cars, car parks and border passes between Chiasso and Lugano in 2026.',
     'blog.article.trasporti-chiasso-lugano-2026.imageAlt': 'Scenic view of Lake Lugano with a train station in the foreground',
+    'blog.article.bilancia-pagamenti-calo-svizzera.title': 'SNB: balance of payments declining',
+    'blog.article.bilancia-pagamenti-calo-svizzera.excerpt': 'Balance of payments balance in significant decline in the first quarter for the Swiss economy. The current account surplus was 16 billion francs, 11 billion francs less than the same period last year, the Swiss National Bank (SNB) said today.',
+    'blog.article.bilancia-pagamenti-calo-svizzera.imageAlt': 'Panoramic view of a Swiss city with a wide horizon and a suggestive perspective',
 };
 
 export default blogMetaChEn;

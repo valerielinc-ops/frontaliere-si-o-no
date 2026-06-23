@@ -126,6 +126,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-scelta-comune-residenza-italia-svizzera-2026-single': { it: 'frontaliere-scelta-comune-residenza-italia-svizzera-2026-single', en: 'swiss-residency-options-italy-2026-single', de: 'schweizer-residenzoptionen-italien-2026-einziger', fr: 'options-de-residence-suisse-italie-2026-seul' },
  'banca-svizzera-segreto': { it: 'banca-svizzera-segreto', en: 'swiss-bank-secrecy', de: 'schweizer-bankgeheimnis', fr: 'secret-bancaire-suisse' },
  'trasporti-chiasso-lugano-2026': { it: 'trasporti-chiasso-lugano-2026', en: 'chiasso-lugano-transport-2026', de: 'verkehr-chiasso-lugano-2026', fr: 'transports-chiasso-lugano-2026' },
+ 'bilancia-pagamenti-calo-svizzera': { it: 'bilancia-pagamenti-calo-svizzera', en: 'swiss-balance-of-payments-decline', de: 'schweizer-zahlungsbilanz-rueckgang', fr: 'd-c3-a9s-c3-a9quilibre-payments-suisse-en-chute' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
