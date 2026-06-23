@@ -7527,7 +7527,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2878, "name": "Guida ai contributi sociali svizzeri per fronta...", "url": `${BASE_URL}/articoli-frontaliere/contributi-sociali-frontalieri-busta-paga` },
           { "@type": "ListItem", "position": 2879, "name": "Quanto costa vivere a Lugano da frontaliere: an...", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-lugano-frontaliere` },
           { "@type": "ListItem", "position": 2880, "name": "Calcolo pensione frontalieri: come funziona AVS...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontalieri-avs-italiana` },
+
           { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-pro-contro-frontalieri` }
+          { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-frontalieri-pro-contro` }
+
  ]
  },
  {

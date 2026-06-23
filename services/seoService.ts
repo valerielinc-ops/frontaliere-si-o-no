@@ -4128,7 +4128,10 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-contributi-sociali-frontalieri-busta-paga': { name: 'Contributi sociali', path: '/articoli-svizzera/contributi-sociali-frontalieri-busta-paga/', parent: 'blog' },
     'blog-costo-vita-lugano-frontaliere': { name: 'Costo vita Lugano', path: '/articoli-svizzera/costo-vita-lugano-frontaliere/', parent: 'blog' },
     'blog-calcolo-pensione-frontalieri-avs-italiana': { name: 'Calcolo pensione', path: '/articoli-svizzera/calcolo-pensione-frontalieri-avs-italiana/', parent: 'blog' },
+
     'blog-permesso-g-pro-contro-frontalieri': { name: 'Permesso G', path: '/articoli-svizzera/permesso-g-pro-contro-frontalieri/', parent: 'blog' },
+    'blog-permesso-g-frontalieri-pro-contro': { name: 'Permesso G', path: '/articoli-svizzera/permesso-g-frontalieri-pro-contro/', parent: 'blog' },
+
  };
 
  const info = sectionNames[section];

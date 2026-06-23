@@ -345,9 +345,14 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.title': 'Berechnung der Grenzgängerrente: Wie AHV und INPS funktionieren',
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.excerpt': 'Vollständiger Leitfaden zur Berechnung der Rente für Grenzgänger mit schweizerischen AHV-Beiträgen und italienischen INPS-Beiträgen.',
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.imageAlt': 'Blick auf den Luganersee mit einer Person, die die Rente berechnet',
+
     'blog.article.permesso-g-pro-contro-frontalieri.title': 'Grenzgänger-G-Genehmigung: Volle Vor- und Nachteile',
     'blog.article.permesso-g-pro-contro-frontalieri.excerpt': 'Alles, was Sie über die G-Genehmigung für Grenzgänger wissen müssen: Vor- und Nachteile und wann es sich wirklich lohnt.',
     'blog.article.permesso-g-pro-contro-frontalieri.imageAlt': 'Panoramablick auf den Luganersee mit dem Schweizerisch-Italienischen Grenzgebiet im Hintergrund',
+    'blog.article.permesso-g-frontalieri-pro-contro.title': 'Grenzgänger-G-Genehmigung: Volle Vor- und Nachteile',
+    'blog.article.permesso-g-frontalieri-pro-contro.excerpt': 'Detaillierte Analyse der Vor- und Nachteile der Bewilligung G für Grenzgänger mit Schwerpunkt auf Steuern, Vorsorge und Arbeitsmobilität.',
+    'blog.article.permesso-g-frontalieri-pro-contro.imageAlt': 'Panoramablick auf den Luganersee mit der Grenzlandschaft zwischen der Schweiz und Italien',
+
 };
 
 export default blogMetaChDe;

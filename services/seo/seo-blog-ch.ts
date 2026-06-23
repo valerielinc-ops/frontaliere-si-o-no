@@ -4370,7 +4370,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
-
   'blog-permesso-g-pro-contro-frontalieri': {
     title: 'Permesso G frontalieri: vantaggi e svantaggi completi',
     description: 'Tutto ciò che devi sapere sul permesso G per frontalieri: vantaggi, svantaggi e quando conviene davvero. Dati aggiornati 2026 per frontalieri in Ticino.',
@@ -4378,11 +4377,22 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Permesso G frontalieri: vantaggi e svantaggi completi',
     ogDescription: 'Tutto ciò che devi sapere sul permesso G per frontalieri: vantaggi, svantaggi e quando conviene davvero.',
     canonicalPath: '/articoli-svizzera/permesso-g-pro-contro-frontalieri/',
+  'blog-permesso-g-frontalieri-pro-contro': {
+    title: 'Permesso G frontalieri: vantaggi e svantaggi completi',
+    description: 'Analisi dettagliata dei pro e contro del permesso G per frontalieri, con focus su fisco, previdenza e mobilità lavorativa. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, vantaggi, svantaggi, completi',
+    ogTitle: 'Permesso G frontalieri: vantaggi e svantaggi completi',
+    ogDescription: 'Analisi dettagliata dei pro e contro del permesso G per frontalieri, con focus su fisco, previdenza e mobilità lavorativa.',
+    canonicalPath: '/articoli-svizzera/permesso-g-frontalieri-pro-contro/',
+
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Permesso G frontalieri: vantaggi e svantaggi completi",
+
       "description": "Tutto ciò che devi sapere sul permesso G per frontalieri: vantaggi, svantaggi e quando conviene davvero. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Analisi dettagliata dei pro e contro del permesso G per frontalieri, con focus su fisco, previdenza e mobilità lavorativa. Dati aggiornati 2026 per frontalieri",
+
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
@@ -4390,6 +4400,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "creditText": "Frontaliere Ticino",
+
         "url": `${BASE_URL}/images/blog/permesso-g-pro-contro-frontalieri.webp`,
         "width": 1200,
         "height": 675,
@@ -4397,6 +4408,14 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "datePublished": "2026-06-23T20:17:08+00:00",
       "dateModified": "2026-06-23T20:17:08+00:00",
+        "url": `${BASE_URL}/images/blog/permesso-g-frontalieri-pro-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con il paesaggio di confine tra Svizzera e Italia"
+      },
+      "datePublished": "2026-06-23T20:34:02+00:00",
+      "dateModified": "2026-06-23T20:34:02+00:00",
+
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -4405,7 +4424,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": "https://frontaliereticino.ch/autori/redazione/"
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-g-pro-contro-frontalieri/`,
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-g-frontalieri-pro-contro/`,
+
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
