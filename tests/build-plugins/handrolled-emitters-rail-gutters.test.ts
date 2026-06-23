@@ -26,9 +26,13 @@ import { resolve } from 'node:path';
  * destructured form, or `railGutters(true).open` for the inline form), and the
  * file must import the shared helper.
  *
- * jobsSeoPagesPlugin.ts is intentionally NOT in this list — see PR #2810
- * `## Non implementato` + follow-up #2811 (job-detail is staticOverlay=false,
- * job-collection needs separate CLS validation).
+ * jobsSeoPagesPlugin.ts is intentionally NOT in this strict list: it emits BOTH
+ * job-collection/canton landings (staticOverlay=true → wrapped by #2811) AND a
+ * job-detail `<main class="seo-static-content static-job-page">` that is
+ * staticOverlay=false (App.tsx job-board excluded → portal never fires), so the
+ * `opens >= mains` invariant can't hold for it while job-detail stays unwrapped.
+ * Its collection mains get their own focused gate below; job-detail rails remain
+ * a separate deferred decision (see #2811 `## Non implementato`).
  */
 const ROOT = resolve(__dirname, '..', '..');
 
@@ -71,4 +75,41 @@ describe('hand-rolled staticOverlay emitters wrap seo-static-content in side-rai
       ).toBeGreaterThanOrEqual(mains);
     });
   }
+});
+
+/**
+ * jobsSeoPagesPlugin emits a mix of staticOverlay states in one file, so it
+ * can't use the strict `opens >= mains` gate above. #2811 wraps only its
+ * job-collection/canton landings (the `s-xzWvwM` / `s-it71Rt` mains, all
+ * staticOverlay=true); the job-detail `static-job-page` main is staticOverlay
+ * =false and stays unwrapped on purpose. This gate locks in the collection
+ * wrapping without falsely demanding rails on job-detail.
+ */
+describe('jobsSeoPagesPlugin job-collection/canton landings wrap their <main> in side-rail gutters', () => {
+  const rel = 'build-plugins/jobsSeoPagesPlugin.ts';
+  const src = readFileSync(resolve(ROOT, rel), 'utf-8');
+
+  const isComment = (line: string): boolean => {
+    const t = line.trimStart();
+    return t.startsWith('//') || t.startsWith('*');
+  };
+  const collectionMains = src
+    .split('\n')
+    .filter((line) => !isComment(line))
+    .filter((line) => /<main class="seo-static-content (s-xzWvwM|s-it71Rt)">/.test(line)).length;
+
+  it('imports the shared railGutters helper', () => {
+    expect(src).toContain("from './shared/railGutters'");
+  });
+
+  it('wraps every job-collection/canton <main> with a rail-gutter opening', () => {
+    expect(collectionMains, `${rel} should emit job-collection/canton mains`).toBeGreaterThan(0);
+    const opens = (src.match(/railGutters\(true\)\.open/g) ?? []).length;
+    expect(
+      opens,
+      `${rel}: ${collectionMains} job-collection/canton <main> but only ${opens} rail-gutter ` +
+        `opening(s). Each staticOverlay collection landing must be wrapped so App.tsx can portal ` +
+        `the side-rail ads in.`,
+    ).toBeGreaterThanOrEqual(collectionMains);
+  });
 });
