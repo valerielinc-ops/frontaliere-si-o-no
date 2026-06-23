@@ -345,6 +345,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.title': 'Calcolo pensione frontalieri: come funziona AVS e INPS',
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.excerpt': 'Guida completa al calcolo della pensione per i frontalieri con contributi AVS svizzeri e INPS italiani.',
     'blog.article.calcolo-pensione-frontalieri-avs-italiana.imageAlt': 'Vista sul lago di Lugano con una persona che calcola la pensione',
+    'blog.article.permesso-g-pro-contro-frontalieri.title': 'Permesso G frontalieri: vantaggi e svantaggi completi',
+    'blog.article.permesso-g-pro-contro-frontalieri.excerpt': 'Tutto ciò che devi sapere sul permesso G per frontalieri: vantaggi, svantaggi e quando conviene davvero.',
+    'blog.article.permesso-g-pro-contro-frontalieri.imageAlt': 'Vista panoramica del Lago di Lugano con lo sfondo del confine svizzero-italiano',
 };
 
 export default blogMetaChIt;
