@@ -29,7 +29,7 @@
 // path verbatim — resolveCantonSection short-circuits on 'TI'.
 import fs from 'node:fs';
 import path from 'node:path';
-import { createCantonResolvers, SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const TRACKING_PATH = path.resolve('data/all-known-job-slugs.json');
 const JOBS_PATH = path.resolve('data/jobs.json');
@@ -73,12 +73,6 @@ for (const job of jobs) {
   }
 }
 
-// 2. Pre-compute TI legacy path prefixes for cheap matching.
-const TI_PATH_PREFIX = {};
-for (const locale of LOCALES) {
-  TI_PATH_PREFIX[locale] = `${LOCALE_PREFIX[locale]}/${SECTION_LEGACY_TI[locale]}/`;
-}
-
 let rewritten = 0;
 let kept = 0;
 let orphanKept = 0;
@@ -98,22 +92,38 @@ for (const [trackingSlug, entry] of Object.entries(tracking)) {
   }
   const canton = resolveJobCanton({ canton: job.canton, location: job.location });
   cantonStats.set(canton, (cantonStats.get(canton) || 0) + 1);
-  if (canton === 'TI') {
-    kept++;
-    out[trackingSlug] = entry;
-    continue;
-  }
+  // Reconcile EVERY locale path to the job's CURRENT canton section — not only
+  // TI→canton. The old `if (!oldPath.startsWith(tiPrefix)) continue` skipped any
+  // path already on a non-TI section, so a job that later migrated BETWEEN non-TI
+  // cantons (e.g. ZH→BE) kept its first non-TI section forever → the canon map /
+  // 404 bridge then 301'd the orphan to a canton where the live page no longer
+  // exists (a redirect to a dead page, never recovered). Replacing only the
+  // SECTION segment and keeping the rest (slug + trailing slash) verbatim keeps
+  // the slug-body invariant (tests/migrate-all-known-job-slugs-canton-aware.test.ts)
+  // and makes a TI job a natural no-op (resolveCantonSection('TI') returns the
+  // legacy TI section), so TI invariance still holds without a special-case.
   const newEntry = { ...entry };
   let touched = false;
   for (const locale of LOCALES) {
     const oldPath = entry[locale];
-    if (typeof oldPath !== 'string') continue;
-    const tiPrefix = TI_PATH_PREFIX[locale];
-    if (!oldPath.startsWith(tiPrefix)) continue; // already canton-aware or hand-edited
-    const remainder = oldPath.slice(tiPrefix.length);
+    if (typeof oldPath !== 'string' || !oldPath.startsWith('/')) continue;
+    const lp = LOCALE_PREFIX[locale]; // '', '/en', '/de', '/fr'
+    let afterLp;
+    if (lp) {
+      if (!oldPath.startsWith(`${lp}/`)) continue; // locale-prefix mismatch — leave it
+      afterLp = oldPath.slice(lp.length);
+    } else {
+      afterLp = oldPath;
+    }
+    const m = afterLp.match(/^\/([^/]+)\/(.*)$/); // [, section, rest]
+    if (!m) continue; // not a /<section>/<slug> path — leave it
+    const rest = m[2]; // slug body + any trailing slash, preserved verbatim
     const newSection = resolveCantonSection(locale, canton);
-    newEntry[locale] = `${LOCALE_PREFIX[locale]}/${newSection}/${remainder}`.replace(/\/+/g, '/');
-    touched = true;
+    const newPath = `${lp}/${newSection}/${rest}`;
+    if (newPath !== oldPath) {
+      newEntry[locale] = newPath;
+      touched = true;
+    }
   }
   if (touched) rewritten++;
   else kept++;
