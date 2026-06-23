@@ -37,7 +37,7 @@ const FaqSection: React.FC = () => {
 
  // Inject FAQPage JSON-LD structured data for SEO
  useEffect(() => {
- Analytics.trackPageView('/faq', 'FAQ');
+ Analytics.trackPageView('/faq/', 'FAQ');
  Analytics.trackUIInteraction('faq', 'page', 'faq_section', 'view');
  }, []);
 

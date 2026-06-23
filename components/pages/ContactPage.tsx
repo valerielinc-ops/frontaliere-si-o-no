@@ -59,7 +59,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
 
  // Apply prefill when navigating from another page
  useEffect(() => {
- Analytics.trackPageView('/contatti', 'Contact Page');
+ Analytics.trackPageView('/contatti/', 'Contact Page');
  Analytics.trackUIInteraction('contact', 'page', 'contact_page', 'view');
  }, []);
 

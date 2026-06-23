@@ -430,7 +430,7 @@ export default function FuelPriceStats() {
  .then((result) => {
  if (cancelled) return;
  setData(result);
- Analytics.trackPageView('/statistiche/prezzi-benzina-confine', 'Prezzi carburanti confine');
+ Analytics.trackPageView('/statistiche/prezzi-benzina-confine/', 'Prezzi carburanti confine');
  Analytics.trackUIInteraction('statistiche', 'carburanti', 'view_dataset', 'view');
  })
  .catch((err) => {

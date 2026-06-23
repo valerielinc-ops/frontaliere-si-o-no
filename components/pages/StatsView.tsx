@@ -35,7 +35,7 @@ const StatsViewInner: React.FC = () => {
  const chart = useChartColors(isDark);
 
  useEffect(() => {
- Analytics.trackPageView('/statistiche', 'Statistiche frontalieri');
+ Analytics.trackPageView('/statistiche/', 'Statistiche frontalieri');
  Analytics.trackUIInteraction('stats', 'dashboard', 'stats_view', 'view');
  let cancelled = false;
  (async () => {
