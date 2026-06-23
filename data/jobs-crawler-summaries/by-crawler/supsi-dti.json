@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-23T12:47:40.021Z",
+  "generatedAt": "2026-06-23T23:15:15.766Z",
   "total": 27,
   "newCount": 27,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 181684,
-  "avgDurationMs": 181684,
+  "durationMs": 104361,
+  "avgDurationMs": 104361,
   "durationHistory": [
-    181684
+    104361
   ],
   "newJobs": [
     {
@@ -192,7 +192,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-23",
+      "postedDate": "2026-06-19",
       "url": "https://www.supsi.ch/bando26_2009",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -360,7 +360,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-13",
+      "postedDate": "2026-06-23",
       "url": "https://www.supsi.ch/bando26_5030",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -438,7 +438,7 @@
       "slug": "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Collaboratrice scientifica / Collaboratore scientifico in Salute di Precisione Abilitata dall’IA",
-      "location": "Lugano. Grado d",
+      "location": "Lugano",
       "canton": "TI",
       "category": "health",
       "contract": "part-time",
@@ -467,10 +467,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 3,
         "translation": 23,
         "completeness": 25
       }
@@ -522,7 +522,7 @@
       "slug": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore con PhD nell’area di Elettronica digitale, microelettronica e bioelettronica",
-      "location": "Lugano. In base all",
+      "location": "Lugano",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
@@ -551,10 +551,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 21,
         "translation": 23,
         "completeness": 25
       }
@@ -654,7 +654,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-23",
       "url": "https://www.supsi.ch/bando26_1010",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -677,11 +677,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -845,11 +845,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 18,
         "completeness": 25
       }
     },
