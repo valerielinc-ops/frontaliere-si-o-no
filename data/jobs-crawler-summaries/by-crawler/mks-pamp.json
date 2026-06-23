@@ -1,22 +1,23 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-06-22T23:21:00.094Z",
-  "total": 6,
+  "generatedAt": "2026-06-23T12:12:50.428Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 3,
   "unchangedCount": 3,
-  "durationMs": 6324,
-  "avgDurationMs": 6324,
+  "durationMs": 5776,
+  "avgDurationMs": 5776,
   "durationHistory": [
-    6324
+    5776
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
-      "title": "Summer Intern – Data Entry &amp; Supporto Amministrativo",
-      "slug": "summer-intern-data-entry-amp-supporto-amministrativo-mks-pamp-castel-san-pietro",
+      "title": "Summer Intern – Data Entry & Supporto Amministrativo",
+      "slug": "summer-intern-inserimento-dati-supporto-amministrativo-mks-pamp-castel-san-pietro",
       "url": "https://careers.mkspamp.com/jobs/7852878-summer-intern-data-entry-supporto-amministrativo",
       "applyUrl": "https://careers.mkspamp.com/jobs/7852878-summer-intern-data-entry-supporto-amministrativo",
       "company": "MKS PAMP",
@@ -43,17 +44,17 @@
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
       "firstSeenAt": "2026-06-04T13:00:30.601Z",
-      "_qualityScore": 88,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 25
       }
     },
     {
-      "title": "Internship — AI Engineering &amp; Data Analysis",
-      "slug": "internship-ai-engineering-amp-data-analysis-mks-pamp-geneve",
+      "title": "Internship — AI Engineering & Data Analysis",
+      "slug": "stage-ai-engineering-data-analysis-mks-pamp-geneve",
       "url": "https://careers.mkspamp.com/jobs/7847565-internship-ai-engineering-data-analysis",
       "applyUrl": "https://careers.mkspamp.com/jobs/7847565-internship-ai-engineering-data-analysis",
       "company": "MKS PAMP",
@@ -68,7 +69,7 @@
       "category": "technology",
       "sector": "Metalli preziosi",
       "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -79,9 +80,9 @@
       "currency": "CHF",
       "postalCode": "1201",
       "firstSeenAt": "2026-06-04T00:33:00.090Z",
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 22
@@ -89,7 +90,7 @@
     },
     {
       "title": "Chief Information Security Officer",
-      "slug": "chief-information-security-officer-mks-pamp-geneve",
+      "slug": "responsabile-della-sicurezza-delle-informazioni-mks-pamp-geneve",
       "url": "https://careers.mkspamp.com/jobs/7816543-chief-information-security-officer",
       "applyUrl": "https://careers.mkspamp.com/jobs/7816543-chief-information-security-officer",
       "company": "MKS PAMP",
@@ -125,7 +126,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Operatore Trattamenti Reflui",
