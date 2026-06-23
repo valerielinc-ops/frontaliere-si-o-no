@@ -1,49 +1,18 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-06-23T10:59:58.072Z",
+  "generatedAt": "2026-06-23T21:51:29.579Z",
   "total": 24,
-  "newCount": 1,
-  "updatedCount": 21,
+  "newCount": 0,
+  "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 11942,
-  "avgDurationMs": 11942,
+  "durationMs": 12412,
+  "avgDurationMs": 12412,
   "durationHistory": [
-    11942
+    12412
   ],
-  "newJobs": [
-    {
-      "title": "SERVICETECHNIKER/IN ÖL - OBERWALLIS",
-      "slug": "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902",
-      "url": "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1185843001/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Brig-Glis, CH, 3902",
-      "addressLocality": "Brig-Glis, CH, 3902",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-17",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "TEAMLEITER SERVICE WÄRMEPUMPEN (M/W)",
@@ -217,6 +186,7 @@
       "currency": "CHF",
       "postalCode": "1201",
       "firstSeenAt": "2026-06-10T22:11:57.658Z",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -253,6 +223,7 @@
       "currency": "CHF",
       "postalCode": "2046",
       "firstSeenAt": "2026-06-10T22:11:57.658Z",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -754,6 +725,7 @@
       "currency": "CHF",
       "postalCode": "4563",
       "firstSeenAt": "2026-06-17T22:09:47.599Z",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -790,11 +762,48 @@
       "currency": "CHF",
       "postalCode": "2501",
       "firstSeenAt": "2026-06-17T22:09:47.599Z",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "SERVICETECHNIKER/IN ÖL - OBERWALLIS",
+      "slug": "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1185843001/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Brig-Glis, CH, 3902",
+      "addressLocality": "Brig-Glis, CH, 3902",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-07-17",
+      "id": "ariston-group-ee0aa5576140",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "postalCode": "3900",
+      "firstSeenAt": "2026-06-23T10:59:58.068Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 22
       }
     }
