@@ -860,6 +860,7 @@ const translations: Record<string, string> = {
  'jobAlert.yourAlerts': 'Le tue alert',
  'jobAlert.loading': 'Caricamento alert...',
  'jobAlert.error.emptyFields': 'Inserisci almeno una keyword o una zona.',
+ 'jobAlert.error.generic': 'Errore durante la creazione dell\'alert. Riprova.',
  'jobAlert.sector': 'Settore',
  'jobAlert.edit': 'Modifica',
  'jobAlert.updated': 'Alert aggiornata.',
