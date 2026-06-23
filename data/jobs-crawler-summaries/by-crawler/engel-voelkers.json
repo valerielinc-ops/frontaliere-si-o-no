@@ -1,18 +1,49 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-06-22T22:37:27.419Z",
+  "generatedAt": "2026-06-23T11:25:18.541Z",
   "total": 9,
-  "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 19783,
-  "avgDurationMs": 19783,
+  "durationMs": 20518,
+  "avgDurationMs": 20518,
   "durationHistory": [
-    19783
+    20518
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Trainee (m/w/d)",
+      "slug": "trainee-m-w-d-engel-voelkers-zermatt",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/31cf30e3-1cfb-4cfd-8a3f-ae78e4a028a4",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/31cf30e3-1cfb-4cfd-8a3f-ae78e4a028a4",
+      "company": "EV Valais SA",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Zermatt",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
@@ -32,7 +63,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -68,7 +99,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -104,7 +135,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -140,7 +171,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -176,7 +207,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -213,7 +244,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -250,7 +281,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -286,7 +317,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -303,10 +334,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Senior Immobilienmakler/in 50-100%",
-      "slug": "senior-immobilienmakler-in-50-100-engel-voelkers-frauenfeld",
+      "slug": "agente-immobiliare-senior-in-50-100-buutiq-immobilien-ag-frauenfeld",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
       "company": "buutiq Immobilien AG",
@@ -322,7 +355,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-16",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -341,6 +374,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
