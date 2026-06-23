@@ -22,7 +22,7 @@ import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
 import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT } from './constants';
-import { asyncCssHeadBlock, EMPTY_ROOT_WITH_HEADER_RESERVE } from './htmlTemplate';
+import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -1204,7 +1204,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
-    ${EMPTY_ROOT_WITH_HEADER_RESERVE}
+    ${rootShell(hasSpaBundle)}
     ${railGutters(true).open}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-AxRVCF" aria-label="Breadcrumb">
@@ -1789,7 +1789,7 @@ function buildThinCantonHubHtml(args: {
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
-    ${EMPTY_ROOT_WITH_HEADER_RESERVE}
+    ${rootShell(hasSpaBundle)}
     ${railGutters(true).open}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-AxRVCF" aria-label="Breadcrumb">

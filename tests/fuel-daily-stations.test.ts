@@ -482,12 +482,12 @@ describe('generateFuelStationPages() — Ticino only', () => {
   it('uses <body class="bg-surface-alt"> SPA shell with empty #root + static seo-content sibling', () => {
     const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
     expect(sample).toContain('bg-surface-alt');
-    // #root holds ONLY the header-reserve spacer (no SEO content) so React's
-    // client render cannot visually replace the static SEO content
-    // (bait-and-switch fix). The spacer reserves the sticky-header height to
-    // prevent the mount-time CLS push (#2775); it is replaced by createRoot.
-    expect(sample).toMatch(/<div\b[^>]*\bid=["']?root["']?[^>]*><div\b[^>]*\bclass=["']?ft-hdr-reserve\b[^>]*><\/div><\/div>/);
-    // #root must still carry NO SEO content (no <main> nested inside it).
+    // #root carries NO SEO content (bait-and-switch fix). In this test env there
+    // is no SPA bundle (no dist/index.html), so the header-reserve spacer is
+    // gated OFF and #root is plain-empty — the safe no-bundle degrade. The
+    // spacer-when-bundled path is unit-tested directly in
+    // tests/build-plugins/rootShell.test.ts.
+    expect(sample).toMatch(/<div\b[^>]*\bid=["']?root["']?(?=[\s>])[^>]*><\/div>/);
     expect(sample).not.toMatch(/<div\b[^>]*\bid=["']?root["']?[^>]*>\s*<main/);
     // SEO content lives in a sibling `<main class="seo-static-content">`.
     expect(sample).toMatch(htmlTagWithClass('main', 'seo-static-content'));

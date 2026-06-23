@@ -19,7 +19,7 @@ import {
   ADSENSE_SNIPPET,
   CDN_PRECONNECT_HINT,
 } from './constants';
-import { asyncCssHeadBlock, EMPTY_ROOT_WITH_HEADER_RESERVE } from './htmlTemplate';
+import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import {
   JOB_RECENCY_LANDING_SLUGS,
   type JobRecencyVariant,
@@ -310,7 +310,7 @@ ${alternates}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
-    ${EMPTY_ROOT_WITH_HEADER_RESERVE}
+    ${rootShell(hasSpaBundle)}
     ${railGutters(true).open}
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-bcr">

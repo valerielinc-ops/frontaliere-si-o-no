@@ -144,13 +144,23 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  *
  * Single source of truth so the literal `<div id="root"></div>` emitters in the
  * funnel plugins (`jobsSeoPagesPlugin`, `seoHubsPlugin`, `jobSectorPagesPlugin`,
- * `jobRecencyPagesPlugin`) and the `buildSimplePage` shell can't drift apart
- * (AGENTS.md §6). ONLY for the SPA-shell pattern (empty #root + seo-content
- * sibling + SPA bundle): a no-bundle page would keep the spacer as a permanent
- * gap, so do not use this where React never mounts.
+ * `jobRecencyPagesPlugin`, `staticPagesPlugin`) and the `buildSimplePage` shell
+ * can't drift apart (AGENTS.md §6).
+ *
+ * GATED on the SPA bundle: the spacer is only safe when React actually mounts
+ * (createRoot replaces it with the real header). On a bundle-less page — e.g.
+ * when `resolveEntryAssets` returns '' on a stale/missing `dist/index.html`
+ * (silent catch, `seoPageShell.ts`) — there is no `<script type=module>`, React
+ * never mounts, and an unconditional spacer would sit as a PERMANENT 56/80px
+ * empty band above the indexed SEO content. So callers MUST pass the bundle
+ * flag (`!!entryJs` / `hasSpaBundle`); when false this returns a plain empty
+ * `#root` (the pre-fix harmless degrade — 0px, content at top).
  */
-export const EMPTY_ROOT_WITH_HEADER_RESERVE =
-  '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>';
+export function rootShell(hasSpaBundle: boolean): string {
+  return hasSpaBundle
+    ? '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>'
+    : '<div id="root"></div>';
+}
 
 /** HTML escape for attribute values and text content. */
 export function esc(s: string): string {
@@ -357,7 +367,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // pages (≥97% bounce) to honour their deliberate no-ad opt-out.
  const railsEnabled = seoContentOutsideRoot && !disableAutoAds;
  const { open: railGridOpen, close: railGridClose } = railGutters(railsEnabled);
- // First-paint header reservation (EMPTY_ROOT_WITH_HEADER_RESERVE below): on
+ // First-paint header reservation (rootShell below, gated on the bundle): on
  // these staticOverlay pages `#root` is empty at first paint and the SEO content
  // is a body-sibling below it; when React mounts, the sticky nav header
  // (`h-14 md:h-20` = 56/80px) fills `#root` and shoves the sibling content (rail
@@ -370,7 +380,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // children (client render, not hydration) so the spacer leaves no residue — the
  // real same-height header takes its place shift-free.
  const bodySection = seoContentOutsideRoot
-   ? ` ${EMPTY_ROOT_WITH_HEADER_RESERVE}${preMainSection}
+   ? ` ${rootShell(!!entryJs)}${preMainSection}
 ${railGridOpen}
  <main class="${seoMainClass}">
 ${bodyHtml}
