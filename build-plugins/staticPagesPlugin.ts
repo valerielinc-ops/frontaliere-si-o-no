@@ -41,6 +41,7 @@ import { getJobTodayLandingSlug, getJobNursesHubSlug, getJobPartTimeLandingSlug,
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, jobMatchesSector as jobMatchesSectorImpl, type SectorHubKey } from './jobSectorLanding';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
+import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJobsHub';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
@@ -3707,6 +3708,30 @@ export function staticPagesPlugin(rootDir: string): Plugin {
        .join('');
      editorialBlocks.push(
        `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(companyNavLabel)} (${tiTopCompanies.length})</summary><nav class="s-6_t7LY" aria-label="${esc(companyNavLabel)}">${companyAnchors}</nav></details>`,
+     );
+   }
+
+   // (e) TI city hubs — the 5 legacy clean city hubs (lugano/bellinzona/
+   // mendrisio/chiasso/locarno) were BFS-orphaned from the TI root: the
+   // non-TI canton navigator above links every OTHER canton's city hubs
+   // (nonTiCantonNavEntries skips TI), and jobsSeoPagesPlugin's "Esplora"
+   // city navigator filters TI out (owned by staticPagesPlugin), so the
+   // TI root linked 0 of its own city hubs while the city head-query
+   // cluster (offerte di lavoro lugano/bellinzona/…) is high-intent. This
+   // links each clean city hub from the root at BFS depth 1, with an
+   // exact-match anchor and trailing-slash href by construction
+   // (buildCityHubPath). Mirrors the (a)-(d) chrome; open by default since
+   // these are primary geo-intent destinations.
+   {
+     const cityNavLabel = navLocale === 'en' ? 'Jobs by city in Ticino'
+       : navLocale === 'de' ? 'Jobs nach Stadt im Tessin'
+       : navLocale === 'fr' ? 'Emplois par ville au Tessin'
+       : 'Offerte di lavoro per città in Ticino';
+     const cityAnchors = CITY_HUB_KEYS
+       .map((key) => `<a href="${buildCityHubPath(navLocale, key)}" class="jbx-l">${esc(CITY_HUB_DISPLAY_NAME[key] ?? key)}</a>`)
+       .join('');
+     editorialBlocks.push(
+       `<details class="s-01GpQM" open><summary class="s-DhA4PZ">${esc(cityNavLabel)} (${CITY_HUB_KEYS.length})</summary><nav class="s-6_t7LY" aria-label="${esc(cityNavLabel)}">${cityAnchors}</nav></details>`,
      );
    }
  }
