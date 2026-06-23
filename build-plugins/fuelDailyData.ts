@@ -77,6 +77,53 @@ export const FUEL_TYPE_LABEL: Record<FuelDailyLocale, Record<FuelType, string>> 
   fr: { diesel: 'Gasoil', benzina: 'Essence' },
 };
 
+/** True if a (lowercased) FR fuel label starts with a vowel or silent h → triggers elision. */
+function frFuelStartsWithVowel(lower: string): boolean {
+  return /^[aeiouyàâäéèêëîïôöùûü]|^h/.test(lower);
+}
+
+/**
+ * French elision-aware "of the <fuel>" for a FUEL_TYPE_LABEL.fr value.
+ * "Essence" is feminine and vowel-initial → "de l'essence"; "Gasoil" (FR diesel
+ * label) is consonant-initial → "du gasoil". Without this, templates emit the
+ * ungrammatical "du essence" / "Prix du essence". Shared single source of truth
+ * so every fuel-page emitter (daily, station index, related-links) stays correct
+ * by construction.
+ */
+export function frFuelOf(fuelLabel: string): string {
+  const lower = fuelLabel.toLowerCase();
+  return frFuelStartsWithVowel(lower) ? `de l'${lower}` : `du ${lower}`;
+}
+
+/**
+ * French elision-aware "the <fuel>" (definite article) for a FUEL_TYPE_LABEL.fr
+ * value: "l'essence" for vowel-initial, "le gasoil" otherwise. Avoids the
+ * ungrammatical "le essence" on the same pages as frFuelOf.
+ */
+export function frFuelThe(fuelLabel: string): string {
+  const lower = fuelLabel.toLowerCase();
+  return frFuelStartsWithVowel(lower) ? `l'${lower}` : `le ${lower}`;
+}
+
+/**
+ * French elision-aware partitive "of <fuel>" WITHOUT a preceding article
+ * ("facture de X", "Les prix de X"): "d'essence" for vowel-initial, "de gasoil"
+ * otherwise. Avoids the ungrammatical "de essence".
+ */
+export function frFuelDe(fuelLabel: string): string {
+  const lower = fuelLabel.toLowerCase();
+  return frFuelStartsWithVowel(lower) ? `d'${lower}` : `de ${lower}`;
+}
+
+/**
+ * French elision-aware "to/at the <fuel>" ("s'applique au X"): "à l'essence" for
+ * vowel-initial, "au gasoil" otherwise. Avoids the ungrammatical "au essence".
+ */
+export function frFuelAt(fuelLabel: string): string {
+  const lower = fuelLabel.toLowerCase();
+  return frFuelStartsWithVowel(lower) ? `à l'${lower}` : `au ${lower}`;
+}
+
 export interface FuelDailyPath {
   locale: FuelDailyLocale;
   fuel: FuelType;

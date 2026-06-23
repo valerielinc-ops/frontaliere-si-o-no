@@ -58,6 +58,7 @@ import {
   buildFuelItalianStationPath,
   buildFuelStationPath,
   buildFuelTodayPath,
+  frFuelOf,
   type FuelDailyLocale,
   type FuelType,
   type FuelZone,
@@ -505,7 +506,7 @@ const COPY_FR: IndexCopy = {
         return `Choisissez la station proche de votre passage : l’écart entre la pompe la moins chère et la plus chère d’une même zone atteint souvent CHF 0.05–0.10 le litre. Sur une année de trajets, cela représente CHF 500–1000.`;
       }
       if (kind === 'italianStations') {
-        return `Comparez le prix italien du ${fuelLabel.toLowerCase()} avec la station suisse de votre passage avant de partir : le taux CHF/EUR évolue chaque jour et fait basculer le côté avantageux.`;
+        return `Comparez le prix italien ${frFuelOf(fuelLabel)} avec la station suisse de votre passage avant de partir : le taux CHF/EUR évolue chaque jour et fait basculer le côté avantageux.`;
       }
       return `Ouvrez d’abord la page ville : vous voyez la moyenne du jour et la station suisse la plus proche pour comparer sans changer de page.`;
     },
@@ -578,7 +579,7 @@ function titleFor(
       h1: `Stations ${lower} au Tessin — index complet`,
       lede: `Parcourez chaque station ${lower} que nous surveillons au Tessin, groupée par zone frontalière. Chaque entrée mène à la page quotidienne avec le prix du jour, le classement dans la zone et le contexte frontalier.`,
       methodology: `Les prix proviennent de TCS Benzinpreis (Touring Club Suisse), qui rassemble les tarifs officiels des stations suisses. Notre pipeline associe chaque station à sa zone tessinoise, déduplique les entrées de même marque et adresse, et publie une page dédiée par station avec des données quotidiennes. L'index ci-dessous groupe les stations par zone afin que vous puissiez comparer les options proches de votre passage habituel. Si la station recherchée manque, TCS ne l'a peut-être pas relevée aujourd'hui — la liste est régénérée chaque nuit.`,
-      frontaliereContext: `Pour les frontaliers italiens qui passent chaque jour en Suisse, le prix du ${lower} est une dépense récurrente. Comparer les stations proches de votre passage — Chiasso, Brogeda, Gaggiolo, Stabio, Bizzarone — peut faire économiser CHF 0.05-0.10 le litre : sur un plein de 50 litres, c'est CHF 2.50-5, et sur 200 pleins par an, l'écart atteint CHF 500-1000. Cette page facilite la cartographie de votre ensemble personnel : choisissez la zone de votre passage habituel et comparez les options par marque, adresse et prix du jour.`,
+      frontaliereContext: `Pour les frontaliers italiens qui passent chaque jour en Suisse, le prix ${frFuelOf(lower)} est une dépense récurrente. Comparer les stations proches de votre passage — Chiasso, Brogeda, Gaggiolo, Stabio, Bizzarone — peut faire économiser CHF 0.05-0.10 le litre : sur un plein de 50 litres, c'est CHF 2.50-5, et sur 200 pleins par an, l'écart atteint CHF 500-1000. Cette page facilite la cartographie de votre ensemble personnel : choisissez la zone de votre passage habituel et comparez les options par marque, adresse et prix du jour.`,
     };
   }
   if (kind === 'italianStations') {
@@ -645,7 +646,7 @@ function titleFor(
     description: `Index des pages quotidiennes ${lower} pour les villes italiennes frontalières (Como, Varese, Luino, Lavena Ponte Tresa…). Données MIMIT quotidiennes.`,
     h1: `Villes italiennes frontalières ${lower} — index quotidien`,
     lede: `Les pages "aujourd'hui" du prix ${lower} pour chaque ville italienne frontalière. Actualisées chaque jour avec les données MIMIT.`,
-    methodology: `Pour chacune des 15 villes italiennes frontalières, nous publions une page quotidienne avec le prix moyen du ${lower} des stations communales, le classement des pompes les moins chères et le prix suisse le plus proche pour contexte. Les données viennent du portail "Osservaprezzi Carburanti" du Ministère italien, mis à jour directement par les exploitants. La page ville est le point d'entrée pratique pour une vue d'ensemble avant d'examiner une station précise.`,
+    methodology: `Pour chacune des 15 villes italiennes frontalières, nous publions une page quotidienne avec le prix moyen ${frFuelOf(lower)} des stations communales, le classement des pompes les moins chères et le prix suisse le plus proche pour contexte. Les données viennent du portail "Osservaprezzi Carburanti" du Ministère italien, mis à jour directement par les exploitants. La page ville est le point d'entrée pratique pour une vue d'ensemble avant d'examiner une station précise.`,
     frontaliereContext: `Pour un frontalier qui rentre de Lugano le soir, le choix de faire le plein à Mendrisio avant le passage ou à Como après change chaque jour selon le taux CHF/EUR et les prix locaux. Cet index est la carte rapide du côté italien : cliquez sur votre ville, lisez la moyenne du jour et comparez-la à la zone tessinoise la plus proche (Como ↔ Chiasso, Varese ↔ Mendrisio, Luino ↔ Locarno). Les pages ville renvoient directement à leur index de stations quand vous avez besoin du détail par pompe.`,
   };
 }
@@ -745,7 +746,7 @@ function buildTagline(
   }
   if (kind === 'swissStations') return `${n} stations ${fuelLabel} en Suisse sur ${totalGroups} zones frontalières. Données TCS, mise à jour quotidienne.`;
   if (kind === 'italianStations') return `${n} stations italiennes ${fuelLabel} dans les villes frontalières. Prix MIMIT, mise à jour quotidienne.`;
-  return `${n} villes italiennes frontalières suivies chaque jour avec le prix moyen du ${fuelLabel}.`;
+  return `${n} villes italiennes frontalières suivies chaque jour avec le prix moyen ${frFuelOf(fuelLabel)}.`;
 }
 
 /** Render the 4 header stat tiles (totals + source + refresh frequency). */
