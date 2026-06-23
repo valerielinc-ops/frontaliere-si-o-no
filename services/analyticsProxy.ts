@@ -15,7 +15,21 @@ export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
  {
  get: (_t, method: string) =>
  (...args: unknown[]) => {
- import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
+ // Guard + catch like the sibling lazy helpers below (lines 28, 37): a
+ // stale-deploy chunk can resolve the dynamic import to a module whose
+ // `Analytics` export is undefined, so `m.Analytics[method]` throws and —
+ // with no `.catch()` — surfaces as an unhandledrejection captured by the
+ // handler in analytics.ts. That is the site's #1 runtime exception:
+ // Safari phrases it `undefined is not an object (evaluating 't.Analytics[i]')`,
+ // V8 `Cannot read properties of undefined (reading 'trackFunnelStep')` —
+ // same null-deref, different engine wording. Analytics is fire-and-forget,
+ // so swallow both the missing-export case and any throw inside the call.
+ import('@/services/analytics')
+ .then((m) => {
+ const fn = (m.Analytics as any)?.[method];
+ if (typeof fn === 'function') fn(...args);
+ })
+ .catch(() => {});
  },
  },
 );
