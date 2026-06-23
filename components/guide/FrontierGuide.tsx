@@ -739,7 +739,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  };
 
  // Comuni frontalieri — lista completa da data/municipalities.ts (115 comuni, 5 province)
- const lombardyMunicipalities: Municipality[] = useMemo(() => BORDER_MUNICIPALITIES.map(m => {
+ // Static fields: nearestOpenCrossing + haversineKm are expensive and don't depend on liveWait;
+ // computed once at mount so the live-fetch update doesn't re-run them 518×.
+ const lombardyMunicipalitiesBase = useMemo(() => BORDER_MUNICIPALITIES.map(m => {
  const nearest = nearestOpenCrossing(m.lat, m.lng);
  const slug = crossingSlug(nearest);
  return {
@@ -755,8 +757,6 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  borderCrossingTraffic: nearest.trafficLevel,
  borderCrossingCustomsPresent: nearest.customsPresent,
  borderCrossingHasWebcam: (nearest.webcams?.length ?? 0) > 0,
- borderCrossingWaitNow: currentWaitLabel(slug, liveWait),
- borderCrossingWaitSource: liveWait.perCrossing?.[slug]?.source ?? 'storico dogane',
  population: m.population,
  type: getAgreementType(m.distanceKm),
  lat: m.lat,
@@ -765,7 +765,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  fascia: m.fascia,
  avgRentMonthly: m.avgRentMonthly,
  };
- }), [liveWait]);
+ }), []);
+
+ // Only the two liveWait-derived fields refresh when the live fetch lands — cheap spread + 2 lookups per entry
+ const lombardyMunicipalities: Municipality[] = useMemo(() =>
+ lombardyMunicipalitiesBase.map(m => ({
+ ...m,
+ borderCrossingWaitNow: currentWaitLabel(m.borderCrossingSlug, liveWait),
+ borderCrossingWaitSource: liveWait.perCrossing?.[m.borderCrossingSlug]?.source ?? 'storico dogane',
+ })), [lombardyMunicipalitiesBase, liveWait]);
 
  const filteredMunicipalities = useMemo(() => lombardyMunicipalities
  .filter(m => {
