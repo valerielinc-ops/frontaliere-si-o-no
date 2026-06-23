@@ -330,9 +330,14 @@
       .s-AnMfGC { font-size: 12px; font-weight: 700; text-transform: uppercase; }
       .s-tval, .s-9UotdJ { margin-top: 8px; font-size: 28px; font-weight: 800; line-height: 1.1; }
       .s-bcr { margin: 0 0 14px; font-size: 13px; }
-      .s-cta { display: inline-flex; align-items: center; gap: 6px; padding: 12px 20px; }
+      .s-cta { display: inline-flex; align-items: center; gap: 6px; padding: 12px 20px; font-weight: 700; }
+      /* hero <header> async padding+margin (.sx-hero, incl. city-hub .s-S_0cal sx-hero):
+         padding 0 at first paint → expands ~48px on swap. Reserve it; the async
+         .sx-hero margin wins the cascade over .s-S_0cal (28px) so reserve 20px here. */
+      .sx-hero { padding: 20px 16px; margin: 0 0 20px; }
+      @media (min-width: 640px) { .sx-hero { padding: 24px 22px; } }
       .s-sy52lX { margin-bottom: 24px; }
-      .s-S_0cal { margin-bottom: 28px; }
+      @media (max-width: 639px) { .s-cta { display: flex; width: 100%; justify-content: center; } }
     </style>
 
     <!-- Google AdSense: deferred until after page is interactive to avoid

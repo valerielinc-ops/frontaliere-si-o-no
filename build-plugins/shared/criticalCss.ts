@@ -163,10 +163,12 @@ export const SEO_STATIC_GRID_RESERVE_CSS =
  * `.s-9UotdJ` values, `.s-JFi4vt`/`.s-z4q8yI`/`.s-AnMfGC` labels) that does NOT
  * reuse `renderStatGrid`/`.s-XENO3U`, so the reserve above never touched it and
  * the SAME block→grid collapse still fired there. We mirror that system too:
- *   - `.s-S6PRaY` grid (`minmax(220px)`, `margin:0 0 18px`) — the collapse, and
- *     `.s-S_0cal` hero-wrapper margin (the city-hub twin of `.s-sy52lX`).
+ *   - `.s-S6PRaY` grid (`minmax(220px)`, `margin:0 0 18px`) — the collapse.
  *   - its tile box + value/label metrics, grouped with the `.s-t*` twins where
  *     layout-identical (`.s-9UotdJ`==`.s-tval`; `.s-JFi4vt`/`.s-z4q8yI`==`.s-tlbl`).
+ *   - the city-hub `<header>` is `.s-S_0cal sx-hero`; its async padding+margin
+ *     live on `.sx-hero` (reserved below), NOT `.s-S_0cal` (whose margin loses
+ *     the cascade to `.sx-hero` — see the `.sx-hero` note).
  *
  * Borders use `transparent` (the async sheet paints the real colour — paint,
  * not layout). Pure space reservation (AGENTS.md §7): no ad/content/markup
@@ -181,9 +183,26 @@ export const SEO_STATIC_HERO_RESERVE_CSS =
   '.s-AnMfGC{font-size:12px;font-weight:700;text-transform:uppercase}' +
   '.s-tval,.s-9UotdJ{margin-top:8px;font-size:28px;font-weight:800;line-height:1.1}' +
   '.s-bcr{margin:0 0 14px;font-size:13px}' +
-  '.s-cta{display:inline-flex;align-items:center;gap:6px;padding:12px 20px}' +
+  // font-weight:700 reserved so CTA glyph width (hence any adjacent inline
+  // element) is stable; mobile mirrors the async ≤639px full-width swap.
+  '.s-cta{display:inline-flex;align-items:center;gap:6px;padding:12px 20px;font-weight:700}' +
+  // hero <header> wrappers. `.sx-hero` (renderLandingHero + city/canton hub
+  // `<header class="s-S_0cal sx-hero">`) applies async-only padding
+  // (`20px 16px`→`24px 22px`@≥640) + `margin:0 0 20px` — verified live on
+  // /cerca-lavoro-argovia/bozberg/ (24px 22px, margin 20px desktop). At first
+  // paint padding is 0, so the swap expands the header ~48px and pushes the
+  // stat-grid/section/CTA down (review #2749 🔴); reserving it also keeps the
+  // header inner width constant so auto-fit can't recompute a column count.
+  // The async `.sx-hero{margin:0 0 20px}` (later in the sheet) WINS the cascade
+  // over `.s-S_0cal{margin-bottom:28px}`, so the final city-hub header margin is
+  // 20px — reserve `.sx-hero` (NOT `.s-S_0cal`, which would first-paint at 28px
+  // and shift 8px). The other header variant `.s-sy52lX` (profession/recency
+  // landings, e.g. /cerca-lavoro-ticino/infermieri/) has padding 0 (verified
+  // live) — reserve its 24px margin only.
+  '.sx-hero{padding:20px 16px;margin:0 0 20px}' +
+  '@media(min-width:640px){.sx-hero{padding:24px 22px}}' +
   '.s-sy52lX{margin-bottom:24px}' +
-  '.s-S_0cal{margin-bottom:28px}';
+  '@media(max-width:639px){.s-cta{display:flex;width:100%;justify-content:center}}';
 
 export const CRITICAL_CSS =
   '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}' +
