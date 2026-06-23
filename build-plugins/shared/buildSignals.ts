@@ -70,6 +70,7 @@ const staticPagesSignal = makeSignal();
 const professionLandingsSignal = makeSignal();
 const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
+const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
@@ -111,6 +112,21 @@ export function resolveSalaryHubFlushed(): void {
 export const jobsSeoPagesFlushed: Promise<void> = jobsSeoPagesSignal.promise;
 export function resolveJobsSeoPagesFlushed(): void {
   jobsSeoPagesSignal.resolve();
+}
+
+/**
+ * Resolves when {@link jobSectorPagesPlugin} has written every sector-hub
+ * landing (49 sectors × 4 locales). Consumed by {@link sectorHubLinksPlugin},
+ * which patches the 4 job-board hub pages with an `<aside>` listing the
+ * highest-demand sector hubs so BFS from `/` reaches them (today the root hub
+ * links the sector INDEX once but none of the 49 sector-hub canonicals → ~37
+ * are orphaned with ~0 internal links). Awaiting this barrier guarantees the
+ * link targets exist on disk before we inject anchors to them, mirroring the
+ * salaryHubFlushed → salaryHubIndexLinkPlugin contract.
+ */
+export const sectorPagesFlushed: Promise<void> = sectorPagesSignal.promise;
+export function resolveSectorPagesFlushed(): void {
+  sectorPagesSignal.resolve();
 }
 
 /**
