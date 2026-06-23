@@ -1045,6 +1045,25 @@ describe('Router — SPA equivalent wins over static landing', () => {
     expect(route.staticOverlay).toBeFalsy();
   });
 
+  // BARE search-index hub (no hyphen slug): relatedSearchClustersPlugin emits a
+  // curated ~465-link static index at /cerca-lavoro-ticino/ricerca/ (+ en/search,
+  // de/suche, fr/recherche). Unlike the hyphenated ricerca-{slug} landings above,
+  // the bare hub has no interactive SPA equivalent — it MUST be staticOverlay so
+  // the SPA keeps the curated list (no progressive re-render → no footer-bounce
+  // CLS, no SEO loss). Exact-equality match in router.ts excludes the slugs above.
+  it.each([
+    ['/cerca-lavoro-ticino/ricerca/', 'it'],
+    ['/en/find-jobs-ticino/search/', 'en'],
+    ['/de/jobs-im-tessin/suche/', 'de'],
+    ['/fr/trouver-emploi-tessin/recherche/', 'fr'],
+  ])('bare search hub %s is staticOverlay (curated static index, not interactive SPA)', (url, loc) => {
+    const { route, locale } = parsePath(url);
+    expect(route.activeTab, url).toBe('job-board');
+    expect(locale, url).toBe(loc);
+    expect(route.staticOverlay, url).toBe(true);
+    expect(route.jobSlug, url).toBeUndefined();
+  });
+
   // Post-2026-05-28 cluster canonical migration: cluster pages now live at
   // /cerca-lavoro-svizzera/ricerca-{slug}/ (and per-locale aggregator
   // equivalents). The router must recognise these as `job-board` with the
