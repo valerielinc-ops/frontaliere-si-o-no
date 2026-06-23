@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-06-23T11:05:13.464Z",
+  "generatedAt": "2026-06-23T21:55:53.086Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 2410,
-  "avgDurationMs": 2410,
+  "durationMs": 2476,
+  "avgDurationMs": 2476,
   "durationHistory": [
-    2410
+    2476
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,6 +43,7 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-17T09:46:35.164Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
