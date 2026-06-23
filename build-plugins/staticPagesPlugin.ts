@@ -21,6 +21,7 @@ import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
+import { railGutters } from './shared/railGutters';
 import {
  buildJobBoardSeo,
  getActiveJobCountsByLocale,
@@ -4621,12 +4622,19 @@ ${hrefTags}
  // ABOVE `<main class="seo-static-content">` (its DOM sibling) and burying
  // the page content under the entire footer chrome (~1500 px). Mirrors the
  // canonical wrapper from `build-plugins/shared/seoPageShell.ts:188-193`.
+ // Side-rail ad gutters: wrap the staticOverlay <main> in the same xlw rail
+ // grid the buildSimplePage / seoPageShell landings already emit, so App.tsx
+ // portals <ArticleRailAdStack> into #rail-left-root / #rail-right-root here
+ // too (these editorial / hub landings previously rendered NO rails). Shared
+ // markup via railGutters() keeps the grid drift-proof vs htmlTemplate.ts.
+ const { open: railGridOpen, close: railGridClose } = railGutters(true);
  const bodySection = hubChromeSplit
  ? `${EMPTY_ROOT_WITH_HEADER_RESERVE}
 ${hubChromeSplit.subnavHtml}
+${railGridOpen}
  <main class="seo-static-content">
 ${hubChromeSplit.bodyHtml}
- </main>
+ </main>${railGridClose}
  <div id="footer-root"></div>`
  : `<div id="root"><main id="main-content">${rootHtml}</main></div>
  <div id="footer-root"></div>`;

@@ -11,6 +11,7 @@ import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDI
 import { escapeInlineScript } from './shared/inlineJsonScript';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { CRITICAL_CSS } from './shared/criticalCss';
+import { railGutters } from './shared/railGutters';
 
 /**
  * Async-CSS swap snippet shared by every static page emitted through
@@ -355,27 +356,19 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // Reserved 300px columns mean zero CLS. Suppressed on `disableAutoAds` drive-by
  // pages (≥97% bounce) to honour their deliberate no-ad opt-out.
  const railsEnabled = seoContentOutsideRoot && !disableAutoAds;
- const railGridOpen = railsEnabled
-   ? ` <div class="ft-rail-grid xlw:grid xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-4 xlw:mx-auto xlw:max-w-[1768px]">
- <aside id="rail-left-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>`
-   : '';
- const railGridClose = railsEnabled
-   ? `
- <aside id="rail-right-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>
- </div>`
-   : '';
- // First-paint header reservation: on these staticOverlay pages `#root` is empty
- // at first paint and the SEO content is a body-sibling below it; when React
- // mounts, the sticky nav header (`h-14 md:h-20` = 56/80px) fills `#root` and
- // shoves the sibling content (rail grid / `main.seo-static-content`) down by the
- // header height — live: rail-grid +75px @944ms ≈ 0.08 CLS on city-hub, same
- // residual on landings. The `.ft-hdr-reserve` spacer (height pinned in
- // CRITICAL_CSS) holds that height from first paint so nothing jumps, AND makes
- // index.tsx's `hasStaticContent()` true so its mount-time `#root` min-height
- // floor engages, covering the createRoot()-empties-#root collapse too.
- // `createRoot()` REPLACES #root's children (this is client render, not
- // hydration) so the spacer leaves no residue — the real same-height header
- // takes its place shift-free.
+ const { open: railGridOpen, close: railGridClose } = railGutters(railsEnabled);
+ // First-paint header reservation (EMPTY_ROOT_WITH_HEADER_RESERVE below): on
+ // these staticOverlay pages `#root` is empty at first paint and the SEO content
+ // is a body-sibling below it; when React mounts, the sticky nav header
+ // (`h-14 md:h-20` = 56/80px) fills `#root` and shoves the sibling content (rail
+ // grid / `main.seo-static-content`) down by the header height — live: rail-grid
+ // +75px @944ms ≈ 0.08 CLS on city-hub, same residual on landings. The
+ // `.ft-hdr-reserve` spacer (height pinned in CRITICAL_CSS) holds that height
+ // from first paint so nothing jumps, AND makes index.tsx's `hasStaticContent()`
+ // true so its mount-time `#root` min-height floor engages, covering the
+ // createRoot()-empties-#root collapse too. `createRoot()` REPLACES #root's
+ // children (client render, not hydration) so the spacer leaves no residue — the
+ // real same-height header takes its place shift-free.
  const bodySection = seoContentOutsideRoot
    ? ` ${EMPTY_ROOT_WITH_HEADER_RESERVE}${preMainSection}
 ${railGridOpen}
