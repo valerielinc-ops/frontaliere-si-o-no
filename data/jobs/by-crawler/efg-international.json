@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-06-22T22:35:39.691Z",
+  "assembledAt": "2026-06-23T11:24:38.318Z",
   "jobs": [
     {
       "id": "efg-6266",
@@ -83,7 +83,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.139Z",
+      "crawledAt": "2026-06-23T11:24:35.582Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -126,7 +126,8 @@
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -215,7 +216,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.137Z",
+      "crawledAt": "2026-06-23T11:24:35.580Z",
       "slugByLocale": {
         "it": "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -251,100 +252,6 @@
       "previousSlugs": [
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
-      ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-6219",
-      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Ops Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Info\n\n- Department: IT Data Departement\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n\n- Maintain high standards of data quality, reliability, and performance.\n\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n\n- Comfortable working with Python, SQL, PySpark and Databricks\n\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n\n- Familiarity with microservices architecture, API management and observability is a real plus\n\n- Experienced with Azure databricks.\n\n- Good communication and collaboration skills.\n\n- Rigorous and methodical in documentation and process creation\n\n- High interest for convergence, normalization and reusability.\n\n- Curious, enthusiastic and proactive\n\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Data Ops Engineer",
-        "it": "Ingegnere di Data Ops",
-        "de": "Data Ops Ingenieur",
-        "fr": "Ingénieur des opérations de données"
-      },
-      "descriptionByLocale": {
-        "en": "General Info\n- Department: IT Data Departement\n- Work time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n- Maintain high standards of data quality, reliability, and performance.\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n- Comfortable working with Python, SQL, PySpark and Databricks\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n- Familiarity with microservices architecture, API management and observability is a real plus\n- Experienced with Azure databricks.\n- Good communication and collaboration skills.\n- Rigorous and methodical in documentation and process creation\n- High interest for convergence, normalization and reusability.\n- Curious, enthusiastic and proactive\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-        "it": "Informazioni generali\n- Dipartimento: Dipartimento dati IT\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nLa missione del team di piattaforma DataOps è garantire un livello di servizio affidabile in ogni componente tecnologica della piattaforma dati EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nStiamo costruendo ed evolvendo la piattaforma CI/CD che supporta le implementazioni delle pipeline di dati, portando competenze di implementazione e lavorando a stretto contatto con i team di progetto per ottenere consegnabili attraverso la linea.\n\nLe responsabilità chiave del team includono, la governance CI/CD delle pipeline di dati, il supporto di distribuzione delle pipeline e la certificazione e il monitoraggio delle operazioni a livello di piattaforma.\n\nPrincipali responsabilità\n\nMentre la nostra piattaforma e il panorama dei dati si evolvono, vorremmo rafforzare il nostro team con un ingegnere CI/CD specializzato nelle implementazioni delle pipeline di dati.\n- Le aspettative sulla qualità dei dati sono in costante aumento con la necessità di una consegna di servizio estremamente stabile. Dobbiamo garantire che i nostri processi di consegna siano controllati e visibili ai nostri stakeholder.\n- Siamo particolarmente interessati a qualcuno che guida le operazioni di Kafka, Spark e Databricks con Python\n- Rinforzando il nostro team, contribuirai notevolmente alla continuità e alla qualità delle nostre operazioni.\n- Assumere la proprietà operativa di specifici servizi di dati (gestione del cambiamento, gestione dell'assicurazione di qualità, SLA, SOP)\n\n- tracciare e garantire il buon funzionamento dei datadotti critici durante le ore asiatiche, agendo come punto di contatto primario per problemi critici in un modello di supporto al sole.\n- Progettare, implementare e ottimizzare la pipeline di dati in modalità batch e streaming.\n- Seguire e applicare la pratica CI/CD per automatizzare e ottimizzare le implementazioni e le integrazioni.\n- Creare, mantenere e migliorare la documentazione e le procedure operative per le quali è garantita la proprietà operativa.\n- Collaborare con team interfunzionali per migliorare e rivedere la governance nelle operazioni di integrazione.\n- Mantenere elevati standard di qualità dei dati, affidabilità e prestazioni.\n- Mantenere corrente con progressi nell'ingegneria dei dati, di dataops tech stack, per supportare il miglioramento continuo\n\nRequisiti e qualifiche\n- Almeno 5 anni di comprovata esperienza pratica nell'ingegneria dei dati e nell'implementazione delle pipeline di dati radicate nella pratica dei devoti.\n- Confortevole lavoro con Python, SQL, PySpark e Databricks\n- Robusta esperienza di tutte le principali piattaforme e processi CI/CD in ambiente ibrido (ad esempio, Azure DevOps, GitLab CI, GitHub Actions ).\n- La familiarità con l'architettura dei microservizi, la gestione delle API e l'osservabilità è un vantaggio reale\n- Esperienza con i databrick Azure.\n- Buone capacità di comunicazione e collaborazione.\n- Rigoroso e metodico nella documentazione e nella creazione di processi\n- Alto interesse per la convergenza, la normalizzazione e la riutilizzabilità.\n- Curioso, entusiasta e proattivo\n- Appassionato sulle tecnologie di elaborazione dei dati, con un forte desiderio di imparare e crescere in un ambiente esigente\n- Fluente in inglese parlato e scritto, il francese è un bene.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
-        "de": "Allgemeine Info\n- Abteilung: IT Data Department\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale private Bankengruppe, die private Bank- und Asset-Management-Dienste anbietet. Wir servieren Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und strebt danach, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmerische Köpfe stärken, Wert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nDataOps-Plattform-Team-Mission ist, ein zuverlässiges Serviceniveau über jede technologische Komponente der EFG-Datenplattform (Databricks, Kafka, Spark, Eastic Search, Apache MQ, uServices Stack) zu gewährleisten.\n\nWir bauen und entwickeln die CI/CD-Plattform, die Datenpipeline-Bereitstellungen unterstützt, Implementierungskompetenz bringt und eng mit Projektteams zusammenarbeitet, um Lieferungen über die Strecke zu erhalten.\n\nZu den Hauptaufgaben des Teams gehören die CI/CD Governance von Datenpipelines, die Unterstützung der Pipeline-Bereitstellung und die Zertifizierung und Überwachung von Plattformebenenoperationen.\n\nHauptverantwortlichkeiten\n\nMit der Entwicklung unserer Plattform und Datenlandschaft möchten wir unser Team mit einem qualifizierten CI/CD-Ingenieur, der sich auf die Implementierung von Datenpipeline spezialisiert hat, stärken.\n- Erwartungen an die Datenqualität steigen ständig mit der Notwendigkeit einer extrem stabilen Service-Lieferung. Wir müssen sicherstellen, dass unsere Lieferprozesse für unsere Stakeholder kontrolliert und sichtbar werden.\n- Wir sind besonders an einem komfortablen Fahren von Kafka, Spark und Databricks mit Python interessiert\n- Durch die Verstärkung unseres Teams tragen Sie maßgeblich zur Kontinuität und Qualität unserer Operationen bei.\n- Nehmen Sie das operative Eigentum an bestimmten Datendiensten (Wechselmanagement, Qualitätssicherung, SLA, SOP)\n\n- den reibungslosen Betrieb von kritischen Datenpipelines während asiatischer Stunden verfolgen und sicherstellen, als primärer Ansprechpartner für kritische Fragen in einem Folgemodell der Sonnenunterstützung.\n- Entwicklung, Implementierung und Optimierung der Datenpipeline im Batch- und Streaming-Modus.\n- Folgen Sie der CI/CD-Praxis, um Bereitstellungen und Integrationen zu automatisieren und zu optimieren.\n- Erstellung, Wartung und Verbesserung der Dokumentation und der operativen Verfahren, für die das operative Eigentum gewährleistet ist.\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Verbesserung und Überprüfung der Governance bei Integrationsoperationen.\n- Bewahren Sie hohe Standards der Datenqualität, Zuverlässigkeit und Leistung.\n- Bleiben Sie aktuell mit Fortschritten in der Datentechnik, von Dataops Tech Stack, um kontinuierliche Verbesserung zu unterstützen\n\nAnforderungen und Qualifikationen\n- Mindestens 5 Jahre Erfahrung in der Datentechnik und Datenpipeline-Bereitstellung, die in der Praxis verwurzelt ist.\n- Komfortables Arbeiten mit Python, SQL, PySpark und Databricks\n- Robuste Erfahrung aller führenden CI/CD-Plattformen und Prozesse in hybrider Umgebung (z.B. Azure DevOps, GitLab CI, GitHub Actions).\n- Vertrautheit mit Mikroservice-Architektur, API-Management und Beobachtbarkeit ist ein echtes Plus\n- Erlebt mit Azure Databricks.\n- Gute Kommunikation und Zusammenarbeit.\n- Beständig und methodisch in der Dokumentation und Prozesserstellung\n- Hohes Interesse an Konvergenz, Normalisierung und Wiederverwendbarkeit.\n- Kurios, begeistert und proaktiv\n- Leidenschaftlich über Datenverarbeitungstechnologien, mit einem starken Wunsch, in einer anspruchsvollen Umgebung zu lernen und zu wachsen\n- Flöten in gesprochenem und geschriebenem Englisch, Französisch ist ein Vermögen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
-        "fr": "Informations générales\n- Département: Département des données informatiques\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLa mission de l'équipe de plate-forme DataOps est d'assurer un niveau de service fiable pour chaque composant technologique de la plate-forme de données EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices pile).\n\nNous développons et évoluons la plate-forme CI/CD qui appuie le déploiement de pipelines de données, apporte une expertise en mise en oeuvre et travaille en étroite collaboration avec les équipes de projet pour obtenir les résultats attendus.\n\nLes principales responsabilités de l'équipe comprennent la gouvernance des pipelines de données, le soutien au déploiement des pipelines et la certification et la surveillance des opérations au niveau des plates-formes.\n\nPrincipales responsabilités\n\nAu fur et à mesure que notre plateforme et notre paysage de données évoluent, nous souhaitons renforcer notre équipe avec un ingénieur CI/CD qualifié spécialisé dans les implémentations de pipelines de données.\n- Les attentes en matière de qualité des données ne cessent d'augmenter avec la nécessité d'une prestation de services extrêmement stable. Nous devons veiller à ce que nos processus de prestation soient contrôlés et visibles par nos intervenants.\n- Nous sommes particulièrement intéressés par quelqu'un confortable conduire des opérations Kafka, Spark et Databricks avec Python\n- En renforçant notre équipe, vous contribuerez grandement à la continuité et à la qualité de nos opérations.\n- Prise en charge opérationnelle de services de données spécifiques (gestion du changement, gestion de l'assurance qualité, SLA, SOP)\n\n- suivre et assurer le bon fonctionnement des pipelines de données critiques pendant les heures d'Asie, agissant comme point de contact principal pour les problèmes critiques dans un modèle de soutien solaire suivant.\n- Concevoir, mettre en œuvre et optimiser le pipeline de données en mode batch et streaming.\n- Suivre et appliquer la pratique de l'IC/CD pour automatiser et rationaliser les déploiements et les intégrations.\n- Créer, maintenir et améliorer la documentation et les procédures opérationnelles pour lesquelles la propriété opérationnelle est assurée.\n- Collaborer avec des équipes interfonctionnelles pour améliorer et examiner la gouvernance des opérations d'intégration.\n- Maintenir des normes élevées de qualité des données, de fiabilité et de performance.\n- Restez à jour avec les progrès de l'ingénierie des données, de la pile de technologie de données, pour soutenir l'amélioration continue\n\nExigences et qualifications\n- Au moins 5 ans d'expérience pratique prouvée en ingénierie des données et en déploiement de pipelines de données enracinés dans la pratique des dévops.\n- Travail confortable avec Python, SQL, PySpark et Databricks\n- Expérience robuste de toutes les plateformes et processus CI/CD de pointe dans l'environnement hybride (p. ex. Azure DevOps, GitLab CI, GitHub Actions).\n- Familiarité avec l'architecture des microservices, la gestion des API et l'observabilité est un vrai plus\n- Expérience avec Azure databricks.\n- Bonnes compétences en communication et collaboration.\n- Rigieuse et méthodique dans la documentation et la création de processus\n- Intérêt pour la convergence, la normalisation et la réutilisabilité.\n- Curieux, enthousiaste et proactif\n- Passionné par les technologies de traitement des données, avec un vif désir d'apprendre et de grandir dans un environnement exigeant\n- En anglais parlé et écrit, le français est un atout.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-22T22:35:37.136Z",
-      "slugByLocale": {
-        "it": "data-ops-ingegnere-efg-international-ag-geneve",
-        "en": "data-ops-engineer-efg-geneve",
-        "de": "data-ops-ingenieur-efg-international-ag-geneve",
-        "fr": "data-ops-ingenieur-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-20",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-20T22:46:49.521Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "data-ops-engineer-efg-geneve"
-        ],
-        "de": [
-          "data-ops-engineer-efg-geneve"
-        ],
-        "fr": [
-          "data-ops-engineer-efg-geneve",
-          "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "data-ops-engineer-efg-geneve",
-        "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
       "country": "CH"
     },
@@ -397,7 +304,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.135Z",
+      "crawledAt": "2026-06-23T11:24:35.579Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
@@ -436,7 +343,103 @@
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6219",
+      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Data Ops Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "General Info\n\n- Department: IT Data Departement\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n\n- Maintain high standards of data quality, reliability, and performance.\n\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n\n- Comfortable working with Python, SQL, PySpark and Databricks\n\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n\n- Familiarity with microservices architecture, API management and observability is a real plus\n\n- Experienced with Azure databricks.\n\n- Good communication and collaboration skills.\n\n- Rigorous and methodical in documentation and process creation\n\n- High interest for convergence, normalization and reusability.\n\n- Curious, enthusiastic and proactive\n\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Data Ops Engineer",
+        "it": "Ingegnere di Data Ops",
+        "de": "Data Ops Ingenieur",
+        "fr": "Ingénieur des opérations de données"
+      },
+      "descriptionByLocale": {
+        "en": "General Info\n- Department: IT Data Departement\n- Work time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n- Maintain high standards of data quality, reliability, and performance.\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n- Comfortable working with Python, SQL, PySpark and Databricks\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n- Familiarity with microservices architecture, API management and observability is a real plus\n- Experienced with Azure databricks.\n- Good communication and collaboration skills.\n- Rigorous and methodical in documentation and process creation\n- High interest for convergence, normalization and reusability.\n- Curious, enthusiastic and proactive\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+        "it": "Informazioni generali\n- Dipartimento: Dipartimento dati IT\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nLa missione del team di piattaforma DataOps è garantire un livello di servizio affidabile in ogni componente tecnologica della piattaforma dati EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nStiamo costruendo ed evolvendo la piattaforma CI/CD che supporta le implementazioni delle pipeline di dati, portando competenze di implementazione e lavorando a stretto contatto con i team di progetto per ottenere consegnabili attraverso la linea.\n\nLe responsabilità chiave del team includono, la governance CI/CD delle pipeline di dati, il supporto di distribuzione delle pipeline e la certificazione e il monitoraggio delle operazioni a livello di piattaforma.\n\nPrincipali responsabilità\n\nMentre la nostra piattaforma e il panorama dei dati si evolvono, vorremmo rafforzare il nostro team con un ingegnere CI/CD specializzato nelle implementazioni delle pipeline di dati.\n- Le aspettative sulla qualità dei dati sono in costante aumento con la necessità di una consegna di servizio estremamente stabile. Dobbiamo garantire che i nostri processi di consegna siano controllati e visibili ai nostri stakeholder.\n- Siamo particolarmente interessati a qualcuno che guida le operazioni di Kafka, Spark e Databricks con Python\n- Rinforzando il nostro team, contribuirai notevolmente alla continuità e alla qualità delle nostre operazioni.\n- Assumere la proprietà operativa di specifici servizi di dati (gestione del cambiamento, gestione dell'assicurazione di qualità, SLA, SOP)\n\n- tracciare e garantire il buon funzionamento dei datadotti critici durante le ore asiatiche, agendo come punto di contatto primario per problemi critici in un modello di supporto al sole.\n- Progettare, implementare e ottimizzare la pipeline di dati in modalità batch e streaming.\n- Seguire e applicare la pratica CI/CD per automatizzare e ottimizzare le implementazioni e le integrazioni.\n- Creare, mantenere e migliorare la documentazione e le procedure operative per le quali è garantita la proprietà operativa.\n- Collaborare con team interfunzionali per migliorare e rivedere la governance nelle operazioni di integrazione.\n- Mantenere elevati standard di qualità dei dati, affidabilità e prestazioni.\n- Mantenere corrente con progressi nell'ingegneria dei dati, di dataops tech stack, per supportare il miglioramento continuo\n\nRequisiti e qualifiche\n- Almeno 5 anni di comprovata esperienza pratica nell'ingegneria dei dati e nell'implementazione delle pipeline di dati radicate nella pratica dei devoti.\n- Confortevole lavoro con Python, SQL, PySpark e Databricks\n- Robusta esperienza di tutte le principali piattaforme e processi CI/CD in ambiente ibrido (ad esempio, Azure DevOps, GitLab CI, GitHub Actions ).\n- La familiarità con l'architettura dei microservizi, la gestione delle API e l'osservabilità è un vantaggio reale\n- Esperienza con i databrick Azure.\n- Buone capacità di comunicazione e collaborazione.\n- Rigoroso e metodico nella documentazione e nella creazione di processi\n- Alto interesse per la convergenza, la normalizzazione e la riutilizzabilità.\n- Curioso, entusiasta e proattivo\n- Appassionato sulle tecnologie di elaborazione dei dati, con un forte desiderio di imparare e crescere in un ambiente esigente\n- Fluente in inglese parlato e scritto, il francese è un bene.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
+        "de": "Allgemeine Info\n- Abteilung: IT Data Department\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale private Bankengruppe, die private Bank- und Asset-Management-Dienste anbietet. Wir servieren Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und strebt danach, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmerische Köpfe stärken, Wert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nDataOps-Plattform-Team-Mission ist, ein zuverlässiges Serviceniveau über jede technologische Komponente der EFG-Datenplattform (Databricks, Kafka, Spark, Eastic Search, Apache MQ, uServices Stack) zu gewährleisten.\n\nWir bauen und entwickeln die CI/CD-Plattform, die Datenpipeline-Bereitstellungen unterstützt, Implementierungskompetenz bringt und eng mit Projektteams zusammenarbeitet, um Lieferungen über die Strecke zu erhalten.\n\nZu den Hauptaufgaben des Teams gehören die CI/CD Governance von Datenpipelines, die Unterstützung der Pipeline-Bereitstellung und die Zertifizierung und Überwachung von Plattformebenenoperationen.\n\nHauptverantwortlichkeiten\n\nMit der Entwicklung unserer Plattform und Datenlandschaft möchten wir unser Team mit einem qualifizierten CI/CD-Ingenieur, der sich auf die Implementierung von Datenpipeline spezialisiert hat, stärken.\n- Erwartungen an die Datenqualität steigen ständig mit der Notwendigkeit einer extrem stabilen Service-Lieferung. Wir müssen sicherstellen, dass unsere Lieferprozesse für unsere Stakeholder kontrolliert und sichtbar werden.\n- Wir sind besonders an einem komfortablen Fahren von Kafka, Spark und Databricks mit Python interessiert\n- Durch die Verstärkung unseres Teams tragen Sie maßgeblich zur Kontinuität und Qualität unserer Operationen bei.\n- Nehmen Sie das operative Eigentum an bestimmten Datendiensten (Wechselmanagement, Qualitätssicherung, SLA, SOP)\n\n- den reibungslosen Betrieb von kritischen Datenpipelines während asiatischer Stunden verfolgen und sicherstellen, als primärer Ansprechpartner für kritische Fragen in einem Folgemodell der Sonnenunterstützung.\n- Entwicklung, Implementierung und Optimierung der Datenpipeline im Batch- und Streaming-Modus.\n- Folgen Sie der CI/CD-Praxis, um Bereitstellungen und Integrationen zu automatisieren und zu optimieren.\n- Erstellung, Wartung und Verbesserung der Dokumentation und der operativen Verfahren, für die das operative Eigentum gewährleistet ist.\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Verbesserung und Überprüfung der Governance bei Integrationsoperationen.\n- Bewahren Sie hohe Standards der Datenqualität, Zuverlässigkeit und Leistung.\n- Bleiben Sie aktuell mit Fortschritten in der Datentechnik, von Dataops Tech Stack, um kontinuierliche Verbesserung zu unterstützen\n\nAnforderungen und Qualifikationen\n- Mindestens 5 Jahre Erfahrung in der Datentechnik und Datenpipeline-Bereitstellung, die in der Praxis verwurzelt ist.\n- Komfortables Arbeiten mit Python, SQL, PySpark und Databricks\n- Robuste Erfahrung aller führenden CI/CD-Plattformen und Prozesse in hybrider Umgebung (z.B. Azure DevOps, GitLab CI, GitHub Actions).\n- Vertrautheit mit Mikroservice-Architektur, API-Management und Beobachtbarkeit ist ein echtes Plus\n- Erlebt mit Azure Databricks.\n- Gute Kommunikation und Zusammenarbeit.\n- Beständig und methodisch in der Dokumentation und Prozesserstellung\n- Hohes Interesse an Konvergenz, Normalisierung und Wiederverwendbarkeit.\n- Kurios, begeistert und proaktiv\n- Leidenschaftlich über Datenverarbeitungstechnologien, mit einem starken Wunsch, in einer anspruchsvollen Umgebung zu lernen und zu wachsen\n- Flöten in gesprochenem und geschriebenem Englisch, Französisch ist ein Vermögen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
+        "fr": "Informations générales\n- Département: Département des données informatiques\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLa mission de l'équipe de plate-forme DataOps est d'assurer un niveau de service fiable pour chaque composant technologique de la plate-forme de données EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices pile).\n\nNous développons et évoluons la plate-forme CI/CD qui appuie le déploiement de pipelines de données, apporte une expertise en mise en oeuvre et travaille en étroite collaboration avec les équipes de projet pour obtenir les résultats attendus.\n\nLes principales responsabilités de l'équipe comprennent la gouvernance des pipelines de données, le soutien au déploiement des pipelines et la certification et la surveillance des opérations au niveau des plates-formes.\n\nPrincipales responsabilités\n\nAu fur et à mesure que notre plateforme et notre paysage de données évoluent, nous souhaitons renforcer notre équipe avec un ingénieur CI/CD qualifié spécialisé dans les implémentations de pipelines de données.\n- Les attentes en matière de qualité des données ne cessent d'augmenter avec la nécessité d'une prestation de services extrêmement stable. Nous devons veiller à ce que nos processus de prestation soient contrôlés et visibles par nos intervenants.\n- Nous sommes particulièrement intéressés par quelqu'un confortable conduire des opérations Kafka, Spark et Databricks avec Python\n- En renforçant notre équipe, vous contribuerez grandement à la continuité et à la qualité de nos opérations.\n- Prise en charge opérationnelle de services de données spécifiques (gestion du changement, gestion de l'assurance qualité, SLA, SOP)\n\n- suivre et assurer le bon fonctionnement des pipelines de données critiques pendant les heures d'Asie, agissant comme point de contact principal pour les problèmes critiques dans un modèle de soutien solaire suivant.\n- Concevoir, mettre en œuvre et optimiser le pipeline de données en mode batch et streaming.\n- Suivre et appliquer la pratique de l'IC/CD pour automatiser et rationaliser les déploiements et les intégrations.\n- Créer, maintenir et améliorer la documentation et les procédures opérationnelles pour lesquelles la propriété opérationnelle est assurée.\n- Collaborer avec des équipes interfonctionnelles pour améliorer et examiner la gouvernance des opérations d'intégration.\n- Maintenir des normes élevées de qualité des données, de fiabilité et de performance.\n- Restez à jour avec les progrès de l'ingénierie des données, de la pile de technologie de données, pour soutenir l'amélioration continue\n\nExigences et qualifications\n- Au moins 5 ans d'expérience pratique prouvée en ingénierie des données et en déploiement de pipelines de données enracinés dans la pratique des dévops.\n- Travail confortable avec Python, SQL, PySpark et Databricks\n- Expérience robuste de toutes les plateformes et processus CI/CD de pointe dans l'environnement hybride (p. ex. Azure DevOps, GitLab CI, GitHub Actions).\n- Familiarité avec l'architecture des microservices, la gestion des API et l'observabilité est un vrai plus\n- Expérience avec Azure databricks.\n- Bonnes compétences en communication et collaboration.\n- Rigieuse et méthodique dans la documentation et la création de processus\n- Intérêt pour la convergence, la normalisation et la réutilisabilité.\n- Curieux, enthousiaste et proactif\n- Passionné par les technologies de traitement des données, avec un vif désir d'apprendre et de grandir dans un environnement exigeant\n- En anglais parlé et écrit, le français est un atout.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-23T11:24:35.579Z",
+      "slugByLocale": {
+        "it": "data-ops-ingegnere-efg-international-ag-geneve",
+        "en": "data-ops-engineer-efg-geneve",
+        "de": "data-ops-ingenieur-efg-international-ag-geneve",
+        "fr": "data-ops-ingenieur-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-20",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-20T22:46:49.521Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-ops-engineer-efg-geneve"
+        ],
+        "de": [
+          "data-ops-engineer-efg-geneve"
+        ],
+        "fr": [
+          "data-ops-engineer-efg-geneve",
+          "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "data-ops-engineer-efg-geneve",
+        "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
+      ],
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6190",
@@ -564,7 +567,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.134Z",
+      "crawledAt": "2026-06-23T11:24:35.578Z",
       "slugByLocale": {
         "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
@@ -607,7 +610,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -658,7 +662,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.133Z",
+      "crawledAt": "2026-06-23T11:24:35.576Z",
       "slugByLocale": {
         "it": "client-support-officer-efg-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -696,7 +700,8 @@
           "funzionario-dell-assistenza-clienti-efg-international-ag-st"
         ]
       },
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -822,7 +827,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.131Z",
+      "crawledAt": "2026-06-23T11:24:35.574Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -867,7 +872,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1020,7 +1026,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.130Z",
+      "crawledAt": "2026-06-23T11:24:35.573Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1248,7 +1254,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.129Z",
+      "crawledAt": "2026-06-23T11:24:35.572Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1383,7 +1389,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.127Z",
+      "crawledAt": "2026-06-23T11:24:35.570Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1565,7 +1571,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.126Z",
+      "crawledAt": "2026-06-23T11:24:35.569Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1603,7 +1609,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -1654,7 +1661,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.125Z",
+      "crawledAt": "2026-06-23T11:24:35.568Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -1698,7 +1705,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1749,7 +1757,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.123Z",
+      "crawledAt": "2026-06-23T11:24:35.567Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -1792,7 +1800,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6040",
@@ -1843,7 +1852,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.123Z",
+      "crawledAt": "2026-06-23T11:24:35.566Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -1886,7 +1895,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2049,7 +2059,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.121Z",
+      "crawledAt": "2026-06-23T11:24:35.564Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2119,7 +2129,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2266,7 +2277,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-22T22:35:37.120Z",
+      "crawledAt": "2026-06-23T11:24:35.563Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2326,7 +2337,325 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-4543",
+      "slug": "group-financial-controller-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Group Financial Controller",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## General Info\n\n- Department: Corporate Finance\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\n## Job Description\n\nAs we continue to grow and innovate, we are seeking a highly skilled and experienced Group Financial Controller to join our dynamic team. This pivotal role will drive transformation across our financial control framework and lead strategic initiatives to optimize our Group’s financial operations.\n\n## Main responsibilities\n\n- Lead the ICS and control framework process for the Group\n\n- Lead the procedures and accounting policy transformation\n\n- Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries\n\n- Own the chart of accounts evolution process, lead the discussions around Consolidation tool and general ledger / ERP.\n\n- Finance process an systems Optimisation\n\n- Coordinate with the Local CFOs and manage the Global CFO\n\n## Project Management\n\n- Lead and manage Finance related projects from initiation to completion\n\n- Develop project plans, timelines and budgets\n\n- Presentations to ExCO and GBC\n\n- Monitor project progress and make adjustements as necessary to ensure successful project delivery.\n\n## Process Improvement\n\n- Identify opportunities for process improvements and recommend solutions.\n\n- Process analysis (start-to-end); identifying and then targeting bottlenecks\n\n- Holistic management of the ongoing developments\n\n## Skills and experience\n\n- Bachelor’s degree in Finance or similar\n\n- Banking experience will be considered as a plus\n\n- Qualified Charter accountant with experience outside of Audit practice\n\n- Minimum of 8 to 10 years of experience ina similar role\n\n- Proven track record of managing complex projects and delivering results.\n\n- Fluent in English both written and spoken, French, German and/or Italian are a plus;\n\n- Knowledge of regulatory requirements and Company Law.\n\n- Excellent project management skills, including planning, execution and monitoring.\n\n- Exceptional communication and interpersonal skills.\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
+      "requirements": [
+        "Bachelor’s degree in Finance or similar",
+        "Banking experience will be considered as a plus",
+        "Qualified Charter accountant with experience outside of Audit practice",
+        "Minimum of 8 to 10 years of experience ina similar role",
+        "Proven track record of managing complex projects and delivering results.",
+        "Fluent in English both written and spoken, French, German and/or Italian are a plus;",
+        "Knowledge of regulatory requirements and Company Law.",
+        "Excellent project management skills, including planning, execution and monitoring.",
+        "Exceptional communication and interpersonal skills."
+      ],
+      "featured": false,
+      "postedDate": "2026-02-11",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/4543",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Group Financial Controller",
+        "fr": "Group Financial Controller",
+        "it": "Gruppo Controllore finanziario",
+        "de": "Konzern Finanzverantwortlicher"
+      },
+      "descriptionByLocale": {
+        "en": "## General Info\n\n- Department: Corporate Finance\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\n## Job Description\n\nAs we continue to grow and innovate, we are seeking a highly skilled and experienced Group Financial Controller to join our dynamic team. This pivotal role will drive transformation across our financial control framework and lead strategic initiatives to optimize our Group’s financial operations.\n\n## Main responsibilities\n\n- Lead the ICS and control framework process for the Group\n\n- Lead the procedures and accounting policy transformation\n\n- Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries\n\n- Own the chart of accounts evolution process, lead the discussions around Consolidation tool and general ledger / ERP.\n\n- Finance process an systems Optimisation\n\n- Coordinate with the Local CFOs and manage the Global CFO\n\n## Project Management\n\n- Lead and manage Finance related projects from initiation to completion\n\n- Develop project plans, timelines and budgets\n\n- Presentations to ExCO and GBC\n\n- Monitor project progress and make adjustements as necessary to ensure successful project delivery.\n\n## Process Improvement\n\n- Identify opportunities for process improvements and recommend solutions.\n\n- Process analysis (start-to-end); identifying and then targeting bottlenecks\n\n- Holistic management of the ongoing developments\n\n## Skills and experience\n\n- Bachelor’s degree in Finance or similar\n\n- Banking experience will be considered as a plus\n\n- Qualified Charter accountant with experience outside of Audit practice\n\n- Minimum of 8 to 10 years of experience ina similar role\n\n- Proven track record of managing complex projects and delivering results.\n\n- Fluent in English both written and spoken, French, German and/or Italian are a plus;\n\n- Knowledge of regulatory requirements and Company Law.\n\n- Excellent project management skills, including planning, execution and monitoring.\n\n- Exceptional communication and interpersonal skills.\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
+        "it": "Informazioni generali\n- Dipartimento: Corporate Finance\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nDescrizione del lavoro\n\nMan mano che continuiamo a crescere e a innovare, stiamo cercando un controller finanziario di gruppo altamente qualificato ed esperto per unirsi al nostro team dinamico. Questo ruolo fondamentale guiderà la trasformazione attraverso il nostro quadro di controllo finanziario e porterà iniziative strategiche per ottimizzare le operazioni finanziarie del nostro Gruppo.\n\nPrincipali responsabilità\n- Guidare l'ICS e controllare il processo quadro per il Gruppo\n- Guidare le procedure e la trasformazione della politica contabile\n- Gestire l'ottimizzazione del Bilancio del Gruppo così come il Capitale e i flussi di dividendo a livello globale dalle controllate\n- Proprio il grafico del processo di evoluzione dei conti, condurre le discussioni intorno allo strumento di consolidamento e il registro generale / ERP.\n- Processo di finanza un sistema Ottimizzazione\n- Coordinare con i CFO locali e gestire il CFO globale\n\nGestione dei progetti\n- Guidare e gestire progetti relativi alla finanza dall'avvio al completamento\n- Sviluppare piani di progetto, tempi e budget\n- Presentazioni a ExCO e GBC\n- Monitorare il progresso del progetto e fare adattamenti, se necessario, per garantire la consegna del progetto di successo.\n\nMiglioramento del processo\n- Identificare opportunità di miglioramento dei processi e consigliare soluzioni.\n- Analisi di processo (start-to-end); identificazione e quindi targeting colli di bottiglia\n- Gestione olistica degli sviluppi in corso\n\nCompetenze ed esperienza\n- Laurea in finanza o simili\n- L'esperienza bancaria sarà considerata un plus\n- Accountant Charter qualificato con esperienza al di fuori della pratica Audit\n- Minimo da 8 a 10 anni di esperienza in un ruolo simile\n- Provato record di gestione di progetti complessi e risultati.\n- Fluente in inglese sia scritto che parlato, francese, tedesco e/o italiano sono un plus;\n- Conoscenza dei requisiti normativi e diritto societario.\n- Eccellente capacità di gestione dei progetti, tra cui pianificazione, esecuzione e monitoraggio.\n- Comunicazione eccezionale e competenze interpersonali.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nSi prega di assicurarsi di allegare una lettera di copertura al CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
+        "de": "Allgemeine Info\n- Abteilung: Corporate Finance\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nJob Description\n\nDa wir weiter wachsen und innovativ sind, suchen wir einen hochqualifizierten und erfahrenen Group Financial Controller, der unserem dynamischen Team beitritt. Diese zentrale Rolle wird die Transformation in unserem Finanzkontrollrahmen vorantreiben und strategische Initiativen zur Optimierung des Finanzgeschäfts unserer Gruppe führen.\n\nHauptaufgaben\n- Führen Sie den ICS- und Steuerungsrahmenprozess für die Gruppe\n- Führen Sie die Verfahren und buchhaltungspolitische Transformation\n- Verwalten Sie die Balance Sheet Optimierung des Konzerns sowie Kapital- und Dividendenflüsse weltweit von Tochtergesellschaften\n- Besitzen Sie das Diagramm der Konten Evolution Prozess, führen Sie die Diskussionen rund um Consolidation Tool und allgemeine Führung / ERP.\n- Finanzprozess und Systemoptimierung\n- Koordination mit den lokalen CFOs und Verwaltung des globalen CFO\n\nProjektleitung\n- Führen und verwalten Finanzielle Projekte von der Einleitung bis zum Abschluss\n- Projektpläne, Zeitpläne und Budgets entwickeln\n- Präsentationen zu ExCO und GBC\n- Überwachen Sie den Projektfortschritt und stellen Sie Anpassungen wie nötig, um eine erfolgreiche Projektauslieferung zu gewährleisten.\n\nProzessverbesserung\n- Möglichkeiten für Prozessverbesserungen identifizieren und Lösungen empfehlen.\n- Prozessanalyse (Start-to-End); Identifizierung und anschließende Ausrichtung von Engpässen\n\n- ganzheitliches Management der laufenden Entwicklungen\n\nFähigkeiten und Erfahrung\n- Bachelor in Finanzen oder ähnliches\n- Bankerfahrung wird als Plus betrachtet\n- Qualifizierter Charter-Buchhalter mit Erfahrung außerhalb der Prüfungspraxis\n- Mindestens 8 bis 10 Jahre Erfahrung in einer ähnlichen Rolle\n- Erprobter Rekord bei der Verwaltung komplexer Projekte und der Bereitstellung von Ergebnissen.\n- Flöten in Englisch sowohl geschrieben als auch gesprochen, Französisch, Deutsch und/oder Italienisch sind ein Plus;\n- Kenntnis der regulatorischen Anforderungen und des Gesellschaftsrechts.\n- Ausgezeichnete Projektmanagementfähigkeiten, einschließlich Planung, Durchführung und Überwachung.\n- Außergewöhnliche Kommunikation und zwischenmenschliche Fähigkeiten.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
+        "fr": "Informations générales\n- Ministère: Finances générales\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nDescription de l'emploi\n\nAlors que nous continuons à croître et à innover, nous cherchons un contrôleur financier de groupe hautement qualifié et expérimenté pour rejoindre notre équipe dynamique. Ce rôle central favorisera la transformation de notre cadre de contrôle financier et dirigera des initiatives stratégiques pour optimiser les opérations financières du Groupe.\n\nPrincipales responsabilités\n- Diriger le processus ICS et le cadre de contrôle pour le Groupe\n- Diriger les procédures et la transformation des conventions comptables\n- Gérer l'optimisation du bilan du Groupe ainsi que les flux de capitaux et de dividendes des filiales\n- Posséder le plan d'évolution des comptes, diriger les discussions sur l'outil de consolidation et le grand livre général / ERP.\n- Finance processus un système Optimisation\n- Coordonner avec les CFO locaux et gérer le CFO mondial\n\nGestion de projet\n- Diriger et gérer les projets liés au financement, du début à la fin\n- Élaborer des plans de projet, des calendriers et des budgets\n- Présentations à ExCO et GBC\n- Surveiller l'avancement du projet et procéder aux ajustements nécessaires pour assurer la réussite de l'exécution du projet.\n\nAmélioration des processus\n- Identifier les possibilités d'amélioration des processus et recommander des solutions.\n- Analyse des processus (de la phase initiale à la phase terminale); identification et ciblage des goulets d ' étranglement\n- Gestion globale des développements en cours\n\nCompétences et expérience\n- Baccalauréat en finance ou similaire\n- L'expérience bancaire sera considérée comme un plus\n- Comptable agréé qualifié ayant une expérience en dehors de la pratique de vérification\n\n- minimum de 8 à 10 ans d'expérience dans un rôle similaire\n- Expérience éprouvée de la gestion de projets complexes et de l'obtention de résultats.\n- Le français, l'allemand et/ou l'italien sont un plus;\n- Connaissance des exigences réglementaires et du droit des sociétés.\n- Excellentes compétences en gestion de projet, y compris planification, exécution et suivi.\n- Compétences exceptionnelles en communication et relations interpersonnelles.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'amélioration continue\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et chercher l'excellence\n- Une solution axée sur les résultats des clients et un traitement équitable des clients avec une prise de conscience du risque\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor’s degree in Finance or similar",
+          "Banking experience will be considered as a plus",
+          "Qualified Charter accountant with experience outside of Audit practice",
+          "Minimum of 8 to 10 years of experience ina similar role",
+          "Proven track record of managing complex projects and delivering results.",
+          "Fluent in English both written and spoken, French, German and/or Italian are a plus;",
+          "Knowledge of regulatory requirements and Company Law.",
+          "Excellent project management skills, including planning, execution and monitoring.",
+          "Exceptional communication and interpersonal skills."
+        ]
+      },
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "As we continue to grow and innovate, we are seeking a highly skilled and experienced Group Financial Controller to join our dynamic team. This pivotal role will drive transformation across our financial control framework and lead strategic initiatives to optimize our Group’s financial operations."
+            ],
+            "responsibilities": [
+              "Lead the ICS and control framework process for the Group",
+              "Lead the procedures and accounting policy transformation",
+              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
+              "Own the chart of accounts evolution process, lead the discussions around Consolidation tool and general ledger / ERP.",
+              "Finance process an systems Optimisation",
+              "Coordinate with the Local CFOs and manage the Global CFO"
+            ],
+            "requirements": [
+              "Bachelor’s degree in Finance or similar",
+              "Banking experience will be considered as a plus",
+              "Qualified Charter accountant with experience outside of Audit practice",
+              "Minimum of 8 to 10 years of experience ina similar role",
+              "Proven track record of managing complex projects and delivering results.",
+              "Fluent in English both written and spoken, French, German and/or Italian are a plus;",
+              "Knowledge of regulatory requirements and Company Law.",
+              "Excellent project management skills, including planning, execution and monitoring.",
+              "Exceptional communication and interpersonal skills."
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "Lead the ICS and control framework process for the Group",
+              "Lead the procedures and accounting policy transformation",
+              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
+              "Bachelor’s degree in Finance or similar",
+              "Banking experience will be considered as a plus",
+              "Qualified Charter accountant with experience outside of Audit practice",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Bachelor’s degree in Finance or similar",
+              "Banking experience will be considered as a plus",
+              "Qualified Charter accountant with experience outside of Audit practice",
+              "Minimum of 8 to 10 years of experience ina similar role",
+              "Proven track record of managing complex projects and delivering results.",
+              "Lead the ICS and control framework process for the Group",
+              "Lead the procedures and accounting policy transformation",
+              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
+              "Own the chart of accounts evolution process"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "General Info",
+                "paragraphs": [],
+                "bullets": [
+                  "Department: Corporate Finance",
+                  "Work time Percentage: 100%",
+                  "Location: Geneva"
+                ]
+              },
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Project Management",
+                "paragraphs": [],
+                "bullets": [
+                  "Lead and manage Finance related projects from initiation to completion",
+                  "Develop project plans, timelines and budgets",
+                  "Presentations to ExCO and GBC",
+                  "Monitor project progress and make adjustements as necessary to ensure successful project delivery."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "Process Improvement",
+                "paragraphs": [],
+                "bullets": [
+                  "Identify opportunities for process improvements and recommend solutions.",
+                  "Process analysis (start-to-end); identifying and then targeting bottlenecks",
+                  "Holistic management of the ongoing developments"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-06-23T11:24:35.561Z",
+      "slugByLocale": {
+        "it": "group-financial-controller-efg-geneve",
+        "en": "group-financial-controller-efg-geneve",
+        "de": "group-financial-controller-efg-geneve",
+        "fr": "group-financial-controller-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-02-11",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppo-controllore-finanziario-efg-international-ag-geneve",
+          "group-financial-controller-efg-geneve"
+        ],
+        "de": [
+          "konzern-finanzverantwortlicher-efg-international-ag-geneve",
+          "group-financial-controller-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "gruppo-controllore-finanziario-efg-international-ag-geneve",
+        "konzern-finanzverantwortlicher-efg-international-ag-geneve"
+      ],
+      "country": "CH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6203",
+      "slug": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+      "company": "EFG International AG",
+      "title": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-06-03",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6203",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
+        "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
+      },
+      "descriptionByLocale": {
+        "en": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+        "it": "Siamo alla ricerca di un giovane talento per unirsi al nostro Programma di Laurea EFG – Funzioni Corporate percorso in Lugano, con un focus sulle Risorse Umane. In questo ruolo, acquisirai esperienza pratica e una comprensione valutabile delle aree chiave che supportano e guidano il successo di EFG. Avrai l'opportunità di lavorare in stretta collaborazione con il nostro team HR, partecipare all'acquisizione di talenti, allo sviluppo degli impiegati e alla gestione delle prestazioni, e contribuire a progetti che definiscono la strategia delle persone di EFG. Questa esperienza ti fornirà una comprensione completa di come le Risorse Umane consentono a EFG di offrire un servizio eccellente e mantenere la leadership nel private banking. Come funziona il Programma di Laurea EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Laurea EFG offre un'opportunità stimolante e affascinante per i recenti laureati. Personalizzato sulle abilità, gli interessi e le competenze individuali, il programma offre un'opportunità ideale per ottenere un'esperienza vasta e variegata in un gruppo di private banking internazionale e in rapida crescita:\n- Inizierai con un'iscrizione di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'iscrizione avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per assicurarti di sviluppare sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentore per accompagnarti durante il programma.\n- Veramente globale, abbiamo posizioni basate a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. Potresti essere uno dei nostri futuri laureati? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienze nel settore, ma cerchiamo una diversa miscela di background, esperienze e competenze. I nostri laureati sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea o Master (completato nel 2025 o in corso di completamento) con risultati accademici eccezionali in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualsiasi altra lingua sarà un vantaggio)\n- Mindset internazionale\n- Abilità analitiche, di risoluzione dei problemi e organizzative forti\n- Pensiero proattivo e in grado di suggerire nuove modalità di lavoro per migliorare l'efficienza e la competitività\n- Auto-disciplinato, impegnato e con un forte senso del dovere\n- Adattabile e in grado di lavorare in un ambiente di lavoro collaborativo con persone di diversi background\n- Orientato al cliente\n- Autonomo e proattivo con curiosità intellettuale. Che cosa otterrai?\n- Esperienza lavorativa dinamica facendo rotazione attraverso diverse squadre e unità di business\n- Esperienza di rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura di EFG\n- Opportunità di sviluppo e apprendimento continuo sia sulle competenze tecniche che sulle competenze soft. Il processo di selezione per questa posizione inizierà a aprile 2026 e includerà diverse interviste.",
+        "de": "Wir suchen einen jungen Talent für unser EFG-Graduiertenprogramm – Unternehmensfunktionen-Weg in Lugano, mit Schwerpunkt auf Personalwesen. In dieser Rolle wirst du praktische Erfahrung und wertvolle Einblicke in die Schlüsselfunktionen gewinnen, die den Erfolg von EFG unterstützen und antreiben. Du wirst die Möglichkeit haben, eng mit unserem Personalteam zusammenzuarbeiten, an der Talentakquisition, der Mitarbeiterentwicklung und der Leistungsbeurteilung teilzunehmen und an Projekten mitzuarbeiten, die die Strategie der Menschen von EFG definieren. Diese Erfahrung wird dir einen umfassenden Einblick in die Rolle des Personalwesens bei der Bereitstellung eines herausragenden Dienstleistungsangebots und der Führung in der Privatbankwirtschaft geben. Wie funktioniert das EFG-Graduiertenprogramm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG-Graduiertenprogramm eine herausfordernde und spannende Gelegenheit für jüngere Absolventen. An individuellen Fähigkeiten, Interessen und Kompetenzen angepasst, bietet das Programm eine ideale Gelegenheit, um eine breite Palette an Erfahrungen in einem internationalen und wachsenden Privatbankengruppen zu sammeln:\n- Du beginnst mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG kennenzulernen und deine berufliche Netzwerke aufzubauen.\n- Während der Einarbeitung hast du die Möglichkeit, spezifische Schulungen zu besuchen, um Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass du sowohl persönlich als auch beruflich voll entwickelt bist, um dein volles Potenzial zu erreichen.\n- Buddy und Mentor, die dich während des Programms begleiten.\n- Tatsächlich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. Könntest du einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen akademischen Abschlüsse oder Branchenerfahrungen, sondern suchen eine Vielfalt an Hintergründen, Erfahrungen und Fähigkeiten. Unsere Absolventen sind brillante und begeisterte Talente, also erwarten wir:\n- Bachelor- oder Master-Abschluss (abgeschlossen 2025 oder in der Pipeline) mit hervorragenden akademischen Leistungen in einem Bereich, der mit dem ausgewählten Berufsweg zusammenhängt.\n- Ausgezeichnete Englischkenntnisse (jede andere Sprache ist ein Vorteil)\n- Internationale Denkweise\n- Starke analytische, Problemlösungs- und Organisationsfähigkeiten\n- Proaktives Denken und in der Lage, neue Arten der Arbeit zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Sorgfaltspflichtgefühl\n- Anpassungsfähigkeit und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundeorientiert\n- Proaktiver Selbststarter mit intellektueller Neugier. Was wirst du erhalten?\n- Dynamische Arbeitserfahrung durch Rotation durch verschiedene Teams und Geschäftseinheiten\n- Erfahrung eines erweiterten internationalen Netzwerks\n- Gelegenheit, Expertise in deinem ausgewählten Bereich zu entwickeln und zum EFG-Kulturbezug beizutragen\n- Kontinuierliche Entwicklung und Lernmöglichkeiten auf technischen und weichen Fähigkeiten. Der Auswahlprozess für diese Position beginnt im April 2026 und umfasst mehrere Interviews.",
+        "fr": "Nous recherchons un jeune talent pour rejoindre notre Programme de recrutement EFG – Fonctions d'entreprise en voie de Lugano, avec un focus sur les Ressources humaines. Dans ce rôle, vous acquérez une expérience pratique et une compréhension précieuse des domaines clés qui soutiennent et impulsent le succès d'EFG. Vous aurez l'opportunité de travailler en étroite collaboration avec notre équipe RH, de participer à l'acquisition de talents, au développement des employés et à la gestion des performances, et de contribuer à des projets qui définissent la stratégie des personnes d'EFG. Cette expérience vous fournira une compréhension complète de la manière dont les Ressources humaines permettent à EFG de fournir un service exceptionnel et de maintenir sa leadership dans la banque privée. Comment fonctionne le Programme de recrutement EFG ? À partir de septembre 2026 et sur une période de 18 mois, le Programme de recrutement EFG offre une opportunité stimulante et passionnante pour les jeunes diplômés. Adapté aux compétences, aux intérêts et aux compétences individuels, le programme offre une opportunité idéale pour acquérir une expérience large et variée dans un groupe de banque privée internationale et en croissance rapide :\n- Vous commencez par une formation de 2 semaines en Suisse pour découvrir la mission, la vision et la culture d'EFG et pour commencer à construire votre réseau professionnel.\n- Pendant la formation, vous avez la possibilité de suivre des formations spécifiques pour améliorer vos compétences clés et vos compétences de communication.\n- Opportunités de formation continue pour vous assurer de développer à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Pourriez-vous être l'un de nos futurs diplômés ? Nous valorisons la diversité et ne demandons pas de spécialisations académiques ou d'expérience professionnelle spécifiques, mais nous recherchons une diversité de profils, d'expériences et de compétences. Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons :\n- Diplôme de licence ou de master (obtenu en 2025 ou en cours de validation) avec des résultats académiques exceptionnels dans un domaine lié au chemin professionnel sélectionné.\n- Excellentes compétences en anglais (toute autre langue est un atout)\n- Mentalité internationale\n- Compétences analytiques, de résolution de problèmes et organisationnelles solides\n- Pensée proactive et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Auto-discipliné, engagé et avec un fort sens du devoir\n- Adaptable et capable de travailler dans un environnement de travail collaboratif avec des personnes de divers horizons\n- Orienté client\n- Proactif et autonome avec une curiosité intellectuelle. Qu'est-ce que vous obtiendrez ?\n- Expérience de travail dynamique en faisant la rotation dans différentes équipes et unités de business\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la culture d'EFG\n- Opportunités de développement et d'apprentissage continu sur les compétences techniques et les compétences douces. Le processus de recrutement pour cette position commencera en avril 2026 et comportera plusieurs entretiens."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span>We are looking for a young talent to join our <strong>EFG Graduate Programme – Corporate Functions path in Lugano</strong>, with a focus on <strong>Human Resources</strong>. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>In this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>You will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.</span></p><p style=\"line-height:normal;margin-bottom:0cm;\"> </p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p style=\"margin-left:36.0pt;\"> </p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p><p><span>The recruitment process for this position will begin in April 2026 and will include several interviews.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-06-23T11:24:35.558Z",
+      "slugByLocale": {
+        "it": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+        "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
+        "de": "efg-graduate-programme-2026-corporate-functions-personalwesen-lugano-efg-international-ag-lugano-n932dq",
+        "fr": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "previousSlugs": [
+        "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+        "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano",
+        "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano"
+      ],
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-27",
+      "previousSlugsByLocale": {
+        "it": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano",
+          "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "en": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "de": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "fr": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -2509,319 +2838,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-4543",
-      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Group Financial Controller",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## General Info\n\n- Department: Corporate Finance\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\n## Job Description\n\nAs we continue to grow and innovate, we are seeking a highly skilled and experienced Group Financial Controller to join our dynamic team. This pivotal role will drive transformation across our financial control framework and lead strategic initiatives to optimize our Group’s financial operations.\n\n## Main responsibilities\n\n- Lead the ICS and control framework process for the Group\n\n- Lead the procedures and accounting policy transformation\n\n- Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries\n\n- Own the chart of accounts evolution process, lead the discussions around Consolidation tool and general ledger / ERP.\n\n- Finance process an systems Optimisation\n\n- Coordinate with the Local CFOs and manage the Global CFO\n\n## Project Management\n\n- Lead and manage Finance related projects from initiation to completion\n\n- Develop project plans, timelines and budgets\n\n- Presentations to ExCO and GBC\n\n- Monitor project progress and make adjustements as necessary to ensure successful project delivery.\n\n## Process Improvement\n\n- Identify opportunities for process improvements and recommend solutions.\n\n- Process analysis (start-to-end); identifying and then targeting bottlenecks\n\n- Holistic management of the ongoing developments\n\n## Skills and experience\n\n- Bachelor’s degree in Finance or similar\n\n- Banking experience will be considered as a plus\n\n- Qualified Charter accountant with experience outside of Audit practice\n\n- Minimum of 8 to 10 years of experience ina similar role\n\n- Proven track record of managing complex projects and delivering results.\n\n- Fluent in English both written and spoken, French, German and/or Italian are a plus;\n\n- Knowledge of regulatory requirements and Company Law.\n\n- Excellent project management skills, including planning, execution and monitoring.\n\n- Exceptional communication and interpersonal skills.\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
-      "requirements": [
-        "Bachelor’s degree in Finance or similar",
-        "Banking experience will be considered as a plus",
-        "Qualified Charter accountant with experience outside of Audit practice",
-        "Minimum of 8 to 10 years of experience ina similar role",
-        "Proven track record of managing complex projects and delivering results.",
-        "Fluent in English both written and spoken, French, German and/or Italian are a plus;",
-        "Knowledge of regulatory requirements and Company Law.",
-        "Excellent project management skills, including planning, execution and monitoring.",
-        "Exceptional communication and interpersonal skills."
-      ],
-      "featured": false,
-      "postedDate": "2026-02-11",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/4543",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Group Financial Controller",
-        "fr": "Group Financial Controller",
-        "it": "Gruppo Controllore finanziario",
-        "de": "Konzern Finanzverantwortlicher"
-      },
-      "descriptionByLocale": {
-        "en": "## General Info\n\n- Department: Corporate Finance\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\n## Job Description\n\nAs we continue to grow and innovate, we are seeking a highly skilled and experienced Group Financial Controller to join our dynamic team. This pivotal role will drive transformation across our financial control framework and lead strategic initiatives to optimize our Group’s financial operations.\n\n## Main responsibilities\n\n- Lead the ICS and control framework process for the Group\n\n- Lead the procedures and accounting policy transformation\n\n- Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries\n\n- Own the chart of accounts evolution process, lead the discussions around Consolidation tool and general ledger / ERP.\n\n- Finance process an systems Optimisation\n\n- Coordinate with the Local CFOs and manage the Global CFO\n\n## Project Management\n\n- Lead and manage Finance related projects from initiation to completion\n\n- Develop project plans, timelines and budgets\n\n- Presentations to ExCO and GBC\n\n- Monitor project progress and make adjustements as necessary to ensure successful project delivery.\n\n## Process Improvement\n\n- Identify opportunities for process improvements and recommend solutions.\n\n- Process analysis (start-to-end); identifying and then targeting bottlenecks\n\n- Holistic management of the ongoing developments\n\n## Skills and experience\n\n- Bachelor’s degree in Finance or similar\n\n- Banking experience will be considered as a plus\n\n- Qualified Charter accountant with experience outside of Audit practice\n\n- Minimum of 8 to 10 years of experience ina similar role\n\n- Proven track record of managing complex projects and delivering results.\n\n- Fluent in English both written and spoken, French, German and/or Italian are a plus;\n\n- Knowledge of regulatory requirements and Company Law.\n\n- Excellent project management skills, including planning, execution and monitoring.\n\n- Exceptional communication and interpersonal skills.\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
-        "it": "Informazioni generali\n- Dipartimento: Corporate Finance\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nDescrizione del lavoro\n\nMan mano che continuiamo a crescere e a innovare, stiamo cercando un controller finanziario di gruppo altamente qualificato ed esperto per unirsi al nostro team dinamico. Questo ruolo fondamentale guiderà la trasformazione attraverso il nostro quadro di controllo finanziario e porterà iniziative strategiche per ottimizzare le operazioni finanziarie del nostro Gruppo.\n\nPrincipali responsabilità\n- Guidare l'ICS e controllare il processo quadro per il Gruppo\n- Guidare le procedure e la trasformazione della politica contabile\n- Gestire l'ottimizzazione del Bilancio del Gruppo così come il Capitale e i flussi di dividendo a livello globale dalle controllate\n- Proprio il grafico del processo di evoluzione dei conti, condurre le discussioni intorno allo strumento di consolidamento e il registro generale / ERP.\n- Processo di finanza un sistema Ottimizzazione\n- Coordinare con i CFO locali e gestire il CFO globale\n\nGestione dei progetti\n- Guidare e gestire progetti relativi alla finanza dall'avvio al completamento\n- Sviluppare piani di progetto, tempi e budget\n- Presentazioni a ExCO e GBC\n- Monitorare il progresso del progetto e fare adattamenti, se necessario, per garantire la consegna del progetto di successo.\n\nMiglioramento del processo\n- Identificare opportunità di miglioramento dei processi e consigliare soluzioni.\n- Analisi di processo (start-to-end); identificazione e quindi targeting colli di bottiglia\n- Gestione olistica degli sviluppi in corso\n\nCompetenze ed esperienza\n- Laurea in finanza o simili\n- L'esperienza bancaria sarà considerata un plus\n- Accountant Charter qualificato con esperienza al di fuori della pratica Audit\n- Minimo da 8 a 10 anni di esperienza in un ruolo simile\n- Provato record di gestione di progetti complessi e risultati.\n- Fluente in inglese sia scritto che parlato, francese, tedesco e/o italiano sono un plus;\n- Conoscenza dei requisiti normativi e diritto societario.\n- Eccellente capacità di gestione dei progetti, tra cui pianificazione, esecuzione e monitoraggio.\n- Comunicazione eccezionale e competenze interpersonali.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nSi prega di assicurarsi di allegare una lettera di copertura al CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
-        "de": "Allgemeine Info\n- Abteilung: Corporate Finance\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nJob Description\n\nDa wir weiter wachsen und innovativ sind, suchen wir einen hochqualifizierten und erfahrenen Group Financial Controller, der unserem dynamischen Team beitritt. Diese zentrale Rolle wird die Transformation in unserem Finanzkontrollrahmen vorantreiben und strategische Initiativen zur Optimierung des Finanzgeschäfts unserer Gruppe führen.\n\nHauptaufgaben\n- Führen Sie den ICS- und Steuerungsrahmenprozess für die Gruppe\n- Führen Sie die Verfahren und buchhaltungspolitische Transformation\n- Verwalten Sie die Balance Sheet Optimierung des Konzerns sowie Kapital- und Dividendenflüsse weltweit von Tochtergesellschaften\n- Besitzen Sie das Diagramm der Konten Evolution Prozess, führen Sie die Diskussionen rund um Consolidation Tool und allgemeine Führung / ERP.\n- Finanzprozess und Systemoptimierung\n- Koordination mit den lokalen CFOs und Verwaltung des globalen CFO\n\nProjektleitung\n- Führen und verwalten Finanzielle Projekte von der Einleitung bis zum Abschluss\n- Projektpläne, Zeitpläne und Budgets entwickeln\n- Präsentationen zu ExCO und GBC\n- Überwachen Sie den Projektfortschritt und stellen Sie Anpassungen wie nötig, um eine erfolgreiche Projektauslieferung zu gewährleisten.\n\nProzessverbesserung\n- Möglichkeiten für Prozessverbesserungen identifizieren und Lösungen empfehlen.\n- Prozessanalyse (Start-to-End); Identifizierung und anschließende Ausrichtung von Engpässen\n\n- ganzheitliches Management der laufenden Entwicklungen\n\nFähigkeiten und Erfahrung\n- Bachelor in Finanzen oder ähnliches\n- Bankerfahrung wird als Plus betrachtet\n- Qualifizierter Charter-Buchhalter mit Erfahrung außerhalb der Prüfungspraxis\n- Mindestens 8 bis 10 Jahre Erfahrung in einer ähnlichen Rolle\n- Erprobter Rekord bei der Verwaltung komplexer Projekte und der Bereitstellung von Ergebnissen.\n- Flöten in Englisch sowohl geschrieben als auch gesprochen, Französisch, Deutsch und/oder Italienisch sind ein Plus;\n- Kenntnis der regulatorischen Anforderungen und des Gesellschaftsrechts.\n- Ausgezeichnete Projektmanagementfähigkeiten, einschließlich Planung, Durchführung und Überwachung.\n- Außergewöhnliche Kommunikation und zwischenmenschliche Fähigkeiten.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
-        "fr": "Informations générales\n- Ministère: Finances générales\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nDescription de l'emploi\n\nAlors que nous continuons à croître et à innover, nous cherchons un contrôleur financier de groupe hautement qualifié et expérimenté pour rejoindre notre équipe dynamique. Ce rôle central favorisera la transformation de notre cadre de contrôle financier et dirigera des initiatives stratégiques pour optimiser les opérations financières du Groupe.\n\nPrincipales responsabilités\n- Diriger le processus ICS et le cadre de contrôle pour le Groupe\n- Diriger les procédures et la transformation des conventions comptables\n- Gérer l'optimisation du bilan du Groupe ainsi que les flux de capitaux et de dividendes des filiales\n- Posséder le plan d'évolution des comptes, diriger les discussions sur l'outil de consolidation et le grand livre général / ERP.\n- Finance processus un système Optimisation\n- Coordonner avec les CFO locaux et gérer le CFO mondial\n\nGestion de projet\n- Diriger et gérer les projets liés au financement, du début à la fin\n- Élaborer des plans de projet, des calendriers et des budgets\n- Présentations à ExCO et GBC\n- Surveiller l'avancement du projet et procéder aux ajustements nécessaires pour assurer la réussite de l'exécution du projet.\n\nAmélioration des processus\n- Identifier les possibilités d'amélioration des processus et recommander des solutions.\n- Analyse des processus (de la phase initiale à la phase terminale); identification et ciblage des goulets d ' étranglement\n- Gestion globale des développements en cours\n\nCompétences et expérience\n- Baccalauréat en finance ou similaire\n- L'expérience bancaire sera considérée comme un plus\n- Comptable agréé qualifié ayant une expérience en dehors de la pratique de vérification\n\n- minimum de 8 à 10 ans d'expérience dans un rôle similaire\n- Expérience éprouvée de la gestion de projets complexes et de l'obtention de résultats.\n- Le français, l'allemand et/ou l'italien sont un plus;\n- Connaissance des exigences réglementaires et du droit des sociétés.\n- Excellentes compétences en gestion de projet, y compris planification, exécution et suivi.\n- Compétences exceptionnelles en communication et relations interpersonnelles.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'amélioration continue\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et chercher l'excellence\n- Une solution axée sur les résultats des clients et un traitement équitable des clients avec une prise de conscience du risque\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor’s degree in Finance or similar",
-          "Banking experience will be considered as a plus",
-          "Qualified Charter accountant with experience outside of Audit practice",
-          "Minimum of 8 to 10 years of experience ina similar role",
-          "Proven track record of managing complex projects and delivering results.",
-          "Fluent in English both written and spoken, French, German and/or Italian are a plus;",
-          "Knowledge of regulatory requirements and Company Law.",
-          "Excellent project management skills, including planning, execution and monitoring.",
-          "Exceptional communication and interpersonal skills."
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "As we continue to grow and innovate, we are seeking a highly skilled and experienced Group Financial Controller to join our dynamic team. This pivotal role will drive transformation across our financial control framework and lead strategic initiatives to optimize our Group’s financial operations."
-            ],
-            "responsibilities": [
-              "Lead the ICS and control framework process for the Group",
-              "Lead the procedures and accounting policy transformation",
-              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
-              "Own the chart of accounts evolution process, lead the discussions around Consolidation tool and general ledger / ERP.",
-              "Finance process an systems Optimisation",
-              "Coordinate with the Local CFOs and manage the Global CFO"
-            ],
-            "requirements": [
-              "Bachelor’s degree in Finance or similar",
-              "Banking experience will be considered as a plus",
-              "Qualified Charter accountant with experience outside of Audit practice",
-              "Minimum of 8 to 10 years of experience ina similar role",
-              "Proven track record of managing complex projects and delivering results.",
-              "Fluent in English both written and spoken, French, German and/or Italian are a plus;",
-              "Knowledge of regulatory requirements and Company Law.",
-              "Excellent project management skills, including planning, execution and monitoring.",
-              "Exceptional communication and interpersonal skills."
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "Lead the ICS and control framework process for the Group",
-              "Lead the procedures and accounting policy transformation",
-              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
-              "Bachelor’s degree in Finance or similar",
-              "Banking experience will be considered as a plus",
-              "Qualified Charter accountant with experience outside of Audit practice",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Bachelor’s degree in Finance or similar",
-              "Banking experience will be considered as a plus",
-              "Qualified Charter accountant with experience outside of Audit practice",
-              "Minimum of 8 to 10 years of experience ina similar role",
-              "Proven track record of managing complex projects and delivering results.",
-              "Lead the ICS and control framework process for the Group",
-              "Lead the procedures and accounting policy transformation",
-              "Manage the Balance Sheet optimization of the Group as well as Capital and dividend flows globally from subsidiaries",
-              "Own the chart of accounts evolution process"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "General Info",
-                "paragraphs": [],
-                "bullets": [
-                  "Department: Corporate Finance",
-                  "Work time Percentage: 100%",
-                  "Location: Geneva"
-                ]
-              },
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Project Management",
-                "paragraphs": [],
-                "bullets": [
-                  "Lead and manage Finance related projects from initiation to completion",
-                  "Develop project plans, timelines and budgets",
-                  "Presentations to ExCO and GBC",
-                  "Monitor project progress and make adjustements as necessary to ensure successful project delivery."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Process Improvement",
-                "paragraphs": [],
-                "bullets": [
-                  "Identify opportunities for process improvements and recommend solutions.",
-                  "Process analysis (start-to-end); identifying and then targeting bottlenecks",
-                  "Holistic management of the ongoing developments"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-22T22:35:37.117Z",
-      "slugByLocale": {
-        "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
-        "en": "group-financial-controller-efg-geneve",
-        "de": "konzern-finanzverantwortlicher-efg-international-ag-geneve",
-        "fr": "group-financial-controller-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-02-11",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.881Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "group-financial-controller-efg-geneve"
-        ],
-        "de": [
-          "group-financial-controller-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "group-financial-controller-efg-geneve"
-      ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-6203",
-      "slug": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-      "company": "EFG International AG",
-      "title": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6203",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
-        "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
-      },
-      "descriptionByLocale": {
-        "en": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
-        "it": "Siamo alla ricerca di un giovane talento per unirsi al nostro Programma di Laurea EFG – Funzioni Corporate percorso in Lugano, con un focus sulle Risorse Umane. In questo ruolo, acquisirai esperienza pratica e una comprensione valutabile delle aree chiave che supportano e guidano il successo di EFG. Avrai l'opportunità di lavorare in stretta collaborazione con il nostro team HR, partecipare all'acquisizione di talenti, allo sviluppo degli impiegati e alla gestione delle prestazioni, e contribuire a progetti che definiscono la strategia delle persone di EFG. Questa esperienza ti fornirà una comprensione completa di come le Risorse Umane consentono a EFG di offrire un servizio eccellente e mantenere la leadership nel private banking. Come funziona il Programma di Laurea EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Laurea EFG offre un'opportunità stimolante e affascinante per i recenti laureati. Personalizzato sulle abilità, gli interessi e le competenze individuali, il programma offre un'opportunità ideale per ottenere un'esperienza vasta e variegata in un gruppo di private banking internazionale e in rapida crescita:\n- Inizierai con un'iscrizione di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'iscrizione avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per assicurarti di sviluppare sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentore per accompagnarti durante il programma.\n- Veramente globale, abbiamo posizioni basate a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. Potresti essere uno dei nostri futuri laureati? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienze nel settore, ma cerchiamo una diversa miscela di background, esperienze e competenze. I nostri laureati sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea o Master (completato nel 2025 o in corso di completamento) con risultati accademici eccezionali in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualsiasi altra lingua sarà un vantaggio)\n- Mindset internazionale\n- Abilità analitiche, di risoluzione dei problemi e organizzative forti\n- Pensiero proattivo e in grado di suggerire nuove modalità di lavoro per migliorare l'efficienza e la competitività\n- Auto-disciplinato, impegnato e con un forte senso del dovere\n- Adattabile e in grado di lavorare in un ambiente di lavoro collaborativo con persone di diversi background\n- Orientato al cliente\n- Autonomo e proattivo con curiosità intellettuale. Che cosa otterrai?\n- Esperienza lavorativa dinamica facendo rotazione attraverso diverse squadre e unità di business\n- Esperienza di rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura di EFG\n- Opportunità di sviluppo e apprendimento continuo sia sulle competenze tecniche che sulle competenze soft. Il processo di selezione per questa posizione inizierà a aprile 2026 e includerà diverse interviste.",
-        "de": "Wir suchen einen jungen Talent für unser EFG-Graduiertenprogramm – Unternehmensfunktionen-Weg in Lugano, mit Schwerpunkt auf Personalwesen. In dieser Rolle wirst du praktische Erfahrung und wertvolle Einblicke in die Schlüsselfunktionen gewinnen, die den Erfolg von EFG unterstützen und antreiben. Du wirst die Möglichkeit haben, eng mit unserem Personalteam zusammenzuarbeiten, an der Talentakquisition, der Mitarbeiterentwicklung und der Leistungsbeurteilung teilzunehmen und an Projekten mitzuarbeiten, die die Strategie der Menschen von EFG definieren. Diese Erfahrung wird dir einen umfassenden Einblick in die Rolle des Personalwesens bei der Bereitstellung eines herausragenden Dienstleistungsangebots und der Führung in der Privatbankwirtschaft geben. Wie funktioniert das EFG-Graduiertenprogramm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG-Graduiertenprogramm eine herausfordernde und spannende Gelegenheit für jüngere Absolventen. An individuellen Fähigkeiten, Interessen und Kompetenzen angepasst, bietet das Programm eine ideale Gelegenheit, um eine breite Palette an Erfahrungen in einem internationalen und wachsenden Privatbankengruppen zu sammeln:\n- Du beginnst mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG kennenzulernen und deine berufliche Netzwerke aufzubauen.\n- Während der Einarbeitung hast du die Möglichkeit, spezifische Schulungen zu besuchen, um Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass du sowohl persönlich als auch beruflich voll entwickelt bist, um dein volles Potenzial zu erreichen.\n- Buddy und Mentor, die dich während des Programms begleiten.\n- Tatsächlich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. Könntest du einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen akademischen Abschlüsse oder Branchenerfahrungen, sondern suchen eine Vielfalt an Hintergründen, Erfahrungen und Fähigkeiten. Unsere Absolventen sind brillante und begeisterte Talente, also erwarten wir:\n- Bachelor- oder Master-Abschluss (abgeschlossen 2025 oder in der Pipeline) mit hervorragenden akademischen Leistungen in einem Bereich, der mit dem ausgewählten Berufsweg zusammenhängt.\n- Ausgezeichnete Englischkenntnisse (jede andere Sprache ist ein Vorteil)\n- Internationale Denkweise\n- Starke analytische, Problemlösungs- und Organisationsfähigkeiten\n- Proaktives Denken und in der Lage, neue Arten der Arbeit zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Sorgfaltspflichtgefühl\n- Anpassungsfähigkeit und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundeorientiert\n- Proaktiver Selbststarter mit intellektueller Neugier. Was wirst du erhalten?\n- Dynamische Arbeitserfahrung durch Rotation durch verschiedene Teams und Geschäftseinheiten\n- Erfahrung eines erweiterten internationalen Netzwerks\n- Gelegenheit, Expertise in deinem ausgewählten Bereich zu entwickeln und zum EFG-Kulturbezug beizutragen\n- Kontinuierliche Entwicklung und Lernmöglichkeiten auf technischen und weichen Fähigkeiten. Der Auswahlprozess für diese Position beginnt im April 2026 und umfasst mehrere Interviews.",
-        "fr": "Nous recherchons un jeune talent pour rejoindre notre Programme de recrutement EFG – Fonctions d'entreprise en voie de Lugano, avec un focus sur les Ressources humaines. Dans ce rôle, vous acquérez une expérience pratique et une compréhension précieuse des domaines clés qui soutiennent et impulsent le succès d'EFG. Vous aurez l'opportunité de travailler en étroite collaboration avec notre équipe RH, de participer à l'acquisition de talents, au développement des employés et à la gestion des performances, et de contribuer à des projets qui définissent la stratégie des personnes d'EFG. Cette expérience vous fournira une compréhension complète de la manière dont les Ressources humaines permettent à EFG de fournir un service exceptionnel et de maintenir sa leadership dans la banque privée. Comment fonctionne le Programme de recrutement EFG ? À partir de septembre 2026 et sur une période de 18 mois, le Programme de recrutement EFG offre une opportunité stimulante et passionnante pour les jeunes diplômés. Adapté aux compétences, aux intérêts et aux compétences individuels, le programme offre une opportunité idéale pour acquérir une expérience large et variée dans un groupe de banque privée internationale et en croissance rapide :\n- Vous commencez par une formation de 2 semaines en Suisse pour découvrir la mission, la vision et la culture d'EFG et pour commencer à construire votre réseau professionnel.\n- Pendant la formation, vous avez la possibilité de suivre des formations spécifiques pour améliorer vos compétences clés et vos compétences de communication.\n- Opportunités de formation continue pour vous assurer de développer à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Pourriez-vous être l'un de nos futurs diplômés ? Nous valorisons la diversité et ne demandons pas de spécialisations académiques ou d'expérience professionnelle spécifiques, mais nous recherchons une diversité de profils, d'expériences et de compétences. Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons :\n- Diplôme de licence ou de master (obtenu en 2025 ou en cours de validation) avec des résultats académiques exceptionnels dans un domaine lié au chemin professionnel sélectionné.\n- Excellentes compétences en anglais (toute autre langue est un atout)\n- Mentalité internationale\n- Compétences analytiques, de résolution de problèmes et organisationnelles solides\n- Pensée proactive et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Auto-discipliné, engagé et avec un fort sens du devoir\n- Adaptable et capable de travailler dans un environnement de travail collaboratif avec des personnes de divers horizons\n- Orienté client\n- Proactif et autonome avec une curiosité intellectuelle. Qu'est-ce que vous obtiendrez ?\n- Expérience de travail dynamique en faisant la rotation dans différentes équipes et unités de business\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la culture d'EFG\n- Opportunités de développement et d'apprentissage continu sur les compétences techniques et les compétences douces. Le processus de recrutement pour cette position commencera en avril 2026 et comportera plusieurs entretiens."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span>We are looking for a young talent to join our <strong>EFG Graduate Programme – Corporate Functions path in Lugano</strong>, with a focus on <strong>Human Resources</strong>. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>In this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>You will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.</span></p><p style=\"line-height:normal;margin-bottom:0cm;\"> </p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p style=\"margin-left:36.0pt;\"> </p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p><p><span>The recruitment process for this position will begin in April 2026 and will include several interviews.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-22T22:35:37.113Z",
-      "slugByLocale": {
-        "it": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-        "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
-        "de": "efg-graduate-programme-2026-corporate-functions-personalwesen-lugano-efg-international-ag-lugano-n932dq",
-        "fr": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "previousSlugs": [
-        "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-        "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano",
-        "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano"
-      ],
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-27",
-      "previousSlugsByLocale": {
-        "it": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano",
-          "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "en": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "de": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "fr": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -3139,7 +3157,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -3421,7 +3440,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -3622,7 +3642,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -3832,7 +3853,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -4457,7 +4479,8 @@
         "operational-risk-and-advisory-it-and-information-security-specialiste-efg-international-ag-zurich",
         "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6101",
@@ -4790,7 +4813,7 @@
         "fr": "Apprenti Commercial"
       },
       "descriptionByLocale": {
-        "en": "Are you finishing middle school and interested in becoming a professional in the bank?\n\nIf this is your wish the AFC Trade Apprentice Bank of EFG Bank is what it does for you.\n\nYou will be working at the main Swiss offices of EFG Bank in central Lugano from August 2026 until August 2029 when you get the Federal Certificate of Capacity.\n\nDuring the three years you will experience different working teams working at national and international level, for example Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nIn addition to training in the company, in which you will be followed by a tutor dedicated to you in each team, you will attend the commercial professional school (CPC) of your interest and the courses at the banking competence center (CYP) along with all the business apprentices branch bank of the Canton.\n\nEFG Bank supports and encourages the development of integrated vocational training to ensure training as complete as possible at the end of the apprenticeship.\n\nDuring the course you can develop different professional skills, including:\n\n- analysis of the financial and credit market\n\n- knowledge of banking products\n\n- processing and verification of documents\n\n- deadline planning and priority management\n\n- use of financial IT systems\n\n♪ Requirements\n\n- Passion for the economy and banking world\n\n- High school license with excellent results\n\n- Explain relational capabilities and ease to adapt to different working scenarios\n\n- Good computer knowledge\n\n- Knowledge of English\n\nIf you are motivated, thanks to attach to the online application: a letter of motivation, CV, the three most recent school reports and the middle school license.",
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
         "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
         "de": "Sind Sie Abschluss der Mittelschule und daran interessiert, ein Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank der EFG Bank das, was sie für Sie tut.\n\nSie arbeiten am Schweizer Hauptsitz der EFG Bank im Zentrum von Lugano von August 2026 bis August 2029, wenn Sie das Federal Certificate of Capacity erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsteams erleben, die auf nationaler und internationaler Ebene arbeiten, z. B. Private Banking, Compliance, Kreditkarten, Central Filing, Credit, Business Risk Management, Asset Management usw.\n\nNeben der Ausbildung im Unternehmen, bei der Sie von einem Tutor begleitet werden, der jedem Team gewidmet ist, besuchen Sie die kaufmännische Berufsschule (CPC) Ihres Interesses und die Kurse im Bankenkompetenzzentrum (CYP) zusammen mit allen kaufmännischen Lehrlingen Zweigbank des Kantons.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsausbildung, um eine möglichst vollständige Ausbildung am Ende der Ausbildung sicherzustellen.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, einschließlich:\n- Analyse von Finanzmarkt und Kredit\n- Kenntnis der Bankprodukte\n- Verarbeitung und Überprüfung von Dokumenten\n- Terminplanung und Priority Management\n- Nutzung von Finanz-IT-Systemen\n\nAnforderungen\n- Leidenschaft für Wirtschaft und Bankenwelt\n- High School Lizenz mit hervorragenden Ergebnissen\n\nErklären Sie die relationalen Fähigkeiten und die einfache Anpassung an verschiedene Arbeitsszenarien\n- Gute Computerkenntnisse\n- Kenntnisse der englischen Sprache\n\nWenn Sie motiviert sind, danken Sie für das Anfügen an die Online-Bewerbung: ein Motivationsschreiben, Lebenslauf, die drei neuesten Schulberichte und die Mittelschullizenz.",
         "fr": "Finissez-vous le collège et souhaitez-vous devenir un professionnel à la banque ?\n\nSi tel est votre souhait, la Banque d'apprentissage commercial d'EFG est ce qu'elle fait pour vous.\n\nVous travaillerez au siège social suisse de la Banque EFG dans le centre de Lugano, entre août 2026 et août 2029, lorsque vous recevrez le Certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple Private Banking, Compliance, Credit Cards, Central Fileing, Credit, Business Risk Management, Asset Management, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur dédié à chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétences bancaires (CYP) avec tous les apprentis d'affaires de la banque du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée afin de garantir une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des délais et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n- Passion pour l'économie et le monde bancaire\n- Licence de lycée avec d'excellents résultats\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n- Bonne connaissance informatique\n- Connaissance de la langue anglaise\n\nSi vous êtes motivé, merci d'avoir joint à la demande en ligne : une lettre de motivation, un CV, les trois derniers rapports scolaires et la licence du collège."
@@ -4924,7 +4947,8 @@
         "apprenti-banquier-afc-chez-efg-bank-a-lugano-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
