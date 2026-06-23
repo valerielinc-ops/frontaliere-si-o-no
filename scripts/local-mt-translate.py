@@ -34,9 +34,17 @@ CTranslate2 int8 does the bulk). Three multipliers over a naive per-request loop
      request that needs them.
   3. PARALLELISM — CTranslate2 releases the GIL during translate(), so a thread
      pool gives real multi-core speedup on the runner. Models are pre-warmed
-     single-threaded first (Argos lazily builds the translation chain on the
-     first call per direction; doing that concurrently races), then the unique
-     units are translated across LOCAL_MT_WORKERS threads.
+     single-threaded first (Argos lazily builds the pivot chain (src→en→tgt) on
+     the first call per direction; doing that concurrently races on shared model-
+     graph construction). After pre-warm, concurrent calls to tr.translate() are
+     safe: CTranslate2 Translator objects are designed for concurrent inference —
+     each translate_batch() call allocates its own beam state and the model weights
+     are read-only (https://opennmt.net/CTranslate2/parallel.html: "the model is
+     thread-safe and can be used simultaneously from multiple threads"). Pivot
+     directions (it→de, it→fr) both route internally through the shared it→en
+     Translator; this is safe for the same reason — weights are never mutated
+     during inference. Set LOCAL_MT_WORKERS=1 to force the sequential path if the
+     assumption breaks (e.g. after a CTranslate2 version regression).
 
 Partial-result safety: a request is emitted (and stdout flushed) the moment ALL
 of its units have resolved, so when the Node orchestrator kills this process at
@@ -228,8 +236,11 @@ def translate_stream():
 
     # ── Pre-warm each direction single-threaded ─────────────────────────────
     # Argos lazily builds the pivot chain (src→en→tgt) on the FIRST translate()
-    # for a direction; doing that concurrently races on shared model state. Warm
-    # each direction once here so the thread pool only does hot, thread-safe calls.
+    # for a direction; doing that concurrently races on shared model-graph
+    # construction state. Warm each direction sequentially here so that by the
+    # time the thread pool starts, all lazy chain construction is complete and
+    # subsequent tr.translate() calls only perform inference — which IS
+    # thread-safe (CTranslate2 Translator: read-only weights, per-call beam state).
     for frm, to in directions:
         try:
             tr.translate("test", frm, to)
@@ -237,6 +248,10 @@ def translate_stream():
             log(f"⚠️  warmup {frm}->{to} failed: {type(e).__name__}: {e}")
 
     # ── Translate unique units (parallel; CTranslate2 releases the GIL) ──────
+    # Safe: pre-warm resolved all lazy chain builds; CTranslate2 Translator is
+    # documented thread-safe for concurrent inference (read-only weights, each
+    # call owns its beam state). Pivot directions sharing the it→en Translator
+    # (e.g. it→de and it→fr) are not a concern — same thread-safety guarantee.
     def _do(key):
         content, frm, to = key
         try:
