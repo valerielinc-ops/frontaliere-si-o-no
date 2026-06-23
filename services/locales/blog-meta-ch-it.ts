@@ -342,6 +342,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costo-vita-lugano-frontaliere.title': 'Quanto costa vivere a Lugano da frontaliere: analisi dettagliata',
     'blog.article.costo-vita-lugano-frontaliere.excerpt': 'Scopri i costi reali per vivere a Lugano come frontaliere: affitti, trasporti, assicurazioni e spesa alimentare.',
     'blog.article.costo-vita-lugano-frontaliere.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne sullo sfondo',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.title': 'Calcolo pensione frontalieri: come funziona AVS e INPS',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.excerpt': 'Guida completa al calcolo della pensione per i frontalieri con contributi AVS svizzeri e INPS italiani.',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.imageAlt': 'Vista sul lago di Lugano con una persona che calcola la pensione',
 };
 
 export default blogMetaChIt;

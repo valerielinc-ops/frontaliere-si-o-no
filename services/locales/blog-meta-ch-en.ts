@@ -342,6 +342,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costo-vita-lugano-frontaliere.title': 'How much does it cost to live in Lugano as a border worker: detailed analysis',
     'blog.article.costo-vita-lugano-frontaliere.excerpt': 'Discover the real costs of living in Lugano as a border worker: rent, transport, insurance and food expenses.',
     'blog.article.costo-vita-lugano-frontaliere.imageAlt': 'Panoramic view of Lugano with the lake and mountains in the background',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.title': 'Border pension calculation: how AVS and INPS work',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.excerpt': 'Complete guide to calculating the pension for frontier workers with Swiss AVS and Italian INPS contributions.',
+    'blog.article.calcolo-pensione-frontalieri-avs-italiana.imageAlt': 'View of Lake Lugano with a person calculating pension',
 };
 
 export default blogMetaChEn;
