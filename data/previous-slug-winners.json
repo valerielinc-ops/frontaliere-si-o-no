@@ -530,6 +530,15 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::it::verkaufer-in-im-stundenlohn-denner": {
+    "winnerJobIdentifier": "denner-91bae124c945",
+    "winnerCanonical": "venditore-nel-salario-orario-denner-spreitenbach",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 3,
+    "canton": "AG"
+  },
   "AG::it::zusteller-in-briefe-und-pakete-post": {
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-7deddf12aeb4",
     "winnerCanonical": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
@@ -3492,11 +3501,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67": {
-    "winnerJobIdentifier": "unispital-basel-1a9a269f9eda",
-    "winnerCanonical": "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel",
+    "winnerJobIdentifier": "unispital-basel-f16341854433",
+    "winnerCanonical": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1818,
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -4032,11 +4041,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner": {
-    "winnerJobIdentifier": "denner-0851c2a2772b",
-    "winnerCanonical": "verkaufer-in-denner-binningen",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "denner-9caceb0b7fc8",
+    "winnerCanonical": "venditore-denner-arlesheim",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -5067,30 +5076,30 @@
     "canton": "BE"
   },
   "BE::de::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "verkaufsberater-in-deco-jumbo-bern-p4im8l",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 2,
-    "canton": "BE"
-  },
-  "BE::de::verkaufsberater-jumbo-division-der-coop-genossenschaft-bern": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "verkaufsberater-in-deco-jumbo-bern-p4im8l",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::de::verkaufsberater-jumbo-division-der-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "verkaufsberater-in-deco-jumbo-bern-p4im8l",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::vice-capo-clinico-vice-capo-clinico-a-spital-emmental-burgdorf-langnau": {
@@ -6174,30 +6183,30 @@
     "canton": "BE"
   },
   "BE::en::verkaufsberater-in-deco-jumbo-bern-p4im8l": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern": {
@@ -7380,30 +7389,30 @@
     "canton": "BE"
   },
   "BE::fr::verkaufsberater-in-deco-jumbo-bern-p4im8l": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.5385,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 2,
+    "score": 0.6154,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern": {
@@ -8918,6 +8927,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::verkaufer-in-denner": {
+    "winnerJobIdentifier": "denner-7155d3a60c02",
+    "winnerCanonical": "venditore-denner-biel-bienne",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::verkaufer-in-food-coop-bern": {
     "winnerJobIdentifier": "company-ugpw0w",
     "winnerCanonical": "assistente-alle-vendite-alimentari-coop-genossenschaft-bern",
@@ -9009,21 +9027,21 @@
     "canton": "BE"
   },
   "BE::it::verkaufsberater-in-deco-jumbo-bern-p4im8l": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-bern",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.2308,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern": {
-    "winnerJobIdentifier": "company-37f08n",
-    "winnerCanonical": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+    "winnerJobIdentifier": "company-p4im8l",
+    "winnerCanonical": "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-bern",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::verkaufsmitarbeiter-in-migrolino-wilderswil": {
@@ -13220,6 +13238,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::en::sozialarbeiter-in-kanton-gr-ch": {
+    "winnerJobIdentifier": "kanton-gr-7dd1d820f95f",
+    "winnerCanonical": "social-worker-in-kantonale-verwaltung-graubunden-chur",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::en::specialist-in-roll-material-deployment-planning-50-100-ferrovia-retica-rhb-chur": {
     "winnerJobIdentifier": "company-j9xlb8",
     "winnerCanonical": "project-manager-in-railway-service-80-100-ferrovia-retica-rhb-chur",
@@ -14460,6 +14487,15 @@
     "lastSeenAt": "2026-06-12T00:00:00.000Z",
     "score": 0.1538,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::fr::sozialarbeiter-in-kanton-gr-ch": {
+    "winnerJobIdentifier": "kanton-gr-7dd1d820f95f",
+    "winnerCanonical": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::fr::spitex-assistant-de-sante-50-100-spital-davos-davos": {
@@ -19179,30 +19215,30 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6unibn",
+    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6unibn",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4iugqw": {
@@ -19215,12 +19251,12 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 2,
+    "score": 0.3,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-38decq": {
@@ -19251,11 +19287,11 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1429,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -19305,21 +19341,21 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1429,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-interdiscount-grigioni-4": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.2222,
-    "candidatesCount": 2,
+    "score": 0.1,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811": {
@@ -20043,11 +20079,11 @@
     "canton": "SG"
   },
   "SG::en::detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.3,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20061,11 +20097,11 @@
     "canton": "SG"
   },
   "SG::en::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.0625,
+    "score": 0,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20079,11 +20115,11 @@
     "canton": "SG"
   },
   "SG::en::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20187,12 +20223,12 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-15e074d3d35d",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs",
+    "winnerJobIdentifier": "hoch-health-438d27fe344c",
+    "winnerCanonical": "dipl-nursing-professional-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.7,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen": {
@@ -20331,12 +20367,12 @@
     "canton": "SG"
   },
   "SG::en::eba-sales-assistant-coop-gossau": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "sales-assistant-coop-grigioni",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::formation-pour-professionnel-de-sante-diplome-hf-formation-de-3-ans-mars-2027-hoch-health-ostschweiz-st-gallen": {
@@ -20493,20 +20529,20 @@
     "canton": "SG"
   },
   "SG::en::retailer-mann-efz-creating-shopping-experiences-coop-gossau": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "retailer-man-assistant-in-coop-gossau-611c2c",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::sales-assistant-coop-coop-grigioni": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "sales-assistant-coop-grigioni",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 1,
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20916,11 +20952,11 @@
     "canton": "SG"
   },
   "SG::fr::detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.2143,
+    "score": 0.0833,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20934,11 +20970,11 @@
     "canton": "SG"
   },
   "SG::fr::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.0556,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20952,11 +20988,11 @@
     "canton": "SG"
   },
   "SG::fr::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1176,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -21006,11 +21042,11 @@
     "canton": "SG"
   },
   "SG::fr::detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detaillant-homme-assistant-in-coop-gossau-611c2c",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.2143,
+    "score": 0.0667,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -21069,12 +21105,12 @@
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-15e074d3d35d",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs",
+    "winnerJobIdentifier": "hoch-health-438d27fe344c",
+    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.7,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen": {
@@ -21825,12 +21861,12 @@
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistente-di-vendita-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i": {
@@ -21843,11 +21879,11 @@
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistente-di-vendita-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1538,
+    "score": 0.0769,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -21870,11 +21906,11 @@
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistente-di-vendita-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1538,
+    "score": 0.0769,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -27873,12 +27909,12 @@
     "canton": "TI"
   },
   "TI::de::absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::addetti-e-alle-cure-sociosanitarie-e-o-assistenti-di-cura-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
@@ -28125,39 +28161,39 @@
     "canton": "TI"
   },
   "TI::de::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::chefarzt-innere-medizin-eoc-ente-ospedaliero-cantonale-mendrisio": {
@@ -28332,12 +28368,12 @@
     "canton": "TI"
   },
   "TI::de::fisioterapista-diplomato-a-eoc-novaggio-x29n6r": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1818,
-    "candidatesCount": 2,
+    "score": 0.0833,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::full-stack-entwickler-lwp-ledermann-wieting-partners-lugano": {
@@ -28422,12 +28458,12 @@
     "canton": "TI"
   },
   "TI::de::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
@@ -28575,12 +28611,12 @@
     "canton": "TI"
   },
   "TI::de::internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio-a34f2a": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::karriere-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -28602,12 +28638,12 @@
     "canton": "TI"
   },
   "TI::de::krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.4444,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -28944,12 +28980,12 @@
     "canton": "TI"
   },
   "TI::de::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
@@ -29133,12 +29169,12 @@
     "canton": "TI"
   },
   "TI::de::stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -29196,21 +29232,21 @@
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5y": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5z": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z": {
@@ -29313,12 +29349,12 @@
     "canton": "TI"
   },
   "TI::en::absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::addetti-e-alle-cure-sociosanitarie-e-o-assistenti-di-cura-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
@@ -29565,39 +29601,39 @@
     "canton": "TI"
   },
   "TI::en::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.5556,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::construction-worker-pemsa-bellinzona": {
@@ -29709,12 +29745,12 @@
     "canton": "TI"
   },
   "TI::en::fisioterapista-diplomato-a-eoc-novaggio-x29n6r": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1818,
-    "candidatesCount": 2,
+    "score": 0.0833,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::full-stack-developer-lwp-ledermann-wieting-partners-lugano": {
@@ -29799,12 +29835,12 @@
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
@@ -29952,21 +29988,21 @@
     "canton": "TI"
   },
   "TI::en::internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio-a34f2a": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.7,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40": {
@@ -30294,12 +30330,12 @@
     "canton": "TI"
   },
   "TI::en::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
@@ -30510,12 +30546,12 @@
     "canton": "TI"
   },
   "TI::en::stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.7778,
-    "candidatesCount": 2,
+    "score": 0.6,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -30573,21 +30609,21 @@
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5y": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5z": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z": {
@@ -30681,12 +30717,12 @@
     "canton": "TI"
   },
   "TI::fr::absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::addetti-e-alle-cure-sociosanitarie-e-o-assistenti-di-cura-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
@@ -30933,39 +30969,39 @@
     "canton": "TI"
   },
   "TI::fr::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::client-relationship-manager-channel-sales-ubs": {
@@ -31095,12 +31131,12 @@
     "canton": "TI"
   },
   "TI::fr::fisioterapista-diplomato-a-eoc-novaggio-x29n6r": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1818,
-    "candidatesCount": 2,
+    "score": 0.0833,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::full-stack-developpeur-lwp-ledermann-wieting-partners-lugano": {
@@ -31203,12 +31239,12 @@
     "canton": "TI"
   },
   "TI::fr::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
@@ -31374,12 +31410,12 @@
     "canton": "TI"
   },
   "TI::fr::internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio-a34f2a": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -31392,12 +31428,12 @@
     "canton": "TI"
   },
   "TI::fr::krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40": {
@@ -31689,12 +31725,12 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
@@ -31860,12 +31896,12 @@
     "canton": "TI"
   },
   "TI::fr::stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5833,
-    "candidatesCount": 2,
+    "score": 0.5455,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -31923,21 +31959,21 @@
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5y": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5z": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z": {
@@ -32013,12 +32049,12 @@
     "canton": "TI"
   },
   "TI::it::absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
@@ -32301,39 +32337,39 @@
     "canton": "TI"
   },
   "TI::it::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::client-relationship-manager-channel-sales-ubs": {
@@ -32571,12 +32607,12 @@
     "canton": "TI"
   },
   "TI::it::fisioterapista-diplomato-a-eoc-novaggio-x29n6r": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63": {
@@ -32724,12 +32760,12 @@
     "canton": "TI"
   },
   "TI::it::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
@@ -32931,21 +32967,21 @@
     "canton": "TI"
   },
   "TI::it::internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio-a34f2a": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40": {
@@ -33264,12 +33300,12 @@
     "canton": "TI"
   },
   "TI::it::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
@@ -33444,12 +33480,12 @@
     "canton": "TI"
   },
   "TI::it::stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 2,
+    "score": 0.4545,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -33516,21 +33552,21 @@
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5y": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.7,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5z": {
-    "winnerJobIdentifier": "company-x29n5y",
-    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.7,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z": {

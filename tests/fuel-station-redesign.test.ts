@@ -244,7 +244,14 @@ describe('Per-station page redesign — location card', () => {
       });
       expect(targetClass, 'no extracted class matched the 320px auto-fit grid rule').toBeDefined();
     }
-    expect(html).not.toContain('grid-template-columns:minmax(0,1fr)');
+    // The page-level critical CSS legitimately reserves a single-column grid
+    // for `main.seo-static-content` (first-paint CLS handoff fix,
+    // SEO_STATIC_GRID_RESERVE_CSS in build-plugins/shared/criticalCss.ts) — an
+    // unrelated element. Strip that rule before asserting the LOCATION CARD did
+    // not regress to the old always-1-col `minmax(0,1fr)` grid, so the card
+    // guard does not collide with the page-shell reservation.
+    const htmlSansStaticMainGrid = html.replace(/main\.seo-static-content\s*\{[^}]*\}/g, '');
+    expect(htmlSansStaticMainGrid).not.toContain('grid-template-columns:minmax(0,1fr)');
   });
 
   it('flags external links with aria-label, ↗ marker, and an OSM fallback text link', () => {
