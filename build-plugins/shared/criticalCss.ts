@@ -234,8 +234,55 @@ export const SEO_STATIC_HERO_RESERVE_CSS =
   '.s-rDKEKn{margin:0;line-height:1.7;max-width:860px}' +
   '@media(max-width:639px){.s-cta{display:flex;width:100%;justify-content:center}}';
 
+/**
+ * Search-index hub layout, mirrored from the ASYNC `seo-static.css` into this
+ * SYNCHRONOUS first-paint block. This is the THIRD static-content page family —
+ * the `relatedSearchClustersPlugin` curated hub at `/cerca-lavoro-ticino/ricerca/`
+ * (+ `/…/ricerca/page-N/` and en/search · de/suche · fr/recherche) plus the
+ * `ricerca-{slug}` cluster landings — which {@link SEO_STATIC_HERO_RESERVE_CSS}
+ * (scoped to the `seoContentTokens`/`jobsSeoPagesPlugin` `.s-XENO3U`/`.s-S6PRaY`
+ * stat-grid hubs) never touched.
+ *
+ * Why (CLS fix, issue #2729): `/ricerca/` is path #1 by volume and CLS degrades
+ * AdSense RPM. After #2776 made the bare hub `staticOverlay` (killing the SPA
+ * teardown footer-bounce) and #2740 reserved the `main.seo-static-content`
+ * page-grid, the dominant RESIDUAL is the inner `<article class="s-haN35X">`
+ * subtree: its padding, the header/section margins and the H1/lede/H2 typography
+ * are ALL async-only. Until `seo-static.css` `media="print"`-swaps in (~1.4s,
+ * cold load), the article has padding 0, the sections have no bottom margin and
+ * the headings fall to UA-default metrics → a compact column; when the sheet
+ * lands the article gains `padding:24px 16px 56px`, every section gains its
+ * `margin:0 0 22px`/`12px` and the headings grow → the whole 3.5k-px column
+ * reflows downward — live-measured cumulative desktop shift 0.886 at ~1.27s
+ * (PerformanceObserver buffered, sources `article.s-haN35X`,
+ * `section.s-USY9TF`, `div.ft-rail-grid`, 1440px, 2026-06-23; warm load where
+ * the sheet is cached is already 0.074). Mirroring the resolved geometry here
+ * makes first paint == final layout so the swap moves nothing.
+ *
+ * Reserved values mirror the async `seo-static.css` rules VERBATIM (all hooks
+ * are STABLE atomic hash classes hard-coded by `relatedSearchClustersPlugin.ts`,
+ * not per-build hashes): article wrapper `.s-haN35X`; header `.s-S1RSUf` margin;
+ * H1 `.s-JvjD5-`, lede `.s-zd3YWl`, datestamp `.s-Znu67P` and section-heading
+ * `.s-sOn5-B` typography (the font-metric reflow); the city-section `.s-h0CoDf`
+ * and city-block `.s-USY9TF` bottom margins (the per-section vertical stack that
+ * accumulates the bulk of the shift). Breadcrumb `.s-bcr` is already reserved in
+ * {@link SEO_STATIC_HERO_RESERVE_CSS}. Pure space reservation (AGENTS.md §7): no
+ * ad/content/markup added or removed; the in-flow `<ins>` slots are the same
+ * boxes before and after, so monetization is untouched.
+ */
+export const SEO_SEARCH_HUB_RESERVE_CSS =
+  '.s-haN35X{max-width:1100px;margin:0 auto;padding:24px 16px 56px}' +
+  '.s-S1RSUf{margin-bottom:18px}' +
+  '.s-JvjD5-{margin:0 0 10px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.18}' +
+  '.s-zd3YWl{margin:0;font-size:16px;line-height:1.55;max-width:820px}' +
+  '.s-Znu67P{margin:6px 0 0;font-size:13px}' +
+  '.s-sOn5-B{margin:0 0 12px;font-size:22px}' +
+  '.s-h0CoDf{margin:0 0 12px}' +
+  '.s-USY9TF{margin:0 0 22px}';
+
 export const CRITICAL_CSS =
   '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}' +
   RAIL_RESERVE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
-  SEO_STATIC_HERO_RESERVE_CSS;
+  SEO_STATIC_HERO_RESERVE_CSS +
+  SEO_SEARCH_HUB_RESERVE_CSS;
