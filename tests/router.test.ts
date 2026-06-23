@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach, afterAll } from 'vitest';
-import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap, getJobMetaForSlug } from '@/services/router';
+import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap, getJobMetaForSlug, type AppRoute } from '@/services/router';
 
 const SEO_LANDINGS = [
   'salary-60000',
@@ -396,6 +396,131 @@ describe('Router — employer insights companyKey segment', () => {
 
     expect(window.location.pathname).toBe(`/azienda/${companyKey}/`);
     expect(window.location.search).toBe(`?t=${token}`);
+  });
+});
+
+/* ─────────── parsePath/buildPath round-trip symmetry (issue #2698) ─────────── */
+
+/**
+ * Guards against the bug class fixed by PR #2696 (employer-insights companyKey):
+ * `parsePath` captures a path segment into a route field (parts[1], parts[2], …)
+ * but the matching `buildPath` branch DROPS it on round-trip, so locale-boot
+ * canonicalization (`updatePathForLocale` → `buildPath` → `history.replaceState`)
+ * collapses the URL and breaks navigation / page rendering for that route.
+ *
+ * The invariant: for every URL whose `parsePath` result is NOT a `staticOverlay`
+ * route (static-overlay routes are intentionally exempt — `updatePathForLocale`
+ * early-returns for them and never rebuilds the URL), feeding the parsed route
+ * back through `buildPath` and re-parsing MUST preserve every captured segment.
+ *
+ * This is the exhaustive audit the follow-up asked for, expressed as an
+ * executable contract so any future asymmetric `parsePath`/`buildPath` pair is
+ * caught at CI time rather than silently in production.
+ */
+describe('Router — parsePath/buildPath round-trip symmetry (no dropped segments)', () => {
+  // One representative URL per non-staticOverlay activeTab case that captures a
+  // segment beyond parts[0]. Each entry: the captured route fields that MUST
+  // survive a parse → build → re-parse cycle in every locale.
+  type LocaleId = (typeof ALL_LOCALES)[number];
+  const SEGMENT_CASES: Array<{
+    name: string;
+    paths: Partial<Record<LocaleId, string>>;
+    captured: (keyof AppRoute)[];
+  }> = [
+    {
+      name: 'employer-insights companyKey',
+      paths: { it: '/azienda/eoc-ente-ospedaliero-cantonale/' },
+      captured: ['companyKey'],
+    },
+    {
+      name: 'guida/border borderCrossing deep link',
+      paths: { it: '/guida-frontaliere/tempi-attesa-valichi/chiasso-centro/' },
+      captured: ['borderCrossing'],
+    },
+    {
+      name: 'fisco tax-return country variant (italia)',
+      paths: { it: '/tasse-e-pensione/dichiarazione-redditi-italia/' },
+      captured: ['taxReturnCountry'],
+    },
+    {
+      name: 'fisco tax-return country variant (svizzera)',
+      paths: { it: '/tasse-e-pensione/dichiarazione-redditi-svizzera/' },
+      captured: ['taxReturnCountry'],
+    },
+    {
+      name: 'per-canton job-board jobSlug deep link (jobBoardCanton + jobSlug)',
+      paths: { it: '/cerca-lavoro-zurigo/some-engineer-role-zurich-12345/' },
+      captured: ['jobBoardCanton', 'jobSlug'],
+    },
+    {
+      // TI legacy city hub is NOT staticOverlay (unlike non-TI city hubs), so it
+      // IS canonicalized on locale-boot — its captured jobBoardCity MUST survive
+      // (buildPath emits the clean `/cerca-lavoro-ticino/lugano/` URL).
+      name: 'TI city hub (jobBoardCanton + jobBoardCity, non-staticOverlay)',
+      paths: { it: '/cerca-lavoro-ticino/lugano/' },
+      captured: ['jobBoardCanton', 'jobBoardCity'],
+    },
+  ];
+  // NOTE: non-TI city hubs (`/cerca-lavoro-zurigo/zurich/`), sector hubs, SEO
+  // landings and salary-hub routes capture segments too, but parsePath marks
+  // them `staticOverlay: true` — `updatePathForLocale` early-returns for those
+  // and never rebuilds the URL, so the round-trip contract does not apply (the
+  // test below asserts they are correctly excluded via the staticOverlay guard).
+
+  for (const testCase of SEGMENT_CASES) {
+    for (const [locale, path] of Object.entries(testCase.paths) as [LocaleId, string][]) {
+      it(`[${locale}] ${testCase.name} survives parse → build → re-parse`, () => {
+        const first = parsePath(path);
+        // Static-overlay routes are deliberately exempt from buildPath
+        // canonicalization (see updatePathForLocale), so this contract only
+        // applies to interactive SPA routes.
+        expect(first.route.staticOverlay).toBeFalsy();
+
+        const rebuilt = buildPath(first.route, locale);
+        const second = parsePath(rebuilt);
+
+        for (const field of testCase.captured) {
+          expect(
+            second.route[field],
+            `field "${String(field)}" dropped on round-trip for ${path} (rebuilt: ${rebuilt})`,
+          ).toEqual(first.route[field]);
+        }
+        // A captured-segment route must never round-trip into a 404.
+        expect(second.notFoundPath).toBeUndefined();
+      });
+    }
+  }
+
+  it('every captured non-staticOverlay segment in SEGMENT_CASES re-emits via buildPath', () => {
+    // Aggregate guard: if any case loses a segment, fail loudly with the list.
+    const dropped: string[] = [];
+    for (const testCase of SEGMENT_CASES) {
+      for (const [locale, path] of Object.entries(testCase.paths) as [LocaleId, string][]) {
+        const first = parsePath(path);
+        if (first.route.staticOverlay) continue;
+        const second = parsePath(buildPath(first.route, locale));
+        for (const field of testCase.captured) {
+          if (second.route[field] !== first.route[field]) {
+            dropped.push(`${testCase.name} [${locale}] → ${String(field)}`);
+          }
+        }
+      }
+    }
+    expect(dropped).toEqual([]);
+  });
+
+  // Documents the audit's scope boundary: segment-capturing routes that ARE
+  // staticOverlay are intentionally outside the buildPath round-trip contract,
+  // because updatePathForLocale never canonicalizes them.
+  it('staticOverlay segment-capturing routes are correctly exempt (no canonicalization)', () => {
+    const overlayPaths = [
+      '/cerca-lavoro-zurigo/zurich/', // non-TI city hub
+      '/cerca-lavoro-ticino/infermieri/', // sector hub
+      '/calcola-stipendio/stipendio-netto-80000-chf/', // SEO landing
+    ];
+    for (const p of overlayPaths) {
+      expect(parsePath(p).route.staticOverlay, `${p} should be staticOverlay`).toBe(true);
+    }
   });
 });
 
