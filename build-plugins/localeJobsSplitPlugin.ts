@@ -1,7 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { buildLocaleJob, buildLocaleJobSlim, type JobEntry } from './shared/slimJobIndex';
+import {
+ buildLocaleJob,
+ buildLocaleJobSlim,
+ FIRST_PAGE_SLICE_SIZE,
+ firstPageIndexFileName,
+ type JobEntry,
+} from './shared/slimJobIndex';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -99,6 +105,19 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  JSON.stringify(slimJobs),
  'utf-8',
  );
+ // First-page slim asset: the first N records of the slim index (same
+ // recency-desc disk order as data/jobs.json). The JobBoard listing fetches
+ // this tiny payload first so page-1 cards paint without waiting on the
+ // ~1.9 MB full index + the synchronous normalize of all ~5.5k records
+ // (#2580). The full index then loads in the background and replaces it.
+ // Additive + reversible: if this asset is missing (CDN-offloaded), the SPA
+ // degrades to fetching the full index directly (prior behavior).
+ const firstPageSlim = slimJobs.slice(0, FIRST_PAGE_SLICE_SIZE);
+ fs.writeFileSync(
+ path.resolve(dataDir, firstPageIndexFileName(locale)),
+ JSON.stringify(firstPageSlim),
+ 'utf-8',
+ );
  }
 
  // Slug map: minimal file for router.ts slug translation (~2MB vs 44MB full).
@@ -152,7 +171,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  const distDir = path.resolve(rootDir, 'dist');
  const count = generateFiles(distDir);
  if (count > 0) {
- console.log(`[locale-jobs-split] Generated 4 locale files + 4 slim index files + slug map + ${count} detail files (${count} jobs)`);
+ console.log(`[locale-jobs-split] Generated 4 locale files + 4 slim index files + 4 first-page slim files + slug map + ${count} detail files (${count} jobs)`);
  }
  },
  configureServer(server) {
