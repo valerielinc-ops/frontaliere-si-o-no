@@ -14,6 +14,7 @@
 
 import type { Plugin } from 'vite';
 import { clampMetaDescription } from './shared/titleSuffix';
+import { railGutters } from './shared/railGutters';
 import { firstParsableMs } from './shared/firstParsableDate';
 import {
   BASE_URL,
@@ -424,6 +425,7 @@ ${alternates}
   </head>
   <body>
     <div id="root"></div>
+    ${railGutters(true).open}
     <main class="seo-static-content s-Ziv1Xn">
         <nav class="s-bcr">
           <a href="/" class="s-bcl">Home</a>
@@ -450,7 +452,7 @@ ${alternates}
         ${faqHtml}
         ${sectorContextHtml}
         ${siblingRailHtml}
-      </main>
+      </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
