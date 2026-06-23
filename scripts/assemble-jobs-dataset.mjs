@@ -388,7 +388,18 @@ function readJson(filePath, fallback) {
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+  const content = `${JSON.stringify(value, null, 2)}\n`;
+  // Atomic write: commit via temp+rename so a SIGKILL/OOM mid-write cannot
+  // leave data/jobs.json (or any output) truncated. renameSync is a single
+  // POSIX syscall — atomic on same filesystem (Linux runner always qualifies).
+  const tmp = `${filePath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(tmp, content, 'utf8');
+    fs.renameSync(tmp, filePath);
+  } catch (err) {
+    try { fs.unlinkSync(tmp); } catch { /* best-effort cleanup */ }
+    throw err;
+  }
 }
 
 function listSliceFiles(dir) {
