@@ -323,6 +323,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ethos-stipendi-ceo-sostenibilita.title': 'Ethos critica stipendi CEO e rapporti sostenibilità inadeguati',
     'blog.article.ethos-stipendi-ceo-sostenibilita.excerpt': 'La fondazione Ethos critica gli stipendi elevati dei CEO e i rapporti sulla sostenibilità delle aziende svizzere quotate in borsa.',
     'blog.article.ethos-stipendi-ceo-sostenibilita.imageAlt': 'Vista aerea di Lugano con edifici moderni e il lago in background',
+    'blog.article.parlamento-svizzero-accordi-avs.title': 'Il Parlamento svizzero fatica a trovare l’intesa su questioni importanti',
+    'blog.article.parlamento-svizzero-accordi-avs.excerpt': 'Il Parlamento svizzero ha concluso la sessione estiva con pochi progressi su temi cruciali come il finanziamento delle pensioni AVS e gli accordi con l\'UE.',
+    'blog.article.parlamento-svizzero-accordi-avs.imageAlt': 'Edificio del Parlamento svizzero a Berna con cielo blu e bandiera svizzera.',
 };
 
 export default blogMetaChIt;

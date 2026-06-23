@@ -323,6 +323,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ethos-stipendi-ceo-sostenibilita.title': 'Ethos kritisiert CEO-Gehälter und unzureichende Nachhaltigkeitsberichte',
     'blog.article.ethos-stipendi-ceo-sostenibilita.excerpt': 'Die Stiftung Ethos kritisiert die hohen CEO-Gehälter und Nachhaltigkeitsberichte von börsennotierten Schweizer Unternehmen.',
     'blog.article.ethos-stipendi-ceo-sostenibilita.imageAlt': 'Luftaufnahme von Lugano mit modernen Gebäuden und See im Hintergrund',
+    'blog.article.parlamento-svizzero-accordi-avs.title': 'Das Schweizer Parlament hat Schwierigkeiten, sich auf wichtige Fragen zu einigen',
+    'blog.article.parlamento-svizzero-accordi-avs.excerpt': 'Das Schweizer Parlament beendete die Sommersession mit wenigen Fortschritten bei zentralen Themen wie der Finanzierung der AHV-Renten und den Abkommen mit der EU.',
+    'blog.article.parlamento-svizzero-accordi-avs.imageAlt': 'Schweizer Parlamentsgebäude in Bern mit blauem Himmel und Schweizer Flagge.',
 };
 
 export default blogMetaChDe;

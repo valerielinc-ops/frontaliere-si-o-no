@@ -323,6 +323,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ethos-stipendi-ceo-sostenibilita.title': 'Ethos criticizes inadequate CEO salaries and sustainability reports',
     'blog.article.ethos-stipendi-ceo-sostenibilita.excerpt': 'The Ethos foundation criticises the high salaries of CEOs and sustainability reports of Swiss listed companies.',
     'blog.article.ethos-stipendi-ceo-sostenibilita.imageAlt': 'Aerial view of Lugano with modern buildings and lake in the background',
+    'blog.article.parlamento-svizzero-accordi-avs.title': 'The Swiss Parliament struggles to find agreement on important issues',
+    'blog.article.parlamento-svizzero-accordi-avs.excerpt': 'The Swiss Parliament ended the summer session with little progress on crucial issues such as the financing of AVS pensions and agreements with the EU.',
+    'blog.article.parlamento-svizzero-accordi-avs.imageAlt': 'Swiss Parliament building in Bern with blue sky and Swiss flag.',
 };
 
 export default blogMetaChEn;
