@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-06-23T10:55:36.678Z",
+  "generatedAt": "2026-06-23T21:47:48.087Z",
   "total": 59,
   "newCount": 0,
   "updatedCount": 49,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 98291,
-  "avgDurationMs": 98291,
+  "durationMs": 93303,
+  "avgDurationMs": 93303,
   "durationHistory": [
-    98291
+    93303
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1141,82 +1141,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Diagnosetechniker (w/m/d)",
-      "slug": "projektleiter-m-d-agie-charmilles-sa-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-diagnosetechniker-wmd/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/c2fdef0c8ab3bf61a4e05ff804d9e1811f4ec989cfe5d060e932613b8a24d9b72db7c10c8d11ab7b802a7f630b3103dc21cabef54a0c93c52acbad5c415f95",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-b8b92d17d0b2",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "2501",
-      "firstSeenAt": "2026-05-10T20:53:37.027Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "HR Operations Specialist Payroll 100%",
-      "slug": "risorse-umane-operations-specialista-payroll-100-agie-charmilles-sa-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-hr-operations-specialist-payroll-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/43951b4bc90d2d7c1d12d5c36895a8e36bcf0e7c4f3ed654a383489a9018392d6f452e69cec21098965d4cddfb42f0f8cc823e3c8f710a3ee8079a7b4a392b",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "hr",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-97632bc4f186",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "2501",
-      "firstSeenAt": "2026-06-06T09:55:04.005Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
