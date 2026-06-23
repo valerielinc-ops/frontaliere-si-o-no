@@ -171,12 +171,26 @@ jobs:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          PR_NUM: ${{ github.event.pull_request.number }}
         run: |
           set -uo pipefail
           if [ "$HEAD_REPO" != "$REPO" ]; then echo "skip fork head ($HEAD_REPO)"; exit 0; fi
           case "$HEAD_REF" in
             "$DEFAULT_BRANCH"|gh-pages|HEAD) echo "skip protected $HEAD_REF"; exit 0 ;;
           esac
+          # Guard against the close+reopen CI-retrigger hack (scripts/ci/pr-autorebase.mjs
+          # reopenToRetrigger): a momentary `closed` event fires this job, but the PR is
+          # reopened ~2s later. Deleting its head ref orphans an OPEN PR — mergeable=UNKNOWN,
+          # it needs a re-push, and the re-push re-gates CI as `action_required` (the whole
+          # branch-disappears cascade). Re-query the CURRENT state and delete ONLY if the PR
+          # is STILL closed. The short sleep closes the tiny close→reopen race window.
+          # (Forensics 2026-06-23: #2787/#2793 lost their branches exactly this way.)
+          sleep 8
+          STATE=$(gh pr view "$PR_NUM" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo "")
+          if [ "$STATE" = "OPEN" ]; then
+            echo "skip: PR #$PR_NUM is OPEN again (close+reopen retrigger) — head ref $HEAD_REF kept"
+            exit 0
+          fi
           if gh api -X DELETE "repos/$REPO/git/refs/heads/$HEAD_REF" 2>/dev/null; then
             echo "deleted origin/$HEAD_REF (PR closed unmerged)"
           else
