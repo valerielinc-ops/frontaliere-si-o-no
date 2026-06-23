@@ -872,6 +872,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'olimpiadi-2038-svizzera-non-referendum',
+    category: 'novita',
+    date: '2026-06-22T21:12:44.791Z',
+    image: '/images/blog/olimpiadi-2038-svizzera-non-referendum.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'pensioni-svizzera-2025',
+    category: 'pensione',
+    date: '2026-06-23T00:33:12.696Z',
+    image: '/images/blog/pensioni-svizzera-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3686,6 +3686,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-olimpiadi-2038-svizzera-non-referendum': {
+    title: 'Olimpiadi 2038 in Svizzera: nessun referendum, conferma di 200 milioni',
+    description: 'Il Consiglio federale conferma il sostegno di 200 milioni di franchi per le Olimpiadi 2038, senza referendum federale. La candidatura sarà decentrata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, olimpiadi, 2038, nessun, referendum',
+    ogTitle: 'Olimpiadi 2038: nessun referendum in Svizzera',
+    ogDescription: 'La Svizzera si prepara alle Olimpiadi 2038 con un supporto di 200 milioni, senza referendum federale, coinvolgendo cantoni e cittadini locali.',
+    canonicalPath: '/articoli-svizzera/olimpiadi-2038-svizzera-non-referendum/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Olimpiadi 2038 in Svizzera: nessun referendum, conferma di 200 milioni",
+      "description": "Il Consiglio federale conferma il sostegno di 200 milioni di franchi per le Olimpiadi 2038, senza referendum federale. La candidatura sarà decentrata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/olimpiadi-2038-svizzera-non-referendum.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di lago e città svizzera con simboli olimpici"
+      },
+      "datePublished": "2026-06-22T21:12:44+00:00",
+      "dateModified": "2026-06-22T21:12:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/olimpiadi-2038-svizzera-non-referendum/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pensioni-svizzera-2025': {
+    title: 'Pensionati svizzeri all\'estero: come gestire la doppia residenza',
+    description: 'Scopri come gestire la doppia residenza come pensionato svizzero all\'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionati, svizzeri, estero, gestire',
+    ogTitle: 'Pensionati svizzeri all\'estero: guida alla doppia residenza',
+    ogDescription: 'Scopri come gestire la doppia residenza come pensionato svizzero all\'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.',
+    canonicalPath: '/articoli-svizzera/pensioni-svizzera-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionati svizzeri all'estero: come gestire la doppia residenza",
+      "description": "Scopri come gestire la doppia residenza come pensionato svizzero all'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensioni-svizzera-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pensionato svizzero che si gode una giornata di sole sul lago di Lugano"
+      },
+      "datePublished": "2026-06-23T00:33:12+00:00",
+      "dateModified": "2026-06-23T00:33:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensioni-svizzera-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
