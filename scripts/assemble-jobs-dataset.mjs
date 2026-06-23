@@ -1238,6 +1238,7 @@ async function assembleJobs() {
   let cantonPinsAdded = 0;
 
   let cantonFixes = 0;
+  let cantonFilled = 0;
   let lowercaseFixes = 0;
   for (const job of swissValidated) {
     // Fix lowercase canton codes
@@ -1248,12 +1249,19 @@ async function assembleJobs() {
     const city = String(job.addressLocality || job.location || '').trim();
     const hasCity = city.length >= 2 && city !== 'CH';
     const inferred = hasCity ? inferAnyCanton(city) : null;
-    if (inferred && job.canton && job.canton !== inferred) {
+    // Apply the inferred canton whenever it differs from the stored one —
+    // INCLUDING when the stored canton is empty. The old `&& job.canton` guard
+    // skipped empty-canton jobs, so a job with a perfectly inferable location
+    // (e.g. UBS roles posted with location "Ticino") kept canton="" and was then
+    // FROZEN empty by the pin ledger below → permanently mis-placed / orphaned.
+    // Filling from inference is always safe (an empty canton is never intended).
+    if (inferred && job.canton !== inferred) {
+      if (job.canton) cantonFixes++;
+      else cantonFilled++;
       job.canton = inferred;
       if (job.addressRegion && job.addressRegion.length === 2) {
         job.addressRegion = inferred;
       }
-      cantonFixes++;
     }
     // Freeze/restore via the pin ledger so an already-indexed URL never migrates
     // sections. The freeze applies to EVERY job (even one whose city dropped out
@@ -1267,7 +1275,9 @@ async function assembleJobs() {
           if (job.addressRegion && job.addressRegion.length === 2) job.addressRegion = pinned;
           cantonPinsFrozen++;
         }
-      } else if (inferred) {
+      } else if (inferred && job.canton) {
+        // Only pin a NON-EMPTY canton: pinning "" would freeze the job
+        // mis-placed forever (the empty-canton bug the fill above prevents).
         cantonPins[pinId] = job.canton;
         cantonPinsAdded++;
       }
@@ -1278,8 +1288,8 @@ async function assembleJobs() {
   } catch (e) {
     console.warn(`  ⚠️  Canton pins: failed to persist ledger (${e?.message || e})`);
   }
-  if (cantonFixes > 0 || lowercaseFixes > 0) {
-    console.log(`  🏔️  Canton validation: fixed ${cantonFixes} mismatches, ${lowercaseFixes} lowercase codes`);
+  if (cantonFixes > 0 || cantonFilled > 0 || lowercaseFixes > 0) {
+    console.log(`  🏔️  Canton validation: fixed ${cantonFixes} mismatches, filled ${cantonFilled} empty, ${lowercaseFixes} lowercase codes`);
   }
   if (cantonPinsFrozen > 0 || cantonPinsAdded > 0) {
     console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} to indexed canton, added ${cantonPinsAdded} (ledger ${Object.keys(cantonPins).length})`);
