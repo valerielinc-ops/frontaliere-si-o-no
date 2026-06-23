@@ -926,6 +926,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'banca-svizzera-segreto',
+    category: 'fiscale',
+    date: '2026-06-23T08:43:13.690Z',
+    image: '/images/blog/banca-svizzera-segreto.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
