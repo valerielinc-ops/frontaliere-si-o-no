@@ -2645,7 +2645,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  description: 'Quanto costa vivere a Lugano nel 2026: affitto, LAMal, tasse, trasporti e spesa. Budget mensile per chi valuta il trasferimento in Ticino.',
  keywords: 'costo vita lugano, vivere a lugano, frontaliere trasferimento ticino, affitti lugano, lamal costo, tasse residenti ticino, budget mensile svizzera',
  ogTitle: 'Quanto Costa Vivere a Lugano nel 2026',
- ogDescription: 'Affitto, LAMal, tasse, trasporti e spesa: il budget mensile per chi valuta il trasferimento in Ticino.',
+ ogDescription: 'Quanto costa vivere a Lugano da frontaliere: affitto, LAMal, tasse, trasporti e spesa — budget mensile reale 2026.',
  canonicalPath: '/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026/',
  structuredData: {
  "@context": "https://schema.org",

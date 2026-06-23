@@ -58,6 +58,7 @@ import {
   buildFuelItalianStationPath,
   buildFuelStationPath,
   buildFuelTodayPath,
+  frFuelOf,
   type FuelDailyLocale,
   type FuelType,
   type FuelZone,
@@ -505,7 +506,7 @@ const COPY_FR: IndexCopy = {
         return `Choisissez la station proche de votre passage : l’écart entre la pompe la moins chère et la plus chère d’une même zone atteint souvent CHF 0.05–0.10 le litre. Sur une année de trajets, cela représente CHF 500–1000.`;
       }
       if (kind === 'italianStations') {
-        return `Comparez le prix italien du ${fuelLabel.toLowerCase()} avec la station suisse de votre passage avant de partir : le taux CHF/EUR évolue chaque jour et fait basculer le côté avantageux.`;
+        return `Comparez le prix italien ${frFuelOf(fuelLabel)} avec la station suisse de votre passage avant de partir : le taux CHF/EUR évolue chaque jour et fait basculer le côté avantageux.`;
       }
       return `Ouvrez d’abord la page ville : vous voyez la moyenne du jour et la station suisse la plus proche pour comparer sans changer de page.`;
     },
@@ -745,7 +746,7 @@ function buildTagline(
   }
   if (kind === 'swissStations') return `${n} stations ${fuelLabel} en Suisse sur ${totalGroups} zones frontalières. Données TCS, mise à jour quotidienne.`;
   if (kind === 'italianStations') return `${n} stations italiennes ${fuelLabel} dans les villes frontalières. Prix MIMIT, mise à jour quotidienne.`;
-  return `${n} villes italiennes frontalières suivies chaque jour avec le prix moyen du ${fuelLabel}.`;
+  return `${n} villes italiennes frontalières suivies chaque jour avec le prix moyen ${frFuelOf(fuelLabel)}.`;
 }
 
 /** Render the 4 header stat tiles (totals + source + refresh frequency). */
