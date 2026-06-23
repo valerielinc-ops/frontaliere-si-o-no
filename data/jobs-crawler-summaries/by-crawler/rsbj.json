@@ -1,18 +1,19 @@
 {
   "key": "rsbj",
   "label": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-  "generatedAt": "2026-06-23T12:21:37.466Z",
+  "generatedAt": "2026-06-23T23:02:06.760Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 6,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7396,
-  "avgDurationMs": 7396,
+  "durationMs": 10276,
+  "avgDurationMs": 10276,
   "durationHistory": [
-    7396
+    10276
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rsbj-97f459a61e1e",
       "slug": "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix",
@@ -26,7 +27,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T12:21:35.423Z",
+      "crawledAt": "2026-06-23T23:02:04.426Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-06-23",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-23T12:21:35.423Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rsbj-b05616b25639",
       "slug": "un-e-assistant-e-medical-e-60-a-70-en-cdi-rsbj-sainte-croix",
@@ -64,7 +64,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54003/fr/un-e-assistant-e-medical-e-60-a-70-en-cdi",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T12:21:34.032Z",
+      "crawledAt": "2026-06-23T23:02:02.404Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T12:21:34.599Z",
+      "crawledAt": "2026-06-23T23:02:03.336Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T12:21:31.710Z",
+      "crawledAt": "2026-06-23T23:01:59.101Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54316/fr/un-e-technicien-ne-en-salle-d-operation-tso",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T12:21:32.494Z",
+      "crawledAt": "2026-06-23T23:02:00.271Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54314/fr/un-e-assistant-e-socio-educatif-ve-a-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-23T12:21:33.267Z",
+      "crawledAt": "2026-06-23T23:02:01.257Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -237,46 +237,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "rsbj-335ac1afe20e",
-      "slug": "a-50-hes-infermiera-o-equivalente-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
-      "company": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-      "companyKey": "rsbj",
-      "companyDomain": "rsbj.ch",
-      "title": "Un-e infirmier/ère à 50 % HES ou équivalent",
-      "needsRetranslation": false,
-      "location": "Sainte-Croix",
-      "canton": "VD",
-      "url": "https://www.rsbj.ch/jcms/rsbj_54319/fr/un-e-infirmier/ere-a-50-hes-ou-equivalent",
-      "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-22T14:59:48.421Z",
-      "addressLocality": "Sainte-Croix",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1450",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://www.rsbj.ch/jcms/rsbj_54319/fr/un-e-infirmier/ere-a-50-hes-ou-equivalent",
-      "firstSeenAt": "2026-06-02T14:30:14.725Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
