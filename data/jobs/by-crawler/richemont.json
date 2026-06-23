@@ -3205,10 +3205,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-paie-et-assurances-sociales-richemont-meyrin",
-        "stellvertretender-salonleiter-a-lange-und-sohne-zurich",
-        "assistent-des-salons-a-lange-und-sohne-zurich",
-        "specialista-in-paghe-e-assicurazioni-sociali-richemont-meyrin",
         "spezialist-fur-gehalt-und-sozialversicherung-richemont-schaffhausen",
         "specialista-paga-e-assicurazione-sociale-richemont-schaffhausen",
         "lohn-und-sozialversicherungsspezialist-richemont-schaffhausen",
@@ -3223,7 +3219,12 @@
         "lohn-und-sozialversicherungsmanager-richemont-meyrin",
         "sachbearbeiter-in-lohn-und-gehaltsabrechnung-und-sozialversicherung-richemont-meyrin",
         "payroll-and-social-insurance-specialist-richemont-meyrin",
-        "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-meyrin"
+        "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-meyrin",
+        "specialista-paghe-e-assicurazioni-sociali-richemont-meyrin",
+        "lohn-und-sozialversicherungsfachkraft-richemont-meyrin",
+        "specialiste-paie-et-assurances-sociales-richemont-meyrin",
+        "specialista-in-paghe-e-assicurazioni-sociali-richemont-schaffhausen",
+        "payroll-e-social-insurance-specialist-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3234,7 +3235,11 @@
           "spezialist-fur-gehalt-und-sozialversicherung-richemont-schaffhausen",
           "specialista-paga-e-assicurazione-sociale-richemont-schaffhausen",
           "lohn-und-sozialversicherungsspezialist-richemont-schaffhausen",
-          "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-schaffhausen"
+          "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-schaffhausen",
+          "specialista-paghe-e-assicurazioni-sociali-richemont-meyrin",
+          "lohn-und-sozialversicherungsfachkraft-richemont-meyrin",
+          "specialiste-paie-et-assurances-sociales-richemont-meyrin",
+          "specialista-in-paghe-e-assicurazioni-sociali-richemont-schaffhausen"
         ],
         "en": [
           "payroll-and-social-insurance-manager-richemont-meyrin",
@@ -3243,7 +3248,8 @@
           "payroll-e-social-insurance-specialist-richemont-schaffhausen",
           "assistente-manager-del-salone-a-lange-und-sohne-zurich",
           "payroll-and-social-insurance-specialist-richemont-schaffhausen",
-          "manager-payroll-and-social-insurance-richemont-meyrin"
+          "manager-payroll-and-social-insurance-richemont-meyrin",
+          "payroll-e-social-insurance-specialist-richemont-meyrin"
         ],
         "de": [
           "gestionnaire-paie-et-assurances-sociales-richemont-meyrin",
@@ -3936,7 +3942,9 @@
           "associe-aux-fusions-et-acquisitions-richemont-bellevue",
           "m-a-assoziiert-richemont-bellevue",
           "m-a-tirocinante-richemont-bellevue",
-          "m-a-intern-richemont-bellevue"
+          "m-a-intern-richemont-bellevue",
+          "associato-m-a-richemont-bellevue",
+          "m-a-associate-richemont-bellevue"
         ],
         "fr": [
           "stagiaire-en-m-a-richemont-bellevue",
@@ -3944,7 +3952,6 @@
         ]
       },
       "previousSlugs": [
-        "stage-m-a-richemont-bellevue",
         "stagista-m-a-richemont-bellevue",
         "stagista-in-ambito-m-a-richemont-bellevue",
         "m-a-associe-richemont-bellevue",
@@ -3962,7 +3969,9 @@
         "stagiaire-engagement-durabilite-richemont-bellevue",
         "sostenibilita-impegno-internazionale-richemont-bellevue",
         "praktikum-nachhaltigkeitsengagement-richemont-bellevue",
-        "nachhaltigkeit-internationales-engagement-richemont-bellevue"
+        "nachhaltigkeit-internationales-engagement-richemont-bellevue",
+        "associato-m-a-richemont-bellevue",
+        "m-a-associate-richemont-bellevue"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-11T13:58:02.487Z",
@@ -9974,7 +9983,12 @@
           "stagista-digital-content-piaget-plan-les-ouates",
           "stagista-per-contenuti-digitali-piaget-plan-les-ouates",
           "digital-content-tirocinante-piaget-plan-les-ouates",
-          "digital-content-intern-richemont-plan-les-ouates"
+          "digital-content-intern-richemont-plan-les-ouates",
+          "brand-content-intern-richemont-plan-les-ouates",
+          "brand-content-intern-vacheron-constantin-plan-les-ouates",
+          "brand-content-praktikant-vacheron-constantin-plan-les-ouates",
+          "brand-content-stagiaire-vacheron-constantin-plan-les-ouates",
+          "brand-content-tirocinante-vacheron-constantin-plan-les-ouates"
         ],
         "fr": [
           "contenu-numerique-stagiaire-piaget-plan-les-ouates",
@@ -9986,11 +10000,6 @@
         ]
       },
       "previousSlugs": [
-        "interno-dei-contenuti-digitali-piaget-plan-les-ouates",
-        "tirocinante-per-la-gestione-dei-contenuti-digitali-piaget-plan-les-ouates",
-        "stagista-digital-content-piaget-plan-les-ouates",
-        "stagista-per-contenuti-digitali-piaget-plan-les-ouates",
-        "digital-content-tirocinante-piaget-plan-les-ouates",
         "digital-content-intern-richemont-plan-les-ouates",
         "contenu-numerique-stagiaire-piaget-plan-les-ouates",
         "stagiaire-en-gestion-de-contenu-digital-piaget-plan-les-ouates",
@@ -10005,7 +10014,12 @@
         "tirocinante-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
         "digital-content-integration-intern-richemont-geneva",
         "praktikum-fur-digitale-inhaltsintegration-michelangelo-foundation-geneva",
-        "crimpatura-piaget-plan-les-ouates"
+        "crimpatura-piaget-plan-les-ouates",
+        "brand-content-intern-richemont-plan-les-ouates",
+        "brand-content-intern-vacheron-constantin-plan-les-ouates",
+        "brand-content-praktikant-vacheron-constantin-plan-les-ouates",
+        "brand-content-stagiaire-vacheron-constantin-plan-les-ouates",
+        "brand-content-tirocinante-vacheron-constantin-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-18T13:14:11.256Z",
       "salaryMin": 51100,

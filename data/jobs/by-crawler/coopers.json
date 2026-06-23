@@ -1751,14 +1751,28 @@
         "devsecops-engineer-mobile-access-m-w-d-coopers-bern",
         "data-center-ingegnere-m-w-d-coopers-group-ag-bern",
         "data-center-engineer-m-w-d-coopers-bern",
-        "data-center-ingenieur-m-w-d-coopers-group-ag-bern"
+        "data-center-ingenieur-m-w-d-coopers-group-ag-bern",
+        "devops-ingegnere-nextcloud-m-w-d-coopers-group-ag-bern",
+        "devops-engineer-nextcloud-m-w-d-coopers-bern",
+        "ingenieur-devops-nextcloud-coopers-group-ag-bern",
+        "ingegnere-devops-backend-cloud-coopers-group-ag-bern",
+        "devops-engineer-backend-cloud-m-w-d-coopers-bern",
+        "ingenieur-devops-backend-cloud-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devsecops-engineer-mobile-access-m-w-d-coopers-bern"
+          "devsecops-engineer-mobile-access-m-w-d-coopers-bern",
+          "devops-ingegnere-nextcloud-m-w-d-coopers-group-ag-bern",
+          "ingenieur-devops-nextcloud-coopers-group-ag-bern",
+          "ingegnere-devops-backend-cloud-coopers-group-ag-bern",
+          "ingenieur-devops-backend-cloud-coopers-group-ag-bern"
         ],
         "fr": [
           "devsecops-engineer-mobile-access-m-w-d-coopers-bern"
+        ],
+        "en": [
+          "devops-engineer-nextcloud-m-w-d-coopers-bern",
+          "devops-engineer-backend-cloud-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:05.103Z",
@@ -2220,14 +2234,20 @@
         "consulente-senior-m-w-d-coopers-group-ag-zug",
         "senior-consultant-m-w-d-coopers-group-ag-zug",
         "sachbearbeiter-in-kreditorenbuchhaltung-m-w-d-coopers-zug",
-        "consultant-principal-m-m-j-coopers-group-ag-zug"
+        "consultant-principal-m-m-j-coopers-group-ag-zug",
+        "senior-business-analista-in-m-w-d-coopers-group-ag-bern",
+        "senior-business-analyst-in-m-w-d-coopers-bern",
+        "senior-business-analyste-in-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-im-wissenschaftlichen-umfeld-m-w-d-coopers-bern"
+          "assistenz-im-wissenschaftlichen-umfeld-m-w-d-coopers-bern",
+          "senior-business-analista-in-m-w-d-coopers-group-ag-bern",
+          "senior-business-analyste-in-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
-          "assistenz-im-wissenschaftlichen-umfeld-m-w-d-coopers-bern"
+          "assistenz-im-wissenschaftlichen-umfeld-m-w-d-coopers-bern",
+          "senior-business-analyst-in-m-w-d-coopers-bern"
         ],
         "fr": [
           "assistenz-im-wissenschaftlichen-umfeld-m-w-d-coopers-bern"
@@ -4013,17 +4033,21 @@
       "firstSeenAt": "2026-06-22T14:02:01.610Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern"
+          "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern",
+          "ingegnere-software-senior-fornitura-software-abilitato-per-l-ai-m-f-d-coopers-group-ag-bern"
         ],
         "de": [
           "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern"
         ],
         "fr": [
-          "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern"
+          "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern",
+          "ingenieur-principal-en-logiciels-livraison-de-logiciels-compatibles-avec-l-ia-m-f-d-coopers-group-ag-bern"
         ]
       },
       "previousSlugs": [
-        "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern"
+        "senior-software-engineer-ai-enabled-software-delivery-m-f-d-coopers-bern",
+        "ingegnere-software-senior-fornitura-software-abilitato-per-l-ai-m-f-d-coopers-group-ag-bern",
+        "ingenieur-principal-en-logiciels-livraison-de-logiciels-compatibles-avec-l-ia-m-f-d-coopers-group-ag-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -4114,7 +4138,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "previousSlugsByLocale": {
+        "fr": [
+          "maitre-d-equipe-senior-m-f-d-coopers-group-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "maitre-d-equipe-senior-m-f-d-coopers-group-ag-luzern"
+      ]
     },
     {
       "id": "coopers-2623bcf0eafe",
