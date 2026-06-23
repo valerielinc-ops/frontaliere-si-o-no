@@ -320,6 +320,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dati-frontalieri-errore-sistemico.title': 'Dati frontalieri: nessun errore sistemico, dice il DFE',
     'blog.article.dati-frontalieri-errore-sistemico.excerpt': 'Il direttore della Divisione delle contribuzioni del DFE precisa che i problemi segnalati sui dati dei frontalieri riguardano solo casi isolati.',
     'blog.article.dati-frontalieri-errore-sistemico.imageAlt': 'Vista aerea del Lago di Lugano con frontalieri che attraversano il confine',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.title': 'Ethos critica stipendi CEO e rapporti sostenibilità inadeguati',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.excerpt': 'La fondazione Ethos critica gli stipendi elevati dei CEO e i rapporti sulla sostenibilità delle aziende svizzere quotate in borsa.',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.imageAlt': 'Vista aerea di Lugano con edifici moderni e il lago in background',
 };
 
 export default blogMetaChIt;
