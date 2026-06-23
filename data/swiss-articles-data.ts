@@ -890,6 +890,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'stipendi-frontalieri-centro-commerciale',
+    category: 'pratico',
+    date: '2026-06-23T01:39:26.155Z',
+    image: '/images/blog/stipendi-frontalieri-centro-commerciale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

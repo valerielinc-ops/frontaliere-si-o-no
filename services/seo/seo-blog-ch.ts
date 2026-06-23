@@ -3764,6 +3764,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendi-frontalieri-centro-commerciale': {
+    title: 'Centro commerciale assume: stipendi fino a 5mila franchi',
+    description: 'Scopri gli stipendi elevati offerti da un centro commerciale svizzero e come i frontalieri sono i principali impiegati. Analisi e implicazioni per il mercato',
+    keywords: 'frontalieri, ticino, svizzera, italia, centro, commerciale, assume, stipendi',
+    ogTitle: 'Stipendi fino a 5mila franchi OgTitle',
+    ogDescription: 'Scopri gli stipendi elevati nel centro commerciale svizzero e le implicazioni per i frontalieri e il mercato del lavoro locale.',
+    canonicalPath: '/articoli-svizzera/stipendi-frontalieri-centro-commerciale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Centro commerciale assume: stipendi fino a 5mila franchi",
+      "description": "Scopri gli stipendi elevati offerti da un centro commerciale svizzero e come i frontalieri sono i principali impiegati. Analisi e implicazioni per il mercato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendi-frontalieri-centro-commerciale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro commerciale in Svizzera con negozi e persone"
+      },
+      "datePublished": "2026-06-23T01:39:26+00:00",
+      "dateModified": "2026-06-23T01:39:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stipendi-frontalieri-centro-commerciale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

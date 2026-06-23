@@ -296,6 +296,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pensioni-svizzera-2025.title': 'Retraités suisses à l\'étranger : comment gérer la double résidence',
     'blog.article.pensioni-svizzera-2025.excerpt': 'De plus en plus de retraités suisses partagent leur temps entre la Suisse et l\'étranger. Voici ce qu\'il faut savoir sur les implications fiscales et sociales.',
     'blog.article.pensioni-svizzera-2025.imageAlt': 'Un retraité suisse profitant d\'une journée ensoleillée au lac de Lugano',
+    'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Centre commercial prend en charge : salaires jusqu\'à 5 000 francs',
+    'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'Un centre commercial embauche du personnel offrant des salaires élevés, notamment frontaliers. Les Tessinois semblent moins enclins à travailler dans le secteur.',
+    'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Centre commercial suisse avec magasins et personnes',
 };
 
 export default blogMetaChFr;

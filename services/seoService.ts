@@ -4109,6 +4109,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-olimpiadi-2038-svizzera-non-referendum': { name: 'novita', path: '/articoli-svizzera/olimpiadi-2038-svizzera-non-referendum/', parent: 'blog' },
     'blog-secondo-binario-locarnese-raggiunta-tappa': { name: 'Secondo binario Locarnese', path: '/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa', parent: 'blog' },
     'blog-pensioni-svizzera-2025': { name: 'Pensioni Svizzera', path: '/articoli-svizzera/pensioni-svizzera-2025/', parent: 'blog' },
+    'blog-stipendi-frontalieri-centro-commerciale': { name: 'Lavoro Frontalieri', path: '/articoli-svizzera/stipendi-frontalieri-centro-commerciale/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
