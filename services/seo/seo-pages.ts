@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2864,
+ "numberOfItems": 2865,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7508,7 +7508,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2861, "name": "Olimpiadi 2038 in Svizzera: nessun referendum, ...", "url": `${BASE_URL}/articoli-frontaliere/olimpiadi-2038-svizzera-non-referendum` },
           { "@type": "ListItem", "position": 2862, "name": "Secondo binario Locarnese: raggiunta un’importa...", "url": `${BASE_URL}/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa` },
           { "@type": "ListItem", "position": 2863, "name": "Pensionati svizzeri all'estero: come gestire la...", "url": `${BASE_URL}/articoli-frontaliere/pensioni-svizzera-2025` },
-          { "@type": "ListItem", "position": 2864, "name": "Centro commerciale assume: stipendi fino a 5mil...", "url": `${BASE_URL}/articoli-frontaliere/stipendi-frontalieri-centro-commerciale` }
+          { "@type": "ListItem", "position": 2864, "name": "Centro commerciale assume: stipendi fino a 5mil...", "url": `${BASE_URL}/articoli-frontaliere/stipendi-frontalieri-centro-commerciale` },
+          { "@type": "ListItem", "position": 2865, "name": "Economisti adeguano stime crescita per il 2026", "url": `${BASE_URL}/articoli-frontaliere/economisti-adeguano-stime-crescita-2026` }
  ]
  },
  {

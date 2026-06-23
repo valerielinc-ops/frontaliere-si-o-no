@@ -299,6 +299,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Centre commercial prend en charge : salaires jusqu\'à 5 000 francs',
     'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'Un centre commercial embauche du personnel offrant des salaires élevés, notamment frontaliers. Les Tessinois semblent moins enclins à travailler dans le secteur.',
     'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Centre commercial suisse avec magasins et personnes',
+    'blog.article.economisti-adeguano-stime-crescita-2026.title': 'Les économistes ajustent leurs estimations de croissance pour 2026',
+    'blog.article.economisti-adeguano-stime-crescita-2026.excerpt': 'La Suisse en 2026 va vers une croissance du PIB de 0,9%, un chiffre en baisse par rapport au 1,0% de mars',
+    'blog.article.economisti-adeguano-stime-crescita-2026.imageAlt': 'Vue aérienne du Monte Generoso avec des indicateurs de croissance économique',
 };
 
 export default blogMetaChFr;

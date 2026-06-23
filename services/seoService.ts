@@ -4110,6 +4110,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-secondo-binario-locarnese-raggiunta-tappa': { name: 'Secondo binario Locarnese', path: '/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa', parent: 'blog' },
     'blog-pensioni-svizzera-2025': { name: 'Pensioni Svizzera', path: '/articoli-svizzera/pensioni-svizzera-2025/', parent: 'blog' },
     'blog-stipendi-frontalieri-centro-commerciale': { name: 'Lavoro Frontalieri', path: '/articoli-svizzera/stipendi-frontalieri-centro-commerciale/', parent: 'blog' },
+    'blog-economisti-adeguano-stime-crescita-2026': { name: 'Economia Svizzera', path: '/articoli-svizzera/economisti-adeguano-stime-crescita-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

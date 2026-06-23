@@ -121,6 +121,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'olimpiadi-2038-svizzera-non-referendum': { it: 'olimpiadi-2038-svizzera-non-referendum', en: 'olympics-2038-swiss-no-referendum', de: 'olympia-2038-schweiz-kein-referendum', fr: 'olympiades-2038-suisse-sans-referendum' },
  'pensioni-svizzera-2025': { it: 'pensioni-svizzera-2025', en: 'swiss-pensioners-abroad', de: 'schweizer-rentner-im-ausland', fr: 'retraites-suisses-a-l-etranger' },
  'stipendi-frontalieri-centro-commerciale': { it: 'stipendi-frontalieri-centro-commerciale', en: 'frontalier-salaries-shopping-center', de: 'grenzgaenger-gehaelter-einkaufszentrum', fr: 'salaires-frontaliers-centre-commercial' },
+ 'economisti-adeguano-stime-crescita-2026': { it: 'economisti-adeguano-stime-crescita-2026', en: 'economists-adjust-growth-projections-2026', de: 'wirtschaftexperten-anpassen-wachstumsprognosen-2026', fr: 'economistes-ajustent-projections-croissance-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -899,6 +899,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'economisti-adeguano-stime-crescita-2026',
+    category: 'fiscale',
+    date: '2026-06-23T02:42:45.766Z',
+    image: '/images/blog/economisti-adeguano-stime-crescita-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
