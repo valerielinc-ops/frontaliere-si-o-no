@@ -311,6 +311,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.banca-svizzera-segreto.title': 'Banques suisses : toujours refuge pour de l\'argent sale ?',
     'blog.article.banca-svizzera-segreto.excerpt': 'Analyse des réformes du secteur bancaire suisse et du secret bancaire.',
     'blog.article.banca-svizzera-segreto.imageAlt': 'Vue panoramique de Lugano avec le lac de Lugano et les montagnes environnantes.',
+    'blog.article.trasporti-chiasso-lugano-2026.title': 'Guide pratique des transports Chiasso-Lugano pour les frontaliers en 2026',
+    'blog.article.trasporti-chiasso-lugano-2026.excerpt': 'Tout ce que vous devez savoir sur les trains, les voitures, les parkings et les abonnements pour les frontaliers entre Chiasso et Lugano en 2026.',
+    'blog.article.trasporti-chiasso-lugano-2026.imageAlt': 'Vue panoramique sur le lac de Lugano avec une gare en premier plan',
 };
 
 export default blogMetaChFr;

@@ -311,6 +311,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.banca-svizzera-segreto.title': 'Swiss banks: still a haven for dirty money?',
     'blog.article.banca-svizzera-segreto.excerpt': 'Analysis of the reforms of the Swiss banking sector and banking secrecy.',
     'blog.article.banca-svizzera-segreto.imageAlt': 'Panoramic view of Lugano with Lake Ceresio and surrounding mountains.',
+    'blog.article.trasporti-chiasso-lugano-2026.title': 'Practical guide to Chiasso-Lugano transport for border workers in 2026',
+    'blog.article.trasporti-chiasso-lugano-2026.excerpt': 'Everything you need to know about trains, cars, car parks and border passes between Chiasso and Lugano in 2026.',
+    'blog.article.trasporti-chiasso-lugano-2026.imageAlt': 'Scenic view of Lake Lugano with a train station in the foreground',
 };
 
 export default blogMetaChEn;
