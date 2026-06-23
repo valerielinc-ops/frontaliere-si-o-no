@@ -2,8 +2,9 @@
  * FeatureSurvey micro-survey coverage.
  *
  * Verifies the engagement gate (time + page views), the 90-day dismiss
- * cooldown, and that a submit captures `feature_survey_response` to PostHog
- * (and GA via Analytics) with the stable, locale-independent option id.
+ * cooldown, that showing the survey captures a single `feature_survey_impression`,
+ * and that a submit captures `feature_survey_response` to PostHog (and GA via
+ * Analytics) with the stable, locale-independent option id.
  */
 
 import React from 'react';
@@ -114,6 +115,32 @@ describe('FeatureSurvey engagement gate', () => {
   });
 });
 
+describe('FeatureSurvey impression', () => {
+  it('captures a single impression once the survey is shown', async () => {
+    sessionStorage.setItem('feature_survey_pageviews', '1');
+    await act(async () => {
+      render(<FeatureSurvey />);
+    });
+    await act(async () => {
+      vi.advanceTimersByTime(25_000);
+    });
+
+    const impressions = captureMock.mock.calls.filter(([name]) => name === 'feature_survey_impression');
+    expect(impressions).toHaveLength(1);
+    expect(impressions[0][1]).toMatchObject({ page: expect.any(String) });
+    expect(trackEventMock).toHaveBeenCalledWith('feature_survey_impression', expect.any(Object));
+  });
+
+  it('does not fire an impression before the engagement gate is met', async () => {
+    sessionStorage.setItem('feature_survey_pageviews', '1');
+    await act(async () => {
+      render(<FeatureSurvey />);
+    });
+    // No timer advance → survey not shown yet.
+    expect(captureMock).not.toHaveBeenCalledWith('feature_survey_impression', expect.anything());
+  });
+});
+
 describe('FeatureSurvey submission', () => {
   it('captures the stable option id to PostHog and GA, then sets the cooldown', async () => {
     sessionStorage.setItem('feature_survey_pageviews', '1');
@@ -128,10 +155,9 @@ describe('FeatureSurvey submission', () => {
     fireEvent.click(screen.getByText('survey.feature.option.traffic_alerts'));
     fireEvent.click(screen.getByText('survey.feature.submit'));
 
-    expect(captureMock).toHaveBeenCalledTimes(1);
-    const [eventName, payload] = captureMock.mock.calls[0];
-    expect(eventName).toBe('feature_survey_response');
-    expect(payload).toMatchObject({ feature: 'traffic_alerts' });
+    const responseCall = captureMock.mock.calls.find(([name]) => name === 'feature_survey_response');
+    expect(responseCall).toBeDefined();
+    expect(responseCall![1]).toMatchObject({ feature: 'traffic_alerts' });
     expect(trackEventMock).toHaveBeenCalledWith('feature_survey_response', expect.objectContaining({ feature: 'traffic_alerts' }));
     expect(localStorage.getItem('feature_survey_dismissed')).not.toBeNull();
   });
@@ -151,9 +177,9 @@ describe('FeatureSurvey submission', () => {
     });
     fireEvent.click(screen.getByText('survey.feature.submit'));
 
-    expect(captureMock).toHaveBeenCalledTimes(1);
-    const [, payload] = captureMock.mock.calls[0];
-    expect(payload).toMatchObject({ feature: 'other', detail: 'PDF export of payslips' });
+    const responseCall = captureMock.mock.calls.find(([name]) => name === 'feature_survey_response');
+    expect(responseCall).toBeDefined();
+    expect(responseCall![1]).toMatchObject({ feature: 'other', detail: 'PDF export of payslips' });
   });
 
   it('does not submit when no feature is selected', async () => {
@@ -166,6 +192,6 @@ describe('FeatureSurvey submission', () => {
     });
 
     fireEvent.click(screen.getByText('survey.feature.submit'));
-    expect(captureMock).not.toHaveBeenCalled();
+    expect(captureMock).not.toHaveBeenCalledWith('feature_survey_response', expect.anything());
   });
 });

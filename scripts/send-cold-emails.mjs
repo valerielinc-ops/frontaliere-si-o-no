@@ -44,7 +44,17 @@ import { buildInsightsUrl } from './lib/employer-insights-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
-const FROM_DEFAULT = 'Valerie · Frontaliere Ticino <valerie@frontaliereticino.ch>';
+// Sending identity. Configurable via OUTREACH_FROM_ADDRESS so the outreach can be
+// moved to an ISOLATED sending subdomain (e.g. valerie@outreach.frontaliereticino.ch
+// with its own SPF/DKIM/DMARC — follow-up #2620 item 3) WITHOUT a code change:
+// only the env var flips. The value may be a bare address or a full
+// `Display Name <addr>` form; a bare address is wrapped with the brand display
+// name. Default = the canonical reply address valerie@frontaliereticino.ch.
+// CLI `--from` still overrides everything (one-off sends / tests).
+const OUTREACH_FROM_ADDRESS = (process.env.OUTREACH_FROM_ADDRESS || '').trim() || 'valerie@frontaliereticino.ch';
+const FROM_DEFAULT = OUTREACH_FROM_ADDRESS.includes('<')
+  ? OUTREACH_FROM_ADDRESS
+  : `Valerie · Frontaliere Ticino <${OUTREACH_FROM_ADDRESS}>`;
 
 function arg(name, def) {
   const i = process.argv.indexOf(name);

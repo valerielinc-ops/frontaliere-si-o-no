@@ -75,6 +75,47 @@ describe('migrate-all-known-job-slugs-canton-aware', () => {
     expect(entry.source).toBe('gsc-404-import');
   });
 
+  it('reconciles a stale NON-TI section to the job current canton (ZH→BE drift)', () => {
+    // The old migration only rewrote TI-prefixed paths, so a job that migrated
+    // between non-TI cantons kept its first non-TI section forever → recovery
+    // 301'd the orphan to a dead canton. The fix reconciles every section.
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'migrate-canton-drift-'));
+    tmpDirs.push(tmp);
+    const dataDir = path.join(tmp, 'data');
+    fs.mkdirSync(dataDir);
+    fs.copyFileSync(path.join(repoRoot, 'data', 'canton-url-slugs.json'), path.join(dataDir, 'canton-url-slugs.json'));
+    fs.copyFileSync(path.join(repoRoot, 'data', 'canton-municipalities.json'), path.join(dataDir, 'canton-municipalities.json'));
+
+    const cantonSlugs = JSON.parse(fs.readFileSync(path.join(dataDir, 'canton-url-slugs.json'), 'utf-8'));
+    const zhItSlug = cantonSlugs.cantons.ZH.it;
+    const beItSlug = cantonSlugs.cantons.BE.it;
+    const SLUG = 'projektleiter-acme-bern';
+
+    // Job is now in BE, but its ledger entry is stale on the ZH section.
+    fs.writeFileSync(path.join(dataDir, 'jobs.json'), JSON.stringify([
+      { id: 'j3', slug: SLUG, canton: 'BE', location: 'Bern', slugByLocale: { it: SLUG, en: SLUG, de: SLUG, fr: SLUG } },
+    ]));
+    fs.writeFileSync(path.join(dataDir, 'all-known-job-slugs.json'), JSON.stringify({
+      [SLUG]: {
+        it: `/cerca-lavoro-${zhItSlug}/${SLUG}/`,
+        en: `/en/find-jobs-zurich/${SLUG}/`,
+        de: `/de/jobs-in-zurich/${SLUG}/`,
+        fr: `/fr/trouver-emploi-zurich/${SLUG}/`,
+      },
+    }));
+
+    execFileSync('node', [SCRIPT], { cwd: tmp, stdio: 'pipe' });
+
+    const out = JSON.parse(fs.readFileSync(path.join(dataDir, 'all-known-job-slugs.json'), 'utf-8'));
+    const entry = out[SLUG];
+    expect(entry.it).toBe(`/cerca-lavoro-${beItSlug}/${SLUG}/`);
+    expect(entry.it).not.toContain(`cerca-lavoro-${zhItSlug}`);
+    // Slug body preserved verbatim across all locales.
+    for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+      expect(entry[loc].endsWith(`/${SLUG}/`)).toBe(true);
+    }
+  });
+
   it('leaves TI jobs untouched (invariance)', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'migrate-canton-ti-'));
     tmpDirs.push(tmp);

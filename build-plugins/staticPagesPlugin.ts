@@ -1007,58 +1007,96 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // hooks run in parallel (Vite 6 hookParallel), we cannot rely on fs.existsSync
  // to detect them — instead we parse the same source files to build a deterministic
  // skip set that covers ALL locales (IT + EN/DE/FR variants).
+ //
+ // ogPagesPlugin owns BOTH article sections (see its `SECTIONS` table):
+ // `frontaliere` (seo-blog*.ts → /articoli-frontaliere/) AND `svizzera`
+ // (seo-blog-ch.ts → /articoli-svizzera/). The skip-set MUST list both: a
+ // section omitted here falls through to the racy `fs.existsSync` check below,
+ // so on a parallel-closeBundle run where ogPagesPlugin hasn't flushed yet this
+ // plugin emits its own ~25 KB shell to the SAME path → cross-plugin write
+ // collision on the shared registry → the page is dropped non-deterministically
+ // (FR survives, IT/EN/DE vanish), surfacing as audit-hreflang [missingTarget]
+ // on a freshly-published article (validate-dist failure 2026-06-23, run
+ // 27998666257). Keep this list in lockstep with ogPagesPlugin's SECTIONS.
+ const ogSections: ReadonlyArray<{
+ seoFiles: readonly string[];
+ slugData: string;
+ indexSlugs: Record<'en' | 'de' | 'fr', string>;
+ }> = [
+ {
+ seoFiles: ['services/seo/seo-blog.ts',
+ ...Array.from({ length: 9 }, (_, i) => `services/seo/seo-blog-${i + 2}.ts`)],
+ slugData: 'services/routerBlogData.ts',
+ indexSlugs: { en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' },
+ },
+ {
+ seoFiles: ['services/seo/seo-blog-ch.ts'],
+ slugData: 'services/routerSwissData.ts',
+ indexSlugs: { en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' },
+ },
+ ];
  const ogPagesPaths = new Set<string>();
+ let totalLocaleVariants = 0;
+ for (const sec of ogSections) {
  try {
- let seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog.ts'), 'utf-8');
- for (let n = 2; n <= 10; n++) {
+ // Concatenate the section's SEO source chunks. The primary file must load;
+ // numbered chunks (seo-blog-2..10.ts) simply end the chain when absent.
+ let seoSrc = '';
+ let primaryLoaded = false;
+ for (const rel of sec.seoFiles) {
  try {
- seoSrc += '\n' + fs.readFileSync(np.resolve(rootDir, `services/seo/seo-blog-${n}.ts`), 'utf-8');
+ seoSrc += (seoSrc ? '\n' : '') + fs.readFileSync(np.resolve(rootDir, rel), 'utf-8');
+ primaryLoaded = true;
  } catch { break; }
  }
+ if (!primaryLoaded) {
+ console.warn(`[static-pages] Could not parse ${sec.seoFiles[0]} — will fall back to fs.existsSync for its blog pages`);
+ continue;
+ }
+ // Collect this section's IT canonical paths.
+ const sectionItPaths: string[] = [];
  const cpRx = /canonicalPath:\s*'([^']+)'/g;
  let cpM: RegExpExecArray | null;
  while ((cpM = cpRx.exec(seoSrc)) !== null) {
  const p = cpM[1].replace(/\/+$/, '') || '/';
  ogPagesPaths.add(p);
+ sectionItPaths.push(p);
  }
  // Also derive EN/DE/FR locale paths for the same articles so we can skip
- // them deterministically without racing on fs.existsSync.
- // Parse BLOG_SLUGS from routerBlogData.ts (same source ogPagesPlugin uses)
- const blogListSlugs: Record<string, string> = {
- it: 'articoli-frontaliere', en: 'cross-border-articles',
- de: 'grenzgaenger-artikel', fr: 'articles-frontalier',
- };
+ // them deterministically without racing on fs.existsSync. Parse the
+ // section's slug registry (BLOG_SLUGS / SWISS_SLUGS) — the same source
+ // ogPagesPlugin uses to build its locale paths.
  try {
- const routerBlogSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
+ const routerSrc = fs.readFileSync(np.resolve(rootDir, sec.slugData), 'utf-8');
  const bsRx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
  const itSlugToLocales: Record<string, Record<string, string>> = {};
  let bm: RegExpExecArray | null;
- while ((bm = bsRx.exec(routerBlogSrc)) !== null) {
+ while ((bm = bsRx.exec(routerSrc)) !== null) {
  itSlugToLocales[bm[2]] = { en: bm[3], de: bm[4], fr: bm[5] };
  }
- let localePathsAdded = 0;
- for (const itPath of [...ogPagesPaths]) {
- // itPath is like /articoli-frontaliere/slug
+ for (const itPath of sectionItPaths) {
+ // itPath is like /articoli-frontaliere/slug or /articoli-svizzera/slug
  const itSlug = itPath.split('/').filter(Boolean).pop();
  if (!itSlug) continue;
  const locSlugs = itSlugToLocales[itSlug];
  if (!locSlugs) continue;
  for (const loc of ['en', 'de', 'fr'] as const) {
  const ls = locSlugs[loc];
- const bs = blogListSlugs[loc];
+ const bs = sec.indexSlugs[loc];
  if (ls && bs) {
  ogPagesPaths.add(`/${loc}/${bs}/${ls}`);
- localePathsAdded++;
+ totalLocaleVariants++;
  }
  }
- }
- console.log(`[static-pages] Loaded ${ogPagesPaths.size} ogPagesPlugin-owned paths (${localePathsAdded} locale variants)`);
- } catch {
- console.log(`[static-pages] Loaded ${ogPagesPaths.size} ogPagesPlugin-owned article paths (IT only, routerBlogData.ts not parsed)`);
  }
  } catch {
- console.warn('[static-pages] Could not parse seo-blog.ts — will fall back to fs.existsSync for blog pages');
+ console.log(`[static-pages] ${sec.slugData} not parsed — locale variants for that section fall back to fs.existsSync`);
  }
+ } catch {
+ console.warn(`[static-pages] Could not build ogPages skip-set for ${sec.seoFiles[0]}`);
+ }
+ }
+ console.log(`[static-pages] Loaded ${ogPagesPaths.size} ogPagesPlugin-owned paths (${totalLocaleVariants} locale variants, ${ogSections.length} sections)`);
 
  /* ── 0bis. Total IT article count → article archive page count ──
   * Used by the section-index editorial block to render a deep-link
