@@ -296,6 +296,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pensioni-svizzera-2025.title': 'Swiss pensioners abroad: how to manage double residence',
     'blog.article.pensioni-svizzera-2025.excerpt': 'More and more retired Swiss are splitting their time between Switzerland and abroad. Here\'s what you need to know about tax and social security implications.',
     'blog.article.pensioni-svizzera-2025.imageAlt': 'Swiss pensioner enjoying a sunny day by Lake Lugano',
+    'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Shopping mall hires: salaries up to CHF 5,000',
+    'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'A shopping centre hires staff offering high salaries, especially for border workers. Ticinese seem less likely to work in the industry.',
+    'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Swiss shopping mall with shops and people',
 };
 
 export default blogMetaChEn;
