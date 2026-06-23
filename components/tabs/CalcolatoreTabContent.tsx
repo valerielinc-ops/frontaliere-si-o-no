@@ -65,6 +65,30 @@ export default function CalcolatoreTabContent() {
  {t('seoContent.calculator.subtitle')}
  </p>
 
+ {/* Above-the-fold job-board onward-nav CTA (follow-up #2814; same intent as
+     the static data pages' renderAboveFoldJobCta shipped in #2798). Rendered at
+     FIRST PAINT — NOT behind the showDeferredHomeWidgets idle flip — right after
+     the hero and before the calculator + long content, to capture the homepage's
+     ~71.5% bounce (cross-border job-seekers who leave before the idle-deferred
+     widgets / below-results CTA ever paint). Links only (no ad slot → ad-regression
+     guards unaffected); single-line fixed height, present from first paint and
+     never re-flowed → zero CLS. Supersedes the redundant idle desktop widget-row
+     CTA removed below. Reuses the shipped jobBoard.homeCta.* keys (all 4 locales). */}
+ <a
+ href="/cerca-lavoro-ticino/"
+ onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'home_above_fold'); navigateTo('job-board' as any); }}
+ className="mb-4 w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-accent-strong to-accent-strong-hover hover:from-accent-strong-hover hover:to-accent-strong-hover rounded-xl text-on-accent transition-[color,background-color,border-color,box-shadow] hover:shadow-md text-left cursor-pointer no-underline"
+ >
+ <div className="p-1.5 bg-on-accent/20 rounded-lg flex-shrink-0">
+ <Briefcase size={16} className="text-on-accent" />
+ </div>
+ <div className="min-w-0">
+ <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title', getCantonI18nParams())}</div>
+ <div className="text-xs text-on-accent/70 line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
+ </div>
+ <div className="ml-auto flex-shrink-0 text-xs font-semibold text-on-accent/70 whitespace-nowrap hidden sm:block">{t('jobBoard.homeCta.button')}</div>
+ </a>
+
  {/* Persistent SilentErrorBoundary (see mobile block below for rationale):
  keeping it mounted across the showDeferredHomeWidgets idle-flip and
  swapping only its children avoids a subtree unmount/remount that
@@ -97,22 +121,6 @@ export default function CalcolatoreTabContent() {
  </Suspense>
  </div>
  </div>
- <div className="mt-2">
- <a
- href="/cerca-lavoro-ticino/"
- onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
- className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-accent-strong to-accent-strong-hover hover:from-accent-strong-hover hover:to-accent-strong-hover rounded-xl text-on-accent transition-[color,background-color,border-color,box-shadow] hover:shadow-md text-left cursor-pointer"
- >
- <div className="p-1.5 bg-on-accent/20 rounded-lg flex-shrink-0">
- <Briefcase size={16} className="text-on-accent" />
- </div>
- <div className="min-w-0">
- <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title', getCantonI18nParams())}</div>
- <div className="text-xs text-on-accent/70 line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
- </div>
- <div className="ml-auto flex-shrink-0 text-xs font-semibold text-on-accent/70 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
- </a>
- </div>
  </div>
  ) : (
  <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
@@ -120,7 +128,6 @@ export default function CalcolatoreTabContent() {
  <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
  <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" /></div>
  </div>
- <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-surface-raised to-edge animate-pulse" /></div>
  </div>
  )}
  </SilentErrorBoundary>
