@@ -1,46 +1,5 @@
 [
   {
-    "slug": "ingegnere-della-sicurezza-del-prodotto-stadler-rail-wallisellen",
-    "title": "Product Security Engineer",
-    "titleByLocale": {
-      "it": "Ingegnere della sicurezza del prodotto",
-      "en": "Product Security Engineer",
-      "de": "Produkt-Sicherheitsingenieur",
-      "fr": "Ingénieur de sécurité de produit"
-    },
-    "company": "Stadler Rail",
-    "companyKey": "stadler-rail",
-    "location": "Wallisellen",
-    "addressLocality": "Wallisellen",
-    "descriptionByLocale": {
-      "it": "PROFILO\n• Responsabile della sicurezza informatica del prodotto con esperienza nell'implementazione di sistemi di gestione della sicurezza in un ambiente industriale\n• Buone capacità di comunicazione per comunicare aspetti di sicurezza e contromisure correlate a diversi stakeholder\n• Forte interesse per gli aspetti dell'automazione industriale, Industria 4.0 e settore ferroviario\n• Buona comprensione delle tipiche minacce alla sicurezza e dei livelli di sicurezza obiettivo in ambienti industriali\n• Conoscenza delle norme rilevanti come ad esempio IEC 62 443 o EN 50 159\n• Fluente in inglese e tedesco (preferibilmente) COMPITI\n• Sviluppo e integrazione di sistemi di gestione della sicurezza informatica per lo sviluppo del prodotto e sistemi implementati nell'area dei sistemi di controllo automatico dei treni\n• Specifica dei requisiti in materia di sicurezza della rete, regole di sviluppo del software, hardening dei componenti e processi di funzionamento del sistema\n• Partecipazione al processo di architettura e progettazione del sistema insieme agli specialisti per la sicurezza del prodotto, omologazione, funzioni di controllo del treno, test del sistema e sottosistema di comunicazione dei dati\n• Validazione della progettazione dei componenti COTS integrati nel sistema\n• Comunicazione interna e con i clienti e formazione relativa agli aspetti di sicurezza specifici per diversi ruoli relativi alla gestione, sviluppo, funzionamento e supporto",
-      "en": "PROFILE\n• Product Cyber security Manager with experience of implementing security management systems in an industrial environment\n• Good communication skills to communicate security aspects and related countermeasures to different stakeholders\n• Strong interest in aspects of industrial automation, Industry 4.0 and rail industry\n• Good understanding of typical security threats and security target levels in industrial environments\n• Knowledge of relevant norms as for example IEC 62 443 or EN 50 159\n• Fluent in English and German (desirable) TASKS\n• Development and integration of cyber security management systems for product development and system implemented in the area of automatic train control systems\n• Specify requirements with regards to Network Security, SW Development rules, component hardening and System operation processes\n• Participation in the system architecture and design process together with the specialists for product safety, homologation, train control functions, system testing and data communication subsystem\n• Design validation of COTS components integrated to the system\n• Internal and customer communication and training related to security aspects specific to different roles related to management, development, operation and support",
-      "de": "PROFIL\n• Produkt-Cybersicherheitsmanager mit Erfahrung bei der Implementierung von Sicherheitsmanagementsystemen in einer industriellen Umgebung\n• Gute Kommunikationsfähigkeiten, um Sicherheitsaspekte und damit verbundene Gegenmaßnahmen an verschiedene Interessengruppen zu kommunizieren\n• Starkes Interesse an Aspekten der industriellen Automatisierung, Industrie 4.0 und Schienenverkehr\n• Gutes Verständnis für typische Sicherheitsbedrohungen und Sicherheitszielniveaus in industriellen Umgebungen\n• Kenntnis relevanter Normen wie z.B. IEC 62 443 oder EN 50 159\n• Fließend in Englisch und Deutsch (wünschenswert) AUFGABEN\n• Entwicklung und Integration von Cybersicherheitsmanagementsystemen für die Produktentwicklung und Systeme, die im Bereich der automatischen Zugsteuerungssysteme implementiert sind\n• Spezifikation von Anforderungen in Bezug auf Netzwerksicherheit, SW-Entwicklungsregeln, Komponenten-Hardening und Systembetriebsprozesse\n• Teilnahme am Systemarchitektur- und Designprozess zusammen mit den Spezialisten für Produktsicherheit, Homologation, Zugsteuerungsfunktionen, Systemtests und Datenkommunikationssubsystem\n• Designvalidierung von COTS-Komponenten, die in das System integriert sind\n• Interne und Kundenkommunikation und Schulung in Bezug auf Sicherheitsaspekte, die für verschiedene Rollen im Zusammenhang mit Management, Entwicklung, Betrieb und Support relevant sind",
-      "fr": "PROFIL\n• Responsable de la cybersécurité de produit avec expérience dans la mise en œuvre de systèmes de gestion de la sécurité dans un environnement industriel\n• Bonnes compétences en communication pour communiquer les aspects de sécurité et les contre-mesures associées à différentes parties prenantes\n• Fort intérêt pour les aspects de l'automatisation industrielle, Industrie 4.0 et secteur ferroviaire\n• Bonne compréhension des menaces de sécurité typiques et des niveaux de sécurité cibles dans les environnements industriels\n• Connaissance des normes pertinentes telles que IEC 62 443 ou EN 50 159\n• Courant en anglais et allemand (souhaité) TÂCHES\n• Développement et intégration de systèmes de gestion de la cybersécurité pour le développement de produits et les systèmes mis en œuvre dans le domaine des systèmes de contrôle automatique des trains\n• Spécification des exigences en matière de sécurité du réseau, règles de développement de logiciels, renforcement des composants et processus de fonctionnement du système\n• Participation au processus d'architecture et de conception du système avec les spécialistes de la sécurité des produits, de l'homologation, des fonctions de contrôle des trains, des tests du système et du sous-système de communication de données\n• Validation de la conception des composants COTS intégrés dans le système\n• Communication interne et avec les clients et formation relative aux aspects de sécurité spécifiques à différents rôles liés à la gestion, au développement, au fonctionnement et au support"
-    },
-    "slugByLocale": {
-      "it": "ingegnere-della-sicurezza-del-prodotto-stadler-rail-wallisellen",
-      "en": "product-security-engineer-stadler-rail-ch",
-      "de": "produkt-sicherheitsingenieur-stadler-rail-wallisellen",
-      "fr": "ingenieur-de-securite-de-produit-stadler-rail-wallisellen"
-    },
-    "sector": "Rail vehicle manufacturing",
-    "expiredAt": "2026-06-23T12:28:26.985Z",
-    "previousSlugs": [
-      "product-security-engineer-stadler-rail-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "product-security-engineer-stadler-rail-ch"
-      ]
-    },
-    "postalCode": "8304",
-    "salaryMin": 73500,
-    "salaryMax": 111500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "preparazione-al-preventivo-per-ingegneri-progetti-tecnici-stadler-rail-bussnang",
     "title": "Konstrukteur:in/Techniker:in Angebotserstellung",
     "titleByLocale": {
