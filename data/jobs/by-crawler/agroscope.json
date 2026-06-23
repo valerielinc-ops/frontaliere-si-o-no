@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-06-22T22:09:04.550Z",
+  "assembledAt": "2026-06-23T10:54:44.409Z",
   "jobs": [
     {
       "title": "Collaboratore/trice scientifico/a (90%) - Colture frutticole e qualità dei prodotti",
@@ -211,7 +211,7 @@
       "description": "• Analizzare i dati di utilizzo delle infrastrutture e dei servizi informatici al fine d'identificare tendenze, esigenze e possibilità di miglioramento\n\n• Sviluppare strumenti semplici e riproducibili, tra cui pipeline, rapporti, pannelli di controllo o prototipi, per migliorare la comprensione e la gestione dei servizi\n\n• Studiare approcci più avanzati, tra cui l'analisi di serie temporali, il rilevamento di anomalie, i sistemi di raccomandazione o metodi basati sul machine learning e/o sull'intelligenza artificiale\n\n• Diploma universitario in informatica, scienze o ingegneria conseguito da meno di un anno\n\n• Buone conoscenze in programmazione (ad es. R, Python, Bash). Buone conoscenze nel controllo di versione (ad es. Git). Dimestichezza con la visualizzazione di diversi set di dati\n\n• Le conoscenze in fatto di SQL, pipelines, cloud computing e le esperienze pregresse con modelli statistici e machine learning rappresentano un vantaggio\n\n• Conoscenza di due lingue ufficiali e dell'inglese",
       "titleByLocale": {
         "it": "Praticante Informatica",
-        "en": "Computer Practitioner",
+        "en": "Praticante Informatica",
         "de": "Computerpraktiker",
         "fr": "Spécialiste de l'informatique"
       },
@@ -223,7 +223,7 @@
       },
       "slugByLocale": {
         "it": "praticante-informatica-agroscope-posieux",
-        "en": "computer-practitioner-agroscope-1725-posieux",
+        "en": "praticante-informatica-agroscope-posieux",
         "de": "computerpraktiker-agroscope-1725-posieux",
         "fr": "specialiste-de-l-informatique-agroscope-1725-posieux"
       },
@@ -246,11 +246,13 @@
       "firstSeenAt": "2026-06-02T12:00:03.023Z",
       "previousSlugsByLocale": {
         "en": [
-          "it-practitioner-agroscope-1725-posieux"
+          "it-practitioner-agroscope-1725-posieux",
+          "computer-practitioner-agroscope-1725-posieux"
         ]
       },
       "previousSlugs": [
-        "it-practitioner-agroscope-1725-posieux"
+        "it-practitioner-agroscope-1725-posieux",
+        "computer-practitioner-agroscope-1725-posieux"
       ],
       "needsRetranslation": true
     },
@@ -428,64 +430,6 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-06-08T12:21:35.908Z"
-    },
-    {
-      "title": "Dottorando/a in agroecologia applicata alla campicoltura",
-      "slug": "dottorando-a-in-agroecologia-applicata-alla-campicoltura-agroscope-nyon",
-      "url": "https://jobs.admin.ch/posti-vacanti/dottorando-a-in-agroecologia-applicata-alla-campicoltura/71d82085-5995-40e8-b539-37da19752a59",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19222",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "1260 Nyon",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-03",
-      "validThrough": "2026-07-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "description": "• Effettuare prelievi sul campo e analisi di laboratorio e assicurare il trattamento dei dati in un esperimento in campo aperto della durata di 6 anni\n\n• Valutare la diversità e la composizione funzionale delle malerbe sulla base di un set di dati provenienti da una rotazione di 6 anni\n\n• Analizzare la composizione e il funzionamento del microbioma del suolo in risposta alla riduzione nella lavorazione del suolo e nell'applicazione di erbicidi\n\n• Caratterizzare la quantità e la qualità del carbonio organico nel suolo in seguito a 6 anni di pratiche di riduzione nella lavorazione del terreno e nell'applicazione di erbicidi\n\n• Divulgare i risultati tramite pubblicazioni scientifiche, relazioni tecniche e partecipazioni a conferenze\n\n• Master in scienze ambientali, scienze agrarie, biologia o discipline affini\n\n• Forte interesse per l'agroecologia, l'agricoltura sostenibile, la pedologia e l'ecologia vegetale\n\n• L'esperienza nell'analisi dei dati e in laboratorio costituisce titolo preferenziale\n\n• Capacità di lavorare in modo autonomo e di collaborare all'interno di un team di ricerca multidisciplinare internazionale\n\n• Buone capacità organizzative e comunicative\n\n• Conoscenza di due lingue ufficiali e dell'inglese",
-      "titleByLocale": {
-        "it": "Dottorando/a in agroecologia applicata alla campicoltura",
-        "en": "PhD in agroecology applied to crops",
-        "de": "PhD in der Agrarökologie angewandt auf Kulturen",
-        "fr": "Doctorat en agroécologie appliquée aux cultures"
-      },
-      "descriptionByLocale": {
-        "it": "• Effettuare prelievi sul campo e analisi di laboratorio e assicurare il trattamento dei dati in un esperimento in campo aperto della durata di 6 anni\n• Valutare la diversità e la composizione funzionale delle malerbe sulla base di un set di dati provenienti da una rotazione di 6 anni\n• Analizzare la composizione e il funzionamento del microbioma del suolo in risposta alla riduzione nella lavorazione del suolo e nell'applicazione di erbicidi\n• Caratterizzare la quantità e la qualità del carbonio organico nel suolo in seguito a 6 anni di pratiche di riduzione nella lavorazione del terreno e nell'applicazione di erbicidi\n• Divulgare i risultati tramite pubblicazioni scientifiche, relazioni tecniche e partecipazioni a conferenze\n• Master in scienze ambientali, scienze agrarie, biologia o discipline affini\n• Forte interesse per l'agroecologia, l'agricoltura sostenibile, la pedologia e l'ecologia vegetale\n• L'esperienza nell'analisi dei dati e in laboratorio costituisce titolo preferenziale\n• Capacità di lavorare in modo autonomo e di collaborare all'interno di un team di ricerca multidisciplinare internazionale\n• Buone capacità organizzative e comunicative\n• Conoscenza di due lingue ufficiali e dell'inglese",
-        "en": "• Take field withdrawals and laboratory analysis and ensure data processing in an open field experiment lasting 6 years\n• Evaluate the diversity and functional composition of the peanuts on the basis of a set of data from a 6-year rotation\n• Analyze the composition and operation of the soil microbiome in response to the reduction in soil processing and the application of herbicides\n• Characterize the amount and quality of organic carbon in the soil following 6 years of reduction practices in soil processing and the application of herbicides\n• Divulge results through scientific publications, technical reports and conferences\n• Master in Environmental Sciences, Agricultural Sciences, Biology or related disciplines\n• Strong interest in agroecology, sustainable agriculture, pedology and vegetable ecology\n• Experience in data analysis and laboratory is preferential title\n• Ability to work independently and collaborate within an international multidisciplinary research team\n• Good organizational and communication skills\n• Knowledge of two official languages and English",
-        "de": "• Nehmen Sie Feldentnahmen und Laboranalysen ein und gewährleisten Sie die Datenverarbeitung in einem 6 Jahre dauernden offenen Feldexperiment\n• Bewertung der Vielfalt und der funktionellen Zusammensetzung der Erdnüsse auf der Grundlage einer Reihe von Daten aus einer 6-jährigen Rotation\n• Analysieren Sie die Zusammensetzung und den Betrieb des Bodenmikrobioms auf die Reduktion der Bodenbearbeitung und die Anwendung von Herbiziden\n• Charakterisieren der Menge und Qualität des organischen Kohlenstoffs im Boden nach 6 Jahren Reduktionspraktiken in der Bodenbearbeitung und der Anwendung von Herbiziden\n• Ergebnisse durch wissenschaftliche Publikationen, technische Berichte und Konferenzen\n• Master in Umweltwissenschaften, Agrarwissenschaften, Biologie oder verwandten Disziplinen\n• Starkes Interesse an Agroökologie, nachhaltiger Landwirtschaft, Pedologie und Pflanzenökologie\n• Erfahrung in der Datenanalyse und im Labor ist Vorzugstitel\n• Fähigkeit, selbständig zu arbeiten und in einem internationalen multidisziplinären Forschungsteam zusammenzuarbeiten\n• Gute organisatorische und Kommunikationsfähigkeiten\n• Kenntnis von zwei Amtssprachen und Englisch",
-        "fr": "• Prendre des retraits sur le terrain et des analyses de laboratoire et assurer le traitement des données dans une expérience en plein champ de 6 ans\n• Évaluer la diversité et la composition fonctionnelle des arachides sur la base d'un ensemble de données issues d'une rotation de 6 ans\n• Analyser la composition et le fonctionnement du microbiome du sol en réponse à la réduction de la transformation du sol et à l'application d'herbicides\n• Caractériser la quantité et la qualité du carbone organique dans le sol après 6 ans de pratiques de réduction dans le traitement du sol et l'application d'herbicides\n• Diviser les résultats par des publications scientifiques, des rapports techniques et des conférences\n• Maîtrise en sciences de l'environnement, sciences agricoles, biologie ou disciplines connexes\n• Fort intérêt pour l'agroécologie, l'agriculture durable, la pédologie et l'écologie des légumes\n• L'expérience en analyse de données et en laboratoire est un titre préférentiel\n• Capacité de travailler de façon indépendante et de collaborer au sein d'une équipe de recherche multidisciplinaire internationale\n• Bonnes aptitudes organisationnelles et en communication\n• Connaissance de deux langues officielles et de l'anglais"
-      },
-      "slugByLocale": {
-        "it": "dottorando-a-in-agroecologia-applicata-alla-campicoltura-agroscope-nyon",
-        "en": "phd-in-agroecology-applied-to-crops-agroscope-1260-nyon",
-        "de": "phd-in-der-agrarokologie-angewandt-auf-kulturen-agroscope-1260-nyon",
-        "fr": "doctorat-en-agroecologie-appliquee-aux-cultures-agroscope-1260-nyon"
-      },
-      "id": "agroscope-1559e84cb01f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1260",
-      "firstSeenAt": "2026-06-03T12:31:41.261Z"
     },
     {
       "title": "Collaboratore/trice tecnico-agricolo/a in frutticoltura",
