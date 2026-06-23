@@ -4106,6 +4106,13 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-brexit-impatti-svizzera-ue': { name: 'Brexit Svizzera', path: '/articoli-svizzera/brexit-impatti-svizzera-ue/', parent: 'blog' },
     'blog-public-eye-denuncia-salari-on-ticino': { name: 'Salari On', path: '/articoli-frontaliere/public-eye-denuncia-salari-on-ticino', parent: 'blog' },
     'blog-sicurezza-paziente-2026-svizzera': { name: 'Sicurezza Paziente 2026', path: '/articoli-svizzera/sicurezza-paziente-2026-svizzera/', parent: 'blog' },
+    'blog-olimpiadi-2038-svizzera-non-referendum': { name: 'novita', path: '/articoli-svizzera/olimpiadi-2038-svizzera-non-referendum/', parent: 'blog' },
+    'blog-secondo-binario-locarnese-raggiunta-tappa': { name: 'Secondo binario Locarnese', path: '/articoli-frontaliere/secondo-binario-locarnese-raggiunta-tappa', parent: 'blog' },
+    'blog-pensioni-svizzera-2025': { name: 'Pensioni Svizzera', path: '/articoli-svizzera/pensioni-svizzera-2025/', parent: 'blog' },
+    'blog-stipendi-frontalieri-centro-commerciale': { name: 'Lavoro Frontalieri', path: '/articoli-svizzera/stipendi-frontalieri-centro-commerciale/', parent: 'blog' },
+    'blog-economisti-adeguano-stime-crescita-2026': { name: 'Economia Svizzera', path: '/articoli-svizzera/economisti-adeguano-stime-crescita-2026/', parent: 'blog' },
+    'blog-frontalieri-checklist-2026': { name: 'Lavoro Frontaliere', path: '/articoli-svizzera/frontalieri-checklist-2026/', parent: 'blog' },
+    'blog-frontaliere-scelta-comune-residenza-italia-svizzera-2026-single': { name: 'Frontaliere scelta comune residenza Italia', path: '/articoli-svizzera/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

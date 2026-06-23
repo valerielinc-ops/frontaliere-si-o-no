@@ -30,7 +30,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { fetchErrorPaths, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -54,6 +54,19 @@ const MAX_PATHS = Number(process.env.CF_HOT_404_MAX) || 250000;
 // expired/indexed URL worth a page. Real expired URLs get repeat hits from
 // Google + returning visitors.
 const MIN_HITS = 2;
+
+// Age-out window for the accumulator. The list keeps the MAX hits ever seen per
+// path so a briefly-hot URL is not dropped the moment it goes quiet — but
+// without a recency bound the accumulator only ever grew (measured 87.6k→111.6k
+// in 5 days, 0 dropped), marching toward the MAX_PATHS cap with STALE once-hot
+// paths outranking fresh actively-hit orphans (the cap evicted by hits, not
+// recency). A path not seen at the edge for STALE_DAYS — across the daily 48h
+// sweeps — is one Google has stopped crawling: it has CONVERGED, its bridge is
+// no longer load-bearing, and if Google ever re-crawls it the next sweep re-adds
+// it and the next deploy re-emits the bridge. Dropping it keeps the list bounded
+// and reflecting the CURRENT 404 universe. Conservative default (a URL untouched
+// for 4 months is genuinely gone); env-tunable, 0 disables the age-out.
+const STALE_DAYS = Number(process.env.CF_HOT_404_STALE_DAYS) || 120;
 
 // Ticino + nationwide sections are owned by jobsSeoPagesPlugin; never include —
 // EXCEPT cross-canton drift orphans (see isCrossCantonTicinoOrphan below). A job
@@ -130,6 +143,76 @@ function isCrossCantonTicinoOrphan(p) {
 // section stem + canton slug, then exactly ONE slug segment.
 const JOB_DETAIL_RE =
   /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs?|job-search|jobs-i[mn]|jobsuche|stellenangebote|trouver-emploi|recherche-emploi|emplois)-[a-z-]+\/[^/]+\/?$/;
+
+/**
+ * Reconcile the accumulated hot-list with a fresh sweep, applying a lastSeen
+ * age-out and a recency-prioritised retention cap. Pure (no I/O) so it is unit-
+ * testable; main() wires in the file read/write.
+ *
+ *  - Carries forward prior entries (max hits ever seen + prior lastSeen).
+ *  - Stamps lastSeen=todayStr for every path re-seen in this sweep (count>=minHits).
+ *  - Drops paths not seen for > staleDays (converged — see STALE_DAYS).
+ *  - When over `cap`, evicts the LEAST-recently-seen first (then lowest hits) so a
+ *    stale once-hot path can never displace a fresh, actively-hit orphan. Below
+ *    the cap this is a no-op (the full set is kept, ordered by hits for emit).
+ *
+ * Backward-compat: pre-age-out entries have no lastSeen → graced to todayStr so
+ * the first run after this change never mass-evicts a healthy list; they then age
+ * out naturally over staleDays if Google stops crawling them.
+ *
+ * @returns {{ paths: Array<{path:string,hits:number,lastSeen:string}>, fresh:number, agedOut:number, accumulated:number }}
+ */
+export function reconcileHotPaths({ existing, sweptRows, cap, minHits, staleDays, todayStr, isHotCandidate }) {
+  const norm = (p) => p.replace(/\/+$/, '');
+  const acc = new Map(); // norm path -> { hits, lastSeen }
+  for (const e of existing) {
+    if (!e || typeof e.path !== 'string') continue;
+    const p = norm(e.path);
+    if (!isHotCandidate(p)) continue;
+    acc.set(p, {
+      hits: e.hits || 0,
+      lastSeen: typeof e.lastSeen === 'string' ? e.lastSeen : todayStr,
+    });
+  }
+  let fresh = 0;
+  for (const r of sweptRows) {
+    if (r.count < minHits) continue;
+    const p = norm(r.path);
+    if (!isHotCandidate(p)) continue;
+    const prev = acc.get(p);
+    if (!prev) {
+      acc.set(p, { hits: r.count, lastSeen: todayStr });
+      fresh++;
+    } else {
+      if (r.count > prev.hits) prev.hits = r.count;
+      prev.lastSeen = todayStr;
+    }
+  }
+  let agedOut = 0;
+  if (staleDays > 0) {
+    const cutoff = Date.parse(todayStr) - staleDays * 86400000;
+    for (const [p, v] of acc) {
+      const t = Date.parse(v.lastSeen);
+      if (Number.isFinite(t) && t < cutoff) {
+        acc.delete(p);
+        agedOut++;
+      }
+    }
+  }
+  const accumulated = acc.size;
+  let entries = [...acc.entries()].map(([path, v]) => ({ path, hits: v.hits, lastSeen: v.lastSeen }));
+  if (entries.length > cap) {
+    // Retention: most-recently-seen kept first (hits desc as tiebreak), so the
+    // cap sheds CONVERGED paths, never fresh actively-hit ones.
+    entries.sort(
+      (a, b) => b.lastSeen.localeCompare(a.lastSeen) || b.hits - a.hits || a.path.localeCompare(b.path),
+    );
+    entries = entries.slice(0, cap);
+  }
+  // Emit order: highest hits first (bridge recovery priority), stable by path.
+  entries.sort((a, b) => b.hits - a.hits || a.path.localeCompare(b.path));
+  return { paths: entries, fresh, agedOut, accumulated };
+}
 
 function parseArgs(argv) {
   const opts = { dryRun: false, cap: MAX_PATHS };
@@ -220,29 +303,23 @@ async function main() {
     `🛰️  Swept ${windowsOk}/${WINDOW_COUNT} × ${WINDOW_HOURS}h windows → ${rows.length} distinct 404 paths.`,
   );
 
-  // Accumulate: keep the MAX hits ever seen per path across runs (a path that
-  // was hot last week but quiet today should not drop off immediately).
-  const hits = new Map();
-  for (const { path: p, hits: h } of readExisting()) {
-    if (isHotCandidate(p)) hits.set(p.replace(/\/+$/, ''), h || 0);
-  }
-  let fresh = 0;
-  for (const r of rows) {
-    if (r.count < MIN_HITS) continue;
-    const norm = r.path.replace(/\/+$/, '');
-    if (!isHotCandidate(norm)) continue;
-    const prev = hits.get(norm) || 0;
-    if (r.count > prev) hits.set(norm, r.count);
-    if (prev === 0) fresh++;
-  }
-
-  const sorted = [...hits.entries()]
-    .map(([p, h]) => ({ path: p, hits: h }))
-    .sort((a, b) => b.hits - a.hits || a.path.localeCompare(b.path))
-    .slice(0, opts.cap);
+  // Accumulate with a recency-aware age-out (keep MAX hits ever seen per path,
+  // but drop paths the edge has not seen for STALE_DAYS and evict by recency when
+  // over the cap). Pure helper so the retention invariants are unit-tested.
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const { paths: sorted, fresh, agedOut, accumulated } = reconcileHotPaths({
+    existing: readExisting(),
+    sweptRows: rows,
+    cap: opts.cap,
+    minHits: MIN_HITS,
+    staleDays: STALE_DAYS,
+    todayStr,
+    isHotCandidate,
+  });
 
   console.log(
-    `📊 CF non-Ticino job 404s: ${rows.length} CF rows → ${hits.size} accumulated (${fresh} new this run), ` +
+    `📊 CF non-Ticino job 404s: ${rows.length} CF rows → ${accumulated} accumulated ` +
+      `(${fresh} new, ${agedOut} aged out >${STALE_DAYS}d), ` +
       `capped to ${sorted.length} (MAX ${opts.cap}, min-hits ${MIN_HITS}).`,
   );
   if (sorted.length) {
@@ -260,13 +337,18 @@ async function main() {
     windowHours: 23.9,
     cap: opts.cap,
     minHits: MIN_HITS,
+    staleDays: STALE_DAYS,
     paths: sorted,
   };
   fs.writeFileSync(OUT, JSON.stringify(payload, null, 2) + '\n');
   console.log(`✅ Wrote ${OUT} (${sorted.length} paths).`);
 }
 
-main().catch((err) => {
-  console.error(`❌ ${err?.message || err}`);
-  process.exit(1);
-});
+// Run only when invoked directly (not when imported for unit tests of the pure
+// reconcileHotPaths helper — importing must not trigger the network sweep).
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((err) => {
+    console.error(`❌ ${err?.message || err}`);
+    process.exit(1);
+  });
+}

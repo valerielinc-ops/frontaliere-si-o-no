@@ -1,18 +1,85 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-06-22T15:15:58.247Z",
-  "total": 37,
-  "newCount": 0,
+  "generatedAt": "2026-06-22T23:55:44.794Z",
+  "total": 39,
+  "newCount": 2,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 30,
-  "durationMs": 71895,
-  "avgDurationMs": 71895,
+  "durationMs": 63217,
+  "avgDurationMs": 63217,
   "durationHistory": [
-    71895
+    63217
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-1au6lp",
+      "slug": "chef-in-troubleshooter-hornet-swiss-armed-forces-vtg-bern-1au6lp",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Chef/-in Troubleshooter Hornet",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "url": "https://jobs.admin.ch/offene-stellen/chef-in-troubleshooter-hornet/a1eb5401-45b9-4aec-8853-f1529f0abef1",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Emmen",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-22T23:55:42.785Z",
+      "firstSeenAt": "2026-06-22T23:55:42.785Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-qxa6ru",
+      "slug": "gruppenfuhrer-in-luftfahrzeugmechaniker-in-hornet-swiss-armed-forces-vtg-bern-qxa6ru",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Gruppenführer/-in Luftfahrzeugmechaniker/-in Hornet",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "url": "https://jobs.admin.ch/offene-stellen/gruppenfuehrer-in-luftfahrzeugmechaniker-in-hornet/b1872c96-8cf7-4c46-93dc-4881adee26a8",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Emmen",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-22T23:55:42.785Z",
+      "firstSeenAt": "2026-06-22T23:55:42.785Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-8s2gcb",

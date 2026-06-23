@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tecan",
-  "assembledAt": "2026-06-22T15:14:54.682Z",
+  "assembledAt": "2026-06-22T23:42:53.122Z",
   "jobs": [
     {
       "id": "tecan-fdb8da81336a",
@@ -34,7 +34,7 @@
       "url": "https://careers.tecan.com/job/Marketing-Director/1379701933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:52.234Z",
+      "crawledAt": "2026-06-22T23:42:50.721Z",
       "addressLocality": "China",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://careers.tecan.com/job/Production-Engineer/1393509133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:14:51.685Z",
+      "crawledAt": "2026-06-22T23:42:50.254Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "url": "https://careers.tecan.com/job/Manager-Strategic-Pricing-&-Analytics/1365580333/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:51.137Z",
+      "crawledAt": "2026-06-22T23:42:49.778Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -303,7 +303,7 @@
       "url": "https://careers.tecan.com/job/Senior-IT-Data-Analyst/1281846301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:50.626Z",
+      "crawledAt": "2026-06-22T23:42:49.303Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -407,7 +407,7 @@
       "url": "https://careers.tecan.com/job/Senior-Embedded-Software-Engineer/1289076101/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:50.025Z",
+      "crawledAt": "2026-06-22T23:42:48.546Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -500,7 +500,7 @@
       "url": "https://careers.tecan.com/job/Technical-Writer/1226895301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:14:49.496Z",
+      "crawledAt": "2026-06-22T23:42:48.040Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -548,7 +548,24 @@
           "expérience professionnelle dans un environnement international et multiculturel"
         ]
       },
+      "previousSlugs": [
+        "technical-writer-tecan-mannedorf",
+        "scrittore-tecnico-tecan-mannedorf",
+        "teknik-yazar-tecan-mannedorf",
+        "technical-writing-specialist-tecan-mannedorf",
+        "documentation-technician-tecan-mannedorf",
+        "think-okay-let-s-see-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original",
+        "reasoning-the-target-language-specified-in-the-request-is-english-en-the-original-title-is-already-in-english-technical",
+        "technical-editor-tecan-mannedorf",
+        "think-okay-so-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original-title-is",
+        "technical-writers-tecan-mannedorf",
+        "redacteur-technique-tecan-mannedorf"
+      ],
       "previousSlugsByLocale": {
+        "it": [
+          "technical-writer-tecan-mannedorf",
+          "scrittore-tecnico-tecan-mannedorf"
+        ],
         "en": [
           "teknik-yazar-tecan-mannedorf",
           "technical-writing-specialist-tecan-mannedorf",
@@ -560,27 +577,10 @@
           "technical-writers-tecan-mannedorf",
           "technical-writer-tecan-mannedorf"
         ],
-        "it": [
-          "technical-writer-tecan-mannedorf",
-          "scrittore-tecnico-tecan-mannedorf"
-        ],
         "fr": [
           "redacteur-technique-tecan-mannedorf"
         ]
       },
-      "previousSlugs": [
-        "teknik-yazar-tecan-mannedorf",
-        "technical-writing-specialist-tecan-mannedorf",
-        "documentation-technician-tecan-mannedorf",
-        "think-okay-let-s-see-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original",
-        "reasoning-the-target-language-specified-in-the-request-is-english-en-the-original-title-is-already-in-english-technical",
-        "technical-editor-tecan-mannedorf",
-        "think-okay-so-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original-title-is",
-        "technical-writer-tecan-mannedorf",
-        "technical-writers-tecan-mannedorf",
-        "scrittore-tecnico-tecan-mannedorf",
-        "redacteur-technique-tecan-mannedorf"
-      ],
       "firstSeenAt": "2026-05-19T19:53:27.097Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -627,7 +627,7 @@
       "url": "https://careers.tecan.com/job/VP%2C-Head-System-Solutions-R&D/1405478533/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:48.976Z",
+      "crawledAt": "2026-06-22T23:42:47.552Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -704,7 +704,7 @@
       "url": "https://careers.tecan.com/job/Product-Environmental-Compliance-Manager/1405614933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:48.460Z",
+      "crawledAt": "2026-06-22T23:42:47.057Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -781,7 +781,7 @@
       "url": "https://careers.tecan.com/job/Strategy-&-Sales-Excellence-specialist-EMEA/1404958433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:47.929Z",
+      "crawledAt": "2026-06-22T23:42:46.596Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -858,7 +858,7 @@
       "url": "https://careers.tecan.com/job/Messtechniker/1385009633/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:14:47.372Z",
+      "crawledAt": "2026-06-22T23:42:46.113Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -906,15 +906,21 @@
           "Bonnes connaissances de la langue allemande, connaissances de l'anglais un avantage"
         ]
       },
+      "previousSlugs": [
+        "messtechniker-tecan-mannedorf",
+        "tecnologia-di-misura-tecan-mannedorf",
+        "tecnico-della-misurazione-tecan-mannedorf",
+        "misurazione-di-tecnici-tecan-mannedorf",
+        "tecnico-di-metrologia-tecan-mannedorf",
+        "misurazione-dei-tecnici-tecan-mannedorf",
+        "tecnico-di-misurazione-tecan-mannedorf",
+        "measuring-technology-tecan-mannedorf",
+        "measurement-technician-tecan-mannedorf",
+        "metrology-technician-tecan-mannedorf",
+        "measuring-technicians-tecan-mannedorf",
+        "measuring-instruments-tecan-mannedorf"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "measuring-technology-tecan-mannedorf",
-          "measurement-technician-tecan-mannedorf",
-          "metrology-technician-tecan-mannedorf",
-          "measuring-technicians-tecan-mannedorf",
-          "measuring-instruments-tecan-mannedorf",
-          "messtechniker-tecan-mannedorf"
-        ],
         "it": [
           "messtechniker-tecan-mannedorf",
           "tecnologia-di-misura-tecan-mannedorf",
@@ -923,22 +929,16 @@
           "tecnico-di-metrologia-tecan-mannedorf",
           "misurazione-dei-tecnici-tecan-mannedorf",
           "tecnico-di-misurazione-tecan-mannedorf"
+        ],
+        "en": [
+          "measuring-technology-tecan-mannedorf",
+          "measurement-technician-tecan-mannedorf",
+          "metrology-technician-tecan-mannedorf",
+          "measuring-technicians-tecan-mannedorf",
+          "measuring-instruments-tecan-mannedorf",
+          "messtechniker-tecan-mannedorf"
         ]
       },
-      "previousSlugs": [
-        "measuring-technology-tecan-mannedorf",
-        "measurement-technician-tecan-mannedorf",
-        "metrology-technician-tecan-mannedorf",
-        "messtechniker-tecan-mannedorf",
-        "measuring-technicians-tecan-mannedorf",
-        "measuring-instruments-tecan-mannedorf",
-        "tecnologia-di-misura-tecan-mannedorf",
-        "tecnico-della-misurazione-tecan-mannedorf",
-        "misurazione-di-tecnici-tecan-mannedorf",
-        "tecnico-di-metrologia-tecan-mannedorf",
-        "misurazione-dei-tecnici-tecan-mannedorf",
-        "tecnico-di-misurazione-tecan-mannedorf"
-      ],
       "firstSeenAt": "2026-05-19T19:53:25.507Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -985,7 +985,7 @@
       "url": "https://careers.tecan.com/job/Production-Engineer-Electronics/1379904133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T15:14:46.802Z",
+      "crawledAt": "2026-06-22T23:42:45.646Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1082,7 +1082,7 @@
       "url": "https://careers.tecan.com/job/Head-Software-Product-Management/1403393933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:46.271Z",
+      "crawledAt": "2026-06-22T23:42:45.121Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1159,7 +1159,7 @@
       "url": "https://careers.tecan.com/job/CAD-PDM-Administrator/1403539933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T15:14:45.611Z",
+      "crawledAt": "2026-06-22T23:42:44.552Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",

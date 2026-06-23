@@ -8137,6 +8137,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.public-eye-denuncia-salari-on-ticino.title': 'Public Eye denounces starvation wages in a company that works for the On brand',
     'blog.article.public-eye-denuncia-salari-on-ticino.excerpt': 'The Public Eye report denounces minimum wages and precarious conditions in a subcontractor of On, with investigation and stop orders by the company.',
     'blog.article.public-eye-denuncia-salari-on-ticino.imageAlt': 'Photorealistic image of the Swiss-Italian border crossing near Mendrisio with commuters and workers',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.title': 'Second Locarno track: an important stage of the works has been reached',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.excerpt': 'Work on the second track in the Locarno region has reached an important stage, fundamental for the development of railway infrastructure.',
+    'blog.article.secondo-binario-locarnese-raggiunta-tappa.imageAlt': 'Aerial view of Locarno train station with construction works on a second railway track',
 };
 
 export default blogMetaEn;
