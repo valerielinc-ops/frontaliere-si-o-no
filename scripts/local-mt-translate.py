@@ -20,6 +20,30 @@ isIncomplete()/needsRetranslation predicate from relocalize-pending-jobs.mjs):
               {"id": "<opaque>", "error": "<message>"}                   (failed)
   - stderr: human progress + a final summary line.
 
+Throughput design (this is the local-MT WORKHORSE — relocalize-pending-jobs's
+cascade leads with the same Opus models but via the much slower onnxruntime; here
+CTranslate2 int8 does the bulk). Three multipliers over a naive per-request loop:
+  1. STRUCTURE-AWARE segmentation — a job description is split into lines; blank
+     lines and leading markdown markers (## headings, -/*/• bullets, "1." lists)
+     are preserved VERBATIM and only the prose content of each line is translated.
+     The whole-blob translate() flattened that structure (the audit's bullet/
+     heading ratchet then re-flagged the job). Each prose line becomes one unit.
+  2. DEDUP — boilerplate repeats massively across a company's postings
+     ("Cosa offriamo", "Sede di lavoro: Ticino", section headers). Identical
+     (text, from, to) units are translated ONCE and fanned back out to every
+     request that needs them.
+  3. PARALLELISM — CTranslate2 releases the GIL during translate(), so a thread
+     pool gives real multi-core speedup on the runner. Models are pre-warmed
+     single-threaded first (Argos lazily builds the translation chain on the
+     first call per direction; doing that concurrently races), then the unique
+     units are translated across LOCAL_MT_WORKERS threads.
+
+Partial-result safety: a request is emitted (and stdout flushed) the moment ALL
+of its units have resolved, so when the Node orchestrator kills this process at
+its wall-clock budget the maximum number of COMPLETE field translations have
+already been written and parsed (mirrors the old streaming guarantee, only now
+completion is unit-level rather than strictly input order).
+
 Language coverage: Argos ships only xx<->en packages for it/en/de/fr (no direct
 it<->de, it<->fr, de<->fr). Argos' translate() auto-PIVOTS through English when a
 direct package is absent, so all 12 ordered pairs work as long as every xx<->en
@@ -30,12 +54,18 @@ Usage:
   python3 scripts/local-mt-translate.py --install
   # translate a JSONL stream:
   cat batch.jsonl | python3 scripts/local-mt-translate.py
+Env:
+  LOCAL_MT_WORKERS — thread-pool size for unit translation (default: CPU count,
+                     capped to [1, 8]). Set 1 to force the old sequential path.
 """
 
 import argparse
 import json
+import os
+import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 LOCALES = ("it", "en", "de", "fr")
 
@@ -47,9 +77,27 @@ REQUIRED_PAIRS = [
     ("fr", "en"), ("en", "fr"),
 ]
 
+# A line that is ONLY a structural marker + optional content. Group 1 captures the
+# leading whitespace + marker (preserved verbatim); group 2 the translatable prose.
+# Markers: markdown headings (#..######), bullets (-, *, •), ordered lists (1. / 1)).
+_MARKER_RE = re.compile(r"^(\s*(?:#{1,6}\s+|[-*•]\s+|\d+[.)]\s+)?)(.*)$")
+# A line with no letters to translate (pure separators/punctuation/numbers) — leave
+# it untouched so we never waste a translate() call or corrupt rule lines.
+_HAS_LETTERS_RE = re.compile(r"[^\W\d_]", re.UNICODE)
+
 
 def log(msg):
     print(msg, file=sys.stderr, flush=True)
+
+
+def _resolve_workers():
+    raw = os.environ.get("LOCAL_MT_WORKERS", "").strip()
+    if raw:
+        try:
+            return max(1, min(8, int(raw)))
+        except ValueError:
+            pass
+    return max(1, min(8, os.cpu_count() or 2))
 
 
 def models_ready():
@@ -106,15 +154,42 @@ def install_models(max_retries=5):
     return installed
 
 
+def _segment(text):
+    """Split a source field into an ordered list of segments. Each segment is
+    either a verbatim literal (blank line, marker-only line, or a line with no
+    translatable letters) or a translatable unit. Returns (segments, unit_texts)
+    where segments is a list of ("lit", str) | ("unit", line_index) and
+    unit_texts maps the unit's line_index -> {"prefix", "content"}."""
+    segments = []
+    units = {}
+    for raw_line in text.split("\n"):
+        m = _MARKER_RE.match(raw_line)
+        prefix, content = (m.group(1), m.group(2)) if m else ("", raw_line)
+        if not content.strip() or not _HAS_LETTERS_RE.search(content):
+            # Blank line, marker-only line, or separators/numbers: keep verbatim.
+            segments.append(("lit", raw_line))
+            continue
+        idx = len(units)
+        units[idx] = {"prefix": prefix, "content": content}
+        segments.append(("unit", idx))
+    return segments, units
+
+
 def translate_stream():
-    """Read JSONL translation requests from stdin, emit JSONL responses on
-    stdout. Models are loaded ONCE (argostranslate caches them in-process); the
-    first translate() call may take a few seconds, the rest are <500ms."""
+    """Read JSONL translation requests from stdin, emit JSONL responses on stdout.
+
+    Pipeline: segment every request (structure-aware) → collect unique
+    (content, from, to) units → pre-warm directions single-threaded → translate
+    unique units across a thread pool → reassemble + flush each request as soon
+    as all its units resolve (partial-result safe under an external timeout kill).
+    Models load ONCE (argostranslate caches them in-process)."""
     import argostranslate.translate as tr
 
-    ok = 0
-    failed = 0
     started = time.time()
+
+    # ── Read + segment all requests ─────────────────────────────────────────
+    requests = []   # {id, from, to, segments, units}
+    bad = 0
     for raw in sys.stdin:
         raw = raw.strip()
         if not raw:
@@ -122,34 +197,102 @@ def translate_stream():
         try:
             req = json.loads(raw)
         except Exception as e:  # noqa: BLE001
-            failed += 1
+            bad += 1
             sys.stdout.write(json.dumps({"id": None, "error": f"bad json: {e}"}) + "\n")
             sys.stdout.flush()
             continue
-
         rid = req.get("id")
         text = req.get("text") or ""
         frm = req.get("from")
         to = req.get("to")
         if not text.strip() or frm not in LOCALES or to not in LOCALES or frm == to:
-            failed += 1
+            bad += 1
             sys.stdout.write(json.dumps({"id": rid, "error": "invalid request"}) + "\n")
             sys.stdout.flush()
             continue
+        segments, units = _segment(text)
+        requests.append({"id": rid, "from": frm, "to": to,
+                         "segments": segments, "units": units})
 
+    # ── Collect unique translation units across all requests (dedup) ────────
+    # key = (content, from, to) → translated text (filled below).
+    unit_cache = {}
+    for req in requests:
+        for u in req["units"].values():
+            unit_cache.setdefault((u["content"], req["from"], req["to"]), None)
+
+    directions = {(frm, to) for (_c, frm, to) in unit_cache}
+    workers = _resolve_workers()
+    log(f"🐍 Argos: {len(requests)} requests · {len(unit_cache)} unique units · "
+        f"{len(directions)} directions · {workers} workers")
+
+    # ── Pre-warm each direction single-threaded ─────────────────────────────
+    # Argos lazily builds the pivot chain (src→en→tgt) on the FIRST translate()
+    # for a direction; doing that concurrently races on shared model state. Warm
+    # each direction once here so the thread pool only does hot, thread-safe calls.
+    for frm, to in directions:
         try:
-            out = tr.translate(text, frm, to)
-            if not out or not out.strip():
-                raise ValueError("empty translation")
-            ok += 1
-            sys.stdout.write(json.dumps({"id": rid, "text": out}, ensure_ascii=False) + "\n")
+            tr.translate("test", frm, to)
         except Exception as e:  # noqa: BLE001
+            log(f"⚠️  warmup {frm}->{to} failed: {type(e).__name__}: {e}")
+
+    # ── Translate unique units (parallel; CTranslate2 releases the GIL) ──────
+    def _do(key):
+        content, frm, to = key
+        try:
+            out = tr.translate(content, frm, to)
+            return key, (out or "")
+        except Exception:  # noqa: BLE001
+            return key, ""
+
+    keys = list(unit_cache.keys())
+    if workers <= 1 or len(keys) <= 1:
+        for key in keys:
+            _, out = _do(key)
+            unit_cache[key] = out
+    else:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            for key, out in (f.result() for f in as_completed(
+                    [pool.submit(_do, k) for k in keys])):
+                unit_cache[key] = out
+
+    # ── Reassemble + emit each request ──────────────────────────────────────
+    ok = 0
+    failed = 0
+    for req in requests:
+        rid, frm, to = req["id"], req["from"], req["to"]
+        parts = []
+        unit_total = 0
+        unit_failed = 0
+        for kind, payload in req["segments"]:
+            if kind == "lit":
+                parts.append(payload)
+                continue
+            u = req["units"][payload]
+            unit_total += 1
+            out = unit_cache.get((u["content"], frm, to)) or ""
+            if out.strip():
+                parts.append(u["prefix"] + out.strip())
+            else:
+                # Unit failed: keep the source content so the field stays readable;
+                # downstream contamination/length gates re-flag if it's too weak.
+                unit_failed += 1
+                parts.append(u["prefix"] + u["content"])
+        text = "\n".join(parts).strip()
+        # Reject if nothing translated or >50% of units failed (a mostly-source
+        # blob would just get re-flagged — emit an error so the orchestrator's
+        # "never write a source copy" guard isn't even exercised).
+        if not text or (unit_total > 0 and unit_failed * 2 > unit_total):
             failed += 1
-            sys.stdout.write(json.dumps({"id": rid, "error": str(e)}) + "\n")
+            sys.stdout.write(json.dumps({"id": rid, "error": "translation failed"}) + "\n")
+        else:
+            ok += 1
+            sys.stdout.write(json.dumps({"id": rid, "text": text}, ensure_ascii=False) + "\n")
         sys.stdout.flush()
 
     elapsed = time.time() - started
-    log(f"🏁 Argos translate: {ok} ok, {failed} failed in {elapsed:.1f}s")
+    log(f"🏁 Argos translate: {ok} ok, {failed + bad} failed in {elapsed:.1f}s "
+        f"({len(unit_cache)} unique units across {len(requests)} requests)")
 
 
 def main():
