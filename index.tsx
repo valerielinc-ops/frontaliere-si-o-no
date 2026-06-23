@@ -115,7 +115,6 @@ const mountApp = async () => {
  // chunk — it is already loaded with App above, so this resolves from cache.
  // Gated on staticOverlay so true static landings keep their overlay; crawlers
  // (no JS) still get the fallback verbatim.
- let movedTallFallback = false;
  try {
    const { parsePath } = await import('./services/router');
    if (!parsePath(window.location.pathname).route.staticOverlay) {
@@ -126,9 +125,6 @@ const mountApp = async () => {
        rootElement.appendChild(fallback);
        if (railWrap) railWrap.style.display = 'none';
        staticPage = hasStaticContent();
-       // Tall fallback (e.g. the search index): its SPA view fills progressively,
-       // so hold the #root floor until it catches up rather than releasing early.
-       movedTallFallback = fallback.offsetHeight > window.innerHeight;
      }
    }
  } catch {
@@ -195,29 +191,13 @@ const mountApp = async () => {
  // Safety timeout: if transitionend doesn't fire (prefers-reduced-motion,
  // DOM removal, browser quirk) the minHeight floor would persist for the
  // whole SPA session, pushing AdSense units off-viewport on shorter pages.
- const clearFade = () => { rootElement.style.transition = ''; rootElement.style.opacity = ''; };
- if (movedTallFallback) {
-   // SPA-takeover page whose moved fallback is taller than the viewport (the
-   // search index): its React view fills progressively, so releasing the #root
-   // floor at first paint lets the footer bounce UP while the list renders.
-   // Hold the floor until #root content REACHES the reserved height (list
-   // done) — or a 4s cap so a permanently-shorter render can't keep the floor
-   // for the whole session (the AdSense-off-viewport hazard the simple path guards).
-   rootElement.addEventListener('transitionend', clearFade, { once: true });
-   let released = false;
-   const release = () => { if (!released) { released = true; rootElement.style.minHeight = ''; ro.disconnect(); } };
-   const reserved = parseInt(rootElement.style.minHeight, 10) || 0;
-   const ro = new ResizeObserver(() => { if (rootElement.scrollHeight >= reserved - 4) release(); });
-   ro.observe(rootElement);
-   setTimeout(release, 4000);
- } else {
-   const t = setTimeout(() => { rootElement.style.minHeight = ''; }, 200);
-   rootElement.addEventListener('transitionend', () => {
-     clearTimeout(t);
-     clearFade();
-     rootElement.style.minHeight = '';
-   }, { once: true });
- }
+ const t = setTimeout(() => { rootElement.style.minHeight = ''; }, 200);
+ rootElement.addEventListener('transitionend', () => {
+   clearTimeout(t);
+   rootElement.style.transition = '';
+   rootElement.style.opacity = '';
+   rootElement.style.minHeight = '';
+ }, { once: true });
  }
 
  document.getElementById('loading-shell')?.remove();
