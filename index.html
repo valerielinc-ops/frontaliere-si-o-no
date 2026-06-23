@@ -299,15 +299,15 @@
          that sheet swaps in (~400ms), the static <main> stacks as default block
          with collapsing margins; promotion to grid+gap reflows the whole column
          — live desktop CLS 0.70 on /cerca-lavoro-* landings. Reserving the final
-         geometry here makes first paint == final → no shift. Grid/gap/max-width
-         mirror seo-static.css's main.seo-static-content rule; padding-block
-         32/56 mirrors the .s-Ziv1Xn scoped class also on this <main>;
-         padding-inline clamp mirrors index.css — dropping any reintroduces a
-         shift. Pure space reservation (in-flow ad slots are grid children before
-         AND after).
+         geometry here makes first paint == final → no shift. Grid/gap mirror
+         seo-static.css's main.seo-static-content rule; max-width min(100%,1120px)
+         + padding-inline clamp mirror index.css:254 byte-for-byte; padding-block
+         32/56 mirrors the .s-Ziv1Xn scoped class also on this <main> — dropping
+         any reintroduces a shift. Pure space reservation (in-flow ad slots are
+         grid children before AND after).
          Keep in sync with SEO_STATIC_GRID_RESERVE_CSS in
          build-plugins/shared/criticalCss.ts (the static-page twin). */
-      main.seo-static-content { max-width: 1120px; margin: 0 auto; padding: 32px clamp(16px,4vw,32px) 56px; display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; }
+      main.seo-static-content { max-width: min(100%,1120px); margin: 0 auto; padding: 32px clamp(16px,4vw,32px) 56px; display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; }
       main.seo-static-content > * { min-width: 0; width: 100%; }
     </style>
 
