@@ -530,6 +530,15 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::it::verkaufer-in-im-stundenlohn-denner": {
+    "winnerJobIdentifier": "denner-91bae124c945",
+    "winnerCanonical": "venditore-nel-salario-orario-denner-spreitenbach",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 3,
+    "canton": "AG"
+  },
   "AG::it::zusteller-in-briefe-und-pakete-post": {
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-7deddf12aeb4",
     "winnerCanonical": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
@@ -4032,11 +4041,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner": {
-    "winnerJobIdentifier": "denner-0851c2a2772b",
-    "winnerCanonical": "verkaufer-in-denner-binningen",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "denner-9caceb0b7fc8",
+    "winnerCanonical": "venditore-denner-arlesheim",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -8915,6 +8924,15 @@
     "decidedAt": "2026-06-17T00:00:00.000Z",
     "lastSeenAt": "2026-06-18T00:00:00.000Z",
     "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-in-denner": {
+    "winnerJobIdentifier": "denner-7155d3a60c02",
+    "winnerCanonical": "venditore-denner-biel-bienne",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "lastSeenAt": "2026-06-22T00:00:00.000Z",
+    "score": 0.1667,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -19197,30 +19215,30 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6unibn",
+    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6unibn",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4iugqw": {
@@ -19233,12 +19251,12 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 2,
+    "score": 0.3,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-38decq": {
@@ -19269,11 +19287,11 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1429,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -19323,21 +19341,21 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1429,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-interdiscount-grigioni-4": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.2222,
-    "candidatesCount": 2,
+    "score": 0.1,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811": {
@@ -20061,11 +20079,11 @@
     "canton": "SG"
   },
   "SG::en::detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.3,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20079,11 +20097,11 @@
     "canton": "SG"
   },
   "SG::en::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.0625,
+    "score": 0,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20097,11 +20115,11 @@
     "canton": "SG"
   },
   "SG::en::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20349,12 +20367,12 @@
     "canton": "SG"
   },
   "SG::en::eba-sales-assistant-coop-gossau": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "sales-assistant-coop-grigioni",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::formation-pour-professionnel-de-sante-diplome-hf-formation-de-3-ans-mars-2027-hoch-health-ostschweiz-st-gallen": {
@@ -20511,20 +20529,20 @@
     "canton": "SG"
   },
   "SG::en::retailer-mann-efz-creating-shopping-experiences-coop-gossau": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "retailer-man-assistant-in-coop-gossau-611c2c",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::sales-assistant-coop-coop-grigioni": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "sales-assistant-coop-grigioni",
-    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 1,
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20934,11 +20952,11 @@
     "canton": "SG"
   },
   "SG::fr::detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.2143,
+    "score": 0.0833,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20952,11 +20970,11 @@
     "canton": "SG"
   },
   "SG::fr::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.0556,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20970,11 +20988,11 @@
     "canton": "SG"
   },
   "SG::fr::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1176,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -21024,11 +21042,11 @@
     "canton": "SG"
   },
   "SG::fr::detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detaillant-homme-assistant-in-coop-gossau-611c2c",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.2143,
+    "score": 0.0667,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -21843,12 +21861,12 @@
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistente-di-vendita-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i": {
@@ -21861,11 +21879,11 @@
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistente-di-vendita-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1538,
+    "score": 0.0769,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -21888,11 +21906,11 @@
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistente-di-vendita-coop-coop-grigioni",
+    "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1538,
+    "score": 0.0769,
     "candidatesCount": 1,
     "canton": "SG"
   },
