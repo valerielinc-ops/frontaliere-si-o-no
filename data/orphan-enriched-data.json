@@ -7,17 +7,17 @@
       {
         "query": "case anziani ticino offerte di lavoro",
         "clicks": 32,
-        "impressions": 377
+        "impressions": 382
+      },
+      {
+        "query": "offerte di lavoro casa di riposo svizzera",
+        "clicks": 15,
+        "impressions": 194
       },
       {
         "query": "offerte lavoro casa di riposo svizzera",
         "clicks": 16,
-        "impressions": 188
-      },
-      {
-        "query": "offerte di lavoro casa di riposo svizzera",
-        "clicks": 14,
-        "impressions": 188
+        "impressions": 191
       },
       {
         "query": "case anziani lugano posti di lavoro",
@@ -26,13 +26,13 @@
       },
       {
         "query": "offerte di lavoro casa anziani ticino",
-        "clicks": 10,
-        "impressions": 63
+        "clicks": 11,
+        "impressions": 68
       },
       {
         "query": "casa anziani paradiso offerta lavoro",
         "clicks": 1,
-        "impressions": 51
+        "impressions": 53
       },
       {
         "query": "offerte lavoro casa anziani ticino",
@@ -46,13 +46,13 @@
       },
       {
         "query": "casa anziani chiasso lavoro",
-        "clicks": 6,
-        "impressions": 36
+        "clicks": 7,
+        "impressions": 37
       },
       {
         "query": "casa anziani mendrisio lavoro",
         "clicks": 1,
-        "impressions": 34
+        "impressions": 35
       },
       {
         "query": "case di riposo ticino lavora con noi",
@@ -105,8 +105,8 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 1272,
-    "totalClicks": 104,
+    "totalImpressions": 1296,
+    "totalClicks": 107,
     "topQuery": "case anziani ticino offerte di lavoro",
     "title": "Case anziani",
     "titleByLocale": {
@@ -145,7 +145,7 @@
       {
         "query": "lavoro a chiasso",
         "clicks": 0,
-        "impressions": 120
+        "impressions": 126
       },
       {
         "query": "lavoro chiasso",
@@ -184,6 +184,11 @@
       },
       {
         "query": "aziende chiasso che assumono",
+        "clicks": 1,
+        "impressions": 5
+      },
+      {
+        "query": "lavora con noi chiasso",
         "clicks": 1,
         "impressions": 5
       },
@@ -228,11 +233,6 @@
         "impressions": 3
       },
       {
-        "query": "lavora con noi chiasso",
-        "clicks": 1,
-        "impressions": 2
-      },
-      {
         "query": "annunci lavoro chiasso",
         "clicks": 0,
         "impressions": 2
@@ -243,7 +243,7 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 245,
+    "totalImpressions": 254,
     "totalClicks": 2,
     "topQuery": "lavoro a chiasso",
     "title": "chiasso",
@@ -278,18 +278,157 @@
   },
   {
     "slug": "lugano",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/lugano/",
+    "queries": [
+      {
+        "query": "jobs lugano",
+        "clicks": 0,
+        "impressions": 28
+      },
+      {
+        "query": "stellen lugano",
+        "clicks": 0,
+        "impressions": 24
+      },
+      {
+        "query": "full time jobs near me",
+        "clicks": 0,
+        "impressions": 21
+      },
+      {
+        "query": "stellenangebot lugano",
+        "clicks": 0,
+        "impressions": 16
+      },
+      {
+        "query": "lugano jobs",
+        "clicks": 0,
+        "impressions": 14
+      },
+      {
+        "query": "job offers",
+        "clicks": 0,
+        "impressions": 7
+      },
+      {
+        "query": "jobs in lugano",
+        "clicks": 0,
+        "impressions": 7
+      },
+      {
+        "query": "emploi lugano",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "job lugano",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "homeoffice jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "lugano job",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "recrutement lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "job in lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs hiring near me full time",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs hiring near me no experience",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs in ticino",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "lavoro lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "lugano job offers",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "offre d'emploi lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "ticino jobs",
+        "clicks": 0,
+        "impressions": 2
+      }
+    ],
+    "totalImpressions": 179,
+    "totalClicks": 0,
+    "topQuery": "jobs lugano",
+    "title": "lugano",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Lugano",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "lugano",
     "locale": "de",
     "path": "/de/jobs-im-tessin/lugano/",
     "queries": [
       {
         "query": "stellen lugano",
         "clicks": 0,
-        "impressions": 25
+        "impressions": 27
       },
       {
         "query": "stellenangebot lugano",
         "clicks": 0,
-        "impressions": 22
+        "impressions": 23
       },
       {
         "query": "taetigkeitsfelder jobs lugano",
@@ -382,148 +521,9 @@
         "impressions": 3
       }
     ],
-    "totalImpressions": 172,
+    "totalImpressions": 175,
     "totalClicks": 0,
     "topQuery": "stellen lugano",
-    "title": "lugano",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Lugano",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "lugano",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/lugano/",
-    "queries": [
-      {
-        "query": "jobs lugano",
-        "clicks": 0,
-        "impressions": 27
-      },
-      {
-        "query": "stellen lugano",
-        "clicks": 0,
-        "impressions": 23
-      },
-      {
-        "query": "full time jobs near me",
-        "clicks": 0,
-        "impressions": 21
-      },
-      {
-        "query": "stellenangebot lugano",
-        "clicks": 0,
-        "impressions": 15
-      },
-      {
-        "query": "lugano jobs",
-        "clicks": 0,
-        "impressions": 13
-      },
-      {
-        "query": "job offers",
-        "clicks": 0,
-        "impressions": 7
-      },
-      {
-        "query": "jobs in lugano",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "emploi lugano",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "homeoffice jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "job lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "lugano job",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "recrutement lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "jobs hiring near me full time",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "jobs hiring near me no experience",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "jobs in ticino",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "lavoro lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "lugano job offers",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "offre d'emploi lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "ticino jobs",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "virtual assistant jobs lugano",
-        "clicks": 0,
-        "impressions": 2
-      }
-    ],
-    "totalImpressions": 170,
-    "totalClicks": 0,
-    "topQuery": "jobs lugano",
     "title": "lugano",
     "titleByLocale": {
       "it": "",
@@ -575,6 +575,16 @@
         "impressions": 9
       },
       {
+        "query": "lavoro educatrice ticino",
+        "clicks": 2,
+        "impressions": 8
+      },
+      {
+        "query": "educatrice ticino lavoro",
+        "clicks": 0,
+        "impressions": 8
+      },
+      {
         "query": "offerte lavoro educatore canton ticino",
         "clicks": 0,
         "impressions": 8
@@ -585,7 +595,12 @@
         "impressions": 7
       },
       {
-        "query": "educatrice ticino lavoro",
+        "query": "offerte lavoro educatore",
+        "clicks": 0,
+        "impressions": 7
+      },
+      {
+        "query": "offerte lavoro educatore svizzera",
         "clicks": 0,
         "impressions": 7
       },
@@ -595,13 +610,8 @@
         "impressions": 6
       },
       {
-        "query": "offerte lavoro educatore",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "offerte lavoro educatore svizzera",
-        "clicks": 0,
+        "query": "offerte lavoro educatrice ticino",
+        "clicks": 1,
         "impressions": 6
       },
       {
@@ -610,19 +620,14 @@
         "impressions": 5
       },
       {
-        "query": "offerte lavoro educatrice ticino",
-        "clicks": 1,
-        "impressions": 5
-      },
-      {
-        "query": "lavoro educatrice ticino",
-        "clicks": 0,
-        "impressions": 5
-      },
-      {
         "query": "lavoro insegnante canton ticino",
         "clicks": 0,
         "impressions": 5
+      },
+      {
+        "query": "educatore svizzera",
+        "clicks": 1,
+        "impressions": 3
       },
       {
         "query": "offerte lavoro sociale ticino",
@@ -653,15 +658,10 @@
         "query": "concorso educatore ticino",
         "clicks": 0,
         "impressions": 2
-      },
-      {
-        "query": "educatore sociale ticino",
-        "clicks": 0,
-        "impressions": 2
       }
     ],
-    "totalImpressions": 150,
-    "totalClicks": 17,
+    "totalImpressions": 159,
+    "totalClicks": 20,
     "topQuery": "educatore sociale offerte lavoro ticino",
     "title": "Educatori",
     "titleByLocale": {
@@ -708,6 +708,11 @@
         "impressions": 5
       },
       {
+        "query": "nursing job opportunities in switzerland",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
         "query": "4 site:.ch",
         "clicks": 0,
         "impressions": 2
@@ -724,11 +729,6 @@
       },
       {
         "query": "nurses job vacancy in switzerland",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "nursing job opportunities in switzerland",
         "clicks": 0,
         "impressions": 2
       },
@@ -768,12 +768,22 @@
         "impressions": 1
       },
       {
+        "query": "in euro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "job nurse",
         "clicks": 0,
         "impressions": 1
       },
       {
         "query": "locarno",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "netti?",
         "clicks": 0,
         "impressions": 1
       },
@@ -786,19 +796,9 @@
         "query": "nursing",
         "clicks": 0,
         "impressions": 1
-      },
-      {
-        "query": "nursing job in switzerland",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "nursing job switzerland",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 149,
+    "totalImpressions": 153,
     "totalClicks": 0,
     "topQuery": "nursing jobs",
     "title": "Nurses",
@@ -838,7 +838,7 @@
       {
         "query": "i am searching for caregiver jobs in ticino for elderly support.",
         "clicks": 0,
-        "impressions": 69
+        "impressions": 70
       },
       {
         "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
@@ -852,6 +852,11 @@
       },
       {
         "query": "aged care worker jobs",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "come badante",
         "clicks": 0,
         "impressions": 1
       },
@@ -871,7 +876,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 133,
+    "totalImpressions": 135,
     "totalClicks": 1,
     "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
     "title": "Elderly care",
@@ -959,6 +964,11 @@
         "impressions": 3
       },
       {
+        "query": "agenzie lavoro bellinzona",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
         "query": "bellinzona lavora con noi",
         "clicks": 0,
         "impressions": 2
@@ -967,11 +977,6 @@
         "query": "lavorare a bellinzona",
         "clicks": 0,
         "impressions": 2
-      },
-      {
-        "query": "agenzie lavoro bellinzona",
-        "clicks": 0,
-        "impressions": 1
       },
       {
         "query": "citta di bellinzona lavoro",
@@ -1009,7 +1014,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 82,
+    "totalImpressions": 83,
     "totalClicks": 2,
     "topQuery": "offerte di lavoro bellinzona",
     "title": "bellinzona",
@@ -1300,12 +1305,12 @@
         "impressions": 8
       },
       {
-        "query": "\"das\" \"reclami\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+        "query": "web developer ticino",
         "clicks": 0,
-        "impressions": 7
+        "impressions": 8
       },
       {
-        "query": "web developer ticino",
+        "query": "\"das\" \"reclami\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
         "clicks": 0,
         "impressions": 7
       },
@@ -1380,7 +1385,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 67,
+    "totalImpressions": 68,
     "totalClicks": 0,
     "topQuery": "software house canton ticino",
     "title": "Sviluppatori",
@@ -1420,7 +1425,7 @@
       {
         "query": "je vise un emploi à lugano",
         "clicks": 0,
-        "impressions": 42
+        "impressions": 43
       },
       {
         "query": "offre d'emploi tessin",
@@ -1463,7 +1468,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 64,
+    "totalImpressions": 65,
     "totalClicks": 0,
     "topQuery": "je vise un emploi à lugano",
     "title": "lugano",
@@ -1504,7 +1509,7 @@
       {
         "query": "full time jobs near me",
         "clicks": 0,
-        "impressions": 48
+        "impressions": 49
       },
       {
         "query": "part time jobs near me",
@@ -1532,7 +1537,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 55,
+    "totalImpressions": 56,
     "totalClicks": 0,
     "topQuery": "full time jobs near me",
     "title": "bellinzona",
@@ -1583,7 +1588,7 @@
       {
         "query": "enterprise suche für entwickler",
         "clicks": 0,
-        "impressions": 6
+        "impressions": 7
       },
       {
         "query": "graubündner kantonalbank",
@@ -1601,7 +1606,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 42,
+    "totalImpressions": 43,
     "totalClicks": 0,
     "topQuery": "softwareentwickler jobs lugano",
     "title": "Entwickler",
@@ -1728,6 +1733,11 @@
         "impressions": 2
       },
       {
+        "query": "altenpflege jobs",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "altenpflegerin stellenangebote",
         "clicks": 0,
         "impressions": 1
@@ -1763,7 +1773,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 38,
+    "totalImpressions": 39,
     "totalClicks": 0,
     "topQuery": "altenpfleger jobs lugano",
     "title": "Altenpflege",
@@ -2355,6 +2365,105 @@
     ]
   },
   {
+    "slug": "mendrisio",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/mendrisio/",
+    "queries": [
+      {
+        "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "offerte di lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "offerte lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "comune di mendrisio offerte di lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "mendrisio lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "obv mendrisio offerte lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro mendrisiotto",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte lavoro mendrisiotto",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "point service mendrisio",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ti offro lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 22,
+    "totalClicks": 0,
+    "topQuery": "offerte di lavoro mendrisio negli ultimi 3 giorni",
+    "title": "mendrisio",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Mendrisio",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "ingenieure",
     "locale": "de",
     "path": "/de/jobs-im-tessin/ingenieure/",
@@ -2410,105 +2519,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "mendrisio",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/mendrisio/",
-    "queries": [
-      {
-        "query": "lavoro mendrisio",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "offerte lavoro mendrisio",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "comune di mendrisio offerte di lavoro",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "mendrisio lavoro",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "obv mendrisio offerte lavoro",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro mendrisio",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro mendrisiotto",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro ticino",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte lavoro mendrisiotto",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "point service mendrisio",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "ti offro lavoro mendrisio",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 18,
-    "totalClicks": 0,
-    "topQuery": "lavoro mendrisio",
-    "title": "mendrisio",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Mendrisio",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
     ]
   },
   {
@@ -2997,25 +3007,35 @@
     ]
   },
   {
-    "slug": "erzieher",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/erzieher/",
+    "slug": "developers",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/developers/",
     "queries": [
       {
-        "query": "erzieher jobs lugano",
+        "query": "hire developers in switzerland",
         "clicks": 0,
-        "impressions": 9
+        "impressions": 4
       },
       {
-        "query": "pädagoge jobs lugano",
+        "query": "web developer ticino",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "rpg developer jobs switzerland",
         "clicks": 0,
         "impressions": 2
+      },
+      {
+        "query": "software developer noc",
+        "clicks": 0,
+        "impressions": 1
       }
     ],
     "totalImpressions": 11,
     "totalClicks": 0,
-    "topQuery": "erzieher jobs lugano",
-    "title": "Erzieher",
+    "topQuery": "hire developers in switzerland",
+    "title": "Developers",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -3045,35 +3065,25 @@
     ]
   },
   {
-    "slug": "developers",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/developers/",
+    "slug": "erzieher",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/erzieher/",
     "queries": [
       {
-        "query": "web developer ticino",
+        "query": "erzieher jobs lugano",
         "clicks": 0,
-        "impressions": 4
+        "impressions": 9
       },
       {
-        "query": "hire developers in switzerland",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "rpg developer jobs switzerland",
+        "query": "pädagoge jobs lugano",
         "clicks": 0,
         "impressions": 2
-      },
-      {
-        "query": "software developer noc",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 10,
+    "totalImpressions": 11,
     "totalClicks": 0,
-    "topQuery": "web developer ticino",
-    "title": "Developers",
+    "topQuery": "erzieher jobs lugano",
+    "title": "Erzieher",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -3602,6 +3612,59 @@
     ]
   },
   {
+    "slug": "drivers",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/drivers/",
+    "queries": [
+      {
+        "query": "offerte lavoro briga svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "swiss",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "train driver jobs",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 3,
+    "totalClicks": 0,
+    "topQuery": "offerte lavoro briga svizzera",
+    "title": "Drivers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
     "slug": "chiasso",
     "locale": "de",
     "path": "/de/jobs-im-tessin/chiasso/",
@@ -3656,6 +3719,126 @@
     ]
   },
   {
+    "slug": "venditore-in-prodotti-freschi-coop-genossenschaft-zurich",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/venditore-in-prodotti-freschi-coop-genossenschaft-zurich/",
+    "queries": [
+      {
+        "query": "coop lavora con noi",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro presso coop",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "coop lavora con noi",
+    "title": "Venditore in prodotti freschi coop genossenschaft",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Zürich",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "venditore-in-prodotti-freschi-coop-genossenschaft-zurich",
+      "en": "venditore-in-prodotti-freschi-coop-genossenschaft-zurich",
+      "de": "venditore-in-prodotti-freschi-coop-genossenschaft-zurich",
+      "fr": "venditore-in-prodotti-freschi-coop-genossenschaft-zurich"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/venditore-in-prodotti-freschi-coop-genossenschaft-zurich",
+      "en": "/en/find-jobs-ticino/venditore-in-prodotti-freschi-coop-genossenschaft-zurich",
+      "de": "/de/jobs-im-tessin/venditore-in-prodotti-freschi-coop-genossenschaft-zurich",
+      "fr": "/fr/trouver-emploi-tessin/venditore-in-prodotti-freschi-coop-genossenschaft-zurich"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino/",
+    "queries": [
+      {
+        "query": "mall job",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "swatch lavora con noi",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "mall job",
+    "title": "Satch match full kehol holder mall of america the swatch group u s inc",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "ti&m",
+    "companyKey": "tim",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino",
+      "en": "satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino",
+      "de": "satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino",
+      "fr": "satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino",
+      "en": "/en/find-jobs-ticino/satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino",
+      "de": "/de/jobs-im-tessin/satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino",
+      "fr": "/fr/trouver-emploi-tessin/satch-match-full-time-kehol-holder-mall-of-america-the-swatch-group-u-s-inc-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "pflegeassistenten",
     "locale": "de",
     "path": "/de/jobs-im-tessin/pflegeassistenten/",
@@ -3696,6 +3879,60 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "legal",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/legal/",
+    "queries": [
+      {
+        "query": "in euro",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "in euro",
+    "title": "Legal",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "legal",
+      "en": "legal",
+      "de": "legal",
+      "fr": "legal"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/legal",
+      "en": "/en/find-jobs-ticino/legal",
+      "de": "/de/jobs-im-tessin/legal",
+      "fr": "/fr/trouver-emploi-tessin/legal"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -4017,6 +4254,3558 @@
     "totalClicks": 0,
     "topQuery": "oui",
     "title": "Restauration",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "altenpflege",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/altenpflege",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Altenpflege",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "chauffeurs",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/chauffeurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Chauffeurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "developers",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/developers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Developers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "developpeurs",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/developpeurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Developpeurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "educators",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/educators",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Educators",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "elderly-care",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/elderly-care",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Elderly care",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "engineers",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/engineers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Engineers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "entwickler",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/entwickler",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Entwickler",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "erzieher",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/erzieher",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Erzieher",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "fahrer",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/fahrer",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Fahrer",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "gastronomie",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/gastronomie",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Gastronomie",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "infirmiers",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/infirmiers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Infirmiers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingenieure",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/ingenieure",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingenieure",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingenieurs",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/ingenieurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingenieurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "lehrstellen",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/lehrstellen",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Lehrstellen",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistics",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/logistics",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistics",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistik",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/logistik",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistik",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "maisons-retraite",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/maisons-retraite",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Maisons retraite",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "nurses",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/nurses",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Nurses",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "pflegeassistenten",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/pflegeassistenten",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Pflegeassistenten",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "pflegepersonal",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/pflegepersonal",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Pflegepersonal",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "restaurants",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/restaurants",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Restaurants",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "restauration",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/restauration",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Restauration",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "apprendistato",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/apprendistato",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Apprendistato",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "autisti",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/autisti",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Autisti",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "case-anziani",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/case-anziani",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Case anziani",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "chauffeurs",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/chauffeurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Chauffeurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "developers",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/developers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Developers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "developpeurs",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/developpeurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Developpeurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "educatori",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/educatori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Educatori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "educators",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/educators",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Educators",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "elderly-care",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/elderly-care",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Elderly care",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "engineers",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/engineers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Engineers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "infirmiers",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/infirmiers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Infirmiers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingegneri",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/ingegneri",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingegneri",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingenieurs",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/ingenieurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingenieurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistica",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/logistica",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistica",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistics",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/logistics",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistics",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "maisons-retraite",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/maisons-retraite",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Maisons retraite",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "nurses",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/nurses",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Nurses",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "operatori-socio-sanitari",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/operatori-socio-sanitari",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Operatori socio sanitari",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "restaurants",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/restaurants",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Restaurants",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "restauration",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/restauration",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Restauration",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ristorazione",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/ristorazione",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ristorazione",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "sviluppatori",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/sviluppatori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Sviluppatori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "altenpflege",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/altenpflege",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Altenpflege",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "apprendistato",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/apprendistato",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Apprendistato",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "autisti",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/autisti",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Autisti",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "case-anziani",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/case-anziani",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Case anziani",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "chauffeurs",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/chauffeurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Chauffeurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "developpeurs",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/developpeurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Developpeurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "educatori",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/educatori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Educatori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "entwickler",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/entwickler",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Entwickler",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "erzieher",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/erzieher",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Erzieher",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "fahrer",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/fahrer",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Fahrer",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "gastronomie",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/gastronomie",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Gastronomie",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "infirmiers",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/infirmiers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Infirmiers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingegneri",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/ingegneri",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingegneri",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingenieure",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/ingenieure",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingenieure",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingenieurs",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/ingenieurs",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingenieurs",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "lehrstellen",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/lehrstellen",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Lehrstellen",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistica",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/logistica",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistica",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistik",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/logistik",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistik",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "maisons-retraite",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/maisons-retraite",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Maisons retraite",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "operatori-socio-sanitari",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/operatori-socio-sanitari",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Operatori socio sanitari",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "pflegeassistenten",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/pflegeassistenten",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Pflegeassistenten",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "pflegepersonal",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/pflegepersonal",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Pflegepersonal",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "restauration",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/restauration",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Restauration",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ristorazione",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/ristorazione",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ristorazione",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "sviluppatori",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/sviluppatori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Sviluppatori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "altenpflege",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/altenpflege",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Altenpflege",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "apprendistato",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/apprendistato",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Apprendistato",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "autisti",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/autisti",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Autisti",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "case-anziani",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/case-anziani",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Case anziani",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "developers",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/developers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Developers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "educatori",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/educatori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Educatori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "educators",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/educators",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Educators",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "elderly-care",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/elderly-care",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Elderly care",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "engineers",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/engineers",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Engineers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "entwickler",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/entwickler",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Entwickler",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "erzieher",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/erzieher",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Erzieher",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "fahrer",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/fahrer",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Fahrer",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "gastronomie",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/gastronomie",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Gastronomie",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingegneri",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/ingegneri",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingegneri",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ingenieure",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/ingenieure",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ingenieure",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "lehrstellen",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/lehrstellen",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Lehrstellen",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistica",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/logistica",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistica",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistics",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/logistics",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistics",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "logistik",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/logistik",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Logistik",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "nurses",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/nurses",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Nurses",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "operatori-socio-sanitari",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/operatori-socio-sanitari",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Operatori socio sanitari",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "pflegeassistenten",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/pflegeassistenten",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Pflegeassistenten",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "pflegepersonal",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/pflegepersonal",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Pflegepersonal",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "restaurants",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/restaurants",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Restaurants",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "ristorazione",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/ristorazione",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Ristorazione",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "sviluppatori",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/sviluppatori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Sviluppatori",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -5956,43 +9745,6 @@
     ]
   },
   {
-    "slug": "altenpflege",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/altenpflege",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Altenpflege",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
     "slug": "ausbildung-horsystemakustiker-cfc-w-m-d-fielmann-group-buchs",
     "locale": "it",
     "path": "/cerca-lavoro-ticino/ausbildung-horsystemakustiker-cfc-w-m-d-fielmann-group-buchs",
@@ -6039,43 +9791,6 @@
       "gsc",
       "all-known-slugs",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "chauffeurs",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/chauffeurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Chauffeurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -6128,598 +9843,6 @@
     ]
   },
   {
-    "slug": "developers",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/developers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Developers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "developpeurs",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/developpeurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Developpeurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "educators",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/educators",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Educators",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "elderly-care",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/elderly-care",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Elderly care",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "engineers",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/engineers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Engineers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "entwickler",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/entwickler",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Entwickler",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "erzieher",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/erzieher",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Erzieher",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "fahrer",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/fahrer",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Fahrer",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "gastronomie",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/gastronomie",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Gastronomie",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "infirmiers",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/infirmiers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Infirmiers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ingenieure",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/ingenieure",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingenieure",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ingenieurs",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/ingenieurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingenieurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "lehrstellen",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/lehrstellen",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Lehrstellen",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "logistics",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/logistics",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistics",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "logistik",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/logistik",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistik",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "maisons-retraite",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/maisons-retraite",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Maisons retraite",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
     "slug": "meccanico-coop-grigioni",
     "locale": "it",
     "path": "/cerca-lavoro-ticino/meccanico-coop-grigioni",
@@ -6769,117 +9892,6 @@
     ]
   },
   {
-    "slug": "nurses",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/nurses",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Nurses",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "pflegeassistenten",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/pflegeassistenten",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Pflegeassistenten",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "pflegepersonal",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/pflegepersonal",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Pflegepersonal",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
     "slug": "responsabile-rayon-convenience-carne-coop-grigioni",
     "locale": "it",
     "path": "/cerca-lavoro-ticino/responsabile-rayon-convenience-carne-coop-grigioni",
@@ -6926,80 +9938,6 @@
       "gsc",
       "all-known-slugs",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "restaurants",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/restaurants",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Restaurants",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "restauration",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/restauration",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Restauration",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -7437,228 +10375,6 @@
     ]
   },
   {
-    "slug": "apprendistato",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/apprendistato",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Apprendistato",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "autisti",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/autisti",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Autisti",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "case-anziani",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/case-anziani",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Case anziani",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "chauffeurs",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/chauffeurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Chauffeurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "developers",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/developers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Developers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "developpeurs",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/developpeurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Developpeurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
     "slug": "diatkochin-diatkoch-kantonsspital-graubunden-chur",
     "locale": "de",
     "path": "/de/jobs-im-tessin/diatkochin-diatkoch-kantonsspital-graubunden-chur",
@@ -7705,598 +10421,6 @@
       "gsc",
       "all-known-slugs",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "educatori",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/educatori",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Educatori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "educators",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/educators",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Educators",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "elderly-care",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/elderly-care",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Elderly care",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "engineers",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/engineers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Engineers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "infirmiers",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/infirmiers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Infirmiers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ingegneri",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/ingegneri",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingegneri",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ingenieurs",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/ingenieurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingenieurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "logistica",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/logistica",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistica",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "logistics",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/logistics",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistics",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "maisons-retraite",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/maisons-retraite",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Maisons retraite",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "nurses",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/nurses",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Nurses",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "operatori-socio-sanitari",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/operatori-socio-sanitari",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Operatori socio sanitari",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "restaurants",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/restaurants",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Restaurants",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "restauration",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/restauration",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Restauration",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ristorazione",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/ristorazione",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ristorazione",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "sviluppatori",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/sviluppatori",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Sviluppatori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -8519,80 +10643,6 @@
     ]
   },
   {
-    "slug": "altenpflege",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/altenpflege",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Altenpflege",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "apprendistato",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/apprendistato",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Apprendistato",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
     "slug": "assistant-bachelor-in-education-mse-master-in-electrical-engineering-supsi-dti-lugano",
     "locale": "en",
     "path": "/en/find-jobs-ticino/assistant-bachelor-in-education-mse-master-in-electrical-engineering-supsi-dti-lugano",
@@ -8639,524 +10689,6 @@
       "gsc",
       "all-known-slugs",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "autisti",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/autisti",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Autisti",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "case-anziani",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/case-anziani",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Case anziani",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "chauffeurs",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/chauffeurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Chauffeurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "developpeurs",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/developpeurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Developpeurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "educatori",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/educatori",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Educatori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "entwickler",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/entwickler",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Entwickler",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "erzieher",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/erzieher",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Erzieher",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "fahrer",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/fahrer",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Fahrer",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "gastronomie",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/gastronomie",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Gastronomie",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "infirmiers",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/infirmiers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Infirmiers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ingegneri",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/ingegneri",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingegneri",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ingenieure",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/ingenieure",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingenieure",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ingenieurs",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/ingenieurs",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingenieurs",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "lehrstellen",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/lehrstellen",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Lehrstellen",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -9254,339 +10786,6 @@
     "source": [
       "gsc",
       "all-known-slugs"
-    ]
-  },
-  {
-    "slug": "logistica",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/logistica",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistica",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "logistik",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/logistik",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistik",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "maisons-retraite",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/maisons-retraite",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Maisons retraite",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "operatori-socio-sanitari",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/operatori-socio-sanitari",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Operatori socio sanitari",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "pflegeassistenten",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/pflegeassistenten",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Pflegeassistenten",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "pflegepersonal",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/pflegepersonal",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Pflegepersonal",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "restauration",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/restauration",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Restauration",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ristorazione",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/ristorazione",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ristorazione",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "sviluppatori",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/sviluppatori",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Sviluppatori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -10110,154 +11309,6 @@
     ]
   },
   {
-    "slug": "altenpflege",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/altenpflege",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Altenpflege",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "apprendistato",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/apprendistato",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Apprendistato",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "autisti",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/autisti",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Autisti",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "case-anziani",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/case-anziani",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Case anziani",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
     "slug": "client-account-manager-stagiaire-ubs-ticino",
     "locale": "fr",
     "path": "/fr/trouver-emploi-tessin/client-account-manager-stagiaire-ubs-ticino",
@@ -10304,265 +11355,6 @@
       "gsc",
       "all-known-slugs",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "developers",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/developers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Developers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "educatori",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/educatori",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Educatori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "educators",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/educators",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Educators",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "elderly-care",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/elderly-care",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Elderly care",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "engineers",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/engineers",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Engineers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "entwickler",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/entwickler",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Entwickler",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "erzieher",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/erzieher",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Erzieher",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -10615,80 +11407,6 @@
     ]
   },
   {
-    "slug": "fahrer",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/fahrer",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Fahrer",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "gastronomie",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/gastronomie",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Gastronomie",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
     "slug": "gestionnaire-d-applications-80-100-stadt-chur-chur",
     "locale": "fr",
     "path": "/fr/trouver-emploi-tessin/gestionnaire-d-applications-80-100-stadt-chur-chur",
@@ -10735,487 +11453,6 @@
       "gsc",
       "all-known-slugs",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "ingegneri",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/ingegneri",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingegneri",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ingenieure",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/ingenieure",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ingenieure",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "lehrstellen",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/lehrstellen",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Lehrstellen",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "logistica",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/logistica",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistica",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "logistics",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/logistics",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistics",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "logistik",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/logistik",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Logistik",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "nurses",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/nurses",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Nurses",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "operatori-socio-sanitari",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/operatori-socio-sanitari",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Operatori socio sanitari",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "pflegeassistenten",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/pflegeassistenten",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Pflegeassistenten",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "pflegepersonal",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/pflegepersonal",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Pflegepersonal",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "restaurants",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/restaurants",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Restaurants",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "ristorazione",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/ristorazione",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Ristorazione",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "sviluppatori",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/sviluppatori",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Sviluppatori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -334337,17 +334574,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "en": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "de": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "fr": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "en": "/en/find-jobs-ticino/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "de": "/de/jobs-im-tessin/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "fr": "/fr/trouver-emploi-tessin/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
+      "it": "/cerca-lavoro-san-gallo/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "en": "/en/find-jobs-st-gallen/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "de": "/de/jobs-in-st-gallen/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "fr": "/fr/trouver-emploi-saint-gall/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -575464,17 +575696,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "en": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "de": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "fr": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "en": "/en/find-jobs-ticino/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "de": "/de/jobs-im-tessin/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "fr": "/fr/trouver-emploi-tessin/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
+      "it": "/cerca-lavoro-san-gallo/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "en": "/en/find-jobs-st-gallen/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "de": "/de/jobs-in-st-gallen/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "fr": "/fr/trouver-emploi-saint-gall/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -795597,17 +795824,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "en": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "de": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "fr": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "en": "/en/find-jobs-ticino/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "de": "/de/jobs-im-tessin/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "fr": "/fr/trouver-emploi-tessin/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
+      "it": "/cerca-lavoro-san-gallo/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "en": "/en/find-jobs-st-gallen/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "de": "/de/jobs-in-st-gallen/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "fr": "/fr/trouver-emploi-saint-gall/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1018261,17 +1018483,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "en": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "de": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "fr": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "en": "/en/find-jobs-ticino/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "de": "/de/jobs-im-tessin/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
-      "fr": "/fr/trouver-emploi-tessin/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
+      "it": "/cerca-lavoro-san-gallo/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "en": "/en/find-jobs-st-gallen/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "de": "/de/jobs-in-st-gallen/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
+      "fr": "/fr/trouver-emploi-saint-gall/infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
