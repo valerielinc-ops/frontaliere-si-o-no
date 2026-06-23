@@ -202,6 +202,19 @@ export const SEO_STATIC_HERO_RESERVE_CSS =
   '.sx-hero{padding:20px 16px;margin:0 0 20px}' +
   '@media(min-width:640px){.sx-hero{padding:24px 22px}}' +
   '.s-sy52lX{margin-bottom:24px}' +
+  // city-hub hero TYPOGRAPHY (jobsSeoPagesPlugin hardcoded classes): H1, kicker
+  // and intro paragraphs are async-only → at first paint the H1 falls to UA
+  // defaults (≈2em / line-height 1.5 / ~0.67em margin) and the kicker/intro lose
+  // their box/width, shifting the stat-grid below. Mirror the resolved metrics
+  // (live-measured on /cerca-lavoro-argovia/bozberg/: H1 font 51.2px=3.2rem,
+  // line-height 1.15, margin-bottom 14px). The LANDING hero (renderLandingHero /
+  // infermieri etc.) styles its H1 INLINE (`<h1 style="font-size:clamp(...)">`)
+  // so it is already first-paint-stable and needs no class reserve here.
+  '.s-P0Hs0W{margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.15}' +
+  '.sx-kick{display:inline-flex;align-items:center;gap:6px;border:1px solid transparent;border-radius:999px;padding:4px 12px;font-weight:600;margin:0 0 8px}' +
+  '.s-zNiFzy{margin:0 0 8px;font-size:13px;font-weight:700}' +
+  '.s-wU5Nrr{margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px}' +
+  '.s-rDKEKn{margin:0;line-height:1.7;max-width:860px}' +
   '@media(max-width:639px){.s-cta{display:flex;width:100%;justify-content:center}}';
 
 export const CRITICAL_CSS =
