@@ -9,7 +9,7 @@
 
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT } from './constants';
-import { asyncCssLink } from './htmlTemplate';
+import { asyncCssLink, EMPTY_ROOT_WITH_HEADER_RESERVE } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
@@ -4622,7 +4622,7 @@ ${hrefTags}
  // the page content under the entire footer chrome (~1500 px). Mirrors the
  // canonical wrapper from `build-plugins/shared/seoPageShell.ts:188-193`.
  const bodySection = hubChromeSplit
- ? `<div id="root"></div>
+ ? `${EMPTY_ROOT_WITH_HEADER_RESERVE}
 ${hubChromeSplit.subnavHtml}
  <main class="seo-static-content">
 ${hubChromeSplit.bodyHtml}
