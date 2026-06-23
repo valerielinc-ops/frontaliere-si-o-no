@@ -102,10 +102,21 @@ export const RAIL_RESERVE_CSS =
  * is the "handoff static→SPA" residual left after #2649 reserved the RAIL grid.
  *
  * Reserving the IDENTICAL geometry here puts the final layout in place at first
- * paint so the async sheet changes nothing → no shift. Values mirror the live
- * resolved computed style (`max-width:1120px`, `padding:32px <inline> 56px`
- * where the inline padding is index.css's `clamp(16px,4vw,32px)`, grid +
- * `gap:12px`). Pure space reservation — no ad, content or markup added/removed
+ * paint so the async sheet changes nothing → no shift. Every value mirrors the
+ * live resolved computed style and its async source, so removing any would
+ * REINTRODUCE a shift:
+ *   - `display:grid` + `grid-template-columns:minmax(0,1fr)` + `gap:12px` +
+ *     `max-width:1120px` + `margin:0 auto` ← `seo-static.css`'s
+ *     `main.seo-static-content{…}` rule (the dominant block→grid reflow).
+ *   - `padding` BLOCK `32px … 56px` ← the `.s-Ziv1Xn` scoped class ALSO on this
+ *     `<main>` (`seo-static.css`: `.s-Ziv1Xn{padding:32px 20px 56px}`); without
+ *     it the async sheet pushes content down ~32px (top) at swap — the
+ *     secondary shift seen at ~2.7s in the live trace.
+ *   - padding INLINE `clamp(16px,4vw,32px)` ← `index.css`'s
+ *     `main.seo-static-content{padding-inline:clamp(…)}` (overrides `.s-Ziv1Xn`'s
+ *     20px at higher specificity), so the text-wrap width is identical at first
+ *     paint and no horizontal re-wrap grows the column.
+ * Pure space reservation — no ad, content or markup added/removed
  * (AGENTS.md §7); the in-flow `<ins>` ad slots are grid children in BOTH the
  * before and after state, so monetization is untouched. The `:not(...)` rail
  * rule in {@link RAIL_RESERVE_CSS} excludes this selector, so they never fight.
