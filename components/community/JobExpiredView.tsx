@@ -177,7 +177,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const localizedTitle = job.titleByLocale?.[locale] ?? job.title;
  const description = job.descriptionByLocale?.[locale] ?? '';
- const descriptionPlain = description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+ const descriptionPlain = description
+ .replace(/<br\s*\/?>/gi, '\n')
+ .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
+ .replace(/<[^>]+>/g, ' ')
+ .replace(/[^\S\n]+/g, ' ')
+ .replace(/\n[ \t]*/g, '\n')
+ .replace(/\n{3,}/g, '\n\n')
+ .trim();
  const descriptionPreview = descriptionPlain.slice(0, 220);
 
  const expiredDate = job.expiredAt
@@ -723,7 +730,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  maxHeight 0↔80px and shifting the gate below on every scroll direction change. */}
  {descriptionPreview && (
  <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden max-h-[clamp(0px,calc(100svh_-_540px),80px)]">
- <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
+ <p className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
  {descriptionPreview}...
  </p>
  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
