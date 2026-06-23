@@ -3725,6 +3725,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensioni-svizzera-2025': {
+    title: 'Pensionati svizzeri all\'estero: come gestire la doppia residenza',
+    description: 'Scopri come gestire la doppia residenza come pensionato svizzero all\'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionati, svizzeri, estero, gestire',
+    ogTitle: 'Pensionati svizzeri all\'estero: guida alla doppia residenza',
+    ogDescription: 'Scopri come gestire la doppia residenza come pensionato svizzero all\'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.',
+    canonicalPath: '/articoli-svizzera/pensioni-svizzera-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionati svizzeri all'estero: come gestire la doppia residenza",
+      "description": "Scopri come gestire la doppia residenza come pensionato svizzero all'estero. Informazioni su implicazioni fiscali, rendita AVS e assicurazione malattia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensioni-svizzera-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pensionato svizzero che si gode una giornata di sole sul lago di Lugano"
+      },
+      "datePublished": "2026-06-23T00:33:12+00:00",
+      "dateModified": "2026-06-23T00:33:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensioni-svizzera-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
