@@ -1,18 +1,81 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-06-22T23:55:02.343Z",
-  "total": 19,
-  "newCount": 0,
+  "generatedAt": "2026-06-23T12:50:35.073Z",
+  "total": 21,
+  "newCount": 2,
   "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 28349,
-  "avgDurationMs": 28349,
+  "durationMs": 39310,
+  "avgDurationMs": 39310,
   "durationHistory": [
-    28349
+    39310
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-collaboratore-trice-trasferimento-tecnologico-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-collaboratore-trice-trasferimento-tecnologico-2026.pdf",
+      "title": "Collaboratore/trice Trasferimento Tecnologico",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "collaboratore-trice-trasferimento-tecnologico-usi",
+      "department": "USI Transfer",
+      "category": "staff",
+      "datePosted": "2026-06-23",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-3262a072467e",
+      "sourceLang": "it",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-sistemista-linux-junior.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-sistemista-linux-junior.pdf",
+      "title": "Sistemista Linux junior",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "sistemista-linux-junior-usi",
+      "department": "Servizio informatico",
+      "category": "staff",
+      "datePosted": "2026-06-23",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-0de774f92a84",
+      "sourceLang": "it",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
