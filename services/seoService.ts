@@ -4119,6 +4119,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos': { name: 'Avs, Angelo Bonelli, diretta, Adnkronos', path: '/articoli-frontaliere/avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos', parent: 'blog' },
     'blog-dati-frontalieri-errore-sistemico': { name: 'Dati frontalieri', path: '/articoli-svizzera/dati-frontalieri-errore-sistemico/', parent: 'blog' },
     'blog-scoiattolo-export-usa-made-italy': { name: 'Scoiattolo New York', path: '/articoli-frontaliere/scoiattolo-export-usa-made-italy', parent: 'blog' },
+    'blog-ethos-stipendi-ceo-sostenibilita': { name: 'Ethos critica stipendi', path: '/articoli-svizzera/ethos-stipendi-ceo-sostenibilita/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

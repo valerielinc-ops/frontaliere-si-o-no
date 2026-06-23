@@ -4076,6 +4076,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ethos-stipendi-ceo-sostenibilita': {
+    title: 'Ethos critica stipendi CEO e rapporti sostenibilità inadeguati',
+    description: 'La fondazione Ethos critica gli stipendi elevati dei CEO e i rapporti sulla sostenibilità delle aziende svizzere quotate in borsa. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ethos, critica, stipendi, rapporti',
+    ogTitle: 'Ethos critica stipendi CEO e rapporti sostenibilità inadeguati',
+    ogDescription: 'La fondazione Ethos critica gli stipendi elevati dei CEO e i rapporti sulla sostenibilità delle aziende svizzere quotate in borsa.',
+    canonicalPath: '/articoli-svizzera/ethos-stipendi-ceo-sostenibilita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ethos critica stipendi CEO e rapporti sostenibilità inadeguati",
+      "description": "La fondazione Ethos critica gli stipendi elevati dei CEO e i rapporti sulla sostenibilità delle aziende svizzere quotate in borsa. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ethos-stipendi-ceo-sostenibilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con edifici moderni e il lago in background"
+      },
+      "datePublished": "2026-06-23T12:39:10+00:00",
+      "dateModified": "2026-06-23T12:39:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ethos-stipendi-ceo-sostenibilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

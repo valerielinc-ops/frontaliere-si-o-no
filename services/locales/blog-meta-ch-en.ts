@@ -320,6 +320,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dati-frontalieri-errore-sistemico.title': 'Frontier data: no systemic error, says DFE',
     'blog.article.dati-frontalieri-errore-sistemico.excerpt': 'The director of the Division of Contributions of the DFE specifies that the problems reported on the data of border workers concern only isolated cases.',
     'blog.article.dati-frontalieri-errore-sistemico.imageAlt': 'Aerial view of Lugano Lake with cross-border workers crossing the border',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.title': 'Ethos criticizes inadequate CEO salaries and sustainability reports',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.excerpt': 'The Ethos foundation criticises the high salaries of CEOs and sustainability reports of Swiss listed companies.',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.imageAlt': 'Aerial view of Lugano with modern buildings and lake in the background',
 };
 
 export default blogMetaChEn;

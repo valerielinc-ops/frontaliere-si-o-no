@@ -320,6 +320,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dati-frontalieri-errore-sistemico.title': 'Grenzdaten: kein Systemfehler, sagt EVD',
     'blog.article.dati-frontalieri-errore-sistemico.excerpt': 'Der Direktor der Abteilung Beiträge des EVD weist darauf hin, dass die gemeldeten Probleme mit den Daten der Grenzgänger nur Einzelfälle betreffen.',
     'blog.article.dati-frontalieri-errore-sistemico.imageAlt': 'Luftaufnahme des Luganer Sees mit Grenzpendlern, die die Grenze überqueren',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.title': 'Ethos kritisiert CEO-Gehälter und unzureichende Nachhaltigkeitsberichte',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.excerpt': 'Die Stiftung Ethos kritisiert die hohen CEO-Gehälter und Nachhaltigkeitsberichte von börsennotierten Schweizer Unternehmen.',
+    'blog.article.ethos-stipendi-ceo-sostenibilita.imageAlt': 'Luftaufnahme von Lugano mit modernen Gebäuden und See im Hintergrund',
 };
 
 export default blogMetaChDe;
