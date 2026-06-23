@@ -339,6 +339,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.contributi-sociali-frontalieri-busta-paga.title': 'Sozialbeiträge CH für Grenzgänger: Lohnabrechnung',
     'blog.article.contributi-sociali-frontalieri-busta-paga.excerpt': 'Erfahren Sie, wie die Sozialbeiträge in Lohnabrechnungen für Grenzgänger, die in der Schweiz arbeiten, aufgeteilt sind.',
     'blog.article.contributi-sociali-frontalieri-busta-paga.imageAlt': 'Detail eines Schweizer Gehaltsstreifens mit hervorgehobenen Sozialbeiträgen vor der Kulisse von Lugano',
+    'blog.article.costo-vita-lugano-frontaliere.title': 'Was es kostet, als Grenzgänger in Lugano zu leben: eine detaillierte Analyse',
+    'blog.article.costo-vita-lugano-frontaliere.excerpt': 'Entdecken Sie die tatsächlichen Kosten für das Leben als Grenzgänger in Lugano: Mieten, Transport, Versicherungen und Lebensmittelausgaben.',
+    'blog.article.costo-vita-lugano-frontaliere.imageAlt': 'Panoramablick auf Lugano mit See und Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;
