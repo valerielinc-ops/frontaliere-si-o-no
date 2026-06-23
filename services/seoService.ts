@@ -4116,6 +4116,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-banca-svizzera-segreto': { name: 'Banche Svizzere', path: '/articoli-svizzera/banca-svizzera-segreto/', parent: 'blog' },
     'blog-trasporti-chiasso-lugano-2026': { name: 'Trasporti Chiasso-Lugano', path: '/articoli-svizzera/trasporti-chiasso-lugano-2026/', parent: 'blog' },
     'blog-bilancia-pagamenti-calo-svizzera': { name: 'Economia', path: '/articoli-svizzera/bilancia-pagamenti-calo-svizzera/', parent: 'blog' },
+    'blog-avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos': { name: 'Avs, Angelo Bonelli, diretta, Adnkronos', path: '/articoli-frontaliere/avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos', parent: 'blog' },
  };
 
  const info = sectionNames[section];

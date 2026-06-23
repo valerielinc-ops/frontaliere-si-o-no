@@ -8140,6 +8140,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.title': 'Second Locarno track: an important stage of the works has been reached',
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.excerpt': 'Work on the second track in the Locarno region has reached an important stage, fundamental for the development of railway infrastructure.',
     'blog.article.secondo-binario-locarnese-raggiunta-tappa.imageAlt': 'Aerial view of Locarno train station with construction works on a second railway track',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.title': 'Avs, tomorrow at 11 Angelo Bonelli live at Adnkronos',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.excerpt': 'The spokesman of the Greens and deputy of Avs Angelo Bonelli will be live tomorrow at Adnkronos',
+    'blog.article.avs-domani-alle-11-angelo-bonelli-in-diretta-alladnkronos.imageAlt': 'Angelo Bonelli in direct at Adnkronos',
 };
 
 export default blogMetaEn;
