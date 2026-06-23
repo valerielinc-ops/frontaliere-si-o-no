@@ -230,6 +230,17 @@ export function createWorkdaySwissParser(config) {
         continue;
       }
       const cleaned = cleanWorkdayLocation(rawLocation);
+      // In strict mode an empty `cleaned` means the listing exposed no usable
+      // single Swiss location — a multi-site "N Locations" rollup or an
+      // unparseable string. Defaulting it to the HQ city (below) would let
+      // `inferSwissTargetCanton` resolve the HQ canton and silently pass the
+      // confidence gate, mislabelling a possibly mixed-/non-CH posting as the
+      // HQ canton. The rollup string carries no per-site detail to recover the
+      // CH location from, so drop the posting instead of guessing HQ.
+      if (strictSwiss && !cleaned) {
+        console.log(`  ⏭️  Skipped unresolved multi-site/empty location: ${rawLocation} — ${title}`);
+        continue;
+      }
       const location = cleaned || defaultCity;
       const inferredCanton = inferSwissTargetCanton(location);
       // When the Swiss facet was applied the board is already CH-only, so a
