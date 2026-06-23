@@ -971,6 +971,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'parlamento-svizzero-accordi-avs',
+    category: 'novita',
+    date: '2026-06-23T13:53:29.918Z',
+    image: '/images/blog/parlamento-svizzero-accordi-avs.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

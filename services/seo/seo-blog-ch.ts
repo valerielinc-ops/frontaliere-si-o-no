@@ -4115,6 +4115,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parlamento-svizzero-accordi-avs': {
+    title: 'Il Parlamento svizzero fatica a trovare l’intesa su questioni importanti',
+    description: 'Il Parlamento svizzero ha concluso la sessione estiva con pochi progressi su temi cruciali come il finanziamento delle pensioni AVS e gli accordi con l\'UE.',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, svizzero, fatica, trovare',
+    ogTitle: 'Parlamento svizzero in stallo su AVS e accordi UE',
+    ogDescription: 'Il Parlamento svizzero ha concluso la sessione estiva con pochi progressi su temi cruciali come il finanziamento delle pensioni AVS e gli accordi con l\'UE.',
+    canonicalPath: '/articoli-svizzera/parlamento-svizzero-accordi-avs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Parlamento svizzero fatica a trovare l’intesa su questioni importanti",
+      "description": "Il Parlamento svizzero ha concluso la sessione estiva con pochi progressi su temi cruciali come il finanziamento delle pensioni AVS e gli accordi con l'UE.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parlamento-svizzero-accordi-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio del Parlamento svizzero a Berna con cielo blu e bandiera svizzera."
+      },
+      "datePublished": "2026-06-23T13:53:29+00:00",
+      "dateModified": "2026-06-23T13:53:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parlamento-svizzero-accordi-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

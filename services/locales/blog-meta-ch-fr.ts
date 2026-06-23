@@ -323,6 +323,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ethos-stipendi-ceo-sostenibilita.title': 'Ethos critique les salaires des PDG et les relations de durabilité inadéquates',
     'blog.article.ethos-stipendi-ceo-sostenibilita.excerpt': 'La fondation Ethos critique les salaires élevés des PDG et les rapports sur la durabilité des entreprises suisses cotées en bourse.',
     'blog.article.ethos-stipendi-ceo-sostenibilita.imageAlt': 'Vue aérienne de Lugano avec des bâtiments modernes et le lac en arrière-plan',
+    'blog.article.parlamento-svizzero-accordi-avs.title': 'Le Parlement suisse peine à trouver un accord sur des questions importantes',
+    'blog.article.parlamento-svizzero-accordi-avs.excerpt': 'Le Parlement suisse a conclu la session d\'été avec peu de progrès sur des questions cruciales telles que le financement des retraites AVS et les accords avec l\'UE.',
+    'blog.article.parlamento-svizzero-accordi-avs.imageAlt': 'Bâtiment du Parlement suisse à Berne avec ciel bleu et drapeau suisse.',
 };
 
 export default blogMetaChFr;
