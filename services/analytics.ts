@@ -96,6 +96,7 @@
 
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { captureEvent as posthogCapture, capturePageView as posthogPageView } from './posthog';
+import { isBenignErrorMessage } from './benignErrorPatterns';
 
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
@@ -1022,20 +1023,17 @@ export const Analytics = {
  // Skip resource load errors (handled separately by chunk-load recovery)
  if (event.target && (event.target as any).tagName) return;
  const msg = event.message || '';
- // Skip third-party tracker/extension errors — not our code
- if (msg.includes('TrackerStorageType') || msg.includes('__gCrWeb')) return;
- // iOS Safari IndexedDB errors can also surface as plain errors (not just rejections)
+ // iOS Safari IndexedDB errors can also surface as plain errors (not just
+ // rejections) — special-cased BEFORE the benign drop because they trigger an
+ // Analytics re-init, not a silent drop.
  if (msg.includes('Indexed Database') || msg.includes('IDBDatabase') || msg.includes('IndexedDB')) {
  recoverFromIndexedDbLoss();
  return;
  }
- // Drop cross-origin "Script error" — opaque by design (browser CORS blocks
- // the stack and message). Tracking them costs ~50% of total GA4 errors with
- // zero diagnostic value (May 2026 audit: 1,783/3,543).
- if (!msg || msg === 'Script error.' || msg === 'Script error') return;
- // Drop ResizeObserver loop notifications — browser-internal layout signal,
- // not a bug. (22+/3,543 in May 2026 audit.)
- if (/ResizeObserver loop/i.test(msg)) return;
+ // Drop empty + all confirmed-benign environmental noise (cross-origin
+ // "Script error", ResizeObserver loops, browser-extension globals, etc.)
+ // via the shared deny-list in services/benignErrorPatterns.ts.
+ if (!msg || isBenignErrorMessage(msg)) return;
  Analytics.trackAppError('unhandled_error', {
  message: msg || 'Unknown error',
  stack: event.error?.stack || `at ${event.filename}:${event.lineno}:${event.colno}`,
@@ -1061,14 +1059,14 @@ export const Analytics = {
  recoverFromIndexedDbLoss();
  return;
  }
- // Suppress third-party tracker errors
- if (message.includes('TrackerStorageType')) return;
- // Benign noise — same deny-list rationale as services/errorReporter.ts.
- // Module-script preload failures, ResizeObserver loop, and "Script error"
- // shapes account for the bulk of unactionable rejections.
- if (/Importing a module script failed/i.test(message)) return;
- if (/ResizeObserver loop/i.test(message)) return;
- if (/^(Error: )?Script error\.?$/i.test(message)) return;
+ // Drop all confirmed-benign environmental noise via the shared deny-list in
+ // services/benignErrorPatterns.ts (same source the reporter uses). Covers
+ // module-script preload failures, ResizeObserver loops, "Script error",
+ // bare transport failures (Failed to fetch / Load failed / NetworkError),
+ // user-cancelled AbortError, and browser-extension globals (wallet/Firefox
+ // reader). This is the bucket that was leaking thousands of events/3d before
+ // the global handlers shared the reporter's list (2026-06-22 triage).
+ if (isBenignErrorMessage(message)) return;
  const stack = reason instanceof Error ? reason.stack || '' : '';
  Analytics.trackAppError('unhandled_rejection', {
  message,

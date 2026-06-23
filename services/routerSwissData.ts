@@ -118,6 +118,12 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'emigrare-svizzera-aspetti-fiscali': { it: 'emigrare-svizzera-aspetti-fiscali', en: 'emigrating-switzerland-tax-aspects', de: 'auswandern-schweiz-steueraspekte', fr: 'emigrer-suisse-aspects-fiscaux' },
  'brexit-impatti-svizzera-ue': { it: 'brexit-impatti-svizzera-ue', en: 'brexit-impacts-switzerland-eu', de: 'brexit-auswirkungen-schweiz-eu', fr: 'brexit-impacts-suisse-ue' },
  'sicurezza-paziente-2026-svizzera': { it: 'sicurezza-paziente-2026-svizzera', en: 'patient-safety-2026-switzerland', de: 'patientensicherheit-2026-schweiz', fr: 'securite-patient-2026-suisse' },
+ 'olimpiadi-2038-svizzera-non-referendum': { it: 'olimpiadi-2038-svizzera-non-referendum', en: 'olympics-2038-swiss-no-referendum', de: 'olympia-2038-schweiz-kein-referendum', fr: 'olympiades-2038-suisse-sans-referendum' },
+ 'pensioni-svizzera-2025': { it: 'pensioni-svizzera-2025', en: 'swiss-pensioners-abroad', de: 'schweizer-rentner-im-ausland', fr: 'retraites-suisses-a-l-etranger' },
+ 'stipendi-frontalieri-centro-commerciale': { it: 'stipendi-frontalieri-centro-commerciale', en: 'frontalier-salaries-shopping-center', de: 'grenzgaenger-gehaelter-einkaufszentrum', fr: 'salaires-frontaliers-centre-commercial' },
+ 'economisti-adeguano-stime-crescita-2026': { it: 'economisti-adeguano-stime-crescita-2026', en: 'economists-adjust-growth-projections-2026', de: 'wirtschaftexperten-anpassen-wachstumsprognosen-2026', fr: 'economistes-ajustent-projections-croissance-2026' },
+ 'frontalieri-checklist-2026': { it: 'frontalieri-checklist-2026', en: 'frontier-worker-checklist-first-day-work', de: 'frontalier-checkliste-erster-arbeitstag', fr: 'checklist-frontalier-premier-jour-travail' },
+ 'frontaliere-scelta-comune-residenza-italia-svizzera-2026-single': { it: 'frontaliere-scelta-comune-residenza-italia-svizzera-2026-single', en: 'swiss-residency-options-italy-2026-single', de: 'schweizer-residenzoptionen-italien-2026-einziger', fr: 'options-de-residence-suisse-italie-2026-seul' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
