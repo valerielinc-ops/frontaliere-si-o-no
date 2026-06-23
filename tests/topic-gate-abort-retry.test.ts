@@ -38,7 +38,10 @@ describe('topic-gate-abort recovery in headline retry loops', () => {
     expect(provenBlock, 'proven-pool quality-reject block not found').toBeTruthy();
     expect(provenBlock![0]).toMatch(/e\.topicGateAbort\s*===\s*true/);
     expect(provenBlock![0]).toMatch(/\/topic-gate abort\/i/);
-    expect(provenBlock![0]).toMatch(/isQualityReject\s*=\s*isTopicGateAbort/);
+    // The quality decision is now delegated to the shared isQualityRejectError
+    // helper so the proven-pool catch, evergreen catch, and main().catch can
+    // never drift apart (CLAUDE.md non-negotiable #6).
+    expect(provenBlock![0]).toMatch(/isQualityReject\s*=\s*isQualityRejectError\(e\)/);
   });
 
   it('recognises err.topicGateAbort and the message pattern at the evergreen catch site', () => {
@@ -66,5 +69,63 @@ describe('topic-gate-abort recovery in headline retry loops', () => {
     );
     expect(provenBlock).toBeTruthy();
     expect(provenBlock!.length).toBeGreaterThanOrEqual(2); // both call sites
+  });
+});
+
+/**
+ * Regression test for the headline-validation hard-fail incident
+ * (run 28000585473 → spurious Bug issue #2750, 2026-06-23).
+ *
+ * A free-tier model kept emitting an over-length IT title (>110 char); after
+ * the headline retry budget was spent, create-article.mjs threw
+ * `Headline validation failed after retry`. That message did NOT match the
+ * quality-reject regex, so it propagated as an infrastructure error: the run
+ * exited 1, the workflow went red, and the `if: failure()` step opened a
+ * false-positive "Workflow Failure" Bug issue — even though "no conformant
+ * headline this run" is the SAME benign disposition as a fact-check reject.
+ *
+ * Fix: the throw is tagged `err.qualityReject = true`, and a single shared
+ * `isQualityRejectError(e)` helper recognises every content-rejection shape
+ * (topic-gate abort, fact-check, fabrication, non-conformant headline). The
+ * retry loops rotate; if exhausted, main().catch defers cleanly (exit 0). Per
+ * CLAUDE.md non-negotiable #1 the headline gate itself is untouched — slop is
+ * still refused, only the disposition changes from failure to deferral.
+ */
+describe('headline-validation reject defers instead of hard-failing', () => {
+  it('the headline-validation throw site tags the error as a quality reject', () => {
+    const block = SRC.match(
+      /Headline validation failed after retry[\s\S]*?throw headlineErr;/,
+    );
+    expect(block, 'headline-validation throw block not found').toBeTruthy();
+    expect(block![0]).toMatch(/\.qualityReject\s*=\s*true/);
+  });
+
+  it('a single isQualityRejectError helper recognises every content-rejection shape', () => {
+    const helper = SRC.match(
+      /function isQualityRejectError\(e\)\s*\{[\s\S]*?\n\}/,
+    );
+    expect(helper, 'isQualityRejectError helper not found').toBeTruthy();
+    const body = helper![0];
+    // Flag shapes (fast path).
+    expect(body).toMatch(/e\.qualityReject\s*===\s*true/);
+    expect(body).toMatch(/e\.topicGateAbort\s*===\s*true/);
+    // Message-pattern fallback covers fact-check, fabrication, topic-gate, and
+    // the headline-validation failure that triggered #2750.
+    expect(body).toMatch(/fact-check/);
+    expect(body).toMatch(/fabricat/);
+    expect(body).toMatch(/topic-gate abort/);
+    expect(body).toMatch(/headline validation failed/);
+  });
+
+  it('main().catch defers (exit 0) on a quality reject, not exit 1', () => {
+    // The top-level catch must treat a bubbled-up quality reject the same as an
+    // exhausted free-model pool: finalize as deferred and exit 0 so the
+    // self-trigger back-off retries — never raise a spurious failure issue.
+    const tail = SRC.slice(SRC.indexOf('main().catch'));
+    expect(tail).toMatch(/if\s*\(isQualityRejectError\(e\)\)\s*\{/);
+    const guard = tail.match(/if\s*\(isQualityRejectError\(e\)\)\s*\{[\s\S]*?process\.exit\(0\);/);
+    expect(guard, 'quality-reject guard in main().catch not found').toBeTruthy();
+    expect(guard![0]).toMatch(/finalizeRunReport\('deferred'/);
+    expect(guard![0]).toMatch(/process\.exit\(0\)/);
   });
 });
