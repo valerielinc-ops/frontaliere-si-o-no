@@ -1094,6 +1094,7 @@ ${headTags}
  <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark');window.__ARTICLE_TITLE__=${inlineScriptJson(localizedTitle)}</script>
  <style>${criticalCSS}</style>
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">
  <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">
  <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>

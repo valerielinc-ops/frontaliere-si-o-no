@@ -201,7 +201,12 @@
         font-family: 'Space Grotesk';
         font-style: normal;
         font-weight: 300 700;
-        font-display: swap;
+        /* optional (issue #2659): the font is <link rel=preload>-ed, so on most
+           cold-loads it is ready within the ~100ms optional window and headings
+           paint in Space Grotesk with NO swap; on a slow load the fallback is
+           kept for the page lifetime — either way the heading swap reflow that
+           dominated article cold-load CLS (~0.32 live) is eliminated. */
+        font-display: optional;
         src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
         size-adjust: 100%;
         ascent-override: 90%;

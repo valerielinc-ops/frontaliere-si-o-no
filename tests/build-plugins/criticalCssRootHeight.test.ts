@@ -120,6 +120,26 @@ describe('critical CSS single source of truth (#1586)', () => {
     }
   });
 
+  it('declares the Space Grotesk heading @font-face at first paint (#2659)', () => {
+    // Article/OG cold-loads showed a dominant ~0.32 heading font-swap shift
+    // because critical CSS carried ONLY the Inter @font-face — headings painted
+    // in the system-ui fallback, then the async sheet's Space Grotesk @font-face
+    // landed late and reflowed the column. The shared block must declare the SG
+    // @font-face (with font-display:optional → no swap reflow) AND map headings
+    // to it so the final heading box is in place at first paint.
+    expect(CRITICAL_CSS, 'critical CSS missing Space Grotesk @font-face').toContain(
+      '@font-face{font-family:"Space Grotesk"',
+    );
+    expect(
+      CRITICAL_CSS,
+      'Space Grotesk must use font-display:optional to avoid heading swap reflow',
+    ).toContain('font-display:optional');
+    expect(
+      CRITICAL_CSS,
+      'headings must map to Space Grotesk at first paint',
+    ).toContain('h1,h2,h3{font-family:"Space Grotesk"');
+  });
+
   it('uses a token-with-fallback heading color (stable first paint)', () => {
     // var(--color-heading,#0f172a): token once async CSS lands, exact old
     // ogPages first-paint colour (#0f172a == resolved --color-heading) before.
