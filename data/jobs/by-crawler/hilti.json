@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hilti",
-  "assembledAt": "2026-06-22T22:48:45.554Z",
+  "assembledAt": "2026-06-23T11:38:29.017Z",
   "jobs": [
     {
       "id": "hilti-14822-en",
@@ -33,7 +33,7 @@
       "url": "https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-22T22:48:43.345Z",
+      "crawledAt": "2026-06-23T11:38:26.594Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "St. Gallen",
@@ -59,6 +59,77 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.629Z",
+      "needsRetranslation": true,
+      "salaryMin": 54000,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hilti-11963-en",
+      "slug": "tirocinante-cybersecurity-m-f-x-hilti-buchs",
+      "slugByLocale": {
+        "it": "tirocinante-cybersecurity-m-f-x-hilti-buchs",
+        "en": "intern-cybersecurity-m-f-x-hilti-ch",
+        "de": "praktikant-cybersecurity-m-w-d-hilti-buchs",
+        "fr": "stagiaire-cybersecurite-h-f-x-hilti-buchs"
+      },
+      "company": "Hilti",
+      "companyKey": "hilti",
+      "companyDomain": "hilti.group",
+      "title": "Intern - Cybersecurity (m/f/x)",
+      "titleByLocale": {
+        "it": "Tirocinante - Cybersecurity (m/f/x)",
+        "en": "Intern - Cybersecurity (m/f/x)",
+        "de": "Praktikant - Cybersecurity (m/w/d)",
+        "fr": "Stagiaire - Cybersécurité (h/f/x)"
+      },
+      "description": "Secure by Design. Reliable by Default. You want to kickstart your career in cybersecurity? This internship will provide you with exciting insights into the cybersecurity landscape of a global company. We tailor the internship to your interest in cybersecurity governance, cybersecurity architecture, or cyber defense, with the overall goal of integrating cybersecurity as a business enabler. The start date for the internship is flexible to the student's availability, duration for at least 6 months is preferred. What You’ll Bring\n• Enrollment for the whole internship period in a Master’s program in Cybersecurity, Computer Science, Business Information Systems, Engineering, Natural Sciences, Economics, or related fields\n• IT affinity and aiming for hands-on experience in cybersecurity\n• First practical experience in IT\n• Effective communication skills, with excellent English and interpersonal skills to manage change\n• Strategic approach and good problem-solving skills, with a thirst to learn and challenge yourself Legal Notice Hilti is an equal opportunity employer Commitment to Inclusion At Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together. Why Hilti Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.",
+      "descriptionByLocale": {
+        "it": "Sicuro per progettazione. Affidabile per impostazione predefinita. Vuoi iniziare la tua carriera nella sicurezza informatica? Questo tirocinio ti fornirà informazioni interessanti sul panorama della sicurezza informatica di un'azienda globale. Adattiamo il tirocinio al tuo interesse per la governance della sicurezza informatica, l'architettura della sicurezza informatica o la difesa informatica, con l'obiettivo generale di integrare la sicurezza informatica come fattore abilitante per il business. La data di inizio del tirocinio è flessibile in base alla disponibilità dello studente, è preferibile una durata di almeno 6 mesi. Cosa porterai\n• Iscrizione per l'intero periodo di tirocinio a un Master in Cybersecurity, Informatica, Sistemi Informativi Aziendali, Ingegneria, Scienze Naturali, Economia o campi correlati\n• Affinità IT e obiettivo di esperienza pratica nella sicurezza informatica\n• Prima esperienza pratica nell'IT\n• Competenze comunicative efficaci, con eccellenti capacità di inglese e interpersonali per gestire il cambiamento\n• Approccio strategico e buone capacità di risoluzione dei problemi, con la sete di imparare e sfidare te stesso Nota legale Hilti è un datore di lavoro per le pari opportunità Impegno per l'inclusione In Hilti, l'inclusione è un obiettivo chiave nel modo in cui lavoriamo, guidiamo e cresciamo insieme. Ci impegniamo ad abbracciare la diversità di pensiero e a creare un ambiente inclusivo per tutti, ovunque. Ci impegniamo costantemente per garantire che ogni voce sia apprezzata e che ogni membro del team si senta autorizzato a contribuire. Basandoci su queste fondamenta, rafforziamo i nostri team, la nostra innovazione,",
+        "en": "Secure by Design. Reliable by Default. You want to kickstart your career in cybersecurity? This internship will provide you with exciting insights into the cybersecurity landscape of a global company. We tailor the internship to your interest in cybersecurity governance, cybersecurity architecture, or cyber defense, with the overall goal of integrating cybersecurity as a business enabler. The start date for the internship is flexible to the student's availability, duration for at least 6 months is preferred. What You’ll Bring\n• Enrollment for the whole internship period in a Master’s program in Cybersecurity, Computer Science, Business Information Systems, Engineering, Natural Sciences, Economics, or related fields\n• IT affinity and aiming for hands-on experience in cybersecurity\n• First practical experience in IT\n• Effective communication skills, with excellent English and interpersonal skills to manage change\n• Strategic approach and good problem-solving skills, with a thirst to learn and challenge yourself Legal Notice Hilti is an equal opportunity employer Commitment to Inclusion At Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together. Why Hilti Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.",
+        "de": "Sicher durch Design. Zuverlässig durch Standard. Sie möchten Ihre Karriere im Bereich Cybersicherheit ankurbeln? Dieses Praktikum bietet Ihnen spannende Einblicke in die Cybersicherheitslandschaft eines globalen Unternehmens. Wir passen das Praktikum an Ihr Interesse an Cybersecurity Governance, Cybersecurity-Architektur oder Cyber Defense an, mit dem übergeordneten Ziel, Cybersecurity als Business Enabler zu integrieren. Der Starttermin für das Praktikum ist flexibel an die Verfügbarkeit der Studierenden anpassbar, eine Dauer von mindestens 6 Monaten wird bevorzugt. Was Sie mitbringen\n• Einschreibung für die gesamte Praktikumszeit in einem Masterstudiengang in Cybersecurity, Informatik, Wirtschaftsinformatik, Ingenieurwesen, Naturwissenschaften, Wirtschaft oder verwandten Bereichen\n• IT-Affinität und mit dem Ziel, praktische Erfahrungen in Cybersecurity zu sammeln\n• Erste praktische Erfahrung in der IT\n• Effektive Kommunikationsfähigkeiten mit hervorragenden Englisch- und zwischenmenschlichen Fähigkeiten, um Veränderungen zu bewältigen\n• Strategischer Ansatz und gute Fähigkeiten zur Problemlösung, mit dem Durst, sich selbst zu erlernen und herauszufordern Rechtlicher Hinweis Hilti ist ein Arbeitgeber für Chancengleichheit Engagement für Inklusion Bei Hilti ist Inklusion ein zentraler Schwerpunkt, wenn es darum geht, wie wir zusammenarbeiten, führen und wachsen. Wir setzen uns dafür ein, die Vielfalt des Denkens zu fördern und ein Umfeld zu schaffen, das alle und überall einbezieht. Wir sind ständig bestrebt, sicherzustellen, dass jede Stimme geschätzt wird und jedes Teammitglied sich befähigt fühlt, einen Beitrag zu leisten. Indem wir auf dieser Grundlage aufbauen, stärken wir unsere Teams, unsere Innovationen,",
+        "fr": "Sécurisé par conception. Fiable par défaut. Vous souhaitez démarrer votre carrière dans la cybersécurité ? Ce stage vous fournira des informations passionnantes sur le paysage de la cybersécurité d'une entreprise mondiale. Nous adaptons le stage à votre intérêt pour la gouvernance de la cybersécurité, l'architecture de la cybersécurité ou la cyberdéfense, dans le but général d'intégrer la cybersécurité en tant que catalyseur commercial. La date de début du stage est flexible en fonction des disponibilités de l'étudiant, une durée d'au moins 6 mois est préférée. Ce que vous apporterez\n• Inscription pour toute la période de stage à un programme de maîtrise en cybersécurité, en informatique, en systèmes d'information d'entreprise, en ingénierie, en sciences naturelles, en économie ou dans des domaines connexes\n• Affinité informatique et recherche d'une expérience pratique en cybersécurité\n• Première expérience pratique en informatique\n• Compétences en communication efficaces, avec d'excellentes compétences en anglais et en relations interpersonnelles pour gérer le changement\n• Approche stratégique et bonnes compétences en résolution de problèmes, avec une soif d'apprendre et de vous mettre au défi Avis juridique Hilti est un employeur offrant l'égalité des chances Engagement envers l'inclusion Chez Hilti, l'inclusion est un élément clé de notre façon de travailler, de diriger et de grandir ensemble. Nous nous engageons à embrasser la diversité de pensée et à créer un environnement inclusif pour tous, partout. Nous nous efforçons continuellement de nous assurer que chaque voix est valorisée et que chaque membre de l'équipe se sent habilité à contribuer. En nous appuyant sur ce socle, nous renforçons nos équipes, notre innovation,"
+      },
+      "location": "Buchs, St. Gallen, Switzerland",
+      "canton": "SG",
+      "url": "https://careers.hilti.group/en/jobs/11963-en/intern-cybersecurity-m-f-x/",
+      "source": "Hilti Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-23T11:38:26.593Z",
+      "addressLocality": "Buchs",
+      "postalCode": "9470",
+      "addressRegion": "St. Gallen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Construction tools & fastening technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-13",
+      "applyUrl": "https://careers.hilti.group/en/jobs/11963-en/intern-cybersecurity-m-f-x/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "intern-cybersecurity-m-f-x-hilti-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-cybersecurity-m-f-x-hilti-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:38.627Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
       "baseSalary": {
@@ -103,7 +174,7 @@
       "url": "https://careers.hilti.group/en/jobs/14902-de/career-starter-marketing-sales-region-basel-100-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:48:43.343Z",
+      "crawledAt": "2026-06-23T11:38:26.593Z",
       "addressLocality": "Münchenstein",
       "postalCode": "",
       "addressRegion": "Basel",
@@ -153,6 +224,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.628Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -162,76 +234,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hilti-11963-en",
-      "slug": "tirocinante-cybersecurity-m-f-x-hilti-buchs",
-      "slugByLocale": {
-        "it": "tirocinante-cybersecurity-m-f-x-hilti-buchs",
-        "en": "intern-cybersecurity-m-f-x-hilti-ch",
-        "de": "praktikant-cybersecurity-m-w-d-hilti-buchs",
-        "fr": "stagiaire-cybersecurite-h-f-x-hilti-buchs"
-      },
-      "company": "Hilti",
-      "companyKey": "hilti",
-      "companyDomain": "hilti.group",
-      "title": "Intern - Cybersecurity (m/f/x)",
-      "titleByLocale": {
-        "it": "Tirocinante - Cybersecurity (m/f/x)",
-        "en": "Intern - Cybersecurity (m/f/x)",
-        "de": "Praktikant - Cybersecurity (m/w/d)",
-        "fr": "Stagiaire - Cybersécurité (h/f/x)"
-      },
-      "description": "Secure by Design. Reliable by Default. You want to kickstart your career in cybersecurity? This internship will provide you with exciting insights into the cybersecurity landscape of a global company. We tailor the internship to your interest in cybersecurity governance, cybersecurity architecture, or cyber defense, with the overall goal of integrating cybersecurity as a business enabler. The start date for the internship is flexible to the student's availability, duration for at least 6 months is preferred. What You’ll Bring\n• Enrollment for the whole internship period in a Master’s program in Cybersecurity, Computer Science, Business Information Systems, Engineering, Natural Sciences, Economics, or related fields\n• IT affinity and aiming for hands-on experience in cybersecurity\n• First practical experience in IT\n• Effective communication skills, with excellent English and interpersonal skills to manage change\n• Strategic approach and good problem-solving skills, with a thirst to learn and challenge yourself Legal Notice Hilti is an equal opportunity employer Commitment to Inclusion At Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together. Why Hilti Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.",
-      "descriptionByLocale": {
-        "it": "Sicuro per progettazione. Affidabile per impostazione predefinita. Vuoi iniziare la tua carriera nella sicurezza informatica? Questo tirocinio ti fornirà informazioni interessanti sul panorama della sicurezza informatica di un'azienda globale. Adattiamo il tirocinio al tuo interesse per la governance della sicurezza informatica, l'architettura della sicurezza informatica o la difesa informatica, con l'obiettivo generale di integrare la sicurezza informatica come fattore abilitante per il business. La data di inizio del tirocinio è flessibile in base alla disponibilità dello studente, è preferibile una durata di almeno 6 mesi. Cosa porterai\n• Iscrizione per l'intero periodo di tirocinio a un Master in Cybersecurity, Informatica, Sistemi Informativi Aziendali, Ingegneria, Scienze Naturali, Economia o campi correlati\n• Affinità IT e obiettivo di esperienza pratica nella sicurezza informatica\n• Prima esperienza pratica nell'IT\n• Competenze comunicative efficaci, con eccellenti capacità di inglese e interpersonali per gestire il cambiamento\n• Approccio strategico e buone capacità di risoluzione dei problemi, con la sete di imparare e sfidare te stesso Nota legale Hilti è un datore di lavoro per le pari opportunità Impegno per l'inclusione In Hilti, l'inclusione è un obiettivo chiave nel modo in cui lavoriamo, guidiamo e cresciamo insieme. Ci impegniamo ad abbracciare la diversità di pensiero e a creare un ambiente inclusivo per tutti, ovunque. Ci impegniamo costantemente per garantire che ogni voce sia apprezzata e che ogni membro del team si senta autorizzato a contribuire. Basandoci su queste fondamenta, rafforziamo i nostri team, la nostra innovazione,",
-        "en": "Secure by Design. Reliable by Default. You want to kickstart your career in cybersecurity? This internship will provide you with exciting insights into the cybersecurity landscape of a global company. We tailor the internship to your interest in cybersecurity governance, cybersecurity architecture, or cyber defense, with the overall goal of integrating cybersecurity as a business enabler. The start date for the internship is flexible to the student's availability, duration for at least 6 months is preferred. What You’ll Bring\n• Enrollment for the whole internship period in a Master’s program in Cybersecurity, Computer Science, Business Information Systems, Engineering, Natural Sciences, Economics, or related fields\n• IT affinity and aiming for hands-on experience in cybersecurity\n• First practical experience in IT\n• Effective communication skills, with excellent English and interpersonal skills to manage change\n• Strategic approach and good problem-solving skills, with a thirst to learn and challenge yourself Legal Notice Hilti is an equal opportunity employer Commitment to Inclusion At Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together. Why Hilti Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.",
-        "de": "Sicher durch Design. Zuverlässig durch Standard. Sie möchten Ihre Karriere im Bereich Cybersicherheit ankurbeln? Dieses Praktikum bietet Ihnen spannende Einblicke in die Cybersicherheitslandschaft eines globalen Unternehmens. Wir passen das Praktikum an Ihr Interesse an Cybersecurity Governance, Cybersecurity-Architektur oder Cyber Defense an, mit dem übergeordneten Ziel, Cybersecurity als Business Enabler zu integrieren. Der Starttermin für das Praktikum ist flexibel an die Verfügbarkeit der Studierenden anpassbar, eine Dauer von mindestens 6 Monaten wird bevorzugt. Was Sie mitbringen\n• Einschreibung für die gesamte Praktikumszeit in einem Masterstudiengang in Cybersecurity, Informatik, Wirtschaftsinformatik, Ingenieurwesen, Naturwissenschaften, Wirtschaft oder verwandten Bereichen\n• IT-Affinität und mit dem Ziel, praktische Erfahrungen in Cybersecurity zu sammeln\n• Erste praktische Erfahrung in der IT\n• Effektive Kommunikationsfähigkeiten mit hervorragenden Englisch- und zwischenmenschlichen Fähigkeiten, um Veränderungen zu bewältigen\n• Strategischer Ansatz und gute Fähigkeiten zur Problemlösung, mit dem Durst, sich selbst zu erlernen und herauszufordern Rechtlicher Hinweis Hilti ist ein Arbeitgeber für Chancengleichheit Engagement für Inklusion Bei Hilti ist Inklusion ein zentraler Schwerpunkt, wenn es darum geht, wie wir zusammenarbeiten, führen und wachsen. Wir setzen uns dafür ein, die Vielfalt des Denkens zu fördern und ein Umfeld zu schaffen, das alle und überall einbezieht. Wir sind ständig bestrebt, sicherzustellen, dass jede Stimme geschätzt wird und jedes Teammitglied sich befähigt fühlt, einen Beitrag zu leisten. Indem wir auf dieser Grundlage aufbauen, stärken wir unsere Teams, unsere Innovationen,",
-        "fr": "Sécurisé par conception. Fiable par défaut. Vous souhaitez démarrer votre carrière dans la cybersécurité ? Ce stage vous fournira des informations passionnantes sur le paysage de la cybersécurité d'une entreprise mondiale. Nous adaptons le stage à votre intérêt pour la gouvernance de la cybersécurité, l'architecture de la cybersécurité ou la cyberdéfense, dans le but général d'intégrer la cybersécurité en tant que catalyseur commercial. La date de début du stage est flexible en fonction des disponibilités de l'étudiant, une durée d'au moins 6 mois est préférée. Ce que vous apporterez\n• Inscription pour toute la période de stage à un programme de maîtrise en cybersécurité, en informatique, en systèmes d'information d'entreprise, en ingénierie, en sciences naturelles, en économie ou dans des domaines connexes\n• Affinité informatique et recherche d'une expérience pratique en cybersécurité\n• Première expérience pratique en informatique\n• Compétences en communication efficaces, avec d'excellentes compétences en anglais et en relations interpersonnelles pour gérer le changement\n• Approche stratégique et bonnes compétences en résolution de problèmes, avec une soif d'apprendre et de vous mettre au défi Avis juridique Hilti est un employeur offrant l'égalité des chances Engagement envers l'inclusion Chez Hilti, l'inclusion est un élément clé de notre façon de travailler, de diriger et de grandir ensemble. Nous nous engageons à embrasser la diversité de pensée et à créer un environnement inclusif pour tous, partout. Nous nous efforçons continuellement de nous assurer que chaque voix est valorisée et que chaque membre de l'équipe se sent habilité à contribuer. En nous appuyant sur ce socle, nous renforçons nos équipes, notre innovation,"
-      },
-      "location": "Buchs, St. Gallen, Switzerland",
-      "canton": "SG",
-      "url": "https://careers.hilti.group/en/jobs/11963-en/intern-cybersecurity-m-f-x/",
-      "source": "Hilti Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-22T22:48:43.342Z",
-      "addressLocality": "Buchs",
-      "postalCode": "9470",
-      "addressRegion": "St. Gallen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Construction tools & fastening technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-13",
-      "applyUrl": "https://careers.hilti.group/en/jobs/11963-en/intern-cybersecurity-m-f-x/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "intern-cybersecurity-m-f-x-hilti-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "intern-cybersecurity-m-f-x-hilti-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:55:38.627Z",
-      "salaryMin": 54000,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54000,
-          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -267,7 +269,7 @@
       "url": "https://careers.hilti.group/en/jobs/16530-de/verkaufsberater-in-der-region-basel-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:48:43.341Z",
+      "crawledAt": "2026-06-23T11:38:26.590Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "Basel",
@@ -302,6 +304,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.626Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -330,7 +333,7 @@
       "title": "Technical Sales Engineer für die Region Bern (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Technical Sales Ingegnere per la Region Bern (m/w/d) 80-100%",
-        "en": "Technical Sales Engineer for the Bern region (m/f/d) 80-100 %",
+        "en": "Technical Sales Engineer für die Region Bern (m/w/d) 80-100%",
         "de": "Technical Sales Ingenieur für die Region Bern (m/w/d) 80-100%",
         "fr": "Technical Sales Ingénieur für die Region Bern (m/w/d) 80-100%"
       },
@@ -341,14 +344,14 @@
         "de": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
         "fr": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln."
       },
-      "location": "Basel / Bern, Bern, Schweiz",
+      "location": "Bern, Bern, Schweiz",
       "canton": "BE",
       "url": "https://careers.hilti.group/en/jobs/17006-de/technical-sales-engineer-fur-die-region-bern-m-w-d-80-100/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:48:43.340Z",
-      "addressLocality": "Basel / Bern",
-      "postalCode": "4001",
+      "crawledAt": "2026-06-23T11:38:26.589Z",
+      "addressLocality": "Bern",
+      "postalCode": "3001",
       "addressRegion": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -430,7 +433,7 @@
       "url": "https://careers.hilti.group/en/jobs/17041-de/verkaufsberater-in-hilti-store-munchenstein-80-100-m-w-d-m-w-d-jobsharing-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:48:43.339Z",
+      "crawledAt": "2026-06-23T11:38:26.588Z",
       "addressLocality": "Basel | Münchenstein",
       "postalCode": "",
       "addressRegion": "Basel",
@@ -487,6 +490,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.619Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -531,7 +535,7 @@
       "url": "https://careers.hilti.group/en/jobs/17711-de/verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:48:43.338Z",
+      "crawledAt": "2026-06-23T11:38:26.587Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -588,6 +592,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.618Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -632,7 +637,7 @@
       "url": "https://careers.hilti.group/en/jobs/16292-de/verkaufsberater-im-aussendienst-grossraum-luzern-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:48:43.337Z",
+      "crawledAt": "2026-06-23T11:38:26.586Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "Zentralschweiz",
@@ -688,6 +693,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.617Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -732,7 +738,7 @@
       "url": "https://careers.hilti.group/en/jobs/17921-de/bauingenieur-im-aussendienst-in-der-region-ostschweiz-st-gallen-chur-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:48:43.336Z",
+      "crawledAt": "2026-06-23T11:38:26.585Z",
       "addressLocality": "Ostschweiz St.Gallen / Chur",
       "postalCode": "7000",
       "addressRegion": "St. Gallen",
@@ -828,7 +834,7 @@
       "url": "https://careers.hilti.group/en/jobs/18312-fr/inside-sales-account-manager-en-francais-h-f-d-100-ou-possibilite-de-jobsharing-50-70/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T22:48:43.335Z",
+      "crawledAt": "2026-06-23T11:38:26.584Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Adliswil / Zurich",
@@ -854,6 +860,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:38.614Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -869,36 +876,36 @@
     },
     {
       "id": "hilti-12079-de",
-      "slug": "consulente-vendite-per-l-area-berner-oberland-m-w-d-100-o-job-sharing-50-70-possibile-hilti-thun-spiez-interlaken",
+      "slug": "verkaufsberater-in-per-den-grossraum-berner-oberland-m-w-d-100-o-jobsharing-50-70-moglich-hilti-thun-spiez-interlaken",
       "slugByLocale": {
-        "it": "consulente-vendite-per-l-area-berner-oberland-m-w-d-100-o-job-sharing-50-70-possibile-hilti-thun-spiez-interlaken",
-        "en": "sales-representative-for-the-berner-oberland-area-m-w-d-100-or-job-sharing-50-70-possible-hilti-thun-spiez-interlaken",
-        "de": "verkaufsberater-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich",
-        "fr": "representant-commercial-pour-la-region-berner-oberland-m-w-d-100-ou-job-partage-50-70-possible-hilti-thun-spiez"
+        "de": "verkaufsberater-in-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70",
+        "it": "verkaufsberater-in-per-den-grossraum-berner-oberland-m-w-d-100-o-jobsharing-50-70-moglich-hilti-thun-spiez-interlaken",
+        "en": "verkaufsberater-in-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70",
+        "fr": "verkaufsberater-in-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70"
       },
       "company": "Hilti",
       "companyKey": "hilti",
       "companyDomain": "hilti.group",
-      "title": "Verkaufsberater für den Grossraum Berner Oberland (m/w/d) (100% oder Jobsharing 50-70% möglich)",
+      "title": "Verkaufsberater:in für den Grossraum Berner Oberland (m/w/d) (100% oder Jobsharing 50-70% möglich)",
       "titleByLocale": {
-        "it": "Verkaufsberater per den Grossraum Berner Oberland (m/w/d) (100% o Jobsharing 50-70% möglich)",
-        "en": "Sales Representative for the Berner Oberland Area (m/w/d) (100% or job sharing 50-70% possible)",
-        "de": "Verkaufsberater für den Grossraum Berner Oberland (m/w/d) (100% oder Jobsharing 50-70% möglich)",
-        "fr": "Représentant commercial pour la région Berner Oberland (m/w/d) (100% ou job partagé 50-70% possible)"
+        "de": "Verkaufsberater:in für den Grossraum Berner Oberland (m/w/d) (100% oder Jobsharing 50-70% möglich)",
+        "it": "Verkaufsberater:in per den Grossraum Berner Oberland (m/w/d) (100% o Jobsharing 50-70% möglich)",
+        "en": "Verkaufsberater:in für den Grossraum Berner Oberland (m/w/d) (100% oder Jobsharing 50-70% möglich)",
+        "fr": "Verkaufsberater:in für den Grossraum Berner Oberland (m/w/d) (100% oder Jobsharing 50-70% möglich)"
       },
-      "description": "Überzeugen, beraten, begeistern – genau Dein Ding? Deine Stärke liegt im Präsentieren, Erklären, Beraten, Kontakte pflegen, Überzeugen und Verkaufen. Wichtig ist uns vor allem dein Mindset: Du gehst gerne proaktiv auf Kunden zu und möchtest eine nachhaltige Partnerschaft aufbauen. Unsere Kunden sind Fachleute aus dem Bau. Hier wird pragmatisch, bodenständig und «to-the-point» kommuniziert – genau dein Stil. Hier fühlst du dich wohl, hier passt du hinein und kannst dein Leistungspotenzial entfalten. Dafür bieten wir dir attraktive Arbeitsbedingungen in einem top-professionellen Umfeld. Dein Profil\n• Berufserfahrung im Verkauf und Aussendienst von Vorteil\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Hohes Mass an Eigenmotivation sowie gutes Selbst- und Zeitmanagement\n• Resultat- und Zielorientierung, strukturierte Arbeitsweise und vernetzte Denkweise\n• Freude am täglichen Kundenkontakt und daran, in deinem Bereich unterwegs zu sein\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+      "description": "Dein Gebiet. Deine Verantwortung. Bei uns gehst du über klassischen Vertrieb hinaus. Du entwickelst dein Gebiet wie ein eigenes Geschäft, baust langfristige Kundenbeziehungen auf und trägst aktiv dazu bei, die Baubranche produktiver, sicherer und nachhaltiger zu machen. Du hast die Freiheit, Entscheidungen zu treffen und kannst dich dabei auf ein starkes Team verlassen. Dein Profil\n• Freude am Vertrieb und am Umgang mit Menschen\n• Eigenverantwortung und unternehmerisches Denken\n• Interesse an technischen Lösungen\n• Bereitschaft, dein Gebiet aktiv zu entwickeln\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis\n• Erfahrung im Vertrieb oder Bauumfeld ist von Vorteil – entscheidend ist deine Motivation Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige online Bewerbung. Deine Bewerbungsunterlagen nehmen wir über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
       "descriptionByLocale": {
-        "it": "Sconvolgere, consigliare, entusiasmare – esattamente la tua cosa? La tua forza sta nel presentare, spiegare, consigliare, mantenere i contatti, convincere e vendere. Ciò che ci importa di più è il tuo mindset: vai volentieri proattivamente verso i clienti e vuoi costruire una partnership duratura. I nostri clienti sono professionisti del settore edile. Qui si comunica in modo pragmatico, concreto e 'alla svelta' – esattamente il tuo stile. Qui ti sentirai a tuo agio, qui ti inserirai e potrai sviluppare il tuo potenziale di prestazione. Per questo offriamo condizioni di lavoro attraenti in un ambiente professionale di alto livello. Il tuo profilo\n• Esperienza lavorativa nel settore delle vendite e della rappresentanza in campo di vantaggio\n• Una formazione tecnica completata di vantaggio\n• Un alto grado di motivazione personale, insieme a un buon autocontrollo e un buon controllo del tempo\n• Orientamento ai risultati e ai obiettivi, stile di lavoro strutturato e pensiero connesso\n• Gioia nel contatto quotidiano con i clienti e nel fatto di essere in movimento nel tuo settore\n• Buone conoscenze di tedesco e di svizzero-tedesco\n• Patente di guida valida Impressum Se ci hai destato interesse nel lavorare per uno dei migliori datori di lavoro della Svizzera, ci piacerebbe ricevere la tua candidatura online. Le tue informazioni complete (lettera di motivazione, CV, attestati) le riceviamo esclusivamente tramite il nostro strumento di carriera online. Frau Manuela Ancora, HR Talent Partner, si compiace della tua candidatura e si mette a tua disposizione per eventuali domande: chteamhrrecruiting@hilti.com Cosa puoi aspettarti quando ti candidi a Hilti?\n• Ci impegniamo a esaminare tutte le candidature da parte di un essere umano. Anche se nessuno è infallibile, ci impegniamo a mantenere il nostro approccio centrato sulle persone.\n• Non appena hai inviato la tua candidatura, riceverai notifiche automatiche dal nostro sistema (gestito dal nostro team di reclutamento).\n• Le candidature che non raggiungono l'intervista con il responsabile dell'assunzione non riceveranno un feedback personalizzato.\n• Puoi aspettarti di ricevere una risposta da noi entro 2-3 settimane (media) – indipendentemente dal risultato. Il processo di assunzione può durare tra 5 e 6 settimane.\n• Ti auguriamo buona fortuna nel tuo processo di candidatura. Per ulteriori informazioni sulla candidatura e sull'intervista, consulta le nostre domande frequenti sulla carriera. Se si verificano problemi tecnici durante la candidatura, contattaci, per favore, a mycareer-techsupport@hilti.com. Impegno per l'inclusione L'inclusione è un aspetto centrale del nostro modo di lavorare, del nostro stile di leadership e del nostro sviluppo congiunto. Ci impegniamo attivamente per la diversità di pensiero e per un ambiente che sia inclusivo per tutti e ovunque. Ci impegniamo a garantire che ogni voce sia ascoltata e che ogni membro del team si senta a proprio agio nel contribuire. Creando questo fondamento, rafforziamo i nostri team, l'innovazione e l'impatto, per migliorare insieme l'edilizia. Perché Hilti Hilti è un'azienda globale leader nell'innovazione dell'edilizia con più di 34.000 membri del team in 120 paesi. Il nostro obiettivo è migliorare l'edilizia. Per questo motivo ci importa di apprendere, crescere e trovare nuove vie per ottenere un impatto duraturo. Ecco dove puoi inserire le tue forze, lavorare con un team globale e inclusivo e sfidarti in modo significativo. A Hilti puoi trasformare le tue idee in reali risultati e crescita attraverso un'azione mirata, passione e teamwork.",
-        "en": "Convince, advise, and inspire – it's your thing? Your strength lies in presenting, explaining, advising, maintaining contacts, convincing, and selling. What matters most to us is your mindset: you go proactively to customers and want to build a sustainable partnership. Our customers are professionals in the construction industry. Here, communication is pragmatic, down-to-earth, and 'to the point' – exactly your style. Here you'll feel at home, here you'll fit in, and you'll be able to develop your performance potential. For this, we offer attractive working conditions in a top-professional environment. Your profile\n• Sales and field experience is an advantage\n• A completed technical education is an advantage\n• High degree of personal motivation, good self-control, and good time management\n• Result- and goal-oriented, structured working style, and connected thinking\n• Enjoy daily customer contact and being on the move in your area\n• Fluent German and Swiss German knowledge\n• Valid driver's license Impressum If we've piqued your interest in working for one of the best employers in Switzerland, we look forward to your online application. Your complete documents (cover letter, CV, certificates) we receive exclusively through our online career tool. Frau Manuela Ancora, HR Talent Partner, looks forward to your application and is happy to answer any questions: chteamhrrecruiting@hilti.com What can you expect when you apply to Hilti?\n• We commit to reviewing all applications by a human. Although no one is infallible, we stand by our people-centered approach.\n• As soon as you've submitted your application, you'll receive automatic notifications from our system (handled by our recruitment team).\n• Applications that don't make it to the interview with the hiring manager won't receive personalized feedback.\n• You can expect to hear from us within 2-3 weeks (on average) – regardless of the outcome. The entire hiring process can take between 5 and 6 weeks.\n• We wish you good luck with your application process. For more information on the application and interview, check out our frequently asked questions on career. If technical issues occur during the application, please contact mycareer-techsupport@hilti.com. Commitment to Inclusion Inclusion is a central aspect of our way of working, our leadership style, and our joint growth. We actively engage in promoting diversity of thought and an environment that is inclusive for all and everywhere. We strive to ensure that every voice is heard and every team member feels comfortable contributing. By creating this foundation, we strengthen our teams, innovation, and impact, to improve the construction industry together. Why Hilti Hilti is a global leading company in construction innovation with over 34,000 team members in 120 countries. Our goal is to improve the construction industry. Therefore, it's essential for us to learn, grow, and find new ways to achieve a lasting impact. Here you can bring your strengths, work with a global and inclusive team, and challenge yourself meaningfully. At Hilti, you can transform your ideas into real achievements and growth through directed action, passion, and teamwork.",
-        "de": "Überzeugen, beraten, begeistern – genau Dein Ding? Deine Stärke liegt im Präsentieren, Erklären, Beraten, Kontakte pflegen, Überzeugen und Verkaufen. Wichtig ist uns vor allem dein Mindset: Du gehst gerne proaktiv auf Kunden zu und möchtest eine nachhaltige Partnerschaft aufbauen. Unsere Kunden sind Fachleute aus dem Bau. Hier wird pragmatisch, bodenständig und «to-the-point» kommuniziert – genau dein Stil. Hier fühlst du dich wohl, hier passt du hinein und kannst dein Leistungspotenzial entfalten. Dafür bieten wir dir attraktive Arbeitsbedingungen in einem top-professionellen Umfeld. Dein Profil\n• Berufserfahrung im Verkauf und Aussendienst von Vorteil\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Hohes Mass an Eigenmotivation sowie gutes Selbst- und Zeitmanagement\n• Resultat- und Zielorientierung, strukturierte Arbeitsweise und vernetzte Denkweise\n• Freude am täglichen Kundenkontakt und daran, in deinem Bereich unterwegs zu sein\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-        "fr": "Convaincre, conseiller, inspirer – c'est votre truc ? Votre force réside dans la présentation, l'explication, le conseil, la maintenance des contacts, la conviction et la vente. Ce qui nous importe le plus, c'est votre mindset : vous allez proactivement vers les clients et vous voulez construire une partenariat durable. Nos clients sont des professionnels de l'industrie de la construction. Ici, la communication est pragmatique, terre-à-terre et 'à la pointe' – exactement votre style. Ici, vous vous sentirez chez vous, ici, vous vous insèrerez et vous pourrez développer votre potentiel de performance. Pour cela, nous offrons des conditions de travail attractives dans un environnement professionnel de haut niveau. Votre profil\n• Expérience de vente et de représentation en terrain est un avantage\n• Une formation technique complétée est un avantage\n• Un haut degré de motivation personnelle, un bon contrôle de soi et un bon contrôle du temps\n• Orienté vers les résultats et les objectifs, style de travail structuré et pensée connectée\n• Jouir du contact quotidien avec les clients et d'être en mouvement dans votre zone\n• Connaissances fluides du français et de l'allemand suisse\n• Permis de conduire valable Impressum Si nous avons piqué votre intérêt pour travailler pour l'un des meilleurs employeurs de la Suisse, nous nous réjouissons de votre candidature en ligne. Vos documents complets (lettre de motivation, CV, attestations) nous les recevons exclusivement par notre outil de carrière en ligne. Madame Manuela Ancora, Responsable des talents RH, se réjouit de votre candidature et est à votre disposition pour répondre à vos questions : chteamhrrecruiting@hilti.com Qu'est-ce que vous pouvez attendre lorsque vous postulez à Hilti ?\n• Nous nous engageons à examiner toutes les candidatures par un être humain. Même si personne n'est infallible, nous nous engageons à maintenir notre approche centrée sur les personnes.\n• Dès que vous avez soumis votre candidature, vous recevrez des notifications automatiques de notre système (géré par notre équipe de recrutement).\n• Les candidatures qui ne parviennent pas à l'entretien avec le responsable de l'embauche ne recevront pas de feedback personnalisé.\n• Vous pouvez attendre d'entendre de nous dans les 2-3 semaines (en moyenne) – quel que soit le résultat. Le processus d'embauche peut durer entre 5 et 6 semaines.\n• Nous vous souhaitons bonne chance dans votre processus de candidature. Pour plus d'informations sur la candidature et l'entretien, consultez nos questions fréquentes sur la carrière. Si des problèmes techniques se produisent pendant la candidature, veuillez contacter mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion L'inclusion est un aspect central de notre façon de travailler, de notre style de leadership et de notre croissance conjointe. Nous nous engageons activement à promouvoir la diversité de pensée et un environnement qui soit inclusif pour tous et partout. Nous nous efforçons de garantir que chaque voix soit entendue et que chaque membre d'équipe se sente à l'aise pour contribuer. En créant cette fondation, nous renforçons nos équipes, notre innovation et notre impact, pour améliorer l'industrie de la construction ensemble. Pourquoi Hilti Hilti est une entreprise mondiale leader dans l'innovation de la construction avec plus de 34 000 membres d'équipe dans 120 pays. Notre objectif est d'améliorer l'industrie de la construction. Par conséquent, il est essentiel pour nous d'apprendre, de grandir et de trouver de nouvelles voies pour obtenir un impact durable. Ici, vous pouvez apporter vos forces, travailler avec un équipe mondiale et inclusive, et vous mettre en situation de défis significatifs. A Hilti, vous pouvez transformer vos idées en réalisations réelles et en croissance grâce à une action dirigée, à la passion et au travail d'équipe."
+        "de": "Dein Gebiet. Deine Verantwortung. Bei uns gehst du über klassischen Vertrieb hinaus. Du entwickelst dein Gebiet wie ein eigenes Geschäft, baust langfristige Kundenbeziehungen auf und trägst aktiv dazu bei, die Baubranche produktiver, sicherer und nachhaltiger zu machen. Du hast die Freiheit, Entscheidungen zu treffen und kannst dich dabei auf ein starkes Team verlassen. Dein Profil\n• Freude am Vertrieb und am Umgang mit Menschen\n• Eigenverantwortung und unternehmerisches Denken\n• Interesse an technischen Lösungen\n• Bereitschaft, dein Gebiet aktiv zu entwickeln\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis\n• Erfahrung im Vertrieb oder Bauumfeld ist von Vorteil – entscheidend ist deine Motivation Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige online Bewerbung. Deine Bewerbungsunterlagen nehmen wir über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "it": "Dein Gebiet. Deine Verantwortung. Bei uns gehst du über klassischen Vertrieb hinaus. Du entwickelst dein Gebiet wie ein eigenes Geschäft, baust langfristige Kundenbeziehungen auf und trägst aktiv dazu bei, die Baubranche produktiver, sicherer und nachhaltiger zu machen. Du hast die Freiheit, Entscheidungen zu treffen und kannst dich dabei auf ein starkes Team verlassen. Dein Profil\n• Freude am Vertrieb und am Umgang mit Menschen\n• Eigenverantwortung und unternehmerisches Denken\n• Interesse an technischen Lösungen\n• Bereitschaft, dein Gebiet aktiv zu entwickeln\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis\n• Erfahrung im Vertrieb oder Bauumfeld ist von Vorteil – entscheidend ist deine Motivation Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige online Bewerbung. Deine Bewerbungsunterlagen nehmen wir über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "en": "Dein Gebiet. Deine Verantwortung. Bei uns gehst du über klassischen Vertrieb hinaus. Du entwickelst dein Gebiet wie ein eigenes Geschäft, baust langfristige Kundenbeziehungen auf und trägst aktiv dazu bei, die Baubranche produktiver, sicherer und nachhaltiger zu machen. Du hast die Freiheit, Entscheidungen zu treffen und kannst dich dabei auf ein starkes Team verlassen. Dein Profil\n• Freude am Vertrieb und am Umgang mit Menschen\n• Eigenverantwortung und unternehmerisches Denken\n• Interesse an technischen Lösungen\n• Bereitschaft, dein Gebiet aktiv zu entwickeln\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis\n• Erfahrung im Vertrieb oder Bauumfeld ist von Vorteil – entscheidend ist deine Motivation Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige online Bewerbung. Deine Bewerbungsunterlagen nehmen wir über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "fr": "Dein Gebiet. Deine Verantwortung. Bei uns gehst du über klassischen Vertrieb hinaus. Du entwickelst dein Gebiet wie ein eigenes Geschäft, baust langfristige Kundenbeziehungen auf und trägst aktiv dazu bei, die Baubranche produktiver, sicherer und nachhaltiger zu machen. Du hast die Freiheit, Entscheidungen zu treffen und kannst dich dabei auf ein starkes Team verlassen. Dein Profil\n• Freude am Vertrieb und am Umgang mit Menschen\n• Eigenverantwortung und unternehmerisches Denken\n• Interesse an technischen Lösungen\n• Bereitschaft, dein Gebiet aktiv zu entwickeln\n• Eine abgeschlossene technische Ausbildung von Vorteil\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n• Gültiger Führerausweis\n• Erfahrung im Vertrieb oder Bauumfeld ist von Vorteil – entscheidend ist deine Motivation Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige online Bewerbung. Deine Bewerbungsunterlagen nehmen wir über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln."
       },
       "location": "Thun, Spiez, Interlaken, Berner Oberland, Schweiz",
       "canton": "BE",
-      "url": "https://careers.hilti.group/en/jobs/12079-de/verkaufsberater-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich/",
+      "url": "https://careers.hilti.group/en/jobs/12079-de/verkaufsberater-in-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-22T22:48:43.333Z",
+      "crawledAt": "2026-06-23T11:38:26.582Z",
       "addressLocality": "Thun, Spiez, Interlaken",
       "postalCode": "3600",
       "addressRegion": "Berner Oberland",
@@ -912,49 +919,20 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-09",
-      "applyUrl": "https://careers.hilti.group/en/jobs/12079-de/verkaufsberater-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich/",
+      "applyUrl": "https://careers.hilti.group/en/jobs/12079-de/verkaufsberater-in-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "requirements": [],
       "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
         "it": [
-          "Esperienza lavorativa nel settore delle vendite e della rappresentanza in campo",
-          "Formazione tecnica completata",
-          "Alto grado di motivazione personale",
-          "Buon autocontrollo e buon controllo del tempo",
-          "Orientamento ai risultati e ai obiettivi",
-          "Stile di lavoro strutturato",
-          "Pensiero connesso",
-          "Gioia nel contatto quotidiano con i clienti"
-        ],
-        "en": [
-          "Sales and field experience",
-          "Completed technical education",
-          "High degree of personal motivation",
-          "Good self-control and good time management",
-          "Result- and goal-oriented",
-          "Structured working style",
-          "Connected thinking",
-          "Enjoy daily customer contact"
-        ],
-        "fr": [
-          "Expérience de vente et de représentation en terrain",
-          "Formation technique complétée",
-          "Haut degré de motivation personnelle",
-          "Bon contrôle de soi et bon contrôle du temps",
-          "Orienté vers les résultats et les objectifs",
-          "Style de travail structuré",
-          "Pensée connectée",
-          "Jouir du contact quotidien avec les clients"
+          "verkaufsberater-in-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich"
+        "verkaufsberater-in-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:55:38.563Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -966,7 +944,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-23T11:38:26.582Z"
     },
     {
       "id": "hilti-18313-fr",
@@ -999,7 +978,7 @@
       "url": "https://careers.hilti.group/en/jobs/18313-fr/conseiller-de-vente-en-externe-lausanne-h-f-d-100-ou-possibilite-de-jobsharing/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T22:48:43.331Z",
+      "crawledAt": "2026-06-23T11:38:26.581Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Suisse romande",
@@ -1082,7 +1061,7 @@
       "url": "https://careers.hilti.group/en/jobs/16790-fr/comptable-h-f-d-50-70/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-22T22:48:43.329Z",
+      "crawledAt": "2026-06-23T11:38:26.578Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Adliswil / Zurich",
@@ -1111,6 +1090,7 @@
         "comptable-h-f-d-50-70-hilti-ch"
       ],
       "firstSeenAt": "2026-06-17T13:06:31.271Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
