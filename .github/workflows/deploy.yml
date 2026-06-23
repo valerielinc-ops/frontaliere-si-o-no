@@ -695,6 +695,19 @@ jobs:
         continue-on-error: true
         env:
           DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
+          # The IT shard's CDN push (deploy-it-pages-prep.sh) only stamps THIS
+          # build's marker at the END of the IT leg, which runs ~15-22min LONGER
+          # than the en/de/fr legs: IT's SSG build alone can reach ~43min vs ~23min
+          # for the others, then IT spends another ~9-10min on the Pages+CDN deploy
+          # prep. The non-IT gate starts polling the moment ITS (shorter) build
+          # finishes, so it must out-wait that whole gap. The previous default of
+          # 600s (10min) left ~zero headroom — observed runs matched the marker at
+          # 540s (60s to spare) and tipped into a stale-shard on normal variance
+          # (#2786/#2806/#2807: gate gave up ~13s before the marker landed),
+          # silently shipping a stale en/de/fr locale. 1800s (30min) covers even
+          # the worst-case 43min IT SSG build with margin; the gate still exits the
+          # instant the marker matches, so the budget is a ceiling, not a fixed wait.
+          CDN_WAIT_TIMEOUT_S: 1800
         run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
 
       - name: Push locale shard
