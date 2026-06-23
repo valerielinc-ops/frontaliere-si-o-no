@@ -296,6 +296,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pensioni-svizzera-2025.title': 'Pensionati svizzeri all\'estero: come gestire la doppia residenza',
     'blog.article.pensioni-svizzera-2025.excerpt': 'Sempre più svizzeri in pensione dividono il loro tempo tra la Svizzera e l\'estero. Ecco cosa bisogna sapere sulle implicazioni fiscali e previdenziali.',
     'blog.article.pensioni-svizzera-2025.imageAlt': 'Pensionato svizzero che si gode una giornata di sole sul lago di Lugano',
+    'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Centro commerciale assume: stipendi fino a 5mila franchi',
+    'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'Un centro commerciale assume personale offrendo stipendi elevati, soprattutto frontalieri. I ticinesi sembrano meno propensi a lavorare nel settore.',
+    'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Centro commerciale in Svizzera con negozi e persone',
 };
 
 export default blogMetaChIt;

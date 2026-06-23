@@ -106,8 +106,12 @@ export const RAIL_RESERVE_CSS =
  * live resolved computed style and its async source, so removing any would
  * REINTRODUCE a shift:
  *   - `display:grid` + `grid-template-columns:minmax(0,1fr)` + `gap:12px` +
- *     `max-width:1120px` + `margin:0 auto` ← `seo-static.css`'s
- *     `main.seo-static-content{…}` rule (the dominant block→grid reflow).
+ *     `margin:0 auto` ← `seo-static.css`'s `main.seo-static-content{…}` rule
+ *     (the dominant block→grid reflow); `max-width:min(100%,1120px)` ← the
+ *     authoritative async `index.css:254 main.seo-static-content` rule. Reserve
+ *     and source are kept byte-identical here (was `1120px` — equivalent used
+ *     width for an in-flow block, but the literal `min(100%,1120px)` mirror is
+ *     drift-proof and matches `index.css` exactly; #2747 item 3).
  *   - `padding` BLOCK `32px … 56px` ← the `.s-Ziv1Xn` scoped class ALSO on this
  *     `<main>` (`seo-static.css`: `.s-Ziv1Xn{padding:32px 20px 56px}`); without
  *     it the async sheet pushes content down ~32px (top) at swap — the
@@ -122,7 +126,7 @@ export const RAIL_RESERVE_CSS =
  * rule in {@link RAIL_RESERVE_CSS} excludes this selector, so they never fight.
  */
 export const SEO_STATIC_GRID_RESERVE_CSS =
-  'main.seo-static-content{max-width:1120px;margin:0 auto;padding:32px clamp(16px,4vw,32px) 56px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}' +
+  'main.seo-static-content{max-width:min(100%,1120px);margin:0 auto;padding:32px clamp(16px,4vw,32px) 56px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}' +
   'main.seo-static-content>*{min-width:0;width:100%}';
 
 export const CRITICAL_CSS =

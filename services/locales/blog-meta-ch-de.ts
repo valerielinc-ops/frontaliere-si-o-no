@@ -296,6 +296,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pensioni-svizzera-2025.title': 'Auslandschweizer Rentner: Wie man mit dem doppelten Wohnsitz umgeht',
     'blog.article.pensioni-svizzera-2025.excerpt': 'Immer mehr Schweizer im Ruhestand teilen ihre Zeit zwischen der Schweiz und dem Ausland auf. Hier ist, was Sie über die steuerlichen und sozialen Auswirkungen wissen müssen.',
     'blog.article.pensioni-svizzera-2025.imageAlt': 'Schweizer Rentner genießt einen sonnigen Tag am Luganersee',
+    'blog.article.stipendi-frontalieri-centro-commerciale.title': 'Einkaufszentrum stellt ein: Gehälter bis zu 5.000 Franken',
+    'blog.article.stipendi-frontalieri-centro-commerciale.excerpt': 'Ein Einkaufszentrum stellt Mitarbeiter ein, die hohe Gehälter anbieten, insbesondere Grenzgänger. Die Tessiner scheinen weniger geneigt zu sein, in der Branche zu arbeiten.',
+    'blog.article.stipendi-frontalieri-centro-commerciale.imageAlt': 'Schweizer Einkaufszentrum mit Geschäften und Menschen',
 };
 
 export default blogMetaChDe;
