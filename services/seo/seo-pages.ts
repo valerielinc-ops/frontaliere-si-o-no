@@ -7521,7 +7521,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2874, "name": "Ethos critica stipendi CEO e rapporti sostenibi...", "url": `${BASE_URL}/articoli-frontaliere/ethos-stipendi-ceo-sostenibilita` },
           { "@type": "ListItem", "position": 2875, "name": "Il Parlamento svizzero fatica a trovare l’intes...", "url": `${BASE_URL}/articoli-frontaliere/parlamento-svizzero-accordi-avs` },
           { "@type": "ListItem", "position": 2876, "name": "Guida al calcolo tasse per frontalieri entro 20...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-tasse-frontalieri-20km` },
+
           { "@type": "ListItem", "position": 2877, "name": "Nessuna proroga per le garanzie statali alle az...", "url": `${BASE_URL}/articoli-frontaliere/nessuna-proroga-garanzie-aziende-elettriche` }
+          { "@type": "ListItem", "position": 2877, "name": "Nessuna proroga per le garanzie statali alle az...", "url": `${BASE_URL}/articoli-frontaliere/garanzie-aziende-elettriche-senza-proroga` }
+
  ]
  },
  {
