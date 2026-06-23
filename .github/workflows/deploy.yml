@@ -674,9 +674,38 @@ jobs:
           retention-days: 1
           if-no-files-found: error
 
+      # ── Cross-shard CDN-push ordering guard (#2569 atomicity) ────────────
+      # The non-IT shard HTML was rewritten to reference cdn.frontaliereticino.ch
+      # for /data + /assets (the "Offload shard refs to CDN" step above). The IT
+      # shard pushes THIS build's CDN payload (data/assets) from a SEPARATE
+      # parallel matrix runner with no ordering vs this leg. Publishing this
+      # shard BEFORE the IT CDN push lands this build's payload would put the
+      # live locale ahead of the CDN (refs 404 / serve a prior build's data).
+      # deploy-it-pages-prep.sh stamps DEPLOY_BUILD_ID into the CDN's
+      # cdn-build-id.txt in the SAME force-push as the payload, so this gate —
+      # polling that marker until it equals THIS build's id — only unblocks once
+      # the IT CDN push has atomically published this build. continue-on-error so
+      # a timeout never flips build-locale.result→failure (that would block the
+      # whole Pages publish); instead the gate's outcome gates the publish step
+      # below, so a stuck/failed IT CDN push leaves this shard UNPUBLISHED
+      # (stale, surfaced by the #2658 path) rather than published-ahead.
+      - name: Wait for IT CDN push (cross-shard ordering guard)
+        id: cdn-gate
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        env:
+          DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
+        run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
+
       - name: Push locale shard
         id: push-shard
-        if: matrix.locale != 'it'
+        # Only publish once the ordering guard confirmed the IT CDN push landed
+        # THIS build (steps.cdn-gate.outcome == 'success'). On a gate timeout the
+        # shard is skipped (NOT pushed ahead of the CDN); the stale-shard
+        # surfacing step below fires on skip|failure so the unpublished locale is
+        # never shipped silently. (cdn-gate is itself a no-op exit-0 when
+        # DEPLOY_BUILD_ID is unset, so non-matrix/local paths are unaffected.)
+        if: matrix.locale != 'it' && steps.cdn-gate.outcome == 'success'
         # Stays continue-on-error (transient shard-repo/network errors must NOT
         # block the whole Pages publish — build-locale has fail-fast:false, a
         # hard failure here would flip build-locale.result→failure→no publish).
@@ -696,12 +725,16 @@ jobs:
         # continue-on-error resilience is deliberate) — but make it LOUD: warning
         # annotation + a deduped tracking issue so the stale locale is never
         # shipped silently. Self-resolves on the next green push (reopen-within).
-        if: matrix.locale != 'it' && steps.push-shard.outcome == 'failure'
+        # Also fires when the #2569 CDN ordering guard timed out (cdn-gate
+        # failure → push-shard SKIPPED): the shard is intentionally NOT published
+        # ahead of the IT CDN push, so the live locale stays stale and must be
+        # surfaced the same way.
+        if: matrix.locale != 'it' && (steps.push-shard.outcome == 'failure' || steps.cdn-gate.outcome == 'failure')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "::warning title=Stale locale shard::Push of the ${{ matrix.locale }} shard failed — the live ${{ matrix.locale }} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant); investigate the shard repo / deploy key."
+          echo "::warning title=Stale locale shard::Push of the ${{ matrix.locale }} shard did not publish (push failure, or the #2569 CDN ordering guard timed out waiting for the IT CDN push) — the live ${{ matrix.locale }} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant); investigate the shard repo / deploy key / IT CDN push."
           node scripts/lib/github-issue-creator.mjs \
             --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
             --description "## Push locale shard fallito — locale live STALE
