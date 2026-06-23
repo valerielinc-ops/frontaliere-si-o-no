@@ -4113,6 +4113,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-economisti-adeguano-stime-crescita-2026': { name: 'Economia Svizzera', path: '/articoli-svizzera/economisti-adeguano-stime-crescita-2026/', parent: 'blog' },
     'blog-frontalieri-checklist-2026': { name: 'Lavoro Frontaliere', path: '/articoli-svizzera/frontalieri-checklist-2026/', parent: 'blog' },
     'blog-frontaliere-scelta-comune-residenza-italia-svizzera-2026-single': { name: 'Frontaliere scelta comune residenza Italia', path: '/articoli-svizzera/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single/', parent: 'blog' },
+    'blog-banca-svizzera-segreto': { name: 'Banche Svizzere', path: '/articoli-svizzera/banca-svizzera-segreto/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
