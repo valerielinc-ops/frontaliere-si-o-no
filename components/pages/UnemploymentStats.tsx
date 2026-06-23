@@ -16,7 +16,7 @@ const UnemploymentStats: React.FC = () => {
  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
 
  useEffect(() => {
- Analytics.trackPageView('/statistiche/disoccupazione-svizzera', 'Disoccupazione Svizzera');
+ Analytics.trackPageView('/statistiche/disoccupazione-svizzera/', 'Disoccupazione Svizzera');
  Analytics.trackUIInteraction('stats', 'unemployment', 'unemployment_view', 'view');
  (async () => {
  setLoading(true);
