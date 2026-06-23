@@ -50,7 +50,7 @@ const operators: MobileOperator[] = [
  slug: 'iliad',
  country: 'IT',
  monthlyCost: 9.99,
- dataGB: 200,
+ dataGB: 250,
  minutes: 'illimitati',
  sms: 'illimitati',
  roamingInSwitzerland: {
@@ -62,7 +62,7 @@ const operators: MobileOperator[] = [
  setupCost: 9.99,
  contractType: 'prepagato',
  color: 'from-danger-strong to-warning-strong',
- features: ['Giga 200 — 200 GB + 5G', 'Opzione CH 4.99€ per 5 GB', 'Prezzo per sempre'],
+ features: ['Top 250 Plus — 250 GB + 5G', 'Opzione CH 4.99€ per 5 GB', 'Prezzo per sempre'],
  website: 'https://www.iliad.it/offerte-iliad-mobile.html'
  },
  {
@@ -95,7 +95,7 @@ const operators: MobileOperator[] = [
  roamingInSwitzerland: {
  included: true,
  dataLimit: 32,
- notes: 'Roaming CH come Italia dal 5 settembre 2025 per clienti offerte Privati. Vodafone Start: 32 GB UE+UK+Svizzera inclusi (17 GB normativi + 15 extra).'
+ notes: 'Roaming CH come Italia dal 5 settembre 2025 per clienti offerte Privati. Vodafone Start: 32 GB UE+UK+Svizzera inclusi.'
  },
  setupCost: 10,
  contractType: 'prepagato',
