@@ -200,8 +200,12 @@ describe('generateFuelItalianCityPages() — content quality', () => {
   it('uses SPA shell (bg-surface-alt) with empty #root + static seo-content sibling', () => {
     const comoPage = pages['/prezzi-benzina/italia/como/oggi/'];
     expect(comoPage).toContain('bg-surface-alt');
-    // Empty `#root` so React hydration cannot replace static SEO content.
+    // #root carries NO SEO content. No SPA bundle in this test env → the
+    // header-reserve spacer is gated OFF and #root is plain-empty (safe
+    // no-bundle degrade); the spacer-when-bundled path is unit-tested in
+    // tests/build-plugins/rootShell.test.ts.
     expect(comoPage).toMatch(/<div\b[^>]*\bid=["']?root["']?(?=[\s>])[^>]*><\/div>/);
+    expect(comoPage).not.toMatch(/<div\b[^>]*\bid=["']?root["']?[^>]*>\s*<main/);
     expect(comoPage).toMatch(htmlTagWithClass('main', 'seo-static-content'));
   });
 
