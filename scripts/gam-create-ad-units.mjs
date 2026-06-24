@@ -46,6 +46,7 @@ const TARGETS = [
   { adUnitCode: 'article-rail-left', name: 'Article rail — left (desktop)', sizes: [[300, 600], [160, 600], [300, 250]], isFluid: true },
   { adUnitCode: 'article-rail-right', name: 'Article rail — right (desktop)', sizes: [[300, 600], [160, 600], [300, 250]], isFluid: true },
   { adUnitCode: 'desktop-top-banner', name: 'Desktop top banner', sizes: [[970, 90], [728, 90]], isFluid: false },
+  { adUnitCode: 'calculator-form-box', name: 'Calculator form box', sizes: [[300, 250], [336, 280]], isFluid: true },
 ];
 
 const saPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;

@@ -32,6 +32,7 @@ export type KillSwitchKey =
   | 'gptPocSlot'
   | 'articleRailAds'
   | 'desktopTopBanner'
+  | 'calculatorFormBox'
   | 'headerBidding';
 
 export type KillSwitchState = Readonly<Record<KillSwitchKey, boolean>>;
@@ -50,6 +51,7 @@ export const KILL_SWITCH_RC_KEYS: Readonly<Record<KillSwitchKey, string>> = {
   gptPocSlot: 'KILL_GPT_POC_SLOT',
   articleRailAds: 'KILL_ARTICLE_RAIL_ADS',
   desktopTopBanner: 'KILL_DESKTOP_TOP_BANNER',
+  calculatorFormBox: 'KILL_CALCULATOR_FORM_BOX',
   headerBidding: 'KILL_HEADER_BIDDING',
 } as const;
 
@@ -62,6 +64,7 @@ const DEFAULT_STATE: KillSwitchState = {
   gptPocSlot: false,
   articleRailAds: false,
   desktopTopBanner: false,
+  calculatorFormBox: false,
   headerBidding: false,
 } as const;
 
