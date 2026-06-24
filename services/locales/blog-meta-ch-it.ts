@@ -418,6 +418,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lamal-cmi-frontalieri-confronta-2026.title': 'LAMal o CMI frontaliere: quale conviene nel 2026',
     'blog.article.lamal-cmi-frontalieri-confronta-2026.excerpt': 'Confronto aggiornato tra assicurazione svizzera LAMal e italiana CMI per frontalieri: premi, coperture, franchigie e casi pratici per famiglie e single.',
     'blog.article.lamal-cmi-frontalieri-confronta-2026.imageAlt': 'Ufficio assicurazioni sanitarie a Lugano con vista sul lago e sulle montagne svizzere',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.title': 'Calcolo pensione frontaliere: AVS svizzera e INPS italiana',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.excerpt': 'Guida pratica al calcolo della pensione per frontalieri: funzionamento dei contributi AVS, totalizzazione dei periodi assicurativi e coordinamento con l\'INPS.',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.imageAlt': 'Calcolo pensione per frontalieri in Svizzera e Italia',
 };
 
 export default blogMetaChIt;

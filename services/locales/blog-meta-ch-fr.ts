@@ -418,6 +418,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lamal-cmi-frontalieri-confronta-2026.title': 'LAMal ou CMI frontalière : ce qui convient en 2026',
     'blog.article.lamal-cmi-frontalieri-confronta-2026.excerpt': 'Comparaison actualisée entre l\'assurance suisse LAMal et l\'assurance italienne CMI pour les frontaliers : primes, couvertures, franchises et cas pratiques pour les familles et les célibataires.',
     'blog.article.lamal-cmi-frontalieri-confronta-2026.imageAlt': 'Bureau d\'assurance maladie à Lugano avec vue sur le lac et les montagnes suisses',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.title': 'Calcul pension frontalière : AVS suisse et INPS italienne',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.excerpt': 'Guide pratique pour le calcul de la pension pour frontaliers : fonctionnement des cotisations AVS, totalisation des périodes d\'assurance et coordination avec l\'INPS.',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.imageAlt': 'Calcul de la retraite pour les frontaliers en Suisse et en Italie',
 };
 
 export default blogMetaChFr;

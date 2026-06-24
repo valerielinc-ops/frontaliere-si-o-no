@@ -418,6 +418,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lamal-cmi-frontalieri-confronta-2026.title': 'Grenzüberschreitendes KVG oder MHK: Welches lohnt sich im Jahr 2026',
     'blog.article.lamal-cmi-frontalieri-confronta-2026.excerpt': 'Aktualisierter Vergleich zwischen der schweizerischen KVG-Versicherung und der italienischen KVG-Versicherung für Grenzgänger: Prämien, Deckungen, Franchisen und Praxisfälle für Familien und Singles.',
     'blog.article.lamal-cmi-frontalieri-confronta-2026.imageAlt': 'Krankenversicherungsbüro in Lugano mit Blick auf See und Schweizer Berge',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.title': 'Berechnung Grenzrente: AHV Schweiz und INPS Italienisch',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.excerpt': 'Praktischer Leitfaden zur Berechnung der Rente für Grenzgänger: Funktionsweise der AHV-Beiträge, Zusammenrechnung der Versicherungszeiten und Abstimmung mit dem NISF.',
+    'blog.article.calcolo-pensione-frontaliere-avs-inps.imageAlt': 'Rentenberechnung für Grenzgänger in der Schweiz und Italien',
 };
 
 export default blogMetaChDe;
