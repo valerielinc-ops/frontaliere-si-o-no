@@ -11,6 +11,9 @@
  * ad's title + category + sector. Location is a soft boost.
  */
 
+// Shared, pure (browser-safe) suppression set — keeps every sender in agreement.
+import { isNewsletterExcluded } from './emailSuppression.mjs';
+
 function norm(s) {
   return String(s ?? '').trim().toLowerCase();
 }
@@ -81,8 +84,10 @@ export function matchSubscribersForAd(ad, subscribers, opts = {}) {
   const scored = [];
   for (const sub of subscribers) {
     if (!sub || !sub.email) continue;
-    // Respect unsubscribe / inactive status when present.
-    if (sub.status && ['unsubscribed', 'bounced', 'complaint'].includes(norm(sub.status))) continue;
+    // Respect unsubscribe + hard suppression (bounce/complaint/provider list).
+    // Previously checked the literal 'complaint' — an event-type name, never a
+    // subscriber status value — so complained/suppressed users were still mailed.
+    if (isNewsletterExcluded(sub.status)) continue;
     const score = scoreSubscriberForAd(ad, sub);
     if (score >= minScore) {
       scored.push({ email: String(sub.email), locale: sub.locale || 'it', score });

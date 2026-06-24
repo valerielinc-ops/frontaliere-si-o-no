@@ -27,6 +27,7 @@ import { normalizeContract } from '../services/newsletter-content.mjs';
 import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { isAddressSuppressed } from '../services/emailSuppression.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1029,6 +1030,12 @@ async function main() {
   const alertEmails = [...new Set(alerts.map((a) => a.email.toLowerCase()))];
   const newsletterCooldownSet = new Set();
   const autologinDisabledSet = new Set();
+  // Address-level hard signals (hard bounce / spam complaint / provider
+  // suppression list). The webhook cores write these to EITHER channel's doc;
+  // unlike a per-alert unsubscribe (active:false) they mean the mailbox is dead
+  // or hostile, so we must stop sending it job alerts too. Mirrors the newsletter
+  // sender's EXCLUDED_STATUSES — previously the alert sender honored NEITHER.
+  const suppressedEmails = new Set();
   // Subscriber profiles keyed by lowercased email. Captured here (reusing the
   // newsletter_subscribers read this loop already performs — zero extra reads)
   // so the matcher can fold the newsletter profile (job_company, job_category,
@@ -1040,6 +1047,7 @@ async function main() {
       if (subDoc.exists) {
         const data = subDoc.data() || {};
         subscriberProfiles.set(email.toLowerCase(), data);
+        if (isAddressSuppressed(data.status)) suppressedEmails.add(email.toLowerCase());
         const lastSentAt = data.last_sent_at;
         if (lastSentAt) {
           const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
@@ -1051,7 +1059,22 @@ async function main() {
           autologinDisabledSet.add(email.toLowerCase());
         }
       }
-    } catch {}
+      // A bounce/complaint reported on the alert channel lands on the
+      // job_alert_subscribers doc, not newsletter_subscribers — check both.
+      const alertSubDoc = await db.collection('job_alert_subscribers').doc(email).get();
+      if (alertSubDoc.exists && isAddressSuppressed(alertSubDoc.data()?.status)) {
+        suppressedEmails.add(email.toLowerCase());
+      }
+    } catch (err) {
+      // Fail-open (don't drop a valid recipient on a transient read blip) but
+      // stay observable — a silent catch previously hid Firestore read failures.
+      console.warn(`   ⚠️  subscriber lookup failed for ${email}: ${err?.message || err}`);
+    }
+  }
+  if (suppressedEmails.size > 0) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => !suppressedEmails.has(a.email.toLowerCase()));
+    console.log(`   🚫 Hard-suppressed (bounced/complained/provider list): ${before - alerts.length} alert(s) skipped`);
   }
   if (autologinDisabledSet.size > 0) {
     console.log(`   🔒 Autologin opt-out: ${autologinDisabledSet.size} subscriber(s) will receive email without autologin token`);
