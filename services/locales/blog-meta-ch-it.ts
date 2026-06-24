@@ -355,6 +355,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.title': 'Tassazione frontalieri 2026: le nuove regole dopo l\'accordo fiscale',
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.excerpt': 'Scopri come cambia la tassazione per i frontalieri dal 2026 con il nuovo accordo fiscale tra Svizzera e Italia.',
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.imageAlt': 'Vista panoramica del lago di Lugano con le montagne circostanti',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.title': 'Svizzera, scelta vincente per lavoro e tasse',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.excerpt': 'Scopri perché sempre più frontalieri scelgono la Svizzera per lavoro, stipendio, tasse e traffico.',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.imageAlt': 'Una persona che cammina per le strade di Lugano, con il lago di fondo e i monti alle spalle.',
 };
 
 export default blogMetaChIt;
