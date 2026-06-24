@@ -391,6 +391,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.controlli-frontiera-g7-divieti-entrata.title': 'Border controls for the G7: 11 entry bans to Switzerland',
     'blog.article.controlli-frontiera-g7-divieti-entrata.excerpt': 'Enhanced controls resulted in 11 entry bans and hundreds of seizures of dangerous items.',
     'blog.article.controlli-frontiera-g7-divieti-entrata.imageAlt': 'Border controls between France and Switzerland during the G7',
+    'blog.article.caldo-traffico-ferroviario.title': 'Heat affects rail traffic: here\'s what changes',
+    'blog.article.caldo-traffico-ferroviario.excerpt': 'High temperatures affect the operation of trains in Switzerland. Learn about the practical implications and how railway companies are handling the situation.',
+    'blog.article.caldo-traffico-ferroviario.imageAlt': 'A Swiss train station during a heatwave, with passengers waiting under the shade.',
 };
 
 export default blogMetaChEn;

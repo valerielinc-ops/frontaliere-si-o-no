@@ -391,6 +391,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.controlli-frontiera-g7-divieti-entrata.title': 'Grenzkontrollen für die G7: 11 Einreiseverbote in die Schweiz',
     'blog.article.controlli-frontiera-g7-divieti-entrata.excerpt': 'Die verstärkten Kontrollen führten zu 11 Einreiseverboten und Hunderten von Beschlagnahmungen gefährlicher Gegenstände.',
     'blog.article.controlli-frontiera-g7-divieti-entrata.imageAlt': 'Grenzkontrollen zwischen Frankreich und der Schweiz während des G7',
+    'blog.article.caldo-traffico-ferroviario.title': 'Die Hitze wirkt sich auf den Schienenverkehr aus: Das ändert sich',
+    'blog.article.caldo-traffico-ferroviario.excerpt': 'Die hohen Temperaturen beeinflussen den Zugbetrieb in der Schweiz. Erfahren Sie mehr über die praktischen Auswirkungen und wie die Bahngesellschaften mit der Situation umgehen.',
+    'blog.article.caldo-traffico-ferroviario.imageAlt': 'Ein Schweizer Bahnhof während einer Hitzewelle, mit Passagieren, die im Schatten warten.',
 };
 
 export default blogMetaChDe;

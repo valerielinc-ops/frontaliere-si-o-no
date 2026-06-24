@@ -1169,6 +1169,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'caldo-traffico-ferroviario',
+    category: 'pratico',
+    date: '2026-06-24T17:14:10.121Z',
+    image: '/images/blog/caldo-traffico-ferroviario.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

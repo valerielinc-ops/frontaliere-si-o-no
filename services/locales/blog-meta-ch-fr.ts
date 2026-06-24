@@ -391,6 +391,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.controlli-frontiera-g7-divieti-entrata.title': 'Contrôles aux frontières pour le G7: 11 interdictions d\'entrée en Suisse',
     'blog.article.controlli-frontiera-g7-divieti-entrata.excerpt': 'Les contrôles renforcés ont conduit à 11 interdictions d\'entrée et à des centaines de saisies d\'objets dangereux.',
     'blog.article.controlli-frontiera-g7-divieti-entrata.imageAlt': 'Contrôles aux frontières entre la France et la Suisse pendant le G7',
+    'blog.article.caldo-traffico-ferroviario.title': 'La chaleur affecte le trafic ferroviaire : voici ce qui change',
+    'blog.article.caldo-traffico-ferroviario.excerpt': 'Les températures élevées affectent le fonctionnement des trains en Suisse. Découvrez les implications pratiques et comment les compagnies ferroviaires gèrent la situation.',
+    'blog.article.caldo-traffico-ferroviario.imageAlt': 'Une gare suisse pendant une vague de chaleur, avec des passagers attendant à l\'ombre.',
 };
 
 export default blogMetaChFr;
