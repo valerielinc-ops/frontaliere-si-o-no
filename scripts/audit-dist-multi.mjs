@@ -39,6 +39,7 @@ import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
+import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -319,7 +320,7 @@ function classifyFeatureRatio(relPath) {
   if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board'; // canton-aware (shared matcher)
   if (/(?:^|\/)(?:premi-cassa-malati|health-insurance-premiums|health-premiums|krankenkassenpraemien|krankenkassen-praemien|primes-assurance-maladie|primes-assurance-maladie-communes|primi-cassa-malati-comuni)\//.test(p)) return 'health-premiums';
   if (/(?:^|\/)(?:mercato-lavoro-ticino|ticino-job-market|tessiner-arbeitsmarkt|tessin-arbeitsmarkt|marche-travail-tessin|tessin-marche-emploi|mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
-  if (/(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier|blog|articles)\//.test(p)) return 'blog';
+  if (BLOG_SECTION_RX.test(p) || /(?:^|\/)(?:blog|articles)\//.test(p)) return 'blog';
   if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane|tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
@@ -334,7 +335,7 @@ function classifyFeatureTitle(relPath) {
   if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board'; // canton-aware (shared matcher)
   if (/(?:^|\/)(?:premi-cassa-malati|cassa-malati|health-premiums|health-insurance|krankenkassen-praemien|krankenkasse|primes-assurance-maladie)\//.test(p)) return 'health-premiums';
   if (/(?:^|\/)(?:mercato-lavoro|mercato-lavoro-ticino|job-market|ticino-job-market|arbeitsmarkt|arbeitsmarkt-tessin|marche-emploi|marche-travail|marche-emploi-tessin|marche-travail-tessin)\//.test(p)) return 'job-market-snapshot';
-  if (/(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier)\//.test(p)) return 'blog';
+  if (BLOG_SECTION_RX.test(p)) return 'blog';
   if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
@@ -349,7 +350,7 @@ function classifyFeatureH1(relPath) {
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
   if (/(?:^|\/)(?:premi-cassa-malati|health-premiums|krankenkassen-praemien|primes-assurance-maladie)\//.test(p)) return 'health-premiums';
   if (/(?:^|\/)(?:mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
-  if (/(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier)\//.test(p)) return 'blog';
+  if (BLOG_SECTION_RX.test(p)) return 'blog';
   if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';

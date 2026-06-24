@@ -18,6 +18,7 @@ import { writeAuditReport } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
+import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 
 // 215 KB cap (was 200 KB). The TI job-board landing
 // /cerca-lavoro-ticino/index.html crossed the original 200 KB cap on run
@@ -61,7 +62,7 @@ function featureForPath(relPath) {
   if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board';
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers';
   if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
-  if (/(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier|blog|articles)\//.test(p)) return 'blog';
+  if (BLOG_SECTION_RX.test(p) || /(?:^|\/)(?:blog|articles)\//.test(p)) return 'blog';
   if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane)\//.test(p)) return 'border-wait';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
