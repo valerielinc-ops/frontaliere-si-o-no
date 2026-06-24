@@ -1250,6 +1250,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'calcolo-pensione-frontaliere-avs-inps',
+    category: 'pensione',
+    date: '2026-06-24T23:58:04.646Z',
+    image: '/images/blog/calcolo-pensione-frontaliere-avs-inps.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

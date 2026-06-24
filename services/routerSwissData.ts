@@ -162,6 +162,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dati-tasse-frontalieri-italia': { it: 'dati-tasse-frontalieri-italia', en: 'data-tax-frontalieri-italy', de: 'daten-steuern-frontalieri-italien', fr: 'donnees-impots-frontalieri-italie' },
  'frontaliere-trasporti-chiasso-lugano-abbonamenti-2026': { it: 'frontaliere-trasporti-chiasso-lugano-abbonamenti-2026', en: 'frontier-transport-chiasso-lugano-subscriptions-2026', de: 'grenzgaenger-verkehr-chiasso-lugano-abos-2026', fr: 'transport-frontaliere-chiasso-lugano-abonnements-2026' },
  'lamal-cmi-frontalieri-confronta-2026': { it: 'lamal-cmi-frontalieri-confronta-2026', en: 'lamal-or-cmi-cross-border-workers-which-is-better-2026', de: 'lamal-oder-kvg-grenzgaenger-was-lohnt-sich-2026', fr: 'lamal-ou-cmi-frontaliers-lequel-choisir-2026' },
+ 'calcolo-pensione-frontaliere-avs-inps': { it: 'calcolo-pensione-frontaliere-avs-inps', en: 'pension-calculation-cross-border-commuter', de: 'rentenberechnung-grenzgaenger-schweiz', fr: 'calcul-retraite-frontalier-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
