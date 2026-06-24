@@ -86,6 +86,9 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // 'false' = shown. Flip to 'true' to kill it within ~1 min (no redeploy);
  // Auto Ads keep serving untouched.
  KILL_DESKTOP_TOP_BANNER: 'false',
+ // Calculator form box (dedicated GPT/GAM 300x250 at the bottom of the
+ // calculator input column). Default 'false' = shown; collapses when unsold.
+ KILL_CALCULATOR_FORM_BOX: 'false',
  // Header-bidding (Prebid) pre-auction on the explicit GPT slots. Default
  // 'false' = auction allowed (still gated by PREBID_ENABLED in
  // services/headerBidding.ts). Flip to 'true' to disable Prebid within ~1 min
