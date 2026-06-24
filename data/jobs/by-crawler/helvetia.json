@@ -1999,7 +1999,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "etudiant-du-dhbw-f-m-d-technologies-du-cloud-2026-2029-helvetia-versicherungen-basel"
+        ]
+      },
+      "previousSlugs": [
+        "etudiant-du-dhbw-f-m-d-technologies-du-cloud-2026-2029-helvetia-versicherungen-basel"
+      ]
     },
     {
       "id": "helvetia-2ed6e291813a",
@@ -2493,10 +2501,14 @@
         ],
         "fr": [
           "junior-kundenberater-w-m-d-zurcher-oberland-sales-excellence-program-helvetia-uster"
+        ],
+        "en": [
+          "junior-customer-consultant-f-m-d-zurich-oberland-sales-excellence-program-helvetia-versicherungen-uster"
         ]
       },
       "previousSlugs": [
-        "junior-kundenberater-w-m-d-zurcher-oberland-sales-excellence-program-helvetia-uster"
+        "junior-kundenberater-w-m-d-zurcher-oberland-sales-excellence-program-helvetia-uster",
+        "junior-customer-consultant-f-m-d-zurich-oberland-sales-excellence-program-helvetia-versicherungen-uster"
       ]
     },
     {
@@ -5126,10 +5138,14 @@
         ],
         "fr": [
           "junior-kundenberater-w-m-d-versicherung-region-graubunden-sales-excellence-program"
+        ],
+        "en": [
+          "junior-customer-consultant-f-m-d-insurance-region-graubunden-sales-excellence-program-helvetia-versicherungen-chur"
         ]
       },
       "previousSlugs": [
-        "junior-kundenberater-w-m-d-versicherung-region-graubunden-sales-excellence-program"
+        "junior-kundenberater-w-m-d-versicherung-region-graubunden-sales-excellence-program",
+        "junior-customer-consultant-f-m-d-insurance-region-graubunden-sales-excellence-program-helvetia-versicherungen-chur"
       ]
     },
     {
