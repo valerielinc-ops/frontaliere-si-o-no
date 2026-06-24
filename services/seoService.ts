@@ -4139,6 +4139,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-italia-svizzera-sede-aziendale': { name: 'Frontalieri Italia-Svizzera', path: '/articoli-svizzera/frontalieri-italia-svizzera-sede-aziendale/', parent: 'blog' },
     'blog-voto-elettronico-svizzeri-estero-nicolas-kolly': { name: 'Voto elettronico svizzeri estero', path: '/articoli-svizzera/voto-elettronico-svizzeri-estero-nicolas-kolly/', parent: 'blog' },
     'blog-ubs-previdenza-vecchiaia': { name: 'Previdenza Vecchiaia', path: '/articoli-svizzera/ubs-previdenza-vecchiaia/', parent: 'blog' },
+    'blog-dispositivi-medici-rimborsi': { name: 'Berna apre ai rimborsi per dispositivi', path: '/articoli-svizzera/dispositivi-medici-rimborsi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

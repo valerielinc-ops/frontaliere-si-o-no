@@ -373,6 +373,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ubs-previdenza-vecchiaia.title': 'UBS présente un nouveau modèle pour la prévoyance vieillesse suisse',
     'blog.article.ubs-previdenza-vecchiaia.excerpt': 'La grande banque propose une réforme globale du système de retraite suisse',
     'blog.article.ubs-previdenza-vecchiaia.imageAlt': 'Bâtiment moderne d\'un fonds de pension suisse à Zurich',
+    'blog.article.dispositivi-medici-rimborsi.title': 'Berne rembourse les dispositifs médicaux achetés à l\'étranger',
+    'blog.article.dispositivi-medici-rimborsi.excerpt': 'Le Conseil fédéral propose de rembourser certains dispositifs médicaux achetés à l\'étranger par l\'intermédiaire de l\'AOMS.',
+    'blog.article.dispositivi-medici-rimborsi.imageAlt': 'Appareils médicaux dans un hôpital suisse',
 };
 
 export default blogMetaChFr;

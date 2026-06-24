@@ -4737,6 +4737,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dispositivi-medici-rimborsi': {
+    title: 'Berna apre ai rimborsi per dispositivi medici acquistati all\'estero',
+    description: 'Il Consiglio federale propone di rimborsare determinati dispositivi medici acquistati all\'estero tramite l\'AOMS. Scopri come funzionerà la nuova normativa e le',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, apre, rimborsi, dispositivi',
+    ogTitle: 'Berna apre ai rimborsi per dispositivi medici acquistati all\'estero',
+    ogDescription: 'Il Consiglio federale propone di rimborsare determinati dispositivi medici acquistati all\'estero tramite l\'AOMS. Scopri come funzionerà la nuova normativa e le',
+    canonicalPath: '/articoli-svizzera/dispositivi-medici-rimborsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna apre ai rimborsi per dispositivi medici acquistati all'estero",
+      "description": "Il Consiglio federale propone di rimborsare determinati dispositivi medici acquistati all'estero tramite l'AOMS. Scopri come funzionerà la nuova normativa e le",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dispositivi-medici-rimborsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dispositivi medici in un ospedale svizzero"
+      },
+      "datePublished": "2026-06-24T10:40:35+00:00",
+      "dateModified": "2026-06-24T10:40:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dispositivi-medici-rimborsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

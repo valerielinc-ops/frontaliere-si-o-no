@@ -373,6 +373,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-previdenza-vecchiaia.title': 'UBS präsentiert neues Modell für die schweizerische Altersvorsorge',
     'blog.article.ubs-previdenza-vecchiaia.excerpt': 'Die Grossbank schlägt eine umfassende Reform des schweizerischen Rentensystems vor',
     'blog.article.ubs-previdenza-vecchiaia.imageAlt': 'Modernes Gebäude eines Schweizer Pensionsfonds in Zürich',
+    'blog.article.dispositivi-medici-rimborsi.title': 'Bern öffnet für Rückerstattungen für im Ausland gekaufte Medizinprodukte',
+    'blog.article.dispositivi-medici-rimborsi.excerpt': 'Der Bundesrat schlägt vor, bestimmte über die OKP im Ausland gekaufte Medizinprodukte zu vergüten.',
+    'blog.article.dispositivi-medici-rimborsi.imageAlt': 'Medizinische Geräte in einem Schweizer Krankenhaus',
 };
 
 export default blogMetaChDe;
