@@ -358,6 +358,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.title': 'Switzerland, winning choice for work and taxes',
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.excerpt': 'Find out why more and more cross-border workers are choosing Switzerland for work, salary, taxes and traffic.',
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.imageAlt': 'A person walking in the streets of Lugano, with the lake in the background and the mountains in the distance.',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.title': 'Cheap Spanish tomatoes, an era at the end of the line?',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.excerpt': 'Importing fruits and vegetables from Spain could decrease due to higher wages and foreign competition.',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.imageAlt': 'Greenhouse farming of tomatoes in Spain',
 };
 
 export default blogMetaChEn;

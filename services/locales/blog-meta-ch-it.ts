@@ -358,6 +358,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.title': 'Svizzera, scelta vincente per lavoro e tasse',
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.excerpt': 'Scopri perché sempre più frontalieri scelgono la Svizzera per lavoro, stipendio, tasse e traffico.',
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.imageAlt': 'Una persona che cammina per le strade di Lugano, con il lago di fondo e i monti alle spalle.',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.title': 'Pomodori economici spagnoli, un\'era al capolinea?',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.excerpt': 'L\'importazione di frutta e verdura dalla Spagna potrebbe diminuire a causa di salari più elevati e concorrenza estera.',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.imageAlt': 'Serre in plastica per la coltivazione di pomodori in Spagna',
 };
 
 export default blogMetaChIt;

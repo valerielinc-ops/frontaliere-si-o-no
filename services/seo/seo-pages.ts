@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2883,
+ "numberOfItems": 2884,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7531,7 +7531,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-pro-contro-frontalieri` }
           { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-frontalieri-pro-contro` },
           { "@type": "ListItem", "position": 2882, "name": "Tassazione frontalieri 2026: le nuove regole do...", "url": `${BASE_URL}/articoli-frontaliere/tassazione-frontalieri-2026-nuovo-accordo` },
-          { "@type": "ListItem", "position": 2883, "name": "Svizzera, scelta vincente per lavoro e tasse", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia` }
+          { "@type": "ListItem", "position": 2883, "name": "Svizzera, scelta vincente per lavoro e tasse", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia` },
+          { "@type": "ListItem", "position": 2884, "name": "Pomodori economici spagnoli, un'era al capolinea?", "url": `${BASE_URL}/articoli-frontaliere/pomodori-economici-spagnoli-unera-al-capolinea` }
  ]
  },
  {
