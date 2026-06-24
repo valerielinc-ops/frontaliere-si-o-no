@@ -1,18 +1,19 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-06-24T11:56:35.035Z",
-  "total": 4,
-  "newCount": 1,
+  "generatedAt": "2026-06-24T22:32:52.083Z",
+  "total": 3,
+  "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 9810,
-  "avgDurationMs": 9810,
+  "durationMs": 10125,
+  "avgDurationMs": 10125,
   "durationHistory": [
-    9810
+    10125
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "microsoft-200040138",
       "slug": "data-center-project-manager-microsoft-geneva",
@@ -25,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556874570",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T11:56:32.533Z",
+      "crawledAt": "2026-06-24T22:32:50.435Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -39,16 +40,15 @@
       "featured": false,
       "postedDate": "2026-06-24",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556874570",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-06-24T11:56:32.533Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "microsoft-200040955",
       "slug": "data-center-technician-microsoft-zurich",
@@ -61,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556896247",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T11:56:32.532Z",
+      "crawledAt": "2026-06-24T22:32:50.433Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556874589",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T11:56:32.528Z",
+      "crawledAt": "2026-06-24T22:32:50.431Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -118,10 +118,12 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "microsoft-200040152",
-      "slug": "logistics-technician-microsoft-zurich",
+      "slug": "logistica-technician-microsoft-zurich",
       "company": "Microsoft",
       "companyKey": "microsoft",
       "companyDomain": "microsoft.com",
@@ -146,15 +148,18 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556874593",
       "firstSeenAt": "2026-06-18T12:46:03.225Z",
-      "_qualityScore": 84,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "streetAddress": "The Circle 02",
+      "postalCode": "8058",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
