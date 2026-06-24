@@ -1,0 +1,40 @@
+{
+  "id": "affitti-lugano-mercato-rallenta",
+  "slug": "affitti-lugano-mercato-rallenta",
+  "publishedAt": "2026-06-24T18:07:00.547Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.9897697574686584,
+    "confidence": 0.8,
+    "finalScore": 2.3918158059749266,
+    "topK": [
+      {
+        "slug": "casa-ticino-2026-piu-difficile",
+        "cosine": 0.8531060310390142
+      },
+      {
+        "slug": "frontalieri-lugano-chiarezza-2026",
+        "cosine": 0.8491712941273448
+      },
+      {
+        "slug": "lavoro-economia-2026",
+        "cosine": 0.8451035808810103
+      },
+      {
+        "slug": "aeroporto-lugano-costi-interpellanza",
+        "cosine": 0.8430086811194969
+      },
+      {
+        "slug": "allentamenti-affitti-brevi-ticino-2025",
+        "cosine": 0.8376526777033506
+      }
+    ],
+    "score": 0.2989769757468658,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

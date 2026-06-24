@@ -394,6 +394,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caldo-traffico-ferroviario.title': 'La chaleur affecte le trafic ferroviaire : voici ce qui change',
     'blog.article.caldo-traffico-ferroviario.excerpt': 'Les températures élevées affectent le fonctionnement des trains en Suisse. Découvrez les implications pratiques et comment les compagnies ferroviaires gèrent la situation.',
     'blog.article.caldo-traffico-ferroviario.imageAlt': 'Une gare suisse pendant une vague de chaleur, avec des passagers attendant à l\'ombre.',
+    'blog.article.affitti-lugano-mercato-rallenta.title': 'Location, le marché ralentit : Lugano parmi les villes les plus en difficulté',
+    'blog.article.affitti-lugano-mercato-rallenta.excerpt': 'Lugano montre des signes d\'affaiblissement plus marqués que d\'autres régions du pays.',
+    'blog.article.affitti-lugano-mercato-rallenta.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaChFr;

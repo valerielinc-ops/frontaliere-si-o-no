@@ -394,6 +394,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caldo-traffico-ferroviario.title': 'Heat affects rail traffic: here\'s what changes',
     'blog.article.caldo-traffico-ferroviario.excerpt': 'High temperatures affect the operation of trains in Switzerland. Learn about the practical implications and how railway companies are handling the situation.',
     'blog.article.caldo-traffico-ferroviario.imageAlt': 'A Swiss train station during a heatwave, with passengers waiting under the shade.',
+    'blog.article.affitti-lugano-mercato-rallenta.title': 'Rentals, the market slows down: Lugano among the cities most in difficulty',
+    'blog.article.affitti-lugano-mercato-rallenta.excerpt': 'Lugano shows more marked signs of weakening than other regions of the country.',
+    'blog.article.affitti-lugano-mercato-rallenta.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaChEn;

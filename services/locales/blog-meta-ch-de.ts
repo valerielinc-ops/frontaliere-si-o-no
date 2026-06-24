@@ -394,6 +394,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-traffico-ferroviario.title': 'Die Hitze wirkt sich auf den Schienenverkehr aus: Das ändert sich',
     'blog.article.caldo-traffico-ferroviario.excerpt': 'Die hohen Temperaturen beeinflussen den Zugbetrieb in der Schweiz. Erfahren Sie mehr über die praktischen Auswirkungen und wie die Bahngesellschaften mit der Situation umgehen.',
     'blog.article.caldo-traffico-ferroviario.imageAlt': 'Ein Schweizer Bahnhof während einer Hitzewelle, mit Passagieren, die im Schatten warten.',
+    'blog.article.affitti-lugano-mercato-rallenta.title': 'Mieten: Lugano unter den am stärksten betroffenen Städten',
+    'blog.article.affitti-lugano-mercato-rallenta.excerpt': 'Lugano zeigt stärkere Schwächungssignale als andere Regionen des Landes.',
+    'blog.article.affitti-lugano-mercato-rallenta.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaChDe;

@@ -4174,6 +4174,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iva-aumento-governo-decisione-previsto': { name: 'Aumento IVA', path: '/articoli-svizzera/iva-aumento-governo-decisione-previsto/', parent: 'blog' },
     'blog-controlli-frontiera-g7-divieti-entrata': { name: 'Controlli frontiera', path: '/articoli-svizzera/controlli-frontiera-g7-divieti-entrata/', parent: 'blog' },
     'blog-caldo-traffico-ferroviario': { name: 'Caldo e traffico ferroviario', path: '/articoli-svizzera/caldo-traffico-ferroviario/', parent: 'blog' },
+    'blog-affitti-lugano-mercato-rallenta': { name: 'Affitti Lugano', path: '/articoli-svizzera/affitti-lugano-mercato-rallenta/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
