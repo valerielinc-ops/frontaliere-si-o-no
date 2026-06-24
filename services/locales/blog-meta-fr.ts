@@ -8147,6 +8147,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scoiattolo-export-usa-made-italy.title': 'Écureuil amène les Géants Raviolis à New York: opportunités',
     'blog.article.scoiattolo-export-usa-made-italy.excerpt': 'La société Scoiattolo di Lonate Ceppino participe au Summer Fancy Food Show 2026 à New York, apportant ses Giant Ravioli.',
     'blog.article.scoiattolo-export-usa-made-italy.imageAlt': 'Scoiattolo présente les Giant Ravioli au Summer Fancy Food Show',
+    'blog.article.sensibilita-al-lavoro-personale.title': 'Sensibilité au travail : comment gérer le stress et l\'isolement',
+    'blog.article.sensibilita-al-lavoro-personale.excerpt': '15 à 20% de la population est très sensible au travail. Découvrez comment faire face au stress et à l\'isolement.',
+    'blog.article.sensibilita-al-lavoro-personale.imageAlt': 'Homme travaillant avec des écouteurs anti-bruit dans un bureau calme',
 };
 
 export default blogMetaFr;

@@ -8147,6 +8147,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scoiattolo-export-usa-made-italy.title': 'Scoiattolo porta i Giant Ravioli a New York: opportunità per frontalieri',
     'blog.article.scoiattolo-export-usa-made-italy.excerpt': 'L\'azienda Scoiattolo di Lonate Ceppino partecipa al Summer Fancy Food Show 2026 a New York, portando i suoi Giant Ravioli.',
     'blog.article.scoiattolo-export-usa-made-italy.imageAlt': 'Scoiattolo presenta i Giant Ravioli al Summer Fancy Food Show',
+    'blog.article.sensibilita-al-lavoro-personale.title': 'Sensibilità al lavoro: come gestire stress e isolamento',
+    'blog.article.sensibilita-al-lavoro-personale.excerpt': '15-20% della popolazione è altamente sensibile al lavoro. Scopri come affrontare stress e isolamento.',
+    'blog.article.sensibilita-al-lavoro-personale.imageAlt': 'Uomo al lavoro con cuffie anti-rumore in un ufficio tranquillo',
 };
 
 export default blogMetaIt;
