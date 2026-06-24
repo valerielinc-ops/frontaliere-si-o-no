@@ -24,12 +24,12 @@
         "de": "Immobilienbewirtschafter:in",
         "fr": "Gestionnaire immobilier:in"
       },
-      "slug": "immobilienbewirtschafter-in-post",
+      "slug": "responsabile-della-proprieta-in-die-schweizerische-post-zurich-99db51",
       "slugByLocale": {
-        "it": "immobilienbewirtschafter-in-post",
-        "en": "immobilienbewirtschafter-in-die-schweizerische-post-zurich",
+        "it": "responsabile-della-proprieta-in-die-schweizerische-post-zurich-99db51",
+        "en": "property-manager-in-die-schweizerische-post-zurich-99db51",
         "de": "immobilienbewirtschafter-in-die-schweizerische-post-zurich",
-        "fr": "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        "fr": "gestionnaire-immobilier-in-die-schweizerische-post-zurich-99db51"
       },
       "sourceLang": "de",
       "department": "",
@@ -65,7 +65,22 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-23T12:30:25.906Z"
+      "firstSeenAt": "2026-06-23T12:30:25.906Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-post"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-post",
+        "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74126-de_DE",
@@ -92,9 +107,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buchs-ag",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buchs-ag",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-buchs-ag",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-buchs-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -133,6 +148,12 @@
       "firstSeenAt": "2026-06-23T12:30:25.906Z",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },

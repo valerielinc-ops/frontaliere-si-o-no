@@ -81,9 +81,9 @@
     },
     {
       "id": "buergenstock-hotels-511a44814f78",
-      "slug": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "assistente-di-pulizia-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "assistente-di-pulizia-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "agent-d-entretien-menager-100-h-f-i-burgenstock-hotels-ag-obburgen"
@@ -128,11 +128,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "reinigungskraft-zu-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "reinigungskraft-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
       ],
       "previousSlugsByLocale": {
         "de": [
           "reinigungskraft-zu-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        ],
+        "it": [
+          "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
         ]
       },
       "firstSeenAt": "2026-05-20T06:09:00.831Z",
@@ -397,7 +401,7 @@
         "it": "assistente-manager-ristorante-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "assistant-restaurant-manager-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "assistant-restaurant-manager-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "assistant-restaurant-manager-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "chef-de-restaurant-adjoint-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -479,6 +483,9 @@
         ],
         "de": [
           "betriebsleiterin-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        ],
+        "fr": [
+          "assistant-restaurant-manager-100-w-m-i-buergenstock-hotels-obburgen"
         ]
       },
       "firstSeenAt": "2026-05-20T06:08:55.301Z",
@@ -932,9 +939,9 @@
     },
     {
       "id": "buergenstock-hotels-7d4f069a44a3",
-      "slug": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
@@ -997,7 +1004,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-47216b96ea40",
@@ -1116,9 +1131,9 @@
     },
     {
       "id": "buergenstock-hotels-553e30208714",
-      "slug": "commis-de-cuisine-fruhstuck-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "commissione-di-cucina-colazione-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "commis-de-cuisine-fruhstuck-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "commissione-di-cucina-colazione-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "breakfast-commis-100-m-f-i-burgenstock-hotels-ag-obburgen",
         "de": "commis-de-cuisine-fruhstuck-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "commis-petit-dejeuner-100-h-f-i-burgenstock-hotels-ag-obburgen"
@@ -1170,11 +1185,15 @@
         ]
       },
       "previousSlugs": [
-        "commis-de-cuisine-fr-graffhst-ck-100-graffi-m-i-burgenstock-hotels-ag-obburgen"
+        "commis-de-cuisine-fr-graffhst-ck-100-graffi-m-i-burgenstock-hotels-ag-obburgen",
+        "commis-de-cuisine-fruhstuck-100-w-m-i-buergenstock-hotels-obburgen"
       ],
       "previousSlugsByLocale": {
         "de": [
           "commis-de-cuisine-fr-graffhst-ck-100-graffi-m-i-burgenstock-hotels-ag-obburgen"
+        ],
+        "it": [
+          "commis-de-cuisine-fruhstuck-100-w-m-i-buergenstock-hotels-obburgen"
         ]
       },
       "firstSeenAt": "2026-05-20T06:08:44.928Z",
@@ -1193,9 +1212,9 @@
     },
     {
       "id": "buergenstock-hotels-ae532c990a52",
-      "slug": "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen",
         "de": "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen"
@@ -1258,7 +1277,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-e50af4ad3c66",

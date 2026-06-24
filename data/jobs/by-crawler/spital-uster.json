@@ -867,9 +867,9 @@
     },
     {
       "id": "spital-uster-6d480ef74eca",
-      "slug": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+      "slug": "professionisti-della-cura-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster",
       "slugByLocale": {
-        "it": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+        "it": "professionisti-della-cura-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster",
         "en": "nursing-professionals-50-100-geriatric-acute-rehabilitation-spital-uster-uster",
         "de": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
         "fr": "professionnels-en-soins-infirmiers-50-100-rehabilitation-aigue-geriatrique-spital-uster-uster"
@@ -947,13 +947,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-80c844387920",
-      "slug": "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+      "slug": "professionisti-della-salute-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster",
       "slugByLocale": {
-        "it": "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+        "it": "professionisti-della-salute-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster",
         "en": "healthcare-specialist-50-100-geriatric-acute-rehabilitation-spital-uster-uster",
         "de": "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
         "fr": "specialiste-en-sante-50-100-rehabilitation-geriatrique-aigue-spital-uster-uster"
@@ -1032,7 +1040,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-8c544655c9d1",
@@ -1135,9 +1151,9 @@
     },
     {
       "id": "spital-uster-6add59201030",
-      "slug": "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch",
+      "slug": "professionisti-infermieri-variabile-di-carico-di-lavoro-fixpool-spital-uster-uster",
       "slugByLocale": {
-        "it": "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch",
+        "it": "professionisti-infermieri-variabile-di-carico-di-lavoro-fixpool-spital-uster-uster",
         "en": "nursing-professionals-variable-workload-fixed-pool-spital-uster-uster",
         "de": "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch",
         "fr": "professionnels-de-soins-infirmiers-charge-de-travail-variable-pool-fixe-spital-uster-uster"
@@ -1214,11 +1230,15 @@
       },
       "department": "Pflege",
       "previousSlugs": [
-        "pflegefachpersonen-pensum-varibel-fixpool-spital-uster-uster"
+        "pflegefachpersonen-pensum-varibel-fixpool-spital-uster-uster",
+        "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "pflegefachpersonen-pensum-varibel-fixpool-spital-uster-uster"
+        ],
+        "it": [
+          "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.953Z",
@@ -1702,7 +1722,7 @@
       "slug": "dipl-infermiere-50-100-medicina-spital-uster-uster",
       "slugByLocale": {
         "it": "dipl-infermiere-50-100-medicina-spital-uster-uster",
-        "en": "dipl-pflegefachperson-50-100-medizin-spital-uster-ch",
+        "en": "dipl-nursing-professional-50-100-medicine-spital-uster-uster",
         "de": "dipl-pflegefachperson-50-100-medizin-spital-uster-ch",
         "fr": "dipl-infirmier-50-100-medecine-spital-uster-uster"
       },
@@ -1779,6 +1799,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-50-100-medizin-spital-uster-ch"
+        ],
+        "en": [
           "dipl-pflegefachperson-50-100-medizin-spital-uster-ch"
         ]
       },
@@ -1900,7 +1923,7 @@
       "slug": "assistente-sanitario-80-100-stazione-chirurgica-privata-spital-uster-uster",
       "slugByLocale": {
         "it": "assistente-sanitario-80-100-stazione-chirurgica-privata-spital-uster-uster",
-        "en": "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch",
+        "en": "health-professional-80-100-private-surgical-unit-spital-uster-uster",
         "de": "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch",
         "fr": "assistant-de-sante-80-100-station-chirurgicale-privee-spital-uster-uster"
       },
@@ -1976,6 +1999,9 @@
         ],
         "de": [
           "fachperson-gesundheit-80-100-chirurgie-privatstation-spital-uster-uster"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.934Z",
@@ -1997,7 +2023,7 @@
       "slug": "dipl-pflegefachperson-60-100-endoscopia-spital-uster-uster",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-60-100-endoscopia-spital-uster-uster",
-        "en": "dipl-pflegefachperson-60-100-endoskopie-spital-uster-ch",
+        "en": "dipl-care-professional-60-100-endoscopy-spital-uster-uster",
         "de": "dipl-pflegefachperson-60-100-endoskopie-spital-uster-ch",
         "fr": "dipl-pflegefachperson-60-100-endoscopie-spital-uster-uster"
       },
@@ -2080,6 +2106,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-60-100-endoskopie-spital-uster-ch"
+        ],
+        "en": [
           "dipl-pflegefachperson-60-100-endoskopie-spital-uster-ch"
         ]
       },
@@ -3069,7 +3098,7 @@
       "slug": "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster",
       "slugByLocale": {
         "it": "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster",
-        "en": "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch",
+        "en": "dipl-nurse-hf-80-100-surgery-spital-uster-uster",
         "de": "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch",
         "fr": "dipl-specialiste-des-soins-hf-80-100-chirurgie-spital-uster-uster"
       },
@@ -3121,6 +3150,9 @@
           "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
+        ],
+        "en": [
           "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
         ]
       },
@@ -3677,7 +3709,7 @@
       "slug": "esperto-esperta-nds-50-100-notfallpflege-spital-uster-uster",
       "slugByLocale": {
         "it": "esperto-esperta-nds-50-100-notfallpflege-spital-uster-uster",
-        "en": "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch",
+        "en": "expert-expert-nds-50-100-emergency-care-spital-uster-uster",
         "de": "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch",
         "fr": "nds-expert-50-100-soins-d-urgence-spital-uster-uster"
       },
@@ -3732,6 +3764,9 @@
         ],
         "fr": [
           "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch"
+        ],
+        "en": [
+          "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T22:39:38.622Z",
@@ -3753,7 +3788,7 @@
       "slug": "infermiera-hf-fh-80-100-pronto-soccorso-spital-uster-uster",
       "slugByLocale": {
         "it": "infermiera-hf-fh-80-100-pronto-soccorso-spital-uster-uster",
-        "en": "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch",
+        "en": "nursing-professional-hf-fh-80-100-emergency-care-spital-uster-uster",
         "de": "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch",
         "fr": "infirmiere-ic-fh-80-100-soins-d-urgence-spital-uster-uster"
       },
@@ -3808,6 +3843,9 @@
         "fr": [
           "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch",
           "specialiste-des-soins-hf-fh-80-100-soins-d-urgence-spital-uster-uster"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T22:39:38.620Z",
@@ -3909,12 +3947,12 @@
     },
     {
       "id": "spital-uster-862158f119df",
-      "slug": "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch",
+      "slug": "gestione-segreteria-di-emergenza-80-100-dipartimento-di-emergenza-spital-uster-uster",
       "slugByLocale": {
         "de": "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch",
-        "it": "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch",
-        "en": "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch",
-        "fr": "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch"
+        "it": "gestione-segreteria-di-emergenza-80-100-dipartimento-di-emergenza-spital-uster-uster",
+        "en": "management-emergency-secretariat-80-100-emergency-department-spital-uster-uster",
+        "fr": "secretariat-de-gestion-des-urgences-80-100-service-des-urgences-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -3970,7 +4008,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T23:10:39.121Z"
+      "firstSeenAt": "2026-06-23T23:10:39.121Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch"
+        ],
+        "en": [
+          "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch"
+        ],
+        "fr": [
+          "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch"
+      ]
     }
   ]
 }

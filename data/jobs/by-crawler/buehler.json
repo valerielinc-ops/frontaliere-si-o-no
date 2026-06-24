@@ -86,7 +86,7 @@
         "it": "sci-product-development-manager-sci-xff08-xff09-buehler-beijing",
         "en": "sci-product-development-manager-sci-xff08-xff09-buehler-beijing",
         "de": "sci-product-development-manager-sci-xff08-xff09-buehler-beijing",
-        "fr": "sci-product-development-manager-sci-xff08-xff09-buehler-beijing"
+        "fr": "sci-gestionnaire-de-developpement-de-produits-sci-buhler-group-beijing"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -298,12 +298,12 @@
     },
     {
       "id": "buehler-2cc40e630d2a",
-      "slug": "praktikum-kaufmannisch-m-w-d-buehler-braunschweig",
+      "slug": "stage-commerciale-m-f-d-buhler-group-braunschweig",
       "slugByLocale": {
-        "it": "praktikum-kaufmannisch-m-w-d-buehler-braunschweig",
-        "en": "praktikum-kaufmannisch-m-w-d-buehler-braunschweig",
+        "it": "stage-commerciale-m-f-d-buhler-group-braunschweig",
+        "en": "commercial-internship-m-f-d-buhler-group-braunschweig",
         "de": "praktikum-kaufmannisch-m-w-d-buehler-braunschweig",
-        "fr": "praktikum-kaufmannisch-m-w-d-buehler-braunschweig"
+        "fr": "stage-commercial-m-f-d-buhler-group-braunschweig"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -357,16 +357,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-kaufmannisch-m-w-d-buehler-braunschweig"
+        ],
+        "en": [
+          "praktikum-kaufmannisch-m-w-d-buehler-braunschweig"
+        ],
+        "fr": [
+          "praktikum-kaufmannisch-m-w-d-buehler-braunschweig"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-kaufmannisch-m-w-d-buehler-braunschweig"
+      ]
     },
     {
       "id": "buehler-6f1dfccb8bcc",
-      "slug": "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig",
+      "slug": "stage-in-ingegneria-commerciale-m-f-d-buhler-group-braunschweig",
       "slugByLocale": {
-        "it": "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig",
-        "en": "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig",
+        "it": "stage-in-ingegneria-commerciale-m-f-d-buhler-group-braunschweig",
+        "en": "internship-in-commercial-engineering-m-f-d-buhler-group-braunschweig",
         "de": "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig",
-        "fr": "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig"
+        "fr": "stage-en-genie-commercial-m-f-d-buhler-group-braunschweig"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -420,16 +434,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig"
+        ],
+        "en": [
+          "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig"
+        ],
+        "fr": [
+          "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-gewerblich-technisch-m-w-d-buehler-braunschweig"
+      ]
     },
     {
       "id": "buehler-588c38158245",
-      "slug": "doktorand-m-w-d-ki-projekt-buehler-alzenau",
+      "slug": "dottorato-m-f-d-progetto-ai-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "doktorand-m-w-d-ki-projekt-buehler-alzenau",
-        "en": "doktorand-m-w-d-ki-projekt-buhler-group-alzenau",
+        "it": "dottorato-m-f-d-progetto-ai-buhler-group-alzenau",
+        "en": "doctoral-student-m-f-d-ai-project-buhler-group-alzenau",
         "de": "doktorand-m-w-d-ki-projekt-buehler-alzenau",
-        "fr": "doktorand-m-w-d-ki-projekt-buehler-alzenau"
+        "fr": "etudiant-au-doctorat-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -483,16 +511,31 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-m-w-d-ki-projekt-buehler-alzenau"
+        ],
+        "en": [
+          "doktorand-m-w-d-ki-projekt-buhler-group-alzenau"
+        ],
+        "fr": [
+          "doktorand-m-w-d-ki-projekt-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-m-w-d-ki-projekt-buehler-alzenau",
+        "doktorand-m-w-d-ki-projekt-buhler-group-alzenau"
+      ]
     },
     {
       "id": "buehler-e69c68cf842b",
-      "slug": "praktikum-fachinformatiker-m-w-d-buhler-group-braunschweig",
+      "slug": "scienziato-informatico-di-stage-m-f-d-buhler-group-braunschweig",
       "slugByLocale": {
-        "it": "praktikum-fachinformatiker-m-w-d-buhler-group-braunschweig",
-        "en": "praktikum-fachinformatiker-m-w-d-buhler-group-braunschweig",
+        "it": "scienziato-informatico-di-stage-m-f-d-buhler-group-braunschweig",
+        "en": "internship-computer-scientist-m-f-d-buhler-group-braunschweig",
         "de": "praktikum-fachinformatiker-m-w-d-buehler-braunschweig",
-        "fr": "praktikum-fachinformatiker-m-w-d-buhler-group-braunschweig"
+        "fr": "expert-en-informatique-m-f-d-buhler-group-braunschweig"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -535,11 +578,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-fachinformatiker-m-w-d-buehler-braunschweig"
+        "praktikum-fachinformatiker-m-w-d-buehler-braunschweig",
+        "praktikum-fachinformatiker-m-w-d-buhler-group-braunschweig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-fachinformatiker-m-w-d-buehler-braunschweig"
+          "praktikum-fachinformatiker-m-w-d-buehler-braunschweig",
+          "praktikum-fachinformatiker-m-w-d-buhler-group-braunschweig"
+        ],
+        "en": [
+          "praktikum-fachinformatiker-m-w-d-buhler-group-braunschweig"
+        ],
+        "fr": [
+          "praktikum-fachinformatiker-m-w-d-buhler-group-braunschweig"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.281Z",
@@ -558,12 +609,12 @@
     },
     {
       "id": "buehler-408b4eb9e74b",
-      "slug": "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buhler-group-beilngries",
+      "slug": "formazione-meccanica-di-progettazione-m-f-d-da-settembre-2026-buhler-group-beilngries",
       "slugByLocale": {
-        "it": "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buhler-group-beilngries",
-        "en": "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buhler-group-beilngries",
+        "it": "formazione-meccanica-di-progettazione-m-f-d-da-settembre-2026-buhler-group-beilngries",
+        "en": "design-mechanic-training-m-f-d-from-sept-2026-buhler-group-beilngries",
         "de": "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buehler-beilngries",
-        "fr": "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buhler-group-beilngries"
+        "fr": "formation-de-mecanicien-de-conception-m-f-d-a-partir-de-septembre-2026-buhler-group-beilngries"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -606,11 +657,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buehler-beilngries"
+        "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buehler-beilngries",
+        "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buhler-group-beilngries"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buehler-beilngries"
+          "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buehler-beilngries",
+          "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buhler-group-beilngries"
+        ],
+        "en": [
+          "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buhler-group-beilngries"
+        ],
+        "fr": [
+          "ausbildung-zum-konstruktionsmechaniker-m-w-d-ab-sept-2026-buhler-group-beilngries"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.279Z",
@@ -940,9 +999,9 @@
       "slug": "ausbildung-zum-elektroniker-per-automatisierungstechnik-m-w-d-ab-sept-2026-buhler-group-beilngries",
       "slugByLocale": {
         "it": "ausbildung-zum-elektroniker-per-automatisierungstechnik-m-w-d-ab-sept-2026-buhler-group-beilngries",
-        "en": "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buhler-group-beilngries",
+        "en": "training-as-an-electronics-engineer-for-automation-technology-m-f-d-from-september-2026-buhler-group-beilngries",
         "de": "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buehler",
-        "fr": "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buhler-group-beilngries"
+        "fr": "formation-d-ingenieur-en-electronique-pour-la-technologie-d-automatisation-m-f-d-a-partir-de-septembre-2026-buhler-group"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -985,11 +1044,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buehler"
+        "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buehler",
+        "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buhler-group-beilngries"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buehler"
+        ],
+        "en": [
+          "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buhler-group-beilngries"
+        ],
+        "fr": [
+          "ausbildung-zum-elektroniker-fur-automatisierungstechnik-m-w-d-ab-sept-2026-buhler-group-beilngries"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.272Z",
@@ -1008,12 +1074,12 @@
     },
     {
       "id": "buehler-023052cac697",
-      "slug": "ausbildung-zum-industriemechaniker-m-w-d-buhler-group-braunschweig",
+      "slug": "formazione-meccanica-industriale-m-f-d-buhler-group-braunschweig",
       "slugByLocale": {
-        "it": "ausbildung-zum-industriemechaniker-m-w-d-buhler-group-braunschweig",
-        "en": "ausbildung-zum-industriemechaniker-m-w-d-buhler-group-braunschweig",
+        "it": "formazione-meccanica-industriale-m-f-d-buhler-group-braunschweig",
+        "en": "industrial-mechanic-training-m-f-d-buhler-group-braunschweig",
         "de": "ausbildung-zum-industriemechaniker-m-w-d-buehler-braunschweig",
-        "fr": "ausbildung-zum-industriemechaniker-m-w-d-buhler-group-braunschweig"
+        "fr": "formation-des-mecaniciens-industriels-m-f-d-buhler-group-braunschweig"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1056,11 +1122,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-zum-industriemechaniker-m-w-d-buehler-braunschweig"
+        "ausbildung-zum-industriemechaniker-m-w-d-buehler-braunschweig",
+        "ausbildung-zum-industriemechaniker-m-w-d-buhler-group-braunschweig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-zum-industriemechaniker-m-w-d-buehler-braunschweig"
+          "ausbildung-zum-industriemechaniker-m-w-d-buehler-braunschweig",
+          "ausbildung-zum-industriemechaniker-m-w-d-buhler-group-braunschweig"
+        ],
+        "en": [
+          "ausbildung-zum-industriemechaniker-m-w-d-buhler-group-braunschweig"
+        ],
+        "fr": [
+          "ausbildung-zum-industriemechaniker-m-w-d-buhler-group-braunschweig"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.271Z",
@@ -1079,12 +1153,12 @@
     },
     {
       "id": "buehler-63899430e021",
-      "slug": "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries",
+      "slug": "team-leader-m-f-d-vs1-focus-saldatura-buhler-group-beilngries",
       "slugByLocale": {
-        "it": "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries",
-        "en": "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries",
+        "it": "team-leader-m-f-d-vs1-focus-saldatura-buhler-group-beilngries",
+        "en": "team-leader-m-f-d-vs1-focus-welding-buhler-group-beilngries",
         "de": "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries",
-        "fr": "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries"
+        "fr": "chef-d-equipe-m-f-d-buhler-group-beilngries"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1138,16 +1212,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries"
+        ],
+        "en": [
+          "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries"
+        ],
+        "fr": [
+          "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-m-w-d-vs1-fokus-schwei-en-buehler-beilngries"
+      ]
     },
     {
       "id": "buehler-74bcb65673d7",
-      "slug": "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buhler-group-alzenau",
+      "slug": "master-student-m-f-d-simulazione-di-sistemi-di-film-sottili-ottici-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buhler-group-alzenau",
-        "en": "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buhler-group-alzenau",
+        "it": "master-student-m-f-d-simulazione-di-sistemi-di-film-sottili-ottici-buhler-group-alzenau",
+        "en": "master-student-m-f-d-simulation-of-optical-thin-film-systems-buhler-group-alzenau",
         "de": "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buehler-alzenau",
-        "fr": "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buhler-group-alzenau"
+        "fr": "maitre-etudiant-m-f-d-simulation-de-systemes-de-film-optique-mince-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1190,11 +1278,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buehler-alzenau"
+        "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buehler-alzenau",
+        "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buehler-alzenau"
+          "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buehler-alzenau",
+          "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buhler-group-alzenau"
+        ],
+        "en": [
+          "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buhler-group-alzenau"
+        ],
+        "fr": [
+          "masterstudent-m-w-d-simulation-optischer-dunnschichtsysteme-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.268Z",
@@ -1293,9 +1389,9 @@
       "slug": "duales-studium-elektro-e-informationstechnik-m-w-d-buhler-group-alzenau",
       "slugByLocale": {
         "it": "duales-studium-elektro-e-informationstechnik-m-w-d-buhler-group-alzenau",
-        "en": "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau",
+        "en": "dual-degree-in-electrical-and-information-technology-m-f-d-buhler-group-alzenau",
         "de": "duales-studium-elektro-und-informationstechnik-m-w-d-buehler-alzenau",
-        "fr": "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau"
+        "fr": "double-diplome-en-technologie-electrique-et-informatique-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1338,11 +1434,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "duales-studium-elektro-und-informationstechnik-m-w-d-buehler-alzenau"
+        "duales-studium-elektro-und-informationstechnik-m-w-d-buehler-alzenau",
+        "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "duales-studium-elektro-und-informationstechnik-m-w-d-buehler-alzenau"
+        ],
+        "en": [
+          "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.265Z",
@@ -1361,12 +1464,12 @@
     },
     {
       "id": "buehler-51307cf4d419",
-      "slug": "duales-studium-mechatronik-m-w-d-buehler-alzenau",
+      "slug": "doppio-studio-mechatronics-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "duales-studium-mechatronik-m-w-d-buehler-alzenau",
-        "en": "duales-studium-mechatronik-m-w-d-buehler-alzenau",
+        "it": "doppio-studio-mechatronics-m-f-d-buhler-group-alzenau",
+        "en": "dual-study-mechatronics-m-f-d-buhler-group-alzenau",
         "de": "duales-studium-mechatronik-m-w-d-buehler-alzenau",
-        "fr": "duales-studium-mechatronik-m-w-d-buehler-alzenau"
+        "fr": "etude-double-mecatronics-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1420,7 +1523,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "duales-studium-mechatronik-m-w-d-buehler-alzenau"
+        ],
+        "en": [
+          "duales-studium-mechatronik-m-w-d-buehler-alzenau"
+        ],
+        "fr": [
+          "duales-studium-mechatronik-m-w-d-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "duales-studium-mechatronik-m-w-d-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-d680a99c3d9a",
@@ -1429,7 +1546,7 @@
         "it": "gbs-accountant-accounts-receivable-buehler-subang-jaya",
         "en": "gbs-accountant-accounts-receivable-buehler-subang-jaya",
         "de": "gbs-accountant-accounts-receivable-buehler-subang-jaya",
-        "fr": "gbs-accountant-accounts-receivable-buhler-group-subang-jaya"
+        "fr": "gbs-comptable-comptes-debiteurs-buhler-group-subang-jaya"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1483,16 +1600,24 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "gbs-accountant-accounts-receivable-buhler-group-subang-jaya"
+        ]
+      },
+      "previousSlugs": [
+        "gbs-accountant-accounts-receivable-buhler-group-subang-jaya"
+      ]
     },
     {
       "id": "buehler-8d4ebc3d174b",
       "slug": "ingenieur-per-maschinensicherheit-e-ce-m-w-d-buhler-group-alzenau",
       "slugByLocale": {
         "it": "ingenieur-per-maschinensicherheit-e-ce-m-w-d-buhler-group-alzenau",
-        "en": "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buhler-group-alzenau",
+        "en": "engineer-for-machine-safety-and-ce-m-f-d-buhler-group-alzenau",
         "de": "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buehler-alzenau",
-        "fr": "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buhler-group-alzenau"
+        "fr": "ingenieur-pour-la-securite-des-machines-et-le-ce-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1535,11 +1660,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buehler-alzenau"
+        "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buehler-alzenau",
+        "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buehler-alzenau"
+        ],
+        "en": [
+          "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "ingenieur-fur-maschinensicherheit-und-ce-m-w-d-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.261Z",
@@ -1563,7 +1695,7 @@
         "it": "ald-scientist-m-f-d-buehler-alzenau",
         "en": "ald-scientist-m-f-d-buehler-alzenau",
         "de": "ald-scientist-m-f-d-buehler-alzenau",
-        "fr": "ald-scientist-m-f-d-buehler-alzenau"
+        "fr": "ald-scientifique-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1621,12 +1753,12 @@
     },
     {
       "id": "buehler-a08c43969ad5",
-      "slug": "sales-account-manager-precision-optics-buehler-cary",
+      "slug": "sales-account-manager-ottiche-di-precisione-buhler-group-cary",
       "slugByLocale": {
-        "it": "sales-account-manager-precision-optics-buehler-cary",
+        "it": "sales-account-manager-ottiche-di-precisione-buhler-group-cary",
         "en": "sales-account-manager-precision-optics-buehler-cary",
-        "de": "sales-account-manager-precision-optics-buehler-cary",
-        "fr": "sales-account-manager-precision-optics-buehler-cary"
+        "de": "sales-account-manager-prazisionsoptik-buhler-group-cary",
+        "fr": "responsable-de-compte-de-vente-optique-de-precision-buhler-group-cary"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1680,7 +1812,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-account-manager-precision-optics-buehler-cary"
+        ],
+        "de": [
+          "sales-account-manager-precision-optics-buehler-cary"
+        ],
+        "fr": [
+          "sales-account-manager-precision-optics-buehler-cary"
+        ]
+      },
+      "previousSlugs": [
+        "sales-account-manager-precision-optics-buehler-cary"
+      ]
     },
     {
       "id": "buehler-841052411f69",
@@ -1761,12 +1907,12 @@
     },
     {
       "id": "buehler-e1c5a0fd04ad",
-      "slug": "werkstudent-technical-writing-technische-redaktion-m-w-d-buehler-alzenau",
+      "slug": "studente-di-lavoro-scrittura-tecnica-redazione-tecnica-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-technical-writing-technische-redaktion-m-w-d-buehler-alzenau",
-        "en": "werkstudent-technical-writing-technische-redaktion-m-w-d-buhler-group-alzenau",
+        "it": "studente-di-lavoro-scrittura-tecnica-redazione-tecnica-m-f-d-buhler-group-alzenau",
+        "en": "working-student-technical-writing-technical-editing-m-f-d-buhler-group-alzenau",
         "de": "werkstudent-technical-writing-technische-redaktion-m-w-d-buehler-alzenau",
-        "fr": "werkstudent-technical-writing-technische-redaktion-m-w-d-buehler-alzenau"
+        "fr": "etudiante-en-cours-d-emploi-ecrit-technique-edition-technique-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1820,16 +1966,31 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-technical-writing-technische-redaktion-m-w-d-buehler-alzenau"
+        ],
+        "en": [
+          "werkstudent-technical-writing-technische-redaktion-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "werkstudent-technical-writing-technische-redaktion-m-w-d-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-technical-writing-technische-redaktion-m-w-d-buehler-alzenau",
+        "werkstudent-technical-writing-technische-redaktion-m-w-d-buhler-group-alzenau"
+      ]
     },
     {
       "id": "buehler-b40e3b8d8352",
-      "slug": "sales-manager-m-f-d-buehler-alzenau",
+      "slug": "responsabile-vendite-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "sales-manager-m-f-d-buehler-alzenau",
+        "it": "responsabile-vendite-m-f-d-buhler-group-alzenau",
         "en": "sales-manager-m-f-d-buehler-alzenau",
-        "de": "sales-manager-m-f-d-buehler-alzenau",
-        "fr": "sales-manager-m-f-d-buehler-alzenau"
+        "de": "verkaufsleiter-m-w-d-buhler-group-alzenau",
+        "fr": "directeur-des-ventes-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1883,16 +2044,30 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-m-f-d-buehler-alzenau"
+        ],
+        "de": [
+          "sales-manager-m-f-d-buehler-alzenau"
+        ],
+        "fr": [
+          "sales-manager-m-f-d-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-m-f-d-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-d9c41643780d",
-      "slug": "werkstudent-m-w-d-sales-support-buehler-alzenau",
+      "slug": "studente-di-lavoro-m-f-d-supporto-vendite-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-sales-support-buehler-alzenau",
-        "en": "werkstudent-m-w-d-sales-support-buhler-group-alzenau",
+        "it": "studente-di-lavoro-m-f-d-supporto-vendite-buhler-group-alzenau",
+        "en": "working-student-m-f-d-sales-support-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-sales-support-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-sales-support-buehler-alzenau"
+        "fr": "etudiante-qui-travaille-m-f-d-soutien-a-la-vente-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1946,7 +2121,22 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-m-w-d-sales-support-buehler-alzenau"
+        ],
+        "en": [
+          "werkstudent-m-w-d-sales-support-buhler-group-alzenau"
+        ],
+        "fr": [
+          "werkstudent-m-w-d-sales-support-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-m-w-d-sales-support-buehler-alzenau",
+        "werkstudent-m-w-d-sales-support-buhler-group-alzenau"
+      ]
     },
     {
       "id": "buehler-771e7a280df5",
@@ -2184,9 +2374,9 @@
       "slug": "praktikant-werkstudent-m-w-d-produktionsplanung-e-steuerung-buhler-group-leipzig",
       "slugByLocale": {
         "it": "praktikant-werkstudent-m-w-d-produktionsplanung-e-steuerung-buhler-group-leipzig",
-        "en": "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buhler-group-leipzig",
+        "en": "intern-working-student-m-f-d-production-planning-and-control-buhler-group-leipzig",
         "de": "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buehler-leipzig",
-        "fr": "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buhler-group-leipzig"
+        "fr": "stagiaire-travailleur-etudiant-m-f-d-planification-et-controle-de-la-production-buhler-group-leipzig"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2229,11 +2419,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buehler-leipzig"
+        "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buehler-leipzig",
+        "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buhler-group-leipzig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buehler-leipzig"
+        ],
+        "en": [
+          "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buhler-group-leipzig"
+        ],
+        "fr": [
+          "praktikant-werkstudent-m-w-d-produktionsplanung-und-steuerung-buhler-group-leipzig"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.244Z",
@@ -2252,12 +2449,12 @@
     },
     {
       "id": "buehler-8b9870e2bb32",
-      "slug": "project-manager-buehler-plymouth",
+      "slug": "responsabile-del-progetto-buhler-group-plymouth",
       "slugByLocale": {
-        "it": "project-manager-buehler-plymouth",
+        "it": "responsabile-del-progetto-buhler-group-plymouth",
         "en": "project-manager-buehler-plymouth",
-        "de": "project-manager-buehler-plymouth",
-        "fr": "project-manager-buehler-plymouth"
+        "de": "projektmanager-buhler-group-plymouth",
+        "fr": "gestionnaire-de-projet-buhler-group-plymouth"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2311,16 +2508,30 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-buehler-plymouth"
+        ],
+        "de": [
+          "project-manager-buehler-plymouth"
+        ],
+        "fr": [
+          "project-manager-buehler-plymouth"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-buehler-plymouth"
+      ]
     },
     {
       "id": "buehler-17f6095720e8",
-      "slug": "schwei-er-m-w-d-buehler-beilngries",
+      "slug": "saldatori-m-w-d-buhler-group-beilngries",
       "slugByLocale": {
-        "it": "schwei-er-m-w-d-buehler-beilngries",
-        "en": "schwei-er-m-w-d-buehler-beilngries",
+        "it": "saldatori-m-w-d-buhler-group-beilngries",
+        "en": "welders-m-w-d-buhler-group-beilngries",
         "de": "schwei-er-m-w-d-buehler-beilngries",
-        "fr": "schwei-er-m-w-d-buehler-beilngries"
+        "fr": "soudeurs-m-w-d-buhler-group-beilngries"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2374,16 +2585,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schwei-er-m-w-d-buehler-beilngries"
+        ],
+        "en": [
+          "schwei-er-m-w-d-buehler-beilngries"
+        ],
+        "fr": [
+          "schwei-er-m-w-d-buehler-beilngries"
+        ]
+      },
+      "previousSlugs": [
+        "schwei-er-m-w-d-buehler-beilngries"
+      ]
     },
     {
       "id": "buehler-8627555ea238",
-      "slug": "senior-sales-manager-buehler-ho-chi-minh",
+      "slug": "responsabile-vendite-senior-buhler-group-ho-chi-minh",
       "slugByLocale": {
-        "it": "senior-sales-manager-buehler-ho-chi-minh",
+        "it": "responsabile-vendite-senior-buhler-group-ho-chi-minh",
         "en": "senior-sales-manager-buehler-ho-chi-minh",
         "de": "senior-sales-manager-buehler-ho-chi-minh",
-        "fr": "senior-sales-manager-buehler-ho-chi-minh"
+        "fr": "directeur-principal-des-ventes-buhler-group-ho-chi-minh"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2437,7 +2662,18 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sales-manager-buehler-ho-chi-minh"
+        ],
+        "fr": [
+          "senior-sales-manager-buehler-ho-chi-minh"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sales-manager-buehler-ho-chi-minh"
+      ]
     },
     {
       "id": "buehler-f7697bdcdcd9",
@@ -2446,7 +2682,7 @@
         "it": "gbs-accountant-accounts-payable-buehler-subang-jaya",
         "en": "gbs-accountant-accounts-payable-buehler-subang-jaya",
         "de": "gbs-accountant-accounts-payable-buehler-subang-jaya",
-        "fr": "gbs-accountant-accounts-payable-buhler-group-subang-jaya"
+        "fr": "gbs-comptable-comptes-a-payer-buhler-group-subang-jaya"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2500,7 +2736,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "gbs-accountant-accounts-payable-buhler-group-subang-jaya"
+        ]
+      },
+      "previousSlugs": [
+        "gbs-accountant-accounts-payable-buhler-group-subang-jaya"
+      ]
     },
     {
       "id": "buehler-cb64aeb92d71",
@@ -2581,9 +2825,9 @@
     },
     {
       "id": "buehler-b7e432f28c41",
-      "slug": "mechanical-development-engineer-xff08-xff09-buehler-wuxi",
+      "slug": "mechanical-development-ingegnere-buhler-group-wuxi-c8a2fe",
       "slugByLocale": {
-        "it": "mechanical-development-engineer-xff08-xff09-buehler-wuxi",
+        "it": "mechanical-development-ingegnere-buhler-group-wuxi-c8a2fe",
         "en": "mechanical-development-engineer-buhler-group-wuxi",
         "de": "mechanical-development-engineer-xff08-xff09-buehler-wuxi",
         "fr": "mechanical-development-engineer-xff08-xff09-buehler-wuxi"
@@ -2640,13 +2884,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-development-engineer-xff08-xff09-buehler-wuxi"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-development-engineer-xff08-xff09-buehler-wuxi"
+      ]
     },
     {
       "id": "buehler-f10cfda80818",
-      "slug": "automation-engineer-plc-m-w-d-buehler-braunschweig",
+      "slug": "automation-ingegnere-plc-m-w-d-buhler-group-braunschweig",
       "slugByLocale": {
-        "it": "automation-engineer-plc-m-w-d-buehler-braunschweig",
+        "it": "automation-ingegnere-plc-m-w-d-buhler-group-braunschweig",
         "en": "automation-engineer-plc-m-w-d-buhler-group-braunschweig",
         "de": "automation-engineer-plc-m-w-d-buehler-braunschweig",
         "fr": "automation-engineer-plc-m-w-d-buehler-braunschweig"
@@ -2703,16 +2955,24 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-engineer-plc-m-w-d-buehler-braunschweig"
+        ]
+      },
+      "previousSlugs": [
+        "automation-engineer-plc-m-w-d-buehler-braunschweig"
+      ]
     },
     {
       "id": "buehler-1f428ca25c70",
-      "slug": "supply-chain-manager-m-w-d-buehler-leipzig",
+      "slug": "gestione-della-catena-di-fornitura-m-f-d-buhler-group-leipzig",
       "slugByLocale": {
-        "it": "supply-chain-manager-m-w-d-buehler-leipzig",
+        "it": "gestione-della-catena-di-fornitura-m-f-d-buhler-group-leipzig",
         "en": "supply-chain-manager-m-w-d-buhler-group-leipzig",
         "de": "supply-chain-manager-m-w-d-buehler-leipzig",
-        "fr": "supply-chain-manager-m-w-d-buehler-leipzig"
+        "fr": "chaine-d-approvisionnement-manager-m-w-d-buhler-group-leipzig"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2766,16 +3026,27 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "supply-chain-manager-m-w-d-buehler-leipzig"
+        ],
+        "fr": [
+          "supply-chain-manager-m-w-d-buehler-leipzig"
+        ]
+      },
+      "previousSlugs": [
+        "supply-chain-manager-m-w-d-buehler-leipzig"
+      ]
     },
     {
       "id": "buehler-0bd90dbd3eec",
-      "slug": "fachlagerist-m-w-d-buhler-group-hasselroth",
+      "slug": "operatore-del-magazzino-m-f-d-buhler-group-hasselroth",
       "slugByLocale": {
-        "it": "fachlagerist-m-w-d-buhler-group-hasselroth",
-        "en": "fachlagerist-m-w-d-buehler-hasselroth",
+        "it": "operatore-del-magazzino-m-f-d-buhler-group-hasselroth",
+        "en": "warehouse-operator-m-f-d-buhler-group-hasselroth",
         "de": "fachlagerist-m-w-d-buehler-hasselroth",
-        "fr": "fachlagerist-m-w-d-buehler-hasselroth"
+        "fr": "operateur-d-entrepot-m-f-d-buhler-group-hasselroth"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2818,10 +3089,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachlagerist-m-w-d-buehler-hasselroth"
+        "fachlagerist-m-w-d-buehler-hasselroth",
+        "fachlagerist-m-w-d-buhler-group-hasselroth"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachlagerist-m-w-d-buehler-hasselroth",
+          "fachlagerist-m-w-d-buhler-group-hasselroth"
+        ],
+        "en": [
+          "fachlagerist-m-w-d-buehler-hasselroth"
+        ],
+        "fr": [
           "fachlagerist-m-w-d-buehler-hasselroth"
         ]
       },
@@ -2841,12 +3120,12 @@
     },
     {
       "id": "buehler-8bdc439393c5",
-      "slug": "data-scientist-xff09-buehler-wuxi",
+      "slug": "scienziato-di-dati-suggerimento-fesa-buhler-group-wuxi",
       "slugByLocale": {
-        "it": "data-scientist-xff09-buehler-wuxi",
+        "it": "scienziato-di-dati-suggerimento-fesa-buhler-group-wuxi",
         "en": "data-scientist-xff09-buehler-wuxi",
         "de": "data-scientist-xff09-buehler-wuxi",
-        "fr": "data-scientist-xff09-buehler-wuxi"
+        "fr": "scientifique-de-donnees-buhler-group-wuxi"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2900,7 +3179,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-xff09-buehler-wuxi"
+        ],
+        "fr": [
+          "data-scientist-xff09-buehler-wuxi"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-xff09-buehler-wuxi"
+      ]
     },
     {
       "id": "buehler-9b96ca468ad5",
@@ -2978,12 +3268,12 @@
     },
     {
       "id": "buehler-c8217b4fe001",
-      "slug": "senior-project-manager-buehler-holland",
+      "slug": "responsabile-del-progetto-senior-buhler-group-holland",
       "slugByLocale": {
-        "it": "senior-project-manager-buehler-holland",
+        "it": "responsabile-del-progetto-senior-buhler-group-holland",
         "en": "senior-project-manager-buehler-holland",
-        "de": "senior-project-manager-buehler-holland",
-        "fr": "senior-project-manager-buehler-holland"
+        "de": "senior-projektmanager-buhler-group-holland",
+        "fr": "directeur-principal-de-projet-buhler-group-holland"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3037,16 +3327,30 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-buehler-holland"
+        ],
+        "de": [
+          "senior-project-manager-buehler-holland"
+        ],
+        "fr": [
+          "senior-project-manager-buehler-holland"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-buehler-holland"
+      ]
     },
     {
       "id": "buehler-b705ac31653b",
-      "slug": "team-manager-service-operations-buehler-subang-jaya",
+      "slug": "team-manager-operazioni-di-servizio-buhler-group-subang-jaya",
       "slugByLocale": {
-        "it": "team-manager-service-operations-buehler-subang-jaya",
+        "it": "team-manager-operazioni-di-servizio-buhler-group-subang-jaya",
         "en": "team-manager-service-operations-buehler-subang-jaya",
-        "de": "team-manager-service-operations-buehler-subang-jaya",
-        "fr": "team-manager-service-operations-buehler-subang-jaya"
+        "de": "teammanager-service-operations-buhler-group-subang-jaya",
+        "fr": "gestionnaire-d-equipe-operations-de-service-buhler-group-subang-jaya"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3100,16 +3404,30 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "team-manager-service-operations-buehler-subang-jaya"
+        ],
+        "de": [
+          "team-manager-service-operations-buehler-subang-jaya"
+        ],
+        "fr": [
+          "team-manager-service-operations-buehler-subang-jaya"
+        ]
+      },
+      "previousSlugs": [
+        "team-manager-service-operations-buehler-subang-jaya"
+      ]
     },
     {
       "id": "buehler-b9cdda18667b",
-      "slug": "werkstudent-m-w-d-commercial-order-processing-buehler-alzenau",
+      "slug": "studente-di-lavoro-m-f-d-elaborazione-di-ordini-commerciali-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-commercial-order-processing-buehler-alzenau",
+        "it": "studente-di-lavoro-m-f-d-elaborazione-di-ordini-commerciali-buhler-group-alzenau",
         "en": "werkstudent-m-w-d-commercial-order-processing-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-commercial-order-processing-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-commercial-order-processing-buehler-alzenau"
+        "fr": "etudiante-qui-travaille-m-f-d-traitement-des-commandes-commerciales-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3163,7 +3481,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-m-w-d-commercial-order-processing-buehler-alzenau"
+        ],
+        "fr": [
+          "werkstudent-m-w-d-commercial-order-processing-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-m-w-d-commercial-order-processing-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-93ce36c4600d",
@@ -3244,12 +3573,12 @@
     },
     {
       "id": "buehler-a3cfc57e7455",
-      "slug": "sachbearbeiter-zoll-export-m-w-d-buhler-group-beilngries",
+      "slug": "dogana-esportazione-m-f-d-buhler-group-beilngries",
       "slugByLocale": {
-        "it": "sachbearbeiter-zoll-export-m-w-d-buhler-group-beilngries",
-        "en": "sachbearbeiter-zoll-export-m-w-d-buhler-group-beilngries",
+        "it": "dogana-esportazione-m-f-d-buhler-group-beilngries",
+        "en": "customs-export-m-f-d-buhler-group-beilngries",
         "de": "sachbearbeiter-zoll-export-m-w-d-buehler-beilngries",
-        "fr": "sachbearbeiter-zoll-export-m-w-d-buhler-group-beilngries"
+        "fr": "douanes-exportation-m-f-d-buhler-group-beilngries"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3292,11 +3621,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-zoll-export-m-w-d-buehler-beilngries"
+        "sachbearbeiter-zoll-export-m-w-d-buehler-beilngries",
+        "sachbearbeiter-zoll-export-m-w-d-buhler-group-beilngries"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-zoll-export-m-w-d-buehler-beilngries"
+          "sachbearbeiter-zoll-export-m-w-d-buehler-beilngries",
+          "sachbearbeiter-zoll-export-m-w-d-buhler-group-beilngries"
+        ],
+        "en": [
+          "sachbearbeiter-zoll-export-m-w-d-buhler-group-beilngries"
+        ],
+        "fr": [
+          "sachbearbeiter-zoll-export-m-w-d-buhler-group-beilngries"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.223Z",
@@ -3392,12 +3729,12 @@
     },
     {
       "id": "buehler-b30e16753a18",
-      "slug": "mechanical-designer-buehler-cary",
+      "slug": "designer-meccanico-buhler-group-cary",
       "slugByLocale": {
-        "it": "mechanical-designer-buehler-cary",
+        "it": "designer-meccanico-buhler-group-cary",
         "en": "mechanical-designer-buehler-cary",
-        "de": "mechanical-designer-buehler-cary",
-        "fr": "mechanical-designer-buehler-cary"
+        "de": "maschinenbauer-buhler-group-cary",
+        "fr": "conception-mecanique-buhler-group-cary"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3451,16 +3788,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-designer-buehler-cary"
+        ],
+        "de": [
+          "mechanical-designer-buehler-cary"
+        ],
+        "fr": [
+          "mechanical-designer-buehler-cary"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-designer-buehler-cary"
+      ]
     },
     {
       "id": "buehler-7b43308216e6",
-      "slug": "project-manager-buehler-cary",
+      "slug": "responsabile-del-progetto-buhler-group-cary",
       "slugByLocale": {
-        "it": "project-manager-buehler-cary",
+        "it": "responsabile-del-progetto-buhler-group-cary",
         "en": "project-manager-buehler-cary",
-        "de": "project-manager-buehler-cary",
-        "fr": "project-manager-buehler-cary"
+        "de": "projektmanager-buhler-group-cary",
+        "fr": "gestionnaire-de-projet-buhler-group-cary"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3514,16 +3865,30 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-buehler-cary"
+        ],
+        "de": [
+          "project-manager-buehler-cary"
+        ],
+        "fr": [
+          "project-manager-buehler-cary"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-buehler-cary"
+      ]
     },
     {
       "id": "buehler-9097d13c7a8f",
-      "slug": "technischer-kundenberater-ersatzteile-m-w-d-buhler-group-beilngries",
+      "slug": "parti-di-ricambio-per-consulenti-tecnici-m-f-d-buhler-group-beilngries",
       "slugByLocale": {
-        "it": "technischer-kundenberater-ersatzteile-m-w-d-buhler-group-beilngries",
-        "en": "technischer-kundenberater-ersatzteile-m-w-d-buhler-group-beilngries",
+        "it": "parti-di-ricambio-per-consulenti-tecnici-m-f-d-buhler-group-beilngries",
+        "en": "technical-consultant-spare-parts-m-f-d-buhler-group-beilngries",
         "de": "technischer-kundenberater-ersatzteile-m-w-d-buehler-beilngries",
-        "fr": "technischer-kundenberater-ersatzteile-m-w-d-buhler-group-beilngries"
+        "fr": "pieces-detachees-de-consultants-techniques-m-f-d-buhler-group-beilngries"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3566,11 +3931,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technischer-kundenberater-ersatzteile-m-w-d-buehler-beilngries"
+        "technischer-kundenberater-ersatzteile-m-w-d-buehler-beilngries",
+        "technischer-kundenberater-ersatzteile-m-w-d-buhler-group-beilngries"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-kundenberater-ersatzteile-m-w-d-buehler-beilngries"
+          "technischer-kundenberater-ersatzteile-m-w-d-buehler-beilngries",
+          "technischer-kundenberater-ersatzteile-m-w-d-buhler-group-beilngries"
+        ],
+        "en": [
+          "technischer-kundenberater-ersatzteile-m-w-d-buhler-group-beilngries"
+        ],
+        "fr": [
+          "technischer-kundenberater-ersatzteile-m-w-d-buhler-group-beilngries"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.218Z",
@@ -3734,7 +4107,7 @@
         "it": "product-owner-finanza-processes-and-applications-buhler-group-uzwil",
         "en": "product-owner-finance-processes-and-applications-buehler-uzwil",
         "de": "product-owner-finanzen-processes-and-applications-buhler-group-uzwil",
-        "fr": "product-owner-finance-processes-and-applications-buehler-uzwil"
+        "fr": "processus-et-applications-financiers-du-proprietaire-du-produit-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3782,6 +4155,9 @@
           "product-owner-finance-processes-and-applications-buehler-uzwil"
         ],
         "de": [
+          "product-owner-finance-processes-and-applications-buehler-uzwil"
+        ],
+        "fr": [
           "product-owner-finance-processes-and-applications-buehler-uzwil"
         ]
       },
@@ -3957,12 +4333,12 @@
     },
     {
       "id": "buehler-01d1f9f790aa",
-      "slug": "plant-sales-manager-buehler-wuxi",
+      "slug": "direttore-di-vendita-delle-piante-buhler-group-wuxi",
       "slugByLocale": {
-        "it": "plant-sales-manager-buehler-wuxi",
+        "it": "direttore-di-vendita-delle-piante-buhler-group-wuxi",
         "en": "plant-sales-manager-buehler-wuxi",
-        "de": "plant-sales-manager-buehler-wuxi",
-        "fr": "plant-sales-manager-buehler-wuxi"
+        "de": "verkaufsleiter-des-werks-buhler-group-wuxi",
+        "fr": "directeur-des-ventes-d-usines-buhler-group-wuxi"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -4016,7 +4392,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "plant-sales-manager-buehler-wuxi"
+        ],
+        "de": [
+          "plant-sales-manager-buehler-wuxi"
+        ],
+        "fr": [
+          "plant-sales-manager-buehler-wuxi"
+        ]
+      },
+      "previousSlugs": [
+        "plant-sales-manager-buehler-wuxi"
+      ]
     },
     {
       "id": "buehler-6cb414db8b97",
@@ -4174,9 +4564,9 @@
     },
     {
       "id": "buehler-b71939df114b",
-      "slug": "r-amp-d-electrical-development-engineer-xff09-buehler-wuxi",
+      "slug": "r-d-electrical-development-ingegnere-buhler-group-wuxi",
       "slugByLocale": {
-        "it": "r-amp-d-electrical-development-engineer-xff09-buehler-wuxi",
+        "it": "r-d-electrical-development-ingegnere-buhler-group-wuxi",
         "en": "r-d-electrical-development-engineer-buhler-group-wuxi",
         "de": "r-amp-d-electrical-development-engineer-xff09-buehler-wuxi",
         "fr": "r-amp-d-electrical-development-engineer-xff09-buehler-wuxi"
@@ -4233,16 +4623,24 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "r-amp-d-electrical-development-engineer-xff09-buehler-wuxi"
+        ]
+      },
+      "previousSlugs": [
+        "r-amp-d-electrical-development-engineer-xff09-buehler-wuxi"
+      ]
     },
     {
       "id": "buehler-3a51af935c38",
-      "slug": "order-processing-officer-buehler-subang-jaya",
+      "slug": "responsabile-del-trattamento-ordini-buhler-group-subang-jaya",
       "slugByLocale": {
-        "it": "order-processing-officer-buehler-subang-jaya",
+        "it": "responsabile-del-trattamento-ordini-buhler-group-subang-jaya",
         "en": "order-processing-officer-buehler-subang-jaya",
-        "de": "order-processing-officer-buehler-subang-jaya",
-        "fr": "order-processing-officer-buehler-subang-jaya"
+        "de": "auftragsbearbeitungsbeauftragter-buhler-group-subang-jaya",
+        "fr": "agent-de-traitement-des-commandes-buhler-group-subang-jaya"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -4296,7 +4694,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "order-processing-officer-buehler-subang-jaya"
+        ],
+        "de": [
+          "order-processing-officer-buehler-subang-jaya"
+        ],
+        "fr": [
+          "order-processing-officer-buehler-subang-jaya"
+        ]
+      },
+      "previousSlugs": [
+        "order-processing-officer-buehler-subang-jaya"
+      ]
     },
     {
       "id": "buehler-91f216e243be",
@@ -4377,12 +4789,12 @@
     },
     {
       "id": "buehler-4c04bba17e9a",
-      "slug": "fachspezialist-in-pensionskasse-buehler-uzwil",
+      "slug": "specialista-fondo-pensione-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "fachspezialist-in-pensionskasse-buehler-uzwil",
-        "en": "fachspezialist-in-pensionskasse-buehler-uzwil",
+        "it": "specialista-fondo-pensione-buhler-group-uzwil",
+        "en": "specialist-in-pension-fund-buhler-group-uzwil",
         "de": "fachspezialist-in-pensionskasse-buehler-uzwil",
-        "fr": "fachspezialist-in-pensionskasse-buehler-uzwil"
+        "fr": "specialiste-de-la-caisse-des-pensions-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -4436,16 +4848,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-pensionskasse-buehler-uzwil"
+        ],
+        "en": [
+          "fachspezialist-in-pensionskasse-buehler-uzwil"
+        ],
+        "fr": [
+          "fachspezialist-in-pensionskasse-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-pensionskasse-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-65d0290b1952",
-      "slug": "sales-manager-buehler-thanh-pho-ho-chi-minh",
+      "slug": "responsabile-vendite-buhler-group-thanh-pho-ho-chi-minh",
       "slugByLocale": {
-        "it": "sales-manager-buehler-thanh-pho-ho-chi-minh",
+        "it": "responsabile-vendite-buhler-group-thanh-pho-ho-chi-minh",
         "en": "sales-manager-buehler-thanh-pho-ho-chi-minh",
-        "de": "sales-manager-buehler-thanh-pho-ho-chi-minh",
-        "fr": "sales-manager-buehler-thanh-pho-ho-chi-minh"
+        "de": "verkaufsleiter-buhler-group-thanh-pho-ho-chi-minh",
+        "fr": "directeur-des-ventes-buhler-group-thanh-pho-ho-chi-minh"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -4499,16 +4925,30 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-buehler-thanh-pho-ho-chi-minh"
+        ],
+        "de": [
+          "sales-manager-buehler-thanh-pho-ho-chi-minh"
+        ],
+        "fr": [
+          "sales-manager-buehler-thanh-pho-ho-chi-minh"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-buehler-thanh-pho-ho-chi-minh"
+      ]
     },
     {
       "id": "buehler-acbd4d9c6a9d",
-      "slug": "technical-sales-executive-buehler-makati-city",
+      "slug": "responsabile-vendite-tecniche-buhler-group-makati-city",
       "slugByLocale": {
-        "it": "technical-sales-executive-buehler-makati-city",
+        "it": "responsabile-vendite-tecniche-buhler-group-makati-city",
         "en": "technical-sales-executive-buehler-makati-city",
         "de": "technical-sales-executive-buehler-makati-city",
-        "fr": "technical-sales-executive-buehler-makati-city"
+        "fr": "directeur-des-ventes-techniques-buhler-group-makati-city"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -4562,7 +5002,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-sales-executive-buehler-makati-city"
+        ],
+        "fr": [
+          "technical-sales-executive-buehler-makati-city"
+        ]
+      },
+      "previousSlugs": [
+        "technical-sales-executive-buehler-makati-city"
+      ]
     },
     {
       "id": "buehler-68a9f788df11",
@@ -4720,12 +5171,12 @@
     },
     {
       "id": "buehler-de3ce0c9d65f",
-      "slug": "team-manager-automation-buehler-makati-city",
+      "slug": "team-manager-automazione-buhler-group-makati-city",
       "slugByLocale": {
-        "it": "team-manager-automation-buehler-makati-city",
+        "it": "team-manager-automazione-buhler-group-makati-city",
         "en": "team-manager-automation-buehler-makati-city",
-        "de": "team-manager-automation-buehler-makati-city",
-        "fr": "team-manager-automation-buehler-makati-city"
+        "de": "team-manager-automatisierung-buhler-group-makati-city",
+        "fr": "gestionnaire-d-equipe-automatisation-buhler-group-makati-city"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -4779,16 +5230,30 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "team-manager-automation-buehler-makati-city"
+        ],
+        "de": [
+          "team-manager-automation-buehler-makati-city"
+        ],
+        "fr": [
+          "team-manager-automation-buehler-makati-city"
+        ]
+      },
+      "previousSlugs": [
+        "team-manager-automation-buehler-makati-city"
+      ]
     },
     {
       "id": "buehler-4871cbcbda17",
-      "slug": "field-service-team-manager-buehler-plymouth",
+      "slug": "gestore-del-team-service-buhler-group-plymouth",
       "slugByLocale": {
-        "it": "field-service-team-manager-buehler-plymouth",
+        "it": "gestore-del-team-service-buhler-group-plymouth",
         "en": "field-service-team-manager-buehler-plymouth",
         "de": "field-service-team-manager-buehler-plymouth",
-        "fr": "field-service-team-manager-buehler-plymouth"
+        "fr": "gestionnaire-d-equipe-du-service-mobile-buhler-group-plymouth"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -4842,7 +5307,18 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-team-manager-buehler-plymouth"
+        ],
+        "fr": [
+          "field-service-team-manager-buehler-plymouth"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-team-manager-buehler-plymouth"
+      ]
     },
     {
       "id": "buehler-27355da3fcba",
@@ -5000,12 +5476,12 @@
     },
     {
       "id": "buehler-ffaf842f92c4",
-      "slug": "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries",
+      "slug": "doppio-grado-in-ingegneria-meccanica-b-eng-dal-settembre-2026-buhler-group-beilngries",
       "slugByLocale": {
-        "it": "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries",
-        "en": "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries",
+        "it": "doppio-grado-in-ingegneria-meccanica-b-eng-dal-settembre-2026-buhler-group-beilngries",
+        "en": "dual-degree-in-mechanical-engineering-b-eng-from-sept-2026-buhler-group-beilngries",
         "de": "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries",
-        "fr": "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries"
+        "fr": "double-diplome-en-genie-mecanique-b-eng-de-septembre-2026-buhler-group-beilngries"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -5059,16 +5535,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries"
+        ],
+        "en": [
+          "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries"
+        ],
+        "fr": [
+          "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries"
+        ]
+      },
+      "previousSlugs": [
+        "duales-studium-maschinenbau-b-eng-ab-sept-2026-buehler-beilngries"
+      ]
     },
     {
       "id": "buehler-3d6fa9382e84",
-      "slug": "werkstudent-m-w-d-produktmanagement-buhler-group-alzenau",
+      "slug": "studente-di-lavoro-m-f-d-gestione-dei-prodotti-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-produktmanagement-buhler-group-alzenau",
-        "en": "werkstudent-m-w-d-produktmanagement-buhler-group-alzenau",
+        "it": "studente-di-lavoro-m-f-d-gestione-dei-prodotti-buhler-group-alzenau",
+        "en": "working-student-m-f-d-product-management-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-produktmanagement-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-produktmanagement-buhler-group-alzenau"
+        "fr": "etudiante-au-travail-m-f-d-gestion-des-produits-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -5111,11 +5601,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-m-w-d-produktmanagement-buehler-alzenau"
+        "werkstudent-m-w-d-produktmanagement-buehler-alzenau",
+        "werkstudent-m-w-d-produktmanagement-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-m-w-d-produktmanagement-buehler-alzenau"
+          "werkstudent-m-w-d-produktmanagement-buehler-alzenau",
+          "werkstudent-m-w-d-produktmanagement-buhler-group-alzenau"
+        ],
+        "en": [
+          "werkstudent-m-w-d-produktmanagement-buhler-group-alzenau"
+        ],
+        "fr": [
+          "werkstudent-m-w-d-produktmanagement-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.190Z",
@@ -5214,9 +5712,9 @@
       "slug": "werkstudent-praktikant-m-w-d-im-bereich-geschaftsprozessoptimierung-e-digitalisierung-buhler-group-alzenau",
       "slugByLocale": {
         "it": "werkstudent-praktikant-m-w-d-im-bereich-geschaftsprozessoptimierung-e-digitalisierung-buhler-group-alzenau",
-        "en": "werkstudent-praktikant-m-w-d-im-bereich-geschaftsprozessoptimierung-und-digitalisierung",
+        "en": "working-student-intern-m-f-d-in-the-field-of-business-process-optimization-and-digitalization-buhler-group-alzenau",
         "de": "werkstudent-praktikant-m-w-d-im-bereich-geschaftsprozessoptimierung-und-digitalisierung",
-        "fr": "werkstudent-praktikant-m-w-d-im-bereich-geschaftsprozessoptimierung-und-digitalisierung"
+        "fr": "etudiant-interne-en-activite-m-f-d-dans-le-domaine-de-l-optimisation-des-processus-d-affaires-et-de-la-numerisation"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -5263,6 +5761,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-praktikant-m-w-d-im-bereich-geschaftsprozessoptimierung-und-digitalisierung"
+        ],
+        "en": [
+          "werkstudent-praktikant-m-w-d-im-bereich-geschaftsprozessoptimierung-und-digitalisierung"
+        ],
+        "fr": [
           "werkstudent-praktikant-m-w-d-im-bereich-geschaftsprozessoptimierung-und-digitalisierung"
         ]
       },
@@ -5359,12 +5863,12 @@
     },
     {
       "id": "buehler-db506729c20e",
-      "slug": "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buhler-group-alzenau",
+      "slug": "ingegnere-dello-sviluppo-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buhler-group-alzenau",
-        "en": "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buhler-group-alzenau",
+        "it": "ingegnere-dello-sviluppo-m-f-d-buhler-group-alzenau",
+        "en": "development-engineer-m-f-d-ion-beam-sputtering-buhler-group-alzenau",
         "de": "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buehler-alzenau",
-        "fr": "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buhler-group-alzenau"
+        "fr": "ingenieur-de-developpement-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -5407,11 +5911,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buehler-alzenau"
+        "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buehler-alzenau",
+        "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buehler-alzenau"
+          "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buehler-alzenau",
+          "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buhler-group-alzenau"
+        ],
+        "en": [
+          "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buhler-group-alzenau"
+        ],
+        "fr": [
+          "entwicklungsingenieur-m-w-d-ionenstrahl-sputtern-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.185Z",
@@ -5430,12 +5942,12 @@
     },
     {
       "id": "buehler-64c16151602d",
-      "slug": "regional-contractual-services-manager-buehler-subang-jaya",
+      "slug": "responsabile-dei-servizi-contrattuali-regionali-buhler-group-subang-jaya",
       "slugByLocale": {
-        "it": "regional-contractual-services-manager-buehler-subang-jaya",
+        "it": "responsabile-dei-servizi-contrattuali-regionali-buhler-group-subang-jaya",
         "en": "regional-contractual-services-manager-buehler-subang-jaya",
-        "de": "regional-contractual-services-manager-buehler-subang-jaya",
-        "fr": "regional-contractual-services-manager-buehler-subang-jaya"
+        "de": "regionaler-vertragsdienstleister-buhler-group-subang-jaya",
+        "fr": "gestionnaire-regional-des-services-contractuels-buhler-group-subang-jaya"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -5489,7 +6001,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "regional-contractual-services-manager-buehler-subang-jaya"
+        ],
+        "de": [
+          "regional-contractual-services-manager-buehler-subang-jaya"
+        ],
+        "fr": [
+          "regional-contractual-services-manager-buehler-subang-jaya"
+        ]
+      },
+      "previousSlugs": [
+        "regional-contractual-services-manager-buehler-subang-jaya"
+      ]
     },
     {
       "id": "buehler-81d54ea1729d",
@@ -5647,9 +6173,9 @@
     },
     {
       "id": "buehler-7c916823418d",
-      "slug": "estagiario-financeiro-buehler-curitiba",
+      "slug": "etagiario-financeiro-buhler-group-curitiba",
       "slugByLocale": {
-        "it": "estagiario-financeiro-buehler-curitiba",
+        "it": "etagiario-financeiro-buhler-group-curitiba",
         "en": "estagiario-financeiro-buehler-curitiba",
         "de": "estagiario-financeiro-buehler-curitiba",
         "fr": "estagiario-financeiro-buehler-curitiba"
@@ -5706,7 +6232,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-financeiro-buehler-curitiba"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-financeiro-buehler-curitiba"
+      ]
     },
     {
       "id": "buehler-7bd3c5f3d710",
@@ -5864,12 +6398,12 @@
     },
     {
       "id": "buehler-07eb3de5c615",
-      "slug": "order-processing-executive-buehler-subang-jaya",
+      "slug": "esecuzione-dell-ordine-buhler-group-subang-jaya",
       "slugByLocale": {
-        "it": "order-processing-executive-buehler-subang-jaya",
+        "it": "esecuzione-dell-ordine-buhler-group-subang-jaya",
         "en": "order-processing-executive-buehler-subang-jaya",
-        "de": "order-processing-executive-buehler-subang-jaya",
-        "fr": "order-processing-executive-buehler-subang-jaya"
+        "de": "auftragsverarbeiter-buhler-group-subang-jaya",
+        "fr": "direction-generale-du-traitement-des-commandes-buhler-group-subang-jaya"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -5923,16 +6457,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "order-processing-executive-buehler-subang-jaya"
+        ],
+        "de": [
+          "order-processing-executive-buehler-subang-jaya"
+        ],
+        "fr": [
+          "order-processing-executive-buehler-subang-jaya"
+        ]
+      },
+      "previousSlugs": [
+        "order-processing-executive-buehler-subang-jaya"
+      ]
     },
     {
       "id": "buehler-281203c6ffbc",
-      "slug": "servicetechniker-m-w-d-buhler-group-alzenau",
+      "slug": "tecnico-di-servizio-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "servicetechniker-m-w-d-buhler-group-alzenau",
-        "en": "servicetechniker-m-w-d-buhler-group-alzenau",
+        "it": "tecnico-di-servizio-m-f-d-buhler-group-alzenau",
+        "en": "service-technician-m-f-d-buhler-group-alzenau",
         "de": "servicetechniker-m-w-d-buehler-alzenau",
-        "fr": "servicetechniker-m-w-d-buhler-group-alzenau"
+        "fr": "technicien-des-services-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -5975,11 +6523,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-m-w-d-buehler-alzenau"
+        "servicetechniker-m-w-d-buehler-alzenau",
+        "servicetechniker-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-m-w-d-buehler-alzenau"
+          "servicetechniker-m-w-d-buehler-alzenau",
+          "servicetechniker-m-w-d-buhler-group-alzenau"
+        ],
+        "en": [
+          "servicetechniker-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "servicetechniker-m-w-d-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.174Z",
@@ -6152,9 +6708,9 @@
     },
     {
       "id": "buehler-27a2f5732793",
-      "slug": "process-commissioning-engineer-m-w-d-buehler-alzenau",
+      "slug": "process-commissioning-ingegnere-m-w-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "process-commissioning-engineer-m-w-d-buehler-alzenau",
+        "it": "process-commissioning-ingegnere-m-w-d-buhler-group-alzenau",
         "en": "process-commissioning-engineer-m-w-d-buhler-group-alzenau",
         "de": "process-commissioning-engineer-m-w-d-buehler-alzenau",
         "fr": "process-commissioning-engineer-m-w-d-buehler-alzenau"
@@ -6211,7 +6767,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "process-commissioning-engineer-m-w-d-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "process-commissioning-engineer-m-w-d-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-daf77eacafa1",
@@ -6220,7 +6784,7 @@
         "it": "sales-account-manager-wheat-amp-rye-buehler-plymouth",
         "en": "sales-account-manager-wheat-amp-rye-buehler-plymouth",
         "de": "sales-account-manager-wheat-amp-rye-buehler-plymouth",
-        "fr": "sales-account-manager-wheat-amp-rye-buehler-plymouth"
+        "fr": "gestionnaire-de-compte-de-vente-wheat-rye-buhler-group-plymouth"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6278,12 +6842,12 @@
     },
     {
       "id": "buehler-049c1a1513db",
-      "slug": "instructor-process-technology-buehler-uzwil",
+      "slug": "tecnologia-di-processo-dell-istruttore-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "instructor-process-technology-buehler-uzwil",
+        "it": "tecnologia-di-processo-dell-istruttore-buhler-group-uzwil",
         "en": "instructor-process-technology-buehler-uzwil",
-        "de": "instructor-process-technology-buehler-uzwil",
-        "fr": "instructor-process-technology-buehler-uzwil"
+        "de": "instructor-prozesstechnik-buhler-group-uzwil",
+        "fr": "technologie-de-procede-de-l-instructeur-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6337,13 +6901,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "instructor-process-technology-buehler-uzwil"
+        ],
+        "de": [
+          "instructor-process-technology-buehler-uzwil"
+        ],
+        "fr": [
+          "instructor-process-technology-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "instructor-process-technology-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-5c549d8376c5",
-      "slug": "automation-engineer-buehler-uzwil",
+      "slug": "automation-ingegnere-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "automation-engineer-buehler-uzwil",
+        "it": "automation-ingegnere-buhler-group-uzwil",
         "en": "automation-engineer-buhler-group-uzwil",
         "de": "automation-engineer-buehler-uzwil",
         "fr": "automation-engineer-buehler-uzwil"
@@ -6400,16 +6978,24 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-engineer-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "automation-engineer-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-74eae69347c1",
-      "slug": "cnc-schleifer-in-buehler-uzwil",
+      "slug": "smerigliatrice-cnc-in-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "cnc-schleifer-in-buehler-uzwil",
-        "en": "cnc-schleifer-in-buehler-uzwil",
+        "it": "smerigliatrice-cnc-in-buhler-group-uzwil",
+        "en": "cnc-grinder-in-buhler-group-uzwil",
         "de": "cnc-schleifer-in-buehler-uzwil",
-        "fr": "cnc-schleifer-in-buehler-uzwil"
+        "fr": "broyeur-cnc-en-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6463,13 +7049,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-schleifer-in-buehler-uzwil"
+        ],
+        "en": [
+          "cnc-schleifer-in-buehler-uzwil"
+        ],
+        "fr": [
+          "cnc-schleifer-in-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "cnc-schleifer-in-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-977812a8198a",
-      "slug": "process-engineer-buehler-uzwil",
+      "slug": "process-ingegnere-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "process-engineer-buehler-uzwil",
+        "it": "process-ingegnere-buhler-group-uzwil",
         "en": "process-engineer-buhler-group-uzwil",
         "de": "process-engineer-buehler-uzwil",
         "fr": "process-engineer-buehler-uzwil"
@@ -6526,16 +7126,24 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "process-engineer-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "process-engineer-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-65a92f371754",
-      "slug": "speditionsfachfrau-speditionsfachmann-buhler-group-uzwil",
+      "slug": "specialista-di-spedizione-specialista-di-spedizioni-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "speditionsfachfrau-speditionsfachmann-buhler-group-uzwil",
-        "en": "speditionsfachfrau-speditionsfachmann-buhler-group-uzwil",
+        "it": "specialista-di-spedizione-specialista-di-spedizioni-buhler-group-uzwil",
+        "en": "freight-forwarding-specialist-forwarding-specialist-buhler-group-uzwil",
         "de": "speditionsfachfrau-speditionsfachmann-buehler-uzwil",
-        "fr": "speditionsfachfrau-speditionsfachmann-buhler-group-uzwil"
+        "fr": "specialiste-du-transport-de-marchandises-specialiste-du-transport-de-marchandises-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6578,11 +7186,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "speditionsfachfrau-speditionsfachmann-buehler-uzwil"
+        "speditionsfachfrau-speditionsfachmann-buehler-uzwil",
+        "speditionsfachfrau-speditionsfachmann-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "speditionsfachfrau-speditionsfachmann-buehler-uzwil"
+          "speditionsfachfrau-speditionsfachmann-buehler-uzwil",
+          "speditionsfachfrau-speditionsfachmann-buhler-group-uzwil"
+        ],
+        "en": [
+          "speditionsfachfrau-speditionsfachmann-buhler-group-uzwil"
+        ],
+        "fr": [
+          "speditionsfachfrau-speditionsfachmann-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.164Z",
@@ -6601,12 +7217,12 @@
     },
     {
       "id": "buehler-ae7bc275849d",
-      "slug": "prozesstechniker-in-buhler-group-uzwil",
+      "slug": "ingegnere-di-processo-in-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "prozesstechniker-in-buhler-group-uzwil",
-        "en": "prozesstechniker-in-buhler-group-uzwil",
+        "it": "ingegnere-di-processo-in-buhler-group-uzwil",
+        "en": "process-engineer-in-buhler-group-uzwil",
         "de": "prozesstechniker-in-buehler-uzwil",
-        "fr": "prozesstechniker-in-buhler-group-uzwil"
+        "fr": "ingenieur-de-processus-in-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6649,11 +7265,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "prozesstechniker-in-buehler-uzwil"
+        "prozesstechniker-in-buehler-uzwil",
+        "prozesstechniker-in-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prozesstechniker-in-buehler-uzwil"
+          "prozesstechniker-in-buehler-uzwil",
+          "prozesstechniker-in-buhler-group-uzwil"
+        ],
+        "en": [
+          "prozesstechniker-in-buhler-group-uzwil"
+        ],
+        "fr": [
+          "prozesstechniker-in-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.163Z",
@@ -6672,12 +7296,12 @@
     },
     {
       "id": "buehler-9002f3dfc386",
-      "slug": "key-account-manager-buehler-plymouth",
+      "slug": "gestione-account-chiave-buhler-group-plymouth",
       "slugByLocale": {
-        "it": "key-account-manager-buehler-plymouth",
+        "it": "gestione-account-chiave-buhler-group-plymouth",
         "en": "key-account-manager-buehler-plymouth",
         "de": "key-account-manager-buehler-plymouth",
-        "fr": "key-account-manager-buehler-plymouth"
+        "fr": "gestionnaire-de-comptes-cles-buhler-group-plymouth"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6731,7 +7355,18 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-buehler-plymouth"
+        ],
+        "fr": [
+          "key-account-manager-buehler-plymouth"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-buehler-plymouth"
+      ]
     },
     {
       "id": "buehler-50df1018b2ec",
@@ -6739,8 +7374,8 @@
       "slugByLocale": {
         "it": "project-manager-engineering-buehler-makati-city",
         "en": "project-manager-engineering-buehler-makati-city",
-        "de": "project-manager-engineering-buehler-makati-city",
-        "fr": "project-manager-engineering-buehler-makati-city"
+        "de": "projektleiter-engineering-buhler-group-makati-city",
+        "fr": "gestionnaire-de-projet-ingenierie-buhler-group-makati-city"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6861,9 +7496,9 @@
     },
     {
       "id": "buehler-6514d6291fd2",
-      "slug": "functional-commissioning-engineer-m-w-d-buehler-alzenau",
+      "slug": "functional-commissioning-ingegnere-m-w-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "functional-commissioning-engineer-m-w-d-buehler-alzenau",
+        "it": "functional-commissioning-ingegnere-m-w-d-buhler-group-alzenau",
         "en": "functional-commissioning-engineer-m-w-d-buhler-group-alzenau",
         "de": "functional-commissioning-engineer-m-w-d-buehler-alzenau",
         "fr": "functional-commissioning-engineer-m-w-d-buehler-alzenau"
@@ -6920,7 +7555,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "functional-commissioning-engineer-m-w-d-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "functional-commissioning-engineer-m-w-d-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-7b843a1d01e0",
@@ -7001,12 +7644,12 @@
     },
     {
       "id": "buehler-3e1a3035c463",
-      "slug": "team-manager-service-operations-buehler-seoul",
+      "slug": "team-manager-operazioni-di-servizio-buhler-group-seoul",
       "slugByLocale": {
-        "it": "team-manager-service-operations-buehler-seoul",
+        "it": "team-manager-operazioni-di-servizio-buhler-group-seoul",
         "en": "team-manager-service-operations-buehler-seoul",
-        "de": "team-manager-service-operations-buehler-seoul",
-        "fr": "team-manager-service-operations-buehler-seoul"
+        "de": "teammanager-service-operations-buhler-group-seoul",
+        "fr": "gestionnaire-d-equipe-operations-de-service-buhler-group-seoul"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7060,13 +7703,27 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "team-manager-service-operations-buehler-seoul"
+        ],
+        "de": [
+          "team-manager-service-operations-buehler-seoul"
+        ],
+        "fr": [
+          "team-manager-service-operations-buehler-seoul"
+        ]
+      },
+      "previousSlugs": [
+        "team-manager-service-operations-buehler-seoul"
+      ]
     },
     {
       "id": "buehler-e8918bc3f842",
-      "slug": "estagiario-fiscal-gbs-buehler-curitiba",
+      "slug": "etagiario-fiscal-gbs-buhler-group-curitiba",
       "slugByLocale": {
-        "it": "estagiario-fiscal-gbs-buehler-curitiba",
+        "it": "etagiario-fiscal-gbs-buhler-group-curitiba",
         "en": "estagiario-fiscal-gbs-buehler-curitiba",
         "de": "estagiario-fiscal-gbs-buehler-curitiba",
         "fr": "estagiario-fiscal-gbs-buehler-curitiba"
@@ -7123,7 +7780,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-fiscal-gbs-buehler-curitiba"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-fiscal-gbs-buehler-curitiba"
+      ]
     },
     {
       "id": "buehler-0b8a6a67a1ec",
@@ -7338,12 +8003,12 @@
     },
     {
       "id": "buehler-a4360de8ed98",
-      "slug": "sales-channel-manager-buehler-ikeja",
+      "slug": "direttore-del-canale-di-vendita-buhler-group-ikeja",
       "slugByLocale": {
-        "it": "sales-channel-manager-buehler-ikeja",
+        "it": "direttore-del-canale-di-vendita-buhler-group-ikeja",
         "en": "sales-channel-manager-buehler-ikeja",
         "de": "sales-channel-manager-buehler-ikeja",
-        "fr": "sales-channel-manager-buehler-ikeja"
+        "fr": "gestionnaire-de-canaux-de-vente-buhler-group-ikeja"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7397,13 +8062,24 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-channel-manager-buehler-ikeja"
+        ],
+        "fr": [
+          "sales-channel-manager-buehler-ikeja"
+        ]
+      },
+      "previousSlugs": [
+        "sales-channel-manager-buehler-ikeja"
+      ]
     },
     {
       "id": "buehler-0bd656e50069",
-      "slug": "amlo-quality-department-manager-xff08-xff09-buehler-biejing",
+      "slug": "gestione-del-dipartimento-di-qualita-amlo-buhler-group-biejing",
       "slugByLocale": {
-        "it": "amlo-quality-department-manager-xff08-xff09-buehler-biejing",
+        "it": "gestione-del-dipartimento-di-qualita-amlo-buhler-group-biejing",
         "en": "amlo-quality-department-manager-xff08-xff09-buehler-biejing",
         "de": "amlo-qualitat-department-manager-buhler-group-biejing",
         "fr": "amlo-qualite-department-manager-buhler-group-biejing"
@@ -7460,7 +8136,15 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "amlo-quality-department-manager-xff08-xff09-buehler-biejing"
+        ]
+      },
+      "previousSlugs": [
+        "amlo-quality-department-manager-xff08-xff09-buehler-biejing"
+      ]
     },
     {
       "id": "buehler-5793aae7b3d4",
@@ -7618,12 +8302,12 @@
     },
     {
       "id": "buehler-a6c13323ed20",
-      "slug": "amlo-production-engineer-xff08-xff09-buehler-beijing-2",
+      "slug": "amlo-production-ingegnere-buhler-group-beijing-ac74c9",
       "slugByLocale": {
-        "it": "amlo-production-engineer-xff08-xff09-buehler-beijing-2",
+        "it": "amlo-production-ingegnere-buhler-group-beijing-ac74c9",
         "en": "amlo-production-engineer-xff08-xff09-buehler-beijing",
-        "de": "amlo-production-engineer-xff08-xff09-buehler-beijing-2",
-        "fr": "amlo-production-engineer-xff08-xff09-buehler-beijing-2"
+        "de": "amlo-production-ingenieur-buhler-group-beijing-ac74c9",
+        "fr": "amlo-production-ingenieur-buhler-group-beijing-ac74c9"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7677,16 +8361,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "amlo-production-engineer-xff08-xff09-buehler-beijing-2"
+        ],
+        "de": [
+          "amlo-production-engineer-xff08-xff09-buehler-beijing-2"
+        ],
+        "fr": [
+          "amlo-production-engineer-xff08-xff09-buehler-beijing-2"
+        ]
+      },
+      "previousSlugs": [
+        "amlo-production-engineer-xff08-xff09-buehler-beijing-2"
+      ]
     },
     {
       "id": "buehler-9a973b580b74",
-      "slug": "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau",
+      "slug": "formazione-impiegato-industriale-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau",
-        "en": "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau",
+        "it": "formazione-impiegato-industriale-m-f-d-buhler-group-alzenau",
+        "en": "training-industrial-clerk-m-f-d-buhler-group-alzenau",
         "de": "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau",
-        "fr": "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
+        "fr": "formation-commis-industriel-m-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7729,11 +8427,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau"
+        "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau",
+        "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau"
+          "ausbildung-industriekauffrau-mann-m-w-d-buehler-alzenau",
+          "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
+        ],
+        "en": [
+          "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "ausbildung-industriekauffrau-mann-m-w-d-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.143Z",
@@ -7833,7 +8539,7 @@
       "slugByLocale": {
         "it": "treasury-analista-buhler-group-uzwil",
         "en": "treasury-analyst-buehler-uzwil",
-        "de": "treasury-analyst-buehler-uzwil",
+        "de": "finanzanalyst-buhler-group-uzwil",
         "fr": "treasury-analyste-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -7883,6 +8589,9 @@
         ],
         "fr": [
           "treasury-analyst-buehler-uzwil"
+        ],
+        "de": [
+          "treasury-analyst-buehler-uzwil"
         ]
       },
       "previousSlugs": [
@@ -7906,9 +8615,9 @@
       "slug": "werkstudent-m-w-d-datenanalyse-e-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau",
       "slugByLocale": {
         "it": "werkstudent-m-w-d-datenanalyse-e-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau",
-        "en": "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau",
+        "en": "working-student-m-f-d-data-analysis-and-data-visualization-in-high-tech-plant-construction-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buehler",
-        "fr": "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau"
+        "fr": "etudiant-en-formation-m-f-d-analyse-des-donnees-et-visualisation-des-donnees-dans-la-construction-d-installations-de"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7951,11 +8660,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buehler"
+        "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buehler",
+        "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buehler"
+        ],
+        "en": [
+          "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau"
+        ],
+        "fr": [
+          "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.139Z",
@@ -7974,12 +8690,12 @@
     },
     {
       "id": "buehler-ee7e1f984b1b",
-      "slug": "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau",
+      "slug": "studente-di-lavoro-m-f-d-nel-settore-dell-esportazione-importazione-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau",
-        "en": "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau",
+        "it": "studente-di-lavoro-m-f-d-nel-settore-dell-esportazione-importazione-buhler-group-alzenau",
+        "en": "working-student-m-f-d-in-the-field-of-export-import-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau"
+        "fr": "etudiante-active-m-f-d-dans-le-domaine-des-exportations-importations-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8033,16 +8749,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau"
+        ],
+        "en": [
+          "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau"
+        ],
+        "fr": [
+          "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-m-w-d-im-bereich-export-import-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-56e1a04979e5",
-      "slug": "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-beschichtungstechnologie-buhler-group-alzenau",
+      "slug": "studente-di-lavoro-m-f-d-nel-campo-della-scienza-ingegneria-focus-on-vacuum-coating-technology-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-beschichtungstechnologie-buhler-group-alzenau",
-        "en": "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-beschichtungstechnologie-buhler-group-alzenau",
+        "it": "studente-di-lavoro-m-f-d-nel-campo-della-scienza-ingegneria-focus-on-vacuum-coating-technology-buhler-group-alzenau",
+        "en": "working-student-m-f-d-in-the-field-of-science-engineering-focus-on-vacuum-coating-technology-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-amp-beschichtungstechnologie",
-        "fr": "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-beschichtungstechnologie-buhler-group-alzenau"
+        "fr": "etudiante-active-m-f-d-dans-le-domaine-des-sciences-ingenierie-focus-sur-l-aspirateur-et-la-technologie-de-revetement"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8085,11 +8815,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-amp-beschichtungstechnologie"
+        "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-amp-beschichtungstechnologie",
+        "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-beschichtungstechnologie-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-amp-beschichtungstechnologie"
+          "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-amp-beschichtungstechnologie",
+          "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-beschichtungstechnologie-buhler-group-alzenau"
+        ],
+        "en": [
+          "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-beschichtungstechnologie-buhler-group-alzenau"
+        ],
+        "fr": [
+          "werkstudent-m-w-d-im-bereich-science-engineering-fokus-vakuum-beschichtungstechnologie-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.135Z",
@@ -8185,12 +8923,12 @@
     },
     {
       "id": "buehler-fbf64e7c6c80",
-      "slug": "werkstudent-m-w-d-sales-support-technical-sales-buehler-alzenau",
+      "slug": "studente-di-lavoro-m-f-d-supporto-commerciale-vendite-tecniche-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-sales-support-technical-sales-buehler-alzenau",
+        "it": "studente-di-lavoro-m-f-d-supporto-commerciale-vendite-tecniche-buhler-group-alzenau",
         "en": "werkstudent-m-w-d-sales-support-technical-sales-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-sales-support-technical-sales-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-sales-support-technical-sales-buehler-alzenau"
+        "fr": "etudiant-en-travail-m-f-d-soutien-aux-ventes-ventes-techniques-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8244,7 +8982,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-m-w-d-sales-support-technical-sales-buehler-alzenau"
+        ],
+        "fr": [
+          "werkstudent-m-w-d-sales-support-technical-sales-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-m-w-d-sales-support-technical-sales-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-e780035f4c2b",
@@ -8322,12 +9071,12 @@
     },
     {
       "id": "buehler-50c3ff2a4295",
-      "slug": "automation-engineer-buehler-makati-city-2",
+      "slug": "automation-ingegnere-buhler-group-makati-city-c2b2e0",
       "slugByLocale": {
-        "it": "automation-engineer-buehler-makati-city-2",
+        "it": "automation-ingegnere-buhler-group-makati-city-c2b2e0",
         "en": "automation-engineer-buehler-makati-city",
-        "de": "automation-engineer-buehler-makati-city-2",
-        "fr": "automation-engineer-buehler-makati-city-2"
+        "de": "automation-ingenieur-buhler-group-makati-city-c2b2e0",
+        "fr": "automation-ingenieur-buhler-group-makati-city-c2b2e0"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8381,16 +9130,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-engineer-buehler-makati-city-2"
+        ],
+        "de": [
+          "automation-engineer-buehler-makati-city-2"
+        ],
+        "fr": [
+          "automation-engineer-buehler-makati-city-2"
+        ]
+      },
+      "previousSlugs": [
+        "automation-engineer-buehler-makati-city-2"
+      ]
     },
     {
       "id": "buehler-3e1f54a28e63",
-      "slug": "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau",
+      "slug": "studente-di-lavoro-m-f-d-costruzione-meccanica-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau",
-        "en": "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau",
+        "it": "studente-di-lavoro-m-f-d-costruzione-meccanica-buhler-group-alzenau",
+        "en": "working-student-m-f-d-mechanical-construction-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau"
+        "fr": "etudiant-en-travail-m-f-d-construction-mecanique-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8444,13 +9207,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau"
+        ],
+        "en": [
+          "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau"
+        ],
+        "fr": [
+          "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-m-w-d-mechanische-konstruktion-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-dd9115582f57",
-      "slug": "electro-mechanical-technician-buehler-cary",
+      "slug": "elettrotecnica-meccanica-buhler-group-cary",
       "slugByLocale": {
-        "it": "electro-mechanical-technician-buehler-cary",
+        "it": "elettrotecnica-meccanica-buhler-group-cary",
         "en": "electro-mechanical-technician-buehler-cary",
         "de": "electro-mechanical-techniker-buhler-group-cary",
         "fr": "electro-mechanical-technicien-buhler-group-cary"
@@ -8507,7 +9284,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "electro-mechanical-technician-buehler-cary"
+        ]
+      },
+      "previousSlugs": [
+        "electro-mechanical-technician-buehler-cary"
+      ]
     },
     {
       "id": "buehler-b15fd72c720e",
@@ -8574,12 +9359,12 @@
     },
     {
       "id": "buehler-f7d257c780ee",
-      "slug": "project-engineer-buehler-wuxi-2",
+      "slug": "project-ingegnere-buhler-group-wuxi-fca7f0",
       "slugByLocale": {
-        "it": "project-engineer-buehler-wuxi-2",
+        "it": "project-ingegnere-buhler-group-wuxi-fca7f0",
         "en": "project-engineer-buehler-wuxi",
-        "de": "project-engineer-buehler-wuxi-2",
-        "fr": "project-engineer-buehler-wuxi-2"
+        "de": "project-ingenieur-buhler-group-wuxi-fca7f0",
+        "fr": "project-ingenieur-buhler-group-wuxi-fca7f0"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8633,16 +9418,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-engineer-buehler-wuxi-2"
+        ],
+        "de": [
+          "project-engineer-buehler-wuxi-2"
+        ],
+        "fr": [
+          "project-engineer-buehler-wuxi-2"
+        ]
+      },
+      "previousSlugs": [
+        "project-engineer-buehler-wuxi-2"
+      ]
     },
     {
       "id": "buehler-8b97c7f791a7",
-      "slug": "project-manager-buehler-skovlunde",
+      "slug": "responsabile-del-progetto-buhler-group-skovlunde",
       "slugByLocale": {
-        "it": "project-manager-buehler-skovlunde",
+        "it": "responsabile-del-progetto-buhler-group-skovlunde",
         "en": "project-manager-buehler-skovlunde",
-        "de": "project-manager-buehler-skovlunde",
-        "fr": "project-manager-buehler-skovlunde"
+        "de": "projektmanager-buhler-group-skovlunde",
+        "fr": "gestionnaire-de-projet-buhler-group-skovlunde"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8696,15 +9495,29 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-buehler-skovlunde"
+        ],
+        "de": [
+          "project-manager-buehler-skovlunde"
+        ],
+        "fr": [
+          "project-manager-buehler-skovlunde"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-buehler-skovlunde"
+      ]
     },
     {
       "id": "buehler-779210fe0f89",
-      "slug": "estagiario-de-comercio-exterior-buehler-curitiba",
+      "slug": "etagiario-de-comercio-exterior-buhler-group-curitiba",
       "slugByLocale": {
-        "it": "estagiario-de-comercio-exterior-buehler-curitiba",
+        "it": "etagiario-de-comercio-exterior-buhler-group-curitiba",
         "en": "estagiario-de-comercio-exterior-buehler-curitiba",
-        "de": "estagiario-de-comercio-exterior-buehler-curitiba",
+        "de": "etagiario-de-comercio-buhler-group-curitiba",
         "fr": "estagiario-de-comercio-exterior-buehler-curitiba"
       },
       "company": "Bühler Group",
@@ -8759,7 +9572,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-de-comercio-exterior-buehler-curitiba"
+        ],
+        "de": [
+          "estagiario-de-comercio-exterior-buehler-curitiba"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-de-comercio-exterior-buehler-curitiba"
+      ]
     },
     {
       "id": "buehler-1e25f2223bae",
@@ -8826,12 +9650,12 @@
     },
     {
       "id": "buehler-f87979068e46",
-      "slug": "project-manager-buehler-uzwil",
+      "slug": "responsabile-del-progetto-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "project-manager-buehler-uzwil",
+        "it": "responsabile-del-progetto-buhler-group-uzwil",
         "en": "project-manager-buhler-group-uzwil",
         "de": "project-manager-buehler-uzwil",
-        "fr": "project-manager-buehler-uzwil"
+        "fr": "gestionnaire-de-projet-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8885,7 +9709,18 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-buehler-uzwil"
+        ],
+        "fr": [
+          "project-manager-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-2644547fe0fe",
@@ -9026,12 +9861,12 @@
     },
     {
       "id": "buehler-4b7cd9143abd",
-      "slug": "monteur-industriemechaniker-m-w-d-buhler-group-hasselroth",
+      "slug": "installatore-meccanico-industriale-m-f-d-buhler-group-hasselroth",
       "slugByLocale": {
-        "it": "monteur-industriemechaniker-m-w-d-buhler-group-hasselroth",
-        "en": "monteur-industriemechaniker-m-w-d-buhler-group-hasselroth",
+        "it": "installatore-meccanico-industriale-m-f-d-buhler-group-hasselroth",
+        "en": "installer-industrial-mechanic-m-f-d-buhler-group-hasselroth",
         "de": "monteur-industriemechaniker-m-w-d-buehler-hasselroth",
-        "fr": "monteur-industriemechaniker-m-w-d-buhler-group-hasselroth"
+        "fr": "installateur-mecanicien-industriel-m-f-d-buhler-group-hasselroth"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -9074,11 +9909,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "monteur-industriemechaniker-m-w-d-buehler-hasselroth"
+        "monteur-industriemechaniker-m-w-d-buehler-hasselroth",
+        "monteur-industriemechaniker-m-w-d-buhler-group-hasselroth"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "monteur-industriemechaniker-m-w-d-buehler-hasselroth"
+          "monteur-industriemechaniker-m-w-d-buehler-hasselroth",
+          "monteur-industriemechaniker-m-w-d-buhler-group-hasselroth"
+        ],
+        "en": [
+          "monteur-industriemechaniker-m-w-d-buhler-group-hasselroth"
+        ],
+        "fr": [
+          "monteur-industriemechaniker-m-w-d-buhler-group-hasselroth"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.113Z",
@@ -9097,9 +9940,9 @@
     },
     {
       "id": "buehler-897121eb0de1",
-      "slug": "desenhista-projetista-mecanico-senior-processos-buehler-curitiba",
+      "slug": "desenhista-projectista-mecanico-senior-unita-di-elaborazione-buhler-group-curitiba",
       "slugByLocale": {
-        "it": "desenhista-projetista-mecanico-senior-processos-buehler-curitiba",
+        "it": "desenhista-projectista-mecanico-senior-unita-di-elaborazione-buhler-group-curitiba",
         "en": "desenhista-projetista-mecanico-senior-processos-buehler-curitiba",
         "de": "desenhista-projetista-mecanico-senior-processos-buehler-curitiba",
         "fr": "desenhista-projetista-mecanico-senior-processos-buehler-curitiba"
@@ -9156,16 +9999,24 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "desenhista-projetista-mecanico-senior-processos-buehler-curitiba"
+        ]
+      },
+      "previousSlugs": [
+        "desenhista-projetista-mecanico-senior-processos-buehler-curitiba"
+      ]
     },
     {
       "id": "buehler-2c782943441b",
-      "slug": "entwicklungsingenieur-mechatronikingenieur-m-w-d-buhler-group-leipzig",
+      "slug": "ingegnere-di-sviluppo-ingegnere-meccatronico-m-f-d-buhler-group-leipzig",
       "slugByLocale": {
-        "it": "entwicklungsingenieur-mechatronikingenieur-m-w-d-buhler-group-leipzig",
-        "en": "entwicklungsingenieur-mechatronikingenieur-m-w-d-buhler-group-leipzig",
+        "it": "ingegnere-di-sviluppo-ingegnere-meccatronico-m-f-d-buhler-group-leipzig",
+        "en": "development-engineer-mechatronic-engineer-m-f-d-buhler-group-leipzig",
         "de": "entwicklungsingenieur-mechatronikingenieur-m-w-d-buehler-leipzig",
-        "fr": "entwicklungsingenieur-mechatronikingenieur-m-w-d-buhler-group-leipzig"
+        "fr": "ingenieur-en-developpement-ingenieur-mecatronique-m-f-d-buhler-group-leipzig"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -9208,11 +10059,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "entwicklungsingenieur-mechatronikingenieur-m-w-d-buehler-leipzig"
+        "entwicklungsingenieur-mechatronikingenieur-m-w-d-buehler-leipzig",
+        "entwicklungsingenieur-mechatronikingenieur-m-w-d-buhler-group-leipzig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "entwicklungsingenieur-mechatronikingenieur-m-w-d-buehler-leipzig"
+          "entwicklungsingenieur-mechatronikingenieur-m-w-d-buehler-leipzig",
+          "entwicklungsingenieur-mechatronikingenieur-m-w-d-buhler-group-leipzig"
+        ],
+        "en": [
+          "entwicklungsingenieur-mechatronikingenieur-m-w-d-buhler-group-leipzig"
+        ],
+        "fr": [
+          "entwicklungsingenieur-mechatronikingenieur-m-w-d-buhler-group-leipzig"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.109Z",
@@ -9231,12 +10090,12 @@
     },
     {
       "id": "buehler-c49f9f9ec109",
-      "slug": "spare-and-wear-parts-officer-buehler-skovlunde",
+      "slug": "spare-e-indossare-parti-buhler-group-skovlunde",
       "slugByLocale": {
-        "it": "spare-and-wear-parts-officer-buehler-skovlunde",
+        "it": "spare-e-indossare-parti-buhler-group-skovlunde",
         "en": "spare-and-wear-parts-officer-buehler-skovlunde",
-        "de": "spare-and-wear-parts-officer-buehler-skovlunde",
-        "fr": "spare-and-wear-parts-officer-buhler-group-skovlunde"
+        "de": "ersatzteile-und-verschlei-teile-officer-buhler-group-skovlunde",
+        "fr": "agent-des-pieces-de-rechange-et-d-usure-buhler-group-skovlunde"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -9290,7 +10149,22 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spare-and-wear-parts-officer-buehler-skovlunde"
+        ],
+        "de": [
+          "spare-and-wear-parts-officer-buehler-skovlunde"
+        ],
+        "fr": [
+          "spare-and-wear-parts-officer-buhler-group-skovlunde"
+        ]
+      },
+      "previousSlugs": [
+        "spare-and-wear-parts-officer-buehler-skovlunde",
+        "spare-and-wear-parts-officer-buhler-group-skovlunde"
+      ]
     },
     {
       "id": "buehler-e615a627f972",
@@ -9525,9 +10399,9 @@
     },
     {
       "id": "buehler-e11abd6c0077",
-      "slug": "estagiario-de-engenharia-mecanica-buehler-curitiba",
+      "slug": "etagiario-de-engenharia-mecanica-buhler-group-curitiba",
       "slugByLocale": {
-        "it": "estagiario-de-engenharia-mecanica-buehler-curitiba",
+        "it": "etagiario-de-engenharia-mecanica-buhler-group-curitiba",
         "en": "estagiario-de-engenharia-mecanica-buehler-curitiba",
         "de": "estagiario-de-engenharia-mecanica-buehler-curitiba",
         "fr": "estagiario-de-engenharia-mecanica-buehler-curitiba"
@@ -9584,7 +10458,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-de-engenharia-mecanica-buehler-curitiba"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-de-engenharia-mecanica-buehler-curitiba"
+      ]
     },
     {
       "id": "buehler-683a0dbc9d13",
@@ -9651,12 +10533,12 @@
     },
     {
       "id": "buehler-0e4835288e97",
-      "slug": "legal-counsel-buehler-uzwil",
+      "slug": "avviso-legale-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "legal-counsel-buehler-uzwil",
+        "it": "avviso-legale-buhler-group-uzwil",
         "en": "legal-counsel-buehler-uzwil",
-        "de": "legal-counsel-buehler-uzwil",
-        "fr": "legal-counsel-buehler-uzwil"
+        "de": "rechtsberatung-buhler-group-uzwil",
+        "fr": "conseiller-juridique-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -9710,7 +10592,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-buehler-uzwil"
+        ],
+        "de": [
+          "legal-counsel-buehler-uzwil"
+        ],
+        "fr": [
+          "legal-counsel-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-26a2d7df1402",
@@ -9718,8 +10614,8 @@
       "slugByLocale": {
         "it": "product-manager-chocolate-portfolio-buehler-uzwil",
         "en": "product-manager-chocolate-portfolio-buehler-uzwil",
-        "de": "product-manager-chocolate-portfolio-buehler-uzwil",
-        "fr": "product-manager-chocolate-portfolio-buehler-uzwil"
+        "de": "produktmanager-schokoladenportfolio-buhler-group-uzwil",
+        "fr": "gestionnaire-de-produits-portefeuille-chocolat-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -9777,12 +10673,12 @@
     },
     {
       "id": "buehler-816c1f69e68a",
-      "slug": "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau",
+      "slug": "assistenza-m-f-d-nel-settore-dell-amministrazione-e-della-gestione-degli-uffici-buhler-group-alzenau",
       "slugByLocale": {
         "de": "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau",
-        "it": "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau",
-        "en": "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau",
-        "fr": "assistenz-m-w-d-im-bereich-administration-office-management-buhler-group-alzenau"
+        "it": "assistenza-m-f-d-nel-settore-dell-amministrazione-e-della-gestione-degli-uffici-buhler-group-alzenau",
+        "en": "assistance-m-f-d-in-the-area-of-administration-office-management-buhler-group-alzenau",
+        "fr": "assistance-m-f-d-dans-le-domaine-de-l-administration-et-de-la-gestion-des-bureaux-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -9837,7 +10733,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T21:58:27.800Z"
+      "firstSeenAt": "2026-06-23T21:58:27.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau"
+        ],
+        "en": [
+          "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau"
+        ],
+        "fr": [
+          "assistenz-m-w-d-im-bereich-administration-office-management-buhler-group-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau",
+        "assistenz-m-w-d-im-bereich-administration-office-management-buhler-group-alzenau"
+      ]
     }
   ]
 }

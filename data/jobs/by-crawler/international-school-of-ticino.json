@@ -24,12 +24,12 @@
         "it": "Insegnante di musica a tempo parziale",
         "de": "Teilzeit Music Teacher"
       },
-      "slug": "part-time-music-teacher-ist",
+      "slug": "insegnante-di-musica-a-tempo-parziale-international-school-of-ticino-lugano",
       "slugByLocale": {
         "en": "part-time-music-teacher-ist",
-        "it": "part-time-music-teacher-ist",
-        "de": "part-time-music-teacher-ist",
-        "fr": "part-time-music-teacher-international-school-of-ticino-lugano"
+        "it": "insegnante-di-musica-a-tempo-parziale-international-school-of-ticino-lugano",
+        "de": "teilzeit-music-teacher-international-school-of-ticino-lugano",
+        "fr": "professeur-de-musique-a-temps-partiel-international-school-of-ticino-lugano"
       },
       "category": "education",
       "datePosted": "2026-06-23",
@@ -63,7 +63,22 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-06-23T22:32:55.658Z"
+      "firstSeenAt": "2026-06-23T22:32:55.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "part-time-music-teacher-ist"
+        ],
+        "de": [
+          "part-time-music-teacher-ist"
+        ],
+        "fr": [
+          "part-time-music-teacher-international-school-of-ticino-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "part-time-music-teacher-ist",
+        "part-time-music-teacher-international-school-of-ticino-lugano"
+      ]
     }
   ]
 }

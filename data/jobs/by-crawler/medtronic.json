@@ -101,12 +101,12 @@
     },
     {
       "id": "medtronic-f78f692e009a",
-      "slug": "sales-representative-ii-medtronic-ch",
+      "slug": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
       "slugByLocale": {
-        "it": "sales-representative-ii-medtronic-ch",
+        "it": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
         "en": "sales-representative-ii-medtronic-tolochenaz",
         "de": "sales-representative-ii-medtronic-ch",
-        "fr": "sales-representative-ii-medtronic-ch"
+        "fr": "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -148,16 +148,13 @@
       "requirementsByLocale": {},
       "jobReqId": "R67468",
       "previousSlugs": [
-        "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
-        "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
+        "sales-representative-ii-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
           "sales-representative-ii-medtronic-ch"
         ],
         "fr": [
-          "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz",
           "sales-representative-ii-medtronic-ch"
         ]
       },
@@ -178,12 +175,12 @@
     },
     {
       "id": "medtronic-d5d16714c6c7",
-      "slug": "tech-consultant-medtronic-ch",
+      "slug": "consulente-tecnico-medtronic-bern",
       "slugByLocale": {
-        "it": "tech-consultant-medtronic-ch",
+        "it": "consulente-tecnico-medtronic-bern",
         "en": "tech-consultant-medtronic-bern",
         "de": "tech-consultant-medtronic-ch",
-        "fr": "tech-consultant-medtronic-ch"
+        "fr": "conseiller-technique-medtronic-bern"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -225,16 +222,13 @@
       "requirementsByLocale": {},
       "jobReqId": "R65639",
       "previousSlugs": [
-        "consulente-tecnico-medtronic-bern",
-        "conseiller-technique-medtronic-bern"
+        "tech-consultant-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-tecnico-medtronic-bern",
           "tech-consultant-medtronic-ch"
         ],
         "fr": [
-          "conseiller-technique-medtronic-bern",
           "tech-consultant-medtronic-ch"
         ]
       },
@@ -488,12 +482,12 @@
     },
     {
       "id": "medtronic-5f3f849861f0",
-      "slug": "sales-representative-ii-medtronic-ch-2",
+      "slug": "rappresentante-delle-vendite-ii-medtronic-tolochenaz",
       "slugByLocale": {
         "de": "sales-representative-ii-medtronic-ch",
-        "it": "sales-representative-ii-medtronic-ch-2",
+        "it": "rappresentante-delle-vendite-ii-medtronic-tolochenaz",
         "en": "sales-representative-ii-medtronic-tolochenaz",
-        "fr": "sales-representative-ii-medtronic-ch-2"
+        "fr": "representant-des-ventes-ii-medtronic-tolochenaz"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -549,7 +543,18 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-23T22:44:17.577Z"
+      "firstSeenAt": "2026-06-23T22:44:17.577Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-ii-medtronic-ch-2"
+        ],
+        "fr": [
+          "sales-representative-ii-medtronic-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "sales-representative-ii-medtronic-ch-2"
+      ]
     },
     {
       "id": "medtronic-2a411d7c404c",
@@ -665,7 +670,7 @@
         "en": "cst-market-development-manager-medtronic-ch",
         "it": "cst-market-development-manager-medtronic-ch",
         "de": "cst-market-development-manager-medtronic-ch",
-        "fr": "cst-market-development-manager-medtronic-ch"
+        "fr": "directeur-du-developpement-des-marches-du-cst-medtronic-lausanne"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",

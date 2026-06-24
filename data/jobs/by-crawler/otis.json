@@ -356,7 +356,7 @@
       "slugByLocale": {
         "it": "responsabile-di-gruppo-mod-bex-otis-sa-romanel-sur-lausanne",
         "en": "group-leader-mod-bex-otis-romanel-sur-lausanne",
-        "de": "group-leader-mod-bex-otis-romanel-sur-lausanne",
+        "de": "gruppenleiter-mod-bex-otis-sa-romanel-sur-lausanne",
         "fr": "chef-d-equipe-mod-bex-otis-sa-romanel-sur-lausanne"
       },
       "company": "Otis SA",
@@ -403,6 +403,9 @@
         "fr": [
           "group-leader-mod-bex-otis-romanel-sur-lausanne",
           "chef-de-groupe-mod-bex-otis-sa-romanel-sur-lausanne"
+        ],
+        "de": [
+          "group-leader-mod-bex-otis-romanel-sur-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-01T15:40:58.584Z",
@@ -1201,9 +1204,9 @@
       "slug": "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
       "slugByLocale": {
         "it": "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
-        "en": "servicetechniker-m-w-d-otis-reinach",
+        "en": "service-technician-m-f-d-otis-sa-reinach",
         "de": "servicetechniker-m-w-d-otis-nenzlingerweg-2",
-        "fr": "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        "fr": "technicien-des-services-m-f-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1251,7 +1254,8 @@
         "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34-2",
         "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2",
         "service-techniker-m-w-d-otis-sa-nenzlingerweg-2",
-        "servicetechniker-m-w-d-otis-sa-reinach"
+        "servicetechniker-m-w-d-otis-sa-reinach",
+        "servicetechniker-m-w-d-otis-nenzlingerweg-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1271,7 +1275,11 @@
           "service-techniker-m-w-d-otis-sa-nenzlingerweg-2"
         ],
         "fr": [
-          "servicetechniker-m-w-d-otis-sa-reinach"
+          "servicetechniker-m-w-d-otis-sa-reinach",
+          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        ],
+        "en": [
+          "servicetechniker-m-w-d-otis-reinach"
         ]
       },
       "firstSeenAt": "2026-05-12T11:48:59.892Z",
@@ -1379,7 +1387,7 @@
         "it": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-123",
         "en": "talent-community-bern-elevator-technician-m-w-d-otis-sa-postfach-123",
         "de": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123",
-        "fr": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
+        "fr": "talent-community-bern-installateur-reparateur-technicien-de-service-m-f-d-otis-sa-belp"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1432,7 +1440,8 @@
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
         ],
         "fr": [
-          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.581Z",
@@ -1542,7 +1551,7 @@
         "it": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8",
         "en": "elevator-technician-repair-service-technician-chur-otis-sa-triststrasse-8",
         "de": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8",
-        "fr": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8"
+        "fr": "talent-community-chur-installateur-reparateur-technicien-de-service-m-f-d-otis-sa-chur"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1590,6 +1599,9 @@
           "tecnico-montatore-manutentore-ascensori-chur-otis-sa-chur"
         ],
         "en": [
+          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8"
+        ],
+        "fr": [
           "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8"
         ]
       },

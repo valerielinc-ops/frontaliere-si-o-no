@@ -7,7 +7,7 @@
       "slug": "assistenza-per-la-gestione-degli-studenti-di-lavoro-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "assistenza-per-la-gestione-degli-studenti-di-lavoro-kantonsspital-winterthur-ksw-winterthur",
-        "en": "werkstudent-management-support-ksw-ch",
+        "en": "working-student-working-student-management-support-kantonsspital-winterthur-ksw-winterthur",
         "de": "werkstudent-management-support-ksw-ch",
         "fr": "soutien-a-la-gestion-des-etudiants-en-activite-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -63,6 +63,9 @@
           "werkstudentin-werkstudent-management-support-ksw-ch"
         ],
         "fr": [
+          "werkstudent-management-support-ksw-ch"
+        ],
+        "en": [
           "werkstudent-management-support-ksw-ch"
         ]
       },
@@ -549,9 +552,9 @@
     },
     {
       "id": "ksw-f7d2cc19cc8e",
-      "slug": "vitreoretinale-chirurgin-chirurge-ksw-ch",
+      "slug": "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "vitreoretinale-chirurgin-chirurge-ksw-ch",
+        "it": "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur",
         "en": "vitreoretinal-surgeon-kantonsspital-winterthur-ksw-winterthur",
         "de": "vitreoretinale-chirurgin-chirurge-ksw-ch",
         "fr": "chirurgien-vitreo-retinien-kantonsspital-winterthur-ksw-winterthur"
@@ -601,7 +604,8 @@
         "vitreoretinal-surgeon-surgeon-kantonsspital-winterthur-ksw-winterthur",
         "vitreoretinale-chirurgin-chirurgin-kantonsspital-winterthur-ksw-winterthur",
         "vitreoretinale-chirurgin-chirurgie-kantonsspital-winterthur-ksw-winterthur",
-        "chirurgien-vitroretinien-chirurgien-kantonsspital-winterthur-ksw-winterthur"
+        "chirurgien-vitroretinien-chirurgien-kantonsspital-winterthur-ksw-winterthur",
+        "vitreoretinale-chirurgin-chirurge-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -614,6 +618,9 @@
         "fr": [
           "vitreoretinale-chirurgin-chirurgie-kantonsspital-winterthur-ksw-winterthur",
           "chirurgien-vitroretinien-chirurgien-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "it": [
+          "vitreoretinale-chirurgin-chirurge-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
@@ -712,7 +719,7 @@
       "slug": "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
+        "en": "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
         "fr": "specialiste-en-formation-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -764,6 +771,9 @@
           "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
         ],
         "fr": [
+          "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
+        ],
+        "en": [
           "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
         ]
       },
@@ -862,9 +872,9 @@
     },
     {
       "id": "ksw-c2e301ef3ff2",
-      "slug": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
+      "slug": "infermieristica-specialista-infermieristica-traumatologia-chirurgia-a-mano-plastica-kantonsspital-winterthur-ksw",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
+        "it": "infermieristica-specialista-infermieristica-traumatologia-chirurgia-a-mano-plastica-kantonsspital-winterthur-ksw",
         "en": "nursing-specialist-nursing-specialist-traumatology-hand-plastic-surgery-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
         "fr": "specialiste-en-soins-infirmiers-specialiste-en-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique-kantonsspital"
@@ -921,7 +931,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-4b97220678bd",
@@ -1156,9 +1174,9 @@
     },
     {
       "id": "ksw-a33c28a77303",
-      "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+      "slug": "infermiera-nurse-specialista-acutogeria-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+        "it": "infermiera-nurse-specialista-acutogeria-kantonsspital-winterthur-ksw-winterthur",
         "en": "nurse-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
         "fr": "infirmiere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
@@ -1215,7 +1233,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-4ecfdf2046d5",
@@ -1457,7 +1483,7 @@
         "it": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
         "en": "medical-technical-radiology-specialist-hf-mtr-hf-for-the-field-of-interventional-radiology-kantonsspital-winterthur-ksw",
         "de": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle",
-        "fr": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle"
+        "fr": "specialiste-de-radiologie-medicale-technique-hf-mtr-hf-dans-le-domaine-de-la-radiologie-interventionnelle-kantonsspital"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1508,6 +1534,9 @@
         ],
         "en": [
           "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle"
+        ],
+        "fr": [
+          "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle"
         ]
       },
       "firstSeenAt": "2026-06-15T23:19:33.020Z",
@@ -1529,9 +1558,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1574,7 +1603,9 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2302,12 +2333,12 @@
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2350,16 +2381,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
@@ -2539,8 +2567,8 @@
       "id": "ksw-338414bc11b1",
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -2586,15 +2614,13 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikantin-pflegepraktikant-ksw-ch",
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
           "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -3180,7 +3206,7 @@
         "it": "spontanbewerbung-come-radiologiefachperson-diagnostische-o-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
         "en": "spontaneous-application-for-diagnostic-or-interventional-radiology-technician-kantonsspital-winterthur-ksw-winterthur",
         "de": "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie-k",
-        "fr": "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie-k"
+        "fr": "application-spontanee-comme-specialiste-en-radiologie-radiologie-diagnostique-ou-interventionnelle-kantonsspital"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3234,6 +3260,9 @@
           "candidatura-spontanea-per-tecnico-di-radiologia-diagnostica-o-interventistica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
+          "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie-k"
+        ],
+        "fr": [
           "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie-k"
         ]
       },
@@ -3487,7 +3516,7 @@
       "slug": "handtherapeutin-handtherapeut-ergo-o-physiotherapeut-in-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "handtherapeutin-handtherapeut-ergo-o-physiotherapeut-in-kantonsspital-winterthur-ksw-winterthur",
-        "en": "handtherapeutin-handtherapeut-ergo-oder-physiotherapeut-in-ksw-ch",
+        "en": "hand-therapist-ergo-or-physiotherapist-kantonsspital-winterthur-ksw-winterthur",
         "de": "handtherapeutin-handtherapeut-ergo-oder-physiotherapeut-in-ksw-ch",
         "fr": "therapeutine-de-la-main-therapeute-de-la-main-ergo-oder-physiotherapeut-in-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -3539,6 +3568,9 @@
           "handtherapeutin-handtherapeut-ergo-oder-physiotherapeut-in-ksw-ch"
         ],
         "fr": [
+          "handtherapeutin-handtherapeut-ergo-oder-physiotherapeut-in-ksw-ch"
+        ],
+        "en": [
           "handtherapeutin-handtherapeut-ergo-oder-physiotherapeut-in-ksw-ch"
         ]
       },
@@ -3803,9 +3835,9 @@
     },
     {
       "id": "ksw-b1b5f5e4edbd",
-      "slug": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+      "slug": "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+        "it": "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur",
         "en": "expert-in-intensive-care-nursing-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur",
         "de": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
         "fr": "expert-en-soins-intensifs-nds-medecine-intensive-kantonsspital-winterthur-ksw-winterthur"
@@ -3854,7 +3886,8 @@
         "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
         "expert-in-intensive-care-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur",
         "experten-experten-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
-        "expert-e-en-soins-intensifs-nds-medecine-intensive-kantonsspital-winterthur-ksw-winterthur"
+        "expert-e-en-soins-intensifs-nds-medecine-intensive-kantonsspital-winterthur-ksw-winterthur",
+        "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -3867,6 +3900,9 @@
         "fr": [
           "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
           "expert-e-en-soins-intensifs-nds-medecine-intensive-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "it": [
+          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.042Z",
@@ -3888,7 +3924,7 @@
       "slug": "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "expertin-experte-notfallpflege-nds-hf-ksw-ch",
+        "en": "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "expertin-experte-notfallpflege-nds-hf-ksw-ch",
         "fr": "expert-e-en-soins-d-urgence-epd-es-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -3940,6 +3976,9 @@
           "expertin-experte-notfallpflege-nds-hf-ksw-ch"
         ],
         "fr": [
+          "expertin-experte-notfallpflege-nds-hf-ksw-ch"
+        ],
+        "en": [
           "expertin-experte-notfallpflege-nds-hf-ksw-ch"
         ]
       },
@@ -4809,7 +4848,7 @@
       "slug": "applikations-manager-in-medizinformatik-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "applikations-manager-in-medizinformatik-kantonsspital-winterthur-ksw-winterthur",
-        "en": "applikations-manager-in-medizininformatik-ksw-ch",
+        "en": "application-manager-in-medical-informatics-kantonsspital-winterthur-ksw-winterthur",
         "de": "applikations-manager-in-medizininformatik-ksw-ch",
         "fr": "applikations-gestionnaire-in-medizinformatik-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -4862,6 +4901,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "applikations-manager-in-medizininformatik-ksw-ch"
+        ],
+        "en": [
           "applikations-manager-in-medizininformatik-ksw-ch"
         ]
       },

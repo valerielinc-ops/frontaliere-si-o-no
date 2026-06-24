@@ -913,12 +913,12 @@
     },
     {
       "id": "epi-stiftung-1525d811b76a",
-      "slug": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+      "slug": "studio-dipl-specialista-hf-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
-        "it": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+        "it": "studio-dipl-specialista-hf-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
         "de": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
-        "fr": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "fr": "etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -961,10 +961,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        ],
+        "en": [
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        ],
+        "fr": [
           "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
         ]
       },
@@ -984,12 +992,12 @@
     },
     {
       "id": "epi-stiftung-228c06dd8a97",
-      "slug": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+      "slug": "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
-        "it": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
-        "en": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+        "it": "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich",
         "de": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
-        "fr": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        "fr": "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1043,7 +1051,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ],
+        "en": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-43a74c6958a1",
@@ -1051,8 +1073,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich",
         "it": "mitarbeiterin-collaboratore-trice-reinigung-restaurant-e-seminar-epi-park-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich"
+        "en": "employee-cleaning-restaurant-and-seminar-epi-park-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "nettoyage-des-employes-restaurant-et-seminaire-epi-park-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1098,6 +1120,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich"
         ]
       },
       "previousSlugs": [
@@ -1123,8 +1151,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich",
         "it": "mitarbeiterin-collaboratore-trice-reinigung-housekeeping-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich"
+        "en": "employee-cleaning-staff-housekeeping-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "employe-personnel-de-nettoyage-menage-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1169,6 +1197,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich"
         ]
       },

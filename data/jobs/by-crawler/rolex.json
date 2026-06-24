@@ -1550,7 +1550,7 @@
       "slugByLocale": {
         "it": "responsabile-progetto-della-supply-chain-m-f-rolex-geneve",
         "en": "supply-chain-project-manager-m-f-rolex-geneve",
-        "de": "charge-de-projets-en-supply-chain-h-f-rolex-ch",
+        "de": "supply-chain-projektmanager-h-f-rolex-geneve",
         "fr": "charge-de-projets-en-supply-chain-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -1596,6 +1596,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "charge-de-projets-en-supply-chain-h-f-rolex-ch"
+        ],
+        "de": [
           "charge-de-projets-en-supply-chain-h-f-rolex-ch"
         ]
       },
@@ -2245,9 +2248,9 @@
     },
     {
       "id": "rolex-514a812cdcb7",
-      "slug": "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
+      "slug": "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve",
       "slugByLocale": {
-        "it": "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
+        "it": "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve",
         "en": "head-of-new-products-projects-h-f-rolex-geneve",
         "de": "leiter-new-products-projects-h-f-rolex-geneve",
         "fr": "chef-de-projets-nouveaux-produits-h-f-rolex-ch"
@@ -2302,7 +2305,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projets-nouveaux-produits-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projets-nouveaux-produits-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-c1c9899272f0",
@@ -3096,7 +3107,7 @@
       "slug": "programma-di-dottorato-in-sistemi-informativi-analista-di-business-plm-m-f-rolex-geneve",
       "slugByLocale": {
         "it": "programma-di-dottorato-in-sistemi-informativi-analista-di-business-plm-m-f-rolex-geneve",
-        "en": "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch",
+        "en": "young-graduates-programme-information-systems-business-analyst-plm-h-f-rolex-geneve",
         "de": "informationssystem-graduiertenprogramm-plm-business-analyst-m-f-rolex-geneve",
         "fr": "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
       },
@@ -3143,6 +3154,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
+        ],
+        "en": [
           "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
         ]
       },
@@ -6931,7 +6945,7 @@
       "slug": "responsabile-di-team-orologiaio-h-f-rolex-geneve",
       "slugByLocale": {
         "it": "responsabile-di-team-orologiaio-h-f-rolex-geneve",
-        "en": "manager-d-equipe-horloger-h-f-rolex-ch",
+        "en": "team-manager-watchmaker-h-f-rolex-geneve",
         "de": "teamleiter-uhrmacher-m-w-rolex-geneve",
         "fr": "manager-d-equipe-horloger-h-f-rolex-ch"
       },
@@ -7000,6 +7014,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manager-d-equipe-horloger-h-f-rolex-ch"
+        ],
+        "en": [
           "manager-d-equipe-horloger-h-f-rolex-ch"
         ]
       },
@@ -10148,11 +10165,11 @@
     },
     {
       "id": "rolex-d72510e1bcb8",
-      "slug": "agent-methodes-de-controle-h-f-rolex-ch",
+      "slug": "agente-metodo-di-controllo-h-f-rolex-bienne",
       "slugByLocale": {
-        "it": "agent-methodes-de-controle-h-f-rolex-ch",
-        "en": "agent-methodes-de-controle-h-f-rolex-ch",
-        "de": "agent-methodes-de-controle-h-f-rolex-ch",
+        "it": "agente-metodo-di-controllo-h-f-rolex-bienne",
+        "en": "control-method-agent-h-f-rolex-bienne",
+        "de": "kontrollmethodenmittel-h-f-rolex-bienne",
         "fr": "agent-methodes-de-controle-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -10206,13 +10223,27 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-methodes-de-controle-h-f-rolex-ch"
+        ],
+        "en": [
+          "agent-methodes-de-controle-h-f-rolex-ch"
+        ],
+        "de": [
+          "agent-methodes-de-controle-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "agent-methodes-de-controle-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-f987f9b126d5",
-      "slug": "responsable-de-groupe-garnissage-h-f-rolex-ch",
+      "slug": "garnissage-group-manager-h-f-rolex-bienne",
       "slugByLocale": {
-        "it": "responsable-de-groupe-garnissage-h-f-rolex-ch",
+        "it": "garnissage-group-manager-h-f-rolex-bienne",
         "en": "responsable-de-groupe-garnissage-h-f-rolex-ch",
         "de": "responsable-de-groupe-garnissage-h-f-rolex-ch",
         "fr": "responsable-de-groupe-garnissage-h-f-rolex-ch"
@@ -10268,15 +10299,23 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-groupe-garnissage-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-groupe-garnissage-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-97bbc19104e1",
-      "slug": "technicien-support-production-h-f-rolex-ch",
+      "slug": "supporto-tecnico-per-la-produzione-h-f-rolex-geneve",
       "slugByLocale": {
-        "it": "technicien-support-production-h-f-rolex-ch",
+        "it": "supporto-tecnico-per-la-produzione-h-f-rolex-geneve",
         "en": "technicien-support-production-h-f-rolex-ch",
-        "de": "technicien-support-production-h-f-rolex-ch",
+        "de": "produktionsunterstutzungstechniker-h-f-rolex-geneve",
         "fr": "technicien-support-production-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -10330,7 +10369,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-support-production-h-f-rolex-ch"
+        ],
+        "de": [
+          "technicien-support-production-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-support-production-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-75a45f5950e3",

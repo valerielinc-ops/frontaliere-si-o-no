@@ -1789,12 +1789,12 @@
     },
     {
       "id": "denner-c613f7f07188",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-biel-bienne",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-gestione-delle-branche-denner-biel-bienne",
+        "en": "assistant-in-branch-management-denner-biel-bienne",
         "de": "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
-        "fr": "assistent-in-filialleitung-denner"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1865,7 +1865,21 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-7155d3a60c02",
@@ -2242,12 +2256,12 @@
     },
     {
       "id": "denner-8fe1f33b5923",
-      "slug": "verkaufer-in-denner-huttwil",
+      "slug": "venditore-denner-huttwil",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-huttwil",
-        "en": "verkaufer-in-denner-huttwil",
+        "it": "venditore-denner-huttwil",
+        "en": "seller-denner-huttwil",
         "de": "verkaufer-in-denner-ag-huttwil",
-        "fr": "verkaufer-in-denner-huttwil"
+        "fr": "vendeur-denner-huttwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2304,11 +2318,19 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-23T22:11:25.537Z",
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-huttwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-huttwil"
+        ],
+        "en": [
+          "verkaufer-in-denner-huttwil"
+        ],
+        "fr": [
+          "verkaufer-in-denner-huttwil"
         ]
       },
       "needsRetranslation": true,
@@ -2329,12 +2351,12 @@
     },
     {
       "id": "denner-8ea94a2cec47",
-      "slug": "verkaufer-in-denner-langenthal",
+      "slug": "venditore-denner-langenthal",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-langenthal",
-        "en": "verkaufer-in-denner-langenthal",
+        "it": "venditore-denner-langenthal",
+        "en": "seller-denner-langenthal",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "verkaufer-in-denner-langenthal"
+        "fr": "vendeur-denner-langenthal"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2391,11 +2413,19 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-23T22:11:24.946Z",
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-langenthal"
+        ],
+        "en": [
+          "verkaufer-in-denner-langenthal"
+        ],
+        "fr": [
+          "verkaufer-in-denner-langenthal"
         ]
       },
       "needsRetranslation": true,
@@ -2590,12 +2620,12 @@
     },
     {
       "id": "denner-153606f30e3d",
-      "slug": "verkaufer-in-denner",
+      "slug": "venditore-con-salario-orario-denner-frauenfeld",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner",
+        "it": "venditore-con-salario-orario-denner-frauenfeld",
+        "en": "salesperson-on-an-hourly-wage-denner-frauenfeld",
         "de": "verkaufer-in-denner-rubigen",
-        "fr": "verkaufer-in-denner"
+        "fr": "vendeur-a-salaire-horaire-denner-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2653,20 +2683,24 @@
       "crawledAt": "2026-06-23T22:11:24.418Z",
       "previousSlugs": [
         "verkaufer-in-denner-2",
+        "verkaufer-in-denner",
         "verkaufer-in-denner-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-2"
+          "verkaufer-in-denner-2",
+          "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner-frauenfeld",
+          "verkaufer-in-denner"
         ],
         "de": [
           "verkaufer-in-denner-frauenfeld"
         ],
         "fr": [
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner-frauenfeld",
+          "verkaufer-in-denner"
         ]
       },
       "needsRetranslation": true,

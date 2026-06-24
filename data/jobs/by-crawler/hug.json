@@ -775,7 +775,7 @@
       "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
-        "en": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
+        "en": "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
         "de": "klinikleiter-mit-oder-ohne-fachtitel-fellowship-in-der-padiatrischen-intensivmedizin-100-hug-geneve",
         "fr": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
       },
@@ -826,6 +826,9 @@
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "de": [
+          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
+        ],
+        "en": [
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ]
       },
@@ -3250,9 +3253,9 @@
     },
     {
       "id": "hug-87803c0ec6d6",
-      "slug": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+      "slug": "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
       "slugByLocale": {
-        "it": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+        "it": "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
         "en": "educator-or-social-educator-in-psychiatry-80-hug-thonex",
         "de": "padagoge-oder-sozialpadagoge-in-der-psychiatrie-80-hug-thonex",
         "fr": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
@@ -3297,13 +3300,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
+        "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
         "social-educator-in-psychiatry-80-hug-thonex",
         "sozialpadagoge-in-der-psychiatrie-80-hug-thonex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex"
+          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
         ],
         "en": [
           "social-educator-in-psychiatry-80-hug-thonex"
@@ -4059,11 +4062,11 @@
     },
     {
       "id": "hug-e5f29f3a31ca",
-      "slug": "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique",
+      "slug": "ostetrica-o-di-ricerca-per-la-piattaforma-di-ricerca-clinica-pediatricia-ginecologia-e-ostetricia-60-a-80-hug-geneve",
       "slugByLocale": {
-        "it": "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique",
-        "en": "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique",
-        "de": "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique",
+        "it": "ostetrica-o-di-ricerca-per-la-piattaforma-di-ricerca-clinica-pediatricia-ginecologia-e-ostetricia-60-a-80-hug-geneve",
+        "en": "research-midwife-husband-for-the-pediatric-gynecology-and-obstetrics-clinical-research-platform-60-to-80-hug-geneve",
+        "de": "forschungshebamme-mann-fur-die-klinische-forschung-auf-dem-gebiet-der-padiatrie-gynakologie-und-geburtshilfe-60-bis-80",
         "fr": "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique"
       },
       "company": "HUG",
@@ -4118,15 +4121,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique"
+        ],
+        "en": [
+          "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique"
+        ],
+        "de": [
+          "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique"
+        ]
+      },
+      "previousSlugs": [
+        "sage-femme-ou-homme-sage-femme-de-recherche-au-sein-de-la-plateforme-de-recherche-clinique"
+      ]
     },
     {
       "id": "hug-18ac680fe25f",
-      "slug": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve",
+      "slug": "segretario-a-medico-ufficio-programmazione-80-a-100-hug-geneve",
       "slugByLocale": {
-        "it": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve",
-        "en": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve",
-        "de": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve",
+        "it": "segretario-a-medico-ufficio-programmazione-80-a-100-hug-geneve",
+        "en": "medical-secretary-scheduling-office-80-to-100-hug-geneve",
+        "de": "medizinischer-sekretar-in-terminplanung-80-bis-100-hug-geneve",
         "fr": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
       },
       "company": "HUG",
@@ -4181,15 +4198,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-2d04a0cfc233",
-      "slug": "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive",
+      "slug": "infermieri-o-infermiere-in-neurologia-80-a-100-hug-collonge-bellerive",
       "slugByLocale": {
-        "it": "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive",
-        "en": "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive",
-        "de": "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive",
+        "it": "infermieri-o-infermiere-in-neurologia-80-a-100-hug-collonge-bellerive",
+        "en": "neurology-nurses-80-to-100-hug-collonge-bellerive",
+        "de": "neurologische-pflegekrafte-80-bis-100-hug-collonge-bellerive",
         "fr": "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive"
       },
       "company": "HUG",
@@ -4244,15 +4275,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive"
+        ],
+        "en": [
+          "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive"
+        ],
+        "de": [
+          "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-ou-infirmieres-en-neurologie-80-a-100-hug-collonge-bellerive"
+      ]
     },
     {
       "id": "hug-d7baf54e6af0",
-      "slug": "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve",
+      "slug": "sede-amministrativa-per-la-piattaforma-di-innovazione-80-al-100-hug-geneve",
       "slugByLocale": {
-        "it": "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve",
-        "en": "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve",
-        "de": "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve",
+        "it": "sede-amministrativa-per-la-piattaforma-di-innovazione-80-al-100-hug-geneve",
+        "en": "administrative-clerk-for-the-innovation-platform-80-to-100-hug-geneve",
+        "de": "administrativer-sachbearbeiter-fur-die-innovationsplattform-80-bis-100-hug-geneve",
         "fr": "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve"
       },
       "company": "HUG",
@@ -4308,7 +4353,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "commis-ou-commise-administrative-pour-la-plateforme-d-innovation-80-a-100-hug-geneve"
+      ]
     }
   ]
 }

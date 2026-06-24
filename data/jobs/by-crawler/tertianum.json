@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-technischer-dienst-80-100-tertianum-wald",
         "it": "collaboratore-trice-technischer-dienst-80-100-tertianum-wald",
-        "en": "mitarbeiter-in-technischer-dienst-80-100-tertianum-wald",
-        "fr": "mitarbeiter-in-technischer-dienst-80-100-tertianum-wald"
+        "en": "employee-technical-service-80-100-tertianum-wald",
+        "fr": "service-technique-employe-80-100-tertianum-wald"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -54,6 +54,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-technischer-dienst-80-100-tertianum-wald"
+        ],
+        "en": [
+          "mitarbeiter-in-technischer-dienst-80-100-tertianum-wald"
+        ],
+        "fr": [
           "mitarbeiter-in-technischer-dienst-80-100-tertianum-wald"
         ]
       },
@@ -414,9 +420,9 @@
       "slug": "mitarbeiterin-collaboratore-trice-service-50-tertianum-kirchdorf",
       "slugByLocale": {
         "it": "mitarbeiterin-collaboratore-trice-service-50-tertianum-kirchdorf",
-        "en": "mitarbeiterin-mitarbeiter-service-50-tertianum-kirchdorf",
+        "en": "employee-employee-service-50-tertianum-kirchdorf",
         "de": "mitarbeiterin-mitarbeiter-service-50-tertianum-kirchdorf",
-        "fr": "mitarbeiterin-mitarbeiter-service-50-tertianum-kirchdorf"
+        "fr": "employe-service-des-employes-50-tertianum-kirchdorf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -464,6 +470,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-service-50-tertianum-kirchdorf"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-service-50-tertianum-kirchdorf"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-service-50-tertianum-kirchdorf"
         ]
       },
       "firstSeenAt": "2026-06-23T12:48:56.037Z",
@@ -485,9 +497,9 @@
       "slug": "mitarbeiterin-collaboratore-trice-hauswirtschaft-50-tertianum-schlieren",
       "slugByLocale": {
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-50-tertianum-schlieren",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-50-tertianum-schlieren",
+        "en": "employee-housekeeping-50-tertianum-schlieren",
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-50-tertianum-schlieren",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-50-tertianum-schlieren"
+        "fr": "employes-de-menage-50-tertianum-schlieren"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -533,6 +545,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-50-tertianum-schlieren"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-50-tertianum-schlieren"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-50-tertianum-schlieren"
         ]
       },
@@ -3323,9 +3341,6 @@
       "previousSlugs": [
         "kochin-koch-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-horgen",
-        "cuoco-cuoca-tertianum-horgen",
-        "chef-co-chef-tertianum-horgen",
-        "cuisinier-chef-cuisinier-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
@@ -3526,9 +3541,6 @@
         "assistent-in-gesundheit-soziales-40-100-tertianum-richterswil",
         "assistent-in-gesundheit-soziales-40-100-wahlbar-ob-im-tagdienst-oder-im-nachtdienst",
         "assistentin-assistent-gesundheit-und-soziales-eba-40-100-tertianum-richterswil",
-        "assistente-a-alla-salute-e-al-sociale-40-100-tertianum-solothurn",
-        "health-and-social-care-assistant-40-100-tertianum-solothurn",
-        "assistant-e-en-sante-et-social-40-100-tertianum-solothurn",
         "assistente-a-alla-salute-e-al-sociale-40-100-turni-diurni-o-notturni-tertianum-richterswil"
       ],
       "previousSlugsByLocale": {
@@ -4766,7 +4778,7 @@
         "it": "istruttore-di-fitness-di-gruppo-50-tertianum-meilen",
         "en": "group-fitness-instructor-in-50-tertianum-meilen",
         "de": "group-fitness-instructor-in-50-tertianum-meilen",
-        "fr": "group-fitness-instructor-in-50-tertianum-meilen"
+        "fr": "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4808,15 +4820,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-fitness-instructor-in-50-tertianum-meilen",
-        "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
+        "group-fitness-instructor-in-50-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-fitness-instructor-in-50-tertianum-meilen"
         ],
         "fr": [
-          "instructeur-de-fitness-en-groupe-50-tertianum-meilen",
           "group-fitness-instructor-in-50-tertianum-meilen"
         ]
       },
@@ -13916,7 +13926,6 @@
       "previousSlugs": [
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2"
       ],
       "firstSeenAt": "2026-05-19T12:23:09.661Z",

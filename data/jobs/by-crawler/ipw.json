@@ -414,9 +414,9 @@
     },
     {
       "id": "ipw-c362f079a1c8",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
+        "it": "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "dipl-care-specialist-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
         "fr": "dipl-specialiste-des-soins-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -465,6 +465,7 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-fh-hf-80-100-ipw-winterthur",
         "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -491,13 +492,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur"
+        ]
       }
     },
     {
       "id": "ipw-0e916c460942",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur",
+      "slug": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur",
+        "it": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur",
         "fr": "pflegefachfrau-pflegefachmann-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -557,7 +563,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-8eb7a053b463",

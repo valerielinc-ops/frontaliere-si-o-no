@@ -204,9 +204,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
+        "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-stafa-stafa",
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-stafa-stafa"
       },
       "company": "Spitex Stäfa",
       "companyKey": "spitex-ch",
@@ -632,7 +632,7 @@
       "slug": "diplomierte-pflegefachperson-hf-o-fage-40-bis-50-spitex-greifensee-zentrum-im-hof-greifensee",
       "slugByLocale": {
         "it": "diplomierte-pflegefachperson-hf-o-fage-40-bis-50-spitex-greifensee-zentrum-im-hof-greifensee",
-        "en": "diplomierte-pflegefachperson-hf-oder-fage-40-bis-50-spitex-ch-greifensee",
+        "en": "graduated-nurse-hf-or-fage-40-to-50-spitex-greifensee-zentrum-im-hof-greifensee",
         "de": "diplomierte-pflegefachperson-hf-oder-fage-40-bis-50-spitex-ch-greifensee",
         "fr": "infirmier-diplome-hf-ou-fage-40-a-50-spitex-greifensee-zentrum-im-hof-greifensee"
       },
@@ -686,6 +686,9 @@
         ],
         "fr": [
           "infirmiere-qualifiee-hf-ou-fage-40-a-50-spitex-greifensee-zentrum-im-hof-greifensee"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-oder-fage-40-bis-50-spitex-ch-greifensee"
         ]
       },
       "firstSeenAt": "2026-06-19T22:40:06.660Z",
@@ -1022,7 +1025,7 @@
         "it": "esperto-di-infermieristica-mscn-40-60-bundner-spital-und-heimverband-chur",
         "en": "pflegeexpertin-pflegeexperte-mscn-40-60-bundner-spital-und-heimverband-chur",
         "de": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
-        "fr": "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
+        "fr": "expert-e-en-soins-mscn-40-60-bundner-spital-und-heimverband-chur"
       },
       "company": "Bündner Spital- und Heimverband",
       "companyKey": "spitex-ch",
@@ -1065,15 +1068,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur",
-        "expert-e-en-soins-mscn-40-60-bundner-spital-und-heimverband-chur"
+        "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
         ],
         "fr": [
-          "expert-e-en-soins-mscn-40-60-bundner-spital-und-heimverband-chur",
           "pflegeexpertin-pflegeexperte-mscn-40-60-spitex-ch-chur"
         ]
       },
@@ -1248,7 +1249,7 @@
       "slug": "dipl-pflegefachperson-hf-fh-con-specializzazione-spezialisierte-palliative-care-40-bis-50-spitex-fricktal-ag-munchwilen-ag",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-con-specializzazione-spezialisierte-palliative-care-40-bis-50-spitex-fricktal-ag-munchwilen-ag",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50",
+        "en": "dipl-nursing-professional-hf-fh-specialised-in-palliative-care-40-to-50-spitex-fricktal-ag-munchwilen-ag",
         "de": "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50",
         "fr": "infirmier-infirmiere-diplome-e-en-soins-palliatifs-40-50-spitex-fricktal-ag-munchwilen-ag"
       },
@@ -1300,6 +1301,9 @@
           "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50"
+        ],
+        "en": [
           "dipl-pflegefachperson-hf-fh-mit-fachrichtung-spezialisierte-palliative-care-40-bis-50"
         ]
       },
@@ -1397,9 +1401,9 @@
       "slug": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
       "slugByLocale": {
         "it": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
-        "en": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+        "en": "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
         "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
-        "fr": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+        "fr": "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -1461,9 +1465,9 @@
       "slug": "fachperson-gesundheit-efz-40-100-spitex-ch-wurenlos",
       "slugByLocale": {
         "it": "fachperson-gesundheit-efz-40-100-spitex-ch-wurenlos",
-        "en": "fachperson-gesundheit-efz-40-100-spitex-ch-wurenlos",
+        "en": "health-professional-efz-40-100-spitex-wurenlos-wurenlos",
         "de": "fachperson-gesundheit-efz-40-100-spitex-ch-wurenlos",
-        "fr": "fachperson-gesundheit-efz-40-100-spitex-ch-wurenlos"
+        "fr": "professionnels-de-la-sante-efz-40-100-spitex-wurenlos-wurenlos"
       },
       "company": "Spitex Würenlos",
       "companyKey": "spitex-ch",
@@ -1525,9 +1529,9 @@
       "slug": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau",
       "slugByLocale": {
         "it": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau",
-        "en": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau",
+        "en": "deputy-team-leader-somatic-care-80-100-spitex-region-aarau-aarau",
         "de": "stellvertretung-teamleitung-somatische-pflege-80-100-spitex-ch-aarau",
-        "fr": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau"
+        "fr": "chef-d-equipe-adjoint-somatic-care-80-100-spitex-region-aarau-aarau"
       },
       "company": "Spitex Region Aarau",
       "companyKey": "spitex-ch",
@@ -1746,9 +1750,9 @@
       "slug": "pflegefachperson-hf-fh-per-eine-fixe-nacht-pro-woche-spitex-linth-uznach",
       "slugByLocale": {
         "it": "pflegefachperson-hf-fh-per-eine-fixe-nacht-pro-woche-spitex-linth-uznach",
-        "en": "pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch-uznach",
+        "en": "nurse-hf-fh-for-a-fixed-night-per-week-spitex-linth-uznach",
         "de": "pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch-uznach",
-        "fr": "pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch-uznach"
+        "fr": "infirmiere-hf-fh-pour-une-nuit-fixe-par-semaine-spitex-linth-uznach"
       },
       "company": "Spitex Linth",
       "companyKey": "spitex-ch",
@@ -1797,6 +1801,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch-uznach"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch-uznach"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch-uznach"
         ]
       },
       "firstSeenAt": "2026-06-23T12:32:18.991Z",
@@ -1815,12 +1825,12 @@
     },
     {
       "id": "spitex-ch-fdf827bc3665",
-      "slug": "fachperson-gesundheit-fage-spitex-ch-riggisberg",
+      "slug": "salute-professionale-fage-spitex-gantrisch-riggisberg",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-fage-spitex-ch-riggisberg",
-        "en": "fachperson-gesundheit-fage-spitex-ch-riggisberg",
+        "it": "salute-professionale-fage-spitex-gantrisch-riggisberg",
+        "en": "health-professional-fage-spitex-gantrisch-riggisberg",
         "de": "fachperson-gesundheit-fage-spitex-ch-riggisberg",
-        "fr": "fachperson-gesundheit-fage-spitex-ch-riggisberg"
+        "fr": "professionnels-de-la-sante-fage-spitex-gantrisch-riggisberg"
       },
       "company": "Spitex Gantrisch",
       "companyKey": "spitex-ch",
@@ -1875,7 +1885,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fage-spitex-ch-riggisberg"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-spitex-ch-riggisberg"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fage-spitex-ch-riggisberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-spitex-ch-riggisberg"
+      ]
     },
     {
       "id": "spitex-ch-5c4aa0b13819",
@@ -1883,8 +1907,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
         "it": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
-        "en": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "fr": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten"
+        "en": "nurse-hf-psychiatry-40-80-spitex-region-olten-olten",
+        "fr": "infirmiere-hf-psychiatrie-40-80-spitex-region-olten-olten"
       },
       "company": "Spitex Region Olten",
       "companyKey": "spitex-ch",
@@ -1930,6 +1954,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
+        ],
+        "en": [
           "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
         ]
       },
@@ -2027,7 +2054,7 @@
       "slug": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
       "slugByLocale": {
         "it": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
-        "en": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
+        "en": "dipl-nursing-specialist-hf-psychiatry-dipl-nursing-specialist-hf-psychiatry-spitex-rebeno-ag-zollikofen",
         "de": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
         "fr": "dipl-infirmier-hf-psychiatrie-dipl-infirmier-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
       },
@@ -2083,6 +2110,9 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
         ]
       },
       "firstSeenAt": "2026-06-22T23:35:27.135Z",

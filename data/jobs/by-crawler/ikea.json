@@ -94,7 +94,7 @@
         "it": "soluzione-di-adempimento-unita-responsabile-100-ikea-itingen",
         "en": "unit-fulfilment-solution-responsible-100-ikea-ch",
         "de": "unit-fulfillment-losung-verantwortlich-100-ikea-itingen",
-        "fr": "unit-fulfilment-solution-responsible-100-ikea-ch"
+        "fr": "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -143,6 +143,9 @@
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ],
         "de": [
+          "unit-fulfilment-solution-responsible-100-ikea-ch"
+        ],
+        "fr": [
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ]
       },
@@ -2014,9 +2017,9 @@
     },
     {
       "id": "ikea-7a66eddf61cd",
-      "slug": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
+      "slug": "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
+        "it": "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "koch-kellnerin-ikea-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -2072,7 +2075,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-cuisine-ikea-40-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-cuisine-ikea-40-ikea-ch"
+      ]
     },
     {
       "id": "ikea-d29547c0c0a3",
@@ -2463,8 +2474,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
         "it": "addetto-a-alle-vendite-textilabteilung-50-ikea-spreitenbach",
-        "en": "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
-        "fr": "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch"
+        "en": "associate-sales-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
+        "fr": "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2509,6 +2520,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch"
         ]
       },

@@ -7,9 +7,9 @@
       "slug": "schnupperlehre-polymechaniker-in-cfc-universitat-bern-bern",
       "slugByLocale": {
         "it": "schnupperlehre-polymechaniker-in-cfc-universitat-bern-bern",
-        "en": "schnupperlehre-polymechaniker-in-efz-unibe-bern",
+        "en": "trial-gauge-polymechanic-efz-universitat-bern-bern",
         "de": "schnupperlehre-polymechaniker-in-efz-unibe-bern",
-        "fr": "schnupperlehre-polymechaniker-in-efz-unibe-bern"
+        "fr": "echelle-d-essai-polymecanique-efz-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -54,6 +54,12 @@
       "firstSeenAt": "2026-06-23T12:51:29.282Z",
       "previousSlugsByLocale": {
         "it": [
+          "schnupperlehre-polymechaniker-in-efz-unibe-bern"
+        ],
+        "en": [
+          "schnupperlehre-polymechaniker-in-efz-unibe-bern"
+        ],
+        "fr": [
           "schnupperlehre-polymechaniker-in-efz-unibe-bern"
         ]
       },
@@ -155,9 +161,9 @@
       "slug": "dentalassistent-in-efz-100-universitat-bern-bern",
       "slugByLocale": {
         "it": "dentalassistent-in-efz-100-universitat-bern-bern",
-        "en": "dentalassistent-in-efz-100-universitat-bern-bern",
+        "en": "dental-assistant-in-efz-100-universitat-bern-bern",
         "de": "dentalassistent-in-efz-100-unibe-bern",
-        "fr": "dentalassistent-in-efz-100-universitat-bern-bern"
+        "fr": "assistant-dentaire-in-efz-100-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -223,12 +229,12 @@
     },
     {
       "id": "unibe-1ea10de26e80",
-      "slug": "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving",
+      "slug": "phd-position-in-statistica-con-un-focus-sull-apprendimento-delle-macchine-statistiche-per-la-microscopia-auto-didatta",
       "slugByLocale": {
-        "it": "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving",
+        "it": "phd-position-in-statistica-con-un-focus-sull-apprendimento-delle-macchine-statistiche-per-la-microscopia-auto-didatta",
         "en": "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving",
-        "de": "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving",
-        "fr": "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving"
+        "de": "phd-position-in-der-statistik-mit-fokus-auf-statistisches-maschinelles-lernen-fur-die-selbstfahrende-mikroskopie",
+        "fr": "position-du-doctorat-en-statistique-en-mettant-l-accent-sur-l-apprentissage-automatique-statistique-pour-la-microscopie"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -282,16 +288,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving"
+        ],
+        "de": [
+          "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving"
+        ],
+        "fr": [
+          "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-statistics-with-a-focus-on-statistical-machine-learning-for-self-driving"
+      ]
     },
     {
       "id": "unibe-ac1c0eb87a70",
       "slug": "studentische-r-collaboratore-trice-in-universitat-bern",
       "slugByLocale": {
         "it": "studentische-r-collaboratore-trice-in-universitat-bern",
-        "en": "studentische-r-mitarbeiter-in-universitat-bern-bern",
+        "en": "student-staff-universitat-bern-bern",
         "de": "studentische-r-mitarbeiter-in-unibe-bern",
-        "fr": "studentische-r-mitarbeiter-in-universitat-bern-bern"
+        "fr": "personnel-etudiant-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -334,11 +354,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studentische-r-mitarbeiter-in-unibe-bern"
+        "studentische-r-mitarbeiter-in-unibe-bern",
+        "studentische-r-mitarbeiter-in-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studentische-r-mitarbeiter-in-unibe-bern"
+        ],
+        "en": [
+          "studentische-r-mitarbeiter-in-universitat-bern-bern"
+        ],
+        "fr": [
+          "studentische-r-mitarbeiter-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.280Z",
@@ -357,12 +384,12 @@
     },
     {
       "id": "unibe-8d6069c0f4be",
-      "slug": "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern",
+      "slug": "posizione-del-dottorato-nella-modellazione-numerica-dell-evoluzione-degli-asteroidi-universitat-bern-bern",
       "slugByLocale": {
-        "it": "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern",
+        "it": "posizione-del-dottorato-nella-modellazione-numerica-dell-evoluzione-degli-asteroidi-universitat-bern-bern",
         "en": "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern",
-        "de": "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern",
-        "fr": "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern"
+        "de": "phd-position-in-der-numerischen-modellierung-von-asteroiden-evolution-universitat-bern-bern",
+        "fr": "position-du-doctorat-dans-la-modelisation-numerique-de-l-evolution-des-asteroides-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -416,16 +443,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern"
+        ],
+        "de": [
+          "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern"
+        ],
+        "fr": [
+          "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-numerical-modeling-of-asteroid-evolution-unibe-bern"
+      ]
     },
     {
       "id": "unibe-670c6eabf114",
       "slug": "tierpfleger-in-o-verwandter-beruf-hufschmied-in-landwirt-in-bereiter-in-universitat-bern",
       "slugByLocale": {
         "it": "tierpfleger-in-o-verwandter-beruf-hufschmied-in-landwirt-in-bereiter-in-universitat-bern",
-        "en": "tierpfleger-in-oder-verwandter-beruf-hufschmied-in-landwirt-in-bereiter-in-unibe-bern",
+        "en": "animal-keeper-or-related-profession-hoofsmith-farmer-preparer-universitat-bern-bern",
         "de": "tierpfleger-in-oder-verwandter-beruf-hufschmied-in-landwirt-in-bereiter-in-unibe-bern",
-        "fr": "tierpfleger-in-oder-verwandter-beruf-hufschmied-in-landwirt-in-bereiter-in-unibe-bern"
+        "fr": "gardien-d-animaux-ou-profession-apparentee-hoofsmith-fermier-preparateur-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -472,6 +513,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "tierpfleger-in-oder-verwandter-beruf-hufschmied-in-landwirt-in-bereiter-in-unibe-bern"
+        ],
+        "en": [
+          "tierpfleger-in-oder-verwandter-beruf-hufschmied-in-landwirt-in-bereiter-in-unibe-bern"
+        ],
+        "fr": [
           "tierpfleger-in-oder-verwandter-beruf-hufschmied-in-landwirt-in-bereiter-in-unibe-bern"
         ]
       },
@@ -571,9 +618,9 @@
       "slug": "doktorand-in-o-postdoc-in-der-abteilung-bildungssoziologie-con-schwerpunkt-auf-bildungsungleichheiten-e-familialen-prozessen-universitat-bern",
       "slugByLocale": {
         "it": "doktorand-in-o-postdoc-in-der-abteilung-bildungssoziologie-con-schwerpunkt-auf-bildungsungleichheiten-e-familialen-prozessen-universitat-bern",
-        "en": "doktorand-in-oder-postdoc-in-der-abteilung-bildungssoziologie-mit-schwerpunkt-auf",
+        "en": "doctoral-student-in-or-postdoc-in-the-department-of-educational-sociology-with-focus-on-educational-inequalities-and",
         "de": "doktorand-in-oder-postdoc-in-der-abteilung-bildungssoziologie-mit-schwerpunkt-auf",
-        "fr": "doktorand-in-oder-postdoc-in-der-abteilung-bildungssoziologie-mit-schwerpunkt-auf"
+        "fr": "etudiant-au-doctorat-en-ou-postdoctorat-au-departement-de-sociologie-de-l-education-en-mettant-l-accent-sur-les"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -621,6 +668,12 @@
       "previousSlugsByLocale": {
         "it": [
           "doktorand-in-oder-postdoc-in-der-abteilung-bildungssoziologie-mit-schwerpunkt-auf"
+        ],
+        "en": [
+          "doktorand-in-oder-postdoc-in-der-abteilung-bildungssoziologie-mit-schwerpunkt-auf"
+        ],
+        "fr": [
+          "doktorand-in-oder-postdoc-in-der-abteilung-bildungssoziologie-mit-schwerpunkt-auf"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.279Z",
@@ -642,9 +695,9 @@
       "slug": "lehrstellen-polymechaniker-in-cfc-universitat-bern-bern",
       "slugByLocale": {
         "it": "lehrstellen-polymechaniker-in-cfc-universitat-bern-bern",
-        "en": "lehrstellen-polymechaniker-in-efz-unibe-bern",
+        "en": "apprenticeship-of-polymechanics-efz-universitat-bern-bern",
         "de": "lehrstellen-polymechaniker-in-efz-unibe-bern",
-        "fr": "lehrstellen-polymechaniker-in-efz-unibe-bern"
+        "fr": "apprentissage-en-polymecanique-efz-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -690,6 +743,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstellen-polymechaniker-in-efz-unibe-bern"
+        ],
+        "en": [
+          "lehrstellen-polymechaniker-in-efz-unibe-bern"
+        ],
+        "fr": [
+          "lehrstellen-polymechaniker-in-efz-unibe-bern"
         ]
       },
       "previousSlugs": [
@@ -710,12 +769,12 @@
     },
     {
       "id": "unibe-87b82eaca4d8",
-      "slug": "phd-position-space-geodesy-for-asteroids-unibe-bern",
+      "slug": "geodesia-spaziale-phd-per-asteroidi-universitat-bern-bern",
       "slugByLocale": {
-        "it": "phd-position-space-geodesy-for-asteroids-unibe-bern",
+        "it": "geodesia-spaziale-phd-per-asteroidi-universitat-bern-bern",
         "en": "phd-position-space-geodesy-for-asteroids-unibe-bern",
-        "de": "phd-position-space-geodesy-for-asteroids-unibe-bern",
-        "fr": "phd-position-space-geodesy-for-asteroids-unibe-bern"
+        "de": "phd-positionsraumgeodasie-fur-asteroiden-universitat-bern-bern",
+        "fr": "geodesie-de-position-pour-asteroides-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -769,14 +828,28 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-space-geodesy-for-asteroids-unibe-bern"
+        ],
+        "de": [
+          "phd-position-space-geodesy-for-asteroids-unibe-bern"
+        ],
+        "fr": [
+          "phd-position-space-geodesy-for-asteroids-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-space-geodesy-for-asteroids-unibe-bern"
+      ]
     },
     {
       "id": "unibe-ea6481cb727c",
-      "slug": "hilfsassistentin-universitat-bern-bern",
+      "slug": "assistente-universitat-bern-bern",
       "slugByLocale": {
-        "it": "hilfsassistentin-universitat-bern-bern",
-        "en": "hilfsassistentin-universitat-bern-bern",
+        "it": "assistente-universitat-bern-bern",
+        "en": "assistant-universitat-bern-bern",
         "de": "hilfsassistentin-unibe-bern",
         "fr": "hilfsassistentin-universitat-bern-bern"
       },
@@ -821,11 +894,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfsassistentin-unibe-bern"
+        "hilfsassistentin-unibe-bern",
+        "hilfsassistentin-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfsassistentin-unibe-bern"
+          "hilfsassistentin-unibe-bern",
+          "hilfsassistentin-universitat-bern-bern"
+        ],
+        "en": [
+          "hilfsassistentin-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.278Z",
@@ -844,12 +922,12 @@
     },
     {
       "id": "unibe-71aa0588bca9",
-      "slug": "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern",
+      "slug": "studente-di-dottorato-in-urban-heat-in-a-changing-climate-universitat-bern-bern",
       "slugByLocale": {
-        "it": "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern",
+        "it": "studente-di-dottorato-in-urban-heat-in-a-changing-climate-universitat-bern-bern",
         "en": "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern",
-        "de": "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern",
-        "fr": "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern"
+        "de": "doktorand-in-urban-heat-in-einem-sich-verandernden-klima-universitat-bern-bern",
+        "fr": "doctorant-en-chaleur-urbaine-dans-un-climat-changeant-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -902,16 +980,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern"
+        ],
+        "de": [
+          "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern"
+        ],
+        "fr": [
+          "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-in-urban-heat-in-a-changing-climate-unibe-bern"
+      ]
     },
     {
       "id": "unibe-a490ac2d7332",
-      "slug": "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-universitat-bern-avenches",
+      "slug": "medicina-veterinaria-assistente-medico-secondo-le-qualifiche-l-esperienza-universitat-bern-avenches",
       "slugByLocale": {
-        "it": "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-universitat-bern-avenches",
-        "en": "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-universitat-bern-avenches",
+        "it": "medicina-veterinaria-assistente-medico-secondo-le-qualifiche-l-esperienza-universitat-bern-avenches",
+        "en": "senior-physician-veterinary-medicine-assistant-physician-according-to-qualifications-experience-universitat-bern",
         "de": "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-unibe",
-        "fr": "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-universitat-bern-avenches"
+        "fr": "medecin-veterinaire-principal-medecin-adjoint-selon-les-qualifications-l-experience-universitat-bern-avenches"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -954,11 +1046,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-unibe"
+        "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-unibe",
+        "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-universitat-bern-avenches"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-unibe"
+          "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-unibe",
+          "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-universitat-bern-avenches"
+        ],
+        "en": [
+          "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-universitat-bern-avenches"
+        ],
+        "fr": [
+          "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-universitat-bern-avenches"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.277Z",
@@ -981,8 +1081,8 @@
       "slugByLocale": {
         "it": "postdoc-in-isotope-biogeochemistry-universitat-bern-bern",
         "en": "postdoc-in-isotope-biogeochemistry-unibe-bern",
-        "de": "postdoc-in-isotope-biogeochemistry-unibe-bern",
-        "fr": "postdoc-in-isotope-biogeochemistry-universitat-bern-bern"
+        "de": "postdoc-in-isotope-biogeochemie-universitat-bern-bern",
+        "fr": "postdoc-en-biogeochimie-isotopique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1030,6 +1130,9 @@
       "previousSlugsByLocale": {
         "it": [
           "postdoc-in-isotope-biogeochemistry-unibe-bern"
+        ],
+        "de": [
+          "postdoc-in-isotope-biogeochemistry-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.278Z",
@@ -1048,12 +1151,12 @@
     },
     {
       "id": "unibe-d1b285f1ae19",
-      "slug": "hilfsassistent-in-social-media-unibe-bern",
+      "slug": "assistente-nei-social-media-universitat-bern-bern",
       "slugByLocale": {
-        "it": "hilfsassistent-in-social-media-unibe-bern",
-        "en": "hilfsassistent-in-social-media-unibe-bern",
+        "it": "assistente-nei-social-media-universitat-bern-bern",
+        "en": "assistant-in-social-media-universitat-bern-bern",
         "de": "hilfsassistent-in-social-media-unibe-bern",
-        "fr": "hilfsassistent-in-social-media-unibe-bern"
+        "fr": "assistant-dans-les-medias-sociaux-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1107,16 +1210,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsassistent-in-social-media-unibe-bern"
+        ],
+        "en": [
+          "hilfsassistent-in-social-media-unibe-bern"
+        ],
+        "fr": [
+          "hilfsassistent-in-social-media-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hilfsassistent-in-social-media-unibe-bern"
+      ]
     },
     {
       "id": "unibe-91f6a748f8a4",
-      "slug": "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern",
+      "slug": "postdoc-in-atmosfere-di-exoplanet-presso-l-universita-di-berna-universitat-bern-bern",
       "slugByLocale": {
-        "it": "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern",
+        "it": "postdoc-in-atmosfere-di-exoplanet-presso-l-universita-di-berna-universitat-bern-bern",
         "en": "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern",
-        "de": "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern",
-        "fr": "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern"
+        "de": "postdoc-in-exoplanetenatmospharen-an-der-universitat-bern-universitat-bern-bern",
+        "fr": "postdoc-dans-les-atmospheres-exoplanetes-a-l-universite-de-berne-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1169,16 +1286,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern"
+        ],
+        "de": [
+          "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern"
+        ],
+        "fr": [
+          "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern"
+      ]
     },
     {
       "id": "unibe-90cbbbae200a",
-      "slug": "fachperson-i-43-d-unibe-bern",
+      "slug": "specialista-i-d-universitat-bern-bern",
       "slugByLocale": {
-        "it": "fachperson-i-43-d-unibe-bern",
-        "en": "fachperson-i-d-universitat-bern-bern",
+        "it": "specialista-i-d-universitat-bern-bern",
+        "en": "specialist-i-d-universitat-bern-bern",
         "de": "fachperson-i-43-d-unibe-bern",
-        "fr": "fachperson-i-43-d-unibe-bern"
+        "fr": "i-d-de-specialiste-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1232,7 +1363,22 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-i-43-d-unibe-bern"
+        ],
+        "en": [
+          "fachperson-i-d-universitat-bern-bern"
+        ],
+        "fr": [
+          "fachperson-i-43-d-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-i-43-d-unibe-bern",
+        "fachperson-i-d-universitat-bern-bern"
+      ]
     },
     {
       "id": "unibe-87c44ecee07a",
@@ -1241,7 +1387,7 @@
         "it": "clinical-trial-manager-80-100-unibe-bern",
         "en": "clinical-trial-manager-80-100-unibe-bern",
         "de": "clinical-trial-manager-80-100-unibe-bern",
-        "fr": "clinical-trial-manager-80-100-unibe-bern"
+        "fr": "gestionnaire-des-essais-cliniques-80-a-100-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1299,12 +1445,12 @@
     },
     {
       "id": "unibe-abc83da20ffa",
-      "slug": "postdoc-terrestrial-ecosystem-modelling-unibe-bern",
+      "slug": "postdoc-modellazione-dell-ecosistema-terrestre-universitat-bern-bern",
       "slugByLocale": {
-        "it": "postdoc-terrestrial-ecosystem-modelling-unibe-bern",
+        "it": "postdoc-modellazione-dell-ecosistema-terrestre-universitat-bern-bern",
         "en": "postdoc-terrestrial-ecosystem-modelling-unibe-bern",
-        "de": "postdoc-terrestrial-ecosystem-modelling-unibe-bern",
-        "fr": "postdoc-terrestrial-ecosystem-modelling-unibe-bern"
+        "de": "postdoc-modellierung-terrestrischer-okosysteme-universitat-bern-bern",
+        "fr": "postdoc-modelisation-des-ecosystemes-terrestres-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1358,16 +1504,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-terrestrial-ecosystem-modelling-unibe-bern"
+        ],
+        "de": [
+          "postdoc-terrestrial-ecosystem-modelling-unibe-bern"
+        ],
+        "fr": [
+          "postdoc-terrestrial-ecosystem-modelling-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-terrestrial-ecosystem-modelling-unibe-bern"
+      ]
     },
     {
       "id": "unibe-dec21d23be8d",
-      "slug": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern",
+      "slug": "dottorato-di-ricerca-in-scienze-del-clima-modellazione-dell-ecosistema-terrestre-universitat-bern-bern",
       "slugByLocale": {
-        "it": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern",
+        "it": "dottorato-di-ricerca-in-scienze-del-clima-modellazione-dell-ecosistema-terrestre-universitat-bern-bern",
         "en": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern",
-        "de": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern",
-        "fr": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern"
+        "de": "phd-in-klimawissenschaften-terrestrische-okosystemmodellierung-universitat-bern-bern",
+        "fr": "doctorat-en-sciences-du-climat-modelisation-des-ecosystemes-terrestres-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1421,16 +1581,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern"
+        ],
+        "de": [
+          "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern"
+        ],
+        "fr": [
+          "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern"
+      ]
     },
     {
       "id": "unibe-9b6c2cdbc364",
-      "slug": "it-support-unibe-bern",
+      "slug": "supporto-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-support-unibe-bern",
+        "it": "supporto-it-universitat-bern-bern",
         "en": "it-support-universitat-bern-bern",
         "de": "it-support-unibe-bern",
-        "fr": "it-support-unibe-bern"
+        "fr": "appui-informatique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1484,16 +1658,27 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-support-unibe-bern"
+        ],
+        "fr": [
+          "it-support-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "it-support-unibe-bern"
+      ]
     },
     {
       "id": "unibe-d0d3d16a16ad",
-      "slug": "phd-in-eu-forschungsprojekt-sampo-universitat-bern-bern",
+      "slug": "phd-nel-progetto-di-ricerca-ue-sampo-universitat-bern-bern",
       "slugByLocale": {
-        "it": "phd-in-eu-forschungsprojekt-sampo-universitat-bern-bern",
-        "en": "phd-in-eu-forschungsprojekt-sampo-universitat-bern-bern",
+        "it": "phd-nel-progetto-di-ricerca-ue-sampo-universitat-bern-bern",
+        "en": "phd-in-eu-research-project-sampo-universitat-bern-bern",
         "de": "phd-in-eu-forschungsprojekt-sampo-unibe-bern",
-        "fr": "phd-in-eu-forschungsprojekt-sampo-universitat-bern-bern"
+        "fr": "doctorat-dans-le-projet-de-recherche-de-l-ue-sampo-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1536,11 +1721,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-in-eu-forschungsprojekt-sampo-unibe-bern"
+        "phd-in-eu-forschungsprojekt-sampo-unibe-bern",
+        "phd-in-eu-forschungsprojekt-sampo-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-in-eu-forschungsprojekt-sampo-unibe-bern"
+          "phd-in-eu-forschungsprojekt-sampo-unibe-bern",
+          "phd-in-eu-forschungsprojekt-sampo-universitat-bern-bern"
+        ],
+        "en": [
+          "phd-in-eu-forschungsprojekt-sampo-universitat-bern-bern"
+        ],
+        "fr": [
+          "phd-in-eu-forschungsprojekt-sampo-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.261Z",
@@ -1559,12 +1752,12 @@
     },
     {
       "id": "unibe-3187ee855354",
-      "slug": "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-universitat-bern-bern",
+      "slug": "assistente-medico-assistente-medico-medicina-del-traffico-f-m-d-universitat-bern-bern",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-universitat-bern-bern",
-        "en": "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-universitat-bern-bern",
+        "it": "assistente-medico-assistente-medico-medicina-del-traffico-f-m-d-universitat-bern-bern",
+        "en": "assistant-physician-assistant-physician-traffic-medicine-f-m-d-universitat-bern-bern",
         "de": "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-unibe-bern",
-        "fr": "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-universitat-bern-bern"
+        "fr": "medecin-adjoint-medecin-adjoint-de-la-circulation-f-m-d-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1607,11 +1800,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-unibe-bern"
+        "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-unibe-bern",
+        "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-unibe-bern"
+          "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-unibe-bern",
+          "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-universitat-bern-bern"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-universitat-bern-bern"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-verkehrsmedizin-w-m-d-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.261Z",
@@ -1630,12 +1831,12 @@
     },
     {
       "id": "unibe-53fb86f641d5",
-      "slug": "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern",
+      "slug": "phd-posizione-degli-studenti-in-epidemiologia-climatica-e-salute-pubblica-universitat-bern-bern",
       "slugByLocale": {
-        "it": "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern",
+        "it": "phd-posizione-degli-studenti-in-epidemiologia-climatica-e-salute-pubblica-universitat-bern-bern",
         "en": "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern",
         "de": "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern",
-        "fr": "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern"
+        "fr": "doctorat-en-epidemiologie-climatique-et-sante-publique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1689,16 +1890,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern"
+        ],
+        "fr": [
+          "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern"
+      ]
     },
     {
       "id": "unibe-189a5564cd14",
-      "slug": "hausdienstleiter-in-universitat-bern-bern",
+      "slug": "responsabile-del-servizio-nazionale-in-universitat-bern-bern",
       "slugByLocale": {
-        "it": "hausdienstleiter-in-universitat-bern-bern",
-        "en": "hausdienstleiter-in-universitat-bern-bern",
+        "it": "responsabile-del-servizio-nazionale-in-universitat-bern-bern",
+        "en": "domestic-service-manager-in-universitat-bern-bern",
         "de": "hausdienstleiter-in-unibe-bern",
-        "fr": "hausdienstleiter-in-universitat-bern-bern"
+        "fr": "gestionnaire-du-service-interieur-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1741,11 +1953,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hausdienstleiter-in-unibe-bern"
+        "hausdienstleiter-in-unibe-bern",
+        "hausdienstleiter-in-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hausdienstleiter-in-unibe-bern"
+          "hausdienstleiter-in-unibe-bern",
+          "hausdienstleiter-in-universitat-bern-bern"
+        ],
+        "en": [
+          "hausdienstleiter-in-universitat-bern-bern"
+        ],
+        "fr": [
+          "hausdienstleiter-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.259Z",
@@ -1764,12 +1984,12 @@
     },
     {
       "id": "unibe-f3eafd4c3416",
-      "slug": "extraordinary-professorship-in-translational-mr-methodology-unibe-bern",
+      "slug": "professoressa-straordinaria-in-traduzione-mr-methodology-universitat-bern-bern",
       "slugByLocale": {
-        "it": "extraordinary-professorship-in-translational-mr-methodology-unibe-bern",
+        "it": "professoressa-straordinaria-in-traduzione-mr-methodology-universitat-bern-bern",
         "en": "extraordinary-professorship-in-translational-mr-methodology-unibe-bern",
-        "de": "extraordinary-professorship-in-translational-mr-methodology-unibe-bern",
-        "fr": "extraordinary-professorship-in-translational-mr-methodology-unibe-bern"
+        "de": "au-erordentliche-professur-fur-translationale-mr-methodik-universitat-bern-bern",
+        "fr": "professeur-extraordinaire-en-mr-methodologie-translationnelle-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1822,16 +2042,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "extraordinary-professorship-in-translational-mr-methodology-unibe-bern"
+        ],
+        "de": [
+          "extraordinary-professorship-in-translational-mr-methodology-unibe-bern"
+        ],
+        "fr": [
+          "extraordinary-professorship-in-translational-mr-methodology-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "extraordinary-professorship-in-translational-mr-methodology-unibe-bern"
+      ]
     },
     {
       "id": "unibe-6130cc5b671a",
-      "slug": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-universitat-bern-bern",
+      "slug": "dottorato-di-ricerca-in-scienze-del-clima-modellazione-dell-ecosistema-terrestre-universitat-bern-bern-5ed2c0",
       "slugByLocale": {
-        "it": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-universitat-bern-bern",
+        "it": "dottorato-di-ricerca-in-scienze-del-clima-modellazione-dell-ecosistema-terrestre-universitat-bern-bern-5ed2c0",
         "en": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern",
-        "de": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern-2",
-        "fr": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern-2"
+        "de": "phd-in-klimawissenschaften-terrestrische-okosystemmodellierung-universitat-bern-bern-5ed2c0",
+        "fr": "doctorat-en-sciences-du-climat-modelisation-des-ecosystemes-terrestres-universitat-bern-bern-5ed2c0"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1874,10 +2108,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern-2"
+        "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern-2",
+        "phd-in-climate-sciences-terrestrial-ecosystem-modelling-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern-2",
+          "phd-in-climate-sciences-terrestrial-ecosystem-modelling-universitat-bern-bern"
+        ],
+        "de": [
+          "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern-2"
+        ],
+        "fr": [
           "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern-2"
         ]
       },
@@ -1897,12 +2139,12 @@
     },
     {
       "id": "unibe-9c636dcdfccc",
-      "slug": "postdoc-terrestrial-ecosystem-modelling-universitat-bern-bern",
+      "slug": "postdoc-modellazione-dell-ecosistema-terrestre-universitat-bern-bern-96eaec",
       "slugByLocale": {
-        "it": "postdoc-terrestrial-ecosystem-modelling-universitat-bern-bern",
+        "it": "postdoc-modellazione-dell-ecosistema-terrestre-universitat-bern-bern-96eaec",
         "en": "postdoc-terrestrial-ecosystem-modelling-unibe-bern",
-        "de": "postdoc-terrestrial-ecosystem-modelling-unibe-bern-2",
-        "fr": "postdoc-terrestrial-ecosystem-modelling-unibe-bern-2"
+        "de": "postdoc-modellierung-terrestrischer-okosysteme-universitat-bern-bern-96eaec",
+        "fr": "postdoc-modelisation-des-ecosystemes-terrestres-universitat-bern-bern-96eaec"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1945,10 +2187,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-terrestrial-ecosystem-modelling-unibe-bern-2"
+        "postdoc-terrestrial-ecosystem-modelling-unibe-bern-2",
+        "postdoc-terrestrial-ecosystem-modelling-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "postdoc-terrestrial-ecosystem-modelling-unibe-bern-2",
+          "postdoc-terrestrial-ecosystem-modelling-universitat-bern-bern"
+        ],
+        "de": [
+          "postdoc-terrestrial-ecosystem-modelling-unibe-bern-2"
+        ],
+        "fr": [
           "postdoc-terrestrial-ecosystem-modelling-unibe-bern-2"
         ]
       },
@@ -2045,12 +2295,12 @@
     },
     {
       "id": "unibe-d31a8d6dc1ae",
-      "slug": "sachbearbeitende-r-finanzen-personal-universitat-bern-bern",
+      "slug": "gestione-della-persona-r-finanza-personale-universitat-bern-bern",
       "slugByLocale": {
-        "it": "sachbearbeitende-r-finanzen-personal-universitat-bern-bern",
-        "en": "sachbearbeitende-r-finanzen-personal-universitat-bern-bern",
+        "it": "gestione-della-persona-r-finanza-personale-universitat-bern-bern",
+        "en": "person-handling-r-finance-personnel-universitat-bern-bern",
         "de": "sachbearbeitende-r-finanzen-personal-unibe-bern",
-        "fr": "sachbearbeitende-r-finanzen-personal-universitat-bern-bern"
+        "fr": "gestion-des-personnes-r-finances-personnel-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2093,11 +2343,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeitende-r-finanzen-personal-unibe-bern"
+        "sachbearbeitende-r-finanzen-personal-unibe-bern",
+        "sachbearbeitende-r-finanzen-personal-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitende-r-finanzen-personal-unibe-bern"
+          "sachbearbeitende-r-finanzen-personal-unibe-bern",
+          "sachbearbeitende-r-finanzen-personal-universitat-bern-bern"
+        ],
+        "en": [
+          "sachbearbeitende-r-finanzen-personal-universitat-bern-bern"
+        ],
+        "fr": [
+          "sachbearbeitende-r-finanzen-personal-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.257Z",
@@ -2116,12 +2374,12 @@
     },
     {
       "id": "unibe-9e39301b18da",
-      "slug": "hilfsassistent-in-unibe-bern",
+      "slug": "assistente-universitat-bern-bern-d3752b",
       "slugByLocale": {
-        "it": "hilfsassistent-in-unibe-bern",
-        "en": "hilfsassistent-in-unibe-bern",
+        "it": "assistente-universitat-bern-bern-d3752b",
+        "en": "assistant-universitat-bern-bern-d3752b",
         "de": "hilfsassistent-in-unibe-bern",
-        "fr": "hilfsassistent-in-unibe-bern"
+        "fr": "assistant-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2175,16 +2433,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsassistent-in-unibe-bern"
+        ],
+        "en": [
+          "hilfsassistent-in-unibe-bern"
+        ],
+        "fr": [
+          "hilfsassistent-in-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hilfsassistent-in-unibe-bern"
+      ]
     },
     {
       "id": "unibe-fbf5d85d254c",
-      "slug": "25-monatiges-internship-kleintiere-unibe-bern",
+      "slug": "25-mesi-di-tirocinio-piccoli-animali-universitat-bern-bern",
       "slugByLocale": {
-        "it": "25-monatiges-internship-kleintiere-unibe-bern",
-        "en": "25-monatiges-internship-kleintiere-universitat-bern-bern",
+        "it": "25-mesi-di-tirocinio-piccoli-animali-universitat-bern-bern",
+        "en": "25-month-internship-small-animals-universitat-bern-bern",
         "de": "25-monatiges-internship-kleintiere-unibe-bern",
-        "fr": "25-monatiges-internship-kleintiere-unibe-bern"
+        "fr": "25-mois-stage-petits-animaux-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2238,16 +2510,31 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "25-monatiges-internship-kleintiere-unibe-bern"
+        ],
+        "en": [
+          "25-monatiges-internship-kleintiere-universitat-bern-bern"
+        ],
+        "fr": [
+          "25-monatiges-internship-kleintiere-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "25-monatiges-internship-kleintiere-unibe-bern",
+        "25-monatiges-internship-kleintiere-universitat-bern-bern"
+      ]
     },
     {
       "id": "unibe-d6706cd1a3d9",
       "slug": "collaboratore-trice-studienkoordination-universitat-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-studienkoordination-universitat-bern",
-        "en": "mitarbeiter-in-studienkoordination-universitat-bern-bern",
+        "en": "associate-studienkoordination-universitat-bern-bern",
         "de": "mitarbeiter-in-studienkoordination-unibe-bern",
-        "fr": "mitarbeiter-in-studienkoordination-universitat-bern-bern"
+        "fr": "collaborateur-trice-studienkoordination-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2290,11 +2577,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-studienkoordination-unibe-bern"
+        "mitarbeiter-in-studienkoordination-unibe-bern",
+        "mitarbeiter-in-studienkoordination-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-studienkoordination-unibe-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-studienkoordination-universitat-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-studienkoordination-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.254Z",
@@ -2313,12 +2607,12 @@
     },
     {
       "id": "unibe-ac656260bba5",
-      "slug": "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric",
+      "slug": "phd-posizione-in-cristallografia-ad-alta-pressione-chimica-fisica-universitat-bern-bern",
       "slugByLocale": {
-        "it": "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric",
+        "it": "phd-posizione-in-cristallografia-ad-alta-pressione-chimica-fisica-universitat-bern-bern",
         "en": "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric",
-        "de": "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric",
-        "fr": "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric"
+        "de": "phd-position-in-der-hochdruck-kristallographie-physikalische-chemie-br-von-barokalorischen-materialien-universitat-bern",
+        "fr": "doctorat-en-cristallographie-haute-pression-chimie-physique-br-des-materiaux-barocaloriques-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2371,16 +2665,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric"
+        ],
+        "de": [
+          "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric"
+        ],
+        "fr": [
+          "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-high-pressure-crystallography-physical-chemistry-br-of-barocaloric"
+      ]
     },
     {
       "id": "unibe-2125031e0555",
       "slug": "assistenzstelle-am-institut-per-strafrecht-e-kriminologie-50-universitat-bern",
       "slugByLocale": {
         "it": "assistenzstelle-am-institut-per-strafrecht-e-kriminologie-50-universitat-bern",
-        "en": "assistenzstelle-am-institut-fur-strafrecht-und-kriminologie-50-unibe-bern",
+        "en": "assistant-at-the-institute-of-criminal-law-and-criminology-50-universitat-bern-bern",
         "de": "assistenzstelle-am-institut-fur-strafrecht-und-kriminologie-50-unibe-bern",
-        "fr": "assistenzstelle-am-institut-fur-strafrecht-und-kriminologie-50-unibe-bern"
+        "fr": "assistant-a-l-institut-de-droit-penal-et-de-criminologie-50-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2428,6 +2736,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzstelle-am-institut-fur-strafrecht-und-kriminologie-50-unibe-bern"
+        ],
+        "en": [
+          "assistenzstelle-am-institut-fur-strafrecht-und-kriminologie-50-unibe-bern"
+        ],
+        "fr": [
+          "assistenzstelle-am-institut-fur-strafrecht-und-kriminologie-50-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.255Z",
@@ -2449,9 +2763,9 @@
       "slug": "early-postdoc-stelle-80-3-jahre-br-ab-1-september-2026-br-systemlinguistik-institut-per-germanistik-universitat-bern",
       "slugByLocale": {
         "it": "early-postdoc-stelle-80-3-jahre-br-ab-1-september-2026-br-systemlinguistik-institut-per-germanistik-universitat-bern",
-        "en": "early-postdoc-stelle-80-3-jahre-br-ab-1-september-2026-br-systemlinguistik-institut-fur",
+        "en": "early-postdoc-position-80-3-years-br-from-1-september-2026-br-system-linguistics-institute-of-german-studies-universitat",
         "de": "early-postdoc-stelle-80-3-jahre-br-ab-1-september-2026-br-systemlinguistik-institut-fur",
-        "fr": "early-postdoc-stelle-80-3-jahre-br-ab-1-september-2026-br-systemlinguistik-institut-fur"
+        "fr": "premier-poste-postdoctoral-80-3-ans-br-a-partir-du-1er-septembre-2026-br-linguistique-du-systeme-institut-d-etudes"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2499,6 +2813,12 @@
       "previousSlugsByLocale": {
         "it": [
           "early-postdoc-stelle-80-3-jahre-br-ab-1-september-2026-br-systemlinguistik-institut-fur"
+        ],
+        "en": [
+          "early-postdoc-stelle-80-3-jahre-br-ab-1-september-2026-br-systemlinguistik-institut-fur"
+        ],
+        "fr": [
+          "early-postdoc-stelle-80-3-jahre-br-ab-1-september-2026-br-systemlinguistik-institut-fur"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.254Z",
@@ -2520,9 +2840,9 @@
       "slug": "informatiker-in-systemtechnik-mit-webdev-skills-unibe-bern",
       "slugByLocale": {
         "it": "informatiker-in-systemtechnik-mit-webdev-skills-unibe-bern",
-        "en": "informatiker-in-systemtechnik-mit-webdev-skills-unibe-bern",
+        "en": "computer-scientist-system-engineering-with-webdev-skills-universitat-bern-bern",
         "de": "informatiker-in-systemtechnik-mit-webdev-skills-unibe-bern",
-        "fr": "informatiker-in-systemtechnik-mit-webdev-skills-unibe-bern"
+        "fr": "ingenierie-informatique-scientifique-avec-competences-webdev-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2583,9 +2903,9 @@
       "slug": "hilfsassistent-in-personal-e-gehaltssysteme-universitat-bern",
       "slugByLocale": {
         "it": "hilfsassistent-in-personal-e-gehaltssysteme-universitat-bern",
-        "en": "hilfsassistent-in-personal-und-gehaltssysteme-unibe-bern",
+        "en": "assistant-in-personnel-and-salary-systems-universitat-bern-bern",
         "de": "hilfsassistent-in-personal-und-gehaltssysteme-unibe-bern",
-        "fr": "hilfsassistent-in-personal-und-gehaltssysteme-unibe-bern"
+        "fr": "assistant-dans-les-systemes-de-personnel-et-de-remuneration-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2633,6 +2953,12 @@
       "previousSlugsByLocale": {
         "it": [
           "hilfsassistent-in-personal-und-gehaltssysteme-unibe-bern"
+        ],
+        "en": [
+          "hilfsassistent-in-personal-und-gehaltssysteme-unibe-bern"
+        ],
+        "fr": [
+          "hilfsassistent-in-personal-und-gehaltssysteme-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.251Z",
@@ -2654,9 +2980,9 @@
       "slug": "doktoratsstelle-4-jahre-zunachst-per-2-jahre-befristet-br-ab-1-september-2026-br-systemlinguistik-institut-per-germanistik-universitat-bern",
       "slugByLocale": {
         "it": "doktoratsstelle-4-jahre-zunachst-per-2-jahre-befristet-br-ab-1-september-2026-br-systemlinguistik-institut-per-germanistik-universitat-bern",
-        "en": "doktoratsstelle-4-jahre-zunachst-fur-2-jahre-befristet-br-ab-1-september-2026-br",
+        "en": "doctoral-position-4-years-initially-limited-to-2-years-br-from-1-september-2026-br-system-linguistics-institute-of",
         "de": "doktoratsstelle-4-jahre-zunachst-fur-2-jahre-befristet-br-ab-1-september-2026-br",
-        "fr": "doktoratsstelle-4-jahre-zunachst-fur-2-jahre-befristet-br-ab-1-september-2026-br"
+        "fr": "poste-au-doctorat-4-ans-initialement-limite-a-2-ans-br-a-partir-du-1er-septembre-2026-br-linguistique-du-systeme"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2704,6 +3030,12 @@
       "previousSlugsByLocale": {
         "it": [
           "doktoratsstelle-4-jahre-zunachst-fur-2-jahre-befristet-br-ab-1-september-2026-br"
+        ],
+        "en": [
+          "doktoratsstelle-4-jahre-zunachst-fur-2-jahre-befristet-br-ab-1-september-2026-br"
+        ],
+        "fr": [
+          "doktoratsstelle-4-jahre-zunachst-fur-2-jahre-befristet-br-ab-1-september-2026-br"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.251Z",
@@ -2722,12 +3054,12 @@
     },
     {
       "id": "unibe-58cc0b3ccdef",
-      "slug": "fvh-ausbildungsstelle-universitat-bern-avenches",
+      "slug": "centro-di-formazione-fvh-universitat-bern-avenches",
       "slugByLocale": {
-        "it": "fvh-ausbildungsstelle-universitat-bern-avenches",
-        "en": "fvh-ausbildungsstelle-universitat-bern-avenches",
+        "it": "centro-di-formazione-fvh-universitat-bern-avenches",
+        "en": "fvh-training-centre-universitat-bern-avenches",
         "de": "fvh-ausbildungsstelle-unibe-avenches",
-        "fr": "fvh-ausbildungsstelle-universitat-bern-avenches"
+        "fr": "centre-de-formation-fvh-universitat-bern-avenches"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2770,11 +3102,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fvh-ausbildungsstelle-unibe-avenches"
+        "fvh-ausbildungsstelle-unibe-avenches",
+        "fvh-ausbildungsstelle-universitat-bern-avenches"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fvh-ausbildungsstelle-unibe-avenches"
+          "fvh-ausbildungsstelle-unibe-avenches",
+          "fvh-ausbildungsstelle-universitat-bern-avenches"
+        ],
+        "en": [
+          "fvh-ausbildungsstelle-universitat-bern-avenches"
+        ],
+        "fr": [
+          "fvh-ausbildungsstelle-universitat-bern-avenches"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.249Z",
@@ -2793,12 +3133,12 @@
     },
     {
       "id": "unibe-e12ef492c057",
-      "slug": "doktorand-in-in-geschichte-unibe-bern",
+      "slug": "dottorato-nella-storia-universitat-bern-bern",
       "slugByLocale": {
-        "it": "doktorand-in-in-geschichte-unibe-bern",
-        "en": "doktorand-in-in-geschichte-unibe-bern",
+        "it": "dottorato-nella-storia-universitat-bern-bern",
+        "en": "doctoral-student-in-history-universitat-bern-bern",
         "de": "doktorand-in-in-geschichte-unibe-bern",
-        "fr": "doktorand-in-in-geschichte-unibe-bern"
+        "fr": "etudiant-au-doctorat-en-histoire-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2852,16 +3192,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-in-geschichte-unibe-bern"
+        ],
+        "en": [
+          "doktorand-in-in-geschichte-unibe-bern"
+        ],
+        "fr": [
+          "doktorand-in-in-geschichte-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-in-geschichte-unibe-bern"
+      ]
     },
     {
       "id": "unibe-e692152867fa",
       "slug": "studentische-assistenz-schweizer-register-per-seltene-krankheiten-universitat-bern",
       "slugByLocale": {
         "it": "studentische-assistenz-schweizer-register-per-seltene-krankheiten-universitat-bern",
-        "en": "studentische-assistenz-schweizer-register-fur-seltene-krankheiten-unibe-bern",
+        "en": "swiss-student-assistance-register-for-rare-diseases-universitat-bern-bern",
         "de": "studentische-assistenz-schweizer-register-fur-seltene-krankheiten-unibe-bern",
-        "fr": "studentische-assistenz-schweizer-register-fur-seltene-krankheiten-unibe-bern"
+        "fr": "registre-suisse-d-aide-aux-etudiants-pour-les-maladies-rares-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2908,6 +3262,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "studentische-assistenz-schweizer-register-fur-seltene-krankheiten-unibe-bern"
+        ],
+        "en": [
+          "studentische-assistenz-schweizer-register-fur-seltene-krankheiten-unibe-bern"
+        ],
+        "fr": [
           "studentische-assistenz-schweizer-register-fur-seltene-krankheiten-unibe-bern"
         ]
       },
@@ -3004,12 +3364,12 @@
     },
     {
       "id": "unibe-651a7b0d120f",
-      "slug": "teamleiter-in-administration-management-unibe-bern",
+      "slug": "leader-del-team-in-amministrazione-universitat-bern-bern",
       "slugByLocale": {
-        "it": "teamleiter-in-administration-management-unibe-bern",
-        "en": "teamleiter-in-administration-management-unibe-bern",
+        "it": "leader-del-team-in-amministrazione-universitat-bern-bern",
+        "en": "team-leader-in-administration-management-universitat-bern-bern",
         "de": "teamleiter-in-administration-management-unibe-bern",
-        "fr": "teamleiter-in-administration-management-unibe-bern"
+        "fr": "chef-d-equipe-gestion-administrative-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3063,16 +3423,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-administration-management-unibe-bern"
+        ],
+        "en": [
+          "teamleiter-in-administration-management-unibe-bern"
+        ],
+        "fr": [
+          "teamleiter-in-administration-management-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-administration-management-unibe-bern"
+      ]
     },
     {
       "id": "unibe-9bc280035afc",
-      "slug": "fachspezialist-in-facility-management-unibe-bern",
+      "slug": "specialista-nella-gestione-delle-strutture-universitat-bern-bern",
       "slugByLocale": {
-        "it": "fachspezialist-in-facility-management-unibe-bern",
-        "en": "fachspezialist-in-facility-management-unibe-bern",
+        "it": "specialista-nella-gestione-delle-strutture-universitat-bern-bern",
+        "en": "specialist-in-facility-management-universitat-bern-bern",
         "de": "fachspezialist-in-facility-management-unibe-bern",
-        "fr": "fachspezialist-in-facility-management-unibe-bern"
+        "fr": "specialiste-de-la-gestion-des-installations-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3126,16 +3500,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-facility-management-unibe-bern"
+        ],
+        "en": [
+          "fachspezialist-in-facility-management-unibe-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-facility-management-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-facility-management-unibe-bern"
+      ]
     },
     {
       "id": "unibe-b40410853a86",
-      "slug": "studentische-hilfsassistenz-unibe-bern",
+      "slug": "assistenza-agli-studenti-universitat-bern-bern",
       "slugByLocale": {
-        "it": "studentische-hilfsassistenz-unibe-bern",
-        "en": "studentische-hilfsassistenz-unibe-bern",
+        "it": "assistenza-agli-studenti-universitat-bern-bern",
+        "en": "student-assistance-universitat-bern-bern",
         "de": "studentische-hilfsassistenz-unibe-bern",
-        "fr": "studentische-hilfsassistenz-unibe-bern"
+        "fr": "aide-aux-etudiants-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3189,7 +3577,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-hilfsassistenz-unibe-bern"
+        ],
+        "en": [
+          "studentische-hilfsassistenz-unibe-bern"
+        ],
+        "fr": [
+          "studentische-hilfsassistenz-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-hilfsassistenz-unibe-bern"
+      ]
     },
     {
       "id": "unibe-4311ad9d74f7",
@@ -3269,12 +3671,12 @@
     },
     {
       "id": "unibe-4016b84ced4c",
-      "slug": "teamleiter-in-debitoren-administration-unibe-bern",
+      "slug": "team-leader-in-amministrazione-dei-debitors-universitat-bern-bern",
       "slugByLocale": {
-        "it": "teamleiter-in-debitoren-administration-unibe-bern",
-        "en": "teamleiter-in-debitoren-administration-unibe-bern",
+        "it": "team-leader-in-amministrazione-dei-debitors-universitat-bern-bern",
+        "en": "team-leader-in-debitors-administration-universitat-bern-bern",
         "de": "teamleiter-in-debitoren-administration-unibe-bern",
-        "fr": "teamleiter-in-debitoren-administration-unibe-bern"
+        "fr": "chef-d-equipe-administration-des-debiteurs-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3328,14 +3730,28 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-debitoren-administration-unibe-bern"
+        ],
+        "en": [
+          "teamleiter-in-debitoren-administration-unibe-bern"
+        ],
+        "fr": [
+          "teamleiter-in-debitoren-administration-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-debitoren-administration-unibe-bern"
+      ]
     },
     {
       "id": "unibe-3dcb93821006",
       "slug": "doktorand-in-e-assistent-in-bwl-fachgebiet-operations-ricerca-universitat-bern",
       "slugByLocale": {
         "it": "doktorand-in-e-assistent-in-bwl-fachgebiet-operations-ricerca-universitat-bern",
-        "en": "doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-research-unibe-bern",
+        "en": "doctoral-student-and-assistant-in-business-administration-field-of-operations-research-universitat-bern-bern",
         "de": "doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-research-unibe-bern",
         "fr": "doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-recherche-universitat-bern-bern"
       },
@@ -3388,6 +3804,9 @@
         ],
         "fr": [
           "doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-research-unibe-bern"
+        ],
+        "en": [
+          "doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-research-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.225Z",
@@ -3406,12 +3825,12 @@
     },
     {
       "id": "unibe-05fb99b8b7af",
-      "slug": "teamleiter-in-debitoren-administration-unibe-bern-2",
+      "slug": "team-leader-in-amministrazione-dei-debitors-universitat-bern-bern-1a8414",
       "slugByLocale": {
-        "it": "teamleiter-in-debitoren-administration-unibe-bern-2",
-        "en": "teamleiter-in-debitoren-administration-unibe-bern-2",
+        "it": "team-leader-in-amministrazione-dei-debitors-universitat-bern-bern-1a8414",
+        "en": "team-leader-in-debitors-administration-universitat-bern-bern-1a8414",
         "de": "teamleiter-in-debitoren-administration-unibe-bern",
-        "fr": "teamleiter-in-debitoren-administration-unibe-bern-2"
+        "fr": "chef-d-equipe-administration-des-debiteurs-universitat-bern-bern-1a8414"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3465,7 +3884,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-debitoren-administration-unibe-bern-2"
+        ],
+        "en": [
+          "teamleiter-in-debitoren-administration-unibe-bern-2"
+        ],
+        "fr": [
+          "teamleiter-in-debitoren-administration-unibe-bern-2"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-debitoren-administration-unibe-bern-2"
+      ]
     },
     {
       "id": "unibe-c2843fc9d202",
@@ -3610,9 +4043,9 @@
       "slug": "assistenzprofessur-con-tenure-track-per-psychologische-methoden-e-kunstliche-intelligenz-universitat-bern",
       "slugByLocale": {
         "it": "assistenzprofessur-con-tenure-track-per-psychologische-methoden-e-kunstliche-intelligenz-universitat-bern",
-        "en": "assistenzprofessur-mit-tenure-track-fur-psychologische-methoden-und-kunstliche-intelligenz",
+        "en": "assistant-professorship-with-tenure-track-for-psychological-methods-and-artificial-intelligence-universitat-bern-bern",
         "de": "assistenzprofessur-mit-tenure-track-fur-psychologische-methoden-und-kunstliche-intelligenz",
-        "fr": "assistenzprofessur-mit-tenure-track-fur-psychologische-methoden-und-kunstliche-intelligenz"
+        "fr": "professeur-adjoint-a-la-piste-d-occupation-pour-les-methodes-psychologiques-et-l-intelligence-artificielle-universitat"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3660,6 +4093,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzprofessur-mit-tenure-track-fur-psychologische-methoden-und-kunstliche-intelligenz"
+        ],
+        "en": [
+          "assistenzprofessur-mit-tenure-track-fur-psychologische-methoden-und-kunstliche-intelligenz"
+        ],
+        "fr": [
+          "assistenzprofessur-mit-tenure-track-fur-psychologische-methoden-und-kunstliche-intelligenz"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.222Z",
@@ -3678,12 +4117,12 @@
     },
     {
       "id": "unibe-9bc547ab642a",
-      "slug": "postdoc-in-sociology-of-intergroup-relations-unibe-bern",
+      "slug": "postdoc-in-sociologia-delle-relazioni-intergruppo-universitat-bern-bern",
       "slugByLocale": {
-        "it": "postdoc-in-sociology-of-intergroup-relations-unibe-bern",
+        "it": "postdoc-in-sociologia-delle-relazioni-intergruppo-universitat-bern-bern",
         "en": "postdoc-in-sociology-of-intergroup-relations-unibe-bern",
-        "de": "postdoc-in-sociology-of-intergroup-relations-unibe-bern",
-        "fr": "postdoc-in-sociology-of-intergroup-relations-unibe-bern"
+        "de": "postdoc-in-soziologie-der-intergruppenbeziehungen-universitat-bern-bern",
+        "fr": "postdoc-en-sociologie-des-relations-intergroupes-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3737,16 +4176,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-in-sociology-of-intergroup-relations-unibe-bern"
+        ],
+        "de": [
+          "postdoc-in-sociology-of-intergroup-relations-unibe-bern"
+        ],
+        "fr": [
+          "postdoc-in-sociology-of-intergroup-relations-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-in-sociology-of-intergroup-relations-unibe-bern"
+      ]
     },
     {
       "id": "unibe-b9990b0b4cb4",
-      "slug": "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern",
+      "slug": "postdoc-in-sociologia-delle-relazioni-intergruppo-universitat-bern-bern-b05931",
       "slugByLocale": {
-        "it": "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern",
-        "en": "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern",
+        "it": "postdoc-in-sociologia-delle-relazioni-intergruppo-universitat-bern-bern-b05931",
+        "en": "postdoc-in-sociology-of-intergroup-relationships-universitat-bern-bern",
         "de": "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern",
-        "fr": "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern"
+        "fr": "postdoc-en-sociologie-des-relations-intergroupes-universitat-bern-bern-b05931"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3800,16 +4253,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern"
+        ],
+        "en": [
+          "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern"
+        ],
+        "fr": [
+          "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-in-soziologie-der-intergruppenbeziehungen-unibe-bern"
+      ]
     },
     {
       "id": "unibe-63fd1bb7c41c",
-      "slug": "postdoc-in-digital-demography-universitat-bern-bern",
+      "slug": "postdoc-nella-demografia-digitale-universitat-bern-bern",
       "slugByLocale": {
         "en": "postdoc-in-digital-demography-unibe-bern",
-        "it": "postdoc-in-digital-demography-universitat-bern-bern",
-        "de": "postdoc-in-digital-demography-unibe-bern",
-        "fr": "postdoc-in-digital-demography-unibe-bern"
+        "it": "postdoc-nella-demografia-digitale-universitat-bern-bern",
+        "de": "postdoc-in-der-digitalen-demografie-universitat-bern-bern",
+        "fr": "postdoc-en-demographie-numerique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3854,11 +4321,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "postdoc-in-digital-demography-unibe-bern",
+          "postdoc-in-digital-demography-universitat-bern-bern"
+        ],
+        "de": [
+          "postdoc-in-digital-demography-unibe-bern"
+        ],
+        "fr": [
           "postdoc-in-digital-demography-unibe-bern"
         ]
       },
       "previousSlugs": [
-        "postdoc-in-digital-demography-unibe-bern"
+        "postdoc-in-digital-demography-unibe-bern",
+        "postdoc-in-digital-demography-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3876,12 +4351,12 @@
     },
     {
       "id": "unibe-d27f962fd8ab",
-      "slug": "postdoc-in-digitaler-demographie-universitat-bern-bern",
+      "slug": "postdoc-in-digital-demography-universitat-bern-bern",
       "slugByLocale": {
         "de": "postdoc-in-digitaler-demographie-unibe-bern",
-        "it": "postdoc-in-digitaler-demographie-universitat-bern-bern",
+        "it": "postdoc-in-digital-demography-universitat-bern-bern",
         "en": "postdoc-in-digitaler-demographie-unibe-bern",
-        "fr": "postdoc-in-digitaler-demographie-unibe-bern"
+        "fr": "postdoc-en-demographie-numerique-universitat-bern-bern-741918"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3926,11 +4401,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "postdoc-in-digitaler-demographie-unibe-bern",
+          "postdoc-in-digitaler-demographie-universitat-bern-bern"
+        ],
+        "fr": [
           "postdoc-in-digitaler-demographie-unibe-bern"
         ]
       },
       "previousSlugs": [
-        "postdoc-in-digitaler-demographie-unibe-bern"
+        "postdoc-in-digitaler-demographie-unibe-bern",
+        "postdoc-in-digitaler-demographie-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3948,12 +4428,12 @@
     },
     {
       "id": "unibe-b90e4e352819",
-      "slug": "administrative-r-sachbearbeiter-in-universitat-bern-bern",
+      "slug": "gestione-amministrativa-caso-universitat-bern-bern",
       "slugByLocale": {
-        "it": "administrative-r-sachbearbeiter-in-universitat-bern-bern",
-        "en": "administrative-r-sachbearbeiter-in-universitat-bern-bern",
+        "it": "gestione-amministrativa-caso-universitat-bern-bern",
+        "en": "administrative-case-handler-universitat-bern-bern",
         "de": "administrative-r-sachbearbeiter-in-unibe-bern",
-        "fr": "administrative-r-sachbearbeiter-in-universitat-bern-bern"
+        "fr": "administrateur-gestionnaire-de-cas-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3996,11 +4476,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrative-r-sachbearbeiter-in-unibe-bern"
+        "administrative-r-sachbearbeiter-in-unibe-bern",
+        "administrative-r-sachbearbeiter-in-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrative-r-sachbearbeiter-in-unibe-bern"
+          "administrative-r-sachbearbeiter-in-unibe-bern",
+          "administrative-r-sachbearbeiter-in-universitat-bern-bern"
+        ],
+        "en": [
+          "administrative-r-sachbearbeiter-in-universitat-bern-bern"
+        ],
+        "fr": [
+          "administrative-r-sachbearbeiter-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-06-23T12:51:29.216Z",

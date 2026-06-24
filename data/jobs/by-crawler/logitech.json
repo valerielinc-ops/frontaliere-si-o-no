@@ -374,7 +374,7 @@
         "it": "assistente-esecutivo-organizzazione-commerciale-globale-logitech-zurich",
         "en": "executive-assistant-global-commercial-organization-logitech-ch",
         "de": "executive-assistent-global-commercial-organization-logitech-zurich",
-        "fr": "executive-assistant-global-commercial-organization-logitech-ch"
+        "fr": "assistant-executif-organisation-commerciale-mondiale-logitech-zurich"
       },
       "company": "Logitech",
       "companyKey": "logitech",
@@ -418,6 +418,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "executive-assistant-global-commercial-organization-logitech-ch"
+        ],
+        "fr": [
           "executive-assistant-global-commercial-organization-logitech-ch"
         ]
       },
@@ -559,12 +562,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-architect-software-firmware-device-interface-design-logitech-ch",
-          "software-architetto-software-firmware-device-interface-design-logitech-lausanne-switzerland"
+          "software-architect-software-firmware-device-interface-design-logitech-ch"
         ],
         "fr": [
-          "software-architect-software-firmware-device-interface-design-logitech-ch",
-          "software-architecte-software-firmware-device-interface-design-logitech-lausanne-switzerland"
+          "software-architect-software-firmware-device-interface-design-logitech-ch"
         ]
       },
       "firstSeenAt": "2026-06-18T12:42:50.510Z",

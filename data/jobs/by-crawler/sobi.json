@@ -556,7 +556,7 @@
         "it": "direttore-generale-affari-medici-sobi-basel",
         "en": "global-director-medical-affairs-sobi-basel",
         "de": "global-director-medical-affairs-sobi-basel",
-        "fr": "global-director-medical-affairs-sobi-basel"
+        "fr": "directeur-general-des-affaires-medicales-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -603,6 +603,9 @@
       "previousSlugsByLocale": {
         "it": [
           "global-director-medical-affairs-sobi-basel"
+        ],
+        "fr": [
+          "global-director-medical-affairs-sobi-basel"
         ]
       },
       "firstSeenAt": "2026-06-08T13:41:25.176Z",
@@ -627,7 +630,7 @@
         "it": "director-business-development-alliance-management-sobi-basel",
         "en": "director-business-development-alliance-management-sobi-basel",
         "de": "director-business-development-alliance-management-sobi-basel",
-        "fr": "director-business-development-alliance-management-sobi-basel"
+        "fr": "directeur-developpement-des-affaires-et-gestion-de-l-alliance-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -916,12 +919,12 @@
     },
     {
       "id": "sobi-13a346d5b5d7",
-      "slug": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
+      "slug": "indirect-sourcing-manager-termine-fisso-12-mesi-sobi-basel",
       "slugByLocale": {
         "en": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "it": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "de": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "fr": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        "it": "indirect-sourcing-manager-termine-fisso-12-mesi-sobi-basel",
+        "de": "indirekter-sourcing-manager-feste-laufzeit-12-monate-sobi-basel",
+        "fr": "gestionnaire-d-approvisionnement-indirect-duree-determinee-12-mois-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -977,7 +980,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-23T23:04:54.003Z"
+      "firstSeenAt": "2026-06-23T23:04:54.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ],
+        "de": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ],
+        "fr": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+      ]
     },
     {
       "id": "sobi-ad2187714ea6",

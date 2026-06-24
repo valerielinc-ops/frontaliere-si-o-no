@@ -1968,9 +1968,9 @@
     },
     {
       "id": "schindler-35b861e027c2",
-      "slug": "chef-monteur-m-f-d-80-100-schindler-fribourg",
+      "slug": "editore-capo-m-f-d-80-100-schindler-fribourg",
       "slugByLocale": {
-        "it": "chef-monteur-m-f-d-80-100-schindler-fribourg",
+        "it": "editore-capo-m-f-d-80-100-schindler-fribourg",
         "en": "head-editor-m-f-d-80-100-schindler-fribourg",
         "de": "chefmonteur-m-w-d-80-100-schindler-fribourg",
         "fr": "chef-monteur-m-f-d-80-100-schindler-fribourg"
@@ -2015,11 +2015,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chief-fitter-m-f-d-80-100-schindler-fribourg"
+        "chief-fitter-m-f-d-80-100-schindler-fribourg",
+        "chef-monteur-m-f-d-80-100-schindler-fribourg"
       ],
       "previousSlugsByLocale": {
         "en": [
           "chief-fitter-m-f-d-80-100-schindler-fribourg"
+        ],
+        "it": [
+          "chef-monteur-m-f-d-80-100-schindler-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-16T14:09:42.053Z",
@@ -2586,9 +2590,9 @@
     },
     {
       "id": "schindler-91ebc1bc39e0",
-      "slug": "leadmonteur-boltshauser-region-basel-bern-m-w-d-80-100-schindler-basel",
+      "slug": "regione-di-boltshauser-basel-berne-m-f-d-80-100-schindler-basel",
       "slugByLocale": {
-        "it": "leadmonteur-boltshauser-region-basel-bern-m-w-d-80-100-schindler-basel",
+        "it": "regione-di-boltshauser-basel-berne-m-f-d-80-100-schindler-basel",
         "en": "lead-installer-boltshauser-region-basel-bern-m-w-d-80-100-schindler-basel",
         "de": "leadmonteur-boltshauser-region-basel-bern-m-w-d-80-100-schindler-basel",
         "fr": "chef-d-installation-region-boltshauser-bale-berne-m-w-d-80-100-schindler-basel"
@@ -2633,11 +2637,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-monteur-boltshauser-region-bale-berne-h-f-d-80-100-schindler-basel"
+        "chef-monteur-boltshauser-region-bale-berne-h-f-d-80-100-schindler-basel",
+        "leadmonteur-boltshauser-region-basel-bern-m-w-d-80-100-schindler-basel"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "chef-monteur-boltshauser-region-bale-berne-h-f-d-80-100-schindler-basel"
+        ],
+        "it": [
+          "leadmonteur-boltshauser-region-basel-bern-m-w-d-80-100-schindler-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
@@ -3015,9 +3023,9 @@
     },
     {
       "id": "schindler-e549070dfda6",
-      "slug": "aufzugsmonteur-in-in-der-region-aarau-m-w-d-80-100-schindler-oberentfelden",
+      "slug": "apparecchio-di-sollevamento-nella-regione-di-aarau-m-f-d-80-100-schindler-oberentfelden",
       "slugByLocale": {
-        "it": "aufzugsmonteur-in-in-der-region-aarau-m-w-d-80-100-schindler-oberentfelden",
+        "it": "apparecchio-di-sollevamento-nella-regione-di-aarau-m-f-d-80-100-schindler-oberentfelden",
         "en": "projektleiter-m-w-d-schindler-oberentfelden",
         "de": "aufzugsmonteur-in-in-der-region-aarau-m-w-d-80-100-schindler-oberentfelden",
         "fr": "projektleiter-m-w-d-schindler-oberentfelden"
@@ -3074,7 +3082,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufzugsmonteur-in-in-der-region-aarau-m-w-d-80-100-schindler-oberentfelden"
+        ]
+      },
+      "previousSlugs": [
+        "aufzugsmonteur-in-in-der-region-aarau-m-w-d-80-100-schindler-oberentfelden"
+      ]
     },
     {
       "id": "schindler-4bd42971eb23",
@@ -3083,7 +3099,7 @@
         "it": "reparaturtechniker-in-schwerpunkt-elektrik-regione-zentralschweiz-m-w-d-80-100-schindler-ebikon",
         "en": "projektleiter-m-w-d-schindler-ebikon",
         "de": "reparaturtechniker-in-schwerpunkt-elektrik-region-zentralschweiz-m-w-d-80-100-schindler",
-        "fr": "reparaturtechniker-in-schwerpunkt-elektrik-region-zentralschweiz-m-w-d-80-100-schindler"
+        "fr": "technicien-de-reparation-en-bref-region-electrique-suisse-centrale-m-f-d-80-100-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3136,6 +3152,9 @@
         ],
         "en": [
           "repair-technician-electrical-focus-central-switzerland-region-m-f-d-80-100-schindler-ebikon"
+        ],
+        "fr": [
+          "reparaturtechniker-in-schwerpunkt-elektrik-region-zentralschweiz-m-w-d-80-100-schindler"
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.922Z",
@@ -3563,9 +3582,9 @@
     },
     {
       "id": "schindler-53fbb51a2f4d",
-      "slug": "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon",
+      "slug": "tecnico-di-servizio-nella-regione-sursee-dagmersellen-m-f-d-80-100-schindler-ebikon",
       "slugByLocale": {
-        "it": "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon",
+        "it": "tecnico-di-servizio-nella-regione-sursee-dagmersellen-m-f-d-80-100-schindler-ebikon",
         "en": "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon",
         "de": "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon",
         "fr": "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon"
@@ -3622,7 +3641,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-4074703ad060",
@@ -3942,7 +3969,7 @@
         "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "en": "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "fr": "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3991,6 +4018,9 @@
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+        ],
+        "fr": [
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
         ]
       },
       "needsRetranslation": true,
@@ -4016,7 +4046,7 @@
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "fr": "manager-per-cookie-einwilligungen-schindler-ebikon"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -4440,7 +4470,7 @@
         "it": "montatore-di-ascensori-m-f-d-80-100-regione-svizzera-centrale-schindler-ebikon",
         "en": "elevator-technician-m-f-d-80-100-central-switzerland-region-schindler-ebikon",
         "de": "aufzugsmonteur-in-m-w-d-80-100-region-zentralschweiz-schindler-ebikon",
-        "fr": "aufzugsmonteur-in-m-w-d-80-100-region-zentralschweiz-schindler-ebikon"
+        "fr": "monteur-d-ascenseur-m-f-d-80-100-region-suisse-centrale-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -4491,6 +4521,9 @@
           "tecnico-ascensorista-m-f-d-80-100-regione-svizzera-centrale-schindler-ebikon"
         ],
         "en": [
+          "aufzugsmonteur-in-m-w-d-80-100-region-zentralschweiz-schindler-ebikon"
+        ],
+        "fr": [
           "aufzugsmonteur-in-m-w-d-80-100-region-zentralschweiz-schindler-ebikon"
         ]
       },
@@ -5060,9 +5093,9 @@
     },
     {
       "id": "schindler-cda7f34fdf93",
-      "slug": "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden",
+      "slug": "tecnico-di-servizio-m-f-d-nella-regione-di-lenzburg-80-100-schindler-oberentfelden",
       "slugByLocale": {
-        "it": "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden",
+        "it": "tecnico-di-servizio-m-f-d-nella-regione-di-lenzburg-80-100-schindler-oberentfelden",
         "en": "servicetechniker-in-m-d-schindler-oberentfelden",
         "de": "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden",
         "fr": "m-m-j-dans-la-region-de-lenzburg-80-a-100-schindler-oberentfelden"
@@ -5119,7 +5152,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden"
+      ]
     },
     {
       "id": "schindler-2c8c90fbaebd",

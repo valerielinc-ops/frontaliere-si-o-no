@@ -608,12 +608,12 @@
     },
     {
       "id": "stgag-2ec4d1caf6d5",
-      "slug": "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen",
+      "slug": "maniglia-di-caso-reparto-di-emergenza-paziente-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen",
-        "it": "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen",
-        "en": "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen",
-        "fr": "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen"
+        "it": "maniglia-di-caso-reparto-di-emergenza-paziente-spital-thurgau-stgag-munsterlingen",
+        "en": "case-handler-patient-emergency-department-spital-thurgau-stgag-munsterlingen",
+        "fr": "service-d-urgence-pour-le-traitement-des-cas-patient-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -668,7 +668,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T23:12:54.185Z"
+      "firstSeenAt": "2026-06-23T23:12:54.185Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-notfallstation-stgag-munsterlingen"
+      ]
     },
     {
       "id": "stgag-1ea1820be64b",
@@ -676,8 +690,8 @@
       "slugByLocale": {
         "de": "fachverantwortliche-r-mitarbeiter-in-patientenaufnahme-notfallstation-7-tage-woche-im",
         "it": "fachverantwortliche-r-collaboratore-trice-in-patientenaufnahme-notfallstation-7-tage-woche-im-schichtbetrieb-spital-thurgau-stgag-munsterlingen",
-        "en": "fachverantwortliche-r-mitarbeiter-in-patientenaufnahme-notfallstation-7-tage-woche-im",
-        "fr": "fachverantwortliche-r-mitarbeiter-in-patientenaufnahme-notfallstation-7-tage-woche-im"
+        "en": "responsible-staff-member-in-patient-admission-emergency-department-7-day-week-in-shift-operation-spital-thurgau-b80e29",
+        "fr": "membre-du-personnel-responsable-dans-le-service-d-urgence-d-admission-des-patients-semaine-de-7-jours-en-poste-b80e29"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -722,6 +736,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachverantwortliche-r-mitarbeiter-in-patientenaufnahme-notfallstation-7-tage-woche-im"
+        ],
+        "en": [
+          "fachverantwortliche-r-mitarbeiter-in-patientenaufnahme-notfallstation-7-tage-woche-im"
+        ],
+        "fr": [
           "fachverantwortliche-r-mitarbeiter-in-patientenaufnahme-notfallstation-7-tage-woche-im"
         ]
       },

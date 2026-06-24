@@ -76,9 +76,9 @@
     },
     {
       "id": "marriott-4822c13e13db",
-      "slug": "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier",
+      "slug": "benvenuto-agente-receptionnist-day-night-inverno-26-27-marriott-international-verbier",
       "slugByLocale": {
-        "it": "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier",
+        "it": "benvenuto-agente-receptionnist-day-night-inverno-26-27-marriott-international-verbier",
         "en": "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier",
         "de": "willkommensagent-empfangsdame-tag-und-nacht-winter-26-27-marriott-international-verbier",
         "fr": "agent-de-bienvenue-receptionniste-jour-et-nuit-hiver-26-27-marriott-international-verbier"
@@ -133,6 +133,7 @@
       },
       "previousSlugs": [
         "welcome-agent-rezeptionist-tag-nacht-winter-26-27-marriott-international-verbier",
+        "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier",
         "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier",
         "agent-as-agent-receptionist-fromy-night-inter-inter-26-27-ver-marriott-international-verbier",
         "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier",
@@ -142,6 +143,9 @@
       "previousSlugsByLocale": {
         "de": [
           "welcome-agent-rezeptionist-tag-nacht-winter-26-27-marriott-international-verbier"
+        ],
+        "it": [
+          "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-06-19T13:02:49.621Z",
@@ -244,9 +248,9 @@
     },
     {
       "id": "marriott-7398350e5835",
-      "slug": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "cameriera-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "it": "cameriera-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
         "de": "kellner-baum-brasserie-u-yama-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "garcon-chaine-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier"
@@ -300,11 +304,13 @@
         "publishEndDate": "2026-07-15T07:30:00.000Z"
       },
       "previousSlugs": [
-        "cameriere-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier"
+        "cameriere-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
+        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cameriere-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier"
+          "cameriere-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-06-04T12:53:17.333Z",
@@ -668,7 +674,7 @@
       "slugByLocale": {
         "it": "steward-kitchen-helper-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier",
-        "de": "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier",
+        "de": "steward-kuchenhelfer-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "steward-kitchen-helper-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -727,6 +733,9 @@
           "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier"
         ],
         "fr": [
+          "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "de": [
           "steward-kitchen-helper-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
@@ -836,7 +845,7 @@
         "it": "addestramento-alimentare-e-bevande-marriott-international-geneva",
         "en": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier",
         "de": "lebensmittel-und-getranke-marriott-international-geneva",
-        "fr": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "stagiaire-alimentation-et-boissons-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -895,7 +904,8 @@
           "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
         ],
         "fr": [
-          "stagiaire-food-beverage-marriott-international-geneva"
+          "stagiaire-food-beverage-marriott-international-geneva",
+          "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
       "previousSlugs": [
@@ -1190,7 +1200,7 @@
       "slugByLocale": {
         "it": "addetto-alla-stanza-sciistica-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "ski-room-attendant-winter-26-27-w-verbier-marriott-verbier",
-        "de": "ski-room-attendant-winter-26-27-w-verbier-marriott-verbier",
+        "de": "skizimmerbegleiter-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "responsable-de-la-salle-de-ski-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -1247,6 +1257,9 @@
       "previousSlugsByLocale": {
         "it": [
           "ski-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "ski-room-attendant-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-06-04T12:53:17.319Z",
@@ -1270,7 +1283,7 @@
       "slugByLocale": {
         "it": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
-        "de": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+        "de": "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -1326,6 +1339,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "de": [
           "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
@@ -2521,7 +2537,7 @@
       "slugByLocale": {
         "it": "cucina-commis-a-lungo-termine-w-verbier-marriott-international-verbier",
         "en": "commis-cuisine-long-term-w-verbier-marriott-verbier",
-        "de": "commis-cuisine-long-term-w-verbier-marriott-verbier",
+        "de": "commis-cuisine-langfristig-w-verbier-marriott-international-verbier",
         "fr": "cuisine-de-la-commission-long-terme-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -2581,6 +2597,9 @@
         ],
         "fr": [
           "commis-cuisine-long-term-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "commis-cuisine-long-term-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-06-04T12:53:17.296Z",
@@ -2604,7 +2623,7 @@
       "slugByLocale": {
         "it": "chef-de-rang-ird-sera-servizio-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "de": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier",
+        "de": "chef-de-rang-ird-abend-zimmerservice-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "chef-de-rang-ird-soir-service-en-chambre-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -2663,6 +2682,9 @@
           "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
         ],
         "fr": [
+          "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "de": [
           "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
@@ -2855,7 +2877,7 @@
       "slugByLocale": {
         "it": "chef-de-partie-living-room-la-plage-lungo-termine-w-verbier-marriott-international-verbier",
         "en": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
-        "de": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
+        "de": "chef-de-partie-wohnzimmer-la-plage-langfristig-w-verbier-marriott-international-verbier",
         "fr": "chef-de-partie-salon-la-plage-long-terme-w-verbier-marriott-international-verbier-9d97ed"
       },
       "company": "Marriott International",
@@ -2918,6 +2940,9 @@
         ],
         "fr": [
           "chef-de-partie-salon-la-plage-long-terme-w-verbier-marriott-international-verbier"
+        ],
+        "de": [
+          "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-06-04T12:53:17.291Z",

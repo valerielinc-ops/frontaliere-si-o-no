@@ -2063,12 +2063,12 @@
     },
     {
       "id": "sulzer-da553708c3b9",
-      "slug": "electrical-fitter-sulzer-ch",
+      "slug": "apparecchi-elettrici-sulzer-winterthur",
       "slugByLocale": {
-        "it": "electrical-fitter-sulzer-ch",
+        "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
         "de": "electrical-fitter-sulzer-winterthur",
-        "fr": "electrical-fitter-sulzer-ch"
+        "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2108,16 +2108,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apparecchi-elettrici-sulzer-winterthur",
-        "avertisseur-electrique-sulzer-winterthur"
+        "electrical-fitter-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apparecchi-elettrici-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ],
         "fr": [
-          "avertisseur-electrique-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ]
       },
@@ -6617,11 +6614,11 @@
     },
     {
       "id": "sulzer-0d5749c831c9",
-      "slug": "engenheiro-a-de-aplicacao-sulzer-ch",
+      "slug": "ing-di-applicazione-sulzer-winterthur",
       "slugByLocale": {
-        "it": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "it": "ing-di-applicazione-sulzer-winterthur",
         "en": "engenheiro-a-de-aplicacao-sulzer-ch",
-        "de": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "de": "anwendungstechniker-sulzer-winterthur",
         "fr": "engenheiro-a-de-aplicacao-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -6663,19 +6660,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingegnere-applicazioni-sulzer-winterthur",
-        "ing-di-applicazione-sulzer-winterthur",
-        "anwendungsingenieur-sulzer-winterthur",
-        "anwendungstechniker-sulzer-winterthur"
+        "engenheiro-a-de-aplicacao-sulzer-ch",
+        "anwendungsingenieur-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-applicazioni-sulzer-winterthur",
-          "ing-di-applicazione-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ],
         "de": [
           "anwendungsingenieur-sulzer-winterthur",
-          "anwendungstechniker-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ]
       },
@@ -12620,7 +12614,7 @@
         "it": "controller-fp-a-sulzer-pune",
         "en": "fp-a-controller-sulzer-ch",
         "de": "fp-a-controller-sulzer-ch",
-        "fr": "fp-a-controller-sulzer-pune"
+        "fr": "controleur-fp-a-sulzer-pune"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -12660,11 +12654,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fp-a-controller-sulzer-ch"
+        "fp-a-controller-sulzer-ch",
+        "fp-a-controller-sulzer-pune"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fp-a-controller-sulzer-ch"
+        ],
+        "fr": [
+          "fp-a-controller-sulzer-pune"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:01.296Z",
@@ -13946,8 +13944,8 @@
       "slugByLocale": {
         "it": "responsabile-vendite-sulzer-shanghai",
         "en": "sales-manager-sulzer-ch",
-        "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "de": "verkaufsleiter-sulzer-shanghai",
+        "fr": "directeur-des-ventes-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -13998,6 +13996,12 @@
         ],
         "en": [
           "sales-manager-sulzer-shanghai"
+        ],
+        "de": [
+          "sales-manager-sulzer-ch"
+        ],
+        "fr": [
+          "sales-manager-sulzer-ch"
         ]
       },
       "firstSeenAt": "2026-05-22T13:12:35.010Z",
@@ -15974,12 +15978,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -16020,17 +16024,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-manager-w-m-d-sulzer-ch",
-        "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-w-m-d-sulzer-ch",
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -17031,8 +17032,8 @@
       "slugByLocale": {
         "it": "responsabile-dei-lavori-sulzer-makati",
         "en": "works-manager-sulzer-ch",
-        "de": "works-manager-sulzer-ch",
-        "fr": "works-manager-sulzer-ch"
+        "de": "betriebsleiter-sulzer-makati",
+        "fr": "gestionnaire-de-travaux-sulzer-makati"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -17081,6 +17082,12 @@
         ],
         "en": [
           "works-manager-sulzer-makati"
+        ],
+        "de": [
+          "works-manager-sulzer-ch"
+        ],
+        "fr": [
+          "works-manager-sulzer-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:07.100Z",
@@ -17951,8 +17958,8 @@
       "slugByLocale": {
         "it": "meccanica-del-livello-di-viaggio-sulzer-chattanooga",
         "en": "journeylevel-mechanic-sulzer-ch",
-        "de": "journeylevel-mechanic-sulzer-ch",
-        "fr": "journeylevel-mechanic-sulzer-ch"
+        "de": "journeylevel-mechanik-sulzer-chattanooga",
+        "fr": "mecanicien-de-niveau-voyage-sulzer-chattanooga"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -18001,6 +18008,12 @@
         ],
         "en": [
           "journeylevel-mechanic-sulzer-chattanooga"
+        ],
+        "de": [
+          "journeylevel-mechanic-sulzer-ch"
+        ],
+        "fr": [
+          "journeylevel-mechanic-sulzer-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T00:32:34.053Z",
@@ -20443,7 +20456,7 @@
       "slugByLocale": {
         "it": "conducente-sulzer-pasadena",
         "en": "driver-class-b-cdl-sulzer-ch",
-        "de": "driver-sulzer-ch",
+        "de": "fahrer-klasse-b-cdl-sulzer-pasadena",
         "fr": "driver-sulzer-ch"
       },
       "company": "Sulzer",
@@ -20493,6 +20506,9 @@
           "driver-class-b-cdl-sulzer-ch"
         ],
         "en": [
+          "driver-sulzer-ch"
+        ],
+        "de": [
           "driver-sulzer-ch"
         ]
       },
@@ -21444,8 +21460,8 @@
       "slugByLocale": {
         "it": "assistente-sulzer-phoenix",
         "en": "helper-sulzer-ch",
-        "de": "helper-sulzer-ch",
-        "fr": "helper-sulzer-ch"
+        "de": "helfer-sulzer-phoenix",
+        "fr": "aide-sulzer-phoenix"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -21496,6 +21512,12 @@
         ],
         "en": [
           "helper-sulzer-phoenix"
+        ],
+        "de": [
+          "helper-sulzer-ch"
+        ],
+        "fr": [
+          "helper-sulzer-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:51.892Z",
@@ -22350,12 +22372,12 @@
     },
     {
       "id": "sulzer-03ba5d115d37",
-      "slug": "legal-counsel-and-compliance-officer-sulzer-ch",
+      "slug": "consigliere-legale-e-responsabile-compliance-sulzer-winterthur",
       "slugByLocale": {
-        "it": "legal-counsel-and-compliance-officer-sulzer-ch",
+        "it": "consigliere-legale-e-responsabile-compliance-sulzer-winterthur",
         "en": "legal-counsel-and-compliance-officer-sulzer-ch",
         "de": "legal-counsel-and-compliance-officer-sulzer-ch",
-        "fr": "legal-counsel-and-compliance-officer-sulzer-ch"
+        "fr": "conseiller-juridique-et-specialiste-de-la-conformite-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22409,7 +22431,18 @@
         }
       },
       "postalCode": "8400",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-and-compliance-officer-sulzer-ch"
+        ],
+        "fr": [
+          "legal-counsel-and-compliance-officer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-and-compliance-officer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-ea7ca31346a3",
@@ -22489,9 +22522,9 @@
     },
     {
       "id": "sulzer-1ddb122843a4",
-      "slug": "hv-electrical-technician-sulzer-ch",
+      "slug": "tecnico-elettrico-hv-sulzer-suzhou",
       "slugByLocale": {
-        "it": "hv-electrical-technician-sulzer-ch",
+        "it": "tecnico-elettrico-hv-sulzer-suzhou",
         "en": "hv-electrical-technician-sulzer-ch",
         "de": "hv-electrical-techniker-sulzer-suzhou",
         "fr": "hv-electrical-technicien-sulzer-suzhou"
@@ -22548,7 +22581,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "hv-electrical-technician-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hv-electrical-technician-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-72f2bdc35137",
@@ -22703,12 +22744,12 @@
     },
     {
       "id": "sulzer-ac2e36a864e8",
-      "slug": "inside-sales-aftermarket-parts-services-sulzer-ch",
+      "slug": "ricambi-e-servizi-di-aftermarket-sulzer-santa-ana",
       "slugByLocale": {
         "en": "inside-sales-aftermarket-parts-services-sulzer-ch",
-        "it": "inside-sales-aftermarket-parts-services-sulzer-ch",
+        "it": "ricambi-e-servizi-di-aftermarket-sulzer-santa-ana",
         "de": "inside-sales-aftermarket-parts-services-sulzer-ch",
-        "fr": "inside-sales-aftermarket-parts-services-sulzer-ch"
+        "fr": "ventes-a-l-interieur-pieces-et-services-d-apres-vente-sulzer-santa-ana"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22763,15 +22804,26 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-23T23:14:44.107Z"
+      "firstSeenAt": "2026-06-23T23:14:44.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "inside-sales-aftermarket-parts-services-sulzer-ch"
+        ],
+        "fr": [
+          "inside-sales-aftermarket-parts-services-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "inside-sales-aftermarket-parts-services-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-c52962c2f9c3",
-      "slug": "product-engineer-sulzer-ch",
+      "slug": "product-ingegnere-sulzer-santa-ana",
       "slugByLocale": {
         "en": "product-engineer-sulzer-ch",
-        "it": "product-engineer-sulzer-ch",
-        "de": "product-engineer-sulzer-ch",
+        "it": "product-ingegnere-sulzer-santa-ana",
+        "de": "product-ingenieur-sulzer-santa-ana",
         "fr": "product-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -22827,7 +22879,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-23T23:14:43.327Z"
+      "firstSeenAt": "2026-06-23T23:14:43.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-engineer-sulzer-ch"
+        ],
+        "de": [
+          "product-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d41bf05d100f",
@@ -22918,11 +22981,11 @@
     },
     {
       "id": "sulzer-5d75be67d3f0",
-      "slug": "sr-tendering-engineer-sulzer-ch",
+      "slug": "sr-tendering-ingegnere-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
         "en": "sr-tendering-engineer-sulzer-ch",
-        "it": "sr-tendering-engineer-sulzer-ch",
-        "de": "sr-tendering-engineer-sulzer-ch",
+        "it": "sr-tendering-ingegnere-sulzer-cuautitlan-izcalli",
+        "de": "sr-tendering-ingenieur-sulzer-cuautitlan-izcalli",
         "fr": "sr-tendering-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -22978,16 +23041,27 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-23T23:14:41.730Z"
+      "firstSeenAt": "2026-06-23T23:14:41.730Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-tendering-engineer-sulzer-ch"
+        ],
+        "de": [
+          "sr-tendering-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-tendering-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-0eaaae7011e9",
-      "slug": "sales-representative-international-sulzer-ch",
+      "slug": "rappresentante-di-vendita-internazionale-sulzer-la-porte",
       "slugByLocale": {
         "en": "sales-representative-international-sulzer-ch",
-        "it": "sales-representative-international-sulzer-ch",
+        "it": "rappresentante-di-vendita-internazionale-sulzer-la-porte",
         "de": "sales-representative-international-sulzer-ch",
-        "fr": "sales-representative-international-sulzer-ch"
+        "fr": "representant-commercial-international-sulzer-la-porte"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23042,7 +23116,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-23T23:14:40.919Z"
+      "firstSeenAt": "2026-06-23T23:14:40.919Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-international-sulzer-ch"
+        ],
+        "fr": [
+          "sales-representative-international-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-representative-international-sulzer-ch"
+      ]
     }
   ]
 }

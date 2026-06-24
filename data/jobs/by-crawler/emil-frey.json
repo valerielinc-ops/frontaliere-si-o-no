@@ -2881,7 +2881,7 @@
       "slug": "rappresentante-del-servizio-al-cliente-100-zug-temporaneo-fino-a-ottobre-2026-emil-frey-baar",
       "slugByLocale": {
         "it": "rappresentante-del-servizio-al-cliente-100-zug-temporaneo-fino-a-ottobre-2026-emil-frey-baar",
-        "en": "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar",
+        "en": "customer-service-representative-100-train-temporary-until-october-2026-emil-frey-baar",
         "de": "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar",
         "fr": "representant-e-du-service-client-100-zug-temporaire-jusqu-en-octobre-2026-emil-frey-baar"
       },
@@ -2961,6 +2961,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar"
+        ],
+        "en": [
           "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar"
         ]
       },
@@ -3172,7 +3175,7 @@
       "slug": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
       "slugByLocale": {
         "it": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
-        "en": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
+        "en": "allrounder-in-vehicle-construction-emil-frey-safenwil",
         "de": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
         "fr": "allrounder-in-fahrzeugbau-emil-frey-safenwil"
       },
@@ -3267,7 +3270,7 @@
       "slugByLocale": {
         "it": "bodybuilder-pittore-emil-frey-crissier",
         "en": "body-painter-emil-frey-crissier",
-        "de": "carrossier-peintre-emil-frey-crissier",
+        "de": "maler-emil-frey-crissier",
         "fr": "carrossier-peintre-emil-frey-crissier"
       },
       "company": "Emil Frey",
@@ -3337,6 +3340,9 @@
       "previousSlugsByLocale": {
         "it": [
           "carrossier-peintre-emil-frey-crissier"
+        ],
+        "de": [
+          "carrossier-peintre-emil-frey-crissier"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.356Z",
@@ -3360,7 +3366,7 @@
         "it": "hr-business-partner-in-emil-frey-ostermundigen",
         "en": "hr-business-partner-in-emil-frey-ostermundigen",
         "de": "hr-business-partner-in-emil-frey-ostermundigen",
-        "fr": "hr-business-partner-in-emil-frey-ostermundigen"
+        "fr": "partenaire-operationnel-des-rh-in-emil-frey-ostermundigen"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6244,9 +6250,9 @@
     },
     {
       "id": "emil-frey-8a12d1a2db72",
-      "slug": "disponent-in-emil-frey-safenwil",
+      "slug": "prossimo-emil-frey-safenwil",
       "slugByLocale": {
-        "it": "disponent-in-emil-frey-safenwil",
+        "it": "prossimo-emil-frey-safenwil",
         "en": "disponent-in-emil-frey-safenwil",
         "de": "disponent-in-emil-frey-safenwil",
         "fr": "disponent-in-emil-frey-safenwil"
@@ -6324,7 +6330,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-in-emil-frey-safenwil"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-in-emil-frey-safenwil"
+      ]
     },
     {
       "id": "emil-frey-c383b694d640",
