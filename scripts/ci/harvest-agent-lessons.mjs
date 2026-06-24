@@ -120,10 +120,11 @@ function fingerprintFinding(text) {
 // ---- `pr-body-contract` false-positive guard (DETERMINISTIC) ----------------
 // The `pr-body-contract` regex matches the contract VOCABULARY (`## Implementato`,
 // `## Non implementato`, `completeness contract`, …), but a reviewer line mentions
-// that vocabulary in three distinct senses, only ONE of which is a recurring agent
+// that vocabulary in four distinct senses, only ONE of which is a recurring agent
 // mistake worth escalating:
 //   (a) GENUINE violation — a section is missing/empty/incomplete, or a `Closes`
-//       multi-issue line. This is the escalation target.
+//       multi-issue line, or `## Implementato` makes a false/unverified claim.
+//       This is the escalation target.
 //   (b) AFFIRMATION — the reviewer states the contract is fine ("sezioni presenti
 //       e sensate", "completeness contract OK", "## Implementato accurato"). NOT a
 //       defect; counting it inflates the bucket (#2397/#2396 examples).
@@ -133,18 +134,24 @@ function fingerprintFinding(text) {
 //       their own bucket (sibling-class-fix / stale-comment), reached via the
 //       fingerprint net or another taxonomy entry — not pr-body-contract (#2409/
 //       #2408 examples).
+//   (d) PRESCRIPTION REFERENCE — the reviewer prescribes what to ADD to
+//       ## Non implementato / ## Implementato as a remediation suggestion ("dichiara
+//       nel ## Non implementato il revert-risk", "listare in Non implementato il
+//       provider"). The section itself is not flagged as broken; the vocabulary
+//       appears only as the write-target of a suggested fix. Counting these inflates
+//       the bucket with non-violations (#2836/#2840 examples: code findings that
+//       mention ## Non implementato only as a remediation slot).
 // Crucially the deterministic gate `pr-body-contract.yml` ALREADY enforces section
-// PRESENCE (`hasImpl`/`hasNon`, multi-issue `Closes`) — the structural fix this
-// escalation would ask for already shipped. So a GENUINE missing-section violation
-// can barely reach the reviewer (the gate flags it first); the bucket's recurrence
-// is dominated by (b)/(c) false positives. Only count (a). Pure → unit-tested.
+// PRESENCE (`hasImpl`/`hasNon`, multi-issue `Closes`) — the structural fix for
+// missing-section violations already shipped. The bucket's recurrence is dominated
+// by (b)/(c)/(d) false positives. Only count (a). Pure → unit-tested.
 //
 // Same false-positive class as the `❓`/per-line dedup fixes in tallyFindings and
 // the `already-fixed` avoidability classifier: don't escalate non-defects.
 // Explicit "the section/Closes is broken" language → a real violation. Negation-
 // aware on the affirmation side (below): "non rispettato" must NOT read as "ok".
 const PR_BODY_CONTRACT_VIOLATION_RE =
-  /\b(manca\w*|mancant\w*|assent\w*|vuot\w*|incomplet\w*|placeholder|tbd|stub|multi-?issue)\b|sezion\w*\s+obbligator\w*\s+(manca|assent)|non\s+(è\s+|e\s+)?(corrisponde|rispettat\w*|accurat\w*|coerent\w*|corrett\w*)|senza testo|n\/a|claim.*non.*(diff|reale)|una riga sola/i;
+  /\b(manca\w*|mancant\w*|assent\w*|vuot\w*|incomplet\w*|placeholder|tbd|stub|multi-?issue)\b|sezion\w*\s+obbligator\w*\s+(manca|assent)|non\s+(è\s+|e\s+)?(corrisponde|rispettat\w*|accurat\w*|coerent\w*|corrett\w*)|senza testo|n\/a|claim.*(?:non.*(diff|reale)|\bfalso\b|errat\w*|sbagliato\w*)|rivendicat\w*.*non\s+esiste|una riga sola/i;
 // Positive contract-state words. Only an AFFIRMATION when NOT negated by a
 // preceding "non " (so "non rispettato" / "non accurato" are not swallowed here).
 const PR_BODY_CONTRACT_AFFIRM_RE =
@@ -155,18 +162,30 @@ const PR_BODY_CONTRACT_AFFIRM_RE =
 // "PR body" and the section, and of the section being quoted.
 const PR_BODY_CONTRACT_LOCATION_RE =
   /pr body\b[^a-z]*#{0,3}\s*"?\s*(non\s+)?implementato\b|#{2,3}\s*(non\s+)?implementato\s+l?\d|"\s*#{2,3}\s*(non\s+)?implementato\s*"\s*l?\d/i;
+// Prescription-reference tell: an imperative/infinitive suggestion verb followed
+// (within the same sentence) by "in"/"nel" and then the section name. The
+// reviewer is telling the author WHERE to write something, not flagging the
+// section as broken. Bounded by sentence boundary ([^.]{0,150}) to prevent
+// runaway cross-sentence matches. Case (a) still wins: if the explicit violation
+// RE fires (e.g. "claim falso") the prescription filter is never reached.
+const PR_BODY_CONTRACT_PRESCRIPTION_RE =
+  /\b(?:aggiungi|inserisci|inserir[ei]|dichiara(?:re)?|elenc[ao](?:re)?|list[ao](?:re)?|menziona(?:re)?|nota(?:re)?|documenta(?:re)?|scrivi|scrivere|aggiorna(?:re)?|specifica(?:re)?|includi|includere)\b[^.]{0,150}\b(?:in|nel(?:la)?)\b[^.]{0,80}\b(?:non\s+)?implementato\b/i;
 export function isGenuinePrBodyContractViolation(text) {
   const s = String(text || '');
-  // (a) explicit violation language wins — a real missing/empty/mismatched section
-  //     or a multi-issue Closes, regardless of any affirming word nearby.
+  // (a) explicit violation language wins — a real missing/empty/mismatched section,
+  //     a multi-issue Closes, or a false/unverified claim in ## Implementato.
   if (PR_BODY_CONTRACT_VIOLATION_RE.test(s)) return true;
   // (b) the line AFFIRMS the contract is fine (un-negated positive) → not a defect.
   if (PR_BODY_CONTRACT_AFFIRM_RE.test(s)) return false;
   // (c) section name used only as a `PR body ## X (L<n>)` location label for a
   //     finding about a different topic → not a contract defect.
   if (PR_BODY_CONTRACT_LOCATION_RE.test(s)) return false;
-  // Default: no affirmation, no location-label tell, matched the contract
-  // vocabulary → conservative: keep as a genuine violation.
+  // (d) the reviewer prescribes what to ADD to ## Non implementato / ## Implementato
+  //     as a remediation suggestion — the section itself is not broken, the
+  //     vocabulary appears only as the write-target. (#2836/#2840 pattern)
+  if (PR_BODY_CONTRACT_PRESCRIPTION_RE.test(s)) return false;
+  // Default: no affirmation, no location-label, no prescription → conservative:
+  // keep as a genuine violation.
   return true;
 }
 

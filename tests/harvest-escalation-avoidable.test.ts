@@ -112,6 +112,34 @@ describe('isGenuinePrBodyContractViolation — conta solo la violazione reale, n
     )).toBe(false);
   });
 
+  it('prescription reference "dichiara/listare nel ## Non implementato" → NON violazione (#2836/#2840)', () => {
+    // Reviewer suggerisce dove scrivere qualcosa, non che la sezione sia rotta.
+    expect(isGenuinePrBodyContractViolation(
+      '🔴 Important: `sendWinbacks()` senza cap consuma quota provider; o dichiara esplicitamente il revert-risk nel `## Non implementato`.',
+    )).toBe(false);
+    expect(isGenuinePrBodyContractViolation(
+      'Fix: gatare `o:tracking-clicks` su Mailgun, oppure correggere il body e listare Mailgun in \'Non implementato\' come provider non ancora coperto.',
+    )).toBe(false);
+    expect(isGenuinePrBodyContractViolation(
+      '🟡 Nit: nota in `## Non implementato` che Maileroo non separa open/click e `tracking:false` spegne entrambi.',
+    )).toBe(false);
+    expect(isGenuinePrBodyContractViolation(
+      'documenta nel `## Non implementato` il limite del flag singolo Maileroo.',
+    )).toBe(false);
+  });
+
+  it('prescription+violation nello stesso testo: la violation RE vince (caso a domina)', () => {
+    // Se il testo ha sia linguaggio di violazione esplicita (claim falso) sia una
+    // prescription, la violazione esplicita prevale e il finding viene contato.
+    expect(isGenuinePrBodyContractViolation(
+      '🔴 il body fa un claim falso su Mailgun; listare in \'Non implementato\' il provider non coperto.',
+    )).toBe(true);
+    // "rivendicata non esiste" → violazione esplicita
+    expect(isGenuinePrBodyContractViolation(
+      '🔴 la behavior Mailgun rivendicata non esiste in codebase; dichiara nel `## Non implementato` la copertura mancante.',
+    )).toBe(true);
+  });
+
   it('vocabolario contratto senza affermazione né etichetta → conservativo: violazione', () => {
     expect(isGenuinePrBodyContractViolation('🔴 il completeness contract non è rispettato qui')).toBe(true);
   });
