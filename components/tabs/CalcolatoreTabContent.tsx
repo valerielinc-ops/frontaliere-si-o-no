@@ -353,30 +353,63 @@ export default function CalcolatoreTabContent() {
  );
 
  if (calcolatoreSubTab === 'payslip') {
- return <div className="w-full"><PayslipSimulator userProfile={userProfile} />{adBottom}</div>;
+ return (
+ <>
+ <DesktopTopBanner />
+ <div className="w-full"><PayslipSimulator userProfile={userProfile} />{adBottom}</div>
+ </>
+ );
  }
  if (calcolatoreSubTab === 'whatif') {
  return (
+ <>
+ <DesktopTopBanner />
  <div className={`w-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
  {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
  {adBottom}
  </div>
+ </>
  );
  }
  if (calcolatoreSubTab === 'ral') {
- return <div className="max-w-7xl mx-auto"><RalComparator userProfile={userProfile} />{adBottom}</div>;
+ return (
+ <>
+ <DesktopTopBanner />
+ <div className="max-w-7xl mx-auto"><RalComparator userProfile={userProfile} />{adBottom}</div>
+ </>
+ );
  }
  if (calcolatoreSubTab === 'bonus') {
- return <div className="max-w-7xl mx-auto"><BonusCalculator userProfile={userProfile} />{adBottom}</div>;
+ return (
+ <>
+ <DesktopTopBanner />
+ <div className="max-w-7xl mx-auto"><BonusCalculator userProfile={userProfile} />{adBottom}</div>
+ </>
+ );
  }
  if (calcolatoreSubTab === 'parental-leave') {
- return <div className="max-w-7xl mx-auto"><ParentalLeaveCalculator userProfile={userProfile} />{adBottom}</div>;
+ return (
+ <>
+ <DesktopTopBanner />
+ <div className="max-w-7xl mx-auto"><ParentalLeaveCalculator userProfile={userProfile} />{adBottom}</div>
+ </>
+ );
  }
  if (calcolatoreSubTab === 'residency') {
- return <div className="max-w-7xl mx-auto"><ResidencySimulator />{adBottom}</div>;
+ return (
+ <>
+ <DesktopTopBanner />
+ <div className="max-w-7xl mx-auto"><ResidencySimulator />{adBottom}</div>
+ </>
+ );
  }
  if (calcolatoreSubTab === 'salary-quiz') {
- return <div className="max-w-7xl mx-auto"><SalaryQuiz />{adBottom}</div>;
+ return (
+ <>
+ <DesktopTopBanner />
+ <div className="max-w-7xl mx-auto"><SalaryQuiz />{adBottom}</div>
+ </>
+ );
  }
  return null;
 }
