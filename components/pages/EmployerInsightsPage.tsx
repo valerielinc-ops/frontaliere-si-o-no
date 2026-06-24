@@ -295,6 +295,19 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
         </a>
       </RevealSection>
 
+      {/* Save-as-PDF: lets the company keep its own copy without us emailing an
+          attachment (attachments hurt cold-email deliverability). Browser
+          print-to-PDF; hidden in the printed output itself. */}
+      <div className="text-center print:hidden">
+        <button
+          type="button"
+          onClick={() => { if (typeof window !== 'undefined') window.print(); }}
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-body bg-surface-alt hover:bg-surface-muted border border-edge rounded-xl transition-colors"
+        >
+          Salva questi dati in PDF
+        </button>
+      </div>
+
       <p className="text-center text-xs text-muted">
         Dati relativi a {data.companyName} generati il{' '}
         {new Date(data.generatedAt).toLocaleDateString('it-IT')} · pagina privata, non indicizzata.

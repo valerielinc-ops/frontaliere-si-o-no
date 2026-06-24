@@ -17,11 +17,29 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 
 const INSIGHTS_COLLECTION = 'employer_insights';
+// Canonical prod domain (AGENTS.md). Kept in lockstep with the scripts-side
+// builder scripts/lib/employer-insights-token.mjs (BASE_URL + INSIGHTS_PATH).
+const BASE_URL = 'https://frontaliereticino.ch';
+const INSIGHTS_PATH = '/azienda/';
 
 export function generateInsightsToken(companyKey, secret) {
   return createHmac('sha256', secret)
     .update(`employer_insights:${String(companyKey).trim()}`)
     .digest('hex');
+}
+
+/**
+ * Per-company stats-page URL — MUST stay byte-identical to
+ * scripts/lib/employer-insights-token.mjs `buildInsightsUrl` so a link minted by
+ * the web-UI sender (adminSendColdEmail) verifies the same as one from the CLI.
+ * Falls back to the site home when the secret is missing (never emit an unsigned
+ * link). A cross-boundary parity test guards the two builders against drift.
+ */
+export function buildInsightsUrl(companyKey, secret) {
+  if (!secret) return `${BASE_URL}/`;
+  const key = String(companyKey).trim();
+  const token = generateInsightsToken(key, secret);
+  return `${BASE_URL}${INSIGHTS_PATH}${encodeURIComponent(key)}/?t=${token}`;
 }
 
 export function verifyInsightsToken(companyKey, token, secret) {

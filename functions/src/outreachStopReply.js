@@ -66,7 +66,7 @@ export function extractSenderEmail(fromHeader) {
  * Resolve a sender address to a companyKey by scanning employer_contacts.
  * Returns '' if no contact has that email (verified or inferred).
  */
-async function resolveCompanyKey(db, senderEmail) {
+export async function resolveCompanyKey(db, senderEmail) {
   const addr = String(senderEmail || '').trim().toLowerCase();
   if (!addr) return '';
   const snap = await db.collection(CONTACTS_COLLECTION).get();

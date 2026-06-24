@@ -8,7 +8,7 @@ import { getSerpExperimentDiagnostics } from '@/services/seoService';
 import { useAuth } from '@/services/authService';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
 import { cdnDataUrl } from '@/services/cdnDataBase';
-import { fetchAdminEmployerInsights, updateEmployerContact, type EmployerInsightsRow } from '@/services/adminInsights';
+import { fetchAdminEmployerInsights, updateEmployerContact, sendColdEmail, type EmployerInsightsRow, type EmployerOutreachStatus } from '@/services/adminInsights';
 // Cold-email sequence: single shared source so the admin preview is byte-identical
 // to what send-cold-emails.mjs actually sends (AGENTS.md Non-Negotiable #6).
 import { buildSequence } from '../../scripts/lib/cold-email-sequence.mjs';
@@ -107,6 +107,42 @@ interface CrawlerSummaryRow {
 
 type CrawlerSortColumn = 'title' | 'schedule' | 'lastRun' | 'total' | 'newCount' | 'updatedCount' | 'removedCount' | 'unchangedCount' | 'duration' | 'status' | 'quality';
 type InsightsSortColumn = 'companyName' | 'views' | 'candidates' | 'lost' | 'adsCount' | 'conversionRate' | 'generatedAt';
+
+/**
+ * Compact cold-email outreach status for the Insights Aziende dashboard: which
+ * touch was sent, whether the company replied, and whether it opted out.
+ * Mirrors the employer_outreach_* telemetry collections (read-only).
+ */
+function OutreachStatusBadge({ outreach }: { outreach?: EmployerOutreachStatus }) {
+  if (!outreach || (outreach.lastTouch === 0 && !outreach.replied && !outreach.suppressed)) {
+    return <span className="text-muted">—</span>;
+  }
+  const sentLabel = outreach.lastTouch > 0
+    ? `Inviata T${outreach.lastTouch}${outreach.touchesSent.length > 1 ? ` (${outreach.touchesSent.length})` : ''}`
+    : null;
+  return (
+    <span className="inline-flex flex-wrap items-center gap-1">
+      {sentLabel && (
+        <span className="inline-flex items-center rounded-full bg-surface-muted px-2 py-0.5 text-[10px] font-medium text-body">
+          {sentLabel}
+        </span>
+      )}
+      {outreach.suppressed ? (
+        <span className="inline-flex items-center rounded-full bg-danger-subtle px-2 py-0.5 text-[10px] font-medium text-danger">
+          Opt-out
+        </span>
+      ) : outreach.replied ? (
+        <span className="inline-flex items-center rounded-full bg-success-subtle px-2 py-0.5 text-[10px] font-medium text-success">
+          ✓ Ha risposto{outreach.replyCount > 1 ? ` (${outreach.replyCount})` : ''}
+        </span>
+      ) : sentLabel ? (
+        <span className="inline-flex items-center rounded-full bg-surface-muted px-2 py-0.5 text-[10px] font-medium text-muted">
+          In attesa
+        </span>
+      ) : null}
+    </span>
+  );
+}
 type CrawlerSortDirection = 'asc' | 'desc';
 
 type WorkflowContext = 'jobs' | 'content' | 'seo' | 'analytics';
@@ -350,6 +386,8 @@ export default function AdminPanel() {
  const [contactSaving, setContactSaving] = useState(false);
  const [contactSaveMsg, setContactSaveMsg] = useState<string | null>(null);
  const [previewTouch, setPreviewTouch] = useState(1);
+ const [sendingTouch, setSendingTouch] = useState(false);
+ const [sendMsg, setSendMsg] = useState<{ ok: boolean; text: string } | null>(null);
  // Crawler table filters & expansion
  const [crawlerNameFilter, setCrawlerNameFilter] = useState('');
  const [crawlerChangeFilter, setCrawlerChangeFilter] = useState<'all' | 'new' | 'updated' | 'removed' | 'none'>('all');
@@ -551,6 +589,7 @@ export default function AdminPanel() {
  setContactRoleDraft(row.topRole || '');
  setContactSaveMsg(null);
  setPreviewTouch(1);
+ setSendMsg(null);
  };
 
  const closeContactModal = () => {
@@ -592,6 +631,56 @@ export default function AdminPanel() {
  setContactSaveMsg(`✗ ${err instanceof Error ? err.message : 'Errore salvataggio.'}`);
  } finally {
  setContactSaving(false);
+ }
+ };
+
+ // Send the currently-previewed touch to the company (admin-only, irreversible
+ // outward action → explicit confirm). The Cloud Function re-checks gate, email,
+ // suppression and dedup; on success we optimistically update the row's outreach
+ // status so the badge reflects the send without a refetch.
+ const handleSendTouch = async (force: boolean) => {
+ if (!contactModalRow) return;
+ const row = contactModalRow;
+ const touch = previewTouch;
+ if (!row.contactEmail) {
+ setSendMsg({ ok: false, text: 'Imposta prima un’email verificata per questa azienda.' });
+ return;
+ }
+ const confirmText = force
+ ? `Re-inviare la touch ${touch} a ${row.contactEmail}? È già stata inviata.`
+ : `Inviare la touch ${touch} a ${row.contactEmail}?`;
+ if (typeof window !== 'undefined' && !window.confirm(confirmText)) return;
+ setSendingTouch(true);
+ setSendMsg(null);
+ try {
+ const res = await sendColdEmail(user, row.companyKey, touch, force);
+ const sentAt = new Date().toISOString();
+ setInsightsRows(prev => prev.map(r => {
+ if (r.companyKey !== row.companyKey) return r;
+ const prevOutreach = r.outreach;
+ const touchesSent = [...new Set([...(prevOutreach?.touchesSent || []), touch])].sort((a, b) => a - b);
+ return {
+ ...r,
+ outreach: {
+ lastTouch: Math.max(touch, prevOutreach?.lastTouch || 0),
+ lastSentAt: sentAt,
+ touchesSent,
+ sendCount: (prevOutreach?.sendCount || 0) + 1,
+ replied: prevOutreach?.replied || false,
+ lastRepliedAt: prevOutreach?.lastRepliedAt || null,
+ replyCount: prevOutreach?.replyCount || 0,
+ suppressed: prevOutreach?.suppressed || false,
+ suppressedAt: prevOutreach?.suppressedAt || null,
+ },
+ };
+ }));
+ setSendMsg({ ok: true, text: res.tracked
+ ? `✓ Touch ${touch} inviata a ${res.to}.`
+ : `✓ Inviata a ${res.to}, ma il tracking non è stato scritto (ricontrolla più tardi).` });
+ } catch (err) {
+ setSendMsg({ ok: false, text: `✗ ${err instanceof Error ? err.message : 'Invio non riuscito.'}` });
+ } finally {
+ setSendingTouch(false);
  }
  };
 
@@ -3215,6 +3304,7 @@ export default function AdminPanel() {
  </button>
  </th>
  ))}
+ <th scope="col" className="px-3 py-2 text-left font-semibold">Outreach</th>
  <th scope="col" className="px-3 py-2 text-right font-semibold">Azione</th>
  </tr>
  </thead>
@@ -3238,6 +3328,7 @@ export default function AdminPanel() {
  <td className="px-3 py-2 text-right text-body">{row.totals.adsCount.toLocaleString('it-IT')}</td>
  <td className="px-3 py-2 text-right text-body">{(row.totals.conversionRate * 100).toFixed(1)}%</td>
  <td className="px-3 py-2 text-right text-muted whitespace-nowrap">{formatInsightsDate(row.generatedAt)}</td>
+ <td className="px-3 py-2 text-left whitespace-nowrap"><OutreachStatusBadge outreach={row.outreach} /></td>
  <td className="px-3 py-2 text-right whitespace-nowrap">
  <div className="inline-flex items-center gap-1.5">
  <button
@@ -3263,7 +3354,7 @@ export default function AdminPanel() {
  ))}
  {!insightsLoading && insightsFiltered.length === 0 && (
  <tr>
- <td colSpan={8} className="px-3 py-6 text-center text-muted">
+ <td colSpan={9} className="px-3 py-6 text-center text-muted">
  Nessuna azienda trovata.
  </td>
  </tr>
@@ -3292,6 +3383,10 @@ export default function AdminPanel() {
  <div><span className="block text-muted">#Annunci</span><span className="text-body">{row.totals.adsCount.toLocaleString('it-IT')}</span></div>
  <div><span className="block text-muted">Conv.</span><span className="text-body">{(row.totals.conversionRate * 100).toFixed(1)}%</span></div>
  <div><span className="block text-muted">Data</span><span className="text-body">{formatInsightsDate(row.generatedAt)}</span></div>
+ </div>
+ <div className="flex items-center gap-1.5 text-xs">
+ <span className="text-muted">Outreach:</span>
+ <OutreachStatusBadge outreach={row.outreach} />
  </div>
  <div className="grid grid-cols-2 gap-2">
  <button
@@ -3340,6 +3435,13 @@ export default function AdminPanel() {
  {contactModalRow.companyName}
  </h3>
  <p className="text-xs text-muted">{contactModalRow.totals.candidates.toLocaleString('it-IT')} candidati · {contactModalRow.totals.views.toLocaleString('it-IT')} visite</p>
+ <div className="mt-1.5 flex items-center gap-1.5 text-xs">
+ <span className="text-muted">Outreach:</span>
+ <OutreachStatusBadge outreach={contactModalRow.outreach} />
+ {contactModalRow.outreach?.lastSentAt && (
+ <span className="text-muted">· ultima {formatInsightsDate(contactModalRow.outreach.lastSentAt)}</span>
+ )}
+ </div>
  </div>
  <button
  type="button"
@@ -3432,7 +3534,7 @@ export default function AdminPanel() {
  type="button"
  role="tab"
  aria-selected={previewTouch === t.touch}
- onClick={() => setPreviewTouch(t.touch)}
+ onClick={() => { setPreviewTouch(t.touch); setSendMsg(null); }}
  className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors border ${
  previewTouch === t.touch
  ? 'border-accent bg-accent-subtle text-accent'
@@ -3452,6 +3554,41 @@ export default function AdminPanel() {
  <pre className="px-3 py-3 text-sm text-body whitespace-pre-wrap font-sans leading-relaxed">{t.body}</pre>
  </div>
  ))}
+ {/* Web-UI send: dispatch the previewed touch. Gate, verified-email,
+ suppression and dedup are re-checked server-side; this is just the trigger. */}
+ <div className="space-y-2 rounded-lg border border-edge bg-surface-raised px-3 py-3">
+ {contactModalRow.outreach?.suppressed ? (
+ <p className="text-xs text-danger">Azienda in opt-out (STOP/disiscrizione) — invio bloccato.</p>
+ ) : !contactModalRow.contactEmail ? (
+ <p className="text-xs text-subtle">Imposta un’email verificata qui sopra per abilitare l’invio.</p>
+ ) : contactModalRow.outreach?.touchesSent?.includes(previewTouch) ? (
+ <div className="flex flex-wrap items-center gap-2">
+ <span className="text-xs text-muted">Touch {previewTouch} già inviata{contactModalRow.outreach?.lastSentAt ? ` (${formatInsightsDate(contactModalRow.outreach.lastSentAt)})` : ''}.</span>
+ <button
+ type="button"
+ disabled={sendingTouch}
+ onClick={() => handleSendTouch(true)}
+ className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-muted hover:bg-surface-alt disabled:opacity-60 text-body text-xs font-semibold transition-colors"
+ >
+ {sendingTouch ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : null}
+ Forza re-invio
+ </button>
+ </div>
+ ) : (
+ <button
+ type="button"
+ disabled={sendingTouch}
+ onClick={() => handleSendTouch(false)}
+ className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-success-strong hover:bg-success-strong-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ >
+ {sendingTouch ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : null}
+ {sendingTouch ? 'Invio…' : `Invia touch ${previewTouch} a ${contactModalRow.contactEmail}`}
+ </button>
+ )}
+ {sendMsg && (
+ <p className={`text-xs ${sendMsg.ok ? 'text-success' : 'text-danger'}`}>{sendMsg.text}</p>
+ )}
+ </div>
  <a
  href={contactModalRow.insightsUrl}
  target="_blank"

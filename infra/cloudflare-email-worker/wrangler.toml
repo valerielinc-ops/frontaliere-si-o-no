@@ -10,7 +10,7 @@
 #
 # Secrets / vars (set after deploy):
 #   npx wrangler secret put STOP_SECRET     # == NEWSLETTER_SECRET (Cloud Function side)
-#   STOP_REPLY_FN_URL / FORWARD_TO are plain vars below.
+#   STOP_REPLY_FN_URL / REPLY_TRACK_FN_URL / FORWARD_TO are plain vars below.
 
 name = "frontaliere-stop-reply-handler"
 main = "stop-reply-handler.js"
@@ -19,6 +19,9 @@ compatibility_date = "2026-01-01"
 [vars]
 # Cloud Function that resolves sender→companyKey and writes the suppression doc.
 STOP_REPLY_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachStopReply"
+# Cloud Function that records EVERY inbound reply (reply telemetry for the admin
+# dashboard). Additive to STOP suppression; same x-stop-secret gate.
+REPLY_TRACK_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachReplyTrack"
 # Human inbox that every inbound reply is forwarded to (must be a verified
 # Email Routing destination). Fill in with the real monitored address before
 # deploy — left as a placeholder so no personal address is committed.
