@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2889,
+ "numberOfItems": 2890,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7535,7 +7535,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2886, "name": "Sensibilità al lavoro: come gestire stress e is...", "url": `${BASE_URL}/articoli-frontaliere/sensibilita-al-lavoro-personale` },
           { "@type": "ListItem", "position": 2887, "name": "Alta sensibilità al lavoro: stress e difficoltà", "url": `${BASE_URL}/articoli-frontaliere/alta-sensibilita-lavoro-stress` },
           { "@type": "ListItem", "position": 2888, "name": "Grigioni: iniziativa per pagare in contanti sui...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-pagamento-contanti-bus` },
-          { "@type": "ListItem", "position": 2889, "name": "Frontalieri Italia-Svizzera: sede aziendale non...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-italia-svizzera-sede-aziendale` }
+          { "@type": "ListItem", "position": 2889, "name": "Frontalieri Italia-Svizzera: sede aziendale non...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-italia-svizzera-sede-aziendale` },
+          { "@type": "ListItem", "position": 2890, "name": "Voto elettronico per svizzeri all'estero: Kolly...", "url": `${BASE_URL}/articoli-frontaliere/voto-elettronico-svizzeri-estero-nicolas-kolly` }
  ]
  },
  {

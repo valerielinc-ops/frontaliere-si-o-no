@@ -367,6 +367,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.title': 'Frontalieri Italia-Svizzera: sede aziendale non rilevante',
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.excerpt': 'L\'Agenzia delle Entrate chiarisce con la risposta n. 126/2026 come si applica l\'Accordo del 2020 in base al luogo di attività.',
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.imageAlt': 'Vista aerea della zona di confine del Lago di Lugano tra Italia e Svizzera',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.title': 'Voto elettronico per svizzeri all\'estero: Kolly propone priorità per residenti',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.excerpt': 'Nicolas Kolly sostiene il voto elettronico per svizzeri all\'estero, con priorità per residenti',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.imageAlt': 'Voto elettronico per svizzeri all\'estero',
 };
 
 export default blogMetaChIt;

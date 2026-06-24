@@ -367,6 +367,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.title': 'Grenzgänger Italien-Schweiz: nicht relevanter Firmensitz',
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.excerpt': 'Die Agentur der Einnahmen klärt mit der Antwort Nr. 126/2026, wie die Vereinbarung von 2020 je nach Tätigkeitsort anzuwenden ist.',
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.imageAlt': 'Luftaufnahme des Grenzgebiets am Luganersee zwischen Italien und der Schweiz',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.title': 'E-Voting für Auslandschweizer: Kolly schlägt Priorität für Ansässige vor',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.excerpt': 'Nicolas Kolly unterstützt E-Voting für Auslandschweizerinnen und Auslandschweizer, vorrangig für Ansässige',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.imageAlt': 'Elektronische Abstimmung für Schweizer im Ausland',
 };
 
 export default blogMetaChDe;
