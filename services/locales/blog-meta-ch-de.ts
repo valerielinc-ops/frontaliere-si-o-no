@@ -358,6 +358,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.title': 'Suspendierter Schienenverkehr in Deutschland: Auswirkungen auf die Schweiz',
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.excerpt': 'Eine Zugsperre in Deutschland aufgrund eines technischen Defekts könnte sich auf die Verbindungen in die Schweiz auswirken. Hier ist, was Sie wissen müssen.',
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.imageAlt': 'Luftaufnahme von Schweizer Bahnhöfen mit einem angehaltenen Zug',
+    'blog.article.alta-sensibilita-lavoro-stress.title': 'Hohe Arbeitsempfindlichkeit: Stress und Schwierigkeiten',
+    'blog.article.alta-sensibilita-lavoro-stress.excerpt': 'Etwa 15-20% der Bevölkerung sind hochsensibel bei der Arbeit, mit körperlichen und psychischen Symptomen. Ein konkreter Fall von Arbeitsstress.',
+    'blog.article.alta-sensibilita-lavoro-stress.imageAlt': 'Mann, der in einem Büro arbeitet und Kopfhörer trägt, zeigt Zeichen von Stress und Erschöpfung',
 };
 
 export default blogMetaChDe;

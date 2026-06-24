@@ -142,6 +142,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia': { it: 'frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia', en: 'frontaliere-choice-switzerland-work-salary-taxes-traffic-italy-comparison', de: 'frontaliere-wahl-schweiz-arbeit-gehalt-steuern-verkehr-italien-vergleich', fr: 'frontaliere-choix-suisse-travail-salaire-fiscalit-c3-a9-trafic-confrontation-ita' },
  'pomodori-economici-spagnoli-unera-al-capolinea': { it: 'pomodori-economici-spagnoli-unera-al-capolinea', en: 'spanish-tomatoes-cheap-era-over', de: 'gunstige-spanische-tomaten-era-am-ende', fr: 'tomates-economiques-espagnols-une-ere-a-la-fin' },
  'traffico-ferroviario-sospeso-germania-guasto-tecnico': { it: 'traffico-ferroviario-sospeso-germania-guasto-tecnico', en: 'railway-traffic-suspended-germany-technical-fault', de: 'bahnverkehr-angehalten-deutschland-technisches-problem', fr: 'trafic-ferroviaire-suspendu-allemagne-panne-technique' },
+ 'alta-sensibilita-lavoro-stress': { it: 'alta-sensibilita-lavoro-stress', en: 'high-sensitivity-work-stress', de: 'hohe-empfindlichkeit-arbeit-stress', fr: 'haute-sensibilite-travail-stress' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

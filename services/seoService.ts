@@ -4134,6 +4134,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pomodori-economici-spagnoli-unera-al-capolinea': { name: 'Novità', path: '/articoli-svizzera/pomodori-economici-spagnoli-unera-al-capolinea/', parent: 'blog' },
     'blog-traffico-ferroviario-sospeso-germania-guasto-tecnico': { name: 'Traffico ferroviario Germania', path: '/articoli-svizzera/traffico-ferroviario-sospeso-germania-guasto-tecnico/', parent: 'blog' },
     'blog-sensibilita-al-lavoro-personale': { name: 'Sensibilità al lavoro', path: '/articoli-frontaliere/sensibilita-al-lavoro-personale', parent: 'blog' },
+    'blog-alta-sensibilita-lavoro-stress': { name: 'Lavoro', path: '/articoli-svizzera/alta-sensibilita-lavoro-stress/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

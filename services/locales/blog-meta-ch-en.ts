@@ -358,6 +358,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.title': 'Suspended rail traffic in Germany: impact on Switzerland',
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.excerpt': 'Suspension of trains in Germany due to a technical failure could affect connections with Switzerland. Here\'s what to know.',
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.imageAlt': 'Aerial view of Swiss train stations with a suspended train',
+    'blog.article.alta-sensibilita-lavoro-stress.title': 'High sensitivity to work: stress and difficulties',
+    'blog.article.alta-sensibilita-lavoro-stress.excerpt': 'About 15-20% of the population is highly sensitive to work, with physical and psychological symptoms. A concrete case of work stress.',
+    'blog.article.alta-sensibilita-lavoro-stress.imageAlt': 'Man working in office with headphones, signs of stress and fatigue',
 };
 
 export default blogMetaChEn;

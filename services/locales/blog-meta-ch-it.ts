@@ -358,6 +358,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.title': 'Traffico ferroviario sospeso in Germania: impatto su Svizzera',
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.excerpt': 'La sospensione dei treni in Germania per un guasto tecnico potrebbe influire sui collegamenti con la Svizzera. Ecco cosa sapere.',
     'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.imageAlt': 'Vista aerea di stazioni ferroviarie svizzere con un treno sospeso',
+    'blog.article.alta-sensibilita-lavoro-stress.title': 'Alta sensibilità al lavoro: stress e difficoltà',
+    'blog.article.alta-sensibilita-lavoro-stress.excerpt': 'Circa il 15-20% della popolazione è altamente sensibile al lavoro, con sintomi fisici e psicologici. Un caso concreto di stress lavorativo.',
+    'blog.article.alta-sensibilita-lavoro-stress.imageAlt': 'Uomo che lavora in ufficio con cuffie, segni di stress e stanchezza',
 };
 
 export default blogMetaChIt;
