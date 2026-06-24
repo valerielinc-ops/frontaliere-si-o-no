@@ -26,8 +26,8 @@
  * Both structures are keyed on {@link SectorHubKey}, so every entry is a real
  * hub that {@link buildSectorHubPath} can resolve to a trailing-slash URL in
  * any of the 4 locales — labels come from SECTOR_HUB_DISPLAY. No new pages are
- * created (moratorium-safe): this only adds internal links to pages that
- * already exist in `sitemap-sector.xml`.
+ * created: this only adds internal links to pages that already exist in
+ * `sitemap-sector.xml`.
  */
 
 import type { SectorHubKey } from '../jobSectorLanding';

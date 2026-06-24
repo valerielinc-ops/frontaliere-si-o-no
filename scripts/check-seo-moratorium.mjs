@@ -1,108 +1,81 @@
 #!/usr/bin/env node
 /**
- * SEO moratorium gate — enforces CLAUDE.md non-negotiable rule #19.
+ * SEO position tracker — REPORT-ONLY (non-blocking).
  *
- * Reads `data/gsc-position-rolling.json` (produced by
- * `scripts/refresh-gsc-position-rolling.mjs`). If the 7-day avg position
- * is > THRESHOLD, BLOCKS any PR that adds a new build-plugin-emitted
- * SEO landing emitter (file matching `build-plugins/*Landing*.ts`,
- * `*Pages.ts`, `*Hub.ts`).
+ * History: this was a deploy GATE that blocked any PR adding a new
+ * build-plugin-emitted SEO landing while the 7-day GSC avg position was
+ * > THRESHOLD. Owner decision (2026-06-24) DOWNGRADED it from a blocker to a
+ * tracker: losing real SEO traffic and serving users 404s (e.g. ~14k/day of
+ * indexed `ricerca-stipendio-*` pages going 404) outweighs the avg-position
+ * vanity metric. New SEO landings are no longer blocked.
  *
- * Exempt — even during moratorium:
- *   - Modifications to existing files (only ADDITIONS are blocked)
- *   - Files containing "JobOrphanBridge" (redirect/bridge emitters)
- *   - Files containing "Bridge" (URL-bridge emitters)
- *   - Files containing "Redirect"
+ * What it still does: reads `data/gsc-position-rolling.json` (produced by
+ * `scripts/refresh-gsc-position-rolling.mjs`), prints the current 7-day avg
+ * position, and — for visibility only — lists any new SEO-landing emitter
+ * files added in the PR diff. It NEVER fails the build.
  *
- * The rule body itself also exempts:
- *   - bug fixes to existing landings (these don't add new files → not caught)
- *   - consolidation refactors that NET-REDUCE page count (manual judgement)
- *
- * Exit codes:
- *   0 — moratorium not active, OR active but no forbidden additions
- *   1 — moratorium active AND PR adds a new SEO landing emitter
- *   2 — internal error (missing data file, missing git context)
+ * Exit code: ALWAYS 0. (Kept as a script, not deleted, so the CI step keeps
+ * surfacing the position signal in deploy logs.)
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 
+// Informational reference line only — no longer enforced.
 const THRESHOLD = 7.5;
 const ROLLING = process.env.GSC_ROLLING_FILE || 'data/gsc-position-rolling.json';
 
-function isExemptPath(path) {
-  // Bridge/redirect emitters: never new landings — they collapse URLs
-  if (/Bridge/i.test(path)) return true;
-  if (/Redirect/i.test(path)) return true;
-  return false;
-}
-
-function matchesLandingPattern(path) {
+function isLandingEmitter(path) {
+  // Bridge/redirect emitters collapse URLs — never a new landing surface.
+  if (/Bridge/i.test(path) || /Redirect/i.test(path)) return false;
   return /^build-plugins\/.+(Landing[^/]*|Pages|Hub)\.ts$/.test(path);
 }
 
 function main() {
   if (!existsSync(ROLLING)) {
-    console.error(`Missing ${ROLLING}. Run scripts/refresh-gsc-position-rolling.mjs first.`);
-    process.exit(2);
+    console.log(`ℹ️  SEO position tracking: ${ROLLING} not present — skipping (non-blocking).`);
+    return; // exit 0
   }
 
-  const rolling = JSON.parse(readFileSync(ROLLING, 'utf8'));
-  const avg = Number(rolling.avg_position);
+  let avg;
+  try {
+    avg = Number(JSON.parse(readFileSync(ROLLING, 'utf8')).avg_position);
+  } catch (e) {
+    console.log(`ℹ️  SEO position tracking: could not read ${ROLLING} (${e.message}) — skipping.`);
+    return; // exit 0
+  }
+
   if (!Number.isFinite(avg)) {
-    console.error(`Malformed ${ROLLING}: avg_position is not a number.`);
-    process.exit(2);
+    console.log(`ℹ️  SEO position tracking: avg_position missing/non-numeric — skipping.`);
+    return; // exit 0
   }
 
-  if (avg <= THRESHOLD) {
-    console.log(`Moratorium not active: avg_position ${avg.toFixed(2)} ≤ ${THRESHOLD}`);
-    process.exit(0);
-  }
+  const trend = avg <= THRESHOLD ? `at/below ${THRESHOLD} (healthy)` : `above ${THRESHOLD} reference`;
+  console.log(`📊 SEO position tracking: 7-day GSC avg position ${avg.toFixed(2)} — ${trend}.`);
 
-  // Moratorium active — inspect the diff
+  // List any new landing emitters purely for visibility (NOT blocking).
   const base = process.env.GITHUB_BASE_REF || 'main';
-  let diff;
+  let diff = '';
   try {
     diff = execSync(`git diff --name-status origin/${base}...HEAD`, { encoding: 'utf8' });
-  } catch (e) {
-    // Fallback: try without origin/ prefix (local runs without remote)
+  } catch {
     try {
       diff = execSync(`git diff --name-status ${base}...HEAD`, { encoding: 'utf8' });
-    } catch (e2) {
-      console.error(`Unable to compute git diff against ${base}: ${e2.message}`);
-      process.exit(2);
+    } catch {
+      /* no git context — skip the diff note */
     }
   }
 
-  const forbidden = diff.split('\n').filter((line) => {
-    if (!line.startsWith('A\t')) return false; // ADDITIONS only
-    const path = line.split('\t')[1];
-    if (!path) return false;
-    if (!matchesLandingPattern(path)) return false;
-    if (isExemptPath(path)) return false;
-    return true;
-  });
+  const newLandings = diff
+    .split('\n')
+    .filter((l) => l.startsWith('A\t'))
+    .map((l) => l.split('\t')[1])
+    .filter((p) => p && isLandingEmitter(p));
 
-  if (forbidden.length === 0) {
-    console.log(
-      `Moratorium active (avg position ${avg.toFixed(2)} > ${THRESHOLD}) ` +
-      `but no new SEO landing emitters added — OK.`,
-    );
-    process.exit(0);
+  if (newLandings.length) {
+    console.log(`📝 New SEO-landing emitter(s) in this PR (allowed — tracking only):`);
+    for (const p of newLandings) console.log(`   + ${p}`);
   }
-
-  console.error(
-    `Moratorium active (avg position ${avg.toFixed(2)} > ${THRESHOLD}). ` +
-    `The following new SEO-landing files are blocked:`,
-  );
-  for (const line of forbidden) {
-    console.error(`  ${line}`);
-  }
-  console.error('');
-  console.error('Per CLAUDE.md rule #19, NO new build-plugin-emitted SEO landings may');
-  console.error('be merged while the 7-day GSC avg position > 7.5. Exceptions: bug');
-  console.error('fixes to existing landings, consolidation refactors that NET-REDUCE');
-  console.error('page count, redirect/bridge emitters, JobOrphanBridge variants.');
-  process.exit(1);
+  // Always succeed — tracking, not gating.
 }
 
 main();
