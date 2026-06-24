@@ -376,6 +376,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dispositivi-medici-rimborsi.title': 'Bern opens to reimbursements for medical devices purchased abroad',
     'blog.article.dispositivi-medici-rimborsi.excerpt': 'The Federal Council proposes to reimburse certain medical devices purchased abroad through the AOMS.',
     'blog.article.dispositivi-medici-rimborsi.imageAlt': 'Medical devices in a Swiss hospital',
+    'blog.article.scambio-dati-salariali-italia.title': 'Frontier workers, green light to exchange salary data with Italy',
+    'blog.article.scambio-dati-salariali-italia.excerpt': 'Since 2024, an agreement between Switzerland and Italy has allowed the exchange of wage data on frontier workers, facilitating tax calculation.',
+    'blog.article.scambio-dati-salariali-italia.imageAlt': 'Cross-border worker checking documents and salary data at Swiss-Italian border.',
 };
 
 export default blogMetaChEn;
