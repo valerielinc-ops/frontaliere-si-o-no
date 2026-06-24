@@ -24,9 +24,9 @@
       "description": "Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nLernen Sie unsere Benefits HIER kennen.",
       "descriptionByLocale": {
         "it": "Il KSB offre più di un posto di lavoro emozionante con buone condizioni di lavoro. Venite a conoscere i nostri benefici QUI.",
-        "en": "The KSB offers more than an exciting workplace with good working conditions. Get to know our benefits HERE.",
+        "en": "The KSB offers more than an exciting workplace with good working conditions.\nGet to know our benefits HERE.",
         "de": "Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen. Lernen Sie unsere Benefits HIER kennen.",
-        "fr": "Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail. Découvrez nos avantages ICI."
+        "fr": "Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nDécouvrez nos avantages ICI."
       },
       "needsRetranslation": true,
       "location": "Baden",
@@ -34,7 +34,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-rztInnen_R1896",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:58:21.420Z",
+      "crawledAt": "2026-06-23T22:38:31.315Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -82,7 +82,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ksb-de0f63fc07c0",
@@ -106,9 +107,9 @@
       "description": "Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nLernen Sie unsere Benefits HIER kennen.",
       "descriptionByLocale": {
         "it": "Il KSB offre più di un posto di lavoro emozionante con buone condizioni di lavoro. Venite a conoscere i nostri benefici QUI.",
-        "en": "The KSB offers more than an exciting workplace with good working conditions. Get to know our benefits HERE.",
+        "en": "The KSB offers more than an exciting workplace with good working conditions.\nGet to know our benefits HERE.",
         "de": "Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen. Lernen Sie unsere Benefits HIER kennen.",
-        "fr": "Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail. Découvrez nos avantages ICI."
+        "fr": "Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nDécouvrez nos avantages ICI."
       },
       "needsRetranslation": true,
       "location": "Baden",
@@ -116,7 +117,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Spontanbewerbungen-UnterassistentInnen_R1787",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:58:20.467Z",
+      "crawledAt": "2026-06-23T22:38:30.410Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -164,7 +165,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ksb-6f0501ceca4a",
@@ -1676,9 +1678,9 @@
       "description": "Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nLernen Sie unsere Benefits HIER kennen.",
       "descriptionByLocale": {
         "it": "Il KSB offre più di un posto di lavoro emozionante con buone condizioni di lavoro. Venite a conoscere i nostri benefici QUI.",
-        "en": "The KSB offers more than an exciting workplace with good working conditions. Get to know our benefits HERE.",
+        "en": "The KSB offers more than an exciting workplace with good working conditions.\nGet to know our benefits HERE.",
         "de": "Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen. Lernen Sie unsere Benefits HIER kennen.",
-        "fr": "Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail. Découvrez nos avantages ICI."
+        "fr": "Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nDécouvrez nos avantages ICI."
       },
       "needsRetranslation": true,
       "location": "Baden",
@@ -1686,7 +1688,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-PflegepraktikantInnen_R1788",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:57:57.496Z",
+      "crawledAt": "2026-06-23T22:38:11.492Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1734,7 +1736,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ksb-d37a97090f88",
@@ -6679,25 +6682,24 @@
       "companyDomain": "ksb.ch",
       "title": "Stationsassistent_in 50-80% Privatstation Chirurgie",
       "titleByLocale": {
-        "it": "Stationsassistent_in 80 - 100% Privatstation Chirurgie",
-        "en": "Stationsassistent_in 80 - 100% Privatstation Chirurgie",
+        "it": "Assistente di stazione in 50-80% di stazione chirurgica privata",
+        "en": "Station Assistant 50-80% Private Surgery Station",
         "de": "Stationsassistent_in 50-80% Privatstation Chirurgie",
-        "fr": "Stationsassistent_in 50-80% Privatstation Chirurgie"
+        "fr": "Assistant de station dans 50-80% Chirurgie de station privée"
       },
       "description": "Hier zählt nicht nur, was du kannst – sondern auch, wer du bist. Im KSB gestaltest du Pflege mit Herz, Verstand und Teamgeist. Auf unserer Chirurgie arbeitet ihr Hand in Hand, übernehmt Verantwortung und schafft eine Arbeitsatmosphäre, in der du dich wohlfühlst und weiterentwickeln kannst. Du suchst eine sinnstiftende Aufgabe, ein starkes Team und Raum für Eigeninitiative? Dann bist du bei uns genau richtig. Wir freuen uns darauf, dich kennenzulernen.\n\nIhre Aufgaben:\n\n• Du bist der Dreh- und Angelpunkt für den reibungslosen Stationsbetrieb.\n\n• Als Organisationstalent planst und erledigst du administrative sowie logistische Sekretariats- und Stationsaufgaben, bestellest die Medikamente und rüstest sie nach.\n\n• Nach Anweisung von deinen Kolleginnen oder Kollegen übernimmst du auch pflegerische Arbeiten wie z.B. Blutentnahmen, Vitalzeichenkontrollen usw.\n\nIhr Profil:\n\n• Du hast eine abgeschlossene Ausbildung als Pharmaassistent_in EFZ, Med. Praxisassistent_in EFZ oder Fachfrau_mann Gesundheit.\n\n• Als Herz unserer Station bist du empathisch und hast gute Menschenkenntnisse. Du weisst immer, wie du deine Kolleginnen und Kollegen unterstützen kannst.\n\nFür diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen.\nBitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch .\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
       "descriptionByLocale": {
-        "it": "Hier zählt nicht nur, was du kannst – sondern auch, wer du bist. Im KSB gestaltest du Pflege mit Herz, Verstand und Teamgeist. Auf unserer Chirurgie arbeitet ihr Hand in Hand, übernehmt Verantwortung und schafft eine Arbeitsatmosphäre, in der du dich wohlfühlst und weiterentwickeln kannst. Du suchst eine sinnstiftende Aufgabe, ein starkes Team und Raum für Eigeninitiative? Dann bist du bei uns genau richtig. Wir freuen uns darauf, dich kennenzulernen. Ihre Aufgaben:\n• Du bist der Dreh- und Angelpunkt für den reibungslosen Stationsbetrieb.\n• Als Organisationstalent planst und erledigst du administrative sowie logistische Sekretariats- und Stationsaufgaben, bestellest die Medikamente und rüstest sie nach.\n• Nach Anweisung von deinen Kolleginnen oder Kollegen übernimmst du auch pflegerische Arbeiten wie z.B. Blutentnahmen, Vitalzeichenkontrollen usw. Ihr Profil:\n• Du hast eine abgeschlossene Ausbildung als Pharmaassistent_in EFZ, Med. Praxisassistent_in EFZ oder Fachfrau_mann Gesundheit.\n• Als Herz unserer Station bist du empathisch und hast gute Menschenkenntnisse. Du weisst immer, wie du deine Kolleginnen und Kollegen unterstützen kannst. Für diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen. Bitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch . Ihre Vorteile: Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen. Die vollständige Übersicht der Benefits gibt es HIER . Fragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
-        "en": "Hier zählt nicht nur, was du kannst – sondern auch, wer du bist. Im KSB gestaltest du Pflege mit Herz, Verstand und Teamgeist. Auf unserer Chirurgie arbeitet ihr Hand in Hand, übernehmt Verantwortung und schafft eine Arbeitsatmosphäre, in der du dich wohlfühlst und weiterentwickeln kannst. Du suchst eine sinnstiftende Aufgabe, ein starkes Team und Raum für Eigeninitiative? Dann bist du bei uns genau richtig. Wir freuen uns darauf, dich kennenzulernen. Ihre Aufgaben:\n• Du bist der Dreh- und Angelpunkt für den reibungslosen Stationsbetrieb.\n• Als Organisationstalent planst und erledigst du administrative sowie logistische Sekretariats- und Stationsaufgaben, bestellest die Medikamente und rüstest sie nach.\n• Nach Anweisung von deinen Kolleginnen oder Kollegen übernimmst du auch pflegerische Arbeiten wie z.B. Blutentnahmen, Vitalzeichenkontrollen usw. Ihr Profil:\n• Du hast eine abgeschlossene Ausbildung als Pharmaassistent_in EFZ, Med. Praxisassistent_in EFZ oder Fachfrau_mann Gesundheit.\n• Als Herz unserer Station bist du empathisch und hast gute Menschenkenntnisse. Du weisst immer, wie du deine Kolleginnen und Kollegen unterstützen kannst. Für diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen. Bitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch . Ihre Vorteile: Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen. Die vollständige Übersicht der Benefits gibt es HIER . Fragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
-        "de": "Hier zählt nicht nur, was du kannst – sondern auch, wer du bist. Im KSB gestaltest du Pflege mit Herz, Verstand und Teamgeist. Auf unserer Chirurgie arbeitet ihr Hand in Hand, übernehmt Verantwortung und schafft eine Arbeitsatmosphäre, in der du dich wohlfühlst und weiterentwickeln kannst. Du suchst eine sinnstiftende Aufgabe, ein starkes Team und Raum für Eigeninitiative? Dann bist du bei uns genau richtig. Wir freuen uns darauf, dich kennenzulernen. Ihre Aufgaben:\n• Du bist der Dreh- und Angelpunkt für den reibungslosen Stationsbetrieb.\n• Als Organisationstalent planst und erledigst du administrative sowie logistische Sekretariats- und Stationsaufgaben, bestellest die Medikamente und rüstest sie nach.\n• Nach Anweisung von deinen Kolleginnen oder Kollegen übernimmst du auch pflegerische Arbeiten wie z.B. Blutentnahmen, Vitalzeichenkontrollen usw. Ihr Profil:\n• Du hast eine abgeschlossene Ausbildung als Pharmaassistent_in EFZ, Med. Praxisassistent_in EFZ oder Fachfrau_mann Gesundheit.\n• Als Herz unserer Station bist du empathisch und hast gute Menschenkenntnisse. Du weisst immer, wie du deine Kolleginnen und Kollegen unterstützen kannst. Für diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen. Bitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch . Ihre Vorteile: Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen. Die vollständige Übersicht der Benefits gibt es HIER . Fragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
-        "fr": "Hier zählt nicht nur, was du kannst – sondern auch, wer du bist. Im KSB gestaltest du Pflege mit Herz, Verstand und Teamgeist. Auf unserer Chirurgie arbeitet ihr Hand in Hand, übernehmt Verantwortung und schafft eine Arbeitsatmosphäre, in der du dich wohlfühlst und weiterentwickeln kannst. Du suchst eine sinnstiftende Aufgabe, ein starkes Team und Raum für Eigeninitiative? Dann bist du bei uns genau richtig. Wir freuen uns darauf, dich kennenzulernen. Ihre Aufgaben:\n• Du bist der Dreh- und Angelpunkt für den reibungslosen Stationsbetrieb.\n• Als Organisationstalent planst und erledigst du administrative sowie logistische Sekretariats- und Stationsaufgaben, bestellest die Medikamente und rüstest sie nach.\n• Nach Anweisung von deinen Kolleginnen oder Kollegen übernimmst du auch pflegerische Arbeiten wie z.B. Blutentnahmen, Vitalzeichenkontrollen usw. Ihr Profil:\n• Du hast eine abgeschlossene Ausbildung als Pharmaassistent_in EFZ, Med. Praxisassistent_in EFZ oder Fachfrau_mann Gesundheit.\n• Als Herz unserer Station bist du empathisch und hast gute Menschenkenntnisse. Du weisst immer, wie du deine Kolleginnen und Kollegen unterstützen kannst. Für diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen. Bitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch . Ihre Vorteile: Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen. Die vollständige Übersicht der Benefits gibt es HIER . Fragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50."
+        "it": "Qui non conta solo quello che puoi fare. ma anche chi sei. Al KKB progetti cura con cuore, mente e spirito di squadra. Sul nostro intervento chirurgico, la tua mano lavora, si prende la responsabilità e crea un'atmosfera di lavoro in cui puoi sentirti a tuo agio e sviluppare ulteriormente. Stai cercando un compito di lancio del sole, un team forte e lo spazio per l'iniziativa personale? Allora sei esattamente a destra con noi. Non vediamo l'ora di conoscerti. I loro compiti: • Sei il punto focale per il funzionamento della stazione liscia.\n\n• Come talento organizzativo sarete responsabili delle mansioni di segreteria amministrativa e logistica e di stazione, ordinare i farmaci e dotarli. • Dopo istruzioni dei vostri colleghi, inoltre, vi occuperete del vostro lavoro come il campionamento del sangue, controlli dei segni vitali, ecc. Il vostro profilo: • Hai completato un addestramento come assistente farmaceutico in EFZ, Med. Assistente di pratica in EFZ o salute femminile specializzata. • Come il cuore della nostra stazione siete empathetic e hanno una buona conoscenza umana.\n\nSai sempre come sostenere i tuoi colleghi. Le domande per questo lavoro sono accettate dai membri del personale. Invia i dossier dei candidati esclusivamente tramite il tuo account. Non hai ancora un account? Contattaci a:I tuoi vantaggi: Il KSB offre più di un lavoro eccitante in buone condizioni di lavoro. La panoramica completa del SYSMA è disponibile QUI. Le domande sul processo di candidatura sono disponibili al numero di telefono +41 56 486 12 50.",
+        "en": "This is where you not only count what you can do – but also who you are. At the KKB you design care with heart, mind and team spirit. On our surgery, your hand in hand works, takes responsibility and creates a working atmosphere in which you can feel comfortable and develop further. You are looking for a sun-throwing task, a strong team and space for self-initiative? Then you are exactly right with us. We look forward to getting to know you. Their tasks: • You are the focal point for smooth station operation.\n\n• As an organizational talent you will be responsible for administrative and logistical secretarial and station tasks, order the drugs and equip them. • After instructions from your colleagues you will also take care of your work such as blood sampling, vital signs checks, etc. Your profile: • You have completed a training as a pharmaceutical assistant in EFZ, Med. Practice assistant in EFZ or specialist woman's health. • As the heart of our station you are empathetic and have good human knowledge.\n\nYou always know how to support your colleagues. Applications for this job are accepted by staff members. Please submit candidate dossiers exclusively via your account. You do not have an account yet? Please contact us at:Your benefits: The KSB offers more than an exciting job in good working conditions. The complete overview of the SYSMA is available HERE. Questions about the application process are available at the phone number +41 56 486 12 50.",
+        "de": "Hier zählt nicht nur, was du kannst – sondern auch, wer du bist. Im KSB gestaltest du Pflege mit Herz, Verstand und Teamgeist. Auf unserer Chirurgie arbeitet ihr Hand in Hand, übernehmt Verantwortung und schafft eine Arbeitsatmosphäre, in der du dich wohlfühlst und weiterentwickeln kannst. Du suchst eine sinnstiftende Aufgabe, ein starkes Team und Raum für Eigeninitiative? Dann bist du bei uns genau richtig. Wir freuen uns darauf, dich kennenzulernen.\n\nIhre Aufgaben:\n\n• Du bist der Dreh- und Angelpunkt für den reibungslosen Stationsbetrieb.\n\n• Als Organisationstalent planst und erledigst du administrative sowie logistische Sekretariats- und Stationsaufgaben, bestellest die Medikamente und rüstest sie nach.\n\n• Nach Anweisung von deinen Kolleginnen oder Kollegen übernimmst du auch pflegerische Arbeiten wie z.B. Blutentnahmen, Vitalzeichenkontrollen usw.\n\nIhr Profil:\n\n• Du hast eine abgeschlossene Ausbildung als Pharmaassistent_in EFZ, Med. Praxisassistent_in EFZ oder Fachfrau_mann Gesundheit.\n\n• Als Herz unserer Station bist du empathisch und hast gute Menschenkenntnisse. Du weisst immer, wie du deine Kolleginnen und Kollegen unterstützen kannst.\n\nFür diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen.\nBitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch .\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
+        "fr": "C'est là que vous comptez non seulement ce que vous pouvez faire, mais aussi qui vous êtes. Au KKB vous concevez des soins avec cœur, esprit et esprit d'équipe. Sur notre chirurgie, votre main en main fonctionne, prend des responsabilités et crée une atmosphère de travail dans laquelle vous pouvez vous sentir à l'aise et développer plus loin. Vous recherchez une tâche solaire-renversante, une équipe forte et un espace pour l'initiative de soi? Ensuite, vous êtes exactement avec nous. Nous avons hâte de vous connaître. Leurs tâches: • Vous êtes le point focal pour un fonctionnement en douceur de la station.\n\n• En tant que talent organisationnel, vous serez responsable des tâches administratives et logistiques de secrétariat et de poste, commandez les médicaments et équipez-les. • Après les instructions de vos collègues, vous vous occuperez également de votre travail comme l'échantillonnage du sang, les contrôles des signes vitaux, etc. Votre profil: • Vous avez suivi une formation en tant qu'assistant pharmaceutique à EFZ, Med. Assistante pratique à EFZ ou spécialiste de la santé des femmes. • En tant que cœur de notre poste, vous êtes empathétique et avez de bonnes connaissances humaines.\n\nVous savez toujours comment soutenir vos collègues.Les candidatures pour ce poste sont acceptées par les membres du personnel. Veuillez soumettre votre dossier de candidature exclusivement via votre compte. Vous n'avez pas encore de compte? Veuillez nous contacter à: Vos avantages: Le KSB offre plus qu'un travail passionnant dans de bonnes conditions de travail."
       },
-      "needsRetranslation": true,
       "location": "Baden",
       "canton": "AG",
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Stationsassistent-in-80---100--Privatstation-Chirurgie_R12712-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:56:54.862Z",
+      "crawledAt": "2026-06-23T22:37:12.324Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",

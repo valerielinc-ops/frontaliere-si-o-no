@@ -54,6 +54,20 @@ describe('Soft-landing SEO pages for expired jobs', () => {
   it('includes expired jobs in sitemap at low priority', () => {
     expect(pluginSource).toContain('sitemap-jobs-expired.xml');
   });
+
+  it('keeps the native canton for EXPIRED canton-drifted slugs (no Ticino hijack)', () => {
+    // COMPAT_JOB_PATTERNS only match Ticino sections, so a canton-drifted job
+    // indexed under its native non-TI canton (e.g. Zurich) AND a legacy TI
+    // section used to have its rich soft-landing moved onto the TI path,
+    // abandoning the native indexed URL to the thin cfHot404 "Pagina archiviata"
+    // stub. The guard keeps the native ledger path for EXPIRED (non-current)
+    // slugs while preserving the #2600 override for ACTIVE slugs (whose native
+    // canton is already served by the live job page).
+    const driftStart = pluginSource.indexOf('Canton-drift recovery');
+    const guardIdx = pluginSource.indexOf('if (known && !currentSlugs.has(slug)) break;');
+    expect(driftStart).toBeGreaterThan(-1);
+    expect(guardIdx).toBeGreaterThan(driftStart);
+  });
 });
 
 describe('SPA does not override static HTML metadata for expired job pages', () => {
