@@ -1,18 +1,21 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-06-24T10:57:59.601Z",
+  "generatedAt": "2026-06-24T21:44:22.753Z",
   "total": 4,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 18720,
-  "avgDurationMs": 18720,
+  "unchangedCount": 4,
+  "durationMs": 17272,
+  "avgDurationMs": 17272,
   "durationHistory": [
-    18720
+    17272
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-fix-term_R_785144",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-fix-term_R_785144",
@@ -27,7 +30,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate",
-      "slug": "sales-associate-pt-fix-term-capri-holdings",
+      "slug": "vendite-associate-pt-termine-fisso-capri-holdings-michael-kors-versace-graubunden",
       "category": "retail",
       "datePosted": "2026-06-24",
       "source": "capri-holdings-workday-crawler",
@@ -42,18 +45,20 @@
       },
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 72,
+      "id": "capri-holdings-fdfb0bab66df",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-24T10:57:59.600Z",
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 8,
-        "completeness": 15
+        "translation": 25,
+        "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
