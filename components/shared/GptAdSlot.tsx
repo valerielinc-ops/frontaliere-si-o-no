@@ -116,6 +116,16 @@ export interface GptAdSlotProps {
    * blank column. Fires once per `slotRenderEnded`; default-noop when omitted.
    */
   onEmptyChange?: (empty: boolean) => void;
+  /**
+   * Whether to collapse the wrapper to `display:none` when GPT reports the slot
+   * empty. Default `true` (rails / below-content slots: an unfilled slot should
+   * vanish so it leaves no blank box). Set `false` for an ABOVE-THE-FOLD slot
+   * (e.g. the desktop top banner) where collapsing would yank the content below
+   * upward and register a Cumulative Layout Shift: there we keep the reserved
+   * `minHeight` so the slot's footprint never changes (CLS-safe), at the cost of
+   * a thin reserved band when no creative fills.
+   */
+  collapseOnEmpty?: boolean;
 }
 
 const GptAdSlot: React.FC<GptAdSlotProps> = ({
@@ -128,6 +138,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   className = 'mx-auto my-6 w-full max-w-[336px] text-center',
   style,
   onEmptyChange,
+  collapseOnEmpty = true,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   // GPT slot + its slotRenderEnded handler, kept so unmount can tear both down
@@ -284,11 +295,15 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       ref={wrapperRef}
       aria-hidden={!rendered || empty}
       // Reserve space to avoid CLS when the creative fills (mirrors
-      // placeholderMinHeight in services/adsenseSlots.ts). Once GPT reports the
-      // slot empty we drop it from layout entirely (`display:none`) so it adds
-      // neither reserved height nor a flex-gap slot — keeping the side-rail
-      // stack gapless.
-      style={empty ? { display: 'none' } : { minHeight, contain: 'layout', ...style }}
+      // placeholderMinHeight in services/adsenseSlots.ts). When GPT reports the
+      // slot empty we normally drop it from layout entirely (`display:none`) so
+      // it adds neither reserved height nor a flex-gap slot — keeping the
+      // side-rail stack gapless. EXCEPTION: `collapseOnEmpty={false}` (the
+      // above-the-fold top banner) keeps the reserved `minHeight` even when
+      // empty, because collapsing it would pull the content below upward and
+      // register a CLS; a stable footprint is worth more than recovering a thin
+      // band there.
+      style={empty && collapseOnEmpty ? { display: 'none' } : { minHeight, contain: 'layout', ...style }}
       className={className}
     >
       <div id={divIdRef.current} />
