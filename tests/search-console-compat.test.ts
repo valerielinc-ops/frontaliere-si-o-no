@@ -4,8 +4,29 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { resolveSearchConsoleCompatTarget } from '@/build-plugins/searchConsoleCompat';
+import searchClusterMapFile from '@/data/search-cluster-301-map.json';
 
 describe('Search Console 404 compatibility resolver', () => {
+  it('recovers legacy per-canton cluster URLs to their mapped live target', () => {
+    // Data-driven: assert the resolver honors data/search-cluster-301-map.json
+    // for both a SPECIFIC live-cluster entry and a canton-board fallback entry,
+    // so the test survives map regeneration without hard-coding a fixture slug.
+    const entries = Object.entries(
+      (searchClusterMapFile as { map: Record<string, string> }).map,
+    );
+    const specific = entries.find(([, v]) => v.includes('/cerca-lavoro-svizzera/ricerca-'));
+    const board = entries.find(([, v]) => !v.includes('/ricerca-'));
+    expect(specific, 'map should contain at least one specific live-cluster target').toBeTruthy();
+    expect(board, 'map should contain at least one canton-board fallback').toBeTruthy();
+    for (const [legacyPath, target] of [specific!, board!]) {
+      expect(resolveSearchConsoleCompatTarget(legacyPath)).toEqual({
+        canonicalPath: target,
+        kind: 'search',
+        locale: 'it',
+      });
+    }
+  });
+
   it('maps malformed search URLs back to the localized job-board root', () => {
     expect(resolveSearchConsoleCompatTarget('/en/find-jobs-ticino/search-their')).toEqual({
       canonicalPath: '/en/find-jobs-ticino/',

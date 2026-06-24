@@ -1,5 +1,6 @@
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
+import searchClusterMapFile from '../data/search-cluster-301-map.json';
 import {
  FUEL_SECTION_SLUG,
  FUEL_TODAY_SLUG,
@@ -35,6 +36,15 @@ const COMPANY_ROUTE_PREFIX_BY_LOCALE: Record<SupportedLocale, string> = {
  de: 'unternehmen',
  fr: 'entreprise',
 };
+
+// Legacy per-canton related-search cluster URLs (old slug format, now 404) →
+// their SPECIFIC live national cluster, verified against the live cluster
+// sitemaps; entries with no live match map to the canton job board. Generated
+// by scripts/build-search-cluster-301-map.mjs. Consulted in the `ricerca-`
+// branch of resolveSearchConsoleCompatTarget below.
+const SEARCH_CLUSTER_301_MAP: Record<string, string> = (
+  searchClusterMapFile as { map?: Record<string, string> }
+).map ?? {};
 
 const COMPAT_REDIRECTS: Record<string, string> = {
  '/compara-servizi/undefined': '/compara-servizi/',
@@ -248,6 +258,15 @@ export function resolveSearchConsoleCompatTarget(
  const locale = inferLocale(path);
 
  if (/\/(ricerca|search|suche|recherche)-/.test(path)) {
+ // Legacy per-canton cluster URL with a KNOWN live target: recover the
+ // SPECIFIC live national cluster (verified at map-generation time) instead
+ // of the generic canton-listing fallback below. Entries that had no live
+ // match are mapped to the canton board, so this lookup is always a strict
+ // improvement when present. See scripts/build-search-cluster-301-map.mjs.
+ const mapped = SEARCH_CLUSTER_301_MAP[path] || SEARCH_CLUSTER_301_MAP[`${path}/`];
+ if (mapped) {
+ return { canonicalPath: mapped, kind: 'search', locale };
+ }
  // Canton-aware: a search-style slug under a known job-board section
  // (e.g. /cerca-lavoro-berna/ricerca-offerte-...) must canonicalize to THAT
  // canton's listing, not the locale's TI default — otherwise every
