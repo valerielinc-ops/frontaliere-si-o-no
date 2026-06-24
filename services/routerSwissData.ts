@@ -160,6 +160,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'riordino-incentivi-imprese': { it: 'riordino-incentivi-imprese', en: 'reorganization-of-business-incentives', de: 'neuordnung-der-unternehmensfoerderungen', fr: 'reorganisation-des-aides-aux-entreprises' },
  'calcolo-rendita-lpp-ubs': { it: 'calcolo-rendita-lpp-ubs', en: 'calculating-lpp-pension-ubs', de: 'berechnung-lpp-rente-ubs', fr: 'calcul-rente-lpp-ubs' },
  'dati-tasse-frontalieri-italia': { it: 'dati-tasse-frontalieri-italia', en: 'data-tax-frontalieri-italy', de: 'daten-steuern-frontalieri-italien', fr: 'donnees-impots-frontalieri-italie' },
+ 'frontaliere-trasporti-chiasso-lugano-abbonamenti-2026': { it: 'frontaliere-trasporti-chiasso-lugano-abbonamenti-2026', en: 'frontier-transport-chiasso-lugano-subscriptions-2026', de: 'grenzgaenger-verkehr-chiasso-lugano-abos-2026', fr: 'transport-frontaliere-chiasso-lugano-abonnements-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

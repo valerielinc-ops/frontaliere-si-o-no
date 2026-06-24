@@ -412,6 +412,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dati-tasse-frontalieri-italia.title': 'Pasticcio dati e tasse ex frontalieri',
     'blog.article.dati-tasse-frontalieri-italia.excerpt': 'Données salariales de milliers d\'anciens frontaliers transmises par erreur dans les précompilations italiennes. Clarifications requises par Molteni et Grammaire.',
     'blog.article.dati-tasse-frontalieri-italia.imageAlt': 'Vue panoramique de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.title': 'Frontière transports Chiasso-Lugano abonnements 2026 dans un rayon de 20 km',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.excerpt': 'Guide pratique des transports Chiasso-Lugano pour les frontaliers : train, voitures, parkings et abonnements avec liste de contrôle des coûts à vérifier.',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.imageAlt': 'Une personne utilisant les transports en commun à Lugano',
 };
 
 export default blogMetaChFr;

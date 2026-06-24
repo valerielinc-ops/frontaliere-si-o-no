@@ -412,6 +412,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dati-tasse-frontalieri-italia.title': 'Data and tax mess of the old border workers: \'Let there be full light\'',
     'blog.article.dati-tasse-frontalieri-italia.excerpt': 'Salary data of thousands of old frontier workers transmitted by mistake in the Italian pre-files. Clarifications requested by Molteni and Grammar.',
     'blog.article.dati-tasse-frontalieri-italia.imageAlt': 'Panoramic view of Lugano with Lake Ceresio and surrounding mountains',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.title': 'Chiasso-Lugano transport frontiers 2026 subscriptions within 20 km',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.excerpt': 'Practical guide to Chiasso-Lugano transport for border workers: train, car, parking and season tickets with a checklist of costs to be verified.',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.imageAlt': 'A person using public transportation in Lugano',
 };
 
 export default blogMetaChEn;
