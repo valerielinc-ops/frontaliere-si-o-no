@@ -952,7 +952,7 @@ export function buildClusterContext(
   // already-committed candidates file. This guard runs at emit time, so it
   // cleans the LIVE /…/ricerca/ hub + stops emitting the thin doorway landings
   // (e.g. /…/ricerca-cookie-bern/) without waiting for the weekly audit regen.
-  // Net-reducing consolidation — a moratorium exception. See relatedSearchJunkTerms.mjs.
+  // Net-reducing consolidation (drops thin junk doorways). See relatedSearchJunkTerms.mjs.
   if (isJunkSearchKeyword(keyword)) {
     profileRecord('bc:tokenize', __tTokenize);
     return null;
