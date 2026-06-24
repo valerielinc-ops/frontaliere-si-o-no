@@ -13,9 +13,15 @@
 # unit-tested helper scripts/lib/pr-body-closes-check.mjs (tests/pr-body-closes-check.test.ts);
 # keep the two in sync if the rule changes.
 #
-# It does NOT block auto-merge (auto-merge-on-lgtm only gates on the `## LGTM`
-# string, never on other checks) — the failing status is an early nudge, not a
-# hard gate. Pure github-script (no Claude, no PAT) → zero shared-quota cost.
+# Footprint: this used to fan out 4 jobs (body-contract + sibling-check +
+# cls-ad-slot-check + client-lookbehind-check) per PR push. They are now steps
+# of a SINGLE `contract` job, sharing one checkout, to minimise the per-PR
+# Actions-concurrency footprint (Free plan ~20 shared slots — fanning out
+# PR-side jobs starved the pipeline behind queued crawler runs). All checks are
+# behaviour-preserving: the same scripts run, the same sticky comments post, and
+# a blocking violation (body contract / cls / lookbehind) still turns the check
+# RED. Body-contract itself does NOT block auto-merge (auto-merge-on-lgtm gates
+# only on the `## LGTM` string); the red status is an early nudge.
 name: pr-body-contract
 
 on:
@@ -31,10 +37,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check:
+  # Single job, sequential steps. The body-contract step runs on every event
+  # (incl. `edited`); the source-guard steps (checkout + sibling/cls/lookbehind)
+  # are gated on `!cancelled() && action != 'edited'` so they (a) still run when
+  # the body-contract step has already setFailed — each is an independent gate —
+  # and (b) skip on a pure body `edited` (the diff is unchanged), exactly as the
+  # old per-job `if: github.event.action != 'edited'` did.
+  contract:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v8
+      - name: PR-body completeness + multi-issue Closes (no checkout, all events)
+        uses: actions/github-script@v8
         with:
           script: |
             const STICKY = '<!-- pr-body-contract -->';
@@ -129,34 +142,28 @@ jobs:
             await upsert(parts.join('\n\n'));
             core.setFailed(`PR body contract: ${fails.join('; ')}`);
 
-  # Sibling-class surfacer (zero-Claude, advisory). Il finding reviewer più
-  # ricorrente dopo il body-contract è il 🔴 "stesso antipattern nel file
-  # gemello" (sibling-class-fix: 4/5 dei 🔴 campionati 2026-06-12, ~98 re-review
-  # + 37 round fixer extra in 7gg). check-sibling-patterns.mjs calcola la lista
-  # candidati in modo deterministico; questo job la posta come sticky comment a
-  # PR-open, così (a) l'autore (agent locale o fixer) la vede PRIMA della
-  # review, (b) il reviewer la consuma senza ricostruire la grep a mano (turni
-  # risparmiati). Heuristico → advisory: MAI setFailed (falsi positivi attesi),
-  # non blocca nulla. Skip su action=edited (il body non cambia il diff).
-  sibling-check:
-    if: github.event.action != 'edited'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
+      # --- Source-guard steps: one shared checkout, skip on `edited` ------------
+      # `fetch-depth: 0 filter: blob:none` serves all three guards: the sibling
+      # three-dot diff needs the commit-graph + merge-base (blobs lazy-fetched on
+      # demand, ~100s faster than a full blob clone); the cls/lookbehind scans
+      # read the HEAD working tree (materialised by checkout). `!cancelled()` so
+      # they still run after the body-contract step setFailed (independent gates).
+      - name: Checkout (for source guards)
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          # Storia completa (commit-graph + merge-base con la base branch) serve
-          # per il three-dot diff dello script. `fetch-depth: 0` full però
-          # scaricava ~11GB di blob storici → 143s misurati (il commento "~40s"
-          # era ottimistico). `filter: blob:none`: commit-graph + blob HEAD, i
-          # blob storici lazy-fetch — il diff name-status usa solo i tree
-          # (presenti) e legge il contenuto dei soli file cambiati (pochi blob
-          # on-demand). La sticky `<!-- sibling-check -->` che il reviewer
-          # consuma arriva ~100s prima.
           fetch-depth: 0
           filter: blob:none
+
+      # Sibling-class surfacer (zero-Claude, ADVISORY — never fails). Il finding
+      # reviewer più ricorrente dopo il body-contract è il 🔴 "stesso antipattern
+      # nel file gemello" (sibling-class-fix). check-sibling-patterns.mjs calcola
+      # i candidati in modo deterministico; lo step posta una sticky comment così
+      # (a) l'autore la vede PRIMA della review, (b) il reviewer non rifà la grep.
       - name: Surface sibling candidates
         id: sib
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -167,7 +174,9 @@ jobs:
             const r = JSON.parse(require('fs').readFileSync('sibling-report.json','utf8'));
             console.log('candidates=' + r.candidates.length);
           " >> "$GITHUB_OUTPUT"
-      - uses: actions/github-script@v8
+      - name: Post sibling-check comment (advisory)
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        uses: actions/github-script@v8
         with:
           script: |
             const STICKY = '<!-- sibling-check -->';
@@ -215,33 +224,21 @@ jobs:
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
 
-  # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
-  # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
-  # the raw ad markup; its min-height/format come from the registry
-  # services/adsenseSlots.ts so the reserved space matches the real ad unit →
-  # zero CLS (the #1910 280-vs-400px regression). Zero-Claude, exits 1 on
-  # violation. Also covered by tests/check-cls-ad-slots.test.ts in the vitest gate.
-  cls-ad-slot-check:
-    if: github.event.action != 'edited'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+      # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
+      # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
+      # the raw ad markup; its min-height/format come from the registry
+      # services/adsenseSlots.ts so the reserved space matches the real ad unit →
+      # zero CLS (the #1910 280-vs-400px regression). Zero-Claude, exits 1 on
+      # violation. Also covered by tests/check-cls-ad-slots.test.ts in the vitest gate.
       - name: Forbid hard-coded AdSense <ins> in build-plugins
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
         run: node scripts/ci/check-cls-ad-slots.mjs
 
-  # Blocking gate (#1996 → #1999): forbid regex lookbehind ((?<=/(?<!) in
-  # client-bundled source. Older Safari/WebKit throws "invalid group specifier
-  # name" at parse time → crashed job-detail render for Google Jobs traffic (lost
-  # ad impressions). build-plugins/ + scripts/ are build-time (Node) → exempt.
-  # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
-  client-lookbehind-check:
-    if: github.event.action != 'edited'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+      # Blocking gate (#1996 → #1999): forbid regex lookbehind ((?<=/(?<!) in
+      # client-bundled source. Older Safari/WebKit throws "invalid group specifier
+      # name" at parse time → crashed job-detail render for Google Jobs traffic (lost
+      # ad impressions). build-plugins/ + scripts/ are build-time (Node) → exempt.
+      # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
       - name: Forbid regex lookbehind in client-bundled source
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
         run: node scripts/ci/check-client-lookbehind.mjs
