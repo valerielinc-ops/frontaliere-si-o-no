@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-06-24T11:47:10.524Z",
+  "assembledAt": "2026-06-24T22:13:13.671Z",
   "jobs": [
     {
       "id": "company-bm0ep4",
@@ -31,7 +31,7 @@
         "it": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
         "en": "cmo-manager-ibsa-institut-biochimique-6916-working-area",
         "de": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
-        "fr": "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
+        "fr": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4"
       },
       "titleByLocale": {
         "en": "CMO Manager",
@@ -69,11 +69,16 @@
       "previousSlugsByLocale": {
         "de": [
           "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4"
+        ],
+        "fr": [
+          "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
         ]
       },
       "previousSlugs": [
-        "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4"
-      ]
+        "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4",
+        "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-u7vkyi",
@@ -147,7 +152,8 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-24q2ge",
@@ -320,7 +326,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2pgzo8",
@@ -431,7 +438,8 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-e3ivbg",
@@ -552,7 +560,7 @@
         "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
       },
       "titleByLocale": {
-        "fr": "Comptable (maternité)",
+        "fr": "Accounting Officer (sost. maternità)",
         "it": "Accounting Officer (sost. maternità)",
         "en": "Accounting Officer (Maternity Substance)",
         "de": "Rechnungsführer (Mutterschaft)"
@@ -596,7 +604,8 @@
       "addressLocality": "All Area All Clear Apply now » Accounting Officer (sost",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-um2f7f",
@@ -695,7 +704,8 @@
       "addressLocality": "Collina",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-399kaj",
@@ -786,7 +796,8 @@
       "addressLocality": "Collina",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cohd02",
