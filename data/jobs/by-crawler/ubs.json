@@ -1616,12 +1616,12 @@
     },
     {
       "id": "ubs-7e9ba6a10ea2",
-      "slug": "business-risk-partner-gwm-us-marketing-ubs",
+      "slug": "partner-per-il-rischio-aziendale-gwm-marketing-statunitense-ubs-ticino",
       "slugByLocale": {
         "en": "business-risk-partner-gwm-us-marketing-ubs",
         "fr": "partenaire-de-risque-commercial-gwm-us-marketing-ubs-ticino",
-        "it": "business-risk-partner-gwm-us-marketing-ubs",
-        "de": "business-risk-partner-gwm-us-marketing-ubs"
+        "it": "partner-per-il-rischio-aziendale-gwm-marketing-statunitense-ubs-ticino",
+        "de": "geschaftsrisikopartner-gwm-us-marketing-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1685,11 +1685,14 @@
       },
       "firstSeenAt": "2026-06-23T23:21:45.025Z",
       "previousSlugs": [
-        "partner-per-il-rischio-aziendale-gwm-marketing-statunitense-ubs-ticino"
+        "business-risk-partner-gwm-us-marketing-ubs"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "geschaftsrisikopartner-gwm-us-marketing-ubs-ticino"
+          "business-risk-partner-gwm-us-marketing-ubs"
+        ],
+        "it": [
+          "business-risk-partner-gwm-us-marketing-ubs"
         ]
       }
     },
