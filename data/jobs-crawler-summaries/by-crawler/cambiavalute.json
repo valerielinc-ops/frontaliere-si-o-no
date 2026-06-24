@@ -1,22 +1,22 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-06-23T21:59:25.936Z",
-  "total": 4,
+  "generatedAt": "2026-06-24T11:10:39.786Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 63137,
-  "avgDurationMs": 63137,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 161037,
+  "avgDurationMs": 161037,
   "durationHistory": [
-    63137
+    161037
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-a24znt",
-      "slug": "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-ticino",
+      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
       "location": "Ticino",
@@ -58,7 +58,7 @@
     },
     {
       "id": "company-fooban",
-      "slug": "assistente-sales-marketing-customer-support-mercato-tedesco-cambiavalute-ch-ticino",
+      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
       "location": "Ticino",
@@ -141,8 +141,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "company-kbhp6",
       "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
@@ -176,7 +175,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -185,5 +183,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
