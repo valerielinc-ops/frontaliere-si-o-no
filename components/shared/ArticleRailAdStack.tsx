@@ -71,6 +71,10 @@ const MIN_FILL_PX = 600;
 // Bound the number of same-unit requests (ceiling; the real count is the lower
 // of "panels that cover the viewport" and "panels the gutter holds").
 const MAX_PANELS = 6;
+// Grace before collapsing a rail that has painted no creative. Genuine fills
+// land within ~1-2s; this leaves slow auctions room while keeping a blank
+// gutter short. Mirrors AdSenseBanner's fill-timeout intent.
+const FILL_GRACE_MS = 6000;
 
 const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, onEmptyResolved }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -95,15 +99,46 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
       reported++;
       if (v === false) anyFilled = true;
     }
-    let verdict: boolean | null = null;
-    if (anyFilled) verdict = false;
-    else if (panels > 0 && reported >= panels) verdict = true;
-    // Report every resolved verdict; the App owns dedup (it no-ops a same-value
-    // setState). No per-tab re-arm here: the rail stack stays mounted across SPA
-    // navigations and GPT does not re-request the persistent slot, so once a
-    // rail resolves empty it stays empty for the session and the collapse simply
-    // persists — a local dedup ref would instead swallow a legitimate re-report.
-    if (verdict !== null) onEmptyResolved?.(verdict);
+    // Fast-path collapse ONLY on a clean all-empty GPT verdict. We deliberately
+    // do NOT report `false` from the render flag: GPT often resolves these
+    // narrow rails "non-empty" yet paints no creative (zero-height / house /
+    // pending fills), so EXPANSION is decided by actual iframe paint in the
+    // effect below — not by the unreliable render flag. App owns dedup.
+    if (anyFilled === false && panels > 0 && reported >= panels) onEmptyResolved?.(true);
+  }, [panels, onEmptyResolved]);
+
+  // Authoritative fill signal: collapse from what ACTUALLY renders, not GPT's
+  // render flags. Confirmed live that these rails define their slots but paint
+  // no creative and never fire a clean empty verdict — leaving a blank 160px
+  // column. Here we watch the rail for a real painted ad iframe: expand the
+  // moment one appears, and if none has by FILL_GRACE_MS collapse the gutter so
+  // it never stays blank (no-demand / ad-block / pending). A late paint still
+  // re-expands via the observer.
+  useEffect(() => {
+    if (panels <= 0) return;
+    const el = ref.current;
+    if (!el) return;
+    let last: boolean | null = null;
+    const filled = () => {
+      const frames = el.querySelectorAll<HTMLIFrameElement>('iframe');
+      for (let i = 0; i < frames.length; i++) {
+        if (frames[i].getBoundingClientRect().height > 1) return true;
+      }
+      return false;
+    };
+    const apply = (isFilled: boolean) => {
+      const collapse = !isFilled;
+      if (collapse === last) return;
+      last = collapse;
+      onEmptyResolved?.(collapse);
+    };
+    const mo = typeof MutationObserver !== 'undefined' ? new MutationObserver(() => { if (filled()) apply(true); }) : null;
+    mo?.observe(el, { childList: true, subtree: true });
+    const grace = setTimeout(() => apply(filled()), FILL_GRACE_MS);
+    return () => {
+      mo?.disconnect();
+      clearTimeout(grace);
+    };
   }, [panels, onEmptyResolved]);
 
   useEffect(() => {
