@@ -1,0 +1,40 @@
+{
+  "id": "tpl-2025-record-numeri",
+  "slug": "tpl-2025-record-numeri",
+  "publishedAt": "2026-06-24T18:55:06.670Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.280448276590173,
+    "confidence": 0.8,
+    "finalScore": 7.424358621272138,
+    "topK": [
+      {
+        "slug": "nuove-basi-lpp-2025-frontalieri",
+        "cosine": 0.843677116053652
+      },
+      {
+        "slug": "tilo-25-milioni-passeggeri-2025",
+        "cosine": 0.8426343118543431
+      },
+      {
+        "slug": "tilo-record-passeggeri-2025",
+        "cosine": 0.8425014391199003
+      },
+      {
+        "slug": "lpp-minimo-secondo-pilastro-2026",
+        "cosine": 0.8386797258056243
+      },
+      {
+        "slug": "avis-lombardia-dono-sangue-privati-2026",
+        "cosine": 0.8325681670840684
+      }
+    ],
+    "score": 0.7424358621272139,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

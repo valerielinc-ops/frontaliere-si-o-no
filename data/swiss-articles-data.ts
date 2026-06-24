@@ -1187,6 +1187,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tpl-2025-record-numeri',
+    category: 'novita',
+    date: '2026-06-24T18:55:05.508Z',
+    image: '/images/blog/tpl-2025-record-numeri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
