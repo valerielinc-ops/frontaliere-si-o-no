@@ -43,6 +43,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
+import { makeUnsubscribeUrl, makeResubscribeUrl } from '../services/newsletterUrls.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
@@ -547,19 +548,8 @@ async function generateAISubject(ctx) {
 
 // ─── Unsubscribe / Auth URLs ────────────────────────────────
 
-function makeUnsubscribeUrl(email) {
-  const secret = process.env.NEWSLETTER_SECRET;
-  if (!secret) return `${BASE_URL}/?action=unsubscribe&email=${encodeURIComponent(email)}`;
-  const token = createHmac('sha256', secret).update(email.toLowerCase()).digest('hex');
-  return `${BASE_URL}/?action=unsubscribe&email=${encodeURIComponent(email)}&token=${token}`;
-}
-
-function makeResubscribeUrl(email) {
-  const secret = process.env.NEWSLETTER_SECRET;
-  if (!secret) return `${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(email)}`;
-  const token = createHmac('sha256', secret).update(email.toLowerCase()).digest('hex');
-  return `${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(email)}&token=${token}`;
-}
+// makeUnsubscribeUrl / makeResubscribeUrl live in services/newsletterUrls.mjs
+// (shared with the sunset/win-back runner so the HMAC token scheme can't drift).
 
 function makePreferencesUrl(email, locale = 'it') {
   const secret = process.env.NEWSLETTER_SECRET;
