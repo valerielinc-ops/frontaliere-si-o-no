@@ -394,6 +394,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caldo-traffico-ferroviario.title': 'Il caldo incide sul traffico ferroviario: ecco cosa cambia',
     'blog.article.caldo-traffico-ferroviario.excerpt': 'Le alte temperature influenzano il funzionamento dei treni in Svizzera. Scopri le implicazioni pratiche e come le compagnie ferroviarie stanno gestendo la situazione.',
     'blog.article.caldo-traffico-ferroviario.imageAlt': 'Una stazione ferroviaria svizzera durante un\'ondata di caldo, con passeggeri in attesa sotto l\'ombra.',
+    'blog.article.affitti-lugano-mercato-rallenta.title': 'Affitti, il mercato rallenta: Lugano tra le città più in difficoltà',
+    'blog.article.affitti-lugano-mercato-rallenta.excerpt': 'Lugano mostra segnali di indebolimento più marcati rispetto ad altre regioni del Paese.',
+    'blog.article.affitti-lugano-mercato-rallenta.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaChIt;

@@ -154,6 +154,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'iva-aumento-governo-decisione-previsto': { it: 'iva-aumento-governo-decisione-previsto', en: 'iva-increase-government-decision-pending', de: 'iva-erhoehung-regierungsentscheidung-geplant', fr: 'tva-hausse-decision-gouvernement-prevue' },
  'controlli-frontiera-g7-divieti-entrata': { it: 'controlli-frontiera-g7-divieti-entrata', en: 'border-controls-g7-entry-bans', de: 'grenzkontrollen-g7-einreiseverbote', fr: 'controles-frontieres-g7-interdictions-entree' },
  'caldo-traffico-ferroviario': { it: 'caldo-traffico-ferroviario', en: 'heat-impact-on-rail-traffic', de: 'hitze-auswirkung-auf-eisenbahnverkehr', fr: 'chaleur-impact-sur-trafic-ferroviaire' },
+ 'affitti-lugano-mercato-rallenta': { it: 'affitti-lugano-mercato-rallenta', en: 'rental-market-lugano-slows-down', de: 'mietmarkt-lugano-verlangsamt', fr: 'marche-locatif-lugano-ralentit' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
