@@ -62,6 +62,17 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
+      # App installation token = primary push identity so the data commit on main
+      # re-triggers deploy (GITHUB_TOKEN would not, anti-recursion). Falls back to
+      # env.GITHUB_PAT. B2b tail migration.
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Verify GH_MODELS_PAT is set
         run: |
           if [ -z "$GH_MODELS_PAT" ]; then
@@ -114,7 +125,7 @@ jobs:
           git commit -m "❓ Auto-generated FAQ for ${MODIFIED} blog articles"
 
           # Push with retry (handles concurrent pushes from other workflows)
-          REMOTE_URL="https://x-access-token:${GITHUB_PAT}@github.com/${{ github.repository }}.git"
+          REMOTE_URL="https://x-access-token:${APP_TOKEN:-$GITHUB_PAT}@github.com/${{ github.repository }}.git"
           for attempt in 1 2 3; do
             if git push "$REMOTE_URL" HEAD:main; then
               echo "✅ Changes committed and pushed to main"
