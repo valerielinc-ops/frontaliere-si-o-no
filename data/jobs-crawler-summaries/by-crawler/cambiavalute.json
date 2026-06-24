@@ -1,22 +1,57 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-06-24T11:10:39.786Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-06-24T21:41:13.349Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 161037,
-  "avgDurationMs": 161037,
+  "durationMs": 75037,
+  "avgDurationMs": 75037,
   "durationHistory": [
-    161037
+    75037
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-kbhp6",
+      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+      "company": "CambiaValute.ch",
+      "title": "Senior Backend developer",
+      "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-06-24T21:41:12.199Z",
+      "firstSeenAt": "2026-06-24T21:41:12.199Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-a24znt",
-      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
+      "slug": "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-ticino",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
       "location": "Ticino",
@@ -58,7 +93,7 @@
     },
     {
       "id": "company-fooban",
-      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
+      "slug": "assistente-sales-marketing-customer-support-mercato-tedesco-cambiavalute-ch-ticino",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
       "location": "Ticino",
@@ -141,48 +176,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-kbhp6",
-      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
-      "company": "CambiaValute.ch",
-      "title": "Senior Backend developer",
-      "location": "2026 CambiaValute",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-06-16T22:30:41.431Z",
-      "firstSeenAt": "2026-06-16T22:30:41.431Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "streetAddress": "Via Pessina 6",
-      "postalCode": "6900",
-      "addressLocality": "2026 CambiaValute",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
