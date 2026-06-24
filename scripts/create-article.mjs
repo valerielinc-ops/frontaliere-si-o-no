@@ -7171,7 +7171,14 @@ function wallBudgetExceeded() {
 function isQualityRejectError(e) {
   if (!e) return false;
   if (e.qualityReject === true || e.topicGateAbort === true) return true;
-  return /fact-check|rigettato|veridicità|fabricat|topic-gate abort|headline validation failed/i.test(
+  // `troppo corto` covers the whole thin-content class (too-short IT body
+  // after the retry+expand ladder, too-short char count, too-short locale
+  // field). A source that cannot reach the adaptive word/char floor is a
+  // per-headline QUALITY problem — skip it and try the next headline rather
+  // than crashing the whole run (run 28078614313: 296/700 IT words
+  // propagated to exit 1 instead of self-healing to another topic). Same
+  // class of bug as the 2026-05-11 topic-gate-abort miss.
+  return /fact-check|rigettato|veridicità|fabricat|topic-gate abort|headline validation failed|troppo corto/i.test(
     String(e.message || ''),
   );
 }
@@ -8217,7 +8224,13 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     } catch (expandErr) {
       console.error(`  ⚠️  Espansione fallita: ${expandErr.message}`);
     }
-    throw new Error(`Contenuto IT troppo corto dopo ${CREATE_ARTICLE_MIN_WORDS_RETRIES} tentativi + espansione (${italianBodyWordCount(data)}/${adaptiveMinWords} parole).`);
+    {
+      const shortErr = new Error(`Contenuto IT troppo corto dopo ${CREATE_ARTICLE_MIN_WORDS_RETRIES} tentativi + espansione (${italianBodyWordCount(data)}/${adaptiveMinWords} parole).`);
+      // Per-headline quality failure → headline retry loops skip this source
+      // and try the next one instead of aborting the run (auto-heal).
+      shortErr.qualityReject = true;
+      throw shortErr;
+    }
   }
 
   // Final thin content guard (after retry/expand attempts)
@@ -8226,7 +8239,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     const itPlainCharsFinal = itBodyFinal.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
     const adaptiveMinChars = computeAdaptiveMinChars(pageContent);
     if (itPlainCharsFinal < adaptiveMinChars) {
-      throw new Error(`Articolo troppo corto dopo retry: ${itPlainCharsFinal} chars (min: ${adaptiveMinChars}). Google penalizza thin content.`);
+      const thinErr = new Error(`Articolo troppo corto dopo retry: ${itPlainCharsFinal} chars (min: ${adaptiveMinChars}). Google penalizza thin content.`);
+      thinErr.qualityReject = true;
+      throw thinErr;
     }
     console.error(`  ✅ [thin-content] Body finale: ${itPlainCharsFinal} chars (min: ${adaptiveMinChars})`);
   }
