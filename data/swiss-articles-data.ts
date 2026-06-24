@@ -1160,6 +1160,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'controlli-frontiera-g7-divieti-entrata',
+    category: 'pratico',
+    date: '2026-06-24T16:24:00.422Z',
+    image: '/images/blog/controlli-frontiera-g7-divieti-entrata.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

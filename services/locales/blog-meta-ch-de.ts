@@ -388,6 +388,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iva-aumento-governo-decisione-previsto.title': 'Mehrwertsteuererhöhung: Die Regierung beschließt, die Erhöhung zu mildern',
     'blog.article.iva-aumento-governo-decisione-previsto.excerpt': 'Der Bundesrat hat beschlossen, die Mehrwertsteuererhöhung zur Finanzierung des Aufbaus der Armee abzuschwächen.',
     'blog.article.iva-aumento-governo-decisione-previsto.imageAlt': 'Bild eines Sees mit Bergen in der Schweiz',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.title': 'Grenzkontrollen für die G7: 11 Einreiseverbote in die Schweiz',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.excerpt': 'Die verstärkten Kontrollen führten zu 11 Einreiseverboten und Hunderten von Beschlagnahmungen gefährlicher Gegenstände.',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.imageAlt': 'Grenzkontrollen zwischen Frankreich und der Schweiz während des G7',
 };
 
 export default blogMetaChDe;

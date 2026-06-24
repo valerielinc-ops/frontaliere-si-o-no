@@ -4932,6 +4932,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-frontiera-g7-divieti-entrata': {
+    title: 'Controlli alla frontiera per il G7: 11 divieti di entrata in Svizzera',
+    description: 'I controlli rafforzati tra Francia e Svizzera hanno portato a 11 divieti di entrata e centinaia di sequestri di oggetti pericolosi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, alla, frontiera, divieti',
+    ogTitle: 'Controlli alla frontiera per il G7: 11 divieti di entrata in Svizzera',
+    ogDescription: 'I controlli rafforzati tra Francia e Svizzera hanno portato a 11 divieti di entrata e centinaia di sequestri di oggetti pericolosi.',
+    canonicalPath: '/articoli-svizzera/controlli-frontiera-g7-divieti-entrata/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli alla frontiera per il G7: 11 divieti di entrata in Svizzera",
+      "description": "I controlli rafforzati tra Francia e Svizzera hanno portato a 11 divieti di entrata e centinaia di sequestri di oggetti pericolosi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/controlli-frontiera-g7-divieti-entrata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controlli di frontiera tra Francia e Svizzera durante il G7"
+      },
+      "datePublished": "2026-06-24T16:24:00+00:00",
+      "dateModified": "2026-06-24T16:24:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/controlli-frontiera-g7-divieti-entrata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

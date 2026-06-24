@@ -388,6 +388,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iva-aumento-governo-decisione-previsto.title': 'Aumento IVA: il Governo decide di attenuare l\'incremento',
     'blog.article.iva-aumento-governo-decisione-previsto.excerpt': 'Il Consiglio federale ha deciso di attenuare l\'aumento dell\'IVA destinato a finanziare il rafforzamento dell\'esercito.',
     'blog.article.iva-aumento-governo-decisione-previsto.imageAlt': 'Immagine di un lago con montagne in Svizzera',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.title': 'Controlli alla frontiera per il G7: 11 divieti di entrata in Svizzera',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.excerpt': 'I controlli rafforzati hanno portato a 11 divieti di entrata e centinaia di sequestri di oggetti pericolosi.',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.imageAlt': 'Controlli di frontiera tra Francia e Svizzera durante il G7',
 };
 
 export default blogMetaChIt;

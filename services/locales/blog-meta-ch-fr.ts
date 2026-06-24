@@ -388,6 +388,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iva-aumento-governo-decisione-previsto.title': 'Augmentation de la TVA : le gouvernement décide d\'atténuer l\'augmentation',
     'blog.article.iva-aumento-governo-decisione-previsto.excerpt': 'Le Conseil fédéral a décidé d\'atténuer l\'augmentation de la TVA destinée à financer le renforcement de l\'armée.',
     'blog.article.iva-aumento-governo-decisione-previsto.imageAlt': 'Image d\'un lac avec des montagnes en Suisse',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.title': 'Contrôles aux frontières pour le G7: 11 interdictions d\'entrée en Suisse',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.excerpt': 'Les contrôles renforcés ont conduit à 11 interdictions d\'entrée et à des centaines de saisies d\'objets dangereux.',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.imageAlt': 'Contrôles aux frontières entre la France et la Suisse pendant le G7',
 };
 
 export default blogMetaChFr;
