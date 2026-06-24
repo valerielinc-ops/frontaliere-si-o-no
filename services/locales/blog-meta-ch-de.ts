@@ -403,6 +403,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aumento-iva-esercito-2024.title': 'Mehrwertsteuererhöhung für die Armee: Bundesrat revidiert nach unten',
     'blog.article.aumento-iva-esercito-2024.excerpt': 'Der Bundesrat hat beschlossen, die Mehrwertsteuer vorübergehend zu erhöhen, um die Stärkung der Verteidigung zu finanzieren und die Auswirkungen auf einkommensschwache Haushalte zu mildern.',
     'blog.article.aumento-iva-esercito-2024.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.riordino-incentivi-imprese.title': 'Neuordnung von Unternehmensanreizen: Was ändert sich mit dem neuen Dekret?',
+    'blog.article.riordino-incentivi-imprese.excerpt': 'Der Ministerrat hat das Dekret gebilligt, das die Anreize für Unternehmen rationalisiert und sie auf fünf Hauptinstrumente konzentriert.',
+    'blog.article.riordino-incentivi-imprese.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaChDe;

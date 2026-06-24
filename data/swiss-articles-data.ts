@@ -1205,6 +1205,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'riordino-incentivi-imprese',
+    category: 'novita',
+    date: '2026-06-24T20:19:26.623Z',
+    image: '/images/blog/riordino-incentivi-imprese.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

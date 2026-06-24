@@ -5127,6 +5127,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riordino-incentivi-imprese': {
+    title: 'Riordino incentivi alle imprese: cosa cambia con il nuovo decreto',
+    description: 'Il Consiglio dei Ministri ha approvato il decreto che razionalizza gli incentivi alle imprese, concentrandoli su cinque strumenti principali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, riordino, incentivi, alle, imprese',
+    ogTitle: 'Riordino incentivi alle imprese: cosa cambia con il nuovo decreto',
+    ogDescription: 'Il Consiglio dei Ministri ha approvato il decreto che razionalizza gli incentivi alle imprese, concentrandoli su cinque strumenti principali.',
+    canonicalPath: '/articoli-svizzera/riordino-incentivi-imprese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riordino incentivi alle imprese: cosa cambia con il nuovo decreto",
+      "description": "Il Consiglio dei Ministri ha approvato il decreto che razionalizza gli incentivi alle imprese, concentrandoli su cinque strumenti principali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riordino-incentivi-imprese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Lugano con il Lago Lugano e le montagne circostanti"
+      },
+      "datePublished": "2026-06-24T20:19:26+00:00",
+      "dateModified": "2026-06-24T20:19:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riordino-incentivi-imprese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

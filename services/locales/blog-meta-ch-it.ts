@@ -403,6 +403,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aumento-iva-esercito-2024.title': 'Aumento IVA per l\'esercito: il Consiglio federale rivede al ribasso',
     'blog.article.aumento-iva-esercito-2024.excerpt': 'Il Consiglio federale ha deciso di aumentare temporaneamente l\'IVA per finanziare il rafforzamento della difesa, attenuando l\'impatto sulle economie domestiche a basso reddito.',
     'blog.article.aumento-iva-esercito-2024.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
+    'blog.article.riordino-incentivi-imprese.title': 'Riordino incentivi alle imprese: cosa cambia con il nuovo decreto',
+    'blog.article.riordino-incentivi-imprese.excerpt': 'Il Consiglio dei Ministri ha approvato il decreto che razionalizza gli incentivi alle imprese, concentrandoli su cinque strumenti principali.',
+    'blog.article.riordino-incentivi-imprese.imageAlt': 'Veduta aerea di Lugano con il Lago Lugano e le montagne circostanti',
 };
 
 export default blogMetaChIt;
