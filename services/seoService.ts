@@ -4136,6 +4136,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sensibilita-al-lavoro-personale': { name: 'Sensibilità al lavoro', path: '/articoli-frontaliere/sensibilita-al-lavoro-personale', parent: 'blog' },
     'blog-alta-sensibilita-lavoro-stress': { name: 'Lavoro', path: '/articoli-svizzera/alta-sensibilita-lavoro-stress/', parent: 'blog' },
     'blog-grigioni-pagamento-contanti-bus': { name: 'Grigioni', path: '/articoli-svizzera/grigioni-pagamento-contanti-bus/', parent: 'blog' },
+    'blog-frontalieri-italia-svizzera-sede-aziendale': { name: 'Frontalieri Italia-Svizzera', path: '/articoli-svizzera/frontalieri-italia-svizzera-sede-aziendale/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

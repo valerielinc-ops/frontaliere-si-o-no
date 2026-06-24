@@ -364,6 +364,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-pagamento-contanti-bus.title': 'Grisons : initiative pour payer en espèces sur les bus',
     'blog.article.grigioni-pagamento-contanti-bus.excerpt': 'Initiative populaire pour garantir le paiement en espèces sur les transports publics dans les Grisons',
     'blog.article.grigioni-pagamento-contanti-bus.imageAlt': 'Arrêt de bus à Coire avec des passagers payant en espèces pour les services de transport public',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.title': 'Frontaliers Italie-Suisse : siège de l\'entreprise sans importance',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.excerpt': 'L\'Agence du revenu précise avec la réponse n ° 126/2026 comment l\'Accord de 2020 s\'applique en fonction du lieu d\'activité.',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.imageAlt': 'Vue aérienne de la zone frontalière du lac de Lugano entre l\'Italie et la Suisse',
 };
 
 export default blogMetaChFr;

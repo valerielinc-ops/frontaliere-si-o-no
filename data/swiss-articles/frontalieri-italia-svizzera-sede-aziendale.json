@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-italia-svizzera-sede-aziendale",
+  "slug": "frontalieri-italia-svizzera-sede-aziendale",
+  "publishedAt": "2026-06-24T06:01:11.762Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "fiscoetasse.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 13.642300581013448,
+    "confidence": 0.8,
+    "finalScore": 10.91384046481076,
+    "topK": [
+      {
+        "slug": "documenti-necessari-frontaliere",
+        "cosine": 0.8526437863133405
+      },
+      {
+        "slug": "tasse-aeree-kerosene-2026",
+        "cosine": 0.8490034985305248
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.848699515591681
+      },
+      {
+        "slug": "area-sosta-fantasma-sicurezza-autostrada",
+        "cosine": 0.8484407298244476
+      },
+      {
+        "slug": "tassa-salute-frontalieri-accordo-frontalieri",
+        "cosine": 0.8483299747915803
+      }
+    ],
+    "score": 5.45692023240538,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

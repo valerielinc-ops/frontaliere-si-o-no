@@ -364,6 +364,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-pagamento-contanti-bus.title': 'Graubünden: Barzahlungsinitiative für Busse',
     'blog.article.grigioni-pagamento-contanti-bus.excerpt': 'Volksinitiative zur Sicherstellung der Barzahlung im öffentlichen Verkehr in Graubünden',
     'blog.article.grigioni-pagamento-contanti-bus.imageAlt': 'Bushaltestelle in Chur mit Fahrgästen, die mit Bargeld für öffentliche Verkehrsmittel bezahlen',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.title': 'Grenzgänger Italien-Schweiz: nicht relevanter Firmensitz',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.excerpt': 'Die Agentur der Einnahmen klärt mit der Antwort Nr. 126/2026, wie die Vereinbarung von 2020 je nach Tätigkeitsort anzuwenden ist.',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.imageAlt': 'Luftaufnahme des Grenzgebiets am Luganersee zwischen Italien und der Schweiz',
 };
 
 export default blogMetaChDe;

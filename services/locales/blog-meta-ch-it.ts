@@ -364,6 +364,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-pagamento-contanti-bus.title': 'Grigioni: iniziativa per pagare in contanti sui bus',
     'blog.article.grigioni-pagamento-contanti-bus.excerpt': 'Iniziativa popolare per garantire il pagamento in contanti sui mezzi pubblici in Grigioni',
     'blog.article.grigioni-pagamento-contanti-bus.imageAlt': 'Fermata autobus a Coira con viaggiatori che pagano in contanti per i servizi pubblici',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.title': 'Frontalieri Italia-Svizzera: sede aziendale non rilevante',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.excerpt': 'L\'Agenzia delle Entrate chiarisce con la risposta n. 126/2026 come si applica l\'Accordo del 2020 in base al luogo di attività.',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.imageAlt': 'Vista aerea della zona di confine del Lago di Lugano tra Italia e Svizzera',
 };
 
 export default blogMetaChIt;
