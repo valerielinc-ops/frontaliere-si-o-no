@@ -61,4 +61,18 @@ describe('matchSubscribersForAd', () => {
   it('minScore filters weak matches', () => {
     expect(matchSubscribersForAd(fisioAd, subs, { minScore: 9 }).every((r: { score: number }) => r.score >= 9)).toBe(true);
   });
+
+  // Regression: the old filter checked the literal 'complaint' (an event-type
+  // name, never a subscriber status value) and omitted 'suppressed', so
+  // complained/suppressed recipients were still blasted. They must be excluded.
+  it('excludes hard-suppressed statuses (bounced/complained/suppressed)', () => {
+    const hard = [
+      { email: 'match@x.ch', job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health' },
+      { email: 'bounced@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'bounced' },
+      { email: 'complained@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'complained' },
+      { email: 'suppressed@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'SUPPRESSED' },
+    ];
+    const emails = matchSubscribersForAd(fisioAd, hard, { minScore: 3 }).map((r: { email: string }) => r.email);
+    expect(emails).toEqual(['match@x.ch']);
+  });
 });

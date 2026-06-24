@@ -1,0 +1,52 @@
+/**
+ * Shared subscriber-`status` suppression sets — the single source of truth for
+ * "stop emailing this recipient", used by every sender (newsletter, job alerts,
+ * publisher blast). Extracting it here makes the value drift that previously
+ * existed impossible by-construction: `publisherBlastMatch.mjs` checked for the
+ * literal `'complaint'` (an event-type discriminator, NEVER a subscriber status
+ * value) and so never actually suppressed users who filed a spam complaint,
+ * while `send-job-alerts.mjs` checked no status at all.
+ *
+ * The canonical `status` values are written by every `newsletter*WebhookCore.js`
+ * on provider events: `bounced` (hard bounce), `complained` (spam complaint),
+ * `suppressed` (provider suppression list), and the channel-level `unsubscribed`.
+ * Confirmed against all six webhook cores — they uniformly write `complained`
+ * (the `complaint` strings in those files are event-type names, not statuses).
+ */
+
+/**
+ * Address-level hard signals. The mailbox is dead (bounced), the human flagged
+ * us as spam (complained), or the provider blocklisted the address (suppressed).
+ * These apply across BOTH channels — newsletter AND job alerts — because the
+ * signal is about the address, not a per-channel consent choice.
+ */
+export const ADDRESS_SUPPRESSED_STATUSES = new Set(['bounced', 'complained', 'suppressed']);
+
+/**
+ * Newsletter-channel exclusions: the address-level signals PLUS the channel-level
+ * `unsubscribed` opt-out. Job alerts deliberately do NOT fold `unsubscribed` in
+ * here — an alert opt-out is the per-alert `active:false` flag, a separate consent
+ * from the newsletter unsubscribe.
+ */
+export const NEWSLETTER_EXCLUDED_STATUSES = new Set(['unsubscribed', ...ADDRESS_SUPPRESSED_STATUSES]);
+
+const norm = (s) => String(s == null ? '' : s).trim().toLowerCase();
+
+/**
+ * True when an address-level hard signal (bounce/complaint/suppression) means we
+ * must never email this address again on ANY channel.
+ * @param {string|null|undefined} status
+ * @returns {boolean}
+ */
+export function isAddressSuppressed(status) {
+  return ADDRESS_SUPPRESSED_STATUSES.has(norm(status));
+}
+
+/**
+ * True when a newsletter recipient must be excluded (address signals + unsub).
+ * @param {string|null|undefined} status
+ * @returns {boolean}
+ */
+export function isNewsletterExcluded(status) {
+  return NEWSLETTER_EXCLUDED_STATUSES.has(norm(status));
+}

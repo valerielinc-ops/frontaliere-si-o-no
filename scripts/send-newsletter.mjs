@@ -42,6 +42,7 @@ import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
+import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
@@ -1289,7 +1290,8 @@ function enrichSubscriberJobContext(subscriber, jobIndex) {
 
 // ─── Subscriber fetching ────────────────────────────────────
 
-const EXCLUDED_STATUSES = new Set(['unsubscribed', 'bounced', 'complained', 'suppressed']);
+// Shared source of truth (services/emailSuppression.mjs) so all senders agree.
+const EXCLUDED_STATUSES = NEWSLETTER_EXCLUDED_STATUSES;
 
 function subscriberFromFirestoreRow(row) {
   const email = normalizeEmail(row.email);
