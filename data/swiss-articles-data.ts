@@ -1241,6 +1241,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lamal-cmi-frontalieri-confronta-2026',
+    category: 'pratico',
+    date: '2026-06-24T23:29:46.991Z',
+    image: '/images/blog/lamal-cmi-frontalieri-confronta-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
