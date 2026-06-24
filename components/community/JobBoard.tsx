@@ -7109,7 +7109,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      to its right (the empty band beside the link). Banner is lg+ only; on
      mobile the row collapses to just the link. Auto Ads stay untouched —
      additional manual display unit. */}
- <div className="flex items-start gap-4">
+ <div className="flex items-center gap-4">
  <button
  onClick={backToList}
  className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline shrink-0"
