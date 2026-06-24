@@ -16,6 +16,7 @@ import {
 import AiExtractableTable from '@/components/shared/AiExtractableTable';
 import FaqAccordion from '@/components/shared/FaqAccordion';
 import { SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
+import DesktopTopBanner from '@/components/shared/DesktopTopBanner';
 
 // Eagerly load InputCard in THIS chunk so it parses only when CalcolatoreTabContent loads.
 // This removes InputCard and MobileCalcLayout from the main App bundle.
@@ -51,6 +52,12 @@ export default function CalcolatoreTabContent() {
 
  if (calcolatoreSubTab === 'calculator') {
  return (
+ <>
+ {/* Dedicated desktop top-banner (GPT/GAM leaderboard) above the H1 —
+ replaces reliance on the variable-height Auto Ad whose box left a blank
+ band above the fold. Outside space-y-8 so the hidden (mobile) slot adds
+ no phantom top gap. */}
+ <DesktopTopBanner />
  <div className="space-y-8">
  {seoLanding === 'new-frontier-over20km' ? (
  <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
@@ -334,6 +341,7 @@ export default function CalcolatoreTabContent() {
  </>
  )}
  </div>
+ </>
  );
  }
 
