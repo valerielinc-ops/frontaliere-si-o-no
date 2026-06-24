@@ -3790,7 +3790,11 @@ function extractRexxJobTitle(html) {
   // keyword). Kept in sync with SECTION_HEADING_RE in scripts/lib/tich-job-parser.mjs.
   const sectionRe = /^(compiti|requisiti|condizioni|scadenza|osservazioni|documenti|stipendio|mansioni|profilo|aufgaben|anforderungen)\b/i;
   const candidates = h2s.filter((h) => (
-    h.length > 20 &&
+    // Min length aligned with parseTichDetailPage (>10), not >20, so short
+    // count-leading titles (e.g. "1 Stagista IT", 13 chars) are not silently
+    // dropped here while passing the tich-parser. The trailing-colon /
+    // sectionRe / concorso-number guards below reject short section headings.
+    h.length > 10 &&
     !/:\s*$/.test(h) &&
     !sectionRe.test(h) &&
     !/^\d+\/\d+$/.test(h.trim()) &&
