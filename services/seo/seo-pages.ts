@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2894,
+ "numberOfItems": 2895,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7540,7 +7540,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2891, "name": "UBS presenta nuovo modello per la previdenza ve...", "url": `${BASE_URL}/articoli-frontaliere/ubs-previdenza-vecchiaia` },
           { "@type": "ListItem", "position": 2892, "name": "Berna apre ai rimborsi per dispositivi medici a...", "url": `${BASE_URL}/articoli-frontaliere/dispositivi-medici-rimborsi` },
           { "@type": "ListItem", "position": 2893, "name": "Frontalieri, via libera allo scambio dei dati s...", "url": `${BASE_URL}/articoli-frontaliere/scambio-dati-salariali-italia` },
-          { "@type": "ListItem", "position": 2894, "name": "Diminuiscono annunci di alloggi in affitto in S...", "url": `${BASE_URL}/articoli-frontaliere/diminuiscono-annunci-alloggi-frontaliere-ticino` }
+          { "@type": "ListItem", "position": 2894, "name": "Diminuiscono annunci di alloggi in affitto in S...", "url": `${BASE_URL}/articoli-frontaliere/diminuiscono-annunci-alloggi-frontaliere-ticino` },
+          { "@type": "ListItem", "position": 2895, "name": "Di più GR: progetto di 467,5 milioni per strada...", "url": `${BASE_URL}/articoli-frontaliere/prettigovia-progetto-467-5-milioni` }
  ]
  },
  {

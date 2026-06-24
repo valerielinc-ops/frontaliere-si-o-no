@@ -150,6 +150,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dispositivi-medici-rimborsi': { it: 'dispositivi-medici-rimborsi', en: 'medical-devices-reimbursement-abroad', de: 'medizinprodukte-rueckerstattung-ausland', fr: 'remboursement-dispositifs-medicaux-etranger' },
  'scambio-dati-salariali-italia': { it: 'scambio-dati-salariali-italia', en: 'salary-data-exchange-italy', de: 'austausch-gehaltsdaten-italien', fr: 'echange-donnees-salariales-italie' },
  'diminuiscono-annunci-alloggi-frontaliere-ticino': { it: 'diminuiscono-annunci-alloggi-frontaliere-ticino', en: 'diminuiscono-annunci-alloggi-frontaliere-ticino', de: 'diminuiscono-annunci-alloggi-frontaliere-ticino', fr: 'diminuiscono-annunci-alloggi-frontaliere-ticino' },
+ 'prettigovia-progetto-467-5-milioni': { it: 'prettigovia-progetto-467-5-milioni', en: 'prettigovia-project-467-5-millions', de: 'prettigovia-projekt-467-5-millionen', fr: 'prettigovia-projet-467-5-millions' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -382,6 +382,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.title': 'Diminuiscono annunci di alloggi in affitto in Svizzera: cosa succede?',
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.excerpt': 'Il numero di annunci di alloggi in affitto è diminuito del 4% tra aprile 2025 e marzo 2026, mentre la durata media di pubblicazione degli annunci è aumentata.',
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.imageAlt': 'Foto di un edificio residenziale a Lugano con alloggi in affitto',
+    'blog.article.prettigovia-progetto-467-5-milioni.title': 'Di più GR: progetto di 467,5 milioni per strada e ferrovia in Prettigovia',
+    'blog.article.prettigovia-progetto-467-5-milioni.excerpt': 'Il progetto di ricostruzione della strada e della ferrovia in Prettigovia costa 467,5 milioni di franchi',
+    'blog.article.prettigovia-progetto-467-5-milioni.imageAlt': 'Costruzione stradale in Svizzera',
 };
 
 export default blogMetaChIt;

@@ -382,6 +382,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.title': 'Kleinanzeigen für Mietwohnungen in der Schweiz sinken: Was passiert?',
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.excerpt': 'Die Zahl der Inserate für Mietwohnungen ging zwischen April 2025 und März 2026 um 4% zurück, während die durchschnittliche Dauer der Inseratsschaltung zunahm.',
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.imageAlt': 'Fotos eines Wohnhauses in Lugano mit möblierten Apartments',
+    'blog.article.prettigovia-progetto-467-5-milioni.title': 'Mehr GR: 467,5 Mio. Strassen- und Bahnprojekt im Prättigau',
+    'blog.article.prettigovia-progetto-467-5-milioni.excerpt': 'Das Projekt zum Wiederaufbau von Strasse und Bahn im Prättigau kostet 467,5 Millionen Franken',
+    'blog.article.prettigovia-progetto-467-5-milioni.imageAlt': 'Strassenbau in der Schweiz',
 };
 
 export default blogMetaChDe;

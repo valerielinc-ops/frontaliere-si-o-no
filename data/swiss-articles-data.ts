@@ -1142,6 +1142,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'prettigovia-progetto-467-5-milioni',
+    category: 'novita',
+    date: '2026-06-24T14:01:44.757Z',
+    image: '/images/blog/prettigovia-progetto-467-5-milioni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
