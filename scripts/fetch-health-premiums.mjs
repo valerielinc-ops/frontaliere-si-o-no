@@ -42,6 +42,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -655,21 +656,19 @@ async function main() {
   const resolvedDataOut = path.join(DATA_DIR, `${datasetYear}.json`);
   const resolvedPublicOut = path.join(PUBLIC_DIR, `${datasetYear}.json`);
 
-  const json = JSON.stringify(output, null, 2);
-  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-  fs.writeFileSync(resolvedDataOut, json);
-  console.log(`\n✅ Written ${resolvedDataOut} (${(json.length / 1024).toFixed(0)} KB)`);
+  writeJsonAtomic(resolvedDataOut, output);
+  const approxKb = (JSON.stringify(output, null, 2).length / 1024).toFixed(0);
+  console.log(`\n✅ Written ${resolvedDataOut} (${approxKb} KB)`);
 
-  if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });
-  fs.writeFileSync(resolvedPublicOut, json);
+  writeJsonAtomic(resolvedPublicOut, output);
   console.log(`✅ Written ${resolvedPublicOut}`);
 
   // Legacy flat-file alias — keep pre-F2-A3 consumers working. Only refresh
   // when the dataset corresponds to the *current* calendar year so we never
   // overwrite production data with a historical backfill.
   if (datasetYear === CURRENT_YEAR) {
-    fs.writeFileSync(LEGACY_DATA_OUT, json);
-    fs.writeFileSync(LEGACY_PUBLIC_OUT, json);
+    writeJsonAtomic(LEGACY_DATA_OUT, output);
+    writeJsonAtomic(LEGACY_PUBLIC_OUT, output);
     console.log(`✅ Refreshed legacy aliases ${LEGACY_DATA_OUT} + ${LEGACY_PUBLIC_OUT}`);
   } else {
     console.log(`ℹ️  Skipped legacy alias refresh (dataset year ${datasetYear} ≠ current ${CURRENT_YEAR}).`);
