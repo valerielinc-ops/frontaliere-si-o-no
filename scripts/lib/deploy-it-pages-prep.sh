@@ -108,17 +108,72 @@ step_spa_fallback() {
   cp dist/index.html dist/404.html
 }
 
+# ── R2 publish (Cloudflare R2 via S3 API) — instant PUT, no Pages build ───────
+# Used when CDN_TARGET=r2 (else the legacy git force-push below runs). Replaces
+# the ~22min GitHub Pages publish latency (root cause of the #2569/#2872 stale-
+# locale class) with an instant, read-after-write-strong R2 sync. Incremental
+# `aws s3 sync` is ADDITIVE (no --delete → prior assets/ stay; superseded hashes
+# GC'd by the janitor past grace), so the clone-prev `cp -n` dance Pages needs is
+# unnecessary here. Per-class Cache-Control lets the Cloudflare edge absorb reads
+# (R2 Class B stays in the free tier). Content-Type is auto-detected from the
+# file extension by the AWS CLI. The #2569 atomicity marker is PUT LAST with
+# `no-store` so the cache-busted gate (wait-cdn-build-id.sh) sees the new id the
+# instant the full payload is on R2 — never an edge-cached stale value.
+_publish_cdn_r2() {
+  local stage="$1"
+  if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
+     || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+    echo "::warning::CDN_TARGET=r2 but R2_* creds missing — skipping CDN publish (assets stay in dist)"
+    return 0
+  fi
+  if ! command -v aws >/dev/null 2>&1; then
+    echo "::error::CDN_TARGET=r2 but the aws CLI is not on the runner — cannot sync to R2"
+    return 0
+  fi
+  export AWS_ACCESS_KEY_ID="$R2_ACCESS_KEY_ID"
+  export AWS_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY"
+  export AWS_DEFAULT_REGION=auto
+  local ep="$R2_S3_ENDPOINT" bkt="s3://$R2_BUCKET" ok=1
+  echo "CDN→R2: payload $(du -sh "$stage" | cut -f1) → $bkt"
+  _r2_sync() { # <src-dir> <dst-prefix> <cache-control>
+    [ -d "$1" ] || return 0
+    aws s3 sync "$1" "$bkt/$2" --endpoint-url "$ep" --no-progress --only-show-errors \
+      --cache-control "$3" || ok=0
+  }
+  _r2_sync "$stage/assets" assets "public,max-age=31536000,immutable"
+  _r2_sync "$stage/og"     og     "public,max-age=86400"
+  _r2_sync "$stage/images" images "public,max-age=86400"
+  _r2_sync "$stage/data"   data   "public,max-age=600"
+  aws s3 cp "$stage/index.html" "$bkt/index.html" --endpoint-url "$ep" --no-progress --only-show-errors \
+    --content-type "text/html; charset=utf-8" --cache-control "public,max-age=600" || ok=0
+  if [ "$ok" != 1 ]; then
+    echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
+    return 0
+  fi
+  # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
+  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
+  if aws s3 cp "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" --endpoint-url "$ep" --no-progress \
+       --only-show-errors --content-type "text/plain; charset=utf-8" --cache-control "no-store, max-age=0"; then
+    export_env CDN_BASE "https://cdn.frontaliereticino.ch"
+    echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
+  else
+    echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
+  fi
+}
+
 # ── 2. Push generated assets to CDN repo (frontaliere-cdn / Pages) ────────────
 # deploy.yml: "Push generated assets to CDN repo" — NON-FATAL (continue-on-error).
-# Stages CDN payload (dist/og, dist/data, dist/assets, public/images/*), blobless
-# clone of the CDN repo, additive `cp -n` merge of prior assets/, force-push to
-# valerielinc-ops/frontaliere-cdn, exports CDN_BASE on success. Internally
-# non-fatal: every failure path keeps the assets in dist.
+# Stages CDN payload (dist/og, dist/data, dist/assets, public/images/*), then
+# publishes via CDN_TARGET: 'r2' (S3 sync, default-off) or 'pages' (legacy git
+# force-push to valerielinc-ops/frontaliere-cdn). Exports CDN_BASE on success.
+# Internally non-fatal: every failure path keeps the assets in dist.
 step_push_cdn() {
   set -uo pipefail
-  if [ -z "${CDN_DEPLOY_KEY:-}" ]; then
-    echo "no CDN_DEPLOY_KEY secret — skipping CDN push, assets stay in dist"; return 0
-  fi
+  # CDN_TARGET selects the publish path; default 'pages' keeps the legacy
+  # git-push behaviour byte-identical. The credential guard is per-target,
+  # applied inside each branch below (fail-closed): r2 → R2_* creds, pages →
+  # CDN_DEPLOY_KEY.
+  local cdn_target="${CDN_TARGET:-pages}"
   stage=/tmp/cdn-stage
   rm -rf "$stage" && mkdir -p "$stage"
   : > "$stage/.nojekyll"                              # serve every path verbatim, skip Jekyll
@@ -155,6 +210,26 @@ step_push_cdn() {
     echo "no offloadable assets present — skipping CDN push"; return 0
   fi
   printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
+
+  # ── Publish: r2 (instant) | both (dual-publish for cutover) | pages (legacy) ─
+  # 'both' writes R2 AND Pages so the live domain (still → Pages until the R2
+  # custom-domain flip) keeps serving while R2 is populated+validated in
+  # parallel — zero-downtime cutover. 'r2' is R2-only (post-flip). 'pages'
+  # (default) is the legacy git force-push, byte-identical to before.
+  if [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; then
+    _publish_cdn_r2 "$stage"
+    if [ "$cdn_target" = "r2" ]; then
+      cd "$PREP_CWD"
+      return 0
+    fi
+    # 'both': fall through to ALSO publish to Pages (live domain unchanged).
+  fi
+  # Legacy Pages path below (CDN_TARGET=pages or both).
+  if [ -z "${CDN_DEPLOY_KEY:-}" ]; then
+    echo "no CDN_DEPLOY_KEY secret — skipping CDN push, assets stay in dist"
+    cd "$PREP_CWD"
+    return 0
+  fi
   keyfile="$RUNNER_TEMP/cdn_deploy_key"
   printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
   export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
@@ -240,6 +315,13 @@ step_offload() {
 step_prune_cdn() {
   if [ -z "${CDN_BASE:-}" ]; then
     echo "CDN_BASE unset (no CDN push this run) — skipping CDN prune"; return 0
+  fi
+  # The janitor is git-based (clone + force-push frontaliere-cdn). On R2 there is
+  # no git repo and no ~1 GB Pages limit to defend, so skip it here — R2 storage
+  # GC is a separate (S3 ListObjects + DeleteObject) follow-up; at 1.27 GB the
+  # 10 GB R2 free-tier has ample headroom in the meantime.
+  if [ "${CDN_TARGET:-pages}" = "r2" ]; then
+    echo "CDN_TARGET=r2 — skipping git-based assets janitor (R2 has no 1 GB limit; GC is a follow-up)"; return 0
   fi
   node scripts/ci/prune-cdn-assets.mjs
 }
