@@ -414,9 +414,13 @@ async function sendViaMailgun(email) {
   form.append('subject', email.subject);
   form.append('html', email.html);
   if (email.text) form.append('text', email.text);
-  // Explicitly enable tracking (open pixel + link rewriting)
+  // Opens (pixel) stay on for engagement scoring. Click tracking rewrites
+  // links through Mailgun's tracking domain; callers may opt out per-message
+  // with `tracking: false` (e.g. win-back CTAs that must point directly to
+  // our canonical https origin). Mailgun is the FIRST provider in the cascade,
+  // so this gate is what actually honors `tracking: false` on the primary path.
   form.append('o:tracking', 'yes');
-  form.append('o:tracking-clicks', 'yes');
+  form.append('o:tracking-clicks', email.tracking !== false ? 'yes' : 'no');
   form.append('o:tracking-opens', 'yes');
   if (email.tags?.length) {
     for (const tag of email.tags) form.append('o:tag', tag.value);
