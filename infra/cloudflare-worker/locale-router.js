@@ -177,6 +177,20 @@ const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 // build-plugin modules. Keep the three copies in lockstep when touching any one.
 const JOB_DETAIL_RE =
   /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)\/?$/;
+
+// Cross-locale company-hub prefix recovery (see recoverCrossLocaleCompanyPrefix).
+// Company-hub URLs carry a LOCALIZED prefix on the last path segment:
+//   IT azienda-   EN company-   DE unternehmen-   FR entreprise-
+// The build emits each locale's hub ONLY under that locale's prefix, so a hub
+// requested with a foreign prefix (e.g. the IT `azienda-` kept on an /fr route)
+// is a hard origin 404. COMPANY_HUB_RE captures the locale-route prefix and the
+// last segment generically; the prefix alternation lives ONLY in
+// COMPANY_PREFIX_RE (single source of truth, no literal re-duplication).
+const COMPANY_PREFIX_BY_LOCALE = { en: 'company', de: 'unternehmen', fr: 'entreprise' };
+const COMPANY_PREFIX_RE = /^(?:azienda|company|unternehmen|entreprise)-(.+)$/;
+const COMPANY_HUB_RE =
+  /^(\/(?:en|de|fr)\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+)\/([^/]+)\/?$/;
+
 const MAP_FETCH_TIMEOUT_MS = 2000;
 const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 
@@ -232,6 +246,34 @@ async function recoverCantonDriftOrphan(url, locale) {
   // Never 301 to the path we are already on (avoids a redirect loop).
   if (canonical === url.pathname.replace(/\/+$/, '') + '/') return null;
 
+  const location = canonical + url.search + url.hash;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+  });
+}
+
+// Returns a within-locale 301 Response when the requested path is a company-hub
+// orphaned only by a wrong-locale company prefix (e.g. the IT `azienda-` prefix
+// kept on an /fr `trouver-emploi-*` route), otherwise null. The fix swaps ONLY
+// the company prefix to the request locale's canonical one
+// (COMPANY_PREFIX_BY_LOCALE) and leaves the rest of the path byte-identical, so
+// the 301 stays strictly within-locale (never crosses to IT) and lands on the
+// real 200 hub. Purely synchronous (no map/subrequest): the prefix↔locale
+// mapping is deterministic. The caller runs this ONLY after the canton-drift map
+// miss, so a real job-detail slug (which lives in /job-canon) is never hijacked.
+function recoverCrossLocaleCompanyPrefix(url, locale) {
+  const correct = COMPANY_PREFIX_BY_LOCALE[locale];
+  if (!correct) return null;
+  const m = url.pathname.match(COMPANY_HUB_RE);
+  if (!m) return null;
+  const [, routePrefix, lastSeg] = m;
+  const pm = lastSeg.match(COMPANY_PREFIX_RE);
+  if (!pm) return null; // last segment is not a company-prefixed hub → leave alone
+  const rest = pm[1];
+  // Already canonical for this locale → nothing to fix (loop guard).
+  if (lastSeg === `${correct}-${rest}`) return null;
+  const canonical = `${routePrefix}/${correct}-${rest}/`;
   const location = canonical + url.search + url.hash;
   return new Response(null, {
     status: 301,
@@ -452,6 +494,12 @@ export default {
       // match[1] is the request's locale (en|de|fr) — keep the 301 within-locale.
       const redirect = await recoverCantonDriftOrphan(url, match[1]);
       if (redirect) return redirect;
+      // Cross-locale company-hub prefix mismatch (e.g. IT `azienda-` prefix on an
+      // /fr route) → within-locale 301 to the canonical prefix. Synchronous, and
+      // runs only AFTER the canton-drift map miss so a real job slug that happens
+      // to start with a prefix word is never hijacked.
+      const companyRedirect = recoverCrossLocaleCompanyPrefix(url, match[1]);
+      if (companyRedirect) return companyRedirect;
     }
 
     // Stamp Cache-Control on 404s too: see NOT_FOUND_CACHE_CONTROL. GitHub
