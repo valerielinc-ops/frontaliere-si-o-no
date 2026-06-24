@@ -4176,6 +4176,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-caldo-traffico-ferroviario': { name: 'Caldo e traffico ferroviario', path: '/articoli-svizzera/caldo-traffico-ferroviario/', parent: 'blog' },
     'blog-affitti-lugano-mercato-rallenta': { name: 'Affitti Lugano', path: '/articoli-svizzera/affitti-lugano-mercato-rallenta/', parent: 'blog' },
     'blog-tpl-2025-record-numeri': { name: 'Trasporti Pubblici Luganesi', path: '/articoli-svizzera/tpl-2025-record-numeri/', parent: 'blog' },
+    'blog-aumento-iva-esercito-2024': { name: 'IVA e difesa', path: '/articoli-svizzera/aumento-iva-esercito-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -400,6 +400,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tpl-2025-record-numeri.title': 'Für TPL ein 2025 zwischen Vergangenheit und Zukunft, mit Rekordzahlen',
     'blog.article.tpl-2025-record-numeri.excerpt': 'Die Generalversammlung der Trasporti Pubblici Luganesi SA feiert ihr 25-jähriges Bestehen und die Inbetriebnahme der ersten städtischen elektrifizierten Linie.',
     'blog.article.tpl-2025-record-numeri.imageAlt': 'Panoramablick auf Lugano mit elektrischem Nahverkehr',
+    'blog.article.aumento-iva-esercito-2024.title': 'Mehrwertsteuererhöhung für die Armee: Bundesrat revidiert nach unten',
+    'blog.article.aumento-iva-esercito-2024.excerpt': 'Der Bundesrat hat beschlossen, die Mehrwertsteuer vorübergehend zu erhöhen, um die Stärkung der Verteidigung zu finanzieren und die Auswirkungen auf einkommensschwache Haushalte zu mildern.',
+    'blog.article.aumento-iva-esercito-2024.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaChDe;
