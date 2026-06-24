@@ -19,15 +19,14 @@
  * Detection MIRRORS scripts/lib/stop-reply-detect.mjs (single source) — kept in
  * lockstep (AGENTS.md Non-Negotiable #6); both are unit-tested.
  *
- * Bindings (wrangler.email.toml / dashboard):
- *   vars:    STOP_REPLY_FN_URL  (https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachStopReply)
- *            REPLY_TRACK_FN_URL (https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachReplyTrack)
- *            FORWARD_TO         (the human inbox to forward every reply to)
- *   secret:  STOP_SECRET        (== NEWSLETTER_SECRET; `wrangler secret put STOP_SECRET`)
+ * Deploy + config are AUTOMATED by .github/workflows/deploy-email-worker.yml
+ * (wrangler deploy + scripts/cf-email-worker-setup.mjs). Bindings:
+ *   vars (wrangler.toml):  STOP_REPLY_FN_URL, REPLY_TRACK_FN_URL
+ *   secrets (CF API, set by the setup script): STOP_SECRET (== NEWSLETTER_SECRET),
+ *            FORWARD_TO (the human inbox; resolved from the zone catch-all target)
  *
- * NOTE: binding the Worker to the inbound address in Cloudflare Email Routing is a
- * manual dashboard/API step (declared in the PR's ## Non implementato) — the code
- * here is the handler that step points at.
+ * The inbound binding (outreach reply address → "send to worker") is also set
+ * by the setup script via the Email Routing API — no manual dashboard step.
  */
 
 // MIRROR of scripts/lib/stop-reply-detect.mjs STOP_INTENT_PATTERNS. Keep in sync.
