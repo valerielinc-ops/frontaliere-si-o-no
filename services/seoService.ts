@@ -4178,6 +4178,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tpl-2025-record-numeri': { name: 'Trasporti Pubblici Luganesi', path: '/articoli-svizzera/tpl-2025-record-numeri/', parent: 'blog' },
     'blog-aumento-iva-esercito-2024': { name: 'IVA e difesa', path: '/articoli-svizzera/aumento-iva-esercito-2024/', parent: 'blog' },
     'blog-riordino-incentivi-imprese': { name: 'Novità', path: '/articoli-svizzera/riordino-incentivi-imprese/', parent: 'blog' },
+    'blog-calcolo-rendita-lpp-ubs': { name: 'Rendita LPP', path: '/articoli-svizzera/calcolo-rendita-lpp-ubs/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

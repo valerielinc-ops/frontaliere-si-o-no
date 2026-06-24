@@ -406,6 +406,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.riordino-incentivi-imprese.title': 'Reordering incentives for companies: what changes with the new decree',
     'blog.article.riordino-incentivi-imprese.excerpt': 'The Council of Ministers approved the decree streamlining business incentives, focusing them on five main instruments.',
     'blog.article.riordino-incentivi-imprese.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
+    'blog.article.calcolo-rendita-lpp-ubs.title': 'How to calculate the LPP - UBS annuity',
+    'blog.article.calcolo-rendita-lpp-ubs.excerpt': 'Learn how to calculate your LPP annuity with UBS. Complete and practical guide for border workers.',
+    'blog.article.calcolo-rendita-lpp-ubs.imageAlt': 'A financial advisor explaining the LPP pension calculation to a client in a modern office.',
 };
 
 export default blogMetaChEn;

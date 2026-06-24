@@ -406,6 +406,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riordino-incentivi-imprese.title': 'Riordino incentivi alle imprese: cosa cambia con il nuovo decreto',
     'blog.article.riordino-incentivi-imprese.excerpt': 'Il Consiglio dei Ministri ha approvato il decreto che razionalizza gli incentivi alle imprese, concentrandoli su cinque strumenti principali.',
     'blog.article.riordino-incentivi-imprese.imageAlt': 'Veduta aerea di Lugano con il Lago Lugano e le montagne circostanti',
+    'blog.article.calcolo-rendita-lpp-ubs.title': 'Come si calcola la rendita LPP - UBS',
+    'blog.article.calcolo-rendita-lpp-ubs.excerpt': 'Scopri come calcolare la tua rendita LPP con UBS. Guida completa e pratica per i frontalieri.',
+    'blog.article.calcolo-rendita-lpp-ubs.imageAlt': 'Un consulente finanziario spiega il calcolo della rendita LPP a un cliente in un ufficio moderno.',
 };
 
 export default blogMetaChIt;

@@ -1214,6 +1214,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'calcolo-rendita-lpp-ubs',
+    category: 'pratico',
+    date: '2026-06-24T20:52:48.785Z',
+    image: '/images/blog/calcolo-rendita-lpp-ubs.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
