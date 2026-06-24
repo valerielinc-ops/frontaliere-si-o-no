@@ -78,29 +78,28 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
 });
 
 /**
- * Guard analogo per VITEST_SHARD_NAME_RE (#2438): il regex deve matchare il
- * `name:` del job SHARD in tests.yml (`vitest shard ${{ matrix.shard }}/4`).
- * `vitestFailureIsTransientCancellation` lo usa per riaprire gli shard sotto
- * l'aggregatore; un rename del job senza aggiornare il regex farebbe leggere 0
- * shard → l'heal transient non scatterebbe mai (silenzioso, come #1602).
+ * Contratto single-job post de-sharding (#2882): tests.yml esegue UN solo job
+ * `vitest (unit + integration)` — non esiste più un job `vitest-shard:` con
+ * matrice. `VITEST_SHARD_NAME_RE` e `vitestFailureIsTransientCancellation`
+ * RESTANO in scripts/ci/lib (dormienti): senza check-run shard l'heal ritorna
+ * `false`, che è il comportamento CORRETTO nel nuovo mondo — un vitest=failure
+ * sull'HEAD è sempre un fail reale, mai un mascheramento da shard `cancelled`
+ * collassato dall'aggregatore. Questo guard fissa il contratto single-job: una
+ * futura re-introduzione dello sharding DEVE aggiornare consapevolmente sia
+ * tests.yml sia l'heal (la unit `vitest-check-selection.test.ts` copre la funzione).
  */
-describe('VITEST_SHARD_NAME_RE (#2438 shard-name drift guard)', () => {
-  it('matcha il name: del job shard reso da tests.yml per ogni indice della matrice', () => {
-    const m = TESTS_YML.match(/^\s*vitest-shard:\s*\n(?:.*\n)*?\s*name:\s*(.+?)\s*$/m);
-    expect(m, 'job `vitest-shard:` con `name:` non trovato in tests.yml').toBeTruthy();
-    const tpl = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    // Estrae il count statico dal template `vitest shard ${{ matrix.shard }}/N`.
-    const countMatch = tpl.match(/\}\}\/(\d+)\s*$/);
-    expect(countMatch, `count statico /N non trovato in name: "${tpl}"`).toBeTruthy();
-    const count = Number(countMatch![1]);
-    // Espande il template per ogni shard della matrice e verifica il match.
-    for (let i = 1; i <= count; i++) {
-      const rendered = tpl.replace(/\$\{\{\s*matrix\.shard\s*\}\}/g, String(i));
-      expect(VITEST_SHARD_NAME_RE.test(rendered), `regex non matcha shard "${rendered}"`).toBe(true);
-    }
+describe('vitest single-job contract (#2882 de-sharding)', () => {
+  it('tests.yml ha il job `vitest:` e NESSUN job `vitest-shard:`', () => {
+    expect(/^[ \t]*vitest:[ \t]*$/m.test(TESTS_YML), 'job `vitest:` mancante in tests.yml').toBe(true);
+    expect(
+      /^[ \t]*vitest-shard:[ \t]*$/m.test(TESTS_YML),
+      'job `vitest-shard:` ancora presente — de-sharding incompleto (aggiorna anche l’heal in vitestCheck.mjs)',
+    ).toBe(false);
   });
 
-  it('NON matcha il nome dell’aggregatore (i due check-name restano distinti)', () => {
+  it('VITEST_SHARD_NAME_RE resta sano: matcha un nome shard ma NON l’aggregatore', () => {
+    // Dormiente ma non rotto: se lo sharding torna deve ancora distinguere i due.
+    expect(VITEST_SHARD_NAME_RE.test('vitest shard 1/4')).toBe(true);
     expect(VITEST_SHARD_NAME_RE.test(VITEST_CHECK_NAME)).toBe(false);
   });
 });
