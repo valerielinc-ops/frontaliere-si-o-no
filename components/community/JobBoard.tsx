@@ -8010,7 +8010,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Search className="w-4 h-4 mt-0.5 shrink-0 text-info-strong" />
  <div>
  <p className="font-semibold font-display text-strong">
- {t('jobBoard.crossCantonFallback.title', { query: deferredSearchQuery.trim(), count: String(filteredJobs.length) })}
+ {t('jobBoard.crossCantonFallback.title', { query: deferredSearchQuery.trim(), count: String(filteredJobs.length), ...cantonI18n })}
  </p>
  <p className="text-xs text-subtle mt-1">
  {t('jobBoard.crossCantonFallback.hint')}
@@ -8029,7 +8029,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Search className="w-4 h-4 mt-0.5 shrink-0 text-info-strong" />
  <div>
  <p className="font-semibold font-display text-strong">
- {t('jobBoard.broadenedSearch.title', { query: deferredSearchQuery.trim(), count: String(filteredJobs.length) })}
+ {t('jobBoard.broadenedSearch.title', { query: deferredSearchQuery.trim(), count: String(filteredJobs.length), ...cantonI18n })}
  </p>
  <p className="text-xs text-subtle mt-1">
  {t('jobBoard.broadenedSearch.hint')}
@@ -8067,7 +8067,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Briefcase className="w-4 h-4 mt-0.5 shrink-0 text-info-strong" />
  <div>
  <p className="font-semibold font-display text-strong">
- {t('jobBoard.companyBroaden.title', { company: companyDisplayName ?? '', count: String(filteredJobs.length) })}
+ {t('jobBoard.companyBroaden.title', { company: companyDisplayName ?? '', count: String(filteredJobs.length), ...cantonI18n })}
  </p>
  <p className="text-xs text-subtle mt-1">
  {t('jobBoard.companyBroaden.hint')}
