@@ -24,11 +24,14 @@ export const ADDRESS_SUPPRESSED_STATUSES = new Set(['bounced', 'complained', 'su
 
 /**
  * Newsletter-channel exclusions: the address-level signals PLUS the channel-level
- * `unsubscribed` opt-out. Job alerts deliberately do NOT fold `unsubscribed` in
- * here — an alert opt-out is the per-alert `active:false` flag, a separate consent
- * from the newsletter unsubscribe.
+ * soft states — `unsubscribed` (explicit opt-out) and `inactive` (the sunset of a
+ * never-engager, see scripts/lib/subscriberSunset.mjs). Both are reversible and
+ * newsletter-specific. Job alerts deliberately do NOT fold these in — an alert
+ * opt-out is the per-alert `active:false` flag, a separate consent. `inactive` is
+ * NOT in ADDRESS_SUPPRESSED_STATUSES because it is a soft, channel-level state,
+ * not a hard cross-channel signal (a bounce/complaint).
  */
-export const NEWSLETTER_EXCLUDED_STATUSES = new Set(['unsubscribed', ...ADDRESS_SUPPRESSED_STATUSES]);
+export const NEWSLETTER_EXCLUDED_STATUSES = new Set(['unsubscribed', 'inactive', ...ADDRESS_SUPPRESSED_STATUSES]);
 
 const norm = (s) => String(s == null ? '' : s).trim().toLowerCase();
 

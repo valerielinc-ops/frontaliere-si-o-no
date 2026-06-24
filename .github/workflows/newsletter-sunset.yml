@@ -1,0 +1,92 @@
+name: Newsletter Sunset
+
+# Graduated, reversible list hygiene: win-back never-engagers, then soft-move
+# them to `inactive`, and reactivate any who came back. Policy + thresholds live
+# in scripts/lib/subscriberSunset.mjs (120d on list + ≥12 ignored sends).
+on:
+  schedule:
+    # Weekly, Monday 04:11 UTC — well before the daily newsletter send (05:33 UTC)
+    # so a same-day win-back is stamped before the regular send filters it out.
+    - cron: '11 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run (default), apply (status transitions only), or send (also email win-backs)'
+        required: false
+        default: 'dry-run'
+        type: choice
+        options:
+          - dry-run
+          - apply
+          - send
+
+permissions:
+  contents: read
+  issues: write
+
+# Never overlap with itself (it mutates subscriber status in batches).
+concurrency:
+  group: newsletter-sunset
+  cancel-in-progress: false
+
+jobs:
+  sunset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"
+            exit 1
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run sunset
+        env:
+          NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM || '' }}
+          # Scheduled runs apply transitions AND send win-backs; manual runs use
+          # the chosen mode (default dry-run — safe to inspect before acting).
+          MODE: ${{ github.event_name == 'schedule' && 'send' || inputs.mode || 'dry-run' }}
+        run: |
+          echo "🌙 Newsletter sunset mode=$MODE"
+          case "$MODE" in
+            send)  node scripts/newsletter-sunset.mjs --apply --send ;;
+            apply) node scripts/newsletter-sunset.mjs --apply ;;
+            *)     node scripts/newsletter-sunset.mjs ;;
+          esac
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
