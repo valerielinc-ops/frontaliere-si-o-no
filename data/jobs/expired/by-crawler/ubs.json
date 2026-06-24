@@ -392,53 +392,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "client-associate-ubs",
-    "title": "Client Associate",
-    "titleByLocale": {
-      "en": "Client Associate",
-      "it": "Client Associate",
-      "de": "Client Associate",
-      "fr": "Client Associate"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Service Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "it": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Service Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "de": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Service Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "fr": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Service Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
-    },
-    "slugByLocale": {
-      "en": "client-associate-ubs",
-      "it": "client-associate-ubs",
-      "de": "client-associate-ubs",
-      "fr": "client-associate-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-23T23:21:45.100Z",
-    "previousSlugs": [
-      "cliente-associato-ubs-ticino-59777f"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "client-associate-ubs-3"
-      ],
-      "fr": [
-        "client-associe-ubs-ticino-59777f",
-        "client-associate-ubs-3"
-      ],
-      "it": [
-        "client-associate-ubs-3"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "service-associate-ubs",
     "title": "Service Associate",
     "titleByLocale": {
@@ -854,53 +807,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "amministratore-ufficio-ubs-ticino",
-    "title": "Office Administrator",
-    "titleByLocale": {
-      "en": "Office Administrator",
-      "it": "Amministratore ufficio",
-      "de": "Büroverwaltung",
-      "fr": "Administrateur de bureau"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "A UBS Office Administrator supports market and branch management teams by overseeing daily office operations, HR tasks (like payroll and new hire onboarding), accounts payable, and coordinating business meetings.",
-      "it": "Un amministratore dell'ufficio UBS supporta i team di gestione del mercato e delle filiali supervisionando le operazioni quotidiane dell'ufficio, i compiti delle risorse umane (come il libro paga e il nuovo noleggio a bordo), i conti pagabili e il coordinamento delle riunioni aziendali.",
-      "de": "Ein UBS-Office-Administrator unterstützt Markt- und Zweigniederlassungsmanagementteams, indem er den täglichen Bürobetrieb, HR-Aufgaben (wie Lohnabrechnung und Onboarding neuer Mitarbeiter), zahlbare Konten und die Koordination von Geschäftstreffen überwacht.",
-      "fr": "Un administrateur de bureau de l'UBS appuie les équipes de gestion des marchés et des directions générales en surveillant les opérations quotidiennes des bureaux, les tâches de RH (comme la paie et la nouvelle embauche à bord), les comptes créditeurs et les réunions d'affaires de coordination."
-    },
-    "slugByLocale": {
-      "en": "office-administrator-ubs",
-      "it": "amministratore-ufficio-ubs-ticino",
-      "de": "buroverwaltung-ubs-ticino",
-      "fr": "administrateur-de-bureau-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-23T12:47:11.085Z",
-    "previousSlugs": [
-      "office-administrator-ubs",
-      "amministratore-d-ufficio-ubs-ticino"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "office-administrator-ubs"
-      ],
-      "fr": [
-        "office-administrator-ubs"
-      ],
-      "it": [
-        "office-administrator-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "conseiller-ere-clientele-privee-retail-morillons-ubs",
     "title": "Conseiller-ère Clientèle privée Retail - Morillons",
     "titleByLocale": {
@@ -932,53 +838,6 @@
     ],
     "salaryMin": 49500,
     "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "gestione-account-cliente-ubs-ticino",
-    "title": "Client Account Manager",
-    "titleByLocale": {
-      "en": "Client Account Manager",
-      "it": "Gestione account cliente",
-      "de": "Kundenkontomanager",
-      "fr": "Gestionnaire de compte client"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Are you curious, proactive and always striving to bring positive impact to clients?\n\nWe’re looking for a client account manager to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties",
-      "it": "Cerchi una nuova sfida all'interno dell'ambiente dinamico e veloce di Wealth Management? Vuoi fare parte di una squadra ad alte prestazioni? Hai una mentalità \"può fare\" e vuoi far parte della nostra storia di crescita e creare impatto? Siete curiosi, proattivi e sempre impegnati a portare un impatto positivo ai clienti?\n\nStiamo cercando un account manager cliente per:\n• essere il punto di ingresso per l'elaborazione degli ordini del cliente, ad esempio ordini azionari, cambio estero, prestiti e depositi\n• essere il contatto diretto per le attività bancarie quotidiane e il lavoro amministrativo per i nostri clienti\n• eseguire attività di manutenzione dell'account e processi relativi al cliente; ad esempio apertura e chiusura dell'account, recensioni di idoneità, KYC iniziale e ricorrente e due diligence\n• ricerca, follow-up e risolvere le richieste e i problemi dei clienti attraverso un'interazione efficace con i clienti, e partner interni in modo tempestivo e professionale\n• supporta i consulenti dei clienti nella fornitura di un servizio clienti eccezionale ed esperienza\n• sostenere i consulenti dei clienti in compiti e doveri amministrativi, di rischio e di conformità",
-      "de": "Suchen Sie eine neue Herausforderung in der dynamischen und schnelllebigen Wealth Management-Umgebung? Möchten Sie Teil eines leistungsstarken Teams sein? Haben Sie eine \"Can Do\" -Mentalität und möchten Teil unserer Wachstumsgeschichte sein und Wirkung erzielen? Sind Sie neugierig, proaktiv und immer bestrebt, Kunden positive Auswirkungen zu bringen?\n\nWir suchen einen Client Account Manager für:\n• Der Einstiegspunkt für die Verarbeitung von Kundenaufträgen, z. B. Aktienaufträge, Devisen, Kredite und Einlagen\n• der direkte Ansprechpartner für die täglichen Bankaktivitäten und die administrative Arbeit für unsere Kunden sein\n• Durchführung von Kontoführungsaufgaben und kundenbezogenen Prozessen; z. B. Kontoeröffnung und -schließung, Eignungsprüfungen, anfängliche und wiederkehrende KYC und Due Diligence\n• Recherche, Nachverfolgung und Lösung von Kundenanfragen und -problemen durch effektive Interaktion mit Kunden und internen Partnern zeitnah und professionell\n• Kundenberater bei der Bereitstellung von außergewöhnlichem Kundenservice und Erfahrung unterstützen\n• Unterstützung von Kundenberatern bei administrativen, risiko- und rechtlichen sowie Compliance-bezogenen Aufgaben und Pflichten",
-      "fr": "Cherchez-vous un nouveau défi dans l'environnement de gestion de patrimoine dynamique et rapide? Voulez-vous faire partie d'une équipe de haut niveau ? Avez-vous une mentalité \"peut faire\" et voulez-vous faire partie de notre histoire de croissance et créer un impact? Êtes-vous curieux, proactif et toujours soucieux d'apporter un impact positif aux clients?\n\nNous recherchons un gestionnaire de compte client pour :\n• être le point d'entrée pour le traitement des commandes des clients, p.ex. commandes d'actions, devises, prêts et dépôts\n• être le contact direct pour les activités bancaires quotidiennes et le travail administratif pour nos clients\n• effectuer des tâches de maintenance des comptes et des processus liés aux clients; p. ex. ouverture et clôture des comptes, examens de la pertinence, CJA initial et récurrent et diligence raisonnable;\n• la recherche, le suivi et la résolution des demandes de renseignements et des problèmes des clients par une interaction efficace avec les clients et les partenaires internes en temps opportun et de manière professionnelle;\n• aider les conseillers clients à offrir un service et une expérience exceptionnels\n• soutenir les conseillers clients dans les tâches et les tâches administratives, juridiques et liées aux risques et à la conformité"
-    },
-    "slugByLocale": {
-      "en": "client-account-manager-ubs",
-      "it": "gestione-account-cliente-ubs-ticino",
-      "de": "kundenkontomanager-ubs-ticino",
-      "fr": "gestionnaire-de-compte-client-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-23T12:47:11.085Z",
-    "previousSlugs": [
-      "client-account-manager-ubs",
-      "responsabile-clienti-ubs-ticino"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "client-account-manager-ubs"
-      ],
-      "fr": [
-        "client-account-manager-ubs"
-      ],
-      "it": [
-        "client-account-manager-ubs"
-      ]
-    },
-    "salaryMin": 68000,
-    "salaryMax": 103000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -1054,57 +913,6 @@
       ],
       "it": [
         "research-analyst-industrials-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "cliente-associato-ubs-ticino",
-    "title": "Client Associate",
-    "titleByLocale": {
-      "en": "Client Associate",
-      "it": "Cliente associato",
-      "de": "Client Associate",
-      "fr": "Client associé"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you analytical and detail oriented? Do you enjoy working with data and supporting client relationships?\n\nWe’re looking for a Client Associate to:\n\n• Support the preparation of reports, presentations, and materials for client meetings\n• Conduct basic research and analysis to support investment strategies and client discussions\n• Assist in monitoring portfolios and tracking performance\n• Be responsible for implementing investment actions in client portfolios",
-      "it": "Sei analitico e dettagliato? Ti piace lavorare con i dati e sostenere le relazioni con i clienti?\n\nStiamo cercando un cliente associato a:\n\n• Sostenere la preparazione di report, presentazioni e materiali per le riunioni dei clienti\n• Condurre ricerca e analisi di base per sostenere le strategie di investimento e le discussioni dei clienti\n• Assistere nel monitoraggio di portafogli e prestazioni di monitoraggio\n• Sii responsabile dell'attuazione delle azioni di investimento nei portafogli dei clienti",
-      "de": "Sind Sie analytisch und detailorientiert? Arbeiten Sie gerne mit Daten und unterstützen Sie Kundenbeziehungen?\n\nWir suchen einen Kundenpartner für:\n\n• Unterstützung der Erstellung von Berichten, Präsentationen und Materialien für Kundenbesprechungen\n• Durchführung von Grundlagenforschung und Analyse zur Unterstützung von Anlagestrategien und Kundendiskussionen\n• Unterstützung bei der Überwachung von Portfolios und Tracking-Performance\n• Verantwortung für die Umsetzung von Anlagemaßnahmen in Kundenportfolios",
-      "fr": "Êtes-vous axé sur l'analyse et le détail? Vous aimez travailler avec les données et soutenir les relations client?\n\nNous recherchons un client associé à:\n\n• Appuyer l'élaboration de rapports, de présentations et de documents pour les réunions des clients\n• Mener des recherches et des analyses de base pour appuyer les stratégies d'investissement et les discussions avec les clients\n• Aider à surveiller les portefeuilles et à suivre les résultats\n• Être responsable de la mise en œuvre des actions d'investissement dans les portefeuilles clients"
-    },
-    "slugByLocale": {
-      "en": "client-associate-ubs",
-      "it": "cliente-associato-ubs-ticino",
-      "de": "client-associate-ubs",
-      "fr": "client-associe-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-23T12:47:11.085Z",
-    "previousSlugs": [
-      "client-associate-ubs-2",
-      "client-associe-ubs-ticino-6c4f9e",
-      "client-associate-ubs",
-      "cliente-associato-ubs-ticino-6c4f9e"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "client-associate-ubs-2"
-      ],
-      "fr": [
-        "client-associe-ubs-ticino-6c4f9e",
-        "client-associate-ubs"
-      ],
-      "it": [
-        "client-associate-ubs-2",
-        "client-associate-ubs"
       ]
     },
     "salaryMin": 49500,
@@ -1274,50 +1082,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "cliente-associato-registrato-ubs-ticino",
-    "title": "Client Associate, Registered",
-    "titleByLocale": {
-      "en": "Client Associate, Registered",
-      "it": "Cliente associato, Registrato",
-      "de": "Client Associate, Registriert",
-      "fr": "Associé client, enregistré"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "it": "Sei veramente orientato al servizio? Sai come prendersi cura delle persone?\n\nStiamo cercando un Associato Cliente Registrato a:\n\n• mantenere i sistemi di gestione aggiornati con le informazioni dei clienti\n• educare i clienti sui servizi e sulle capacità dell'account\n• contribuire alla preparazione di relazioni e altri materiali per le riunioni dei clienti\n• raccogliere la documentazione giusta per aprire nuovi account e richieste di assistenza\n• pianificare eventi di marketing team e mantenere materiali di marketing\n• fornire al team un calendario dettagliato delle attività",
-      "de": "Sind Sie wirklich serviceorientiert? Wissen Sie, wie man sich um Menschen kümmert?\n\nWir suchen einen registrierten Kundenpartner für:\n\n• Halten Sie Managementsysteme auf dem neuesten Stand mit Kundeninformationen\n• Kunden über Kontodienste und -fähigkeiten informieren\n• Unterstützung bei der Erstellung von Berichten und anderen Materialien für Kundenbesprechungen\n• Sammeln Sie die richtige Dokumentation für die Eröffnung neuer Konten und Serviceanfragen\n• Planen Sie Team-Marketing-Events und pflegen Sie Marketingmaterialien\n• dem Team einen detaillierten Zeitplan der Aktivitäten zur Verfügung zu stellen",
-      "fr": "Êtes-vous vraiment orienté vers le service? Savez-vous prendre soin des gens ?\n\nNous sommes à la recherche d'un client enregistré associé à:\n\n• tenir les systèmes de gestion à jour avec l'information du client\n• éduquer les clients sur les services et les capacités de compte\n• aide à la préparation de rapports et d'autres documents pour les réunions des clients\n• recueillir la documentation appropriée pour ouvrir de nouveaux comptes et demandes de services\n• planifier des événements de marketing d'équipe et maintenir le matériel de marketing\n• fournir à l'équipe un calendrier détaillé des activités"
-    },
-    "slugByLocale": {
-      "en": "client-associate-registered-ubs",
-      "it": "cliente-associato-registrato-ubs-ticino",
-      "de": "client-associate-registered-ubs",
-      "fr": "associe-client-enregistre-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-23T12:47:11.085Z",
-    "previousSlugs": [
-      "client-associate-registered-ubs",
-      "cliente-associato-registrato-ubs-ticino-633ac5"
-    ],
-    "previousSlugsByLocale": {
-      "fr": [
-        "client-associate-registered-ubs"
-      ],
-      "it": [
-        "client-associate-registered-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "intern-in-hrsd-pl-regional-services-ubs",
     "title": "Intern in HRSD PL Regional Services",
     "titleByLocale": {
@@ -1431,58 +1195,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "cliente-associato-ubs-ticino-29b88b",
-    "title": "Client Associate",
-    "titleByLocale": {
-      "en": "Client Associate",
-      "it": "Cliente associato",
-      "de": "Client Associate",
-      "fr": "Client associé"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "it": "Sei veramente orientato al servizio? Sai come prendersi cura delle persone?\n\nStiamo cercando un cliente associato a:\n\n• mantenere i sistemi di gestione aggiornati con le informazioni dei clienti\n• educare i clienti sui servizi e sulle capacità dell'account\n• contribuire alla preparazione di relazioni e altri materiali per le riunioni dei clienti\n• raccogliere la documentazione giusta per aprire nuovi account e richieste di assistenza\n• pianificare eventi di marketing team e mantenere materiali di marketing\n• fornire al team un calendario dettagliato delle attività",
-      "de": "Sind Sie wirklich serviceorientiert? Wissen Sie, wie man sich um Menschen kümmert?\n\nWir suchen einen Kundenpartner für:\n\n• Halten Sie Managementsysteme auf dem neuesten Stand mit Kundeninformationen\n• Kunden über Kontodienste und -fähigkeiten informieren\n• Unterstützung bei der Erstellung von Berichten und anderen Materialien für Kundenbesprechungen\n• Sammeln Sie die richtige Dokumentation für die Eröffnung neuer Konten und Serviceanfragen\n• Planen Sie Team-Marketing-Events und pflegen Sie Marketingmaterialien\n• dem Team einen detaillierten Zeitplan der Aktivitäten zur Verfügung zu stellen",
-      "fr": "Êtes-vous vraiment orienté vers le service? Savez-vous prendre soin des gens ?\n\nNous recherchons un client associé à:\n\n• tenir les systèmes de gestion à jour avec l'information du client\n• éduquer les clients sur les services et les capacités de compte\n• aide à la préparation de rapports et d'autres documents pour les réunions des clients\n• recueillir la documentation appropriée pour ouvrir de nouveaux comptes et demandes de services\n• planifier des événements de marketing d'équipe et maintenir le matériel de marketing\n• fournir à l'équipe un calendrier détaillé des activités"
-    },
-    "slugByLocale": {
-      "en": "client-associate-ubs",
-      "it": "cliente-associato-ubs-ticino-29b88b",
-      "de": "client-associate-ubs-2",
-      "fr": "client-associe-ubs-ticino-29b88b"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-23T12:47:11.085Z",
-    "previousSlugs": [
-      "client-associate-ubs-3",
-      "client-associate-ubs-2",
-      "client-associate-ubs",
-      "cliente-associato-ubs-ticino"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "client-associate-ubs-3"
-      ],
-      "fr": [
-        "client-associate-ubs-3",
-        "client-associate-ubs-2"
-      ],
-      "it": [
-        "client-associate-ubs-3",
-        "client-associate-ubs",
-        "client-associate-ubs-2"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "hr-generalist-talent-acquisition-ubs",
     "title": "HR Generalist – Talent Acquisition",
     "titleByLocale": {
@@ -1509,116 +1221,6 @@
     },
     "sector": "Finanza / Banca",
     "expiredAt": "2026-06-23T12:47:11.085Z",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "cliente-associato-registrato-ubs-ticino-7c46bf",
-    "title": "Client Associate, Registered",
-    "titleByLocale": {
-      "en": "Client Associate, Registered",
-      "it": "Cliente associato, Registrato",
-      "de": "Client Associate, Registriert",
-      "fr": "Associé client, enregistré"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "We’re looking for a Registered Client Associate to:\n\nA Client Service Associate serves as the first point of contact when a client calls to reach their advisor. Through regular interactions with clients, individuals in this role build trusted relationships. Leading with a client-first mindset, a successful candidate for this role will have strong interpersonal skills, immense attention to detail, and will be able to assist clients with their everyday needs.\n\n• assist financial advisors in client conversations, providing analytic information and aiming to understand the client’s goals\n• provide support for client relationship building and business development activities\n• keep systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests",
-      "it": "Stiamo cercando un Associato Cliente Registrato a:\n\nUn Client Service Associate funge da primo punto di contatto quando un cliente chiama per raggiungere il proprio consulente. Attraverso interazioni regolari con i clienti, gli individui in questo ruolo costruiscono relazioni di fiducia. Leader con una mentalità cliente-prima, un candidato di successo per questo ruolo avrà forti competenze interpersonali, immensa attenzione ai dettagli, e sarà in grado di assistere i clienti con le loro esigenze quotidiane.\n\n• assistere consulenti finanziari nelle conversazioni dei clienti, fornire informazioni analitiche e mirare a comprendere gli obiettivi del cliente\n• fornire supporto per le attività di costruzione e sviluppo di relazioni con i clienti\n• mantenere i sistemi aggiornati con le informazioni dei clienti\n• educare i clienti sui servizi e sulle capacità dell'account\n• contribuire alla preparazione di relazioni e altri materiali per le riunioni dei clienti\n• raccogliere la documentazione giusta per aprire nuovi account e richieste di assistenza",
-      "de": "Wir suchen einen registrierten Kundenpartner für:\n\nEin Client Service Associate dient als erster Ansprechpartner, wenn ein Kunde anruft, um seinen Berater zu erreichen. Durch regelmäßige Interaktionen mit Kunden bauen Einzelpersonen in dieser Rolle vertrauenswürdige Beziehungen auf. Mit einer Client-First-Mentalität wird ein erfolgreicher Kandidat für diese Rolle starke zwischenmenschliche Fähigkeiten, immense Liebe zum Detail haben und in der Lage sein, Kunden bei ihren täglichen Bedürfnissen zu unterstützen.\n\n• Unterstützung von Finanzberatern bei Kundengesprächen, Bereitstellung analytischer Informationen und dem Ziel, die Ziele des Kunden zu verstehen\n• Unterstützung beim Aufbau von Kundenbeziehungen und Geschäftsentwicklungsaktivitäten\n• Halten Sie Systeme auf dem neuesten Stand mit Kundeninformationen\n• Kunden über Kontodienste und -fähigkeiten informieren\n• Unterstützung bei der Erstellung von Berichten und anderen Materialien für Kundenbesprechungen\n• Sammeln Sie die richtige Dokumentation für die Eröffnung neuer Konten und Serviceanfragen",
-      "fr": "Nous sommes à la recherche d'un client enregistré associé à:\n\nUn associé de service à la clientèle sert de premier point de contact lorsqu'un client appelle pour joindre son conseiller. Grâce à des interactions régulières avec les clients, les personnes qui jouent ce rôle établissent des relations de confiance. Diriger avec un premier état d'esprit client, un candidat retenu pour ce rôle aura de solides compétences interpersonnelles, une immense attention aux détails, et sera en mesure d'aider les clients avec leurs besoins quotidiens.\n\n• aider les conseillers financiers dans les conversations avec les clients, fournir des informations analytiques et viser à comprendre les objectifs du client\n• fournir un soutien pour l'établissement de relations avec la clientèle et les activités de développement des affaires\n• tenir les systèmes à jour avec l'information du client\n• éduquer les clients sur les services et les capacités de compte\n• aide à la préparation de rapports et d'autres documents pour les réunions des clients\n• recueillir la documentation appropriée pour ouvrir de nouveaux comptes et demandes de services"
-    },
-    "slugByLocale": {
-      "en": "client-associate-registered-ubs",
-      "it": "cliente-associato-registrato-ubs-ticino-7c46bf",
-      "de": "client-associate-registered-ubs-2",
-      "fr": "associe-client-enregistre-ubs-ticino-7c46bf"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-23T12:47:11.085Z",
-    "previousSlugs": [
-      "client-associate-registered-ubs",
-      "cliente-associato-registrato-ubs-ticino",
-      "registered-client-associate-ubs",
-      "client-enregistre-associe-ubs-ticino",
-      "registered-client-associate-ubs-2",
-      "servizio-clienti-registrato-associato-ubs-ticino",
-      "registered-client-service-associate-ubs",
-      "associe-de-service-a-la-clientele-enregistre-ubs-ticino"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "client-associate-registered-ubs",
-        "client-associate-registered-ubs-2"
-      ],
-      "fr": [
-        "client-associate-registered-ubs-2"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "cliente-associato-registrato-ubs-ticino-e43e90",
-    "title": "Registered Client Associate",
-    "titleByLocale": {
-      "en": "Registered Client Associate",
-      "it": "Cliente associato registrato",
-      "de": "Registrierter Client Associate",
-      "fr": "Client enregistré associé"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "The key tasks of your job as a Client Service Associate/Registered Client Service Associate include the following:\n\nRelationship Management\n• Educate clients on account services and capabilities (e.g., how to read statements/confirms, how to use Online Services, paperless options, RMA cards, etc.)\n• Collect appropriate documentation to set up new accounts\n• Leverage various communication channels to keep in touch with clients (e.g., send out birthday cards, e-mail research newsletters)\n• Process account service requests and ensure appropriate documentation\n• Direct incoming phone calls to appropriate team member\n\nWealth Management\n• Input data into Financial Planning tools\n• Input orders within appropriate system and complete associated paperwork, if registered\n• Review daily branch reports and alerts and process accordingly\n• Assist in the preparation of client reports and other materials for client meeting.\n\nPractice Management\n• Organize logistics of team marketing events, develop and maintain team marketing materials\n• Maintain contact management systems with up to date key client information\n• Provide team with up to date calendar including daily, weekly, and monthly activities\n\nTalent Management\n• Proactively develop self to continuously improve knowledge, skills and credentials and communicate development needs to Senior Financial Advisor or Team Administrator as applicable\n• Assist with on-boarding new members to the team",
-      "it": "Le attività chiave del tuo lavoro come Customer Service Associate/Registered Client Service Associate includono i seguenti:\n\nGestione delle relazioni\n• Educare i clienti sui servizi e le capacità dell'account (ad esempio, come leggere le dichiarazioni/conferma, come utilizzare i servizi online, le opzioni senza carta, le schede RMA, ecc.)\n• Raccogli la documentazione appropriata per impostare nuovi account\n• Levare vari canali di comunicazione per tenere in contatto con i clienti (ad esempio, inviare biglietti di compleanno, newsletter di ricerca e-mail)\n• Le richieste del servizio account di processo e la documentazione appropriata\n• Telefonate in arrivo dirette a un membro del team appropriato\n\nGestione della ricchezza\n• Dati di input negli strumenti di pianificazione finanziaria\n• Ordini di ingresso all'interno del sistema appropriato e documenti associati completi, se registrati\n• Esaminare ogni giorno i rapporti e gli avvisi e elaborare di conseguenza\n• Assistere nella preparazione dei rapporti dei clienti e altri materiali per la riunione del cliente.\n\nGestione della pratica\n• Organizzare la logistica di eventi di marketing team, sviluppare e mantenere i materiali di marketing team\n• Mantenere i sistemi di gestione dei contatti con le informazioni chiave del cliente aggiornate\n• Fornire il team con calendario aggiornato, comprese le attività quotidiane, settimanali e mensili\n\nGestione dei talenti\n• Proattivamente sviluppare se stessi per migliorare continuamente le conoscenze, le competenze e le credenziali e comunicare le esigenze di sviluppo a Senior Financial Advisor o Team Administrator come applicabile\n• Assist con i nuovi membri di bordo al team",
-      "de": "Zu den wichtigsten Aufgaben Ihres Jobs als Client Service Associate/Registered Client Service Associate gehören:\n\nBeziehungsmanagement\n• Informieren Sie Kunden über Kontodienste und -funktionen (z. B. wie Sie Aussagen / Bestätigungen lesen, Online-Dienste, papierlose Optionen, RMA-Karten usw. verwenden)\n• Sammeln Sie geeignete Unterlagen, um neue Konten einzurichten\n• Nutzen Sie verschiedene Kommunikationskanäle, um mit Kunden in Kontakt zu bleiben (z. B. Versand von Geburtstagskarten, E-Mail-Recherche-Newslettern)\n• Kontodienstanfragen bearbeiten und eine angemessene Dokumentation sicherstellen\n• Direkte eingehende Anrufe an das entsprechende Teammitglied\n\nVermögensverwaltung\n• Eingabedaten in Finanzplanungstools\n• Eingabeaufträge innerhalb eines geeigneten Systems und vollständige zugehörige Unterlagen, falls registriert\n• Tägliche Zweigstellenmeldungen und Benachrichtigungen überprüfen und entsprechend verarbeiten\n• Unterstützung bei der Vorbereitung von Kundenberichten und anderen Materialien für Kundenbesprechungen.\n\nPraxismanagement\n• Organisation der Logistik von Teammarketing-Events, Entwicklung und Pflege von Teammarketing-Materialien\n• Pflegen Sie Kontaktmanagementsysteme mit aktuellen wichtigen Kundeninformationen\n• Stellen Sie dem Team einen aktuellen Kalender zur Verfügung, einschließlich täglicher, wöchentlicher und monatlicher Aktivitäten\n\nTalentmanagement\n• Proaktive Selbstentwicklung, um Kenntnisse, Fähigkeiten und Anmeldeinformationen kontinuierlich zu verbessern und Entwicklungsbedürfnisse an Senior Financial Advisor oder Team Administrator zu kommunizieren\n• Unterstützung beim On-Boarding neuer Mitglieder im Team",
-      "fr": "Voici les principales tâches de votre travail en tant qu'associé de service à la clientèle/associé de service à la clientèle inscrit :\n\nGestion des relations\n• Éduquer les clients sur les services et les capacités de compte (p. ex., comment lire les déclarations/confirmations, comment utiliser les services en ligne, les options sans papier, les cartes RMA, etc.)\n• Recueillir les documents appropriés pour établir de nouveaux comptes\n• Utiliser divers canaux de communication pour rester en contact avec les clients (p. ex., envoyer des cartes d'anniversaire, des bulletins de recherche par courriel)\n• Traiter les demandes de service de compte et assurer la documentation appropriée\n• Appels téléphoniques directs à un membre approprié de l'équipe\n\nGestion de patrimoine\n• Données d'entrée dans les outils de planification financière\n• Commandes d'entrée dans le système approprié et remplir les documents connexes, s'ils sont enregistrés\n• Examiner les rapports quotidiens des directions générales et les alertes et les processus en conséquence\n• Aider à la préparation des rapports des clients et d'autres documents pour la réunion des clients.\n\nGestion des pratiques\n• Organiser la logistique des événements de marketing d'équipe, développer et maintenir le matériel de marketing d'équipe\n• Maintenir les systèmes de gestion des contacts avec des renseignements clés à jour sur les clients\n• Fournir à l'équipe un calendrier à jour comprenant des activités quotidiennes, hebdomadaires et mensuelles\n\nGestion des talents\n• Se développer de façon proactive pour améliorer continuellement les connaissances, les compétences et les compétences et communiquer les besoins de perfectionnement au conseiller financier principal ou à l'administrateur d'équipe, selon le cas\n• Aider les nouveaux membres à monter à bord de l'équipe"
-    },
-    "slugByLocale": {
-      "en": "registered-client-associate-ubs",
-      "it": "cliente-associato-registrato-ubs-ticino-e43e90",
-      "de": "registered-client-associate-ubs",
-      "fr": "client-enregistre-associe-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-23T12:47:11.085Z",
-    "previousSlugs": [
-      "registered-client-associate-ubs-2",
-      "registered-client-associate-ubs-3",
-      "registered-client-associate-ubs-4",
-      "client-enregistre-associe-ubs-ticino-e43e90",
-      "registered-client-associate-ubs",
-      "associato-cliente-registrato-ubs-ticino-e43e90"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "registered-client-associate-ubs-2",
-        "registered-client-associate-ubs-3",
-        "registered-client-associate-ubs-4"
-      ],
-      "fr": [
-        "client-enregistre-associe-ubs-ticino-e43e90",
-        "registered-client-associate-ubs-4",
-        "registered-client-associate-ubs-3",
-        "registered-client-associate-ubs"
-      ],
-      "it": [
-        "registered-client-associate-ubs-4",
-        "registered-client-associate-ubs-3",
-        "registered-client-associate-ubs-2",
-        "registered-client-associate-ubs"
-      ]
-    },
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
@@ -1898,38 +1500,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "client-account-manager-intern-ubs",
-    "title": "Client Account Manager Intern",
-    "titleByLocale": {
-      "en": "Client Account Manager Intern",
-      "it": "Client Account Manager Tirocinante",
-      "de": "Client Account Manager Praktikant",
-      "fr": "Client Account Manager Stagiaire"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you a communicative professional with a keen eye for detail and passionate about elevating client experiences? If you thrive in dynamic environments and value building strong relationships, we invite you to join our team as a Client Account Manager Intern:\n\n• assisting Client Account Manager in clients’ daily requests in an agile and efficient manner\n• support Client Account Manager manages all operational and administrative account processes, including the organization and maintenance of client documentation\n• coordinate closely with stakeholders to align client requests and ensure the delivery of exceptional service quality\n• foster a risk-aware culture with the team by ensuring clients’ requests are managed in line with best practices\n• demonstrate outstanding problem-solving skills, attention to detail and commitment to client satisfaction",
-      "it": "Are you a communicative professional with a keen eye for detail and passionate about elevating client experiences? If you thrive in dynamic environments and value building strong relationships, we invite you to join our team as a Client Account Manager Intern:\n\n• assisting Client Account Manager in clients’ daily requests in an agile and efficient manner\n• support Client Account Manager manages all operational and administrative account processes, including the organization and maintenance of client documentation\n• coordinate closely with stakeholders to align client requests and ensure the delivery of exceptional service quality\n• foster a risk-aware culture with the team by ensuring clients’ requests are managed in line with best practices\n• demonstrate outstanding problem-solving skills, attention to detail and commitment to client satisfaction",
-      "de": "Are you a communicative professional with a keen eye for detail and passionate about elevating client experiences? If you thrive in dynamic environments and value building strong relationships, we invite you to join our team as a Client Account Manager Intern:\n\n• assisting Client Account Manager in clients’ daily requests in an agile and efficient manner\n• support Client Account Manager manages all operational and administrative account processes, including the organization and maintenance of client documentation\n• coordinate closely with stakeholders to align client requests and ensure the delivery of exceptional service quality\n• foster a risk-aware culture with the team by ensuring clients’ requests are managed in line with best practices\n• demonstrate outstanding problem-solving skills, attention to detail and commitment to client satisfaction",
-      "fr": "Are you a communicative professional with a keen eye for detail and passionate about elevating client experiences? If you thrive in dynamic environments and value building strong relationships, we invite you to join our team as a Client Account Manager Intern:\n\n• assisting Client Account Manager in clients’ daily requests in an agile and efficient manner\n• support Client Account Manager manages all operational and administrative account processes, including the organization and maintenance of client documentation\n• coordinate closely with stakeholders to align client requests and ensure the delivery of exceptional service quality\n• foster a risk-aware culture with the team by ensuring clients’ requests are managed in line with best practices\n• demonstrate outstanding problem-solving skills, attention to detail and commitment to client satisfaction"
-    },
-    "slugByLocale": {
-      "en": "client-account-manager-intern-ubs",
-      "it": "client-account-manager-intern-ubs",
-      "de": "client-account-manager-intern-ubs",
-      "fr": "client-account-manager-intern-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-22T23:46:51.265Z",
-    "salaryMin": 41600,
-    "salaryMax": 63000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "junior-product-manager-per-fondi-di-investimento-con-tedesco-ubs-ticino",
     "title": "Junior Product Manager for Investment Funds with German",
     "titleByLocale": {
@@ -1966,58 +1536,6 @@
     },
     "salaryMin": 46000,
     "salaryMax": 78500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "associato-registrato-al-servizio-clienti-ubs-ticino",
-    "title": "Registered Client Service Associate",
-    "titleByLocale": {
-      "en": "Registered Client Service Associate",
-      "it": "Associato Registrato al Servizio Clienti",
-      "de": "Registered Client Service Associate",
-      "fr": "Registered Client Service Associate"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Service Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "it": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Service Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "de": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Service Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "fr": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Service Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
-    },
-    "slugByLocale": {
-      "en": "registered-client-service-associate-ubs",
-      "it": "associato-registrato-al-servizio-clienti-ubs-ticino",
-      "de": "registered-client-service-associate-ubs",
-      "fr": "registered-client-service-associate-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-22T23:46:51.265Z",
-    "previousSlugs": [
-      "associe-de-service-a-la-clientele-enregistre-ubs-ticino",
-      "registered-client-service-associate-ubs",
-      "cliente-associato-registrato-ubs-ticino-7c46bf",
-      "servizio-clienti-registrato-associato-ubs-ticino",
-      "client-associate-registered-ubs",
-      "cliente-associato-registrato-ubs-ticino",
-      "registered-client-associate-ubs",
-      "client-enregistre-associe-ubs-ticino",
-      "registered-client-associate-ubs-2"
-    ],
-    "previousSlugsByLocale": {
-      "fr": [
-        "associe-de-service-a-la-clientele-enregistre-ubs-ticino"
-      ],
-      "it": [
-        "registered-client-service-associate-ubs",
-        "cliente-associato-registrato-ubs-ticino-7c46bf"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -2143,51 +1661,6 @@
     },
     "salaryMin": 51500,
     "salaryMax": 88000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "associato-cliente-registrato-ubs-ticino",
-    "title": "Registered Client Associate",
-    "titleByLocale": {
-      "en": "Registered Client Associate",
-      "it": "Associato Cliente Registrato",
-      "de": "Registered Client Associate",
-      "fr": "Registered Client Associate"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "it": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "de": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "fr": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
-    },
-    "slugByLocale": {
-      "en": "registered-client-associate-ubs",
-      "it": "associato-cliente-registrato-ubs-ticino",
-      "de": "registered-client-associate-ubs",
-      "fr": "registered-client-associate-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-22T23:46:51.265Z",
-    "previousSlugs": [
-      "client-enregistre-associe-ubs-ticino-c8b149",
-      "registered-client-associate-ubs",
-      "cliente-associato-registrato-ubs-ticino"
-    ],
-    "previousSlugsByLocale": {
-      "fr": [
-        "client-enregistre-associe-ubs-ticino-c8b149"
-      ],
-      "it": [
-        "registered-client-associate-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -2582,79 +2055,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "trade-surveillance-operations-analyst-ubs",
-    "title": "Trade Surveillance Operations Analyst",
-    "titleByLocale": {
-      "en": "Trade Surveillance Operations Analyst",
-      "it": "Trade Surveillance Operations Analista",
-      "de": "Trade Surveillance Operations Analyst",
-      "fr": "Trade Surveillance Operations Analyste"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-      "it": "Ti piacciono i mercati finanziari?\nSei bravo a gestire e interpretare grandi set di dati?\nSei analitico e godere di indagare le transazioni finanziarie, la comprensione delle strategie di trading e il senso dell'attività di trading insolita?\nSei in grado di pensare in modo indipendente ed esprimere le tue opinioni e idee con fiducia?\n\nStiamo cercando un analista di sorveglianza commerciale in un ruolo individuale contributore con esperienza nel seguente:\n\n• Effettuare attività di sorveglianza automatizzate e manuali del mercato in tutta la divisione Investment Bank e Wealth Management.\n• Analisi di casi di attività potenzialmente sospette segnalate dai nostri sistemi.\n• Coinvolgere con le parti interessate d'impresa sulle escalation relative alla conduzione del mercato e altre questioni.\n• Miglioramento continuo dei processi e contributo a progetti strategici e iniziative di automazione/ottimizzazione.\n\n• Condurre la sorveglianza del commercio delle informazioni barriera per la gestione di conti personali aziendali, clienti e dipendenti (PAD) Monitorare il flusso di informazioni materiali non pubbliche (MNPI) per rilevare potenziali violazioni della Politica di Barriera dell'Informazione dell'azienda, elenco ristretto e trading insider.\n\n• Questa descrizione del lavoro fornisce una recensione di alto livello dei tipi di lavoro eseguiti. Altri compiti connessi al lavoro possono essere assegnati come richiesto.",
-      "de": "Mögen Sie die Finanzmärkte?\nSind Sie gut im Umgang und Interpretieren großer Datensätze?\nSind Sie analytisch und untersuchen gerne Finanztransaktionen, verstehen Handelsstrategien und verstehen die ungewöhnlichen Handelsaktivitäten?\nSind Sie in der Lage, unabhängig zu denken und Ihre Meinungen und Ideen selbstbewusst auszudrücken?\n\nWir suchen einen Trade Surveillance Analyst in einer individuellen Mitwirkenden Rolle mit Erfahrung in den folgenden Bereichen:\n\n• Durchführung automatisierter und manueller Marktüberwachungsaktivitäten in der Investment Bank und der Wealth Management Division.\n• Analyse von Fällen potenziell verdächtiger Aktivitäten, die von unseren Systemen gekennzeichnet werden.\n• Kontaktaufnahme mit Geschäftsbeteiligten zu marktverhaltensbedingten Eskalationen und anderen Angelegenheiten.\n• Förderung kontinuierlicher Prozessverbesserungen und Beitrag zu strategischen Projekten und Automatisierungs-/Optimierungsinitiativen.\n\n• Durchführung einer Überwachung des Handels mit Informationsbarrieren für Unternehmen, Kunden und Mitarbeiter (PAD) Überwachen Sie den Fluss wesentlicher nicht öffentlicher Informationen (MNPI), um mögliche Verstöße gegen die Informationsbarrierenrichtlinien des Unternehmens, die eingeschränkte Liste und den Insiderhandel zu erkennen.\n\n• Diese Stellenbeschreibung bietet eine hochrangige Überprüfung der Art der geleisteten Arbeit. Andere aufgabenbezogene Aufgaben können bei Bedarf zugewiesen werden.",
-      "fr": "Vous aimez les marchés financiers ?\nÊtes-vous bon pour manipuler et interpréter de gros ensembles de données?\nÊtes-vous analytique et aimez-vous enquêter sur les transactions financières, comprendre les stratégies de négociation et de sens de l'activité commerciale inhabituelle?\nÊtes-vous capable de penser indépendamment et d'exprimer vos opinions et vos idées avec confiance?\n\nNous sommes à la recherche d'un analyste de la surveillance du commerce dans le cadre d'un rôle de contribution individuelle ayant de l'expérience dans les domaines suivants :\n\n• Effectuer des activités de surveillance automatisées et manuelles du marché dans toute la division Banque d'investissement et Gestion de patrimoine.\n• Analyser les cas d'activités potentiellement suspectes signalées par nos systèmes.\n• Collaborer avec les parties prenantes sur les escalades de la conduite du marché et d'autres questions.\n• Favoriser l'amélioration continue des processus et contribuer aux projets stratégiques et aux initiatives d'automatisation/optimisation.\n\n• Mener une surveillance commerciale des obstacles à l'information pour les entreprises, les clients et les employés qui traitent des comptes personnels (PAD) Surveiller le flux d'informations non publiques matérielles (MNPI) pour détecter les infractions potentielles à la politique de l'entreprise sur les obstacles à l'information, à la liste restreinte et au commerce d'initiés.\n\n• Cette description de travail fournit un examen de haut niveau des types de travail effectué. D'autres tâches liées à l'emploi peuvent être attribuées au besoin."
-    },
-    "slugByLocale": {
-      "en": "trade-surveillance-operations-analyst-ubs",
-      "it": "trade-surveillance-operations-analyst-ubs",
-      "de": "trade-surveillance-operations-analyst-ubs",
-      "fr": "trade-surveillance-operations-analyst-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-22T15:26:27.762Z",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "trade-surveillance-operations-analyst-ubs-2",
-    "title": "Trade Surveillance Operations Analyst",
-    "titleByLocale": {
-      "en": "Trade Surveillance Operations Analyst",
-      "it": "Analista delle Operazioni di Sorveglianza del Commercio",
-      "de": "Analyst für Handelsüberwachungsoperationen",
-      "fr": "Analyste des opérations de surveillance commerciale"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Ragionamento seguito\n\n1. Identificazione delle sezioni\n- Il testo inizia con una serie di domande introduttive e una frase che descrive il ruolo ricercato; queste sono state collocate nella sezione ## Descrizione.\n- Le attività operative elencate con i punti elenco sono state raggruppate nella sezione ## Mansioni.\n- Non sono presenti informazioni su requisiti, benefit o contatti specifici; l’unica informazione residua è la nota finale sul carattere descrittivo del documento, che è stata inserita nella sezione ## Contatto (l’unica sezione disponibile per contenuti aggiuntivi non classificabili altrove).\n\n2. Conversione dei punti elenco\n- I simboli “•” sono stati sostituiti con “-” per rispettare la sintassi markdown richiesta.\n- Ogni punto è stato mantenuto verbatim, senza alcuna riformulazione, anche quando conteneva più frasi (es. l’ultimo punto delle mansioni).\n\n3. Formattazione\n- Sono stati usati i titoli di livello 2 (`##`) per le sezioni.\n- Le domande introduttive sono state lasciate come righe separate (con due spazi alla fine per forzare l’interruzione di riga) per mantenere il contenuto originale intatto.\n- Non è stato aggiunto alcun testo, spiegazione o codice aggiuntivo al di fuori della struttura markdown.\n\n---\n\nDescrizione\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and make sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\nMansioni\n\n- Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n- Analyzing instances of potentially suspicious activities flagged by our systems.\n- Engaging with business stakeholders on the market conduct-related escalations and other matters.\n- Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n- Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\nContatto\n\nThis job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-      "it": "Ragionamento seguito 1. Identificazione delle sezioni - Il testo inizia con una serie di domande introduttive e una frase che descrive il ruolo ricercato; queste sono state collocate nella sezione ## Descrizione. - Le attività operative elencate con i punti elenco sono state raggruppate nella sezione ## Mansioni. - Non sono presenti informazioni su requisiti, benefit o contatti specifici; l'unica informazione residua è la nota finale sul carattere descrittivo del documento, che è stata inserita nella sezione ## Contatto (l'unica sezione disponibile per contenuti aggiuntivi non classificabili altrove). 2. Conversione dei punti elenco - I simboli “•” sono stati sostituiti con “-” per rispettare la sintassi markdown richiesta. - Ogni punto è stato mantenuto testualmente, senza alcuna riformulazione, anche quando conteneva più frasi (es. l'ultimo punto delle mansioni). 3. Formattazione - Sono stati usati i titoli di livello 2 (`##`) per le sezioni. - Le domande introduttive sono state lasciate come righe separate (con due spazi alla fine per forzare l'interruzione di riga) per mantenere il contenuto originale intatto. - Non è stato aggiunto alcun testo, spiegazione o codice aggiuntivo al di fuori della struttura markdown. --- Descrizione Ti piacciono i mercati finanziari? Sei bravo a gestire e interpretare grandi set di dati? Sei analitico e ti piace indagare sulle transazioni finanziarie, comprendere le strategie di trading e dare un senso all'insolita attività di trading? Sei in grado di pensare in modo indipendente ed esprimere le tue opinioni e idee con sicurezza? Cerchiamo un analista di sorveglianza commerciale in un ruolo di collaboratore individuale con esperienza nei seguenti settori: Mansioni - Esecuzione di attività di sorveglianza della condotta di mercato automatizzate e manuali nella divisione Investment Bank e Wealth Management. - Analizzare i casi di attività potenzialmente sospette segnalate dai nostri sistemi. - Coinvolgere le parti interessate aziendali sulle escalation relative alla condotta del mercato e su altre questioni. - Promuovere miglioramenti continui dei processi e contribuire a progetti strategici e iniziative di automazione/ottimizzazione. - Condurre la sorveglianza sulle barriere commerciali delle informazioni per le transazioni sui conti personali di aziende, clienti e dipendenti (PAD). Monitorare il flusso di informazioni materiali non pubbliche (MNPI) per rilevare potenziali violazioni della politica sulle barriere informative dell'azienda, dell'elenco limitato e dell'insider trading. Contatto Questa descrizione del lavoro fornisce una revisione di alto livello delle tipologie di lavoro svolte. Altri compiti legati al lavoro possono essere assegnati secondo necessità.",
-      "de": "Abschnitt 1. Abschnittsidentifizierung – Der Test beginnt mit einer einleitenden Reihe von Themen und einem Rahmen, der den Grundstein für die Beschreibung legt; Dieser Status wird in der folgenden Staffel zusammengefasst: ## Beschreibung. - Die operative Aktivität wird durch die Punkte erhöht, die in der ## Mansioni-Sektion zusammengewürfelt werden. - Es liegen keine Informationen zu Ihren Anforderungen, Vorteilen oder spezifischen Kontakten vor; Die einzige verbleibende Information ist die letzte Notiz auf der Grundlage der Beschreibung des Dokuments, die in der ##-Contatto-Sektion eingefügt wurde (die einzige verfügbare Sektion für nicht klassifizierbare Zusatzinhalte). 2. Konvertieren Sie die Punkte des Elements – das Symbol „•“ wird mit „-“ angezeigt, um den gewünschten Preisnachlass zu erzielen. - Dies ist der Zustand, in dem er wörtlich verwaltet wird, ohne vorherige Neuformulierung, auch wenn der Inhalt höher ist (es ist der letzte Punkt der Villa). 3. Formatierung – Es werden jeweils 2 Titel („##“) für die einzelnen Abschnitte verwendet. - Der einleitende Inhalt wird sofort getrennt (mit gutem Gewissen, um die Unterbrechung in Riga zu verhindern), um den ursprünglichen Inhalt zu erhalten. - Dies ist nicht der Fall, da dies nicht der Fall ist. --- Beschreibung Mögen Sie Finanzmärkte? Sind Sie gut im Umgang und in der Interpretation großer Datenmengen? Sie sind analytisch und haben Spaß daran, Finanztransaktionen zu untersuchen, Handelsstrategien zu verstehen und ungewöhnliche Handelsaktivitäten zu verstehen? Können Sie selbstständig denken und Ihre Meinungen und Ideen selbstbewusst äußern? Wir suchen einen Handelsüberwachungsanalysten als Einzelmitarbeiter mit Erfahrung in den folgenden Bereichen: Mansioni – Durchführung automatisierter und manueller Marktverhaltensüberwachungsaktivitäten in der gesamten Investment Bank- und Wealth Management-Abteilung. - Analyse von Fällen potenziell verdächtiger Aktivitäten, die von unseren Systemen gemeldet werden. - Kontaktaufnahme mit Geschäftsinteressenten zu Eskalationen im Zusammenhang mit dem Marktverhalten und anderen Angelegenheiten. - Vorantreiben kontinuierlicher Prozessverbesserungen und Mitwirken an strategischen Projekten und Automatisierungs-/Optimierungsinitiativen. - Durchführung einer Überwachung des Handels mit Informationsbarrieren für den Privatkundenhandel (PAD) von Unternehmen, Kunden und Mitarbeitern. Überwachen Sie den Fluss wesentlicher nicht öffentlicher Informationen (MNPI), um potenzielle Verstöße gegen die Richtlinie zu Informationsbarrieren, Sperrlisten und Insiderhandel des Unternehmens zu erkennen. Contatto Diese Stellenbeschreibung bietet einen umfassenden Überblick über die Arten der ausgeführten Arbeiten. Bei Bedarf können weitere berufsbezogene Aufgaben übertragen werden.",
-      "fr": "Ragionamento suite 1. Identification de la section - Le test commence avec une série de domaines introductifs et une phrase qui décrit le ruolo ricercato ; cet état est colocalisé dans la section ## Description. - L'activité opérationnelle est élevée avec les points d'identité de l'État dans la section ## Mansioni. - Ne pas présenter d'informations sur les exigences, bénéficier de contacts spécifiques ; L'unique information résiduelle est la note finale sur le caractère descriptif du document, qui est insérée dans la section ## Contatto (l'unique section disponible pour le contenu ajouté non classifiable autre). 2. Conversion des points électroniques - Le symbole « • » est remplacé par « - » pour afficher la valeur de markdown sintassi. - Ogni punto è stato mantenuto verbatim, sans alcuna riformulazione, même quando conteneva più frasi (c'est-à-dire le dernier point des demeures). 3. Formatage - Nous utilisons les titres du niveau 2 (`##`) pour la section. - La demande d'introduction est un état lascié qui vient juste à part (avec un effort supplémentaire pour forcer l'interruption de riga) pour maintenir le contenu original en entier. - Il n'est pas ajouté à un test, à une publication ou à un code ajouté à l'extérieur de la structure markdown. --- Descrizione Vous aimez les marchés financiers ? Êtes-vous doué pour gérer et interpréter de grands ensembles de données ? Êtes-vous analytique et aimez-vous enquêter sur les transactions financières, comprendre les stratégies de trading et donner un sens aux activités de trading inhabituelles ? Êtes-vous capable de penser de manière indépendante et d’exprimer vos opinions et vos idées avec confiance ? Nous recherchons un analyste de surveillance commerciale dans un rôle de contributeur individuel avec une expérience dans les domaines suivants : Mansioni - Exécution d'activités automatisées et manuelles de surveillance des comportements sur le marché au sein de la division Banque d'investissement et gestion de patrimoine. - Analyser les cas d'activités potentiellement suspectes signalés par nos systèmes. - S'engager avec les parties prenantes de l'entreprise sur les escalades liées à la conduite du marché et sur d'autres questions. - Conduire des améliorations continues des processus et contribuer aux projets stratégiques et aux initiatives d'automatisation/optimisation. - Effectuer une surveillance commerciale des barrières d'information pour les transactions sur les comptes personnels de l'entreprise, des clients et des employés (PAD). Surveiller le flux d'informations importantes non publiques (MNPI) pour détecter les violations potentielles de la politique de barrière à l'information de l'entreprise, de la liste restreinte et des délits d'initiés. Contact Cette description de poste fournit un examen de haut niveau des types de travail effectués. D'autres tâches liées au poste peuvent être assignées selon les besoins."
-    },
-    "slugByLocale": {
-      "en": "trade-surveillance-operations-analyst-ubs",
-      "it": "trade-surveillance-operations-analyst-ubs-2",
-      "de": "trade-surveillance-operations-analyst-ubs-2",
-      "fr": "trade-surveillance-operations-analyst-ubs-2"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-22T15:26:27.762Z",
-    "previousSlugs": [
-      "trade-surveillance-operations-analyst-ubs",
-      "trade-surveillance-operations-analyst-ubs-3"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "trade-surveillance-operations-analyst-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "compensation-benefits-specialist-ubs",
     "title": "Compensation & Benefits Specialist",
     "titleByLocale": {
@@ -2831,56 +2231,6 @@
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "cliente-associato-registrato-ubs-ticino-ugqujo",
-    "title": "Registered Client Associate",
-    "titleByLocale": {
-      "en": "Registered Client Associate",
-      "it": "Cliente associato registrato",
-      "de": "Registrierter Client Associate",
-      "fr": "Client enregistré associé"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "it": "Sei veramente orientato al servizio? Sai come prendersi cura delle persone?\n\nStiamo cercando un Associato Cliente Registrato a:\n\n• mantenere i sistemi di gestione aggiornati con le informazioni dei clienti\n• educare i clienti sui servizi e sulle capacità dell'account\n• contribuire alla preparazione di relazioni e altri materiali per le riunioni dei clienti\n• raccogliere la documentazione giusta per aprire nuovi account e richieste di assistenza\n• pianificare eventi di marketing del team e mantenere materiali di marketing\n• fornire al team un calendario dettagliato delle attività",
-      "de": "Sind Sie wirklich serviceorientiert? Wissen Sie, wie man sich um Menschen kümmert?\n\nWir suchen einen registrierten Kundenpartner für:\n\n• Halten Sie Managementsysteme auf dem neuesten Stand mit Kundeninformationen\n• Kunden über Kontodienste und -fähigkeiten informieren\n• Hilfe bei der Erstellung von Berichten und anderen Materialien für Kundenbesprechungen\n• Sammeln Sie die richtige Dokumentation für die Eröffnung neuer Konten und Serviceanfragen\n• Team-Marketing-Events planen und Marketing-Materialien pflegen\n• dem Team einen detaillierten Kalender der Aktivitäten zur Verfügung zu stellen",
-      "fr": "Êtes-vous vraiment orienté vers le service? Savez-vous prendre soin des gens ?\n\nNous sommes à la recherche d'un client enregistré associé à:\n\n• tenir à jour les systèmes de gestion avec l'information du client\n• éduquer les clients sur les services et les capacités de compte\n• contribuer à l'élaboration des rapports et autres documents destinés aux réunions des clients;\n• recueillir la documentation appropriée pour ouvrir de nouveaux comptes et demandes de services\n• planifier des événements de marketing d'équipe et maintenir le matériel de marketing\n• fournir à l'équipe un calendrier détaillé des activités;"
-    },
-    "slugByLocale": {
-      "en": "registered-client-associate-ubs",
-      "it": "cliente-associato-registrato-ubs-ticino-7c46bf",
-      "de": "registered-client-associate-ubs",
-      "fr": "client-enregistre-associe-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-22T13:58:00.964Z",
-    "previousSlugs": [
-      "registered-client-associate-ubs",
-      "client-associate-registered-ubs",
-      "registered-client-associate-ubs-2",
-      "servizio-clienti-registrato-associato-ubs-ticino",
-      "registered-client-service-associate-ubs",
-      "associe-de-service-a-la-clientele-enregistre-ubs-ticino",
-      "cliente-associato-registrato-ubs-ticino"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "registered-client-associate-ubs"
-      ],
-      "fr": [
-        "registered-client-associate-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true
   },
   {
     "slug": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
@@ -3080,38 +2430,6 @@
     "expiredAt": "2026-06-19T13:35:02.574Z",
     "salaryMin": 49500,
     "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "market-supervisory-officer-ubs",
-    "title": "Market Supervisory Officer",
-    "titleByLocale": {
-      "en": "Market Supervisory Officer",
-      "it": "Market Supervisory Officer",
-      "de": "Market Supervisory Officer",
-      "fr": "Market Supervisory Officer"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe’re looking for someone like this to:\n\n• manage all hiring and personnel decisions, coach the supervisory team and provide training on supervisory tools, new compliance bulletins and operational procedures.\n• manage review of various supervision processes\n• drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-      "it": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe’re looking for someone like this to:\n\n• manage all hiring and personnel decisions, coach the supervisory team and provide training on supervisory tools, new compliance bulletins and operational procedures.\n• manage review of various supervision processes\n• drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-      "de": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe’re looking for someone like this to:\n\n• manage all hiring and personnel decisions, coach the supervisory team and provide training on supervisory tools, new compliance bulletins and operational procedures.\n• manage review of various supervision processes\n• drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-      "fr": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe’re looking for someone like this to:\n\n• manage all hiring and personnel decisions, coach the supervisory team and provide training on supervisory tools, new compliance bulletins and operational procedures.\n• manage review of various supervision processes\n• drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required"
-    },
-    "slugByLocale": {
-      "en": "market-supervisory-officer-ubs",
-      "it": "market-supervisory-officer-ubs",
-      "de": "market-supervisory-officer-ubs",
-      "fr": "market-supervisory-officer-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-18T23:47:19.734Z",
-    "salaryMin": 50500,
-    "salaryMax": 89000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -3645,38 +2963,6 @@
     ],
     "salaryMin": 101500,
     "salaryMax": 154000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "card-processing-specialist-ubs",
-    "title": "Card Processing Specialist",
-    "titleByLocale": {
-      "en": "Card Processing Specialist",
-      "it": "Card Processing Specialista",
-      "de": "Card Processing Spezialist",
-      "fr": "Card Processing Spécialiste"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "As a key member of the Cards Processing Team, you will serve as a hands-on individual contributor supporting critical card processing activities and ensuring accurate, timely, and well-controlled execution of daily operations between UBS, internal business partners, and card vendors. This role is ideal for a detail-oriented operations professional with strong accounting and reconciliation experience who can identify exceptions, research issues, and help maintain a high-quality experience for branch and business stakeholders by:\n\nSupport the end-to-end card lifecycle, including production, personalization, distribution, maintenance, and issue resolution, while helping ensure service levels are met and operational risks are identified and addressed promptly.\n\nPerform reconciliations across multiple general ledgers and card processing accounts, researching outages, transaction breaks, and exceptions to support timely resolution and reduce financial and operational risk.",
-      "it": "As a key member of the Cards Processing Team, you will serve as a hands-on individual contributor supporting critical card processing activities and ensuring accurate, timely, and well-controlled execution of daily operations between UBS, internal business partners, and card vendors. This role is ideal for a detail-oriented operations professional with strong accounting and reconciliation experience who can identify exceptions, research issues, and help maintain a high-quality experience for branch and business stakeholders by:\n\nSupport the end-to-end card lifecycle, including production, personalization, distribution, maintenance, and issue resolution, while helping ensure service levels are met and operational risks are identified and addressed promptly.\n\nPerform reconciliations across multiple general ledgers and card processing accounts, researching outages, transaction breaks, and exceptions to support timely resolution and reduce financial and operational risk.",
-      "de": "As a key member of the Cards Processing Team, you will serve as a hands-on individual contributor supporting critical card processing activities and ensuring accurate, timely, and well-controlled execution of daily operations between UBS, internal business partners, and card vendors. This role is ideal for a detail-oriented operations professional with strong accounting and reconciliation experience who can identify exceptions, research issues, and help maintain a high-quality experience for branch and business stakeholders by:\n\nSupport the end-to-end card lifecycle, including production, personalization, distribution, maintenance, and issue resolution, while helping ensure service levels are met and operational risks are identified and addressed promptly.\n\nPerform reconciliations across multiple general ledgers and card processing accounts, researching outages, transaction breaks, and exceptions to support timely resolution and reduce financial and operational risk.",
-      "fr": "As a key member of the Cards Processing Team, you will serve as a hands-on individual contributor supporting critical card processing activities and ensuring accurate, timely, and well-controlled execution of daily operations between UBS, internal business partners, and card vendors. This role is ideal for a detail-oriented operations professional with strong accounting and reconciliation experience who can identify exceptions, research issues, and help maintain a high-quality experience for branch and business stakeholders by:\n\nSupport the end-to-end card lifecycle, including production, personalization, distribution, maintenance, and issue resolution, while helping ensure service levels are met and operational risks are identified and addressed promptly.\n\nPerform reconciliations across multiple general ledgers and card processing accounts, researching outages, transaction breaks, and exceptions to support timely resolution and reduce financial and operational risk."
-    },
-    "slugByLocale": {
-      "en": "card-processing-specialist-ubs",
-      "it": "card-processing-specialist-ubs",
-      "de": "card-processing-specialist-ubs",
-      "fr": "card-processing-specialist-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-17T23:34:45.767Z",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -4284,53 +3570,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "analista-quantitativo-istituzioni-finanziarie-e-modelli-di-rischio-di-credito-all-ingrosso-ubs-ticino",
-    "title": "Quant Analyst, Financial Institutions & Wholesale Credit Risk Models",
-    "titleByLocale": {
-      "en": "Quant Analyst, Financial Institutions & Wholesale Credit Risk Models",
-      "it": "Analista Quantitativo, Istituzioni Finanziarie e Modelli di Rischio di Credito all'Ingrosso",
-      "de": "Quant Analyst, Finanzinstitute & Wholesale Credit Risk Modelle",
-      "fr": "Analyste quantitatif, institutions financières et modèles de risque de crédit en gros"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Does quantitative modelling excite you? Are you experienced in credit risk?\n\nWe're looking for someone like you to:\n\n• use techniques from quantitative risk management, financial mathematics, and econometrics to develop and maintain rating and LGD models used for Basel III Pillar 1 capital requirement and IFRS9 impairment losses\n• be responsible for model maintenance and execution, ensuring alignment with stakeholders’ requirements and internal policies\n• collaborate with Risk Officers, Business Managers, Risk IT and other stakeholders to support the proper implementation and execution of risk models as well as regulatory exercises\n• present methodologies to management and regulators for approval\n• contribute to the documentation of models, data, and system improvement",
-      "it": "La modellazione quantitativa ti entusiasma? Hai esperienza nel rischio creditizio? Cerchiamo qualcuno come te che: • utilizzi tecniche di gestione quantitativa del rischio, matematica finanziaria ed econometria per sviluppare e mantenere modelli di rating e LGD utilizzati per il requisito di capitale Pilastro 1 di Basilea III e le perdite per impairment secondo IFRS9 • essere responsabile della manutenzione e dell'esecuzione del modello, assicurando l'allineamento con i requisiti degli stakeholder e le politiche interne • collaborare con i responsabili del rischio, Business Manager, Risk IT e altri stakeholder per supportare la corretta implementazione e esecuzione dei modelli di rischio così come degli esercizi regolatori • presentare metodologie a management e regolatori per l'approvazione • contribuire alla documentazione di modelli, dati e miglioramento dei sistemi",
-      "de": "Begeistert Sie quantitative Modellierung? Haben Sie Erfahrung im Bereich Kreditrisiko? Wir suchen jemanden wie Sie, der: • Techniken aus dem quantitativen Risikomanagement, der Finanzmathematik und Ökonometrie anwendet, um Rating- und LGD-Modelle zu entwickeln und zu pflegen, die für Basel III Pillar 1 Kapitalanforderungen und IFRS9-Impairmentverluste verwendet werden, • für die Modellpflege und -umsetzung verantwortlich ist und die Übereinstimmung mit den Anforderungen und internen Richtlinien der Stakeholder sicherstellt • mit Risikoverantwortlichen zusammenarbeitet, Geschäftsleiter, Risiko-IT und andere Interessengruppen unterstützen die ordnungsgemäße Umsetzung und Umsetzung von Risikomodellen sowie regulatorische Übungen • präsentieren Methoden dem Management und den Regulierungsbehörden zur Genehmigung • tragen zur Dokumentation von Modellen, Daten und Systemverbesserungen bei",
-      "fr": "La modélisation quantitative vous enthousiasme-t-elle? Avez-vous de l'expérience en matière de risque de crédit? Nous recherchons quelqu'un comme vous pour : • utiliser des techniques de gestion quantitative des risques, mathématiques financières et économétrie afin de développer et maintenir les modèles de notation et de LGD utilisés pour les exigences de capital du Pilier 1 de Bâle III et les pertes par dégradation selon les IFRS9 • être responsable de la maintenance et de l'exécution du modèle, en veillant à l'alignement avec les exigences des parties prenantes et les politiques internes • collaborer avec les responsables des risques, Les responsables commerciaux, les responsables des risques et d'autres parties prenantes pour soutenir la bonne mise en œuvre et exécution des modèles de risques ainsi que des exercices réglementaires • présenter des méthodologies à la direction et aux régulateurs pour approbation • contribuer à la documentation des modèles, des données et de l'amélioration des systèmes"
-    },
-    "slugByLocale": {
-      "en": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
-      "it": "analista-quantitativo-istituzioni-finanziarie-e-modelli-di-rischio-di-credito-all-ingrosso-ubs-ticino",
-      "de": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
-      "fr": "analyste-quantitatif-institutions-financieres-et-modeles-de-risque-de-credit-en-gros-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-17T14:07:38.471Z",
-    "previousSlugs": [
-      "quant-analyst-finanzinstitute-und-gro-handels-kreditrisikomodelle-ubs-ticino",
-      "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "quant-analyst-finanzinstitute-und-gro-handels-kreditrisikomodelle-ubs-ticino"
-      ],
-      "fr": [
-        "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
-      ],
-      "it": [
-        "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "fixed-income-quant-trader-ubs",
     "title": "Fixed Income Quant Trader",
     "titleByLocale": {
@@ -4672,90 +3911,6 @@
     },
     "salaryMin": 79500,
     "salaryMax": 135000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "responsabile-clienti-apac-svizzera-ubs-ticino-63b640",
-    "title": "Client Account Manager APAC Switzerland",
-    "titleByLocale": {
-      "it": "Responsabile Clienti APAC Svizzera",
-      "en": "Client Account Manager APAC Switzerland",
-      "de": "Client Account Manager APAC Switzerland",
-      "fr": "Client Account Manager APAC Switzerland"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for a WM Client Account Manager to:\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• manage daily business in WM HNW/UHNW client servicing and provide high quality service\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• support client advisors when they are on business trips and assist in preparing client meetings",
-      "en": "Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for a WM Client Account Manager to:\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• manage daily business in WM HNW/UHNW client servicing and provide high quality service\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• support client advisors when they are on business trips and assist in preparing client meetings",
-      "de": "Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for a WM Client Account Manager to:\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• manage daily business in WM HNW/UHNW client servicing and provide high quality service\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• support client advisors when they are on business trips and assist in preparing client meetings",
-      "fr": "Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for a WM Client Account Manager to:\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• manage daily business in WM HNW/UHNW client servicing and provide high quality service\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• support client advisors when they are on business trips and assist in preparing client meetings"
-    },
-    "slugByLocale": {
-      "it": "responsabile-clienti-apac-svizzera-ubs-ticino-63b640",
-      "en": "client-account-manager-apac-switzerland-ubs",
-      "de": "client-account-manager-apac-switzerland-ubs-2",
-      "fr": "client-account-manager-apac-switzerland-ubs-2"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-17T14:07:38.471Z",
-    "previousSlugs": [
-      "client-account-manager-apac-switzerland-ubs-2",
-      "client-account-manager-apac-switzerland-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "client-account-manager-apac-switzerland-ubs-2",
-        "client-account-manager-apac-switzerland-ubs"
-      ]
-    },
-    "salaryMin": 101500,
-    "salaryMax": 154000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "responsabile-clienti-apac-svizzera-ubs-ticino",
-    "title": "Client Account Manager APAC Switzerland",
-    "titleByLocale": {
-      "it": "Responsabile Clienti APAC Svizzera",
-      "en": "Client Account Manager APAC Switzerland",
-      "de": "Client Account Manager APAC Switzerland",
-      "fr": "Client Account Manager APAC Switzerland"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for a WM Client Account Manager to:\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• manage daily business in WM HNW/UHNW client servicing and provide high quality service\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• support client advisors when they are on business trips and assist in preparing client meetings",
-      "en": "Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for a WM Client Account Manager to:\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• manage daily business in WM HNW/UHNW client servicing and provide high quality service\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• support client advisors when they are on business trips and assist in preparing client meetings",
-      "de": "Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for a WM Client Account Manager to:\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• manage daily business in WM HNW/UHNW client servicing and provide high quality service\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• support client advisors when they are on business trips and assist in preparing client meetings",
-      "fr": "Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for a WM Client Account Manager to:\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• manage daily business in WM HNW/UHNW client servicing and provide high quality service\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• support client advisors when they are on business trips and assist in preparing client meetings"
-    },
-    "slugByLocale": {
-      "it": "responsabile-clienti-apac-svizzera-ubs-ticino",
-      "en": "client-account-manager-apac-switzerland-ubs",
-      "de": "client-account-manager-apac-switzerland-ubs",
-      "fr": "client-account-manager-apac-switzerland-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-17T14:07:38.471Z",
-    "previousSlugs": [
-      "client-account-manager-apac-switzerland-ubs",
-      "client-account-manager-apac-switzerland-ubs-2"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "client-account-manager-apac-switzerland-ubs",
-        "client-account-manager-apac-switzerland-ubs-2"
-      ]
-    },
-    "salaryMin": 101500,
-    "salaryMax": 154000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -7198,38 +6353,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "client-account-manager-international-clients-ubs",
-    "title": "Client Account Manager - International Clients",
-    "titleByLocale": {
-      "it": "Client Account Manager - International Clients",
-      "en": "Client Account Manager - International Clients",
-      "de": "Client Account Manager - International Clients",
-      "fr": "Client Account Manager - International Clients"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Do you want to proactively go the extra mile with us to help our sophisticated clients? Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for someone to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• join client advisors occasionally in client meetings",
-      "en": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Do you want to proactively go the extra mile with us to help our sophisticated clients? Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for someone to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• join client advisors occasionally in client meetings",
-      "de": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Do you want to proactively go the extra mile with us to help our sophisticated clients? Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for someone to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• join client advisors occasionally in client meetings",
-      "fr": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Do you want to proactively go the extra mile with us to help our sophisticated clients? Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for someone to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• join client advisors occasionally in client meetings"
-    },
-    "slugByLocale": {
-      "it": "client-account-manager-international-clients-ubs",
-      "en": "client-account-manager-international-clients-ubs",
-      "de": "client-account-manager-international-clients-ubs",
-      "fr": "client-account-manager-international-clients-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-11T13:41:34.224Z",
-    "salaryMin": 68000,
-    "salaryMax": 103000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "internship-in-finanza-team-ubs",
     "title": "Internship in Finance Team",
     "titleByLocale": {
@@ -7301,38 +6424,6 @@
     "expiredAt": "2026-06-11T13:41:34.224Z",
     "salaryMin": 49500,
     "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "client-account-manager-cst-dubai-ubs",
-    "title": "Client Account Manager CST Dubai",
-    "titleByLocale": {
-      "it": "Client Account Manager CST Dubai",
-      "en": "Client Account Manager CST Dubai",
-      "de": "Client Account Manager CST Dubai",
-      "fr": "Client Account Manager CST Dubai"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? We’re looking for a client account manager to:\n• manage daily business in client servicing and provide high quality service with focus on integration\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client services and with administrative legal and compliance related tasks and duties\n• mitigate risks and raise red flags and concerns",
-      "en": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? We’re looking for a client account manager to:\n• manage daily business in client servicing and provide high quality service with focus on integration\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client services and with administrative legal and compliance related tasks and duties\n• mitigate risks and raise red flags and concerns",
-      "de": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? We’re looking for a client account manager to:\n• manage daily business in client servicing and provide high quality service with focus on integration\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client services and with administrative legal and compliance related tasks and duties\n• mitigate risks and raise red flags and concerns",
-      "fr": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? We’re looking for a client account manager to:\n• manage daily business in client servicing and provide high quality service with focus on integration\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client services and with administrative legal and compliance related tasks and duties\n• mitigate risks and raise red flags and concerns"
-    },
-    "slugByLocale": {
-      "it": "client-account-manager-cst-dubai-ubs",
-      "en": "client-account-manager-cst-dubai-ubs",
-      "de": "client-account-manager-cst-dubai-ubs",
-      "fr": "client-account-manager-cst-dubai-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-11T13:41:34.224Z",
-    "salaryMin": 68000,
-    "salaryMax": 103000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -8002,52 +7093,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "venditore-efx-ubs-ticino",
-    "title": "eFX Salesperson",
-    "titleByLocale": {
-      "it": "venditore eFX",
-      "en": "eFX Salesperson",
-      "de": "eFX-Verkäufer",
-      "fr": "ventes eFX"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "Descrizione Sei un individuo guidato da un bersaglio? Sei abile nel tradurre i dati in informazioni di fatto e in grado di avere conversazioni strategiche? Sei appassionato della digitalizzazione del settore bancario e vuoi far parte di un crescente team di vendite elettroniche?\n• Stiamo cercando qualcuno come quello che può: - fornire funzionalità di trading elettronico ai nostri clienti FX attraverso le nostre piattaforme single-dealer, API, piattaforme multi-dealer e soluzioni di fornitori in tutto il ciclo commerciale (pre-trade, esecuzione e post-trade) - superare gli obiettivi di vendita per la nuova acquisizione del cliente e la crescita del volume con adeguato up-sell e cross-sell - on-board, mantenere e sviluppare nuove relazioni con i clienti in più segmenti di client, tra cui (ma non esclusivo a) banche, fondi di copertura, soldi reali e broker - fornire feedback client al team di sviluppo del prodotto per migliorare efficacemente l'esperienza del cliente in tutti i nostri e-Channels - gestire e influenzare direttamente la priorità di sviluppo e valorizzazione del prodotto - consegnare il nostro franchise in classi di asset",
-      "en": "Are you a target driven individual? Are you skilled at translating data into factual information and able to have strategic conversations? Are you passionate about the digitalisation of banking and want to be a part of a growing electronic sales team? We’re looking for someone like that who can: · deliver electronic trading capabilities to our FX clients through our single-dealer platforms, APIs, Multi-dealer platforms, and vendor solutions across the whole trade cycle (pre-trade, execution, and post-trade) · exceed sales targets for new client acquisition and volume growth with appropriate up-sell and cross-sell · on-board, maintain and develop new client relationships in multiple client segments including (but not exclusive to) Banks, Hedge Funds, Real Money and brokers · provide client feedback to the product development team to effectively enhance the client experience across all our e-Channels · manage and directly impact the prioritization of product development and enhancements · deliver our franchise across asset classes",
-      "de": "Descrizion Sind Sie ein zielgerichtetes Individuum? Sind Sie in der Lage, Daten in sachliche Informationen zu übersetzen und strategische Gespräche zu führen? Sie interessieren sich für die Digitalisierung des Bankings und möchten Teil eines wachsenden elektronischen Verkaufsteams sein? Wir suchen jemanden wie diesen, der kann: - Bereitstellung elektronischer Handelsfunktionen für unsere FX-Kunden über unsere Single-Dealer-Plattformen, APIs, Multi-Dealer-Plattformen und Anbieterlösungen über den gesamten Handelszyklus (Pre-Trade, Ausführung und Post-Trade) - Umsatzziele für Neukundenakquise und Volumenwachstum mit angemessenem Up-Selling und Cross-Selling übertreffen - On-Board, Pflege und Entwicklung neuer Kundenbeziehungen in mehreren Kundensegmenten, einschließlich (aber nicht ausschließlich) Banken, Hedgefonds, Real Money und Broker Kundenfeedback an das Produktentwicklungsteam, um die Kundenerfahrung in allen unseren E-Channels effektiv zu verbessern - Verwalten und direkte Auswirkungen auf die Priorisierung der Produktentwicklung und -verbesserungen - Liefern Sie unser Franchise in allen Anlageklassen",
-      "fr": "Descrizione Êtes-vous une personne ciblée? Êtes-vous capable de traduire les données en informations factuelles et d'avoir des conversations stratégiques? Êtes-vous passionné par la numérisation de la banque et voulez-vous faire partie d'une équipe de vente électronique en croissance? Nous cherchons quelqu'un comme ça qui peut : - fournir des capacités de trading électronique à nos clients FX par l'intermédiaire de nos plates-formes mono-commerçants, API, plateformes multi-commerçants, et des solutions de fournisseurs tout au long du cycle commercial (pré-commerce, exécution et post-commerce) - dépasser les objectifs de vente pour l'acquisition de nouveaux clients et la croissance du volume avec une mise à niveau et une vente croisée appropriées - à bord, maintenir et développer de nouvelles relations avec les clients dans plusieurs segments de clients, y compris (mais pas exclusivement) les banques, les fonds spéculatifs, l'argent réel et les courtiers - fournir la rétroaction du client à l'équipe de développement de produits pour améliorer efficacement l'expérience du client dans tous nos canaux électroniques - gérer et avoir une incidence directe sur la hiérarchisation du développement et des améliorations des produits - offrir notre franchise à travers les classes d'actifs"
-    },
-    "slugByLocale": {
-      "it": "venditore-efx-ubs-ticino",
-      "en": "efx-salesperson-ubs",
-      "de": "efx-verkaufer-ubs-ticino",
-      "fr": "ventes-efx-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-10T23:38:22.391Z",
-    "previousSlugs": [
-      "efx-salesperson-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "efx-salesperson-ubs"
-      ],
-      "de": [
-        "efx-salesperson-ubs"
-      ],
-      "fr": [
-        "efx-salesperson-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "senior-product-owner-lead-business-analyst-ubs",
     "title": "Senior Product Owner / Lead Business Analyst",
     "titleByLocale": {
@@ -8488,49 +7533,6 @@
     "previousSlugsByLocale": {
       "it": [
         "event-attendant-hourly-paid-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "business-risk-analista-ubs",
-    "title": "Business Risk Analyst",
-    "titleByLocale": {
-      "it": "Business Risk Analista",
-      "en": "Business Risk Analyst",
-      "de": "Business Risk Analyst",
-      "fr": "Business Risk Analyste"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "We’re looking for a Business Risk Analyst to:\n• Support location business risk management with the performance of risk and control related tasks\n• Assist in the review of operational and supervisory controls and where required recommend solutions for improvement\n• Provide support and advice to the front office and key stakeholders\n• Collect and collate location key risk statistics for reporting (based on Regional KRIs, PB COO Dashboard, audit points and incidents)\n• Where required, coordinate agreement amongst stakeholders on new or changing control procedures.\n• Provide support and coordination to audit requests as well as track and monitor closure of existing audit items\n• Under supervision, conduct special ad hoc reviews and participate in projects and help to ensure implementation of all business risk related tasks/projects",
-      "en": "We’re looking for a Business Risk Analyst to:\n• Support location business risk management with the performance of risk and control related tasks\n• Assist in the review of operational and supervisory controls and where required recommend solutions for improvement\n• Provide support and advice to the front office and key stakeholders\n• Collect and collate location key risk statistics for reporting (based on Regional KRIs, PB COO Dashboard, audit points and incidents)\n• Where required, coordinate agreement amongst stakeholders on new or changing control procedures.\n• Provide support and coordination to audit requests as well as track and monitor closure of existing audit items\n• Under supervision, conduct special ad hoc reviews and participate in projects and help to ensure implementation of all business risk related tasks/projects",
-      "de": "We’re looking for a Business Risk Analyst to:\n• Support location business risk management with the performance of risk and control related tasks\n• Assist in the review of operational and supervisory controls and where required recommend solutions for improvement\n• Provide support and advice to the front office and key stakeholders\n• Collect and collate location key risk statistics for reporting (based on Regional KRIs, PB COO Dashboard, audit points and incidents)\n• Where required, coordinate agreement amongst stakeholders on new or changing control procedures.\n• Provide support and coordination to audit requests as well as track and monitor closure of existing audit items\n• Under supervision, conduct special ad hoc reviews and participate in projects and help to ensure implementation of all business risk related tasks/projects",
-      "fr": "We’re looking for a Business Risk Analyst to:\n• Support location business risk management with the performance of risk and control related tasks\n• Assist in the review of operational and supervisory controls and where required recommend solutions for improvement\n• Provide support and advice to the front office and key stakeholders\n• Collect and collate location key risk statistics for reporting (based on Regional KRIs, PB COO Dashboard, audit points and incidents)\n• Where required, coordinate agreement amongst stakeholders on new or changing control procedures.\n• Provide support and coordination to audit requests as well as track and monitor closure of existing audit items\n• Under supervision, conduct special ad hoc reviews and participate in projects and help to ensure implementation of all business risk related tasks/projects"
-    },
-    "slugByLocale": {
-      "it": "business-risk-analista-ubs",
-      "en": "business-risk-analyst-ubs",
-      "de": "business-risk-analyst-ubs",
-      "fr": "business-risk-analyste-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-10T13:06:32.107Z",
-    "previousSlugs": [
-      "business-risk-analyst-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "business-risk-analyst-ubs"
-      ],
-      "fr": [
-        "business-risk-analyst-ubs"
       ]
     },
     "salaryMin": 49500,
@@ -9426,46 +8428,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "gestione-account-cliente-scsd-12-mesi-di-contratto-ubs-ticino",
-    "title": "Client Account Manager, SCSD (12 months contract)",
-    "titleByLocale": {
-      "it": "Gestione account cliente, SCSD (12 mesi di contratto)",
-      "en": "Client Account Manager, SCSD (12 months contract)",
-      "de": "Client Account Manager, SCSD (12 months contract)",
-      "fr": "Client Account Manager, SCSD (12 months contract)"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "As a Special Client Situations Desk (SCSD) Client Account Manager, you will be responsible for the accounts transferred to you for exit purposes. This includes following up with clients on top up/closure instructions (e.g. Execution of securities and forex transactions to facilitate account closure) You will:\n• act as the primary or secondary point of contact for the clients; manage daily administration, client servicing and attend to compliance requirements\n• be the liaison between the various operational sub-teams to ensure smooth account closure\n• ensure strict compliance with all internal policies and external regulations and legal guidelines are adhered to\n• ensure the occurrence of errors and operational problems are minimized, promptly and properly document any issues that occur",
-      "en": "As a Special Client Situations Desk (SCSD) Client Account Manager, you will be responsible for the accounts transferred to you for exit purposes. This includes following up with clients on top up/closure instructions (e.g. Execution of securities and forex transactions to facilitate account closure) You will:\n• act as the primary or secondary point of contact for the clients; manage daily administration, client servicing and attend to compliance requirements\n• be the liaison between the various operational sub-teams to ensure smooth account closure\n• ensure strict compliance with all internal policies and external regulations and legal guidelines are adhered to\n• ensure the occurrence of errors and operational problems are minimized, promptly and properly document any issues that occur",
-      "de": "As a Special Client Situations Desk (SCSD) Client Account Manager, you will be responsible for the accounts transferred to you for exit purposes. This includes following up with clients on top up/closure instructions (e.g. Execution of securities and forex transactions to facilitate account closure) You will:\n• act as the primary or secondary point of contact for the clients; manage daily administration, client servicing and attend to compliance requirements\n• be the liaison between the various operational sub-teams to ensure smooth account closure\n• ensure strict compliance with all internal policies and external regulations and legal guidelines are adhered to\n• ensure the occurrence of errors and operational problems are minimized, promptly and properly document any issues that occur",
-      "fr": "As a Special Client Situations Desk (SCSD) Client Account Manager, you will be responsible for the accounts transferred to you for exit purposes. This includes following up with clients on top up/closure instructions (e.g. Execution of securities and forex transactions to facilitate account closure) You will:\n• act as the primary or secondary point of contact for the clients; manage daily administration, client servicing and attend to compliance requirements\n• be the liaison between the various operational sub-teams to ensure smooth account closure\n• ensure strict compliance with all internal policies and external regulations and legal guidelines are adhered to\n• ensure the occurrence of errors and operational problems are minimized, promptly and properly document any issues that occur"
-    },
-    "slugByLocale": {
-      "it": "gestione-account-cliente-scsd-12-mesi-di-contratto-ubs-ticino",
-      "en": "client-account-manager-scsd-12-months-contract-ubs",
-      "de": "client-account-manager-scsd-12-months-contract-ubs",
-      "fr": "client-account-manager-scsd-12-months-contract-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-09T12:27:36.821Z",
-    "previousSlugs": [
-      "client-account-manager-scsd-12-months-contract-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "client-account-manager-scsd-12-months-contract-ubs"
-      ]
-    },
-    "salaryMin": 68000,
-    "salaryMax": 103000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "gestione-account-cliente-famiglia-globale-e-ricchezza-istituzionale-ubs-ticino-964566",
     "title": "Client Account Manager - Global Family and Institutional Wealth",
     "titleByLocale": {
@@ -9535,38 +8497,6 @@
       "en": "client-account-manager-greater-china-singapore-ubs",
       "de": "client-account-manager-greater-china-singapore-ubs-3",
       "fr": "client-account-manager-greater-china-singapore-ubs-3"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-09T12:27:36.821Z",
-    "salaryMin": 68000,
-    "salaryMax": 103000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "executive-assistant-office-manager-ubs",
-    "title": "Executive Assistant / Office Manager",
-    "titleByLocale": {
-      "it": "Executive Assistant / Office Manager",
-      "en": "Executive Assistant / Office Manager",
-      "de": "Executive Assistent / Office Manager",
-      "fr": "Executive Assistant / Office Manager"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "Are you a detail-oriented multitasker? Do you know how to make sure things run smoothly? We’re looking for an Executive Assistant to:\n• manage calendars including conference calls and video conferences, team and training events, personal commitments and client meetings\n• arrange travel bookings, itineraries and visa coordination\n• support office administration, like ordering supplies, handling mail and managing conference logistics, coordinating with facility management and IT support\n• be instrumental in co-ordinating the Perth office client marketing events\n• coordinate the production of presentation and report materials\n• assist with finance management, including processing of invoices and expenses",
-      "en": "Are you a detail-oriented multitasker? Do you know how to make sure things run smoothly? We’re looking for an Executive Assistant to:\n• manage calendars including conference calls and video conferences, team and training events, personal commitments and client meetings\n• arrange travel bookings, itineraries and visa coordination\n• support office administration, like ordering supplies, handling mail and managing conference logistics, coordinating with facility management and IT support\n• be instrumental in co-ordinating the Perth office client marketing events\n• coordinate the production of presentation and report materials\n• assist with finance management, including processing of invoices and expenses",
-      "de": "Are you a detail-oriented multitasker? Do you know how to make sure things run smoothly? We’re looking for an Executive Assistant to:\n• manage calendars including conference calls and video conferences, team and training events, personal commitments and client meetings\n• arrange travel bookings, itineraries and visa coordination\n• support office administration, like ordering supplies, handling mail and managing conference logistics, coordinating with facility management and IT support\n• be instrumental in co-ordinating the Perth office client marketing events\n• coordinate the production of presentation and report materials\n• assist with finance management, including processing of invoices and expenses",
-      "fr": "Are you a detail-oriented multitasker? Do you know how to make sure things run smoothly? We’re looking for an Executive Assistant to:\n• manage calendars including conference calls and video conferences, team and training events, personal commitments and client meetings\n• arrange travel bookings, itineraries and visa coordination\n• support office administration, like ordering supplies, handling mail and managing conference logistics, coordinating with facility management and IT support\n• be instrumental in co-ordinating the Perth office client marketing events\n• coordinate the production of presentation and report materials\n• assist with finance management, including processing of invoices and expenses"
-    },
-    "slugByLocale": {
-      "it": "executive-assistant-office-manager-ubs",
-      "en": "executive-assistant-office-manager-ubs",
-      "de": "executive-assistent-office-manager-ubs",
-      "fr": "executive-assistant-office-manager-ubs"
     },
     "sector": "Finanza / Banca",
     "expiredAt": "2026-06-09T12:27:36.821Z",
@@ -12749,38 +11679,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "hong-kong-head-of-financial-crime-prevention-ubs",
-    "title": "Hong Kong Head of Financial Crime Prevention",
-    "titleByLocale": {
-      "en": "Hong Kong Head of Financial Crime Prevention",
-      "it": "Hong Kong Responsabile Financial Crime Prevention",
-      "de": "Hong Kong Leiter Financial Crime Prevention",
-      "fr": "Hong Kong Responsable Financial Crime Prevention"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "",
-    "addressLocality": "",
-    "descriptionByLocale": {
-      "en": "Do you have the proven ability to\n• lead a team of financial crime professionals,\n• develop and maintain the FCP policy framework in Hong Kong,\n• engage with senior management on complex topics of policy changes, risk assessments, and control results,\n• handle regulatory inspections?\n\nWe are looking for a Head of FCP Hong Kong to:\n\n• Oversee the execution of the FCP mandate for the wealth management business in Hong Kong, including key controls such as client lifecycle processes (onboarding, periodic reviews, offboarding), name screening, transaction monitoring, investigations, and suspicious activity reporting;\n• Provide strategic direction, independent oversight, and challenge to the businesses, ensuring alignment with global minimum standards and local regulatory requirements;\n• Lead and develop a team of financial crime professionals;\n• Act as the point of contact for Hong Kong regulators and law enforcement authorities on FCP matters;\n• Manage regulatory inspections, requests, and filings in accordance with required timelines;\n• Work closely with regional and global FCP leadership, including the regional head of FCP APAC and regional heads of Sanctions, Anti-Fraud, and Anti-Bribery & Corruption, to ensure consistent coverage and implementation of all FCP taxonomies;\n• Own and maintain AML-related policies in Hong Kong, conduct gap analyses against regulatory changes, and implement global minimum standards;\n• Represent FCP in local governance forums and risk committees and ensure timely escalation and reporting of key matters to senior stakeholders;\n• Drive the FCP vision and strategy in Hong Kong, ensuring it aligns with business objectives and risk profiles, and perform 2LoD activities in close coordination with 1LoD to ensure effective risk management;\n• Act as Section 72B Manager and Money Laundering Reporting Officer (MLRO) for the wealth management business in Hong Kong.",
-      "it": "Do you have the proven ability to\n• lead a team of financial crime professionals,\n• develop and maintain the FCP policy framework in Hong Kong,\n• engage with senior management on complex topics of policy changes, risk assessments, and control results,\n• handle regulatory inspections?\n\nWe are looking for a Head of FCP Hong Kong to:\n\n• Oversee the execution of the FCP mandate for the wealth management business in Hong Kong, including key controls such as client lifecycle processes (onboarding, periodic reviews, offboarding), name screening, transaction monitoring, investigations, and suspicious activity reporting;\n• Provide strategic direction, independent oversight, and challenge to the businesses, ensuring alignment with global minimum standards and local regulatory requirements;\n• Lead and develop a team of financial crime professionals;\n• Act as the point of contact for Hong Kong regulators and law enforcement authorities on FCP matters;\n• Manage regulatory inspections, requests, and filings in accordance with required timelines;\n• Work closely with regional and global FCP leadership, including the regional head of FCP APAC and regional heads of Sanctions, Anti-Fraud, and Anti-Bribery & Corruption, to ensure consistent coverage and implementation of all FCP taxonomies;\n• Own and maintain AML-related policies in Hong Kong, conduct gap analyses against regulatory changes, and implement global minimum standards;\n• Represent FCP in local governance forums and risk committees and ensure timely escalation and reporting of key matters to senior stakeholders;\n• Drive the FCP vision and strategy in Hong Kong, ensuring it aligns with business objectives and risk profiles, and perform 2LoD activities in close coordination with 1LoD to ensure effective risk management;\n• Act as Section 72B Manager and Money Laundering Reporting Officer (MLRO) for the wealth management business in Hong Kong.",
-      "de": "Do you have the proven ability to\n• lead a team of financial crime professionals,\n• develop and maintain the FCP policy framework in Hong Kong,\n• engage with senior management on complex topics of policy changes, risk assessments, and control results,\n• handle regulatory inspections?\n\nWe are looking for a Head of FCP Hong Kong to:\n\n• Oversee the execution of the FCP mandate for the wealth management business in Hong Kong, including key controls such as client lifecycle processes (onboarding, periodic reviews, offboarding), name screening, transaction monitoring, investigations, and suspicious activity reporting;\n• Provide strategic direction, independent oversight, and challenge to the businesses, ensuring alignment with global minimum standards and local regulatory requirements;\n• Lead and develop a team of financial crime professionals;\n• Act as the point of contact for Hong Kong regulators and law enforcement authorities on FCP matters;\n• Manage regulatory inspections, requests, and filings in accordance with required timelines;\n• Work closely with regional and global FCP leadership, including the regional head of FCP APAC and regional heads of Sanctions, Anti-Fraud, and Anti-Bribery & Corruption, to ensure consistent coverage and implementation of all FCP taxonomies;\n• Own and maintain AML-related policies in Hong Kong, conduct gap analyses against regulatory changes, and implement global minimum standards;\n• Represent FCP in local governance forums and risk committees and ensure timely escalation and reporting of key matters to senior stakeholders;\n• Drive the FCP vision and strategy in Hong Kong, ensuring it aligns with business objectives and risk profiles, and perform 2LoD activities in close coordination with 1LoD to ensure effective risk management;\n• Act as Section 72B Manager and Money Laundering Reporting Officer (MLRO) for the wealth management business in Hong Kong.",
-      "fr": "Do you have the proven ability to\n• lead a team of financial crime professionals,\n• develop and maintain the FCP policy framework in Hong Kong,\n• engage with senior management on complex topics of policy changes, risk assessments, and control results,\n• handle regulatory inspections?\n\nWe are looking for a Head of FCP Hong Kong to:\n\n• Oversee the execution of the FCP mandate for the wealth management business in Hong Kong, including key controls such as client lifecycle processes (onboarding, periodic reviews, offboarding), name screening, transaction monitoring, investigations, and suspicious activity reporting;\n• Provide strategic direction, independent oversight, and challenge to the businesses, ensuring alignment with global minimum standards and local regulatory requirements;\n• Lead and develop a team of financial crime professionals;\n• Act as the point of contact for Hong Kong regulators and law enforcement authorities on FCP matters;\n• Manage regulatory inspections, requests, and filings in accordance with required timelines;\n• Work closely with regional and global FCP leadership, including the regional head of FCP APAC and regional heads of Sanctions, Anti-Fraud, and Anti-Bribery & Corruption, to ensure consistent coverage and implementation of all FCP taxonomies;\n• Own and maintain AML-related policies in Hong Kong, conduct gap analyses against regulatory changes, and implement global minimum standards;\n• Represent FCP in local governance forums and risk committees and ensure timely escalation and reporting of key matters to senior stakeholders;\n• Drive the FCP vision and strategy in Hong Kong, ensuring it aligns with business objectives and risk profiles, and perform 2LoD activities in close coordination with 1LoD to ensure effective risk management;\n• Act as Section 72B Manager and Money Laundering Reporting Officer (MLRO) for the wealth management business in Hong Kong."
-    },
-    "slugByLocale": {
-      "en": "hong-kong-head-of-financial-crime-prevention-ubs",
-      "it": "hong-kong-head-of-financial-crime-prevention-ubs",
-      "de": "hong-kong-head-of-financial-crime-prevention-ubs",
-      "fr": "hong-kong-head-of-financial-crime-prevention-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-04T16:00:00.275Z",
-    "salaryMin": 68000,
-    "salaryMax": 103000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "senior-devops-engineer-artifact-management-ubs",
     "title": "Senior DevOps Engineer - Artifact Management",
     "titleByLocale": {
@@ -13017,46 +11915,6 @@
     "previousSlugsByLocale": {
       "it": [
         "wealth-strategy-associate-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "amministratore-di-ufficio-di-filiale-ubs",
-    "title": "Branch Office Administrator",
-    "titleByLocale": {
-      "en": "Branch Office Administrator",
-      "it": "Amministratore di ufficio di filiale",
-      "de": "Branch Office Administrator",
-      "fr": "Branch Office Administrator"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "",
-    "addressLocality": "",
-    "descriptionByLocale": {
-      "en": "• support the branch management team administratively\n• assist with resolving client issues\n• communicate and implement our administrative and risk management guidelines and policies\n• support the hiring process and maintain all HR functions, including payroll for support staff\n• assist in the administrative aspects of licensing and registration for all registered employees\n• coordinate and plan branch office business meetings and various activities",
-      "it": "• support the branch management team administratively\n• assist with resolving client issues\n• communicate and implement our administrative and risk management guidelines and policies\n• support the hiring process and maintain all HR functions, including payroll for support staff\n• assist in the administrative aspects of licensing and registration for all registered employees\n• coordinate and plan branch office business meetings and various activities",
-      "de": "• support the branch management team administratively\n• assist with resolving client issues\n• communicate and implement our administrative and risk management guidelines and policies\n• support the hiring process and maintain all HR functions, including payroll for support staff\n• assist in the administrative aspects of licensing and registration for all registered employees\n• coordinate and plan branch office business meetings and various activities",
-      "fr": "• support the branch management team administratively\n• assist with resolving client issues\n• communicate and implement our administrative and risk management guidelines and policies\n• support the hiring process and maintain all HR functions, including payroll for support staff\n• assist in the administrative aspects of licensing and registration for all registered employees\n• coordinate and plan branch office business meetings and various activities"
-    },
-    "slugByLocale": {
-      "en": "branch-office-administrator-ubs",
-      "it": "amministratore-di-ufficio-di-filiale-ubs",
-      "de": "branch-office-administrator-ubs",
-      "fr": "branch-office-administrator-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-04T16:00:00.274Z",
-    "previousSlugs": [
-      "branch-office-administrator-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "branch-office-administrator-ubs"
       ]
     },
     "salaryMin": 49500,
