@@ -68,7 +68,6 @@
           "fellow-cardiology-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -153,7 +152,6 @@
           "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -173,9 +171,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "fr": "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -218,7 +216,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
+        "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -232,7 +232,6 @@
           "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -332,9 +331,9 @@
       "slug": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
-        "en": "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "en": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fr": "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
+        "fr": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -377,7 +376,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel"
+        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
+        "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -391,7 +392,6 @@
           "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -550,7 +550,6 @@
           "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -615,27 +614,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-          "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
+          "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+          "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -655,7 +653,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -701,26 +699,27 @@
       "previousSlugs": [
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-radiologie-unispital-basel-ch",
           "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
         ],
         "en": [
           "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
           "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1478,9 +1477,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "fr": "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1523,7 +1522,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
+        "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1537,7 +1538,6 @@
           "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.317Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1557,9 +1557,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "fr": "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1602,7 +1602,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
+        "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1616,7 +1618,6 @@
           "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.318Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1779,7 +1780,6 @@
         "amministrativo-r-dipendente-in-gestione-di-casi-universitatsspital-basel-basel",
         "administrative-r-collaboratore-trice-in-case-management-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.316Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1959,7 +1959,6 @@
         "administrative-r-mitarbeiter-in-sekretar-in-unispital-basel-ch",
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.307Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -1981,7 +1980,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2024,7 +2023,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
+        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+        "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2036,7 +2036,6 @@
           "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2193,7 +2192,6 @@
           "study-nurse-neurochirurgie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.296Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2222,17 +2220,17 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
+        "it": "Dipl. Infermiera / Infermiera specialista HF/FH",
+        "en": "Diploma in Nursing (HF/FH)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH"
+        "fr": "Diplômé(e) en soins infirmiers (HF/FH)"
       },
       "description": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbstständige Organisation des eigenen Arbeitsbereichs sowie Gewährleistung eines reibungslosen Pflegeprozesses\n\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF, FaGe)\n\n• Zielorientierte und kooperative Zusammenarbeit innerhalb eines interdisziplinären Behandlungsteams\n\nAnforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachfrau / Pflegefachmann (HF/FH) und mindestens zwei Jahre Berufserfahrung im Akutbereich (erforderlich)\n\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n\n• Mündliche Fremdsprachenkenntnisse für die Kommunikation mit vielfältigen Patientengruppen sind von Vorteil\n\n• Gute mündliche Deutschkenntnisse (mindestens Niveau B2)\n\n• Interesse an Teamentwicklung und Freude daran, gemeinsam mit anderen Lösungen zu gestalten.\n\n• Bereitschaft zum Einsatz im 3-Schicht-Betrieb\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n• Selbstständige Organisation des eigenen Arbeitsbereichs sowie Gewährleistung eines reibungslosen Pflegeprozesses\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF, FaGe)\n• Zielorientierte und kooperative Zusammenarbeit innerhalb eines interdisziplinären Behandlungsteams Anforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachfrau / Pflegefachmann (HF/FH) und mindestens zwei Jahre Berufserfahrung im Akutbereich (erforderlich)\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Mündliche Fremdsprachenkenntnisse für die Kommunikation mit vielfältigen Patientengruppen sind von Vorteil\n• Gute mündliche Deutschkenntnisse (mindestens Niveau B2)\n• Interesse an Teamentwicklung und Freude daran, gemeinsam mit anderen Lösungen zu gestalten.\n• Bereitschaft zum Einsatz im 3-Schicht-Betrieb Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n• Selbstständige Organisation des eigenen Arbeitsbereichs sowie Gewährleistung eines reibungslosen Pflegeprozesses\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF, FaGe)\n• Zielorientierte und kooperative Zusammenarbeit innerhalb eines interdisziplinären Behandlungsteams Anforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachfrau / Pflegefachmann (HF/FH) und mindestens zwei Jahre Berufserfahrung im Akutbereich (erforderlich)\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Mündliche Fremdsprachenkenntnisse für die Kommunikation mit vielfältigen Patientengruppen sind von Vorteil\n• Gute mündliche Deutschkenntnisse (mindestens Niveau B2)\n• Interesse an Teamentwicklung und Freude daran, gemeinsam mit anderen Lösungen zu gestalten.\n• Bereitschaft zum Einsatz im 3-Schicht-Betrieb Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "de": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n• Selbstständige Organisation des eigenen Arbeitsbereichs sowie Gewährleistung eines reibungslosen Pflegeprozesses\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF, FaGe)\n• Zielorientierte und kooperative Zusammenarbeit innerhalb eines interdisziplinären Behandlungsteams Anforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachfrau / Pflegefachmann (HF/FH) und mindestens zwei Jahre Berufserfahrung im Akutbereich (erforderlich)\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Mündliche Fremdsprachenkenntnisse für die Kommunikation mit vielfältigen Patientengruppen sind von Vorteil\n• Gute mündliche Deutschkenntnisse (mindestens Niveau B2)\n• Interesse an Teamentwicklung und Freude daran, gemeinsam mit anderen Lösungen zu gestalten.\n• Bereitschaft zum Einsatz im 3-Schicht-Betrieb Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n• Selbstständige Organisation des eigenen Arbeitsbereichs sowie Gewährleistung eines reibungslosen Pflegeprozesses\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF, FaGe)\n• Zielorientierte und kooperative Zusammenarbeit innerhalb eines interdisziplinären Behandlungsteams Anforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachfrau / Pflegefachmann (HF/FH) und mindestens zwei Jahre Berufserfahrung im Akutbereich (erforderlich)\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Mündliche Fremdsprachenkenntnisse für die Kommunikation mit vielfältigen Patientengruppen sind von Vorteil\n• Gute mündliche Deutschkenntnisse (mindestens Niveau B2)\n• Interesse an Teamentwicklung und Freude daran, gemeinsam mit anderen Lösungen zu gestalten.\n• Bereitschaft zum Einsatz im 3-Schicht-Betrieb Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Mansioni - Responsabilità nella cura, assistenza e supporto dei pazienti e dei loro familiari - Organizzazione autonoma del proprio ambito di lavoro e garanzia di un processo di cura fluido - Istruzione e tutoraggio dei tirocinanti di varie professioni (HF, FaGe) - Collaborazione mirata e cooperativa all'interno di un'équipe di trattamento interdisciplinare Requisiti - Formazione completata come diplomata/o infermiere/i (HF/FH) e almeno due anni di esperienza professionale nel settore ospedaliero (richiesto) - Motivazione per la co-gestione e lo sviluppo dei processi e degli standard infermieristici - Conoscenza delle lingue straniere per la comunicazione con gruppi di pazienti diversificati (un vantaggio) - Buone conoscenze linguistiche tedesche (almeno livello B2) - Interesse per lo sviluppo del team e piacere nel creare soluzioni insieme agli altri - Disponibilità a lavorare in turni di 3 Cosa offriamo - Politica salariale attraente e ottime prestazioni sociali - Sconti nei settori shopping, sport e tempo libero - Supporto per il trasferimento e la ricerca di alloggio - 25 giorni di ferie più 5 giorni liberi aggiuntivi - Supporto per la formazione e la pianificazione della carriera - Campus nel cuore di Basilea e nella regione del Dreiländereck - Ampie possibilità di assistenza all'infanzia - Programma sportivo e di movimento gratuito",
+        "en": "Mansioni - Responsabilità nella cura,6-7enza e Tasseo ll pazitti e dei loro familiari - Organizzazione autonoma del proprio ambito di lavoro e garanzia di un thesto di cura llío - Istruzione e Tissemaggio dei tirocinanti di diverse 1974i (HF, FaGe) - Collaborazione mirata e cooperativa all'into di un'équipe di trattamento interdisciplinare Requisiti - Formazione completeata serv.i/a/o infermiere/i (HF/FH) e almeno due anni di esperienza professionale nel establish ospedaliero (richiesto) - Motivazione per la co- Attitudee e lo sviluppo dei processi e degli standard\n\ninfermieristici - Conoscenza del lingue straniere per la comunicazione con gruppi di pazitti di di di di pazitti (un vantaggio) - Buone conoscence linguistiche tedesche (almeno livello B2) - interest per lo sviluppo del team e piacere nel creare soluzioni insieme agli altri - disponibilità a lavorare in turni di 3 Cosa offriamo - Politica salariale attraente e ottime prestazioni sociali - Sconti nei settori shopping, sport e tempo libero - Supporto per il trasfermento e la ricerca di alloggio - 25 Giorgio di ferie più 5 giorni liberi aggiuntivi - Supporto per la formazione e la pianificazione\n\ndella carriera - Campus nel cuore di Basilea e nella Regione del Triangleneck - Ampie pssibilità di jenza all'infanzia - Programmea sportivo e di movimento Serrao",
+        "de": "Mansioni\n- Responsabilità nella cura, assistenza e supporto delle pazienti e dei loro familiari\n- Organizzazione autonoma del proprio ambito di lavoro e garanzia di un processo di cura fluido\n- Istruzione e tutoraggio dei tirocinanti di diverse professioni (HF, FaGe)\n- Collaborazione mirata e cooperativa all'interno di un'équipe di trattamento interdisciplinare\n\nRequisiti\n- Formazione completata come diplomata/o infermiere/i (HF/FH) e almeno due anni di esperienza professionale nel settore ospedaliero (richiesto)\n- Motivazione per la co-gestione e lo sviluppo dei processi e degli standard infermieristici\n- Conoscenza delle lingue straniere per la comunicazione con gruppi di pazienti diversificati (un vantaggio)\n- Buone conoscenze linguistiche tedesche (almeno livello B2)\n- Interesse per lo sviluppo del team e piacere nel creare soluzioni insieme agli altri\n- Disponibilità a lavorare in turni di 3\n\nCosa offriamo\n- Politica salariale attraente e ottime prestazioni sociali\n- Sconti nei settori shopping, sport e tempo libero\n- Supporto per il trasferimento e la ricerca di alloggio\n- 25 giorni di ferie più 5 giorni liberi aggiuntivi\n- Supporto per la formazione e la pianificazione della carriera\n- Campus nel cuore di Basilea e nella regione del Dreiländereck\n- Ampie possibilità di assistenza all'infanzia\n- Programma sportivo e di movimento gratuito",
+        "fr": "Mansioni - Responsabilità nella cura,6-7enza e Tasseo ll pazitti e dei loro familia - Organizzazione autonoma del proprio ambito di lavoro e garanzia di un thesto di cura llío - Istruzione e Tissemaggio dei tirocinanti di divers 1974i (HF, FaGe) - Collaborazione mirata e cooperativa all'into di un' route di trattmentmentmententa interdisciplinere Requisiti - Formazione completata serv.i/a/o infermiere/i (HF/FH) e almeno due anni di esperienza professionale nel institue ospedaliero (richiesto) - Motivazione per la co- Attitudee e lo sviluppo dei processi e degli standard\n\ninfermieristici - Conoscenza del lingue straniere per la comunicazione con gruppi di pazitti di di di pazitti (un vantaggio) - Buone conoscence linguistiquehe tedesche (almeno livello B2) - intérêt per lo sviluppo del team e piacere nel creare soluzioni inSeme agli altri - disponicità a lavorare in tourni di 3 Cosa of Friamo - PoliticaHotel attraente e ottime prestazioni sociali - Sconti nei settori shopping, sport e tempo libero - Supporto per il trasfermento e la ricerca di alloggio - 25 Giorgio di ferie più 5 giorni liberi agiunti - Supporto per la formazione e la pianificazione\n\ndella carriera - Campus nel cuore di Basilea e nella Regione del Triangleneck - API pssicità di jenza all'infanzia - Programmea sportivo e di movimento Serrao"
       },
       "location": "Basel",
       "canton": "BS",
@@ -2257,14 +2255,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-cje476",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-1b53qj"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2451,7 +2451,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2629,7 +2628,6 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2648,7 +2646,7 @@
       "id": "unispital-basel-f16341854433",
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "it": "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
@@ -2659,7 +2657,7 @@
       "title": "Physiotherapeutin / Physiotherapeut",
       "titleByLocale": {
         "it": "Fisioterapista / Fisioterapista",
-        "en": "Physiotherapeutin / Physiotherapeut",
+        "en": "Physiotherapist/physiotherapist",
         "de": "Physiotherapeutin / Physiotherapeut",
         "fr": "Physiothérapeute / Physiothérapeute"
       },
@@ -2695,7 +2693,6 @@
       "previousSlugs": [
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
@@ -2704,21 +2701,20 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-          "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-13T12:07:01.913Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2789,7 +2785,6 @@
           "administrative-r-mitarbeiter-in-patienten-services-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T15:21:32.592Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3030,7 +3025,6 @@
         "dipl-career-dipl-care-specialist-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3742,7 +3736,6 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3813,7 +3806,6 @@
           "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:00:17.913Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4523,7 +4515,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4566,7 +4558,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
+        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4577,7 +4570,6 @@
           "pflegefachperson-hf-fh-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4658,7 +4650,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-05T12:52:53.593Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4811,7 +4802,6 @@
           "kaderarztin-kaderarzt-pneumologie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -5471,14 +5461,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
-        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
         "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5588,7 +5579,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5631,7 +5622,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+        "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5643,7 +5635,6 @@
           "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5662,7 +5653,7 @@
       "id": "unispital-basel-28c2fd6de85f",
       "slug": "terapeuta-del-lavoro-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "it": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "en": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "de": "ergotherapeutin-ergotherapeut-unispital-basel-ch",
         "fr": "ergotherapeute-universitatsspital-basel-basel"
@@ -5673,7 +5664,7 @@
       "title": "Ergotherapeutin / Ergotherapeut",
       "titleByLocale": {
         "it": "Terapeuta del lavoro",
-        "en": "Ergotherapeutin / Ergotherapeut",
+        "en": "Occupational therapist",
         "de": "Ergotherapeutin / Ergotherapeut",
         "fr": "Ergothérapeute"
       },
@@ -5708,19 +5699,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "ergotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-unispital-basel-ch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
-          "ergotherapeute-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6493,7 +6483,6 @@
           "payroll-spezialist-in-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T23:24:02.256Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6761,7 +6750,6 @@
         "arztsekretar-in-unispital-basel-ch",
         "arztsekretar-in-universitatsspital-basel-basel",
         "assistente-di-medico-universitatsspital-basel-basel-1122f1",
-        "segretario-del-dottore-in-universitatsspital-basel-basel",
         "doctor-s-secretary-in-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
         "assistente-di-medico-universitatsspital-basel-basel",
@@ -6772,7 +6760,10 @@
         "medical-assistant-in-oncology-universitatsspital-basel-basel",
         "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "assistant-medical-en-oncologie-universitatsspital-basel-basel",
-        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
+        "arztsekretar-in-unispital-basel-ch-2",
+        "segretario-del-dottore-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T14:18:53.315Z",
       "salaryMin": 62000,
@@ -6839,7 +6830,6 @@
       "previousSlugs": [
         "oberarztin-oberarzt-angiologie-unispital-basel-ch",
         "medico-senior-brustklinik-universitatsspital-basel-basel",
-        "medico-senior-ambulatorio-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
         "senior-physician-brustklinik-universitatsspital-basel-basel",
@@ -6854,7 +6844,10 @@
         "senior-physician-cardiology-universitatsspital-basel-basel",
         "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
         "medecin-principal-cardiologie-universitatsspital-basel-basel",
-        "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
+        "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
+        "medico-senior-angiologia-universitatsspital-basel-basel",
+        "senior-physician-angiology-universitatsspital-basel-basel",
+        "medecin-principal-angiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6944,7 +6937,6 @@
           "administrative-r-mitarbeiter-in-leistungskontrolle-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T14:35:48.852Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7307,7 +7299,6 @@
           "mitarbeiter-in-qm-amp-qs-hotellerie-amp-gastronomie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-19T22:48:28.529Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7388,7 +7379,6 @@
           "op-koordinator-in-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7830,7 +7820,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7896,7 +7885,6 @@
       "previousSlugs": [
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "assistant-sante-et-affaires-sociales-ags-universitatsspital-basel-basel",
@@ -7907,7 +7895,10 @@
         "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8004,7 +7995,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T15:21:32.536Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8070,7 +8060,8 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel",
         "dipl-nurse-nurse-hf-fh-neurosurgery-spine-surgery-universitatsspital-basel-basel",
-        "dipl-infirmiere-infirmiere-hf-fh-chirurgie-neuro-chirurgie-spinale-universitatsspital-basel-basel"
+        "dipl-infirmiere-infirmiere-hf-fh-chirurgie-neuro-chirurgie-spinale-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8085,7 +8076,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T15:21:32.537Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8266,17 +8256,17 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Oberärztin / Oberarzt Pneumologie",
       "titleByLocale": {
-        "it": "Oberärztin / Oberarzt Pneumologie",
-        "en": "Oberärztin / Oberarzt Pneumologie",
+        "it": "Medico Specialista di Pneumologia",
+        "en": "Senior Physician in Pneumology",
         "de": "Oberärztin / Oberarzt Pneumologie",
-        "fr": "Oberärztin / Oberarzt Pneumologie"
+        "fr": "Médecin Spécialiste en Pneumologie"
       },
       "description": "Aufgaben:\n• Betreuung sowohl von pneumologischen Routinepatienten als auch von komplexen pneumologischen Patienten im stationären und ambulanten Setting\n\n• Mitarbeit in der pneumologischen Spezialsprechstunden (ILD, Schlaf und Lungentransplantation)\n\n• Übernahme von interventionellen pneumologischen Eingriffen inklusive EBUS, Kryoverfahren, sonographie-gesteuerten Punktionen, Thorakoskopie und roboter-assistierter Bronchoskopie\n\n• Interdisziplinären Zusammenarbeit mit sämtlichen Fachdisziplinen insbesondere Onkologie, Thoraxchirurgie, Pathologie, Radiologie, Rheumatologie, Kardiologie, Allergologie, Infektiologie und Immunologie\n\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n\n• Mitarbeit an klinischen Studien inklusive Unterstützung bei der Realisierung eigener Forschungsinteressen, -projekte bis hin zur Habilitation\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Pneumologie oder kurz vor Abschluss\n\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau). Französischkenntnisse von Vorteil\n\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Betreuung sowohl von pneumologischen Routinepatienten als auch von komplexen pneumologischen Patienten im stationären und ambulanten Setting\n• Mitarbeit in der pneumologischen Spezialsprechstunden (ILD, Schlaf und Lungentransplantation)\n• Übernahme von interventionellen pneumologischen Eingriffen inklusive EBUS, Kryoverfahren, sonographie-gesteuerten Punktionen, Thorakoskopie und roboter-assistierter Bronchoskopie\n• Interdisziplinären Zusammenarbeit mit sämtlichen Fachdisziplinen insbesondere Onkologie, Thoraxchirurgie, Pathologie, Radiologie, Rheumatologie, Kardiologie, Allergologie, Infektiologie und Immunologie\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n• Mitarbeit an klinischen Studien inklusive Unterstützung bei der Realisierung eigener Forschungsinteressen, -projekte bis hin zur Habilitation Anforderungen:\n• Abgeschlossene Facharztausbildung in Pneumologie oder kurz vor Abschluss\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau). Französischkenntnisse von Vorteil\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Betreuung sowohl von pneumologischen Routinepatienten als auch von komplexen pneumologischen Patienten im stationären und ambulanten Setting\n• Mitarbeit in der pneumologischen Spezialsprechstunden (ILD, Schlaf und Lungentransplantation)\n• Übernahme von interventionellen pneumologischen Eingriffen inklusive EBUS, Kryoverfahren, sonographie-gesteuerten Punktionen, Thorakoskopie und roboter-assistierter Bronchoskopie\n• Interdisziplinären Zusammenarbeit mit sämtlichen Fachdisziplinen insbesondere Onkologie, Thoraxchirurgie, Pathologie, Radiologie, Rheumatologie, Kardiologie, Allergologie, Infektiologie und Immunologie\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n• Mitarbeit an klinischen Studien inklusive Unterstützung bei der Realisierung eigener Forschungsinteressen, -projekte bis hin zur Habilitation Anforderungen:\n• Abgeschlossene Facharztausbildung in Pneumologie oder kurz vor Abschluss\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau). Französischkenntnisse von Vorteil\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "de": "Aufgaben:\n• Betreuung sowohl von pneumologischen Routinepatienten als auch von komplexen pneumologischen Patienten im stationären und ambulanten Setting\n• Mitarbeit in der pneumologischen Spezialsprechstunden (ILD, Schlaf und Lungentransplantation)\n• Übernahme von interventionellen pneumologischen Eingriffen inklusive EBUS, Kryoverfahren, sonographie-gesteuerten Punktionen, Thorakoskopie und roboter-assistierter Bronchoskopie\n• Interdisziplinären Zusammenarbeit mit sämtlichen Fachdisziplinen insbesondere Onkologie, Thoraxchirurgie, Pathologie, Radiologie, Rheumatologie, Kardiologie, Allergologie, Infektiologie und Immunologie\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n• Mitarbeit an klinischen Studien inklusive Unterstützung bei der Realisierung eigener Forschungsinteressen, -projekte bis hin zur Habilitation Anforderungen:\n• Abgeschlossene Facharztausbildung in Pneumologie oder kurz vor Abschluss\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau). Französischkenntnisse von Vorteil\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Betreuung sowohl von pneumologischen Routinepatienten als auch von komplexen pneumologischen Patienten im stationären und ambulanten Setting\n• Mitarbeit in der pneumologischen Spezialsprechstunden (ILD, Schlaf und Lungentransplantation)\n• Übernahme von interventionellen pneumologischen Eingriffen inklusive EBUS, Kryoverfahren, sonographie-gesteuerten Punktionen, Thorakoskopie und roboter-assistierter Bronchoskopie\n• Interdisziplinären Zusammenarbeit mit sämtlichen Fachdisziplinen insbesondere Onkologie, Thoraxchirurgie, Pathologie, Radiologie, Rheumatologie, Kardiologie, Allergologie, Infektiologie und Immunologie\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n• Mitarbeit an klinischen Studien inklusive Unterstützung bei der Realisierung eigener Forschungsinteressen, -projekte bis hin zur Habilitation Anforderungen:\n• Abgeschlossene Facharztausbildung in Pneumologie oder kurz vor Abschluss\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau). Französischkenntnisse von Vorteil\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Mansioni - Gestione di pazienti pneumologici di routine e complessi in ambienti sia ospedalieri che ambulatoriali - Collaborazione nella specializzazione pneumologica (ILD, sonno e trapianto polmonare) - Esecuzione di interventi pneumologici, inclusi EBUS, crioterapia, punture ecoguidate, toracoscopia e broncoscopia assistita da robot - Collaborazione interdisciplinare con tutte le specialità, in particolare oncologia, chirurgia toracica, patologia, radiologia, reumatologia, cardiologia, allergologia, infezioni e immunologia - Partecipazione alla formazione dei medici residenti - Partecipazione a studi clinici, supporto alla realizzazione di progetti di ricerca personali fino alla habilitazione Requisiti - Formazione specialistica in pneumologia completata o in fase avanzata - Comunicazione aperta e rispettosa e piacere per la collaborazione interdisciplinare - Ottima conoscenza del tedesco sia scritto che parlato (almeno livello C1). Conoscenza del francese sarebbe un vantaggio - Forte orientamento al team e disponibilità ad assumersi la responsabilità per i nostri pazienti Cosa offriamo - Politica retributiva attraente e ottime prestazioni sociali - Sconti nei settori shopping, sport e tempo libero - Supporto per il trasferimento e la ricerca di alloggio - 25 giorni di ferie più 5 giorni liberi aggiuntivi - Supporto per la formazione e la pianificazione della carriera - Campus situato nel cuore di Basilea e nella regione del Dreiländereck - Ampie",
+        "en": "Mansioni - Gestione di paziti pneum, víciñi di río di jío complessi in joi ia ospedalieri che ambulatoriali - Collaborazione nella specializzazione pneum, víciño (ILD, sonno e vicianto pol Monare) - Esecuzione di interventi pneum, víciño, inclusi Ebus, crioterapia, punture ecoguidate, toracoscopia e broncoscopialichita da wilor - Collaborazione indisciplinare con tutte le specialità, in particolare oncologia, chirurgia toracica, patologia, radiologia, reumatologia, wilologia, allergologia, infezioni e immunologia - Partecipazione alla formazione dei mediciñi\n\n- Partecipazione a studi-cavi, supporto alla realizzazione di progetti di ricerca personali fino alla habilitazione Requisiti - Formazione speciala in pneumologia completata o in fase avanzata - Comunicazione aperta e rispettosa e piacere per la collaborazione interdisciplinare - Ottima conoscenza del tedesco sia scritto che parlato (almeno livello C1).\n\nConoscenza del francese sare Bee un vantaggio - Forte orientalo al team e disponibilitità ad 1.1rsi la responsabilità per i nostri pazienti Cosa offriamo - Politica retributiva attraente e ottime prestazioni sociali - Sconti nei settori shopping, sport e tempo libero - Supporto per il trasfermento e la ricerca di alloggio - 25 giorni di ferie più 5 giorni liberi agiuntivi - Supporto per la formazione e la pianificazione della carriera - Campus Modato nel cuore di Basilea e nella Regione del Trilandereck - Ampie possibilità di 7/8enza all'infanzia - Programma sportivo e di movimento\n\nThe Contatto Contatto e/sagazioni sulla candidatura",
+        "de": "Mansioni\n- Gestione di pazienti pneumologici di routine e complessi in ambienti sia ospedalieri che ambulatoriali\n- Collaborazione nella specializzazione pneumologica (ILD, sonno e trapianto polmonare)\n- Esecuzione di interventi pneumologici interventistici, inclusi EBUS, crioterapia, punture ecoguidate, toracoscopia e broncoscopia assistita da robot\n- Collaborazione interdisciplinare con tutte le specialità, in particolare oncologia, chirurgia toracica, patologia, radiologia, reumatologia, cardiologia, allergologia, infezioni e immunologia\n- Partecipazione alla formazione dei medici residenti\n- Partecipazione a studi clinici, supporto alla realizzazione di progetti di ricerca personali fino alla habilitazione\n\nRequisiti\n- Formazione specialistica in pneumologia completata o in fase avanzata\n- Comunicazione aperta e rispettosa e piacere per la collaborazione interdisciplinare\n- Ottima conoscenza del tedesco sia scritto che parlato (almeno livello C1). Conoscenza del francese sarebbe un vantaggio\n- Forte orientamento al team e disponibilità ad assumersi la responsabilità per i nostri pazienti\n\nCosa offriamo\n- Politica retributiva attraente e ottime prestazioni sociali\n- Sconti nei settori shopping, sport e tempo libero\n- Supporto per il trasferimento e la ricerca di alloggio\n- 25 giorni di ferie più 5 giorni liberi aggiuntivi\n- Supporto per la formazione e la pianificazione della carriera\n- Campus situato nel cuore di Basilea e nella regione del Dreiländereck\n- Ampie possibilità di assistenza all'infanzia\n- Programma sportivo e di movimento gratuito\n\nContatto\nContatto e informazioni sulla candidatura",
+        "fr": "Mansioni - Gestion di pazitiìm, víciñi di río di jío complessi in joi ia ospedaleri che ambulatoriali - Collaborazione nella specializzazione ńm, víciño (ILD, sonno e vicianto pol Monare) - Esecuzione di interventi ńm, víciño, limi Ebus, crioterapia, punture ecoguidate, toracoscopia e broncoscopialichita da wilor - Collaborazione indisciplinere con tutte le specialità, in particolare oncologia, chirurgia toracica, patologia, radiologia, reumatologia, wilologia, ingologia, infezioni e immunologia - Partecipiazione alla formazione dei mediciciñi\n\n- Partecipazione a studi-cavi, supporto alla realizzazione di progetti di ricerca personali fino alla habilitation Requisiti - Formazione speciala in pneumologia completata o in fase avanzata - Comunicazione aperta e rispettosa e piacere per la collaborationazione interdisciplinere - Ottima conoscenza del tedesco sia scritto che parlato (almeno livello C1).\n\nConoscenza del francese sare Bee un vantaggio - Forte orientalo al team e disponibilità ad 1.1rsi la responsabilità per i nostri pazienti Cosa offriamo - Politica retributiva attraente e ottime prestazioni sociali - Sconti nei settori shopping, sport e tempo libero - Supporto per il trasfermento e la ricerca di alloggio - 25 giorni di ferie più 5 giorni liberi Abbayuntivi - Supporto per la formazione e la pianificazione della carriera - Campus Modato nel cuore di Basilea e nella Regione del Trilandereck - Ampie possicità di 7/8enza all'infanzia - Programma sportivo e di movimento\n\nLe Contatto Contatto e/sagazioni sulla"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8300,7 +8290,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27420",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T12:50:42.260Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8313,6 +8302,32 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "kaderarztin-kaderarzt-pneumologie-unispital-basel-ch",
+        "pneumologia-del-medico-senior-universitatsspital-basel-basel",
+        "oberarztin-oberarzt-pneumologie-unispital-basel-ch",
+        "oberarztin-oberarzt-pneumologie-universitatsspital-basel-basel",
+        "senior-physician-pneumology-universitatsspital-basel-basel",
+        "pneumologie-du-medecin-principal-universitatsspital-basel-basel",
+        "pneumologie-chez-le-medecin-principal-universitatsspital-basel-basel",
+        "medico-senior-pneumologia-universitatsspital-basel-basel",
+        "kaderarztin-kaderarzt-pneumology-universitatsspital-basel-basel",
+        "medecin-principal-pneumologie-universitatsspital-basel-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medico-senior-pneumologia-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "kaderarztin-kaderarzt-pneumology-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "kaderarztin-kaderarzt-pneumologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "medecin-principal-pneumologie-universitatsspital-basel-basel"
+        ]
       }
     },
     {
@@ -8329,17 +8344,17 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Product Owner*in (Data Analytics & Reporting)",
       "titleByLocale": {
-        "it": "Product Owner*in (Data Analytics & Reporting)",
+        "it": "Proprietario del prodotto*in (Data Analytics & Reporting)",
         "en": "Product Owner*in (Data Analytics & Reporting)",
-        "de": "Product Owner*in (Data Analytics & Reporting)",
-        "fr": "Product Owner*in (Data Analytics & Reporting)"
+        "de": "Produktinhaber*in (Data Analytics & Reporting)",
+        "fr": "Product Owner (Analyse de données & Reporting)"
       },
       "description": "Aufgaben:\n• Inhaltliche Steuerung und Weiterentwicklung des klinischen Data Warehouses sowie zugehöriger Services (Reporting, Self-Service BI, Forschungsdaten und Schnittstellen)\n\n• Priorisierung und Steuerung des Product Backlogs zur Sicherstellung von maximalem Mehrwert für klinische und betriebliche Fragestellungen\n\n• Enge Zusammenarbeit mit Data Engineers, Analyst*innen und klinischen Stakeholdern zur Übersetzung von Anforderungen in datenbasierte Lösungen\n\n• Überführung klinischer Prozesse und Routinedaten in entscheidungsrelevante Insights zur Unterstützung von Medizin, Pflege und Management\n\n• Mitgestaltung von Data-Governance-Strategien sowie Weiterentwicklung von Berechtigungs- und Datenzugriffskonzepten\n\nAnforderungen:\n• Mehrjährige Erfahrung im Bereich Data & Analytics, idealerweise im Gesundheitswesen oder in einem komplexen, regulierten Umfeld\n\n• Fundierte Kenntnisse in Data Warehousing, Datenmodellierung sowie SQL und ein gutes Verständnis moderner Datenarchitekturen\n\n• Erfahrung als Product Owner*in oder in einer vergleichbaren Rolle (z. B. Business Analyst, Data Lead) sowie Erfahrung im Umgang mit Backlogs und agilen Methoden\n\n• Verständnis für klinische Prozesse und/oder Spitalstrukturen sowie die Fähigkeit, zwischen Fachbereich und IT zu übersetzen\n\n• Hochschulabschluss in (Medizin-)Informatik, Data Science, Naturwissenschaften oder eine vergleichbare Qualifikation sowie ausgeprägte Kommunikations- und Stakeholder-Kompetenz\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Inhaltliche Steuerung und Weiterentwicklung des klinischen Data Warehouses sowie zugehöriger Services (Reporting, Self-Service BI, Forschungsdaten und Schnittstellen)\n• Priorisierung und Steuerung des Product Backlogs zur Sicherstellung von maximalem Mehrwert für klinische und betriebliche Fragestellungen\n• Enge Zusammenarbeit mit Data Engineers, Analyst*innen und klinischen Stakeholdern zur Übersetzung von Anforderungen in datenbasierte Lösungen\n• Überführung klinischer Prozesse und Routinedaten in entscheidungsrelevante Insights zur Unterstützung von Medizin, Pflege und Management\n• Mitgestaltung von Data-Governance-Strategien sowie Weiterentwicklung von Berechtigungs- und Datenzugriffskonzepten Anforderungen:\n• Mehrjährige Erfahrung im Bereich Data & Analytics, idealerweise im Gesundheitswesen oder in einem komplexen, regulierten Umfeld\n• Fundierte Kenntnisse in Data Warehousing, Datenmodellierung sowie SQL und ein gutes Verständnis moderner Datenarchitekturen\n• Erfahrung als Product Owner*in oder in einer vergleichbaren Rolle (z. B. Business Analyst, Data Lead) sowie Erfahrung im Umgang mit Backlogs und agilen Methoden\n• Verständnis für klinische Prozesse und/oder Spitalstrukturen sowie die Fähigkeit, zwischen Fachbereich und IT zu übersetzen\n• Hochschulabschluss in (Medizin-)Informatik, Data Science, Naturwissenschaften oder eine vergleichbare Qualifikation sowie ausgeprägte Kommunikations- und Stakeholder-Kompetenz Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Inhaltliche Steuerung und Weiterentwicklung des klinischen Data Warehouses sowie zugehöriger Services (Reporting, Self-Service BI, Forschungsdaten und Schnittstellen)\n• Priorisierung und Steuerung des Product Backlogs zur Sicherstellung von maximalem Mehrwert für klinische und betriebliche Fragestellungen\n• Enge Zusammenarbeit mit Data Engineers, Analyst*innen und klinischen Stakeholdern zur Übersetzung von Anforderungen in datenbasierte Lösungen\n• Überführung klinischer Prozesse und Routinedaten in entscheidungsrelevante Insights zur Unterstützung von Medizin, Pflege und Management\n• Mitgestaltung von Data-Governance-Strategien sowie Weiterentwicklung von Berechtigungs- und Datenzugriffskonzepten Anforderungen:\n• Mehrjährige Erfahrung im Bereich Data & Analytics, idealerweise im Gesundheitswesen oder in einem komplexen, regulierten Umfeld\n• Fundierte Kenntnisse in Data Warehousing, Datenmodellierung sowie SQL und ein gutes Verständnis moderner Datenarchitekturen\n• Erfahrung als Product Owner*in oder in einer vergleichbaren Rolle (z. B. Business Analyst, Data Lead) sowie Erfahrung im Umgang mit Backlogs und agilen Methoden\n• Verständnis für klinische Prozesse und/oder Spitalstrukturen sowie die Fähigkeit, zwischen Fachbereich und IT zu übersetzen\n• Hochschulabschluss in (Medizin-)Informatik, Data Science, Naturwissenschaften oder eine vergleichbare Qualifikation sowie ausgeprägte Kommunikations- und Stakeholder-Kompetenz Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "de": "Aufgaben:\n• Inhaltliche Steuerung und Weiterentwicklung des klinischen Data Warehouses sowie zugehöriger Services (Reporting, Self-Service BI, Forschungsdaten und Schnittstellen)\n• Priorisierung und Steuerung des Product Backlogs zur Sicherstellung von maximalem Mehrwert für klinische und betriebliche Fragestellungen\n• Enge Zusammenarbeit mit Data Engineers, Analyst*innen und klinischen Stakeholdern zur Übersetzung von Anforderungen in datenbasierte Lösungen\n• Überführung klinischer Prozesse und Routinedaten in entscheidungsrelevante Insights zur Unterstützung von Medizin, Pflege und Management\n• Mitgestaltung von Data-Governance-Strategien sowie Weiterentwicklung von Berechtigungs- und Datenzugriffskonzepten Anforderungen:\n• Mehrjährige Erfahrung im Bereich Data & Analytics, idealerweise im Gesundheitswesen oder in einem komplexen, regulierten Umfeld\n• Fundierte Kenntnisse in Data Warehousing, Datenmodellierung sowie SQL und ein gutes Verständnis moderner Datenarchitekturen\n• Erfahrung als Product Owner*in oder in einer vergleichbaren Rolle (z. B. Business Analyst, Data Lead) sowie Erfahrung im Umgang mit Backlogs und agilen Methoden\n• Verständnis für klinische Prozesse und/oder Spitalstrukturen sowie die Fähigkeit, zwischen Fachbereich und IT zu übersetzen\n• Hochschulabschluss in (Medizin-)Informatik, Data Science, Naturwissenschaften oder eine vergleichbare Qualifikation sowie ausgeprägte Kommunikations- und Stakeholder-Kompetenz Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Inhaltliche Steuerung und Weiterentwicklung des klinischen Data Warehouses sowie zugehöriger Services (Reporting, Self-Service BI, Forschungsdaten und Schnittstellen)\n• Priorisierung und Steuerung des Product Backlogs zur Sicherstellung von maximalem Mehrwert für klinische und betriebliche Fragestellungen\n• Enge Zusammenarbeit mit Data Engineers, Analyst*innen und klinischen Stakeholdern zur Übersetzung von Anforderungen in datenbasierte Lösungen\n• Überführung klinischer Prozesse und Routinedaten in entscheidungsrelevante Insights zur Unterstützung von Medizin, Pflege und Management\n• Mitgestaltung von Data-Governance-Strategien sowie Weiterentwicklung von Berechtigungs- und Datenzugriffskonzepten Anforderungen:\n• Mehrjährige Erfahrung im Bereich Data & Analytics, idealerweise im Gesundheitswesen oder in einem komplexen, regulierten Umfeld\n• Fundierte Kenntnisse in Data Warehousing, Datenmodellierung sowie SQL und ein gutes Verständnis moderner Datenarchitekturen\n• Erfahrung als Product Owner*in oder in einer vergleichbaren Rolle (z. B. Business Analyst, Data Lead) sowie Erfahrung im Umgang mit Backlogs und agilen Methoden\n• Verständnis für klinische Prozesse und/oder Spitalstrukturen sowie die Fähigkeit, zwischen Fachbereich und IT zu übersetzen\n• Hochschulabschluss in (Medizin-)Informatik, Data Science, Naturwissenschaften oder eine vergleichbare Qualifikation sowie ausgeprägte Kommunikations- und Stakeholder-Kompetenz Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Mansioni - Controllo e sviluppo del data warehouse clinico e dei servizi associati (reporting, self-service BI, dati di ricerca e interfacce) - Priorità e gestione del backlog del prodotto per garantire il massimo valore per le questioni cliniche e operative - Collaborazione stretta con gli ingegneri dei dati, gli analisti e gli stakeholder clinici per tradurre le esigenze in soluzioni basate sui dati - Trasformazione dei processi clinici e dei dati di routine in insight decisionali per supportare la medicina, l'assistenza infermieristica e la gestione - Partecipazione alla definizione delle strategie di governance dei dati e allo sviluppo dei concetti di autorizzazione e accesso ai dati Requisiti - Esperienza di almeno cinque anni nel campo dei dati e dell'analisi, preferibilmente nel settore sanitario o in un ambiente complesso e regolamentato - Conoscenze approfondite del data warehousing, della modellazione dei dati e di SQL, nonché una buona comprensione delle moderne architetture dei dati - Esperienza come product owner o in ruoli simili (ad esempio business analyst, data lead) e familiarità con i backlog e i metodi agili - Comprensione dei processi clinici e/o delle strutture ospedaliere e la capacità di tradurre tra il reparto e l'IT - Laurea in informatica (medica), scienze dei dati, scienze naturali o qualifica equivalente, nonché competenze comunicative e di gestione degli stakeholder Cosa offriamo - Politica retributiva attraente e ottime prestazioni sociali -",
+        "en": "Mansioni - Controllo e sviluppo del data warehouse servizi associati (reporting, self-service BI, data di ricerca e interfacce) - Priorità e gestione del product backlog per garantire il massimo valore per leorhi victhe e operative - Collaborazione stretta con gli ingegeneri dei datai, gli analisti e gli gli stakeholder victi per tradurre le e sigenze in soluzioni basate sui datai - Trasformazione dei the processi icti e dei data di routine in stalacily per de mansitare la medicina, l'assistenza infermieristica e la dicte - Partecipazione alla definizione del\n\nstrategy diEnts dei data e allo sviluppo dei concetti di autorizzazione e accesso ai data Requisiti - Esperienza di almeno cinque anni nel campo dei data e dell'analisi, e-legislatione nel recensione sanitario o in un·se complesso e regolamentato - Conoscenze approach del data warehousing, della modelazione dei data e di SQL, nonché una buona comprensione della moderne architecture dei datai - Esperenceture product e-o in ruoli simili (ad ezempio businessis, datare) e-filitità con i backlog e i metodi agili - Comprensione dei datai Italia-i e/o ll\n\nstrutture ospedaliere e la capacità di tradurre tra il reparto e l'IT - Laurea in informatica (medica), science dei data, science naturali o qualifico, nonchécelanze comunicative e di gestione degli 012 Cosa offriamo - Politica retributiva attraente e ottime prestazioni sociali - Sconti neisettingtori shopping, sport e tempo libero - Supporto per il trasfermento e la ricerca di alloggio - 25 giorni di ferie più 5 giorni di flessibilità aggiuntivi - Supporto per la formazione e la pianificazione della deferoa - Campus nel cuore di Basilea e nella Regione del triplo\n\n- Ampie opzioni di cura dei bambini - Programmea sportivo e di movimento Serrao",
+        "de": "Mansioni\n- Controllo e sviluppo del data warehouse clinico e dei servizi associati (reporting, self-service BI, dati di ricerca e interfacce)\n- Priorità e gestione del product backlog per garantire il massimo valore per le questioni cliniche e operative\n- Collaborazione stretta con gli ingegneri dei dati, gli analisti e gli stakeholder clinici per tradurre le esigenze in soluzioni basate sui dati\n- Trasformazione dei processi clinici e dei dati di routine in insight decisionali per supportare la medicina, l'assistenza infermieristica e la gestione\n- Partecipazione alla definizione delle strategie di governance dei dati e allo sviluppo dei concetti di autorizzazione e accesso ai dati\n\nRequisiti\n- Esperienza di almeno cinque anni nel campo dei dati e dell'analisi, preferibilmente nel settore sanitario o in un ambiente complesso e regolamentato\n- Conoscenze approfondite del data warehousing, della modellazione dei dati e di SQL, nonché una buona comprensione delle moderne architetture dei dati\n- Esperienza come product owner o in ruoli simili (ad esempio business analyst, data lead) e familiarità con i backlog e i metodi agili\n- Comprensione dei processi clinici e/o delle strutture ospedaliere e la capacità di tradurre tra il reparto e l'IT\n- Laurea in informatica (medica), scienze dei dati, scienze naturali o qualifica equivalente, nonché competenze comunicative e di gestione degli stakeholder\n\nCosa offriamo\n- Politica retributiva attraente e ottime prestazioni sociali\n- Sconti nei settori shopping, sport e tempo libero\n- Supporto per il trasferimento e la ricerca di alloggio\n- 25 giorni di ferie più 5 giorni di flessibilità aggiuntivi\n- Supporto per la formazione e la pianificazione della carriera\n- Campus nel cuore di Basilea e nella regione del triplo confine\n- Ampie opzioni di cura dei bambini\n- Programma sportivo e di movimento gratuito",
+        "fr": "Mansioni - Controllo e sviluppo del data warehouse servizi imit (reporting, self-service BI, data di ricerca e interfacce) - Priorità e gestion del arriéré de produits par garantie il masse valore per leorhi victhe e operational - Collaborazione stretta con gli ingegeneri dei datai, gli analisti e gli gli partie prenante victi per tradurre le e sigenze in soluzioni basate sui datai - Trasformazione dei the processi icti e dei data di routine in stalacilily per de mansitare la medicina, l'assistenza infermieristica e la discipline - Partecipizione alla definizione del del\n\ne-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail: e-mail:\n\nLaurea in informatica (medica), science dei data, science naturali o qualifico, nonchécélanze comunicative e di gestione degli 012 Cosa offriamo - Politica retributiva attraente e ottime prestazioni sociali - Sconti neisettator shopping, sport e tempo libero - Supporto per il trasfermento e la ricerca di alloggio - 25 giorni di ferie più 5 giorni di flessibilità aggiontivi - Supporto per la formazione e la pianificazione della deferoa - Campus nel cuore di Basilea e nella Regione del triplo\n\n-Aviation opzioni di cura dei bambini - Programme sportif et di movimento Serrao"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8363,7 +8378,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27643",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T12:50:42.267Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8393,16 +8407,16 @@
       "title": "Fachleitung Pflege (Gynäkologisch-Onkologisches Ambulatorium & Brustklinik)",
       "titleByLocale": {
         "de": "Fachleitung Pflege (Gynäkologisch-Onkologisches Ambulatorium & Brustklinik)",
-        "it": "Fachleitung Pflege (Gynäkologisch-Onkologisches Ambulatorium & Brustklinik)",
-        "en": "Fachleitung Pflege (Gynäkologisch-Onkologisches Ambulatorium & Brustklinik)",
-        "fr": "Fachleitung Pflege (Gynäkologisch-Onkologisches Ambulatorium & Brustklinik)"
+        "it": "Specialista in allattamento (ambulatorio ginecologico-oncologico e mammaria)",
+        "en": "Specialist in nursing (Gynecological-Oncological ambulatory & breast clinic)",
+        "fr": "Spécialiste en soins infirmiers (génocologique-oncologique ambulatoire et clinique mammaire)"
       },
       "description": "Aufgaben:\n• Führen der Fachentwicklung als Teil des Pflegeleitungsteams sowie Leitung und Mitgestaltung des Praxisentwicklungsprozesses zur Förderung einer personenzentrierten und evidenzbasierten Pflegepraxis\n\n• Beraten, Befähigen und Begleiten von Pflegefachpersonen, Pflegefachverantwortlichen und Stationsleitungen, insbesondere in hochkomplexen Situationen\n\n• Mitarbeit in der direkten Pflege sowie aktive Teilnahme an Evaluationen, Projekten und Forschungsgruppen\n\n• Enge Kooperation mit Fachleitungen des Bereiches Brust-Bauch-Becken, der Abteilung Praxisentwicklung und Forschung sowie Mitarbeit in klinikübergreifenden, nationalen und internationalen Fach- und Arbeitsgruppen\n\n• Erarbeitung, Implementierung und Weiterentwicklung von Richtlinien, Konzepten und fachlichen Standards\n\nAnforderungen:\n• Abgeschlossener Master of Science in Nursing oder laufendes Studium, bzw. die Bereitschaft, einen Master zu absolvieren\n\n• Mehrjährige fundierte praktische Erfahrung und vertiefte theoretische Kenntnisse in der Pflege und Pflegeforschung sowie die Fähigkeit, dieses Wissen weiterzugeben\n\n• Teamfähigkeit und Kompetenzen in partizipativer Führung\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\n• Proaktive, kommunikative und eigenständige Persönlichkeit, die sich im interprofessionellen Umfeld sicher bewegt und andere für die Weiterentwicklung der Pflege begeistern kann\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Führen der Fachentwicklung als Teil des Pflegeleitungsteams sowie Leitung und Mitgestaltung des Praxisentwicklungsprozesses zur Förderung einer personenzentrierten und evidenzbasierten Pflegepraxis\n\n• Beraten, Befähigen und Begleiten von Pflegefachpersonen, Pflegefachverantwortlichen und Stationsleitungen, insbesondere in hochkomplexen Situationen\n\n• Mitarbeit in der direkten Pflege sowie aktive Teilnahme an Evaluationen, Projekten und Forschungsgruppen\n\n• Enge Kooperation mit Fachleitungen des Bereiches Brust-Bauch-Becken, der Abteilung Praxisentwicklung und Forschung sowie Mitarbeit in klinikübergreifenden, nationalen und internationalen Fach- und Arbeitsgruppen\n\n• Erarbeitung, Implementierung und Weiterentwicklung von Richtlinien, Konzepten und fachlichen Standards\n\nAnforderungen:\n• Abgeschlossener Master of Science in Nursing oder laufendes Studium, bzw. die Bereitschaft, einen Master zu absolvieren\n\n• Mehrjährige fundierte praktische Erfahrung und vertiefte theoretische Kenntnisse in der Pflege und Pflegeforschung sowie die Fähigkeit, dieses Wissen weiterzugeben\n\n• Teamfähigkeit und Kompetenzen in partizipativer Führung\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\n• Proaktive, kommunikative und eigenständige Persönlichkeit, die sich im interprofessionellen Umfeld sicher bewegt und andere für die Weiterentwicklung der Pflege begeistern kann\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Führen der Fachentwicklung als Teil des Pflegeleitungsteams sowie Leitung und Mitgestaltung des Praxisentwicklungsprozesses zur Förderung einer personenzentrierten und evidenzbasierten Pflegepraxis\n\n• Beraten, Befähigen und Begleiten von Pflegefachpersonen, Pflegefachverantwortlichen und Stationsleitungen, insbesondere in hochkomplexen Situationen\n\n• Mitarbeit in der direkten Pflege sowie aktive Teilnahme an Evaluationen, Projekten und Forschungsgruppen\n\n• Enge Kooperation mit Fachleitungen des Bereiches Brust-Bauch-Becken, der Abteilung Praxisentwicklung und Forschung sowie Mitarbeit in klinikübergreifenden, nationalen und internationalen Fach- und Arbeitsgruppen\n\n• Erarbeitung, Implementierung und Weiterentwicklung von Richtlinien, Konzepten und fachlichen Standards\n\nAnforderungen:\n• Abgeschlossener Master of Science in Nursing oder laufendes Studium, bzw. die Bereitschaft, einen Master zu absolvieren\n\n• Mehrjährige fundierte praktische Erfahrung und vertiefte theoretische Kenntnisse in der Pflege und Pflegeforschung sowie die Fähigkeit, dieses Wissen weiterzugeben\n\n• Teamfähigkeit und Kompetenzen in partizipativer Führung\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\n• Proaktive, kommunikative und eigenständige Persönlichkeit, die sich im interprofessionellen Umfeld sicher bewegt und andere für die Weiterentwicklung der Pflege begeistern kann\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Führen der Fachentwicklung als Teil des Pflegeleitungsteams sowie Leitung und Mitgestaltung des Praxisentwicklungsprozesses zur Förderung einer personenzentrierten und evidenzbasierten Pflegepraxis\n\n• Beraten, Befähigen und Begleiten von Pflegefachpersonen, Pflegefachverantwortlichen und Stationsleitungen, insbesondere in hochkomplexen Situationen\n\n• Mitarbeit in der direkten Pflege sowie aktive Teilnahme an Evaluationen, Projekten und Forschungsgruppen\n\n• Enge Kooperation mit Fachleitungen des Bereiches Brust-Bauch-Becken, der Abteilung Praxisentwicklung und Forschung sowie Mitarbeit in klinikübergreifenden, nationalen und internationalen Fach- und Arbeitsgruppen\n\n• Erarbeitung, Implementierung und Weiterentwicklung von Richtlinien, Konzepten und fachlichen Standards\n\nAnforderungen:\n• Abgeschlossener Master of Science in Nursing oder laufendes Studium, bzw. die Bereitschaft, einen Master zu absolvieren\n\n• Mehrjährige fundierte praktische Erfahrung und vertiefte theoretische Kenntnisse in der Pflege und Pflegeforschung sowie die Fähigkeit, dieses Wissen weiterzugeben\n\n• Teamfähigkeit und Kompetenzen in partizipativer Führung\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\n• Proaktive, kommunikative und eigenständige Persönlichkeit, die sich im interprofessionellen Umfeld sicher bewegt und andere für die Weiterentwicklung der Pflege begeistern kann\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Führen der Fachentwicklung als Teil des Pflegeleitungsteams sowie Leitung und Mitgestaltung des Praxisentwicklungsprozesses zur Förderung einer personenzentrierten und evidenzbasierten Pflegepraxis\n\n• Beraten, Befähigen und Begleiten von Pflegefachpersonen, Pflegefachverantwortlichen und Stationsleitungen, insbesondere in hochkomplexen Situationen\n\n• Mitarbeit in der direkten Pflege sowie aktive Teilnahme an Evaluationen, Projekten und Forschungsgruppen\n\n• Enge Kooperation mit Fachleitungen des Bereiches Brust-Bauch-Becken, der Abteilung Praxisentwicklung und Forschung sowie Mitarbeit in klinikübergreifenden, nationalen und internationalen Fach- und Arbeitsgruppen\n\n• Erarbeitung, Implementierung und Weiterentwicklung von Richtlinien, Konzepten und fachlichen Standards\n\nAnforderungen:\n• Abgeschlossener Master of Science in Nursing oder laufendes Studium, bzw. die Bereitschaft, einen Master zu absolvieren\n\n• Mehrjährige fundierte praktische Erfahrung und vertiefte theoretische Kenntnisse in der Pflege und Pflegeforschung sowie die Fähigkeit, dieses Wissen weiterzugeben\n\n• Teamfähigkeit und Kompetenzen in partizipativer Führung\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\n• Proaktive, kommunikative und eigenständige Persönlichkeit, die sich im interprofessionellen Umfeld sicher bewegt und andere für die Weiterentwicklung der Pflege begeistern kann\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Attività: • Condurre lo sviluppo specialistico nell'ambito del team di gestione infermieristica e guidare e co-progettare il processo di sviluppo di pratiche per promuovere una pratica di cura basata su persone e dati personali • consulenza, responsabilizzazione e accompagnamento specialisti infermieristici, specialisti di assistenza e responsabili delle stazioni, soprattutto in situazioni molto complesse • lavoro in assistenza diretta e partecipazione attiva a valutazioni, progetti e gruppi di ricerca • Close cooperation with specialist management of the Breast-Bab Basin, the Department of Practice Development and Research and cooperation\n\nnei gruppi di lavoro e specialisti cross-Clinic, nazionali ed internazionali • Sviluppo, implementazione e ulteriore sviluppo di linee guida, concetti e standard tecnici Requisiti: • Master di Scienze in Infermeria completato o studi in corso, rispettivamente.\n\nLa volontà di completare un Master • Perenne, esperienza pratica fondata e conoscenza teorica approfondita nella ricerca infermieristica e infermieristica, nonché la capacità di trasmettere queste conoscenze • Capacità di lavoro di squadra e competenze nella leadership partecipativa • Gioia di lavorare in un ambiente universitario dinamico • Personalità proattiva, comunicativa e indipendente, che si muove in modo sicuro in ambiente interprofessionale e può ispirare gli altri per l'ulteriore sviluppo della cura Offriamo: • Politica salariale attraente e benefici sociali eccellenti •\n\nVantaggi per le aree dello shopping, dello sport e del tempo libero • Assistenza per il trasferimento e la ricerca di alloggi • 25 giorni di vacanza più 5 giorni di flessibilità anche gratis • Sostegno per l'istruzione superiore e la pianificazione della carriera • Campus nel cuore di Basilea e il triangolo di confine • Attrezzature complete per l'infanzia • Programma gratuito di sport ed esercizio",
+        "en": "Tasks: • Conducting the specialist development as part of the nursing management team and leading and co-designing the practice development process to promote a person-centered and evidence-based care practice • consulting, empowering and accompanying nursing specialists, care specialists and station managers, especially in highly complex situations • working in direct care and active participation in evaluations, projects and research groups • Close cooperation with specialist management of the Breast-Bab Basin, the Department of Practice Development and Research and cooperation\n\nin cross-Clinic, national and international specialist and working groups • Development, implementation and further development of guidelines, concepts and technical standards Requirements: • Completed Master of Science in Nursing or ongoing studies, respectively.\n\nThe willingness to complete a Master's degree • Perennial, well-founded practical experience and in-depth theoretical knowledge in nursing and nursing research as well as the ability to pass on this knowledge • Teamwork skills and skills in participative leadership • Joy of working in a dynamic universitary environment • Proactive, communicative and independent personality, who moves safely in the interprofessional environment and can inspire others for the further development of care We offer: • Attractive wage policy and excellent social benefits •\n\nBenefits in the areas of shopping, sports and leisure time • Assistance with moving and finding accommodation • 25 days of holidays plus 5 also free flexidays • Support for further education and career planning • Campus in the heart of Basel and the border triangle • Comprehensive childcare facilities • Free sports and exercise programme",
+        "fr": "Tâches: • Mener le développement de spécialistes dans le cadre de l'équipe de gestion des soins infirmiers et diriger et co-concevoir le processus de développement des pratiques pour promouvoir une pratique de soins centrée sur la personne et fondée sur les données probantes • Conseil, autonomisation et accompagnement des spécialistes en soins infirmiers, des spécialistes en soins et des gestionnaires de postes, en particulier dans des situations très complexes • Travailler en soins directs et participer activement aux évaluations, projets et groupes de recherche • Collaboration étroite avec les spécialistes de la gestion du bassin du Breast-Bab, le département de développement des pratiques et de la recherche et coopération\n\n• Élaboration, mise en oeuvre et développement de lignes directrices, de concepts et de normes techniques.\n\nLa volonté de compléter une maîtrise • Expérience pratique perninale et bien fondée et connaissances théoriques approfondies en recherche en soins infirmiers et en soins infirmiers ainsi que la capacité de faire écho à ces connaissances • Compétences et compétences en équipe en leadership en19 • Joy de travailler dans un environnement universel dynamique • Personnalité proactive, communicative et indépendante, qui se déplace en toute sécurité dans un environnement interprofessionnel et peut inspirer d'autres personnes pour le développement ultérieur des soins Nous offrons: • Politique salariale attrayante et excellents avantages sociaux •\n\nAvantages dans les domaines du shopping, des sports et des loisirs • Assistance pour le déménagement et la recherche d'un logement • 25 jours de vacances plus 5 jours de flexidence gratuits • Soutien à la formation continue et à la planification de carrière • Campus au cœur de Bâle et du triangle frontalier • Services complets de garde d'enfants • Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8428,7 +8442,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8509,7 +8522,6 @@
           "study-nurse-rheumatologie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
