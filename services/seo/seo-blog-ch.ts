@@ -4698,6 +4698,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-previdenza-vecchiaia': {
+    title: 'UBS presenta nuovo modello per la previdenza vecchiaia svizzera',
+    description: 'La banca UBS propone una riforma globale del sistema pensionistico svizzero con un nuovo modello basato sulla capitalizzazione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, presenta, nuovo, modello, previdenza',
+    ogTitle: 'UBS presenta nuovo modello per la previdenza vecchiaia svizzera',
+    ogDescription: 'La banca UBS propone una riforma globale del sistema pensionistico svizzera con un nuovo modello basato sulla capitalizzazione',
+    canonicalPath: '/articoli-svizzera/ubs-previdenza-vecchiaia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS presenta nuovo modello per la previdenza vecchiaia svizzera",
+      "description": "La banca UBS propone una riforma globale del sistema pensionistico svizzero con un nuovo modello basato sulla capitalizzazione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-previdenza-vecchiaia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno di un fondo pensione svizzero a Zurigo"
+      },
+      "datePublished": "2026-06-24T09:50:57+00:00",
+      "dateModified": "2026-06-24T09:50:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-previdenza-vecchiaia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
