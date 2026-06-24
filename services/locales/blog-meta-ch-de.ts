@@ -415,6 +415,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.title': 'Grenzgänger Verkehr Chiasso-Lugano Abonnements 2026 innerhalb von 20 km',
     'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.excerpt': 'Praktischer Leitfaden für den Chiasso-Lugano-Transport für Grenzgänger: Zug, Auto, Parkplätze und Abonnements mit Checkliste der zu überprüfenden Kosten.',
     'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.imageAlt': 'Eine Person nutzt die öffentlichen Verkehrsmittel in Lugano',
+    'blog.article.lamal-cmi-frontalieri-confronta-2026.title': 'Grenzüberschreitendes KVG oder MHK: Welches lohnt sich im Jahr 2026',
+    'blog.article.lamal-cmi-frontalieri-confronta-2026.excerpt': 'Aktualisierter Vergleich zwischen der schweizerischen KVG-Versicherung und der italienischen KVG-Versicherung für Grenzgänger: Prämien, Deckungen, Franchisen und Praxisfälle für Familien und Singles.',
+    'blog.article.lamal-cmi-frontalieri-confronta-2026.imageAlt': 'Krankenversicherungsbüro in Lugano mit Blick auf See und Schweizer Berge',
 };
 
 export default blogMetaChDe;

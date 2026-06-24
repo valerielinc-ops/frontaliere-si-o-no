@@ -415,6 +415,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.title': 'Chiasso-Lugano transport frontiers 2026 subscriptions within 20 km',
     'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.excerpt': 'Practical guide to Chiasso-Lugano transport for border workers: train, car, parking and season tickets with a checklist of costs to be verified.',
     'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.imageAlt': 'A person using public transportation in Lugano',
+    'blog.article.lamal-cmi-frontalieri-confronta-2026.title': 'LAMal or border CMI: as appropriate in 2026',
+    'blog.article.lamal-cmi-frontalieri-confronta-2026.excerpt': 'Updated comparison between Swiss LAMal and Italian CMI insurance for frontier workers: premiums, coverages, deductibles and practical cases for families and singles.',
+    'blog.article.lamal-cmi-frontalieri-confronta-2026.imageAlt': 'Health insurance office in Lugano with a view of the lake and Swiss mountains',
 };
 
 export default blogMetaChEn;
