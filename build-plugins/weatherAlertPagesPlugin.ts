@@ -20,6 +20,7 @@ import { evaluateAlerts, activeAlerts, dormantAlerts } from '../services/weather
 import { parseWeatherSnapshot, type AlertState, type WeatherSnapshot } from '../services/weather/types';
 import type { Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { newsletterMountPlaceholder } from './shared/newsletterMountPlaceholder';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -443,7 +444,7 @@ function renderCta(locale: Locale, acquisitionSource: string): string {
   // into the placeholder via NewsletterMount.tsx — same buttons (Google
   // one-tap, LinkedIn, email + MX check, Firebase upsert) as the footer.
   return `<section class="my-8 max-w-2xl mx-auto px-1">
-<div data-newsletter-mount data-acquisition-source="${escapeHtml(acquisitionSource)}" data-heading="${escapeHtml(heading)}" data-subtitle="${escapeHtml(sub)}" class="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent min-h-[200px]"><p class="text-on-accent text-sm font-bold opacity-90">${escapeHtml(heading)}</p><p class="text-on-accent/70 text-xs mt-2">${escapeHtml(sub)}</p></div>
+${newsletterMountPlaceholder({ acquisitionSource, heading, sub })}
 </section>`;
 }
 

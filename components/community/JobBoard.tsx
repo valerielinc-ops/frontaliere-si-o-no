@@ -7128,6 +7128,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {/* ── Center content (existing 12-col job-detail grid) ── */}
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+ {/* Top leaderboard banner — full content-width above the header on
+ desktop (lg+), spanning both the article and sidebar columns. Auto
+ Ads stay untouched; this is an additional manual display unit. */}
+ {isDesktopLg && (
+ <div className="lg:col-span-12">
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
+ minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
+ />
+ </div>
+ )}
  <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
  <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6">
  <div className="flex items-start gap-3 sm:gap-4">
