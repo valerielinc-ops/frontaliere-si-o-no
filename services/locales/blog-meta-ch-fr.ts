@@ -367,6 +367,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.title': 'Frontaliers Italie-Suisse : siège de l\'entreprise sans importance',
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.excerpt': 'L\'Agence du revenu précise avec la réponse n ° 126/2026 comment l\'Accord de 2020 s\'applique en fonction du lieu d\'activité.',
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.imageAlt': 'Vue aérienne de la zone frontalière du lac de Lugano entre l\'Italie et la Suisse',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.title': 'Voto elettronico per svizzeri all\'estero: Kolly propone priorità',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.excerpt': 'Nicolas Kolly soutient le vote électronique pour les Suisses de l\'étranger, avec priorité pour les résidents',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.imageAlt': 'Vote électronique pour les Suisses à l\'étranger',
 };
 
 export default blogMetaChFr;

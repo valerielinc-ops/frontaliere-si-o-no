@@ -367,6 +367,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.title': 'Italy-Switzerland Frontier: non-relevant company headquarters',
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.excerpt': 'The Revenue Agency clarifies with response no. 126/2026 how the 2020 Agreement applies according to the place of activity.',
     'blog.article.frontalieri-italia-svizzera-sede-aziendale.imageAlt': 'Aerial view of Lake Lugano border area between Italy and Switzerland',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.title': 'E-voting for Swiss Abroad: Kolly Proposes Priorities for Residents',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.excerpt': 'Nicolas Kolly supports e-voting for Swiss Abroad, with priority for residents',
+    'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.imageAlt': 'Electronic voting for Swiss abroad',
 };
 
 export default blogMetaChEn;

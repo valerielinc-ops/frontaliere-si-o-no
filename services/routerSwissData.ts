@@ -145,6 +145,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'alta-sensibilita-lavoro-stress': { it: 'alta-sensibilita-lavoro-stress', en: 'high-sensitivity-work-stress', de: 'hohe-empfindlichkeit-arbeit-stress', fr: 'haute-sensibilite-travail-stress' },
  'grigioni-pagamento-contanti-bus': { it: 'grigioni-pagamento-contanti-bus', en: 'graubunden-cash-payment-bus', de: 'graubunden-barzahlung-bus', fr: 'graubunden-paiement-espece-bus' },
  'frontalieri-italia-svizzera-sede-aziendale': { it: 'frontalieri-italia-svizzera-sede-aziendale', en: 'italy-switzerland-cross-border-workers-company-location', de: 'grenzganger-italien-schweiz-firmenstandort', fr: 'frontalier-italie-suisse-siege-entreprise' },
+ 'voto-elettronico-svizzeri-estero-nicolas-kolly': { it: 'voto-elettronico-svizzeri-estero-nicolas-kolly', en: 'electronic-voting-swiss-abroad-nicolas-kolly', de: 'elektronische-abstimmung-schweizer-im-ausland-nicolas-kolly', fr: 'vote-electronique-suisses-a-l-etranger-nicolas-kolly' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1,0 +1,19 @@
+{
+  "id": "voto-elettronico-svizzeri-estero-nicolas-kolly",
+  "slug": "voto-elettronico-svizzeri-estero-nicolas-kolly",
+  "publishedAt": "2026-06-24T09:16:21.711Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 136.60127360444446,
+    "confidence": 1,
+    "finalScore": 136.60127360444446,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 34.150318401111114,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
