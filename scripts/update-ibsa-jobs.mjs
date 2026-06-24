@@ -41,6 +41,7 @@ import {
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -416,9 +417,8 @@ function normalizeIbsaRow(job) {
 }
 
 function writeJobsFiles(jobs) {
-  const payload = `${JSON.stringify(jobs, null, 2)}\n`;
-  fs.writeFileSync(DATA_JOBS, payload, 'utf-8');
-  fs.writeFileSync(PUBLIC_DATA_JOBS, payload, 'utf-8');
+  writeJsonAtomic(DATA_JOBS, jobs);
+  writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
 function postProcessIbsaJobs() {

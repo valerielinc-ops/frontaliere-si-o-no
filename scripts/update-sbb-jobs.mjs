@@ -57,6 +57,7 @@ import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locati
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -965,9 +966,9 @@ async function parseAllSbbDetailJobs(detailUrls, apiMetaByUrl, apiMetaByTitle = 
 }
 
 function writeJobsFiles(jobs) {
-  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(DATA_JOBS, jobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-    fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+    writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
   }
 }
 

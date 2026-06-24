@@ -55,6 +55,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -291,7 +292,7 @@ function retagFustJobs() {
   }
 
   if (retagged > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(raw, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, raw);
     const publicPath = path.resolve(ROOT, 'public', 'data', 'jobs.json');
     if (fs.existsSync(publicPath)) {
       fs.writeFileSync(publicPath, JSON.stringify(raw, null, 2) + '\n');

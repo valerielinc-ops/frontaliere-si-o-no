@@ -21,6 +21,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -79,7 +80,7 @@ function ensureSourceLang() {
     if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
   }
   if (changed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     console.log(`📝 Set sourceLang on ${changed} VF job(s).`);
   }
 }

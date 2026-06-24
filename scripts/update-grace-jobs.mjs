@@ -638,9 +638,9 @@ async function main() {
       }
     }
     if (patched > 0) {
-      fs.writeFileSync(DATA_JOBS, `${JSON.stringify(all, null, 2)}\n`, 'utf8');
+      writeJson(DATA_JOBS, all);
       if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
-        fs.writeFileSync(PUBLIC_JOBS, `${JSON.stringify(all, null, 2)}\n`, 'utf8');
+        writeJson(PUBLIC_JOBS, all);
       }
       console.log(`🛠️ Backfilled ${patched} missing locale descriptions for ${COMPANY_NAME} jobs`);
     }

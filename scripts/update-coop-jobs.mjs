@@ -55,6 +55,7 @@ import {
 import { detectLanguage } from './lib/detect-language.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -423,7 +424,7 @@ function injectCachedCoopTranslations() {
   if (toInject.length === 0) return;
 
   allJobs.push(...toInject);
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, allJobs);
   console.log(`♻️  Translation cache: injected ${toInject.length}/${cache.length} Coop jobs into jobs.json for localization reuse`);
 }
 
@@ -687,8 +688,8 @@ async function postProcessCoopJobs() {
   }
 
   if (repaired > 0 || dropped > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
-    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, allJobs);
+    writeJsonAtomic(PUBLIC_JOBS, allJobs);
     console.log(`  ✅ Repaired ${repaired}/${coopJobs.length} Coop jobs` + (dropped ? ` · quarantined ${dropped} without a real source description` : ''));
   } else {
     console.log(`  ✅ All ${coopJobs.length} Coop jobs passed validation`);
@@ -819,7 +820,7 @@ async function main() {
     if (report.rejected > 0) {
       const keptIds = new Set(coopSubset.map((j) => j.id || j.url));
       const filtered = allJobs.filter((j) => !isCoopJob(j) || keptIds.has(j.id || j.url));
-      fs.writeFileSync(DATA_JOBS, JSON.stringify(filtered, null, 2) + '\n');
+      writeJsonAtomic(DATA_JOBS, filtered);
       console.log(
         `  🧹 Coop quality guards: rejected ${report.rejected} job(s) — ${JSON.stringify(report.reasons)}`,
       );

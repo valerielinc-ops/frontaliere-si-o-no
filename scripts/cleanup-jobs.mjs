@@ -584,10 +584,10 @@ async function main() {
 
       if (enriched > 0) {
         const out = isWrapped ? { ...raw, jobs: jobsArr } : jobsArr;
-        fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(out, null, 2) + '\n');
+        writeJson(DATA_JOBS_PATH, out);
         // Keep public copy in sync
         if (fs.existsSync(PUBLIC_JOBS_PATH)) {
-          fs.writeFileSync(PUBLIC_JOBS_PATH, JSON.stringify(out, null, 2) + '\n');
+          writeJson(PUBLIC_JOBS_PATH, out);
         }
         console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_DESC_CHARS} chars.`);
       }

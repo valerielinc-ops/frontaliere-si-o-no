@@ -16,6 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fingerprintJob, loadSlugRegistry } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -302,10 +303,9 @@ function main() {
       console.log(`\n💾 Saved ${modifiedFiles.size} crawler files (${added} from 404 paths + ${registryRecovered} from registry).`);
     } else {
       // Fallback: save to assembled jobs.json
-      const payload = `${JSON.stringify(jobs, null, 2)}\n`;
-      fs.writeFileSync(DATA_JOBS, payload, 'utf8');
+      writeJsonAtomic(DATA_JOBS, jobs);
       if (fs.existsSync(PUBLIC_JOBS)) {
-        fs.writeFileSync(PUBLIC_JOBS, payload, 'utf8');
+        writeJsonAtomic(PUBLIC_JOBS, jobs);
       }
       console.log(`\n💾 Saved updated jobs.json (${added} from 404 paths + ${registryRecovered} from registry).`);
     }

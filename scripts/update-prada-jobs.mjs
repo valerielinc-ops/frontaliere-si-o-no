@@ -46,6 +46,7 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -62,9 +63,9 @@ function isCompanyJob(job) {
 }
 
 function writeJobsFiles(jobs) {
-  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(DATA_JOBS, jobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-    fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+    writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
   }
 }
 

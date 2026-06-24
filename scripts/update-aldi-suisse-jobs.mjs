@@ -46,6 +46,7 @@ import { inferEmploymentType } from './lib/aldi-suisse-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -122,8 +123,8 @@ function isAldiJob(job) {
 
 /* -- File I/O ---------------------------------------------------------- */
 function writeJobsFiles(jobs) {
-  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
-  if (fs.existsSync(PUBLIC_DATA_JOBS)) fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(DATA_JOBS, jobs);
+  if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
 function mergeCompanyJobs(parsedJobs) {

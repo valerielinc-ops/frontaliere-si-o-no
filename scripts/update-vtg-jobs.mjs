@@ -48,6 +48,7 @@ import {
   normalizeFederalDepartmentCompany,
   normalizeFederalJobLocation,
 } from './lib/federal-job-normalization.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -262,7 +263,7 @@ function ensureSourceLang() {
     if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
   }
   if (changed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     console.log(`📝 Set sourceLang on ${changed} VTG job(s).`);
   }
 }

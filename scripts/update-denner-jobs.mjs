@@ -50,6 +50,7 @@ import {
 import { extractMigrosStructuredData } from './lib/migros-job-parser.mjs';
 import { inferEmploymentType } from './lib/denner-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -109,8 +110,8 @@ function isDennerJob(job) {
 
 /* -- File I/O ---------------------------------------------------------- */
 function writeJobsFiles(jobs) {
-  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
-  if (fs.existsSync(PUBLIC_DATA_JOBS)) fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(DATA_JOBS, jobs);
+  if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
 function mergeCompanyJobs(parsedJobs) {

@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -44,7 +45,7 @@ for (const job of jobs) {
 }
 
 if (flagged > 0) {
-  fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(jobs, null, 2) + '\n', 'utf-8');
+  writeJsonAtomic(DATA_JOBS_PATH, jobs);
   console.log(`Flagged ${flagged} job(s) with needsRetranslation=true.`);
 } else {
   console.log('No locale mismatches found.');

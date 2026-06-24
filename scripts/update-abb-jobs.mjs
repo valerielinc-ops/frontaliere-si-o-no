@@ -48,6 +48,7 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -504,9 +505,9 @@ function postProcessAbbJobs() {
     : allJobs;
 
   if (fixed > 0 || toDrop.size > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(deduped, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, deduped);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(deduped, null, 2) + '\n');
+      writeJsonAtomic(PUBLIC_DATA_JOBS, deduped);
     }
     console.log(`🧹 Post-processed ${fixed} ABB fields.`);
     if (toDrop.size > 0) {

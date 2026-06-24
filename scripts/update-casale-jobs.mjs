@@ -18,6 +18,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
 import { parseApiResponse, buildJobFromApi, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -104,9 +105,9 @@ async function mergeJobs(discoveredJobs) {
     else { merged.push(d); added++; }
   }
   const final = [...nonCompanyJobs, ...merged];
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(PUBLIC_JOBS, final);
   console.log(`📦 Merge: ➕ ${added}, 🔄 ${updated}, 📊 ${final.length} total`);
 }
 
