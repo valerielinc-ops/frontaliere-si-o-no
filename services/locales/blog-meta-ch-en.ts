@@ -400,6 +400,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tpl-2025-record-numeri.title': 'For TPL a 2025 between past and future, with record numbers',
     'blog.article.tpl-2025-record-numeri.excerpt': 'The general assembly of Trasporti Pubblici Luganesi SA celebrates 25 years of activity and the start of the first urban electrified line.',
     'blog.article.tpl-2025-record-numeri.imageAlt': 'Panoramic view of Lugano with electric public transport',
+    'blog.article.aumento-iva-esercito-2024.title': 'VAT increase for the army: the Federal Council revises downwards',
+    'blog.article.aumento-iva-esercito-2024.excerpt': 'The Federal Council has decided to temporarily increase VAT to finance defence strengthening, mitigating the impact on low-income domestic economies.',
+    'blog.article.aumento-iva-esercito-2024.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaChEn;

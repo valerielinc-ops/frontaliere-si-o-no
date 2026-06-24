@@ -156,6 +156,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'caldo-traffico-ferroviario': { it: 'caldo-traffico-ferroviario', en: 'heat-impact-on-rail-traffic', de: 'hitze-auswirkung-auf-eisenbahnverkehr', fr: 'chaleur-impact-sur-trafic-ferroviaire' },
  'affitti-lugano-mercato-rallenta': { it: 'affitti-lugano-mercato-rallenta', en: 'rental-market-lugano-slows-down', de: 'mietmarkt-lugano-verlangsamt', fr: 'marche-locatif-lugano-ralentit' },
  'tpl-2025-record-numeri': { it: 'tpl-2025-record-numeri', en: 'tpl-2025-record-numbers', de: 'tpl-2025-rekordzahlen', fr: 'tpl-2025-nombres-record' },
+ 'aumento-iva-esercito-2024': { it: 'aumento-iva-esercito-2024', en: 'increase-vat-army-2024', de: 'erhohung-mwst-armee-2024', fr: 'augmentation-tva-armee-2024' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
