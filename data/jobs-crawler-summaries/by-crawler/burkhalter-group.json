@@ -1,19 +1,128 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-06-23T21:59:01.597Z",
-  "total": 243,
-  "newCount": 0,
-  "updatedCount": 235,
+  "generatedAt": "2026-06-24T11:04:50.042Z",
+  "total": 245,
+  "newCount": 2,
+  "updatedCount": 240,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 23291,
-  "avgDurationMs": 23291,
+  "unchangedCount": 3,
+  "durationMs": 21958,
+  "avgDurationMs": 21958,
   "durationHistory": [
-    23291
+    21958
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Projektleiter/in Heizungstechnik (100%)",
+      "slug": "projektleiter-in-heizungstechnik-100-spescha-gebaudetechnik-ag-lenzerheide",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-heizungstechnik-1547",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-heizungstechnik-1547",
+      "company": "Spescha Gebäudetechnik AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Lenzerheide",
+      "addressLocality": "Lenzerheide",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-06-24T11:04:48.303Z",
+      "coordinates": [
+        46.7204645,
+        9.5593501
+      ],
+      "_qualityScore": 52,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 0,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Projektleiter Heizung (80 - 100%)",
+      "slug": "projektleiter-heizung-80-100-kreis-wasser-ag-st-gallen",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
+      "company": "kreis wasser ag",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-06-24T11:04:48.331Z",
+      "coordinates": [
+        47.410293,
+        9.3385108
+      ],
+      "_qualityScore": 52,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 0,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
+    {
+      "title": "Sanitärinstallateur/in EFZ (100%)",
+      "slug": "sanitarinstallateur-in-efz-100-strassle-installationen-ag-amriswil",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-efz-1261",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-efz-1261",
+      "company": "Strässle Installationen AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Amriswil",
+      "addressLocality": "Amriswil",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-06-24T11:04:48.334Z",
+      "coordinates": [
+        47.5517966,
+        9.2740066
+      ],
+      "id": "burkhalter-group-ce91ac8b6ccd",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "postalCode": "8500",
+      "firstSeenAt": "2026-06-23T11:07:51.493Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "title": "Heizungsinstallateur/in EFZ (100%)",
       "slug": "heizungsinstallateur-in-efz-100-strassle-installationen-ag-amriswil",
@@ -35,7 +144,7 @@
       "postedDate": "2026-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.042Z",
+      "crawledAt": "2026-06-24T11:04:48.338Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -76,7 +185,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.055Z",
+      "crawledAt": "2026-06-24T11:04:48.349Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -116,7 +225,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.063Z",
+      "crawledAt": "2026-06-24T11:04:48.353Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -158,7 +267,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.066Z",
+      "crawledAt": "2026-06-24T11:04:48.353Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -198,7 +307,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.067Z",
+      "crawledAt": "2026-06-24T11:04:48.354Z",
       "coordinates": [
         46.8581986,
         9.5080121
@@ -239,7 +348,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.068Z",
+      "crawledAt": "2026-06-24T11:04:48.355Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -280,7 +389,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.068Z",
+      "crawledAt": "2026-06-24T11:04:48.356Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -321,7 +430,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.070Z",
+      "crawledAt": "2026-06-24T11:04:48.357Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -362,7 +471,7 @@
       "postedDate": "2026-05-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.073Z",
+      "crawledAt": "2026-06-24T11:04:48.359Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -403,7 +512,7 @@
       "postedDate": "2026-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.075Z",
+      "crawledAt": "2026-06-24T11:04:48.361Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -444,7 +553,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.075Z",
+      "crawledAt": "2026-06-24T11:04:48.361Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -485,7 +594,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.075Z",
+      "crawledAt": "2026-06-24T11:04:48.361Z",
       "coordinates": [
         47.3096077,
         7.8926763
@@ -526,7 +635,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.076Z",
+      "crawledAt": "2026-06-24T11:04:48.362Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -567,7 +676,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.077Z",
+      "crawledAt": "2026-06-24T11:04:48.363Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -608,7 +717,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.078Z",
+      "crawledAt": "2026-06-24T11:04:48.364Z",
       "coordinates": [
         47.2541809,
         7.002328
@@ -649,7 +758,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.079Z",
+      "crawledAt": "2026-06-24T11:04:48.365Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -690,7 +799,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.079Z",
+      "crawledAt": "2026-06-24T11:04:48.365Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -702,6 +811,47 @@
       "postalCode": "7000",
       "id": "burkhalter-group-00943abd0fc4",
       "firstSeenAt": "2026-04-13T10:09:28.521Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Heizungsinstallateur/in (100%)",
+      "slug": "heizungsinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-864",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-864",
+      "company": "M. Kunz AG Klosters",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Klosters Dorf",
+      "addressLocality": "Klosters Dorf",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-06-24T11:04:48.366Z",
+      "coordinates": [
+        46.8823512,
+        9.8788827
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "7000",
+      "id": "burkhalter-group-494b11d71777",
+      "firstSeenAt": "2026-04-13T21:18:02.670Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -731,7 +881,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.081Z",
+      "crawledAt": "2026-06-24T11:04:48.367Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -772,7 +922,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.082Z",
+      "crawledAt": "2026-06-24T11:04:48.367Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -813,7 +963,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.082Z",
+      "crawledAt": "2026-06-24T11:04:48.368Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -825,6 +975,47 @@
       "postalCode": "7270",
       "id": "burkhalter-group-519305a8eb7b",
       "firstSeenAt": "2026-04-13T10:09:28.519Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Heizungsinstallateur/in (100%)",
+      "slug": "heizungsinstallateur-in-100-m-kunz-ag-davos-davos-platz",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-870",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-870",
+      "company": "M. Kunz AG Davos",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Davos Platz",
+      "addressLocality": "Davos Platz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-06-24T11:04:48.369Z",
+      "coordinates": [
+        46.7895975,
+        9.8161975
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "7270",
+      "id": "burkhalter-group-85f2d470df2b",
+      "firstSeenAt": "2026-04-13T21:18:02.670Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -854,7 +1045,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.084Z",
+      "crawledAt": "2026-06-24T11:04:48.369Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -895,7 +1086,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.084Z",
+      "crawledAt": "2026-06-24T11:04:48.370Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -936,7 +1127,7 @@
       "postedDate": "2026-04-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.085Z",
+      "crawledAt": "2026-06-24T11:04:48.370Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -979,7 +1170,7 @@
       "postedDate": "2026-04-13",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "crawledAt": "2026-06-23T21:59:00.086Z",
+      "crawledAt": "2026-06-24T11:04:48.372Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1020,7 +1211,7 @@
       "postedDate": "2026-03-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.087Z",
+      "crawledAt": "2026-06-24T11:04:48.373Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -1062,7 +1253,7 @@
       "postedDate": "2026-03-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.089Z",
+      "crawledAt": "2026-06-24T11:04:48.375Z",
       "coordinates": [
         47.3939007,
         8.6488896
@@ -1103,7 +1294,7 @@
       "postedDate": "2026-03-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.090Z",
+      "crawledAt": "2026-06-24T11:04:48.376Z",
       "coordinates": [
         47.3939007,
         8.6488896
@@ -1122,172 +1313,10 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "title": "Servicemonteur Sanitär und/oder Heizung m/w/d (80 - 100%)",
-      "slug": "servicemonteur-sanitar-und-oder-heizung-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-sanitaer-und-oder-heizung-m-w-d-1618",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-sanitaer-und-oder-heizung-m-w-d-1618",
-      "company": "Arnold AG Heizung-Sanitär",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Schattdorf",
-      "addressLocality": "Schattdorf",
-      "addressRegion": "UR",
-      "addressCountry": "CH",
-      "canton": "UR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.091Z",
-      "coordinates": [
-        46.856205,
-        8.6389353
-      ],
-      "id": "burkhalter-group-86df09bdf3ee",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "",
-      "firstSeenAt": "2026-05-11T21:39:47.345Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Gebäudetechnikplaner/in Fachrichtung Sanitär (80 - 100%)",
-      "slug": "gebaudetechnikplaner-in-fachrichtung-sanitar-80-100-langle-staub-gmbh-st-gallen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudetechnikplaner-in-fachrichtung-sanitaer-1617",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudetechnikplaner-in-fachrichtung-sanitaer-1617",
-      "company": "Längle & Staub GmbH",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-26",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.093Z",
-      "coordinates": [
-        47.4194317,
-        9.3701496
-      ],
-      "id": "burkhalter-group-de6e1367b66d",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "postalCode": "9000",
-      "firstSeenAt": "2026-06-15T14:01:18.055Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Projektleiter/in Gebäudetechnikplanung Sanitär (80 - 100%)",
-      "slug": "projektleiter-in-gebaudetechnikplanung-sanitar-80-100-langle-staub-gmbh-st-gallen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-gebaeudetechnikplanung-sanitaer-1563",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-gebaeudetechnikplanung-sanitaer-1563",
-      "company": "Längle & Staub GmbH",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.095Z",
-      "coordinates": [
-        47.4194317,
-        9.3701496
-      ],
-      "id": "burkhalter-group-2f6ff9e10af5",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "currency": "CHF",
-      "postalCode": "9000",
-      "firstSeenAt": "2026-06-15T14:01:18.057Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "title": "Sanitärinstallateur/in EFZ (100%)",
-      "slug": "sanitarinstallateur-in-efz-100-strassle-installationen-ag-amriswil",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-efz-1261",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-efz-1261",
-      "company": "Strässle Installationen AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Amriswil",
-      "addressLocality": "Amriswil",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.029Z",
-      "coordinates": [
-        47.5517966,
-        9.2740066
-      ],
-      "id": "burkhalter-group-ce91ac8b6ccd",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "postalCode": "8500",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-23T11:07:51.493Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 22
-      }
-    },
     {
       "title": "KNX-Techniker/in (80 - 100%)",
       "slug": "knx-techniker-in-80-100-burkhalter-technics-ag-zurich",
@@ -1309,7 +1338,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.062Z",
+      "crawledAt": "2026-06-24T11:04:48.351Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1320,174 +1349,6 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-15T14:01:17.994Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Heizungsinstallateur/in (100%)",
-      "slug": "heizungsinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-864",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-864",
-      "company": "M. Kunz AG Klosters",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Klosters Dorf",
-      "addressLocality": "Klosters Dorf",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.080Z",
-      "coordinates": [
-        46.8823512,
-        9.8788827
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "7000",
-      "id": "burkhalter-group-494b11d71777",
-      "firstSeenAt": "2026-04-13T21:18:02.670Z",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Heizungsinstallateur/in (100%)",
-      "slug": "heizungsinstallateur-in-100-m-kunz-ag-davos-davos-platz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-870",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-870",
-      "company": "M. Kunz AG Davos",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Davos Platz",
-      "addressLocality": "Davos Platz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.083Z",
-      "coordinates": [
-        46.7895975,
-        9.8161975
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "7270",
-      "id": "burkhalter-group-85f2d470df2b",
-      "firstSeenAt": "2026-04-13T21:18:02.670Z",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Heizungsinstallateur/in (80 - 100%)",
-      "slug": "heizungsinstallateur-in-80-100-sprecher-ag-davos-glaris",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1193",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1193",
-      "company": "Sprecher AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Davos Glaris",
-      "addressLocality": "Davos Glaris",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2023-07-18",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.182Z",
-      "coordinates": [
-        46.7635608,
-        9.7937703
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "7000",
-      "id": "burkhalter-group-0c67f3c4434a",
-      "firstSeenAt": "2026-04-13T21:18:02.670Z",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Heizungsinstallateur/in (100%)",
-      "slug": "heizungsinstallateur-in-100-ulrich-huber-ag-malans",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1016-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1016-1",
-      "company": "Ulrich Huber AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Malans",
-      "addressLocality": "Malans",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2023-04-20",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.197Z",
-      "coordinates": [
-        46.9709598,
-        9.5592226
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "7000",
-      "id": "burkhalter-group-cf58443dd112",
-      "firstSeenAt": "2026-04-13T21:18:02.670Z",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1517,7 +1378,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.205Z",
+      "crawledAt": "2026-06-24T11:04:48.492Z",
       "coordinates": [
         47.3807652,
         7.9483668
@@ -1558,7 +1419,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-06-23T21:59:00.206Z",
+      "crawledAt": "2026-06-24T11:04:48.493Z",
       "coordinates": [
         47.3807652,
         7.9483668
