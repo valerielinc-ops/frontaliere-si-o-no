@@ -98,6 +98,18 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
         run: node scripts/load-rc-env.mjs
 
+      # App installation token = primary PR identity (re-triggers tests gate;
+      # GITHUB_TOKEN would not, anti-recursion). Uses Actions secrets (not
+      # Firebase) so it survives Cleanup SA. Falls back to env.GITHUB_PAT.
+      - name: Mint App token (primary identity, PAT fallback)
+        if: inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Cleanup SA
         if: always()
         run: rm -f /tmp/firebase-sa.json
@@ -108,7 +120,7 @@ jobs:
           # GITHUB_PAT loaded into $GITHUB_ENV above (Firebase RC, not an Actions
           # secret). A PR opened with secrets.GITHUB_TOKEN is blocked by
           # anti-recursion AND would not trigger the tests gate.
-          GH_TOKEN: ${{ env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           if git diff --quiet tests/shard-weights.json; then
@@ -116,7 +128,7 @@ jobs:
             exit 0
           fi
           if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::error::GITHUB_PAT not loaded from Remote Config — cannot open PR."
+            echo "::error::No App/PAT token — cannot open PR (GITHUB_TOKEN blocked by anti-recursion). Check APP_ID/APP_PRIVATE_KEY or Firebase RC."
             exit 1
           fi
           BRANCH="chore/shard-weights-refresh-${GITHUB_RUN_ID}"
