@@ -87,6 +87,20 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Questo workflow viene ri-triggerato (on: pull_request: closed) da
+          # automation interna, con DUE actor bot distinti — entrambi vanno in
+          # whitelist o claude-code-action aborta "Workflow initiated by
+          # non-human actor":
+          #  - `frontaliere-automation[bot]`: actor del path PRIMARIO di cascade
+          #    post-LGTM. `auto-merge-on-lgtm.yml` mergia con
+          #    `MERGE_PRIMARY_TOKEN = APP_TOKEN || GITHUB_PAT || GITHUB_TOKEN`;
+          #    col token della GitHub App il merge-push porta actor App → è il
+          #    caso comune. Stesso motivo per cui issue-fix.yml lo include.
+          #  - `github-actions[bot]`: self-retry step "Retry once" (L154
+          #    `gh workflow run` via GITHUB_TOKEN, run 28111857700 exit 1) +
+          #    fallback merge su GITHUB_TOKEN.
+          # `claude[bot]` per simmetria coi sibling. Mai `*`.
+          allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
           # max-turns 20 (era 15): il triage completo (parse PR body + reviews,
           # filtro churn/funnel, dedup, in-flight overlap, gh issue create)
