@@ -8145,6 +8145,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scoiattolo-export-usa-made-italy.title': 'Eichhörnchen bringt Giant Ravioli nach New York: Möglichkeiten für Grenzgänger',
     'blog.article.scoiattolo-export-usa-made-italy.excerpt': 'Das Unternehmen Eichhörnchen aus Lonate Ceppino nimmt an der Summer Fancy Food Show 2026 in New York teil und bringt seine Giant Ravioli mit.',
     'blog.article.scoiattolo-export-usa-made-italy.imageAlt': 'Scoiattolo präsentiert Giant Ravioli auf der Summer Fancy Food Show',
+    'blog.article.sensibilita-al-lavoro-personale.title': 'Arbeitsempfindlichkeit: Umgang mit Stress und Isolation',
+    'blog.article.sensibilita-al-lavoro-personale.excerpt': '15-20% der Bevölkerung sind sehr arbeitssensibel. Erfahren Sie, wie Sie mit Stress und Isolation umgehen.',
+    'blog.article.sensibilita-al-lavoro-personale.imageAlt': 'Mann arbeitet mit Kopfhörern in einem ruhigen Büro',
 };
 
 export default blogMetaDe;

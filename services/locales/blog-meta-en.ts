@@ -8146,6 +8146,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scoiattolo-export-usa-made-italy.title': 'Squirrel brings Giant Ravioli to New York: opportunities for border workers',
     'blog.article.scoiattolo-export-usa-made-italy.excerpt': 'The company Squirrel of Lonate Ceppino participates in the Summer Fancy Food Show 2026 in New York, bringing its Giant Ravioli.',
     'blog.article.scoiattolo-export-usa-made-italy.imageAlt': 'Scoiattolo presents Giant Ravioli at Summer Fancy Food Show',
+    'blog.article.sensibilita-al-lavoro-personale.title': 'Work Sensitivity: Managing Stress and Isolation',
+    'blog.article.sensibilita-al-lavoro-personale.excerpt': '15-20% of the population is highly sensitive to work. Learn how to deal with stress and isolation.',
+    'blog.article.sensibilita-al-lavoro-personale.imageAlt': 'Man working with noise-canceling headphones in a quiet office',
 };
 
 export default blogMetaEn;
