@@ -102,6 +102,13 @@ export interface GptAdSlotProps {
   className?: string;
   /** Inline wrapper style merged after the CLS-reserve defaults. */
   style?: CSSProperties;
+  /**
+   * Called with GPT's fill verdict for this slot (`true` = empty / no fill, no
+   * AdSense backfill). Lets a caller react to a no-fill — e.g. the side-rail
+   * collapses its reserved gutter track to zero so an unfilled rail leaves no
+   * blank column. Fires once per `slotRenderEnded`; default-noop when omitted.
+   */
+  onEmptyChange?: (empty: boolean) => void;
 }
 
 const GptAdSlot: React.FC<GptAdSlotProps> = ({
@@ -112,6 +119,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   minHeight = 250,
   className = 'mx-auto my-6 w-full max-w-[336px] text-center',
   style,
+  onEmptyChange,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   // GPT slot + its slotRenderEnded handler, kept so unmount can tear both down
@@ -129,6 +137,10 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   // wrapper). Stacked rail slots that don't fill simply vanish, so the filled
   // ones butt together with no whitespace.
   const [empty, setEmpty] = useState(false);
+  // Kept in a ref so the once-bound slotRenderEnded handler always calls the
+  // latest callback without re-running the define/display effect.
+  const onEmptyChangeRef = useRef(onEmptyChange);
+  onEmptyChangeRef.current = onEmptyChange;
   const active = GPT_ENABLED && enabled && IS_PROD && !SKIP_FOR_BOT && !killed;
 
   useEffect(() => {
@@ -171,6 +183,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
             if (event?.slot !== slot) return;
             const isEmpty = !!event.isEmpty;
             setEmpty(isEmpty);
+            onEmptyChangeRef.current?.(isEmpty);
             // Telemetry so the blended PostHog fill-rate is interpretable: GAM
             // side-rail no-fills were previously invisible (CSS-hidden, no event),
             // which dragged the blended ad_filled/ad_collapsed ratio down and made

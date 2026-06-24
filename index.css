@@ -246,6 +246,14 @@ main:not(.seo-static-content):not(.cluster-seo-prose) { display: block !importan
 @media (min-width: 1800px) {
   main:not(.seo-static-content):not(.cluster-seo-prose) { max-width: calc(100vw - 420px) !important; }
 }
+/* Inside the SPA rail grid the side tracks already reserve the rail width, so
+   the viewport-based cap above would double-reserve — leaving blank margins
+   when a rail collapses (unfilled) and the track frees its space. Let main fill
+   its grid track instead (still capped by its own !max-w-[2400px]). Higher
+   specificity (id) + !important overrides the element-only caps above. */
+@media (min-width: 1400px) {
+  .ft-rail-grid-spa > #main-content { max-width: none !important; }
+}
 
 /* Static SEO feature pages — centered, fluid container aligned with the
    site-wide layout so wide viewports don't left-hug content while the
