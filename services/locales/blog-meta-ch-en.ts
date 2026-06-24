@@ -373,6 +373,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ubs-previdenza-vecchiaia.title': 'UBS introduces new model for Swiss old-age pension',
     'blog.article.ubs-previdenza-vecchiaia.excerpt': 'The big bank proposes a comprehensive reform of the Swiss pension system',
     'blog.article.ubs-previdenza-vecchiaia.imageAlt': 'Modern Swiss pension fund building in Zurich',
+    'blog.article.dispositivi-medici-rimborsi.title': 'Bern opens to reimbursements for medical devices purchased abroad',
+    'blog.article.dispositivi-medici-rimborsi.excerpt': 'The Federal Council proposes to reimburse certain medical devices purchased abroad through the AOMS.',
+    'blog.article.dispositivi-medici-rimborsi.imageAlt': 'Medical devices in a Swiss hospital',
 };
 
 export default blogMetaChEn;
