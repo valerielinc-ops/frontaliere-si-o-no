@@ -239,7 +239,7 @@
         "it": "consulente-clienti-f-m-d-zermatt-a-tempo-pieno-part-time-helvetia-versicherungen-zermatt",
         "en": "customer-consultant-f-m-d-zermatt-full-time-part-time-helvetia-versicherungen-zermatt",
         "de": "kundenberater-w-m-d-zermatt-vollzeit-teilzeit-helvetia-zermatt",
-        "fr": "consultant-client-f-m-d-zermatt-temps-plein-temps-partiel-helvetia-versicherungen-zermatt"
+        "fr": "conseiller-clientele-h-f-d-zermatt-temps-plein-temps-partiel-helvetia-versicherungen-zermatt"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -301,20 +301,22 @@
           "kundenberater-w-m-d-zermatt-vollzeit-teilzeit-helvetia-zermatt"
         ],
         "fr": [
-          "kundenberater-w-m-d-zermatt-vollzeit-teilzeit-helvetia-zermatt"
+          "kundenberater-w-m-d-zermatt-vollzeit-teilzeit-helvetia-zermatt",
+          "consultant-client-f-m-d-zermatt-temps-plein-temps-partiel-helvetia-versicherungen-zermatt"
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-zermatt-vollzeit-teilzeit-helvetia-zermatt"
+        "kundenberater-w-m-d-zermatt-vollzeit-teilzeit-helvetia-zermatt",
+        "consultant-client-f-m-d-zermatt-temps-plein-temps-partiel-helvetia-versicherungen-zermatt"
       ]
     },
     {
       "id": "helvetia-e89976f4025a",
-      "slug": "azienda-di-consulenza-clienti-tutti-i-tipi-regione-vevey-tempo-pieno-o-parziale-helvetia-versicherungen-vevey",
+      "slug": "consulente-clienti-aziende-tutti-i-generi-regione-vevey-tempo-pieno-o-part-time-helvetia-versicherungen-vevey",
       "slugByLocale": {
-        "it": "azienda-di-consulenza-clienti-tutti-i-tipi-regione-vevey-tempo-pieno-o-parziale-helvetia-versicherungen-vevey",
+        "it": "consulente-clienti-aziende-tutti-i-generi-regione-vevey-tempo-pieno-o-part-time-helvetia-versicherungen-vevey",
         "en": "client-advisor-company-all-kinds-region-vevey-full-or-part-time-helvetia-versicherungen-vevey",
-        "de": "kundenberater-unternehmen-alle-arten-region-vevey-voll-oder-teilzeit-helvetia-versicherungen-vevey",
+        "de": "unternehmenskundenberater-alle-geschlechter-region-vevey-vollzeit-oder-teilzeit-helvetia-versicherungen-vevey",
         "fr": "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia"
       },
       "company": "Helvetia Versicherungen",
@@ -371,24 +373,28 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia"
+          "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia",
+          "azienda-di-consulenza-clienti-tutti-i-tipi-regione-vevey-tempo-pieno-o-parziale-helvetia-versicherungen-vevey"
         ],
         "en": [
           "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia"
         ],
         "de": [
-          "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia"
+          "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia",
+          "kundenberater-unternehmen-alle-arten-region-vevey-voll-oder-teilzeit-helvetia-versicherungen-vevey"
         ]
       },
       "previousSlugs": [
-        "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia"
+        "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia",
+        "azienda-di-consulenza-clienti-tutti-i-tipi-regione-vevey-tempo-pieno-o-parziale-helvetia-versicherungen-vevey",
+        "kundenberater-unternehmen-alle-arten-region-vevey-voll-oder-teilzeit-helvetia-versicherungen-vevey"
       ]
     },
     {
       "id": "helvetia-1eeb3a0198ef",
-      "slug": "consulente-clienti-f-m-d-assicurazione-canton-uri-a-tempo-pieno-part-time-helvetia-versicherungen-sursee",
+      "slug": "consulente-clienti-assicurazioni-kanton-uri-full-time-part-time-helvetia-versicherungen-sursee",
       "slugByLocale": {
-        "it": "consulente-clienti-f-m-d-assicurazione-canton-uri-a-tempo-pieno-part-time-helvetia-versicherungen-sursee",
+        "it": "consulente-clienti-assicurazioni-kanton-uri-full-time-part-time-helvetia-versicherungen-sursee",
         "en": "customer-consultant-f-m-d-insurance-canton-of-uri-full-time-part-time-helvetia-versicherungen-sursee",
         "de": "kundenberater-w-m-d-versicherung-kanton-uri-vollzeit-teilzeit-helvetia-sursee",
         "fr": "consultant-client-f-m-d-assurance-canton-d-uri-temps-plein-temps-partiel-helvetia-versicherungen-sursee"
@@ -447,7 +453,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherung-kanton-uri-vollzeit-teilzeit-helvetia-sursee"
+          "kundenberater-w-m-d-versicherung-kanton-uri-vollzeit-teilzeit-helvetia-sursee",
+          "consulente-clienti-f-m-d-assicurazione-canton-uri-a-tempo-pieno-part-time-helvetia-versicherungen-sursee"
         ],
         "en": [
           "kundenberater-w-m-d-versicherung-kanton-uri-vollzeit-teilzeit-helvetia-sursee"
@@ -457,7 +464,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-kanton-uri-vollzeit-teilzeit-helvetia-sursee"
+        "kundenberater-w-m-d-versicherung-kanton-uri-vollzeit-teilzeit-helvetia-sursee",
+        "consulente-clienti-f-m-d-assicurazione-canton-uri-a-tempo-pieno-part-time-helvetia-versicherungen-sursee"
       ]
     },
     {
@@ -695,7 +703,7 @@
         "it": "consulente-clienti-f-m-d-versicherungen-dudingen-part-time-full-time-helvetia-versicherungen-dudingen",
         "en": "customer-consultant-f-m-d-versicherungen-dudingen-part-time-full-time-helvetia-versicherungen-dudingen",
         "de": "kundenberater-w-m-d-versicherungen-dudingen-teilzeit-vollzeit-helvetia-dudingen",
-        "fr": "consultant-client-f-m-d-versicherungen-dudingen-temps-partiel-temps-plein-helvetia-versicherungen-dudingen"
+        "fr": "conseiller-clientele-assurance-dudingen-temps-partiel-temps-plein-helvetia-versicherungen-dudingen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -757,11 +765,13 @@
           "kundenberater-w-m-d-versicherungen-dudingen-teilzeit-vollzeit-helvetia-dudingen"
         ],
         "fr": [
-          "kundenberater-w-m-d-versicherungen-dudingen-teilzeit-vollzeit-helvetia-dudingen"
+          "kundenberater-w-m-d-versicherungen-dudingen-teilzeit-vollzeit-helvetia-dudingen",
+          "consultant-client-f-m-d-versicherungen-dudingen-temps-partiel-temps-plein-helvetia-versicherungen-dudingen"
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherungen-dudingen-teilzeit-vollzeit-helvetia-dudingen"
+        "kundenberater-w-m-d-versicherungen-dudingen-teilzeit-vollzeit-helvetia-dudingen",
+        "consultant-client-f-m-d-versicherungen-dudingen-temps-partiel-temps-plein-helvetia-versicherungen-dudingen"
       ]
     },
     {
@@ -923,7 +933,7 @@
         "it": "consulente-clienti-f-m-d-assicurazioni-oftringen-zofingen-part-time-full-time-helvetia-versicherungen-zofingen",
         "en": "customer-consultant-f-m-d-insurances-oftringen-zofingen-part-time-full-time-helvetia-versicherungen-zofingen",
         "de": "kundenberater-w-m-d-versicherungen-oftringen-zofingen-teilzeit-vollzeit-helvetia-zofingen",
-        "fr": "consultant-client-f-m-d-assurances-ostringen-zofingen-temps-partiel-temps-plein-helvetia-versicherungen-zofingen"
+        "fr": "conseiller-client-h-f-assurance-oftringen-zofingen-temps-partiel-plein-temps-helvetia-versicherungen-zofingen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -985,18 +995,20 @@
           "kundenberater-w-m-d-versicherungen-oftringen-zofingen-teilzeit-vollzeit-helvetia-zofingen"
         ],
         "fr": [
-          "kundenberater-w-m-d-versicherungen-oftringen-zofingen-teilzeit-vollzeit-helvetia-zofingen"
+          "kundenberater-w-m-d-versicherungen-oftringen-zofingen-teilzeit-vollzeit-helvetia-zofingen",
+          "consultant-client-f-m-d-assurances-ostringen-zofingen-temps-partiel-temps-plein-helvetia-versicherungen-zofingen"
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherungen-oftringen-zofingen-teilzeit-vollzeit-helvetia-zofingen"
+        "kundenberater-w-m-d-versicherungen-oftringen-zofingen-teilzeit-vollzeit-helvetia-zofingen",
+        "consultant-client-f-m-d-assurances-ostringen-zofingen-temps-partiel-temps-plein-helvetia-versicherungen-zofingen"
       ]
     },
     {
       "id": "helvetia-3f62a5eb1e8b",
-      "slug": "consulente-clienti-f-m-d-assicurazione-baselland-part-time-fulltime-helvetia-versicherungen-liestal",
+      "slug": "consulente-assicurativo-m-f-d-baselland-part-time-full-time-helvetia-versicherungen-liestal",
       "slugByLocale": {
-        "it": "consulente-clienti-f-m-d-assicurazione-baselland-part-time-fulltime-helvetia-versicherungen-liestal",
+        "it": "consulente-assicurativo-m-f-d-baselland-part-time-full-time-helvetia-versicherungen-liestal",
         "en": "customer-consultant-f-m-d-baselland-insurance-part-time-full-time-helvetia-versicherungen-liestal",
         "de": "kundenberater-w-m-d-versicherung-baselland-teilzeit-vollzeit-helvetia-liestal",
         "fr": "consultant-client-f-m-d-assurance-baselland-temps-partiel-temps-plein-helvetia-versicherungen-liestal"
@@ -1055,7 +1067,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherung-baselland-teilzeit-vollzeit-helvetia-liestal"
+          "kundenberater-w-m-d-versicherung-baselland-teilzeit-vollzeit-helvetia-liestal",
+          "consulente-clienti-f-m-d-assicurazione-baselland-part-time-fulltime-helvetia-versicherungen-liestal"
         ],
         "en": [
           "kundenberater-w-m-d-versicherung-baselland-teilzeit-vollzeit-helvetia-liestal"
@@ -1065,7 +1078,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-baselland-teilzeit-vollzeit-helvetia-liestal"
+        "kundenberater-w-m-d-versicherung-baselland-teilzeit-vollzeit-helvetia-liestal",
+        "consulente-clienti-f-m-d-assicurazione-baselland-part-time-fulltime-helvetia-versicherungen-liestal"
       ]
     },
     {
@@ -1208,9 +1222,9 @@
     },
     {
       "id": "helvetia-f97be41451e0",
-      "slug": "esperto-del-veicolo-oberwallis-regione-f-m-d-part-time-fulltime-helvetia-versicherungen-brig",
+      "slug": "esperto-di-veicoli-regione-oberwallis-w-m-d-tempo-parziale-a-tempo-pieno-helvetia-versicherungen-brig",
       "slugByLocale": {
-        "it": "esperto-del-veicolo-oberwallis-regione-f-m-d-part-time-fulltime-helvetia-versicherungen-brig",
+        "it": "esperto-di-veicoli-regione-oberwallis-w-m-d-tempo-parziale-a-tempo-pieno-helvetia-versicherungen-brig",
         "en": "vehicle-expert-oberwallis-region-f-m-d-part-time-full-time-helvetia-versicherungen-brig",
         "de": "fahrzeugexperte-region-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig",
         "fr": "expert-en-vehicules-region-oberwallis-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen-brig"
@@ -1269,7 +1283,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fahrzeugexperte-region-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig"
+          "fahrzeugexperte-region-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig",
+          "esperto-del-veicolo-oberwallis-regione-f-m-d-part-time-fulltime-helvetia-versicherungen-brig"
         ],
         "en": [
           "fahrzeugexperte-region-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig"
@@ -1279,14 +1294,15 @@
         ]
       },
       "previousSlugs": [
-        "fahrzeugexperte-region-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig"
+        "fahrzeugexperte-region-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig",
+        "esperto-del-veicolo-oberwallis-regione-f-m-d-part-time-fulltime-helvetia-versicherungen-brig"
       ]
     },
     {
       "id": "helvetia-a00d22ae6466",
-      "slug": "assicurazioni-oberwallis-f-m-d-part-time-full-time-helvetia-versicherungen-brig",
+      "slug": "direttore-di-vendita-assicurazione-oberwallis-w-m-d-tempo-parziale-a-tempo-pieno-helvetia-versicherungen-brig",
       "slugByLocale": {
-        "it": "assicurazioni-oberwallis-f-m-d-part-time-full-time-helvetia-versicherungen-brig",
+        "it": "direttore-di-vendita-assicurazione-oberwallis-w-m-d-tempo-parziale-a-tempo-pieno-helvetia-versicherungen-brig",
         "en": "sales-manager-insurances-oberwallis-f-m-d-part-time-full-time-helvetia-versicherungen-brig",
         "de": "verkaufsleiter-versicherungen-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig",
         "fr": "directeur-des-ventes-assurances-oberwallis-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen-brig"
@@ -1345,7 +1361,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsleiter-versicherungen-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig"
+          "verkaufsleiter-versicherungen-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig",
+          "assicurazioni-oberwallis-f-m-d-part-time-full-time-helvetia-versicherungen-brig"
         ],
         "en": [
           "verkaufsleiter-versicherungen-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig"
@@ -1355,14 +1372,15 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsleiter-versicherungen-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig"
+        "verkaufsleiter-versicherungen-oberwallis-w-m-d-teilzeit-vollzeit-helvetia-brig",
+        "assicurazioni-oberwallis-f-m-d-part-time-full-time-helvetia-versicherungen-brig"
       ]
     },
     {
       "id": "helvetia-bf0e5ecd701d",
-      "slug": "consulente-clienti-f-m-d-regione-di-assicurazione-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-affoltern-am",
+      "slug": "consulente-assicurativo-m-f-d-regione-affoltern-full-time-part-time-helvetia-versicherungen-affoltern-am-albis",
       "slugByLocale": {
-        "it": "consulente-clienti-f-m-d-regione-di-assicurazione-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-affoltern-am",
+        "it": "consulente-assicurativo-m-f-d-regione-affoltern-full-time-part-time-helvetia-versicherungen-affoltern-am-albis",
         "en": "customer-consultant-f-m-d-insurance-region-affoltern-full-time-part-time-helvetia-versicherungen-affoltern-am-albis",
         "de": "kundenberater-w-m-d-versicherung-region-affoltern-vollzeit-teilzeit-helvetia-affoltern-am",
         "fr": "consultant-client-f-m-d-region-d-assurance-affoltern-temps-plein-temps-partiel-helvetia-versicherungen-affoltern-am"
@@ -1421,7 +1439,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherung-region-affoltern-vollzeit-teilzeit-helvetia-affoltern-am"
+          "kundenberater-w-m-d-versicherung-region-affoltern-vollzeit-teilzeit-helvetia-affoltern-am",
+          "consulente-clienti-f-m-d-regione-di-assicurazione-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-affoltern-am"
         ],
         "en": [
           "kundenberater-w-m-d-versicherung-region-affoltern-vollzeit-teilzeit-helvetia-affoltern-am"
@@ -1431,14 +1450,15 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-region-affoltern-vollzeit-teilzeit-helvetia-affoltern-am"
+        "kundenberater-w-m-d-versicherung-region-affoltern-vollzeit-teilzeit-helvetia-affoltern-am",
+        "consulente-clienti-f-m-d-regione-di-assicurazione-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-affoltern-am"
       ]
     },
     {
       "id": "helvetia-288b4c53653f",
-      "slug": "consulente-clienti-tutti-i-tipi-ginevra-lancy-red-bridge-tempo-pieno-o-parziale-helvetia-versicherungen-lancy",
+      "slug": "consulente-clienti-tutti-i-generi-ginevra-lancy-pont-rouge-full-time-o-part-time-helvetia-versicherungen-lancy",
       "slugByLocale": {
-        "it": "consulente-clienti-tutti-i-tipi-ginevra-lancy-red-bridge-tempo-pieno-o-parziale-helvetia-versicherungen-lancy",
+        "it": "consulente-clienti-tutti-i-generi-ginevra-lancy-pont-rouge-full-time-o-part-time-helvetia-versicherungen-lancy",
         "en": "client-advisor-all-kinds-geneva-lancy-red-bridge-full-or-part-time-helvetia-versicherungen-lancy",
         "de": "kundenberater-alle-arten-genf-lancy-red-bridge-vollzeit-oder-teilzeit-helvetia-versicherungen-lancy",
         "fr": "conseiller-clients-tous-genres-geneve-lancy-pont-rouge-temps-plein-ou-partiel-helvetia"
@@ -1497,7 +1517,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-clients-tous-genres-geneve-lancy-pont-rouge-temps-plein-ou-partiel-helvetia"
+          "conseiller-clients-tous-genres-geneve-lancy-pont-rouge-temps-plein-ou-partiel-helvetia",
+          "consulente-clienti-tutti-i-tipi-ginevra-lancy-red-bridge-tempo-pieno-o-parziale-helvetia-versicherungen-lancy"
         ],
         "en": [
           "conseiller-clients-tous-genres-geneve-lancy-pont-rouge-temps-plein-ou-partiel-helvetia"
@@ -1507,14 +1528,15 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-clients-tous-genres-geneve-lancy-pont-rouge-temps-plein-ou-partiel-helvetia"
+        "conseiller-clients-tous-genres-geneve-lancy-pont-rouge-temps-plein-ou-partiel-helvetia",
+        "consulente-clienti-tutti-i-tipi-ginevra-lancy-red-bridge-tempo-pieno-o-parziale-helvetia-versicherungen-lancy"
       ]
     },
     {
       "id": "helvetia-9dadf20d327c",
-      "slug": "consulente-clienti-f-m-d-assicurazione-schwyz-part-time-fulltime-helvetia-versicherungen-schwyz",
+      "slug": "consulente-assicurativo-m-f-d-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-schwyz",
       "slugByLocale": {
-        "it": "consulente-clienti-f-m-d-assicurazione-schwyz-part-time-fulltime-helvetia-versicherungen-schwyz",
+        "it": "consulente-assicurativo-m-f-d-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-schwyz",
         "en": "customer-consultant-f-m-d-insurance-schwyz-part-time-full-time-helvetia-versicherungen-schwyz",
         "de": "kundenberater-w-m-d-versicherung-schwyz-teilzeit-vollzeit-helvetia-schwyz",
         "fr": "consultant-client-f-m-d-assurance-schwyz-temps-partiel-temps-plein-helvetia-versicherungen-schwyz"
@@ -1573,7 +1595,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherung-schwyz-teilzeit-vollzeit-helvetia-schwyz"
+          "kundenberater-w-m-d-versicherung-schwyz-teilzeit-vollzeit-helvetia-schwyz",
+          "consulente-clienti-f-m-d-assicurazione-schwyz-part-time-fulltime-helvetia-versicherungen-schwyz"
         ],
         "en": [
           "kundenberater-w-m-d-versicherung-schwyz-teilzeit-vollzeit-helvetia-schwyz"
@@ -1583,7 +1606,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-schwyz-teilzeit-vollzeit-helvetia-schwyz"
+        "kundenberater-w-m-d-versicherung-schwyz-teilzeit-vollzeit-helvetia-schwyz",
+        "consulente-clienti-f-m-d-assicurazione-schwyz-part-time-fulltime-helvetia-versicherungen-schwyz"
       ]
     },
     {
@@ -1729,7 +1753,7 @@
       "slug": "consulente-alla-clientela-f-m-d-assicurazione-zona-sottoceneri-part-time-tempo-pieno",
       "slugByLocale": {
         "it": "consulente-alla-clientela-f-m-d-assicurazione-zona-sottoceneri-part-time-tempo-pieno",
-        "en": "customer-advisor-f-m-d-insurance-zone-subtractors-part-time-full-time-helvetia-versicherungen-mendrisio",
+        "en": "client-advisor-f-m-d-insurance-sottoceneri-region-part-time-full-time-helvetia-versicherungen-mendrisio",
         "de": "consulente-alla-clientela-f-m-d-assicurazione-zona-sottoceneri-teilzeit-tempo-pieno-helvetia-versicherungen-mendrisio",
         "fr": "consulente-alla-clientela-f-m-d-assicurazione-zona-sottoceneri-temps-partiel-tempo-pieno-helvetia-versicherungen"
       },
@@ -1784,13 +1808,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "customer-advisor-f-m-d-insurance-zone-subtractors-part-time-full-time-helvetia-versicherungen-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "customer-advisor-f-m-d-insurance-zone-subtractors-part-time-full-time-helvetia-versicherungen-mendrisio"
+      ]
     },
     {
       "id": "helvetia-fd29c4c2ae5a",
-      "slug": "consulente-del-cliente-m-f-d-assicurazione-konolfingen-part-time-fulltime-helvetia-versicherungen-konolfingen",
+      "slug": "consulente-assicurativo-m-f-d-konolfingen-part-time-full-time-helvetia-versicherungen-konolfingen",
       "slugByLocale": {
-        "it": "consulente-del-cliente-m-f-d-assicurazione-konolfingen-part-time-fulltime-helvetia-versicherungen-konolfingen",
+        "it": "consulente-assicurativo-m-f-d-konolfingen-part-time-full-time-helvetia-versicherungen-konolfingen",
         "en": "customer-consultant-m-f-d-insurance-konolfingen-part-time-full-time-helvetia-versicherungen-konolfingen",
         "de": "kundenberater-m-w-d-versicherung-konolfingen-teilzeit-vollzeit-helvetia-konolfingen",
         "fr": "consultant-client-m-f-d-assurance-konolfingen-temps-partiel-temps-plein-helvetia-versicherungen-konolfingen"
@@ -1849,7 +1881,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-m-w-d-versicherung-konolfingen-teilzeit-vollzeit-helvetia-konolfingen"
+          "kundenberater-m-w-d-versicherung-konolfingen-teilzeit-vollzeit-helvetia-konolfingen",
+          "consulente-del-cliente-m-f-d-assicurazione-konolfingen-part-time-fulltime-helvetia-versicherungen-konolfingen"
         ],
         "en": [
           "kundenberater-m-w-d-versicherung-konolfingen-teilzeit-vollzeit-helvetia-konolfingen"
@@ -1859,7 +1892,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-m-w-d-versicherung-konolfingen-teilzeit-vollzeit-helvetia-konolfingen"
+        "kundenberater-m-w-d-versicherung-konolfingen-teilzeit-vollzeit-helvetia-konolfingen",
+        "consulente-del-cliente-m-f-d-assicurazione-konolfingen-part-time-fulltime-helvetia-versicherungen-konolfingen"
       ]
     },
     {
@@ -2006,7 +2040,7 @@
       "slug": "group-governance-consulente-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
       "slugByLocale": {
         "it": "group-governance-consulente-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "en": "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
+        "en": "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
         "de": "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
         "fr": "group-governance-conseiller-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
       },
@@ -2051,15 +2085,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
-        "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
+        "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "en": [
-          "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
           "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "fr": [
@@ -2207,9 +2239,9 @@
     },
     {
       "id": "helvetia-40de1866de36",
-      "slug": "consulente-del-cliente-m-f-d-assicurazione-sarnen-part-time-fulltime-helvetia-versicherungen-sarnen",
+      "slug": "consulente-assicurativo-m-f-d-sarnen-part-time-full-time-helvetia-versicherungen-sarnen",
       "slugByLocale": {
-        "it": "consulente-del-cliente-m-f-d-assicurazione-sarnen-part-time-fulltime-helvetia-versicherungen-sarnen",
+        "it": "consulente-assicurativo-m-f-d-sarnen-part-time-full-time-helvetia-versicherungen-sarnen",
         "en": "customer-consultant-m-f-d-insurance-sarnen-part-time-full-time-helvetia-versicherungen-sarnen",
         "de": "kundenberater-m-w-d-versicherung-sarnen-teilzeit-vollzeit-helvetia-sarnen",
         "fr": "consultant-client-m-f-d-assurance-sarnen-temps-partiel-temps-plein-helvetia-versicherungen-sarnen"
@@ -2268,7 +2300,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-m-w-d-versicherung-sarnen-teilzeit-vollzeit-helvetia-sarnen"
+          "kundenberater-m-w-d-versicherung-sarnen-teilzeit-vollzeit-helvetia-sarnen",
+          "consulente-del-cliente-m-f-d-assicurazione-sarnen-part-time-fulltime-helvetia-versicherungen-sarnen"
         ],
         "en": [
           "kundenberater-m-w-d-versicherung-sarnen-teilzeit-vollzeit-helvetia-sarnen"
@@ -2278,7 +2311,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-m-w-d-versicherung-sarnen-teilzeit-vollzeit-helvetia-sarnen"
+        "kundenberater-m-w-d-versicherung-sarnen-teilzeit-vollzeit-helvetia-sarnen",
+        "consulente-del-cliente-m-f-d-assicurazione-sarnen-part-time-fulltime-helvetia-versicherungen-sarnen"
       ]
     },
     {
@@ -2357,12 +2391,12 @@
     },
     {
       "id": "helvetia-ca473c67cca2",
-      "slug": "consulente-del-cliente-f-m-d-assicurazione-di-basilea-part-time-fulltime-helvetia-versicherungen-reinach-bl",
+      "slug": "consulente-assicurativo-uomo-donna-reinach-baselland-part-time-full-time-helvetia-versicherungen-reinach-bl",
       "slugByLocale": {
-        "it": "consulente-del-cliente-f-m-d-assicurazione-di-basilea-part-time-fulltime-helvetia-versicherungen-reinach-bl",
+        "it": "consulente-assicurativo-uomo-donna-reinach-baselland-part-time-full-time-helvetia-versicherungen-reinach-bl",
         "en": "customer-consultant-f-m-d-reinach-baselland-insurance-part-time-full-time-helvetia-versicherungen-reinach-bl",
         "de": "kundenberater-w-m-d-versicherung-reinach-baselland-teilzeit-vollzeit-helvetia-reinach-bl",
-        "fr": "consultant-client-f-m-d-reinach-baselland-assurance-temps-partiel-temps-plein-helvetia-versicherungen-reinach-bl"
+        "fr": "conseiller-client-homme-femme-assurance-reinach-bale-campagne-mi-temps-plein-temps-helvetia-versicherungen-reinach-bl"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -2418,17 +2452,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherung-reinach-baselland-teilzeit-vollzeit-helvetia-reinach-bl"
+          "kundenberater-w-m-d-versicherung-reinach-baselland-teilzeit-vollzeit-helvetia-reinach-bl",
+          "consulente-del-cliente-f-m-d-assicurazione-di-basilea-part-time-fulltime-helvetia-versicherungen-reinach-bl"
         ],
         "en": [
           "kundenberater-w-m-d-versicherung-reinach-baselland-teilzeit-vollzeit-helvetia-reinach-bl"
         ],
         "fr": [
-          "kundenberater-w-m-d-versicherung-reinach-baselland-teilzeit-vollzeit-helvetia-reinach-bl"
+          "kundenberater-w-m-d-versicherung-reinach-baselland-teilzeit-vollzeit-helvetia-reinach-bl",
+          "consultant-client-f-m-d-reinach-baselland-assurance-temps-partiel-temps-plein-helvetia-versicherungen-reinach-bl"
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-reinach-baselland-teilzeit-vollzeit-helvetia-reinach-bl"
+        "kundenberater-w-m-d-versicherung-reinach-baselland-teilzeit-vollzeit-helvetia-reinach-bl",
+        "consulente-del-cliente-f-m-d-assicurazione-di-basilea-part-time-fulltime-helvetia-versicherungen-reinach-bl",
+        "consultant-client-f-m-d-reinach-baselland-assurance-temps-partiel-temps-plein-helvetia-versicherungen-reinach-bl"
       ]
     },
     {
@@ -2510,9 +2548,9 @@
     },
     {
       "id": "helvetia-eb897d1a61f2",
-      "slug": "consulente-del-cliente-f-m-d-helvetia-versicherungen-brig",
+      "slug": "consulente-assicurativo-m-f-d-brig-part-time-full-time-helvetia-versicherungen-brig",
       "slugByLocale": {
-        "it": "consulente-del-cliente-f-m-d-helvetia-versicherungen-brig",
+        "it": "consulente-assicurativo-m-f-d-brig-part-time-full-time-helvetia-versicherungen-brig",
         "en": "customer-consultant-f-m-d-insurance-brig-part-time-full-time-helvetia-versicherungen-brig",
         "de": "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig",
         "fr": "consultant-client-f-m-d-assurance-brig-temps-partiel-temps-plein-helvetia-versicherungen-brig"
@@ -2571,7 +2609,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig"
+          "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig",
+          "consulente-del-cliente-f-m-d-helvetia-versicherungen-brig"
         ],
         "en": [
           "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig"
@@ -2581,7 +2620,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig"
+        "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig",
+        "consulente-del-cliente-f-m-d-helvetia-versicherungen-brig"
       ]
     },
     {
@@ -2665,7 +2705,7 @@
       "slug": "esperto-di-pianificazione-finanziaria-m-f-d-banca-helvetia-versicherungen-solothurn",
       "slugByLocale": {
         "it": "esperto-di-pianificazione-finanziaria-m-f-d-banca-helvetia-versicherungen-solothurn",
-        "en": "finanzplanungsexperte-m-w-d-bank-helvetia-solothurn",
+        "en": "financial-planning-expert-m-f-d-bank-helvetia-versicherungen-solothurn",
         "de": "finanzplanungsexperte-m-w-d-bank-helvetia-solothurn",
         "fr": "expert-en-planification-financiere-m-f-d-banque-helvetia-versicherungen-solothurn"
       },
@@ -2710,15 +2750,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzplanungsexperte-m-w-d-bank-helvetia-solothurn",
-        "financial-planning-expert-m-f-d-bank-helvetia-versicherungen-solothurn"
+        "finanzplanungsexperte-m-w-d-bank-helvetia-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "finanzplanungsexperte-m-w-d-bank-helvetia-solothurn"
         ],
         "en": [
-          "financial-planning-expert-m-f-d-bank-helvetia-versicherungen-solothurn",
           "finanzplanungsexperte-m-w-d-bank-helvetia-solothurn"
         ],
         "fr": [
@@ -2741,11 +2779,11 @@
     },
     {
       "id": "helvetia-0e570137dd2b",
-      "slug": "account-manager-tutti-i-generi-erv-western-region-tempo-pieno-o-parziale-helvetia-versicherungen-basel",
+      "slug": "account-manager-tutti-i-generi-regione-occidentale-erv-full-or-part-time-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "account-manager-tutti-i-generi-erv-western-region-tempo-pieno-o-parziale-helvetia-versicherungen-basel",
+        "it": "account-manager-tutti-i-generi-regione-occidentale-erv-full-or-part-time-helvetia-versicherungen-basel",
         "en": "account-manager-all-genera-erv-western-region-full-or-partial-time-helvetia-versicherungen-basel",
-        "de": "account-manager-alle-gattungen-erv-western-region-vollzeit-oder-teilzeit-helvetia-versicherungen-basel",
+        "de": "kontomanager-alle-genera-erv-westliche-region-voll-oder-teilzeit-helvetia-versicherungen-basel",
         "fr": "account-manager-tous-genres-erv-region-ouest-temps-plein-ou-partiel-helvetia-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -2802,17 +2840,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "account-manager-tous-genres-erv-region-ouest-temps-plein-ou-partiel-helvetia-basel"
+          "account-manager-tous-genres-erv-region-ouest-temps-plein-ou-partiel-helvetia-basel",
+          "account-manager-tutti-i-generi-erv-western-region-tempo-pieno-o-parziale-helvetia-versicherungen-basel"
         ],
         "en": [
           "account-manager-tous-genres-erv-region-ouest-temps-plein-ou-partiel-helvetia-basel"
         ],
         "de": [
-          "account-manager-tous-genres-erv-region-ouest-temps-plein-ou-partiel-helvetia-basel"
+          "account-manager-tous-genres-erv-region-ouest-temps-plein-ou-partiel-helvetia-basel",
+          "account-manager-alle-gattungen-erv-western-region-vollzeit-oder-teilzeit-helvetia-versicherungen-basel"
         ]
       },
       "previousSlugs": [
-        "account-manager-tous-genres-erv-region-ouest-temps-plein-ou-partiel-helvetia-basel"
+        "account-manager-tous-genres-erv-region-ouest-temps-plein-ou-partiel-helvetia-basel",
+        "account-manager-tutti-i-generi-erv-western-region-tempo-pieno-o-parziale-helvetia-versicherungen-basel",
+        "account-manager-alle-gattungen-erv-western-region-vollzeit-oder-teilzeit-helvetia-versicherungen-basel"
       ]
     },
     {
@@ -2972,7 +3014,7 @@
         "it": "erfahrener-kundenberater-m-w-d-versicherung-per-bestehendes-kundenportfolio-einsiedeln-helvetia-versicherungen-einsiedeln",
         "en": "experienced-customer-advisor-m-f-d-insurance-for-existing-customer-portfolio-einsiedeln-helvetia-versicherungen",
         "de": "erfahrener-kundenberater-m-w-d-versicherung-fur-bestehendes-kundenportfolio-einsiedeln",
-        "fr": "assurance-client-experimentee-m-f-d-pour-le-portefeuille-client-existant-einsiedeln-helvetia-versicherungen-einsiedeln"
+        "fr": "conseiller-client-experimente-h-f-assurance-pour-portefeuille-de-clients-existants-einsiedeln-helvetia-versicherungen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -3014,7 +3056,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "erfahrener-kundenberater-m-w-d-versicherung-fur-bestehendes-kundenportfolio-einsiedeln"
+        "erfahrener-kundenberater-m-w-d-versicherung-fur-bestehendes-kundenportfolio-einsiedeln",
+        "assurance-client-experimentee-m-f-d-pour-le-portefeuille-client-existant-einsiedeln-helvetia-versicherungen-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3024,7 +3067,8 @@
           "erfahrener-kundenberater-m-w-d-versicherung-fur-bestehendes-kundenportfolio-einsiedeln"
         ],
         "fr": [
-          "erfahrener-kundenberater-m-w-d-versicherung-fur-bestehendes-kundenportfolio-einsiedeln"
+          "erfahrener-kundenberater-m-w-d-versicherung-fur-bestehendes-kundenportfolio-einsiedeln",
+          "assurance-client-experimentee-m-f-d-pour-le-portefeuille-client-existant-einsiedeln-helvetia-versicherungen-einsiedeln"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.489Z",
@@ -3269,10 +3313,10 @@
     },
     {
       "id": "helvetia-3948729cf42d",
-      "slug": "team-leader-corporate-bank-m-f-d-helvetia-versicherungen-solothurn",
+      "slug": "team-leader-clienti-impresa-banca-m-f-d-helvetia-versicherungen-solothurn",
       "slugByLocale": {
-        "it": "team-leader-corporate-bank-m-f-d-helvetia-versicherungen-solothurn",
-        "en": "teamleiter-unternehmenskunden-bank-m-w-d-helvetia-solothurn",
+        "it": "team-leader-clienti-impresa-banca-m-f-d-helvetia-versicherungen-solothurn",
+        "en": "team-leader-corporate-clients-bank-m-f-d-helvetia-versicherungen-solothurn",
         "de": "teamleiter-unternehmenskunden-bank-m-w-d-helvetia-solothurn",
         "fr": "chef-d-equipe-banque-d-entreprise-m-f-d-helvetia-versicherungen-solothurn"
       },
@@ -3330,14 +3374,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-unternehmenskunden-bank-m-w-d-helvetia-solothurn"
+          "teamleiter-unternehmenskunden-bank-m-w-d-helvetia-solothurn",
+          "team-leader-corporate-bank-m-f-d-helvetia-versicherungen-solothurn"
         ],
         "fr": [
+          "teamleiter-unternehmenskunden-bank-m-w-d-helvetia-solothurn"
+        ],
+        "en": [
           "teamleiter-unternehmenskunden-bank-m-w-d-helvetia-solothurn"
         ]
       },
       "previousSlugs": [
-        "teamleiter-unternehmenskunden-bank-m-w-d-helvetia-solothurn"
+        "teamleiter-unternehmenskunden-bank-m-w-d-helvetia-solothurn",
+        "team-leader-corporate-bank-m-f-d-helvetia-versicherungen-solothurn"
       ]
     },
     {
@@ -3418,9 +3467,9 @@
     },
     {
       "id": "helvetia-22606bcef0dc",
-      "slug": "consulente-clienti-tutti-i-tipi-regione-bienne-tempo-pieno-o-parziale-helvetia-versicherungen-biel",
+      "slug": "consulente-clienti-tutti-i-generi-regione-bienne-full-time-o-part-time-helvetia-versicherungen-biel",
       "slugByLocale": {
-        "it": "consulente-clienti-tutti-i-tipi-regione-bienne-tempo-pieno-o-parziale-helvetia-versicherungen-biel",
+        "it": "consulente-clienti-tutti-i-generi-regione-bienne-full-time-o-part-time-helvetia-versicherungen-biel",
         "en": "client-advisor-all-kinds-region-bienne-full-or-part-time-helvetia-versicherungen-biel",
         "de": "kundenberater-alle-arten-region-bienne-vollzeit-oder-teilzeit-helvetia-versicherungen-biel",
         "fr": "conseiller-clients-tous-genres-region-bienne-temps-plein-ou-partiel-helvetia-biel"
@@ -3479,7 +3528,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-clients-tous-genres-region-bienne-temps-plein-ou-partiel-helvetia-biel"
+          "conseiller-clients-tous-genres-region-bienne-temps-plein-ou-partiel-helvetia-biel",
+          "consulente-clienti-tutti-i-tipi-regione-bienne-tempo-pieno-o-parziale-helvetia-versicherungen-biel"
         ],
         "en": [
           "conseiller-clients-tous-genres-region-bienne-temps-plein-ou-partiel-helvetia-biel"
@@ -3489,7 +3539,8 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-clients-tous-genres-region-bienne-temps-plein-ou-partiel-helvetia-biel"
+        "conseiller-clients-tous-genres-region-bienne-temps-plein-ou-partiel-helvetia-biel",
+        "consulente-clienti-tutti-i-tipi-regione-bienne-tempo-pieno-o-parziale-helvetia-versicherungen-biel"
       ]
     },
     {
@@ -3570,12 +3621,12 @@
     },
     {
       "id": "helvetia-e84a42094c74",
-      "slug": "underwriting-expert-property-tutti-i-generi-centro-di-eccellenza-zurigo-basilea-st-gallen-helvetia-versicherungen-basel",
+      "slug": "esperto-di-sottoscrizione-proprieta-tutti-i-generi-centro-di-eccellenza-zurigo-basilea-san-gallo-helvetia-versicherungen",
       "slugByLocale": {
-        "it": "underwriting-expert-property-tutti-i-generi-centro-di-eccellenza-zurigo-basilea-st-gallen-helvetia-versicherungen-basel",
+        "it": "esperto-di-sottoscrizione-proprieta-tutti-i-generi-centro-di-eccellenza-zurigo-basilea-san-gallo-helvetia-versicherungen",
         "en": "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen",
-        "de": "underwriting-expert-property-alle-geschlechter-exzellenzzentrum-zurich-basel-st-gallen-helvetia-versicherungen-basel",
-        "fr": "centre-d-excellence-zurich-bale-st-gallen-helvetia-versicherungen-basel"
+        "de": "versicherungsexperte-fur-immobilien-alle-geschlechter-zentrum-der-excellence-zurich-basel-st-gallen-helvetia",
+        "fr": "expert-en-souscription-propriete-tous-genres-centre-d-excellence-zurich-bale-saint-gall-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -3631,24 +3682,30 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen"
+          "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen",
+          "underwriting-expert-property-tutti-i-generi-centro-di-eccellenza-zurigo-basilea-st-gallen-helvetia-versicherungen-basel"
         ],
         "de": [
-          "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen"
+          "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen",
+          "underwriting-expert-property-alle-geschlechter-exzellenzzentrum-zurich-basel-st-gallen-helvetia-versicherungen-basel"
         ],
         "fr": [
-          "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen"
+          "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen",
+          "centre-d-excellence-zurich-bale-st-gallen-helvetia-versicherungen-basel"
         ]
       },
       "previousSlugs": [
-        "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen"
+        "underwriting-expert-property-all-gender-centre-of-excellence-zurich-basel-st-gallen",
+        "underwriting-expert-property-tutti-i-generi-centro-di-eccellenza-zurigo-basilea-st-gallen-helvetia-versicherungen-basel",
+        "underwriting-expert-property-alle-geschlechter-exzellenzzentrum-zurich-basel-st-gallen-helvetia-versicherungen-basel",
+        "centre-d-excellence-zurich-bale-st-gallen-helvetia-versicherungen-basel"
       ]
     },
     {
       "id": "helvetia-2dbf6a24fd50",
-      "slug": "consulente-clienti-f-m-d-assicurazione-pratteln-baselland-part-time-fulltime-helvetia-versicherungen-pratteln",
+      "slug": "consulente-assicurativo-m-f-d-versicherungen-pratteln-baselland-part-time-full-time-helvetia-versicherungen-pratteln",
       "slugByLocale": {
-        "it": "consulente-clienti-f-m-d-assicurazione-pratteln-baselland-part-time-fulltime-helvetia-versicherungen-pratteln",
+        "it": "consulente-assicurativo-m-f-d-versicherungen-pratteln-baselland-part-time-full-time-helvetia-versicherungen-pratteln",
         "en": "customer-consultant-f-m-d-insurance-pratteln-baselland-part-time-full-time-helvetia-versicherungen-pratteln",
         "de": "kundenberater-w-m-d-versicherungen-pratteln-baselland-teilzeit-vollzeit-helvetia-pratteln",
         "fr": "consultant-client-f-m-d-assurance-pratteln-baselland-temps-partiel-temps-plein-helvetia-versicherungen-pratteln"
@@ -3707,7 +3764,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherungen-pratteln-baselland-teilzeit-vollzeit-helvetia-pratteln"
+          "kundenberater-w-m-d-versicherungen-pratteln-baselland-teilzeit-vollzeit-helvetia-pratteln",
+          "consulente-clienti-f-m-d-assicurazione-pratteln-baselland-part-time-fulltime-helvetia-versicherungen-pratteln"
         ],
         "en": [
           "kundenberater-w-m-d-versicherungen-pratteln-baselland-teilzeit-vollzeit-helvetia-pratteln"
@@ -3717,7 +3775,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherungen-pratteln-baselland-teilzeit-vollzeit-helvetia-pratteln"
+        "kundenberater-w-m-d-versicherungen-pratteln-baselland-teilzeit-vollzeit-helvetia-pratteln",
+        "consulente-clienti-f-m-d-assicurazione-pratteln-baselland-part-time-fulltime-helvetia-versicherungen-pratteln"
       ]
     },
     {
@@ -3798,10 +3857,10 @@
     },
     {
       "id": "helvetia-e80793532408",
-      "slug": "credit-advisor-mortgage-f-m-d-part-time-full-time-solothurn-helvetia-versicherungen-solothurn",
+      "slug": "consulente-ipotecario-m-f-d-part-time-full-time-soletta-helvetia-versicherungen-solothurn",
       "slugByLocale": {
-        "it": "credit-advisor-mortgage-f-m-d-part-time-full-time-solothurn-helvetia-versicherungen-solothurn",
-        "en": "kreditberater-hypotheken-w-m-d-teilzeit-vollzeit-solothurn-helvetia-solothurn",
+        "it": "consulente-ipotecario-m-f-d-part-time-full-time-soletta-helvetia-versicherungen-solothurn",
+        "en": "credit-advisor-mortgages-m-f-d-part-time-full-time-solothurn-helvetia-versicherungen-solothurn",
         "de": "kreditberater-hypotheken-w-m-d-teilzeit-vollzeit-solothurn-helvetia-solothurn",
         "fr": "conseiller-en-credit-hypothecaire-f-m-d-soleure-a-temps-partiel-a-temps-plein-helvetia-versicherungen-solothurn"
       },
@@ -3859,21 +3918,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kreditberater-hypotheken-w-m-d-teilzeit-vollzeit-solothurn-helvetia-solothurn"
+          "kreditberater-hypotheken-w-m-d-teilzeit-vollzeit-solothurn-helvetia-solothurn",
+          "credit-advisor-mortgage-f-m-d-part-time-full-time-solothurn-helvetia-versicherungen-solothurn"
         ],
         "fr": [
+          "kreditberater-hypotheken-w-m-d-teilzeit-vollzeit-solothurn-helvetia-solothurn"
+        ],
+        "en": [
           "kreditberater-hypotheken-w-m-d-teilzeit-vollzeit-solothurn-helvetia-solothurn"
         ]
       },
       "previousSlugs": [
-        "kreditberater-hypotheken-w-m-d-teilzeit-vollzeit-solothurn-helvetia-solothurn"
+        "kreditberater-hypotheken-w-m-d-teilzeit-vollzeit-solothurn-helvetia-solothurn",
+        "credit-advisor-mortgage-f-m-d-part-time-full-time-solothurn-helvetia-versicherungen-solothurn"
       ]
     },
     {
       "id": "helvetia-e1e61c522d3d",
-      "slug": "consulente-clienti-tutti-i-tipi-central-valais-tempo-pieno-o-parziale-helvetia-versicherungen-sion",
+      "slug": "consulente-cliente-di-tutti-i-tipi-centrali-o-part-time-helvetia-versicherungen-sion",
       "slugByLocale": {
-        "it": "consulente-clienti-tutti-i-tipi-central-valais-tempo-pieno-o-parziale-helvetia-versicherungen-sion",
+        "it": "consulente-cliente-di-tutti-i-tipi-centrali-o-part-time-helvetia-versicherungen-sion",
         "en": "client-advisor-all-kinds-central-valais-full-or-part-time-helvetia-versicherungen-sion",
         "de": "kundenberater-alle-arten-zentralwallis-vollzeit-oder-teilzeit-helvetia-versicherungen-sion",
         "fr": "conseiller-clients-tous-genres-valais-central-temps-plein-ou-partiel-helvetia-sion"
@@ -3932,7 +3996,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-clients-tous-genres-valais-central-temps-plein-ou-partiel-helvetia-sion"
+          "conseiller-clients-tous-genres-valais-central-temps-plein-ou-partiel-helvetia-sion",
+          "consulente-clienti-tutti-i-tipi-central-valais-tempo-pieno-o-parziale-helvetia-versicherungen-sion"
         ],
         "en": [
           "conseiller-clients-tous-genres-valais-central-temps-plein-ou-partiel-helvetia-sion"
@@ -3942,16 +4007,17 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-clients-tous-genres-valais-central-temps-plein-ou-partiel-helvetia-sion"
+        "conseiller-clients-tous-genres-valais-central-temps-plein-ou-partiel-helvetia-sion",
+        "consulente-clienti-tutti-i-tipi-central-valais-tempo-pieno-o-parziale-helvetia-versicherungen-sion"
       ]
     },
     {
       "id": "helvetia-05441e310baa",
-      "slug": "legal-counsel-legal-service-assicurazione-tutti-i-tipi-a-tempo-pieno-o-parziale-helvetia-versicherungen-st-gallen",
+      "slug": "consulente-legale-servizi-legali-assicurazione-di-tutti-i-tipi-a-tempo-pieno-o-parziale-helvetia-versicherungen-st",
       "slugByLocale": {
-        "it": "legal-counsel-legal-service-assicurazione-tutti-i-tipi-a-tempo-pieno-o-parziale-helvetia-versicherungen-st-gallen",
+        "it": "consulente-legale-servizi-legali-assicurazione-di-tutti-i-tipi-a-tempo-pieno-o-parziale-helvetia-versicherungen-st",
         "en": "legal-counsel-legal-service-insurance-all-kinds-full-or-part-time-helvetia-versicherungen-st-gallen",
-        "de": "legal-counsel-legal-service-insurance-alle-arten-vollzeit-oder-teilzeit-helvetia-versicherungen-st-gallen",
+        "de": "rechtsberatung-rechtsberatung-versicherung-alle-arten-vollzeit-oder-teilzeit-helvetia-versicherungen-st-gallen",
         "fr": "legal-counsel-service-juridique-assurance-sinistres-tous-genres-temps-plein-ou-partiel"
       },
       "company": "Helvetia Versicherungen",
@@ -4008,27 +4074,31 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-service-juridique-assurance-sinistres-tous-genres-temps-plein-ou-partiel"
+          "legal-counsel-service-juridique-assurance-sinistres-tous-genres-temps-plein-ou-partiel",
+          "legal-counsel-legal-service-assicurazione-tutti-i-tipi-a-tempo-pieno-o-parziale-helvetia-versicherungen-st-gallen"
         ],
         "en": [
           "legal-counsel-service-juridique-assurance-sinistres-tous-genres-temps-plein-ou-partiel"
         ],
         "de": [
-          "legal-counsel-service-juridique-assurance-sinistres-tous-genres-temps-plein-ou-partiel"
+          "legal-counsel-service-juridique-assurance-sinistres-tous-genres-temps-plein-ou-partiel",
+          "legal-counsel-legal-service-insurance-alle-arten-vollzeit-oder-teilzeit-helvetia-versicherungen-st-gallen"
         ]
       },
       "previousSlugs": [
-        "legal-counsel-service-juridique-assurance-sinistres-tous-genres-temps-plein-ou-partiel"
+        "legal-counsel-service-juridique-assurance-sinistres-tous-genres-temps-plein-ou-partiel",
+        "legal-counsel-legal-service-assicurazione-tutti-i-tipi-a-tempo-pieno-o-parziale-helvetia-versicherungen-st-gallen",
+        "legal-counsel-legal-service-insurance-alle-arten-vollzeit-oder-teilzeit-helvetia-versicherungen-st-gallen"
       ]
     },
     {
       "id": "helvetia-be77a0e0cca6",
-      "slug": "consulenza-legale-servizio-legale-assicurazione-proprieta-f-m-d-part-time-fulltime-helvetia-versicherungen-st-gallen",
+      "slug": "consulente-legale-servizi-danni-uomo-donna-helvetia-versicherungen-st-gallen",
       "slugByLocale": {
-        "it": "consulenza-legale-servizio-legale-assicurazione-proprieta-f-m-d-part-time-fulltime-helvetia-versicherungen-st-gallen",
-        "en": "legal-counsel-legal-service-property-insurance-f-m-d-part-time-full-time-helvetia-versicherungen-st-gallen",
+        "it": "consulente-legale-servizi-danni-uomo-donna-helvetia-versicherungen-st-gallen",
+        "en": "legal-counsel-claims-services-male-female-helvetia-versicherungen-st-gallen",
         "de": "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-        "fr": "conseiller-juridique-service-juridique-assurances-immobilieres-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
+        "fr": "conseiller-juridique-service-des-dommages-homme-femme-helvetia-versicherungen-st-gallen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -4084,27 +4154,33 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+          "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
+          "consulenza-legale-servizio-legale-assicurazione-proprieta-f-m-d-part-time-fulltime-helvetia-versicherungen-st-gallen"
         ],
         "en": [
-          "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+          "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
+          "legal-counsel-legal-service-property-insurance-f-m-d-part-time-full-time-helvetia-versicherungen-st-gallen"
         ],
         "fr": [
-          "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+          "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
+          "conseiller-juridique-service-juridique-assurances-immobilieres-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
         ]
       },
       "previousSlugs": [
-        "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+        "legal-counsel-rechtsdienst-schadenversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
+        "consulenza-legale-servizio-legale-assicurazione-proprieta-f-m-d-part-time-fulltime-helvetia-versicherungen-st-gallen",
+        "legal-counsel-legal-service-property-insurance-f-m-d-part-time-full-time-helvetia-versicherungen-st-gallen",
+        "conseiller-juridique-service-juridique-assurances-immobilieres-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
       ]
     },
     {
       "id": "helvetia-11d904676a6f",
-      "slug": "consulente-clienti-f-m-d-regione-di-assicurazione-oberengadin-helvetia-versicherungen-st-moritz",
+      "slug": "consulente-assicurativo-m-f-d-regione-engadina-superiore-helvetia-versicherungen-st-moritz",
       "slugByLocale": {
-        "it": "consulente-clienti-f-m-d-regione-di-assicurazione-oberengadin-helvetia-versicherungen-st-moritz",
-        "en": "customer-consultant-f-m-d-insurance-region-oberengadin-helvetia-versicherungen-st-moritz",
+        "it": "consulente-assicurativo-m-f-d-regione-engadina-superiore-helvetia-versicherungen-st-moritz",
+        "en": "customer-advisor-m-f-d-insurance-region-upper-engadine-helvetia-versicherungen-st-moritz",
         "de": "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz",
-        "fr": "consultant-client-f-m-d-region-d-assurance-oberengadin-helvetia-versicherungen-st-moritz"
+        "fr": "conseiller-client-h-f-x-assurance-region-de-l-engadine-superieure-helvetia-versicherungen-st-moritz"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -4160,17 +4236,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz"
+          "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz",
+          "consulente-clienti-f-m-d-regione-di-assicurazione-oberengadin-helvetia-versicherungen-st-moritz"
         ],
         "en": [
-          "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz"
+          "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz",
+          "customer-consultant-f-m-d-insurance-region-oberengadin-helvetia-versicherungen-st-moritz"
         ],
         "fr": [
-          "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz"
+          "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz",
+          "consultant-client-f-m-d-region-d-assurance-oberengadin-helvetia-versicherungen-st-moritz"
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz"
+        "kundenberater-w-m-d-versicherung-region-oberengadin-helvetia-st-moritz",
+        "consulente-clienti-f-m-d-regione-di-assicurazione-oberengadin-helvetia-versicherungen-st-moritz",
+        "customer-consultant-f-m-d-insurance-region-oberengadin-helvetia-versicherungen-st-moritz",
+        "consultant-client-f-m-d-region-d-assurance-oberengadin-helvetia-versicherungen-st-moritz"
       ]
     },
     {
@@ -4255,9 +4337,9 @@
       "slug": "experte-m-w-d-previdenza-e-patrimonio-region-engadin-helvetia-versicherungen-st-moritz",
       "slugByLocale": {
         "it": "experte-m-w-d-previdenza-e-patrimonio-region-engadin-helvetia-versicherungen-st-moritz",
-        "en": "expert-f-m-d-provision-and-assets-region-engadin-helvetia-versicherungen-st-moritz",
+        "en": "expert-w-m-d-pension-and-wealth-region-engadin-helvetia-versicherungen-st-moritz",
         "de": "experte-w-m-d-vorsorge-und-vermogen-region-engadin-helvetia-st-moritz",
-        "fr": "expert-f-m-d-fournitures-et-actifs-region-engadin-helvetia-versicherungen-st-moritz"
+        "fr": "expert-h-f-d-prevoyance-et-patrimoine-region-d-engadin-helvetia-versicherungen-st-moritz"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -4299,17 +4381,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "experte-w-m-d-vorsorge-und-vermogen-region-engadin-helvetia-st-moritz"
+        "experte-w-m-d-vorsorge-und-vermogen-region-engadin-helvetia-st-moritz",
+        "expert-f-m-d-provision-and-assets-region-engadin-helvetia-versicherungen-st-moritz",
+        "expert-f-m-d-fournitures-et-actifs-region-engadin-helvetia-versicherungen-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "experte-w-m-d-vorsorge-und-vermogen-region-engadin-helvetia-st-moritz"
         ],
         "en": [
-          "experte-w-m-d-vorsorge-und-vermogen-region-engadin-helvetia-st-moritz"
+          "experte-w-m-d-vorsorge-und-vermogen-region-engadin-helvetia-st-moritz",
+          "expert-f-m-d-provision-and-assets-region-engadin-helvetia-versicherungen-st-moritz"
         ],
         "fr": [
-          "experte-w-m-d-vorsorge-und-vermogen-region-engadin-helvetia-st-moritz"
+          "experte-w-m-d-vorsorge-und-vermogen-region-engadin-helvetia-st-moritz",
+          "expert-f-m-d-fournitures-et-actifs-region-engadin-helvetia-versicherungen-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.473Z",
@@ -4333,7 +4419,7 @@
         "it": "acquisizione-senior-transaction-management-f-m-d-part-time-fulltime-helvetia-versicherungen-dubendorf",
         "en": "senior-acquisition-transaction-management-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
         "de": "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "fr": "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        "fr": "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -4376,8 +4462,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
+        "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4387,7 +4472,6 @@
           "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "fr": [
-          "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen",
           "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ]
       },
@@ -4407,10 +4491,10 @@
     },
     {
       "id": "helvetia-ef91cfddaa91",
-      "slug": "interno-f-m-d-vivaio-bal4kids-helvetia-versicherungen-basel",
+      "slug": "stage-m-f-d-asilo-nido-bal4kids-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "interno-f-m-d-vivaio-bal4kids-helvetia-versicherungen-basel",
-        "en": "intern-f-m-d-nursery-bal4kids-helvetia-versicherungen-basel",
+        "it": "stage-m-f-d-asilo-nido-bal4kids-helvetia-versicherungen-basel",
+        "en": "trainee-m-f-d-kindergarten-bal4kids-helvetia-versicherungen-basel",
         "de": "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
         "fr": "stagiaire-f-m-d-pepiniere-bal4kids-helvetia-versicherungen-basel"
       },
@@ -4468,17 +4552,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
+          "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
+          "interno-f-m-d-vivaio-bal4kids-helvetia-versicherungen-basel"
         ],
         "en": [
-          "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
+          "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
+          "intern-f-m-d-nursery-bal4kids-helvetia-versicherungen-basel"
         ],
         "fr": [
           "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
         ]
       },
       "previousSlugs": [
-        "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
+        "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
+        "interno-f-m-d-vivaio-bal4kids-helvetia-versicherungen-basel",
+        "intern-f-m-d-nursery-bal4kids-helvetia-versicherungen-basel"
       ]
     },
     {
@@ -4624,7 +4712,7 @@
       "slug": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf",
       "slugByLocale": {
         "it": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf",
-        "en": "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
+        "en": "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
         "de": "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
         "fr": "customer-care-specialiste-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf"
       },
@@ -4669,15 +4757,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf"
+        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "en": [
-          "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
           "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "fr": [
@@ -4700,12 +4786,12 @@
     },
     {
       "id": "helvetia-488cf84283e8",
-      "slug": "consulente-clienti-assicurazione-f-m-d-regione-wil-helvetia-versicherungen-wil",
+      "slug": "consulente-assicurativo-m-f-d-regione-wil-helvetia-versicherungen-wil",
       "slugByLocale": {
-        "it": "consulente-clienti-assicurazione-f-m-d-regione-wil-helvetia-versicherungen-wil",
+        "it": "consulente-assicurativo-m-f-d-regione-wil-helvetia-versicherungen-wil",
         "en": "customer-consultant-insurance-f-m-d-region-wil-helvetia-versicherungen-wil",
         "de": "kundenberater-versicherung-w-m-d-region-wil-helvetia-wil",
-        "fr": "consultant-en-assurance-f-m-d-region-wil-helvetia-versicherungen-wil"
+        "fr": "conseiller-client-assurance-h-f-region-wil-helvetia-versicherungen-wil"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -4761,17 +4847,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-versicherung-w-m-d-region-wil-helvetia-wil"
+          "kundenberater-versicherung-w-m-d-region-wil-helvetia-wil",
+          "consulente-clienti-assicurazione-f-m-d-regione-wil-helvetia-versicherungen-wil"
         ],
         "en": [
           "kundenberater-versicherung-w-m-d-region-wil-helvetia-wil"
         ],
         "fr": [
-          "kundenberater-versicherung-w-m-d-region-wil-helvetia-wil"
+          "kundenberater-versicherung-w-m-d-region-wil-helvetia-wil",
+          "consultant-en-assurance-f-m-d-region-wil-helvetia-versicherungen-wil"
         ]
       },
       "previousSlugs": [
-        "kundenberater-versicherung-w-m-d-region-wil-helvetia-wil"
+        "kundenberater-versicherung-w-m-d-region-wil-helvetia-wil",
+        "consulente-clienti-assicurazione-f-m-d-regione-wil-helvetia-versicherungen-wil",
+        "consultant-en-assurance-f-m-d-region-wil-helvetia-versicherungen-wil"
       ]
     },
     {
@@ -5005,9 +5095,9 @@
     },
     {
       "id": "helvetia-6ec94c0250e1",
-      "slug": "consulente-clienti-f-m-d-zurich-city-assicurazione-part-time-full-time-helvetia-versicherungen-zurich",
+      "slug": "consulente-assicurativo-m-f-d-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-zurich",
       "slugByLocale": {
-        "it": "consulente-clienti-f-m-d-zurich-city-assicurazione-part-time-full-time-helvetia-versicherungen-zurich",
+        "it": "consulente-assicurativo-m-f-d-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-zurich",
         "en": "customer-consultant-f-m-d-zurich-city-insurance-part-time-full-time-helvetia-versicherungen-zurich",
         "de": "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
         "fr": "consultant-client-f-m-d-zurich-city-assurance-temps-partiel-temps-plein-helvetia-versicherungen-zurich"
@@ -5066,7 +5156,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
+          "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
+          "consulente-clienti-f-m-d-zurich-city-assicurazione-part-time-full-time-helvetia-versicherungen-zurich"
         ],
         "en": [
           "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
@@ -5076,7 +5167,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
+        "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
+        "consulente-clienti-f-m-d-zurich-city-assicurazione-part-time-full-time-helvetia-versicherungen-zurich"
       ]
     },
     {
@@ -5163,7 +5255,7 @@
         "it": "collaboratore-trice-verkaufssupport-m-w-d-stadt-luzern-teilzeit-vollzeit-helvetia-versicherungen-luzern",
         "en": "employee-sales-support-f-m-d-city-of-lucerne-part-time-full-time-helvetia-versicherungen-luzern",
         "de": "mitarbeiter-verkaufssupport-w-m-d-stadt-luzern-teilzeit-vollzeit-helvetia-luzern",
-        "fr": "soutien-aux-ventes-des-employes-f-m-d-ville-de-lucerne-temps-partiel-temps-plein-helvetia-versicherungen-luzern"
+        "fr": "employe-e-support-vente-h-f-lucerne-temps-partiel-temps-plein-helvetia-versicherungen-luzern"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -5205,7 +5297,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-d-stadt-luzern-teilzeit-vollzeit-helvetia-luzern"
+        "mitarbeiter-verkaufssupport-w-m-d-stadt-luzern-teilzeit-vollzeit-helvetia-luzern",
+        "soutien-aux-ventes-des-employes-f-m-d-ville-de-lucerne-temps-partiel-temps-plein-helvetia-versicherungen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5215,7 +5308,8 @@
           "mitarbeiter-verkaufssupport-w-m-d-stadt-luzern-teilzeit-vollzeit-helvetia-luzern"
         ],
         "fr": [
-          "mitarbeiter-verkaufssupport-w-m-d-stadt-luzern-teilzeit-vollzeit-helvetia-luzern"
+          "mitarbeiter-verkaufssupport-w-m-d-stadt-luzern-teilzeit-vollzeit-helvetia-luzern",
+          "soutien-aux-ventes-des-employes-f-m-d-ville-de-lucerne-temps-partiel-temps-plein-helvetia-versicherungen-luzern"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.458Z",
@@ -5315,7 +5409,7 @@
         "it": "teamleiter-kundendienst-servisa-berufliche-previdenza-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
         "en": "team-leader-customer-service-servisa-professional-provision-f-m-d-part-time-full-time-helvetia-versicherungen-basel",
         "de": "teamleiter-kundendienst-servisa-berufliche-vorsorge-w-m-d-teilzeit-vollzeit-helvetia-basel",
-        "fr": "chef-d-equipe-service-a-la-clientele-servisa-offre-professionnelle-f-m-d-temps-partiel-temps-plein-helvetia"
+        "fr": "responsable-d-equipe-service-clients-servisa-prevoyance-professionnelle-h-f-mi-temps-temps-plein-helvetia-versicherungen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -5357,7 +5451,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-kundendienst-servisa-berufliche-vorsorge-w-m-d-teilzeit-vollzeit-helvetia-basel"
+        "teamleiter-kundendienst-servisa-berufliche-vorsorge-w-m-d-teilzeit-vollzeit-helvetia-basel",
+        "chef-d-equipe-service-a-la-clientele-servisa-offre-professionnelle-f-m-d-temps-partiel-temps-plein-helvetia"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5367,7 +5462,8 @@
           "teamleiter-kundendienst-servisa-berufliche-vorsorge-w-m-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "fr": [
-          "teamleiter-kundendienst-servisa-berufliche-vorsorge-w-m-d-teilzeit-vollzeit-helvetia-basel"
+          "teamleiter-kundendienst-servisa-berufliche-vorsorge-w-m-d-teilzeit-vollzeit-helvetia-basel",
+          "chef-d-equipe-service-a-la-clientele-servisa-offre-professionnelle-f-m-d-temps-partiel-temps-plein-helvetia"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.457Z",
@@ -6461,7 +6557,7 @@
       "slug": "e-banking-specializzato-m-f-d-helvetia-versicherungen-solothurn",
       "slugByLocale": {
         "it": "e-banking-specializzato-m-f-d-helvetia-versicherungen-solothurn",
-        "en": "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
+        "en": "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn",
         "de": "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
         "fr": "banque-electronique-specialisee-m-f-d-helvetia-versicherungen-solothurn"
       },
@@ -6506,15 +6602,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
-        "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn"
+        "fachspezialist-e-banking-m-w-d-helvetia-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-e-banking-m-w-d-helvetia-solothurn"
         ],
         "en": [
-          "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn",
           "fachspezialist-e-banking-m-w-d-helvetia-solothurn"
         ],
         "fr": [

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-b454a8a039df",
-      "slug": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "direttore-di-produzione-aggiunto-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "stellvertretender-produktionsleiter-m-w-d-hilcona-pfaffstatt",
-        "it": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "direttore-di-produzione-aggiunto-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "deputy-production-manager-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "directeur-adjoint-de-la-production-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -48,11 +48,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-produktionsleiter-m-w-d-hilcona-pfaffstatt"
+          "stellvertretender-produktionsleiter-m-w-d-hilcona-pfaffstatt",
+          "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "stellvertretender-produktionsleiter-m-w-d-hilcona-pfaffstatt"
+        "stellvertretender-produktionsleiter-m-w-d-hilcona-pfaffstatt",
+        "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -73,12 +81,12 @@
     },
     {
       "id": "hilcona-6e5ce1fcf10a",
-      "slug": "mechatroniker-m-w-d-hilcona-pfaffstatt",
+      "slug": "meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "mechatroniker-m-w-d-hilcona-pfaffstatt",
-        "it": "mechatroniker-m-w-d-hilcona-pfaffstatt",
-        "en": "mechatroniker-m-w-d-hilcona-pfaffstatt",
-        "fr": "mechatroniker-m-w-d-hilcona-pfaffstatt"
+        "it": "meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "mechatronics-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "mecatronics-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -130,16 +138,30 @@
       "postalCode": "7000",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-24T11:38:38.622Z"
+      "firstSeenAt": "2026-06-24T11:38:38.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechatroniker-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "mechatroniker-m-w-d-hilcona-pfaffstatt"
+        ],
+        "fr": [
+          "mechatroniker-m-w-d-hilcona-pfaffstatt"
+        ]
+      },
+      "previousSlugs": [
+        "mechatroniker-m-w-d-hilcona-pfaffstatt"
+      ]
     },
     {
       "id": "hilcona-24ee97bd55f8",
-      "slug": "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "tecnico-kaelte-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "kaeltetechniker-m-w-d-hilcona-pfaffstatt",
-        "it": "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "tecnico-kaelte-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "kaelte-technician-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "technicien-kaelte-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -178,11 +200,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kaeltetechniker-m-w-d-hilcona-pfaffstatt"
+          "kaeltetechniker-m-w-d-hilcona-pfaffstatt",
+          "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "kaeltetechniker-m-w-d-hilcona-pfaffstatt"
+        "kaeltetechniker-m-w-d-hilcona-pfaffstatt",
+        "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -203,12 +233,12 @@
     },
     {
       "id": "hilcona-2f7f4430d5ed",
-      "slug": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "manutenzione-elettrica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "betriebselektriker-instandhaltung-m-w-d-hilcona-pfaffstatt",
-        "it": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "manutenzione-elettrica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "service-electrician-maintenance-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "entretien-electrique-de-service-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -247,11 +277,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-instandhaltung-m-w-d-hilcona-pfaffstatt"
+          "betriebselektriker-instandhaltung-m-w-d-hilcona-pfaffstatt",
+          "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-instandhaltung-m-w-d-hilcona-pfaffstatt"
+        "betriebselektriker-instandhaltung-m-w-d-hilcona-pfaffstatt",
+        "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -272,12 +310,12 @@
     },
     {
       "id": "hilcona-1e33dcdf813d",
-      "slug": "stellvertretender-leiter-in-der-schlachtung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "capo-aggiunto-delle-risate-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "stellvertretender-leiter-in-der-schlachtung-m-w-d-hilcona-pfaffstatt",
-        "it": "stellvertretender-leiter-in-der-schlachtung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "stellvertretender-leiter-in-der-schlachtung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "stellvertretender-leiter-in-der-schlachtung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "capo-aggiunto-delle-risate-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "deputy-head-of-slaughter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "chef-adjoint-de-l-abattage-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -316,11 +354,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-leiter-in-der-schlachtung-m-w-d-hilcona-pfaffstatt"
+          "stellvertretender-leiter-in-der-schlachtung-m-w-d-hilcona-pfaffstatt",
+          "stellvertretender-leiter-in-der-schlachtung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "stellvertretender-leiter-in-der-schlachtung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "stellvertretender-leiter-in-der-schlachtung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "stellvertretender-leiter-in-der-schlachtung-m-w-d-hilcona-pfaffstatt"
+        "stellvertretender-leiter-in-der-schlachtung-m-w-d-hilcona-pfaffstatt",
+        "stellvertretender-leiter-in-der-schlachtung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 113500,
       "salaryMax": 153000,
@@ -341,12 +387,12 @@
     },
     {
       "id": "hilcona-415168135839",
-      "slug": "digital-content-specialist-hilcona-basel",
+      "slug": "digital-content-specialista-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "digital-content-specialist-hilcona-basel",
-        "it": "digital-content-specialist-hilcona-basel",
+        "it": "digital-content-specialista-bell-schweiz-ag-basel",
         "en": "digital-content-specialist-bell-schweiz-ag-basel",
-        "fr": "digital-content-specialist-hilcona-basel"
+        "fr": "digital-content-specialiste-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -398,16 +444,27 @@
       "postalCode": "4001",
       "country": "CH",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-24T11:38:37.570Z"
+      "firstSeenAt": "2026-06-24T11:38:37.570Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-content-specialist-hilcona-basel"
+        ],
+        "fr": [
+          "digital-content-specialist-hilcona-basel"
+        ]
+      },
+      "previousSlugs": [
+        "digital-content-specialist-hilcona-basel"
+      ]
     },
     {
       "id": "hilcona-0c3bc4dbee6c",
-      "slug": "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "driver-per-il-camion-m-w-d-fuer-il-trasporto-di-animali-vivi-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hilcona-pfaffstatt",
-        "it": "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "driver-per-il-camion-m-w-d-fuer-il-trasporto-di-animali-vivi-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "truck-driver-m-w-d-fuer-the-live-animal-transport-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "conducteur-de-camion-m-w-d-fuer-le-transport-d-animaux-vivants-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -446,11 +503,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hilcona-pfaffstatt"
+          "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hilcona-pfaffstatt",
+          "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hilcona-pfaffstatt"
+        "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hilcona-pfaffstatt",
+        "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -471,12 +536,12 @@
     },
     {
       "id": "hilcona-580ce62fed13",
-      "slug": "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "driver-camion-m-w-d-part-time-per-il-trasporto-di-animali-vivi-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hilcona-pfaffstatt",
-        "it": "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "driver-camion-m-w-d-part-time-per-il-trasporto-di-animali-vivi-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "truck-driver-m-w-d-part-time-for-live-animal-transport-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "conducteur-de-camion-m-w-d-a-temps-partiel-pour-le-transport-d-animaux-vivants-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -515,11 +580,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hilcona-pfaffstatt"
+          "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hilcona-pfaffstatt",
+          "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hilcona-pfaffstatt"
+        "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hilcona-pfaffstatt",
+        "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -1678,10 +1751,10 @@
     },
     {
       "id": "hilcona-250b4c062f49",
-      "slug": "laborant-in-60-100-hilcona-dallikon",
+      "slug": "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
       "slugByLocale": {
-        "it": "laborant-in-60-100-hilcona-dallikon",
-        "en": "laborant-in-60-100-hilcona-dallikon",
+        "it": "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
+        "en": "laboratory-technician-60-100-eisberg-ag-dallikon",
         "de": "laborant-in-60-100-hilcona-dallikon",
         "fr": "laborant-in-60-100-eisberg-ag-dallikon"
       },
@@ -1720,19 +1793,16 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laboratorio-nel-60-100-eisberg-ag-dallikon",
-        "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
-        "laboratory-in-60-100-eisberg-ag-dallikon",
-        "laboratory-technician-60-100-eisberg-ag-dallikon"
+        "laborant-in-60-100-hilcona-dallikon",
+        "laboratory-in-60-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laboratorio-nel-60-100-eisberg-ag-dallikon",
-          "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
           "laborant-in-60-100-hilcona-dallikon"
         ],
         "en": [
           "laboratory-in-60-100-eisberg-ag-dallikon",
-          "laboratory-technician-60-100-eisberg-ag-dallikon",
           "laborant-in-60-100-hilcona-dallikon"
         ]
       },
@@ -2440,9 +2510,9 @@
     },
     {
       "id": "hilcona-2db3448de281",
-      "slug": "ot-engineer-80-100-hilcona-dallikon",
+      "slug": "ot-ingegnere-80-100-eisberg-ag-dallikon",
       "slugByLocale": {
-        "it": "ot-engineer-80-100-hilcona-dallikon",
+        "it": "ot-ingegnere-80-100-eisberg-ag-dallikon",
         "en": "ot-engineer-80-100-eisberg-ag-dallikon",
         "de": "ot-engineer-80-100-hilcona-dallikon",
         "fr": "ot-engineer-80-100-hilcona-dallikon"
@@ -2481,12 +2551,11 @@
       "crawledAt": "2026-06-24T11:38:30.065Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ot-ingegnere-80-100-eisberg-ag-dallikon",
+        "ot-engineer-80-100-hilcona-dallikon",
         "ingenieur-80-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ot-ingegnere-80-100-eisberg-ag-dallikon",
           "ot-engineer-80-100-hilcona-dallikon"
         ],
         "fr": [
@@ -2747,10 +2816,10 @@
       "id": "hilcona-3e7e02ff1b7a",
       "slug": "elettrotecnico-di-impianto-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "elettrotecnico-di-impianto-geiser-ag-schlieren",
+        "it": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "en": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "fr": "electricien-d-installation-geiser-ag-schlieren"
+        "fr": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
       },
       "company": "Geiser AG",
       "companyKey": "hilcona",
@@ -2787,15 +2856,13 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+        "electricien-d-installation-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+          "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
         ],
         "fr": [
-          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
           "electricien-d-installation-geiser-ag-schlieren"
         ]
       },
@@ -3661,10 +3728,10 @@
       "id": "hilcona-277ed76f4a2e",
       "slug": "elettricista-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
-        "it": "elettricista-operativo-bell-schweiz-ag-oensingen",
+        "it": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "en": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "fr": "electricien-en-service-bell-schweiz-ag-oensingen"
+        "fr": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -3701,7 +3768,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
+        "electricien-en-service-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
@@ -3710,11 +3777,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+          "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
         ],
         "fr": [
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
           "electricien-en-service-bell-schweiz-ag-oensingen"
         ]
       },
@@ -3740,7 +3805,7 @@
       "slug": "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "installateur-m-w-d-hilcona-pfaffstatt",
+        "en": "installer-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "installateur-m-w-d-hilcona-pfaffstatt",
         "fr": "installateur-m-w-d-hilcona-pfaffstatt"
       },
@@ -3779,8 +3844,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "installateur-m-w-d-hilcona-pfaffstatt",
-        "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "installer-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3788,7 +3852,6 @@
           "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "en": [
-          "installer-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
           "installateur-m-w-d-hilcona-pfaffstatt"
         ]
       },
@@ -4100,12 +4163,12 @@
     },
     {
       "id": "hilcona-dbec66286e58",
-      "slug": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
+      "slug": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
+        "it": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "werkstudent-m-w-d-projekte-bereich-operations-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
-        "fr": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
+        "fr": "etudiante-active-m-w-d-projets-operations-sur-le-terrain-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -4141,16 +4204,13 @@
       "crawledAt": "2026-06-24T11:38:24.398Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
-        "etudiante-active-m-w-d-projets-operations-sur-le-terrain-hugli-nahrungsmittel-gmbh-radolfzell"
+        "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
           "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
         ],
         "fr": [
-          "etudiante-active-m-w-d-projets-operations-sur-le-terrain-hugli-nahrungsmittel-gmbh-radolfzell",
           "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
         ]
       },
@@ -4324,10 +4384,10 @@
       "id": "hilcona-4f5850ccc7a5",
       "slug": "area-sales-market-sviluppatore-food-service-alto-adige-hugli-nahrmittel-erzeugung-gmbh-hard",
       "slugByLocale": {
-        "it": "area-sales-market-sviluppatore-food-service-alto-adige-hugli-nahrmittel-erzeugung-gmbh-hard",
+        "it": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
         "en": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
         "de": "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
-        "fr": "area-ventes-marche-developpeur-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
+        "fr": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
       },
       "company": "Hügli Nährmittel-Erzeugung GmbH",
       "companyKey": "hilcona",
@@ -4364,15 +4424,13 @@
       "sourceLang": "de",
       "previousSlugs": [
         "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
-        "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
+        "area-ventes-marche-developpeur-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
-          "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
+          "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard"
         ],
         "fr": [
-          "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
           "area-ventes-marche-developpeur-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
         ]
       },
@@ -5191,12 +5249,12 @@
     },
     {
       "id": "hilcona-9ddf5cc57bc3",
-      "slug": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
+      "slug": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
-        "it": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
+        "it": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "sap-sd-inhouse-consultant-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
-        "fr": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
+        "fr": "sap-sd-conseiller-interne-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -5238,7 +5296,6 @@
         ],
         "it": [
           "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
-          "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -5246,7 +5303,6 @@
         ],
         "fr": [
           "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-          "sap-sd-conseiller-interne-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
         ]
       },
@@ -5254,8 +5310,7 @@
         "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "sap-sd-inhouse-berater-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
-        "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "sap-sd-conseiller-interne-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:49.178Z",
       "salaryMin": 64500,
@@ -6149,9 +6204,9 @@
     },
     {
       "id": "hilcona-9215a6e64f54",
-      "slug": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
+      "slug": "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
       "slugByLocale": {
-        "it": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
+        "it": "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "en": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
         "fr": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
@@ -6197,7 +6252,6 @@
           "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
           "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
-          "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined"
         ]
       },
@@ -6208,7 +6262,7 @@
         "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
         "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
-        "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
+        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:44.562Z",
       "salaryMin": 64500,
@@ -6316,8 +6370,8 @@
       "slugByLocale": {
         "de": "mechaniker-fuer-pkw-lkw-oder-landmaschinen-m-w-d-hilcona-pfaffstatt",
         "it": "mechaniker-fuer-pkw-lkw-o-landmaschinen-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "mechaniker-fuer-pkw-lkw-oder-landmaschinen-m-w-d-hilcona-pfaffstatt",
-        "fr": "mechaniker-fuer-pkw-lkw-oder-landmaschinen-m-w-d-hilcona-pfaffstatt"
+        "en": "mechanic-for-passenger-cars-trucks-or-agricultural-machinery-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "mecanicien-pour-camions-ou-machines-agricoles-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -6356,6 +6410,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-fuer-pkw-lkw-oder-landmaschinen-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "mechaniker-fuer-pkw-lkw-oder-landmaschinen-m-w-d-hilcona-pfaffstatt"
+        ],
+        "fr": [
           "mechaniker-fuer-pkw-lkw-oder-landmaschinen-m-w-d-hilcona-pfaffstatt"
         ]
       },
@@ -6549,7 +6609,7 @@
       "slug": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "en": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+        "en": "company-electrician-company-electrician-neubau-oensingen-bell-schweiz-ag-oensingen",
         "de": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
         "fr": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
       },
@@ -6589,7 +6649,7 @@
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
-        "company-electrician-company-electrician-neubau-oensingen-bell-schweiz-ag-oensingen",
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
         "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
         "elettricista-operativo-bell-schweiz-ag-oensingen",
         "electricien-en-service-bell-schweiz-ag-oensingen",
@@ -6603,7 +6663,6 @@
         ],
         "en": [
           "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
-          "company-electrician-company-electrician-neubau-oensingen-bell-schweiz-ag-oensingen",
           "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
         ],
         "de": [
@@ -6721,7 +6780,7 @@
         "it": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-ag-bell-foo",
         "en": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-ag-bell-foo",
         "de": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined",
-        "fr": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined"
+        "fr": "stage-industriel-hommes-d-affaires-m-w-d-avec-qualification-supplementaire-international-economic-management-hugli"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -6772,7 +6831,6 @@
         ],
         "fr": [
           "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli",
-          "stage-industriel-hommes-d-affaires-m-w-d-avec-qualification-supplementaire-international-economic-management-hugli",
           "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined"
         ]
       },
@@ -6781,7 +6839,7 @@
         "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli-nahrungsmittel-gmbh-radolfzell",
         "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli",
         "auszubildende-industriekaufleute-m-w-d-con-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli",
-        "stage-industriel-hommes-d-affaires-m-w-d-avec-qualification-supplementaire-international-economic-management-hugli"
+        "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:42.609Z",
       "salaryMin": 46500,
@@ -6802,9 +6860,9 @@
     },
     {
       "id": "hilcona-b27ee66cce78",
-      "slug": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
+      "slug": "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
-        "it": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
+        "it": "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "trainee-fuer-lagerlogistik-specialist-warehouse-is-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
         "fr": "stagiaire-fuer-lagerlogistik-entrepot-specialise-est-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
@@ -6851,7 +6909,6 @@
           "specialista-di-apprendistato-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
           "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
-          "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -6869,7 +6926,7 @@
         "specialista-di-apprendistato-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
         "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
-        "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:42.342Z",
       "salaryMin": 46500,
@@ -6892,10 +6949,10 @@
       "id": "hilcona-19a6b73a6fa0",
       "slug": "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell",
       "slugByLocale": {
-        "it": "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell",
+        "it": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
         "en": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektrikerin-betriebselektriker-100-hilcona-undefined",
-        "fr": "electricien-industriel-100-bell-schweiz-ag-zell"
+        "fr": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -6937,22 +6994,20 @@
         ],
         "it": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
-          "betriebselektrikerin-betriebselektriker-100-hilcona-zell",
-          "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
+          "betriebselektrikerin-betriebselektriker-100-hilcona-zell"
         ],
         "en": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
         ],
         "fr": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
-          "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
           "electricien-industriel-100-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
         "betriebselektrikerin-betriebselektriker-100-hilcona-zell",
         "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
-        "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
+        "electricien-industriel-100-bell-schweiz-ag-zell"
       ],
       "firstSeenAt": "2026-05-21T12:08:41.802Z",
       "salaryMin": 64500,
@@ -7213,10 +7268,10 @@
       "id": "hilcona-80e821500dab",
       "slug": "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "it": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "en": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-lebensmitteltechnik-m-w-d-hilcona-undefined",
-        "fr": "apprentissage-de-la-technologie-alimentaire-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -7258,22 +7313,20 @@
         ],
         "it": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-          "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt",
-          "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt"
         ],
         "en": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "fr": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-          "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
           "apprentissage-de-la-technologie-alimentaire-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
         "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt",
         "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "apprentissage-de-la-technologie-alimentaire-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "firstSeenAt": "2026-05-21T12:08:40.470Z",
       "salaryMin": 64500,
@@ -7585,7 +7638,7 @@
       "slug": "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "en": "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-undefined",
+        "en": "business-mechanic-business-mechanic-neubau-oensingen-bell-schweiz-ag-oensingen",
         "de": "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-undefined",
         "fr": "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
       },
@@ -7625,7 +7678,7 @@
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-oensingen",
         "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "business-mechanic-business-mechanic-neubau-oensingen-bell-schweiz-ag-oensingen",
+        "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-undefined",
         "mecanicien-de-maintenance-mecanicienne-de-maintenance-nouveau-batiment-oensingen-bell-schweiz-ag-oensingen"
       ],
       "previousSlugsByLocale": {
@@ -7635,7 +7688,6 @@
         ],
         "en": [
           "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
-          "business-mechanic-business-mechanic-neubau-oensingen-bell-schweiz-ag-oensingen",
           "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-undefined"
         ],
         "de": [
@@ -8049,7 +8101,7 @@
       "slug": "magazzino-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
         "it": "magazzino-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "en": "bearing-picking-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "en": "lager-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
         "de": "lager-kommissionierung-m-w-d-hilcona-marchtrenk",
         "fr": "lager-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
@@ -8088,14 +8140,13 @@
       "sourceLang": "de",
       "previousSlugs": [
         "lager-kommissionierung-m-w-d-hilcona-marchtrenk",
-        "lager-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        "bearing-picking-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lager-kommissionierung-m-w-d-hilcona-marchtrenk"
         ],
         "en": [
-          "lager-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
           "bearing-picking-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ]
       },
@@ -8961,10 +9012,10 @@
       "id": "hilcona-4828f718a67f",
       "slug": "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
-        "it": "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "it": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
         "en": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektriker-m-w-d-hilcona-undefined",
-        "fr": "electricien-industriel-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -9006,22 +9057,20 @@
         ],
         "it": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "betriebselektriker-m-w-d-hilcona-ampfing",
-          "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "betriebselektriker-m-w-d-hilcona-ampfing"
         ],
         "en": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ],
         "fr": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
           "electricien-industriel-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
         "betriebselektriker-m-w-d-hilcona-ampfing",
         "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "electricien-industriel-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
       "salaryMin": 64500,
@@ -9125,12 +9174,12 @@
     },
     {
       "id": "hilcona-f556aafc2126",
-      "slug": "lehrling-mechatronik-m-w-d-hilcona-undefined",
+      "slug": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "lehrling-mechatronik-m-w-d-hilcona-undefined",
+        "it": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "en": "lehrling-mechatronik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-mechatronik-m-w-d-hilcona-undefined",
-        "fr": "lehrling-mechatronik-m-w-d-hilcona-undefined"
+        "fr": "apprentis-mecatronics-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -9171,7 +9220,6 @@
         ],
         "it": [
           "lehrling-mechatronik-m-w-d-hilcona-pfaffstatt",
-          "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
           "lehrling-mechatronik-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -9179,15 +9227,13 @@
         ],
         "fr": [
           "lehrling-mechatronik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-          "apprentis-mecatronics-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
           "lehrling-mechatronik-m-w-d-hilcona-undefined"
         ]
       },
       "previousSlugs": [
         "lehrling-mechatronik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "lehrling-mechatronik-m-w-d-hilcona-pfaffstatt",
-        "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "apprentis-mecatronics-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "lehrling-mechatronik-m-w-d-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:33.933Z",
       "salaryMin": 64500,

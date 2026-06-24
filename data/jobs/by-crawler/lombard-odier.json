@@ -390,7 +390,7 @@
         "it": "controllore-degli-investimenti-in-beni-privati-80-100-lombard-odier-geneva",
         "en": "private-assets-investment-controller-80-100-lombard-odier-ch",
         "de": "private-assets-investment-controller-80-100-lombard-odier-ch",
-        "fr": "private-assets-investment-controller-80-100-lombard-odier-ch"
+        "fr": "controleur-des-investissements-prives-80-100-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -430,15 +430,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "private-assets-investment-controller-80-100-lombard-odier-ch",
-        "controleur-des-investissements-prives-80-100-lombard-odier-geneva"
+        "private-assets-investment-controller-80-100-lombard-odier-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-assets-investment-controller-80-100-lombard-odier-ch"
         ],
         "fr": [
-          "controleur-des-investissements-prives-80-100-lombard-odier-geneva",
           "private-assets-investment-controller-80-100-lombard-odier-ch"
         ]
       },
@@ -2059,9 +2057,9 @@
     },
     {
       "id": "lombard-odier-d4e9bb5ea46f",
-      "slug": "it-internal-auditor-80-100-lombard-odier-ch",
+      "slug": "auditore-interno-it-80-100-lombard-odier-geneva",
       "slugByLocale": {
-        "it": "it-internal-auditor-80-100-lombard-odier-ch",
+        "it": "auditore-interno-it-80-100-lombard-odier-geneva",
         "en": "it-internal-auditor-80-100-lombard-odier-ch",
         "de": "it-internrevisor-80-100-lombard-odier-geneva",
         "fr": "commissaire-aux-comptes-80-100-lombard-odier-geneva"
@@ -2104,11 +2102,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "auditore-interno-it-80-100-lombard-odier-geneva"
+        "it-internal-auditor-80-100-lombard-odier-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditore-interno-it-80-100-lombard-odier-geneva",
           "it-internal-auditor-80-100-lombard-odier-ch"
         ]
       },
@@ -2580,10 +2577,10 @@
     },
     {
       "id": "lombard-odier-d07852ddf7c3",
-      "slug": "assistant-e-juridique-cdd-lombard-odier-ch",
+      "slug": "assistente-e-giuridico-cdd-lombard-odier-geneva",
       "slugByLocale": {
         "en": "assistant-e-juridique-cdd-lombard-odier-ch",
-        "it": "assistant-e-juridique-cdd-lombard-odier-ch",
+        "it": "assistente-e-giuridico-cdd-lombard-odier-geneva",
         "de": "assistant-e-juridique-cdd-lombard-odier-ch",
         "fr": "assistant-e-juridique-cdd-lombard-odier-ch"
       },
@@ -2640,7 +2637,15 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-24T11:59:15.236Z"
+      "firstSeenAt": "2026-06-24T11:59:15.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-juridique-cdd-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-juridique-cdd-lombard-odier-ch"
+      ]
     }
   ]
 }

@@ -1619,7 +1619,7 @@
       "slug": "terapista-occupazionale-terapista-occupazionale-riabilitazione-neurologica-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "it": "terapista-occupazionale-terapista-occupazionale-riabilitazione-neurologica-rehaklinik-bellikon-bellikon",
-        "en": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
+        "en": "occupational-therapist-ergotherapist-neurological-rehabilitation-rehaklinik-bellikon-bellikon",
         "de": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
         "fr": "ergotherapie-readaptation-neurologique-rehaklinik-bellikon-bellikon"
       },
@@ -1668,15 +1668,13 @@
       "pensum": "80%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
-        "occupational-therapist-ergotherapist-neurological-rehabilitation-rehaklinik-bellikon-bellikon"
+        "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
         ],
         "en": [
-          "occupational-therapist-ergotherapist-neurological-rehabilitation-rehaklinik-bellikon-bellikon",
           "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
         ],
         "fr": [
@@ -1699,12 +1697,12 @@
     },
     {
       "id": "reha-bellikon-503912bcd103",
-      "slug": "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon",
+      "slug": "professional-professional-professional-professional-integration-location-bellikon-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon",
-        "it": "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon",
+        "it": "professional-professional-professional-professional-integration-location-bellikon-rehaklinik-bellikon-bellikon",
         "en": "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon",
-        "fr": "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon"
+        "fr": "professional-professional-professional-integration-professionnelle-emplacement-bellikon-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1764,7 +1762,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:13:19.027Z"
+      "firstSeenAt": "2026-06-24T12:13:19.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon"
+      ]
     }
   ]
 }

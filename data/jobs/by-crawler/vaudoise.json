@@ -2854,7 +2854,7 @@
         "de": "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch",
         "it": "costumer-service-collaboratore-trice-m-w-d-100-vaudoise-assurances-fribourg",
         "en": "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch",
-        "fr": "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch"
+        "fr": "employe-de-service-costume-m-f-j-100-vaudoise-assurances-fribourg"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2898,6 +2898,9 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
         "it": [
+          "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch"
+        ],
+        "fr": [
           "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch"
         ]
       },

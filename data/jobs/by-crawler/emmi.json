@@ -4049,12 +4049,12 @@
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "account-manager-emmi-ch",
+      "slug": "gestione-account-emmi-luzern-luzern",
       "slugByLocale": {
-        "it": "account-manager-emmi-ch",
+        "it": "gestione-account-emmi-luzern-luzern",
         "en": "account-manager-emmi-luzern",
         "de": "account-manager-emmi-ch",
-        "fr": "account-manager-emmi-ch"
+        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -4112,16 +4112,13 @@
         ]
       },
       "previousSlugs": [
-        "gestione-account-emmi-luzern-luzern",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "account-manager-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-account-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ]
       },
@@ -5136,12 +5133,12 @@
     },
     {
       "id": "emmi-9a1a8888da23",
-      "slug": "maschinenfuhrer-in-3-schicht-emmi-emmen",
+      "slug": "operatore-macchina-in-3-shift-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "maschinenfuhrer-in-3-schicht-emmi-ch",
-        "it": "maschinenfuhrer-in-3-schicht-emmi-emmen",
-        "en": "maschinenfuhrer-in-3-schicht-emmi-emmen",
-        "fr": "maschinenfuhrer-in-3-schicht-emmi-emmen"
+        "it": "operatore-macchina-in-3-shift-emmi-emmen-luzern",
+        "en": "machine-operator-in-3-shift-emmi-emmen-luzern",
+        "fr": "operateur-de-machine-en-3-equipes-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5200,11 +5197,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maschinenfuhrer-in-3-schicht-emmi-ch"
+          "maschinenfuhrer-in-3-schicht-emmi-ch",
+          "maschinenfuhrer-in-3-schicht-emmi-emmen"
+        ],
+        "en": [
+          "maschinenfuhrer-in-3-schicht-emmi-emmen"
+        ],
+        "fr": [
+          "maschinenfuhrer-in-3-schicht-emmi-emmen"
         ]
       },
       "previousSlugs": [
-        "maschinenfuhrer-in-3-schicht-emmi-ch"
+        "maschinenfuhrer-in-3-schicht-emmi-ch",
+        "maschinenfuhrer-in-3-schicht-emmi-emmen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -5222,12 +5227,12 @@
     },
     {
       "id": "emmi-1e77beb93fec",
-      "slug": "verkaufer-in-emmi-bern",
+      "slug": "venditore-in-emmi-bern-bern",
       "slugByLocale": {
         "de": "verkaufer-in-emmi-ch",
-        "it": "verkaufer-in-emmi-bern",
-        "en": "verkaufer-in-emmi-bern",
-        "fr": "verkaufer-in-emmi-bern"
+        "it": "venditore-in-emmi-bern-bern",
+        "en": "seller-in-emmi-bern-bern",
+        "fr": "vendeur-dans-emmi-bern-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5282,11 +5287,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-emmi-ch"
+          "verkaufer-in-emmi-ch",
+          "verkaufer-in-emmi-bern"
+        ],
+        "en": [
+          "verkaufer-in-emmi-bern"
+        ],
+        "fr": [
+          "verkaufer-in-emmi-bern"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-emmi-ch"
+        "verkaufer-in-emmi-ch",
+        "verkaufer-in-emmi-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

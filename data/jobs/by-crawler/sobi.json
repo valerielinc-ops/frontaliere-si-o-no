@@ -757,8 +757,7 @@
           "global-director-medical-affairs-sobi-basel"
         ],
         "fr": [
-          "directeur-general-des-affaires-medicales-sobi-basel",
-          "global-director-medical-affairs-sobi-basel"
+          "directeur-general-des-affaires-medicales-sobi-basel"
         ]
       },
       "firstSeenAt": "2026-06-08T13:41:25.176Z",
@@ -856,12 +855,12 @@
     },
     {
       "id": "sobi-6c7c8951ca54",
-      "slug": "associate-analytical-expert-sobi-basel",
+      "slug": "esperto-analitico-associato-sobi-basel",
       "slugByLocale": {
         "en": "associate-analytical-expert-sobi-basel",
-        "it": "associate-analytical-expert-sobi-basel",
-        "de": "associate-analytical-expert-sobi-basel",
-        "fr": "associate-analytical-expert-sobi-basel"
+        "it": "esperto-analitico-associato-sobi-basel",
+        "de": "assoziierter-analytiker-sobi-basel",
+        "fr": "expert-en-analyse-associe-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -917,7 +916,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-24T12:10:45.055Z"
+      "firstSeenAt": "2026-06-24T12:10:45.055Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-analytical-expert-sobi-basel"
+        ],
+        "de": [
+          "associate-analytical-expert-sobi-basel"
+        ],
+        "fr": [
+          "associate-analytical-expert-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "associate-analytical-expert-sobi-basel"
+      ]
     },
     {
       "id": "sobi-19f434e9010d",
@@ -1076,12 +1089,12 @@
     },
     {
       "id": "sobi-2f369da30c30",
-      "slug": "pharmacovigilance-licensing-manager-sobi-basel",
+      "slug": "responsabile-licenze-di-farmacia-sobi-basel",
       "slugByLocale": {
         "en": "pharmacovigilance-licensing-manager-sobi-basel",
-        "it": "pharmacovigilance-licensing-manager-sobi-basel",
-        "de": "pharmacovigilance-licensing-manager-sobi-basel",
-        "fr": "pharmacovigilance-licensing-manager-sobi-basel"
+        "it": "responsabile-licenze-di-farmacia-sobi-basel",
+        "de": "pharmakovigilanz-lizenzleiter-sobi-basel",
+        "fr": "gestionnaire-des-licences-de-pharmacovigilance-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -1137,7 +1150,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-24T12:10:45.049Z"
+      "firstSeenAt": "2026-06-24T12:10:45.049Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharmacovigilance-licensing-manager-sobi-basel"
+        ],
+        "de": [
+          "pharmacovigilance-licensing-manager-sobi-basel"
+        ],
+        "fr": [
+          "pharmacovigilance-licensing-manager-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "pharmacovigilance-licensing-manager-sobi-basel"
+      ]
     },
     {
       "id": "sobi-6cf1d5ff57a6",

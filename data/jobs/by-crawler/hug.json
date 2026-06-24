@@ -698,7 +698,7 @@
       "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
-        "en": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
+        "en": "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
         "de": "klinikleiter-mit-oder-ohne-fachtitel-fellowship-in-der-padiatrischen-intensivmedizin-100-hug-geneve",
         "fr": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
       },
@@ -742,15 +742,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
-        "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve"
+        "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "en": [
-          "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "de": [
@@ -3337,9 +3335,9 @@
     },
     {
       "id": "hug-87803c0ec6d6",
-      "slug": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+      "slug": "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
       "slugByLocale": {
-        "it": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+        "it": "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
         "en": "educator-or-social-educator-in-psychiatry-80-hug-thonex",
         "de": "padagoge-oder-sozialpadagoge-in-der-psychiatrie-80-hug-thonex",
         "fr": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
@@ -3384,13 +3382,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
+        "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
         "social-educator-in-psychiatry-80-hug-thonex",
         "sozialpadagoge-in-der-psychiatrie-80-hug-thonex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
           "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
         ],
         "en": [
@@ -4064,12 +4061,12 @@
     },
     {
       "id": "hug-a54a5fedcff4",
-      "slug": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve",
+      "slug": "ufficio-di-programmazione-del-segretario-medico-medical-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve",
-        "it": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve",
-        "en": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve",
-        "de": "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+        "it": "ufficio-di-programmazione-del-segretario-medico-medical-80-al-100-hug-geneve",
+        "en": "medical-medical-secretary-programming-office-80-to-100-hug-geneve",
+        "de": "medical-medical-secretary-programming-office-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4125,7 +4122,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-24T11:55:13.003Z"
+      "firstSeenAt": "2026-06-24T11:55:13.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-ou-medicale-bureau-de-programmation-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-e5f29f3a31ca",
@@ -4285,12 +4296,12 @@
     },
     {
       "id": "hug-32191a6d516a",
-      "slug": "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100",
+      "slug": "infermiera-in-psichiatria-infantile-e-adolescente-dal-60-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100",
-        "it": "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100",
-        "en": "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100",
-        "de": "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100"
+        "it": "infermiera-in-psichiatria-infantile-e-adolescente-dal-60-al-100-hug-geneve",
+        "en": "nurse-in-child-and-adolescent-psychiatry-60-to-100-hug-geneve",
+        "de": "krankenschwester-in-der-kinder-und-jugendpsychiatrie-60-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4346,7 +4357,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-24T11:55:12.999Z"
+      "firstSeenAt": "2026-06-24T11:55:12.999Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100"
+        ],
+        "en": [
+          "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100"
+        ],
+        "de": [
+          "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiere-ou-infirmiere-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-a-100"
+      ]
     },
     {
       "id": "hug-d7baf54e6af0",
@@ -4429,12 +4454,12 @@
     },
     {
       "id": "hug-4c0d7810560e",
-      "slug": "sage-femme-70-a-100-hug-geneve",
+      "slug": "ometraggio-70-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "sage-femme-70-a-100-hug-geneve",
-        "it": "sage-femme-70-a-100-hug-geneve",
-        "en": "sage-femme-70-a-100-hug-geneve",
-        "de": "sage-femme-70-a-100-hug-geneve"
+        "it": "ometraggio-70-al-100-hug-geneve",
+        "en": "midwife-70-to-100-hug-geneve",
+        "de": "hebamme-70-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4490,7 +4515,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-24T11:55:12.995Z"
+      "firstSeenAt": "2026-06-24T11:55:12.995Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sage-femme-70-a-100-hug-geneve"
+        ],
+        "en": [
+          "sage-femme-70-a-100-hug-geneve"
+        ],
+        "de": [
+          "sage-femme-70-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "sage-femme-70-a-100-hug-geneve"
+      ]
     }
   ]
 }

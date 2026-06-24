@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "montatore-di-pannelli-solari-pemsa-locarno",
-        "en": "montatore-di-pannelli-solari-pemsa-locarno",
-        "de": "montatore-di-pannelli-solari-pemsa-locarno",
-        "fr": "montatore-di-pannelli-solari-pemsa-locarno"
+        "en": "solar-pannelli-pemsa-locarno",
+        "de": "solarpannelli-pemsa-locarno",
+        "fr": "pannelli-solaire-pemsa-locarno"
       },
       "id": "pemsa-9f73475e9956",
       "needsRetranslation": true,
@@ -99,7 +99,7 @@
       },
       "slugByLocale": {
         "it": "fresatore-taglio-beton-pemsa-locarno",
-        "en": "fresatore-taglio-beton-pemsa-locarno",
+        "en": "milling-operator-taglio-beton-pemsa-locarno",
         "de": "fresatore-taglio-beton-pemsa-locarno",
         "fr": "fresatore-taglio-beton-pemsa-locarno"
       },
@@ -218,9 +218,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-di-perforatrice-amp-8211-sondatore-pemsa-locarno",
-        "en": "macchinista-di-perforatrice-amp-8211-sondatore-pemsa-locarno",
+        "en": "machinista-di-perforatrice-sondatore-pemsa-locarno",
         "de": "macchinista-di-perforatrice-amp-8211-sondatore-pemsa-locarno",
-        "fr": "macchinista-di-perforatrice-amp-8211-sondatore-pemsa-locarno"
+        "fr": "machinista-di-perforatrice-sondateur-pemsa-locarno"
       },
       "id": "pemsa-f9a782a2eea0",
       "needsRetranslation": true,
@@ -338,9 +338,9 @@
       },
       "slugByLocale": {
         "it": "pavimentatore-stradale-pemsa-mendrisio",
-        "en": "pavimentatore-stradale-pemsa-mendrisio",
-        "de": "pavimentatore-stradale-pemsa-mendrisio",
-        "fr": "pavimentatore-stradale-pemsa-mendrisio"
+        "en": "road-transport-pemsa-mendrisio",
+        "de": "stra-entransport-pemsa-mendrisio",
+        "fr": "transports-routiers-pemsa-mendrisio"
       },
       "id": "pemsa-1507cd008473",
       "needsRetranslation": true,
@@ -400,7 +400,7 @@
         "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
         "en": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
         "de": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
-        "fr": "cartongessista-amp-8211-gessatore-pemsa-bellinzona"
+        "fr": "cartongesista-gessatore-pemsa-bellinzona"
       },
       "id": "pemsa-b5fa1784b2de",
       "needsRetranslation": true,
@@ -458,9 +458,9 @@
       },
       "slugByLocale": {
         "it": "montatore-di-impalcature-pemsa-bellinzona",
-        "en": "montatore-di-impalcature-pemsa-bellinzona",
-        "de": "montatore-di-impalcature-pemsa-bellinzona",
-        "fr": "montatore-di-impalcature-pemsa-bellinzona"
+        "en": "stacking-mount-pemsa-bellinzona",
+        "de": "stapelvorrichtung-pemsa-bellinzona",
+        "fr": "montage-pemsa-bellinzona"
       },
       "id": "pemsa-723005de4025",
       "needsRetranslation": true,
@@ -518,9 +518,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-mendrisio",
-        "en": "carpentiere-edile-pemsa-mendrisio",
-        "de": "carpentiere-edile-pemsa-mendrisio",
-        "fr": "carpentiere-edile-pemsa-mendrisio"
+        "en": "construction-carpenters-pemsa-mendrisio",
+        "de": "bautischler-pemsa-mendrisio",
+        "fr": "charpentiers-de-construction-pemsa-mendrisio"
       },
       "id": "pemsa-a26aba7a110f",
       "needsRetranslation": true,
@@ -580,7 +580,7 @@
         "it": "idraulico-impianti-antincendio-sprinkler-pemsa-lugano",
         "en": "plumbing-fire-sprinkler-systems-pemsa-lugano",
         "de": "hydraulische-berieselungsanlagen-pemsa-lugano",
-        "fr": "idraulico-impianti-antincendio-sprinkler-pemsa-lugano"
+        "fr": "systemes-d-arrosage-hydraulique-pemsa-lugano"
       },
       "id": "pemsa-91c10c4e8343",
       "salaryMin": 49500,
@@ -599,14 +599,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-22T15:00:37.452Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "systemes-d-arrosage-hydraulique-pemsa-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "systemes-d-arrosage-hydraulique-pemsa-lugano"
-      ],
       "needsRetranslation": true
     },
     {
@@ -2607,7 +2599,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -2626,14 +2618,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "mise-en-uvre-pemsa-torricella"
-        ]
-      },
-      "previousSlugs": [
-        "mise-en-uvre-pemsa-torricella"
-      ],
       "needsRetranslation": true
     },
     {
@@ -2732,9 +2716,9 @@
       },
       "slugByLocale": {
         "it": "costruttore-stradale-pemsa-lugano",
-        "en": "costruttore-stradale-pemsa-lugano",
-        "de": "costruttore-stradale-pemsa-lugano",
-        "fr": "costruttore-stradale-pemsa-lugano"
+        "en": "stradal-construction-pemsa-lugano",
+        "de": "stradalbau-pemsa-lugano",
+        "fr": "construction-stradale-pemsa-lugano"
       },
       "id": "pemsa-5f49b0dfbea2",
       "needsRetranslation": true,

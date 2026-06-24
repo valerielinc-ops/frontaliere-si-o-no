@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "stadler-rail-f2f65caba10c",
-      "slug": "project-manager-battery-maintenance-engineering-stadler-rail-ch",
+      "slug": "project-manager-ingegneria-della-manutenzione-della-batteria-stadler-rail-frauenfeld",
       "slugByLocale": {
         "en": "project-manager-battery-maintenance-engineering-stadler-rail-ch",
-        "it": "project-manager-battery-maintenance-engineering-stadler-rail-ch",
-        "de": "project-manager-battery-maintenance-engineering-stadler-rail-ch",
-        "fr": "project-manager-battery-maintenance-engineering-stadler-rail-ch"
+        "it": "project-manager-ingegneria-della-manutenzione-della-batteria-stadler-rail-frauenfeld",
+        "de": "projektleiter-batteriewartungstechnik-stadler-rail-frauenfeld",
+        "fr": "gestionnaire-de-projet-genie-de-la-maintenance-des-batteries-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:29:03.726Z"
+      "firstSeenAt": "2026-06-24T12:29:03.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-battery-maintenance-engineering-stadler-rail-ch"
+        ],
+        "de": [
+          "project-manager-battery-maintenance-engineering-stadler-rail-ch"
+        ],
+        "fr": [
+          "project-manager-battery-maintenance-engineering-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-battery-maintenance-engineering-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-bb43cddea6f0",
@@ -123,8 +137,7 @@
           "fachperson-hr-administration-stadler-rail-ch"
         ],
         "en": [
-          "professional-hr-administration-stadler-rail-wallisellen",
-          "fachperson-hr-administration-stadler-rail-ch"
+          "professional-hr-administration-stadler-rail-wallisellen"
         ],
         "fr": [
           "professionnel-rh-administration-stadler-rail-wallisellen"
@@ -303,8 +316,7 @@
           "category-manager-traktionssysteme-stadler-rail-ch"
         ],
         "en": [
-          "category-manager-traction-systems-stadler-rail-frauenfeld",
-          "category-manager-traktionssysteme-stadler-rail-ch"
+          "category-manager-traction-systems-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:55.597Z",
@@ -1296,8 +1308,7 @@
           "team-leader-battery-maintenance-engineering-stadler-rail-ch"
         ],
         "de": [
-          "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld",
-          "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+          "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:44.658Z",
@@ -3268,7 +3279,7 @@
         "it": "partner-commerciale-delle-risorse-umane-stadler-rail-bussnang",
         "en": "partner-comercial-de-recursos-humanos-stadler-rail-bussnang",
         "de": "hr-business-partner-stadler-rail-ch",
-        "fr": "hr-business-partner-stadler-rail-ch"
+        "fr": "partenaire-operationnel-rh-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -3310,15 +3321,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-business-partner-stadler-rail-ch",
-        "partenaire-operationnel-rh-stadler-rail-bussnang"
+        "hr-business-partner-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-stadler-rail-ch"
         ],
         "fr": [
-          "partenaire-operationnel-rh-stadler-rail-bussnang",
           "hr-business-partner-stadler-rail-ch"
         ]
       },
@@ -6513,8 +6522,7 @@
           "hr-business-partner-region-mid-stadler-rail-ch"
         ],
         "fr": [
-          "partenaires-en-rh-region-mid-stadler-rail-bussnang",
-          "hr-business-partner-region-mid-stadler-rail-ch"
+          "partenaires-en-rh-region-mid-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
@@ -7164,8 +7172,7 @@
           "sap-inhouse-consultant-logistik-stadler-rail-ch"
         ],
         "fr": [
-          "sap-consultant-logistique-interne-stadler-rail-bussnang",
-          "sap-inhouse-consultant-logistik-stadler-rail-ch"
+          "sap-consultant-logistique-interne-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
@@ -7684,8 +7691,7 @@
           "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
         ],
         "en": [
-          "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld",
-          "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch"
+          "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:36.575Z",
@@ -11731,8 +11737,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amministratore-di-sistema-plm-stadler-rail-bussnang",
-          "plm-system-administrator-stadler-rail-ch"
+          "amministratore-di-sistema-plm-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.715Z",
@@ -13854,12 +13859,12 @@
     },
     {
       "id": "stadler-rail-012d5b058522",
-      "slug": "teamleiter-in-logistik-stadler-rail-ch",
+      "slug": "team-leader-logistica-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "teamleiter-in-logistik-stadler-rail-ch",
-        "it": "teamleiter-in-logistik-stadler-rail-ch",
-        "en": "teamleiter-in-logistik-stadler-rail-ch",
-        "fr": "teamleiter-in-logistik-stadler-rail-ch"
+        "it": "team-leader-logistica-stadler-rail-bussnang",
+        "en": "team-leader-logistics-stadler-rail-bussnang",
+        "fr": "chef-d-equipe-logistique-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13916,20 +13921,23 @@
       },
       "firstSeenAt": "2026-06-24T12:27:32.145Z",
       "previousSlugs": [
-        "teamleiter-in-logistik-stadler-rail-ch",
         "capo-squadra-logistica-stadler-rail-winterthur",
+        "teamleiter-in-logistik-stadler-rail-ch",
         "team-leader-logistics-stadler-rail-winterthur",
         "chef-d-equipe-logistique-stadler-rail-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "capo-squadra-logistica-stadler-rail-winterthur"
+          "capo-squadra-logistica-stadler-rail-winterthur",
+          "teamleiter-in-logistik-stadler-rail-ch"
         ],
         "en": [
-          "team-leader-logistics-stadler-rail-winterthur"
+          "team-leader-logistics-stadler-rail-winterthur",
+          "teamleiter-in-logistik-stadler-rail-ch"
         ],
         "fr": [
-          "chef-d-equipe-logistique-stadler-rail-winterthur"
+          "chef-d-equipe-logistique-stadler-rail-winterthur",
+          "teamleiter-in-logistik-stadler-rail-ch"
         ]
       }
     },

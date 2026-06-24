@@ -8,7 +8,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-administration-70-100-tertianum-schlieren",
         "it": "collaboratore-trice-empfang-administration-70-100-tertianum-schlieren",
-        "en": "mitarbeiter-in-empfang-administration-70-100-tertianum-schlieren",
+        "en": "reception-administration-70-100-tertianum-schlieren",
         "fr": "mitarbeiter-in-empfang-administration-70-100-tertianum-schlieren"
       },
       "company": "Tertianum",
@@ -55,6 +55,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-administration-70-100-tertianum-schlieren"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-administration-70-100-tertianum-schlieren"
         ]
       },
       "previousSlugs": [
@@ -76,12 +79,12 @@
     },
     {
       "id": "tertianum-a72bf1a77ee5",
-      "slug": "kochin-koch-60-tertianum-solothurn",
+      "slug": "cuocere-chef-60-tertianum-solothurn",
       "slugByLocale": {
         "de": "kochin-koch-60-tertianum-solothurn",
-        "it": "kochin-koch-60-tertianum-solothurn",
-        "en": "kochin-koch-60-tertianum-solothurn",
-        "fr": "kochin-koch-60-tertianum-solothurn"
+        "it": "cuocere-chef-60-tertianum-solothurn",
+        "en": "cook-chef-60-tertianum-solothurn",
+        "fr": "cuisson-chef-60-tertianum-solothurn"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -136,7 +139,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:47:12.864Z"
+      "firstSeenAt": "2026-06-24T12:47:12.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-60-tertianum-solothurn"
+        ],
+        "en": [
+          "kochin-koch-60-tertianum-solothurn"
+        ],
+        "fr": [
+          "kochin-koch-60-tertianum-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-60-tertianum-solothurn"
+      ]
     },
     {
       "id": "tertianum-c3fddb3ecc70",
@@ -322,12 +339,12 @@
     },
     {
       "id": "tertianum-03ab1a7a888b",
-      "slug": "pflegehelfer-in-srk-50-80-tertianum-dotzigen",
+      "slug": "assistente-in-srk-50-80-tertianum-dotzigen",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-50-80-tertianum-dotzigen",
-        "it": "pflegehelfer-in-srk-50-80-tertianum-dotzigen",
-        "en": "pflegehelfer-in-srk-50-80-tertianum-dotzigen",
-        "fr": "pflegehelfer-in-srk-50-80-tertianum-dotzigen"
+        "it": "assistente-in-srk-50-80-tertianum-dotzigen",
+        "en": "nursing-assistant-in-srk-50-80-tertianum-dotzigen",
+        "fr": "assistant-infirmier-in-srk-50-80-tertianum-dotzigen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -382,7 +399,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:47:09.939Z"
+      "firstSeenAt": "2026-06-24T12:47:09.939Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-50-80-tertianum-dotzigen"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-50-80-tertianum-dotzigen"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-50-80-tertianum-dotzigen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-50-80-tertianum-dotzigen"
+      ]
     },
     {
       "id": "tertianum-421c296ba408",
@@ -5083,9 +5114,6 @@
       "previousSlugs": [
         "kochin-koch-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-horgen",
-        "cuoco-cuoca-tertianum-horgen",
-        "chef-co-chef-tertianum-horgen",
-        "cuisinier-chef-cuisinier-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
@@ -5187,9 +5215,6 @@
         "assistent-in-gesundheit-soziales-40-100-tertianum-richterswil",
         "assistent-in-gesundheit-soziales-40-100-wahlbar-ob-im-tagdienst-oder-im-nachtdienst",
         "assistentin-assistent-gesundheit-und-soziales-eba-40-100-tertianum-richterswil",
-        "assistente-a-alla-salute-e-al-sociale-40-100-tertianum-solothurn",
-        "health-and-social-care-assistant-40-100-tertianum-solothurn",
-        "assistant-e-en-sante-et-social-40-100-tertianum-solothurn",
         "assistente-a-alla-salute-e-al-sociale-40-100-turni-diurni-o-notturni-tertianum-richterswil"
       ],
       "previousSlugsByLocale": {
@@ -6317,7 +6342,7 @@
         "it": "istruttore-di-fitness-di-gruppo-50-tertianum-meilen",
         "en": "group-fitness-instructor-in-50-tertianum-meilen",
         "de": "group-fitness-instructor-in-50-tertianum-meilen",
-        "fr": "group-fitness-instructor-in-50-tertianum-meilen"
+        "fr": "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -6359,15 +6384,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-fitness-instructor-in-50-tertianum-meilen",
-        "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
+        "group-fitness-instructor-in-50-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-fitness-instructor-in-50-tertianum-meilen"
         ],
         "fr": [
-          "instructeur-de-fitness-en-groupe-50-tertianum-meilen",
           "group-fitness-instructor-in-50-tertianum-meilen"
         ]
       },
@@ -14881,7 +14904,6 @@
       "previousSlugs": [
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2"
       ],
       "firstSeenAt": "2026-05-19T12:23:09.661Z",
