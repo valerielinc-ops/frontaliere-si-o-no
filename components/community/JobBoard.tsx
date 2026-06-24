@@ -6354,7 +6354,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  const sel = typeof window !== 'undefined' ? window.getSelection() : null;
  const selectionText = sel?.toString() ?? '';
- if (!shouldAttributeCopy(selectionText)) return;
+ if (!shouldAttributeCopy(selectionText, localizedTitle)) return;
  let selectionHtml = '';
  if (sel && sel.rangeCount > 0) {
  const holder = document.createElement('div');
