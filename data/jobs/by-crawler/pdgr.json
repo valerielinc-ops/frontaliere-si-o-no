@@ -1129,14 +1129,15 @@
         "medico-senior-psychiatrische-dienste-graubunden-cazis",
         "medico-senior-psychiatrische-dienste-graubunden-chur-3c5f7d",
         "medico-senior-psychiatrische-dienste-graubunden-chur",
-        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "senior-doctor-psychiatrische-dienste-graubunden-cazis",
         "senior-doctor-psychiatrische-dienste-graubunden-chur-3c5f7d",
         "senior-doctor-psychiatrische-dienste-graubunden-chur",
-        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "medecin-principal-psychiatrische-dienste-graubunden-cazis",
         "medecin-principal-psychiatrische-dienste-graubunden-chur-3c5f7d",
         "medecin-principal-psychiatrische-dienste-graubunden-chur",
+        "oberarztin-oberarzt-pdgr-ch",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-05-22T23:10:25.817Z",
@@ -1792,7 +1793,7 @@
       "id": "pdgr-d2d0c50f1811",
       "slug": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
-        "it": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
+        "it": "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "en": "resident-psychiatrist-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-cazis-chur",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur"
@@ -1847,8 +1848,7 @@
         ],
         "it": [
           "assistenzarztin-assistenzarzt-pdgr-ch",
-          "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur",
-          "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
+          "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
           "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur"
@@ -1861,7 +1861,6 @@
         "assistenzarztin-assistenzarzt-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
         "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
         "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
@@ -1871,7 +1870,8 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
         "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "operatore-socio-sanitario-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-        "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur"
+        "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur",
+        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-19T23:09:39.059Z",
       "salaryMin": 57500,
@@ -2320,7 +2320,6 @@
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
         "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
-        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
         "intern-practice-module-i-ii-or-internship-psychiatrische-dienste-graubunden-chur",
         "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
@@ -2333,7 +2332,9 @@
         "stagiaire-module-pratique-i-ii-ou-pre-stage-psychiatrische-dienste-graubunden-chur",
         "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "operatore-socio-sanitario-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-        "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur"
+        "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur",
+        "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
+        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-23T11:27:47.548Z",
       "salaryMin": 48000,
@@ -2404,7 +2405,8 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
-        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis",
+        "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2874,7 +2876,6 @@
       "pensum": "50 - 60%",
       "previousSlugs": [
         "mitarbeiter-in-hotellerie-pdgr-ch-2",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "mitarbeiter-in-hotellerie-pdgr-ch",
         "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-1656a4",
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
@@ -2887,13 +2888,16 @@
         "personnel-hotel-psychiatrische-dienste-graubunden-cazis",
         "personale-cucina-psychiatrische-dienste-graubunden-cazis",
         "personnel-cuisine-psychiatrische-dienste-graubunden-cazis",
-        "mitarbeiter-in-hotellerie-pdgr-ch-3"
+        "mitarbeiter-in-hotellerie-pdgr-ch-3",
+        "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hotellerie-pdgr-ch-2",
-          "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
-          "mitarbeiter-in-hotellerie-pdgr-ch"
+          "mitarbeiter-in-hotellerie-pdgr-ch",
+          "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis"
         ],
         "en": [
           "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-1656a4"
@@ -3328,17 +3332,17 @@
       "companyDomain": "pdgr.ch",
       "title": "Mitarbeiter/in Cafeteria",
       "titleByLocale": {
-        "it": "Collaboratore/trice Cafeteria",
-        "en": "Employee/Cafeteria",
+        "it": "Staff Cafeteria",
+        "en": "Staff Cafeteria",
         "de": "Mitarbeiter/in Cafeteria",
-        "fr": "Employé/Cafetéria"
+        "fr": "Cafétéria du personnel"
       },
       "description": "Ihre Umgebung:\nUnsere Cafeteria ist ein zentraler Treffpunkt für Mitarbeitende, Patienten und Gäste. Wir bieten täglich frische Speisen, Snacks und Getränke an und legen dabei grossen Wert auf Qualität, Service und eine einladende Atmosphäre. Es erwartet Sie ein engagiertes Team in einem abwechslungsreichen Umfeld.\n\nIhre Aufgaben:\n- Sie führen alle anfallenden Arbeiten in unserer Cafeteria (Selbstbedienung, mit Kiosk) selbstständig und fachgerecht aus\n\n- Sie unterstützen die Küche bei der Menüausgabe\n\n- Sie unterstützen uns mit Ihren fundierten Serviceerfahrungen bei den diversen Anlässen, auch ausserhalb des Betriebes bei Catering\n\n- Sie sind mitverantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb\n\n- Sie sind bereit auch in der Cafeteria in der Klinik Beverin in Cazis auszuhelfen\n\nUnser Anforderungsprofil:\n- Sie haben eine abgeschlossene Berufslehre in der Gastronomie und entsprechende Berufserfahrung\n\n- Hohe Einsatzbereitschaft und Flexibilität (zwei Wochenende pro Monat) sind für Sie selbstverständlich\n\n- Sie arbeiten gerne im Team, sind zuverlässig, pflichtbewusst und haben eine hohe Kundenorientierung\n\n- Sie sprechen einwandfrei Deutsch und verfügen über ein gepflegtes Erscheinungsbild\n\n- Sie behalten die Ruhe auch in hektischen Situationen\n\n- Sie sind flexibel und bereit auch kurzfristig Dienste zu übernehmen\n\nWir bieten Ihnen:\n- Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb\n\n- Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld\n\n- Sie können Ihre Erfahrungen in der Gastronomie und Hotellerie einbringen\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen\n\n- Wir fördern die Vereinbarkeit von Berufs- und Privatleben\n\n- Ein aufgestelltes Team wartet auf Sie",
       "descriptionByLocale": {
-        "it": "Ihre Umgebung: Unsere Cafeteria ist ein zentraler Treffpunkt für Mitarbeitende, Patienten und Gäste. \n• Wir bieten täglich frische Speisen, Snacks und Getränke an und legen dabei grossen Wert auf Qualität, Service und eine einladende Atmosphäre. Es erwartet Sie ein engagiertes Team in einem abwechslungsreichen Umfeld. \n• Ihre Aufgaben: - Sie führen alle anfallenden Arbeiten in unserer Cafeteria (Selbstbedienung, mit Kiosk) selbstständig und fachgerecht aus - Sie unterstützen die Küche bei der Menüausgabe - Sie unterstützen uns mit Ihren fundierten Serviceerfahrungen bei den diversen Anlässen, auch ausserhalb des Betriebes bei Catering - Sie sind mitverantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn - Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb - Sie sind bereit auch in der Cafeteria in der Klinik Beverin in Cazis auszuhelfen Unser Anforderungsprofil: - Sie haben eine abgeschlossene Berufslehre in der Gastronomie und entsprechende Berufserfahrung - Hohe Einsatzbereitschaft und Flexibilität (zwei Wochenende pro Monat) sind für Sie selbstverständlich - Sie arbeiten gerne im Team, sind zuverlässig, pflichtbewusst und haben eine hohe Kundenorientierung - Sie sprechen einwandfrei Deutsch und verfügen über ein gepflegtes Erscheinungsbild - Sie behalten die Ruhe auch in hektischen Situationen - Sie sind flexibel und bereit auch kurzfristig Dienste zu übernehmen \n• Wir bieten Ihnen: - Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb - Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld - Sie können Ihre Erfahrungen in der Gastronomie und Hotellerie einbringen - Sie haben die Möglichkeit Weiterbildungskurse zu besuchen - Sie profitieren von fortschrittlichen Arbeitsbedingungen - Wir fördern die Vereinbarkeit von Berufs- und Privatleben - Ein aufgestelltes Team wartet auf Sie",
-        "en": "Ihre Umgebung: Unsere Cafeteria ist ein zentraler Treffpunkt für Mitarbeitende, Patienten und Gäste. \n• Wir bieten täglich frische Speisen, Snacks und Getränke an und legen dabei grossen Wert auf Qualität, Service und eine einladende Atmosphäre. Es erwartet Sie ein engagiertes Team in einem abwechslungsreichen Umfeld. \n• Ihre Aufgaben: - Sie führen alle anfallenden Arbeiten in unserer Cafeteria (Selbstbedienung, mit Kiosk) selbstständig und fachgerecht aus - Sie unterstützen die Küche bei der Menüausgabe - Sie unterstützen uns mit Ihren fundierten Serviceerfahrungen bei den diversen Anlässen, auch ausserhalb des Betriebes bei Catering - Sie sind mitverantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn - Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb - Sie sind bereit auch in der Cafeteria in der Klinik Beverin in Cazis auszuhelfen Unser Anforderungsprofil: - Sie haben eine abgeschlossene Berufslehre in der Gastronomie und entsprechende Berufserfahrung - Hohe Einsatzbereitschaft und Flexibilität (zwei Wochenende pro Monat) sind für Sie selbstverständlich - Sie arbeiten gerne im Team, sind zuverlässig, pflichtbewusst und haben eine hohe Kundenorientierung - Sie sprechen einwandfrei Deutsch und verfügen über ein gepflegtes Erscheinungsbild - Sie behalten die Ruhe auch in hektischen Situationen - Sie sind flexibel und bereit auch kurzfristig Dienste zu übernehmen \n• Wir bieten Ihnen: - Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb - Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld - Sie können Ihre Erfahrungen in der Gastronomie und Hotellerie einbringen - Sie haben die Möglichkeit Weiterbildungskurse zu besuchen - Sie profitieren von fortschrittlichen Arbeitsbedingungen - Wir fördern die Vereinbarkeit von Berufs- und Privatleben - Ein aufgestelltes Team wartet auf Sie",
-        "de": "Ihre Umgebung: Unsere Cafeteria ist ein zentraler Treffpunkt für Mitarbeitende, Patienten und Gäste. \n• Wir bieten täglich frische Speisen, Snacks und Getränke an und legen dabei grossen Wert auf Qualität, Service und eine einladende Atmosphäre. Es erwartet Sie ein engagiertes Team in einem abwechslungsreichen Umfeld. \n• Ihre Aufgaben: - Sie führen alle anfallenden Arbeiten in unserer Cafeteria (Selbstbedienung, mit Kiosk) selbstständig und fachgerecht aus - Sie unterstützen die Küche bei der Menüausgabe - Sie unterstützen uns mit Ihren fundierten Serviceerfahrungen bei den diversen Anlässen, auch ausserhalb des Betriebes bei Catering - Sie sind mitverantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn - Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb - Sie sind bereit auch in der Cafeteria in der Klinik Beverin in Cazis auszuhelfen Unser Anforderungsprofil: - Sie haben eine abgeschlossene Berufslehre in der Gastronomie und entsprechende Berufserfahrung - Hohe Einsatzbereitschaft und Flexibilität (zwei Wochenende pro Monat) sind für Sie selbstverständlich - Sie arbeiten gerne im Team, sind zuverlässig, pflichtbewusst und haben eine hohe Kundenorientierung - Sie sprechen einwandfrei Deutsch und verfügen über ein gepflegtes Erscheinungsbild - Sie behalten die Ruhe auch in hektischen Situationen - Sie sind flexibel und bereit auch kurzfristig Dienste zu übernehmen \n• Wir bieten Ihnen: - Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb - Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld - Sie können Ihre Erfahrungen in der Gastronomie und Hotellerie einbringen - Sie haben die Möglichkeit Weiterbildungskurse zu besuchen - Sie profitieren von fortschrittlichen Arbeitsbedingungen - Wir fördern die Vereinbarkeit von Berufs- und Privatleben - Ein aufgestelltes Team wartet auf Sie",
-        "fr": "Ihre Umgebung: Unsere Cafeteria ist ein zentraler Treffpunkt für Mitarbeitende, Patienten und Gäste. \n• Wir bieten täglich frische Speisen, Snacks und Getränke an und legen dabei grossen Wert auf Qualität, Service und eine einladende Atmosphäre. Es erwartet Sie ein engagiertes Team in einem abwechslungsreichen Umfeld. \n• Ihre Aufgaben: - Sie führen alle anfallenden Arbeiten in unserer Cafeteria (Selbstbedienung, mit Kiosk) selbstständig und fachgerecht aus - Sie unterstützen die Küche bei der Menüausgabe - Sie unterstützen uns mit Ihren fundierten Serviceerfahrungen bei den diversen Anlässen, auch ausserhalb des Betriebes bei Catering - Sie sind mitverantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn - Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb - Sie sind bereit auch in der Cafeteria in der Klinik Beverin in Cazis auszuhelfen Unser Anforderungsprofil: - Sie haben eine abgeschlossene Berufslehre in der Gastronomie und entsprechende Berufserfahrung - Hohe Einsatzbereitschaft und Flexibilität (zwei Wochenende pro Monat) sind für Sie selbstverständlich - Sie arbeiten gerne im Team, sind zuverlässig, pflichtbewusst und haben eine hohe Kundenorientierung - Sie sprechen einwandfrei Deutsch und verfügen über ein gepflegtes Erscheinungsbild - Sie behalten die Ruhe auch in hektischen Situationen - Sie sind flexibel und bereit auch kurzfristig Dienste zu übernehmen \n• Wir bieten Ihnen: - Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb - Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld - Sie können Ihre Erfahrungen in der Gastronomie und Hotellerie einbringen - Sie haben die Möglichkeit Weiterbildungskurse zu besuchen - Sie profitieren von fortschrittlichen Arbeitsbedingungen - Wir fördern die Vereinbarkeit von Berufs- und Privatleben - Ein aufgestelltes Team wartet auf Sie"
+        "it": "I vostri dintorni: Il nostro cafeteria è un punto di incontro centrale per dipendenti, pazienti e ospiti. Offriamo cibo fresco, snack e bevande ogni giorno, e attribuiamo grande importanza alla qualità, servizio e un ambiente accogliente. Un team dedicato vi aspetta in un ambiente vario.\n\nI vostri compiti: - Voi svolgete tutto il lavoro necessario nella nostra cafeteria (self-service, con chiosco) in modo indipendente e professionale - voi sostenete la cucina con l'output del menù - voi ci sostenete con la vostra profonda esperienza di servizio in varie occasioni, anche fuori dall'azienda con ristorazione - siete congiuntamente responsabili del rispetto dei nostri elevati standard qualitativi nel settore della pulizia e dell'ordine - con il vostro tipo impegnato e caldo siete un arricchimento per l'operazione - siete anche pronti nella cafeteria nella clinica Beverin di Cazis\n\nAiutare i nostri requisiti profilo: - Hai un apprendistato professionale completato nel settore della ristorazione e la corrispondente esperienza professionale - Alta disponibilità e flessibilità (due fine settimana al mese) sono una questione naturalmente per voi - ti piace lavorare in un team, sono affidabili, dubbi e hanno un alto orientamento al cliente - si parla tedesco perfettamente e hanno un aspetto ben tenuto - si mantiene la pace anche in situazioni frenetiche - si è flessibili e pronti a prendere in consegna servizi con breve preavviso Vi offriamo: - Vi aspettiamo un versatile\n\nLavorare in un'azienda vivace - lavorare in un ambiente interessante, variegato e sociale - portare la tua esperienza nel settore della ristorazione e dell'hotel - avere la possibilità di frequentare corsi di perfezionamento - beneficiare di condizioni di lavoro avanzate - Promuoviamo la conciliazione della vita professionale e privata - Un team stabilito ti aspetta",
+        "en": "Your surroundings: Our cafeteria is a central meeting point for employees, patients and guests. We offer fresh food, snacks and drinks daily, and we attach great importance to quality, service and a welcoming atmosphere. A dedicated team awaits you in a varied environment.\n\nYour tasks: - You carry out all the necessary work in our cafeteria (self-service, with kiosk) independently and professionally - you support the kitchen with the menu output - you support us with your profound service experience at various occasions, even outside the company with catering - you are jointly responsible for the compliance with our high quality standards in the area of cleanliness and orderliness - with your committed and warm kind you are an enrichment for the operation - you are also ready in the cafeteria in the clinic Beverin in Cazis\n\nHelping you Our requirements profile: - You have a completed professional apprenticeship in the catering industry and corresponding professional experience - High readiness and flexibility (two weekends per month) are a matter of course for you - you like to work in a team, are reliable, dubious and have a high customer orientation - you speak German perfectly and have a well-kept appearance - you keep the peace even in hectic situations - you are flexible and ready to take over services at short notice We offer you: - You expect a versatile\n\nWork in a lively business - you work in an interesting, varied and social environment - you can bring your experience to the catering and hotel industry - you have the opportunity to attend further training courses - you benefit from advanced working conditions - We promote the reconciliation of professional and private life - An established team is waiting for you",
+        "de": "Ihre Umgebung:\nUnsere Cafeteria ist ein zentraler Treffpunkt für Mitarbeitende, Patienten und Gäste. Wir bieten täglich frische Speisen, Snacks und Getränke an und legen dabei grossen Wert auf Qualität, Service und eine einladende Atmosphäre. Es erwartet Sie ein engagiertes Team in einem abwechslungsreichen Umfeld.\n\nIhre Aufgaben:\n- Sie führen alle anfallenden Arbeiten in unserer Cafeteria (Selbstbedienung, mit Kiosk) selbstständig und fachgerecht aus\n\n- Sie unterstützen die Küche bei der Menüausgabe\n\n- Sie unterstützen uns mit Ihren fundierten Serviceerfahrungen bei den diversen Anlässen, auch ausserhalb des Betriebes bei Catering\n\n- Sie sind mitverantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb\n\n- Sie sind bereit auch in der Cafeteria in der Klinik Beverin in Cazis auszuhelfen\n\nUnser Anforderungsprofil:\n- Sie haben eine abgeschlossene Berufslehre in der Gastronomie und entsprechende Berufserfahrung\n\n- Hohe Einsatzbereitschaft und Flexibilität (zwei Wochenende pro Monat) sind für Sie selbstverständlich\n\n- Sie arbeiten gerne im Team, sind zuverlässig, pflichtbewusst und haben eine hohe Kundenorientierung\n\n- Sie sprechen einwandfrei Deutsch und verfügen über ein gepflegtes Erscheinungsbild\n\n- Sie behalten die Ruhe auch in hektischen Situationen\n\n- Sie sind flexibel und bereit auch kurzfristig Dienste zu übernehmen\n\nWir bieten Ihnen:\n- Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb\n\n- Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld\n\n- Sie können Ihre Erfahrungen in der Gastronomie und Hotellerie einbringen\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen\n\n- Wir fördern die Vereinbarkeit von Berufs- und Privatleben\n\n- Ein aufgestelltes Team wartet auf Sie",
+        "fr": "Votre environnement : Notre cafétéria est un point de rencontre central pour les employés, les patients et les invités. Nous offrons des aliments frais, des collations et des boissons tous les jours, et nous attachons une grande importance à la qualité, au service et à une atmosphère accueillante.\n\nVos tâches : - Vous effectuez tous les travaux nécessaires dans notre cafétéria (en libre-service, avec kiosque) indépendamment et professionnellement - vous soutenez la cuisine avec la sortie de menu - vous nous soutenez avec votre expérience de service profonde à diverses occasions, même en dehors de l'entreprise avec la restauration - vous êtes conjointement responsable du respect de nos normes de qualité élevée dans le domaine de la propreté et de la concision - avec votre engagement et le chaud vous êtes un enrichissement pour l'opération - vous êtes également prêt dans la cafétéria dans la clinique Beverin à Cazis\n\nVous aider Notre profil de besoins : - Vous avez un apprentissage professionnel complet dans l'industrie de la restauration et l'expérience professionnelle correspondante - Une grande préparation et flexibilité (deux week-ends par mois) sont une question de bien sûr pour vous - vous aimez travailler en équipe, être fiable, douteux et avoir une orientation client élevée - vous parlez parfaitement l'allemand et avez une apparence bien gardée - vous gardez la paix même dans des situations mouvementées - vous êtes flexible et prêt à prendre les services à bref délai Nous vous offrons : - Vous attendez un polyvalent\n\nTravaillez dans une entreprise animée - vous travaillez dans un environnement intéressant, varié et social - vous pouvez apporter votre expérience dans l'industrie de la restauration et de l'hôtellerie - vous avez la possibilité de suivre des cours de formation continue - vous bénéficiez de conditions de travail avancées - Nous promouvons la conciliation de la vie professionnelle et privée - Une équipe établie vous attend"
       },
       "location": "Chur",
       "canton": "GR",
@@ -3380,7 +3384,6 @@
           "mitarbeiter-in-cafeteria-psychiatrische-dienste-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T12:27:06.014Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
