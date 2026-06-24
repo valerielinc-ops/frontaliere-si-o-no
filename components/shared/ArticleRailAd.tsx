@@ -55,12 +55,13 @@ export interface ArticleRailAdProps {
 }
 
 const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, reserve = true, narrow = false, onEmptyChange }) => {
-  const { articleRailAds: killed } = useKillSwitches();
+  const { articleRailAds: killed, headerBidding: hbKilled } = useKillSwitches();
   return (
     <GptAdSlot
       adUnitPath={RAIL_AD_UNIT_PATHS[side]}
       sizes={narrow ? RAIL_SIZES_NARROW : RAIL_SIZES}
       killed={killed}
+      headerBiddingKilled={hbKilled}
       enabled={enabled}
       onEmptyChange={onEmptyChange}
       minHeight={reserve ? 600 : 0}

@@ -23,12 +23,13 @@ const GPT_POC_AD_UNIT_PATH = '/23355151813/gpt-poc-articoli';
 const GPT_POC_SIZES: GptSize[] = [[300, 250], 'fluid'];
 
 const GptPocSlot: React.FC = () => {
-  const { gptPocSlot: killed } = useKillSwitches();
+  const { gptPocSlot: killed, headerBidding: hbKilled } = useKillSwitches();
   return (
     <GptAdSlot
       adUnitPath={GPT_POC_AD_UNIT_PATH}
       sizes={GPT_POC_SIZES}
       killed={killed}
+      headerBiddingKilled={hbKilled}
       minHeight={250}
       className="mx-auto my-6 w-full max-w-[336px] text-center"
     />

@@ -25,6 +25,7 @@ describe('useKillSwitches', () => {
       orphanLandings: false,
       gptPocSlot: false,
       articleRailAds: false,
+      headerBidding: false,
     });
   });
 
@@ -72,6 +73,7 @@ describe('useKillSwitches', () => {
       orphanLandings: true,
       gptPocSlot: true,
       articleRailAds: false,
+      headerBidding: false,
     });
   });
 
@@ -81,7 +83,7 @@ describe('useKillSwitches', () => {
     renderHook(() => useKillSwitches());
 
     await waitFor(() => {
-      expect(rcMock).toHaveBeenCalledTimes(7);
+      expect(rcMock).toHaveBeenCalledTimes(8);
     });
 
     const callArgs = rcMock.mock.calls.map(([arg]) => arg);
@@ -92,5 +94,6 @@ describe('useKillSwitches', () => {
     expect(callArgs).toContain('KILL_ORPHAN_LANDINGS_LINKS');
     expect(callArgs).toContain('KILL_GPT_POC_SLOT');
     expect(callArgs).toContain('KILL_ARTICLE_RAIL_ADS');
+    expect(callArgs).toContain('KILL_HEADER_BIDDING');
   });
 });

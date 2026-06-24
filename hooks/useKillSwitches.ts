@@ -30,7 +30,8 @@ export type KillSwitchKey =
   | 'weeklyEmployers'
   | 'orphanLandings'
   | 'gptPocSlot'
-  | 'articleRailAds';
+  | 'articleRailAds'
+  | 'headerBidding';
 
 export type KillSwitchState = Readonly<Record<KillSwitchKey, boolean>>;
 
@@ -47,6 +48,7 @@ export const KILL_SWITCH_RC_KEYS: Readonly<Record<KillSwitchKey, string>> = {
   orphanLandings: 'KILL_ORPHAN_LANDINGS_LINKS',
   gptPocSlot: 'KILL_GPT_POC_SLOT',
   articleRailAds: 'KILL_ARTICLE_RAIL_ADS',
+  headerBidding: 'KILL_HEADER_BIDDING',
 } as const;
 
 const DEFAULT_STATE: KillSwitchState = {
@@ -57,6 +59,7 @@ const DEFAULT_STATE: KillSwitchState = {
   orphanLandings: false,
   gptPocSlot: false,
   articleRailAds: false,
+  headerBidding: false,
 } as const;
 
 function parseBooleanFlag(value: string | undefined | null): boolean {

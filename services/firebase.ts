@@ -82,6 +82,11 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // 'false' = rails SHOWN. Flip to 'true' in the Remote Config console to kill
  // both rail ads within ~1 min (no redeploy) if they regress Auto Ads / RPM / CWV.
  KILL_ARTICLE_RAIL_ADS: 'false',
+ // Header-bidding (Prebid) pre-auction on the explicit GPT slots. Default
+ // 'false' = auction allowed (still gated by PREBID_ENABLED in
+ // services/headerBidding.ts). Flip to 'true' to disable Prebid within ~1 min
+ // (no redeploy); slots keep serving via GPT/AdSense.
+ KILL_HEADER_BIDDING: 'false',
  // E3: Inline consulting CTA on calculator results view.
  // Default 'true' so the CTA is visible until explicitly disabled via Firebase
  // Remote Config console. Flip to 'false' to hide the CTA without a redeploy.
