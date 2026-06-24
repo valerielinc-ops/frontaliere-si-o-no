@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-06-24T11:15:10.394Z",
-  "total": 9,
+  "generatedAt": "2026-06-24T21:58:34.919Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 1548,
-  "avgDurationMs": 1548,
+  "durationMs": 1777,
+  "avgDurationMs": 1777,
   "durationHistory": [
-    1548
+    1777
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -316,49 +316,6 @@
       }
     },
     {
-      "title": "Senior Java Engineer",
-      "slug": "senior-java-engineer-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/atITl735eH/Senior-Java-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/atITl735eH/Senior-Java-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-23",
-      "validThrough": "2026-09-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260623065854_VPH91WGG5LKG4Y1N",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": "Lugano"
-      },
-      "id": "fincons-group-6f4532dcc360",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-06-23T11:38:21.084Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Senior Test Automation Engineer",
       "slug": "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
       "url": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
@@ -402,6 +359,50 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Senior Java Engineer",
+      "slug": "senior-java-ingegnere-fincons-group-lugano",
+      "url": "https://fincons.applytojob.com/apply/atITl735eH/Senior-Java-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/atITl735eH/Senior-Java-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-23",
+      "validThrough": "2026-09-21",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260623065854_VPH91WGG5LKG4Y1N",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": "Lugano"
+      },
+      "id": "fincons-group-6f4532dcc360",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-06-23T11:38:21.084Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
