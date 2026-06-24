@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-06-23T22:12:19.887Z",
-  "total": 5,
+  "generatedAt": "2026-06-24T11:14:19.475Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6002,
-  "avgDurationMs": 6002,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 6220,
+  "avgDurationMs": 6220,
   "durationHistory": [
-    6002
+    6220
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-06-18",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-23",
+      "validThrough": "2026-06-24",
       "id": "damiani-group-604443163c6a",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -72,7 +72,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-23",
+      "validThrough": "2026-06-24",
       "id": "damiani-group-1b9e5efdfbd8",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -126,8 +126,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Sales Assistant",
       "slug": "sales-assistant-damiani-group-serravalle-scrivia",
@@ -157,7 +156,6 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-05-17T10:04:40.485Z",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -165,7 +163,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Ecommerce Merchandising Specialist",
       "slug": "ecommerce-merchandising-specialist-damiani-group-mendrisio",
@@ -187,7 +187,7 @@
       "postedDate": "2026-05-27",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-23",
+      "validThrough": "2026-06-24",
       "id": "damiani-group-f5ab2d7c6cb7",
       "salaryMin": 49500,
       "salaryMax": 75000,
