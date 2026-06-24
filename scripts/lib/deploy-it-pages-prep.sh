@@ -126,34 +126,54 @@ _publish_cdn_r2() {
     echo "::warning::CDN_TARGET=r2 but R2_* creds missing — skipping CDN publish (assets stay in dist)"
     return 0
   fi
-  if ! command -v aws >/dev/null 2>&1; then
-    echo "::error::CDN_TARGET=r2 but the aws CLI is not on the runner — cannot sync to R2"
-    return 0
+  # rclone with --checksum does a true CONTENT diff (per-file MD5 vs the S3
+  # ETag read from the LIST — no per-object HEAD), so only files whose BYTES
+  # changed are PUT. `aws s3 sync` was wrong here: it compares size+mtime, and
+  # every deploy rebuilds the files with a newer mtime → it re-uploaded the
+  # WHOLE payload (~35k PutObject/deploy, measured), which would exhaust the R2
+  # free-tier Class-A budget (1M/mo) in ~2 days. With --checksum the stable
+  # assets/og and unchanged data are skipped (0 PUT); only the genuinely
+  # changed files upload → a few LIST ops + N changed PUTs per deploy.
+  if ! command -v rclone >/dev/null 2>&1; then
+    echo "[r2] rclone not found — installing static binary…"
+    if curl -fsSL https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$RUNNER_TEMP/rclone.zip" \
+       && unzip -q -o -j "$RUNNER_TEMP/rclone.zip" '*/rclone' -d "$RUNNER_TEMP/rclone-bin"; then
+      chmod +x "$RUNNER_TEMP/rclone-bin/rclone" 2>/dev/null || true
+      export PATH="$RUNNER_TEMP/rclone-bin:$PATH"
+    fi
+    command -v rclone >/dev/null 2>&1 || { echo "::error::CDN_TARGET=r2 but rclone install failed — cannot sync to R2"; return 0; }
   fi
-  export AWS_ACCESS_KEY_ID="$R2_ACCESS_KEY_ID"
-  export AWS_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY"
-  export AWS_DEFAULT_REGION=auto
-  local ep="$R2_S3_ENDPOINT" bkt="s3://$R2_BUCKET" ok=1
-  echo "CDN→R2: payload $(du -sh "$stage" | cut -f1) → $bkt"
+  # On-the-fly S3 remote (no config file). --checksum = content-hash compare;
+  # --no-update-modtime avoids rewriting metadata on skipped files;
+  # --s3-no-check-bucket skips a HeadBucket (1 fewer op, no CreateBucket perm).
+  local RC=(rclone
+    --s3-provider=Cloudflare
+    --s3-access-key-id="$R2_ACCESS_KEY_ID"
+    --s3-secret-access-key="$R2_SECRET_ACCESS_KEY"
+    --s3-endpoint="$R2_S3_ENDPOINT"
+    --s3-region=auto
+    --s3-no-check-bucket
+    --checksum --no-update-modtime --transfers=24 --checkers=48 --fast-list)
+  local bkt=":s3:$R2_BUCKET" ok=1
+  echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
   _r2_sync() { # <src-dir> <dst-prefix> <cache-control>
     [ -d "$1" ] || return 0
-    aws s3 sync "$1" "$bkt/$2" --endpoint-url "$ep" --no-progress --only-show-errors \
-      --cache-control "$3" || ok=0
+    "${RC[@]}" sync "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 || ok=0
   }
   _r2_sync "$stage/assets" assets "public,max-age=31536000,immutable"
   _r2_sync "$stage/og"     og     "public,max-age=86400"
   _r2_sync "$stage/images" images "public,max-age=86400"
   _r2_sync "$stage/data"   data   "public,max-age=600"
-  aws s3 cp "$stage/index.html" "$bkt/index.html" --endpoint-url "$ep" --no-progress --only-show-errors \
-    --content-type "text/html; charset=utf-8" --cache-control "public,max-age=600" || ok=0
+  "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
+    --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
   if [ "$ok" != 1 ]; then
     echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
     return 0
   fi
   # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
   printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
-  if aws s3 cp "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" --endpoint-url "$ep" --no-progress \
-       --only-show-errors --content-type "text/plain; charset=utf-8" --cache-control "no-store, max-age=0"; then
+  if "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
+       --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
     echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
   else
