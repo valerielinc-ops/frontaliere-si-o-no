@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-06-24T11:43:33.381Z",
+  "assembledAt": "2026-06-24T22:22:25.458Z",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:43:31.138Z",
+      "crawledAt": "2026-06-24T22:22:23.348Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -69,6 +69,7 @@
           "Charge de travail : jours fériés individuels et week-ends par an"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
@@ -99,7 +100,7 @@
       "slug": "fisioterapista-sup-a-80-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "fisioterapista-sup-a-80-kantonsspital-obwalden-sarnen",
-        "en": "physiotherapist-in-fh-a-80-kantonsspital-obwalden-sarnen",
+        "en": "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen",
         "de": "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen",
         "fr": "physiotherapeute-hes-f-m-80-kantonsspital-obwalden-sarnen"
       },
@@ -109,7 +110,7 @@
       "title": "Physiotherapeut/in FH (a) 80%",
       "titleByLocale": {
         "it": "Fisioterapista SUP (a) 80%",
-        "en": "Physiotherapist/in FH (a) 80 %",
+        "en": "Physiotherapeut/in FH (a) 80%",
         "de": "Physiotherapeut/in FH (a) 80%",
         "fr": "Physiothérapeute HES (f/m) 80%"
       },
@@ -125,7 +126,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-fh/a6efg0x6if55x3bdlwflcg4mxfhjffmtjnm5uw3koat4yk6k46zwti4vfj3n5085",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:43:29.456Z",
+      "crawledAt": "2026-06-24T22:22:21.743Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -161,6 +162,7 @@
           "Esprit d'équipe et ouverture"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "physiotherapeut-in-fh-a-80-ksow-sarnen"
@@ -169,12 +171,13 @@
           "physiotherapeut-in-fh-a-80-ksow-sarnen"
         ],
         "en": [
+          "physiotherapist-in-fh-a-80-kantonsspital-obwalden-sarnen",
           "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "physiotherapeut-in-fh-a-80-ksow-sarnen",
-        "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen"
+        "physiotherapist-in-fh-a-80-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:27.865Z",
       "salaryMin": 69500,
@@ -221,7 +224,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-anaesthesiepflege-nds-hf/hchi3byoxnduiomr2q4tb57d5q2hclz4a4rlhxrx251bbwzfp46rw7d7eza4dy67",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:43:27.785Z",
+      "crawledAt": "2026-06-24T22:22:20.107Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -260,6 +263,7 @@
           "Plaisir pour la collaboration interdisciplinaire"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
@@ -316,7 +320,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:43:26.130Z",
+      "crawledAt": "2026-06-24T22:22:18.501Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -355,6 +359,7 @@
           "Activité en tant que sage-femme indépendante"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
@@ -415,7 +420,7 @@
       "url": "https://link.ostendis.com/publication/medizinischen-praxisassistent-in-arztsekretaer-in-kardiologie/kw35cynp40el68mt1mz2we0kmenedovs1oke05mtly4bp51ycqhei2d2ipcn33t2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:43:24.484Z",
+      "crawledAt": "2026-06-24T22:22:16.895Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -463,6 +468,7 @@
           "Réalisation autonome d'examens médicaux"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
@@ -493,7 +499,7 @@
       "slug": "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen",
-        "en": "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen",
+        "en": "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
         "de": "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
         "fr": "technicien-en-salle-d-operation-es-a-50-100-kantonsspital-obwalden-sarnen"
       },
@@ -503,7 +509,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
       "titleByLocale": {
         "it": "Tecnico di Sala Operatoria SSS (a) 50–100%",
-        "en": "Dipl. Specialist Operations Technique HF (a) 50–100 %",
+        "en": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "de": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "fr": "Technicien en salle d'opération ES (a) 50–100%"
       },
@@ -519,7 +525,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:43:22.806Z",
+      "crawledAt": "2026-06-24T22:22:15.303Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -562,6 +568,7 @@
           "Esprit d'équipe, flexibilité et plaisir à travailler dans un environnement dynamique"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
@@ -570,12 +577,13 @@
           "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
         ],
         "en": [
+          "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen",
           "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
+        "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:17.375Z",
       "salaryMin": 69500,
@@ -622,7 +630,7 @@
       "url": "https://link.ostendis.com/publication/lagerungspfleger-in/yaqj7d7po5spp85wtqx7hjpqaayw4gehzssx738m7stclh6jo3eyv4afnghcohrd",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:43:21.132Z",
+      "crawledAt": "2026-06-24T22:22:13.640Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -660,6 +668,7 @@
           "Personnalité flexible et orientée service"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "lagerungspfleger-in-a-60-100-ksow-sarnen"
@@ -716,7 +725,7 @@
       "url": "https://link.ostendis.com/publication/techn-sterilisationsassistent-in-befristet/rfpa5h3aw8vi46v8rsi32eyl2x5kkjolkqxz333k3ce3025g2ag5gq44iz2bitgm",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:43:00.823Z",
+      "crawledAt": "2026-06-24T22:21:53.375Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -757,6 +766,7 @@
           "Bonnes connaissances en allemand et compétences informatiques"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "techn-sterilisationsassistent-in-50-befristet-ksow-sarnen"
@@ -813,7 +823,7 @@
       "url": "https://link.ostendis.com/publication/oberarzt-leitender-arzt-gastroenterologie/2yph4crwy1zhmnm3ych5gvhtd5rs22y4wom17lshe3x7mbquftb50ie3c4vrlie7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:42:58.732Z",
+      "crawledAt": "2026-06-24T22:21:51.178Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -856,6 +866,7 @@
           "Haute compétence sociale ainsi qu'une communication précieuse"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
@@ -885,10 +896,10 @@
       "id": "ksow-aa3d4a817280",
       "slug": "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
+        "it": "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen",
         "en": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
         "de": "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "fr": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
+        "fr": "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -896,7 +907,7 @@
       "title": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
       "titleByLocale": {
         "it": "Responsabile Comunicazione & Integrazione 80–100 %",
-        "en": "Responsible for Communication & Integration 80-100%",
+        "en": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
         "de": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
         "fr": "Responsable Communication & Intégration 80–100 %"
       },
@@ -912,7 +923,7 @@
       "url": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:42:57.028Z",
+      "crawledAt": "2026-06-24T22:21:49.547Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -929,15 +940,18 @@
       "applyUrl": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
+        "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen"
+          "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
+          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
         ],
         "fr": [
+          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
           "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
         ]
       },
