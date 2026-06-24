@@ -142,6 +142,14 @@ const RC_TO_ENV = {
   COHERE_API_KEY:                 ['COHERE_API_KEY'],
   CF_API_TOKEN:                   ['CF_API_TOKEN'],
   CF_ACCOUNT_ID:                  ['CF_ACCOUNT_ID'],
+  // Cloudflare R2 S3 deploy credentials for the CDN (CDN_TARGET=r2). Derived
+  // from CF_API_TOKEN by scripts/set-r2-rc.mjs (AccessKeyId = token id, Secret
+  // = SHA-256 of token value). Consumed by deploy-it-pages-prep.sh _publish_cdn_r2.
+  R2_ACCOUNT_ID:                  ['R2_ACCOUNT_ID'],
+  R2_BUCKET:                      ['R2_BUCKET'],
+  R2_S3_ENDPOINT:                 ['R2_S3_ENDPOINT'],
+  R2_ACCESS_KEY_ID:               ['R2_ACCESS_KEY_ID'],
+  R2_SECRET_ACCESS_KEY:           ['R2_SECRET_ACCESS_KEY'],
   MISTRAL_API_KEY:                ['MISTRAL_API_KEY'],
   CHUTES_API_KEY:                 ['CHUTES_API_KEY'],
   ZAI_API_KEY:                    ['ZAI_API_KEY', 'ZHIPU_API_KEY'],
