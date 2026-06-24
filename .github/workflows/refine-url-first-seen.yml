@@ -103,6 +103,19 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
         run: node scripts/load-rc-env.mjs
 
+      # App installation token = primary push/PR identity (re-triggers review/CI;
+      # GITHUB_TOKEN would not, anti-recursion). Uses Actions secrets APP_ID/
+      # APP_PRIVATE_KEY (not Firebase), so it works even after Cleanup SA. Falls
+      # back to env.GITHUB_PAT. B2b tail migration.
+      - name: Mint App token (primary identity, PAT fallback)
+        if: inputs.dry_run == 'false'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Cleanup SA
         if: always()
         run: rm -f /tmp/sa.json /tmp/firebase-sa.json
@@ -114,14 +127,14 @@ jobs:
           # RC, NOT an Actions secret — `secrets.GH_PAT` does not exist). Used
           # for BOTH the branch push and `gh pr create`: a PR created with
           # secrets.GITHUB_TOKEN is blocked by anti-recursion (issue #1114).
-          GH_TOKEN: ${{ env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           if git diff --quiet data/url-first-seen.json; then
             echo "No diff in data/url-first-seen.json — nothing to PR."
             exit 0
           fi
           if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::error::GITHUB_PAT not loaded from Remote Config — cannot create PR (a secrets.GITHUB_TOKEN PR is blocked by anti-recursion). Check Firebase SA / RC availability."
+            echo "::error::No App/PAT token (Firebase RC / App creds) — cannot create PR (a secrets.GITHUB_TOKEN PR is blocked by anti-recursion). Check APP_ID/APP_PRIVATE_KEY or Firebase SA / RC availability."
             exit 1
           fi
           BRANCH="chore/url-first-seen-refresh-${GITHUB_RUN_ID}"
