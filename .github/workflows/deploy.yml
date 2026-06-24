@@ -695,19 +695,27 @@ jobs:
         continue-on-error: true
         env:
           DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
-          # The IT shard's CDN push (deploy-it-pages-prep.sh) only stamps THIS
-          # build's marker at the END of the IT leg, which runs ~15-22min LONGER
-          # than the en/de/fr legs: IT's SSG build alone can reach ~43min vs ~23min
-          # for the others, then IT spends another ~9-10min on the Pages+CDN deploy
-          # prep. The non-IT gate starts polling the moment ITS (shorter) build
-          # finishes, so it must out-wait that whole gap. The previous default of
-          # 600s (10min) left ~zero headroom — observed runs matched the marker at
-          # 540s (60s to spare) and tipped into a stale-shard on normal variance
-          # (#2786/#2806/#2807: gate gave up ~13s before the marker landed),
-          # silently shipping a stale en/de/fr locale. 1800s (30min) covers even
-          # the worst-case 43min IT SSG build with margin; the gate still exits the
-          # instant the marker matches, so the budget is a ceiling, not a fixed wait.
-          CDN_WAIT_TIMEOUT_S: 1800
+          # The non-IT gate must out-wait TWO serial delays before the marker
+          # turns: (1) the IT leg reaching its CDN force-push, and (2) — the real
+          # bottleneck — GitHub Pages PUBLISHING that push on the frontaliere-cdn
+          # repo. The CDN payload is now ~1.27 GB (all ACTIVE content: 11.6k stable
+          # JS/CSS chunks + offloaded /data JSON + og images; the assets/ janitor
+          # finds 0 orphans → nothing to prune), OVER the Pages ~1 GB soft limit, so
+          # the Pages publish latency has ballooned: the git push lands fast but the
+          # live marker lags it by ~22min while Pages rebuilds the oversized site.
+          # #2872 measured: gate started 10:36:28, IT push succeeded 10:45:38, marker
+          # went live 11:07:42 — a 31min gate-start→publish window. The prior 1800s
+          # (30min) budget expired 11:06:34, just 68s SHORT of the marker, timing out
+          # ALL THREE non-IT shards (en/de/fr) into stale-live. This was NOT a
+          # transient/expired-key failure (the earlier theory in #2786/#2806/#2807):
+          # it is structural Pages-publish latency on the >1 GB CDN. 2700s (45min)
+          # restores margin over the measured 31min; the gate still exits the instant
+          # the marker matches, so the budget is a ceiling, not a fixed wait.
+          # STOPGAP: as the CDN keeps growing, publish latency grows with it — the
+          # durable fix is to get the CDN off GitHub Pages' 1 GB-limited, slow-publish
+          # path (e.g. Cloudflare R2: no size limit, instant PUT, marker visible in
+          # seconds) or split it back under 1 GB. Tracked for #2872 follow-up.
+          CDN_WAIT_TIMEOUT_S: 2700
         run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
 
       - name: Push locale shard
