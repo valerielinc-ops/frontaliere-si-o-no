@@ -116,6 +116,26 @@ export const AD_SLOTS = {
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
  },
+ /** Job detail: top leaderboard banner — full content-width display above the
+  * job header on desktop (lg+). Horizontal format so the slot is height-bounded
+  * (~90px leaderboard) and CLS-safe at a 100px reserve, matching the thin top
+  * banner in the desktop mock.
+  *
+  * Slot id REUSES JOBDETAIL_AUTH_GATE ('3205029282') — a job-detail-top display
+  * unit that is NEVER co-rendered with the authenticated full detail (the gate
+  * shows only to signed-out users), so there is no same-page cannibalization
+  * (cf. the JOBDETAIL_SIDEBAR_2 prune, 2026-04-26). Same cross-context reuse
+  * pattern as CALCULATOR_POST_RESULT / FT_DRIVEBY_ATF_DISPLAY: ships live ads
+  * now without a new console unit (AdSense `adunits.create` returns 403 — unit
+  * creation is console-only). Owner upgrade path for isolated reporting: create
+  * a dedicated `FT_JOBDETAIL_TOP_BANNER` display unit in the AdSense console and
+  * swap the `slot` id below. */
+ JOBDETAIL_TOP_BANNER: {
+ slot: '3205029282',
+ format: 'horizontal',
+ fullWidthResponsive: true,
+ placeholderMinHeight: 100,
+ },
  /** Job detail: auth gate — shown below sign-in form for unauthenticated users */
  JOBDETAIL_AUTH_GATE: {
  slot: '3205029282',

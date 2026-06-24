@@ -20,6 +20,7 @@ import { WEATHER_CITIES, type WeatherCity } from '../data/weatherCities';
 import { parseWeatherSnapshot, type CityWeather, type WeatherSnapshot } from '../services/weather/types';
 import { wmoText, type Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { newsletterMountPlaceholder } from './shared/newsletterMountPlaceholder';
 import {
   colorForWmo,
   iconSprite,
@@ -580,9 +581,10 @@ function renderCta(locale: Locale, acquisitionSource: string): string {
   // Firebase upsert + analytics) into the placeholder via NewsletterMount.tsx
   // scanning for [data-newsletter-mount] at boot. We only override heading +
   // subtitle text and tag sourceCta for per-page analytics. Pre-hydration
-  // skeleton uses same gradient tokens to avoid CLS while React loads.
+  // skeleton mirrors the real form (input + Google + LinkedIn) to avoid CLS
+  // and an empty green void while React loads.
   return `<section class="my-10 max-w-2xl mx-auto px-1">
-<div data-newsletter-mount data-acquisition-source="${escapeHtml(acquisitionSource)}" data-heading="${escapeHtml(heading)}" data-subtitle="${escapeHtml(sub)}" class="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent min-h-[200px]"><p class="text-on-accent text-sm font-bold opacity-90">${escapeHtml(heading)}</p><p class="text-on-accent/70 text-xs mt-2">${escapeHtml(sub)}</p></div>
+${newsletterMountPlaceholder({ acquisitionSource, heading, sub })}
 </section>`;
 }
 
