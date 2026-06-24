@@ -373,6 +373,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ubs-previdenza-vecchiaia.title': 'UBS presenta nuovo modello per la previdenza vecchiaia svizzera',
     'blog.article.ubs-previdenza-vecchiaia.excerpt': 'La grande banca propone una riforma globale del sistema pensionistico svizzero',
     'blog.article.ubs-previdenza-vecchiaia.imageAlt': 'Edificio moderno di un fondo pensione svizzero a Zurigo',
+    'blog.article.dispositivi-medici-rimborsi.title': 'Berna apre ai rimborsi per dispositivi medici acquistati all\'estero',
+    'blog.article.dispositivi-medici-rimborsi.excerpt': 'Il Consiglio federale propone di rimborsare determinati dispositivi medici acquistati all\'estero tramite l\'AOMS.',
+    'blog.article.dispositivi-medici-rimborsi.imageAlt': 'Dispositivi medici in un ospedale svizzero',
 };
 
 export default blogMetaChIt;
