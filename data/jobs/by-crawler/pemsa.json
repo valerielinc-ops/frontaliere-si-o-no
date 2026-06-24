@@ -1,7 +1,67 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-06-24T11:57:47.667Z",
+  "assembledAt": "2026-06-24T22:37:54.075Z",
   "jobs": [
+    {
+      "title": "PITTORE PER INTERNI / ESTERNI",
+      "slug": "pittore-per-interni-esterni-pemsa-cadempino",
+      "url": "https://www.pemsa.ch/it/job/pittore-per-interni-esterni-2680338/",
+      "applyUrl": "https://www.pemsa.ch/it/job/pittore-per-interni-esterni-2680338/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Cadempino",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-24",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-12",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di PITTORE PER INTERNI / ESTERNI\n\n## Missione :\n• Assunzione di medio/lungo termine tramite agenzia.\n• Tinteggiatura/finitura di interni ed esterni.\n• Isolamento.\n• Intonacatura.\n• Cartongesso.\n\n## Profilo :\n• Esperienza comprovata nella pittura e nell’intonacatura di interni ed esterni.\n• AFC come pittore costituirà un vantaggio.\n• Conoscenza approfondita dei materiali, delle attrezzature e delle tecniche di installazione.\n• Completa autonomia nei lavori svolti.\n• Patente di guida B.\n• Residenza in Ticino o nella fascia di confile.\n• Disponibilità IMMEDIATA.",
+      "titleByLocale": {
+        "it": "PITTORE PER INTERNI / ESTERNI",
+        "en": "PITTORE PER INTERNI / ESTERNI",
+        "de": "PITTORE PER INTERNI / ESTERNI",
+        "fr": "PITTORE PER INTERNI / ESTERNI"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di PITTORE PER INTERNI / ESTERNI\n\n## Missione :\n• Assunzione di medio/lungo termine tramite agenzia.\n• Tinteggiatura/finitura di interni ed esterni.\n• Isolamento.\n• Intonacatura.\n• Cartongesso.\n\n## Profilo :\n• Esperienza comprovata nella pittura e nell’intonacatura di interni ed esterni.\n• AFC come pittore costituirà un vantaggio.\n• Conoscenza approfondita dei materiali, delle attrezzature e delle tecniche di installazione.\n• Completa autonomia nei lavori svolti.\n• Patente di guida B.\n• Residenza in Ticino o nella fascia di confile.\n• Disponibilità IMMEDIATA.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a PITTORE PER INTERNI / ESTERNI in Cadempino. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als PITTORE PER INTERNI / ESTERNI in Cadempino. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil PITTORE PER INTERNI / ESTERNI à Cadempino. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "pittore-per-interni-esterni-pemsa-cadempino",
+        "en": "pittore-per-interni-esterni-pemsa-cadempino",
+        "de": "pittore-per-interni-esterni-pemsa-cadempino",
+        "fr": "pittore-per-interni-esterni-pemsa-cadempino"
+      },
+      "id": "pemsa-07635ef93b92",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-24T22:37:54.074Z"
+    },
     {
       "title": "MONTATORE DI PANNELLI SOLARI",
       "slug": "montatore-di-pannelli-solari-pemsa-locarno",
@@ -32,10 +92,10 @@
         "fr": "INSTALLATEUR DE PANNEAUX SOLAIRES"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di montatore di pannelli solari\n\nMissione :\n• missione lunga durata nel Sopraceneri\n\nProfilo :\n·esperienza su cantiere svizzeri\n·capacità di lavoro in squadra\n·Installazione e fissaggio di pannelli solari\n·Installazione e montaggio di strutture fotovoltaiche su diversi tipi di tetti\n·non soffrire di vertigini\n·disponibilità immediata\n·flessibile a spostamenti\n·automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding.\n\nSo if you are a motivated and entusiastic person, join the clan for the position of mounting of solar panels.Misset: • long-term mission in the Sopraceneri Profile: · experience on Swiss construction site ·working capacity in team ·Installing and fixing solar panels ·Installing and mounting photovoltaic structures on different types of roofs ·do not suffer from dizziness ·instant availability ·ffordable to move ·automunito",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll.\n\nWenn Sie also motiviert und entusiastisch sind, kommen Sie mit dem Clan zur Position der Montage von Solarpaneelen.Mission: • Langzeitmission in der Sopraceneri Profil: · Erfahrung auf der Schweizer Baustelle ·Arbeitskapazität im Team · Installation und Befestigung von Solarpaneelen · Installation und Montage von Photovoltaik-Strukturen auf verschiedenen Dachtypen · keine Schwindelgefühle leiden · sofortige Verfügbarkeit · günstige Bewegung ·automunito",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants.\n\nSi vous êtes une personne motivée et entusiastique, rejoignez le clan pour la position de montage des panneaux solaires.Misset: • mission à long terme dans le profil Sopraceneri: · expérience sur le chantier suisse · capacité de travail en équipe ·Installation et fixation des panneaux solaires ·Installation et montage des structures photovoltaïques sur différents types de toits · ne souffrez pas de vertiges · disponibilité instantanée ·abordable pour se déplacer ·auto-intimité"
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di montatore di pannelli solari Missione :\n• missione lunga durata nel Sopraceneri Profilo : ·esperienza su cantiere svizzeri ·capacità di lavoro in squadra ·Installazione e fissaggio di pannelli solari ·Installazione e montaggio di strutture fotovoltaiche su diversi tipi di tetti ·non soffrire di vertigini ·disponibilità immediata ·flessibile a spostamenti ·automunito",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and entusiastic person, join the clan for the position of mounting of solar panels.Misset:\n• long-term mission in the Sopraceneri Profile: · experience on Swiss construction site ·working capacity in team ·Installing and fixing solar panels ·Installing and mounting photovoltaic structures on different types of roofs ·do not suffer from dizziness ·instant availability ·ffordable to move ·automunito",
+        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also motiviert und entusiastisch sind, kommen Sie mit dem Clan zur Position der Montage von Solarpaneelen.Mission:\n• Langzeitmission in der Sopraceneri Profil: · Erfahrung auf der Schweizer Baustelle ·Arbeitskapazität im Team · Installation und Befestigung von Solarpaneelen · Installation und Montage von Photovoltaik-Strukturen auf verschiedenen Dachtypen · keine Schwindelgefühle leiden · sofortige Verfügbarkeit · günstige Bewegung ·automunito",
+        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Si vous êtes une personne motivée et entusiastique, rejoignez le clan pour la position de montage des panneaux solaires.Misset:\n• mission à long terme dans le profil Sopraceneri: · expérience sur le chantier suisse · capacité de travail en équipe ·Installation et fixation des panneaux solaires ·Installation et montage des structures photovoltaïques sur différents types de toits · ne souffrez pas de vertiges · disponibilité instantanée ·abordable pour se déplacer ·auto-intimité"
       },
       "slugByLocale": {
         "it": "montatore-di-pannelli-solari-pemsa-locarno",
@@ -91,7 +151,7 @@
         "fr": "Fraiseur TAGLIO BETON"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di fresatore taglio beton\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·        esperienza su cantiere svizzeri nella tecnologia di taglio del calcestruzzo, inclusi lavori di segatura, foratura o taglio\n·        comprensione della statica, delle tecniche di taglio e di una preparazione accurata del lavoro\n·        capacità di lavoro in squadra\n·        disponibilità immediata\n·        flessibile a spostamenti\n·        automunito",
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di fresatore taglio beton ## Missione :\n• missione lunga durata nel Sopraceneri ## Profilo : · esperienza su cantiere svizzeri nella tecnologia di taglio del calcestruzzo, inclusi lavori di segatura, foratura o taglio · comprensione della statica, delle tecniche di taglio e di una preparazione accurata del lavoro · capacità di lavoro in squadra · disponibilità immediata · flessibile a spostamenti · automunito",
         "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a FRESATORE TAGLIO BETON in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
         "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als FRESATORE TAGLIO BETON in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
         "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil FRESATORE TAGLIO BETON à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
@@ -99,8 +159,8 @@
       "slugByLocale": {
         "it": "fresatore-taglio-beton-pemsa-locarno",
         "en": "milling-operator-taglio-beton-pemsa-locarno",
-        "de": "fresatore-taglio-beton-pemsa-locarno",
-        "fr": "fresatore-taglio-beton-pemsa-locarno"
+        "de": "fraser-taglio-beton-pemsa-locarno",
+        "fr": "fraiseur-taglio-beton-pemsa-locarno"
       },
       "id": "pemsa-31381eb99c65",
       "salaryMin": 49500,
@@ -150,10 +210,10 @@
         "fr": "OUVRIER FOREUR"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di manovale sondatore\n\nMissione :\n• missione lunga durata nel Sopraceneri\n\nProfilo :\n· esperienza su cantiere svizzeri\n· supporto nelle operazioni di perforazione con diversi diametri con precisione e sicurezza\n· capacità di lavoro in squadra\n· uso attrezzi e macchinari da cantiere\n· disponibilità immediata\n· flessibile a spostamenti\n· automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding.\n\nSo if you are a motivated and entusiastic person, join the clan for the position of manoval prober MESSE: • long-term mission in the Sopracinen Profile: · experience on Swiss construction site · support in drilling operations with different diameters with precision and safety · team working capacity · use of tools and construction equipment · immediate availability · flexible travel · automunito",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll.\n\nWenn Sie also motiviert und entusiastisch sind, treten Sie dem Clan für die Position des manoval prober MESSE bei: • Langzeitmission im Sopracinen Profil: · Erfahrung auf der Schweizer Baustelle · Unterstützung bei Bohroperationen mit unterschiedlichen Durchmessern mit Präzision und Sicherheit · Teamarbeitskapazität · Einsatz von Werkzeugen und Baugeräten · sofortige Verfügbarkeit · flexibles Reisen · automunito",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants.\n\nSi vous êtes une personne motivée et entusiastique, rejoignez le clan pour la position de sondeuse manovale MESSE: • mission à long terme dans le profil Sopûn: · expérience sur le chantier suisse · support dans les opérations de forage avec différents diamètres avec précision et sécurité · capacité de travail d'équipe · utilisation d'outils et d'équipements de construction · disponibilité immédiate · voyage flexible · auto-imit"
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di manovale sondatore Missione :\n• missione lunga durata nel Sopraceneri Profilo : · esperienza su cantiere svizzeri · supporto nelle operazioni di perforazione con diversi diametri con precisione e sicurezza · capacità di lavoro in squadra · uso attrezzi e macchinari da cantiere · disponibilità immediata · flessibile a spostamenti · automunito",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and entusiastic person, join the clan for the position of manoval prober MESSE:\n• long-term mission in the Sopracinen Profile: · experience on Swiss construction site · support in drilling operations with different diameters with precision and safety · team working capacity · use of tools and construction equipment · immediate availability · flexible travel · automunito",
+        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also motiviert und entusiastisch sind, treten Sie dem Clan für die Position des manoval prober MESSE bei:\n• Langzeitmission im Sopracinen Profil: · Erfahrung auf der Schweizer Baustelle · Unterstützung bei Bohroperationen mit unterschiedlichen Durchmessern mit Präzision und Sicherheit · Teamarbeitskapazität · Einsatz von Werkzeugen und Baugeräten · sofortige Verfügbarkeit · flexibles Reisen · automunito",
+        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Si vous êtes une personne motivée et entusiastique, rejoignez le clan pour la position de sondeuse manovale MESSE:\n• mission à long terme dans le profil Sopûn: · expérience sur le chantier suisse · support dans les opérations de forage avec différents diamètres avec précision et sécurité · capacité de travail d'équipe · utilisation d'outils et d'équipements de construction · disponibilité immédiate · voyage flexible · auto-imit"
       },
       "slugByLocale": {
         "it": "manovale-sondatore-pemsa-locarno",
@@ -209,10 +269,10 @@
         "fr": "OPÉRATEUR DE MACHINE DE PERFORATION – SONDAGE"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di macchinista di perforatrice - sondatore\n\nMissione :\n• missione lunga durata nel Sopraceneri\n\nProfilo :\n· esperienza su cantiere svizzeri\n· in possesso di patenti macchine perforatrici\n· condurre macchine perforatrici per eseguire perforazioni di diversi diametri con precisione e sicurezza\n· comprendere e seguire i piani di perforazione, rispettando le specifiche tecniche\n· capacità di lavoro in squadra\n· uso attrezzi e macchinari da cantiere\n· disponibilità immediata\n· flessibile a spostamenti\n· automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding.\n\nSo if you are a motivated and enthusiastic person, join the clan for the position of drilling machine driver - MESSEL probe: • long-term mission in the Sopracinen Profile: · experience on Swiss site · holding drilling machine licenses · conducting drilling machines to perform drilling of different diameters with precision and safety · understanding and following drilling plans, respecting technical specifications · working capacity in team · using tools and construction equipment · immediate availability · flexible travel · automunito",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll.\n\nWenn Sie also motiviert und begeistert sind, kommen Sie mit zum Clan für die Position des Bohrmaschinenfahrers - MESSEL-Sonde: • Langzeitmission im Sopracinen-Profil: · Erfahrung am Schweizer Standort · Durchführung von Bohrmaschinenlizenzen · Durchführung von Bohrmaschinen zur Durchführung von Bohrungen mit unterschiedlichen Durchmessern mit Präzision und Sicherheit · Verständnis und Einhaltung von Bohrplänen, unter Einhaltung technischer Spezifikationen · Arbeitsfähigkeit im Team · Einsatz von Werkzeugen und Baugeräten · sofortige Verfügbarkeit · flexibles Reisen · automunito",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants.\n\nSi vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de conducteur de machine de forage - sonde MESSEL: • mission à long terme dans le profil Sopûn: · expérience sur le site suisse · détention de licences de machines de forage · conduite de machines de forage pour effectuer des forages de différents diamètres avec précision et sécurité · compréhension et suivi des plans de forage, respect des spécifications techniques · capacité de travail en équipe · utilisation d'outils et d'équipements de construction · disponibilité immédiate · voyage flexible · auto-imitto"
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di macchinista di perforatrice - sondatore Missione :\n• missione lunga durata nel Sopraceneri Profilo : · esperienza su cantiere svizzeri · in possesso di patenti macchine perforatrici · condurre macchine perforatrici per eseguire perforazioni di diversi diametri con precisione e sicurezza · comprendere e seguire i piani di perforazione, rispettando le specifiche tecniche · capacità di lavoro in squadra · uso attrezzi e macchinari da cantiere · disponibilità immediata · flessibile a spostamenti · automunito",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and enthusiastic person, join the clan for the position of drilling machine driver - MESSEL probe:\n• long-term mission in the Sopracinen Profile: · experience on Swiss site · holding drilling machine licenses · conducting drilling machines to perform drilling of different diameters with precision and safety · understanding and following drilling plans, respecting technical specifications · working capacity in team · using tools and construction equipment · immediate availability · flexible travel · automunito",
+        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also motiviert und begeistert sind, kommen Sie mit zum Clan für die Position des Bohrmaschinenfahrers - MESSEL-Sonde:\n• Langzeitmission im Sopracinen-Profil: · Erfahrung am Schweizer Standort · Durchführung von Bohrmaschinenlizenzen · Durchführung von Bohrmaschinen zur Durchführung von Bohrungen mit unterschiedlichen Durchmessern mit Präzision und Sicherheit · Verständnis und Einhaltung von Bohrplänen, unter Einhaltung technischer Spezifikationen · Arbeitsfähigkeit im Team · Einsatz von Werkzeugen und Baugeräten · sofortige Verfügbarkeit · flexibles Reisen · automunito",
+        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de conducteur de machine de forage - sonde MESSEL:\n• mission à long terme dans le profil Sopûn: · expérience sur le site suisse · détention de licences de machines de forage · conduite de machines de forage pour effectuer des forages de différents diamètres avec précision et sécurité · compréhension et suivi des plans de forage, respect des spécifications techniques · capacité de travail en équipe · utilisation d'outils et d'équipements de construction · disponibilité immédiate · voyage flexible · auto-imitto"
       },
       "slugByLocale": {
         "it": "macchinista-di-perforatrice-amp-8211-sondatore-pemsa-locarno",
@@ -268,10 +328,10 @@
         "fr": "Ouvrier du Bâtiment"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Manovale Edile\n\nMissione :\n• Lavoro tramite agenzia interinale\n• Manovali edili: aiuto muratore, aiuto carpentiere, aiuto ferraiolo, aiuto falegname, aiuto ponteggisti, aiuto pittore…\n• Lavori di manovalanza in tutto il settore edile\n• Uso di attrezzature da costruzione\n\nProfilo :\n• Comprovata esperienza pregressa nel settore edile\n• Lavorare in maniera autonoma\n• Utilizzo di attrezzature e macchinari per l’edilizia\n• Conoscenza di strumenti, materiali e DPI\n• Automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding.\n\nSo if you are a motivated and enthusiastic person, join the clan for the position of Manovale Edile Miseuse: • Temporary agency work • Construction workers: help builders, help carpenters, help ferraiolo, help falegname, help scaffolders, help pittor. • Work on labour throughout the construction industry • Use of construction equipment Profile: • Built-in experience in the construction industry • Self-working • Use of equipment and machinery for construction • Knowledge of tools, materials and DPI • Automunito",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll.\n\nWenn Sie also motiviert und begeistert sind, treten Sie dem Clan für die Position von Manovale Edile Miseuse bei: • Leiharbeit • Bauarbeiter: Hilfe Bauarbeiter, Zimmerleute, Hilfe Ferraiolo, Hilfe Falegname, Hilfe Gerüste, Hilfe Pittor. • Arbeit an der Arbeit in der gesamten Bauindustrie • Einsatz von Baumaschinen Profil: • Einbau-Erfahrung in der Bauindustrie • Selbst-Arbeit • Einsatz von Geräten und Maschinen für den Bau • Wissen über Werkzeuge, Materialien und DPI • Automunito",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants.\n\nDonc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Manavale Edile Miseuse: • Travail intérimaire • Travailleurs de la construction: aides constructeurs, menuisiers, ferraiolo, aides falegname, aides échafaudeurs, aide pittor. • Travail sur la main-d'œuvre dans l'industrie de la construction • Utilisation de l'équipement de construction Profil: • Expérience intégrée dans l'industrie de la construction • Auto-travail • Utilisation de l'équipement et de la machinerie pour la construction • Connaissance des outils, des matériaux et du DPI • Auto-imito"
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Manovale Edile Missione :\n• Lavoro tramite agenzia interinale\n• Manovali edili: aiuto muratore, aiuto carpentiere, aiuto ferraiolo, aiuto falegname, aiuto ponteggisti, aiuto pittore…\n• Lavori di manovalanza in tutto il settore edile\n• Uso di attrezzature da costruzione Profilo :\n• Comprovata esperienza pregressa nel settore edile\n• Lavorare in maniera autonoma\n• Utilizzo di attrezzature e macchinari per l’edilizia\n• Conoscenza di strumenti, materiali e DPI\n• Automunito",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and enthusiastic person, join the clan for the position of Manovale Edile Miseuse:\n• Temporary agency work\n• Construction workers: help builders, help carpenters, help ferraiolo, help falegname, help scaffolders, help pittor.\n• Work on labour throughout the construction industry\n• Use of construction equipment Profile:\n• Built-in experience in the construction industry\n• Self-working\n• Use of equipment and machinery for construction\n• Knowledge of tools, materials and DPI\n• Automunito",
+        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also motiviert und begeistert sind, treten Sie dem Clan für die Position von Manovale Edile Miseuse bei:\n• Leiharbeit\n• Bauarbeiter: Hilfe Bauarbeiter, Zimmerleute, Hilfe Ferraiolo, Hilfe Falegname, Hilfe Gerüste, Hilfe Pittor.\n• Arbeit an der Arbeit in der gesamten Bauindustrie\n• Einsatz von Baumaschinen Profil:\n• Einbau-Erfahrung in der Bauindustrie\n• Selbst-Arbeit\n• Einsatz von Geräten und Maschinen für den Bau\n• Wissen über Werkzeuge, Materialien und DPI\n• Automunito",
+        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Manavale Edile Miseuse:\n• Travail intérimaire\n• Travailleurs de la construction: aides constructeurs, menuisiers, ferraiolo, aides falegname, aides échafaudeurs, aide pittor.\n• Travail sur la main-d'œuvre dans l'industrie de la construction\n• Utilisation de l'équipement de construction Profil:\n• Expérience intégrée dans l'industrie de la construction\n• Auto-travail\n• Utilisation de l'équipement et de la machinerie pour la construction\n• Connaissance des outils, des matériaux et du DPI\n• Auto-imito"
       },
       "slugByLocale": {
         "it": "manovale-edile-pemsa-bellinzona",
@@ -327,10 +387,10 @@
         "fr": "Paveur de routes"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Pavimentatore stradale\n\nMissione :\n• Incarico interinale tramite agenzia\n• Diploma AFC\n• Pregressa esperienza nella mansione\n• Disponibilità immediata •\n\nProfilo :\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding.\n\nSo if you are a motivated and enthusiastic person, join the clan for the position of Road Pavinger Tsense: • Temporary agency assignment • AFC diploma • Pregressive job experience • Immediate availability • Profile: Your contact person: Your contact for this position is Black. With over 15 years of experience in the field of recruitment, you will be able to accompany you, advise you and answer all your questions about the location. This job is not exactly what you are looking for, but do you like our values?\n\nDon't hesitate to send us your spontaneous application!",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll.\n\nWenn Sie also motiviert und begeistert sind, treten Sie dem Clan für die Position von Road Pavinger Tsense bei: • Zeitweilige Agenturzuweisung • AFC Diplom • Pregressive Job Experience • Sofortige Verfügbarkeit • Profil: Ihr Ansprechpartner: Ihr Ansprechpartner für diese Position ist Schwarz. Mit über 15 Jahren Erfahrung im Bereich der Rekrutierung können Sie Sie begleiten, beraten und alle Ihre Fragen zum Standort beantworten. Dieser Job ist nicht genau das, was Sie suchen, aber mögen Sie unsere Werte?\n\nZögern Sie nicht, uns Ihre spontane Bewerbung zu senden!",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants.\n\nSi vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Road Pavinger Tsense: • Agence temporaire • Diplôme AFC • Expérience professionnelle prégressive • Disponibilité immédiate • Profil: Votre personne de contact: Votre contact pour ce poste est Noir. Avec plus de 15 ans d'expérience dans le domaine du recrutement, vous pourrez vous accompagner, vous conseiller et répondre à toutes vos questions sur l'emplacement. Ce travail n'est pas exactement ce que vous cherchez, mais vous aimez nos valeurs?\n\nN'hésitez pas à nous envoyer votre candidature spontanée!"
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Pavimentatore stradale Missione :\n• Incarico interinale tramite agenzia\n• Diploma AFC\n• Pregressa esperienza nella mansione\n• Disponibilità immediata\n• Profilo : La tua persona di contatto: Il tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and enthusiastic person, join the clan for the position of Road Pavinger Tsense:\n• Temporary agency assignment\n• AFC diploma\n• Pregressive job experience\n• Immediate availability\n• Profile: Your contact person: Your contact for this position is Black. With over 15 years of experience in the field of recruitment, you will be able to accompany you, advise you and answer all your questions about the location. This job is not exactly what you are looking for, but do you like our values? Don't hesitate to send us your spontaneous application!",
+        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also motiviert und begeistert sind, treten Sie dem Clan für die Position von Road Pavinger Tsense bei:\n• Zeitweilige Agenturzuweisung\n• AFC Diplom\n• Pregressive Job Experience\n• Sofortige Verfügbarkeit\n• Profil: Ihr Ansprechpartner: Ihr Ansprechpartner für diese Position ist Schwarz. Mit über 15 Jahren Erfahrung im Bereich der Rekrutierung können Sie Sie begleiten, beraten und alle Ihre Fragen zum Standort beantworten. Dieser Job ist nicht genau das, was Sie suchen, aber mögen Sie unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu senden!",
+        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Road Pavinger Tsense:\n• Agence temporaire\n• Diplôme AFC\n• Expérience professionnelle prégressive\n• Disponibilité immédiate\n• Profil: Votre personne de contact: Votre contact pour ce poste est Noir. Avec plus de 15 ans d'expérience dans le domaine du recrutement, vous pourrez vous accompagner, vous conseiller et répondre à toutes vos questions sur l'emplacement. Ce travail n'est pas exactement ce que vous cherchez, mais vous aimez nos valeurs? N'hésitez pas à nous envoyer votre candidature spontanée!"
       },
       "slugByLocale": {
         "it": "pavimentatore-stradale-pemsa-mendrisio",
@@ -386,10 +446,10 @@
         "fr": "Poseur de plaques de plâtre – Plâtrier"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Cartongessista – Gessatore\n\nMissione :\n• Lavoro temporaneo di lunga durata tramite agenzia\n• Montaggio della struttura metallica e della posa dei pannelli\n• Realizzazione di controsoffitti, isolamento termico ed acustico\n• Stuccatura e lisciatura con gesso, per interni pronti alla tinteggiatura\n\nProfilo :\n• Esperienza pregressa nel settore\n• Lavorare in maniera autonoma dalla posa della struttura, alle finiture\n• Utilizzo di strumenti come avvitatori, livelle laser, taglierini, stucchi e spatole\n• Conoscenze dei materiali e DPI\n• Automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding.\n\nSo if you are a motivated and entusiastic person, join the clan for the position of Cartongessista. Gessatore MESSE: • Temporary long-term work through agency • Assembly of the metal structure and the laying of the panels • Realization of ceiling, thermal and acoustic insulation • Stuffing and smoothing with plaster, for interior ready to paint Profile: • Previous experience in the sector • Work independently from the laying of the structure, to the finishes • Use of tools such as screwdrivers, laser shells, cutters, stuccos and spatulas •\n\nKnowledge of materials and DPI • Automunito",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll.\n\nWenn Sie also ein motivierter und entusiastischer Mensch sind, treten Sie dem Clan für die Position von Cartongessista bei. Gessatore MESSE: • Vorübergehende Langzeitarbeit durch Agentur • Montage der Metallstruktur und die Verlegung der Paneele • Realisierung der Decke, thermische und akustische Isolierung • Füllen und Glätten mit Gips, für innen bereit zu malen Profil: • Frühere Erfahrung in der Branche • Arbeit unabhängig von der Verlegung der Struktur, bis zu den Oberflächen • Einsatz von Werkzeugen wie Schraubenzieher, Laserschalen, Schneiden, Stuck und Spatel •\n\nKenntnisse von Materialien und DPI • Automunito",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants.\n\nSi vous êtes une personne motivée et entusiastique, rejoignez le clan pour la position de Cartongessista. Gessatore MESSE: • Travail temporaire à long terme par l'intermédiaire de l'agence • Montage de la structure métallique et la pose des panneaux • Réalisation de plafond, isolation thermique et acoustique • Lissage avec plâtre, pour l'intérieur prêt à peindre Profil: • Expérience antérieure dans le secteur • Travail indépendamment de la pose de la structure, aux finitions • Utilisation d'outils tels que tournevis, coquilles laser, coupeurs, stucos et spatulas •\n\nConnaissance des matériaux et DPI • Autoimito"
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Cartongessista – Gessatore Missione :\n• Lavoro temporaneo di lunga durata tramite agenzia\n• Montaggio della struttura metallica e della posa dei pannelli\n• Realizzazione di controsoffitti, isolamento termico ed acustico\n• Stuccatura e lisciatura con gesso, per interni pronti alla tinteggiatura Profilo :\n• Esperienza pregressa nel settore\n• Lavorare in maniera autonoma dalla posa della struttura, alle finiture\n• Utilizzo di strumenti come avvitatori, livelle laser, taglierini, stucchi e spatole\n• Conoscenze dei materiali e DPI\n• Automunito",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and entusiastic person, join the clan for the position of Cartongessista. Gessatore MESSE:\n• Temporary long-term work through agency\n• Assembly of the metal structure and the laying of the panels\n• Realization of ceiling, thermal and acoustic insulation\n• Stuffing and smoothing with plaster, for interior ready to paint Profile:\n• Previous experience in the sector\n• Work independently from the laying of the structure, to the finishes\n• Use of tools such as screwdrivers, laser shells, cutters, stuccos and spatulas\n• Knowledge of materials and DPI\n• Automunito",
+        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also ein motivierter und entusiastischer Mensch sind, treten Sie dem Clan für die Position von Cartongessista bei. Gessatore MESSE:\n• Vorübergehende Langzeitarbeit durch Agentur\n• Montage der Metallstruktur und die Verlegung der Paneele\n• Realisierung der Decke, thermische und akustische Isolierung\n• Füllen und Glätten mit Gips, für innen bereit zu malen Profil:\n• Frühere Erfahrung in der Branche\n• Arbeit unabhängig von der Verlegung der Struktur, bis zu den Oberflächen\n• Einsatz von Werkzeugen wie Schraubenzieher, Laserschalen, Schneiden, Stuck und Spatel\n• Kenntnisse von Materialien und DPI\n• Automunito",
+        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Si vous êtes une personne motivée et entusiastique, rejoignez le clan pour la position de Cartongessista. Gessatore MESSE:\n• Travail temporaire à long terme par l'intermédiaire de l'agence\n• Montage de la structure métallique et la pose des panneaux\n• Réalisation de plafond, isolation thermique et acoustique\n• Lissage avec plâtre, pour l'intérieur prêt à peindre Profil:\n• Expérience antérieure dans le secteur\n• Travail indépendamment de la pose de la structure, aux finitions\n• Utilisation d'outils tels que tournevis, coquilles laser, coupeurs, stucos et spatulas\n• Connaissance des matériaux et DPI\n• Autoimito"
       },
       "slugByLocale": {
         "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
@@ -445,10 +505,10 @@
         "fr": "Monteur d'échafaudages"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Montatore di impalcature\n\nMissione :\n• Incarico interinale tramite agenzia\n• Lavori di montaggio e smontaggio ponteggi in autonomia\n• Pregressa esperienza nella mansione\n• Rispetto dei DPI di sicurezza\n\nProfilo :\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding.\n\nSo if you are a motivated and entusiastic person, join the clan for the position of Mounter of scaffoldings Tide: • Temporary agency assignment • Installation and disassembly work scaffolding independently • Pregress experience in the task • Respect of safety DPIs Profile: Your contact person: Your contact for this position is Black. With over 15 years of experience in the field of recruitment, you will be able to accompany you, advise you and answer all your questions about the location.\n\nThis job is not exactly what you are looking for, but do you like our values? Do not hesitate to send us your spontaneous application!",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll.\n\nWenn Sie also motiviert und entusiastisch sind, treten Sie dem Clan für die Position des Mounter von Gerüsten bei Tide: • Zeitweilige Agenturzuweisung • Montage und Demontage selbstständig arbeitendem Gerüst • Vorstufe Erfahrung in der Aufgabe • Respekt der Sicherheit DPIs Profil: Ihr Ansprechpartner: Ihr Ansprechpartner für diese Stelle ist Schwarz. Mit über 15 Jahren Erfahrung im Bereich der Rekrutierung können Sie Sie begleiten, beraten und alle Fragen zum Standort beantworten.\n\nDieser Job ist nicht genau das, was Sie suchen, aber mögen Sie unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu senden!",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants.\n\nSi vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de monteur d'échafaudages Tide: • Agence temporaire • Installation et démontage indépendant d'échafaudages • Expérience de prégress dans la tâche • Respect de la sécurité Profil DPI: Votre personne de contact: Votre contact pour ce poste est Noir. Avec plus de 15 ans d'expérience dans le domaine du recrutement, vous pourrez vous accompagner, vous conseiller et répondre à toutes vos questions sur l'emplacement.\n\nCe travail n'est pas exactement ce que vous cherchez, mais vous aimez nos valeurs? N'hésitez pas à nous envoyer votre candidature spontanée!"
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Montatore di impalcature Missione :\n• Incarico interinale tramite agenzia\n• Lavori di montaggio e smontaggio ponteggi in autonomia\n• Pregressa esperienza nella mansione\n• Rispetto dei DPI di sicurezza Profilo : La tua persona di contatto: Il tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and entusiastic person, join the clan for the position of Mounter of scaffoldings Tide:\n• Temporary agency assignment\n• Installation and disassembly work scaffolding independently\n• Pregress experience in the task\n• Respect of safety DPIs Profile: Your contact person: Your contact for this position is Black. With over 15 years of experience in the field of recruitment, you will be able to accompany you, advise you and answer all your questions about the location. This job is not exactly what you are looking for, but do you like our values? Do not hesitate to send us your spontaneous application!",
+        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also motiviert und entusiastisch sind, treten Sie dem Clan für die Position des Mounter von Gerüsten bei Tide:\n• Zeitweilige Agenturzuweisung\n• Montage und Demontage selbstständig arbeitendem Gerüst\n• Vorstufe Erfahrung in der Aufgabe\n• Respekt der Sicherheit DPIs Profil: Ihr Ansprechpartner: Ihr Ansprechpartner für diese Stelle ist Schwarz. Mit über 15 Jahren Erfahrung im Bereich der Rekrutierung können Sie Sie begleiten, beraten und alle Fragen zum Standort beantworten. Dieser Job ist nicht genau das, was Sie suchen, aber mögen Sie unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu senden!",
+        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de monteur d'échafaudages Tide:\n• Agence temporaire\n• Installation et démontage indépendant d'échafaudages\n• Expérience de prégress dans la tâche\n• Respect de la sécurité Profil DPI: Votre personne de contact: Votre contact pour ce poste est Noir. Avec plus de 15 ans d'expérience dans le domaine du recrutement, vous pourrez vous accompagner, vous conseiller et répondre à toutes vos questions sur l'emplacement. Ce travail n'est pas exactement ce que vous cherchez, mais vous aimez nos valeurs? N'hésitez pas à nous envoyer votre candidature spontanée!"
       },
       "slugByLocale": {
         "it": "montatore-di-impalcature-pemsa-bellinzona",
@@ -499,15 +559,15 @@
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentiere edile\n\n## Missione :\n• Incarico tramite agenzia interinale\n• Lavori di muratura, costruzione, demolizione, posa tubature, muri in pietra, muri a secco, finiture interne ed esterne\n• Lavori di scavo, impalcatura, casseratura, armatura\n• Uso di attrezzature da costruzione\n\n## Profilo :\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
       "titleByLocale": {
         "it": "Carpentiere edile",
-        "de": "Bautischler",
         "en": "Construction Carpenter",
+        "de": "Carpentiere edile",
         "fr": "Charpentier de construction"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentiere edile\n\nMissione :\n• Incarico tramite agenzia interinale\n• Lavori di muratura, costruzione, demolizione, posa tubature, muri in pietra, muri a secco, finiture interne ed esterne\n• Lavori di scavo, impalcatura, casseratura, armatura\n• Uso di attrezzature da costruzione\n\nProfilo :\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding.\n\nSo if you are a motivated and enthusiastic person, join the clan for the position of Carpenter Building Missione: • Incarcato via agency temporary • Work on masonry, construction, demolition, laying pipes, stone walls, dry walls, interior and exterior finishes • Excavation, scaffolding, capping, armor • Use of construction equipment Profile: Your contact person: Your contact for this location is Black.\n\nWith over 15 years of experience in recruiting, you will be able to accompany you, advise you and answer all your questions about your position. This job is not exactly what you are looking for, but our values do you like? Do not hesitate to send us your spontaneous application!",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll.\n\nWenn Sie also motiviert und begeistert sind, kommen Sie mit dem Clan zur Position des Carpenter Building Missione: • Incarcato über Agentur temporär • Arbeiten an Mauerwerk, Bau, Abbruch, Mauerwerk, Steinmauern, Trockenmauern, Innen- und Außenausbau • Ausgrabung, Gerüste, Kapping, Rüstung • Einsatz von Baumaschinen Profil: Ihr Ansprechpartner: Ihr Ansprechpartner für diesen Standort ist Schwarz.\n\nMit über 15 Jahren Erfahrung im Recruiting können Sie sich begleiten, beraten und alle Fragen zu Ihrer Position beantworten. Dieser Job ist nicht genau das, was Sie suchen, aber unsere Werte mögen Sie? Zögern Sie nicht, uns Ihre spontane Bewerbung zu schicken!",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants.\n\nSi vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de Carpenter Building Missione: • Incarcato par l'intermédiaire de l'agence temporaire • Travail sur la maçonnerie, la construction, la démolition, la pose de tuyaux, murs en pierre, murs secs, finitions intérieures et extérieures • Excavation, échafaudage, éclaboussures, armure • Utilisation de l'équipement de construction Profil: Votre personne de contact: Votre contact pour cet endroit est Noir.\n\nAvec plus de 15 ans d'expérience dans le recrutement, vous pourrez vous accompagner, vous conseiller et répondre à toutes vos questions sur votre poste. Ce travail n'est pas exactement ce que vous recherchez, mais nos valeurs vous plaisent? N'hésitez pas à nous envoyer votre candidature spontanée!"
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentiere edile Missione :\n• Incarico tramite agenzia interinale\n• Lavori di muratura, costruzione, demolizione, posa tubature, muri in pietra, muri a secco, finiture interne ed esterne\n• Lavori di scavo, impalcatura, casseratura, armatura\n• Uso di attrezzature da costruzione Profilo : La tua persona di contatto: Il tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and enthusiastic person, join the clan for the position of Carpenter Building Missione:\n• Incarcato via agency temporary\n• Work on masonry, construction, demolition, laying pipes, stone walls, dry walls, interior and exterior finishes\n• Excavation, scaffolding, capping, armor\n• Use of construction equipment Profile: Your contact person: Your contact for this location is Black. With over 15 years of experience in recruiting, you will be able to accompany you, advise you and answer all your questions about your position. This job is not exactly what you are looking for, but our values do you like? Do not hesitate to send us your spontaneous application!",
+        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitsmannes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also motiviert und begeistert sind, kommen Sie mit dem Clan zur Position des Carpenter Building Missione:\n• Incarcato über Agentur temporär\n• Arbeiten an Mauerwerk, Bau, Abbruch, Mauerwerk, Steinmauern, Trockenmauern, Innen- und Außenausbau\n• Ausgrabung, Gerüste, Kapping, Rüstung\n• Einsatz von Baumaschinen Profil: Ihr Ansprechpartner: Ihr Ansprechpartner für diesen Standort ist Schwarz. Mit über 15 Jahren Erfahrung im Recruiting können Sie sich begleiten, beraten und alle Fragen zu Ihrer Position beantworten. Dieser Job ist nicht genau das, was Sie suchen, aber unsere Werte mögen Sie? Zögern Sie nicht, uns Ihre spontane Bewerbung zu schicken!",
+        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de Carpenter Building Missione:\n• Incarcato par l'intermédiaire de l'agence temporaire\n• Travail sur la maçonnerie, la construction, la démolition, la pose de tuyaux, murs en pierre, murs secs, finitions intérieures et extérieures\n• Excavation, échafaudage, éclaboussures, armure\n• Utilisation de l'équipement de construction Profil: Votre personne de contact: Votre contact pour cet endroit est Noir. Avec plus de 15 ans d'expérience dans le recrutement, vous pourrez vous accompagner, vous conseiller et répondre à toutes vos questions sur votre poste. Ce travail n'est pas exactement ce que vous recherchez, mais nos valeurs vous plaisent? N'hésitez pas à nous envoyer votre candidature spontanée!"
       },
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-mendrisio",
@@ -531,7 +591,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-06-24T11:57:47.666Z"
+      "firstSeenAt": "2026-06-24T11:57:47.666Z",
+      "needsRetranslation": true
     },
     {
       "title": "Idraulico impianti antincendio sprinkler",
@@ -560,7 +621,7 @@
         "it": "Idraulico impianti antincendio sprinkler",
         "en": "Plumbing fire sprinkler systems",
         "de": "Hydraulische Berieselungsanlagen",
-        "fr": "Systèmes d'arrosage hydraulique"
+        "fr": "Idraulico impianti antincendio sprinkler"
       },
       "descriptionByLocale": {
         "it": "Pemsa è un’agenzia di placement leader in Svizzera, specializzata nei settori della costruzione, del genio civile, dell’elettricità, della tecnica dell’edificio e dell’industria. La nostra missione è fornire professionisti altamente qualificati che contribuiscano ai successi e alla crescita sostenibile dei nostri clienti. Grazie a una profonda conoscenza del mercato del lavoro svizzero e a un network esteso, Pemsa si distingue per l’accuratezza nella selezione e la qualità dei profili proposti, valorizzando sempre la collaborazione e lo sviluppo dei talenti. ## Missione:\n• Installazione completa di impianti antincendio sprinkler secondo normative svizzere vigenti.\n• Collaborazione con il team tecnico per l’installazione corretta degli impianti ## Profilo:\n• Esperienza minima di 5 anni in Svizzera nel montaggio di impianti antincendio sprinkler, garantendo una conoscenza approfondita delle normative e procedure locali.\n• Residenza entro 25 km dal luogo di lavoro per assicurare tempestività e presenza costante in cantiere.\n• Ottima padronanza della lingua italiana a livello madrelingua, per una comunicazione efficace con il team e i clienti.\n• Patente di guida valida in Svizzera , indispensabile per gli spostamenti tra cantieri.\n• Capacità comprovata di gestire autonomamente il montaggio a 360° di impianti sprinkler antincendio, dalla fase di preparazione fino al collaudo e consegna finale.\n• Affidabilità, precisione e orientamento al dettaglio, caratteristiche fondamentali per operare nel rispetto degli standard di sicurezza svizzeri. ## Ton interlocuteur/trice : Per questa posizione, sarai seguito/a da un consulente dedicato di Pemsa, che ti accompagnerà e supporterà durante tutto il processo di inserimento e sviluppo professionale. Offriamo un ambiente dinamico e motivante, in cui il tuo expertise tecnico sarà valorizzato e potrai crescere con progetti di avanguardia nel settore antincendio. Lavorare con Pemsa significa accedere a una rete di clienti affidabili e investire nel tuo sviluppo professionale tramite formazione continua e aggiornamenti specifici del settore. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
@@ -1027,7 +1088,7 @@
       "postedDate": "2026-06-18",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-07-03",
+      "validThrough": "2026-07-12",
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MONTATORE DI MOBILI/FALEGNAME\n\n## Missione :\n• Incarico TEMPORANEO di 2/3 giorni.\n• Montaggio di arredamenti (scrivanie, mobili, librerie, tavoli, sedie, ecc…).\n\n## Profilo :\n• Comprovata esperienza​​​​​ nel montaggio/assemblaggio di mobili e arredamenti.\n• Conoscenza delle attrezzature e delle tecniche di intervento.\n• Puntualità, affidabilità e flessibilità.\n• Ottima manualità.\n• Residenza in Ticino o nella zona di confine.\n• Disponibilità IMMEDIATA (dal 7 al 10 luglio).",
       "titleByLocale": {
         "it": "MONTATORE DI MOBILI/FALEGNAME",
@@ -1209,7 +1270,7 @@
       "titleByLocale": {
         "it": "CARPENTIERE EDILE",
         "en": "CONSTRUCTION CARPENTER",
-        "de": "BILDUNG",
+        "de": "CARPENTIERE EDILE",
         "fr": "MENUISIER DE CONSTRUCTION"
       },
       "descriptionByLocale": {
@@ -1240,7 +1301,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-06-17T13:31:13.135Z"
+      "firstSeenAt": "2026-06-17T13:31:13.135Z",
+      "needsRetranslation": true
     },
     {
       "title": "METALCOSTRUTTORE",
@@ -1980,7 +2042,7 @@
       "postedDate": "2026-06-12",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-06-27",
+      "validThrough": "2026-07-12",
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di ADDETTO/A PULIZIE ORDINARIE\n\n## Missione :\n• Incarico di massimo 14 giorni.\n• Pulizia ordinaria di locali, uffici ed immobili.\n• Pulizia su cantieri.\n• Uso di macchinari e attrezzature per il tipo di attività.\n\n## Profilo :\n• Pregressa esperienza nel settore pulizie, in Svizzera, da almeno 2 anni.\n• Residenza in Ticino o entro 30 km dal confine.\n• Patente B – automuniti.\n• DISPONIBILITÀ IMMEDIATA.",
       "titleByLocale": {
         "it": "ADDETTO/A PULIZIE ORDINARIE",
@@ -2579,7 +2641,7 @@
         "it": "IDRAULICO IMPIANTI RISCALDAMENTO",
         "en": "IMPLEMENTATIONS",
         "de": "DURCHFÜHRUNGEN",
-        "fr": "MISE EN ŒUVRE"
+        "fr": "IDRAULICO IMPIANTI RISCALDAMENTO"
       },
       "descriptionByLocale": {
         "it": "Pemsa è un’agenzia leader nel settore del reclutamento in Svizzera, specializzata nella fornitura di personale qualificato nei campi della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. La nostra expertise pluriennale ci consente di proporre soluzioni di staffing altamente mirate, garantendo ai nostri clienti professionalità, affidabilità e competenze tecniche di elevato standard. Con un approccio basato sull’ascolto attivo e il rispetto delle esigenze del mercato locale, Pemsa promuove la crescita sostenibile delle aziende e valorizza il capitale umano attraverso opportunità di carriera adeguate, contribuendo a creare ambienti di lavoro sereni e produttivi. ## Missione:\n• Posa impianti di riscaldamento a pavimento\n• Esperienza installazione centrali terimiche\n• Eperienza installazione pompe di calore ## Profilo:\n• Esperienza minima di 5 anni in Svizzera nel settore della costruzione o attività equivalenti, con comprovata competenza tecnica e pratica.\n• Residenza entro 20 km dal luogo di lavoro , garantendo così puntualità e riduzione dei tempi di spostamento.\n• Lingua madre italiana , essenziale per un’efficace comunicazione interna e per interfacciarsi con il team e la clientela.\n• Patente di guida valida per automezzi (patente categoria B), requisito obbligatorio per la mobilità nell’ambito lavorativo. ## Ton interlocuteur/trice : Il nostro team di consulenti dedicati è a tua completa disposizione per supportarti nell’inserimento professionale, offrendo un accompagnamento personalizzato e rispondendo a ogni tua domanda con competenza e tempestività. Con Pemsa avrai accesso a opportunità uniche nel contesto svizzero, valorizzando le tue esperienze e facilitando una crescita professionale continua in un ambiente di lavoro stimolante e qualificato. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
@@ -2591,7 +2653,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "mise-en-uvre-pemsa-torricella"
+        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -2610,6 +2672,14 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "mise-en-uvre-pemsa-torricella"
+        ]
+      },
+      "previousSlugs": [
+        "mise-en-uvre-pemsa-torricella"
+      ],
       "needsRetranslation": true
     },
     {
@@ -2672,15 +2742,15 @@
       "firstSeenAt": "2026-06-10T12:46:51.447Z"
     },
     {
-      "title": "COSTRUTTORE STRADALE",
-      "slug": "costruttore-stradale-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/costruttore-stradale-2678026/",
-      "applyUrl": "https://www.pemsa.ch/it/job/costruttore-stradale-2678026/",
+      "title": "QUADRISTA CABALTORE",
+      "slug": "quadrista-cabaltore-pemsa-mezzovico",
+      "url": "https://www.pemsa.ch/it/job/quadrista-cabaltore-2676561/",
+      "applyUrl": "https://www.pemsa.ch/it/job/quadrista-cabaltore-2676561/",
       "company": "PEMSA",
       "companyKey": "pemsa",
       "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
+      "location": "Mezzovico",
+      "addressLocality": "Mezzovico",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
@@ -2689,30 +2759,30 @@
       "sector": "Edilizia e tecnica",
       "source": "pemsa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-09",
+      "postedDate": "2026-05-29",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-06-24",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di COSTRUTTORE STRADALE\n\n## Missione :\n• Incarico interinale tramite agenzia\n• Diploma AFC\n• Pregressa esperienza nella mansione\n• Disponibilità immediata •\n\n## Profilo :\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
+      "validThrough": "2026-07-12",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE\n\n## Missione :\n• Incarico tramite agenzia di circa 1 mese.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B – automunito.",
       "titleByLocale": {
-        "it": "COSTRUTTORE STRADALE",
-        "en": "STRADAL CONSTRUCTION",
-        "de": "STRADALBAU",
-        "fr": "CONSTRUCTION STRADALE"
+        "it": "QUADRISTA CABALTORE",
+        "en": "QUADRISTA CABALTORE",
+        "de": "QUADRISTA CABALTORE",
+        "fr": "QUADRISTA CABALTORE"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di COSTRUTTORE STRADALE\n\n## Missione :\n• Incarico interinale tramite agenzia\n• Diploma AFC\n• Pregressa esperienza nella mansione\n• Disponibilità immediata •\n\n## Profilo :\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a COSTRUTTORE STRADALE in Lugano. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als COSTRUTTORE STRADALE in Lugano. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil COSTRUTTORE STRADALE à Lugano. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE\n\n## Missione :\n• Incarico tramite agenzia di circa 1 mese.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B – automunito.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a QUADRISTA CABALTORE in Mezzovico. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als QUADRISTA CABALTORE in Mezzovico. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil QUADRISTA CABALTORE à Mezzovico. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
       },
       "slugByLocale": {
-        "it": "costruttore-stradale-pemsa-lugano",
-        "en": "stradal-construction-pemsa-lugano",
-        "de": "stradalbau-pemsa-lugano",
-        "fr": "construction-stradale-pemsa-lugano"
+        "it": "quadrista-cabaltore-pemsa-mezzovico",
+        "en": "quadrista-cabaltore-pemsa-mezzovico",
+        "de": "quadrista-cabaltore-pemsa-mezzovico",
+        "fr": "quadrista-cabaltore-pemsa-mezzovico"
       },
-      "id": "pemsa-5f49b0dfbea2",
+      "id": "pemsa-dba48bf4a511",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2729,187 +2799,7 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-06-24T11:57:47.666Z",
-      "previousSlugs": [
-        "costruttore-stradale-pemsa-bellinzona"
-      ]
-    },
-    {
-      "title": "IMPERMEABILIZZATORI",
-      "slug": "impermeabilizzatori-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/impermeabilizzatori-2677997/",
-      "applyUrl": "https://www.pemsa.ch/it/job/impermeabilizzatori-2677997/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-09",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-24",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di impermeabilizzatore\n\n## Profilo :\n• ristrutturazione e rinforzo strutture portanti\n• riparazione del calcestruzzo / calcestruzzo proiettato\n• lavori di iniezione\n• rivestimenti in resina\n• impermeabilizzazione e rivestimenti strutturali\n• impermeabilizzazione con teli sintetici e bituminosi\n• formazione professionale completa nell’ambito dell’edilizia principale o secondaria\n• esperienza professionale sulle lavorazioni sopracitate\n• comprensione tecnica e disponibilità a seguire i nostri programmi di formazione continua\n• motivazione, impegno, capacità di lavorare in gruppo e apertura mentale\n• buona conoscenza orale/scritta della lingua italiana e patente di guida cat. B",
-      "titleByLocale": {
-        "it": "IMPERMEABILIZZATORI",
-        "en": "IMPERMEABLIZATION",
-        "de": "IMPERMEABLIZIERUNG",
-        "fr": "IMPERMEABLISATION"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di impermeabilizzatore ## Profilo :\n• ristrutturazione e rinforzo strutture portanti\n• riparazione del calcestruzzo / calcestruzzo proiettato\n• lavori di iniezione\n• rivestimenti in resina\n• impermeabilizzazione e rivestimenti strutturali\n• impermeabilizzazione con teli sintetici e bituminosi\n• formazione professionale completa nell’ambito dell’edilizia principale o secondaria\n• esperienza professionale sulle lavorazioni sopracitate\n• comprensione tecnica e disponibilità a seguire i nostri programmi di formazione continua\n• motivazione, impegno, capacità di lavorare in gruppo e apertura mentale\n• buona conoscenza orale/scritta della lingua italiana e patente di guida cat. B",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for waterproofing position Profile :\n• restructuring and reinforcement of supporting structures\n• concrete repair / projected concrete\n• injection jobs\n• resin coatings\n• waterproofing and structural coatings\n• waterproofing with synthetic and bituminous sheets\n• complete vocational training in the main or secondary building sector\n• professional experience on the above-mentioned processes\n• technical understanding and willingness to follow our continuing training programmes\n• motivation, commitment, ability to work in group and mental openness\n• good oral/written knowledge of the Italian language and driver's license. B",
-        "de": "Wollen Sie die Freiheit der Leiharbeit und die Sicherheit einer Dauerarbeit? Seit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für die Abdichtung Position bei Profil :\n• Umstrukturierung und Stärkung der unterstützenden Strukturen\n• Betonreparatur/Projektbeton\n• Injektionsjobs\n• Harzbeschichtungen\n• Abdichtung und strukturelle Beschichtungen\n• Abdichtung mit synthetischen und bituminösen Platten\n• Vollständige Berufsausbildung im Haupt- oder Sekundärgebäudesektor\n• Berufserfahrung in den oben genannten Prozessen\n• technisches Verständnis und Bereitschaft, unsere Weiterbildungsprogramme zu verfolgen\n• Motivation, Engagement, Fähigkeit, in der Gruppe zu arbeiten und geistige Offenheit\n• gute mündliche/schriftliche Kenntnisse der italienischen Sprache und des Führerscheins. B",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour l'étanchéité position Profil :\n• restructuration et renforcement des structures d'appui\n• réparation de béton / béton projeté\n• travaux d'injection\n• revêtements en résine\n• étanchéité et revêtements structuraux\n• Imperméabilisation avec des feuilles synthétiques et bitumineuses\n• formation professionnelle complète dans le secteur du bâtiment principal ou secondaire\n• Expérience professionnelle des processus susmentionnés\n• compréhension technique et volonté de suivre nos programmes de formation continue\n• motivation, engagement, capacité de travailler en groupe et ouverture mentale\n• bonne connaissance orale/écrite de la langue italienne et du permis de conduire. B"
-      },
-      "slugByLocale": {
-        "it": "impermeabilizzatori-pemsa-locarno",
-        "en": "impermeablization-pemsa-locarno",
-        "de": "impermeablizierung-pemsa-locarno",
-        "fr": "impermeablisation-pemsa-locarno"
-      },
-      "id": "pemsa-b42dd3436cad",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-09T12:03:43.610Z"
-    },
-    {
-      "title": "PITTORE",
-      "slug": "pittore-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/pittore-2677991/",
-      "applyUrl": "https://www.pemsa.ch/it/job/pittore-2677991/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-09",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-24",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di pittore\n\n## Missione :\n• missione nel Sopraceneri\n\n## Profilo :\n• pluriennale esperienza nel settore della pittura\n• conoscenza e utilizzo di tutti i materiali\n• richiesta velocità di esecuzione e autonomia nel lavoro svolto\n• disponibilità immediata\n• automunito",
-      "titleByLocale": {
-        "it": "PITTORE",
-        "en": "PAINTER",
-        "de": "Maler",
-        "fr": "Peintre"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di pittore ## Missione :\n• missione nel Sopraceneri ## Profilo :\n• pluriennale esperienza nel settore della pittura\n• conoscenza e utilizzo di tutti i materiali\n• richiesta velocità di esecuzione e autonomia nel lavoro svolto\n• disponibilità immediata\n• automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the location of painter Mission:\n• mission in the Sopraceneri Profile :\n• multiannual experience in the painting industry\n• knowledge and use of all materials\n• request speed of execution and autonomy in the work carried out\n• immediate availability\n• self-immune",
-        "de": "Wollen Sie die Freiheit der Leiharbeit und die Sicherheit einer Dauerarbeit? Seit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für den Ort des Malers bei Mission:\n• Mission in den Sopraceneri Profil :\n• Mehrjährige Erfahrung in der Malindustrie\n• Kenntnis und Verwendung aller Materialien\n• Anforderung von Ausführungsgeschwindigkeit und Autonomie bei der ausgeführten Arbeit\n• sofortige Verfügbarkeit\n• Selbstimmunität",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour l'emplacement du peintre Mission :\n• mission dans le Sopraceneri Profil :\n• expérience pluriannuelle dans l'industrie de la peinture\n• connaissance et utilisation de tous les matériaux\n• demander la rapidité d'exécution et l'autonomie dans le travail effectué\n• disponibilité immédiate\n• auto-immune"
-      },
-      "slugByLocale": {
-        "it": "pittore-pemsa-locarno",
-        "en": "painter-pemsa-locarno",
-        "de": "maler-pemsa-locarno",
-        "fr": "peintre-pemsa-locarno"
-      },
-      "id": "pemsa-ed18968be59d",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-09T12:03:43.610Z"
-    },
-    {
-      "title": "IDRAULICO",
-      "slug": "idraulico-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/idraulico-2677985/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-2677985/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-09",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-24",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di idraulico\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n• Esperienza su cantieri svizzeri\n• Capacità di lavoro in squadra\n• Installazione in autonomia di impianti di riscaldamento e sanitari\n• Verifica del corretto funzionamento degli impianti e rispetto delle normative di sicurezza.\n• Abilità nell’utilizzo di strumenti e apparecchiature per la lavorazione delle tubature\n• Lettura e interpretazione di schemi e disegni tecnici\n• Disponibilità immediata\n• Flessibile a spostamenti\n• Automunito",
-      "titleByLocale": {
-        "it": "IDRAULICO",
-        "en": "IDRAULATION",
-        "de": "IDRAULIERUNG",
-        "fr": "IDRAULEMENT"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di idraulico ## Missione :\n• missione lunga durata nel Sopraceneri ## Profilo :\n• Esperienza su cantieri svizzeri\n• Capacità di lavoro in squadra\n• Installazione in autonomia di impianti di riscaldamento e sanitari\n• Verifica del corretto funzionamento degli impianti e rispetto delle normative di sicurezza.\n• Abilità nell’utilizzo di strumenti e apparecchiature per la lavorazione delle tubature\n• Lettura e interpretazione di schemi e disegni tecnici\n• Disponibilità immediata\n• Flessibile a spostamenti\n• Automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you're a motivated and enthusiastic person, join the clan for hydraulic position Mission:\n• Long-term mission in Sopraceneri Profile :\n• Experience on Swiss shipyards\n• Teamwork capacity\n• Independent installation of heating and sanitary facilities\n• Verification of correct operation of plants and compliance with safety regulations.\n• Ability to use tools and equipment for pipe processing\n• Reading and interpreting technical patterns and drawings\n• Immediate availability\n• Flexible to move\n• Automunito",
-        "de": "Wollen Sie die Freiheit der Leiharbeit und die Sicherheit einer Dauerarbeit? Seit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für hydraulische Position bei Mission:\n• Langzeitmission in Sopraceneri Profil :\n• Erfahrungen auf Schweizer Werften\n• Teamfähigkeit\n• Unabhängige Installation von Heizungs- und Sanitäranlagen\n• Überprüfung des korrekten Betriebs der Anlagen und der Einhaltung der Sicherheitsvorschriften.\n• Fähigkeit, Werkzeuge und Ausrüstung für die Rohrverarbeitung zu verwenden\n• Lesen und Interpretieren von technischen Mustern und Zeichnungen\n• Sofortige Verfügbarkeit\n• Flexibel zum Bewegen\n• Automunito",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position hydraulique Mission :\n• Mission à long terme à Sopraceneri Profil :\n• Expérience des chantiers navals suisses\n• Capacité de travail d'équipe\n• Installation indépendante d'installations sanitaires et de chauffage\n• Vérification du bon fonctionnement des installations et du respect des règles de sécurité.\n• Capacité d'utiliser des outils et du matériel pour le traitement des tuyaux\n• Lecture et interprétation des schémas et dessins techniques\n• Disponibilité immédiate\n• Flexible pour se déplacer\n• Automunito"
-      },
-      "slugByLocale": {
-        "it": "idraulico-pemsa-locarno",
-        "en": "idraulation-pemsa-locarno",
-        "de": "idraulierung-pemsa-locarno",
-        "fr": "idraulement-pemsa-locarno"
-      },
-      "id": "pemsa-4c44a1e77c78",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-09T12:03:43.610Z"
+      "firstSeenAt": "2026-06-24T22:37:54.074Z"
     },
     {
       "title": "IDRAULICO AFC Riscaldamenti e/o Sanitari",
@@ -2969,6 +2859,66 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-21T12:58:58.143Z"
+    },
+    {
+      "title": "FABBRO/SALDATORE/METALCOSTRUTTORE",
+      "slug": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/fabbro-saldatore-metalcostruttore-2675601/",
+      "applyUrl": "https://www.pemsa.ch/it/job/fabbro-saldatore-metalcostruttore-2675601/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "metallo",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-19",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-12",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di FABBRO/SALDATORE/METALCOSTRUTTORE\n\n## Missione :\n• Incarico temporaneo tramite agenzia.\n• Preparazione/assemblaggio/saldatura di carpenteria leggera e medio/pesante.\n\n## Profilo :\n• Esperienza di almeno 2 anni come fabbro/saldatore/metalcostruttore.\n• Comprovate capacità nella costruzione/sviluppo/assemblaggio di carpenterie metalliche.\n• Ottima capacità di saldare a MAG in piena penetrazione (TIG costituirà titolo preferenziale).\n• Conoscenza del disegno tecnico.\n• Completa autonomia nel lavoro da svolgere.\n• Patente B – automunito.\n• Residenza in Ticino o nella fascia di confine.",
+      "titleByLocale": {
+        "it": "FABBRO/SALDATORE/METALCOSTRUTTORE",
+        "en": "FABBRO/SALDATORE/METALCOSTRUTTORE",
+        "de": "FABBRO/SALDATORE/METALCOSTRUTTORE",
+        "fr": "FABBRO/SALDATORE/METALCOSTRUTTORE"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di FABBRO/SALDATORE/METALCOSTRUTTORE\n\n## Missione :\n• Incarico temporaneo tramite agenzia.\n• Preparazione/assemblaggio/saldatura di carpenteria leggera e medio/pesante.\n\n## Profilo :\n• Esperienza di almeno 2 anni come fabbro/saldatore/metalcostruttore.\n• Comprovate capacità nella costruzione/sviluppo/assemblaggio di carpenterie metalliche.\n• Ottima capacità di saldare a MAG in piena penetrazione (TIG costituirà titolo preferenziale).\n• Conoscenza del disegno tecnico.\n• Completa autonomia nel lavoro da svolgere.\n• Patente B – automunito.\n• Residenza in Ticino o nella fascia di confine.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a FABBRO/SALDATORE/METALCOSTRUTTORE in Bellinzona. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als FABBRO/SALDATORE/METALCOSTRUTTORE in Bellinzona. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil FABBRO/SALDATORE/METALCOSTRUTTORE à Bellinzona. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
+        "en": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
+        "de": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
+        "fr": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona"
+      },
+      "id": "pemsa-0968a19dbc2e",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-24T22:37:54.074Z"
     },
     {
       "title": "Idraulico Imp. Sanitari",
@@ -3254,65 +3204,6 @@
         "fr": "installation-hydraulique-pemsa-agno"
       },
       "id": "pemsa-f1e2edd64712",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-11T22:43:47.219Z"
-    },
-    {
-      "title": "Idraulico",
-      "slug": "idraulico-pemsa-grancia",
-      "url": "https://www.pemsa.ch/it/job/idraulico-2674342/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-2674342/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Grancia",
-      "addressLocality": "Grancia",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-11",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-24",
-      "description": "Pemsa è il partner leader nel settore del placement in Svizzera specializzato nei comparti dell’edilizia, ingegneria civile, elettricità, tecnologia degli edifici e industria. Con un’esperienza pluriennale e una rete consolidata di professionisti qualificati, Pemsa si distingue per la capacità di far incontrare domanda e offerta di lavoro con elevati standard di qualità e precisione tecnica. La nostra missione è supportare aziende e candidati con soluzioni personalizzate, valorizzando le competenze specifiche e promuovendo lo sviluppo professionale attraverso un approccio consulenziale e di Employee Advocacy. Grazie al nostro impegno costante nell’aggiornamento tecnico e normativo, garantiamo un accompagnamento affidabile e mirato, che contribuisce al successo dei progetti e alla crescita sostenibile dei nostri collaboratori.\n\n## Missione:\n• Installazione e posa di impianti sanitari rispettando le normative tecniche e di sicurezza vigenti in Svizzera.\n• Montaggio e regolazione di sistemi di riscaldamento, garantendo l’efficienza energetica e la funzionalità degli impianti.\n• Collaborazione con il team tecnico per interpretare correttamente i disegni esecutivi e i progetti impiantistici.\n• Assicurare la manutenzione ordinaria e straordinaria degli impianti installati, contribuendo alla loro longevità e performance ottimale.\n• Interfacciarsi con i clienti per garantire la corretta realizzazione dei lavori e il rispetto delle tempistiche del cantiere.\n\n## Profilo:\n• Esperienza minima di 3 anni in Svizzera nel settore della posa di impianti sanitari e di riscaldamento, con conoscenza approfondita delle normative locali.\n• Residenza entro 25 km dal luogo di lavoro per ottimizzare la disponibilità e la puntualità in cantiere.\n• Padronanza della lingua italiana a livello madrelingua , indispensabile per una comunicazione efficace con il team e i clienti.\n• Patente di guida auto valida in Svizzera , necessaria per raggiungere i diversi cantieri dislocati nel territorio.\n• Competenze tecniche comprovate nella posa di impianti sanitari e nella rubinetteria , garantendo installazioni sicure e conformi agli standard qualitativi svizzeri.\n• Esperienza nella posa di impianti di riscaldamento , inclusa la capacità di regolare e testare i sistemi per assicurare il funzionamento ottimale.\n• Conoscenza approfondita dei materiali impiegati (2 – utile), per selezionare i componenti più idonei e durevoli.\n• Capacità di lettura del disegno tecnico (2 – utile), fondamentale per una corretta interpretazione dei progetti e per un’installazione precisa.\n\n## Ton interlocuteur/trice :\nIl nostro team di consulenti specializzati in Pemsa è a disposizione per accompagnarti con professionalità e attenzione personalizzata in ogni fase del processo di selezione. Sappiamo quanto sia importante trovare una posizione che rispetti le tue competenze tecniche e valorizzi il tuo profilo. Per questo ti garantiamo una comunicazione trasparente e un supporto continuo, dal primo contatto fino all’inserimento in azienda.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "Idraulico",
-        "en": "Hydraulic",
-        "de": "Hydraulik",
-        "fr": "Hydraulique"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa è il partner leader nel settore del placement in Svizzera specializzato nei comparti dell’edilizia, ingegneria civile, elettricità, tecnologia degli edifici e industria. Con un’esperienza pluriennale e una rete consolidata di professionisti qualificati, Pemsa si distingue per la capacità di far incontrare domanda e offerta di lavoro con elevati standard di qualità e precisione tecnica. La nostra missione è supportare aziende e candidati con soluzioni personalizzate, valorizzando le competenze specifiche e promuovendo lo sviluppo professionale attraverso un approccio consulenziale e di Employee Advocacy. Grazie al nostro impegno costante nell’aggiornamento tecnico e normativo, garantiamo un accompagnamento affidabile e mirato, che contribuisce al successo dei progetti e alla crescita sostenibile dei nostri collaboratori. ## Missione:\n• Installazione e posa di impianti sanitari rispettando le normative tecniche e di sicurezza vigenti in Svizzera.\n• Montaggio e regolazione di sistemi di riscaldamento, garantendo l’efficienza energetica e la funzionalità degli impianti.\n• Collaborazione con il team tecnico per interpretare correttamente i disegni esecutivi e i progetti impiantistici.\n• Assicurare la manutenzione ordinaria e straordinaria degli impianti installati, contribuendo alla loro longevità e performance ottimale.\n• Interfacciarsi con i clienti per garantire la corretta realizzazione dei lavori e il rispetto delle tempistiche del cantiere. ## Profilo:\n• Esperienza minima di 3 anni in Svizzera nel settore della posa di impianti sanitari e di riscaldamento, con conoscenza approfondita delle normative locali.\n• Residenza entro 25 km dal luogo di lavoro per ottimizzare la disponibilità e la puntualità in cantiere.\n• Padronanza della lingua italiana a livello madrelingua , indispensabile per una comunicazione efficace con il team e i clienti.\n• Patente di guida auto valida in Svizzera , necessaria per raggiungere i diversi cantieri dislocati nel territorio.\n• Competenze tecniche comprovate nella posa di impianti sanitari e nella rubinetteria , garantendo installazioni sicure e conformi agli standard qualitativi svizzeri.\n• Esperienza nella posa di impianti di riscaldamento , inclusa la capacità di regolare e testare i sistemi per assicurare il funzionamento ottimale.\n• Conoscenza approfondita dei materiali impiegati (2 – utile), per selezionare i componenti più idonei e durevoli.\n• Capacità di lettura del disegno tecnico (2 – utile), fondamentale per una corretta interpretazione dei progetti e per un’installazione precisa. ## Ton interlocuteur/trice : Il nostro team di consulenti specializzati in Pemsa è a disposizione per accompagnarti con professionalità e attenzione personalizzata in ogni fase del processo di selezione. Sappiamo quanto sia importante trovare una posizione che rispetti le tue competenze tecniche e valorizzi il tuo profilo. Per questo ti garantiamo una comunicazione trasparente e un supporto continuo, dal primo contatto fino all’inserimento in azienda. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa is the leading provider of placement in Switzerland, specialized in building, civil engineering, electricity, building technology and industry. With a multi-year experience and a well-established network of qualified professionals, Pemsa stands out for the ability to meet demand and job offer with high quality standards and technical precision. Our mission is to support companies and candidates with customized solutions, enhancing specific skills and promoting professional development through a consulting approach and Employee Advocacy. Thanks to our constant commitment to technical and regulatory updating, we guarantee a reliable and targeted accompaniment, which contributes to the success of the projects and the sustainable growth of our employees. Mission:\n• Installation and installation of sanitary facilities in compliance with the technical and safety regulations in force in Switzerland.\n• Installation and adjustment of heating systems, ensuring the energy efficiency and functionality of the plants.\n• Collaboration with the technical team to correctly interpret executive designs and plant designs.\n• Ensure the ordinary and extraordinary maintenance of the installed plants, contributing to their optimal longevity and performance.\n• Interface with customers to ensure the correct realization of the works and the respect of the timing of the yard. Profile:\n• Minimum experience of 3 years in Switzerland in the field of laying sanitary and heating systems, with in-depth knowledge of local regulations.\n• Residence within 25 km from the workplace to optimize availability and punctuality on site.\n• Italian language teaching mother tongue, essential for effective communication with team and customers.\n• Car driving licence valid in Switzerland, necessary to reach the different sites located in the territory.\n• Proven technical skills in the installation of sanitary facilities and taps, guaranteeing safe installations and compliance with Swiss quality standards.\n• Experience in laying heating systems, including the ability to adjust and test systems to ensure optimum operation.\n• In-depth knowledge of materials used (2 – useful), to select the most suitable and durable components.\n• Ability to read the technical design (2 – useful), essential for a correct interpretation of the projects and for a precise installation. Ton interlocuteur/trice: Our team of consultants specializing in Pemsa is available to accompany you with professionalism and personalized attention at every stage of the selection process. We know how important it is to find a position that respects your technical skills and value your profile. This is why we guarantee you transparent communication and continuous support, from the first contact to the company. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "de": "Pemsa ist der führende Anbieter von Niederlassungen in der Schweiz, spezialisiert auf Gebäude, Bauingenieurwesen, Strom, Bautechnik und Industrie. Mit einer mehrjährigen Erfahrung und einem etablierten Netzwerk von qualifizierten Fachleuten zeichnet sich Pemsa für die Fähigkeit aus, Anforderungen und Jobangebot mit hohen Qualitätsstandards und technischer Präzision zu erfüllen. Unsere Mission ist es, Unternehmen und Kandidaten mit maßgeschneiderten Lösungen zu unterstützen, spezifische Fähigkeiten zu verbessern und professionelle Entwicklung durch einen Beratungsansatz und Mitarbeitervertretung zu fördern. Durch unser ständiges Engagement für die technische und regulatorische Aktualisierung garantieren wir eine zuverlässige und gezielte Begleitung, die zum Erfolg der Projekte und zum nachhaltigen Wachstum unserer Mitarbeiter beiträgt. Mission:\n• Installation und Installation von Sanitäranlagen in Übereinstimmung mit den in der Schweiz geltenden technischen und sicherheitstechnischen Vorschriften.\n• Installation und Einstellung von Heizsystemen, um die Energieeffizienz und Funktionalität der Anlagen zu gewährleisten.\n• Zusammenarbeit mit dem technischen Team, um Executive Designs und Anlagendesigns richtig zu interpretieren.\n• Gewährleistung der ordentlichen und außergewöhnlichen Wartung der installierten Anlagen und trägt zu ihrer optimalen Langlebigkeit und Leistung bei.\n• Schnittstelle mit Kunden, um die korrekte Realisierung der Werke und die Einhaltung des Timings der Werft zu gewährleisten. Profil:\n• Mindesterfahrung von 3 Jahren in der Schweiz auf dem Gebiet der Verlegung von Sanitär- und Heizanlagen, mit eingehender Kenntnis der lokalen Vorschriften.\n• Residence innerhalb von 25 km vom Arbeitsplatz entfernt, um die Verfügbarkeit und die Pünktlichkeit vor Ort zu optimieren.\n• Italienische Sprache Unterricht Muttersprache, wesentlich für eine effektive Kommunikation mit Team und Kunden.\n• Autofahrschein gültig in der Schweiz, notwendig, um die verschiedenen Standorte im Gebiet zu erreichen.\n• Bewährte technische Fähigkeiten bei der Installation von Sanitäranlagen und Armaturen, Gewährleistung sicherer Installationen und Einhaltung von Schweizer Qualitätsstandards.\n• Erfahrung in der Verlegung von Heizsystemen, einschließlich der Fähigkeit, Systeme einzustellen und zu testen, um einen optimalen Betrieb zu gewährleisten.\n• Tiefe Kenntnisse der verwendeten Materialien (2 – nützlich), um die am besten geeigneten und langlebigen Komponenten auszuwählen.\n• Fähigkeit, das technische Design zu lesen (2 – nützlich), wesentlich für eine korrekte Interpretation der Projekte und für eine präzise Installation. Ton interlocuteur/tric: Unser auf Pemsa spezialisiertes Beraterteam steht Ihnen in jeder Phase des Auswahlprozesses mit Professionalität und personalisierter Aufmerksamkeit zur Verfügung. Wir wissen, wie wichtig es ist, eine Position zu finden, die Ihre technischen Fähigkeiten respektiert und Ihr Profil bewertet. Deshalb garantieren wir Ihnen transparente Kommunikation und kontinuierliche Unterstützung, vom ersten Kontakt zum Unternehmen. Nous ne répondrons qu’aux candidatures dont le profil has au descriptif demandé.",
-        "fr": "Pemsa est le principal fournisseur de placements en Suisse, spécialisé dans le bâtiment, le génie civil, l'électricité, la technologie du bâtiment et l'industrie. Avec une expérience pluriannuelle et un réseau bien établi de professionnels qualifiés, Pemsa se distingue par sa capacité à répondre à la demande et à l'offre d'emploi avec des normes de qualité et une précision technique élevées. Notre mission est de soutenir les entreprises et les candidats avec des solutions personnalisées, d'améliorer les compétences spécifiques et de promouvoir le développement professionnel par une approche de consultation et de plaidoyer des employés. Grâce à notre engagement constant en matière de mise à jour technique et réglementaire, nous garantissons un accompagnement fiable et ciblé, qui contribue au succès des projets et à la croissance durable de nos collaborateurs. Mission :\n• Installation et installation d'installations sanitaires conformes aux réglementations techniques et de sécurité en vigueur en Suisse.\n• Installation et réglage des systèmes de chauffage, garantissant l'efficacité énergétique et la fonctionnalité des installations.\n• Collaboration avec l'équipe technique pour interpréter correctement les conceptions exécutives et les conceptions d'usines.\n• Assurer l'entretien ordinaire et extraordinaire des installations installées, contribuant ainsi à leur longévité et à leur performance optimales.\n• Interface avec les clients pour assurer la réalisation correcte des travaux et le respect du calendrier du chantier. Profil :\n• Expérience minimale de 3 ans en Suisse dans le domaine de la pose de systèmes sanitaires et de chauffage, avec une connaissance approfondie des réglementations locales.\n• Résidence à moins de 25 km du lieu de travail pour optimiser la disponibilité et la ponctualité sur place.\n• L'enseignement de la langue maternelle en italien, essentiel pour une communication efficace avec l'équipe et les clients.\n• Permis de conduire en Suisse, nécessaire pour atteindre les différents sites situés sur le territoire.\n• Compétences techniques éprouvées dans l'installation d'installations sanitaires et de robinets, garantissant la sécurité des installations et le respect des normes de qualité suisses.\n• Expérience dans la pose des systèmes de chauffage, y compris la capacité d'ajuster et de tester les systèmes pour assurer un fonctionnement optimal.\n• Connaissance approfondie des matériaux utilisés (2 – utiles), pour sélectionner les composants les plus adaptés et durables.\n• Capacité à lire la conception technique (2 – utiles), essentielle pour une interprétation correcte des projets et pour une installation précise. Ton interlocuteur/chaîne: Notre équipe de consultants spécialisés à Pemsa est disponible pour vous accompagner avec professionnalisme et une attention personnalisée à chaque étape du processus de sélection. Nous savons combien il est important de trouver une position qui respecte vos compétences techniques et valorise votre profil. C'est pourquoi nous vous garantissons une communication transparente et un soutien continu, du premier contact à l'entreprise. Nous ne répondrons qu'aux candidatures dont le profil correspond au descriptif demandé."
-      },
-      "slugByLocale": {
-        "it": "idraulico-pemsa-grancia",
-        "en": "hydraulic-pemsa-grancia",
-        "de": "hydraulik-pemsa-grancia",
-        "fr": "hydraulique-pemsa-grancia"
-      },
-      "id": "pemsa-6e7c3ab2e05b",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3744,6 +3635,66 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-02T00:50:05.990Z"
+    },
+    {
+      "title": "MURATORE/OPERAIO EDILE B",
+      "slug": "muratore-operaio-edile-b-pemsa-lugano",
+      "url": "https://www.pemsa.ch/it/job/muratore-operaio-edile-b-2653080/",
+      "applyUrl": "https://www.pemsa.ch/it/job/muratore-operaio-edile-b-2653080/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2025-12-24",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-12",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MURATORE/OPERAIO EDILE B\n\n## Missione :\n• Incarico interinale (max 14 giorni) tramite agenzia.\n• Lavori di muratura, costruzioni, demolizioni, canalizzazioni, scavi, ristrutturazioni.\n• Utilizzo attrezzature di cantiere.\n\n## Profilo :\n• Pluriennale esperienza maturata su cantieri o nella ristrutturazione di immobili.\n• Conoscenza nella preparazione dei materiali.\n• Lavori in totale autonomia.\n• Utilizzo attrezzature da cantiere.\n• Residenza in Ticino o nelle zone di confine.\n• Patente B.",
+      "titleByLocale": {
+        "it": "MURATORE/OPERAIO EDILE B",
+        "en": "MURATORE/OPERAIO EDILE B",
+        "de": "MURATORE/OPERAIO EDILE B",
+        "fr": "MURATORE/OPERAIO EDILE B"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MURATORE/OPERAIO EDILE B\n\n## Missione :\n• Incarico interinale (max 14 giorni) tramite agenzia.\n• Lavori di muratura, costruzioni, demolizioni, canalizzazioni, scavi, ristrutturazioni.\n• Utilizzo attrezzature di cantiere.\n\n## Profilo :\n• Pluriennale esperienza maturata su cantieri o nella ristrutturazione di immobili.\n• Conoscenza nella preparazione dei materiali.\n• Lavori in totale autonomia.\n• Utilizzo attrezzature da cantiere.\n• Residenza in Ticino o nelle zone di confine.\n• Patente B.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a MURATORE/OPERAIO EDILE B in Lugano. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als MURATORE/OPERAIO EDILE B in Lugano. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil MURATORE/OPERAIO EDILE B à Lugano. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "muratore-operaio-edile-b-pemsa-lugano",
+        "en": "muratore-operaio-edile-b-pemsa-lugano",
+        "de": "muratore-operaio-edile-b-pemsa-lugano",
+        "fr": "muratore-operaio-edile-b-pemsa-lugano"
+      },
+      "id": "pemsa-3568ca27e1dc",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-24T22:37:54.074Z"
     },
     {
       "title": "Elettrotecnico per sistemi di allarme",
