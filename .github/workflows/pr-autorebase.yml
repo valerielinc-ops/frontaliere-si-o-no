@@ -87,13 +87,28 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # Primary identity = GitHub App installation token (`<app>[bot]`): auto-mints,
+      # no expiry to babysit, and its events re-trigger downstream workflows (no
+      # GITHUB_TOKEN anti-recursion). Sets env.APP_TOKEN; on missing App creds it
+      # warns + sets nothing → the steps below fall back to env.GITHUB_PAT.
+      # PR #2855 follow-up: first workflow migrated to the App (validates that an
+      # App-pushed branch re-triggers tests and is NOT action_required-gated).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # Token-down = degrado silenzioso a catena del loop autonomo (merge senza
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert PAT-down (dedup, zero-Claude)
-        if: env.GITHUB_PAT == ''
+      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT (e' la cosa rotta). Scatta solo se
+      # NESSUN token usabile (né App né PAT).
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -102,17 +117,17 @@ jobs:
 
       - name: Rebase near-merge PRs (deterministic, no Claude)
         env:
-          # PAT OBBLIGATORIO: serve per pushare il rebase E per `gh workflow run
-          # tests.yml` (scope actions:write). NON ci affidiamo più al push per
-          # ri-triggerare i workflow (un push PAT su branch PR non triggera
-          # `pull_request` in modo affidabile) — vitest viene dispatchato
-          # esplicitamente; l'LGTM lo porta avanti auto-merge-eval. Zero Claude.
-          GH_TOKEN: ${{ env.GITHUB_PAT }}
+          # Identità di push/dispatch: App token (primario) → PAT (fallback). Serve
+          # per pushare il rebase E per `gh workflow run tests.yml` (scope
+          # actions:write — l'App ce l'ha). Un push via App/PAT ri-triggera i
+          # workflow (no anti-ricorsione GITHUB_TOKEN); vitest è comunque
+          # dispatchato esplicitamente, l'LGTM lo porta avanti auto-merge-eval.
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::warning::GITHUB_PAT assente → autorebase inerte (serve per push + dispatch tests.yml)."
+            echo "::warning::Nessun token usabile (App/PAT assenti) → autorebase inerte (serve per push + dispatch tests.yml)."
             exit 0
           fi
           if [ "${DRY_RUN:-false}" = "true" ]; then
