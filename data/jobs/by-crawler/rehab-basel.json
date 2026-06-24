@@ -1097,9 +1097,9 @@
     },
     {
       "id": "rehab-basel-15944532884d",
-      "slug": "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel",
+      "slug": "diplomata-pflegefachperson-80-100-stazione-sap-lunedi-mercoledi-giorno-rehab-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel",
+        "it": "diplomata-pflegefachperson-80-100-stazione-sap-lunedi-mercoledi-giorno-rehab-basel-basel",
         "en": "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel",
         "de": "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel",
         "fr": "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel"
@@ -1155,7 +1155,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel"
+      ]
     }
   ]
 }

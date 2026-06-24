@@ -1135,7 +1135,6 @@
         "medecin-principal-psychiatrische-dienste-graubunden-cazis",
         "medecin-principal-psychiatrische-dienste-graubunden-chur-3c5f7d",
         "medecin-principal-psychiatrische-dienste-graubunden-chur",
-        "oberarztin-oberarzt-pdgr-ch",
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
@@ -1793,7 +1792,7 @@
       "id": "pdgr-d2d0c50f1811",
       "slug": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
-        "it": "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
+        "it": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "resident-psychiatrist-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-cazis-chur",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur"
@@ -1848,7 +1847,8 @@
         ],
         "it": [
           "assistenzarztin-assistenzarzt-pdgr-ch",
-          "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur"
+          "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur",
+          "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur"
@@ -1861,6 +1861,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
         "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur",
+        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
         "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
@@ -1870,8 +1871,7 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
         "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "operatore-socio-sanitario-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-        "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur",
-        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
+        "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-19T23:09:39.059Z",
       "salaryMin": 57500,
@@ -2333,7 +2333,6 @@
         "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "operatore-socio-sanitario-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur",
-        "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-23T11:27:47.548Z",
@@ -2405,8 +2404,7 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
-        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis",
-        "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2889,8 +2887,6 @@
         "personale-cucina-psychiatrische-dienste-graubunden-cazis",
         "personnel-cuisine-psychiatrische-dienste-graubunden-cazis",
         "mitarbeiter-in-hotellerie-pdgr-ch-3",
-        "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
         "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {

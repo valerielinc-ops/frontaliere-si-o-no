@@ -198,12 +198,10 @@
         "cliente-associato-ubs-ticino-29b88b",
         "client-associe-ubs-ticino-29b88b",
         "client-associate-ubs-3",
-        "cliente-associato-registrato-ubs-ticino",
         "client-associate-registered-ubs",
         "associe-client-enregistre-ubs-ticino",
         "cliente-associato-registrato-ubs-ticino-633ac5",
         "cliente-associato-registrato-ubs-ticino-e43e90",
-        "client-enregistre-associe-ubs-ticino",
         "registered-client-associate-ubs-3",
         "registered-client-associate-ubs-4",
         "client-enregistre-associe-ubs-ticino-e43e90",
@@ -986,11 +984,11 @@
     },
     {
       "id": "ubs-7e9ba6a10ea2",
-      "slug": "business-risk-partner-gwm-us-marketing-ubs",
+      "slug": "partner-per-il-rischio-aziendale-gwm-marketing-statunitense-ubs-ticino",
       "slugByLocale": {
         "en": "business-risk-partner-gwm-us-marketing-ubs",
-        "it": "business-risk-partner-gwm-us-marketing-ubs",
-        "de": "business-risk-partner-gwm-us-marketing-ubs",
+        "it": "partner-per-il-rischio-aziendale-gwm-marketing-statunitense-ubs-ticino",
+        "de": "geschaftsrisikopartner-gwm-us-marketing-ubs-ticino",
         "fr": "partenaire-de-risque-commercial-gwm-us-marketing-ubs-ticino"
       },
       "company": "UBS",
@@ -1053,7 +1051,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T23:21:45.025Z"
+      "firstSeenAt": "2026-06-23T23:21:45.025Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-risk-partner-gwm-us-marketing-ubs"
+        ],
+        "de": [
+          "business-risk-partner-gwm-us-marketing-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "business-risk-partner-gwm-us-marketing-ubs"
+      ]
     },
     {
       "id": "ubs-2874f41f4628",

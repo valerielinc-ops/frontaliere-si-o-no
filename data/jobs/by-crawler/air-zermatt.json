@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
-      "slug": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
+      "slug": "borsa-di-studio-atc-fondazione-svizzera-sherpa-air-zermatt-ag-raron",
       "slugByLocale": {
-        "it": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
+        "it": "borsa-di-studio-atc-fondazione-svizzera-sherpa-air-zermatt-ag-raron",
         "en": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "de": "stipendium-atc-swiss-sherpa-foundation-air-zermatt",
         "fr": "bourse-atc-fondation-suisse-sherpa-air-zermatt-ag-raron"
@@ -60,7 +60,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt"
+      ]
     }
   ]
 }
