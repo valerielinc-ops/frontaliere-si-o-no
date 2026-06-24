@@ -49,6 +49,7 @@ detectLang,
 import { isTargetSwissLocation, isKnownSwissCity, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -390,9 +391,6 @@ function extractTitleFromUrl(url) {
 }
 
 /* ── Merge into jobs.json ──────────────────────────────────── */
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
-}
 
 function mergeManorJobs(discoveredJobs) {
   let allJobs = [];

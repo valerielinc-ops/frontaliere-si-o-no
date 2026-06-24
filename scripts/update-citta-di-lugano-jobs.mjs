@@ -51,6 +51,7 @@ import {
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
 import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -148,9 +149,6 @@ async function fetchJobs() {
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
-}
 
 function jobMatchKey(job = {}) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();

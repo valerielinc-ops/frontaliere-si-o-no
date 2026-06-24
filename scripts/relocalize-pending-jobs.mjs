@@ -35,6 +35,7 @@ import { captureLostSlugs, normalizeForLengthComparison } from './lib/dedicated-
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, readRunStartMs } from './lib/translate-run-clock.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -693,7 +694,7 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
   }
 
   if (updated > 0) {
-    fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(crawlerFilePath, crawlerData);
   }
 
   return { updated, handledSlugs };
@@ -734,7 +735,7 @@ function incrementRetryCounterOnCrawlerFile(companyKey, handledSlugs, attemptedS
   }
 
   if (changed) {
-    fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(crawlerFilePath, crawlerData);
   }
 }
 
@@ -761,7 +762,7 @@ function invalidateCacheForIncompleteJobs(companyKey, incompleteJobs) {
   }
 
   if (invalidated > 0) {
-    fs.writeFileSync(cacheFile, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(cacheFile, cache);
   }
   return invalidated;
 }
@@ -803,7 +804,7 @@ async function main() {
         else if (outcome === 'reset') directReset++;
       }
       if (fileChanged) {
-        fs.writeFileSync(filePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+        writeJsonAtomic(filePath, crawlerData);
       }
     }
   }
@@ -864,7 +865,7 @@ async function main() {
   // Fast-path: clear flags for jobs that are already complete (no AI call needed).
   const preCleared = clearRetranslationFlags(jobs);
   if (preCleared > 0) {
-    fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(jobs, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(DATA_JOBS_PATH, jobs);
     console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs in assembled dataset`);
     console.log('');
 
@@ -955,7 +956,7 @@ async function main() {
             }
           }
           if (flagged > 0) {
-            fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+            writeJsonAtomic(crawlerFilePath, crawlerData);
             console.log(`   🔁 Re-flagged ${flagged} stuck jobs for retranslation`);
           }
         }
@@ -978,7 +979,7 @@ async function main() {
       if (Array.isArray(currentJobs)) {
         const cleared = clearRetranslationFlags(currentJobs);
         if (cleared > 0) {
-          fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(currentJobs, null, 2) + '\n', 'utf-8');
+          writeJsonAtomic(DATA_JOBS_PATH, currentJobs);
           totalFixed += cleared;
           console.log(`   ✅ ${key}: ${cleared} jobs translated, progress saved`);
         } else {
@@ -1070,7 +1071,7 @@ async function main() {
           if (Array.isArray(afterRetry)) {
             const cleared = clearRetranslationFlags(afterRetry);
             if (cleared > 0) {
-              fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(afterRetry, null, 2) + '\n', 'utf-8');
+              writeJsonAtomic(DATA_JOBS_PATH, afterRetry);
               totalFixed += cleared;
               console.log(`   ✅ ${key} retry: ${cleared} more jobs translated`);
               const retryAttempted = changedSlugsSince(preRetrySig, afterRetry, key);

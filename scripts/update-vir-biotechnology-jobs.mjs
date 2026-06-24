@@ -27,6 +27,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTe
 } from './lib/dedicated-crawler-common.mjs';
 import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType } from './lib/vir-biotechnology-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -159,9 +160,9 @@ async function mergeJobs(discoveredJobs) {
   for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }
 
   const final = [...nonCompanyJobs, ...merged];
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(PUBLIC_JOBS, final);
   console.log(`\n📦 Merge: ➕${added} 🔄${updated} 🗑️${removed} 📊${final.length}`);
   return { added, updated, removed, total: final.length };
 }
@@ -190,7 +191,7 @@ function postProcess() {
     if (!job.canton) { job.canton = HQ.canton; fixed++; }
     if (!job.location) { job.location = 'Bellinzona'; fixed++; }
   }
-  if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); console.log(`🔧 Post-processed ${fixed} Vir jobs.`); }
+  if (fixed > 0) { writeJsonAtomic(DATA_JOBS, jobs); writeJsonAtomic(PUBLIC_JOBS, jobs); console.log(`🔧 Post-processed ${fixed} Vir jobs.`); }
   return;
 }
 

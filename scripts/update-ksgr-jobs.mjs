@@ -30,6 +30,7 @@ import { detectLang } from './lib/dedicated-crawler-common.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,10 +53,6 @@ function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
 }
 
 function sleep(ms) {

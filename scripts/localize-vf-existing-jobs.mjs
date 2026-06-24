@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -211,7 +212,7 @@ function readJobs(filePath) {
 }
 
 function writeJobs(filePath, jobs) {
-  fs.writeFileSync(filePath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(filePath, jobs);
 }
 
 async function main() {

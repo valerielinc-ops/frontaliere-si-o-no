@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -59,7 +60,7 @@ function main() {
       }
     }
     if (modified) {
-      if (!DRY_RUN) fs.writeFileSync(fp, JSON.stringify(data, null, 2) + '\n');
+      if (!DRY_RUN) writeJsonAtomic(fp, data);
       slicesChanged++;
     }
   }

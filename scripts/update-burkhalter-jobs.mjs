@@ -50,6 +50,7 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -78,10 +79,6 @@ const CONCURRENCY = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 4;
 function readJson(filePath, fallback = []) {
   try { return JSON.parse(fs.readFileSync(filePath, 'utf-8')); }
   catch { return fallback; }
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
 function isTargetJob(job = {}) {

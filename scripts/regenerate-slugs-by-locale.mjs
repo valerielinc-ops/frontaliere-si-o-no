@@ -40,13 +40,10 @@ import {
   shortJobHash,
   slugMatchesTitle,
 } from './lib/regenerate-slugs-helpers.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, JSON.stringify(value, null, 2) + '\n', 'utf-8');
 }
 
 async function main() {

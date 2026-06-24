@@ -29,6 +29,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -215,7 +216,7 @@ for (const [file, entries] of filesByName) {
 
   if (fileChanged) {
     if (!DRY_RUN) {
-      fs.writeFileSync(filePath, JSON.stringify(slice, null, 2) + '\n');
+      writeJsonAtomic(filePath, slice);
     }
     stats.filesUpdated++;
   }

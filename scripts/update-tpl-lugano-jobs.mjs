@@ -41,6 +41,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseTplListingPage, inferEmploymentType } from './lib/tpl-lugano-job-parser.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -232,7 +233,7 @@ async function main() {
         patched++;
       }
       if (patched > 0) {
-        fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+        writeJsonAtomic(DATA_JOBS, allJobs);
         console.log(`📍 Patched address fields on ${patched} TPL jobs.`);
       }
     } catch (err) { console.warn(`⚠️ Failed to patch TPL address fields: ${err.message}`); }

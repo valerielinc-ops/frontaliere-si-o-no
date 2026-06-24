@@ -28,6 +28,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -683,7 +684,7 @@ function stabilizeEocSlugs() {
     stabilizeEocSlugsInMemory(jobs, preSliceJobs);
 
   if (stabilizedSlugs > 0 || stabilizedLocaleSlugs > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     console.log(
       `🛡️ EOC slug stabilization: ${stabilizedSlugs} main slugs reverted, ` +
       `${stabilizedLocaleSlugs} locale slugs reverted (location-driven churn prevented).`
@@ -716,7 +717,7 @@ function postProcessEocJobs() {
   const { stats } = postProcessEocJobsInMemory(jobs);
 
   if (stats.fixedJobs > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     console.log(
       `🔧 Post-processed ${stats.fixedJobs} EOC jobs ` +
       `(company=${stats.fixedCompany}, location=${stats.fixedLocation}, ` +

@@ -9,6 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -65,7 +66,7 @@ function main() {
     if (fileRemoved > 0) {
       filesModified++;
       if (!dryRun) {
-        fs.writeFileSync(filePath, JSON.stringify(jobs, null, 2) + '\n');
+        writeJsonAtomic(filePath, jobs);
       }
       console.log(`  📝 ${file}: removed ${fileRemoved} redundant previousSlugs`);
     }
@@ -82,7 +83,7 @@ function main() {
     }
     if (mainRemoved > 0) {
       if (!dryRun) {
-        fs.writeFileSync(mainJobsPath, JSON.stringify(mainJobs, null, 2) + '\n');
+        writeJsonAtomic(mainJobsPath, mainJobs);
       }
       console.log(`  📝 data/jobs.json: removed ${mainRemoved} redundant previousSlugs`);
       totalRemoved += mainRemoved;

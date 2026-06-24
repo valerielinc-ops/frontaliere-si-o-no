@@ -41,6 +41,7 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, normalize } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -403,7 +404,7 @@ async function main() {
       }
     }
     if (patched > 0) {
-      fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+      writeJsonAtomic(DATA_JOBS, allJobs);
       console.log(`  🏷️ Set sourceLang on ${patched} Migros job(s).`);
     }
   }
@@ -427,7 +428,7 @@ async function main() {
     if (report.rejected > 0) {
       const keptIds = new Set(migrosJobs.map((j) => j.id || j.url));
       const filtered = allJobs.filter((j) => !isMigrosJob(j) || keptIds.has(j.id || j.url));
-      fs.writeFileSync(DATA_JOBS, JSON.stringify(filtered, null, 2) + '\n');
+      writeJsonAtomic(DATA_JOBS, filtered);
       console.log(
         `  🧹 Migros quality guards: rejected ${report.rejected} job(s) — ${JSON.stringify(report.reasons)}`,
       );

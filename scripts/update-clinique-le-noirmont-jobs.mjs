@@ -47,6 +47,7 @@ import {
 } from './lib/clinique-le-noirmont-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -81,11 +82,6 @@ function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
-}
-
-function writeJson(filePath, value) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
 function normalize(value = '') {

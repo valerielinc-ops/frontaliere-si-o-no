@@ -49,6 +49,7 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -328,9 +329,6 @@ async function fetchBancaSempioneJobs() {
 }
 
 /* ── Merge into jobs.json ──────────────────────────────────── */
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
-}
 
 function mergeBancaSempioneJobs(discoveredJobs) {
   let allJobs = [];

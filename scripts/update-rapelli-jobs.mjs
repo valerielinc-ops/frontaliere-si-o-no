@@ -44,6 +44,7 @@ import {
 } from './lib/rapelli-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -59,9 +60,9 @@ function isCompanyJob(job) {
 }
 
 function writeJobsFiles(jobs) {
-  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(DATA_JOBS, jobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-    fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+    writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
   }
 }
 

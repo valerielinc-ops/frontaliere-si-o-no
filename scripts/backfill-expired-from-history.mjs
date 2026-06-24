@@ -28,6 +28,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -204,7 +205,7 @@ function processSlice(sliceFile) {
   );
   if (!DRY_RUN) {
     fs.mkdirSync(EXPIRED_DIR, { recursive: true });
-    fs.writeFileSync(expiredPath, `${JSON.stringify(archived, null, 2)}\n`, 'utf-8');
+    writeJsonAtomic(expiredPath, archived);
   }
   return { crawlerKey, scannedCommits: sliceCommits.length, lost: lostById.size, added };
 }

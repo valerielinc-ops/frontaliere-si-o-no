@@ -21,6 +21,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -87,7 +88,7 @@ function processFile(filePath, label) {
   }
 
   if (flagged > 0) {
-    fs.writeFileSync(filePath, `${JSON.stringify(raw, null, 2)}\n`, 'utf-8');
+    writeJsonAtomic(filePath, raw);
     console.log(`  ✅ ${label}: flagged ${flagged}/${jobs.length}`);
   }
 

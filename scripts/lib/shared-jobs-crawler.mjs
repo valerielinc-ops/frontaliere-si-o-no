@@ -90,6 +90,7 @@ import {
   addPreviousSlugForLocale,
   captureLostSlugs,
 } from './dedicated-crawler-common.mjs';
+import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { recordSlugMutation } from './slug-history-journal.mjs';
 import {
   getJobLocalizationPipelineStats,
@@ -512,12 +513,6 @@ function readExistingJobsFromSlices(scopedKeys) {
     }
   }
   return jobs;
-}
-
-function writeJson(filePath, value) {
-  const dir = path.dirname(filePath);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
 }
 
 function loadCompanyAdapters() {

@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { normalizeDescriptionBullets } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -68,7 +69,7 @@ function processSlice(filePath) {
     if (rewriteDescription(j)) changed++;
   }
   if (changed > 0) {
-    fs.writeFileSync(filePath, JSON.stringify(raw, null, 2) + '\n');
+    writeJsonAtomic(filePath, raw);
   }
   return { file: filePath, total: jobs.length, changed };
 }
@@ -83,7 +84,7 @@ function processMonolith(filePath) {
     if (rewriteDescription(j)) changed++;
   }
   if (changed > 0) {
-    fs.writeFileSync(filePath, JSON.stringify(raw, null, 2) + '\n');
+    writeJsonAtomic(filePath, raw);
   }
   return { file: filePath, total: jobs.length, changed };
 }
