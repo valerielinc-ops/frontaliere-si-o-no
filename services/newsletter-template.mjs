@@ -23,6 +23,7 @@ const RED = '#ef4444';
 const NL_I18N = {
   it: {
     greeting: 'Buongiorno, frontaliere.',
+    greetingNamed: 'Buongiorno, {name}.',
     greetingSub: 'Ecco cosa succede ai tuoi soldi questa settimana.',
     rateCta: 'Confronta i tassi di cambio \u2192',
     editorialTitle: 'Parliamoci chiaro.',
@@ -71,6 +72,7 @@ const NL_I18N = {
   },
   en: {
     greeting: 'Good morning, frontaliere.',
+    greetingNamed: 'Good morning, {name}.',
     greetingSub: 'Here\u2019s what\u2019s happening to your money this week.',
     rateCta: 'Compare exchange rates \u2192',
     editorialTitle: 'Let\u2019s be honest.',
@@ -119,6 +121,7 @@ const NL_I18N = {
   },
   de: {
     greeting: 'Guten Morgen, Grenzg\u00e4nger.',
+    greetingNamed: 'Guten Morgen, {name}.',
     greetingSub: 'Das passiert diese Woche mit deinem Geld.',
     rateCta: 'Wechselkurse vergleichen \u2192',
     editorialTitle: 'Mal ehrlich.',
@@ -167,6 +170,7 @@ const NL_I18N = {
   },
   fr: {
     greeting: 'Bonjour, frontalier.',
+    greetingNamed: 'Bonjour, {name}.',
     greetingSub: 'Voici ce qui arrive \u00e0 ton argent cette semaine.',
     rateCta: 'Comparer les taux de change \u2192',
     editorialTitle: 'Soyons honn\u00eates.',
@@ -248,6 +252,39 @@ function escapeHtml(str) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+/**
+ * Extract a safe, display-ready FIRST name from a stored subscriber name, or null
+ * when it isn't a usable human first name (so the greeting falls back to generic).
+ * Defensive because `name` is free-text user input rendered into HTML email:
+ * first whitespace token only, letters + hyphen/apostrophe (Unicode), length 2-30,
+ * rejects emails / digits / symbols. Title-cases each segment (anna-maria→Anna-Maria).
+ * @param {unknown} raw
+ * @returns {string|null}
+ */
+export function sanitizeFirstName(raw) {
+  if (!raw || typeof raw !== 'string') return null;
+  const first = raw.trim().split(/\s+/)[0] || '';
+  if (first.length < 2 || first.length > 30) return null;
+  if (!/^[\p{L}][\p{L}'’-]*$/u.test(first)) return null; // letters + ' ’ - only
+  return first.toLowerCase().replace(/(^|[-'’])(\p{L})/gu, (_, sep, ch) => sep + ch.toUpperCase());
+}
+
+/**
+ * Greeting line: "Buongiorno, {Name}." when we have a usable name, else the
+ * generic per-locale greeting. The name is sanitized then HTML-escaped (belt &
+ * suspenders — the sanitizer already excludes HTML metacharacters).
+ * @param {string} locale
+ * @param {unknown} rawName
+ * @returns {string}
+ */
+export function personalizeGreeting(locale, rawName) {
+  const loc = nlNormLocale(locale);
+  const name = sanitizeFirstName(rawName);
+  if (!name) return nlT(loc, 'greeting');
+  const tpl = nlT(loc, 'greetingNamed') || nlT(loc, 'greeting');
+  return tpl.replace('{name}', escapeHtml(name));
 }
 
 export function directUrl(path) {
@@ -369,7 +406,7 @@ function renderTopBar(locale, issueNumberOverride) {
     </td></tr>`;
 }
 
-function renderHeroExchangeRate({ rate, previousRate, locale }) {
+function renderHeroExchangeRate({ rate, previousRate, locale, recipientName }) {
   const diff = rate - previousRate;
   const pct = previousRate > 0 ? Math.abs((diff / previousRate) * 100).toFixed(1) : '0.0';
   const isDown = diff < -0.0005;
@@ -398,7 +435,7 @@ function renderHeroExchangeRate({ rate, previousRate, locale }) {
   return `
     <tr><td class="section-pad" style="background:${BRAND_DARK};color:#fff;padding:32px 28px 28px;text-align:center;">
       <div style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin-bottom:6px;">${nlT(locale, 'realtimeUpdate')}</div>
-      <div style="font-size:28px;font-weight:800;margin:0 0 4px;line-height:1.2;color:#fff;">${nlT(locale, 'greeting')}</div>
+      <div style="font-size:28px;font-weight:800;margin:0 0 4px;line-height:1.2;color:#fff;">${personalizeGreeting(locale, recipientName)}</div>
       <div style="font-size:14px;color:#94a3b8;margin:0 0 20px;">${nlT(locale, 'greetingSub')}</div>
 
       <!--[if mso]><table cellpadding="0" cellspacing="0" align="center"><tr><td style="background:#1e293b;border-radius:16px;padding:20px 36px;"><![endif]-->
@@ -702,7 +739,7 @@ export function buildNewsletter(data) {
   html += renderTopBar(locale, data.issueNumber);
 
   // 2. Hero exchange rate
-  if (data.exchangeRate) html += renderHeroExchangeRate({ ...data.exchangeRate, locale });
+  if (data.exchangeRate) html += renderHeroExchangeRate({ ...data.exchangeRate, locale, recipientName: data.recipientName });
 
   // 3. Editorial (AI briefing or fallback)
   html += renderEditorial(locale, data.aiBriefing, totalJobs);
