@@ -367,6 +367,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.alta-sensibilita-lavoro-stress.title': 'Hohe Arbeitsempfindlichkeit: Stress und Schwierigkeiten',
     'blog.article.alta-sensibilita-lavoro-stress.excerpt': 'Etwa 15-20% der Bevölkerung sind hochsensibel bei der Arbeit, mit körperlichen und psychischen Symptomen. Ein konkreter Fall von Arbeitsstress.',
     'blog.article.alta-sensibilita-lavoro-stress.imageAlt': 'Mann, der in einem Büro arbeitet und Kopfhörer trägt, zeigt Zeichen von Stress und Erschöpfung',
+    'blog.article.grigioni-pagamento-contanti-bus.title': 'Graubünden: Barzahlungsinitiative für Busse',
+    'blog.article.grigioni-pagamento-contanti-bus.excerpt': 'Volksinitiative zur Sicherstellung der Barzahlung im öffentlichen Verkehr in Graubünden',
+    'blog.article.grigioni-pagamento-contanti-bus.imageAlt': 'Bushaltestelle in Chur mit Fahrgästen, die mit Bargeld für öffentliche Verkehrsmittel bezahlen',
 };
 
 export default blogMetaChDe;

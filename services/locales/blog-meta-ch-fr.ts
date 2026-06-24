@@ -367,6 +367,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.alta-sensibilita-lavoro-stress.title': 'Sensibilité élevée au travail : stress et difficultés',
     'blog.article.alta-sensibilita-lavoro-stress.excerpt': 'Environ 15 à 20% de la population est très sensible au travail, avec des symptômes physiques et psychologiques. Un cas concret de stress au travail.',
     'blog.article.alta-sensibilita-lavoro-stress.imageAlt': 'Homme travaillant dans un bureau avec des écouteurs, montrant des signes de stress et de fatigue',
+    'blog.article.grigioni-pagamento-contanti-bus.title': 'Grisons : initiative pour payer en espèces sur les bus',
+    'blog.article.grigioni-pagamento-contanti-bus.excerpt': 'Initiative populaire pour garantir le paiement en espèces sur les transports publics dans les Grisons',
+    'blog.article.grigioni-pagamento-contanti-bus.imageAlt': 'Arrêt de bus à Coire avec des passagers payant en espèces pour les services de transport public',
 };
 
 export default blogMetaChFr;
