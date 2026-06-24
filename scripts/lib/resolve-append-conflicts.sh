@@ -17,6 +17,10 @@
 #      of duplicate object keys (a mid-entry conflict boundary fuses two entries
 #      into one object — e.g. seo-blog-ch.ts dup keys, seo-pages.ts missing
 #      comma — which previously slipped through and broke the deploy build).
+#   6. Final cross-file integrity gate (scripts/ci/validate-article-append-integrity.mjs):
+#      catches the two corruption shapes that stay syntactically valid and so
+#      slip past step 5 — a duplicate SVIZZERA localized slug (REVERSE_SWISS
+#      collision) and a fused sitemap <url> block (hreflang != <url> count).
 #
 # Usage (sourced — preferred so the function is in scope of the caller):
 #   source scripts/lib/resolve-append-conflicts.sh
@@ -208,6 +212,20 @@ resolve_append_conflicts() {
     git add "$file"
     echo "  ✅ $file: resolved (both sides kept)"
   done <<< "$CONFLICTED"
+
+  # Final cross-file integrity gate. Even when every individual file parses, a
+  # keep-both merge can still (a) duplicate a SVIZZERA localized slug
+  # (REVERSE_SWISS collides → tests/blog/svizzera-section-routing red) or
+  # (b) fuse two sitemap <url> blocks (hreflang != <url> → tests/seo-completeness
+  # red). Both stay syntactically valid, so the per-file esbuild guard above
+  # can't see them. Validate the whole resolved tree once before declaring
+  # success (skip when an earlier file already failed — we're aborting anyway).
+  if [ "$ALL_RESOLVED" = true ] && [ -f scripts/ci/validate-article-append-integrity.mjs ]; then
+    if ! node scripts/ci/validate-article-append-integrity.mjs; then
+      echo "  ❌ article-append integrity gate failed — refusing to keep this merge"
+      ALL_RESOLVED=false
+    fi
+  fi
 
   if [ "$ALL_RESOLVED" = true ]; then
     echo "✅ All conflicts auto-resolved"

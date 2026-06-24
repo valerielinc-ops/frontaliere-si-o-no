@@ -364,6 +364,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-pagamento-contanti-bus.title': 'Graubünden: initiative to pay in cash on buses',
     'blog.article.grigioni-pagamento-contanti-bus.excerpt': 'Popular initiative to ensure cash payment on public transport in Graubünden',
     'blog.article.grigioni-pagamento-contanti-bus.imageAlt': 'Bus stop in Coira with passengers paying cash for public transport services',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.title': 'Italy-Switzerland Frontier: non-relevant company headquarters',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.excerpt': 'The Revenue Agency clarifies with response no. 126/2026 how the 2020 Agreement applies according to the place of activity.',
+    'blog.article.frontalieri-italia-svizzera-sede-aziendale.imageAlt': 'Aerial view of Lake Lugano border area between Italy and Switzerland',
 };
 
 export default blogMetaChEn;

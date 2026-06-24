@@ -1088,6 +1088,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontalieri-italia-svizzera-sede-aziendale',
+    category: 'fiscale',
+    date: '2026-06-24T06:01:10.455Z',
+    image: '/images/blog/frontalieri-italia-svizzera-sede-aziendale.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
