@@ -9,6 +9,7 @@ import { useTranslation } from '../../services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
 import { SegmentControl as SharedSegmentControl } from '@/components/shared/SegmentControl';
+import CalculatorFormBoxAd from '@/components/shared/CalculatorFormBoxAd';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { reportCaughtError } from '@/services/errorReporter';
 // exchangeRateService is lazy-loaded to reduce main bundle size
@@ -1094,6 +1095,11 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <Shield size={12} className="text-success flex-shrink-0 mt-0.5" />
  <p className="text-xs text-success leading-relaxed">{t('input.dataDisclaimer')}</p>
  </div>
+
+ {/* Box ad filling the trailing white space of the input column. Last child
+ of the scrollable column → a fill grows the column's own scroll area and
+ shifts no page content (CLS-safe); collapses when unsold. */}
+ <CalculatorFormBoxAd />
 
  </div>
  )}

@@ -26,6 +26,7 @@ describe('useKillSwitches', () => {
       gptPocSlot: false,
       articleRailAds: false,
       desktopTopBanner: false,
+      calculatorFormBox: false,
       headerBidding: false,
     });
   });
@@ -75,6 +76,7 @@ describe('useKillSwitches', () => {
       gptPocSlot: true,
       articleRailAds: false,
       desktopTopBanner: false,
+      calculatorFormBox: false,
       headerBidding: false,
     });
   });
@@ -85,7 +87,7 @@ describe('useKillSwitches', () => {
     renderHook(() => useKillSwitches());
 
     await waitFor(() => {
-      expect(rcMock).toHaveBeenCalledTimes(9);
+      expect(rcMock).toHaveBeenCalledTimes(10);
     });
 
     const callArgs = rcMock.mock.calls.map(([arg]) => arg);
@@ -97,6 +99,7 @@ describe('useKillSwitches', () => {
     expect(callArgs).toContain('KILL_GPT_POC_SLOT');
     expect(callArgs).toContain('KILL_ARTICLE_RAIL_ADS');
     expect(callArgs).toContain('KILL_DESKTOP_TOP_BANNER');
+    expect(callArgs).toContain('KILL_CALCULATOR_FORM_BOX');
     expect(callArgs).toContain('KILL_HEADER_BIDDING');
   });
 });
