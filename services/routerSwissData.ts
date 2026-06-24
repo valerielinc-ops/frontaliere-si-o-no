@@ -153,6 +153,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'prettigovia-progetto-467-5-milioni': { it: 'prettigovia-progetto-467-5-milioni', en: 'prettigovia-project-467-5-millions', de: 'prettigovia-projekt-467-5-millionen', fr: 'prettigovia-projet-467-5-millions' },
  'iva-aumento-governo-decisione-previsto': { it: 'iva-aumento-governo-decisione-previsto', en: 'iva-increase-government-decision-pending', de: 'iva-erhoehung-regierungsentscheidung-geplant', fr: 'tva-hausse-decision-gouvernement-prevue' },
  'controlli-frontiera-g7-divieti-entrata': { it: 'controlli-frontiera-g7-divieti-entrata', en: 'border-controls-g7-entry-bans', de: 'grenzkontrollen-g7-einreiseverbote', fr: 'controles-frontieres-g7-interdictions-entree' },
+ 'caldo-traffico-ferroviario': { it: 'caldo-traffico-ferroviario', en: 'heat-impact-on-rail-traffic', de: 'hitze-auswirkung-auf-eisenbahnverkehr', fr: 'chaleur-impact-sur-trafic-ferroviaire' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

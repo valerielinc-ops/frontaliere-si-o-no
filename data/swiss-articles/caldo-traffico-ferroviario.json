@@ -1,0 +1,40 @@
+{
+  "id": "caldo-traffico-ferroviario",
+  "slug": "caldo-traffico-ferroviario",
+  "publishedAt": "2026-06-24T17:14:11.543Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.749741449148307,
+    "confidence": 0.8,
+    "finalScore": 5.399793159318646,
+    "topK": [
+      {
+        "slug": "boom-viaggiatori-treni-2026-ticino",
+        "cosine": 0.8437176811435384
+      },
+      {
+        "slug": "lavori-rete-ferroviaria-tilo",
+        "cosine": 0.8390493757872957
+      },
+      {
+        "slug": "secondo-binario-locarnese-raggiunta-tappa",
+        "cosine": 0.8354230060872224
+      },
+      {
+        "slug": "tir-colonna-disagi-valico-brogeda",
+        "cosine": 0.8350692145368196
+      },
+      {
+        "slug": "calo-entrate-irregolari-chiasso",
+        "cosine": 0.8348429588100773
+      }
+    ],
+    "score": 1.3499482898296615,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
