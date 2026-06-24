@@ -527,6 +527,13 @@ body.modal-open .google-auto-placed {
   contain: layout;
   min-height: 250px;
 }
+/* Stacked slots (second or later .google-auto-placed sibling in the same parent)
+   don't pre-reserve 250px. Starting at 0 means they never collapse, eliminating
+   the 250→0 CLS on unfilled stacked ads. The first slot is managed by
+   TopAutoAdReserve.tsx via JS adaptive reserve. (#2907) */
+.google-auto-placed ~ .google-auto-placed {
+  min-height: 0;
+}
 /* Google sets `margin: 10px auto` inline on the auto-placed <ins>; the `auto`
    centres it horizontally (keep) but the 10px top/bottom left a ~20px band
    between the creative and the surrounding content. Zero the vertical margin so
