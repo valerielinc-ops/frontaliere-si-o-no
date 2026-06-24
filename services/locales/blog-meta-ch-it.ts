@@ -367,6 +367,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.alta-sensibilita-lavoro-stress.title': 'Alta sensibilità al lavoro: stress e difficoltà',
     'blog.article.alta-sensibilita-lavoro-stress.excerpt': 'Circa il 15-20% della popolazione è altamente sensibile al lavoro, con sintomi fisici e psicologici. Un caso concreto di stress lavorativo.',
     'blog.article.alta-sensibilita-lavoro-stress.imageAlt': 'Uomo che lavora in ufficio con cuffie, segni di stress e stanchezza',
+    'blog.article.grigioni-pagamento-contanti-bus.title': 'Grigioni: iniziativa per pagare in contanti sui bus',
+    'blog.article.grigioni-pagamento-contanti-bus.excerpt': 'Iniziativa popolare per garantire il pagamento in contanti sui mezzi pubblici in Grigioni',
+    'blog.article.grigioni-pagamento-contanti-bus.imageAlt': 'Fermata autobus a Coira con viaggiatori che pagano in contanti per i servizi pubblici',
 };
 
 export default blogMetaChIt;

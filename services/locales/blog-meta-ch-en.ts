@@ -367,6 +367,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.alta-sensibilita-lavoro-stress.title': 'High sensitivity to work: stress and difficulties',
     'blog.article.alta-sensibilita-lavoro-stress.excerpt': 'About 15-20% of the population is highly sensitive to work, with physical and psychological symptoms. A concrete case of work stress.',
     'blog.article.alta-sensibilita-lavoro-stress.imageAlt': 'Man working in office with headphones, signs of stress and fatigue',
+    'blog.article.grigioni-pagamento-contanti-bus.title': 'Graubünden: initiative to pay in cash on buses',
+    'blog.article.grigioni-pagamento-contanti-bus.excerpt': 'Popular initiative to ensure cash payment on public transport in Graubünden',
+    'blog.article.grigioni-pagamento-contanti-bus.imageAlt': 'Bus stop in Coira with passengers paying cash for public transport services',
 };
 
 export default blogMetaChEn;
