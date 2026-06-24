@@ -11,10 +11,17 @@ name: tests
 # account shares a ~20 concurrent-job pool, and a per-PR fan-out of test shards
 # starved the PR pipeline (auto-merge, Claude review, pr-body-contract) behind
 # queued crawler runs — PRs sat un-dequeued. Collapsing to one runner frees 4
-# slots per PR at zero observable wall-time cost: the vitest check is NEVER the
-# gating slice — every PR ALSO blocks on the Claude review (`pr-review-loop`),
-# which averages ~10 min — so a single full run (~8-9 min: ~408s vitest + ~113s
-# overhead) lands inside the review window and review stays the bottleneck.
+# slots per PR.
+#
+# MEASURED, not estimated (CI run 28099661052, full ~847-file suite on one
+# 4-vCPU runner): vitest 366s + setup/assemble/lint overhead → 536s total job
+# wall (~8.9 min). The `pool: 'threads'` worker pool (below) parallelises files
+# across the runner's 4 vCPUs, so wall ≈ work/4 — NOT the 4×164s≈656s an
+# additive per-shard model predicts (536s is ~1.9× a single shard's ~281s, not
+# 4×). 536s lands inside the ~10 min Claude review window (`pr-review-loop`), so
+# the review stays the gating slice and the vitest check costs the PR ~zero
+# extra wall time. The same measured run completed every heavy source-scan guard
+# (no-inlanguage, cathedral-no-ti-hardcodes, …) with no per-test timeout.
 #
 # Behaviour-preserving: every test still runs, no test is skipped and no
 # threshold is relaxed — only the parallelism (wall-time, not coverage) changed.
@@ -52,9 +59,11 @@ jobs:
     name: vitest (unit + integration)
     runs-on: ubuntu-latest
     # 20 min (was 15 at 4 shards): the single runner now executes all ~847 test
-    # files, so the margin against the heavy source-scan guards (no-inlanguage,
-    # cathedral-no-ti-hardcodes, …) spiking on a slow runner is widened to keep
-    # a transient slow run from going RED on a timeout instead of a real failure.
+    # files. The measured job wall is 536s (run 28099661052), so 1200s is a ~2.2×
+    # headroom against a slow-runner spike — wide enough to keep a transient slow
+    # run from going RED on a JOB timeout instead of a real failure. (Per-test
+    # timeouts are unchanged from vitest.config.ts and were not hit in the
+    # measured run.)
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
