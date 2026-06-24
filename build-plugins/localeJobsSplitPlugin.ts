@@ -65,9 +65,12 @@ const DETAIL_FIELDS = new Set([
 /**
  * Generates locale-specific job JSON files at build time.
  *
- * Reads `data/jobs.json` and emits `dist/data/jobs-{locale}.json` for each locale.
- * Each file flattens the *ByLocale fields into the base fields for that locale,
- * reducing per-request payload by ~35%.
+ * Reads `data/jobs.json` and emits, for each locale, the slim listing index
+ * `dist/data/jobs-{locale}-index.json` (+ first-page slim slice), plus a shared
+ * `jobs-slug-map.json` and per-job `job-detail/{id}.json` files. Records are
+ * flattened from *ByLocale to base fields for the locale. The full
+ * `jobs-{locale}.json` monolith is intentionally NOT emitted — its descriptions
+ * duplicated job-detail and were never needed for listing (see inline note).
  *
  * Also generates files in `public/data/` for the Vite dev server.
  */
@@ -92,12 +95,13 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
  for (const locale of LOCALES) {
+ // Locale-flattened records (full *ByLocale → base fields). Kept in memory
+ // to derive the slim index + first-page slim below, but no longer written
+ // to disk: the full `jobs-{locale}.json` monolith (~48MB each, descriptions
+ // ×4 locales) duplicated prose already canonical in job-detail/{id}.json and
+ // was only ever a listing fallback (listing never reads descriptions). All
+ // consumers repointed to jobs-{locale}-index.json + job-detail.
  const localeJobs = jobs.map((j) => buildLocaleJob(j, locale));
- fs.writeFileSync(
- path.resolve(dataDir, `jobs-${locale}.json`),
- JSON.stringify(localeJobs),
- 'utf-8',
- );
  // Slim index: listing-only fields for fast initial LCP (FRO-386)
  const slimJobs = localeJobs.map(buildLocaleJobSlim);
  fs.writeFileSync(
@@ -171,7 +175,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  const distDir = path.resolve(rootDir, 'dist');
  const count = generateFiles(distDir);
  if (count > 0) {
- console.log(`[locale-jobs-split] Generated 4 locale files + 4 slim index files + 4 first-page slim files + slug map + ${count} detail files (${count} jobs)`);
+ console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + slug map + ${count} detail files (${count} jobs)`);
  }
  },
  configureServer(server) {
@@ -179,7 +183,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  const publicDir = path.resolve(rootDir, 'public');
  const count = generateFiles(publicDir);
  if (count > 0) {
- console.log(`[locale-jobs-split] Dev: generated 4 locale files in public/data/`);
+ console.log(`[locale-jobs-split] Dev: generated 4 slim index files + slug map + detail files in public/data/`);
  }
  },
  };
