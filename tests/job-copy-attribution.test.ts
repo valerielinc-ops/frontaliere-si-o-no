@@ -25,6 +25,20 @@ describe('shouldAttributeCopy', () => {
   it('trims before measuring', () => {
     expect(shouldAttributeCopy(`   ${'x'.repeat(COPY_ATTRIBUTION_MIN_CHARS)}   `)).toBe(true);
   });
+
+  it('attributes a short selection that IS the job title', () => {
+    // "Cuoco" is below the floor but is exactly what users paste into search.
+    expect(shouldAttributeCopy('Cuoco')).toBe(false);
+    expect(shouldAttributeCopy('Cuoco', 'Cuoco')).toBe(true);
+  });
+
+  it('matches the title case- and whitespace-insensitively', () => {
+    expect(shouldAttributeCopy('  cUoCo   80-100%  ', 'Cuoco 80-100%')).toBe(true);
+  });
+
+  it('does not attribute a short non-title selection even with a title given', () => {
+    expect(shouldAttributeCopy('CHF 90k', 'Radiologo/a')).toBe(false);
+  });
 });
 
 describe('buildJobCopyAttribution', () => {

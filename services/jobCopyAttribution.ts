@@ -51,11 +51,26 @@ const escapeHtml = (s: string): string =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
+/** Collapse whitespace + lowercase so a copied selection can be matched
+ * against the rendered job title regardless of incidental spacing/case. */
+const normalizeForTitleMatch = (s: string): string =>
+  s.trim().replace(/\s+/g, ' ').toLowerCase();
+
 /**
- * True when a selection is long enough to be worth attributing.
+ * True when a selection is worth attributing. A selection at or above the
+ * tiny-copy floor always qualifies. In addition, a selection that IS the job
+ * title (case/whitespace-insensitive) qualifies even when it falls under the
+ * floor — short titles like "Cuoco" are exactly the snippet users paste into a
+ * search box, and must still carry our brand + canonical URL instead of handing
+ * the searcher straight to a competitor.
  */
-export function shouldAttributeCopy(selectionText: string): boolean {
-  return selectionText.trim().length >= COPY_ATTRIBUTION_MIN_CHARS;
+export function shouldAttributeCopy(selectionText: string, jobTitle?: string): boolean {
+  if (selectionText.trim().length >= COPY_ATTRIBUTION_MIN_CHARS) return true;
+  if (jobTitle) {
+    const title = normalizeForTitleMatch(jobTitle);
+    if (title && normalizeForTitleMatch(selectionText) === title) return true;
+  }
+  return false;
 }
 
 /**
