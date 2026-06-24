@@ -4170,6 +4170,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dispositivi-medici-rimborsi': { name: 'Berna apre ai rimborsi per dispositivi', path: '/articoli-svizzera/dispositivi-medici-rimborsi/', parent: 'blog' },
     'blog-scambio-dati-salariali-italia': { name: 'Fiscalità', path: '/articoli-svizzera/scambio-dati-salariali-italia/', parent: 'blog' },
     'blog-diminuiscono-annunci-alloggi-frontaliere-ticino': { name: 'Alloggi in affitto in Svizzera', path: '/articoli-svizzera/diminuiscono-annunci-alloggi-frontaliere-ticino/', parent: 'blog' },
+    'blog-prettigovia-progetto-467-5-milioni': { name: 'Prettigovia', path: '/articoli-svizzera/prettigovia-progetto-467-5-milioni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

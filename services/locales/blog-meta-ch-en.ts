@@ -382,6 +382,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.title': 'Listings for rent in Switzerland are decreasing: what\'s happening?',
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.excerpt': 'The number of listings for rental accommodation decreased by 4% between April 2025 and March 2026, while the average duration of listing has increased.',
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.imageAlt': 'Photo of a residential building in Lugano with apartments for rent',
+    'blog.article.prettigovia-progetto-467-5-milioni.title': 'More GR: 467.5 million project by road and rail in Prettigovia',
+    'blog.article.prettigovia-progetto-467-5-milioni.excerpt': 'The road and railway reconstruction project in Prettigovia costs CHF 467.5 million',
+    'blog.article.prettigovia-progetto-467-5-milioni.imageAlt': 'Road construction in Switzerland',
 };
 
 export default blogMetaChEn;
