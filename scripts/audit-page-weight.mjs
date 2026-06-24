@@ -17,6 +17,7 @@ import { relative } from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 
 // 215 KB cap (was 200 KB). The TI job-board landing
 // /cerca-lavoro-ticino/index.html crossed the original 200 KB cap on run
@@ -59,7 +60,7 @@ function featureForPath(relPath) {
   // flat per-page byte cap), but kept consistent with the audit classifiers.
   if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board';
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers';
-  if (/(?:^|\/)(?:prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|diesel-price-switzerland|prix-essence-suisse|prix-diesel-suisse|prix-gasoil-suisse|fuel-prices-switzerland|benzinpreis-schweiz|dieselpreis-schweiz|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
+  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   if (/(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier|blog|articles)\//.test(p)) return 'blog';
   if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane)\//.test(p)) return 'border-wait';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';

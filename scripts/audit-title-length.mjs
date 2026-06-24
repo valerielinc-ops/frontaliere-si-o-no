@@ -34,6 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -62,7 +63,7 @@ function normalizeText(raw) {
 /** Mirror of audit-h1-title-duplicates classifier. */
 export function classifyFeature(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-carburante-svizzera|prix-essence-suisse|fuel-prices-switzerland|benzinpreise?-schweiz|prezzi-benzina|prezzi-diesel|gasoline-price|diesel-price|benzinpreis|dieselpreis|prix-essence|prix-gasoil|prix-diesel)\//.test(p)) return 'fuel-daily';
+  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-/.test(p)) return 'weekly-employers';
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|unternehmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
   // Canton-aware job-board sections (TI legacy, every canton, + svizzera

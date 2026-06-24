@@ -22,6 +22,7 @@ import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { EJP_STRIPPED_MARKER } from '../build-plugins/shared/ejpMarker.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -69,7 +70,7 @@ export function extractVisibleText(html) {
 function classifyFeature(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/.test(p)) return 'career-landings';
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|diesel-price-switzerland|prix-essence-suisse|prix-diesel-suisse|prix-gasoil-suisse|fuel-prices-switzerland|benzinpreis-schweiz|dieselpreis-schweiz|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
+  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\/[^/]+\/[^/]+\//.test(p)) return 'weekly-employers';
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
   // Canton-aware job-board sections (TI legacy, every canton, + svizzera
