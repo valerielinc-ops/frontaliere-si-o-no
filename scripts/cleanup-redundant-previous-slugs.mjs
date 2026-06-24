@@ -66,7 +66,7 @@ function main() {
     if (fileRemoved > 0) {
       filesModified++;
       if (!dryRun) {
-        fs.writeFileSync(filePath, JSON.stringify(jobs, null, 2) + '\n');
+        writeJsonAtomic(filePath, jobs);
       }
       console.log(`  📝 ${file}: removed ${fileRemoved} redundant previousSlugs`);
     }

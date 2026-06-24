@@ -694,7 +694,7 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
   }
 
   if (updated > 0) {
-    fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(crawlerFilePath, crawlerData);
   }
 
   return { updated, handledSlugs };
@@ -735,7 +735,7 @@ function incrementRetryCounterOnCrawlerFile(companyKey, handledSlugs, attemptedS
   }
 
   if (changed) {
-    fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(crawlerFilePath, crawlerData);
   }
 }
 
@@ -762,7 +762,7 @@ function invalidateCacheForIncompleteJobs(companyKey, incompleteJobs) {
   }
 
   if (invalidated > 0) {
-    fs.writeFileSync(cacheFile, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(cacheFile, cache);
   }
   return invalidated;
 }
@@ -804,7 +804,7 @@ async function main() {
         else if (outcome === 'reset') directReset++;
       }
       if (fileChanged) {
-        fs.writeFileSync(filePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+        writeJsonAtomic(filePath, crawlerData);
       }
     }
   }
@@ -956,7 +956,7 @@ async function main() {
             }
           }
           if (flagged > 0) {
-            fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+            writeJsonAtomic(crawlerFilePath, crawlerData);
             console.log(`   🔁 Re-flagged ${flagged} stuck jobs for retranslation`);
           }
         }

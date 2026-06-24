@@ -1,6 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+// Monotonic counter so two concurrent writes to the SAME target from the SAME
+// process (same pid) still get distinct temp files — the pid alone would not
+// disambiguate them.
+let tmpSeq = 0;
+
 /**
  * Atomically write `value` as pretty-printed JSON to `filePath`.
  *
@@ -23,7 +28,7 @@ export function writeJsonAtomic(filePath, value, { compact = false } = {}) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const json = compact ? JSON.stringify(value) : JSON.stringify(value, null, 2);
   const content = `${json}\n`;
-  const tmp = `${filePath}.${process.pid}.tmp`;
+  const tmp = `${filePath}.${process.pid}.${tmpSeq++}.tmp`;
   try {
     fs.writeFileSync(tmp, content, 'utf8');
     fs.renameSync(tmp, filePath);

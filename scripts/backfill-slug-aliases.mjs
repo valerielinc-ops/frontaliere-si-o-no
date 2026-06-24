@@ -106,7 +106,7 @@ function loadJobs() {
  */
 function saveCrawlerFiles(modifiedFiles) {
   for (const [filePath, data] of modifiedFiles) {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n', 'utf8');
+    writeJsonAtomic(filePath, data);
   }
 }
 

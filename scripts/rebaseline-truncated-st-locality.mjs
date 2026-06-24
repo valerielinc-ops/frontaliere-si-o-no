@@ -21,6 +21,7 @@ import {
   TRUNCATED_ST_LOCALITY_RE,
   healTruncatedStLocalities,
 } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const BY_CRAWLER_DIR = path.resolve('data/jobs/by-crawler');
@@ -67,7 +68,7 @@ for (const file of files) {
   if (healed > 0) {
     filesChanged++;
     if (!DRY_RUN) {
-      fs.writeFileSync(full, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+      writeJsonAtomic(full, data);
     }
   }
 }
