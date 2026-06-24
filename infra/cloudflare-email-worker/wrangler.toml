@@ -1,16 +1,16 @@
-# Cloudflare Email Routing Worker for inbound cold-email STOP replies.
+# Cloudflare Email Routing Worker for inbound cold-email STOP replies + reply
+# tracking.
 #
-# Deploy: `npx wrangler deploy` from this dir.
-# Then (MANUAL, one-time, dashboard or API):
-#   Cloudflare → Email → Email Routing → Routing rules → the outreach reply
-#   address (the cold-email From, e.g. valerie@frontaliereticino.ch) → action
-#   "Send to a Worker" → frontaliere-stop-reply-handler.
-# Binding the Worker to the address is the manual infra step (see PR #2620 body
-# ## Non implementato); the handler code lives in stop-reply-handler.js.
+# Deploy + config are AUTOMATED by .github/workflows/deploy-email-worker.yml on
+# every push to main touching this dir: it runs `wrangler deploy` then
+# scripts/cf-email-worker-setup.mjs, which (via the CF API) sets the worker
+# secrets STOP_SECRET (= NEWSLETTER_SECRET) and FORWARD_TO (resolved from the
+# zone catch-all target, so no address is committed), and binds the outreach
+# reply address (valerie@frontaliereticino.ch) → this worker. No manual step.
 #
-# Secrets / vars (set after deploy):
-#   npx wrangler secret put STOP_SECRET     # == NEWSLETTER_SECRET (Cloud Function side)
-#   STOP_REPLY_FN_URL / REPLY_TRACK_FN_URL / FORWARD_TO are plain vars below.
+# The two CF-URL vars below are plain (non-secret) and applied on each deploy.
+# STOP_SECRET / FORWARD_TO are worker SECRETS set out-of-band by the setup script
+# — never committed here.
 
 name = "frontaliere-stop-reply-handler"
 main = "stop-reply-handler.js"
@@ -22,10 +22,9 @@ STOP_REPLY_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/
 # Cloud Function that records EVERY inbound reply (reply telemetry for the admin
 # dashboard). Additive to STOP suppression; same x-stop-secret gate.
 REPLY_TRACK_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachReplyTrack"
-# Human inbox that every inbound reply is forwarded to (must be a verified
-# Email Routing destination). Fill in with the real monitored address before
-# deploy — left as a placeholder so no personal address is committed.
-FORWARD_TO = "REPLACE_WITH_VERIFIED_DESTINATION@example.com"
+# NOTE: FORWARD_TO (the human inbox replies are forwarded to) is a worker SECRET
+# set by scripts/cf-email-worker-setup.mjs from the zone catch-all target — not a
+# committed var, so no personal address lands in the repo.
 
 [observability]
 enabled = true
