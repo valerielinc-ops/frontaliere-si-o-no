@@ -2385,7 +2385,7 @@ const App: React.FC = () => {
  </aside>
  )}
  <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10 ${
- activeTab === 'admin' ? 'w-full px-3 sm:px-6' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${sideRailEligible ? ' xlw:!w-full' : ''}`
+ activeTab === 'admin' ? 'w-full px-3 sm:px-6' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'job-board') ? ' xlw:!w-full' : ''}`
  }`}>
  <Suspense fallback={<LazyFallback />}>
  {notFoundPath ? (
@@ -2515,18 +2515,15 @@ const App: React.FC = () => {
  <PressKit />
  </div>
  ) : activeTab === 'job-board' ? (
- // Widen past max-w-7xl (1280) at ≥1400px so the job-detail view's 3-column
- // rail grid (300px | content | 300px) gets room for BOTH rails AND a readable
- // centre — otherwise the 600px of rails collapse the content column to ~630px
- // inside the 1280 cap (measured live). Capped at 1440px (matching the blog
- // article view above), not 1900: the wider cap let the centre run ~1180px at
- // 1920 so the article ran edge-to-edge against the rails with no lateral
- // breathing room. 1440 keeps the 300px half-page rails AND a comfortable
- // ~530px article column with white margins either side. Mutually-exclusive
- // ranges (`max-xlw:` < 1400, `xlw:` ≥ 1400) so the v4 cascade can't pin it to
- // 7xl. Inner list view self-caps (max-w-6xl), so only the rail'd detail/gate
- // views use the width.
- <div className="max-xlw:max-w-7xl xlw:max-w-[1440px] mx-auto">
+ // Full-bleed at ≥1400px: job-detail spans the whole main column (the
+ // `xlw:!w-full` opt-in on <main> drops the 95% side gutters) and the
+ // wrapper itself is uncapped, so the 300px | content | 300px rail grid
+ // stretches edge-to-edge and the reclaimed lateral margins widen the
+ // centre column instead of sitting as empty white bands beside the rails.
+ // Mutually-exclusive ranges (`max-xlw:` < 1400 keeps the 7xl cap; `xlw:` ≥
+ // 1400) so the v4 cascade can't pin it to 7xl. Inner list view self-caps
+ // (max-w-6xl), so only the rail'd detail/gate views use the full width.
+ <div className="max-xlw:max-w-7xl xlw:max-w-none mx-auto">
  <JobBoard
  initialJobSlug={jobSlug || undefined}
  initialFilterParams={jobBoardFilterParams}
