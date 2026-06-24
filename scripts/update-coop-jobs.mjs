@@ -464,8 +464,7 @@ function saveCoopTranslationsCache() {
 
   try {
     // Directory is data/jobs/by-crawler/ which always exists after a crawler run.
-    fs.mkdirSync(path.dirname(COOP_TRANSLATIONS_CACHE), { recursive: true });
-    fs.writeFileSync(COOP_TRANSLATIONS_CACHE, JSON.stringify(cache, null, 2) + '\n');
+    writeJsonAtomic(COOP_TRANSLATIONS_CACHE, cache);
     const LOCALES_CHECK = ['it', 'en', 'de', 'fr'];
     const fullyTranslated = cache.filter((c) =>
       LOCALES_CHECK.every((l) => (c.titleByLocale[l] || '').length >= 3 && (c.descriptionByLocale[l] || '').length >= 120)
