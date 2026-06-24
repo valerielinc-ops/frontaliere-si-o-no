@@ -133,7 +133,7 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
       onEmptyResolved?.(collapse);
     };
     const mo = typeof MutationObserver !== 'undefined' ? new MutationObserver(() => { if (filled()) apply(true); }) : null;
-    mo?.observe(el, { childList: true, subtree: true });
+    mo?.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
     const grace = setTimeout(() => apply(filled()), FILL_GRACE_MS);
     return () => {
       mo?.disconnect();
