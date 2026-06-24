@@ -70,12 +70,18 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
   const suppressed = await getDoc(db, SUPPRESSION_COLLECTION, key);
   if (suppressed) return { status: 409, body: { ok: false, error: 'suppressed' } };
 
-  // Dedup: don't re-send a touch already logged unless explicitly forced.
+  // Dedup: don't re-send a touch already logged (confirmed or pending) unless
+  // explicitly forced. pendingTouches covers the window between the pre-send
+  // marker write and the confirmed write: if Resend succeeds but the Firestore
+  // confirmed write fails, the pending marker keeps dedup active for any retry.
   const sends = (await getDoc(db, SENDS_COLLECTION, key)) || {};
   const sentTouches = Array.isArray(sends.touches)
     ? sends.touches.map((x) => Number(x && x.touch)).filter(Boolean)
     : [];
-  if (!force && sentTouches.includes(touchNum)) {
+  const pendingTouches = Array.isArray(sends.pendingTouches)
+    ? sends.pendingTouches.map(Number).filter(Boolean)
+    : [];
+  if (!force && (sentTouches.includes(touchNum) || pendingTouches.includes(touchNum))) {
     return { status: 409, body: { ok: false, error: 'already_sent', touch: touchNum } };
   }
 
@@ -96,6 +102,20 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
     .split('{{INSIGHTS_URL}}').join(insightsUrl)
     .split('{{UNSUB_URL}}').join(unsubUrl);
 
+  // Write a pre-send marker so the dedup gate stays active even if the
+  // confirmed write below fails (Resend out → Firestore down → no touches
+  // entry → retry not blocked → duplicate unsolicited email). If this write
+  // fails, proceed — no email has gone out yet so dedup is not weakened.
+  try {
+    await db.collection(SENDS_COLLECTION).doc(key).set({
+      companyKey: key,
+      pendingTouches: FieldValue.arrayUnion(touchNum),
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+  } catch {
+    // pre-send write failed; email not yet sent — safe to continue
+  }
+
   let result;
   try {
     result = await sendEmail({
@@ -106,6 +126,13 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
       unsubUrl,
     });
   } catch (err) {
+    // Remove the pending marker so a retry is not incorrectly blocked.
+    // Best-effort: a stale pending marker is preferable to a duplicate email.
+    try {
+      await db.collection(SENDS_COLLECTION).doc(key).set({
+        pendingTouches: FieldValue.arrayRemove(touchNum),
+      }, { merge: true });
+    } catch { /* ignore cleanup failure */ }
     return { status: 502, body: { ok: false, error: 'send_failed', detail: err && err.message ? err.message : String(err) } };
   }
 
@@ -116,6 +143,7 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
       companyKey: key,
       lastTouch: touchNum,
       lastSentAt: sentAt,
+      pendingTouches: FieldValue.arrayRemove(touchNum),
       touches: FieldValue.arrayUnion({
         touch: touchNum, sentAt, provider: 'resend', messageId,
         subject: message.subject, via: 'web-ui',
@@ -123,8 +151,9 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
   } catch {
-    // The email already went out — a telemetry write failure must not be
-    // reported as a send failure. Surface a soft flag instead.
+    // Email sent but confirmed write failed. The pending marker is still set
+    // (arrayRemove above was part of the same failed write), so dedup will
+    // block any retry. tracked:false flags the missing confirmed record.
     return { status: 200, body: { ok: true, touch: touchNum, to: toEmail, messageId, tracked: false } };
   }
 
