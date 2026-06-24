@@ -11,8 +11,8 @@ describe('emailSuppression sets', () => {
     expect([...ADDRESS_SUPPRESSED_STATUSES].sort()).toEqual(['bounced', 'complained', 'suppressed']);
   });
 
-  it('newsletter set adds the channel-level unsubscribe', () => {
-    expect([...NEWSLETTER_EXCLUDED_STATUSES].sort()).toEqual(['bounced', 'complained', 'suppressed', 'unsubscribed']);
+  it('newsletter set adds the channel-level soft states (unsubscribe + inactive sunset)', () => {
+    expect([...NEWSLETTER_EXCLUDED_STATUSES].sort()).toEqual(['bounced', 'complained', 'inactive', 'suppressed', 'unsubscribed']);
   });
 });
 
@@ -41,10 +41,15 @@ describe('isAddressSuppressed', () => {
 });
 
 describe('isNewsletterExcluded', () => {
-  it('excludes address signals plus unsubscribed', () => {
-    for (const s of ['bounced', 'complained', 'suppressed', 'unsubscribed']) {
+  it('excludes address signals plus channel-level soft states (unsubscribed, inactive)', () => {
+    for (const s of ['bounced', 'complained', 'suppressed', 'unsubscribed', 'inactive']) {
       expect(isNewsletterExcluded(s)).toBe(true);
     }
+  });
+
+  it('does NOT treat the soft newsletter state "inactive" as an address-level signal', () => {
+    // inactive must never cross to job alerts — it is newsletter-channel only.
+    expect(isAddressSuppressed('inactive')).toBe(false);
   });
 
   it('keeps active recipients', () => {
