@@ -4180,6 +4180,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-riordino-incentivi-imprese': { name: 'Novità', path: '/articoli-svizzera/riordino-incentivi-imprese/', parent: 'blog' },
     'blog-calcolo-rendita-lpp-ubs': { name: 'Rendita LPP', path: '/articoli-svizzera/calcolo-rendita-lpp-ubs/', parent: 'blog' },
     'blog-dati-tasse-frontalieri-italia': { name: 'Frontalieri', path: '/articoli-svizzera/dati-tasse-frontalieri-italia/', parent: 'blog' },
+    'blog-frontaliere-trasporti-chiasso-lugano-abbonamenti-2026': { name: 'Trasporti', path: '/articoli-svizzera/frontaliere-trasporti-chiasso-lugano-abbonamenti-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

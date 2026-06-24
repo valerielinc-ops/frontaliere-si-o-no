@@ -412,6 +412,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dati-tasse-frontalieri-italia.title': 'Pasticcio dati e tasse dei vecchi frontalieri: \'Si faccia piena luce\'',
     'blog.article.dati-tasse-frontalieri-italia.excerpt': 'Dati salariali di migliaia di vecchi frontalieri trasmessi per errore nelle precompilate italiane. Chiarimenti richiesti da Molteni e Grammatica.',
     'blog.article.dati-tasse-frontalieri-italia.imageAlt': 'Vista panoramica di Lugano con il Lago Ceresio e le montagne circostanti',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.title': 'Frontaliere trasporti Chiasso-Lugano abbonamenti 2026 entro 20 km',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.excerpt': 'Guida pratica ai trasporti Chiasso-Lugano per frontalieri: treno, auto, parcheggi e abbonamenti con checklist dei costi da verificare.',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.imageAlt': 'Una persona che utilizza i mezzi pubblici a Lugano',
 };
 
 export default blogMetaChIt;

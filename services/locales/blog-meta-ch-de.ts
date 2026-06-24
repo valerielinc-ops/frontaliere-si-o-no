@@ -412,6 +412,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dati-tasse-frontalieri-italia.title': 'Daten- und Steuerchaos bei alten Grenzgängern: \'Volles Licht\'',
     'blog.article.dati-tasse-frontalieri-italia.excerpt': 'Lohndaten von Tausenden von alten Grenzgängern, die versehentlich in den italienischen Vorabausfüllen übermittelt wurden. Erläuterungen von Molteni und Grammatik.',
     'blog.article.dati-tasse-frontalieri-italia.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.title': 'Grenzgänger Verkehr Chiasso-Lugano Abonnements 2026 innerhalb von 20 km',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.excerpt': 'Praktischer Leitfaden für den Chiasso-Lugano-Transport für Grenzgänger: Zug, Auto, Parkplätze und Abonnements mit Checkliste der zu überprüfenden Kosten.',
+    'blog.article.frontaliere-trasporti-chiasso-lugano-abbonamenti-2026.imageAlt': 'Eine Person nutzt die öffentlichen Verkehrsmittel in Lugano',
 };
 
 export default blogMetaChDe;
