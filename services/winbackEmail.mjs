@@ -3,54 +3,69 @@
  *
  * Sent ONCE to a never-engaging long-term subscriber before they are soft-moved
  * to `inactive` (see scripts/lib/subscriberSunset.mjs). The single goal is a
- * re-engagement click: ANY open/click resets their engagement and cancels the
- * sunset. Localised in all four site locales (it/en/de/fr).
+ * re-engagement click: clicking the CTA hits ?action=resubscribe on our canonical
+ * origin and resets engagement, cancelling the sunset. Localised in all four site
+ * locales (it/en/de/fr), branded to match the newsletter (dark bar + orange
+ * wordmark), with a deliberately playful CTA.
  *
  * Pure + dependency-light (only the shared HMAC URL builders) so it is unit
  * testable. Table-based inline-styled HTML for email-client compatibility.
  */
 import { makeUnsubscribeUrl, makeResubscribeUrl } from './newsletterUrls.mjs';
 
-const BRAND_ORANGE = '#ea580c';
-const TEXT = '#1f2937';
+// Brand tokens — kept in sync with services/newsletter-template.mjs.
+const BRAND_ORANGE = '#f97316'; // accent / wordmark
+const CTA_ORANGE = '#ea580c';   // button bg (darker → white label passes 3:1 AA large)
+const BRAND_DARK = '#0f172a';
+const INK = '#1f2937';
 const MUTED = '#6b7280';
+const CARD_BG = '#ffffff';
+const PAGE_BG = '#f1f5f9';
 
 const COPY = {
   it: {
-    subject: 'Ci sei ancora? Stiamo per sospendere la newsletter',
-    preheader: 'Conferma con un clic per continuare a riceverla.',
-    heading: 'Ci sei ancora?',
-    body: 'Non apri la nostra newsletter da un po’. Per rispettare la tua casella, stiamo per sospendere gli invii — ma se vuoi continuare a ricevere offerte di lavoro e novità per frontalieri, basta un clic.',
-    cta: 'Sì, voglio restare iscritto',
-    footer: 'Se non fai nulla, sospenderemo la newsletter tra qualche giorno. Potrai riattivarla quando vuoi.',
-    unsub: 'Annulla iscrizione',
+    subject: 'Ci sei ancora? 👀 La newsletter sta per andare in pausa',
+    preheader: 'Un tap e resti a bordo — niente più, promesso.',
+    emoji: '👋',
+    heading: 'Ci manchi!',
+    body: 'Da un po’ non apri la nostra newsletter. Nessun problema — ma per non intasarti la casella stiamo per metterla in pausa. Se vuoi continuare a ricevere <strong>offerte di lavoro in Svizzera</strong>, novità sul confine e dritte per frontalieri, basta un tap.',
+    cta: '🚀 Sì, resto a bordo',
+    keepNote: 'Se non fai nulla, la mettiamo in pausa tra qualche giorno. Puoi riattivarla quando vuoi — nessun rancore. 🙂',
+    unsub: 'No grazie, preferisco salutarti',
+    wordmarkSub: 'Ticino',
   },
   en: {
-    subject: 'Still there? We’re about to pause your newsletter',
-    preheader: 'Confirm with one click to keep receiving it.',
-    heading: 'Still there?',
-    body: 'You haven’t opened our newsletter in a while. To respect your inbox we’re about to pause it — but if you’d like to keep getting cross-border job offers and news, just one click is enough.',
-    cta: 'Yes, keep me subscribed',
-    footer: 'If you do nothing, we’ll pause the newsletter in a few days. You can reactivate it anytime.',
-    unsub: 'Unsubscribe',
+    subject: 'Still there? 👀 Your newsletter is about to take a nap',
+    preheader: 'One tap and you stay aboard — nothing more, promise.',
+    emoji: '👋',
+    heading: 'We miss you!',
+    body: 'You haven’t opened our newsletter in a while. No worries — but to keep your inbox tidy we’re about to pause it. If you’d like to keep getting <strong>jobs in Switzerland</strong>, cross-border news and tips for commuters, one tap is all it takes.',
+    cta: '🚀 Yep, keep me aboard',
+    keepNote: 'Do nothing and we’ll pause it in a few days. You can switch it back on anytime — no hard feelings. 🙂',
+    unsub: 'No thanks, time to say goodbye',
+    wordmarkSub: 'Ticino',
   },
   de: {
-    subject: 'Noch da? Wir pausieren bald deinen Newsletter',
-    preheader: 'Bestätige mit einem Klick, um ihn weiter zu erhalten.',
-    heading: 'Noch da?',
-    body: 'Du hast unseren Newsletter seit einer Weile nicht geöffnet. Aus Rücksicht auf dein Postfach pausieren wir ihn bald — wenn du aber weiterhin Stellenangebote und News für Grenzgänger erhalten möchtest, genügt ein Klick.',
-    cta: 'Ja, ich bleibe dabei',
-    footer: 'Wenn du nichts tust, pausieren wir den Newsletter in wenigen Tagen. Du kannst ihn jederzeit reaktivieren.',
-    unsub: 'Abmelden',
+    subject: 'Noch da? 👀 Dein Newsletter macht bald Pause',
+    preheader: 'Ein Tap und du bleibst an Bord — mehr nicht, versprochen.',
+    emoji: '👋',
+    heading: 'Wir vermissen dich!',
+    body: 'Du hast unseren Newsletter eine Weile nicht geöffnet. Kein Problem — aber damit dein Postfach aufgeräumt bleibt, pausieren wir ihn bald. Wenn du weiterhin <strong>Jobs in der Schweiz</strong>, Grenzgänger-News und Tipps erhalten möchtest, genügt ein Tap.',
+    cta: '🚀 Ja, ich bleibe an Bord',
+    keepNote: 'Tust du nichts, pausieren wir ihn in ein paar Tagen. Du kannst ihn jederzeit wieder aktivieren — alles gut. 🙂',
+    unsub: 'Nein danke, Zeit für ein Tschüss',
+    wordmarkSub: 'Ticino',
   },
   fr: {
-    subject: 'Toujours là ? Nous allons suspendre votre newsletter',
-    preheader: 'Confirmez en un clic pour continuer à la recevoir.',
-    heading: 'Toujours là ?',
-    body: 'Vous n’avez pas ouvert notre newsletter depuis un moment. Pour respecter votre boîte mail, nous allons la suspendre — mais si vous souhaitez continuer à recevoir offres d’emploi et actualités pour frontaliers, un seul clic suffit.',
-    cta: 'Oui, je reste abonné',
-    footer: 'Sans action de votre part, nous suspendrons la newsletter dans quelques jours. Vous pourrez la réactiver quand vous voulez.',
-    unsub: 'Se désabonner',
+    subject: 'Toujours là ? 👀 Ta newsletter va faire une pause',
+    preheader: 'Un tap et tu restes à bord — rien de plus, promis.',
+    emoji: '👋',
+    heading: 'Tu nous manques !',
+    body: 'Tu n’as pas ouvert notre newsletter depuis un moment. Pas de souci — mais pour garder ta boîte mail au propre, nous allons la suspendre. Si tu veux continuer à recevoir des <strong>offres d’emploi en Suisse</strong>, l’actu de la frontière et des astuces pour frontaliers, un tap suffit.',
+    cta: '🚀 Oui, je reste à bord',
+    keepNote: 'Sans action de ta part, nous la suspendrons dans quelques jours. Tu pourras la réactiver quand tu veux — sans rancune. 🙂',
+    unsub: 'Non merci, je préfère partir',
+    wordmarkSub: 'Ticino',
   },
 };
 
@@ -73,29 +88,41 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
 <html lang="${l}">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${s.heading}</title></head>
-<body style="margin:0;padding:0;background:#f3f4f6;">
-<span style="display:none;max-height:0;overflow:hidden;opacity:0;">${s.preheader}</span>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6;padding:24px 0;">
+<body style="margin:0;padding:0;background:${PAGE_BG};-webkit-text-size-adjust:100%;">
+<span style="display:none!important;max-height:0;overflow:hidden;opacity:0;color:${PAGE_BG};">${s.preheader}</span>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${PAGE_BG};padding:24px 12px;">
   <tr><td align="center">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px;padding:32px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-      <tr><td>
-        <h1 style="margin:0 0 16px;font-size:24px;line-height:1.25;color:${TEXT};">${s.heading}</h1>
-        <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:${TEXT};">${s.body}</p>
-        <table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="border-radius:8px;background:${BRAND_ORANGE};">
-          <a href="${stayUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 28px;font-size:16px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:8px;">${s.cta}</a>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:${CARD_BG};border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+      <!-- brand bar -->
+      <tr><td style="background:${BRAND_DARK};padding:16px 28px;">
+        <span style="font-size:17px;font-weight:900;letter-spacing:-0.3px;color:${BRAND_ORANGE};">Frontaliere</span><span style="font-size:17px;font-weight:900;letter-spacing:-0.3px;color:#ffffff;"> ${s.wordmarkSub}</span>
+      </td></tr>
+      <!-- hero -->
+      <tr><td style="padding:36px 32px 8px;text-align:center;">
+        <div style="font-size:48px;line-height:1;margin:0 0 12px;">${s.emoji}</div>
+        <h1 style="margin:0;font-size:26px;line-height:1.2;color:${INK};font-weight:800;">${s.heading}</h1>
+      </td></tr>
+      <!-- body -->
+      <tr><td style="padding:16px 32px 28px;text-align:center;">
+        <p style="margin:0 0 28px;font-size:16px;line-height:1.65;color:${INK};">${s.body}</p>
+        <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td style="border-radius:999px;background:${CTA_ORANGE};box-shadow:0 6px 16px rgba(234,88,12,0.32);">
+          <a href="${stayUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:16px 34px;font-size:17px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:999px;">${s.cta}</a>
         </td></tr></table>
-        <p style="margin:24px 0 0;font-size:13px;line-height:1.5;color:${MUTED};">${s.footer}</p>
-        <p style="margin:16px 0 0;font-size:12px;line-height:1.5;color:${MUTED};">
-          <a href="${unsubscribeUrl}" target="_blank" rel="noopener noreferrer" style="color:${MUTED};text-decoration:underline;">${s.unsub}</a>
-        </p>
+        <p style="margin:24px 0 0;font-size:13px;line-height:1.55;color:${MUTED};">${s.keepNote}</p>
+      </td></tr>
+      <!-- footer -->
+      <tr><td style="border-top:1px solid #eef2f7;padding:18px 32px 24px;text-align:center;">
+        <a href="${unsubscribeUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${MUTED};text-decoration:underline;">${s.unsub}</a>
       </td></tr>
     </table>
+    <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:#94a3b8;text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
   </td></tr>
 </table>
 </body>
 </html>`;
 
-  const text = `${s.heading}\n\n${s.body}\n\n${s.cta}: ${stayUrl}\n\n${s.footer}\n\n${s.unsub}: ${unsubscribeUrl}\n`;
+  // Plain-text part mirrors the message (emoji stripped from the CTA label).
+  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${s.unsub}: ${unsubscribeUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n`;
 
   return { subject: s.subject, html, text, unsubscribeUrl };
 }

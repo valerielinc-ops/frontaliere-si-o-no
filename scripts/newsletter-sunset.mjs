@@ -72,6 +72,10 @@ async function sendWinbacks(items) {
         subject,
         html,
         text,
+        // Skip click-tracking link rewriting: the CTA is a direct resubscribe
+        // action on our canonical https origin (valid cert), and the resubscribe
+        // hit is our own re-engagement signal — we don't need the ESP click event.
+        tracking: false,
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
