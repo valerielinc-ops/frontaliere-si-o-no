@@ -17,13 +17,17 @@ import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleOutreachUnsubscribe } from './src/outreachUnsubscribe.js';
 import { handleOutreachStopReply } from './src/outreachStopReply.js';
+import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
-import { handleAdminEmployerInsights } from './src/adminEmployerInsights.js';
+import { handleAdminEmployerInsights, assertAdmin } from './src/adminEmployerInsights.js';
+import { handleAdminSendColdEmail } from './src/adminSendColdEmail.js';
+import { getAdminDb } from './src/newsletterResendWebhookCore.js';
+import { Resend } from 'resend';
 import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
@@ -138,6 +142,66 @@ export const adminEmployerInsights = onRequest(
       res.status(status).json(body);
     } catch (error) {
       console.error('[adminEmployerInsights]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// adminSendColdEmail — admin-gated web-UI cold-email sender. POST { companyKey,
+// touch, force? } with the admin's Firebase ID token. Enforces verified-email,
+// suppression and dedup server-side, sends via Resend (one-click List-Unsubscribe
+// header), and logs the send to employer_outreach_sends so the dashboard tracks
+// it. The send body is the shared buildSequence (byte-identical to the preview).
+export const adminSendColdEmail = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: true,
+  },
+  async (req, res) => {
+    try {
+      if (req.method !== 'POST') {
+        res.status(405).json({ ok: false, error: 'method_not_allowed' });
+        return;
+      }
+      const auth = await assertAdmin(req);
+      if (!auth.ok) {
+        res.status(auth.status).json({ ok: false, error: auth.error });
+        return;
+      }
+      const { resendApiKey, newsletterSecret } = await getNewsletterSecrets();
+      if (!resendApiKey) {
+        res.status(503).json({ ok: false, error: 'resend_key_missing' });
+        return;
+      }
+      const resend = new Resend(resendApiKey);
+      const sendEmail = async ({ from, to, subject, text, unsubUrl }) => {
+        const { data, error } = await resend.emails.send({
+          from,
+          to,
+          subject,
+          text,
+          headers: {
+            'List-Unsubscribe': `<${unsubUrl}>`,
+            'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+          },
+        });
+        if (error) throw new Error(error.message || 'resend_error');
+        return { messageId: (data && data.id) || '' };
+      };
+      const body = req.body || {};
+      const { status, body: out } = await handleAdminSendColdEmail({
+        companyKey: body.companyKey,
+        touch: body.touch,
+        force: Boolean(body.force),
+        secret: newsletterSecret,
+        db: getAdminDb(),
+        sendEmail,
+      });
+      res.status(status).json(out);
+    } catch (error) {
+      console.error('[adminSendColdEmail]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },
@@ -741,6 +805,43 @@ export const outreachStopReply = onRequest(
  res.status(result.status).type('text').send(result.body);
  } catch (error) {
  console.error('[outreachStopReply] Error:', error);
+ res.status(500).type('text').send('error');
+ }
+ },
+);
+
+/**
+ * outreachReplyTrack — records ANY inbound cold-email reply (not just STOP) so
+ * the admin dashboard can show whether a company replied. The Cloudflare Email
+ * Worker POSTs { from, subject } for every inbound reply with the shared secret
+ * in `x-stop-secret`; this upserts employer_outreach_replies/{companyKey}.
+ * Additive to outreachStopReply (which still handles STOP suppression).
+ * POST-only, secret-gated.
+ */
+export const outreachReplyTrack = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: false,
+ },
+ async (req, res) => {
+ if (req.method !== 'POST') {
+ res.status(405).send('Method not allowed');
+ return;
+ }
+ try {
+ const { newsletterSecret } = await getNewsletterSecrets();
+ const body = req.body || {};
+ const result = await handleOutreachReplyTrack({
+ from: body.from,
+ subject: body.subject,
+ secret: newsletterSecret,
+ providedSecret: String(req.get('x-stop-secret') || ''),
+ });
+ res.status(result.status).type('text').send(result.body);
+ } catch (error) {
+ console.error('[outreachReplyTrack] Error:', error);
  res.status(500).type('text').send('error');
  }
  },
