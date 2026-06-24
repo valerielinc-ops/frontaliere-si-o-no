@@ -83,13 +83,27 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # Routing identity = GitHub App installation token (`frontaliere-automation
+      # [bot]`): auto-mints, no expiry, and its `labeled` event DOES trigger
+      # issue-fix / the drainer (App tokens are not subject to the GITHUB_TOKEN
+      # anti-recursion). Sets env.APP_TOKEN; missing App creds → falls back to
+      # env.GITHUB_PAT. The issue-fix sender gate already allowlists the App slug
+      # (#2881). B2b-2 of the App migration.
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # Token-down = degrado silenzioso a catena del loop autonomo (merge senza
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert PAT-down (dedup, zero-Claude)
-        if: env.GITHUB_PAT == ''
+      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT. Scatta solo se né App né PAT.
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -99,7 +113,9 @@ jobs:
       - name: Classify and route (deterministic, no Claude)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_PAT: ${{ env.GITHUB_PAT }}
+          # Routing label-apply token: App first, then PAT. Both re-trigger
+          # issue-fix/drainer on `labeled` (unlike GITHUB_TOKEN, anti-recursion).
+          ROUTING_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           REPO: ${{ github.repository }}
@@ -151,22 +167,22 @@ jobs:
           if [ "$state" != "OPEN" ]; then
             echo "Issue non OPEN ($state) → skip routing."; exit 0
           fi
-          if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::warning::GITHUB_PAT assente → routing inerte (GITHUB_TOKEN non triggererebbe issue-fix/drainer)."; exit 0
+          if [ -z "${ROUTING_TOKEN:-}" ]; then
+            echo "::warning::Nessun token usabile (App/PAT assenti) → routing inerte (GITHUB_TOKEN non triggererebbe issue-fix/drainer)."; exit 0
           fi
-          # Non-fatal: se il PAT manca dei permessi issues:write o la label non
+          # Non-fatal: se il token manca dei permessi issues:write o la label non
           # esiste, NON rompere il triage (già completato: triaged + commento) —
           # emetti warning visibile (routing inerte da indagare).
           if [ "$route" = "queue" ]; then
             prio="${fuprio:-low}"
             echo "Accodo #$ISSUE_NUMBER → agent:fix-queued + fu-prio:$prio (drenato dal followup-drainer)."
-            GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
+            GH_TOKEN="$ROUTING_TOKEN" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
               --add-label "agent:fix-queued" --add-label "fu-prio:$prio" \
-              || echo "::warning::accodamento via PAT fallito (scope/label?) — routing non applicato, triage completato."
+              || echo "::warning::accodamento via App/PAT fallito (scope/label?) — routing non applicato, triage completato."
           else
-            echo "Applico agent:fix via PAT su #$ISSUE_NUMBER (category=$cat) → triggera issue-fix."
-            GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix" \
-              || echo "::warning::agent:fix via PAT fallito (scope PAT issues:write? label assente?) — routing non applicato, triage completato."
+            echo "Applico agent:fix via App/PAT su #$ISSUE_NUMBER (category=$cat) → triggera issue-fix."
+            GH_TOKEN="$ROUTING_TOKEN" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix" \
+              || echo "::warning::agent:fix via App/PAT fallito (scope issues:write? label assente?) — routing non applicato, triage completato."
           fi
 
   # Self-healing del tagging: recupera le issue orfane (no agent:triaged) che il

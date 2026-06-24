@@ -59,13 +59,25 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # Promotion identity = GitHub App installation token: its `labeled`
+      # agent:fix DOES trigger issue-fix (App tokens are not subject to the
+      # GITHUB_TOKEN anti-recursion). Sets env.APP_TOKEN; missing → env.GITHUB_PAT
+      # fallback. issue-fix sender gate already allowlists the App slug (#2881).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # Token-down = degrado silenzioso a catena del loop autonomo (merge senza
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert PAT-down (dedup, zero-Claude)
-        if: env.GITHUB_PAT == ''
+      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT. Scatta solo se né App né PAT.
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -74,14 +86,14 @@ jobs:
 
       - name: Drain follow-up queue (deterministic, no Claude)
         env:
-          # PAT (owner) OBBLIGATORIO: il `labeled` agent:fix deve triggerare
-          # issue-fix e passare il gate `sender == valerielinc-ops` (GITHUB_TOKEN
-          # no, anti-ricorsione). Senza PAT → exit con warning (inerte).
-          GH_TOKEN: ${{ env.GITHUB_PAT }}
+          # App (o PAT) OBBLIGATORIO: il `labeled` agent:fix deve triggerare
+          # issue-fix e passare il gate `sender` (GITHUB_TOKEN no, anti-ricorsione;
+          # l'App slug è allowlistato in #2881). Senza token → exit warning (inerte).
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::warning::GITHUB_PAT assente → drainer inerte (promozione non triggererebbe issue-fix)."
+            echo "::warning::Nessun token usabile (App/PAT assenti) → drainer inerte (promozione non triggererebbe issue-fix)."
             exit 0
           fi
           node scripts/ci/followup-drainer.mjs
