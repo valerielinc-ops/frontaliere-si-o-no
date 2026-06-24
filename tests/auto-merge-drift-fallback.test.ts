@@ -42,6 +42,8 @@ describe('isTrustedDriftAuthor', () => {
   it('true per i bot di automazione interni', () => {
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude', type: 'Bot' })).toBe(true);
     expect(isTrustedDriftAuthor({ assoc: 'CONTRIBUTOR', login: 'github-actions', type: 'Bot' })).toBe(true);
+    // The frontaliere-automation App (matched by EXACT slug, assoc is NONE for apps).
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'frontaliere-automation[bot]', type: 'Bot' })).toBe(true);
   });
 
   it('false per contributor/none umani e bot non in allowlist', () => {
@@ -49,6 +51,8 @@ describe('isTrustedDriftAuthor', () => {
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'random', type: 'User' })).toBe(false);
     // un bot esterno NON in allowlist non passa
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'dependabot', type: 'Bot' })).toBe(false);
+    // exact-slug match: a look-alike app slug must NOT pass (no broad widening)
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'frontaliere-automation-evil[bot]', type: 'Bot' })).toBe(false);
   });
 
   it('false per meta mancante', () => {
