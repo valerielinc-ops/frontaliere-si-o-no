@@ -361,6 +361,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.title': 'Spanier, eine Ära am Ende der Linie?',
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.excerpt': 'Der Import von Obst und Gemüse aus Spanien könnte aufgrund höherer Löhne und ausländischer Konkurrenz zurückgehen.',
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.imageAlt': 'Tomatenanbau in Spanien',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.title': 'Suspendierter Schienenverkehr in Deutschland: Auswirkungen auf die Schweiz',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.excerpt': 'Eine Zugsperre in Deutschland aufgrund eines technischen Defekts könnte sich auf die Verbindungen in die Schweiz auswirken. Hier ist, was Sie wissen müssen.',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.imageAlt': 'Luftaufnahme von Schweizer Bahnhöfen mit einem angehaltenen Zug',
 };
 
 export default blogMetaChDe;

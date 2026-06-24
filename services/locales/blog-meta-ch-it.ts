@@ -361,6 +361,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.title': 'Pomodori economici spagnoli, un\'era al capolinea?',
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.excerpt': 'L\'importazione di frutta e verdura dalla Spagna potrebbe diminuire a causa di salari più elevati e concorrenza estera.',
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.imageAlt': 'Serre in plastica per la coltivazione di pomodori in Spagna',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.title': 'Traffico ferroviario sospeso in Germania: impatto su Svizzera',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.excerpt': 'La sospensione dei treni in Germania per un guasto tecnico potrebbe influire sui collegamenti con la Svizzera. Ecco cosa sapere.',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.imageAlt': 'Vista aerea di stazioni ferroviarie svizzere con un treno sospeso',
 };
 
 export default blogMetaChIt;
