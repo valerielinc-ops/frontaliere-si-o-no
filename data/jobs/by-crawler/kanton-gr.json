@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-06-23T22:34:18.921Z",
+  "assembledAt": "2026-06-24T11:58:39.634Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:09.642Z",
+      "crawledAt": "2026-06-24T11:58:30.724Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:08.982Z",
+      "crawledAt": "2026-06-24T11:58:30.104Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -200,6 +201,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -245,7 +247,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:08.323Z",
+      "crawledAt": "2026-06-24T11:58:29.494Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -306,6 +308,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -351,7 +354,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:07.664Z",
+      "crawledAt": "2026-06-24T11:58:28.503Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -412,6 +415,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -427,37 +431,37 @@
       "addressRegion": "GR"
     },
     {
-      "id": "kanton-gr-8e7c70756246",
-      "slug": "assistente-sociale-kantonale-verwaltung-graubunden-chur",
+      "id": "kanton-gr-d1f2787a6c8f",
+      "slug": "sozialarbeiter-in-kanton-gr-ch",
       "slugByLocale": {
-        "it": "assistente-sociale-kantonale-verwaltung-graubunden-chur",
-        "en": "social-workers-kantonale-verwaltung-graubunden-chur",
         "de": "sozialarbeiter-in-kanton-gr-ch",
-        "fr": "travailleurs-sociaux-kantonale-verwaltung-graubunden-chur"
+        "it": "sozialarbeiter-in-kanton-gr-ch",
+        "en": "sozialarbeiter-in-kanton-gr-ch",
+        "fr": "sozialarbeiter-in-kanton-gr-ch"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
       "companyDomain": "gr.ch",
       "title": "Sozialarbeiter/-in",
       "titleByLocale": {
-        "it": "Assistente sociale",
-        "en": "Social workers",
         "de": "Sozialarbeiter/-in",
-        "fr": "Travailleurs sociaux"
+        "it": "Sozialarbeiter/-in",
+        "en": "Sozialarbeiter/-in",
+        "fr": "Sozialarbeiter/-in"
       },
-      "description": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste.\n\nDer regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine Sozialarbeiterin / einen Sozialarbeiter . Die Stelle ist aktuell bis 31. März 2028 befristet. Es besteht voraussichtlich die Option auf Verlängerung der Anstellung.\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+      "description": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste.\n\nDer regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung und finanzielle Unterstützung von Personen mit Schutzstatus S aus der Ukraine in individuellen Unterkünften\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
       "descriptionByLocale": {
-        "it": "Descrizione Su incarico dei comuni, l'ufficio sociale cantonale svolge il compito di assistenza sociale e di dipendenza personale e sostiene le persone nell'accesso all'assistenza sociale economica. Questo è il risultato di otto servizi sociali regionali nelle regioni del cantone. Il servizio sociale regionale Coira/Plesso/Imboden è responsabile di 10 comuni con un bacino di utenza di 67.000 persone. Consulenza sociale, aiuto per le dipendenze e sostegno finanziario (gr.ch) Posizione\n• Stiamo cercando per la sede di Coira dal 1° Agosto 2026 o, su appuntamento, un'assistente sociale . La posizione è attualmente ricoperta fino al 31 Marzo 2028. È prevista la possibilità di proroga dell'assunzione. Mansioni - Consulenza sociale orientata alle soluzioni e alle risorse per individui e famiglie - Accesso alle prestazioni di sicurezza sociale e all'assistenza sociale economica - Consulenza ai rifugiati e agli stranieri riconosciuti e ammessi provvisoriamente per l'integrazione linguistica, professionale e sociale - Collaborazione con le autorità sociali e gli uffici specializzati - Altre attività versatili, interessanti e responsabili\n• Requisiti - Formazione completata come assistente sociale BSc/FH o una laurea in una formazione comparabile - Piacere di lavorare con persone di diversa estrazione sociale e/o culturale - Elevata competenza di consulenza e solide conoscenze specialistiche in",
-        "en": "Descrizione The cantonal social services department performs the task of personal social and addiction assistance on behalf of the municipalities and supports people in the development of economic social assistance. It leads eight regional social services in the canton. The regional social service Chur/Plessur/Imboden is responsible for 10 municipalities with a catchment area of 67 000 persons. Social counselling, addiction assistance and financial assistance (gr.ch) Position We are looking for a social worker for the location Chur as of 1 August 2026 or by agreement. The position is currently limited until 31 March 2028. The option for renewal of employment is expected. Mansioni - Solution and resource-oriented social counselling for individuals and families - development of social security services and economic welfare assistance - advice for recognised and provisionally admitted refugees and foreigners on linguistic, professional and social integration - cooperation with social authorities and specialized centres - other varied, interesting and responsible activities\n• Requisiti - completed training as a social worker/in BSc/FH or a degree in a comparable training - Enjoying working with people with different social and/or cultural backgrounds - High level of consulting expertise and sound expertise in social assistance law and social security - High level of contact, resilient, capable of teamwork, good communication, organisational and administrative skills - Ideally good knowledge of foreign languages - Self-employed and solution-oriented work Contatto (nessun testo disponibile)",
-        "de": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch) Wir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine Sozialarbeiterin / einen Sozialarbeiter . Die Stelle ist aktuell bis 31. März 2028 befristet. Es besteht voraussichtlich die Option auf Verlängerung der Anstellung. Aufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten Anforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n• Idealerweise gute Fremdsprachenkenntnisse\n• Selbstständiges und lösungsorientiertes Arbeiten",
-        "fr": "Descrizione Le département des services sociaux cantonaux s'occupe de l'assistance sociale et de la toxicomanie personnelle au nom des communes et soutient la population dans le développement de l'assistance sociale économique. Il dirige huit services sociaux régionaux dans le canton. Le service social régional Chur/Plessur/Imboden est responsable de 10 communes avec un bassin versant de 67 000 personnes. Conseil social, assistance en matière de toxicomanie et assistance financière (gr.ch) Position Nous recherchons un travailleur social pour la localisation de Chur à partir du 1er août 2026 ou par accord. Le poste est actuellement limité jusqu'au 31 mars 2028. L'option de renouvellement de l'emploi est prévue. Mansioni - Solution et conseil social axé sur les ressources pour les individus et les familles - développement des services de sécurité sociale et de l'aide sociale - conseils aux réfugiés reconnus et provisoirement admis et aux étrangers en matière d'intégration linguistique, professionnelle et sociale - coopération avec les autorités sociales et les centres spécialisés - autres activités variées, intéressantes et responsables\n• Requisiti - formation complétée en tant que travailleur social/en BSc/FH ou diplôme en formation comparable - Profitez de la collaboration avec des personnes ayant des antécédents sociaux et/ou culturels différents - Haute expertise en matière de conseil et de bonne expertise en matière de droit de l'assistance sociale et de sécurité sociale - Haut niveau de contact, résilient, capable de travailler en équipe, bonne communication, compétences organisationnelles et administratives - Bonne connaissance des langues étrangères - Travail indépendant et orienté vers la solution Contatto (nessun testo disponibile)"
+        "de": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste.\n\nDer regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung und finanzielle Unterstützung von Personen mit Schutzstatus S aus der Ukraine in individuellen Unterkünften\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+        "it": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste.\n\nDer regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung und finanzielle Unterstützung von Personen mit Schutzstatus S aus der Ukraine in individuellen Unterkünften\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+        "en": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste.\n\nDer regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung und finanzielle Unterstützung von Personen mit Schutzstatus S aus der Ukraine in individuellen Unterkünften\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+        "fr": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste.\n\nDer regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung und finanzielle Unterstützung von Personen mit Schutzstatus S aus der Ukraine in individuellen Unterkünften\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten"
       },
       "location": "Chur",
       "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2697/pub/11/index.html",
+      "url": "https://apply.refline.ch/514915/2698/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:07.003Z",
+      "crawledAt": "2026-06-24T11:58:27.882Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -469,30 +473,18 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://apply.refline.ch/514915/2697/pub/11/index.html",
+      "postedDate": "2026-06-24",
+      "applyUrl": "https://apply.refline.ch/514915/2698/pub/10/index.html",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Sozialamt",
       "applicationDeadline": "2026-07-10",
       "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "sozialarbeiter-in-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialarbeiter-in-kanton-gr-ch"
-        ],
-        "en": [
-          "sozialarbeiter-in-kanton-gr-ch"
-        ],
-        "fr": [
-          "sozialarbeiter-in-kanton-gr-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-22T14:44:21.828Z",
+      "pensumMax": 80,
+      "pensum": "80%",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -505,7 +497,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-24T11:58:27.882Z"
     },
     {
       "id": "kanton-gr-19cb03b3a1e9",
@@ -538,7 +531,7 @@
       "url": "https://apply.refline.ch/514915/2644/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:06.343Z",
+      "crawledAt": "2026-06-24T11:58:26.572Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -619,7 +612,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:05.682Z",
+      "crawledAt": "2026-06-24T11:58:25.952Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -665,9 +658,9 @@
     },
     {
       "id": "kanton-gr-61b4bd8f9444",
-      "slug": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+      "slug": "systems-engineer-in-windows-server-kanton-gr-ch",
       "slugByLocale": {
-        "it": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+        "it": "systems-engineer-in-windows-server-kanton-gr-ch",
         "en": "systems-engineer-in-windows-server-kantonale-verwaltung-graubunden-chur",
         "de": "systems-engineer-in-windows-server-kanton-gr-ch",
         "fr": "systems-engineer-in-windows-server-kanton-gr-ch"
@@ -678,7 +671,7 @@
       "title": "Systems Engineer/-in Windows Server",
       "titleByLocale": {
         "it": "Ingegnere/a di sistema Windows Server",
-        "en": "Systems Engineer/in Windows Server",
+        "en": "Systems Engineer/-in Windows Server",
         "de": "Systems Ingenieur/-in Windows Server",
         "fr": "Ingénieur systèmes Windows Server"
       },
@@ -694,7 +687,7 @@
       "url": "https://apply.refline.ch/514915/2738/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:05.021Z",
+      "crawledAt": "2026-06-24T11:58:25.331Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -716,7 +709,7 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "systems-engineer-in-windows-server-kanton-gr-ch",
+        "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur",
         "systems-engineer-in-per-applicazioni-windows-kantonale-verwaltung-graubunden-chur",
@@ -726,6 +719,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
           "systems-engineer-in-windows-server-kanton-gr-ch"
         ],
         "fr": [
@@ -734,6 +728,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:01.610Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -779,7 +774,7 @@
       "url": "https://apply.refline.ch/514915/2743/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:04.360Z",
+      "crawledAt": "2026-06-24T11:58:24.711Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -809,6 +804,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:00.957Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -854,7 +850,7 @@
       "url": "https://apply.refline.ch/514915/2741/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:03.700Z",
+      "crawledAt": "2026-06-24T11:58:24.097Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -939,7 +935,7 @@
       "url": "https://apply.refline.ch/514915/2745/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:03.041Z",
+      "crawledAt": "2026-06-24T11:58:23.469Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1014,7 +1010,7 @@
       "url": "https://apply.refline.ch/514915/2737/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:02.377Z",
+      "crawledAt": "2026-06-24T11:58:22.842Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1104,7 +1100,7 @@
       "url": "https://apply.refline.ch/514915/2730/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:01.711Z",
+      "crawledAt": "2026-06-24T11:58:22.221Z",
       "addressLocality": "Davos Frauenkirch",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1155,10 +1151,10 @@
       "id": "kanton-gr-411b4f827a54",
       "slug": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
+        "it": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1166,7 +1162,7 @@
       "title": "Dipl. Pflegefachperson HF",
       "titleByLocale": {
         "it": "Infermiere Laureato in HF",
-        "en": "Dipl. Care professional HF",
+        "en": "Dipl. Pflegefachperson HF",
         "de": "Dipl. Pflegefachperson HF",
         "fr": "Infirmière diplômée en HF"
       },
@@ -1182,7 +1178,7 @@
       "url": "https://apply.refline.ch/514915/2711/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:01.051Z",
+      "crawledAt": "2026-06-24T11:58:21.600Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1206,18 +1202,21 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-kanton-gr-ch",
         "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-        "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
+        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-kanton-gr-ch",
-          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis"
+          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
+          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
           "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-06-18T12:32:57.645Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1263,7 +1262,7 @@
       "url": "https://apply.refline.ch/514915/2727/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:34:00.389Z",
+      "crawledAt": "2026-06-24T11:58:20.976Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1341,7 +1340,7 @@
       "url": "https://apply.refline.ch/514915/2739/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:59.733Z",
+      "crawledAt": "2026-06-24T11:58:20.360Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1422,7 +1421,7 @@
       "url": "https://apply.refline.ch/514915/2721/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:59.074Z",
+      "crawledAt": "2026-06-24T11:58:19.738Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1497,7 +1496,7 @@
       "url": "https://apply.refline.ch/514915/2731/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:58.415Z",
+      "crawledAt": "2026-06-24T11:58:19.116Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1571,7 +1570,7 @@
       "url": "https://apply.refline.ch/514915/2734/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:57.754Z",
+      "crawledAt": "2026-06-24T11:58:18.493Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1646,7 +1645,7 @@
       "url": "https://apply.refline.ch/514915/2719/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:57.096Z",
+      "crawledAt": "2026-06-24T11:58:17.874Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1727,7 +1726,7 @@
       "url": "https://apply.refline.ch/514915/2735/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:56.436Z",
+      "crawledAt": "2026-06-24T11:58:17.254Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1802,7 +1801,7 @@
       "url": "https://apply.refline.ch/514915/2729/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:55.777Z",
+      "crawledAt": "2026-06-24T11:58:16.635Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1866,7 +1865,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Streetkeeper/in",
+        "it": "Strassenwart/-in",
         "en": "Streetkeeper/in",
         "de": "Strassenwart/-in",
         "fr": "Gardien de rue/in"
@@ -1883,7 +1882,7 @@
       "url": "https://apply.refline.ch/514915/2728/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:55.119Z",
+      "crawledAt": "2026-06-24T11:58:15.992Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1966,7 +1965,7 @@
       "url": "https://apply.refline.ch/514915/2699/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:54.446Z",
+      "crawledAt": "2026-06-24T11:58:15.359Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2030,6 +2029,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2075,7 +2075,7 @@
       "url": "https://apply.refline.ch/514915/2724/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:53.787Z",
+      "crawledAt": "2026-06-24T11:58:14.741Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2150,7 +2150,7 @@
       "url": "https://apply.refline.ch/514915/2725/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:53.127Z",
+      "crawledAt": "2026-06-24T11:58:14.092Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2181,6 +2181,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:53.758Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2226,7 +2227,7 @@
       "url": "https://apply.refline.ch/514915/2722/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:52.466Z",
+      "crawledAt": "2026-06-24T11:58:13.472Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2312,7 +2313,7 @@
       "url": "https://apply.refline.ch/514915/2726/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:51.804Z",
+      "crawledAt": "2026-06-24T11:58:12.851Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2348,6 +2349,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:52.468Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2393,7 +2395,7 @@
       "url": "https://apply.refline.ch/514915/2723/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:51.143Z",
+      "crawledAt": "2026-06-24T11:58:12.231Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2471,7 +2473,7 @@
       "url": "https://apply.refline.ch/514915/2720/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:50.483Z",
+      "crawledAt": "2026-06-24T11:58:11.611Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2554,7 +2556,7 @@
       "url": "https://apply.refline.ch/514915/2714/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:49.805Z",
+      "crawledAt": "2026-06-24T11:58:10.972Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2635,7 +2637,7 @@
       "url": "https://apply.refline.ch/514915/2715/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:49.137Z",
+      "crawledAt": "2026-06-24T11:58:10.350Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2665,6 +2667,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:49.867Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2710,7 +2713,7 @@
       "url": "https://apply.refline.ch/514915/2716/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:48.476Z",
+      "crawledAt": "2026-06-24T11:58:09.737Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2785,7 +2788,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:47.814Z",
+      "crawledAt": "2026-06-24T11:58:09.117Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2815,6 +2818,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.927Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2860,7 +2864,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:33:46.477Z",
+      "crawledAt": "2026-06-24T11:58:07.866Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2924,6 +2928,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
