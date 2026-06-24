@@ -91,13 +91,28 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # Primary merge identity = GitHub App installation token (`frontaliere-
+      # automation[bot]`): auto-mints, no expiry, and its merge-push to main
+      # re-triggers the deploy + post-merge-followup cascade (no GITHUB_TOKEN
+      # anti-recursion). Sets env.APP_TOKEN; missing App creds → falls back to
+      # env.GITHUB_PAT, then GITHUB_TOKEN. The identity gates already allowlist
+      # the App slug (#2881). B2b-1 of the App migration.
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # Token-down = degrado silenzioso a catena del loop autonomo (merge senza
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert PAT-down (dedup, zero-Claude)
-        if: env.GITHUB_PAT == ''
+      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT. Scatta solo se NESSUN token
+      # cascade-capable (né App né PAT).
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -157,9 +172,9 @@ jobs:
           #   1. RC non carica → env.GITHUB_PAT vuoto → fallback diretto.
           #   2. Merge col PAT fallisce (es. PAT senza scope PR-write) → retry
           #      con GITHUB_TOKEN, così l'auto-merge non si rompe mai.
-          MERGE_PRIMARY_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          MERGE_PRIMARY_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           MERGE_FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HAS_PAT: ${{ env.GITHUB_PAT != '' }}
+          HAS_PAT: ${{ env.APP_TOKEN != '' || env.GITHUB_PAT != '' }}
         run: node scripts/ci/auto-merge-eval.mjs "${{ steps.resolve.outputs.pr_number }}"
 
       - name: Cleanup Firebase credentials
