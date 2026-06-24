@@ -160,13 +160,17 @@ export function isReviewWorkflowDriftPR(filenames) {
 /**
  * True se l'autore della PR è fidato per il drift-fallback (merge senza review
  * Claude): l'owner/membro/collaboratore del repo, oppure uno dei bot di
- * automazione interni (claude[bot], github-actions[bot]). Puro → testabile.
+ * automazione interni (claude[bot], github-actions[bot], frontaliere-automation
+ * [bot] — l'App che pusha/mergia il loop). Puro → testabile.
  * `meta` = { assoc: author_association, login: user.login, type: user.type }.
  */
 export function isTrustedDriftAuthor(meta) {
   if (!meta) return false;
   if (['OWNER', 'MEMBER', 'COLLABORATOR'].includes(meta.assoc)) return true;
-  return meta.type === 'Bot' && /^(claude|github-actions)/i.test(meta.login || '');
+  // Internal automation bots: reviewer (claude*) / github-actions, plus the
+  // frontaliere-automation App by EXACT slug (don't widen to all Bot authors).
+  return meta.type === 'Bot' &&
+    (/^(claude|github-actions)/i.test(meta.login || '') || meta.login === 'frontaliere-automation[bot]');
 }
 
 // Required-headers regex — MIRROR di `.github/workflows/pr-body-contract.yml`

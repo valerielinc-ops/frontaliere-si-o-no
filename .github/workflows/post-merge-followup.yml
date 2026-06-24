@@ -34,7 +34,8 @@ jobs:
     if: |
       (github.event_name == 'pull_request' &&
        github.event.pull_request.merged == true &&
-       github.event.pull_request.user.login == 'valerielinc-ops') ||
+       (github.event.pull_request.user.login == 'valerielinc-ops' ||
+        github.event.pull_request.user.login == 'frontaliere-automation[bot]')) ||
       github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -104,7 +105,7 @@ jobs:
             - Se `EVENT_NAME=pull_request`, la PR è appena stata chiusa+mergiata (auto-triage); `PR_TITLE` è già esposta come env var.
             - Se `EVENT_NAME=workflow_dispatch`, la PR è un BACKFILL manuale di una PR vecchia. Ri-verifica che:
               - `gh pr view $PR_NUMBER --json state,mergedAt,user --jq '.mergedAt'` sia non-null (PR mergiata)
-              - `gh pr view $PR_NUMBER --json user --jq '.user.login'` == `valerielinc-ops` (same-owner gate)
+              - `gh pr view $PR_NUMBER --json user --jq '.user.login'` ∈ {`valerielinc-ops`, `frontaliere-automation[bot]`} (same-owner / internal-app gate)
               - Se uno dei due fallisce → emetti `## Post-merge follow-up triage (backfill skipped): PR not eligible (not merged or different author)` e termina.
 
             **Bootstrap:**
