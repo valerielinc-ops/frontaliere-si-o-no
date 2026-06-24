@@ -1022,16 +1022,15 @@
       "descriptionByLocale": {
         "it": "Descrizione Sachbearbeiter KTG & UVG Corporate business (a) presso Helsana a Worblaufen & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
         "en": "Descrizione Sachbearbeiter KTG & UVG Corporate business (a) at Helsana in Worblaufen & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
-        "de": "Sachbearbeiter KTG & UVG Unternehmensgeschäft (a) bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "de": "Descrizione\nSachbearbeiter KTG & UVG Unternehmensgeschäft (a) bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
         "fr": "Descrizione Sachbearbeiter KTG & UVG Entreprise (a) chez Helsana à Worblaufen & HomeOffice. Helsana est un fournisseur de soins de santé suisse établi. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Sachbearbeiter-KTG-&-UVG-Unternehmensgesch%C3%A4ft-%28a%29/1377015033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:21.152Z",
+      "crawledAt": "2026-06-23T22:24:42.331Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1048,35 +1047,36 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1377015033/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
-        "ktg-uvg-corporate-business-a-helsana-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
-          "ktg-uvg-corporate-business-a-helsana-ticino"
-        ],
-        "en": [
-          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
-        ],
-        "fr": [
-          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:15.243Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
+          "ktg-uvg-corporate-business-a-helsana-ticino"
+        ],
+        "fr": [
+          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
+        "ktg-uvg-corporate-business-a-helsana-ticino",
+        "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-ticino"
+      ]
     },
     {
       "id": "helsana-641a9fcc4ea8",
@@ -1169,25 +1169,24 @@
       "companyDomain": "helsana.ch",
       "title": "Versicherungsberater im Aussendienst (a) 80-100%",
       "titleByLocale": {
-        "it": "Consulente assicurativo in materia (a) 80-100 %",
-        "en": "Insurance consultant in the field (a) 80-100 %",
+        "it": "Consulente Assicurativo Esterno (a) 80-100%",
+        "en": "Insurance Advisor Field Sales (a) 80-100%",
         "de": "Versicherungsberater im Aussendienst (a) 80-100%",
-        "fr": "Consultant en assurance sur le terrain (a) 80-100 %"
+        "fr": "Conseiller en Assurance Terrain (a) 80-100%"
       },
       "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Solothurn & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Solothurn & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Solothurn & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Solothurn & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Solothurn & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Descrizione Consulente assicurativo nel servizio esterno (a) 80-100% presso Helsana a Soletta & Homeoffice. Helsana è un affermato fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro interessanti e una vasta gamma di opportunità di formazione. Mansioni - Consulenza ai clienti sul campo nel settore assicurativo - Assistenza e ampliamento della clientela esistente - Acquisizione di nuovi clienti - Esecuzione di consulenze in loco e in home office Requisiti - Esperienza nel settore assicurativo vantaggiosa - Eccellenti capacità di comunicazione - Modalità di lavoro indipendente - Flessibilità e disponibilità a viaggiare all'interno del campo di applicazione Cosa offriamo - Ambiente di lavoro moderno - Condizioni di lavoro attraenti - Varie opportunità di formazione continua - Orari di lavoro flessibili in home office e in loco Contatto [Inserire dettagli di contatto o link per la candidatura]",
+        "en": "Descrizione Insurance Consultant in the field service (a) 80-100% at Helsana in Solothurn & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.\n\nMansioni - Advising clients in the field of insurance - Support and expansion of the existing customer base - Acquisition of new customers - Conducting on-site consultations and in the Home Office Requisiti - Experience in the field of insurance benefits - Excellent communication skills - Self-employed working methods - Flexibility and willingness to travel within the field of application Cosa offriamo - Modern working environment - Attractive employment conditions - Various training opportunities - Flexible working hours in the HomeOffice and on-site Contatto [Inserire\n\ndettagli di contatto o link per la candidatura]",
+        "de": "Descrizione\n\nVersicherungsberater im Aussendienst (a) 80-100% bei Helsana in Solothurn & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.\n\nMansioni\n\n- Beratung von Kunden im Außendienst im Bereich Versicherungen\n- Betreuung und Ausbau des bestehenden Kundenstamms\n- Akquisition neuer Kunden\n- Durchführung von Beratungsgesprächen vor Ort und im Homeoffice\n\nRequisiti\n\n- Erfahrung im Versicherungsbereich von Vorteil\n- Ausgezeichnete Kommunikationsfähigkeiten\n- Selbstständige Arbeitsweise\n- Flexibilität und Reisebereitschaft innerhalb des Einsatzgebiets\n\nCosa offriamo\n\n- Modernes Arbeitsumfeld\n- Attraktive Anstellungsbedingungen\n- Vielfältige Weiterbildungsmöglichkeiten\n- Flexible Arbeitszeiten im Homeoffice und vor Ort\n\nContatto\n\n[Inserire dettagli di contatto o link per la candidatura]",
+        "fr": "Consultant en assurance de Descrizione sur le terrain (a) 80-100% à Helsana à Soleure & Homeoffice. Helsana est un fournisseur de soins de santé suisse. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation. Mansioni - Conseils clients dans le domaine de l'assurance - Soutien et expansion de la clientèle existante - Acquisition de nouveaux clients - Consultations sur place et dans le bureau d'attache Requisiti - Expérience dans le secteur de l'assurance est avantageux - Excellentes compétences en communication - Travail indépendant - Flexibilité et volonté de voyager dans le domaine d'application Cosa offriamo - Environnement de travail moderne - Conditions d'emploi attractives - Diverses possibilités de formation - Horaires de travail flexibles dans le bureau d'attache et sur le site Contatto [Inserire dettagli di contatto o link per la candidatura]"
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "SO",
       "url": "https://careers.helsana.ch/job/Solothurn-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1278103201/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:20.137Z",
+      "crawledAt": "2026-06-23T22:24:41.261Z",
       "addressLocality": "Ticino",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1204,20 +1203,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1278103201/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
-        ],
-        "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
-        ],
-        "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:14.015Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1230,7 +1215,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+      ]
     },
     {
       "id": "helsana-f904c3263618",
@@ -1246,25 +1245,24 @@
       "companyDomain": "helsana.ch",
       "title": "Case Manager Leistungen Unternehmensgeschäft Kanton Graubünden (a) 80-100%",
       "titleByLocale": {
-        "it": "Case Manager Servizi Corporate Business Cantone dei Grigioni (a) 80-100 %",
-        "en": "Case Manager Services Corporate Business Canton of Graubünden (a) 80-100 %",
+        "it": "Responsabile Gestione Casi Servizi Aziendali Cantone Grigioni (a) 80-100%",
+        "en": "Case Manager Corporate Benefits Canton Graubünden (a) 80-100%",
         "de": "Case Manager Leistungen Unternehmensgeschäft Kanton Graubünden (a) 80-100%",
-        "fr": "Case Manager Services Entreprise Canton des Grisons (a) 80-100 %"
+        "fr": "Gestionnaire de Cas Prestations Entreprise Canton Grisons (a) 80-100%"
       },
       "description": "Case Manager Leistungen Unternehmensgeschäft Kanton Graubünden (a) 80-100% bei Helsana in St. Gallen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Case Manager Leistungen Unternehmensgeschäft Kanton Graubünden (a) 80-100% bei Helsana in St. Gallen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Case Manager Leistungen Unternehmensgeschäft Kanton Graubünden (a) 80-100% bei Helsana in St. Gallen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Case Manager Leistungen Unternehmensgeschäft Kanton Graubünden (a) 80-100% bei Helsana in St. Gallen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Case Manager Leistungen Unternehmensgeschäft Kanton Graubünden (a) 80-100% bei Helsana in St. Gallen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Descrizione Case Manager Servizi aziendali Cantone dei Grigioni (a) 80-100% presso Helsana a St. Gallen & Homeoffice. Helsana è un affermato fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro interessanti e una vasta gamma di opportunità di formazione. Mansioni - Gestione dei casi relativi alle prestazioni aziendali nel Cantone dei Grigioni - Collaborazione con team interni per garantire un servizio di alta qualità - Analisi e valutazione delle richieste di prestazioni - Supporto ai clienti e ai partner aziendali - Coordinamento delle attività di assistenza e follow-up Requisiti - Esperienza pregressa nel settore sanitario o assicurativo - Ottima capacità di comunicazione e di lavoro in team - Conoscenza della lingua italiana e tedesca - Capacità di lavorare in modo autonomo e organizzato - Disponibilità a lavorare tra l'80% e il 100% Cosa offriamo - Un ambiente di lavoro moderno - Condizioni di impiego attrattive - Varie opportunità di formazione continuatto Per ulteriori informazioni e candidatura, si prega di contattare Helsana.",
+        "en": "Descrizione Case Manager Services Business Canton of Graubünden (a) 80-100% at Helsana in St. Gallen & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.\n\nMansioni - Gestione dei casi relativi alle prestazioni aziendali nelcine dei Grigioni - Collaborazione con team interni per garantire un servizio di alta qualità - Analisi e valutazione ll richieste di prestazioni - Supporto ai clienti e ai partner aziendali - Coordinationo ll attività di shenza e follow-up Requisiti - Esperienza pregressa nel settore sanitario o assScurativo - Ottima Capacità di comunicazione e di lavoro in team - Conoscenza della lingua llua e tedesca - Capacità di lavorare in modo autonomo e organizzato - Disponibilitità a lavorare tra l'80 e il 100% Cosa\n\noffriamo - Un·ne di lavoro moderno - Condizioni di impiego attrattive - Varie opportunità di formazione latina Contatto Per ulterioriñazioni e candidatura, si prega di contattare Helsana.",
+        "de": "Descrizione\n\nCase Manager Leistungen Unternehmensgeschäft Kanton Graubünden (a) 80-100% bei Helsana in St. Gallen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.\n\nMansioni\n\n- Gestione dei casi relativi alle prestazioni aziendali nel Cantone dei Grigioni\n- Collaborazione con team interni per garantire un servizio di alta qualità\n- Analisi e valutazione delle richieste di prestazioni\n- Supporto ai clienti e ai partner aziendali\n- Coordinamento delle attività di assistenza e follow-up\n\nRequisiti\n\n- Esperienza pregressa nel settore sanitario o assicurativo\n- Ottima capacità di comunicazione e di lavoro in team\n- Conoscenza della lingua italiana e tedesca\n- Capacità di lavorare in modo autonomo e organizzato\n- Disponibilità a lavorare tra l'80% e il 100%\n\nCosa offriamo\n\n- Un ambiente di lavoro moderno\n- Condizioni di impiego attrattive\n- Varie opportunità di formazione continua\n\nContatto\n\nPer ulteriori informazioni e candidatura, si prega di contattare Helsana.",
+        "fr": "Descrizione Case Manager Services Business Canton of Graubünden (a) 80-100% chez Helsana à St. Gallen & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue.\n\nMansioni - Gestion dei casi relativi alle prestazioni aziendali nelcine dei Grieni - Collaborazione con team interni perrique un servizio di alta qualità - Analisi evalutazione ll richieste di prestazioni - Supporto ai clienti e ai partner aziendali - Coordinationo ll attività di shenza e sui-up Requisiti - Esperienza pregresa nel settore sanitario o assScurativo - Ottima Capacità di comunicazione e di lavoro in team - Conoscenza della lingua e tedesca - Capacità di lavorare in modo autonomo e organizzato - Disponibilitie a lavorare tra l'80 e il 100% Cosa\n\ndefriamo - Un·ne di lavoro moderno - Condizioni di impiego attrative - varie opportunità di formazione latina Contatto Per ulterioriñazioni e candidatura, si prega di conattare Helsana."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "SG",
       "url": "https://careers.helsana.ch/job/St_-Gallen-&-Homeoffice-Case-Manager-Leistungen-Unternehmensgesch%C3%A4ft-Kanton-Graub%C3%BCnden-%28a%29-80-100/1391034133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:19.634Z",
+      "crawledAt": "2026-06-23T22:24:40.737Z",
       "addressLocality": "Ticino",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1281,20 +1279,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1391034133/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
-        ],
-        "en": [
-          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
-        ],
-        "fr": [
-          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:13.423Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1307,7 +1291,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ],
+        "en": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ],
+        "fr": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+      ]
     },
     {
       "id": "helsana-482bb21e4f8d",
@@ -1323,25 +1321,24 @@
       "companyDomain": "helsana.ch",
       "title": "Temporäre Mitarbeit Kundenbetreuung (a) 80-100% vom 10.8.2026 bis 31.3.2027",
       "titleByLocale": {
-        "it": "Assistenza clienti temporanea (a) 80-100% da 10.8.2026 a 31.3.2027",
-        "en": "Temporary customer support (a) 80-100% from 10.8.2026 to 31.3.2027",
+        "it": "Collaboratore temporaneo Customer Care (a) 80-100% dal 10.8.2026 al 31.3.2027",
+        "en": "Temporary Customer Service Associate (a) 80-100% from 10.8.2026 to 31.3.2027",
         "de": "Temporäre Mitarbeit Kundenbetreuung (a) 80-100% vom 10.8.2026 bis 31.3.2027",
-        "fr": "Service à la clientèle temporaire (a) 80-100% du 10.8.2026 au 31.3.2027"
+        "fr": "Collaborateur temporaire Service Client (a) 80-100% du 10.8.2026 au 31.3.2027"
       },
       "description": "Temporäre Mitarbeit Kundenbetreuung (a) 80-100% vom 10.8.2026 bis 31.3.2027 bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Temporäre Mitarbeit Kundenbetreuung (a) 80-100% vom 10.8.2026 bis 31.3.2027 bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Temporäre Mitarbeit Kundenbetreuung (a) 80-100% vom 10.8.2026 bis 31.3.2027 bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Temporäre Mitarbeit Kundenbetreuung (a) 80-100% vom 10.8.2026 bis 31.3.2027 bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Temporäre Mitarbeit Kundenbetreuung (a) 80-100% vom 10.8.2026 bis 31.3.2027 bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Supporto clienti (a) 80-100% dal 10.8 2026 al 31.3.2027 tropo Helsana a Worblaufen & HomeOffice. Helsana è un afferato 253 di servizi sanitari di cui viz Zero.\n\nMansioni - 77 lldina del 2007 in1999 (25) e cortese - Ris Noccio di d'Economia Consul llèsana - Supporto i184 quit - Canali dicaria - Collaborazione con il team per garantire un'unica di altaqd - Ottima craft dicaria inÆ - Attitudine aliera llè e craft di terrière - saperne di più dal 10.8 2026 al 31.3.2027 - Flessibilità traeuropea in 288 a Worblaufen etry da remoto - E proof pregressa nelsettingtore customer care (preferibile) Co libamo -\n\nDirei che il numero di posti di lavoro è aumentato di circa il 20%.",
+        "en": "Descrizione Temporary cooperation Customer support (a) 80-100% dal 10.8 2026 al 31.3.2027 tropo Helsana a Worblaufen & HomeOffice. Helsana è un afferato fornitore di servizi sanitari sviz Zero. Questa posizione offre un·be di lavoro moderno, condizioni di assunzione attratti e molteplici opportunità di formazione continua.\n\nMansioni - Gestione ll richieste dei clienti in modo professionale e cortese - Ris Nouzione di d'Economie Consul llèsana - Supporto ai clienti quite - Canali di comunicazione - Collaborazione con il team per garantire un servizio di alta qualità Requisiti - Ottima capacità di comunicazione inÆ - Attitudine al servizio llè e capacità di terrière - Disponibilità a lavorare dal 10.8 2026 al 31.3.2027 - Flessibilità tra lavoro in ufficio a Worblaufen e lavoro da remoto - Esperienza pregressa nelsettingtore customer care (preferibile) Cosa offriamo -\n\nAmbiente di lavoro moderno e stimolante - Condizioni di assunzione attratti - Varie opportunità di formazione e sviluppo professionale - Lavoro temporaneo con psisibilità di flosibilità tra ufficio e homeOffice Contatto Per ulterioriñazioni e candidatura, si prega di contattare Helsana.",
+        "de": "Descrizione\n\nTemporäre Mitarbeit Kundenbetreuung (a) 80-100% dal 10.8.2026 al 31.3.2027 presso Helsana a Worblaufen & Homeoffice.\n\nHelsana è un affermato fornitore di servizi sanitari svizzero. Questa posizione offre un ambiente di lavoro moderno, condizioni di assunzione attraenti e molteplici opportunità di formazione continua.\n\nMansioni\n\n- Gestione delle richieste dei clienti in modo professionale e cortese\n- Risoluzione di problematiche e consulenza sui servizi Helsana\n- Supporto ai clienti tramite diversi canali di comunicazione\n- Collaborazione con il team per garantire un servizio di alta qualità\n\nRequisiti\n\n- Ottima capacità di comunicazione in italiano\n- Attitudine al servizio clienti e capacità di problem solving\n- Disponibilità a lavorare dal 10.8.2026 al 31.3.2027\n- Flessibilità tra lavoro in ufficio a Worblaufen e lavoro da remoto\n- Esperienza pregressa nel settore customer care (preferibile)\n\nCosa offriamo\n\n- Ambiente di lavoro moderno e stimolante\n- Condizioni di assunzione attraenti\n- Varie opportunità di formazione e sviluppo professionale\n- Lavoro temporaneo con possibilità di flessibilità tra ufficio e homeoffice\n\nContatto\n\nPer ulteriori informazioni e candidatura, si prega di contattare Helsana.",
+        "fr": "Descrizione Coopération temporaire Service client (a) 80-100% dal 10,8 2026 al 31.3.2027 tropo Helsana a Worblaufen & HomeOffice. Helsana è un afferato fornitore di Servizi sanitari sviz Zero. Questa posizione offre un·be di lavoro moderno, condizioni di assunzione atratti e molteplici opportunità di formazione continua.\n\nMansioni - Gestion ll richieste dei clienti in modo professionale e cortese - Ris Nouzione di d'Economie Consul llèsana - Supporto i clienti duty - Canali di comunicazione - Collaborazione con il team per garantire un servizio di alta qualité Requisiti - Ottima capacità di comunicazione inÆ - Attitudine al servizio llè e capacità di terrière - Disponicità a lavorare dal 10,8 2026 al 31.3.2027 - Flesscità tra lavoro in ufficio a Worblaufen e lavoro da remoto - Esperienza pregressa nelsettatore customer care (preferibile) Cosa of Friamo -\n\nAmbiente di lavoro moderno e stimolante - Condizioni di assunzione attratti - varie opportunità di formazione e sviluppo professionale - Lavoro temporaneo con psisibilità di floscità traufficio e homeOffice Contatto Per ulterioriñazioni e candidatura, si prega di conattare Helsana."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Tempor%C3%A4re-Mitarbeit-Kundenbetreuung-%28a%29-80-100-vom-10_8_2026-bis-31_3_2027/1401355333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:19.127Z",
+      "crawledAt": "2026-06-23T22:24:40.212Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1358,20 +1355,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1401355333/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
-        ],
-        "en": [
-          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
-        ],
-        "fr": [
-          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:12.801Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -1384,7 +1367,21 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+        ],
+        "en": [
+          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+        ],
+        "fr": [
+          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+        ]
+      },
+      "previousSlugs": [
+        "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+      ]
     },
     {
       "id": "helsana-35f484c80a9d",
@@ -1474,25 +1471,24 @@
       "companyDomain": "helsana.ch",
       "title": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100%",
       "titleByLocale": {
-        "it": "Servizio di assistenza medica (a) 80-100 %",
-        "en": "Customer care services Medical day allowance (a) 80-100 %",
+        "it": "Customer Service per Prestazioni Malattia (a) 80-100%",
+        "en": "Customer Service for Sick Pay Benefits (a) 80-100%",
         "de": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100%",
-        "fr": "Services à la clientèle Indemnité de jour pour soins médicaux (a) 80-100 %"
+        "fr": "Service Client pour Prestations Maladie (a) 80-100%"
       },
       "description": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Descrizione Assistenza clienti Servizi Indennità giornaliera (a) 80-100% presso Helsana a Worblaufen & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.\n\nMansioni - si occupa della convenzione n.",
+        "en": "Descrizione Client support Services Health day allowance (a) 80-100% at Helsana in Worblaufen & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.\n\nMansioni - caring for the clienti per le prestazioni di indennità di malattia Requisiti - (Nessun requisito specificato nel testo originale) Cosa offriamo - Un·de di lavoro moderno - Condizioni di assunzione attratti - Varie opportunità di formazione Thora Contatto - (Nessunañazione di contatto fornita nel testo originale)",
+        "de": "Descrizione\n\nKundenbetreuer Leistungen Krankentaggeld (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.\n\nMansioni\n\n- Betreuung dei clienti per le prestazioni di indennità di malattia\n\nRequisiti\n\n- (Nessun requisito specificato nel testo originale)\n\nCosa offriamo\n\n- Un ambiente di lavoro moderno\n- Condizioni di assunzione attraenti\n- Varie opportunità di formazione continua\n\nContatto\n\n- (Nessuna informazione di contatto fornita nel testo originale)",
+        "fr": "Descrizione Services de soutien aux clients Indemnité journalière de santé (a) 80-100% chez Helsana à Worblaufen & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue.\n\nMansioni - soins aux clientsi per le prestazioni di indennità di malattia Requisiti - (Nessun,70ito specificato nel testoLuc) Cosa offriamo - Un·de di lavoro moderno - Condizioni di assunzione attratti - varie opportunità di formazione Thora Contatto - (Nessunañazione di contatto fornita nel testoLuc)"
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Krankentaggeld-%28a%29-80-100/1382744233/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:18.123Z",
+      "crawledAt": "2026-06-23T22:24:38.630Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1509,20 +1505,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1382744233/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
-        ],
-        "en": [
-          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
-        ],
-        "fr": [
-          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:10.939Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1535,7 +1517,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-ticino"
+      ]
     },
     {
       "id": "helsana-8b8777e7d3e7",
@@ -1551,25 +1548,24 @@
       "companyDomain": "helsana.ch",
       "title": "Full Stack Software Engineer C# / .NET / React (a) 80-100%",
       "titleByLocale": {
-        "it": "Full Stack Software Ingegnere C# / .NET / React (a) 80-100%",
-        "en": "Full Stack Software Engineer C# / .NET / React (a) 80-100%",
-        "de": "Full Stack Software Ingenieur C# / .NET / React (a) 80-100%",
-        "fr": "Full Stack Software Ingénieur C# / .NET / React (a) 80-100%"
+        "it": "Ingegnere Software Full Stack C# / .NET / React (a) 80-100%",
+        "en": "Full Stack Software Engineer C# / .NET / React (a) 80-100 %",
+        "de": "Full Stack Software Engineer C# / .NET / React (a) 80-100%",
+        "fr": "Ingénieur Logiciel Full Stack C# / .NET / React (a) 80-100%"
       },
       "description": "Full Stack Software Engineer C# / .NET / React (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Full Stack Software Engineer C# / .NET / React (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Full Stack Software Engineer C# / .NET / React (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Full Stack Software Engineer C# / .NET / React (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Full Stack Software Engineer C# / .NET / React (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Descrizione Full Stack Software Engineer C# /.NET / React (a) 80- 100% a Helsana a Zurigo & HomeOffice. Helsana è un fornitore di servizi sanitari svizzeri affermati. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.\n\nMansioni - clementi di Lódrica schaft /.NET / React - clementi di header -, e,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n\nin team - Buona conoscenza del paragrafo 2 del paragrafo 2 del paragrafo 2 del paragrafo 3 del paragrafo 3 del paragrafo 3 del paragrafo 2 del paragrafo 2 del paragrafo 2 del paragrafo 3 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4 del paragrafo 4",
+        "en": "Descrizione Full Stack Software Engineer C# /.NET / React (a) 80- 100% at Helsana in Zurich & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.\n\nMansioni - Sviluppo di applicazioni full Lódrica utilizzando C# /.NET / React - Collaborare con il team per progettare, sviluppare e mantenere soluzioni software innovative - Partecipare a tutte le fasi del Ciclo di via del software, dalla pianificazione alla distribuzione - Contributire alla definizione emplifizione tecniche e funzionali dei progetti - Garantire la qualità del codice attraverso vita e test approfonditi Requisiti - Esperenza comprovata nello sviluppo con C# e.NET - Competenzanell'utilizzo di React per lo sviluppo front-end - Capacità di lavorare in modo autonomouso e\n\nin team - Buona conoscenza della lingua tedesca e/o inglese - Disponibilità a lavorare dal 80% al 100% - Preferibile esperienza nel settore sanitario o in ambiti correlati Cosa offriamo - Un·age di lavoro moderno e stimolante - Condozioni di impiego attrattive - Diverse opportunità di formation e sviluppo professionale - Psbilità di lavorare in modalità home· - Insermento presso Helsana, un afferetto for Nitore di servizi sanitari sviz Zero Contatto Per ulterioriplatazioni e per candidarsi, si prega di contattare il nostro team di riskose umane.",
+        "de": "Descrizione\n\nFull Stack Software Engineer C# / .NET / React (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.\n\nMansioni\n\n- Sviluppo di applicazioni full stack utilizzando C# / .NET / React\n- Collaborare con il team per progettare, sviluppare e mantenere soluzioni software innovative\n- Partecipare a tutte le fasi del ciclo di vita del software, dalla pianificazione alla distribuzione\n- Contribuire alla definizione delle specifiche tecniche e funzionali dei progetti\n- Garantire la qualità del codice attraverso revisioni e test approfonditi\n\nRequisiti\n\n- Esperienza comprovata nello sviluppo con C# e .NET\n- Competenza nell'utilizzo di React per lo sviluppo front-end\n- Capacità di lavorare in modo autonomo e in team\n- Buona conoscenza della lingua tedesca e/o inglese\n- Disponibilità a lavorare dal 80% al 100%\n- Preferibile esperienza nel settore sanitario o in ambiti correlati\n\nCosa offriamo\n\n- Un ambiente di lavoro moderno e stimolante\n- Condizioni di impiego attrattive\n- Diverse opportunità di formazione e sviluppo professionale\n- Possibilità di lavorare in modalità homeoffice\n- Inserimento presso Helsana, un affermato fornitore di servizi sanitari svizzero\n\nContatto\n\nPer ulteriori informazioni e per candidarsi, si prega di contattare il nostro team di risorse umane.",
+        "fr": "Descrizione Full Stack Ingénieur logiciel C# /.NET / React (a) 80- 100% chez Helsana à Zurich & HomeOffice. Helsana est un fournisseur de services de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue.\n\nMansioni - Sviluppo di applicazioni full Lódrica usezando C# /.NET / React - Collaborare con il team per progettare, sviluppare e mantenRe soluzioni software innovative - Participare a tutte le fasi del Ciclo di via del software, dalla pianificazione alla qione - Contributire alla definizione ganzione tecniche e funzioni dei progetti -$e la qualité de l'attraverso vita e test mariti Requisiti - Esperenza comprovata nello sviluppo con C# e.NET - Competenzanell'utilizzo di React per lo sviluppo front-end - Capacità di lavorare in modo soligano e\n\n- Unage di lavoro moderno e stimolante - Condozioni di impiego attrative - Divers opportunà di formation e sviluppo professionale - Psbilità di lavorare in modalità home· - Insermento presso Helsana, un afferetto for Nitore di servizi sanitari sviz Zero Contatto Per ulterioriplatazioni e per candidarsi, si prega di conttatre il tontro team di risque umane."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Full-Stack-Software-Engineer-C-_NET-React-%28a%29-80-100/1382641433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:17.583Z",
+      "crawledAt": "2026-06-23T22:24:38.105Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1765,25 +1761,24 @@
       "companyDomain": "helsana.ch",
       "title": "Kundenbetreuer Leistungen Ambulant (a) 80-100%",
       "titleByLocale": {
-        "it": "Servizi di assistenza clienti Ambulant (a) 80-100 %",
-        "en": "Customer Support Services Ambulant (a) 80-100 %",
+        "it": "Assistente clienti servizi ambulatoriali (a) 80-100%",
+        "en": "Customer Service Representative - Outpatient Services (a) 80-100%",
         "de": "Kundenbetreuer Leistungen Ambulant (a) 80-100%",
-        "fr": "Services d'assistance à la clientèle Ambulant (a) 80-100 %"
+        "fr": "Conseiller clientèle prestations ambulatoires (a) 80-100%"
       },
       "description": "Kundenbetreuer Leistungen Ambulant (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Kundenbetreuer Leistungen Ambulant (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Kundenbetreuer Leistungen Ambulant (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Kundenbetreuer Leistungen Ambulant (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Kundenbetreuer Leistungen Ambulant (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Descrizione Servizio assistenza clienti Outpaziente (a) 80-100% presso Helsana a Worblaufen & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.\n\nMansioni - Customer care in the field of ambulatory services - Customer care in Worblaufen and in the Home Office.",
+        "en": "Descrizione Customer Care Services Outpatient (a) 80-100% at Helsana in Worblaufen & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.\n\nMansioni - Customer care in the field of outpatient services - Customer care in Worblaufen and in the Home Office Requisiti *(Nessun requisito specificato nel testo)* Cosa offriamo - Modern working environment - Attractive employment conditions - Various training opportunities Contatto *(Nessun dettaglio di contatto fornito nel testo)*",
+        "de": "Descrizione\n\nKundenbetreuer Leistungen Ambulant (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.\n\nMansioni\n\n- Kundenbetreuung im Bereich ambulante Leistungen\n- Betreuung von Kunden in Worblaufen und im Homeoffice\n\nRequisiti\n\n*(Nessun requisito specificato nel testo)*\n\nCosa offriamo\n\n- Modernes Arbeitsumfeld\n- Attraktive Anstellungsbedingungen\n- Vielfältige Weiterbildungsmöglichkeiten\n\nContatto\n\n*(Nessun dettaglio di contatto fornito nel testo)*",
+        "fr": "Descrizione Customer Care Services Outpatient (a) 80-100% chez Helsana à Worblaufen & HomeOffice. Helsana est un prestataire suisse de soins de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation continue.\n\nMansioni - Service clientèle dans le domaine des services ambulatoires - Service clientèle à Worblaufen et dans la Home Office Requisiti *(Nessun,70ito specificato nel testo)* Cosa offriamo - Environnement de travail moderne - Conditions d'emploi attrayantes - Diverses possibilités de formation Contatto *(Nessun dettaglio di contatto fornito nel testo)*"
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Ambulant-%28a%29-80-100/1401940633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:16.088Z",
+      "crawledAt": "2026-06-23T22:24:36.461Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1800,20 +1795,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1401940633/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
-        ],
-        "en": [
-          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
-        ],
-        "fr": [
-          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:08.425Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1826,7 +1807,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
+        "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-ticino"
+      ]
     },
     {
       "id": "helsana-2fae6f6fdcb0",
@@ -1842,25 +1838,24 @@
       "companyDomain": "helsana.ch",
       "title": "Versicherungsberater im Aussendienst (a) 80-100%",
       "titleByLocale": {
-        "it": "Consulente assicurativo in materia (a) 80-100 %",
-        "en": "Insurance consultant in the field (a) 80-100 %",
+        "it": "Consulente assicurativo sul campo (a) 80-100%",
+        "en": "Insurance Advisor Field Sales (a) 80-100%",
         "de": "Versicherungsberater im Aussendienst (a) 80-100%",
-        "fr": "Consultant en assurance sur le terrain (a) 80-100 %"
+        "fr": "Conseiller en assurance en déplacement (a) 80-100%"
       },
       "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Biel & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Biel & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Biel & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Biel & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Biel & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Descrizione Consulente assicurativo nel settore (a) 80-100% presso Helsana a Biel & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Descrizione Insurance Consultant in the field service (a) 80-100% at Helsana in Biel & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Descrizione\n\nVersicherungsberater im Aussendienst (a) 80-100% bei Helsana in Biel & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.\n\nMansioni\n\n-\n\nRequisiti\n\n-\n\nCosa offriamo\n\n-\n\nContatto",
+        "fr": "Descrizione Insurance Consultant en service sur le terrain (a) 80-100% chez Helsana à Bienne & HomeOffice. Helsana est un prestataire suisse de soins de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "BE",
       "url": "https://careers.helsana.ch/job/Biel-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1372733633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:15.578Z",
+      "crawledAt": "2026-06-23T22:24:35.930Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1877,20 +1872,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1372733633/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
-        ],
-        "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
-        ],
-        "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:07.795Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1903,7 +1884,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+      ]
     },
     {
       "id": "helsana-72dcec5fdd55",
@@ -1996,25 +1991,24 @@
       "companyDomain": "helsana.ch",
       "title": "Versicherungsmediziner D/F (a) 40-60%",
       "titleByLocale": {
-        "it": "Assicurazione medico D/F (a) 40-60 %",
-        "en": "Insurance physician D/F (a) 40-60 %",
+        "it": "Medico assicurativo D/F (a) 40-60%",
+        "en": "Insurance Physician D/F (a) 40-60%",
         "de": "Versicherungsmediziner D/F (a) 40-60%",
-        "fr": "Médecin d'assurance D/F (a) 40-60 %"
+        "fr": "Médecin en assurance D/F (a) 40-60%"
       },
       "description": "Versicherungsmediziner D/F (a) 40-60% bei Helsana in Bern & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Versicherungsmediziner D/F (a) 40-60% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Versicherungsmediziner D/F (a) 40-60% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Versicherungsmediziner D/F (a) 40-60% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Versicherungsmediziner D/F (a) 40-60% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Descrizione Versicherungsmediziner D/F (a) 40-60 a Helsana in Bern & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Descrizione Versicherungsmediziner D/F (a) 40-60 at Helsana in Bern & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Descrizione\n\nVersicherungsmediziner D/F (a) 40-60% bei Helsana in Bern & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.\n\nMansioni\n\n-\n\nRequisiti\n\n-\n\nCosa offriamo\n\n-\n\nContatto",
+        "fr": "Descrizione Versicherungsmediziner D/F (a) 40-60 à Helsana à Berne & HomeOffice. Helsana est un prestataire suisse de soins de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "BE",
       "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Versicherungsmediziner-DF-%28a%29-40-60/1293845001/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:14.577Z",
+      "crawledAt": "2026-06-23T22:24:34.345Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2031,20 +2025,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1293845001/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
-        ],
-        "en": [
-          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
-        ],
-        "fr": [
-          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:05.969Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2057,13 +2037,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+        ],
+        "en": [
+          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+        ],
+        "fr": [
+          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+      ]
     },
     {
       "id": "helsana-8741069036c2",
-      "slug": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+      "slug": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
       "slugByLocale": {
-        "it": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+        "it": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
         "en": "insurance-physician-d-i-a-40-60-helsana-ticino",
         "de": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
         "fr": "medecin-d-assurance-d-i-a-40-60-helsana-ticino"
@@ -2073,25 +2067,24 @@
       "companyDomain": "helsana.ch",
       "title": "Versicherungsmediziner D/I (a) 40-60%",
       "titleByLocale": {
-        "it": "Versicherungsmediziner D/I (a) 40-60%",
-        "en": "Insurance physician D/I (a) 40-60 %",
+        "it": "Assicurazione medico D/I (a) 40-60 %",
+        "en": "Insurance Physician D/I (a) 40-60%",
         "de": "Versicherungsmediziner D/I (a) 40-60%",
-        "fr": "Médecin d'assurance D/I (a) 40-60 %"
+        "fr": "Médecin assurant D/I (a) 40-60%"
       },
       "description": "Versicherungsmediziner D/I (a) 40-60% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Versicherungsmediziner D/I (a) 40-60% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Versicherungsmediziner D/I (a) 40-60% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Versicherungsmediziner D/I (a) 40-60% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Versicherungsmediziner D/I (a) 40-60% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Medico assicurativo D/I (a) 40-60 presso Helsana a Zurigo & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Insurance physician D/I (a) 40-60 at Helsana in Zurich & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Versicherungsmediziner D/I (a) 40-60% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Médecin d'assurance D/I (a) 40-60 à Helsana à Zurich & HomeOffice. Helsana est un fournisseur suisse de soins de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Versicherungsmediziner-DI-%28a%29-40-60/1293851501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:14.069Z",
+      "crawledAt": "2026-06-23T22:24:33.745Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2108,21 +2101,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1293851501/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assicurazione-medico-d-i-a-40-60-helsana-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assicurazione-medico-d-i-a-40-60-helsana-ticino",
-          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
-        ],
-        "en": [
-          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
-        ],
-        "fr": [
-          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:05.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2135,7 +2113,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+      ]
     },
     {
       "id": "helsana-36b7ee3a08f6",
@@ -2228,25 +2220,24 @@
       "companyDomain": "helsana.ch",
       "title": "Mitarbeiterin Verkaufssupport (a) 60%",
       "titleByLocale": {
-        "it": "Supporto commerciale (a) 60%",
-        "en": "Sales Support (a) 60%",
+        "it": "Addetta vendita supporto (a) 60%",
+        "en": "Sales Support Associate (60%)",
         "de": "Mitarbeiterin Verkaufssupport (a) 60%",
-        "fr": "Soutien aux ventes (a) 60 %"
+        "fr": "Assistante de vente support (60%)"
       },
       "description": "Mitarbeiterin Verkaufssupport (a) 60% bei Helsana in Solothurn & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Mitarbeiterin Verkaufssupport (a) 60% bei Helsana in Solothurn & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Mitarbeiterin Verkaufssupport (a) 60% bei Helsana in Solothurn & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Mitarbeiterin Verkaufssupport (a) 60% bei Helsana in Solothurn & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Mitarbeiterin Verkaufssupport (a) 60% bei Helsana in Solothurn & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Assistenza alle vendite dei dipendenti (a) 60% presso Helsana a Solothurn & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Employee Sales Support (a) 60% at Helsana in Solothurn & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Mitarbeiterin Verkaufssupport (a) 60% bei Helsana in Solothurn & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Soutien aux ventes des employés (a) 60% chez Helsana à Soleure & HomeOffice. Helsana est un prestataire de soins de santé suisse établi. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "SO",
       "url": "https://careers.helsana.ch/job/Solothurn-&-Homeoffice-Mitarbeiterin-Verkaufssupport-%28a%29-60/1402803133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:13.076Z",
+      "crawledAt": "2026-06-23T22:24:32.678Z",
       "addressLocality": "Ticino",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2263,20 +2254,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1402803133/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
-        ],
-        "en": [
-          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
-        ],
-        "fr": [
-          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:04.134Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2289,7 +2266,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+        ],
+        "en": [
+          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+        ],
+        "fr": [
+          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+      ]
     },
     {
       "id": "helsana-f9ef5e85d20f",
@@ -2445,25 +2436,24 @@
       "companyDomain": "helsana.ch",
       "title": "Versicherungsberater im Aussendienst (a) 80-100%",
       "titleByLocale": {
-        "it": "Consulente assicurativo in materia (a) 80-100 %",
-        "en": "Insurance consultant in the field (a) 80-100 %",
+        "it": "Consulente assicurativo in servizio esterno (a) 80-100%",
+        "en": "Outbound Insurance Consultant (80-100%)",
         "de": "Versicherungsberater im Aussendienst (a) 80-100%",
-        "fr": "Consultant en assurance sur le terrain (a) 80-100 %"
+        "fr": "Conseiller en assurance en service externe (80-100%)"
       },
       "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Baden & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Consulente assicurativo presso il servizio sul campo (a) 80-100% presso Helsana in Baden & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Insurance consultant in the field service (a) 80-100% at Helsana in Baden & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Baden & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Consultant en assurance dans le service sur le terrain (a) 80-100% chez Helsana à Baden & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "AG",
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1383716733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:11.540Z",
+      "crawledAt": "2026-06-23T22:24:31.065Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2480,20 +2470,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1383716733/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
-        ],
-        "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
-        ],
-        "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:02.286Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2506,7 +2482,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+      ]
     },
     {
       "id": "helsana-5833ee02bba9",
@@ -2522,25 +2512,24 @@
       "companyDomain": "helsana.ch",
       "title": "Kundenbetreuerin Antragsverarbeitung & Mutationen (a) 80-100%",
       "titleByLocale": {
-        "it": "Richiesta di elaborazione e mutazioni (a) 80-100 %",
-        "en": "Request processing and mutations (a) 80-100 %",
+        "it": "Addetta alle richieste e mutazioni (a) 80-100%",
+        "en": "Customer Service Representative - Claims Processing & Mutations (a) 80-100%",
         "de": "Kundenbetreuerin Antragsverarbeitung & Mutationen (a) 80-100%",
-        "fr": "Traitement des demandes et mutations (a) 80-100 %"
+        "fr": "Assistante en traitement des demandes et mutations (a) 80-100%"
       },
       "description": "Kundenbetreuerin Antragsverarbeitung & Mutationen (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Kundenbetreuerin Antragsverarbeitung & Mutationen (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Kundenbetreuerin Antragsverarbeitung & Mutationen (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Kundenbetreuerin Antragsverarbeitung & Mutationen (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Kundenbetreuerin Antragsverarbeitung & Mutationen (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Assistenza clienti per l'elaborazione delle domande e mutazioni (a) 80- 100% a Helsana a Worblaufen & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Customer support application processing & mutations (a) 80- 100% at Helsana in Worblaufen & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Kundenbetreuerin Antragsverarbeitung & Mutationen (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Assistance client traitement des demandes & M. (a) 80- 100% chez Helsana à Worblaufen & HomeOffice. Helsana est un fournisseur de services de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuerin-Antragsverarbeitung-&-Mutationen-%28a%29-80-100/1374215833/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:11.055Z",
+      "crawledAt": "2026-06-23T22:24:30.547Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2557,20 +2546,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1374215833/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
-        ],
-        "en": [
-          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
-        ],
-        "fr": [
-          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:01.637Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2583,7 +2558,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
+        "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-ticino"
+      ]
     },
     {
       "id": "helsana-7a6647ffcef2",
@@ -2599,25 +2589,24 @@
       "companyDomain": "helsana.ch",
       "title": "Mitarbeiterin Verkaufssupport (a) 80-100%",
       "titleByLocale": {
-        "it": "Supporto di vendita (a) 80-100 %",
-        "en": "Sales Support (a) 80-100 %",
+        "it": "Addetta Support Vendite (a) 80-100%",
+        "en": "Sales Support Associate (a) 80-100%",
         "de": "Mitarbeiterin Verkaufssupport (a) 80-100%",
-        "fr": "Soutien aux ventes (a) 80-100 %"
+        "fr": "Assistante de vente support (a) 80-100%"
       },
       "description": "Mitarbeiterin Verkaufssupport (a) 80-100% bei Helsana in Baden & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Mitarbeiterin Verkaufssupport (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Mitarbeiterin Verkaufssupport (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Mitarbeiterin Verkaufssupport (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Mitarbeiterin Verkaufssupport (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Assistenza alle vendite dei dipendenti (a) 80-100% presso Helsana a Baden & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Employee Sales Support (a) 80-100% at Helsana in Baden & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Mitarbeiterin Verkaufssupport (a) 80-100% bei Helsana in Baden & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Soutien aux ventes des employés (a) 80-100% chez Helsana à Baden & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "AG",
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Mitarbeiterin-Verkaufssupport-%28a%29-80-100/1393332533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:10.552Z",
+      "crawledAt": "2026-06-23T22:24:29.981Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2634,20 +2623,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1393332533/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
-        ],
-        "en": [
-          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
-        ],
-        "fr": [
-          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:43:01.014Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2660,7 +2635,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+        ],
+        "en": [
+          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+        ],
+        "fr": [
+          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+      ]
     },
     {
       "id": "helsana-706768e54dec",
@@ -2739,25 +2728,24 @@
       "companyDomain": "helsana.ch",
       "title": "Kundenbetreuerin Verkaufsstelle (a) 80-100%",
       "titleByLocale": {
-        "it": "Servizio clienti Ufficio vendite (a) 80-100 %",
-        "en": "Customer service provider Sales office (a) 80-100 %",
+        "it": "Consulente Vendita (a) 80-100%",
+        "en": "Sales Consultant (80-100%)",
         "de": "Kundenbetreuerin Verkaufsstelle (a) 80-100%",
-        "fr": "Fournisseur de services à la clientèle Bureau de vente (a) 80-100 %"
+        "fr": "Conseillère de vente (80-100%)"
       },
       "description": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Baden & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Baden & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Gestore clienti Ufficio vendite (a) 80-100% a Helsana in Baden & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Customer Manager Sales Office (a) 80-100% at Helsana in Baden & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Baden & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Bureau des ventes du Customer Manager (a) 80-100% chez Helsana à Baden & HomeOffice. Helsana est un fournisseur de services de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "AG",
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Kundenbetreuerin-Verkaufsstelle-%28a%29-80-100/1403685533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:09.547Z",
+      "crawledAt": "2026-06-23T22:24:28.403Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2774,20 +2762,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1403685533/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
-        ],
-        "en": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
-        ],
-        "fr": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:59.732Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2800,7 +2774,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+      ]
     },
     {
       "id": "helsana-c7de33957a77",
@@ -2809,32 +2797,31 @@
         "it": "regolatore-di-gruppo-a-80-100-helsana-dubendorf",
         "en": "group-controller-a-80-100-helsana-dubendorf",
         "de": "group-controller-a-80-100-helsana-dubendorf",
-        "fr": "group-controller-a-80-100-helsana-dubendorf"
+        "fr": "controleur-de-groupe-a-80-100-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
       "companyDomain": "helsana.ch",
       "title": "Group Controller (a) 80-100%",
       "titleByLocale": {
-        "it": "Regolatore di gruppo (a) 80-100 %",
-        "en": "Group Controller (a) 80-100 %",
+        "it": "Controller di Gruppo (a) 80-100%",
+        "en": "Group Controller (a) 80-100%",
         "de": "Group Controller (a) 80-100%",
-        "fr": "Group Controller (a) 80-100%"
+        "fr": "Contrôleur de groupe (a) 80-100 %"
       },
       "description": "Group Controller (a) 80-100% bei Helsana in Dübendorf.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Group Controller (a) 80-100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Group Controller (a) 80-100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Group Controller (a) 80-100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Group Controller (a) 80-100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Gruppo Controller (a) 80-100% a Helsana a Dübendorf. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Group Controller (a) 80-100% at Helsana in Dübendorf. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Group Controller (a) 80-100% bei Helsana in Dübendorf.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Contrôleur de groupe (a) 80-100% à Helsana à Dübendorf. Helsana est un prestataire de soins de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Dübendorf",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Group-Controller-%28a%29-80-100/970403401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:09.055Z",
+      "crawledAt": "2026-06-23T22:24:27.897Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2851,19 +2838,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/970403401/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "group-controller-a-80-100-helsana-dubendorf",
-        "controleur-de-groupe-a-80-100-helsana-dubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "group-controller-a-80-100-helsana-dubendorf"
-        ],
-        "fr": [
-          "controleur-de-groupe-a-80-100-helsana-dubendorf",
-          "group-controller-a-80-100-helsana-dubendorf"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:58.513Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2876,7 +2850,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "group-controller-a-80-100-helsana-dubendorf"
+        ],
+        "fr": [
+          "group-controller-a-80-100-helsana-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "group-controller-a-80-100-helsana-dubendorf"
+      ]
     },
     {
       "id": "helsana-c93d5b8849c3",
@@ -2892,25 +2877,24 @@
       "companyDomain": "helsana.ch",
       "title": "Kundenbetreuerin Verkaufsstelle (a) 80-100%",
       "titleByLocale": {
-        "it": "Servizio clienti Ufficio vendite (a) 80-100 %",
-        "en": "Customer service provider Sales office (a) 80-100 %",
+        "it": "Responsabile clienti punto vendita (a) 80-100%",
+        "en": "Customer Care Representative Sales Point (a) 80-100%",
         "de": "Kundenbetreuerin Verkaufsstelle (a) 80-100%",
-        "fr": "Fournisseur de services à la clientèle Bureau de vente (a) 80-100 %"
+        "fr": "Conseillère clientèle point de vente (a) 80-100%"
       },
       "description": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Basel & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Basel & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Basel & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Basel & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Basel & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Gestore clienti Punto vendita (a) 80-100% presso Helsana a Basilea & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Customer manager Sales point (a) 80-100% at Helsana in Basel & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Kundenbetreuerin Verkaufsstelle (a) 80-100% bei Helsana in Basel & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Responsable client Point de vente (a) 80-100% chez Helsana à Basel & HomeOffice. Helsana est un fournisseur de soins de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "BS",
       "url": "https://careers.helsana.ch/job/Basel-&-Homeoffice-Kundenbetreuerin-Verkaufsstelle-%28a%29-80-100/1374917633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:08.535Z",
+      "crawledAt": "2026-06-23T22:24:27.363Z",
       "addressLocality": "Ticino",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2927,20 +2911,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1374917633/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
-        ],
-        "en": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
-        ],
-        "fr": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:57.911Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2953,7 +2923,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+      ]
     },
     {
       "id": "helsana-b7fab3bebfbd",
@@ -3046,25 +3030,24 @@
       "companyDomain": "helsana.ch",
       "title": "Senior Test Engineer (a) 80 - 100%",
       "titleByLocale": {
-        "it": "Senior Test Ingegnere (a) 80 - 100%",
-        "en": "Senior Test Engineer (a) 80 - 100%",
-        "de": "Senior Test Ingenieur (a) 80 - 100%",
-        "fr": "Senior Test Ingénieur (a) 80 - 100%"
+        "it": "Ingegnere di Test Senior (a) 80 - 100%",
+        "en": "Senior Test Engineer (a) 80 - 100 %",
+        "de": "Senior Test Engineer (a) 80 - 100%",
+        "fr": "Ingénieur de test senior (a) 80 - 100%"
       },
       "description": "Senior Test Engineer (a) 80 - 100% bei Helsana in Dübendorf.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Senior Test Engineer (a) 80 - 100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Senior Test Engineer (a) 80 - 100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Senior Test Engineer (a) 80 - 100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Senior Test Engineer (a) 80 - 100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Ingegnere Senior Test (a) 80 - 100% a Helsana a Dübendorf. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Senior Test Engineer (a) 80 - 100% at Helsana in Dübendorf. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Senior Test Engineer (a) 80 - 100% bei Helsana in Dübendorf.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Ingénieur senior de test (a) 80 - 100% chez Helsana à Dübendorf. Helsana est un prestataire de soins de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation."
       },
-      "needsRetranslation": true,
       "location": "Dübendorf",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Senior-Test-Engineer-%28a%29-80-100/961278101/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:07.532Z",
+      "crawledAt": "2026-06-23T22:24:26.297Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3263,25 +3246,24 @@
       "companyDomain": "helsana.ch",
       "title": "Medizinische Praxisassistenz (a) 50%",
       "titleByLocale": {
-        "it": "Assistenza medica (a) 50 %",
-        "en": "Medical Practice Assistance (a) 50 %",
+        "it": "Assistente di pratica medica (a) 50%",
+        "en": "Medical Practice Assistant (a) 50%",
         "de": "Medizinische Praxisassistenz (a) 50%",
-        "fr": "Assistance médicale (a) 50 %"
+        "fr": "Assistante en pratique médicale (a) 50%"
       },
       "description": "Medizinische Praxisassistenz (a) 50% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Medizinische Praxisassistenz (a) 50% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Medizinische Praxisassistenz (a) 50% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Medizinische Praxisassistenz (a) 50% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Medizinische Praxisassistenz (a) 50% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Assistenza medica (a) 50% presso Helsana a Zurigo & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Medical practice assistance (a) 50% at Helsana in Zurich & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Medizinische Praxisassistenz (a) 50% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Assistance médicale (a) 50% à Helsana à Zurich & HomeOffice. Helsana est un prestataire de soins de santé suisse établi. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-50/1405612133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:06.054Z",
+      "crawledAt": "2026-06-23T22:24:24.713Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3298,20 +3280,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405612133/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
-        ],
-        "en": [
-          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
-        ],
-        "fr": [
-          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:54.776Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3324,7 +3292,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+      ]
     },
     {
       "id": "helsana-efa5df2b01bc",
@@ -3340,25 +3322,24 @@
       "companyDomain": "helsana.ch",
       "title": "Medizinische Praxisassistenz (a) 80%",
       "titleByLocale": {
-        "it": "Assistenza medica (a) 80 %",
-        "en": "Medical Practice Assistance (a) 80 %",
+        "it": "Assistente di pratica medica (80%)",
+        "en": "Medical Practice Assistant (80%)",
         "de": "Medizinische Praxisassistenz (a) 80%",
-        "fr": "Assistance médicale (a) 80 %"
+        "fr": "Assistant de pratique médicale (80%)"
       },
       "description": "Medizinische Praxisassistenz (a) 80% bei Helsana in Bern & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Medizinische Praxisassistenz (a) 80% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Medizinische Praxisassistenz (a) 80% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Medizinische Praxisassistenz (a) 80% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Medizinische Praxisassistenz (a) 80% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Assistenza medica (a) 80% presso Helsana a Berna & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Medical practice assistance (a) 80% at Helsana in Bern & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Medizinische Praxisassistenz (a) 80% bei Helsana in Bern & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Assistance médicale (a) 80% chez Helsana à Berne & HomeOffice. Helsana est un prestataire de soins de santé suisse établi. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "BE",
       "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80/1405612633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:05.573Z",
+      "crawledAt": "2026-06-23T22:24:24.161Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3375,20 +3356,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405612633/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
-        ],
-        "en": [
-          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
-        ],
-        "fr": [
-          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:54.121Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3401,7 +3368,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+      ]
     },
     {
       "id": "helsana-f503122230cf",
@@ -3417,25 +3398,24 @@
       "companyDomain": "helsana.ch",
       "title": "Medizinische Praxisassistenz (a) 80-100%",
       "titleByLocale": {
-        "it": "Assistenza medica pratica (a) 80-100 %",
-        "en": "Medical practice assistance (a) 80-100 %",
+        "it": "Assistente di pratica medica (a) 80-100%",
+        "en": "Medical Practice Assistant (a) 80-100%",
         "de": "Medizinische Praxisassistenz (a) 80-100%",
-        "fr": "Assistance médicale (a) 80-100 %"
+        "fr": "Assistant(e) médical(e) de pratique (a) 80-100%"
       },
       "description": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Assistenza medica (a) 80-100% presso Helsana a Zurigo & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Medical practice assistance (a) 80-100% at Helsana in Zurich & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Assistance médicale (a) 80-100% à Helsana à Zurich & HomeOffice. Helsana est un prestataire suisse de soins de santé établi. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80-100/1405612533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:05.085Z",
+      "crawledAt": "2026-06-23T22:24:23.629Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3452,20 +3432,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405612533/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
-        ],
-        "en": [
-          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
-        ],
-        "fr": [
-          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:53.510Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3478,7 +3444,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+      ]
     },
     {
       "id": "helsana-261a20bad839",
@@ -3708,25 +3688,24 @@
       "companyDomain": "helsana.ch",
       "title": "Versicherungsberater im Aussendienst (a) 80-100%",
       "titleByLocale": {
-        "it": "Consulente assicurativo in materia (a) 80-100 %",
-        "en": "Insurance consultant in the field (a) 80-100 %",
+        "it": "Consulente assicurativo in servizio esterno (a) 80-100%",
+        "en": "Outbound Insurance Consultant (80-100%)",
         "de": "Versicherungsberater im Aussendienst (a) 80-100%",
-        "fr": "Consultant en assurance sur le terrain (a) 80-100 %"
+        "fr": "Conseiller en assurance en service externe (80-100%)"
       },
       "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Uster & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Uster & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Uster & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Uster & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Uster & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Consulente assicurativo presso il servizio sul campo (a) 80-100% presso Helsana in Uster & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Insurance consultant in the field service (a) 80-100% at Helsana in Uster & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Uster & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Consultant en assurance dans le service sur le terrain (a) 80-100% chez Helsana à Uster & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Uster-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1395118133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:03.061Z",
+      "crawledAt": "2026-06-23T22:24:21.530Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3743,20 +3722,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1395118133/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
-        ],
-        "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
-        ],
-        "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:51.027Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3769,7 +3734,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+      ]
     },
     {
       "id": "helsana-9daf8933c4fb",
@@ -3862,25 +3841,24 @@
       "companyDomain": "helsana.ch",
       "title": "Candidature Spontanée",
       "titleByLocale": {
-        "it": "Candidatura Spontanée",
-        "en": "Candidature Spontanée",
-        "de": "Candidature Spontanée",
+        "it": "Candidatura Spontanea",
+        "en": "Spontaneous Application",
+        "de": "Spontane Anwendung",
         "fr": "Candidature Spontanée"
       },
       "description": "Candidature Spontanée bei Helsana in Lausanne.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Candidature Spontanée bei Helsana in Lausanne. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Candidature Spontanée bei Helsana in Lausanne. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Candidature Spontanée bei Helsana in Lausanne. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Candidature Spontanée bei Helsana in Lausanne. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Candidatura Spontanée a Helsana a Losanna. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Candidature Spontanée at Helsana in Lausanne. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Candidature Spontanée bei Helsana in Lausanne.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "candidature Spontanée à Helsana à Lausanne. Helsana est un prestataire de soins de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation."
       },
-      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://careers.helsana.ch/job/Lausanne-Candidature-Spontan%C3%A9e/637828601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:02.079Z",
+      "crawledAt": "2026-06-23T22:24:20.439Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3897,14 +3875,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/637828601/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "candidature-spontanee-helsana-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "candidature-spontanee-helsana-lausanne"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:49.773Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3917,7 +3887,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-helsana-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "candidature-spontanee-helsana-lausanne"
+      ]
     },
     {
       "id": "helsana-b36d80782ac7",
@@ -3933,25 +3911,24 @@
       "companyDomain": "helsana.ch",
       "title": "Case Manager Leistungen Unternehmensgeschäft Mittelland (a) 80-100%",
       "titleByLocale": {
-        "it": "Case Manager Servizi Corporate Business Mittelland (a) 80-100 %",
-        "en": "Case Manager Services Corporate Business Mittelland (a) 80-100 %",
+        "it": "Case Manager Servizi Aziendali Regione del Centro (a) 80-100%",
+        "en": "Case Manager Business Services Central Switzerland (a) 80-100%",
         "de": "Case Manager Leistungen Unternehmensgeschäft Mittelland (a) 80-100%",
-        "fr": "Gestionnaire de cas Services Entreprises Mittelland (a) 80-100 %"
+        "fr": "Gestionnaire de dossiers Services d'entreprise Suisse centrale (a) 80-100%"
       },
       "description": "Case Manager Leistungen Unternehmensgeschäft Mittelland (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Case Manager Leistungen Unternehmensgeschäft Mittelland (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Case Manager Leistungen Unternehmensgeschäft Mittelland (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Case Manager Leistungen Unternehmensgeschäft Mittelland (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Case Manager Leistungen Unternehmensgeschäft Mittelland (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Case Manager Servizi Business Mittelland (a) 80- 100% a Helsana a Worblaufen & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Case Manager Services Business Mittelland (a) 80- 100% at Helsana in Worblaufen & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Case Manager Leistungen Unternehmensgeschäft Mittelland (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Case Manager Services Business Mittelland (a) 80- 100% chez Helsana à Worblaufen & HomeOffice. Helsana est un prestataire suisse de soins de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Case-Manager-Leistungen-Unternehmensgesch%C3%A4ft-Mittelland-%28a%29-80-100/1406355933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:20:01.568Z",
+      "crawledAt": "2026-06-23T22:24:19.894Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3968,20 +3945,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1406355933/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
-        ],
-        "en": [
-          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
-        ],
-        "fr": [
-          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:49.165Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -3994,7 +3957,22 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+        ],
+        "en": [
+          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+        ],
+        "fr": [
+          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
+        "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-ticino"
+      ]
     },
     {
       "id": "helsana-757c50d4ab7c",
@@ -4241,25 +4219,24 @@
       "companyDomain": "helsana.ch",
       "title": "Versicherungsberater im Aussendienst (a) 80-100%",
       "titleByLocale": {
-        "it": "Consulente assicurativo in materia (a) 80-100 %",
-        "en": "Insurance consultant in the field (a) 80-100 %",
+        "it": "Consulente assicurativo in servizio esterno (a) 80-100%",
+        "en": "Outbound Insurance Consultant (80-100%)",
         "de": "Versicherungsberater im Aussendienst (a) 80-100%",
-        "fr": "Consultant en assurance sur le terrain (a) 80-100 %"
+        "fr": "Conseiller en assurance en service externe (80-100%)"
       },
       "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Thun & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Thun & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Thun & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Thun & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Thun & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Consulente assicurativo presso il servizio sul campo (a) 80-100% presso Helsana a Thun & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Insurance consultant in the field service (a) 80-100% at Helsana in Thun & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Thun & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Consultant en assurance dans le service sur le terrain (a) 80-100% chez Helsana à Thun & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation complémentaire."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "BE",
       "url": "https://careers.helsana.ch/job/Thun-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1270807101/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:19:59.540Z",
+      "crawledAt": "2026-06-23T22:24:17.757Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4276,20 +4253,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1270807101/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
-        ],
-        "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
-        ],
-        "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:46.669Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4302,7 +4265,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+      ]
     },
     {
       "id": "helsana-7674e1d44c43",
@@ -4318,25 +4295,24 @@
       "companyDomain": "helsana.ch",
       "title": "Release- und Test-Engineer (a) 80-100%",
       "titleByLocale": {
-        "it": "Release- e Test-Ingegnere (a) 80-100%",
-        "en": "Release- und Test-Engineer (a) 80-100%",
-        "de": "Release- und Test-Ingenieur (a) 80-100%",
-        "fr": "Release- und Test-Ingénieur (a) 80-100%"
+        "it": "Ingegnere di rilascio e test (a) 80-100%",
+        "en": "Release and test engineer (a) 80-100 %",
+        "de": "Release- und Test-Engineer (a) 80-100%",
+        "fr": "Ingénieur de publication et de test (a) 80-100%"
       },
       "description": "Release- und Test-Engineer (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Release- und Test-Engineer (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Release- und Test-Engineer (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Release- und Test-Engineer (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Release- und Test-Engineer (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Rilascio e test-enghiera (a) 80-100% a Helsana a Zurigo & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Release and Test-Engineer (a) 80-100% at Helsana in Zurich & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Release- und Test-Engineer (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Release and Test-Engineer (a) 80-100% chez Helsana à Zurich & HomeOffice. Helsana est un prestataire de services de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Release-und-Test-Engineer-%28a%29-80-100/1386841133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:19:59.033Z",
+      "crawledAt": "2026-06-23T22:24:17.252Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4545,25 +4521,24 @@
       "companyDomain": "helsana.ch",
       "title": "Kundenbetreuerin Antragsverarbeitung (a) 80-100%",
       "titleByLocale": {
-        "it": "Fornitore di servizi clienti Elaborazione di applicazioni (a) 80-100 %",
-        "en": "Customer service provider Application processing (a) 80-100 %",
+        "it": "Addetta al trattamento delle domande (a) 80-100%",
+        "en": "Applications Processing Customer Care Representative (a) 80-100%",
         "de": "Kundenbetreuerin Antragsverarbeitung (a) 80-100%",
-        "fr": "Fournisseur de services à la clientèle Traitement des demandes (a) 80-100 %"
+        "fr": "Assistante de traitement des demandes (a) 80-100%"
       },
       "description": "Kundenbetreuerin Antragsverarbeitung (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Kundenbetreuerin Antragsverarbeitung (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Kundenbetreuerin Antragsverarbeitung (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Kundenbetreuerin Antragsverarbeitung (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Kundenbetreuerin Antragsverarbeitung (a) 80-100% bei Helsana in Worblaufen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Gestore Client Performance Processing (a) 80-100% presso Helsana a Worblaufen & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Client manager Application processing (a) 80-100% at Helsana in Worblaufen & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Kundenbetreuerin Antragsverarbeitung (a) 80-100% bei Helsana in Worblaufen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Responsable client Traitement des demandes (a) 80-100% chez Helsana à Worblaufen & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Ticino",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuerin-Antragsverarbeitung-%28a%29-80-100/1377417133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:19:57.524Z",
+      "crawledAt": "2026-06-23T22:24:15.678Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4580,20 +4555,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1377417133/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
-        ],
-        "en": [
-          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
-        ],
-        "fr": [
-          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:44.224Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4606,7 +4567,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+      ]
     },
     {
       "id": "helsana-8af616974e49",
@@ -4699,25 +4674,24 @@
       "companyDomain": "helsana.ch",
       "title": "Release- und Test Engineer (a) 80-100%",
       "titleByLocale": {
-        "it": "Release- e Test Ingegnere (a) 80-100%",
-        "en": "Release- und Test Engineer (a) 80-100%",
-        "de": "Release- und Test Ingenieur (a) 80-100%",
-        "fr": "Release- und Test Ingénieur (a) 80-100%"
+        "it": "Ingegnere di rilascio e test (f/m) all'80-100%",
+        "en": "Release and Test Engineer (a) 80-100 %",
+        "de": "Release- und Test Engineer (a) 80-100%",
+        "fr": "Ingénieur de publication et de test (H/F) 80-100%"
       },
       "description": "Release- und Test Engineer (a) 80-100% bei Helsana in Dübendorf.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Release- und Test Engineer (a) 80-100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Release- und Test Engineer (a) 80-100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Release- und Test Engineer (a) 80-100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Release- und Test Engineer (a) 80-100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Release and Test Engineer (a) 80-100% a Helsana a Dübendorf. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Release and Test Engineer (a) 80-100% at Helsana in Dübendorf. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Release- und Test Engineer (a) 80-100% bei Helsana in Dübendorf.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Ingénieur de la mise à l'essai et de la libération (a) 80-100% à Helsana à Dübendorf. Helsana est un prestataire de services de santé suisse établi."
       },
-      "needsRetranslation": true,
       "location": "Dübendorf",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Release-und-Test-Engineer-%28a%29-80-100/956343301/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:19:56.548Z",
+      "crawledAt": "2026-06-23T22:24:14.581Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4770,25 +4744,24 @@
       "companyDomain": "helsana.ch",
       "title": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100%",
       "titleByLocale": {
-        "it": "Inhouse Consulente SAP HCM & Success Factors (a) 80 - 100%",
-        "en": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100%",
-        "de": "Inhouse Berater SAP HCM & Success Factors (a) 80 - 100%",
-        "fr": "Consultant interne SAP HCM & Facteurs de succès (a) 80 - 100 %"
+        "it": "Consulente SAP HCM & Success Factors (a) 80 - 100%",
+        "en": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100 %",
+        "de": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100%",
+        "fr": "Consultant SAP HCM & Success Factors (a) 80 - 100% en interne"
       },
       "description": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100% bei Helsana in Dübendorf.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100% bei Helsana in Dübendorf. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Consulente interno SAP HCM & Success Factors (a) 80 - 100% Helsana a Dübendorf. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100% Helsana in Dübendorf. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100% bei Helsana in Dübendorf.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Inhouse Consultant SAP HCM & Success Factors (a) 80 - 100% Helsana à Dübendorf. Helsana est un prestataire de soins de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation."
       },
-      "needsRetranslation": true,
       "location": "Dübendorf",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Inhouse-Consultant-SAP-HCM-&-Success-Factors-%28a%29-80-100/990259401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:19:56.042Z",
+      "crawledAt": "2026-06-23T22:24:14.048Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4896,25 +4869,24 @@
       "companyDomain": "helsana.ch",
       "title": "Mitarbeiterin Impfzentrum w/m (80-100%)",
       "titleByLocale": {
-        "it": "Centro di vaccinazione dei dipendenti w/m (80-100%)",
-        "en": "Employee vaccination center w/m (80-100%)",
+        "it": "Impiegata Centro Vaccinazioni f/m (80-100%)",
+        "en": "Female/Male Employee Vaccination Center (80-100%)",
         "de": "Mitarbeiterin Impfzentrum w/m (80-100%)",
-        "fr": "Centre de vaccination des employés w/m (80-100%)"
+        "fr": "Employée Centre de Vaccination H/F (80-100 Sebours)"
       },
       "description": "Mitarbeiterin Impfzentrum w/m (80-100%) bei Helsana in Zürich.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Mitarbeiterin Impfzentrum w/m (80-100%) bei Helsana in Zürich. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "en": "Mitarbeiterin Impfzentrum w/m (80-100%) bei Helsana in Zürich. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "de": "Mitarbeiterin Impfzentrum w/m (80-100%) bei Helsana in Zürich. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Mitarbeiterin Impfzentrum w/m (80-100%) bei Helsana in Zürich. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Centro di assistenza sanitaria Μαι Μανονονονονονονονονονισησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησησηση κασηση κανονονονονονονονονονονονονονονονισονονονονονονονονονονισορονονονονονονονονονοοοοονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονονον ον ον ονονονονονονονονονονννννννννννννννονοννννννννννοννοννννονονονονονοννννννννονονονοννι",
+        "en": "Employee immunization center w/m (80-100%) at Helsana in Zurich. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Mitarbeiterin Impfzentrum w/m (80-100%) bei Helsana in Zürich.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Centre de vaccination des employés w/m (80-100%) à Helsana à Zurich. Helsana est un prestataire de services de santé suisse établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation continue."
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-Mitarbeiterin-Impfzentrum-wm-%2880-100%29/668203501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:19:55.038Z",
+      "crawledAt": "2026-06-23T22:24:12.894Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4931,20 +4903,6 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/668203501/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
-        ],
-        "en": [
-          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
-        ],
-        "fr": [
-          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
-        ]
-      },
       "firstSeenAt": "2026-06-23T11:42:41.119Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4957,7 +4915,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+      ]
     },
     {
       "id": "helsana-006982c04e2a",
@@ -5248,6 +5220,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "helsana-36a2f1748ece",
+      "slug": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
+      "slugByLocale": {
+        "it": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
+        "en": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
+        "de": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
+        "fr": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Spécialiste gestion des coûts des prestations (t) 60-80%",
+      "titleByLocale": {
+        "it": "Specialista gestione dei costi delle prestazioni",
+        "en": "Benefits Cost Management Specialist",
+        "de": "Spécialiste gestion des coûts des prestations (t) 60-80%",
+        "fr": "Spécialiste gestion des coûts des prestations (t) 60-80 %"
+      },
+      "description": "Spécialiste gestion des coûts des prestations (t) 60-80% bei Helsana in Lausanne & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Descrizione Spécialiste gestion des coûts des prestations (t) 60-80% presso Helsana a Losanna & Homeoffice. Helsana è un affermato fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro interessanti e una vasta gamma di opportunità di formazione. Mansioni - Gestione dei costi delle prestazioni Requisiti - (Nessun requisito specificato nel testo) Cosa offriamo - Un ambiente di lavoro moderno - Condizioni di assunzione attraenti - Varie opportunità di formazione continua Contatto - (Nessuna informazione di contatto fornita)",
+        "en": "Descrizione Spécialiste gestion des coûts des prestations (t) 60-802 near Helsana in Lausanne & HomeOffice. Helsana is an established Swiss health service provider. This place offers a modern working environment, attractive employment conditions and a wide range of further training opportunities. Mansioni - Gestione dei costi ll prestazioni Requisiti - (Nessun requisitospecialato nel testo) Cosa offiamo - Un·de di lavoro moderno - Condizioni di assunzione attraenti - Varie opportunità di formazione continua Contatto - (Nessunagradazione di contatto fornita)",
+        "de": "Descrizione\n\nSpécialiste gestion des coûts des prestations (t) 60-80% bei Helsana in Lausanne & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.\n\nMansioni\n\n- Gestione dei costi delle prestazioni\n\nRequisiti\n\n- (Nessun requisito specificato nel testo)\n\nCosa offriamo\n\n- Un ambiente di lavoro moderno\n- Condizioni di assunzione attraenti\n- Varie opportunità di formazione continua\n\nContatto\n\n- (Nessuna informazione di contatto fornita)",
+        "fr": "Descrizionejar gestion des coûts des prestations (t) 60-802 près d'Helsana à Lausanne & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Cet endroit offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue. Mansioni - Gestione dei costi ll prestazioni Requisiti - (Nessun B.idospecialato nel testo) Cosa offiamo - Un·de di lavoro moderno - Condizioni di assunzione attraenti - varie opportunità di formazione continua Contatto - (Nessunagradazione di contatto fornita)"
+      },
+      "location": "Ticino",
+      "canton": "VD",
+      "url": "https://careers.helsana.ch/job/Lausanne-&-Homeoffice-Sp%C3%A9cialiste-gestion-des-co%C3%BBts-des-prestations-%28t%29-60-80/1391309833/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-23T22:24:39.147Z",
+      "addressLocality": "Ticino",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-05",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1391309833/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-06-23T11:43:11.557Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "previousSlugs": [
+        "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-ticino"
+      ]
     }
   ]
 }

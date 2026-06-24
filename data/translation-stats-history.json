@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-04T23:23:14.751Z",
-    "label": "before",
-    "total": 10826,
-    "needsRetranslation": 7087,
-    "suppressed": 27,
-    "incomplete": 857,
-    "complete": 9969,
-    "missingByLocale": {
-      "it": 459,
-      "en": 353,
-      "de": 256,
-      "fr": 435
-    },
-    "topPending": [
-      {
-        "company": "Richemont",
-        "pending": 102
-      },
-      {
-        "company": "Jumbo, Division der Coop Genossenschaft",
-        "pending": 99
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 77
-      },
-      {
-        "company": "Roche",
-        "pending": 72
-      },
-      {
-        "company": "UBS",
-        "pending": 33
-      },
-      {
-        "company": "The Swatch Group (UK) Limited",
-        "pending": 31
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 23
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 21
-      },
-      {
-        "company": "Sulzer",
-        "pending": 16
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-05T03:12:17.376Z",
-    "label": "after",
-    "total": 10826,
-    "needsRetranslation": 2954,
-    "suppressed": 28,
-    "incomplete": 664,
-    "complete": 10162,
-    "missingByLocale": {
-      "it": 369,
-      "en": 285,
-      "de": 221,
-      "fr": 356
-    },
-    "topPending": [
-      {
-        "company": "Jumbo, Division der Coop Genossenschaft",
-        "pending": 99
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 77
-      },
-      {
-        "company": "Roche",
-        "pending": 59
-      },
-      {
-        "company": "The Swatch Group (UK) Limited",
-        "pending": 28
-      },
-      {
-        "company": "UBS",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "Richemont",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "Sulzer",
-        "pending": 16
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 16
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-05T04:40:10.783Z",
     "label": "before",
     "total": 10827,
@@ -11360,6 +11246,120 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 952
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bühler Group",
+        "pending": 2
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-24T10:36:11.323Z",
+    "label": "before",
+    "total": 17754,
+    "needsRetranslation": 3060,
+    "suppressed": 550,
+    "incomplete": 949,
+    "complete": 16805,
+    "missingByLocale": {
+      "it": 382,
+      "en": 287,
+      "de": 558,
+      "fr": 121
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 881
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Roche",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bühler Group",
+        "pending": 2
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-24T14:43:12.194Z",
+    "label": "after",
+    "total": 17754,
+    "needsRetranslation": 2776,
+    "suppressed": 551,
+    "incomplete": 949,
+    "complete": 16805,
+    "missingByLocale": {
+      "it": 382,
+      "en": 286,
+      "de": 557,
+      "fr": 120
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 881
       },
       {
         "company": "Manor AG",
