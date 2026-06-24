@@ -4776,6 +4776,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scambio-dati-salariali-italia': {
+    title: 'Frontalieri, via libera allo scambio dei dati salariali con l’Italia',
+    description: 'Accordo tra Svizzera e Italia sullo scambio di dati salariali dei frontalieri, in vigore dal 2024, per migliorare la trasparenza fiscale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, libera, allo, scambio, dati',
+    ogTitle: 'Scambio dati salariali Svizzera-Italia 2024',
+    ogDescription: 'Dal 2024, accordo tra Svizzera e Italia permette lo scambio di dati salariali dei frontalieri, migliorando la trasparenza fiscale.',
+    canonicalPath: '/articoli-svizzera/scambio-dati-salariali-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, via libera allo scambio dei dati salariali con l’Italia",
+      "description": "Accordo tra Svizzera e Italia sullo scambio di dati salariali dei frontalieri, in vigore dal 2024, per migliorare la trasparenza fiscale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scambio-dati-salariali-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico tra Svizzera e Italia che controlla documenti e dati salariali."
+      },
+      "datePublished": "2026-06-24T11:11:27+00:00",
+      "dateModified": "2026-06-24T11:11:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scambio-dati-salariali-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

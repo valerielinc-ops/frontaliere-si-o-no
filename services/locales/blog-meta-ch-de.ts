@@ -376,6 +376,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dispositivi-medici-rimborsi.title': 'Bern öffnet für Rückerstattungen für im Ausland gekaufte Medizinprodukte',
     'blog.article.dispositivi-medici-rimborsi.excerpt': 'Der Bundesrat schlägt vor, bestimmte über die OKP im Ausland gekaufte Medizinprodukte zu vergüten.',
     'blog.article.dispositivi-medici-rimborsi.imageAlt': 'Medizinische Geräte in einem Schweizer Krankenhaus',
+    'blog.article.scambio-dati-salariali-italia.title': 'Frontalieri, grünes Licht für den Austausch von Lohndaten mit Italien',
+    'blog.article.scambio-dati-salariali-italia.excerpt': 'Seit 2024 ermöglicht das Abkommen zwischen der Schweiz und Italien den Austausch von Lohndaten von Grenzgängern und erleichtert die Steuerberechnung.',
+    'blog.article.scambio-dati-salariali-italia.imageAlt': 'Grenzgänger überprüft Dokumente und Gehaltsdaten an Schweizer-italienischer Grenze.',
 };
 
 export default blogMetaChDe;

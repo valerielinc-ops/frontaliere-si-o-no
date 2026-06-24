@@ -376,6 +376,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dispositivi-medici-rimborsi.title': 'Berne rembourse les dispositifs médicaux achetés à l\'étranger',
     'blog.article.dispositivi-medici-rimborsi.excerpt': 'Le Conseil fédéral propose de rembourser certains dispositifs médicaux achetés à l\'étranger par l\'intermédiaire de l\'AOMS.',
     'blog.article.dispositivi-medici-rimborsi.imageAlt': 'Appareils médicaux dans un hôpital suisse',
+    'blog.article.scambio-dati-salariali-italia.title': 'Frontaliers, feu vert à l\'échange de données salariales avec l’Italie',
+    'blog.article.scambio-dati-salariali-italia.excerpt': 'Depuis 2024, l\'accord entre la Suisse et l\'Italie permet l\'échange de données salariales des frontaliers, facilitant ainsi le calcul fiscal.',
+    'blog.article.scambio-dati-salariali-italia.imageAlt': 'Travailleur frontalier vérifiant documents et données salariales à la frontière suisse-italienne.',
 };
 
 export default blogMetaChFr;
