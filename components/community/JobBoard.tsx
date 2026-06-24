@@ -7104,29 +7104,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  return (
  <div className="space-y-6">
+ {/* Back link + top leaderboard share one row: the "back" link keeps its
+     natural width on the left, the desktop banner fills the rest of the row
+     to its right (the empty band beside the link). Banner is lg+ only; on
+     mobile the row collapses to just the link. Auto Ads stay untouched —
+     additional manual display unit. */}
+ <div className="flex items-start gap-4">
  <button
  onClick={backToList}
- className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"
+ className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline shrink-0"
  >
  <ArrowLeft size={14} />
  {t('jobBoard.backToList')}
  </button>
-
- {authPendingNoticeJsx}
-
- {/* Top leaderboard banner — full content-width, pinned at the very top of
-     the job-detail view (above the rail grid, just under the "back" link), so
-     it occupies the top ad slot instead of sitting one row down beside the
-     side rails. Desktop (lg+) only; Auto Ads stay untouched — additional
-     manual display unit. */}
  {isDesktopLg && (
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
  adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
  fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
  minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
+ className="flex-1 min-w-0"
  />
  )}
+ </div>
+
+ {authPendingNoticeJsx}
 
  {/* 3-column rail grid: left rail | content | right rail. 180px rails at xl
      (1280–1399), widening to 300px at xlw (≥1400) to host the ArticleRailAd
