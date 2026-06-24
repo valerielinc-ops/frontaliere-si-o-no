@@ -47,6 +47,7 @@ import { makeUnsubscribeUrl, makeResubscribeUrl, generateAutologinCode } from '.
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
+import { deriveNameFromEmail } from './lib/deriveNameFromEmail.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -2152,7 +2153,10 @@ async function main() {
       weeklyFact: getWeeklyFact(locale),
       metrics,
       locale,
-      recipientName: subscriber.name,
+      // Stored name (from social sign-in) first; else a dataset-validated guess
+      // from the email local-part; else null → generic greeting. The template's
+      // personalizeGreeting title-cases it (handles ALL-CAPS stored names).
+      recipientName: subscriber.name || deriveNameFromEmail(subscriber.email),
       issueNumber,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
