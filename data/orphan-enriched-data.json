@@ -1305400,7 +1305400,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-hnejmm",
+      "en": "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-hnejmm",
+      "de": "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-hnejmm",
+      "fr": "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-hnejmm"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-zurigo/verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich",
       "en": "/en/find-jobs-zurich/verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich",
@@ -1305413,6 +1305418,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
