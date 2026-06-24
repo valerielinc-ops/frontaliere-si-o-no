@@ -149,6 +149,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ubs-previdenza-vecchiaia': { it: 'ubs-previdenza-vecchiaia', en: 'ubs-new-old-age-pension-model', de: 'ubs-neues-altersvorsorge-modell', fr: 'ubs-nouveau-modele-prevoyance-vieillesse' },
  'dispositivi-medici-rimborsi': { it: 'dispositivi-medici-rimborsi', en: 'medical-devices-reimbursement-abroad', de: 'medizinprodukte-rueckerstattung-ausland', fr: 'remboursement-dispositifs-medicaux-etranger' },
  'scambio-dati-salariali-italia': { it: 'scambio-dati-salariali-italia', en: 'salary-data-exchange-italy', de: 'austausch-gehaltsdaten-italien', fr: 'echange-donnees-salariales-italie' },
+ 'diminuiscono-annunci-alloggi-frontaliere-ticino': { it: 'diminuiscono-annunci-alloggi-frontaliere-ticino', en: 'diminuiscono-annunci-alloggi-frontaliere-ticino', de: 'diminuiscono-annunci-alloggi-frontaliere-ticino', fr: 'diminuiscono-annunci-alloggi-frontaliere-ticino' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

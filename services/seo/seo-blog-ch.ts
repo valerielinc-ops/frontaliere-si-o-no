@@ -4815,6 +4815,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diminuiscono-annunci-alloggi-frontaliere-ticino': {
+    title: 'Diminuiscono annunci di alloggi in affitto in Svizzera: cosa succede?',
+    description: 'Il numero di annunci di alloggi in affitto è diminuito del 4% tra aprile 2025 e marzo 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, diminuiscono, annunci, alloggi, affitto',
+    ogTitle: 'Diminuiscono annunci di alloggi in affitto in Svizzera: cosa succede?',
+    ogDescription: 'Il numero di annunci di alloggi in affitto è diminuito del 4% tra aprile 2025 e marzo 2026.',
+    canonicalPath: '/articoli-svizzera/diminuiscono-annunci-alloggi-frontaliere-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diminuiscono annunci di alloggi in affitto in Svizzera: cosa succede?",
+      "description": "Il numero di annunci di alloggi in affitto è diminuito del 4% tra aprile 2025 e marzo 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diminuiscono-annunci-alloggi-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di un edificio residenziale a Lugano con alloggi in affitto"
+      },
+      "datePublished": "2026-06-24T12:46:27+00:00",
+      "dateModified": "2026-06-24T12:46:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diminuiscono-annunci-alloggi-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

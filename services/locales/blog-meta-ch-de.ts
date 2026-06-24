@@ -379,6 +379,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scambio-dati-salariali-italia.title': 'Frontalieri, grünes Licht für den Austausch von Lohndaten mit Italien',
     'blog.article.scambio-dati-salariali-italia.excerpt': 'Seit 2024 ermöglicht das Abkommen zwischen der Schweiz und Italien den Austausch von Lohndaten von Grenzgängern und erleichtert die Steuerberechnung.',
     'blog.article.scambio-dati-salariali-italia.imageAlt': 'Grenzgänger überprüft Dokumente und Gehaltsdaten an Schweizer-italienischer Grenze.',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.title': 'Kleinanzeigen für Mietwohnungen in der Schweiz sinken: Was passiert?',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.excerpt': 'Die Zahl der Inserate für Mietwohnungen ging zwischen April 2025 und März 2026 um 4% zurück, während die durchschnittliche Dauer der Inseratsschaltung zunahm.',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.imageAlt': 'Fotos eines Wohnhauses in Lugano mit möblierten Apartments',
 };
 
 export default blogMetaChDe;
