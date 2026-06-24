@@ -22,6 +22,7 @@ import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { trackAdEvent } from '@/services/adAnalytics';
 import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
+import { prebidActiveFor, requestHeaderBids } from '@/services/headerBidding';
 
 // Master flag for the GPT stack (PoC activated in #2289). Flip to `false`
 // (one-line, then deploy) to disable every GPT slot if GPT serving regresses
@@ -94,6 +95,12 @@ export interface GptAdSlotProps {
   sizes: GptSize[];
   /** Runtime kill-switch (caller wires it to Firebase Remote Config). */
   killed?: boolean;
+  /**
+   * Runtime kill-switch for the header-bidding auction ONLY (caller wires it to
+   * Firebase Remote Config `KILL_HEADER_BIDDING`). When `true`, the slot still
+   * serves via GPT/AdSense — only the Prebid pre-auction is skipped. Default `false`.
+   */
+  headerBiddingKilled?: boolean;
   /** Extra eligibility gate (e.g. article long enough). Default `true`. */
   enabled?: boolean;
   /** Reserved min-height (px) to prevent CLS before the creative fills. */
@@ -115,6 +122,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   adUnitPath,
   sizes,
   killed = false,
+  headerBiddingKilled = false,
   enabled = true,
   minHeight = 250,
   className = 'mx-auto my-6 w-full max-w-[336px] text-center',
@@ -206,7 +214,25 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           };
           viewableHandlerRef.current = viewableHandler;
           gt.pubads().addEventListener('impressionViewable', viewableHandler);
-          gt.display(divId);
+          // Header bidding: run a Prebid auction for this slot and apply the
+          // winning hb_* targeting BEFORE display(), so SSP demand competes with
+          // AdSense dynamic-allocation inside the same GAM auction. AdSense Auto
+          // Ads are unaffected. requestHeaderBids() is a no-op when disabled /
+          // unconfigured and always resolves (fail-soft + hard timeout), so GPT
+          // display is never blocked by the auction.
+          if (!headerBiddingKilled && prebidActiveFor(adUnitPath)) {
+            void requestHeaderBids({ code: divId, adUnitPath, sizes }).finally(() => {
+              gt.cmd.push(() => {
+                try {
+                  gt.display(divId);
+                } catch {
+                  /* fail-soft */
+                }
+              });
+            });
+          } else {
+            gt.display(divId);
+          }
           setRendered(true);
         } catch {
           /* fail-soft: never let an ad break the page */
