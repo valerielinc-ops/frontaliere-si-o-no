@@ -202,7 +202,7 @@
         "it": "tirocinante-in-assistenza-sanitaria-asana-spital-ag-menziken-leuggern-leuggern",
         "en": "nursing-intern-asana-spital-ag-menziken-leuggern-leuggern",
         "de": "pflegepraktikantin-pflegepraktikant-asana-spital-leuggern",
-        "fr": "pflegepraktikantin-pflegepraktikant-asana-spital-leuggern"
+        "fr": "pratique-infirmiere-praticien-infirmier-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -270,8 +270,7 @@
       },
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-asana-spital-leuggern",
-        "pflegepraktikant-pflegepraktikant-asana-spital-ag-menziken-leuggern-leuggern",
-        "pratique-infirmiere-praticien-infirmier-asana-spital-ag-menziken-leuggern-leuggern"
+        "pflegepraktikant-pflegepraktikant-asana-spital-ag-menziken-leuggern-leuggern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -281,7 +280,6 @@
           "pflegepraktikant-pflegepraktikant-asana-spital-ag-menziken-leuggern-leuggern"
         ],
         "fr": [
-          "pratique-infirmiere-praticien-infirmier-asana-spital-ag-menziken-leuggern-leuggern",
           "pflegepraktikantin-pflegepraktikant-asana-spital-leuggern"
         ]
       },
@@ -1398,9 +1396,9 @@
     },
     {
       "id": "asana-spital-3a383b47b230",
-      "slug": "nachdiplomstudium-notfallpflege-hf-80-100-asana-spital-menziken",
+      "slug": "assistenza-di-emergenza-post-laurea-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
       "slugByLocale": {
-        "it": "nachdiplomstudium-notfallpflege-hf-80-100-asana-spital-menziken",
+        "it": "assistenza-di-emergenza-post-laurea-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
         "en": "postgraduate-training-in-emergency-nursing-80-100-asana-spital-ag-menziken-leuggern-menziken",
         "de": "nachdiplomstudium-notfallpflege-hf-80-100-asana-spital-menziken",
         "fr": "stage-post-universitaire-en-soins-infirmiers-d-urgence-80-100-asana-spital-ag-menziken-leuggern-menziken"
@@ -1473,13 +1471,12 @@
         ]
       },
       "previousSlugs": [
-        "assistenza-di-emergenza-post-laurea-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
+        "nachdiplomstudium-notfallpflege-hf-80-100-asana-spital-menziken",
         "postgraduate-studies-emergency-care-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
         "etudes-superieures-soins-d-urgence-hf-80-100-asana-spital-ag-menziken-leuggern-menziken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenza-di-emergenza-post-laurea-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
           "nachdiplomstudium-notfallpflege-hf-80-100-asana-spital-menziken"
         ],
         "en": [
@@ -1695,7 +1692,7 @@
       "slug": "specialista-di-tecnologia-operatoria-hf-toa-80-100-asana-spital-ag-menziken-leuggern-menziken",
       "slugByLocale": {
         "it": "specialista-di-tecnologia-operatoria-hf-toa-80-100-asana-spital-ag-menziken-leuggern-menziken",
-        "en": "dipl-fachperson-operationstechnik-hf-toa-80-100-asana-spital-menziken",
+        "en": "dipl-specialist-surgical-technology-hf-toa-80-100-asana-spital-ag-menziken-leuggern-menziken",
         "de": "dipl-fachperson-operationstechnik-hf-toa-80-100-asana-spital-menziken",
         "fr": "specialiste-en-technologie-operatoire-hf-toa-80-100-asana-spital-ag-menziken-leuggern-menziken"
       },
@@ -1764,15 +1761,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-fachperson-operationstechnik-hf-toa-80-100-asana-spital-menziken",
-        "dipl-specialist-surgical-technology-hf-toa-80-100-asana-spital-ag-menziken-leuggern-menziken"
+        "dipl-fachperson-operationstechnik-hf-toa-80-100-asana-spital-menziken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachperson-operationstechnik-hf-toa-80-100-asana-spital-menziken"
         ],
         "en": [
-          "dipl-specialist-surgical-technology-hf-toa-80-100-asana-spital-ag-menziken-leuggern-menziken",
           "dipl-fachperson-operationstechnik-hf-toa-80-100-asana-spital-menziken"
         ]
       },
@@ -1795,7 +1790,7 @@
       "slug": "esperta-espperto-di-cure-d-emergenza-nds-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
       "slugByLocale": {
         "it": "esperta-espperto-di-cure-d-emergenza-nds-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
-        "en": "dipl-expertin-experte-notfallpflege-nds-hf-80-100-asana-spital-menziken",
+        "en": "dipl-expert-expert-emergency-care-nds-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-80-100-asana-spital-menziken",
         "fr": "specialiste-en-soins-d-urgence-nds-hf-80-100-asana-spital-ag-menziken-leuggern-menziken"
       },
@@ -1855,15 +1850,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-experte-notfallpflege-nds-hf-80-100-asana-spital-menziken",
-        "dipl-expert-expert-emergency-care-nds-hf-80-100-asana-spital-ag-menziken-leuggern-menziken"
+        "dipl-expertin-experte-notfallpflege-nds-hf-80-100-asana-spital-menziken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-notfallpflege-nds-hf-80-100-asana-spital-menziken"
         ],
         "en": [
-          "dipl-expert-expert-emergency-care-nds-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
           "dipl-expertin-experte-notfallpflege-nds-hf-80-100-asana-spital-menziken"
         ]
       },
@@ -1886,7 +1879,7 @@
       "slug": "esperta-in-cure-d-emergenza-esperto-in-cure-d-emergenza-nds-hf-o-diplomata-in-assistenza-infermieristica-hf-con",
       "slugByLocale": {
         "it": "esperta-in-cure-d-emergenza-esperto-in-cure-d-emergenza-nds-hf-o-diplomata-in-assistenza-infermieristica-hf-con",
-        "en": "dipl-expertin-notfallpflege-experte-notfallpflege-nds-hf-oder-dipl-pflegefachperson-hf-mit",
+        "en": "dipl-expert-emergency-care-expert-emergency-care-nds-hf-or-dipl-hf-nurse-with-emergency-experience-80-100-asana-spital",
         "de": "dipl-expertin-notfallpflege-experte-notfallpflege-nds-hf-oder-dipl-pflegefachperson-hf-mit",
         "fr": "diplomee-en-soins-d-urgence-expert-en-soins-d-urgence-nds-hf-ou-diplomee-en-soins-infirmiers-hf-avec-experience-en-soins"
       },
@@ -1960,15 +1953,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-notfallpflege-experte-notfallpflege-nds-hf-oder-dipl-pflegefachperson-hf-mit",
-        "dipl-expert-emergency-care-expert-emergency-care-nds-hf-or-dipl-hf-nurse-with-emergency-experience-80-100-asana-spital"
+        "dipl-expertin-notfallpflege-experte-notfallpflege-nds-hf-oder-dipl-pflegefachperson-hf-mit"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-notfallpflege-experte-notfallpflege-nds-hf-oder-dipl-pflegefachperson-hf-mit"
         ],
         "en": [
-          "dipl-expert-emergency-care-expert-emergency-care-nds-hf-or-dipl-hf-nurse-with-emergency-experience-80-100-asana-spital",
           "dipl-expertin-notfallpflege-experte-notfallpflege-nds-hf-oder-dipl-pflegefachperson-hf-mit"
         ]
       },
@@ -2178,7 +2169,7 @@
       "slug": "dipl-infermiere-a-specializzato-a-assistenza-a-lungo-termine-40-80-asana-spital-ag-menziken-leuggern-menziken",
       "slugByLocale": {
         "it": "dipl-infermiere-a-specializzato-a-assistenza-a-lungo-termine-40-80-asana-spital-ag-menziken-leuggern-menziken",
-        "en": "dipl-pflegefachperson-hf-langzeitpflege-40-80-asana-spital-menziken",
+        "en": "dipl-care-professional-hf-long-term-care-40-80-asana-spital-ag-menziken-leuggern-menziken",
         "de": "dipl-pflegefachperson-hf-langzeitpflege-40-80-asana-spital-menziken",
         "fr": "diplome-e-en-soins-infirmiers-soins-de-longue-duree-40-80-asana-spital-ag-menziken-leuggern-menziken"
       },
@@ -2247,15 +2238,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-langzeitpflege-40-80-asana-spital-menziken",
-        "dipl-care-professional-hf-long-term-care-40-80-asana-spital-ag-menziken-leuggern-menziken"
+        "dipl-pflegefachperson-hf-langzeitpflege-40-80-asana-spital-menziken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-langzeitpflege-40-80-asana-spital-menziken"
         ],
         "en": [
-          "dipl-care-professional-hf-long-term-care-40-80-asana-spital-ag-menziken-leuggern-menziken",
           "dipl-pflegefachperson-hf-langzeitpflege-40-80-asana-spital-menziken"
         ]
       },

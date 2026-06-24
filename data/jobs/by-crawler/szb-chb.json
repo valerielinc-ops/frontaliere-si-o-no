@@ -675,12 +675,12 @@
     },
     {
       "id": "szb-chb-f98b870a97da",
-      "slug": "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne",
+      "slug": "cura-assistita-cura-acuta-80-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "de": "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne",
-        "it": "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne",
-        "en": "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne",
-        "fr": "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne"
+        "it": "cura-assistita-cura-acuta-80-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "assisted-care-acute-care-80-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "soins-assistes-soins-actifs-80-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -735,7 +735,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:34:42.981Z"
+      "firstSeenAt": "2026-06-24T12:34:42.981Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-pflege-akut-pflege-80-90-szb-chb-biel-bienne"
+      ]
     }
   ]
 }

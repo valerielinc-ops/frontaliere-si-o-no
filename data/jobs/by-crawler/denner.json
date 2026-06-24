@@ -1511,12 +1511,12 @@
     },
     {
       "id": "denner-bb62049d06ca",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-biel-bienne-8efffc",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-gestione-delle-branche-denner-biel-bienne-8efffc",
         "de": "assistent-in-filialleitung-denner-ag-biel-bienne-n6myx0",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-biel-bienne-8efffc",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-biel-bienne-8efffc"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1586,7 +1586,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-24T11:10:06.602Z"
+      "firstSeenAt": "2026-06-24T11:10:06.602Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-1907b86712b9",
@@ -1964,10 +1978,10 @@
     },
     {
       "id": "denner-8ea94a2cec47",
-      "slug": "venditore-denner-langenthal",
+      "slug": "addetto-a-alle-vendite-denner-langenthal",
       "slugByLocale": {
-        "it": "venditore-denner-langenthal",
-        "en": "seller-denner-langenthal",
+        "it": "addetto-a-alle-vendite-denner-langenthal",
+        "en": "sales-associate-denner-langenthal",
         "de": "verkaufer-in-denner-ag-langenthal",
         "fr": "vendeur-denner-langenthal"
       },
@@ -2027,15 +2041,19 @@
       "crawledAt": "2026-06-23T22:11:24.946Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-langenthal"
+        "verkaufer-in-denner-langenthal",
+        "venditore-denner-langenthal",
+        "seller-denner-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-langenthal"
+          "verkaufer-in-denner-langenthal",
+          "venditore-denner-langenthal"
         ],
         "en": [
-          "verkaufer-in-denner-langenthal"
+          "verkaufer-in-denner-langenthal",
+          "seller-denner-langenthal"
         ],
         "fr": [
           "verkaufer-in-denner-langenthal"
@@ -2512,12 +2530,12 @@
     },
     {
       "id": "denner-2f777e03cedd",
-      "slug": "verkaufer-in-denner-interlaken",
+      "slug": "venditore-denner-interlaken",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-interlaken",
+        "it": "venditore-denner-interlaken",
         "de": "verkaufer-in-denner-ag-interlaken",
-        "en": "verkaufer-in-denner-interlaken",
-        "fr": "verkaufer-in-denner-interlaken"
+        "en": "seller-denner-interlaken",
+        "fr": "vendeur-denner-interlaken"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2576,11 +2594,19 @@
       "crawledAt": "2026-06-24T11:10:04.751Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-interlaken"
+        ],
+        "en": [
+          "verkaufer-in-denner-interlaken"
+        ],
+        "fr": [
+          "verkaufer-in-denner-interlaken"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-interlaken"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2599,12 +2625,12 @@
     },
     {
       "id": "denner-6fa65f0c05ae",
-      "slug": "verkaufer-in-denner-schiers",
+      "slug": "venditore-denner-schiers",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-schiers",
+        "it": "venditore-denner-schiers",
         "de": "verkaufer-in-denner-ag-schiers",
-        "en": "verkaufer-in-denner-schiers",
-        "fr": "verkaufer-in-denner-schiers"
+        "en": "seller-denner-schiers",
+        "fr": "vendeur-denner-schiers"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2663,11 +2689,19 @@
       "crawledAt": "2026-06-24T11:10:04.749Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-schiers"
+        ],
+        "en": [
+          "verkaufer-in-denner-schiers"
+        ],
+        "fr": [
+          "verkaufer-in-denner-schiers"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-schiers"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2773,12 +2807,12 @@
     },
     {
       "id": "denner-792717b08a49",
-      "slug": "verkaufer-in-denner-embrach",
+      "slug": "venditore-denner-embrach",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-embrach",
+        "it": "venditore-denner-embrach",
         "de": "verkaufer-in-denner-ag-embrach",
-        "en": "verkaufer-in-denner-embrach",
-        "fr": "verkaufer-in-denner-embrach"
+        "en": "seller-denner-embrach",
+        "fr": "vendeur-denner-embrach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2837,11 +2871,19 @@
       "crawledAt": "2026-06-24T11:10:04.330Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-embrach"
+        ],
+        "en": [
+          "verkaufer-in-denner-embrach"
+        ],
+        "fr": [
+          "verkaufer-in-denner-embrach"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-embrach"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2860,12 +2902,12 @@
     },
     {
       "id": "denner-adddbd9838a9",
-      "slug": "verkaufer-in-im-stundenlohn-denner",
+      "slug": "venditore-nel-salario-orario-denner-basel",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner-basel",
+        "it": "venditore-nel-salario-orario-denner-basel",
+        "en": "seller-in-the-hourly-wage-denner-basel",
         "de": "verkaufer-in-im-stundenlohn-denner-basel",
-        "fr": "verkaufer-in-im-stundenlohn-denner-basel"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2924,11 +2966,20 @@
       "crawledAt": "2026-06-24T11:10:04.297Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-2"
+          "verkaufer-in-im-stundenlohn-denner-2",
+          "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-basel"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-basel"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-2"
+        "verkaufer-in-im-stundenlohn-denner-2",
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-basel"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,

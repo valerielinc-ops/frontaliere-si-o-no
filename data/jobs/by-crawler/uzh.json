@@ -995,9 +995,9 @@
     },
     {
       "id": "uzh-cca0c06ce50c",
-      "slug": "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich",
+      "slug": "responsabile-del-dipartimento-di-bacteriologia-m-f-d-con-laurea-famh-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich",
+        "it": "responsabile-del-dipartimento-di-bacteriologia-m-f-d-con-laurea-famh-universitat-zurich-zurich",
         "en": "department-head-of-bacteriology-m-f-d-with-famh-degree-universitat-zurich-zurich",
         "de": "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich",
         "fr": "chef-de-departement-de-bacteriologie-m-f-d-avec-diplome-famh-universitat-zurich-zurich"
@@ -1053,7 +1053,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-3d340220d50e",
@@ -3796,7 +3804,7 @@
       "id": "uzh-a2dd699d18a2",
       "slug": "inbreeding-in-a-wild-mammal-system-for-4-years-uzh-zurich",
       "slugByLocale": {
-        "it": "inbreeding-in-a-wild-mammal-system-for-4-years-uzh-zurich",
+        "it": "inbreeding-in-un-wild-mammal-system-per-4-anni-universitat-zurich-zurich",
         "en": "inbreeding-in-a-wild-mammal-system-for-4-years-uzh-zurich",
         "de": "inzucht-in-einem-wilden-saugetiersystem-fur-4-jahre-universitat-zurich-zurich",
         "fr": "la-consanguinite-dans-un-systeme-de-mammiferes-sauvages-pendant-4-ans-universitat-zurich-zurich"
@@ -3852,15 +3860,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "inbreeding-in-un-wild-mammal-system-per-4-anni-universitat-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "inbreeding-in-un-wild-mammal-system-per-4-anni-universitat-zurich-zurich"
-      ]
+      }
     },
     {
       "id": "uzh-0dedf9f317a6",
@@ -4005,8 +4005,6 @@
       },
       "previousSlugs": [
         "wissenschaftliche-assistenz-uzh-zurich-2",
-        "wissenschaftliche-assistenz-uzh-zurich",
-        "wissenschaftliche-assistenz-universitat-zurich-zurich",
         "assistenza-scientifica-universitat-zurich-zurich",
         "scientific-assistance-universitat-zurich-zurich",
         "assistance-scientifique-universitat-zurich-zurich"
@@ -4797,7 +4795,7 @@
         "it": "posizione-md-phd-m-w-universitat-zurich-zurich",
         "en": "md-phd-position-m-w-universitat-zurich-zurich",
         "de": "md-phd-position-m-w-uzh-zurich",
-        "fr": "md-phd-position-m-w-uzh-zurich"
+        "fr": "poste-md-phd-h-f-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4853,6 +4851,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "md-phd-position-m-w-uzh-zurich"
+        ],
+        "fr": [
           "md-phd-position-m-w-uzh-zurich"
         ]
       },
@@ -5213,8 +5214,6 @@
       },
       "previousSlugs": [
         "stellenausschreibung-doktorand-in-uzh-zurich-2",
-        "stellenausschreibung-doktorand-in-uzh-zurich",
-        "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
         "studente-di-dottorato-in-universitat-zurich-zurich",
         "job-advertisement-doctoral-student-in-universitat-zurich-zurich",
         "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich"
@@ -6463,7 +6462,7 @@
       "slugByLocale": {
         "it": "bioimage-analista-universitat-zurich-zurich",
         "en": "bioimage-analyst-uzh-zurich",
-        "de": "bioimage-analyst-uzh-zurich",
+        "de": "bioimage-ansager-universitat-zurich-zurich",
         "fr": "bioimage-analyste-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
@@ -6511,6 +6510,9 @@
           "bioimage-analyst-uzh-zurich"
         ],
         "fr": [
+          "bioimage-analyst-uzh-zurich"
+        ],
+        "de": [
           "bioimage-analyst-uzh-zurich"
         ]
       },
@@ -8003,7 +8005,7 @@
       "slugByLocale": {
         "it": "posizione-del-dottorato-in-geografia-umana-universitat-zurich-zurich",
         "en": "phd-position-in-human-geography-uzh-zurich",
-        "de": "phd-position-in-human-geography-uzh-zurich",
+        "de": "doktorandenstelle-in-human-geography-universitat-zurich-zurich",
         "fr": "doctorat-en-geographie-humaine-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
@@ -8063,6 +8065,9 @@
           "phd-position-in-human-geography-uzh-zurich"
         ],
         "fr": [
+          "phd-position-in-human-geography-uzh-zurich"
+        ],
+        "de": [
           "phd-position-in-human-geography-uzh-zurich"
         ]
       },
@@ -10215,9 +10220,9 @@
       "id": "uzh-6bfd3397e8ac",
       "slug": "industry-amp-partnership-manager-uzh-ai-uzh-zurich",
       "slugByLocale": {
-        "it": "industry-amp-partnership-manager-uzh-ai-uzh-zurich",
+        "it": "industria-e-partnership-manager-uzh-ai-universitat-zurich-zurich",
         "en": "industry-amp-partnership-manager-uzh-ai-uzh-zurich",
-        "de": "industry-amp-partnership-manager-uzh-ai-uzh-zurich",
+        "de": "industrie-partnership-manager-evgh-ai-universitat-zurich-zurich",
         "fr": "directeur-de-l-industrie-et-des-partenariats-uzh-ai-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
@@ -10271,15 +10276,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "industria-e-partnership-manager-uzh-ai-universitat-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "industria-e-partnership-manager-uzh-ai-universitat-zurich-zurich"
-      ]
+      }
     },
     {
       "id": "uzh-24b3d726ce7d",
@@ -10288,7 +10285,7 @@
         "en": "senior-ai-engagement-lead-uzh-zurich",
         "it": "senior-ai-engagement-lead-uzh-zurich",
         "de": "senior-ai-engagement-lead-uzh-zurich",
-        "fr": "senior-ai-engagement-lead-uzh-zurich"
+        "fr": "responsable-principal-de-la-mobilisation-en-matiere-d-ia-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10347,12 +10344,12 @@
     },
     {
       "id": "uzh-862398f08934",
-      "slug": "studentische-hilfskraft-studienbetrieb-uzh-zurich",
+      "slug": "assistente-per-studenti-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "studentische-hilfskraft-studienbetrieb-uzh-zurich",
-        "it": "studentische-hilfskraft-studienbetrieb-uzh-zurich",
-        "en": "studentische-hilfskraft-studienbetrieb-uzh-zurich",
-        "fr": "studentische-hilfskraft-studienbetrieb-uzh-zurich"
+        "it": "assistente-per-studenti-universitat-zurich-zurich",
+        "en": "student-assistant-study-operation-universitat-zurich-zurich",
+        "fr": "assistant-etudiant-universitat-zurich-zurich-0eb49f"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10407,7 +10404,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:46:54.714Z"
+      "firstSeenAt": "2026-06-24T12:46:54.714Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-hilfskraft-studienbetrieb-uzh-zurich"
+        ],
+        "en": [
+          "studentische-hilfskraft-studienbetrieb-uzh-zurich"
+        ],
+        "fr": [
+          "studentische-hilfskraft-studienbetrieb-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-hilfskraft-studienbetrieb-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-768408efecbd",
@@ -10552,11 +10563,11 @@
     },
     {
       "id": "uzh-6ba9740c5175",
-      "slug": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer",
+      "slug": "posizione-di-ricerca-doctorale-presidenza-della-comunicazione-di-scienza-prof-dr-mike-s-schafer-universitat-zurich",
       "slugByLocale": {
         "en": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer",
-        "it": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer",
-        "de": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer",
+        "it": "posizione-di-ricerca-doctorale-presidenza-della-comunicazione-di-scienza-prof-dr-mike-s-schafer-universitat-zurich",
+        "de": "doktorale-forschungsposition-auf-dem-stuhl-fur-die-wissenschaftskommunikation-prof-dr-mike-s-schafer-universitat-zurich",
         "fr": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer"
       },
       "company": "Universität Zürich",
@@ -10614,9 +10625,16 @@
       },
       "firstSeenAt": "2026-06-24T12:46:54.684Z",
       "previousSlugs": [
-        "posizione-di-ricerca-doctorale-presidenza-della-comunicazione-di-scienza-prof-dr-mike-s-schafer-universitat-zurich",
-        "doktorale-forschungsposition-auf-dem-stuhl-fur-die-wissenschaftskommunikation-prof-dr-mike-s-schafer-universitat-zurich"
-      ]
+        "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer"
+        ],
+        "de": [
+          "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer"
+        ]
+      }
     }
   ]
 }

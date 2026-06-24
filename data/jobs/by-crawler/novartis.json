@@ -4554,12 +4554,12 @@
     },
     {
       "id": "novartis-ecd335141add",
-      "slug": "qc-analyst-ii-novartis-ch",
+      "slug": "qc-analista-ii-novartis-basel-land",
       "slugByLocale": {
         "en": "qc-analyst-ii-novartis-ch",
-        "it": "qc-analyst-ii-novartis-ch",
+        "it": "qc-analista-ii-novartis-basel-land",
         "de": "qc-analyst-ii-novartis-ch",
-        "fr": "qc-analyst-ii-novartis-ch"
+        "fr": "qc-analyste-ii-novartis-basel-land"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4614,7 +4614,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-24T12:14:58.547Z"
+      "firstSeenAt": "2026-06-24T12:14:58.547Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qc-analyst-ii-novartis-ch"
+        ],
+        "fr": [
+          "qc-analyst-ii-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qc-analyst-ii-novartis-ch"
+      ]
     }
   ]
 }

@@ -1294,9 +1294,9 @@
     },
     {
       "id": "unibe-87c44ecee07a",
-      "slug": "clinical-trial-manager-80-100-unibe-bern",
+      "slug": "project-manager-studi-clinici-80-100-universitat-bern-bern",
       "slugByLocale": {
-        "it": "clinical-trial-manager-80-100-unibe-bern",
+        "it": "project-manager-studi-clinici-80-100-universitat-bern-bern",
         "en": "clinical-trial-manager-80-100-unibe-bern",
         "de": "clinical-trial-manager-80-100-unibe-bern",
         "fr": "gestionnaire-des-essais-cliniques-80-a-100-universitat-bern-bern"
@@ -1352,7 +1352,15 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-trial-manager-80-100-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-trial-manager-80-100-unibe-bern"
+      ]
     },
     {
       "id": "unibe-d1b285f1ae19",
@@ -1896,7 +1904,7 @@
       "slugByLocale": {
         "it": "phd-posizione-degli-studenti-in-epidemiologia-climatica-e-salute-pubblica-universitat-bern-bern",
         "en": "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern",
-        "de": "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern",
+        "de": "doktorandenstelle-in-klimawissenschaften-und-public-health-universitat-bern-bern",
         "fr": "doctorat-en-epidemiologie-climatique-et-sante-publique-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -1956,6 +1964,9 @@
           "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern"
         ],
         "fr": [
+          "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern"
+        ],
+        "de": [
           "phd-student-position-in-climate-epidemiology-and-public-health-unibe-bern"
         ]
       },
@@ -4450,7 +4461,6 @@
         "postdoc-in-digitaler-demographie-unibe-bern",
         "postdoc-in-digitaler-demographie-universitat-bern-bern",
         "postdoc-in-digital-demography-unibe-bern",
-        "postdoc-in-digital-demography-universitat-bern-bern",
         "postdoc-nella-demografia-digitale-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
@@ -4479,12 +4489,12 @@
     },
     {
       "id": "unibe-0f585ab40703",
-      "slug": "fachspezialist-in-erschliessung-alte-drucke-unibe-bern",
+      "slug": "specialista-in-apertura-di-vecchie-stampe-universitat-bern-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-erschliessung-alte-drucke-unibe-bern",
-        "it": "fachspezialist-in-erschliessung-alte-drucke-unibe-bern",
-        "en": "fachspezialist-in-erschliessung-alte-drucke-unibe-bern",
-        "fr": "fachspezialist-in-erschliessung-alte-drucke-unibe-bern"
+        "it": "specialista-in-apertura-di-vecchie-stampe-universitat-bern-bern",
+        "en": "specialist-in-opening-up-old-prints-universitat-bern-bern",
+        "fr": "specialiste-en-ouverture-d-anciennes-impressions-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4539,16 +4549,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:48:25.448Z"
+      "firstSeenAt": "2026-06-24T12:48:25.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-erschliessung-alte-drucke-unibe-bern"
+        ],
+        "en": [
+          "fachspezialist-in-erschliessung-alte-drucke-unibe-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-erschliessung-alte-drucke-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-erschliessung-alte-drucke-unibe-bern"
+      ]
     },
     {
       "id": "unibe-5cafe8a988d9",
-      "slug": "phd-position-in-climate-ethics-for-four-years-unibe-bern",
+      "slug": "posizione-di-dottorato-in-etica-climatica-per-quattro-anni-universitat-bern-bern",
       "slugByLocale": {
         "en": "phd-position-in-climate-ethics-for-four-years-unibe-bern",
-        "it": "phd-position-in-climate-ethics-for-four-years-unibe-bern",
-        "de": "phd-position-in-climate-ethics-for-four-years-unibe-bern",
-        "fr": "phd-position-in-climate-ethics-for-four-years-unibe-bern"
+        "it": "posizione-di-dottorato-in-etica-climatica-per-quattro-anni-universitat-bern-bern",
+        "de": "phd-position-in-der-klimaethik-seit-vier-jahren-universitat-bern-bern",
+        "fr": "doctorat-en-ethique-climatique-depuis-quatre-ans-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4603,7 +4627,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:48:25.447Z"
+      "firstSeenAt": "2026-06-24T12:48:25.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-climate-ethics-for-four-years-unibe-bern"
+        ],
+        "de": [
+          "phd-position-in-climate-ethics-for-four-years-unibe-bern"
+        ],
+        "fr": [
+          "phd-position-in-climate-ethics-for-four-years-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-climate-ethics-for-four-years-unibe-bern"
+      ]
     },
     {
       "id": "unibe-d6a7465f0660",

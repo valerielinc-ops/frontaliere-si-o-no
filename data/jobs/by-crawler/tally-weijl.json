@@ -962,7 +962,7 @@
       "id": "tally-weijl-59950cdafc4d",
       "slug": "assistente-flessibile-tally-weijl-aarau",
       "slugByLocale": {
-        "it": "assistente-flexibile-m-w-d-tally-weijl-aarau",
+        "it": "assistente-flessibile-tally-weijl-aarau",
         "en": "flexible-aushilfe-tally-weijl-aarau",
         "de": "flexible-aushilfe-tally-weijl-aarau",
         "fr": "assistant-flexible-tally-weijl-aarau"
@@ -1035,14 +1035,15 @@
       "previousSlugs": [
         "flexible-aushilfe-tally-weijl-aarau",
         "aushilfe-flessibile-tally-weijl-aarau",
+        "assistente-flexibile-m-w-d-tally-weijl-aarau",
         "aushilfe-fur-die-zukunft-tally-weijl-aarau",
-        "aushilfe-flessibile-m-p-g-tally-weijl-aarau",
-        "assistente-flessibile-tally-weijl-aarau"
+        "aushilfe-flessibile-m-p-g-tally-weijl-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-aarau",
-          "aushilfe-flessibile-tally-weijl-aarau"
+          "aushilfe-flessibile-tally-weijl-aarau",
+          "assistente-flexibile-m-w-d-tally-weijl-aarau"
         ],
         "de": [
           "aushilfe-fur-die-zukunft-tally-weijl-aarau"
@@ -2064,11 +2065,11 @@
     },
     {
       "id": "tally-weijl-c05ba4b32106",
-      "slug": "ausiliare-20-tally-weijl-nyon",
+      "slug": "assistente-alle-vendite-20-tally-weijl-nyon",
       "slugByLocale": {
-        "it": "ausiliare-20-tally-weijl-nyon",
-        "en": "auxiliary-20-tally-weijl-nyon",
-        "de": "zusatz-20-tally-weijl-nyon",
+        "it": "assistente-alle-vendite-20-tally-weijl-nyon",
+        "en": "sales-assistant-20-tally-weijl-nyon",
+        "de": "verkaufsassistent-in-20-tally-weijl-nyon",
         "fr": "auxilaire-20-tally-weijl-nyon"
       },
       "company": "TALLY WEiJL",
@@ -2109,17 +2110,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "auxilaire-20-tally-weijl-nyon"
+        "auxilaire-20-tally-weijl-nyon",
+        "ausiliare-20-tally-weijl-nyon",
+        "auxiliary-20-tally-weijl-nyon",
+        "zusatz-20-tally-weijl-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auxilaire-20-tally-weijl-nyon"
+          "auxilaire-20-tally-weijl-nyon",
+          "ausiliare-20-tally-weijl-nyon"
         ],
         "en": [
-          "auxilaire-20-tally-weijl-nyon"
+          "auxilaire-20-tally-weijl-nyon",
+          "auxiliary-20-tally-weijl-nyon"
         ],
         "de": [
-          "auxilaire-20-tally-weijl-nyon"
+          "auxilaire-20-tally-weijl-nyon",
+          "zusatz-20-tally-weijl-nyon"
         ]
       },
       "firstSeenAt": "2026-06-22T15:13:41.520Z",

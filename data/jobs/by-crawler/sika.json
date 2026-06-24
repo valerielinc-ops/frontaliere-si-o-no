@@ -614,12 +614,12 @@
     },
     {
       "id": "sika-a6edc3d5625d",
-      "slug": "konstrukteur-m-w-d-sika-ch",
+      "slug": "ingegnere-di-progettazione-m-f-d-sika-romanshorn-thurgau-switzerland",
       "slugByLocale": {
         "de": "konstrukteur-m-w-d-sika-ch",
-        "it": "konstrukteur-m-w-d-sika-ch",
-        "en": "konstrukteur-m-w-d-sika-ch",
-        "fr": "konstrukteur-m-w-d-sika-romanshorn"
+        "it": "ingegnere-di-progettazione-m-f-d-sika-romanshorn-thurgau-switzerland",
+        "en": "design-engineer-m-f-d-sika-romanshorn-thurgau-switzerland",
+        "fr": "ingenieur-de-conception-m-f-d-sika-romanshorn-thurgau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -675,7 +675,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:15:47.893Z"
+      "firstSeenAt": "2026-06-24T12:15:47.893Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "konstrukteur-m-w-d-sika-ch"
+        ],
+        "en": [
+          "konstrukteur-m-w-d-sika-ch"
+        ],
+        "fr": [
+          "konstrukteur-m-w-d-sika-romanshorn"
+        ]
+      },
+      "previousSlugs": [
+        "konstrukteur-m-w-d-sika-ch",
+        "konstrukteur-m-w-d-sika-romanshorn"
+      ]
     },
     {
       "id": "sika-840ec3f22c38",
@@ -2570,8 +2585,8 @@
       "slugByLocale": {
         "en": "international-traineeship-program-a-i-technical-department-sika-ch",
         "it": "international-traineeship-program-a-i-technical-department-sika-ch",
-        "de": "international-traineeship-program-a-i-technical-department-sika-ch",
-        "fr": "international-traineeship-program-a-i-technical-department-sika-ch"
+        "de": "international-traineeship-program-a-i-technische-abteilung-sika-widen-aargau-switzerland",
+        "fr": "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",

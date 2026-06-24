@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sune-egge-6cdad7d7ac86",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich",
+      "slug": "dipl-infermieristica-professionale-hf-60-100-concentrarsi-sulla-cura-a-lungo-termine-fachspital-sune-egge-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich"
+        "it": "dipl-infermieristica-professionale-hf-60-100-concentrarsi-sulla-cura-a-lungo-termine-fachspital-sune-egge-zurich",
+        "en": "dipl-nursing-professional-hf-60-100-focus-on-long-term-care-fachspital-sune-egge-zurich",
+        "fr": "dipl-les-professionnels-de-la-sante-60-a-100-se-concentrent-sur-les-soins-de-longue-duree-fachspital-sune-egge-zurich"
       },
       "company": "Fachspital Sune-Egge",
       "companyKey": "sune-egge",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:28:29.133Z"
+      "firstSeenAt": "2026-06-24T12:28:29.133Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-fokus-langzeitpflege-sune-egge-zurich"
+      ]
     },
     {
       "id": "sune-egge-3c2fc1f133e0",
@@ -123,8 +137,7 @@
           "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich"
         ],
         "en": [
-          "psychotherapist-60-80-fachspital-sune-egge-zurich",
-          "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich"
+          "psychotherapist-60-80-fachspital-sune-egge-zurich"
         ],
         "fr": [
           "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich"

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "helsana-ca71ff2842a2",
-      "slug": "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff",
+      "slug": "assistenza-clienti-temporanea-online-a-80-100-temporanea-01-08-2026-fino-al-31-01-2027-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "de": "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027",
-        "it": "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff",
-        "en": "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027",
-        "fr": "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027"
+        "it": "assistenza-clienti-temporanea-online-a-80-100-temporanea-01-08-2026-fino-al-31-01-2027-helsana-dubendorf-stettbach",
+        "en": "temporary-customer-service-provider-online-support-a-80-100-temporary-01-08-2026-until-31-01-2027-helsana-dubendorf",
+        "fr": "service-a-la-clientele-temporaire-support-en-ligne-a-80-100-temporaire-01-08-2026-jusqu-au-31-01-2027-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027",
+          "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027"
+        ],
+        "fr": [
           "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027"
         ]
       },
       "previousSlugs": [
-        "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027"
+        "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027",
+        "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1158,7 +1166,7 @@
       "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-1773bb",
       "slugByLocale": {
         "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-1773bb",
-        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-1773bb",
+        "en": "insurance-advisor-field-sales-a-80-100-helsana-ticino",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
         "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-1773bb"
       },
@@ -1219,24 +1227,26 @@
           "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
         ],
         "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
+          "insurance-consultant-in-the-field-a-80-100-helsana-ticino-1773bb"
         ],
         "fr": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
+        "insurance-consultant-in-the-field-a-80-100-helsana-ticino-1773bb"
       ]
     },
     {
       "id": "helsana-f904c3263618",
-      "slug": "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-ticino",
+      "slug": "responsabile-gestione-casi-servizi-aziendali-cantone-grigioni-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-ticino",
+        "it": "responsabile-gestione-casi-servizi-aziendali-cantone-grigioni-a-80-100-helsana-ticino",
         "en": "case-manager-services-corporate-business-canton-of-graubunden-a-80-100-helsana-ticino",
         "de": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
-        "fr": "case-manager-services-entreprise-canton-des-grisons-a-80-100-helsana-ticino"
+        "fr": "gestionnaire-de-cas-prestations-entreprise-canton-grisons-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1292,24 +1302,28 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
+          "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-ticino"
         ],
         "en": [
           "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
         ],
         "fr": [
-          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
+          "case-manager-services-entreprise-canton-des-grisons-a-80-100-helsana-ticino"
         ]
       },
       "previousSlugs": [
-        "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
+        "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-ticino",
+        "case-manager-services-entreprise-canton-des-grisons-a-80-100-helsana-ticino"
       ]
     },
     {
       "id": "helsana-482bb21e4f8d",
-      "slug": "assistenza-clienti-temporanea-a-80-100-da-10-8-2026-a-31-3-2027-helsana-ticino",
+      "slug": "collaboratore-temporaneo-customer-care-a-80-100-dal-10-8-2026-al-31-3-2027-helsana-ticino",
       "slugByLocale": {
-        "it": "assistenza-clienti-temporanea-a-80-100-da-10-8-2026-a-31-3-2027-helsana-ticino",
+        "it": "collaboratore-temporaneo-customer-care-a-80-100-dal-10-8-2026-al-31-3-2027-helsana-ticino",
         "en": "temporary-customer-support-a-80-100-from-10-8-2026-to-31-3-2027-helsana-ticino",
         "de": "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana",
         "fr": "service-a-la-clientele-temporaire-a-80-100-du-10-8-2026-au-31-3-2027-helsana-ticino"
@@ -1368,7 +1382,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana",
+          "assistenza-clienti-temporanea-a-80-100-da-10-8-2026-a-31-3-2027-helsana-ticino"
         ],
         "en": [
           "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
@@ -1378,7 +1393,8 @@
         ]
       },
       "previousSlugs": [
-        "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+        "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana",
+        "assistenza-clienti-temporanea-a-80-100-da-10-8-2026-a-31-3-2027-helsana-ticino"
       ]
     },
     {
@@ -1457,12 +1473,12 @@
     },
     {
       "id": "helsana-63d498a9408c",
-      "slug": "servizio-di-assistenza-medica-a-80-100-helsana-ticino",
+      "slug": "customer-service-per-prestazioni-malattia-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "servizio-di-assistenza-medica-a-80-100-helsana-ticino",
-        "en": "customer-care-services-medical-day-allowance-a-80-100-helsana-ticino",
+        "it": "customer-service-per-prestazioni-malattia-a-80-100-helsana-ticino",
+        "en": "customer-service-for-sick-pay-benefits-a-80-100-helsana-ticino",
         "de": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
-        "fr": "services-a-la-clientele-indemnite-de-jour-pour-soins-medicaux-a-80-100-helsana-ticino"
+        "fr": "service-client-pour-prestations-maladie-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1518,17 +1534,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
+          "servizio-di-assistenza-medica-a-80-100-helsana-ticino"
         ],
         "en": [
-          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
+          "customer-care-services-medical-day-allowance-a-80-100-helsana-ticino"
         ],
         "fr": [
-          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
+          "services-a-la-clientele-indemnite-de-jour-pour-soins-medicaux-a-80-100-helsana-ticino"
         ]
       },
       "previousSlugs": [
         "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
+        "servizio-di-assistenza-medica-a-80-100-helsana-ticino",
+        "customer-care-services-medical-day-allowance-a-80-100-helsana-ticino",
+        "services-a-la-clientele-indemnite-de-jour-pour-soins-medicaux-a-80-100-helsana-ticino",
         "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-ticino"
       ]
     },
@@ -1748,12 +1770,12 @@
     },
     {
       "id": "helsana-3a2b5ef10199",
-      "slug": "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino",
+      "slug": "assistente-clienti-servizi-ambulatoriali-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino",
-        "en": "customer-support-services-ambulant-a-80-100-helsana-ticino",
+        "it": "assistente-clienti-servizi-ambulatoriali-a-80-100-helsana-ticino",
+        "en": "customer-service-representative-outpatient-services-a-80-100-helsana-ticino",
         "de": "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
-        "fr": "services-d-assistance-a-la-clientele-ambulant-a-80-100-helsana-ticino"
+        "fr": "conseiller-clientele-prestations-ambulatoires-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1809,28 +1831,34 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
+          "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino"
         ],
         "en": [
-          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
+          "customer-support-services-ambulant-a-80-100-helsana-ticino"
         ],
         "fr": [
-          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
+          "services-d-assistance-a-la-clientele-ambulant-a-80-100-helsana-ticino"
         ]
       },
       "previousSlugs": [
         "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
+        "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino",
+        "customer-support-services-ambulant-a-80-100-helsana-ticino",
+        "services-d-assistance-a-la-clientele-ambulant-a-80-100-helsana-ticino",
         "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-ticino"
       ]
     },
     {
       "id": "helsana-2fae6f6fdcb0",
-      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116",
+      "slug": "consulente-assicurativo-sul-campo-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116",
-        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-936116",
+        "it": "consulente-assicurativo-sul-campo-a-80-100-helsana-ticino",
+        "en": "insurance-advisor-field-sales-a-80-100-helsana-ticino-936116",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
-        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-936116"
+        "fr": "conseiller-en-assurance-en-deplacement-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1886,17 +1914,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116"
         ],
         "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
+          "insurance-consultant-in-the-field-a-80-100-helsana-ticino-936116"
         ],
         "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
+          "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-936116"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
+        "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116",
+        "insurance-consultant-in-the-field-a-80-100-helsana-ticino-936116",
+        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-936116"
       ]
     },
     {
@@ -1978,9 +2012,9 @@
     },
     {
       "id": "helsana-221fd25fff2d",
-      "slug": "assicurazione-medico-d-f-a-40-60-helsana-ticino",
+      "slug": "medico-assicurativo-d-f-a-40-60-helsana-ticino",
       "slugByLocale": {
-        "it": "assicurazione-medico-d-f-a-40-60-helsana-ticino",
+        "it": "medico-assicurativo-d-f-a-40-60-helsana-ticino",
         "en": "insurance-physician-d-f-a-40-60-helsana-ticino",
         "de": "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
         "fr": "medecin-d-assurance-d-f-a-40-60-helsana-ticino"
@@ -2039,7 +2073,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
+          "assicurazione-medico-d-f-a-40-60-helsana-ticino"
         ],
         "en": [
           "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
@@ -2049,14 +2084,15 @@
         ]
       },
       "previousSlugs": [
-        "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+        "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
+        "assicurazione-medico-d-f-a-40-60-helsana-ticino"
       ]
     },
     {
       "id": "helsana-8741069036c2",
-      "slug": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+      "slug": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
       "slugByLocale": {
-        "it": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+        "it": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
         "en": "insurance-physician-d-i-a-40-60-helsana-ticino",
         "de": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
         "fr": "medecin-d-assurance-d-i-a-40-60-helsana-ticino"
@@ -2102,11 +2138,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assicurazione-medico-d-i-a-40-60-helsana-ticino"
+        "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assicurazione-medico-d-i-a-40-60-helsana-ticino",
           "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
         ],
         "en": [
@@ -2209,12 +2244,12 @@
     },
     {
       "id": "helsana-d348fe517797",
-      "slug": "supporto-commerciale-a-60-helsana-ticino",
+      "slug": "addetta-vendita-supporto-a-60-helsana-ticino",
       "slugByLocale": {
-        "it": "supporto-commerciale-a-60-helsana-ticino",
+        "it": "addetta-vendita-supporto-a-60-helsana-ticino",
         "en": "sales-support-a-60-helsana-ticino",
         "de": "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
-        "fr": "soutien-aux-ventes-a-60-helsana-ticino"
+        "fr": "assistante-de-vente-support-60-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2270,17 +2305,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
+          "supporto-commerciale-a-60-helsana-ticino"
         ],
         "en": [
           "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
         ],
         "fr": [
-          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
+          "soutien-aux-ventes-a-60-helsana-ticino"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+        "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
+        "supporto-commerciale-a-60-helsana-ticino",
+        "soutien-aux-ventes-a-60-helsana-ticino"
       ]
     },
     {
@@ -2425,12 +2464,12 @@
     },
     {
       "id": "helsana-ca521068218b",
-      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-6df9b9",
+      "slug": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino-6df9b9",
       "slugByLocale": {
-        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-6df9b9",
+        "it": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino-6df9b9",
         "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-6df9b9",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
-        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-6df9b9"
+        "fr": "conseiller-en-assurance-en-service-externe-80-100-helsana-ticino-6df9b9"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2486,25 +2525,29 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-6df9b9"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
         ],
         "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
+          "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-6df9b9"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
+        "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-6df9b9",
+        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-6df9b9"
       ]
     },
     {
       "id": "helsana-5833ee02bba9",
-      "slug": "richiesta-di-elaborazione-e-mutazioni-a-80-100-helsana-ticino",
+      "slug": "addetta-alle-richieste-e-mutazioni-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "richiesta-di-elaborazione-e-mutazioni-a-80-100-helsana-ticino",
-        "en": "request-processing-and-mutations-a-80-100-helsana-ticino",
+        "it": "addetta-alle-richieste-e-mutazioni-a-80-100-helsana-ticino",
+        "en": "customer-service-representative-claims-processing-mutations-a-80-100-helsana-ticino",
         "de": "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
         "fr": "traitement-des-demandes-et-mutations-a-80-100-helsana-ticino"
       },
@@ -2562,10 +2605,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
+          "richiesta-di-elaborazione-e-mutazioni-a-80-100-helsana-ticino"
         ],
         "en": [
-          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
+          "request-processing-and-mutations-a-80-100-helsana-ticino"
         ],
         "fr": [
           "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
@@ -2573,17 +2618,19 @@
       },
       "previousSlugs": [
         "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
+        "richiesta-di-elaborazione-e-mutazioni-a-80-100-helsana-ticino",
+        "request-processing-and-mutations-a-80-100-helsana-ticino",
         "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-ticino"
       ]
     },
     {
       "id": "helsana-7a6647ffcef2",
-      "slug": "supporto-di-vendita-a-80-100-helsana-ticino",
+      "slug": "addetta-support-vendite-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "supporto-di-vendita-a-80-100-helsana-ticino",
+        "it": "addetta-support-vendite-a-80-100-helsana-ticino",
         "en": "sales-support-a-80-100-helsana-ticino",
         "de": "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
-        "fr": "soutien-aux-ventes-a-80-100-helsana-ticino"
+        "fr": "assistante-de-vente-support-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2639,17 +2686,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
+          "supporto-di-vendita-a-80-100-helsana-ticino"
         ],
         "en": [
           "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
         ],
         "fr": [
-          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
+          "soutien-aux-ventes-a-80-100-helsana-ticino"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+        "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
+        "supporto-di-vendita-a-80-100-helsana-ticino",
+        "soutien-aux-ventes-a-80-100-helsana-ticino"
       ]
     },
     {
@@ -2717,12 +2768,12 @@
     },
     {
       "id": "helsana-7d5bc4748f3a",
-      "slug": "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino",
+      "slug": "consulente-vendita-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino",
-        "en": "customer-service-provider-sales-office-a-80-100-helsana-ticino",
+        "it": "consulente-vendita-a-80-100-helsana-ticino",
+        "en": "sales-consultant-80-100-helsana-ticino",
         "de": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
-        "fr": "fournisseur-de-services-a-la-clientele-bureau-de-vente-a-80-100-helsana-ticino"
+        "fr": "conseillere-de-vente-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2778,17 +2829,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
+          "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino"
         ],
         "en": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
+          "customer-service-provider-sales-office-a-80-100-helsana-ticino"
         ],
         "fr": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
+          "fournisseur-de-services-a-la-clientele-bureau-de-vente-a-80-100-helsana-ticino"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
+        "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino",
+        "customer-service-provider-sales-office-a-80-100-helsana-ticino",
+        "fournisseur-de-services-a-la-clientele-bureau-de-vente-a-80-100-helsana-ticino"
       ]
     },
     {
@@ -2798,7 +2855,7 @@
         "it": "regolatore-di-gruppo-a-80-100-helsana-dubendorf",
         "en": "group-controller-a-80-100-helsana-dubendorf",
         "de": "group-controller-a-80-100-helsana-dubendorf",
-        "fr": "group-controller-a-80-100-helsana-dubendorf"
+        "fr": "controleur-de-groupe-a-80-100-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2841,15 +2898,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-controller-a-80-100-helsana-dubendorf",
-        "controleur-de-groupe-a-80-100-helsana-dubendorf"
+        "group-controller-a-80-100-helsana-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-controller-a-80-100-helsana-dubendorf"
         ],
         "fr": [
-          "controleur-de-groupe-a-80-100-helsana-dubendorf",
           "group-controller-a-80-100-helsana-dubendorf"
         ]
       },
@@ -2869,12 +2924,12 @@
     },
     {
       "id": "helsana-c93d5b8849c3",
-      "slug": "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino-ad174d",
+      "slug": "responsabile-clienti-punto-vendita-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino-ad174d",
-        "en": "customer-service-provider-sales-office-a-80-100-helsana-ticino-ad174d",
+        "it": "responsabile-clienti-punto-vendita-a-80-100-helsana-ticino",
+        "en": "customer-care-representative-sales-point-a-80-100-helsana-ticino",
         "de": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
-        "fr": "fournisseur-de-services-a-la-clientele-bureau-de-vente-a-80-100-helsana-ticino-ad174d"
+        "fr": "conseillere-clientele-point-de-vente-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2930,17 +2985,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
+          "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino-ad174d"
         ],
         "en": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
+          "customer-service-provider-sales-office-a-80-100-helsana-ticino-ad174d"
         ],
         "fr": [
-          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
+          "fournisseur-de-services-a-la-clientele-bureau-de-vente-a-80-100-helsana-ticino-ad174d"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
+        "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino-ad174d",
+        "customer-service-provider-sales-office-a-80-100-helsana-ticino-ad174d",
+        "fournisseur-de-services-a-la-clientele-bureau-de-vente-a-80-100-helsana-ticino-ad174d"
       ]
     },
     {
@@ -3239,12 +3300,12 @@
     },
     {
       "id": "helsana-0da34c418159",
-      "slug": "assistenza-medica-a-50-helsana-ticino",
+      "slug": "assistente-di-pratica-medica-a-50-helsana-ticino",
       "slugByLocale": {
-        "it": "assistenza-medica-a-50-helsana-ticino",
+        "it": "assistente-di-pratica-medica-a-50-helsana-ticino",
         "en": "medical-practice-assistance-a-50-helsana-ticino",
         "de": "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
-        "fr": "assistance-medicale-a-50-helsana-ticino"
+        "fr": "assistante-en-pratique-medicale-a-50-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3300,27 +3361,31 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
+          "assistenza-medica-a-50-helsana-ticino"
         ],
         "en": [
           "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
         ],
         "fr": [
-          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
+          "assistance-medicale-a-50-helsana-ticino"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+        "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
+        "assistenza-medica-a-50-helsana-ticino",
+        "assistance-medicale-a-50-helsana-ticino"
       ]
     },
     {
       "id": "helsana-efa5df2b01bc",
-      "slug": "assistenza-medica-a-80-helsana-ticino",
+      "slug": "assistente-di-pratica-medica-80-helsana-ticino",
       "slugByLocale": {
-        "it": "assistenza-medica-a-80-helsana-ticino",
+        "it": "assistente-di-pratica-medica-80-helsana-ticino",
         "en": "medical-practice-assistance-a-80-helsana-ticino",
         "de": "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
-        "fr": "assistance-medicale-a-80-helsana-ticino"
+        "fr": "assistant-de-pratique-medicale-80-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3376,17 +3441,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
+          "assistenza-medica-a-80-helsana-ticino"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
         ],
         "fr": [
-          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
+          "assistance-medicale-a-80-helsana-ticino"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+        "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
+        "assistenza-medica-a-80-helsana-ticino",
+        "assistance-medicale-a-80-helsana-ticino"
       ]
     },
     {
@@ -3396,7 +3465,7 @@
         "it": "assistenza-medica-pratica-a-80-100-helsana-ticino",
         "en": "medical-practice-assistance-a-80-100-helsana-ticino",
         "de": "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
-        "fr": "assistance-medicale-a-80-100-helsana-ticino"
+        "fr": "assistant-e-medical-e-de-pratique-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3458,11 +3527,13 @@
           "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
         ],
         "fr": [
-          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
+          "assistance-medicale-a-80-100-helsana-ticino"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
+        "assistance-medicale-a-80-100-helsana-ticino"
       ]
     },
     {
@@ -3681,12 +3752,12 @@
     },
     {
       "id": "helsana-388b14cc46bb",
-      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-089d41",
+      "slug": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino-089d41",
       "slugByLocale": {
-        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-089d41",
+        "it": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino-089d41",
         "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-089d41",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice",
-        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-089d41"
+        "fr": "conseiller-en-assurance-en-service-externe-80-100-helsana-ticino-089d41"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3742,17 +3813,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice",
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-089d41"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
         ],
         "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice",
+          "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-089d41"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice",
+        "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-089d41",
+        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-089d41"
       ]
     },
     {
@@ -3834,10 +3909,10 @@
     },
     {
       "id": "helsana-cea552b42050",
-      "slug": "candidatura-spontanee-helsana-lausanne",
+      "slug": "candidatura-spontanea-helsana-lausanne",
       "slugByLocale": {
-        "it": "candidatura-spontanee-helsana-lausanne",
-        "en": "candidature-spontanee-helsana-lausanne",
+        "it": "candidatura-spontanea-helsana-lausanne",
+        "en": "spontaneous-application-helsana-lausanne",
         "de": "candidature-spontanee-helsana-lausanne",
         "fr": "candidature-spontanee-helsana-lausanne"
       },
@@ -3895,21 +3970,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "candidature-spontanee-helsana-lausanne",
+          "candidatura-spontanee-helsana-lausanne"
+        ],
+        "en": [
           "candidature-spontanee-helsana-lausanne"
         ]
       },
       "previousSlugs": [
-        "candidature-spontanee-helsana-lausanne"
+        "candidature-spontanee-helsana-lausanne",
+        "candidatura-spontanee-helsana-lausanne"
       ]
     },
     {
       "id": "helsana-b36d80782ac7",
-      "slug": "case-manager-servizi-corporate-business-mittelland-a-80-100-helsana-ticino",
+      "slug": "case-manager-servizi-aziendali-regione-del-centro-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "case-manager-servizi-corporate-business-mittelland-a-80-100-helsana-ticino",
+        "it": "case-manager-servizi-aziendali-regione-del-centro-a-80-100-helsana-ticino",
         "en": "case-manager-services-corporate-business-mittelland-a-80-100-helsana-ticino",
         "de": "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
-        "fr": "gestionnaire-de-cas-services-entreprises-mittelland-a-80-100-helsana-ticino"
+        "fr": "gestionnaire-de-dossiers-services-d-entreprise-suisse-centrale-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3965,17 +4045,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
+          "case-manager-servizi-corporate-business-mittelland-a-80-100-helsana-ticino"
         ],
         "en": [
           "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
         ],
         "fr": [
-          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
+          "gestionnaire-de-cas-services-entreprises-mittelland-a-80-100-helsana-ticino"
         ]
       },
       "previousSlugs": [
         "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
+        "case-manager-servizi-corporate-business-mittelland-a-80-100-helsana-ticino",
+        "gestionnaire-de-cas-services-entreprises-mittelland-a-80-100-helsana-ticino",
         "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-ticino"
       ]
     },
@@ -4212,12 +4296,12 @@
     },
     {
       "id": "helsana-85b8c002d23f",
-      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27",
+      "slug": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino-884e27",
       "slugByLocale": {
-        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27",
+        "it": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino-884e27",
         "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-884e27",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
-        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-884e27"
+        "fr": "conseiller-en-assurance-en-service-externe-80-100-helsana-ticino-884e27"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4273,17 +4357,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
         ],
         "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
+          "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-884e27"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
+        "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27",
+        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-884e27"
       ]
     },
     {
@@ -4515,12 +4603,12 @@
     },
     {
       "id": "helsana-c0fe05d375e9",
-      "slug": "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino",
+      "slug": "addetta-al-trattamento-delle-domande-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino",
-        "en": "customer-service-provider-application-processing-a-80-100-helsana-ticino",
+        "it": "addetta-al-trattamento-delle-domande-a-80-100-helsana-ticino",
+        "en": "applications-processing-customer-care-representative-a-80-100-helsana-ticino",
         "de": "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
-        "fr": "fournisseur-de-services-a-la-clientele-traitement-des-demandes-a-80-100-helsana-ticino"
+        "fr": "assistante-de-traitement-des-demandes-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4576,17 +4664,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
+          "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino"
         ],
         "en": [
-          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
+          "customer-service-provider-application-processing-a-80-100-helsana-ticino"
         ],
         "fr": [
-          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
+          "fournisseur-de-services-a-la-clientele-traitement-des-demandes-a-80-100-helsana-ticino"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
+        "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino",
+        "customer-service-provider-application-processing-a-80-100-helsana-ticino",
+        "fournisseur-de-services-a-la-clientele-traitement-des-demandes-a-80-100-helsana-ticino"
       ]
     },
     {
@@ -4865,9 +4959,9 @@
     },
     {
       "id": "helsana-856723d3ffa4",
-      "slug": "centro-di-vaccinazione-dei-dipendenti-w-m-80-100-helsana-zurich",
+      "slug": "impiegata-centro-vaccinazioni-f-m-80-100-helsana-zurich",
       "slugByLocale": {
-        "it": "centro-di-vaccinazione-dei-dipendenti-w-m-80-100-helsana-zurich",
+        "it": "impiegata-centro-vaccinazioni-f-m-80-100-helsana-zurich",
         "en": "employee-vaccination-center-w-m-80-100-helsana-zurich",
         "de": "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich",
         "fr": "centre-de-vaccination-des-employes-w-m-80-100-helsana-zurich"
@@ -4926,7 +5020,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich",
+          "centro-di-vaccinazione-dei-dipendenti-w-m-80-100-helsana-zurich"
         ],
         "en": [
           "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
@@ -4936,17 +5031,18 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+        "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich",
+        "centro-di-vaccinazione-dei-dipendenti-w-m-80-100-helsana-zurich"
       ]
     },
     {
       "id": "helsana-006982c04e2a",
-      "slug": "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice",
+      "slug": "responsabile-vendite-a-80-100-helsana-ticino",
       "slugByLocale": {
         "de": "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice",
-        "it": "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice",
-        "en": "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice",
-        "fr": "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice"
+        "it": "responsabile-vendite-a-80-100-helsana-ticino",
+        "en": "sales-manager-a-80-100-helsana-ticino",
+        "fr": "directeur-des-ventes-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -5001,7 +5097,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T11:19:54.527Z"
+      "firstSeenAt": "2026-06-24T11:19:54.527Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice"
+        ],
+        "en": [
+          "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice"
+        ],
+        "fr": [
+          "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice"
+      ]
     },
     {
       "id": "helsana-778b662cbcae",
@@ -5230,10 +5340,10 @@
     },
     {
       "id": "helsana-36a2f1748ece",
-      "slug": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
+      "slug": "specialista-gestione-dei-costi-delle-prestazioni-helsana-ticino",
       "slugByLocale": {
-        "it": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
-        "en": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
+        "it": "specialista-gestione-dei-costi-delle-prestazioni-helsana-ticino",
+        "en": "benefits-cost-management-specialist-helsana-ticino",
         "de": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
         "fr": "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice"
       },
@@ -5290,8 +5400,17 @@
         }
       },
       "previousSlugs": [
+        "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice",
         "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-ticino"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice"
+        ],
+        "en": [
+          "specialiste-gestion-des-couts-des-prestations-t-60-80-helsana-lausanne-homeoffice"
+        ]
+      }
     }
   ]
 }
