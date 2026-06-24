@@ -146,6 +146,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'grigioni-pagamento-contanti-bus': { it: 'grigioni-pagamento-contanti-bus', en: 'graubunden-cash-payment-bus', de: 'graubunden-barzahlung-bus', fr: 'graubunden-paiement-espece-bus' },
  'frontalieri-italia-svizzera-sede-aziendale': { it: 'frontalieri-italia-svizzera-sede-aziendale', en: 'italy-switzerland-cross-border-workers-company-location', de: 'grenzganger-italien-schweiz-firmenstandort', fr: 'frontalier-italie-suisse-siege-entreprise' },
  'voto-elettronico-svizzeri-estero-nicolas-kolly': { it: 'voto-elettronico-svizzeri-estero-nicolas-kolly', en: 'electronic-voting-swiss-abroad-nicolas-kolly', de: 'elektronische-abstimmung-schweizer-im-ausland-nicolas-kolly', fr: 'vote-electronique-suisses-a-l-etranger-nicolas-kolly' },
+ 'ubs-previdenza-vecchiaia': { it: 'ubs-previdenza-vecchiaia', en: 'ubs-new-old-age-pension-model', de: 'ubs-neues-altersvorsorge-modell', fr: 'ubs-nouveau-modele-prevoyance-vieillesse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

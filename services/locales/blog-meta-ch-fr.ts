@@ -370,6 +370,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.title': 'Voto elettronico per svizzeri all\'estero: Kolly propone priorità',
     'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.excerpt': 'Nicolas Kolly soutient le vote électronique pour les Suisses de l\'étranger, avec priorité pour les résidents',
     'blog.article.voto-elettronico-svizzeri-estero-nicolas-kolly.imageAlt': 'Vote électronique pour les Suisses à l\'étranger',
+    'blog.article.ubs-previdenza-vecchiaia.title': 'UBS présente un nouveau modèle pour la prévoyance vieillesse suisse',
+    'blog.article.ubs-previdenza-vecchiaia.excerpt': 'La grande banque propose une réforme globale du système de retraite suisse',
+    'blog.article.ubs-previdenza-vecchiaia.imageAlt': 'Bâtiment moderne d\'un fonds de pension suisse à Zurich',
 };
 
 export default blogMetaChFr;

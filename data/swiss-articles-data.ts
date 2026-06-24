@@ -1106,6 +1106,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ubs-previdenza-vecchiaia',
+    category: 'novita',
+    date: '2026-06-24T09:50:57.285Z',
+    image: '/images/blog/ubs-previdenza-vecchiaia.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
