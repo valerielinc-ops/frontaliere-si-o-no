@@ -23,6 +23,15 @@ on:
       #   il prossimo tick del cron.
   pull_request_review:
     types: [submitted]
+  # Un MERGE rende le PR open collidenti improvvisamente behind/CONFLICTING: il
+  # cron è throttlato da GitHub (2-4h) e pull_request_review scatta sull'LGTM
+  # (PRIMA che il peer mergi), quindi senza questo trigger il conflitto emergeva
+  # solo ore dopo (incidente #2836↔#2840: collisione su scripts/lib/email-cascade.mjs
+  # sorta al merge del peer; risolta a mano perché nessun trigger ri-valutava).
+  # Su OGNI merge ri-valutiamo subito le PR near-merge → rebase/auto-resolve, o
+  # stale-review + comment in ~1min invece di 2-4h. Merged-only (vedi job `if`).
+  pull_request:
+    types: [closed]
   workflow_dispatch:
     inputs:
       dry_run:
@@ -42,6 +51,10 @@ permissions:
 
 jobs:
   autorebase:
+    # Sul trigger pull_request gira SOLO se la PR è stata mergiata (è il merge a
+    # poter rendere le peer behind/CONFLICTING); gli altri trigger (schedule,
+    # review, dispatch) girano sempre.
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
