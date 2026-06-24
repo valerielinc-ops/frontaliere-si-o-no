@@ -53,6 +53,7 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -76,10 +77,6 @@ const UA =
 /* ── Helpers ───────────────────────────────────────────────── */
 function readJson(filePath, fallback) {
   try { return JSON.parse(fs.readFileSync(filePath, 'utf8')); } catch { return fallback; }
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
 function normalize(value = '') {

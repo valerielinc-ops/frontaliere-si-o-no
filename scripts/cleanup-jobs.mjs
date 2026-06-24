@@ -21,6 +21,7 @@ import {
   DEFAULT_TIMEOUT_MS,
 } from './lib/validate-job-url.mjs';
 import { hardenJobLocaleFields, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -56,10 +57,6 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, JSON.stringify(value, null, 2) + '\n', 'utf-8');
 }
 
 function normalizeScopeValue(value) {

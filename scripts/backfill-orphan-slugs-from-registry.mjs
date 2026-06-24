@@ -45,6 +45,7 @@ import {
   slugify,
   slugTokenSet,
 } from './lib/regenerate-slugs-helpers.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -63,10 +64,6 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function readJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
-}
-
-function writeJson(p, v) {
-  fs.writeFileSync(p, `${JSON.stringify(v, null, 2)}\n`, 'utf8');
 }
 
 /**

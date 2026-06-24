@@ -19,10 +19,11 @@
  *   node scripts/evals/cluster-classifier.eval.mjs --baseline # write baseline
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { classifyHeadlineClusters } from '../lib/article-topic-selector.mjs';
 import { CLUSTER_TAXONOMY } from '../lib/cluster-classifier-prompt.mjs';
+import { writeJsonAtomic as writeJson } from '../lib/atomic-write-json.mjs';
 
 const FIXTURE_PATH = 'tests/fixtures/cluster-classifier-cases.json';
 const REPORT_PATH = 'data/cluster-classifier-eval.json';
@@ -35,11 +36,6 @@ const isBaseline = args.includes('--baseline');
 function loadJson(path) {
   if (!existsSync(path)) return null;
   return JSON.parse(readFileSync(path, 'utf-8'));
-}
-
-function writeJson(path, data) {
-  mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, JSON.stringify(data, null, 2) + '\n', 'utf-8');
 }
 
 /**
