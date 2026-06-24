@@ -2904,10 +2904,10 @@
       "id": "denner-adddbd9838a9",
       "slug": "venditore-nel-salario-orario-denner-basel",
       "slugByLocale": {
-        "it": "venditore-nel-salario-orario-denner-basel",
-        "en": "seller-in-the-hourly-wage-denner-basel",
+        "it": "venditore-nel-salario-orario-denner-ag-basel",
+        "en": "seller-in-the-hourly-wage-denner-ag-basel",
         "de": "verkaufer-in-im-stundenlohn-denner-basel",
-        "fr": "vendeur-dans-le-salaire-horaire-denner-basel"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2970,16 +2970,20 @@
           "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-basel"
+          "verkaufer-in-im-stundenlohn-denner-basel",
+          "seller-in-the-hourly-wage-denner-basel"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-basel"
+          "verkaufer-in-im-stundenlohn-denner-basel",
+          "vendeur-dans-le-salaire-horaire-denner-basel"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-basel"
+        "verkaufer-in-im-stundenlohn-denner-basel",
+        "seller-in-the-hourly-wage-denner-basel",
+        "vendeur-dans-le-salaire-horaire-denner-basel"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
