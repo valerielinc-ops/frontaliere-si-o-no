@@ -73,12 +73,27 @@
         // canonical page; unknown/expired slug (slug-form drift, never tracked) →
         // the canton listing. Never a dead 404 for a job path.
         var sectionRoot = pathname.replace(/\/+$/, '').split('/').slice(0, -1).join('/') + '/';
+        // Company-hub orphaned only by a wrong-locale prefix (azienda-/company-/
+        // unternehmen-/entreprise- mismatched to the route locale) → the exact hub
+        // under THIS locale's canonical prefix. Mirrors the Worker's
+        // recoverCrossLocaleCompanyPrefix; here it ALSO covers the IT route (which
+        // bypasses the Worker). Used only as the fallback when the canton-drift map
+        // has no entry for the slug (company slugs never are), so a real job slug
+        // that happens to start with a prefix word is recovered by the map first.
+        var companyPrefixes = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };
+        function companyHubTarget() {
+          var cpm = slug.match(/^(?:azienda|company|unternehmen|entreprise)-(.+)$/);
+          if (!cpm) return null;
+          var correctCp = companyPrefixes[locale];
+          if (!correctCp || slug === correctCp + '-' + cpm[1]) return null; // already canonical
+          return sectionRoot.replace(/\/$/, '') + '/' + correctCp + '-' + cpm[1] + '/';
+        }
         var done = false;
         function go(target) {
           if (done) return; done = true; clearTimeout(timer);
           location.replace(target + location.search + location.hash);
         }
-        var timer = setTimeout(function() { go(sectionRoot); }, 1500);
+        var timer = setTimeout(function() { go(companyHubTarget() || sectionRoot); }, 1500);
         fetch('/job-canon/' + sk + '.json', { cache: 'force-cache' })
           .then(function(r) { return r.ok ? r.json() : null; })
           .then(function(map) {
@@ -90,11 +105,12 @@
               : (typeof entry === 'string' && locale === 'it' ? entry : null);
             var canon = prefix ? (prefix + '/' + slug + '/') : null;
             // Exact canonical page when the slug is known AND it differs from the
-            // requested (orphaned) path; otherwise the canton listing.
+            // requested (orphaned) path; else the cross-locale company hub when the
+            // slug is a wrong-prefix hub; otherwise the canton listing.
             if (canon && canon !== pathname.replace(/\/+$/, '') + '/') go(canon);
-            else go(sectionRoot);
+            else go(companyHubTarget() || sectionRoot);
           })
-          .catch(function() { go(sectionRoot); });
+          .catch(function() { go(companyHubTarget() || sectionRoot); });
       })();
     </script>
     <!-- Firebase/GA4 error tracking for 404 page (only fires if redirect didn't happen) -->
