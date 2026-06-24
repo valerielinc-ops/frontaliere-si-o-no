@@ -406,6 +406,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.riordino-incentivi-imprese.title': 'Réorganisation des incitations: ce qui change',
     'blog.article.riordino-incentivi-imprese.excerpt': 'Le Conseil des ministres a approuvé le décret qui rationalise les incitations aux entreprises, en les concentrant sur cinq instruments principaux.',
     'blog.article.riordino-incentivi-imprese.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.calcolo-rendita-lpp-ubs.title': 'Comment est calculée la rente LPP - UBS',
+    'blog.article.calcolo-rendita-lpp-ubs.excerpt': 'Découvrez comment calculer votre rente LPP avec UBS. Guide complet et pratique pour les frontaliers.',
+    'blog.article.calcolo-rendita-lpp-ubs.imageAlt': 'Un conseiller financier explique le calcul de la rente LPP à un client dans un bureau moderne.',
 };
 
 export default blogMetaChFr;

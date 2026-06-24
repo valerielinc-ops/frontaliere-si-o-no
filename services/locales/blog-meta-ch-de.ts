@@ -406,6 +406,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.riordino-incentivi-imprese.title': 'Neuordnung von Unternehmensanreizen: Was ändert sich mit dem neuen Dekret?',
     'blog.article.riordino-incentivi-imprese.excerpt': 'Der Ministerrat hat das Dekret gebilligt, das die Anreize für Unternehmen rationalisiert und sie auf fünf Hauptinstrumente konzentriert.',
     'blog.article.riordino-incentivi-imprese.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.calcolo-rendita-lpp-ubs.title': 'Wie berechnet man die BVG-RENTE - UBS',
+    'blog.article.calcolo-rendita-lpp-ubs.excerpt': 'Erfahren Sie, wie Sie Ihre BVG-Rente MIT UBS berechnen. Umfassender und praktischer Leitfaden für Grenzgänger.',
+    'blog.article.calcolo-rendita-lpp-ubs.imageAlt': 'Ein Finanzberater erklärt einem Kunden die Berechnung der LPP-Rente in einem modernen Büro.',
 };
 
 export default blogMetaChDe;
