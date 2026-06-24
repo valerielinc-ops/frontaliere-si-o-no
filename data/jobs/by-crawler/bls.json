@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-06-24T10:59:53.881Z",
+  "assembledAt": "2026-06-24T21:37:06.924Z",
   "jobs": [
     {
       "id": "bls-7c039c3d71c3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-flottenmanagement/eaa6dfbf-e56d-4dc8-9c91-1d7a0b5c1736",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:50.950Z",
+      "crawledAt": "2026-06-24T21:37:04.277Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,6 +77,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:54.694Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -122,7 +123,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/89fcd35e-8e59-4e80-a59f-e559eed14465",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:50.093Z",
+      "crawledAt": "2026-06-24T21:37:03.494Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,6 +176,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:43.687Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -220,7 +222,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/zugverkehrsleiter-in-zweitausbildung/7c8772d1-6e5a-461c-9237-4b5df9b677a4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:49.226Z",
+      "crawledAt": "2026-06-24T21:37:02.712Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,6 +265,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.769Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -272,100 +275,6 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-1628aff0bf01",
-      "slug": "operatore-in-bahntechnik-cambio-carriera-bls-ag-spiez",
-      "slugByLocale": {
-        "it": "operatore-in-bahntechnik-cambio-carriera-bls-ag-spiez",
-        "en": "operator-in-railway-engineering-lateral-entry-bls-ag-spiez",
-        "de": "operator-in-bahntechnik-quereinstieg-bls-ch",
-        "fr": "operateur-en-genie-ferroviaire-entree-laterale-bls-ag-spiez"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Operator:in Bahntechnik Quereinstieg",
-      "titleByLocale": {
-        "it": "Operatore: in ingegneria ferroviaria ingresso laterale",
-        "en": "Operator: in railway engineering lateral entry",
-        "de": "Operator:in Bahntechnik Quereinstieg",
-        "fr": "Opérateur: en génie ferroviaire entrée latérale"
-      },
-      "description": "Dich braucht es immer dann, wenn irgendwo auf unserem Bahnstromnetz kein Strom mehr fliesst. Abwägen, entscheiden sowie vorausschauend und sicher handeln ist deine Welt. Genau in solchen Situationen bist du im zentralen Leitsystem in deinem Element. Aber auch wenn alles rund läuft, wird es dir garantiert nicht langweilig.\n\nDas wartet auf dich:\n\n• Sicherstellung der Bahnstromversorgung für das gesamte BLS-Streckennetz\n\n• Überwachung und Steuerung von betriebsrelevanten Anlagen und Systemen\n\n• Koordination von Störungsbehebungen an Bahnanlagen mit Beurteilung zu Dringlichkeit und Priorisierung\n\n• Einbezug von Fachdiensten sowie Alarmierung bei ausserordentlichen Ereignissen\n\n• Pflege von Plangrundlagen für elektrische Stations- und Streckenschemata\n\nDas bringst du mit:\n\n• Abgeschlossene Berufslehre mit technischem Hintergrund oder bahnspezifische Ausbildung\n\n• Berufserfahrung in einer überwachenden Funktion von Vorteil\n\n• Bereitschaft für unregelmässige Arbeitszeiten und Einsätze an Wochenenden (24 Stunden)\n\n• Motivation zur Absolvierung einer mehrmonatigen, fachspezifischen Ausbildung sowie Interesse an der Bahntechnik\n\n• Selbständige, verantwortungsvolle und sicherheitsbewusste Arbeitsweise\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "Ne avete bisogno ogni volta che non c'è più elettricità sulla nostra rete ferroviaria da qualche parte. Pesare, decidere e agire in avanti e in modo sicuro è il vostro mondo. Esattamente in tali situazioni siete nel sistema di controllo centrale nel vostro elemento. Ma anche se tutto va senza intoppi, non ti annoierai. Ti aspetta:\n• Assicurare l'alimentazione ferroviaria per l'intera rete BLS\n• Monitoraggio e controllo di impianti e sistemi operativi rilevanti\n• Coordinamento della risoluzione dei problemi negli impianti ferroviari con valutazione dell'urgenza e della priorità\n• Inclusione di servizi specializzati e allerta per eventi straordinari\n• Manutenzione di piani di base per stazioni elettriche e sistemi di route Questo è ciò che portate con voi:\n• Apprendistato completo con background tecnico o formazione specifica ferroviaria\n• L'esperienza professionale in una funzione di supervisione è utile\n• Prontezza per ore di lavoro irregolari e incarichi nei fine settimana (24 ore)\n• Motivazione per completare una formazione e un interesse plurimese, specifici per il settore della tecnologia ferroviaria\n• Metodi di lavoro indipendenti, responsabili e sicuri I vostri vantaggi – si può aspettare a:\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n• Ottenere una seconda classe GA, un GA 1st. Abbonamento di classe o di mezza quota.\n• Avete tempo libero quando gli altri lavorano. Per i penny di notte e nei fine settimana ci sono supplementi.\n• È possibile acquistare ulteriori cinque o dieci giorni di vacanza all'anno.\n• Il sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi sono a vostra disposizione.\n• Con eventi stagionali e corsi sosteniamo la vostra salute Con quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "You need it whenever there is no more electricity on our railway network somewhere. Weighing, deciding and acting forward and safely is your world. Exactly in such situations you are in the central control system in your element. But even if everything goes smoothly, you will not get bored. This is waiting for you:\n• Ensuring the railway power supply for the entire BLS network\n• Monitoring and control of operationally relevant plants and systems\n• Coordination of troubleshooting at railway installations with assessment of urgency and prioritization\n• Inclusion of specialist services as well as alerting for extraordinary events\n• Maintenance of basic plans for electrical station and route schemes This is what you bring with you:\n• Completed apprenticeship with technical background or railway-specific training\n• Professional experience in a supervising function is beneficial\n• Readiness for irregular working hours and assignments on weekends (24 hours)\n• Motivation to complete a multi-month, subject-specific training and interest in railway technology\n• Independent, responsible and safety-conscious working methods Your advantages – you can look forward to:\n• We promote the most flexible planning of your tours and shifts possible\n• Get a GA 2nd class, a GA 1st. Class or a half-tax subscription.\n• You have free time when others work. For pennies at night and on weekends there are surcharges.\n• It is possible to buy an additional five to ten holiday days per year.\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n• With seasonal events and courses we support your health With almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-        "de": "Dich braucht es immer dann, wenn irgendwo auf unserem Bahnstromnetz kein Strom mehr fliesst. Abwägen, entscheiden sowie vorausschauend und sicher handeln ist deine Welt. Genau in solchen Situationen bist du im zentralen Leitsystem in deinem Element. Aber auch wenn alles rund läuft, wird es dir garantiert nicht langweilig. Das wartet auf dich:\n• Sicherstellung der Bahnstromversorgung für das gesamte BLS-Streckennetz\n• Überwachung und Steuerung von betriebsrelevanten Anlagen und Systemen\n• Koordination von Störungsbehebungen an Bahnanlagen mit Beurteilung zu Dringlichkeit und Priorisierung\n• Einbezug von Fachdiensten sowie Alarmierung bei ausserordentlichen Ereignissen\n• Pflege von Plangrundlagen für elektrische Stations- und Streckenschemata Das bringst du mit:\n• Abgeschlossene Berufslehre mit technischem Hintergrund oder bahnspezifische Ausbildung\n• Berufserfahrung in einer überwachenden Funktion von Vorteil\n• Bereitschaft für unregelmässige Arbeitszeiten und Einsätze an Wochenenden (24 Stunden)\n• Motivation zur Absolvierung einer mehrmonatigen, fachspezifischen Ausbildung sowie Interesse an der Bahntechnik\n• Selbständige, verantwortungsvolle und sicherheitsbewusste Arbeitsweise Deine Vorteile – darauf kannst du dich freuen:\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Vous en avez besoin quand il n'y a plus d'électricité sur notre réseau ferroviaire quelque part. Peser, décider et agir en avant et en sécurité est votre monde. Exactement dans de telles situations, vous êtes dans le système de contrôle central dans votre élément. Mais même si tout se passe bien, vous ne vous ennuyerez pas. Ceci vous attend :\n• Assurer l'alimentation électrique du réseau BLS\n• Surveillance et contrôle des installations et systèmes présentant un intérêt opérationnel\n• Coordination du dépannage dans les installations ferroviaires avec évaluation de l'urgence et des priorités\n• Inclusion de services spécialisés et alerte en cas d'événements extraordinaires\n• Entretien des plans de base pour les centrales électriques et les routes C'est ce que vous apportez avec vous :\n• Apprentissage terminé avec formation technique ou spécifique au chemin de fer\n• L'expérience professionnelle dans une fonction de supervision est bénéfique\n• Préparation aux heures de travail irrégulières et affectations le week-end (24 heures)\n• Motivation à suivre une formation multi-mois spécifique et à s'intéresser à la technologie ferroviaire\n• Méthodes de travail indépendantes, responsables et soucieuses de la sécurité Vos avantages – vous pouvez vous attendre à:\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n• Obtenez un GA 2ème classe, un GA 1ère. Classe ou demi-abonnement.\n• Vous avez du temps libre lorsque les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissages internes passionnants sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé Avec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Spiez",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/operator-in-bahntechnik-quereinstieg/6439d8d0-c9b5-4568-b026-37a7264fe008",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:48.324Z",
-      "addressLocality": "Spiez",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3700",
-      "streetAddress": "Bahnhofstrasse 14",
-      "category": "Produzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-09",
-      "validThrough": "2026-09-06",
-      "pensum": "60-100%",
-      "salary": "101898",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/6439d8d0-c9b5-4568-b026-37a7264fe008",
-      "requirements": [
-        "Abgeschlossene Berufslehre mit technischem Hintergrund oder bahnspezifische Ausbildung",
-        "Berufserfahrung in einer überwachenden Funktion von Vorteil",
-        "Bereitschaft für unregelmässige Arbeitszeiten und Einsätze an Wochenenden (24 Stunden)",
-        "Motivation zur Absolvierung einer mehrmonatigen, fachspezifischen Ausbildung sowie Interesse an der Bahntechnik",
-        "Selbständige, verantwortungsvolle und sicherheitsbewusste Arbeitsweise"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Abgeschlossene Berufslehre mit technischem Hintergrund oder bahnspezifische Ausbildung",
-          "Berufserfahrung in einer überwachenden Funktion von Vorteil",
-          "Bereitschaft für unregelmässige Arbeitszeiten und Einsätze an Wochenenden (24 Stunden)",
-          "Motivation zur Absolvierung einer mehrmonatigen, fachspezifischen Ausbildung sowie Interesse an der Bahntechnik",
-          "Selbständige, verantwortungsvolle und sicherheitsbewusste Arbeitsweise"
-        ]
-      },
-      "previousSlugs": [
-        "operator-in-bahntechnik-quereinstieg-bls-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "operator-in-bahntechnik-quereinstieg-bls-ch"
-        ],
-        "en": [
-          "operator-in-bahntechnik-quereinstieg-bls-ch"
-        ],
-        "fr": [
-          "operator-in-bahntechnik-quereinstieg-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-09T11:01:37.323Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -402,7 +311,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:47.593Z",
+      "crawledAt": "2026-06-24T21:37:01.906Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -447,6 +356,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -492,7 +402,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:46.868Z",
+      "crawledAt": "2026-06-24T21:37:01.220Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -526,6 +436,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:38.653Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -571,7 +482,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:46.139Z",
+      "crawledAt": "2026-06-24T21:37:00.527Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -620,6 +531,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -665,7 +577,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:45.414Z",
+      "crawledAt": "2026-06-24T21:36:59.837Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,6 +626,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -759,7 +672,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in/b902f38a-e2ae-46be-a6f8-d05911ff6585",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:44.469Z",
+      "crawledAt": "2026-06-24T21:36:59.026Z",
       "addressLocality": "Langnau im Emmental",
       "addressCountry": "CH",
       "country": "CH",
@@ -807,6 +720,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.211Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -852,7 +766,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:43.734Z",
+      "crawledAt": "2026-06-24T21:36:58.344Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -892,6 +806,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -937,7 +852,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:43.008Z",
+      "crawledAt": "2026-06-24T21:36:57.663Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -983,6 +898,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1028,7 +944,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/bc80ac8b-54e4-4703-8c22-df0dae662c39",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:42.089Z",
+      "crawledAt": "2026-06-24T21:36:56.883Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1080,6 +996,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T22:14:02.185Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1125,7 +1042,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/3519fa54-3e07-4f66-8a1a-80329d4a5b4c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:41.228Z",
+      "crawledAt": "2026-06-24T21:36:56.107Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1159,6 +1076,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:27.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1204,7 +1122,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-abap-virtuos-in/fa0faeac-0e3f-4bd1-a519-b222357e1bdc",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:40.376Z",
+      "crawledAt": "2026-06-24T21:36:55.339Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1243,6 +1161,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:32.553Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1288,7 +1207,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/systemingenieur-in-plattformentwicklung/26107236-837f-4c94-8876-f62f2920f44d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:39.502Z",
+      "crawledAt": "2026-06-24T21:36:54.566Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1329,6 +1248,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:25.700Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1374,7 +1294,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachspezialist-in-fahrzeugreinigung/5cf9faa7-4e3c-4951-9b69-e921365abdce",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:38.778Z",
+      "crawledAt": "2026-06-24T21:36:53.885Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1415,6 +1335,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:31.813Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1460,7 +1381,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mitarbeiter-in-gaesteservice-schifffahrt/0c8b7bfd-ec27-448b-8270-bf05c95ee2ae",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:38.055Z",
+      "crawledAt": "2026-06-24T21:36:53.205Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1496,6 +1417,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:38:31.757Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1541,7 +1463,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/rechtsanwaelt-in/ae1169b1-dec0-48b7-86f1-30f03c81044f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T10:59:37.135Z",
+      "crawledAt": "2026-06-24T21:36:52.430Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1593,6 +1515,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:37.982Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
