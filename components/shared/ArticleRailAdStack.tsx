@@ -12,6 +12,14 @@
  *  - The outer `flex-1` div claims the full gutter height (so the cluster has
  *    room to travel and layout/CLS is reserved); the inner `sticky top-6` div
  *    holds the panels and pins to the viewport top as the column scrolls.
+ *  - Trade-off: on short pages (gutter height < ~2 × PANEL_PX) the cluster is
+ *    shorter than the outer div, leaving a blank band below the sticky cluster.
+ *    This is an accepted design constraint: shrinking the outer div to cluster
+ *    height would collapse sticky travel to ~0 (sticky is bounded by its parent
+ *    edges), breaking the mechanism for long articles. Filling the gap with extra
+ *    panels would also fail — a cluster taller than its parent triggers the same
+ *    sticky bottom-boundary constraint immediately. The blank space on short pages
+ *    is therefore unavoidable without a fundamentally different layout. (#2866)
  *  - Panel count is VIEWPORT-driven: just enough half-page panels (~620px each)
  *    to cover the visible viewport — more would sit below the fold, pinned and
  *    never seen (wasted ad requests). A short gutter caps it lower.
