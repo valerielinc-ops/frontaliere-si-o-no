@@ -1745,10 +1745,13 @@ const App: React.FC = () => {
  // rail leaves no tall blank column — content reflows into the freed width. A
  // filled rail keeps its 160px (ArticleRailAdStack resolves `true` only when
  // EVERY panel is empty), so a paying creative is never squeezed into a
- // zero-width track. Re-armed on every tab change so a fresh page starts
- // reserved and only collapses after its own no-fill verdict.
+ // zero-width track. Starts reserved (`false`) and stays so until the rail's own
+ // no-fill verdict arrives. No per-tab reset: the rail stack stays mounted across
+ // SPA navigations and the persistent GPT slot is not re-requested, so the
+ // resolved fill state — and thus the collapse — correctly persists across tabs
+ // (resetting here would re-reserve a known-empty rail → the blank column would
+ // flash back on every tab switch).
  const [railsCollapsed, setRailsCollapsed] = useState<{ left: boolean; right: boolean }>({ left: false, right: false });
- useEffect(() => { setRailsCollapsed({ left: false, right: false }); }, [activeTab]);
  const handleLeftRailEmpty = useCallback((allEmpty: boolean) => {
  setRailsCollapsed((s) => (s.left === allEmpty ? s : { ...s, left: allEmpty }));
  }, []);

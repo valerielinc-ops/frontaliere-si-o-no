@@ -76,8 +76,6 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
   const ref = useRef<HTMLDivElement>(null);
   // Per-panel GPT verdict, keyed by panel index (true = reported empty).
   const emptyByIndex = useRef<Map<number, boolean>>(new Map());
-  // Last verdict pushed to the caller — dedupes repeat reports.
-  const lastResolvedRef = useRef<boolean | null>(null);
   // Start at 0 — measurement sets the correct count after mount, avoiding a
   // premature 600px CLS reservation on pages whose gutter is below MIN_FILL_PX.
   const [panels, setPanels] = useState(0);
@@ -100,10 +98,12 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
     let verdict: boolean | null = null;
     if (anyFilled) verdict = false;
     else if (panels > 0 && reported >= panels) verdict = true;
-    if (verdict !== null && verdict !== lastResolvedRef.current) {
-      lastResolvedRef.current = verdict;
-      onEmptyResolved?.(verdict);
-    }
+    // Report every resolved verdict; the App owns dedup (it no-ops a same-value
+    // setState). No per-tab re-arm here: the rail stack stays mounted across SPA
+    // navigations and GPT does not re-request the persistent slot, so once a
+    // rail resolves empty it stays empty for the session and the collapse simply
+    // persists — a local dedup ref would instead swallow a legitimate re-report.
+    if (verdict !== null) onEmptyResolved?.(verdict);
   }, [panels, onEmptyResolved]);
 
   useEffect(() => {
