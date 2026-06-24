@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-24T17:18:31.473Z",
+    "label": "before",
+    "total": 17932,
+    "needsRetranslation": 7572,
+    "suppressed": 550,
+    "incomplete": 1253,
+    "complete": 16679,
+    "missingByLocale": {
+      "it": 657,
+      "en": 453,
+      "de": 641,
+      "fr": 304
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 998
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 28
+      },
+      {
+        "company": "VOLG",
+        "pending": 20
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 15
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 10
+      },
+      {
+        "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+        "pending": 9
+      },
+      {
+        "company": "Universität Zürich",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-24T17:21:43.196Z",
+    "label": "after",
+    "total": 17932,
+    "needsRetranslation": 3319,
+    "suppressed": 550,
+    "incomplete": 1244,
+    "complete": 16688,
+    "missingByLocale": {
+      "it": 649,
+      "en": 406,
+      "de": 640,
+      "fr": 279
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 994
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 28
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "VOLG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 15
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 10
+      },
+      {
+        "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+        "pending": 9
+      },
+      {
+        "company": "SIX Group",
+        "pending": 6
+      }
+    ]
   }
 ]
