@@ -376,6 +376,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dispositivi-medici-rimborsi.title': 'Berna apre ai rimborsi per dispositivi medici acquistati all\'estero',
     'blog.article.dispositivi-medici-rimborsi.excerpt': 'Il Consiglio federale propone di rimborsare determinati dispositivi medici acquistati all\'estero tramite l\'AOMS.',
     'blog.article.dispositivi-medici-rimborsi.imageAlt': 'Dispositivi medici in un ospedale svizzero',
+    'blog.article.scambio-dati-salariali-italia.title': 'Frontalieri, via libera allo scambio dei dati salariali con l’Italia',
+    'blog.article.scambio-dati-salariali-italia.excerpt': 'Dal 2024, accordo tra Svizzera e Italia permette lo scambio di dati salariali dei frontalieri, facilitando il calcolo fiscale.',
+    'blog.article.scambio-dati-salariali-italia.imageAlt': 'Frontaliere al valico tra Svizzera e Italia che controlla documenti e dati salariali.',
 };
 
 export default blogMetaChIt;

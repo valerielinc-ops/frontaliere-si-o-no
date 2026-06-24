@@ -1,57 +1,16 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-06-23T22:54:52.257Z",
-  "total": 1,
+  "generatedAt": "2026-06-24T12:02:20.644Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1556,
-  "avgDurationMs": 1556,
-  "durationHistory": [
-    1556
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "PROJECT CONTROL MANAGER - SVIZZERA",
-      "slug": "project-control-manager-svizzera-impresa-pizzarotti-c-s-p-a-impresa-pizzarotti-c-s-p-a",
-      "url": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/project-control-manager-svizzera-659346/it/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/project-control-manager-svizzera-659346/it/",
-      "company": "Impresa Pizzarotti & C. S.p.A.",
-      "companyKey": "impresa-pizzarotti",
-      "companyDomain": "pizzarotti.it",
-      "location": "Impresa Pizzarotti & C. S.p.A.",
-      "addressLocality": "Impresa Pizzarotti & C. S.p.A.",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "canton": "NE",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Costruzioni & Infrastrutture",
-      "source": "pizzarotti-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "impresa-pizzarotti-ec6ee74e2f70",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-17T10:52:26.697Z",
-      "postalCode": "2000",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-06-23T22:25:28.082Z",
+  "assembledAt": "2026-06-24T11:22:47.493Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/adjointe-ou-adjoint-scientifique-hes-50-***-leitender-wissenschaftlicher-mitarbeiter-fh--leitende-wissenschaftliche-mitarbeiterin-fh-50-214690",
@@ -22,7 +22,7 @@
       "titleByLocale": {
         "it": "Assistente Scientifico HES (50%) * Leitender",
         "en": "Scientific Assistant HES (50%) * Leitender",
-        "de": "Wissenschaftlicher Mitarbeiter HES (50%) * Leitender",
+        "de": "Adjointe ou adjoint scientifique HES (50%) *** Leitender",
         "fr": "Adjointe ou adjoint scientifique HES (50%) *** Leitender"
       },
       "slug": "assistente-scientifico-hes-50-hes-so-valais-wallis-sion",
@@ -83,7 +83,8 @@
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-09T22:30:43.421Z"
+      "firstSeenAt": "2026-06-09T22:30:43.421Z",
+      "needsRetranslation": true
     }
   ]
 }

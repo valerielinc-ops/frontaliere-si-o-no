@@ -1,53 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-06-23T22:44:11.268Z",
-  "total": 1,
+  "generatedAt": "2026-06-24T11:47:28.968Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 888,
-  "avgDurationMs": 888,
-  "durationHistory": [
-    888
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Spa Therapeutin / Masseurin 100%",
-      "slug": "spa-therapeutin-masseurin-100-the-living-circle-ascona",
-      "url": "https://jobs.thelivingcircle.ch/jobs/65153958/Spa-Therapeutin-Masseurin-100%25/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/65153958/Spa-Therapeutin-Masseurin-100%25/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Ascona",
-      "addressLocality": "Ascona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-05",
-      "employmentType": "other",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "the-living-circle-dd826324ec2b",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-06-05T22:24:26.329Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

@@ -1,15 +1,15 @@
 {
   "crawlerKey": "engadin-tourismus",
-  "assembledAt": "2026-06-23T22:15:20.134Z",
+  "assembledAt": "2026-06-24T11:26:34.764Z",
   "jobs": [
     {
       "id": "engadin-tourismus-f9482812da90",
       "slug": "apprendistato-kauffrau-kaufmann-cfc-hotel-gastro-tourismus-hgt-engadin-tourismus-ag-st-moritz",
       "slugByLocale": {
         "it": "apprendistato-kauffrau-kaufmann-cfc-hotel-gastro-tourismus-hgt-engadin-tourismus-ag-st-moritz",
-        "en": "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus",
+        "en": "apprenticeship-manager-kaufmann-efz-hotel-gastro-tourismus-hgt-engadin-tourismus-ag-st-moritz",
         "de": "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus",
-        "fr": "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus"
+        "fr": "directeur-de-l-apprentissage-kaufmann-efz-hotel-gastro-tourismus-hgt-engadin-tourismus-ag-st-moritz"
       },
       "company": "Engadin Tourismus AG",
       "companyKey": "engadin-tourismus",
@@ -46,16 +46,23 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:15:18.556Z",
+      "crawledAt": "2026-06-24T11:26:33.145Z",
       "previousSlugs": [
         "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus"
+        ],
+        "fr": [
+          "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus"
         ]
       },
       "firstSeenAt": "2026-05-17T10:09:22.701Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -85,7 +92,7 @@
       "title": "Guest Experience Specialist – 100% m/w/d - Tourist Information Zuoz und regionale Gästeberatung",
       "titleByLocale": {
         "it": "Specialista dell'Esperienza Ospite – 100% lun/venerdì/d - Informazioni Turistiche Zuoz e consigli regionali agli ospiti",
-        "en": "Guest Experience Specialist – 100% m/f/d - Tourist Information Zuoz and regional guest advice",
+        "en": "Guest Experience Specialist – 100% m/w/d - Tourist Information Zuoz und regionale Gästeberatung",
         "de": "Spezialist für Gästeerlebnisse - 100% m/w/d - Tourist Information Zuoz und regionale Gästeberatung",
         "fr": "Spécialiste de l'expérience client – 100 % lundi/vendredi/j. - Information touristique Zuoz et conseils régionaux aux visiteurs"
       },
@@ -114,7 +121,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/guest-experience-specialist-100-m-w-d",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:15:18.326Z",
+      "crawledAt": "2026-06-24T11:26:32.929Z",
       "previousSlugs": [
         "guest-experience-specialist-100-m-w-d-tourist-information-zuoz-und-regionale-gasteberatung"
       ],
@@ -160,7 +167,7 @@
       "title": "Digital Customer Support Specialist 100% m/w/d",
       "titleByLocale": {
         "it": "Digital Customer Support Specialista 100% m/w/d",
-        "en": "Digital Customer Support Specialist 100% m/f/d",
+        "en": "Digital Customer Support Specialist 100% m/w/d",
         "de": "Digital Customer Support Spezialist 100% m/w/d",
         "fr": "Spécialiste du support client numérique 100 % l/f/d"
       },
@@ -189,7 +196,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/digital-customer-support-specialist-100-m-w-d",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T22:15:18.082Z",
+      "crawledAt": "2026-06-24T11:26:32.663Z",
       "previousSlugs": [
         "digital-customer-support-specialista-100-m-w-d-engadin-tourismus-ag-st-moritz"
       ],
