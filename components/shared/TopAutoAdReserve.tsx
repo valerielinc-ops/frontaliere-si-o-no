@@ -36,7 +36,33 @@ import { isLikelyBot } from '@/services/botPatterns';
  * kept inline to avoid pulling that lazy ad chunk into the main bundle.)
  */
 const ADSENSE_PRODUCTION_HOSTS = new Set(['frontaliereticino.ch']);
+// Fallback reserve used only until we've measured the real top Auto Ad once.
 const RESERVE_PX = 250;
+
+// Adaptive reserve: the top in-page Auto Ad renders a variable height, so a
+// fixed 250px guess can mismatch the real ad — when the placeholder (250) is
+// swapped for a shorter served ad, content jumps. We remember the ad's actual
+// rendered height (per tab session) and reserve exactly that next time, so the
+// placeholder == the ad == no shift. Converges after the first served
+// impression; bounded to a sane banner range so a stray 0/huge measurement
+// can't poison the reserve.
+const RESERVE_STORE_KEY = 'ft_autoad_top_h';
+const RESERVE_MIN_PX = 60;
+const RESERVE_MAX_PX = 400;
+
+function readReserve(): number {
+  try {
+    const v = Number(sessionStorage.getItem(RESERVE_STORE_KEY));
+    if (Number.isFinite(v) && v >= RESERVE_MIN_PX && v <= RESERVE_MAX_PX) return v;
+  } catch { /* sessionStorage blocked — fall through to default */ }
+  return RESERVE_PX;
+}
+
+function writeReserve(px: number): void {
+  const h = Math.round(px);
+  if (!(h >= RESERVE_MIN_PX && h <= RESERVE_MAX_PX)) return;
+  try { sessionStorage.setItem(RESERVE_STORE_KEY, String(h)); } catch { /* ignore */ }
+}
 
 /** True when the column-child auto-ad is NOT occupying layout space — i.e. it is
  *  absent, empty, or AdSense has flagged it unfilled (mirrors the collapse
@@ -71,7 +97,18 @@ export default function TopAutoAdReserve() {
           attributeFilter: ['data-ad-status'],
         });
       }
-      reserve.style.minHeight = adIsCollapsed(ad) ? `${RESERVE_PX}px` : '0px';
+      if (adIsCollapsed(ad)) {
+        // Ad absent / unfilled → hold the placeholder at the adaptive reserve
+        // (last measured real height, or the 250px fallback) so <main> sits at
+        // its post-ad position from first paint.
+        reserve.style.minHeight = `${readReserve()}px`;
+      } else if (ad) {
+        // Ad is occupying space → record its REAL rendered height so the next
+        // load reserves exactly this (placeholder == ad == no swap shift), then
+        // collapse the placeholder since the ad now provides the height.
+        writeReserve(ad.getBoundingClientRect().height);
+        reserve.style.minHeight = '0px';
+      }
     };
 
     const colObserver = new MutationObserver(sync);
@@ -87,5 +124,15 @@ export default function TopAutoAdReserve() {
   if (typeof window === 'undefined') return null;
   if (!ADSENSE_PRODUCTION_HOSTS.has(window.location.hostname)) return null;
   if (isLikelyBot()) return null;
-  return <div ref={ref} className="autoad-top-reserve" aria-hidden="true" />;
+  // Seed the first-paint reserve from the remembered height (client-only here,
+  // past the SSR/bot guards) so the placeholder already matches the ad before
+  // the effect runs — no 250→real shrink on mount. Overrides the CSS floor.
+  return (
+    <div
+      ref={ref}
+      className="autoad-top-reserve"
+      style={{ minHeight: `${readReserve()}px` }}
+      aria-hidden="true"
+    />
+  );
 }
