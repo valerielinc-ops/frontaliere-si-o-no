@@ -409,6 +409,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcolo-rendita-lpp-ubs.title': 'Wie berechnet man die BVG-RENTE - UBS',
     'blog.article.calcolo-rendita-lpp-ubs.excerpt': 'Erfahren Sie, wie Sie Ihre BVG-Rente MIT UBS berechnen. Umfassender und praktischer Leitfaden für Grenzgänger.',
     'blog.article.calcolo-rendita-lpp-ubs.imageAlt': 'Ein Finanzberater erklärt einem Kunden die Berechnung der LPP-Rente in einem modernen Büro.',
+    'blog.article.dati-tasse-frontalieri-italia.title': 'Daten- und Steuerchaos bei alten Grenzgängern: \'Volles Licht\'',
+    'blog.article.dati-tasse-frontalieri-italia.excerpt': 'Lohndaten von Tausenden von alten Grenzgängern, die versehentlich in den italienischen Vorabausfüllen übermittelt wurden. Erläuterungen von Molteni und Grammatik.',
+    'blog.article.dati-tasse-frontalieri-italia.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaChDe;

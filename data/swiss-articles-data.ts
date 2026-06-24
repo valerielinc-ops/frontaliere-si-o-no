@@ -1223,6 +1223,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'dati-tasse-frontalieri-italia',
+    category: 'fiscale',
+    date: '2026-06-24T21:22:44.025Z',
+    image: '/images/blog/dati-tasse-frontalieri-italia.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

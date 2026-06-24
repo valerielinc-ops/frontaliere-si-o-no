@@ -4179,6 +4179,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumento-iva-esercito-2024': { name: 'IVA e difesa', path: '/articoli-svizzera/aumento-iva-esercito-2024/', parent: 'blog' },
     'blog-riordino-incentivi-imprese': { name: 'Novità', path: '/articoli-svizzera/riordino-incentivi-imprese/', parent: 'blog' },
     'blog-calcolo-rendita-lpp-ubs': { name: 'Rendita LPP', path: '/articoli-svizzera/calcolo-rendita-lpp-ubs/', parent: 'blog' },
+    'blog-dati-tasse-frontalieri-italia': { name: 'Frontalieri', path: '/articoli-svizzera/dati-tasse-frontalieri-italia/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
