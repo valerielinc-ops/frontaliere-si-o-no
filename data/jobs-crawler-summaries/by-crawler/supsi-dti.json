@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-24T12:33:21.705Z",
+  "generatedAt": "2026-06-24T23:07:46.282Z",
   "total": 27,
   "newCount": 27,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 169945,
-  "avgDurationMs": 169945,
+  "durationMs": 157263,
+  "avgDurationMs": 157263,
   "durationHistory": [
-    169945
+    157263
   ],
   "newJobs": [
     {
@@ -373,7 +373,7 @@
       "crawledAt": "2026-06-13T11:55:27.186Z",
       "firstSeenAt": "2026-06-13T11:55:27.186Z",
       "country": "CH",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "streetAddress": "Via Cantonale 2C",
@@ -383,11 +383,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
+        "richness": 17,
+        "translation": 18,
         "completeness": 25
       }
     },
@@ -402,7 +402,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
+      "postedDate": "2026-06-12",
       "url": "https://www.supsi.ch/bando26_5026",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -486,7 +486,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
+      "postedDate": "2026-06-11",
       "url": "https://www.supsi.ch/bando26_5029",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -654,7 +654,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-24",
       "url": "https://www.supsi.ch/bando26_1010",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -677,11 +677,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 18,
         "completeness": 25
       }
     },
@@ -780,7 +780,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
+      "postedDate": "2026-05-30",
       "url": "https://www.supsi.ch/bando26_5021",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -1074,7 +1074,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-21",
+      "postedDate": "2026-06-24",
       "url": "https://www.supsi.ch/bando26_1009",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -1087,7 +1087,7 @@
       "crawledAt": "2026-05-21T00:28:42.108Z",
       "firstSeenAt": "2026-05-21T00:28:42.108Z",
       "country": "CH",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "streetAddress": "Via Cantonale 2C",
@@ -1097,11 +1097,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 17,
-        "translation": 18,
+        "richness": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
