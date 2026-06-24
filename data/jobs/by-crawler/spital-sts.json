@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-06-23T23:09:04.826Z",
+  "assembledAt": "2026-06-24T12:45:32.525Z",
   "jobs": [
     {
       "id": "spital-sts-537b99704399",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c87ea77d-c64c-41c7-93e0-0efcee4b5938/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:09:02.890Z",
+      "crawledAt": "2026-06-24T12:45:30.037Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,6 +51,20 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/c87ea77d-c64c-41c7-93e0-0efcee4b5938",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+        ]
+      },
       "firstSeenAt": "2026-06-23T12:37:48.430Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -63,21 +77,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
-        ],
-        "en": [
-          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
-        ],
-        "fr": [
-          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
-        ]
-      },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
-      ]
+      }
     },
     {
       "id": "spital-sts-c3fba66bd07e",
@@ -111,7 +111,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c7c6e9a9-d32f-490c-9e6e-d36e7d25cf02/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:09:02.121Z",
+      "crawledAt": "2026-06-24T12:45:29.006Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/985404f9-e545-424f-a78d-991bffb30901/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:09:01.205Z",
+      "crawledAt": "2026-06-24T12:45:28.433Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9ebf5831-65b5-4230-a3da-722730d57695/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:09:00.313Z",
+      "crawledAt": "2026-06-24T12:45:27.667Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -314,9 +314,9 @@
     },
     {
       "id": "spital-sts-1d63c7ed914d",
-      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
+      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
+        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
         "en": "dipl-radiology-specialist-radiology-specialist-hf-spital-sts-thun",
         "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
         "fr": "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-thun"
@@ -326,7 +326,7 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Specialista di radiologia / Specialista di radiologia HF",
+        "it": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
         "en": "Dipl. Radiology specialist / Radiology specialist HF",
         "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
         "fr": "Dipl. Spécialiste en radiologie / Spécialiste en radiologie HF"
@@ -338,12 +338,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Das Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb). Eintritt per sofort oder nach Vereinbarung. Das wartet auf dich\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n• Aufgestelltes, professionelles und erfahrenes Team\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n• Selbständiges Arbeiten in Gruppen\n• Digitale Radiologie\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion So wirst du Teil unseres Teams\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n• Teamorientierte, flexible und hilfsbereite Person",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Le domaine de responsabilité en radiologie numérique comprend le diagnostic conventionnel, la tomographie calculée et l'IRM. Vous planifiez les rendez-vous du patient de façon indépendante et remplissez l'administration du patient, y compris la facturation. Pour ce faire, notre système de localisation croisée Ris et Pacs est disponible. Cela se caractérise par l'intégration complète dans toute l'entreprise et garantit une opération papier et sans film. D'autres appareils modernes comme les systèmes DR, DSI et CT sont également disponibles. Vous êtes utilisé dans tous les services (24 heures d'urgence). Admission immédiate ou par arrangement. Une collaboration interdisciplinaire avec les médecins : au sein et dans d'autres groupes professionnels Une équipe établie, professionnelle et expérimentée Possibilité de se développer en un spécialiste de radiologie expérimenté Travailleur indépendant travaillant en groupe Radiologie numérique Modèle flexible de fonds de vacances et de retraites Attractives possibilités de loisirs dans la région du lac et de la montagne Donc vous devenez membre de notre équipe Formation terminée Dipl. Spécialiste de radiologie HF avec une expérience professionnelle ou des diplômés: une personne axée sur l'équipe, flexible et utile pour une entrée dans la carrière"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/bc26f779-c496-40b7-a82a-f408b43caf49/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:08:59.151Z",
+      "crawledAt": "2026-06-24T12:45:26.955Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -360,6 +361,15 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/bc26f779-c496-40b7-a82a-f408b43caf49",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+        ]
+      },
       "firstSeenAt": "2026-06-08T23:14:23.499Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -372,15 +382,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
-      ]
+      }
     },
     {
       "id": "spital-sts-b5318df664c0",
@@ -414,7 +416,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/d7922b14-bc1f-47d7-a0f2-eefb871a7b57/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:08:58.051Z",
+      "crawledAt": "2026-06-24T12:45:26.347Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -491,7 +493,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7af25d74-121c-4534-9677-cab6a836fef8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:08:56.872Z",
+      "crawledAt": "2026-06-24T12:45:25.700Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -568,7 +570,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5cf428e5-9bf4-4937-95d6-d1f4361271b8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:08:56.017Z",
+      "crawledAt": "2026-06-24T12:45:25.097Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -628,7 +630,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiere/a Chirurgia",
-        "en": "Dipl. Nursing professional surgery",
+        "en": "Dipl. Pflegefachfrau/-mann Chirurgie",
         "de": "Dipl. Pflegefachfrau/-mann Chirurgie",
         "fr": "Dipl. Infirmier·ère Chirurgie"
       },
@@ -639,12 +641,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Du arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Frauenklinik, Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie sowie auch Urologie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld mit fünf verschiedenen Disziplinen. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit. Eintritt per sofort oder nach Vereinbarung. Das wartet auf dich\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen So wirst du Teil unseres Teams\n• Abschluss als Dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Frauenklinik und/oder Chirurgie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
         "fr": "Description Un emploi avec des perspectives : Outre une infrastructure ultramoderne et une multitude d'activités dans un environnement familial, l'hôpital de Thoune vous offre également la possibilité de passer du temps libre de manière flexible dans la région naturelle et lacustre environnante. Vous recherchez une solution sensée mais aussi juste ? Alors vous êtes au bon endroit. Vous travaillez dans un service de chirurgie axé sur les cliniques de gynécologie, d'orthopédie/traumatologie, de chirurgie rachidienne et viscérale ainsi que d'urologie. Vous pouvez vous attendre à un environnement de travail intéressant et varié avec cinq disciplines différentes. La gestion de la documentation électronique des soins infirmiers et du système de distribution des médicaments fait partie intégrante de notre travail quotidien. Entrée immédiatement ou sur rendez-vous. Cosa ofriamo - Une équipe humoristique, jeune et motivée avec un bon esprit d'équipe - Des défis passionnants avec votre propre domaine de responsabilité - Bonne coopération avec l'équipe et la direction du service - Possibilité d'acheter des vacances supplémentaires, conditions de travail attractives Conditions - Infirmier spécialisé qualifié - De préférence une expérience professionnelle en clinique gynécologique et/ou en chirurgie - Inspirant, engagé, responsable et professionnel - Les valeurs STS de notre hôpital qui nous tiennent à cœur"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/1953d39c-d8f1-45c3-9cd2-ad7010521204/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:08:55.044Z",
+      "crawledAt": "2026-06-24T12:45:24.473Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -708,11 +711,11 @@
         "de": "Sommerjob in der Pflege (befristet)",
         "fr": "Job d'été dans les soins (temporaire)"
       },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAuf der Medizinischen Aufnahmestation stellen wir Diagnosen und nehmen Patient:innen für die Bettenstationen auf.\n\nDu wirst mehrheitlich auf Delegation von diplomierten Pflegefachpersonen arbeiten. Zu deinen Aufgaben gehören: Die Begrüssung und Aufnahme von Patient:innen, die Übernahme von pflegerischen Tätigkeiten, die Sicherstellung des Materials und die Zimmerreinigung nach Austritten.\n\nEintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Tätigkeit\n\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n\n• Interdisziplinäre, lehrreiche Zusammenarbeit\n\nSo wirst du Teil unseres Teams\n\n• Student:in mit sozialmedizinischem Hintergrund\n\n• Pflegehelfer:in, Pflegeassistent:in oder AGS\n\n• Interesse am Umgang mit alten und kranken Menschen\n\n• Teamfähig und belastbar\n\n• Interesse an medizinischen Themen und an der Pflege",
+      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAuf der Aufnahmestation stellen wir Diagnosen und nehmen Patienten für die Bettenstation auf.\n\nDu wirst mehrheitlich auf Delegation von diplomierten Pflegefachpersonen arbeiten. Zu deinen Aufgaben gehören: Die Begrüssung und Aufnahme der Patienten, die Übernahme von pflegerischen Tätigkeiten, die Sicherstellung des Materials und die Zimmerreinigung nach Austritt.\n\nEintritt per sofort oder nach Vereinbarung befristet bis mind. 30. September 2026\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Tätigkeit\n\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n\n• Interdisziplinäre, lehrreiche Zusammenarbeit\n\nSo wirst du Teil unseres Teams\n\n• Student:in mit sozialmedizinischen Hintergrund\n\n• Pflegeasstent:in, Pflegehelfer:in oder AGS\n\n• Interesse am Umgang mit alten und kranken Menschen\n\n• Teamfähig und belastbar\n\n• Interesse an medizinischen Themen und an der Pflege",
       "descriptionByLocale": {
         "it": "Un lavoro con prospettive: In ospedale Thun, insieme alle infrastrutture all'avanguardia e a un lavoro di Famiglia, potete anche aspettarvi la possibilità di attività flessibili per il tempo libero nella natura circostante e nella regione del lago. State cercando un'infrastruttura significativa ma anche giusta? Allora siete proprio qui. Per alleviare i nostri team cerchiamo un supporto temporaneo. I vostri compiti includono. Entro immediatamente o su appuntamento, limitato al limite di 30. Settembre 2026 Questo vi aspetta - attività variegata ed emozionante nel paziente e nelle pulizie - Ottimo spirito di squadra e collaboratori motivati - Cooperazione interdisciplinare ed educativa Così entriate a far parte del nostro team - interesse per i malati e gli anziani - Alta capacità di squadra e personalità affidabile - interesse per i med. argomenti e per la cura",
         "en": "Descrizione A job with prospects: In the hospital Thun, along with the state-of-the-art infrastructure and a versatile work in the family environment, you can also expect the possibility of flexible leisure activities in the surrounding nature and lake region. You are looking for meaningful but also fair? Then you are right here. To relieve our teams we are looking for temporary support.\n• Your tasks include... Entry by immediately or by appointment, limited to the limit of 30. September 2026 This is waiting for you - varied and exciting activity in the patient and in the housekeeping - Very good team spirit and motivated employees - Interdisciplinary, educational cooperation So you become part of our team - interest in dealing with sick and elderly people - High team skills and reliable personality - interest in med. topics and in the care",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Auf der Medizinischen Aufnahmestation stellen wir Diagnosen und nehmen Patient:innen für die Bettenstationen auf. Du wirst mehrheitlich auf Delegation von diplomierten Pflegefachpersonen arbeiten. Zu deinen Aufgaben gehören: Die Begrüssung und Aufnahme von Patient:innen, die Übernahme von pflegerischen Tätigkeiten, die Sicherstellung des Materials und die Zimmerreinigung nach Austritten. Eintritt per sofort oder nach Vereinbarung, befristet bis mind. 30. September 2026 Das wartet auf dich\n• Abwechslungsreiche und spannende Tätigkeit\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n• Interdisziplinäre, lehrreiche Zusammenarbeit So wirst du Teil unseres Teams\n• Student:in mit sozialmedizinischem Hintergrund\n• Pflegehelfer:in, Pflegeassistent:in oder AGS\n• Interesse am Umgang mit alten und kranken Menschen\n• Teamfähig und belastbar\n• Interesse an medizinischen Themen und an der Pflege",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Auf der Aufnahmestation stellen wir Diagnosen und nehmen Patienten für die Bettenstation auf. Du wirst mehrheitlich auf Delegation von diplomierten Pflegefachpersonen arbeiten. Zu deinen Aufgaben gehören: Die Begrüssung und Aufnahme der Patienten, die Übernahme von pflegerischen Tätigkeiten, die Sicherstellung des Materials und die Zimmerreinigung nach Austritt. Eintritt per sofort oder nach Vereinbarung befristet bis mind. 30. September 2026 Das wartet auf dich\n• Abwechslungsreiche und spannende Tätigkeit\n• Sehr guter Teamspirit und motivierte Mitarbeitende\n• Interdisziplinäre, lehrreiche Zusammenarbeit So wirst du Teil unseres Teams\n• Student:in mit sozialmedizinischen Hintergrund\n• Pflegeasstent:in, Pflegehelfer:in oder AGS\n• Interesse am Umgang mit alten und kranken Menschen\n• Teamfähig und belastbar\n• Interesse an medizinischen Themen und an der Pflege",
         "fr": "Descrizione Un emploi avec des perspectives : A l'hôpital Thun, avec l'infrastructure de pointe et un travail polyvalent dans l'environnement familial, vous pouvez également vous attendre à la possibilité d'activités de loisirs flexibles dans la nature environnante et la région du lac. Vous recherchez un sens mais aussi équitable? Ensuite, vous êtes ici. Pour soulager nos équipes, nous cherchons un soutien temporaire.\n• Vos tâches incluent... Entrée par immédiatement ou sur rendez-vous, limitée à la limite de 30. Septembre 2026 Ceci vous attend - activité variée et passionnante dans le patient et dans le ménage - Très bon esprit d'équipe et des employés motivés - Coopération interdisciplinaire et éducative Donc vous devenez membre de notre équipe - intérêt pour traiter avec les personnes malades et âgées - Hautes compétences d'équipe et personnalité fiable - intérêt pour les sujets médicaux et les soins"
       },
       "needsRetranslation": false,
@@ -721,7 +724,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e64cfd8c-92ce-45dd-aff7-6e1b1a65a034/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-23T23:08:53.967Z",
+      "crawledAt": "2026-06-24T12:45:23.862Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
