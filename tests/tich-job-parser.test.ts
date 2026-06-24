@@ -357,3 +357,46 @@ describe('parseTichDetailPage / edge cases', () => {
     expect(shortDesc.length).toBeLessThan(0.25 * result.sourceBodyLength);
   });
 });
+
+// ─── parseTichDetailPage — count-leading title vs section heading (FRO-70 follow-up) ──
+// Real concorsi.ti.ch (Rexx Portal 7) detail pages render every heading as an
+// <h2 class="emp_nr_subtitle">. The actual title routinely starts with a position
+// count ("1 Apprendista …", "2 Collaboratori …"). The old `/^\d/` guard skipped
+// any heading starting with a digit, so the count-leading title was dropped and
+// the next heading "Requisiti:" was mis-picked as the job title.
+// Regression: https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4203
+describe('parseTichDetailPage / count-leading title (emp_nr_subtitle)', () => {
+  const REAL_TITLE =
+    '1 Apprendista operatore/trice informatico/a AFC, per il periodo dal 31 agosto 2026 al 30 agosto 2029, presso il Centro dei sistemi informativi, Bellinzona';
+  const html = `<!DOCTYPE html>
+<html lang="it"><head>
+  <title>Offerta di lavoro ${REAL_TITLE} presso Amministrazione Cantonale Ticino Jobportal</title>
+</head><body>
+  <h1>Repubblica e Cantone Ticino</h1>
+  <div class="emp_nr_outerframe"><div class="emp_nr_innerframe">
+    <h2 class="emp_nr_subtitle">Dipartimento delle finanze e dell'economia</h2>
+    <h2 class="emp_nr_subtitle">87/26</h2>
+    <h2 class="emp_nr_subtitle">${REAL_TITLE}</h2>
+    <h2 class="emp_nr_subtitle">Requisiti:</h2>
+    <p>buona riuscita scolastica in matematica e scienze</p>
+    <h2 class="emp_nr_subtitle">Osservazioni particolari:</h2>
+    <p>sede scolastica: Centro Professionale Tecnico di Locarno</p>
+    <h2 class="emp_nr_subtitle">Documenti e condizioni di presentazione della candidatura:</h2>
+    <p>le candidature vanno inoltrate on-line sul sito www.ti.ch/concorsi</p>
+    <h2 class="emp_nr_subtitle">Scadenza:</h2>
+    <p>24 giugno 2026</p>
+  </div></div>
+</body></html>`;
+
+  const result = parseTichDetailPage(html);
+
+  it('extracts the count-leading concorso title, not the "Requisiti:" section heading', () => {
+    expect(result.title).toContain('Apprendista operatore/trice informatico');
+    expect(result.title).not.toBe('Requisiti:');
+    expect(result.title).not.toMatch(/:\s*$/); // never a section heading
+  });
+
+  it('does not pick any other section heading as the title', () => {
+    expect(result.title).not.toMatch(/^(Requisiti|Osservazioni|Documenti|Scadenza)/i);
+  });
+});
