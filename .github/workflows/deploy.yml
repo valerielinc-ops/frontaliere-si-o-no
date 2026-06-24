@@ -422,6 +422,11 @@ jobs:
         if: matrix.locale == 'it'
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+          # CDN publish target: 'pages' (legacy git force-push, default) or 'r2'
+          # (Cloudflare R2 S3 sync — instant publish, kills the #2569 gate wait).
+          # Flip by setting the repo variable CDN_TARGET=r2 (no code change). R2_*
+          # creds are hydrated from Remote Config by the earlier load-rc-env step.
+          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
       - name: Upload Pages artifact (compression-level 9)
@@ -716,6 +721,10 @@ jobs:
           # path (e.g. Cloudflare R2: no size limit, instant PUT, marker visible in
           # seconds) or split it back under 1 GB. Tracked for #2872 follow-up.
           CDN_WAIT_TIMEOUT_S: 2700
+          # When CDN_TARGET=r2 the marker is published to R2 (no-store); the gate
+          # then cache-busts each poll so it sees R2's strong read-after-write id
+          # immediately — the 2700s budget becomes a near-no-op (match in seconds).
+          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
         run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
 
       - name: Push locale shard

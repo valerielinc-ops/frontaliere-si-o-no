@@ -61,10 +61,16 @@ elapsed=0
 attempt=0
 while :; do
   attempt=$((attempt + 1))
+  # On R2 the marker is published with `no-store`, but append a unique cache-bust
+  # query per poll so the Cloudflare edge can NEVER serve a stale id: R2 is
+  # read-after-write strong at origin, and a fresh query key forces an origin
+  # fetch. Harmless on Pages (static server ignores the query, Fastly keys on it).
+  poll_url="$url"
+  if [ "${CDN_TARGET:-pages}" = "r2" ]; then poll_url="${url}?nocache=${attempt}-${elapsed}"; fi
   # `|| true` (and a literal fallback): under a caller's `set -e`/pipefail a
   # curl miss (404 / not-yet-published) must NOT abort — it is the expected
   # transient state we are polling through.
-  got="$(curl -fsS "$url" 2>/dev/null || true)"
+  got="$(curl -fsS "$poll_url" 2>/dev/null || true)"
   got="$(printf '%s' "$got" | tr -d '[:space:]')"
   if [ "$got" = "$expected" ]; then
     echo "[wait-cdn-build-id] ✅ CDN published build id=${expected} after ${elapsed}s (${attempt} polls) — shard publish unblocked"
