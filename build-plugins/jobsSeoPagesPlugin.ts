@@ -9845,6 +9845,22 @@ ${staticAnalyticsHtml}
  // hreflang/canonical audits or OOMs, restore the `if (known) break`.
  const knownNorm = known ? known.replace(/\/+$/, '') : known;
  if (knownNorm === compatPath) break; // already the canonical path — no-op
+ // Native-canton-wins for EXPIRED slugs. COMPAT_JOB_PATTERNS above only match
+ // Ticino sections, so a canton-drifted job indexed under BOTH its native
+ // non-TI canton (e.g. Zurich — the canonical per `location` and the committed
+ // ledger) AND a legacy TI section would have its rich soft-landing HIJACKED
+ // onto the TI path, abandoning the native (indexed) URL to the thin cfHot404
+ // "Pagina archiviata" stub (observed: EFG "Internship – Business Management,
+ // Global Markets & Treasury" Zurich — /…-zurich/… served the stub while
+ // /…-ticino/… served the real content). Unlike the #2600 case below, an
+ // EXPIRED slug has NO active page covering its native canton, so the native
+ // ledger path is the ONLY rich page it will ever get: keep it. The drifted TI
+ // URL still recovers via the cfHot404 bridge, which resolves the slug's ledger
+ // canonical and emits a `canton-moved` bridge pointing at the native page.
+ // ACTIVE slugs (currentSlugs) keep the existing override: their native canton
+ // is already served by the live job page, so moving the soft-landing onto the
+ // drifted indexed URL is correct.
+ if (known && !currentSlugs.has(slug)) break;
  if (known) cantonDriftCompatSlugs.add(slug);
  (tracking[slug] as Record<string, string>)[locale] = compatPath;
  compatAdded++;
