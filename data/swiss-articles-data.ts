@@ -1055,6 +1055,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia',
+    category: 'pratico',
+    date: '2026-06-24T03:05:33.285Z',
+    image: '/images/blog/frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4132,6 +4132,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-permesso-g-pro-contro-frontalieri': { name: 'Permesso G', path: '/articoli-svizzera/permesso-g-pro-contro-frontalieri/', parent: 'blog' },
     'blog-permesso-g-frontalieri-pro-contro': { name: 'Permesso G', path: '/articoli-svizzera/permesso-g-frontalieri-pro-contro/', parent: 'blog' },
     'blog-tassazione-frontalieri-2026-nuovo-accordo': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/tassazione-frontalieri-2026-nuovo-accordo/', parent: 'blog' },
+    'blog-frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia': { name: 'Frontaliere Svizzera', path: '/articoli-svizzera/frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -141,6 +141,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'permesso-g-pro-contro-frontalieri': { it: 'permesso-g-pro-contro-frontalieri', en: 'permit-g-pros-cons-cross-border-workers', de: 'bewilligung-g-vor-und-nachteile-grenzgaenger', fr: 'permis-g-pour-et-contre-frontaliers' },
  'permesso-g-frontalieri-pro-contro': { it: 'permesso-g-frontalieri-pro-contro', en: 'permit-g-cross-border-workers-pros-cons', de: 'bewilligung-g-grenzganger-vorteile-nachteile', fr: 'permis-g-frontaliers-avantage-inconvenient' },
  'tassazione-frontalieri-2026-nuovo-accordo': { it: 'tassazione-frontalieri-2026-nuovo-accordo', en: 'cross-border-workers-taxation-2026-new-agreement', de: 'grenzgaenger-besteuerung-2026-neues-abkommen', fr: 'travailleurs-frontaliers-fiscalite-2026-nouvel-accord' },
+ 'frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia': { it: 'frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia', en: 'frontaliere-choice-switzerland-work-salary-taxes-traffic-italy-comparison', de: 'frontaliere-wahl-schweiz-arbeit-gehalt-steuern-verkehr-italien-vergleich', fr: 'frontaliere-choix-suisse-travail-salaire-fiscalit-c3-a9-trafic-confrontation-ita' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

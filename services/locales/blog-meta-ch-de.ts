@@ -355,6 +355,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.title': 'Grenzgängerbesteuerung 2026: Die neuen Regeln nach der Steuervereinbarung',
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.excerpt': 'Erfahren Sie, wie sich die Besteuerung von Grenzgängern ab 2026 mit dem neuen Steuerabkommen zwischen der Schweiz und Italien ändert.',
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.title': 'Schweiz, erfolgreiche Wahl für Arbeit und Steuern',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.excerpt': 'Finden Sie heraus, warum immer mehr Grenzgänger die Schweiz für Arbeit, Gehalt, Steuern und Verkehr wählen.',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.imageAlt': 'Eine Person, die durch die Straßen von Lugano spaziert, mit dem See im Hintergrund und den Bergen in der Ferne.',
 };
 
 export default blogMetaChDe;

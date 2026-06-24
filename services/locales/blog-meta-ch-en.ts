@@ -355,6 +355,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.title': 'Border taxation 2026: the new rules after the tax agreement',
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.excerpt': 'Find out how the taxation for border workers changes from 2026 with the new tax agreement between Switzerland and Italy.',
     'blog.article.tassazione-frontalieri-2026-nuovo-accordo.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.title': 'Switzerland, winning choice for work and taxes',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.excerpt': 'Find out why more and more cross-border workers are choosing Switzerland for work, salary, taxes and traffic.',
+    'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.imageAlt': 'A person walking in the streets of Lugano, with the lake in the background and the mountains in the distance.',
 };
 
 export default blogMetaChEn;
