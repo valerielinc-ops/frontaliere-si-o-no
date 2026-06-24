@@ -990,16 +990,19 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorName: 'Marco Ferrari',
    },
    {
-
     id: 'nessuna-proroga-garanzie-aziende-elettriche',
     category: 'novita',
     date: '2026-06-23T16:32:44.998Z',
     image: '/images/blog/nessuna-proroga-garanzie-aziende-elettriche.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
     id: 'garanzie-aziende-elettriche-senza-proroga',
     category: 'novita',
     date: '2026-06-23T16:38:46.965Z',
     image: '/images/blog/garanzie-aziende-elettriche-senza-proroga.webp',
-
     hasCalculator: true,
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
@@ -1032,16 +1035,19 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorName: 'Laura Bianchi',
    },
    {
-
     id: 'permesso-g-pro-contro-frontalieri',
     category: 'pratico',
     date: '2026-06-23T20:17:08.028Z',
     image: '/images/blog/permesso-g-pro-contro-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
     id: 'permesso-g-frontalieri-pro-contro',
     category: 'pratico',
     date: '2026-06-23T20:34:02.612Z',
     image: '/images/blog/permesso-g-frontalieri-pro-contro.webp',
-
     hasCalculator: true,
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',

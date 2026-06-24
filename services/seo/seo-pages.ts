@@ -7522,14 +7522,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2875, "name": "Il Parlamento svizzero fatica a trovare l’intes...", "url": `${BASE_URL}/articoli-frontaliere/parlamento-svizzero-accordi-avs` },
           { "@type": "ListItem", "position": 2876, "name": "Guida al calcolo tasse per frontalieri entro 20...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-tasse-frontalieri-20km` },
 
-          { "@type": "ListItem", "position": 2877, "name": "Nessuna proroga per le garanzie statali alle az...", "url": `${BASE_URL}/articoli-frontaliere/nessuna-proroga-garanzie-aziende-elettriche` }
-          { "@type": "ListItem", "position": 2877, "name": "Nessuna proroga per le garanzie statali alle az...", "url": `${BASE_URL}/articoli-frontaliere/garanzie-aziende-elettriche-senza-proroga` },
+          { "@type": "ListItem", "position": 2877, "name": "Nessuna proroga per le garanzie statali alle az...", "url": `${BASE_URL}/articoli-frontaliere/nessuna-proroga-garanzie-aziende-elettriche` },
           { "@type": "ListItem", "position": 2878, "name": "Guida ai contributi sociali svizzeri per fronta...", "url": `${BASE_URL}/articoli-frontaliere/contributi-sociali-frontalieri-busta-paga` },
           { "@type": "ListItem", "position": 2879, "name": "Quanto costa vivere a Lugano da frontaliere: an...", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-lugano-frontaliere` },
           { "@type": "ListItem", "position": 2880, "name": "Calcolo pensione frontalieri: come funziona AVS...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontalieri-avs-italiana` },
 
-          { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-pro-contro-frontalieri` }
-          { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-frontalieri-pro-contro` },
+          { "@type": "ListItem", "position": 2881, "name": "Permesso G frontalieri: vantaggi e svantaggi co...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-pro-contro-frontalieri` },
           { "@type": "ListItem", "position": 2882, "name": "Tassazione frontalieri 2026: le nuove regole do...", "url": `${BASE_URL}/articoli-frontaliere/tassazione-frontalieri-2026-nuovo-accordo` },
           { "@type": "ListItem", "position": 2883, "name": "Svizzera, scelta vincente per lavoro e tasse", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia` },
           { "@type": "ListItem", "position": 2884, "name": "Pomodori economici spagnoli, un'era al capolinea?", "url": `${BASE_URL}/articoli-frontaliere/pomodori-economici-spagnoli-unera-al-capolinea` }
