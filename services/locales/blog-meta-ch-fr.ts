@@ -403,6 +403,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aumento-iva-esercito-2024.title': 'Augmentation de la TVA pour l\'armée : le Conseil fédéral revoit à la baisse',
     'blog.article.aumento-iva-esercito-2024.excerpt': 'Le Conseil fédéral a décidé d\'augmenter temporairement la TVA pour financer le renforcement de la défense, en atténuant l\'impact sur les ménages à faible revenu.',
     'blog.article.aumento-iva-esercito-2024.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.riordino-incentivi-imprese.title': 'Réorganisation des incitations: ce qui change',
+    'blog.article.riordino-incentivi-imprese.excerpt': 'Le Conseil des ministres a approuvé le décret qui rationalise les incitations aux entreprises, en les concentrant sur cinq instruments principaux.',
+    'blog.article.riordino-incentivi-imprese.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaChFr;

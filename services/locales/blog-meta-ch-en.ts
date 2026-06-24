@@ -403,6 +403,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aumento-iva-esercito-2024.title': 'VAT increase for the army: the Federal Council revises downwards',
     'blog.article.aumento-iva-esercito-2024.excerpt': 'The Federal Council has decided to temporarily increase VAT to finance defence strengthening, mitigating the impact on low-income domestic economies.',
     'blog.article.aumento-iva-esercito-2024.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.riordino-incentivi-imprese.title': 'Reordering incentives for companies: what changes with the new decree',
+    'blog.article.riordino-incentivi-imprese.excerpt': 'The Council of Ministers approved the decree streamlining business incentives, focusing them on five main instruments.',
+    'blog.article.riordino-incentivi-imprese.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
 };
 
 export default blogMetaChEn;
