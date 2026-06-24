@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2899,
+ "numberOfItems": 2900,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7545,7 +7545,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2896, "name": "Aumento IVA: il Governo decide di attenuare l'i...", "url": `${BASE_URL}/articoli-frontaliere/iva-aumento-governo-decisione-previsto` },
           { "@type": "ListItem", "position": 2897, "name": "Controlli alla frontiera per il G7: 11 divieti ...", "url": `${BASE_URL}/articoli-frontaliere/controlli-frontiera-g7-divieti-entrata` },
           { "@type": "ListItem", "position": 2898, "name": "Il caldo incide sul traffico ferroviario: ecco ...", "url": `${BASE_URL}/articoli-frontaliere/caldo-traffico-ferroviario` },
-          { "@type": "ListItem", "position": 2899, "name": "Affitti, il mercato rallenta: Lugano tra le cit...", "url": `${BASE_URL}/articoli-frontaliere/affitti-lugano-mercato-rallenta` }
+          { "@type": "ListItem", "position": 2899, "name": "Affitti, il mercato rallenta: Lugano tra le cit...", "url": `${BASE_URL}/articoli-frontaliere/affitti-lugano-mercato-rallenta` },
+          { "@type": "ListItem", "position": 2900, "name": "Per TPL un 2025 tra passato e futuro, con numer...", "url": `${BASE_URL}/articoli-frontaliere/tpl-2025-record-numeri` }
  ]
  },
  {

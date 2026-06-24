@@ -155,6 +155,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'controlli-frontiera-g7-divieti-entrata': { it: 'controlli-frontiera-g7-divieti-entrata', en: 'border-controls-g7-entry-bans', de: 'grenzkontrollen-g7-einreiseverbote', fr: 'controles-frontieres-g7-interdictions-entree' },
  'caldo-traffico-ferroviario': { it: 'caldo-traffico-ferroviario', en: 'heat-impact-on-rail-traffic', de: 'hitze-auswirkung-auf-eisenbahnverkehr', fr: 'chaleur-impact-sur-trafic-ferroviaire' },
  'affitti-lugano-mercato-rallenta': { it: 'affitti-lugano-mercato-rallenta', en: 'rental-market-lugano-slows-down', de: 'mietmarkt-lugano-verlangsamt', fr: 'marche-locatif-lugano-ralentit' },
+ 'tpl-2025-record-numeri': { it: 'tpl-2025-record-numeri', en: 'tpl-2025-record-numbers', de: 'tpl-2025-rekordzahlen', fr: 'tpl-2025-nombres-record' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

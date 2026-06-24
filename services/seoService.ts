@@ -4175,6 +4175,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controlli-frontiera-g7-divieti-entrata': { name: 'Controlli frontiera', path: '/articoli-svizzera/controlli-frontiera-g7-divieti-entrata/', parent: 'blog' },
     'blog-caldo-traffico-ferroviario': { name: 'Caldo e traffico ferroviario', path: '/articoli-svizzera/caldo-traffico-ferroviario/', parent: 'blog' },
     'blog-affitti-lugano-mercato-rallenta': { name: 'Affitti Lugano', path: '/articoli-svizzera/affitti-lugano-mercato-rallenta/', parent: 'blog' },
+    'blog-tpl-2025-record-numeri': { name: 'Trasporti Pubblici Luganesi', path: '/articoli-svizzera/tpl-2025-record-numeri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

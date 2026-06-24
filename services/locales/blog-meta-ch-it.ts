@@ -397,6 +397,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-lugano-mercato-rallenta.title': 'Affitti, il mercato rallenta: Lugano tra le città più in difficoltà',
     'blog.article.affitti-lugano-mercato-rallenta.excerpt': 'Lugano mostra segnali di indebolimento più marcati rispetto ad altre regioni del Paese.',
     'blog.article.affitti-lugano-mercato-rallenta.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
+    'blog.article.tpl-2025-record-numeri.title': 'Per TPL un 2025 tra passato e futuro, con numeri record',
+    'blog.article.tpl-2025-record-numeri.excerpt': 'L\'assemblea generale della Trasporti Pubblici Luganesi SA celebra 25 anni di attività e l\'avvio della prima linea elettrificata urbana.',
+    'blog.article.tpl-2025-record-numeri.imageAlt': 'Vista panoramica di Lugano con mezzi pubblici elettrici',
 };
 
 export default blogMetaChIt;

@@ -397,6 +397,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-lugano-mercato-rallenta.title': 'Location, le marché ralentit : Lugano parmi les villes les plus en difficulté',
     'blog.article.affitti-lugano-mercato-rallenta.excerpt': 'Lugano montre des signes d\'affaiblissement plus marqués que d\'autres régions du pays.',
     'blog.article.affitti-lugano-mercato-rallenta.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.tpl-2025-record-numeri.title': 'Pour TPL, une 2025 entre passé et futur, avec des chiffres record',
+    'blog.article.tpl-2025-record-numeri.excerpt': 'L\'assemblée générale de Transportes Públic Luganesi SA célèbre 25 ans d\'activité et le lancement de la première ligne électrifiée urbaine.',
+    'blog.article.tpl-2025-record-numeri.imageAlt': 'Vue panoramique de Lugano avec transports publics électriques',
 };
 
 export default blogMetaChFr;

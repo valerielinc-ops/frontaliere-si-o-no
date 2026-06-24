@@ -397,6 +397,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-lugano-mercato-rallenta.title': 'Mieten: Lugano unter den am stärksten betroffenen Städten',
     'blog.article.affitti-lugano-mercato-rallenta.excerpt': 'Lugano zeigt stärkere Schwächungssignale als andere Regionen des Landes.',
     'blog.article.affitti-lugano-mercato-rallenta.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.tpl-2025-record-numeri.title': 'Für TPL ein 2025 zwischen Vergangenheit und Zukunft, mit Rekordzahlen',
+    'blog.article.tpl-2025-record-numeri.excerpt': 'Die Generalversammlung der Trasporti Pubblici Luganesi SA feiert ihr 25-jähriges Bestehen und die Inbetriebnahme der ersten städtischen elektrifizierten Linie.',
+    'blog.article.tpl-2025-record-numeri.imageAlt': 'Panoramablick auf Lugano mit elektrischem Nahverkehr',
 };
 
 export default blogMetaChDe;
