@@ -111,14 +111,15 @@ step_spa_fallback() {
 # ── R2 publish (Cloudflare R2 via S3 API) — instant PUT, no Pages build ───────
 # Used when CDN_TARGET=r2 (else the legacy git force-push below runs). Replaces
 # the ~22min GitHub Pages publish latency (root cause of the #2569/#2872 stale-
-# locale class) with an instant, read-after-write-strong R2 sync. Incremental
-# `aws s3 sync` is ADDITIVE (no --delete → prior assets/ stay; superseded hashes
-# GC'd by the janitor past grace), so the clone-prev `cp -n` dance Pages needs is
-# unnecessary here. Per-class Cache-Control lets the Cloudflare edge absorb reads
-# (R2 Class B stays in the free tier). Content-Type is auto-detected from the
-# file extension by the AWS CLI. The #2569 atomicity marker is PUT LAST with
-# `no-store` so the cache-busted gate (wait-cdn-build-id.sh) sees the new id the
-# instant the full payload is on R2 — never an edge-cached stale value.
+# locale class) with an instant, read-after-write-strong R2 upload. `rclone copy
+# --checksum` is ADDITIVE (copy = no delete → prior asset hashes stay, GC'd by
+# the janitor past grace) AND content-diffed (only changed bytes PUT), so the
+# clone-prev `cp -n` dance Pages needs is unnecessary here. Per-class
+# Cache-Control lets the Cloudflare edge absorb reads (R2 Class B stays in the
+# free tier). Content-Type is auto-detected from the file extension by rclone.
+# The #2569 atomicity marker is PUT LAST with `no-store` so the cache-busted
+# gate (wait-cdn-build-id.sh) sees the new id the instant the full payload is on
+# R2 — never an edge-cached stale value.
 _publish_cdn_r2() {
   local stage="$1"
   if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
@@ -126,34 +127,63 @@ _publish_cdn_r2() {
     echo "::warning::CDN_TARGET=r2 but R2_* creds missing — skipping CDN publish (assets stay in dist)"
     return 0
   fi
-  if ! command -v aws >/dev/null 2>&1; then
-    echo "::error::CDN_TARGET=r2 but the aws CLI is not on the runner — cannot sync to R2"
-    return 0
+  # rclone COPY with --checksum: a true CONTENT diff (per-file MD5 vs the S3
+  # ETag read from the LIST — no per-object HEAD) → only files whose BYTES
+  # changed are PUT. We use `copy`, NOT `sync`: `sync` DELETES dest objects
+  # absent from the local stage, which would wipe superseded asset hashes the
+  # INSTANT a new build lands — but a visitor whose cached index.html
+  # (max-age=600) still references assets/index-OLDHASH.js would then 404 →
+  # blank SPA (the 2026-06-04 outage class). `copy` is ADDITIVE (prior hashes
+  # stay, GC'd later by the janitor past grace), preserving the same contract
+  # as the Pages additive `cp -n` path. `aws s3 sync` was wrong for a different
+  # reason: it compares size+mtime, and every deploy rebuilds the files with a
+  # newer mtime → it re-uploaded the WHOLE payload (~35k PutObject/deploy,
+  # measured), which would exhaust the R2 free-tier Class-A budget (1M/mo) in
+  # ~2 days. With copy --checksum the stable assets/og and unchanged data are
+  # skipped (0 PUT); only genuinely changed files upload → a few LIST ops + N
+  # changed PUTs per deploy. (First rclone run may re-PUT files aws had stored
+  # multipart — composite ETag ≠ plain MD5 — once; thereafter single-part.)
+  local rtmp="${RUNNER_TEMP:-/tmp}"
+  if ! command -v rclone >/dev/null 2>&1; then
+    echo "[r2] rclone not found — installing static binary…"
+    if curl -fsSL https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip" \
+       && unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin"; then
+      chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null || true
+      export PATH="$rtmp/rclone-bin:$PATH"
+    fi
+    command -v rclone >/dev/null 2>&1 || { echo "::error::CDN_TARGET=r2 but rclone install failed — cannot sync to R2"; return 0; }
   fi
-  export AWS_ACCESS_KEY_ID="$R2_ACCESS_KEY_ID"
-  export AWS_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY"
-  export AWS_DEFAULT_REGION=auto
-  local ep="$R2_S3_ENDPOINT" bkt="s3://$R2_BUCKET" ok=1
-  echo "CDN→R2: payload $(du -sh "$stage" | cut -f1) → $bkt"
-  _r2_sync() { # <src-dir> <dst-prefix> <cache-control>
+  # On-the-fly S3 remote (no config file). --checksum = content-hash compare;
+  # --no-update-modtime avoids rewriting metadata on skipped files;
+  # --s3-no-check-bucket skips a HeadBucket (1 fewer op, no CreateBucket perm).
+  local RC=(rclone
+    --s3-provider=Cloudflare
+    --s3-access-key-id="$R2_ACCESS_KEY_ID"
+    --s3-secret-access-key="$R2_SECRET_ACCESS_KEY"
+    --s3-endpoint="$R2_S3_ENDPOINT"
+    --s3-region=auto
+    --s3-no-check-bucket
+    --checksum --no-update-modtime --transfers=24 --checkers=48 --fast-list)
+  local bkt=":s3:$R2_BUCKET" ok=1
+  echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
+  _r2_sync() { # <src-dir> <dst-prefix> <cache-control> — COPY (additive, no delete)
     [ -d "$1" ] || return 0
-    aws s3 sync "$1" "$bkt/$2" --endpoint-url "$ep" --no-progress --only-show-errors \
-      --cache-control "$3" || ok=0
+    "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 || ok=0
   }
   _r2_sync "$stage/assets" assets "public,max-age=31536000,immutable"
   _r2_sync "$stage/og"     og     "public,max-age=86400"
   _r2_sync "$stage/images" images "public,max-age=86400"
   _r2_sync "$stage/data"   data   "public,max-age=600"
-  aws s3 cp "$stage/index.html" "$bkt/index.html" --endpoint-url "$ep" --no-progress --only-show-errors \
-    --content-type "text/html; charset=utf-8" --cache-control "public,max-age=600" || ok=0
+  "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
+    --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
   if [ "$ok" != 1 ]; then
     echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
     return 0
   fi
   # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
   printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
-  if aws s3 cp "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" --endpoint-url "$ep" --no-progress \
-       --only-show-errors --content-type "text/plain; charset=utf-8" --cache-control "no-store, max-age=0"; then
+  if "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
+       --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
     echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
   else
