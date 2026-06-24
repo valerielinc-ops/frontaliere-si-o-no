@@ -30,6 +30,16 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
+import searchClusterMapFile from '../data/search-cluster-301-map.json';
+
+// Legacy per-canton related-search cluster URLs (old slug format, now 404). The
+// hot-list/GSC sweeps miss them (mostly origin-side worker probes, not eyeball
+// hits), so seed them here directly; each has a verified live target so
+// resolveSearchConsoleCompatTarget upgrades it to the SPECIFIC live cluster. The
+// set is small (~3.8k) and fully resolvable — negligible vs the hard cap.
+const SEARCH_CLUSTER_LEGACY_PATHS: string[] = Object.keys(
+  (searchClusterMapFile as { map?: Record<string, string> }).map ?? {},
+);
 
 // Anti-runaway rail (NOT a recovery limit): the 40k hard cap used to bite the
 // real CF-confirmed 404 universe — a time-sliced sweep (build-cf-hot-404s.mjs,
@@ -97,6 +107,14 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
             addPath(p, GSC_SYNTHETIC_HITS);
           }
         } catch { /* unreadable coverage list — use whatever the hot-list gave */ }
+      }
+      // Legacy related-search cluster URLs (see SEARCH_CLUSTER_LEGACY_PATHS).
+      // Synthetic floor of 2 (above the accumulator's 1, below GSC) — these are
+      // GSC-indexed dead URLs with a verified live target, worth recovering, but
+      // not ahead of genuinely hot edge 404s. Bounded (~3.8k), always resolvable.
+      const CLUSTER_LEGACY_SYNTHETIC_HITS = 2;
+      for (const p of SEARCH_CLUSTER_LEGACY_PATHS) {
+        addPath(p, CLUSTER_LEGACY_SYNTHETIC_HITS);
       }
       // Third source (OPT-IN): the full Cloudflare-imported 404 accumulator.
       // Every path Google/CF has hit at the edge lands here (appended daily by
