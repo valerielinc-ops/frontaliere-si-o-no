@@ -1281,6 +1281,7 @@ function subscriberFromFirestoreRow(row) {
   const fresh = calculateEngagementScore(row);
   return {
     email,
+    name: row.name || null,
     locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
     sourceChannel: row.source_channel || row.source || 'newsletter_page',
     locationInterest: row.location_interest || null,
@@ -2151,6 +2152,7 @@ async function main() {
       weeklyFact: getWeeklyFact(locale),
       metrics,
       locale,
+      recipientName: subscriber.name,
       issueNumber,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
