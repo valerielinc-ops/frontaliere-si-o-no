@@ -6,7 +6,7 @@
  * dedicated GAM ad unit (/23355151813/article-rail-{left,right}, sizes
  * 300x600 / 160x600 / 300x250 + fluid, AdSense backfill on) via GPT, so AdSense
  * Auto Ads keep serving untouched. Created programmatically by
- * scripts/gam-create-rail-units.mjs.
+ * scripts/gam-create-ad-units.mjs.
  *
  * Lives inside the rail's existing `sticky top-6` stack, so the half-page ad
  * rides down the gutter as the reader scrolls. Runtime kill-switch: Firebase
@@ -24,7 +24,7 @@ const RAIL_AD_UNIT_PATHS = {
 } as const;
 
 // Premium vertical display sizes first, box + fluid as fallback — must match
-// what the GAM ad unit allows (see scripts/gam-create-rail-units.mjs). Used on
+// what the GAM ad unit allows (see scripts/gam-create-ad-units.mjs). Used on
 // the wide (300px) reading-page rails (blog / job / static SEO).
 const RAIL_SIZES: GptSize[] = [[300, 600], [160, 600], [300, 250], 'fluid'];
 // Narrow rail (160px SPA tool-page gutter): only 160-wide creatives + fluid, so

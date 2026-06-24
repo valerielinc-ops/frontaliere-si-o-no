@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /**
- * Create (or reuse) the desktop article side-rail ad units in Google Ad Manager,
- * then print the GPT ad-unit paths to wire into the front-end.
+ * Create (or reuse) the site's own GPT/GAM display ad units in Google Ad
+ * Manager, then print the GPT ad-unit paths to wire into the front-end.
  *
- * WHY GAM (not AdSense): the original AdSense rail units were archived in the
+ * Covers the desktop article side-rails AND the desktop top banner.
+ *
+ * WHY GAM (not AdSense): the original AdSense units were archived in the
  * 2026-04-26 prune, and the AdSense Management API v2 cannot create ad units
  * for this account (POST adunits → 403 PERMISSION_DENIED) nor reactivate an
  * archived one (state is read-only). The site already serves a GPT slot
@@ -14,18 +16,22 @@
  * impressions, so fill stays comparable to a plain AdSense unit while Auto Ads
  * keep serving untouched.
  *
- * Each rail unit allows the premium vertical display sizes (300x600 half-page,
- * 160x600 wide skyscraper) plus 300x250 + fluid as a fallback, mirroring the
- * PoC unit's BROWSER/fluid/AdSense-enabled config. AdSense settings are
- * inherited from the network root (already AdSense-enabled).
+ * Sizes are per-unit (see TARGETS). AdSense settings are inherited from the
+ * network root (already AdSense-enabled).
+ *  - Rails: premium verticals (300x600 half-page, 160x600 skyscraper) + 300x250
+ *    box + fluid fallback.
+ *  - Top banner: uniform-height leaderboards only (970x90, 728x90), isFluid
+ *    false — a single creative height (90px) lets the front-end slot reserve
+ *    exactly that height, so it never leaves a blank band above the fold (the
+ *    gap a variable-height Auto Ad / aspect-ratio box caused).
  *
  * Auth: service-account JSON with GAM (dfp) access on the network.
  *   GOOGLE_APPLICATION_CREDENTIALS=./mcp-gsc-main/service_account_credentials.json
  *
  * Usage:
  *   GOOGLE_APPLICATION_CREDENTIALS=./mcp-gsc-main/service_account_credentials.json \
- *     node scripts/gam-create-rail-units.mjs            # create/reuse
- *   ... node scripts/gam-create-rail-units.mjs --dry-run  # list only, no writes
+ *     node scripts/gam-create-ad-units.mjs            # create/reuse
+ *   ... node scripts/gam-create-ad-units.mjs --dry-run  # list only, no writes
  */
 import { readFileSync } from 'node:fs';
 import { createSign } from 'node:crypto';
@@ -35,12 +41,12 @@ const NETWORK_CODE = '23355151813';
 const APP_NAME = 'frontaliere-rail';
 const DRY_RUN = process.argv.includes('--dry-run');
 
+// Each target carries its own sizes + isFluid.
 const TARGETS = [
-  { adUnitCode: 'article-rail-left', name: 'Article rail — left (desktop)' },
-  { adUnitCode: 'article-rail-right', name: 'Article rail — right (desktop)' },
+  { adUnitCode: 'article-rail-left', name: 'Article rail — left (desktop)', sizes: [[300, 600], [160, 600], [300, 250]], isFluid: true },
+  { adUnitCode: 'article-rail-right', name: 'Article rail — right (desktop)', sizes: [[300, 600], [160, 600], [300, 250]], isFluid: true },
+  { adUnitCode: 'desktop-top-banner', name: 'Desktop top banner', sizes: [[970, 90], [728, 90]], isFluid: false },
 ];
-// Premium vertical display sizes first, box + fluid as fallback.
-const SIZES = [[300, 600], [160, 600], [300, 250]];
 
 const saPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 if (!saPath) { console.error('✗ set GOOGLE_APPLICATION_CREDENTIALS to the GAM service-account JSON'); process.exit(1); }
@@ -96,7 +102,7 @@ async function findByCode(token, adUnitCode) {
 }
 
 function adUnitXml(parentId, t) {
-  const sizesXml = SIZES.map(([w, h]) =>
+  const sizesXml = t.sizes.map(([w, h]) =>
     `<adUnitSizes><size><width>${w}</width><height>${h}</height><isAspectRatio>false</isAspectRatio></size>` +
     `<environmentType>BROWSER</environmentType></adUnitSizes>`).join('');
   // Element order must follow the AdUnit XSD: parentId, name, targetWindow,
@@ -107,7 +113,7 @@ function adUnitXml(parentId, t) {
     `<targetWindow>TOP</targetWindow>` +
     `<adUnitCode>${escapeXml(t.adUnitCode)}</adUnitCode>` +
     sizesXml +
-    `<isFluid>true</isFluid>` +
+    `<isFluid>${t.isFluid ? 'true' : 'false'}</isFluid>` +
     `</adUnits>`;
 }
 
