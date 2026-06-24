@@ -18,15 +18,24 @@
  *   node scripts/newsletter-sunset.mjs            # DRY-RUN (no writes, no email)
  *   node scripts/newsletter-sunset.mjs --apply    # apply status transitions, mark winback
  *   node scripts/newsletter-sunset.mjs --apply --send   # also send the win-back emails
+ *   node scripts/newsletter-sunset.mjs --test-email me@x.ch [--locale it]  # one-off preview send
  *
- * Requires Firebase application-default credentials (CI runs load-rc-env first).
+ * Requires Firebase application-default credentials (CI runs load-rc-env first);
+ * --test-email needs only email-provider keys (no Firestore).
  */
 import { classifySunset } from './lib/subscriberSunset.mjs';
 import { buildWinbackEmail } from '../services/winbackEmail.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 
+function argValue(flag) {
+  const i = process.argv.indexOf(flag);
+  return i >= 0 ? process.argv[i + 1] : undefined;
+}
+
 const APPLY = process.argv.includes('--apply');
 const SEND = process.argv.includes('--send');
+const TEST_EMAIL = argValue('--test-email');
+const TEST_LOCALE = argValue('--locale') || 'it';
 const FROM_EMAIL = process.env.NEWSLETTER_FROM || 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
 
 let db;
@@ -47,7 +56,51 @@ function localeOf(sub) {
   return String(sub?.preferred_locale || sub?.locale || sub?.lang || 'it').split(/[-_]/)[0] || 'it';
 }
 
+/**
+ * Build + send win-back emails via the provider cascade.
+ * @param {Array<{email:string, locale:string}>} items
+ * @returns {Promise<Set<string>>} lowercased emails that FAILED to send
+ */
+async function sendWinbacks(items) {
+  const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+  const cascade = items.map((w) => {
+    const { subject, html, text, unsubscribeUrl } = buildWinbackEmail({ email: w.email, locale: w.locale });
+    return {
+      payload: {
+        from: FROM_EMAIL,
+        to: [w.email],
+        subject,
+        html,
+        text,
+        headers: {
+          'List-Unsubscribe': `<${unsubscribeUrl}>`,
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+        },
+      },
+      recipient: { email: w.email },
+      meta: { type: 'winback' },
+    };
+  });
+  const result = await sendEmailCascade(cascade, { concurrency: 3 });
+  logProviderSummary();
+  return new Set(
+    (result.failed || []).map((f) => String(f?.recipient?.email || f?.payload?.to?.[0] || '').toLowerCase()),
+  );
+}
+
 async function main() {
+  // One-off test send — no Firestore, just deliver a single win-back to inspect it.
+  if (TEST_EMAIL) {
+    console.log(`✉️  Test win-back → ${TEST_EMAIL} (locale=${TEST_LOCALE})`);
+    const failed = await sendWinbacks([{ email: TEST_EMAIL, locale: TEST_LOCALE }]);
+    if (failed.has(TEST_EMAIL.toLowerCase())) {
+      console.error('❌ send failed');
+      process.exit(1);
+    }
+    console.log('✅ sent');
+    return;
+  }
+
   await initFirebase();
   const { FieldValue } = await import('firebase-admin/firestore');
   const now = Date.now();
@@ -106,31 +159,7 @@ async function main() {
     if (!SEND) {
       console.log(`✉️  ${winback.length} win-back candidate(s) — --send not set, NOT sending/marking.`);
     } else {
-      const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
-      const cascade = winback.map((w) => {
-        const { subject, html, text, unsubscribeUrl } = buildWinbackEmail({ email: w.email, locale: w.locale });
-        return {
-          payload: {
-            from: FROM_EMAIL,
-            to: [w.email],
-            subject,
-            html,
-            text,
-            headers: {
-              'List-Unsubscribe': `<${unsubscribeUrl}>`,
-              'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-            },
-          },
-          recipient: { email: w.email },
-          meta: { type: 'winback' },
-        };
-      });
-      const result = await sendEmailCascade(cascade, { concurrency: 3 });
-      logProviderSummary();
-
-      const failedEmails = new Set(
-        (result.failed || []).map((f) => String(f?.recipient?.email || f?.payload?.to?.[0] || '').toLowerCase()),
-      );
+      const failedEmails = await sendWinbacks(winback);
       const confirmed = winback.filter((w) => !failedEmails.has(w.email.toLowerCase()));
       await commitInChunks(db, confirmed, (batch, w) => {
         batch.set(w.ref, { winback_sent_at: FieldValue.serverTimestamp(), winback_pending: true }, { merge: true });
