@@ -408,15 +408,18 @@ export function getDefaultCantonForVisit(): string {
  * @deprecated  D9: per-canton shards are the new source of truth. Migrate to
  *              {@link fetchJobsForCanton} or {@link fetchAggregatedJobs}.
  *
- * Fetches `/data/jobs-{locale}.json` (~24 MB, all cantons mixed, locale-
- * flattened). Used by JobBoard as a final fallback when both the slim-index
- * and the canton shards are unavailable. The master `/data/jobs.json` (88 MB
- * with all *ByLocale fields) is no longer shipped to the deploy artifact —
- * it lives in `public/data/` for build-plugin consumers and is stripped from
+ * Fetches `/data/jobs-{locale}-index.json` (slim listing index, ~1MB gz, all
+ * cantons mixed, locale-flattened — listing fields only, no descriptions).
+ * Used by JobBoard as a final fallback when both the first-page slim asset and
+ * the canton shards are unavailable. Detail (descriptions) is never needed here
+ * — the detail view lazy-fetches `job-detail/{id}.json`. The full
+ * `jobs-{locale}.json` monolith is no longer emitted (its prose duplicated
+ * job-detail); the master `/data/jobs.json` (88 MB with all *ByLocale fields)
+ * lives in `public/data/` for build-plugin consumers and is stripped from
  * `dist/` by `jobsJsonDistCleanupPlugin`. Bypasses the IDB cache entirely.
  */
 export async function fetchAllJobs(locale: Locale): Promise<Job[]> {
- const res = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
  if (!res.ok) {
   throw new Error(`[jobsService] fetchAllJobs(${locale}): HTTP ${res.status}`);
  }

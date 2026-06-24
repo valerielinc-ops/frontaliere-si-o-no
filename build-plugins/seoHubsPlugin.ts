@@ -1311,9 +1311,18 @@ function renderPagination(locale: HubLocale, basePath: string, current: number, 
   // /cerca-lavoro-ticino/tutti/page-387/). Class names are short (.hp, .hc);
   // their rules now live in public/assets/seo-static.css (already linked on
   // these pages) instead of a per-page inline <style> block.
+  //
+  // Hrefs are root-relative (paginatedPath returns `/…/page-N/`), matching
+  // the compact nav above and the `class="thp"` ladder in buildHubHtml.
+  // The absolute `${BASE_URL}` prefix (28 B × every page anchor) was pure
+  // dead weight here — crawlers resolve root-relative links identically and
+  // every anchor is preserved — and with cantons now at ~1500 archive pages
+  // it alone pushed /fr/trouver-emploi-tessin/tous/ past the 215 KB budget
+  // (run 28090796553, ~42 KB of prefix). rel=prev/next <link> head hints
+  // stay absolute (canonical convention).
   const flatAnchors: string[] = [];
   for (let p = 1; p <= total; p++) {
-    const href = `${BASE_URL}${paginatedPath(basePath, p)}`;
+    const href = paginatedPath(basePath, p);
     if (p === current) {
       flatAnchors.push(`<strong class="hc" aria-current="page">${pageWord}&nbsp;${p}</strong>`);
     } else {

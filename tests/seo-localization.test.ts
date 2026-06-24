@@ -42,12 +42,13 @@ describe('SEO localization', () => {
     const section = getSeoSection(route);
     const path = buildPath(route, 'it');
 
-    // After the jobs.json → jobs-{locale}.json migration the SEO loader
-    // fetches the per-locale shard. The fixture here mimics the shape that
-    // localeJobsSplitPlugin emits: `slug` is already flattened to the
-    // active locale's variant, and `*ByLocale` fields are dropped.
+    // After the jobs-{locale}.json → slim-index + job-detail migration the SEO
+    // loader fetches the slim listing index for the slug→id mapping, then the
+    // per-job `job-detail/<id>.json` for the description + structured-data
+    // fields. The index carries listing fields only (no description); the
+    // detail file carries the prose. `slug` is flattened to the active locale.
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
-      if (String(input) === '/data/jobs-it.json') {
+      if (String(input) === '/data/jobs-it-index.json') {
         return {
           ok: true,
           json: async () => ([
@@ -55,13 +56,25 @@ describe('SEO localization', () => {
               id: 'efg-5967',
               slug: 'responsabile-fondi-pensione-efg-international-ag-lugano',
               title: 'Responsabile Fondazione',
-              description: 'Gestione e amministrazione del fondo pensione aziendale a Lugano.',
               company: 'EFG International AG',
               location: 'Lugano',
               contract: 'permanent',
               postedDate: '2026-03-06',
             },
           ]),
+        } as Response;
+      }
+      if (String(input) === '/data/job-detail/efg-5967.json') {
+        return {
+          ok: true,
+          json: async () => ({
+            id: 'efg-5967',
+            title: 'Responsabile Fondazione',
+            description: 'Gestione e amministrazione del fondo pensione aziendale a Lugano.',
+            company: 'EFG International AG',
+            location: 'Lugano',
+            employmentType: 'FULL_TIME',
+          }),
         } as Response;
       }
       throw new Error(`Unexpected fetch: ${String(input)}`);

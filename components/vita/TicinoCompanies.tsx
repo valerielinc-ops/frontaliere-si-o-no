@@ -572,12 +572,14 @@ const TicinoCompanies: React.FC = () => {
 
  useEffect(() => {
  let cancelled = false;
- fetch(cdnDataUrl(`/data/jobs-${locale}.json?fresh=${Date.now()}`), { cache: 'no-store' })
+ // Slim listing index (company/location/companyKey only — all this view needs
+ // to count jobs per company). The full jobs-{locale}.json monolith and the
+ // master jobs.json are no longer shipped to the CDN.
+ fetch(cdnDataUrl(`/data/jobs-${locale}-index.json?fresh=${Date.now()}`), { cache: 'no-store' })
  .then((res) => {
  if (!res.ok) throw new Error(`${res.status}`);
  return res.json();
  })
- .catch(() => fetch(cdnDataUrl(`/data/jobs.json?fresh=${Date.now()}`), { cache: 'no-store' }).then((r) => r.json()))
  .then((data: JobListingLite[]) => {
  if (cancelled || !Array.isArray(data)) return;
  const counts: Record<string, number> = {};
