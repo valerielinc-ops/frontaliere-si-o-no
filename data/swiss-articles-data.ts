@@ -1115,6 +1115,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'dispositivi-medici-rimborsi',
+    category: 'novita',
+    date: '2026-06-24T10:40:35.978Z',
+    image: '/images/blog/dispositivi-medici-rimborsi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

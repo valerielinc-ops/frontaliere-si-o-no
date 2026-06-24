@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2891,
+ "numberOfItems": 2892,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7537,7 +7537,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2888, "name": "Grigioni: iniziativa per pagare in contanti sui...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-pagamento-contanti-bus` },
           { "@type": "ListItem", "position": 2889, "name": "Frontalieri Italia-Svizzera: sede aziendale non...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-italia-svizzera-sede-aziendale` },
           { "@type": "ListItem", "position": 2890, "name": "Voto elettronico per svizzeri all'estero: Kolly...", "url": `${BASE_URL}/articoli-frontaliere/voto-elettronico-svizzeri-estero-nicolas-kolly` },
-          { "@type": "ListItem", "position": 2891, "name": "UBS presenta nuovo modello per la previdenza ve...", "url": `${BASE_URL}/articoli-frontaliere/ubs-previdenza-vecchiaia` }
+          { "@type": "ListItem", "position": 2891, "name": "UBS presenta nuovo modello per la previdenza ve...", "url": `${BASE_URL}/articoli-frontaliere/ubs-previdenza-vecchiaia` },
+          { "@type": "ListItem", "position": 2892, "name": "Berna apre ai rimborsi per dispositivi medici a...", "url": `${BASE_URL}/articoli-frontaliere/dispositivi-medici-rimborsi` }
  ]
  },
  {

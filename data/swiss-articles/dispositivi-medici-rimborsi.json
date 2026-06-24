@@ -1,0 +1,40 @@
+{
+  "id": "dispositivi-medici-rimborsi",
+  "slug": "dispositivi-medici-rimborsi",
+  "publishedAt": "2026-06-24T10:40:37.495Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.097430598513584,
+    "confidence": 0.8,
+    "finalScore": 4.077944478810867,
+    "topK": [
+      {
+        "slug": "disoccupazione-frontalieri-parigi-berna",
+        "cosine": 0.8495717664189306
+      },
+      {
+        "slug": "addio-passaporto-usa-berna",
+        "cosine": 0.8401823985285126
+      },
+      {
+        "slug": "patriot-ritardo-svizzera-valuta-alternative",
+        "cosine": 0.8394137238832833
+      },
+      {
+        "slug": "aumenti-stipendi-medici-infermieri-lombardia",
+        "cosine": 0.837017112409687
+      },
+      {
+        "slug": "crans-montana-fatture-scontro-roma-2026",
+        "cosine": 0.837007152539002
+      }
+    ],
+    "score": 4.077944478810867,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

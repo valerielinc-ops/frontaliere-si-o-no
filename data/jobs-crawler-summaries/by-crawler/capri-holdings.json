@@ -1,18 +1,56 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-06-23T21:59:40.812Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-06-24T10:57:59.601Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 17835,
-  "avgDurationMs": 17835,
+  "durationMs": 18720,
+  "avgDurationMs": 18720,
   "durationHistory": [
-    17835
+    18720
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-fix-term_R_785144",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-fix-term_R_785144",
+      "title": "Sales Associate PT fix term",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "sales-associate-pt-fix-term-capri-holdings",
+      "category": "retail",
+      "datePosted": "2026-06-24",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -49,7 +87,6 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-13T21:48:16.941Z",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,7 +128,6 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-13T10:39:13.858Z",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
