@@ -1,19 +1,62 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-06-23T22:17:22.288Z",
+  "generatedAt": "2026-06-24T11:15:10.394Z",
   "total": 9,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 2524,
-  "avgDurationMs": 2524,
+  "unchangedCount": 0,
+  "durationMs": 1548,
+  "avgDurationMs": 1548,
   "durationHistory": [
-    2524
+    1548
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Angular Software Engineer",
+      "slug": "angular-software-engineer-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/3ckQV9Hc5I/Angular-Software-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/3ckQV9Hc5I/Angular-Software-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-23",
+      "validThrough": "2026-09-21",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260623074743_LAHWFWJL7OCLOPMX",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-83c1a99283b7",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-06-23T11:38:21.084Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 25
+      }
+    },
     {
       "title": "Corporate PMO / Business Operations Expert",
       "slug": "corporate-pmo-business-operations-expert-fincons-group-lugano-lugano-switzerland",
@@ -230,95 +273,6 @@
       }
     },
     {
-      "title": "Senior Test Automation Engineer",
-      "slug": "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-27",
-      "validThrough": "2026-08-25",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260527072235_NHBTXSD2SJMRGXAT",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-1ddef085bf06",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-05-29T12:22:56.132Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Angular Software Engineer",
-      "slug": "angular-software-engineer-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/3ckQV9Hc5I/Angular-Software-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/3ckQV9Hc5I/Angular-Software-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-23",
-      "validThrough": "2026-09-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260623074743_LAHWFWJL7OCLOPMX",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-83c1a99283b7",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-06-23T11:38:21.084Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Senior Full Stack Engineer Java/React",
       "slug": "senior-full-stack-engineer-java-react-fincons-group-lugano-ticino-switzerland",
       "url": "https://fincons.applytojob.com/apply/gBD0YbyGAf/Senior-Full-Stack-Engineer-JavaReact",
@@ -403,6 +357,51 @@
         "translation": 21,
         "completeness": 25
       }
+    },
+    {
+      "title": "Senior Test Automation Engineer",
+      "slug": "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-27",
+      "validThrough": "2026-08-25",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260527072235_NHBTXSD2SJMRGXAT",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-1ddef085bf06",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-05-29T12:22:56.132Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
