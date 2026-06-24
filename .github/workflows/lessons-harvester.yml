@@ -86,6 +86,11 @@ jobs:
           REPO: ${{ github.repository }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Schedule/manual-dispatch → actor umano (owner) oggi, ma stesso
+          # class-fix dei sibling: se un'automation interna dispatchasse questo
+          # workflow via GITHUB_TOKEN (actor `github-actions[bot]`) senza
+          # whitelist, claude-code-action aborterebbe "non-human actor". Mai `*`.
+          allowed_bots: "github-actions[bot], claude[bot]"
           show_full_output: true
           claude_args: "--max-turns 20 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit,Write'"
           prompt: |

@@ -87,6 +87,13 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Questo workflow viene dispatchato anche da automation interna
+          # (self-retry step "Retry once" + cascade post-LGTM via GITHUB_TOKEN
+          # → actor `github-actions[bot]`): senza whitelist claude-code-action
+          # aborta con "Workflow initiated by non-human actor" (run 28111857700
+          # exit 1). Whitelist esplicita (mai `*`), allineata ai sibling
+          # pr-review-loop / pr-redflag-fixer / issue-fix.
+          allowed_bots: "github-actions[bot], claude[bot]"
           show_full_output: true
           # max-turns 20 (era 15): il triage completo (parse PR body + reviews,
           # filtro churn/funnel, dedup, in-flight overlap, gh issue create)
