@@ -49,9 +49,12 @@ export interface ArticleRailAdProps {
    * omit this and keep the full premium size set.
    */
   narrow?: boolean;
+  /** GPT fill verdict for this panel (`true` = no fill). Bubbled up by the stack
+   *  so an all-empty rail can collapse its reserved gutter. */
+  onEmptyChange?: (empty: boolean) => void;
 }
 
-const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, reserve = true, narrow = false }) => {
+const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, reserve = true, narrow = false, onEmptyChange }) => {
   const { articleRailAds: killed } = useKillSwitches();
   return (
     <GptAdSlot
@@ -59,6 +62,7 @@ const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, res
       sizes={narrow ? RAIL_SIZES_NARROW : RAIL_SIZES}
       killed={killed}
       enabled={enabled}
+      onEmptyChange={onEmptyChange}
       minHeight={reserve ? 600 : 0}
       // One panel in the rail stack; the stack stacks several back-to-back to
       // fill the gutter top-to-bottom (separation comes from the stack's flex

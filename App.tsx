@@ -1740,6 +1740,22 @@ const App: React.FC = () => {
  // the centre ~1120px at 1500px while still serving side-rail ads ≥1400px.
  const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board'].includes(activeTab);
 
+ // Collapse a side-rail's reserved 160px gutter to zero once its ad stack
+ // reports nothing filled (no GAM creative, no AdSense backfill), so an unfilled
+ // rail leaves no tall blank column — content reflows into the freed width. A
+ // filled rail keeps its 160px (ArticleRailAdStack resolves `true` only when
+ // EVERY panel is empty), so a paying creative is never squeezed into a
+ // zero-width track. Re-armed on every tab change so a fresh page starts
+ // reserved and only collapses after its own no-fill verdict.
+ const [railsCollapsed, setRailsCollapsed] = useState<{ left: boolean; right: boolean }>({ left: false, right: false });
+ useEffect(() => { setRailsCollapsed({ left: false, right: false }); }, [activeTab]);
+ const handleLeftRailEmpty = useCallback((allEmpty: boolean) => {
+ setRailsCollapsed((s) => (s.left === allEmpty ? s : { ...s, left: allEmpty }));
+ }, []);
+ const handleRightRailEmpty = useCallback((allEmpty: boolean) => {
+ setRailsCollapsed((s) => (s.right === allEmpty ? s : { ...s, right: allEmpty }));
+ }, []);
+
  return (
  <ErrorBoundary>
  <TabContentContext.Provider value={tabContentValue}>
@@ -2352,10 +2368,17 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
- <div className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:grid-cols-[160px_minmax(0,1fr)_160px] xlw:gap-4' : 'contents'}>
+ <div
+ className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:gap-4' : 'contents'}
+ // Track widths are JS-driven so an unfilled rail collapses to 0 (see
+ // railsCollapsed). Default 160px keeps the gutter reserved for SSR /
+ // pre-verdict / no-JS, matching the old fixed grid-cols. Ignored below the
+ // `xlw` (≥1400px) breakpoint where the wrapper is `display:contents`.
+ style={sideRailEligible ? { gridTemplateColumns: `${railsCollapsed.left ? '0px' : '160px'} minmax(0,1fr) ${railsCollapsed.right ? '0px' : '160px'}` } : undefined}
+ >
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="left" narrow /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="left" narrow onEmptyResolved={handleLeftRailEmpty} /></Suspense>
  </aside>
  )}
  <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10 ${
@@ -2657,7 +2680,7 @@ const App: React.FC = () => {
  </main>
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="right" narrow /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="right" narrow onEmptyResolved={handleRightRailEmpty} /></Suspense>
  </aside>
  )}
  </div>

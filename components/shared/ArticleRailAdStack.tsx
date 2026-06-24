@@ -32,13 +32,22 @@
  * kill-switch as ArticleRailAd (it owns the Remote Config gate).
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ArticleRailAd from '@/components/shared/ArticleRailAd';
 
 export interface ArticleRailAdStackProps {
   side: 'left' | 'right';
   /** Article-eligibility gate (long-enough body), wired from BlogArticles. */
   enabled?: boolean;
+  /**
+   * Reports the rail's aggregate fill verdict so the caller can collapse the
+   * reserved gutter when nothing fills. Fires `true` only once EVERY mounted
+   * panel reports empty (no creative, no AdSense backfill); fires `false` as
+   * soon as any panel fills. Lets the SPA grid drop the 160px track to zero on
+   * an all-empty rail instead of leaving a tall blank column. Omitted on the
+   * static/blog portals, which keep their build-time gutter.
+   */
+  onEmptyResolved?: (allEmpty: boolean) => void;
   /**
    * Max panels cap. BlogArticles passes a length-gated value so long-form posts
    * fill more of the gutter while short ones stay light; omitted elsewhere
@@ -63,12 +72,39 @@ const MIN_FILL_PX = 600;
 // of "panels that cover the viewport" and "panels the gutter holds").
 const MAX_PANELS = 6;
 
-const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false }) => {
+const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, onEmptyResolved }) => {
   const ref = useRef<HTMLDivElement>(null);
+  // Per-panel GPT verdict, keyed by panel index (true = reported empty).
+  const emptyByIndex = useRef<Map<number, boolean>>(new Map());
+  // Last verdict pushed to the caller — dedupes repeat reports.
+  const lastResolvedRef = useRef<boolean | null>(null);
   // Start at 0 — measurement sets the correct count after mount, avoiding a
   // premature 600px CLS reservation on pages whose gutter is below MIN_FILL_PX.
   const [panels, setPanels] = useState(0);
   const maxPanels = Math.max(1, count ?? MAX_PANELS);
+
+  // Aggregate per-panel GPT verdicts into one rail-level verdict. Collapse
+  // (`true`) only once every mounted panel has reported empty; un-collapse
+  // (`false`) the moment any panel fills, so a paying creative never sits in a
+  // zero-width gutter.
+  const handlePanelEmpty = useCallback((index: number, isEmpty: boolean) => {
+    emptyByIndex.current.set(index, isEmpty);
+    let reported = 0;
+    let anyFilled = false;
+    for (let i = 0; i < panels; i++) {
+      const v = emptyByIndex.current.get(i);
+      if (v === undefined) continue;
+      reported++;
+      if (v === false) anyFilled = true;
+    }
+    let verdict: boolean | null = null;
+    if (anyFilled) verdict = false;
+    else if (panels > 0 && reported >= panels) verdict = true;
+    if (verdict !== null && verdict !== lastResolvedRef.current) {
+      lastResolvedRef.current = verdict;
+      onEmptyResolved?.(verdict);
+    }
+  }, [panels, onEmptyResolved]);
 
   useEffect(() => {
     const el = ref.current;
@@ -111,7 +147,14 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
           tall article's gutter never goes blank below the physical ads. */}
       <div className="sticky top-6 flex flex-col gap-2">
         {Array.from({ length: panels }, (_, i) => (
-          <ArticleRailAd key={i} side={side} enabled={enabled} reserve={i === 0} narrow={narrow} />
+          <ArticleRailAd
+            key={i}
+            side={side}
+            enabled={enabled}
+            reserve={i === 0}
+            narrow={narrow}
+            onEmptyChange={(isEmpty) => handlePanelEmpty(i, isEmpty)}
+          />
         ))}
       </div>
     </div>
