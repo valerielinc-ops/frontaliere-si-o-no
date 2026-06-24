@@ -38,9 +38,14 @@ export default function DesktopTopBanner() {
       sizes={TOP_BANNER_SIZES}
       killed={killed}
       minHeight={90}
-      // Desktop-only leaderboard, centred, full content width. `hidden` below
-      // lg so mobile/tablet render nothing (no reserve). GptAdSlot collapses to
-      // display:none on no-fill, so an empty slot leaves no band.
+      // CLS-safe: keep the 90px reserve even when unfilled. This slot sits ABOVE
+      // THE FOLD (above the H1); collapsing it on no-fill would yank the H1 and
+      // all content below upward and register a Cumulative Layout Shift (the
+      // "header jumps up after load" report). A stable 90px footprint is worth
+      // more than recovering a thin band when there's no demand.
+      collapseOnEmpty={false}
+      // Desktop-only leaderboard, centred, full content width. `hidden` below lg
+      // so mobile/tablet render nothing (no reserve, no band).
       className="hidden lg:block w-full text-center mb-4"
     />
   );
