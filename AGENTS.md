@@ -4,7 +4,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 
 ## Non-Negotiables
 
-1. Mai abbassare quality threshold/test tolerance/validation/SEO gate/moratorium per passare build. Fix root cause.
+1. Mai abbassare quality threshold/test tolerance/validation/SEO gate per passare build. Fix root cause. (NB: il moratorium SEO-landing è stato rimosso/declassato a tracking il 2026-06-24 — non è più un gate; vedi `## Static SEO Pages`.)
 2. Mai downgrade error → warning per sbloccare deploy.
 3. Job page structured data DEVE includere in ogni locale: `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`, `employmentType`. Source mancante → safe default, non rimozione check.
 4. Mai accettare thin content indicizzato <50 parole.
@@ -120,7 +120,7 @@ CI test gate: `npm ci`, `node scripts/assemble-jobs-dataset.mjs --stats`, `node 
 - SEO landing order: breadcrumb, header con one-line lede ≤120 chars, 3-5 stat tile, advice banner se utile, primary CTA, data area, prose lunga.
 - Solo semantic color token esistenti; no inline hex.
 - Crawler dedicati: merge job by stable id `extractStableJobId(job.url)`, preserva previous slug, truncate via `truncateSlugAtWordBoundary`.
-- SEO automation moratorium: no nuove build-plugin SEO landing finché `data/gsc-position-rolling.json` 7-day avg position >7.5. Eccezioni: bug fix, net-reducing consolidation, redirect/bridge emitter.
+- SEO landing moratorium **RIMOSSO** (owner 2026-06-24): nuove build-plugin SEO landing sono consentite. La posizione media 7-day GSC (`data/gsc-position-rolling.json`) resta **tracciata** per valutare lo status, ma è solo informativa — `scripts/check-seo-moratorium.mjs` è report-only (always exit 0) e lo step CI in `deploy.yml` è `continue-on-error`, mai bloccante. Razionale: perdere traffico SEO reale / servire 404 agli utenti (es. ~14k/giorno di pagine `ricerca-stipendio-*` indicizzate andate 404) vale più della metrica-vanity di posizione media. NON re-introdurre un gate bloccante sulla posizione senza richiesta esplicita owner.
 
 ## Accessibility And UX
 

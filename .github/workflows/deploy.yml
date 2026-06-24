@@ -150,7 +150,7 @@ jobs:
   # Removes the ×4 duplicated data-prep from the locale shards and guarantees
   # every shard builds from the IDENTICAL job snapshot (no crawler-commit-window
   # divergence). Mirrors deploy-matrix-experiment.yml's prep VERBATIM, plus the
-  # monolith's Active-jobs regression check + SEO moratorium check.
+  # monolith's Active-jobs regression check + SEO position tracking.
   prep:
     needs: matrix-setup
     runs-on: ubuntu-latest
@@ -198,14 +198,16 @@ jobs:
         # data/active-jobs-baseline.json auto-ratchets UP only — manual
         # commit required to lower (see CLAUDE.md rule #1).
         run: npm run audit:active-jobs-regression
-      - name: SEO moratorium check (CLAUDE.md #19)
-        # Block new build-plugin-emitted SEO landings while the 7-day GSC
-        # avg position is > 7.5. Long-tail dilution from 50+ SEO PRs in
-        # 10 days drove avg position 5.7 → 8.62. Re-enable when ≤ 7.5.
-        # Only runs on pull_request events — main pushes have already passed
-        # the gate, and workflow_dispatch is exempt so we can manually deploy
-        # fixes/refactors that happen to add a file matching the pattern.
+      - name: SEO position tracking (non-blocking)
+        # Refresh the 7-day GSC avg-position snapshot for status visibility and
+        # PRINT where it stands. NON-BLOCKING by design (owner decision
+        # 2026-06-24): the former SEO-landing moratorium was downgraded from a
+        # deploy gate to a tracker. Losing real SEO traffic / serving users 404s
+        # (e.g. ~14k/day indexed ricerca-stipendio-* pages going 404) outweighs
+        # the avg-position vanity metric, so position is monitored but never
+        # blocks a deploy. check-seo-moratorium.mjs reports only (always exit 0).
         if: github.event_name == 'pull_request'
+        continue-on-error: true
         env:
           # OAuth2 path (currently not set; SA fallback in
           # refresh-gsc-position-rolling.mjs uses GOOGLE_APPLICATION_CREDENTIALS

@@ -2,14 +2,14 @@
 /**
  * Unit tests for scripts/check-seo-moratorium.mjs.
  *
- * Covers the two structural branches:
- *   1. avg_position ≤ THRESHOLD  → exit 0 regardless of diff (moratorium off)
- *   2. avg_position > THRESHOLD + diff adds a new `build-plugins/*Landing*.ts`
- *      → exit 1 (moratorium active and PR violates it)
+ * The script is REPORT-ONLY (the SEO-landing moratorium was downgraded from a
+ * deploy gate to a tracker — owner decision 2026-06-24). It must therefore
+ * ALWAYS exit 0, regardless of the 7-day avg position or whether the PR adds a
+ * new SEO-landing emitter; it only PRINTS the position and, for visibility,
+ * lists any new landing emitters.
  *
- * Both tests spawn the script in a temp git repo so we can fully control the
- * diff that `git diff --name-status origin/main...HEAD` returns — no mocks
- * needed, just real git plumbing.
+ * Tests spawn the script in a temp git repo so we can fully control the diff
+ * that `git diff --name-status origin/main...HEAD` returns — no mocks needed.
  */
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { spawnSync } from 'node:child_process';
@@ -57,7 +57,22 @@ function setupRepo(): string {
   return repo;
 }
 
-describe('check-seo-moratorium', () => {
+function writeRolling(repo: string, avg: number) {
+  writeFileSync(
+    join(repo, 'data', 'gsc-position-rolling.json'),
+    JSON.stringify({ avg_position: avg, window: { start: '2026-05-10', end: '2026-05-17' }, daily: [] }),
+  );
+}
+
+function runTracker(repo: string) {
+  return spawnSync('node', ['scripts/check-seo-moratorium.mjs'], {
+    cwd: repo,
+    encoding: 'utf8',
+    env: { ...process.env, GITHUB_BASE_REF: 'main' },
+  });
+}
+
+describe('check-seo-moratorium (report-only tracker)', () => {
   let repo: string;
 
   beforeEach(() => {
@@ -72,70 +87,44 @@ describe('check-seo-moratorium', () => {
     }
   });
 
-  it('exits 0 when avg_position ≤ 7.5 (moratorium not active)', () => {
-    writeFileSync(
-      join(repo, 'data', 'gsc-position-rolling.json'),
-      JSON.stringify({
-        avg_position: 6.5,
-        window: { start: '2026-05-10', end: '2026-05-17' },
-        daily: [],
-      }),
-    );
-    // Even add a forbidden file — it must not trigger when moratorium is off
-    writeFileSync(join(repo, 'build-plugins', 'newLandingPlugin.ts'), '// new\n');
-
-    const r = spawnSync('node', ['scripts/check-seo-moratorium.mjs'], {
-      cwd: repo,
-      encoding: 'utf8',
-      env: { ...process.env, GITHUB_BASE_REF: 'main' },
-    });
+  it('exits 0 and reports a healthy position when avg ≤ 7.5', () => {
+    writeRolling(repo, 6.5);
+    const r = runTracker(repo);
     expect(r.status).toBe(0);
-    expect(r.stdout).toMatch(/Moratorium not active/);
+    expect(r.stdout).toMatch(/avg position 6\.50/);
+    expect(r.stdout).toMatch(/healthy/);
   });
 
-  it('exits 1 when avg_position > 7.5 AND diff adds a new build-plugins/*Landing*.ts', () => {
-    writeFileSync(
-      join(repo, 'data', 'gsc-position-rolling.json'),
-      JSON.stringify({
-        avg_position: 8.62,
-        window: { start: '2026-05-10', end: '2026-05-17' },
-        daily: [],
-      }),
-    );
+  it('NEVER blocks: exits 0 even when avg > 7.5 AND the PR adds a new landing emitter', () => {
+    writeRolling(repo, 8.62);
     // Stage a new landing emitter and commit so it shows up in git diff
     writeFileSync(join(repo, 'build-plugins', 'fooLandingPlugin.ts'), '// new landing\n');
     git(repo, 'add', 'build-plugins/fooLandingPlugin.ts');
     git(repo, 'commit', '-m', 'feat: add foo landing');
 
-    const r = spawnSync('node', ['scripts/check-seo-moratorium.mjs'], {
-      cwd: repo,
-      encoding: 'utf8',
-      env: { ...process.env, GITHUB_BASE_REF: 'main' },
-    });
-    expect(r.status).toBe(1);
-    expect(r.stderr).toMatch(/Moratorium active \(avg position 8\.62 > 7\.5\)/);
-    expect(r.stderr).toMatch(/fooLandingPlugin\.ts/);
+    const r = runTracker(repo);
+    expect(r.status).toBe(0); // tracking only — must not fail the build
+    expect(r.stdout).toMatch(/avg position 8\.62/);
+    // The new landing is surfaced for visibility, explicitly marked as allowed.
+    expect(r.stdout).toMatch(/fooLandingPlugin\.ts/);
+    expect(r.stdout).toMatch(/tracking only/);
   });
 
-  it('exits 0 when moratorium active but diff only adds an exempt Bridge emitter', () => {
-    writeFileSync(
-      join(repo, 'data', 'gsc-position-rolling.json'),
-      JSON.stringify({
-        avg_position: 8.62,
-        window: { start: '2026-05-10', end: '2026-05-17' },
-        daily: [],
-      }),
-    );
+  it('does not flag exempt Bridge/Redirect emitters as new landings', () => {
+    writeRolling(repo, 8.62);
     writeFileSync(join(repo, 'build-plugins', 'jobOrphanBridgePlugin.ts'), '// bridge\n');
     git(repo, 'add', 'build-plugins/jobOrphanBridgePlugin.ts');
     git(repo, 'commit', '-m', 'feat: add bridge');
 
-    const r = spawnSync('node', ['scripts/check-seo-moratorium.mjs'], {
-      cwd: repo,
-      encoding: 'utf8',
-      env: { ...process.env, GITHUB_BASE_REF: 'main' },
-    });
+    const r = runTracker(repo);
     expect(r.status).toBe(0);
-    expect(r.stdout).toMatch(/no new SEO landing emitters/);
+    expect(r.stdout).not.toMatch(/jobOrphanBridgePlugin\.ts/);
+  });
+
+  it('exits 0 (non-blocking) when the rolling data file is missing', () => {
+    // No gsc-position-rolling.json written → must skip gracefully, never fail.
+    const r = runTracker(repo);
+    expect(r.status).toBe(0);
+    expect(r.stdout).toMatch(/not present|skipping/);
   });
 });
