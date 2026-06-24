@@ -93,7 +93,12 @@
           if (done) return; done = true; clearTimeout(timer);
           location.replace(target + location.search + location.hash);
         }
-        var timer = setTimeout(function() { go(companyHubTarget() || sectionRoot); }, 1500);
+        // companyHubTarget() intentionally omitted here: calling it before /job-canon
+        // resolves risks pre-swapping a real job slug that starts with a foreign prefix
+        // (e.g. "company-xyz-dev") to the wrong hub. The timer is a last-resort
+        // sectionRoot fallback only; companyHubTarget() runs in .then/.catch below,
+        // after the fetch has confirmed the slug is not in the canonical map.
+        var timer = setTimeout(function() { go(sectionRoot); }, 1500);
         fetch('/job-canon/' + sk + '.json', { cache: 'force-cache' })
           .then(function(r) { return r.ok ? r.json() : null; })
           .then(function(map) {
