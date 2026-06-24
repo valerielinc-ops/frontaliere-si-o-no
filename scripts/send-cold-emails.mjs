@@ -234,6 +234,45 @@ function mergeFirestoreContacts(contacts, fsContacts) {
   return contacts;
 }
 
+/**
+ * Best-effort mirror of a REAL send to Firestore so the admin dashboard
+ * (adminEmployerInsights → AdminPanel "Insights Aziende") can show which touch
+ * went out and when — the local send-log.json is gitignored and only lives on
+ * this machine. Collection `employer_outreach_sends`, doc id = companyKey.
+ *
+ * Never throws: the send must never depend on this write succeeding. The
+ * firebase-admin app is already initialized by loadFirestoreContacts/
+ * loadFirestoreSuppression (both run before any real send), so we only grab the
+ * existing app here; if it isn't up we silently skip.
+ */
+async function recordSendToFirestore(key, touchNum, subject, result) {
+  if (!key) return;
+  try {
+    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+    if (!credPath || !fs.existsSync(credPath)) return;
+    const { getApps } = await import('firebase-admin/app');
+    if (getApps().length === 0) return; // app not initialized → nothing to mirror to
+    const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
+    const db = getFirestore();
+    const sentAt = new Date().toISOString();
+    await db.collection('employer_outreach_sends').doc(key).set({
+      companyKey: key,
+      lastTouch: touchNum,
+      lastSentAt: sentAt,
+      touches: FieldValue.arrayUnion({
+        touch: touchNum,
+        sentAt,
+        provider: result?.provider || '',
+        messageId: result?.messageId || '',
+        subject: String(subject || '').slice(0, 200),
+      }),
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+  } catch (err) {
+    console.warn(`↷ Firestore send-track non scritto per ${key} (${err.message}).`);
+  }
+}
+
 // ─────────────────────────────────────────────────────────────
 
 async function run() {
@@ -389,6 +428,9 @@ async function run() {
       messageId: result.messageId,
     });
     saveSendLog(logPath, sendLog);
+    // Mirror to Firestore (best-effort, non-blocking) so the admin dashboard
+    // sees which touch went out and when. Failures stay local-only, never abort.
+    void recordSendToFirestore(key, item._touch, item.subject, result);
   } : undefined;
 
   import('./lib/email-cascade.mjs').then(async ({ sendEmailCascade, logProviderSummary }) => {

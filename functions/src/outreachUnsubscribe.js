@@ -44,6 +44,24 @@ export function generateOutreachUnsubToken(companyKey, secret) {
     .digest('hex');
 }
 
+// One-click unsubscribe path — kept in lockstep with the scripts-side builder
+// scripts/lib/outreach-unsubscribe-token.mjs (OUTREACH_UNSUB_PATH).
+const OUTREACH_UNSUB_PATH = '/disiscrivi-outreach/';
+
+/**
+ * One-click unsubscribe URL — MUST stay byte-identical to
+ * scripts/lib/outreach-unsubscribe-token.mjs `buildUnsubUrl`, so a link minted by
+ * the web-UI sender (adminSendColdEmail) is honoured by this same Cloud Function.
+ * Falls back to the site home when the secret is missing (never emit an unsigned
+ * link). A cross-boundary parity test guards the two builders against drift.
+ */
+export function buildUnsubUrl(companyKey, secret) {
+  if (!secret) return `${BASE_URL}/`;
+  const key = String(companyKey).trim();
+  const token = generateOutreachUnsubToken(key, secret);
+  return `${BASE_URL}${OUTREACH_UNSUB_PATH}?c=${encodeURIComponent(key)}&t=${token}`;
+}
+
 export function verifyOutreachToken(companyKey, token, secret) {
   if (!secret || !companyKey || !token) return false;
   const expected = generateOutreachUnsubToken(companyKey, secret);

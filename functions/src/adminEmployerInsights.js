@@ -36,6 +36,11 @@ const ADMIN_EMAIL_ALLOWLIST = new Set(['valerielinc@gmail.com']);
 const BASE_URL = 'https://frontaliereticino.ch';
 const INSIGHTS_COLLECTION = 'employer_insights';
 const CONTACTS_COLLECTION = 'employer_contacts';
+// Outreach telemetry collections (written by send-cold-emails.mjs + the inbound
+// reply Cloud Functions). Read-only here, merged into each row as `outreach`.
+const SENDS_COLLECTION = 'employer_outreach_sends';
+const REPLIES_COLLECTION = 'employer_outreach_replies';
+const SUPPRESSION_COLLECTION = 'employer_outreach_suppression';
 
 // Pragmatic email shape check (server-side; the SPA also validates). Empty string
 // is allowed by the caller (clears the field) and never reaches this regex.
@@ -48,7 +53,9 @@ function buildInsightsUrl(companyKey, secret) {
 }
 
 // ── Admin gate (mirrors githubProxy.js assertAdmin) ─────────────────────────
-async function assertAdmin(req) {
+// Exported so adminSendColdEmail reuses the exact same gate (allowlist + verified
+// email) instead of a third copy.
+export async function assertAdmin(req) {
   const header = req.get ? req.get('Authorization') : req.headers?.authorization;
   const idToken = typeof header === 'string' && header.startsWith('Bearer ')
     ? header.slice(7).trim()
@@ -84,11 +91,62 @@ async function loadContactsMap(db) {
   return map;
 }
 
+/**
+ * Read the three outreach-telemetry collections once → Map(companyKey → status).
+ * Lets the dashboard show, per company: which touch was sent + when, whether the
+ * company replied, and whether it opted out (STOP). All three are best-effort —
+ * a missing collection just yields empty status, never an error.
+ */
+async function loadOutreachMap(db) {
+  const map = new Map();
+  const ensure = (key) => {
+    if (!map.has(key)) {
+      map.set(key, {
+        lastTouch: 0, lastSentAt: null, touchesSent: [], sendCount: 0,
+        replied: false, lastRepliedAt: null, replyCount: 0,
+        suppressed: false, suppressedAt: null,
+      });
+    }
+    return map.get(key);
+  };
+
+  const [sends, replies, suppression] = await Promise.all([
+    db.collection(SENDS_COLLECTION).get().catch(() => ({ forEach() {} })),
+    db.collection(REPLIES_COLLECTION).get().catch(() => ({ forEach() {} })),
+    db.collection(SUPPRESSION_COLLECTION).get().catch(() => ({ forEach() {} })),
+  ]);
+
+  sends.forEach((doc) => {
+    const d = doc.data() || {};
+    const o = ensure(String(d.companyKey || doc.id));
+    const touches = Array.isArray(d.touches) ? d.touches : [];
+    o.touchesSent = [...new Set(touches.map((x) => Number(x?.touch || 0)).filter(Boolean))].sort((a, b) => a - b);
+    o.sendCount = touches.length;
+    o.lastTouch = Number(d.lastTouch || (o.touchesSent.length ? o.touchesSent[o.touchesSent.length - 1] : 0));
+    o.lastSentAt = d.lastSentAt ? String(d.lastSentAt) : null;
+  });
+  replies.forEach((doc) => {
+    const d = doc.data() || {};
+    const o = ensure(String(d.companyKey || doc.id));
+    o.replied = d.replied !== false;
+    o.lastRepliedAt = d.lastRepliedAt ? String(d.lastRepliedAt) : null;
+    o.replyCount = Number(d.replyCount || 0);
+  });
+  suppression.forEach((doc) => {
+    const d = doc.data() || {};
+    const o = ensure(String(d.companyKey || doc.id));
+    o.suppressed = true;
+    o.suppressedAt = d.suppressedAt ? String(d.suppressedAt) : null;
+  });
+  return map;
+}
+
 /** GET → lean per-company insights list merged with the editable contact. */
 async function handleList(db, newsletterSecret) {
-  const [snap, contacts] = await Promise.all([
+  const [snap, contacts, outreach] = await Promise.all([
     db.collection(INSIGHTS_COLLECTION).get(),
     loadContactsMap(db),
+    loadOutreachMap(db),
   ]);
 
   const insights = snap.docs.map((doc) => {
@@ -114,6 +172,11 @@ async function handleList(db, newsletterSecret) {
       contactName: c.contactName || '',
       contactRole: c.contactRole || '',
       topRole: c.topRole || '',
+      outreach: outreach.get(companyKey) || {
+        lastTouch: 0, lastSentAt: null, touchesSent: [], sendCount: 0,
+        replied: false, lastRepliedAt: null, replyCount: 0,
+        suppressed: false, suppressedAt: null,
+      },
     };
   });
 
