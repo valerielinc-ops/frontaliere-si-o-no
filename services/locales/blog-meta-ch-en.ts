@@ -388,6 +388,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iva-aumento-governo-decisione-previsto.title': 'VAT increase: the Government decides to mitigate the increase',
     'blog.article.iva-aumento-governo-decisione-previsto.excerpt': 'The Federal Council has decided to mitigate the increase in VAT intended to finance the strengthening of the army.',
     'blog.article.iva-aumento-governo-decisione-previsto.imageAlt': 'Image of a lake with mountains in Switzerland',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.title': 'Border controls for the G7: 11 entry bans to Switzerland',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.excerpt': 'Enhanced controls resulted in 11 entry bans and hundreds of seizures of dangerous items.',
+    'blog.article.controlli-frontiera-g7-divieti-entrata.imageAlt': 'Border controls between France and Switzerland during the G7',
 };
 
 export default blogMetaChEn;

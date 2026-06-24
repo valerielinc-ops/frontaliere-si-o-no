@@ -4172,6 +4172,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-diminuiscono-annunci-alloggi-frontaliere-ticino': { name: 'Alloggi in affitto in Svizzera', path: '/articoli-svizzera/diminuiscono-annunci-alloggi-frontaliere-ticino/', parent: 'blog' },
     'blog-prettigovia-progetto-467-5-milioni': { name: 'Prettigovia', path: '/articoli-svizzera/prettigovia-progetto-467-5-milioni/', parent: 'blog' },
     'blog-iva-aumento-governo-decisione-previsto': { name: 'Aumento IVA', path: '/articoli-svizzera/iva-aumento-governo-decisione-previsto/', parent: 'blog' },
+    'blog-controlli-frontiera-g7-divieti-entrata': { name: 'Controlli frontiera', path: '/articoli-svizzera/controlli-frontiera-g7-divieti-entrata/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
