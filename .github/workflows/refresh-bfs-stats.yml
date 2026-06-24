@@ -57,6 +57,17 @@ jobs:
         # Loads GITHUB_PAT (used to dispatch generate-article.yml) from RC.
         run: node scripts/load-rc-env.mjs
 
+      # App installation token = primary dispatch identity (App tokens re-trigger
+      # workflows like generate-article; GITHUB_TOKEN would not, anti-recursion).
+      # Falls back to env.GITHUB_PAT then GITHUB_TOKEN. B2b tail migration.
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Refresh BFS stats
         id: refresh
         run: node scripts/refresh-bfs-stats.mjs
@@ -94,7 +105,7 @@ jobs:
       - name: Dispatch generate-article (new quarter only)
         if: steps.refresh.outputs.new_quarter != ''
         env:
-          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
