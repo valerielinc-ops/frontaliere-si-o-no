@@ -181,11 +181,31 @@ export async function buildNewsletterPreviewHtml(
 
  let jobs: any[] = [];
  try {
- // Newsletter preview is IT-only (sample render for the editor); the
- // per-locale split (data/jobs-it.json) has identical jobs flattened to
- // IT strings — same content as the old monolithic jobs.json for IT.
- const res = await fetch(cdnDataUrl('/data/jobs-it.json'));
- jobs = res.ok ? await res.json() : [];
+ // Newsletter preview is IT-only (sample render for the editor). The full
+ // per-locale `jobs-it.json` monolith is no longer shipped (its descriptions
+ // duplicated job-detail). matchJobsForSubscriber's quality gate needs each
+ // candidate's description (>=120 chars), but the slim index carries none, so
+ // we: (1) fetch the slim index, (2) take a recency-ranked shortlist, (3)
+ // enrich just those with descriptions from job-detail/{id}.json. In the
+ // preview's serverless context job-popularity.json is absent, so the matcher
+ // already ranks by freshness only — the recency shortlist matches its pick.
+ const res = await fetch(cdnDataUrl('/data/jobs-it-index.json'));
+ const index: any[] = res.ok ? await res.json() : [];
+ const recencyVal = (j: any) => Date.parse(j?.postedDate || j?.crawledAt || j?.firstSeenAt || '') || 0;
+ const shortlist = [...index].sort((a, b) => recencyVal(b) - recencyVal(a)).slice(0, 40);
+ jobs = await Promise.all(
+ shortlist.map(async (j) => {
+ if (!j?.id) return j;
+ try {
+ const dRes = await fetch(cdnDataUrl(`/data/job-detail/${j.id}.json`));
+ if (!dRes.ok) return j;
+ const detail = await dRes.json();
+ return { ...j, descriptionByLocale: detail?.descriptionByLocale, description: detail?.description };
+ } catch {
+ return j;
+ }
+ }),
+ );
  } catch (e) {
  reportCaughtError(e, 'newsletterPreview.fetchJobsData');
  }
