@@ -44768,6 +44768,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sensibilita-al-lavoro-personale': {
+    title: 'Sensibilità al lavoro: come gestire stress e isolamento',
+    description: '15-20% della popolazione è altamente sensibile al lavoro. Scopri come affrontare stress e isolamento al lavoro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sensibilità, lavoro, gestire, stress',
+    ogTitle: 'Sensibilità al lavoro: come gestire stress e isolamento',
+    ogDescription: '15-20% della popolazione è altamente sensibile al lavoro. Scopri come affrontare stress e isolamento al lavoro.',
+    canonicalPath: '/articoli-frontaliere/sensibilita-al-lavoro-personale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sensibilità al lavoro: come gestire stress e isolamento",
+      "description": "15-20% della popolazione è altamente sensibile al lavoro. Scopri come affrontare stress e isolamento al lavoro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sensibilita-al-lavoro-personale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uomo al lavoro con cuffie anti-rumore in un ufficio tranquillo"
+      },
+      "datePublished": "2026-06-24T04:45:00+00:00",
+      "dateModified": "2026-06-24T04:45:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sensibilita-al-lavoro-personale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
