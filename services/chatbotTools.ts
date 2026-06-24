@@ -250,10 +250,14 @@ export function buildJobUrl(job: JobRecord, locale: Locale): string {
 
 // ─── Main entrypoint ──────────────────────────────────────────────────────
 
-/** Safe dataset loader — returns [] on any error so the tool never throws. */
+/** Safe dataset loader — returns [] on any error so the tool never throws.
+ * Uses the slim listing index (the full jobs-{locale}.json monolith is no
+ * longer shipped). Ranking still matches title/company/location/category; the
+ * description/requirements body signal is dropped (not in the index) — an
+ * acceptable degradation for the chat search vs. pulling ~10MB-gz on open. */
 async function loadJobs(locale: Locale): Promise<JobRecord[]> {
  try {
- const res = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`), { cache: 'force-cache' });
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`), { cache: 'force-cache' });
  if (!res.ok) return [];
  const data = await res.json();
  return Array.isArray(data) ? (data as JobRecord[]) : [];

@@ -2205,26 +2205,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  };
 
- /** Legacy slim-index → locale → monolithic fallback (FRO-386). */
+ /** Legacy slim-index fallback (FRO-386). The full `jobs-{locale}.json`
+  * monolith tier was removed (its descriptions duplicated job-detail and are
+  * never needed for listing); the slim index is now the sole listing source. */
  const loadLegacyLocaleJobs = async (): Promise<JobListing[]> => {
  const slimIndexUrl = `/data/jobs-${locale}-index.json`;
- const localeUrl = `/data/jobs-${locale}.json`;
  try {
  const res = await fetch(cdnDataUrl(slimIndexUrl));
  if (res.ok) return (await res.json()) as JobListing[];
  throw new Error(`slim index ${res.status}`);
  } catch {
+ // One discrete retry of the slim index (fetchAllJobs hits the same file)
+ // so a transient 5xx doesn't cascade into a hard empty-listing failure.
  try {
- const res = await fetch(cdnDataUrl(localeUrl));
- if (res.ok) return (await res.json()) as JobListing[];
- throw new Error(`locale jobs ${res.status}`);
- } catch {
- // Final fallback — locale-flattened JSON (same URL as the tier above,
- // but kept as a discrete attempt so a transient slim-index 5xx doesn't
- // cascade into a hard failure when the full-locale file is reachable
- // through a different CDN cache key).
  const all = (await fetchAllJobs(locale)) as unknown as JobListing[];
  return Array.isArray(all) ? all : [];
+ } catch {
+ return [];
  }
  }
  };
@@ -3227,19 +3224,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  unscopedJobs, sortedJobs,
  ]);
 
- // Shared locale-wide pool loader (slim index → locale monolith fallback).
- // Used by BOTH the company-hub broaden and the search-broaden triggers so the
- // fetch/normalize/dedupe path lives in exactly one place (no copy-paste drift).
- // Returns the normalized pool, or null when nothing usable came back; the
- // caller owns the cancelled-guard + setState.
+ // Shared locale-wide pool loader (slim index). Used by BOTH the company-hub
+ // broaden and the search-broaden triggers so the fetch/normalize/dedupe path
+ // lives in exactly one place (no copy-paste drift). The full jobs-{locale}.json
+ // monolith fallback was removed (no longer shipped; listing needs no
+ // descriptions). Returns the normalized pool, or null when nothing usable came
+ // back; the caller owns the cancelled-guard + setState.
  const loadUnscopedPool = useCallback(async (): Promise<JobListing[] | null> => {
  let pool: unknown[] = [];
  const slimRes = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
  if (slimRes.ok) {
  pool = await slimRes.json();
- } else {
- const localeRes = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
- if (localeRes.ok) pool = await localeRes.json();
  }
  const arr = Array.isArray(pool) ? pool : [];
  if (arr.length === 0) return null;

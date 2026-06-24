@@ -272,15 +272,16 @@ async function loadJobsBySlug(locale: Locale): Promise<Map<string, any>> {
  if (cached) return cached;
  const pending = jobsBySlugPromiseByLocale[locale];
  if (pending) return pending;
- // Per-locale fetch: `jobs-{locale}.json` is the master `jobs.json` flattened
- // to one locale. The cross-locale `slugByLocale` is no longer in this file
- // — that lookup table lives in `jobs-slug-map.json` and is consumed by the
- // router. For the SEO meta path we only need the active-locale slug, so
- // the per-locale shard is sufficient.
+ // Per-locale fetch: the slim listing index `jobs-{locale}-index.json` (the
+ // full `jobs-{locale}.json` monolith is no longer emitted). The index has
+ // the slug→id mapping + listing fields; the SEO meta path (resolveJobSeoBySlug)
+ // lazy-fetches `job-detail/{id}.json` for the description + structured-data
+ // fields (postalCode/streetAddress/...) it needs per job. The count path
+ // (getActiveJobCountLabel) only needs map.size, which the index provides.
  const promise = (async () => {
  const out = new Map<string, any>();
  try {
- const res = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
  if (!res.ok) return out;
  const list = await res.json();
  if (!Array.isArray(list)) return out;
@@ -296,6 +297,28 @@ async function loadJobsBySlug(locale: Locale): Promise<Map<string, any>> {
  })();
  jobsBySlugPromiseByLocale[locale] = promise;
  return promise;
+}
+
+/** Per-job detail cache (description + structured-data fields), keyed by job id.
+ * Replaces the description fields the slim index drops; CDN-cached + memoised
+ * here so repeat SPA navigations to the same job don't refetch. */
+const jobDetailCache = new Map<string, any>();
+async function loadJobDetail(jobId: string | undefined | null): Promise<any | null> {
+ if (!jobId) return null;
+ if (jobDetailCache.has(jobId)) return jobDetailCache.get(jobId);
+ try {
+ const res = await fetch(cdnDataUrl(`/data/job-detail/${jobId}.json`));
+ if (!res.ok) {
+ jobDetailCache.set(jobId, null);
+ return null;
+ }
+ const detail = await res.json();
+ jobDetailCache.set(jobId, detail);
+ return detail;
+ } catch {
+ jobDetailCache.set(jobId, null);
+ return null;
+ }
 }
 
 /**
@@ -337,8 +360,13 @@ async function resolveJobSeoBySlug(
  const cleanSlug = normalizeSeoText(slug);
  if (!cleanSlug) return null;
  const map = await loadJobsBySlug(locale);
- const job = map.get(cleanSlug);
- if (!job) return null;
+ const slim = map.get(cleanSlug);
+ if (!slim) return null;
+ // The slim index lacks description + structured-data fields (postalCode,
+ // streetAddress, baseSalary). Lazy-fetch the per-job detail and merge so the
+ // JobPosting builder still gets all 9 mandatory fields (CLAUDE.md rule #3).
+ const detail = await loadJobDetail(slim?.id);
+ const job = detail ? { ...slim, ...detail } : slim;
  const localizedTitle = normalizeSeoText(String(job?.titleByLocale?.[locale] || job?.title || ''));
  const localizedDescription = compactSeoDescription(String(job?.descriptionByLocale?.[locale] || job?.description || ''), 360);
  if (!localizedTitle || !localizedDescription) return null;

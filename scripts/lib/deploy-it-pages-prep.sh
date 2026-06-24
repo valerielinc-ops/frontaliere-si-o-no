@@ -146,6 +146,11 @@ step_push_cdn() {
   for d in brands insurers providers logos authors publisher; do
     [ -d "public/images/$d" ] && mkdir -p "$stage/images" && cp -r "public/images/$d" "$stage/images/$d"
   done
+  # Strip junk the recursive copies drag in: macOS .DS_Store files and the
+  # internal build-telemetry assets/.hash-age.json (chunk first-seen/last-access
+  # timestamps — not a runtime asset, must not be published).
+  find "$stage" -name '.DS_Store' -delete 2>/dev/null || true
+  rm -f "$stage/assets/.hash-age.json" 2>/dev/null || true
   if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ] && [ ! -d "$stage/images" ]; then
     echo "no offloadable assets present — skipping CDN push"; return 0
   fi

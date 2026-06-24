@@ -1158,7 +1158,11 @@ function BlogArticles({
  useEffect(() => {
  if (!selectedArticle) return;
  let cancelled = false;
- fetch(cdnDataUrl(`/data/jobs-${locale}.json`))
+ // Slim listing index — the cross-link sidebar's relevance ranking
+ // (getRelatedJobsForArticle) only reads title/company/category/slug, never
+ // descriptions, so the index suffices and avoids pulling the ~10MB-gz full
+ // locale file on every article view (the monolith is no longer shipped).
+ fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`))
  .then(res => {
  if (!res.ok) throw new Error(`${res.status}`);
  return res.json();
@@ -1167,9 +1171,7 @@ function BlogArticles({
  if (!cancelled && Array.isArray(data)) setCrossLinkJobs(data);
  })
  .catch(() => {
- // Locale shard unreachable — the master /data/jobs.json (88 MB) is
- // no longer shipped to the artifact, so we just skip the cross-link
- // sidebar instead of falling back to the master. The article still
+ // Index unreachable — skip the cross-link sidebar; the article still
  // renders fully.
  });
  return () => { cancelled = true; };

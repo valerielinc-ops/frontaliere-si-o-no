@@ -1,9 +1,11 @@
 /**
  * useExpiredJob — lazy-fetch hook for expired job metadata.
  *
- * Fetches /data/expired-jobs.json once (module-level cache) and returns the
- * first job matching the given slug (any locale slug). Only initiates the
- * fetch when called with a non-nullish slug.
+ * Fetches the slim /data/expired-jobs-index.json once (module-level cache),
+ * matches the given slug (any locale slug or previous slug), then lazy-fetches
+ * the matched entry's /data/expired-detail/<key>.json for the description. This
+ * replaces fetching the whole ~11MB-gz expired-jobs.json monolith on every SPA
+ * navigation to an expired job. Only initiates the fetch for a non-nullish slug.
  */
 
 import { useEffect, useState } from 'react';
@@ -19,35 +21,58 @@ export interface ExpiredJob {
  addressLocality?: string;
  descriptionByLocale?: Record<string, string>;
  slugByLocale?: Record<string, string>;
+ previousSlugs?: string[];
+ previousSlugsByLocale?: Record<string, string[]>;
  sector?: string;
  expiredAt?: string;
+ /** Detail-file key — present on slim index entries; points at expired-detail/<key>.json. */
+ key?: string;
 }
 
-// Module-level cache — shared across all hook instances
-let cachedExpiredJobs: ExpiredJob[] | null = null;
-let fetchPromise: Promise<ExpiredJob[]> | null = null;
+// Module-level caches — shared across all hook instances.
+let cachedExpiredIndex: ExpiredJob[] | null = null;
+let indexFetchPromise: Promise<ExpiredJob[]> | null = null;
+const detailCache = new Map<string, ExpiredJob | null>();
 
-function fetchExpiredJobs(): Promise<ExpiredJob[]> {
- if (cachedExpiredJobs) return Promise.resolve(cachedExpiredJobs);
- if (!fetchPromise) {
- fetchPromise = fetch(cdnDataUrl('/data/expired-jobs.json'))
+function fetchExpiredIndex(): Promise<ExpiredJob[]> {
+ if (cachedExpiredIndex) return Promise.resolve(cachedExpiredIndex);
+ if (!indexFetchPromise) {
+ indexFetchPromise = fetch(cdnDataUrl('/data/expired-jobs-index.json'))
  .then((r) => r.json() as Promise<ExpiredJob[]>)
  .then((data) => {
- cachedExpiredJobs = data;
+ cachedExpiredIndex = data;
  return data;
  })
  .catch(() => {
- fetchPromise = null; // allow retry on next call
+ indexFetchPromise = null; // allow retry on next call
  return [] as ExpiredJob[];
  });
  }
- return fetchPromise;
+ return indexFetchPromise;
+}
+
+function fetchExpiredDetail(key: string): Promise<ExpiredJob | null> {
+ if (detailCache.has(key)) return Promise.resolve(detailCache.get(key) ?? null);
+ return fetch(cdnDataUrl(`/data/expired-detail/${key}.json`))
+ .then((r) => (r.ok ? (r.json() as Promise<ExpiredJob>) : null))
+ .then((d) => {
+ detailCache.set(key, d);
+ return d;
+ })
+ .catch(() => {
+ detailCache.set(key, null);
+ return null;
+ });
 }
 
 function matchExpiredSlug(job: ExpiredJob, slug: string): boolean {
  if (job.slug === slug) return true;
- if (job.slugByLocale) {
- return Object.values(job.slugByLocale).some((s) => s === slug);
+ if (job.slugByLocale && Object.values(job.slugByLocale).some((s) => s === slug)) return true;
+ if (job.previousSlugs && job.previousSlugs.includes(slug)) return true;
+ if (job.previousSlugsByLocale) {
+ for (const arr of Object.values(job.previousSlugsByLocale)) {
+ if (Array.isArray(arr) && arr.includes(slug)) return true;
+ }
  }
  return false;
 }
@@ -83,9 +108,20 @@ export function seededJobMatchesSlug(slug: string): boolean {
   try {
     const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
     if (!raw || typeof raw !== 'object') return false;
-    const job = raw as { slug?: string; slugByLocale?: Record<string, string> };
+    const job = raw as {
+      slug?: string;
+      slugByLocale?: Record<string, string>;
+      previousSlugs?: string[];
+      previousSlugsByLocale?: Record<string, string[]>;
+    };
     if (job.slug === slug) return true;
-    if (job.slugByLocale) return Object.values(job.slugByLocale).some((s) => s === slug);
+    if (job.slugByLocale && Object.values(job.slugByLocale).some((s) => s === slug)) return true;
+    if (job.previousSlugs && job.previousSlugs.includes(slug)) return true;
+    if (job.previousSlugsByLocale) {
+      for (const arr of Object.values(job.previousSlugsByLocale)) {
+        if (Array.isArray(arr) && arr.includes(slug)) return true;
+      }
+    }
     return false;
   } catch { return false; }
 }
@@ -127,13 +163,23 @@ export function useExpiredJob(slug: string | undefined): {
  return;
  }
 
- // 2. Fall back to runtime JSON fetch (for SPA navigation to expired jobs)
+ // 2. Fall back to runtime fetch (for SPA navigation to expired jobs):
+ //    slim index → match → lazy-fetch the matched entry's detail file for
+ //    its descriptionByLocale.
  let cancelled = false;
  setLoading(true);
- fetchExpiredJobs().then((jobs) => {
+ fetchExpiredIndex().then(async (jobs) => {
  if (cancelled) return;
  const found = jobs.find((j) => matchExpiredSlug(j, slug)) ?? null;
- setExpiredJob(found);
+ if (!found) {
+ setExpiredJob(null);
+ setLoading(false);
+ return;
+ }
+ const detail = found.key ? await fetchExpiredDetail(found.key) : null;
+ if (cancelled) return;
+ // Detail carries descriptionByLocale; merge over the slim index entry.
+ setExpiredJob(detail ? { ...found, ...detail } : found);
  setLoading(false);
  });
  return () => { cancelled = true; };

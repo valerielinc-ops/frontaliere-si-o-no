@@ -22,7 +22,10 @@ export const SLIM_INDEX_FIELDS: ReadonlySet<string> = new Set([
   'title',
   'company', 'companyKey', 'companyDomain', 'url',
   'location', 'canton',
-  'addressLocality', 'sector',
+  // addressRegion: read by newsletter location matching (matchJobsForSubscriber
+  // in services/newsletter-content.mjs) which consumes the slim index — without
+  // it region-specific subscriber matching silently degrades.
+  'addressLocality', 'addressRegion', 'sector',
   'category', 'contract', 'department',
   'salaryMin', 'salaryMax', 'currency',
   'postedDate', 'crawledAt', 'firstSeenAt',
