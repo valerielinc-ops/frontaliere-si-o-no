@@ -611,8 +611,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
   writeJsonAtomic(DATA_JOBS, jobs);
   // Also update public copy
   const publicPath = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-  fs.mkdirSync(path.dirname(publicPath), { recursive: true });
-  fs.writeFileSync(publicPath, JSON.stringify(jobs, null, 2) + '\n');
+  writeJsonAtomic(publicPath, jobs);
 
   console.log(`✅ API injection: ${inserted} new, ${updated} updated, ${requisitions.length} total EFG jobs.`);
   return inserted + updated;
@@ -949,8 +948,7 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
     writeJsonAtomic(DATA_JOBS, jobs);
     // Also update public copy
     const publicPath = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-    fs.mkdirSync(path.dirname(publicPath), { recursive: true });
-    fs.writeFileSync(publicPath, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(publicPath, jobs);
     console.log(`🔧 Post-processed ${fixed} EFG jobs (fixed company/location/description).`);
     if (recoveredFromApi > 0) {
       console.log(`🩹 Recovered ${recoveredFromApi} EFG descriptions from Oracle details API.`);

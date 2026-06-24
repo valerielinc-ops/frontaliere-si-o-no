@@ -12,6 +12,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -205,7 +206,7 @@ async function main() {
   // Save to file for the build plugin to generate soft-landing pages
   const orphanSlugs = orphans.map(o => o.slug);
   const outPath = path.join(ROOT, 'data', 'orphan-indexed-job-slugs.json');
-  fs.writeFileSync(outPath, JSON.stringify(orphanSlugs, null, 2) + '\n');
+  writeJsonAtomic(outPath, orphanSlugs);
   console.log(`\n💾 Saved ${orphanSlugs.length} orphan slugs to ${outPath}`);
   console.log('   → The build plugin can use this to generate soft-landing pages');
 }

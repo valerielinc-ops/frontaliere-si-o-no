@@ -295,7 +295,7 @@ function retagFustJobs() {
     writeJsonAtomic(DATA_JOBS, raw);
     const publicPath = path.resolve(ROOT, 'public', 'data', 'jobs.json');
     if (fs.existsSync(publicPath)) {
-      fs.writeFileSync(publicPath, JSON.stringify(raw, null, 2) + '\n');
+      writeJsonAtomic(publicPath, raw);
     }
     console.log(`🔄 Re-tagged ${retagged} existing Fust jobs from coop-ticino → ${FUST_KEY}`);
   }
