@@ -7114,6 +7114,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {authPendingNoticeJsx}
 
+ {/* Top leaderboard banner — full content-width, pinned at the very top of
+     the job-detail view (above the rail grid, just under the "back" link), so
+     it occupies the top ad slot instead of sitting one row down beside the
+     side rails. Desktop (lg+) only; Auto Ads stay untouched — additional
+     manual display unit. */}
+ {isDesktopLg && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
+ minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
+ />
+ )}
+
  {/* 3-column rail grid: left rail | content | right rail. 180px rails at xl
      (1280–1399), widening to 300px at xlw (≥1400) to host the ArticleRailAd
      half-page creatives — same full-height side-rail layout as the article
@@ -7128,19 +7142,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {/* ── Center content (existing 12-col job-detail grid) ── */}
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
- {/* Top leaderboard banner — full content-width above the header on
- desktop (lg+), spanning both the article and sidebar columns. Auto
- Ads stay untouched; this is an additional manual display unit. */}
- {isDesktopLg && (
- <div className="lg:col-span-12">
- <AdSenseBanner
- adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
- adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
- fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
- minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
- />
- </div>
- )}
  <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
  <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6">
  <div className="flex items-start gap-3 sm:gap-4">
