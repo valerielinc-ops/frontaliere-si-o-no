@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-06-23T22:29:30.483Z",
+  "generatedAt": "2026-06-24T11:47:10.526Z",
   "total": 10,
   "newCount": 10,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 24290,
-  "avgDurationMs": 24290,
+  "durationMs": 17002,
+  "avgDurationMs": 17002,
   "durationHistory": [
-    24290
+    17002
   ],
   "newJobs": [
     {
@@ -18,7 +18,7 @@
       "slug": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
       "company": "IBSA Institut Biochimique",
       "title": "CMO Manager",
-      "location": "All Area All Clear Apply now » CMO Manager Location: Grancia",
+      "location": "Grancia",
       "canton": "TI",
       "category": "sales",
       "contract": "temporary",
@@ -36,22 +36,22 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-06-23T22:29:29.508Z",
       "firstSeenAt": "2026-06-23T22:29:29.508Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 82500,
       "salaryMax": 127000,
       "streetAddress": "Via del Piano 29",
       "postalCode": "6926",
-      "addressLocality": "All Area All Clear Apply now » CMO Manager Location: Grancia",
+      "addressLocality": "Grancia",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 18,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -66,7 +66,7 @@
       "contract": "internship",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-23",
+      "postedDate": "2026-06-24",
       "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/",
       "source": "Company Careers Crawler",
       "_targetScope": {
