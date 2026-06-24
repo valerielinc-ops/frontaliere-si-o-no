@@ -385,6 +385,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prettigovia-progetto-467-5-milioni.title': 'Plus GR : 467,5 millions pour Prettigovia',
     'blog.article.prettigovia-progetto-467-5-milioni.excerpt': 'Le projet de reconstruction de la route et du chemin de fer en Prétigovie coûte 467,5 millions de francs',
     'blog.article.prettigovia-progetto-467-5-milioni.imageAlt': 'Construction routière en Suisse',
+    'blog.article.iva-aumento-governo-decisione-previsto.title': 'Augmentation de la TVA : le gouvernement décide d\'atténuer l\'augmentation',
+    'blog.article.iva-aumento-governo-decisione-previsto.excerpt': 'Le Conseil fédéral a décidé d\'atténuer l\'augmentation de la TVA destinée à financer le renforcement de l\'armée.',
+    'blog.article.iva-aumento-governo-decisione-previsto.imageAlt': 'Image d\'un lac avec des montagnes en Suisse',
 };
 
 export default blogMetaChFr;

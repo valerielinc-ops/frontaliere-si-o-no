@@ -385,6 +385,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prettigovia-progetto-467-5-milioni.title': 'Mehr GR: 467,5 Mio. Strassen- und Bahnprojekt im Prättigau',
     'blog.article.prettigovia-progetto-467-5-milioni.excerpt': 'Das Projekt zum Wiederaufbau von Strasse und Bahn im Prättigau kostet 467,5 Millionen Franken',
     'blog.article.prettigovia-progetto-467-5-milioni.imageAlt': 'Strassenbau in der Schweiz',
+    'blog.article.iva-aumento-governo-decisione-previsto.title': 'Mehrwertsteuererhöhung: Die Regierung beschließt, die Erhöhung zu mildern',
+    'blog.article.iva-aumento-governo-decisione-previsto.excerpt': 'Der Bundesrat hat beschlossen, die Mehrwertsteuererhöhung zur Finanzierung des Aufbaus der Armee abzuschwächen.',
+    'blog.article.iva-aumento-governo-decisione-previsto.imageAlt': 'Bild eines Sees mit Bergen in der Schweiz',
 };
 
 export default blogMetaChDe;
