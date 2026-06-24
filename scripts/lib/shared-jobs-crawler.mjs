@@ -3781,9 +3781,17 @@ function extractRexxJobTitle(html) {
   // Concorsi.ti.ch layout is not fixed across announcements:
   // often h2[2] is just "33/26" and h2[3] is the real title.
   // Select the best semantic candidate instead of hard index.
-  const sectionRe = /^(compiti|requisiti|condizioni|scadenza|aufgaben|anforderungen)\s*:/i;
+  // Every content section heading on this portal ends with a colon
+  // (Requisiti:, Compiti:, Condizioni:, Scadenza:, Osservazioni particolari:,
+  // Documenti e condizioni di presentazione della candidatura:, Stipendio …:).
+  // Real job titles never end with a colon, so a trailing-colon check rejects the
+  // whole heading class — not just the few enumerated keywords (which previously
+  // let a long heading like "Documenti …:" win when the title lacked a preferred
+  // keyword). Kept in sync with SECTION_HEADING_RE in scripts/lib/tich-job-parser.mjs.
+  const sectionRe = /^(compiti|requisiti|condizioni|scadenza|osservazioni|documenti|stipendio|mansioni|profilo|aufgaben|anforderungen)\b/i;
   const candidates = h2s.filter((h) => (
     h.length > 20 &&
+    !/:\s*$/.test(h) &&
     !sectionRe.test(h) &&
     !/^\d+\/\d+$/.test(h.trim()) &&
     !/^dipartimento\b/i.test(h) &&

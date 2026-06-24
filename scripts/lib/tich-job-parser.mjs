@@ -61,6 +61,25 @@ const INSTITUTIONAL_RE =
   /^(Repubblica(\s+e\s+Cantone)?|Cantone\s+Ticino|Offerte?\s+d['']impieghi|Offerta\s+di\s+lavoro|Amministrazione\s+cantonale|Portal\s*7|Jobportal|Rexx|Sezione\s+delle\s+risorse|Foglio\s+Ufficiale|\d{1,3}\s*\/\s*\d{2,4}\s*$|Concorsi\s+per\s+(la\s+)?nomina|Dipartimento\b)/i;
 
 /**
+ * A concorso reference number such as "5/25" or "87 / 2026". These appear as a
+ * standalone heading before the position title and must be skipped. NOTE: this
+ * must NOT match real titles that merely *start* with a count, e.g.
+ * "1 Apprendista operatore/trice informatico/a AFC …" — the position count is a
+ * legitimate part of the concorso title.
+ */
+const CONCORSO_NUMBER_RE = /^\d{1,3}\s*\/\s*\d{2,4}\s*$/;
+
+/**
+ * Section headings of the job notice (Compiti, Requisiti, Condizioni, …). On the
+ * Rexx Systems Portal 7 page these render as their own headings and, when the
+ * real title is skipped, the first one ("Requisiti:") gets mis-picked as the
+ * title (FRO-70 follow-up). Every section heading on this portal ends with a
+ * colon and/or is one of these well-known labels, so reject the whole class.
+ */
+const SECTION_HEADING_RE =
+  /:\s*$|^(compiti|requisiti|condizioni|scadenza|osservazioni|documenti|stipendio|mansioni|profilo|aufgaben|anforderungen)\b/i;
+
+/**
  * Heading elements to try, in priority order, when extracting the title.
  * We skip any text that matches INSTITUTIONAL_RE or is too short/numeric.
  */
@@ -156,7 +175,8 @@ export function parseTichDetailPage(html = '') {
         if (
           text.length >= 10 &&
           !INSTITUTIONAL_RE.test(text) &&
-          !/^\d/.test(text) // skip pure numeric codes like "5/25"
+          !CONCORSO_NUMBER_RE.test(text) && // skip concorso numbers like "5/25" (but keep "1 Apprendista …")
+          !SECTION_HEADING_RE.test(text) // skip section headings like "Requisiti:"
         ) {
           title = text;
           break;
