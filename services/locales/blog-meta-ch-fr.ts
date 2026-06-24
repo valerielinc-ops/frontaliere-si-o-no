@@ -382,6 +382,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.title': 'Baisse des annonces de logements locatifs en Suisse : que se passe-t-il ?',
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.excerpt': 'Le nombre d\'annonces de logements locatifs a diminué de 4% entre avril 2025 et mars 2026, tandis que la durée moyenne de publication des annonces a augmenté.',
     'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.imageAlt': 'Photo d\'un immeuble résidentiel à Lugano avec des appartements à louer',
+    'blog.article.prettigovia-progetto-467-5-milioni.title': 'Plus GR : 467,5 millions pour Prettigovia',
+    'blog.article.prettigovia-progetto-467-5-milioni.excerpt': 'Le projet de reconstruction de la route et du chemin de fer en Prétigovie coûte 467,5 millions de francs',
+    'blog.article.prettigovia-progetto-467-5-milioni.imageAlt': 'Construction routière en Suisse',
 };
 
 export default blogMetaChFr;
