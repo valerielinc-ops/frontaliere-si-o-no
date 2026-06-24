@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const SOURCE_URL = 'https://www.arbeit.swiss/secoalv/it/home.html';
 const OUT_FILE = path.resolve(process.cwd(), 'public/data/switzerland-unemployment-rate.json');
@@ -406,8 +407,7 @@ async function main() {
     fetchedAt: new Date().toISOString(),
   };
 
-  fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
-  fs.writeFileSync(OUT_FILE, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+  writeJsonAtomic(OUT_FILE, payload);
   console.log(`[unemployment] Updated ${OUT_FILE}: ${payload.period} -> ${payload.rate}%`);
 }
 
