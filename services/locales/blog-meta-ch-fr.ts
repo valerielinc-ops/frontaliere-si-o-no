@@ -379,6 +379,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scambio-dati-salariali-italia.title': 'Frontaliers, feu vert à l\'échange de données salariales avec l’Italie',
     'blog.article.scambio-dati-salariali-italia.excerpt': 'Depuis 2024, l\'accord entre la Suisse et l\'Italie permet l\'échange de données salariales des frontaliers, facilitant ainsi le calcul fiscal.',
     'blog.article.scambio-dati-salariali-italia.imageAlt': 'Travailleur frontalier vérifiant documents et données salariales à la frontière suisse-italienne.',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.title': 'Baisse des annonces de logements locatifs en Suisse : que se passe-t-il ?',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.excerpt': 'Le nombre d\'annonces de logements locatifs a diminué de 4% entre avril 2025 et mars 2026, tandis que la durée moyenne de publication des annonces a augmenté.',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.imageAlt': 'Photo d\'un immeuble résidentiel à Lugano avec des appartements à louer',
 };
 
 export default blogMetaChFr;

@@ -379,6 +379,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scambio-dati-salariali-italia.title': 'Frontalieri, via libera allo scambio dei dati salariali con l’Italia',
     'blog.article.scambio-dati-salariali-italia.excerpt': 'Dal 2024, accordo tra Svizzera e Italia permette lo scambio di dati salariali dei frontalieri, facilitando il calcolo fiscale.',
     'blog.article.scambio-dati-salariali-italia.imageAlt': 'Frontaliere al valico tra Svizzera e Italia che controlla documenti e dati salariali.',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.title': 'Diminuiscono annunci di alloggi in affitto in Svizzera: cosa succede?',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.excerpt': 'Il numero di annunci di alloggi in affitto è diminuito del 4% tra aprile 2025 e marzo 2026, mentre la durata media di pubblicazione degli annunci è aumentata.',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.imageAlt': 'Foto di un edificio residenziale a Lugano con alloggi in affitto',
 };
 
 export default blogMetaChIt;

@@ -379,6 +379,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scambio-dati-salariali-italia.title': 'Frontier workers, green light to exchange salary data with Italy',
     'blog.article.scambio-dati-salariali-italia.excerpt': 'Since 2024, an agreement between Switzerland and Italy has allowed the exchange of wage data on frontier workers, facilitating tax calculation.',
     'blog.article.scambio-dati-salariali-italia.imageAlt': 'Cross-border worker checking documents and salary data at Swiss-Italian border.',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.title': 'Listings for rent in Switzerland are decreasing: what\'s happening?',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.excerpt': 'The number of listings for rental accommodation decreased by 4% between April 2025 and March 2026, while the average duration of listing has increased.',
+    'blog.article.diminuiscono-annunci-alloggi-frontaliere-ticino.imageAlt': 'Photo of a residential building in Lugano with apartments for rent',
 };
 
 export default blogMetaChEn;

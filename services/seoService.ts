@@ -4169,6 +4169,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ubs-previdenza-vecchiaia': { name: 'Previdenza Vecchiaia', path: '/articoli-svizzera/ubs-previdenza-vecchiaia/', parent: 'blog' },
     'blog-dispositivi-medici-rimborsi': { name: 'Berna apre ai rimborsi per dispositivi', path: '/articoli-svizzera/dispositivi-medici-rimborsi/', parent: 'blog' },
     'blog-scambio-dati-salariali-italia': { name: 'Fiscalità', path: '/articoli-svizzera/scambio-dati-salariali-italia/', parent: 'blog' },
+    'blog-diminuiscono-annunci-alloggi-frontaliere-ticino': { name: 'Alloggi in affitto in Svizzera', path: '/articoli-svizzera/diminuiscono-annunci-alloggi-frontaliere-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
