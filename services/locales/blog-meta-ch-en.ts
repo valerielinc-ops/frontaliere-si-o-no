@@ -361,6 +361,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.title': 'Cheap Spanish tomatoes, an era at the end of the line?',
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.excerpt': 'Importing fruits and vegetables from Spain could decrease due to higher wages and foreign competition.',
     'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.imageAlt': 'Greenhouse farming of tomatoes in Spain',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.title': 'Suspended rail traffic in Germany: impact on Switzerland',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.excerpt': 'Suspension of trains in Germany due to a technical failure could affect connections with Switzerland. Here\'s what to know.',
+    'blog.article.traffico-ferroviario-sospeso-germania-guasto-tecnico.imageAlt': 'Aerial view of Swiss train stations with a suspended train',
 };
 
 export default blogMetaChEn;

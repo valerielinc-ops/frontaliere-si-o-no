@@ -1,0 +1,40 @@
+{
+  "id": "traffico-ferroviario-sospeso-germania-guasto-tecnico",
+  "slug": "traffico-ferroviario-sospeso-germania-guasto-tecnico",
+  "publishedAt": "2026-06-24T04:39:53.553Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 8.424779972583272,
+    "confidence": 0.8,
+    "finalScore": 6.739823978066617,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8739203994399815
+      },
+      {
+        "slug": "ripristino-treni-locarno-cadenazzo",
+        "cosine": 0.8471120358208745
+      },
+      {
+        "slug": "documenti-necessari-frontaliere",
+        "cosine": 0.8372034700608131
+      },
+      {
+        "slug": "chiasso-grenzubergang",
+        "cosine": 0.8370131035290443
+      },
+      {
+        "slug": "gravincidente-stradale-regina-feriti",
+        "cosine": 0.8365616560447432
+      }
+    ],
+    "score": 6.739823978066617,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
