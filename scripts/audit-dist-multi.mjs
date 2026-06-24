@@ -38,6 +38,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -308,7 +309,7 @@ function classifyFeatureRatio(relPath) {
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/.test(p)) {
     return 'career-landings';
   }
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|diesel-price-switzerland|prix-essence-suisse|prix-diesel-suisse|prix-gasoil-suisse|fuel-prices-switzerland|benzinpreis-schweiz|dieselpreis-schweiz|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
+  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\/[^/]+\/[^/]+\//.test(p)) {
     return 'weekly-employers';
   }
@@ -327,7 +328,7 @@ function classifyFeatureRatio(relPath) {
 /** From audit-title-length.classifyFeature. */
 function classifyFeatureTitle(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-carburante-svizzera|prix-essence-suisse|fuel-prices-switzerland|benzinpreise?-schweiz|prezzi-benzina|prezzi-diesel|gasoline-price|diesel-price|benzinpreis|dieselpreis|prix-essence|prix-gasoil|prix-diesel)\//.test(p)) return 'fuel-daily';
+  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-/.test(p)) return 'weekly-employers';
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|unternehmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
   if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board'; // canton-aware (shared matcher)
@@ -342,7 +343,7 @@ function classifyFeatureTitle(relPath) {
 /** From audit-h1-title-duplicates.classifyFeature. */
 function classifyFeatureH1(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-carburante-svizzera|prix-essence-suisse|fuel-prices-switzerland|benzinpreise?-schweiz)\//.test(p)) return 'fuel-daily';
+  if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-/.test(p)) return 'weekly-employers';
   if (JOB_BOARD_SECTION_RX.test(p)) return 'job-board'; // canton-aware (shared matcher)
   if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
