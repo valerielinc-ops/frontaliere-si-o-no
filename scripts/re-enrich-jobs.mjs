@@ -14,6 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, isAnyModelAvailable } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -22,9 +23,6 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 
 function readJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
-}
-function writeJson(p, data) {
-  fs.writeFileSync(p, JSON.stringify(data, null, 2) + '\n', 'utf8');
 }
 function roundTo500(n) {
   return Math.round(n / 500) * 500;

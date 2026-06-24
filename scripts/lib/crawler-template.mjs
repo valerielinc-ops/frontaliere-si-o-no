@@ -125,6 +125,7 @@
  *     qualityScore
  */
 import fs from 'node:fs';
+import { writeJsonAtomic } from './atomic-write-json.mjs';
 import path from 'node:path';
 import {
   snapshotJobSlugs,
@@ -733,9 +734,9 @@ export async function runStandardCrawlerPipeline(config) {
 
   // Write merged dataset (intermediate — Steps 5-6 modify in-place)
   const final = [...others, ...clean];
-  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(final, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(DATA_JOBS, final);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-    fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(final, null, 2)}\n`, 'utf-8');
+    writeJsonAtomic(PUBLIC_DATA_JOBS, final);
   }
 
   // ─── Step 4: Diff reporting ─────────────────────────────────

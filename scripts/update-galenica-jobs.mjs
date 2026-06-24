@@ -48,6 +48,7 @@ mergeLocaleTextMap,
 import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -338,9 +339,6 @@ async function fetchGalenicaJobs() {
 }
 
 /* ── Merge into jobs.json ──────────────────────────────────── */
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
-}
 
 function mergeGalenicaJobs(discoveredJobs) {
   let allJobs = [];

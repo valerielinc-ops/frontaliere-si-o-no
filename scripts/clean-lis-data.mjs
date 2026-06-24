@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -142,7 +143,7 @@ for (const job of allJobs) {
 }
 
 if (cleaned > 0) {
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, allJobs);
   console.log(`🧹 Cleaned ${cleaned} LIS jobs.`);
 }
 

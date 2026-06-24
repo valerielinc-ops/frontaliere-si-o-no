@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { buildJobsStatsArtifacts, buildJobKeysSnapshot } from './lib/job-board-stats.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -22,12 +23,6 @@ function readJson(filePath, fallback) {
     console.warn(`⚠️ Failed to parse ${path.relative(ROOT, filePath)}: ${error.message}`);
     return fallback;
   }
-}
-
-function writeJson(filePath, value, { compact = false } = {}) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const json = compact ? JSON.stringify(value) : JSON.stringify(value, null, 2);
-  fs.writeFileSync(filePath, json + '\n', 'utf8');
 }
 
 /**

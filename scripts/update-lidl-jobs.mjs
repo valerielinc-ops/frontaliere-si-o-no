@@ -48,6 +48,7 @@ import { hasListContent, MIN_LIDL_FULL_DESC } from './lib/lidl-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -530,9 +531,9 @@ function mergeApiDescriptions(jobsFromApi) {
   }
 
   if (enriched > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+      writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
     }
     console.log(`✨ Enriched ${enriched} Lidl jobs with API descriptions.`);
   }
@@ -689,9 +690,9 @@ function postProcessLidlJobs() {
     : allJobs;
 
   if (fixed > 0 || toDrop.size > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(deduped, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, deduped);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(deduped, null, 2) + '\n');
+      writeJsonAtomic(PUBLIC_DATA_JOBS, deduped);
     }
     console.log(`🧹 Post-processed ${fixed} Lidl fields.`);
     if (toDrop.size > 0) {

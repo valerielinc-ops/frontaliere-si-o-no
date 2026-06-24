@@ -30,6 +30,7 @@ import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -44,10 +45,6 @@ const MAX_PER_JOB = maxIdx !== -1 ? parseInt(args[maxIdx + 1], 10) || 20 : 20;
 
 function readJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
-}
-
-function writeJson(p, v) {
-  fs.writeFileSync(p, `${JSON.stringify(v, null, 2)}\n`, 'utf8');
 }
 
 /**

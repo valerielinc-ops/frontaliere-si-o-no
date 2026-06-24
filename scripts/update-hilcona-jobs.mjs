@@ -16,6 +16,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, d
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { fetchHilconaJobUrls, fetchHilconaDetailPage, slugify, inferEmploymentType } from './lib/hilcona-job-parser.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -31,8 +32,8 @@ function isCompanyJob(job) {
 }
 
 function writeJobsFiles(jobs) {
-  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
-  if (fs.existsSync(PUBLIC_DATA_JOBS)) fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(DATA_JOBS, jobs);
+  if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
 function mergeCompanyJobs(parsedJobs) {

@@ -49,6 +49,7 @@ import {
   MIN_DESC_LENGTH,
 } from './lib/raiffeisen-vc-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -318,7 +319,7 @@ function ensureSourceLang() {
     if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
   }
   if (changed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     console.log(`📝 Set sourceLang on ${changed} Raiffeisen VC job(s).`);
   }
 }
@@ -364,9 +365,9 @@ function patchDescriptionsFromDetailBodies(detailBodies) {
   }
 
   if (patched > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`\n✅ Patched ${patched} job description(s) with full vacancy body.`);
   } else {
     console.log('\nℹ️  All stored descriptions are already up-to-date (no patch needed).');

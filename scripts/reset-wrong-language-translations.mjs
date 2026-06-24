@@ -15,8 +15,9 @@
  *   node scripts/reset-wrong-language-translations.mjs [--dry-run]
  */
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const CRAWLERS_DIR = join(process.cwd(), 'data/jobs/by-crawler');
@@ -291,7 +292,7 @@ function processFile(filePath) {
   }
 
   if (changed && !DRY_RUN) {
-    writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+    writeJsonAtomic(filePath, data);
   }
 
   return { flagged, total: jobs.length };

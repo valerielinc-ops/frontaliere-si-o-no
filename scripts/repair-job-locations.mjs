@@ -22,6 +22,7 @@ import {
   inferAnyCanton,
 } from './lib/target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SLICES_DIR = join(__dirname, '..', 'data', 'jobs', 'by-crawler');
@@ -151,7 +152,7 @@ for (const file of sliceFiles) {
   if (sliceModified) {
     stats.slicesModified++;
     if (apply) {
-      writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n');
+      writeJsonAtomic(filePath, data);
     }
   }
 }

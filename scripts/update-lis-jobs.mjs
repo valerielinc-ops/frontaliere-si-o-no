@@ -38,6 +38,7 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -818,9 +819,9 @@ async function cleanLisJobs() {
     : allJobs;
 
   if (cleaned > 0 || toDrop.size > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(deduped, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, deduped);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(deduped, null, 2) + '\n');
+      writeJsonAtomic(PUBLIC_DATA_JOBS, deduped);
     }
     console.log(`🧹 Cleaned ${cleaned} LIS jobs (company, title, location, description, slug).`);
     if (toDrop.size > 0) {
@@ -853,7 +854,7 @@ function purgeLisJobsForRecrawl() {
   const purged = before - kept.length;
 
   if (purged > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(kept, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, kept);
     console.log(`🗑️ Purged ${purged} LIS jobs from jobs.json for force-recrawl.`);
   }
   return purged;
@@ -1071,9 +1072,9 @@ async function crawlArca24Direct() {
   }
 
   const allJobs = [...nonLisJobs, ...mergedLis, ...preservedExisting];
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, allJobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS) || fs.existsSync(path.dirname(PUBLIC_DATA_JOBS))) {
-    fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+    writeJsonAtomic(PUBLIC_DATA_JOBS, allJobs);
   }
 
   console.log(`\n📊 Merge result: ${mergedLis.length} LIS jobs (${added} added, ${updated} updated, ${preservedExisting.length} preserved from prior slice)`);

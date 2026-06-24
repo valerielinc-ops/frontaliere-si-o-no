@@ -9,8 +9,9 @@
  * Safe to run multiple times (idempotent).
  */
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const DATA_DIR = join(import.meta.dirname, '..', 'data', 'jobs', 'by-crawler');
 
@@ -55,7 +56,7 @@ for (const file of files) {
   }
 
   if (fileChanged) {
-    writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(filePath, data);
     filesModified++;
   }
 }

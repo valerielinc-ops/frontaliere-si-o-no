@@ -59,6 +59,7 @@ import {
 import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { getCantonDisplayName, getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -570,9 +571,9 @@ async function mergeIstJobs(discoveredJobs) {
 
   const final = [...nonIstJobs, ...merged];
 
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(PUBLIC_JOBS, final);
 
   console.log(`\n📦 Merge results:`);
   console.log(`  ➕ Added: ${added}`);
@@ -655,8 +656,8 @@ function postProcessIstJobs() {
   }
 
   if (fixed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
-    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
+    writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Post-processed ${fixed} IST jobs (fixed company/location/canton).`);
   }
 }

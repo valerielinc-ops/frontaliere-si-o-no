@@ -42,6 +42,7 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -572,9 +573,9 @@ async function injectMedactaJobs(alliboJobs) {
   jobs = dedupedState.jobs;
 
   // Write back
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, jobs);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+  writeJsonAtomic(PUBLIC_JOBS, jobs);
 
   console.log(`\n📊 Injection summary: ${injected} new, ${updated} updated`);
   if (dedupedState.removed > 0) {
@@ -1168,9 +1169,9 @@ function postProcessMedactaJobs() {
   const finalJobs = dedupedState.jobs;
 
   if (fixed > 0 || dedupedState.removed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(finalJobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, finalJobs);
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(finalJobs, null, 2) + '\n');
+    writeJsonAtomic(PUBLIC_JOBS, finalJobs);
     console.log(`🔧 Post-processed ${fixed} Medacta jobs (fixed company/location/canton/description).`);
     if (dedupedState.removed > 0) {
       console.log(`🧯 Medacta hard-dedup removed ${dedupedState.removed} duplicate rows during post-process.`);

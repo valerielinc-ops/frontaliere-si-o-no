@@ -43,6 +43,7 @@ import {
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -413,9 +414,6 @@ async function runBaseCrawler() {
 }
 
 /* ── Post-processing ───────────────────────────────────────── */
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
-}
 
 function postProcess() {
   if (!fs.existsSync(DATA_JOBS)) return;

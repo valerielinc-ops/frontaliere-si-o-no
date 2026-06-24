@@ -33,6 +33,7 @@ import { parseEfgOracleDescription } from './lib/efg-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { isTargetCanton } from './lib/crawler-location-config.mjs';
 import { locTokenHit } from '../services/locToken.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -607,11 +608,10 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
   }
 
   // Write back
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, jobs);
   // Also update public copy
   const publicPath = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-  fs.mkdirSync(path.dirname(publicPath), { recursive: true });
-  fs.writeFileSync(publicPath, JSON.stringify(jobs, null, 2) + '\n');
+  writeJsonAtomic(publicPath, jobs);
 
   console.log(`✅ API injection: ${inserted} new, ${updated} updated, ${requisitions.length} total EFG jobs.`);
   return inserted + updated;
@@ -945,11 +945,10 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
   }
 
   if (fixed > 0 || recoveredFromApi > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     // Also update public copy
     const publicPath = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-    fs.mkdirSync(path.dirname(publicPath), { recursive: true });
-    fs.writeFileSync(publicPath, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(publicPath, jobs);
     console.log(`🔧 Post-processed ${fixed} EFG jobs (fixed company/location/description).`);
     if (recoveredFromApi > 0) {
       console.log(`🩹 Recovered ${recoveredFromApi} EFG descriptions from Oracle details API.`);

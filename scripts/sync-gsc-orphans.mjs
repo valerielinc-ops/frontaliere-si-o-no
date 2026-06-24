@@ -32,6 +32,7 @@ import {
   buildOrphanLocalePaths,
 } from './lib/orphan-canton-paths.mjs';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -120,11 +121,6 @@ function readJsonSafe(filePath) {
   } catch {
     return null;
   }
-}
-
-function writeJson(filePath, data) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n');
 }
 
 function extractSlugFromPath(urlPath) {

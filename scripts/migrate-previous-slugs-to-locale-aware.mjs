@@ -17,6 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -245,7 +246,7 @@ function processSliceFile(sliceFile, expiredDir) {
     if (currentData.jobs) {
       currentData.jobs = jobs;
     }
-    fs.writeFileSync(sliceFile, JSON.stringify(currentData, null, 2) + '\n');
+    writeJsonAtomic(sliceFile, currentData);
   }
 
   return { file: basename, recovered, migrated };
@@ -335,7 +336,7 @@ function processExpiredSlice(sliceFile) {
 
   if (changed && !DRY_RUN) {
     if (currentData.jobs) currentData.jobs = jobs;
-    fs.writeFileSync(sliceFile, JSON.stringify(currentData, null, 2) + '\n');
+    writeJsonAtomic(sliceFile, currentData);
   }
 
   return { file: `expired/${basename}`, recovered, migrated };

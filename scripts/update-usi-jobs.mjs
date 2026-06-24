@@ -50,6 +50,7 @@ import { translateTextWithLocalPipeline } from './lib/job-localization-pipeline.
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -885,9 +886,9 @@ async function mergeUsiJobs(discoveredJobs) {
   const final = [...nonUsiJobs, ...merged];
 
   // Write to data/jobs.json and public/data/jobs.json
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(PUBLIC_JOBS, final);
 
   console.log(`\n📦 Merge results:`);
   console.log(`  ➕ Added: ${added}`);
@@ -1140,8 +1141,8 @@ async function postProcessUsiJobs() {
   }
 
   if (fixed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
-    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
+    writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Post-processed ${fixed} USI jobs (fixed company/location/canton).`);
   }
 }
@@ -1193,8 +1194,8 @@ function applyUsiLocaleOverrides() {
   }
 
   if (fixed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
-    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
+    writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Applied ${fixed} USI locale override(s).`);
   }
   return fixed;
@@ -1325,9 +1326,9 @@ async function main() {
   const usiJobsForPatch = (Array.isArray(allJobsForPatch) ? allJobsForPatch : []).filter(isUsiJob);
   const patchedCount = ensureMinimumDescriptionWordCount(usiJobsForPatch, 50);
   if (patchedCount > 0) {
-    fs.writeFileSync(DATA_JOBS, `${JSON.stringify(allJobsForPatch, null, 2)}\n`, 'utf8');
+    writeJsonAtomic(DATA_JOBS, allJobsForPatch);
     if (fs.existsSync(PUBLIC_JOBS)) {
-      fs.writeFileSync(PUBLIC_JOBS, `${JSON.stringify(allJobsForPatch, null, 2)}\n`, 'utf8');
+      writeJsonAtomic(PUBLIC_JOBS, allJobsForPatch);
     }
     console.log(`📝 Patched ${patchedCount} thin USI descriptions (< 50 words)`);
   }

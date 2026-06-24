@@ -40,6 +40,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { mergeUrlKey } from './lib/job-url-key.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const APPLY = process.argv.includes('--apply');
 const ROOT = process.cwd();
@@ -109,7 +110,7 @@ function processFile(file) {
   if (splitGroups === 0) return { file, splitGroups, reIded, decon, changed: false };
 
   if (APPLY) {
-    fs.writeFileSync(file, JSON.stringify(parsed, null, 2) + '\n');
+    writeJsonAtomic(file, parsed);
   }
   return { file, splitGroups, reIded, decon, changed: true };
 }

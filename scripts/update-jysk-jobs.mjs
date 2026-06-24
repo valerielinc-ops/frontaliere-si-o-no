@@ -42,6 +42,7 @@ import {
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -245,7 +246,7 @@ async function main() {
           job.sourceLang = detectLang((job.description || job.title || ''), 'de');
         }
       }
-      fs.writeFileSync(DATA_JOBS, JSON.stringify(raw, null, 2) + '\n');
+      writeJsonAtomic(DATA_JOBS, raw);
     }
   }
 

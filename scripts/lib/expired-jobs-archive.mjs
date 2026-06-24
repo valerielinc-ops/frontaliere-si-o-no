@@ -19,6 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -127,6 +128,6 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   const archived = [...bySlug.values()].sort((a, b) =>
     (b.expiredAt || '').localeCompare(a.expiredAt || ''),
   );
-  fs.writeFileSync(slicePath, `${JSON.stringify(archived, null, 2)}\n`, 'utf-8');
+  writeJsonAtomic(slicePath, archived);
   return added;
 }

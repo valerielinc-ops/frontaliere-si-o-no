@@ -36,6 +36,7 @@ import {
   buildSunriseLocalizedContent,
   inferSunriseCategory,
 } from './lib/sunrise-job-parser.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -57,10 +58,6 @@ function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
 function normalize(value = '') {

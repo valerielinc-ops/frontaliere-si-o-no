@@ -53,6 +53,7 @@ import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInTex
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -383,22 +384,6 @@ function readJson(filePath, fallback) {
     return JSON.parse(text);
   } catch {
     return fallback;
-  }
-}
-
-function writeJson(filePath, value) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const content = `${JSON.stringify(value, null, 2)}\n`;
-  // Atomic write: commit via temp+rename so a SIGKILL/OOM mid-write cannot
-  // leave data/jobs.json (or any output) truncated. renameSync is a single
-  // POSIX syscall — atomic on same filesystem (Linux runner always qualifies).
-  const tmp = `${filePath}.${process.pid}.tmp`;
-  try {
-    fs.writeFileSync(tmp, content, 'utf8');
-    fs.renameSync(tmp, filePath);
-  } catch (err) {
-    try { fs.unlinkSync(tmp); } catch { /* best-effort cleanup */ }
-    throw err;
   }
 }
 

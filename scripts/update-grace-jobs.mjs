@@ -30,6 +30,7 @@ import {
 import { selectGraceDescription } from './lib/grace-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -53,10 +54,6 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 function readJson(filePath, fallback) {
   try { return JSON.parse(fs.readFileSync(filePath, 'utf8')); }
   catch { return fallback; }
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
 function normalize(value = '') {
@@ -641,9 +638,9 @@ async function main() {
       }
     }
     if (patched > 0) {
-      fs.writeFileSync(DATA_JOBS, `${JSON.stringify(all, null, 2)}\n`, 'utf8');
+      writeJson(DATA_JOBS, all);
       if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
-        fs.writeFileSync(PUBLIC_JOBS, `${JSON.stringify(all, null, 2)}\n`, 'utf8');
+        writeJson(PUBLIC_JOBS, all);
       }
       console.log(`🛠️ Backfilled ${patched} missing locale descriptions for ${COMPANY_NAME} jobs`);
     }

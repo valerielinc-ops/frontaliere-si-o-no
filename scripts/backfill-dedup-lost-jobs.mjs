@@ -23,6 +23,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -709,7 +710,7 @@ function applyToDisk(filtered) {
     const merged = [...existing, ...proposals].sort((a, b) =>
       String(b.expiredAt || '').localeCompare(String(a.expiredAt || '')),
     );
-    fs.writeFileSync(slicePath, `${JSON.stringify(merged, null, 2)}\n`, 'utf8');
+    writeJsonAtomic(slicePath, merged);
     summary.push({ crawlerKey, added: proposals.length, total: merged.length });
   }
   return summary;

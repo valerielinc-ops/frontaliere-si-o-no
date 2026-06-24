@@ -41,6 +41,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, m
 } from './lib/dedicated-crawler-common.mjs';
 import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -498,9 +499,9 @@ async function mergeZegnaJobs(discoveredJobs) {
 
   const final = [...nonZegnaJobs, ...merged];
 
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(PUBLIC_JOBS, final);
 
   console.log(`\n📦 Merge results:`);
   console.log(`  ➕ Added: ${added}`);
@@ -599,8 +600,8 @@ function postProcessZegnaJobs() {
   }
 
   if (fixed > 0 || removed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(keptJobs, null, 2) + '\n');
-    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(keptJobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, keptJobs);
+    writeJsonAtomic(PUBLIC_JOBS, keptJobs);
     console.log(`🔧 Post-processed ${fixed} Zegna jobs (fixed company/location/canton, removed=${removed}).`);
   }
 }

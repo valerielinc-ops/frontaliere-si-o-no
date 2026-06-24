@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { execSync } from 'child_process';
 import { join } from 'path';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const OLD_COMMIT = '25027a07';
 const JOBS_DIR = 'data/jobs/by-crawler';
@@ -155,7 +156,7 @@ function processJobFiles() {
     totalAlreadyOk += alreadyOk;
 
     if (repaired > 0) {
-      writeFileSync(relativePath, JSON.stringify(currentData, null, 2) + '\n');
+      writeJsonAtomic(relativePath, currentData);
       filesChanged++;
       console.log(`  FIXED ${file}: ${repaired} repaired, ${notRepairable} not repairable, ${alreadyOk} already ok`);
     } else if (notRepairable > 0) {
@@ -207,7 +208,7 @@ function processSummaryFiles() {
     }
 
     if (fileRepaired > 0) {
-      writeFileSync(relativePath, JSON.stringify(currentData, null, 2) + '\n');
+      writeJsonAtomic(relativePath, currentData);
       summaryFilesChanged++;
       summaryRepaired += fileRepaired;
       console.log(`  FIXED ${file}: ${fileRepaired} jobs repaired`);

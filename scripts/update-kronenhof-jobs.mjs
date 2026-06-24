@@ -48,6 +48,7 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -72,10 +73,6 @@ const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
 function readJson(filePath, fallback = []) {
   try { return JSON.parse(fs.readFileSync(filePath, 'utf-8')); }
   catch { return fallback; }
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
 function isTargetJob(job = {}) {

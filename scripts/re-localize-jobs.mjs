@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,7 +53,6 @@ const MIN_SOURCE_LEN = 300;
 const COMPANY_FILTER = (process.env.RELOCALIZE_COMPANY || '').toLowerCase().trim();
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf8')); }
-function writeJson(p, data) { fs.writeFileSync(p, JSON.stringify(data, null, 2) + '\n', 'utf8'); }
 
 function normalizeSpace(s) { return String(s || '').replace(/\s+/g, ' ').trim(); }
 

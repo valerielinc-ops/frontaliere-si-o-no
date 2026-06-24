@@ -47,6 +47,7 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseTichDetailPage, titleOverlap, MIN_TICH_DESC_LENGTH } from './lib/tich-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -321,9 +322,9 @@ function postProcessTichJobs() {
   }
 
   if (updated > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, allJobs);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+      writeJsonAtomic(PUBLIC_DATA_JOBS, allJobs);
     }
     console.log(`🧹 Post-process Ti.CH: aggiornati ${updated} job (company canonica + clean descrizione).`);
   }
@@ -674,9 +675,9 @@ async function enrichTichJobs() {
   }
 
   if (enriched > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+      writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
     }
     console.log(`✨ Enriched ${enriched} Ti.CH jobs with parsed detail-page content.`);
   }

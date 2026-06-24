@@ -42,6 +42,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlug } from './lib/regenerate-slugs-helpers.mjs';
 import { addPreviousSlugForLocale } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SLICE_PATHS = [
@@ -103,7 +104,7 @@ function scrubSlice(slicePath) {
   }
 
   if (fixedSlots > 0) {
-    fs.writeFileSync(slicePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(slicePath, data);
   }
   return { fixedSlots, fixedJobs, failures };
 }

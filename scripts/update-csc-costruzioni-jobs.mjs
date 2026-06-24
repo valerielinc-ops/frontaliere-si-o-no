@@ -40,6 +40,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -275,7 +276,7 @@ async function main() {
       }
     }
     if (patched > 0) {
-      fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+      writeJsonAtomic(DATA_JOBS, allJobs);
       console.log(`📝 Set sourceLang on ${patched} CSC Costruzioni jobs.`);
     }
   }

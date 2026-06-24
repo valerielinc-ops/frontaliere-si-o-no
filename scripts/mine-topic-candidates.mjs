@@ -10,8 +10,7 @@
 // and the script always exits 0 with a valid JSON file, even if every
 // source fails (in which case `candidates` is an empty array).
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { dirname } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
 
 import { fetchGscOrphanCandidates, extractItTitles, normalizeKeyword, fnv1a8 } from './lib/topic-sources/gscOrphans.mjs';
 import { fetchGoogleTrendsCandidates } from './lib/topic-sources/googleTrends.mjs';
@@ -21,6 +20,7 @@ import { fetchSuggestCandidates } from './lib/topic-sources/googleSuggest.mjs';
 import { fetchNewsRssCandidates } from './lib/topic-sources/googleNewsRss.mjs';
 import { noveltyScore } from './lib/topic-sources/noveltyCheck.mjs';
 import { buildDemandVocabulary } from './lib/demand-vocabulary.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const OUTPUT_PATH = 'data/topic-candidates.json';
 const VOCAB_OUTPUT_PATH = 'data/demand-vocabulary.json';
@@ -55,12 +55,6 @@ function loadTextSafe(path) {
   } catch {
     return '';
   }
-}
-
-function writeJsonAtomic(path, obj) {
-  const dir = dirname(path);
-  if (dir && !existsSync(dir)) mkdirSync(dir, { recursive: true });
-  writeFileSync(path, JSON.stringify(obj, null, 2) + '\n', 'utf-8');
 }
 
 // Drops candidates whose keyword mentions a year that's 3+ years stale

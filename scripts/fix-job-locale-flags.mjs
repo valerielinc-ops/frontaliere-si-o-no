@@ -7,10 +7,11 @@
  * dataset and in the per-crawler slice files (source of truth).
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -124,7 +125,7 @@ for (const [crawlerKey, keys] of flaggedByCrawler) {
   }
 
   if (modified) {
-    writeFileSync(slicePath, JSON.stringify(slice, null, 2) + '\n', 'utf-8');
+    writeJsonAtomic(slicePath, slice);
     slicesUpdated++;
   }
 }
@@ -140,6 +141,6 @@ for (const job of jobs) {
   }
 }
 
-writeFileSync(JOBS_PATH, JSON.stringify(jobs, null, 2) + '\n', 'utf-8');
+writeJsonAtomic(JOBS_PATH, jobs);
 console.log(`✏️  Updated ${jobsUpdatedInAssembled} jobs in data/jobs.json`);
 console.log('\n✅ Done. Run the test to verify: npx vitest run tests/job-locale-consistency.test.ts');

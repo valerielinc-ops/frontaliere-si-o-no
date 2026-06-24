@@ -18,6 +18,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -39,10 +40,6 @@ const SKIP_PREFIX_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unter
 
 function readJson(p, fallback = null) {
   try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return fallback; }
-}
-
-function writeJson(p, v) {
-  fs.writeFileSync(p, `${JSON.stringify(v, null, 2)}\n`, 'utf8');
 }
 
 /** Load translation cache: slug -> { titles, descriptions, sourceFile }. */

@@ -48,6 +48,7 @@ import {
 import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -678,9 +679,9 @@ async function mergePostFinanceJobs(discoveredJobs) {
 
   const final = [...nonPfJobs, ...merged];
 
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(PUBLIC_JOBS, final);
 
   console.log(`\n📦 Merge results:`);
   console.log(`  ➕ Added: ${added}`);
@@ -784,8 +785,8 @@ function postProcessPostFinanceJobs() {
   }
 
   if (fixed > 0) {
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
-    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    writeJsonAtomic(DATA_JOBS, jobs);
+    writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Post-processed ${fixed} PostFinance jobs (fixed company/location/canton).`);
   }
 }

@@ -23,6 +23,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { recordSlugMutation } from './slug-history-journal.mjs';
 import { isAcceptableTranslation } from './translation-quality.mjs';
+import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -914,10 +915,6 @@ function inferPublicJobsPath(dataJobsPath) {
   const dataDir = path.dirname(dataJobsPath);
   const root = path.resolve(dataDir, '..');
   return path.resolve(root, 'public', 'data', 'jobs.json');
-}
-
-function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
 }
 
 function shouldDropLocalizedValue({

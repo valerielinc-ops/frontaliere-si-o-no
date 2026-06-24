@@ -21,6 +21,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTe
 import { parseMikronJobs, parseMikronJobDetail, slugify, normalizeSpace, htmlToText, MIKRON_AGNO_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -188,9 +189,9 @@ async function mergeJobs(discoveredJobs) {
   for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }
 
   const final = [...nonCompanyJobs, ...merged];
-  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+  writeJsonAtomic(PUBLIC_JOBS, final);
   console.log(`\n📦 Merge: ➕${added} 🔄${updated} 🗑️${removed} 📊${final.length}`);
 }
 
@@ -228,7 +229,7 @@ async function main() {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     let fixed = 0;
     for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isMikronJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = DEFAULT_CANTON; fixed++; } if (!j.location) { j.location = 'Agno'; fixed++; } }
-    if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); }
+    if (fixed > 0) { writeJsonAtomic(DATA_JOBS, jobs); writeJsonAtomic(PUBLIC_JOBS, jobs); }
   }
 
   const finalJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);

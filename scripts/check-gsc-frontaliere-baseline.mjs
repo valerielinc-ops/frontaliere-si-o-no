@@ -36,6 +36,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -61,8 +62,7 @@ function isoDate(d) {
   return d.toISOString().slice(0, 10);
 }
 function writeJson(p, payload) {
-  fs.mkdirSync(path.dirname(p), { recursive: true });
-  fs.writeFileSync(p, JSON.stringify(payload, null, 2) + '\n', 'utf8');
+  writeJsonAtomic(p, payload);
   log('💾', `Wrote ${path.relative(ROOT, p)}`);
 }
 function writeReport(payload) {
