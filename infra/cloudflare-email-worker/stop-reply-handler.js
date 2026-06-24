@@ -21,6 +21,7 @@
  *
  * Bindings (wrangler.email.toml / dashboard):
  *   vars:    STOP_REPLY_FN_URL  (https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachStopReply)
+ *            REPLY_TRACK_FN_URL (https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachReplyTrack)
  *            FORWARD_TO         (the human inbox to forward every reply to)
  *   secret:  STOP_SECRET        (== NEWSLETTER_SECRET; `wrangler secret put STOP_SECRET`)
  *
@@ -86,6 +87,18 @@ export default {
   async email(message, env, ctx) {
     const from = message.from || '';
     const subject = (message.headers && message.headers.get && message.headers.get('subject')) || '';
+
+    // Track EVERY inbound reply (best-effort) so the admin dashboard can show
+    // whether a company replied. Only from+subject are needed (no body read),
+    // so this runs cheaply on every message. Additive to STOP suppression below.
+    if (env.REPLY_TRACK_FN_URL && env.STOP_SECRET) {
+      const track = fetch(env.REPLY_TRACK_FN_URL, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-stop-secret': env.STOP_SECRET },
+        body: JSON.stringify({ from, subject }),
+      }).catch(() => { /* best-effort telemetry; never block forwarding */ });
+      ctx.waitUntil(track);
+    }
 
     // Detect on subject first (cheap); read the body only if needed.
     let body = '';
