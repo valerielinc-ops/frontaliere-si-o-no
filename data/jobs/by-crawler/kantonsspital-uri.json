@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "unterassistenten-innere-medizin-kantonsspital-uri-altdorf",
         "en": "assistant-internal-medicine-kantonsspital-uri-altdorf",
-        "de": "unterassistenten-innere-medizin-kantonsspital-uri-altdorf",
+        "de": "unter-assistants-innere-medizin-kantonsspital-uri-altdorf",
         "fr": "sous-assistants-en-medecine-interne-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
@@ -49,15 +49,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sub-assistente-medicina-interna-kantonsspital-uri-altdorf",
-        "unter-assistants-innere-medizin-kantonsspital-uri-altdorf"
+        "sub-assistente-medicina-interna-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sub-assistente-medicina-interna-kantonsspital-uri-altdorf"
-        ],
-        "de": [
-          "unter-assistants-innere-medizin-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:30.465Z",
@@ -1024,7 +1020,7 @@
       "slug": "tecnico-di-sala-operatoria-m-f-d-80-100-kantonsspital-uri-altdorf",
       "slugByLocale": {
         "it": "tecnico-di-sala-operatoria-m-f-d-80-100-kantonsspital-uri-altdorf",
-        "en": "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf",
+        "en": "specialist-surgical-technique-hf-w-m-d-80-100-kantonsspital-uri-altdorf",
         "de": "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf",
         "fr": "technicien-en-salle-d-operation-h-f-d-80-100-kantonsspital-uri-altdorf"
       },
@@ -1072,6 +1068,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf"
+        ],
+        "en": [
           "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf"
         ]
       },
@@ -1628,7 +1627,7 @@
       "slug": "operatore-radiologico-hf-w-m-d-100-kantonsspital-uri-altdorf",
       "slugByLocale": {
         "it": "operatore-radiologico-hf-w-m-d-100-kantonsspital-uri-altdorf",
-        "en": "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf",
+        "en": "radiology-specialist-training-station-hf-f-m-d-100-kantonsspital-uri-altdorf",
         "de": "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf",
         "fr": "technicien-en-radiologie-hf-h-f-d-100-kantonsspital-uri-altdorf"
       },
@@ -1676,6 +1675,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf"
+        ],
+        "en": [
           "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf"
         ]
       },

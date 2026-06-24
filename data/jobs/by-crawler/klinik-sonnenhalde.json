@@ -474,7 +474,6 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen",
-        "dipl-radiology-specialist-60-bethesda-spital-basel",
         "dipl-specialiste-des-soins-hf-fh-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
@@ -483,7 +482,6 @@
           "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "en": [
-          "dipl-radiology-specialist-60-bethesda-spital-basel",
           "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "fr": [
@@ -766,7 +764,7 @@
       "slug": "specialista-infermieristico-sss-sup-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "it": "specialista-infermieristico-sss-sup-klinik-sonnenhalde-riehen",
-        "en": "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
+        "en": "dip-nurse-hf-fh-klinik-sonnenhalde-riehen",
         "de": "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
         "fr": "poire-specialiste-des-soins-hf-fh-klinik-sonnenhalde-riehen"
       },
@@ -818,6 +816,9 @@
         ],
         "fr": [
           "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
+          "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
         ]
       },
       "firstSeenAt": "2026-06-04T12:36:43.883Z",
@@ -839,7 +840,7 @@
       "slug": "dipl-specialista-per-l-assistenza-hf-fh-40-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "it": "dipl-specialista-per-l-assistenza-hf-fh-40-klinik-sonnenhalde-riehen",
-        "en": "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen",
+        "en": "dipl-care-professional-hf-fh-40-klinik-sonnenhalde-riehen",
         "de": "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen",
         "fr": "dipl-specialiste-des-soins-hf-fh-40-klinik-sonnenhalde-riehen"
       },
@@ -892,6 +893,9 @@
           "infermiere-dipl-sss-sup-40-klinik-sonnenhalde-riehen"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
           "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen"
         ]
       },

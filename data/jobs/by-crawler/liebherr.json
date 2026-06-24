@@ -536,7 +536,7 @@
       "slugByLocale": {
         "it": "manutenzione-multiuso-giardino-h-f-x-liebherr-bulle",
         "en": "multi-purpose-maintenance-agent-gardener-m-f-x-liebherr-bulle",
-        "de": "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle",
+        "de": "mehrzweck-instandhaltung-gartner-h-f-x-liebherr-bulle",
         "fr": "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -586,6 +586,9 @@
           "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle"
         ],
         "en": [
+          "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle"
+        ],
+        "de": [
           "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle"
         ]
       },
@@ -690,7 +693,7 @@
         "it": "gestione-delle-pulci-90-m-f-d-liebherr-nussbaumen",
         "en": "fleet-management-90-m-w-d-liebherr-nussbaumen",
         "de": "fleet-management-90-m-w-d-liebherr-nussbaumen",
-        "fr": "fleet-management-90-m-w-d-liebherr-nussbaumen"
+        "fr": "gestion-de-la-flotte-90-m-f-j-liebherr-nussbaumen"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -751,6 +754,9 @@
         ],
         "de": [
           "flottenmanagement-90-m-w-d-liebherr-nussbaumen"
+        ],
+        "fr": [
+          "fleet-management-90-m-w-d-liebherr-nussbaumen"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.418Z",
@@ -1963,7 +1969,7 @@
       "slugByLocale": {
         "it": "young-talent-motore-di-montaggio-m-f-x-liebherr-bulle",
         "en": "young-talent-assembly-engine-m-f-x-liebherr-bulle",
-        "de": "young-talent-engine-assembly-m-f-x-liebherr-bulle",
+        "de": "young-talent-montagemotor-m-w-x-liebherr-bulle",
         "fr": "young-talent-engine-assembly-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -2035,6 +2041,9 @@
         "fr": [
           "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle",
           "jeune-talent-assemblage-de-moteurs-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.397Z",
@@ -3425,7 +3434,7 @@
       "slug": "technician-m-w-d-liebherr-bulle",
       "slugByLocale": {
         "it": "technician-m-w-d-liebherr-bulle",
-        "en": "warranty-investigation-technician-m-w-d-liebherr-bulle",
+        "en": "diagnostics-technician-m-f-x-liebherr-bulle",
         "de": "warranty-investigation-technician-m-w-d-liebherr-bulle",
         "fr": "technicien-en-enquete-de-garantie-m-f-d-liebherr-bulle"
       },
@@ -3490,7 +3499,6 @@
           "warranty-investigation-technician-m-w-d-liebherr-bulle"
         ],
         "en": [
-          "diagnostics-technician-m-f-x-liebherr-bulle",
           "warranty-investigation-technician-m-w-d-liebherr-bulle"
         ]
       },
@@ -5988,7 +5996,7 @@
         "it": "assistente-esecutivo-m-f-x-liebherr-bulle",
         "en": "executive-assistant-m-f-x-liebherr-bulle",
         "de": "executive-assistent-m-f-x-liebherr-bulle",
-        "fr": "executive-assistant-m-f-x-liebherr-bulle"
+        "fr": "assistant-executif-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6034,6 +6042,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "executive-assistant-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
           "executive-assistant-m-f-x-liebherr-bulle"
         ]
       },
@@ -6305,7 +6316,7 @@
         "it": "controllore-finanziario-m-f-x-temporaneo-liebherr-bulle",
         "en": "financial-controller-m-f-x-temporary-liebherr-bulle",
         "de": "finanzcontroller-m-f-x-vorubergehend-liebherr-bulle-da80fe",
-        "fr": "financial-controller-m-f-x-temporary-liebherr-bulle"
+        "fr": "controleur-financier-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6373,6 +6384,9 @@
         "de": [
           "financial-controller-m-f-x-temporary-liebherr-bulle",
           "finanzkontrolleur-m-w-x-vorubergehend-liebherr-bulle"
+        ],
+        "fr": [
+          "financial-controller-m-f-x-temporary-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.381Z",
@@ -6730,12 +6744,12 @@
     },
     {
       "id": "liebherr-694763ed3a4a",
-      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+      "slug": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "it": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "it": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
         "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
         "de": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "fr": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        "fr": "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6778,17 +6792,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
-        "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
+        "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-          "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ],
         "fr": [
-          "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ]
       },
@@ -6814,7 +6825,7 @@
         "it": "hr-business-partner-m-w-d-liebherr-nussbaumen",
         "en": "hr-business-partner-m-w-d-liebherr-nussbaumen",
         "de": "hr-business-partner-m-w-d-liebherr-nussbaumen",
-        "fr": "hr-business-partner-m-w-d-liebherr-nussbaumen"
+        "fr": "partenaire-operationnel-rh-m-f-d-liebherr-nussbaumen"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6989,7 +7000,7 @@
       "slug": "key-account-manager-area-rinnovabili-energia-eolica-m-w-d-liebherr-baden",
       "slugByLocale": {
         "it": "key-account-manager-area-rinnovabili-energia-eolica-m-w-d-liebherr-baden",
-        "en": "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
+        "en": "key-account-manager-renewable-energy-wind-energy-m-f-d-liebherr-baden",
         "de": "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
         "fr": "gestionnaire-de-comptes-cle-energie-renouvelable-energie-eolienne-m-w-d-liebherr-baden"
       },
@@ -7048,6 +7059,9 @@
         ],
         "fr": [
           "directeur-de-compte-principal-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
+        ],
+        "en": [
+          "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.418Z",
@@ -7840,7 +7854,7 @@
       "slugByLocale": {
         "it": "capo-squadra-subsystems-engineering-m-w-x-liebherr-bulle",
         "en": "team-leader-subsystems-engineering-m-w-x-liebherr-bulle",
-        "de": "team-leader-subsystems-engineering-m-w-x-liebherr-bulle",
+        "de": "teamleiter-subsystems-engineering-m-w-x-liebherr-bulle",
         "fr": "chef-d-equipe-genie-des-sous-systemes-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -7899,6 +7913,9 @@
           "team-leader-subsystems-engineering-m-w-x-liebherr-bulle"
         ],
         "fr": [
+          "team-leader-subsystems-engineering-m-w-x-liebherr-bulle"
+        ],
+        "de": [
           "team-leader-subsystems-engineering-m-w-x-liebherr-bulle"
         ]
       },

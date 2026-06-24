@@ -36,19 +36,26 @@
       },
       "slugByLocale": {
         "it": "filialleiter-in-con-potential-a-100-in-der-filiale-chur-jysk-chur-74579r",
-        "en": "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r",
+        "en": "branch-manager-with-potential-a-100-in-the-chur-branch-jysk-chur",
         "de": "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r",
-        "fr": "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r"
+        "fr": "gestionnaire-de-branche-avec-un-potentiel-a-100-dans-la-branche-chur-jysk-chur"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur"
+        ],
+        "en": [
+          "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r"
+        ],
+        "fr": [
+          "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur"
+        "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur",
+        "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1235,9 +1242,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-a-20-in-der-filiale-biel-collaborateur-trice-20-dans-la-filiale-bienne-jysk-biel"
-        ],
-        "de": [
-          "verkaufer-in-a-20-in-der-branch-biel-collaborateur-trice-20-in-der-branch-biel-jysk-biel-5uoz9k"
         ]
       },
       "previousSlugs": [

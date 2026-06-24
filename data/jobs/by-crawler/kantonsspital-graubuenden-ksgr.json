@@ -23,12 +23,12 @@
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-23T22:40:13.445Z",
-      "slug": "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt",
+      "slug": "infermieristica-specialista-infermieristica-medicina-intensiva-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt",
-        "it": "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt",
-        "en": "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt",
-        "fr": "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt"
+        "it": "infermieristica-specialista-infermieristica-medicina-intensiva-kantonsspital-graubunden-walenstadt",
+        "en": "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-graubunden-walenstadt",
+        "fr": "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Intensivmedizin",
@@ -58,7 +58,21 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-23T22:40:13.445Z"
+      "firstSeenAt": "2026-06-23T22:40:13.445Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-intensivmedizin-kantonsspital-graubunden-walenstadt"
+      ]
     },
     {
       "id": "10086476",
@@ -83,7 +97,8 @@
       "crawledAt": "2026-06-23T22:40:13.445Z",
       "slug": "hr-business-partner-in-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "hr-business-partner-in-kantonsspital-graubunden-chur"
+        "de": "hr-business-partner-in-kantonsspital-graubunden-chur",
+        "fr": "partenaire-d-affaires-rh-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "HR Business Partner:in",
@@ -275,7 +290,7 @@
         "de": "pflegefachfrau-pflegefachmann-chirurgie-kantonsspital-graubunden-chur",
         "it": "infermiera-chirurgia-dell-infermiera-kantonsspital-graubunden-chur",
         "fr": "chirurgie-specialisee-en-soins-infirmiers-kantonsspital-graubunden-chur",
-        "en": "infermiera-chirurgia-dell-infermiera-kantonsspital-graubunden-chur"
+        "en": "nurse-nurse-specialist-surgery-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Chirurgie",
@@ -609,7 +624,7 @@
         "de": "pflegefachfrau-pflegefachmann-kinderintensivstation-kantonsspital-graubunden-chur",
         "it": "specializzato-per-l-allattamento-specialista-in-allattamento-unita-di-cura-intensiva-per-bambini-kantonsspital",
         "fr": "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-graubunden-chur",
-        "en": "specializzato-per-l-allattamento-specialista-in-allattamento-unita-di-cura-intensiva-per-bambini-kantonsspital"
+        "en": "nursing-specialist-nursing-specialist-child-intensive-care-unit-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Kinderintensivstation",
@@ -1295,7 +1310,7 @@
         "de": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt",
         "it": "pflegefachfrau-pflegefachmann-cure-palliative-kantonsspital-graubunden-walenstadt",
         "fr": "pflegefachfrau-pflegefachmann-soins-palliatifs-kantonsspital-graubunden-walenstadt",
-        "en": "pflegefachfrau-pflegefachmann-cure-palliative-kantonsspital-graubunden-walenstadt"
+        "en": "nurse-care-professional-palliative-care-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann",
@@ -1361,7 +1376,7 @@
         "de": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur",
         "it": "cure-palliative-pflegefachfrau-pflegefachmann-kantonsspital-graubunden-chur",
         "fr": "pflegefachfrau-pflegefachmann-soins-palliatifs-kantonsspital-graubunden-chur",
-        "en": "cure-palliative-pflegefachfrau-pflegefachmann-kantonsspital-graubunden-chur"
+        "en": "nurse-care-professional-palliative-care-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann",
@@ -2288,7 +2303,7 @@
       "slug": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
-        "it": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
+        "it": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
         "en": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
         "fr": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur"
       },
@@ -2318,16 +2333,15 @@
       "previousSlugs": [
         "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
         "berufslehre-kochin-koch-kantonsspital-graubunden-chur-2",
+        "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
-        "diet-chef-kantonsspital-graubunden-chur",
-        "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
-        "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
-        "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur"
+        "diet-chef-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
-          "berufslehre-kochin-koch-kantonsspital-graubunden-chur-2"
+          "berufslehre-kochin-koch-kantonsspital-graubunden-chur-2",
+          "cucina-professionale-cuoco-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -3042,9 +3056,9 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-23T22:40:13.445Z",
-      "slug": "pflegefachfrau-pflegefachmann-invasive-ambulante-kardiologie-kantonsspital-graubunden-chur",
+      "slug": "infermiera-cardiologia-ambulatoria-invasiva-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-invasive-ambulante-kardiologie-kantonsspital-graubunden-chur",
+        "it": "infermiera-cardiologia-ambulatoria-invasiva-kantonsspital-graubunden-chur",
         "de": "pflegefachfrau-pflegefachmann-invasive-ambulante-kardiologie-kantonsspital-graubunden-chur",
         "en": "nursing-specialist-invasive-outpatient-cardiology-kantonsspital-graubunden-chur",
         "fr": "specialiste-des-soins-infirmiers-cardiologie-externe-invasive-kantonsspital-graubunden-chur"
@@ -3077,7 +3091,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-invasive-ambulante-kardiologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-invasive-ambulante-kardiologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "9995742",
@@ -3928,12 +3950,12 @@
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-23T22:40:13.445Z",
-      "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt",
+      "slug": "infermiera-nurse-specialista-acutogeria-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt",
         "en": "acute-geriatric-nurse-kantonsspital-graubunden-walenstadt",
         "fr": "infirmier-ere-en-geriatrie-aigue-kantonsspital-graubunden-walenstadt",
-        "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt"
+        "it": "infermiera-nurse-specialista-acutogeria-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
         "de": "Pflegefachkraft Akutgeriatrie",
@@ -3959,12 +3981,16 @@
       },
       "featured": false,
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-interdisziplinares-ambulatorium-kantonsspital-graubunden-walenstadt",
-        "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-walenstadt"
+        "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-walenstadt",
+        "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt",
+        "pflegefachfrau-pflegefachmann-interdisziplinares-ambulatorium-kantonsspital-graubunden-walenstadt"
       ],
       "previousSlugsByLocale": {
         "de": [
           "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-walenstadt"
+        ],
+        "it": [
+          "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt"
         ]
       },
       "_targetScope": "grigioni",
@@ -4062,12 +4088,12 @@
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-23T22:40:13.445Z",
-      "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur",
+      "slug": "infermiera-nurse-specialista-acutogeria-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur",
         "en": "nurse-acute-geriatrics-kantonsspital-graubunden-chur",
         "fr": "infirmier-specialise-en-geriatrie-aigue-kantonsspital-graubunden-chur",
-        "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur"
+        "it": "infermiera-nurse-specialista-acutogeria-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachkraft Akutgeriatrie",
@@ -4093,11 +4119,15 @@
       },
       "featured": false,
       "previousSlugs": [
-        "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-chur"
+        "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-chur",
+        "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "de": [
           "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-chur"
+        ],
+        "it": [
+          "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur"
         ]
       },
       "_targetScope": "grigioni",
@@ -5874,7 +5904,7 @@
         "de": "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur",
         "it": "infermiera-infermiere-specializzata-in-chirurgia-viscerale-kantonsspital-graubunden-chur",
         "fr": "infirmiere-infirmier-specialise-e-en-chirurgie-viscerale-kantonsspital-graubunden-chur",
-        "en": "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
+        "en": "nursing-specialist-visceral-surgery-kantonsspital-graubunden-chur-f86fe2"
       },
       "titleByLocale": {
         "de": "Pflegefachkraft für Viszeralchirurgie",
@@ -5904,6 +5934,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
@@ -6416,12 +6449,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-23T22:40:13.446Z",
-      "slug": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur",
+      "slug": "radiologia-specialista-radiologia-specialistica-diagnostica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur",
         "en": "radiology-specialist-radiology-specialist-diagnostics-kantonsspital-graubunden-chur",
         "fr": "specialiste-en-radiologie-specialiste-en-radiologie-diagnostic-kantonsspital-graubunden-chur",
-        "it": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur"
+        "it": "radiologia-specialista-radiologia-specialistica-diagnostica-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Radiologiefachfrau / Radiologiefachmann Diagnostik",
@@ -6448,7 +6481,8 @@
       "featured": false,
       "previousSlugs": [
         "diagnostic-radiology-technologist-kantonsspital-graubunden-chur",
-        "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur"
+        "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur",
+        "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -6456,6 +6490,9 @@
         ],
         "fr": [
           "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur"
+        ],
+        "it": [
+          "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur"
         ]
       },
       "_targetScope": "grigioni",
@@ -7028,12 +7065,12 @@
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-23T22:40:13.446Z",
-      "slug": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur",
+      "slug": "infermieristica-professionale-infermieristica-professionale-cura-intermedia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur",
         "en": "registered-nurse-intermediate-care-kantonsspital-graubunden-chur",
         "fr": "infirmier-infirmiere-en-soins-intermediaires-kantonsspital-graubunden-chur",
-        "it": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur"
+        "it": "infermieristica-professionale-infermieristica-professionale-cura-intermedia-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann",
@@ -7063,7 +7100,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "9198121",

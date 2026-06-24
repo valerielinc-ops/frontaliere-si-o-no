@@ -1826,7 +1826,7 @@
         "fr": "infirmier-f-h-en-ctr-ehc-vd-gilly",
         "it": "infermiere-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
         "en": "nurse-f-m-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
-        "de": "infirmier-f-h-en-ctr-ehc-vd-gilly"
+        "de": "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -1874,7 +1874,6 @@
           "infirmier-f-h-en-ctr-ehc-vd-gilly"
         ],
         "de": [
-          "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
           "infirmier-f-h-en-ctr-ehc-vd-gilly"
         ]
       },
@@ -4129,11 +4128,11 @@
     },
     {
       "id": "ehc-vd-9929848eea16",
-      "slug": "employe-e-de-restauration-ehc-vd-morges",
+      "slug": "dipendente-del-catering-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "employe-e-de-restauration-ehc-vd-morges",
-        "en": "employe-e-de-restauration-ehc-vd-morges",
-        "de": "employe-e-de-restauration-ehc-vd-morges",
+        "it": "dipendente-del-catering-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "catering-employee-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "catering-mitarbeiter-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "employe-e-de-restauration-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4188,7 +4187,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-de-restauration-ehc-vd-morges"
+        ],
+        "en": [
+          "employe-e-de-restauration-ehc-vd-morges"
+        ],
+        "de": [
+          "employe-e-de-restauration-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-de-restauration-ehc-vd-morges"
+      ]
     }
   ]
 }

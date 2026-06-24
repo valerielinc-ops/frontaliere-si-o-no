@@ -1066,7 +1066,7 @@
         "it": "digital-transformation-associate-sika-ch",
         "en": "digital-transformation-associate-sika-ch",
         "de": "digital-transformation-associate-sika-ch",
-        "fr": "digital-transformation-associate-sika-ch"
+        "fr": "associe-a-la-transformation-numerique-sika-zurich-zurich-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2042,12 +2042,12 @@
     },
     {
       "id": "sika-5f9bb3db5cd9",
-      "slug": "palettierer-sika-altstatten",
+      "slug": "palletizzatori-sika-altstatten-st-gallen-switzerland",
       "slugByLocale": {
-        "it": "palettierer-sika-altstatten",
-        "en": "palettierer-sika-ch",
+        "it": "palletizzatori-sika-altstatten-st-gallen-switzerland",
+        "en": "palletizers-sika-altstatten-st-gallen-switzerland",
         "de": "palettierer-sika-ch",
-        "fr": "palettierer-sika-ch"
+        "fr": "palettisants-sika-altstatten-st-gallen-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2090,10 +2090,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "palettierer-sika-ch"
+        "palettierer-sika-ch",
+        "palettierer-sika-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "palettierer-sika-ch",
+          "palettierer-sika-altstatten"
+        ],
+        "en": [
+          "palettierer-sika-ch"
+        ],
+        "fr": [
           "palettierer-sika-ch"
         ]
       },

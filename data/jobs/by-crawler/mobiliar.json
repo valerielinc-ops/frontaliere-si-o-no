@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-da988bba7f54",
-      "slug": "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch",
+      "slug": "capo-team-underwriting-mercati-kmu-ovest-uomo-donna-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch",
-        "en": "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch",
+        "it": "capo-team-underwriting-mercati-kmu-ovest-uomo-donna-die-mobiliar-bern",
+        "en": "team-leader-underwriting-sme-market-west-m-f-d-die-mobiliar-bern",
         "de": "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch",
-        "fr": "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch"
+        "fr": "responsable-d-equipe-underwriting-marche-pme-ouest-h-f-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -83,15 +83,29 @@
         }
       },
       "postalCode": "3001",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-7c53a80da2c5",
-      "slug": "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch",
+      "slug": "team-leader-abbonamento-mercato-pmi-occidentale-e-h-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch",
-        "en": "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch",
-        "de": "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch",
+        "it": "team-leader-abbonamento-mercato-pmi-occidentale-e-h-d-die-mobiliar-bern",
+        "en": "team-leader-subscription-sme-market-west-e-h-d-die-mobiliar-bern",
+        "de": "team-leader-subscription-kmu-markt-westlich-e-h-d-die-mobiliar-bern",
         "fr": "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch"
       },
       "company": "die Mobiliar",
@@ -147,7 +161,21 @@
         }
       },
       "postalCode": "3001",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch"
+        ],
+        "en": [
+          "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch"
+        ],
+        "de": [
+          "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-equipe-souscription-pme-marche-ouest-f-h-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-d9d0f13d4e88",
@@ -858,12 +886,12 @@
     },
     {
       "id": "mobiliar-3d41d8256c07",
-      "slug": "quality-architect-w-m-d-mobiliar-ch",
+      "slug": "quality-architetto-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "quality-architect-w-m-d-mobiliar-ch",
+        "it": "quality-architetto-w-m-d-die-mobiliar-bern",
         "en": "quality-architect-w-m-d-die-mobiliar-bern",
         "de": "quality-architect-w-m-d-mobiliar-ch",
-        "fr": "quality-architect-w-m-d-mobiliar-ch"
+        "fr": "qualite-architecte-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -920,8 +948,7 @@
       "sfJobId": "1164803555",
       "previousSlugs": [
         "architetto-di-qualita-m-d-die-mobiliar-bern",
-        "quality-architetto-w-m-d-die-mobiliar-bern",
-        "qualite-architecte-w-m-d-die-mobiliar-bern",
+        "quality-architect-w-m-d-mobiliar-ch",
         "master-di-qualita-w-m-d-die-mobiliar-bern",
         "quality-master-w-m-d-die-mobiliar-bern",
         "quality-master-w-m-d-mobiliar-ch",
@@ -930,11 +957,9 @@
       "previousSlugsByLocale": {
         "it": [
           "architetto-di-qualita-m-d-die-mobiliar-bern",
-          "quality-architetto-w-m-d-die-mobiliar-bern",
           "quality-architect-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "qualite-architecte-w-m-d-die-mobiliar-bern",
           "quality-architect-w-m-d-mobiliar-ch"
         ]
       },
@@ -1477,9 +1502,9 @@
       "slug": "jurist-wohnen-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
+        "en": "projektmanagement-m-d-die-mobiliar-bern",
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
+        "fr": "juriste-wohnen-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1538,9 +1563,7 @@
       "sfJobId": "1164779155",
       "previousSlugs": [
         "jurist-wohnen-w-m-d-mobiliar-ch",
-        "projektmanagement-m-d-die-mobiliar-bern-489f62",
-        "projektmanagement-m-d-die-mobiliar-bern",
-        "juriste-wohnen-m-j-die-mobiliar-bern"
+        "projektmanagement-m-d-die-mobiliar-bern-489f62"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1548,11 +1571,9 @@
         ],
         "en": [
           "projektmanagement-m-d-die-mobiliar-bern-489f62",
-          "projektmanagement-m-d-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "juriste-wohnen-m-j-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },
@@ -4450,8 +4471,8 @@
       "slug": "consulente-assicurativo-previdenziale-e-ipotecario-presso-l-agenzia-generale-losanna-nord-vodese-die-mobiliar-conseiller",
       "slugByLocale": {
         "it": "consulente-assicurativo-previdenziale-e-ipotecario-presso-l-agenzia-generale-losanna-nord-vodese-die-mobiliar-conseiller",
-        "en": "conseiller-ere-en-assurances-prevoyance-et-hypotheques-a-l-agence-generale-lausanne-nord",
-        "de": "conseiller-ere-en-assurances-prevoyance-et-hypotheques-a-l-agence-generale-lausanne-nord",
+        "en": "insurance-provident-and-mortgage-advisor-at-lausanne-nord-vaudois-general-agency-die-mobiliar-lausanne",
+        "de": "versicherungs-versorgungs-und-hypothekenberater-bei-lausanne-nord-vaudois-general-agency-die-mobiliar-lausanne",
         "fr": "conseiller-ere-en-assurances-prevoyance-et-hypotheques-a-l-agence-generale-lausanne-nord"
       },
       "company": "die Mobiliar",
@@ -4499,6 +4520,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "conseiller-ere-en-assurances-prevoyance-et-hypotheques-a-l-agence-generale-lausanne-nord"
+        ],
+        "en": [
+          "conseiller-ere-en-assurances-prevoyance-et-hypotheques-a-l-agence-generale-lausanne-nord"
+        ],
+        "de": [
           "conseiller-ere-en-assurances-prevoyance-et-hypotheques-a-l-agence-generale-lausanne-nord"
         ]
       },

@@ -551,11 +551,11 @@
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-04a72083853c",
-      "slug": "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico",
+      "slug": "lavoratore-medico-amministrativo-50-e-lavoratore-medico-amministrativo-70-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico",
-        "en": "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico",
-        "de": "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico",
+        "it": "lavoratore-medico-amministrativo-50-e-lavoratore-medico-amministrativo-70-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "medical-administrative-worker-50-and-medical-administrative-worker-70-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "medizinische-administrative-arbeiter-50-und-medizinische-administrative-arbeiter-70-reseau-hospitalier-neuchatelois-rhne",
         "fr": "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -611,7 +611,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico"
+        ],
+        "en": [
+          "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico"
+        ],
+        "de": [
+          "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-medico-administratif-ve-a-50-et-collaborateur-trice-medico"
+      ]
     }
   ]
 }

@@ -706,7 +706,7 @@
       "slug": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "it": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
-        "en": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
+        "en": "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "de": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
         "fr": "gestion-du-projet-m-w-d-coopers-group-ag-aargau"
       },
@@ -776,6 +776,9 @@
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "fr": [
+          "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
+        ],
+        "en": [
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ]
       },
@@ -2072,7 +2075,7 @@
         "it": "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern",
         "en": "projektmanagement-officer-m-w-d-coopers-group-ag-bern",
         "de": "projectmanagement-officer-pmo-m-w-d-coopers-bern",
-        "fr": "projectmanagement-officer-pmo-m-w-d-coopers-bern"
+        "fr": "specialiste-de-la-gestion-des-projets-m-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -2141,6 +2144,9 @@
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
         ],
         "en": [
+          "projectmanagement-officer-pmo-m-w-d-coopers-bern"
+        ],
+        "fr": [
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
         ]
       },
@@ -4176,12 +4182,12 @@
     },
     {
       "id": "coopers-79290e93ef5b",
-      "slug": "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+      "slug": "supporto-it-infrastrutture-e-luoghi-di-lavoro-m-f-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
         "de": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
-        "it": "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+        "it": "supporto-it-infrastrutture-e-luoghi-di-lavoro-m-f-d-coopers-group-ag-basel-landschaft",
         "en": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
-        "fr": "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
+        "fr": "soutien-de-la-ti-infrastructure-et-milieu-de-travail-m-f-d-coopers-group-ag-basel-landschaft"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4250,7 +4256,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-23T22:07:55.828Z"
+      "firstSeenAt": "2026-06-23T22:07:55.828Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
+        ],
+        "fr": [
+          "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
+      ]
     },
     {
       "id": "coopers-4905b5c4d4e0",

@@ -401,7 +401,7 @@
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "general-services-employee-efg-geneve",
+        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -430,6 +430,9 @@
           "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve"
         ],
         "fr": [
+          "general-services-employee-efg-geneve"
+        ],
+        "de": [
           "general-services-employee-efg-geneve"
         ]
       },
@@ -2330,7 +2333,7 @@
     },
     {
       "id": "efg-4543",
-      "slug": "group-financial-controller-efg-geneve",
+      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Group Financial Controller",
       "location": "Geneve",
@@ -2495,9 +2498,9 @@
       },
       "crawledAt": "2026-06-23T22:12:49.485Z",
       "slugByLocale": {
-        "it": "group-financial-controller-efg-geneve",
+        "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
-        "de": "group-financial-controller-efg-geneve",
+        "de": "konzern-finanzverantwortlicher-efg-international-ag-geneve",
         "fr": "group-financial-controller-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -2522,17 +2525,14 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "previousSlugsByLocale": {
         "it": [
-          "gruppo-controllore-finanziario-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ],
         "de": [
-          "konzern-finanzverantwortlicher-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ]
       },
       "previousSlugs": [
-        "gruppo-controllore-finanziario-efg-international-ag-geneve",
-        "konzern-finanzverantwortlicher-efg-international-ag-geneve"
+        "group-financial-controller-efg-geneve"
       ],
       "country": "CH"
     },
@@ -2670,7 +2670,7 @@
         "it": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
         "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
         "de": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
-        "fr": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
+        "fr": "agent-principal-de-conformite-a-bord-et-examens-periodiques-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",

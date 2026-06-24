@@ -385,8 +385,7 @@
           "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-reha"
         ],
         "de": [
-          "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-rehaklinik-bellikon-bellikon",
-          "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-reha"
+          "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-05-19T14:36:48.640Z",
@@ -489,8 +488,7 @@
           "praktikantin-praktikant-pflege-reha-bellikon-bellikon"
         ],
         "de": [
-          "praktikantin-praktikant-pflege-rehaklinik-bellikon-bellikon",
-          "praktikantin-praktikant-pflege-reha-bellikon-bellikon"
+          "praktikantin-praktikant-pflege-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-05-19T14:36:47.702Z",
@@ -594,8 +592,7 @@
           "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon"
         ],
         "de": [
-          "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon",
-          "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon"
+          "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-05-19T14:36:45.823Z",
@@ -1618,12 +1615,12 @@
     },
     {
       "id": "reha-bellikon-36a558bf8314",
-      "slug": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
+      "slug": "terapista-occupazionale-terapista-occupazionale-riabilitazione-neurologica-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
-        "en": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
+        "it": "terapista-occupazionale-terapista-occupazionale-riabilitazione-neurologica-rehaklinik-bellikon-bellikon",
+        "en": "occupational-therapist-ergotherapist-neurological-rehabilitation-rehaklinik-bellikon-bellikon",
         "de": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon",
-        "fr": "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
+        "fr": "ergotherapie-readaptation-neurologique-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1681,7 +1678,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeutin-ergotherapeut-neurologische-rehabilitation-reha-bellikon-bellikon"
+      ]
     }
   ]
 }

@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
-      "slug": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+      "slug": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
       "slugByLocale": {
-        "it": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -53,7 +53,8 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "pj-absolvent-in-chirurgies-see-spital-horgen",
-        "pj-absolvens-in-chirurgie-see-spital-horgen"
+        "pj-absolvens-in-chirurgie-see-spital-horgen",
+        "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -61,6 +62,9 @@
         ],
         "de": [
           "pj-absolvens-in-chirurgie-see-spital-horgen"
+        ],
+        "it": [
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:09.180Z",
@@ -861,9 +865,9 @@
       "slug": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -950,15 +954,13 @@
         "en": [
           "gynecologist-and-obstetrician-see-spital-horgen",
           "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "gynecologue-et-obstetricien-see-spital-horgen",
           "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
           "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -967,6 +969,7 @@
         "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "zertifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
         "medico-senior-see-spital-horgen",
         "gynecologist-and-obstetrician-see-spital-horgen",
@@ -975,10 +978,7 @@
         "gynecologue-et-obstetricien-see-spital-horgen",
         "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio",
-        "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "firstSeenAt": "2026-05-26T14:56:00.275Z",
       "salaryMin": 73500,
@@ -1508,7 +1508,7 @@
       "slug": "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen",
       "slugByLocale": {
         "it": "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen",
-        "en": "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+        "en": "dipl-nurse-hf-medicine-see-spital-horgen",
         "de": "dipl-pflegefachperson-hf-medizin-see-spital-ch",
         "fr": "dipl-pflegefachperson-hf-medecine-see-spital-horgen"
       },
@@ -1588,6 +1588,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+        ],
+        "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
         ]
       },
@@ -2942,9 +2945,9 @@
     },
     {
       "id": "see-spital-b31b0f026929",
-      "slug": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
+      "slug": "specialista-in-radiologia-hf-see-spital-horgen",
       "slugByLocale": {
-        "it": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
+        "it": "specialista-in-radiologia-hf-see-spital-horgen",
         "en": "radiologist-hf-see-spital-horgen",
         "de": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
         "fr": "radiologue-hf-see-spital-horgen"
@@ -3021,7 +3024,8 @@
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-mann-hf-see-spital-horgen",
-          "radiologiefachfrau-mann-hf-see-spital-ch"
+          "radiologiefachfrau-mann-hf-see-spital-ch",
+          "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
         ],
         "de": [
           "radiologiefachfrau-mann-hf-see-spital-ch"
@@ -3029,7 +3033,8 @@
       },
       "previousSlugs": [
         "radiologiefachfrau-mann-hf-see-spital-horgen",
-        "radiologiefachfrau-mann-hf-see-spital-ch"
+        "radiologiefachfrau-mann-hf-see-spital-ch",
+        "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:44.131Z",
       "salaryMin": 73500,

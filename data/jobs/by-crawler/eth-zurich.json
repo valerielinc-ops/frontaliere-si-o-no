@@ -1883,7 +1883,7 @@
         "it": "office-manager-in-am-quantum-device-lab-m-w-d-eth-zurich-ch",
         "en": "office-manager-in-at-the-quantum-device-laboratory-m-w-d-eth-zurich-zurich",
         "de": "office-manager-in-am-quantum-device-lab-m-w-d-eth-zurich-ch",
-        "fr": "office-manager-in-am-quantum-device-lab-m-w-d-eth-zurich-ch"
+        "fr": "gestionnaire-de-bureau-au-laboratoire-quantum-device-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -3014,7 +3014,7 @@
         "it": "assistente-di-laboratorio-proteomics-eth-zurich-zurich",
         "en": "proteomics-laboratory-assistant-eth-zurich-ch",
         "de": "proteomics-laboratory-assistent-eth-zurich-zurich",
-        "fr": "proteomics-laboratory-assistant-eth-zurich-ch"
+        "fr": "assistant-de-laboratoire-en-proteomique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -3064,6 +3064,9 @@
         "de": [
           "proteomics-laboratory-assistant-eth-zurich-ch",
           "proteomics-laborassistent-eth-zurich-zurich"
+        ],
+        "fr": [
+          "proteomics-laboratory-assistant-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-05-22T11:35:19.493Z",
@@ -4479,7 +4482,7 @@
       "slugByLocale": {
         "it": "phd-in-fenologia-di-wildflower-eth-zurich-zurich",
         "en": "phd-in-wildflower-phenology-eth-zurich-ch",
-        "de": "phd-in-wildflower-phenology-eth-zurich-ch",
+        "de": "phd-in-wildblumen-phanologie-eth-zurich-zurich",
         "fr": "doctorat-en-phenologie-des-fleurs-sauvages-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
@@ -4524,6 +4527,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "phd-in-wildflower-phenology-eth-zurich-ch"
+        ],
+        "de": [
           "phd-in-wildflower-phenology-eth-zurich-ch"
         ]
       },
@@ -5749,7 +5755,7 @@
         "it": "map-executive-direttore-eth-zurich-zurich",
         "en": "map-executive-director-eth-zurich-ch",
         "de": "map-executive-direktor-eth-zurich-zurich",
-        "fr": "map-executive-director-eth-zurich-ch"
+        "fr": "directeur-executif-de-map-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -5796,6 +5802,9 @@
           "map-executive-director-eth-zurich-ch"
         ],
         "de": [
+          "map-executive-director-eth-zurich-ch"
+        ],
+        "fr": [
           "map-executive-director-eth-zurich-ch"
         ]
       },
@@ -5973,9 +5982,9 @@
     },
     {
       "id": "eth-zurich-ef48c794a0ff",
-      "slug": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
+      "slug": "ricercatore-post-dottorato-in-cattura-co2-light-driven-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
+        "it": "ricercatore-post-dottorato-in-cattura-co2-light-driven-eth-zurich-zurich",
         "en": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
         "de": "postdoktorand-im-bereich-lichtgetriebener-co2-einscheidung-eth-zurich-zurich",
         "fr": "chercheur-postdoctoral-en-capture-du-co2-a-la-lumiere-eth-zurich-zurich"
@@ -6031,7 +6040,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0be351dfef95",
@@ -7117,7 +7134,7 @@
         "it": "assistente-amministrativo-eth-zurich-zurich",
         "en": "administrative-assistant-eth-zurich-ch",
         "de": "administrative-assistent-eth-zurich-zurich",
-        "fr": "administrative-assistant-eth-zurich-ch"
+        "fr": "assistant-administratif-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7161,6 +7178,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "administrative-assistant-eth-zurich-ch"
+        ],
+        "fr": [
           "administrative-assistant-eth-zurich-ch"
         ]
       },
@@ -7493,9 +7513,9 @@
       "slug": "administrative-assistenz-in-lehre-e-forschung-m-w-d-eth-zurich",
       "slugByLocale": {
         "it": "administrative-assistenz-in-lehre-e-forschung-m-w-d-eth-zurich",
-        "en": "administrative-assistenz-in-lehre-und-forschung-m-w-d-eth-zurich-ch",
+        "en": "administrative-assistant-for-teaching-and-research-m-f-d-eth-zurich-zurich",
         "de": "administrative-assistenz-in-lehre-und-forschung-m-w-d-eth-zurich-ch",
-        "fr": "administrative-assistenz-in-lehre-und-forschung-m-w-d-eth-zurich-ch"
+        "fr": "assistant-administratif-pour-l-enseignement-et-la-recherche-h-f-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7540,6 +7560,12 @@
       "previousSlugsByLocale": {
         "it": [
           "administrative-assistenz-in-lehre-und-forschung-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "administrative-assistenz-in-lehre-und-forschung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "administrative-assistenz-in-lehre-und-forschung-m-w-d-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-06-23T11:27:24.431Z",
@@ -7560,12 +7586,12 @@
     },
     {
       "id": "eth-zurich-2e05025251b9",
-      "slug": "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch",
+      "slug": "gestore-in-abitazioni-dormitorio-ospiti-m-p-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch",
-        "en": "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch",
+        "it": "gestore-in-abitazioni-dormitorio-ospiti-m-p-d-eth-zurich-zurich",
+        "en": "manager-in-guest-dormitory-dwellings-m-w-d-eth-zurich-zurich",
         "de": "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch",
-        "fr": "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch"
+        "fr": "gestionnaire-dans-les-logements-d-origine-m-m-j-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7618,16 +7644,30 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bewirtschafter-in-gastdozierendenwohnungen-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-dc164140c90d",
-      "slug": "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch",
+      "slug": "architetto-a-responsabile-di-progetto-parziale-di-pianificazione-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch",
-        "en": "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch",
+        "it": "architetto-a-responsabile-di-progetto-parziale-di-pianificazione-m-f-d-eth-zurich-zurich",
+        "en": "architect-project-manager-m-f-d-eth-zurich-zurich",
         "de": "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch",
-        "fr": "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch"
+        "fr": "architecte-responsable-de-projet-h-f-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7680,7 +7720,21 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "architekt-in-teilprojektleiter-in-planung-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-9c699644abac",
@@ -7760,12 +7814,12 @@
     },
     {
       "id": "eth-zurich-560ec7892cc4",
-      "slug": "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture",
+      "slug": "posizione-del-phd-sull-ingegneria-delle-piattaforme-di-perfusione-della-macchina-per-la-cultura-dell-organo-e-del",
       "slugByLocale": {
-        "it": "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture",
+        "it": "posizione-del-phd-sull-ingegneria-delle-piattaforme-di-perfusione-della-macchina-per-la-cultura-dell-organo-e-del",
         "en": "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture",
-        "de": "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture",
-        "fr": "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture"
+        "de": "phd-position-zum-engineering-von-maschinenperfusionsplattformen-fur-organ-und-gewebekultur-eth-zurich-zurich",
+        "fr": "phd-position-sur-l-ingenierie-des-plates-formes-de-perfusion-pour-la-culture-des-organes-et-des-tissus-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7819,7 +7873,21 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture"
+        ],
+        "de": [
+          "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture"
+        ],
+        "fr": [
+          "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-on-engineering-of-machine-perfusion-platforms-for-organ-and-tissue-culture"
+      ]
     }
   ]
 }

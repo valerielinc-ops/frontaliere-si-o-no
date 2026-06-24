@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-fd587eabc928",
-      "slug": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
+      "slug": "responsabile-dell-istruzione-r-ltt-hf-cura-e-conseguente-occupazione-dipl-cura-professionale-hf-fh-spital-limmattal",
       "slugByLocale": {
         "de": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
-        "it": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
-        "en": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
-        "fr": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+        "it": "responsabile-dell-istruzione-r-ltt-hf-cura-e-conseguente-occupazione-dipl-cura-professionale-hf-fh-spital-limmattal",
+        "en": "responsible-for-education-r-ltt-hf-care-and-resulting-employment-dipl-care-professional-hf-fh-spital-limmattal-schlieren",
+        "fr": "responsable-de-l-education-soins-et-emploi-soins-professionnels-hf-fh-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T23:08:15.163Z"
+      "firstSeenAt": "2026-06-23T23:08:15.163Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+        ],
+        "en": [
+          "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+        ],
+        "fr": [
+          "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+        ]
+      },
+      "previousSlugs": [
+        "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+      ]
     },
     {
       "id": "spital-limmattal-96ba5e18a715",
@@ -1578,7 +1592,7 @@
       "slug": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
-        "en": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+        "en": "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
         "de": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
         "fr": "chef-de-la-hand-therapy-ergotherapie-spital-limmattal-schlieren"
       },
@@ -1629,6 +1643,9 @@
           "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
         ],
         "fr": [
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
+        ],
+        "en": [
           "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
         ]
       },
@@ -2092,9 +2109,9 @@
       "slug": "mpa-adipositaszentrum-60-montag-mittwoch-e-donnerstag-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "mpa-adipositaszentrum-60-montag-mittwoch-e-donnerstag-spital-limmattal-schlieren",
-        "en": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
+        "en": "mpa-obesity-center-60-80-spital-limmattal-schlieren",
         "de": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
-        "fr": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch"
+        "fr": "amp-adipositaszentrum-60-80-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2139,16 +2156,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "mpa-obesity-center-60-80-spital-limmattal-schlieren",
-        "amp-adipositaszentrum-60-80-spital-limmattal-schlieren"
+        "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mpa-obesity-center-60-80-spital-limmattal-schlieren",
           "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch"
         ],
         "fr": [
-          "amp-adipositaszentrum-60-80-spital-limmattal-schlieren",
           "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch"
         ]
       },
@@ -2250,10 +2264,10 @@
       "id": "spital-limmattal-af9c8dd4a8e7",
       "slug": "specialista-della-radiologia-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "specialista-della-radiologia-spital-limmattal-schlieren",
+        "it": "radiologiefachperson-spital-limmattal-schlieren",
         "en": "radiologiefachperson-spital-limmattal-schlieren",
         "de": "radiologiefachperson-spital-limmattal-ch",
-        "fr": "specialiste-de-radiologie-spital-limmattal-schlieren"
+        "fr": "radiologiefachperson-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2296,15 +2310,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-spital-limmattal-ch",
-        "radiologiefachperson-spital-limmattal-schlieren"
+        "specialiste-de-radiologie-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachperson-spital-limmattal-ch",
-          "radiologiefachperson-spital-limmattal-schlieren"
+          "radiologiefachperson-spital-limmattal-ch"
         ],
         "fr": [
-          "radiologiefachperson-spital-limmattal-schlieren",
           "specialiste-de-radiologie-spital-limmattal-schlieren"
         ]
       },
@@ -2772,7 +2784,7 @@
       "slug": "dipl-expertin-o-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "dipl-expertin-o-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
-        "en": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
+        "en": "dipl-expert-or-expert-intensive-care-nds-hf-spital-limmattal-schlieren",
         "de": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
         "fr": "dipl-expert-ou-expert-en-soins-intensifs-nds-hf-spital-limmattal-schlieren"
       },
@@ -2827,7 +2839,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-41bea20178e8",
@@ -3072,7 +3092,7 @@
       "slug": "dipl-expertin-o-experte-nds-hf-notfallpflege-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "dipl-expertin-o-experte-nds-hf-notfallpflege-spital-limmattal-schlieren",
-        "en": "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
+        "en": "dipl-expert-or-expert-nds-hf-emergency-care-spital-limmattal-schlieren",
         "de": "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
         "fr": "dipl-expert-ou-expert-nds-hf-soins-d-urgence-spital-limmattal-schlieren"
       },
@@ -3127,7 +3147,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-a8e3a1553c37",
@@ -3535,7 +3563,7 @@
       "slug": "dipl-rettungssanitater-in-hf-per-la-nostra-notfallstation-40-70-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "dipl-rettungssanitater-in-hf-per-la-nostra-notfallstation-40-70-spital-limmattal-schlieren",
-        "en": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
+        "en": "dipl-rescue-sanit-u00e4ter-in-hf-f-u00fcr-our-emergency-station-40-70-spital-limmattal-schlieren",
         "de": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
         "fr": "dipl-sain-de-sauvetage-u00e4ter-en-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren"
       },
@@ -3594,6 +3622,9 @@
         ],
         "fr": [
           "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch"
+        ],
+        "en": [
+          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:32.660Z",
@@ -3615,7 +3646,7 @@
       "slug": "infermiere-qualificato-per-il-reparto-di-emergenza-hf-fh-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "infermiere-qualificato-per-il-reparto-di-emergenza-hf-fh-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+        "en": "dipl-care-specialist-hf-fh-emergency-department-spital-limmattal-schlieren",
         "de": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
         "fr": "dipl-specialiste-des-soins-hf-fh-service-d-urgence-spital-limmattal-schlieren"
       },
@@ -3671,6 +3702,9 @@
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:32.244Z",
@@ -3691,10 +3725,10 @@
       "id": "spital-limmattal-f3841fe87585",
       "slug": "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal",
       "slugByLocale": {
-        "it": "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal",
+        "it": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmat",
         "en": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmat",
         "de": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notf",
-        "fr": "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren"
+        "fr": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmat"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3737,20 +3771,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte",
-        "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmat",
+        "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren",
         "dipl-specialista-hf-fh-f-u00fcr-2-j-u00e4hige-nds-per-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal-schliere",
         "dipl-specialiste-des-soins-hf-fh-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte",
-          "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmat"
+          "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmat",
           "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren"
         ]
       },
@@ -3772,10 +3804,10 @@
       "id": "spital-limmattal-6d0972d43552",
       "slug": "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal",
       "slugByLocale": {
-        "it": "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal",
+        "it": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limma",
         "en": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limma",
         "de": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-inte",
-        "fr": "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren"
+        "fr": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limma"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3818,20 +3850,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte",
-        "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limma",
+        "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren",
         "dipl-specialista-hf-fh-f-u00fcr-2-j-u00e4hige-nds-per-dipl-assistenza-intensiva-per-esperti-nds-hf-spital-limmattal-schl",
         "dipl-specialiste-des-soins-hf-fh-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte",
-          "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limma"
+          "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limma",
           "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren"
         ]
       },
@@ -4257,7 +4287,7 @@
         "it": "hf-posto-di-studio-3-j-u00e4hrige-istruzione-studenti-r-med-tecnica-radiologia-spital-limmattal-schlieren",
         "en": "hf-study-place-3-j-u00e4hrige-education-students-r-med-technical-radiology-spital-limmattal-schlieren",
         "de": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l",
-        "fr": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l"
+        "fr": "hf-place-d-etude-3-j-u00e4hrige-education-etudiants-r-med-radiologie-technique-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -4300,6 +4330,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital",
+        "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l",
         "hf-studienplatz-3-j-u00e4hige-ausbildung-studenti-r-med-technische-radiologie-spital-limmattal-schlieren",
         "hf-studienplatz-3-j-u00e4hige-ausbildung-students-r-med-technische-radiologie-spital-limmattal-schlieren"
       ],
@@ -4309,6 +4340,9 @@
         ],
         "en": [
           "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital"
+        ],
+        "fr": [
+          "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l"
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:28.478Z",

@@ -326,9 +326,9 @@
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-8c9336f89402",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-lhm-luzerner-hohenklinik-montana-crans-montana",
+      "slug": "infermieristica-professionale-hf-fh-luzerner-hohenklinik-montana-crans-montana",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-lhm-luzerner-hohenklinik-montana-crans-montana",
+        "it": "infermieristica-professionale-hf-fh-luzerner-hohenklinik-montana-crans-montana",
         "en": "registered-nurse-hf-fh-luzerner-hohenklinik-montana-crans-montana",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-lhm-luzerner-hohenklinik-montana-crans-montana",
         "fr": "infirmier-infirmiere-hf-fh-luzerner-hohenklinik-montana-crans-montana"
@@ -391,7 +391,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-fh-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-fh-lhm-luzerner-hohenklinik-montana-crans-montana"
+      ]
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-d97f41bc3d15",

@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "spital-muri-f630033e83b2",
-      "slug": "teststelle-rav-schnittstelle-spital-muri-muri",
+      "slug": "interfaccia-rav-del-sito-di-prova-spital-muri-muri",
       "slugByLocale": {
-        "it": "teststelle-rav-schnittstelle-spital-muri-muri",
+        "it": "interfaccia-rav-del-sito-di-prova-spital-muri-muri",
         "en": "test-rav-interface-position-spital-muri-muri",
         "de": "teststelle-rav-schnittstelle-spital-muri-muri",
         "fr": "poste-de-test-rav-interface-spital-muri-muri"
@@ -62,7 +62,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teststelle-rav-schnittstelle-spital-muri-muri"
+        ]
+      },
+      "previousSlugs": [
+        "teststelle-rav-schnittstelle-spital-muri-muri"
+      ]
     }
   ]
 }

@@ -921,12 +921,12 @@
     },
     {
       "id": "imad-2786ed77c92a",
-      "slug": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
+      "slug": "infermiera-in-home-hospital-had-80-cdm-9-mesi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
-        "it": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
-        "en": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
-        "de": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
+        "it": "infermiera-in-home-hospital-had-80-cdm-9-mesi-imad-geneva",
+        "en": "nurse-in-home-hospital-had-80-cdm-9-months-imad-geneva",
+        "de": "krankenschwester-in-home-hospital-had-80-cdm-9-monate-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -982,16 +982,30 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-23T22:31:31.692Z"
+      "firstSeenAt": "2026-06-23T22:31:31.692Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
+      ]
     },
     {
       "id": "imad-22bcec1a17dc",
-      "slug": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
+      "slug": "infermiera-di-collegamento-100-in-7-mesi-cdm-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
-        "it": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
-        "en": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
-        "de": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        "it": "infermiera-di-collegamento-100-in-7-mesi-cdm-imad-geneva",
+        "en": "liaison-nurse-100-in-7-month-cdm-imad-geneva",
+        "de": "liaison-nure-100-in-7-monaten-cdm-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -1047,7 +1061,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-23T22:31:31.683Z"
+      "firstSeenAt": "2026-06-23T22:31:31.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+      ]
     }
   ]
 }

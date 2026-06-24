@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "helsana-778b662cbcae",
-      "slug": "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "centro-di-competenza-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "centro-di-competenza-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "en": "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "centre-de-competences-du-gestionnaire-client-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -63,7 +63,18 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-dc8182fa9f43",
@@ -146,7 +157,7 @@
         "it": "it-security-architetto-a-secure-development-threat-vulnerability-management-80-100-helsana-dubendorf-stettbach-homeoff",
         "en": "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana",
         "de": "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana",
-        "fr": "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana"
+        "fr": "architecte-de-la-securite-des-ti-a-gestion-securitaire-du-developpement-de-la-menace-et-de-la-vulnerabilite-80-100"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -192,6 +203,9 @@
       "previousSlugsByLocale": {
         "it": [
           "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana"
+        ],
+        "fr": [
+          "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana"
         ]
       },
       "previousSlugs": [
@@ -212,12 +226,12 @@
     },
     {
       "id": "helsana-49532bccde73",
-      "slug": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "servizio-di-assistenza-medica-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "servizio-di-assistenza-medica-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "customer-care-services-medical-day-allowance-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "services-a-la-clientele-indemnite-de-jour-pour-soins-medicaux-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -271,16 +285,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-125b7a19ddd2",
       "slug": "kundenbetreuerin-kunde-e-markt-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
         "it": "kundenbetreuerin-kunde-e-markt-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "kundenbetreuerin-kunde-und-markt-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "customer-service-provider-customer-and-market-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuerin-kunde-und-markt-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "kundenbetreuerin-kunde-und-markt-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "fournisseur-de-services-a-la-clientele-clientele-et-marche-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -328,6 +356,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuerin-kunde-und-markt-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "kundenbetreuerin-kunde-und-markt-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "kundenbetreuerin-kunde-und-markt-de-fr-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ]
       },
       "firstSeenAt": "2026-06-23T11:43:22.678Z",
@@ -346,12 +380,12 @@
     },
     {
       "id": "helsana-62d28e348fe3",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice",
+      "slug": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice",
+        "it": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino",
+        "en": "outbound-insurance-consultant-80-100-helsana-ticino",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+        "fr": "conseiller-en-assurance-en-service-externe-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -404,16 +438,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+      ]
     },
     {
       "id": "helsana-2e6adfec3542",
-      "slug": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice",
+      "slug": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice",
-        "en": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice",
+        "it": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino",
+        "en": "specialist-in-internal-medicine-a-80-100-helsana-ticino",
         "de": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice",
-        "fr": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+        "fr": "specialiste-en-medecine-interne-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -466,16 +514,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+      ]
     },
     {
       "id": "helsana-cd4d60a450e5",
-      "slug": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice",
+      "slug": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino-882bb5",
       "slugByLocale": {
-        "it": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice",
-        "en": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice",
+        "it": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino-882bb5",
+        "en": "specialist-in-internal-medicine-a-80-100-helsana-ticino-882bb5",
         "de": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice",
-        "fr": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+        "fr": "specialiste-en-medecine-interne-a-80-100-helsana-ticino-882bb5"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -528,16 +590,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+        ],
+        "en": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+        ],
+        "fr": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+      ]
     },
     {
       "id": "helsana-9e72b04cec91",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice",
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -591,16 +667,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+      ]
     },
     {
       "id": "helsana-58dbae0c6408",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-b6161b",
       "slugByLocale": {
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-b6161b",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-b6161b",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-b6161b"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -654,16 +744,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
+      ]
     },
     {
       "id": "helsana-92935a2b2b87",
-      "slug": "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "fornitore-del-servizio-clienti-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "fornitore-del-servizio-clienti-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "customer-service-provider-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "fournisseur-de-services-a-la-clientele-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -717,16 +821,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-d8448119a2cc",
-      "slug": "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff",
+      "slug": "assistenza-clienti-dipendente-temporaneo-a-80-100-temporanea-da-10-08-2026-a-31-01-2027-helsana-dubendorf-stettbach",
       "slugByLocale": {
-        "it": "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff",
-        "en": "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027",
+        "it": "assistenza-clienti-dipendente-temporaneo-a-80-100-temporanea-da-10-08-2026-a-31-01-2027-helsana-dubendorf-stettbach",
+        "en": "temporary-employee-customer-support-a-80-100-temporary-from-10-08-2026-to-31-01-2027-helsana-dubendorf-stettbach-homeoff",
         "de": "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027",
-        "fr": "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027"
+        "fr": "soutien-temporaire-a-la-clientele-des-employes-a-80-100-temporaire-du-10-08-2026-au-31-01-2027-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -769,10 +887,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027"
+        "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027",
+        "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027",
+          "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027"
+        ],
+        "fr": [
           "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027"
         ]
       },
@@ -863,12 +989,12 @@
     },
     {
       "id": "helsana-e1d8ab199305",
-      "slug": "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "regolatore-del-controllo-di-distribuzione-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "regolatore-del-controllo-di-distribuzione-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "controller-in-the-distribution-control-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "controleur-du-controle-de-distribution-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -922,16 +1048,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-72337d7ec583",
-      "slug": "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "servizi-di-assistenza-clienti-agguanti-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "servizi-di-assistenza-clienti-agguanti-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "customer-service-provider-services-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "services-a-la-clientele-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -985,16 +1125,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-c1a762de4903",
-      "slug": "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana",
+      "slug": "capo-della-corporate-business-region-zurigo-svizzera-centrale-e-orientale-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana",
-        "en": "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana",
+        "it": "capo-della-corporate-business-region-zurigo-svizzera-centrale-e-orientale-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "head-of-corporate-business-region-zurich-central-eastern-switzerland-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana",
-        "fr": "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana"
+        "fr": "responsable-des-entreprises-region-zurich-suisse-centrale-et-orientale-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1048,16 +1202,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana"
+        ],
+        "en": [
+          "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana"
+        ],
+        "fr": [
+          "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana"
+      ]
     },
     {
       "id": "helsana-709987c120b9",
-      "slug": "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
+      "slug": "ktg-uvg-corporate-business-a-helsana-ticino",
       "slugByLocale": {
-        "it": "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
+        "it": "ktg-uvg-corporate-business-a-helsana-ticino",
         "en": "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
         "de": "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
-        "fr": "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+        "fr": "ktg-uvg-entreprise-a-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1111,16 +1279,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+      ]
     },
     {
       "id": "helsana-641a9fcc4ea8",
-      "slug": "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff",
+      "slug": "gestione-dei-casi-a-80-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff",
-        "en": "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff",
+        "it": "gestione-dei-casi-a-80-helsana-dubendorf-stettbach-homeoff",
+        "en": "account-manager-case-management-a-80-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff",
-        "fr": "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff"
+        "fr": "gestionnaire-de-comptes-gestion-des-cas-a-80-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1174,16 +1353,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-81f5dc08db4f",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-1773bb",
       "slugByLocale": {
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-1773bb",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-1773bb",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-1773bb"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1237,16 +1430,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+      ]
     },
     {
       "id": "helsana-f904c3263618",
-      "slug": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
+      "slug": "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
-        "en": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
+        "it": "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-ticino",
+        "en": "case-manager-services-corporate-business-canton-of-graubunden-a-80-100-helsana-ticino",
         "de": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
-        "fr": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        "fr": "case-manager-services-entreprise-canton-des-grisons-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1300,16 +1507,30 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ],
+        "en": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ],
+        "fr": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+      ]
     },
     {
       "id": "helsana-482bb21e4f8d",
-      "slug": "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana",
+      "slug": "assistenza-clienti-temporanea-a-80-100-da-10-8-2026-a-31-3-2027-helsana-ticino",
       "slugByLocale": {
-        "it": "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana",
-        "en": "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana",
+        "it": "assistenza-clienti-temporanea-a-80-100-da-10-8-2026-a-31-3-2027-helsana-ticino",
+        "en": "temporary-customer-support-a-80-100-from-10-8-2026-to-31-3-2027-helsana-ticino",
         "de": "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana",
-        "fr": "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+        "fr": "service-a-la-clientele-temporaire-a-80-100-du-10-8-2026-au-31-3-2027-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1363,7 +1584,21 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+        ],
+        "en": [
+          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+        ],
+        "fr": [
+          "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+        ]
+      },
+      "previousSlugs": [
+        "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
+      ]
     },
     {
       "id": "helsana-35f484c80a9d",
@@ -1504,12 +1739,12 @@
     },
     {
       "id": "helsana-63d498a9408c",
-      "slug": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
+      "slug": "servizio-di-assistenza-medica-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
-        "en": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
+        "it": "servizio-di-assistenza-medica-a-80-100-helsana-ticino",
+        "en": "customer-care-services-medical-day-allowance-a-80-100-helsana-ticino",
         "de": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
-        "fr": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+        "fr": "services-a-la-clientele-indemnite-de-jour-pour-soins-medicaux-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1563,7 +1798,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice"
+      ]
     },
     {
       "id": "helsana-8b8777e7d3e7",
@@ -1630,12 +1879,12 @@
     },
     {
       "id": "helsana-fc5f0b272375",
-      "slug": "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff",
+      "slug": "servizi-di-sottoscrizione-specializzati-a-80-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff",
+        "it": "servizi-di-sottoscrizione-specializzati-a-80-helsana-dubendorf-stettbach-homeoff",
         "en": "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff",
         "de": "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff",
-        "fr": "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff"
+        "fr": "services-de-souscription-specialises-a-80-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1689,16 +1938,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-810a203d05b5",
-      "slug": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "specialist-for-corporate-business-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "specialiste-des-entreprises-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1752,16 +2012,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-3a2b5ef10199",
-      "slug": "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
+      "slug": "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
-        "en": "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
+        "it": "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino",
+        "en": "customer-support-services-ambulant-a-80-100-helsana-ticino",
         "de": "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
-        "fr": "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+        "fr": "services-d-assistance-a-la-clientele-ambulant-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1815,16 +2089,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice"
+      ]
     },
     {
       "id": "helsana-2fae6f6fdcb0",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116",
       "slugByLocale": {
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-936116",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-936116"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1878,16 +2166,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice"
+      ]
     },
     {
       "id": "helsana-72dcec5fdd55",
-      "slug": "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach",
+      "slug": "specialist-business-area-sviluppo-innovazione-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach",
-        "en": "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach",
+        "it": "specialist-business-area-sviluppo-innovazione-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "specialist-business-area-development-innovation-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach"
+        "fr": "developpement-et-innovation-des-secteurs-d-activite-specialises-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -1941,16 +2243,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-6df39085c5a5",
-      "slug": "versicherungsberater-direct-sales-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "consulente-assicurativo-vendite-dirette-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "versicherungsberater-direct-sales-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "consulente-assicurativo-vendite-dirette-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "en": "versicherungsberater-direct-sales-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "versicherungsberater-direct-sales-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "versicherungsberater-direct-sales-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "consultant-en-assurance-ventes-directes-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2004,16 +2320,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-direct-sales-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "versicherungsberater-direct-sales-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-direct-sales-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-221fd25fff2d",
-      "slug": "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
+      "slug": "assicurazione-medico-d-f-a-40-60-helsana-ticino",
       "slugByLocale": {
-        "it": "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
-        "en": "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
+        "it": "assicurazione-medico-d-f-a-40-60-helsana-ticino",
+        "en": "insurance-physician-d-f-a-40-60-helsana-ticino",
         "de": "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
-        "fr": "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+        "fr": "medecin-d-assurance-d-f-a-40-60-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2067,16 +2394,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+        ],
+        "en": [
+          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+        ],
+        "fr": [
+          "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
+      ]
     },
     {
       "id": "helsana-8741069036c2",
-      "slug": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+      "slug": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
       "slugByLocale": {
-        "it": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
-        "en": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+        "it": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
+        "en": "insurance-physician-d-i-a-40-60-helsana-ticino",
         "de": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
-        "fr": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        "fr": "medecin-d-assurance-d-i-a-40-60-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2130,16 +2471,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+      ]
     },
     {
       "id": "helsana-36b7ee3a08f6",
-      "slug": "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "codificatore-medico-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "codificatore-medico-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "medical-coder-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "codeur-medical-a-80-a-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2193,16 +2548,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-d348fe517797",
-      "slug": "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
+      "slug": "supporto-commerciale-a-60-helsana-ticino",
       "slugByLocale": {
-        "it": "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
-        "en": "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
+        "it": "supporto-commerciale-a-60-helsana-ticino",
+        "en": "sales-support-a-60-helsana-ticino",
         "de": "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
-        "fr": "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+        "fr": "soutien-aux-ventes-a-60-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2256,16 +2625,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+        ],
+        "en": [
+          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+        ],
+        "fr": [
+          "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
+      ]
     },
     {
       "id": "helsana-f9ef5e85d20f",
-      "slug": "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "manutenzione-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "it": "manutenzione-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "customer-manager-retention-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "conservation-du-gestionnaire-client-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2319,7 +2702,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-d59bda14d8f6",
@@ -2328,7 +2725,7 @@
         "it": "case-manager-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "en": "case-manager-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "case-manager-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "case-manager-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "gestionnaire-de-cas-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2386,12 +2783,12 @@
     },
     {
       "id": "helsana-ca521068218b",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-6df9b9",
       "slugByLocale": {
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-6df9b9",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-6df9b9",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-6df9b9"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2445,16 +2842,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
+      ]
     },
     {
       "id": "helsana-5833ee02bba9",
-      "slug": "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
+      "slug": "richiesta-di-elaborazione-e-mutazioni-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
-        "en": "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
+        "it": "richiesta-di-elaborazione-e-mutazioni-a-80-100-helsana-ticino",
+        "en": "request-processing-and-mutations-a-80-100-helsana-ticino",
         "de": "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice",
-        "fr": "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+        "fr": "traitement-des-demandes-et-mutations-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2508,16 +2919,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-antragsverarbeitung-mutationen-a-80-100-helsana-worblaufen-homeoffice"
+      ]
     },
     {
       "id": "helsana-7a6647ffcef2",
-      "slug": "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
+      "slug": "supporto-di-vendita-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
-        "en": "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
+        "it": "supporto-di-vendita-a-80-100-helsana-ticino",
+        "en": "sales-support-a-80-100-helsana-ticino",
         "de": "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
-        "fr": "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+        "fr": "soutien-aux-ventes-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2571,7 +2996,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+        ],
+        "en": [
+          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+        ],
+        "fr": [
+          "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
+      ]
     },
     {
       "id": "helsana-706768e54dec",
@@ -2638,12 +3077,12 @@
     },
     {
       "id": "helsana-5cf154375f78",
-      "slug": "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach",
+      "slug": "team-leader-business-engineering-a-80-100-possibile-in-co-perta-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach",
-        "en": "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach",
+        "it": "team-leader-business-engineering-a-80-100-possibile-in-co-perta-helsana-dubendorf-stettbach-homeoff",
+        "en": "team-leader-business-engineering-a-80-100-possible-in-co-lead-helsana-dubendorf-stettbach-homeoff",
         "de": "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach",
-        "fr": "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach"
+        "fr": "chef-d-equipe-genie-des-affaires-a-80-100-possible-en-co-leader-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2697,16 +3136,30 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-business-engineering-a-80-100-im-co-lead-moglich-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-7d5bc4748f3a",
-      "slug": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
+      "slug": "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
-        "en": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
+        "it": "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino",
+        "en": "customer-service-provider-sales-office-a-80-100-helsana-ticino",
         "de": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
-        "fr": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+        "fr": "fournisseur-de-services-a-la-clientele-bureau-de-vente-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2760,16 +3213,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice"
+      ]
     },
     {
       "id": "helsana-c7de33957a77",
-      "slug": "group-controller-a-80-100-helsana-dubendorf",
+      "slug": "regolatore-di-gruppo-a-80-100-helsana-dubendorf",
       "slugByLocale": {
-        "it": "group-controller-a-80-100-helsana-dubendorf",
+        "it": "regolatore-di-gruppo-a-80-100-helsana-dubendorf",
         "en": "group-controller-a-80-100-helsana-dubendorf",
         "de": "group-controller-a-80-100-helsana-dubendorf",
-        "fr": "group-controller-a-80-100-helsana-dubendorf"
+        "fr": "controleur-de-groupe-a-80-100-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2823,16 +3290,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "group-controller-a-80-100-helsana-dubendorf"
+        ],
+        "fr": [
+          "group-controller-a-80-100-helsana-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "group-controller-a-80-100-helsana-dubendorf"
+      ]
     },
     {
       "id": "helsana-c93d5b8849c3",
-      "slug": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
+      "slug": "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino-ad174d",
       "slugByLocale": {
-        "it": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
-        "en": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
+        "it": "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino-ad174d",
+        "en": "customer-service-provider-sales-office-a-80-100-helsana-ticino-ad174d",
         "de": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
-        "fr": "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+        "fr": "fournisseur-de-services-a-la-clientele-bureau-de-vente-a-80-100-helsana-ticino-ad174d"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2886,16 +3364,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice"
+      ]
     },
     {
       "id": "helsana-b7fab3bebfbd",
-      "slug": "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff",
+      "slug": "applicazioni-spontanee-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff",
-        "en": "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff",
+        "it": "applicazioni-spontanee-helsana-dubendorf-stettbach-homeoff",
+        "en": "spontaneous-applications-helsana-dubendorf-stettbach-homeoff",
         "de": "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff",
-        "fr": "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff"
+        "fr": "demandes-spontanees-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2949,7 +3441,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-9a800624044a",
@@ -3016,12 +3522,12 @@
     },
     {
       "id": "helsana-213eeb7bf88d",
-      "slug": "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach",
+      "slug": "consulente-clienti-contatto-centro-m-w-40-60-helsana-dubendorf-stettbach",
       "slugByLocale": {
-        "it": "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach",
-        "en": "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach",
+        "it": "consulente-clienti-contatto-centro-m-w-40-60-helsana-dubendorf-stettbach",
+        "en": "customer-consultant-contact-center-m-w-40-60-helsana-dubendorf-stettbach",
         "de": "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach",
-        "fr": "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach"
+        "fr": "centre-de-contact-client-m-w-40-60-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3075,16 +3581,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-8cd7faf7bf2d",
-      "slug": "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach",
+      "slug": "account-manager-de-it-w-m-80-100-helsana-dubendorf-stettbach",
       "slugByLocale": {
-        "it": "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach",
+        "it": "account-manager-de-it-w-m-80-100-helsana-dubendorf-stettbach",
         "en": "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach",
         "de": "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach",
-        "fr": "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach"
+        "fr": "gestionnaire-de-comptes-de-it-w-m-80-100-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3138,16 +3658,27 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-0da34c418159",
-      "slug": "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
+      "slug": "assistenza-medica-a-50-helsana-ticino",
       "slugByLocale": {
-        "it": "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
-        "en": "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
+        "it": "assistenza-medica-a-50-helsana-ticino",
+        "en": "medical-practice-assistance-a-50-helsana-ticino",
         "de": "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
-        "fr": "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+        "fr": "assistance-medicale-a-50-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3201,16 +3732,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
+      ]
     },
     {
       "id": "helsana-efa5df2b01bc",
-      "slug": "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
+      "slug": "assistenza-medica-a-80-helsana-ticino",
       "slugByLocale": {
-        "it": "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
-        "en": "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
+        "it": "assistenza-medica-a-80-helsana-ticino",
+        "en": "medical-practice-assistance-a-80-helsana-ticino",
         "de": "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
-        "fr": "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+        "fr": "assistance-medicale-a-80-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3264,16 +3809,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
+      ]
     },
     {
       "id": "helsana-f503122230cf",
-      "slug": "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
+      "slug": "assistenza-medica-pratica-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
-        "en": "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
+        "it": "assistenza-medica-pratica-a-80-100-helsana-ticino",
+        "en": "medical-practice-assistance-a-80-100-helsana-ticino",
         "de": "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
-        "fr": "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        "fr": "assistance-medicale-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3327,7 +3886,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+      ]
     },
     {
       "id": "helsana-261a20bad839",
@@ -3394,12 +3967,12 @@
     },
     {
       "id": "helsana-896214303cfb",
-      "slug": "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach",
+      "slug": "strategista-commerciale-m-f-80-100-helsana-dubendorf-stettbach",
       "slugByLocale": {
-        "it": "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach",
+        "it": "strategista-commerciale-m-f-80-100-helsana-dubendorf-stettbach",
         "en": "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach",
         "de": "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach",
-        "fr": "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach"
+        "fr": "strategie-de-commercialisation-m-f-80-100-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3453,16 +4026,27 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-4fac01e2338a",
       "slug": "partner-e-kundenbetreuer-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
         "it": "partner-e-kundenbetreuer-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "partner-und-kundenbetreuer-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach",
+        "en": "corporate-partner-and-customer-service-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "partner-und-kundenbetreuer-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "partner-und-kundenbetreuer-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+        "fr": "partenaire-corporatif-et-service-a-la-clientele-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3510,6 +4094,12 @@
       "previousSlugsByLocale": {
         "it": [
           "partner-und-kundenbetreuer-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "partner-und-kundenbetreuer-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "partner-und-kundenbetreuer-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
         ]
       },
       "firstSeenAt": "2026-06-23T11:42:51.673Z",
@@ -3528,12 +4118,12 @@
     },
     {
       "id": "helsana-388b14cc46bb",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-089d41",
       "slugByLocale": {
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice",
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-089d41",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-089d41",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-089d41"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3587,16 +4177,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-uster-homeoffice"
+      ]
     },
     {
       "id": "helsana-9daf8933c4fb",
-      "slug": "praktikant-ausbildung-w-m-helsana-worblaufen",
+      "slug": "formazione-m-helsana-worblaufen",
       "slugByLocale": {
-        "it": "praktikant-ausbildung-w-m-helsana-worblaufen",
-        "en": "praktikant-ausbildung-w-m-helsana-worblaufen",
+        "it": "formazione-m-helsana-worblaufen",
+        "en": "traineeship-w-m-helsana-worblaufen",
         "de": "praktikant-ausbildung-w-m-helsana-worblaufen",
-        "fr": "praktikant-ausbildung-w-m-helsana-worblaufen"
+        "fr": "stage-helsana-worblaufen"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3650,13 +4254,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-ausbildung-w-m-helsana-worblaufen"
+        ],
+        "en": [
+          "praktikant-ausbildung-w-m-helsana-worblaufen"
+        ],
+        "fr": [
+          "praktikant-ausbildung-w-m-helsana-worblaufen"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-ausbildung-w-m-helsana-worblaufen"
+      ]
     },
     {
       "id": "helsana-cea552b42050",
-      "slug": "candidature-spontanee-helsana-lausanne",
+      "slug": "candidatura-spontanee-helsana-lausanne",
       "slugByLocale": {
-        "it": "candidature-spontanee-helsana-lausanne",
+        "it": "candidatura-spontanee-helsana-lausanne",
         "en": "candidature-spontanee-helsana-lausanne",
         "de": "candidature-spontanee-helsana-lausanne",
         "fr": "candidature-spontanee-helsana-lausanne"
@@ -3713,16 +4331,24 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-helsana-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "candidature-spontanee-helsana-lausanne"
+      ]
     },
     {
       "id": "helsana-b36d80782ac7",
-      "slug": "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
+      "slug": "case-manager-servizi-corporate-business-mittelland-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
-        "en": "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
+        "it": "case-manager-servizi-corporate-business-mittelland-a-80-100-helsana-ticino",
+        "en": "case-manager-services-corporate-business-mittelland-a-80-100-helsana-ticino",
         "de": "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
-        "fr": "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+        "fr": "gestionnaire-de-cas-services-entreprises-mittelland-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3776,16 +4402,30 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+        ],
+        "en": [
+          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+        ],
+        "fr": [
+          "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
+      ]
     },
     {
       "id": "helsana-757c50d4ab7c",
-      "slug": "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach",
+      "slug": "servizi-di-assistenza-clienti-per-la-sicurezza-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach",
-        "en": "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach",
+        "it": "servizi-di-assistenza-clienti-per-la-sicurezza-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "social-security-customer-support-services-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach"
+        "fr": "services-de-soutien-a-la-clientele-de-la-securite-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3839,16 +4479,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-4992f52845e5",
-      "slug": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach",
+      "slug": "specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach",
       "slugByLocale": {
-        "it": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach",
-        "en": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach",
+        "it": "specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach",
+        "en": "specialist-for-corporate-business-a-80-100-helsana-dubendorf-stettbach",
         "de": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+        "fr": "specialiste-des-entreprises-a-80-100-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3902,16 +4556,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-11e12dc60e16",
-      "slug": "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf",
+      "slug": "partner-specializzati-consulenza-sanitaria-w-m-80-100-helsana-dubendorf-stettbach",
       "slugByLocale": {
-        "it": "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf",
-        "en": "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf",
+        "it": "partner-specializzati-consulenza-sanitaria-w-m-80-100-helsana-dubendorf-stettbach",
+        "en": "specialist-partnerships-health-consultancy-w-m-80-100-helsana-dubendorf-stettbach",
         "de": "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf",
-        "fr": "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf"
+        "fr": "partenariats-specialises-conseils-en-sante-w-m-80-100-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3965,16 +4633,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf"
+        ],
+        "en": [
+          "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf"
+        ],
+        "fr": [
+          "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf"
+      ]
     },
     {
       "id": "helsana-85b8c002d23f",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27",
       "slugByLocale": {
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-884e27",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-884e27"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4028,7 +4710,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
+      ]
     },
     {
       "id": "helsana-7674e1d44c43",
@@ -4103,12 +4799,12 @@
     },
     {
       "id": "helsana-6e8be25a9c15",
-      "slug": "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach",
+      "slug": "supporto-clienti-internazionale-de-en-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach",
-        "en": "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach",
+        "it": "supporto-clienti-internazionale-de-en-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "customer-support-international-de-en-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach"
+        "fr": "aide-a-la-clientele-international-de-en-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4162,16 +4858,30 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-ba64d285472d",
-      "slug": "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana-dubendorf-stettbach-homeoff",
+      "slug": "forme-e-servizi-di-gestione-clienti-a-80-100-limitata-a-settembre-2026-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
-        "it": "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana-dubendorf-stettbach-homeoff",
-        "en": "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana",
+        "it": "forme-e-servizi-di-gestione-clienti-a-80-100-limitata-a-settembre-2026-helsana-dubendorf-stettbach-homeoff",
+        "en": "customer-management-forms-services-a-80-100-limited-to-september-2026-helsana-dubendorf-stettbach-homeoff",
         "de": "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana",
-        "fr": "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana"
+        "fr": "formulaires-et-services-de-gestion-des-clients-a-80-100-limite-a-septembre-2026-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4214,10 +4924,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana"
+        "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana",
+        "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana-dubendorf-stettbach-homeoff"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana",
+          "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana"
+        ],
+        "fr": [
           "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana"
         ]
       },
@@ -4237,12 +4955,12 @@
     },
     {
       "id": "helsana-c0fe05d375e9",
-      "slug": "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
+      "slug": "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
-        "en": "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
+        "it": "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino",
+        "en": "customer-service-provider-application-processing-a-80-100-helsana-ticino",
         "de": "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
-        "fr": "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+        "fr": "fournisseur-de-services-a-la-clientele-traitement-des-demandes-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4296,7 +5014,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice"
+      ]
     },
     {
       "id": "helsana-8af616974e49",
@@ -4453,7 +5185,7 @@
         "it": "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf",
         "en": "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf",
         "de": "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf",
-        "fr": "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf"
+        "fr": "consultant-interne-sap-hcm-facteurs-de-succes-a-80-100-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4574,12 +5306,12 @@
     },
     {
       "id": "helsana-856723d3ffa4",
-      "slug": "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich",
+      "slug": "centro-di-vaccinazione-dei-dipendenti-w-m-80-100-helsana-zurich",
       "slugByLocale": {
-        "it": "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich",
-        "en": "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich",
+        "it": "centro-di-vaccinazione-dei-dipendenti-w-m-80-100-helsana-zurich",
+        "en": "employee-vaccination-center-w-m-80-100-helsana-zurich",
         "de": "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich",
-        "fr": "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+        "fr": "centre-de-vaccination-des-employes-w-m-80-100-helsana-zurich"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4633,7 +5365,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
+      ]
     }
   ]
 }

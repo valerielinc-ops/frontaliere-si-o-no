@@ -7069,7 +7069,7 @@
         "it": "controllore-aziendale-energia-mobilita-telecom-m-f-d-bkw-wangen-an-der-aare",
         "en": "business-controller-energy-mobility-telecom-m-w-d-bkw-ch",
         "de": "business-controller-energy-mobility-telecom-m-w-d-bkw-ch",
-        "fr": "business-controller-energy-mobility-telecom-m-w-d-bkw-ch"
+        "fr": "controleur-d-entreprise-energie-mobilite-et-telecommunications-m-f-d-bkw-wangen-an-der-aare"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -7115,6 +7115,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "business-controller-energy-mobility-telecom-m-w-d-bkw-ch"
+        ],
+        "fr": [
           "business-controller-energy-mobility-telecom-m-w-d-bkw-ch"
         ]
       },
@@ -8977,8 +8980,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch-3",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch-3"
+        "en": "electrical-installer-in-efz-all-bkw-wangen-a",
+        "fr": "installateur-electrique-dans-efz-tous-bkw-wangen-a"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -9024,6 +9027,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-3"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-3"
+        ],
+        "fr": [
           "elektroinstallateur-in-efz-alle-bkw-ch-3"
         ]
       },
@@ -10480,9 +10489,9 @@
     },
     {
       "id": "bkw-2e4d1927b6d2",
-      "slug": "installateur-de-service-en-chauffage-tous-bkw-ch",
+      "slug": "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle",
       "slugByLocale": {
-        "it": "installateur-de-service-en-chauffage-tous-bkw-ch",
+        "it": "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle",
         "en": "heating-service-installer-all-bkw-bulle",
         "de": "heizungsanlage-alle-bkw-bulle",
         "fr": "installateur-de-service-en-chauffage-tous-bkw-ch"
@@ -10539,7 +10548,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-de-service-en-chauffage-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-de-service-en-chauffage-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-b229a517529e",
@@ -10758,9 +10775,9 @@
     },
     {
       "id": "bkw-dc7ed85428e6",
-      "slug": "installateur-sanitaire-tous-bkw-ch",
+      "slug": "strutture-sanitarie-tutti-bkw-echallens",
       "slugByLocale": {
-        "it": "installateur-sanitaire-tous-bkw-ch",
+        "it": "strutture-sanitarie-tutti-bkw-echallens",
         "en": "health-facility-all-bkw-echallens",
         "de": "gesundheitseinrichtung-alle-bkw-echallens",
         "fr": "installateur-sanitaire-tous-bkw-ch"
@@ -10817,7 +10834,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-sanitaire-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-sanitaire-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-87e875467134",
@@ -10892,9 +10917,9 @@
     },
     {
       "id": "bkw-4399dbcb3732",
-      "slug": "installateur-en-chauffage-tous-bkw-ch",
+      "slug": "sistema-di-riscaldamento-tutti-bkw-sullens",
       "slugByLocale": {
-        "it": "installateur-en-chauffage-tous-bkw-ch",
+        "it": "sistema-di-riscaldamento-tutti-bkw-sullens",
         "en": "heating-installer-all-bkw-sullens",
         "de": "heizungsinstallateur-alle-bkw-sullens",
         "fr": "installateur-en-chauffage-tous-bkw-ch"
@@ -10951,7 +10976,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-en-chauffage-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-en-chauffage-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-e9d46a6b6bda",
@@ -19729,7 +19762,6 @@
         "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
         "building-services-engineer-heating-all-bkw-winterthur",
         "planificateur-de-technique-du-batiment-chauffage-tous-bkw-winterthur",
-        "pianificatore-di-tecnologia-di-costruzione-in-riscaldamento-tutti-bkw-koniz",
         "progettista-di-impianti-tecnici-per-edifici-riscaldamento-tutti-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -19920,7 +19952,7 @@
       "slug": "brandschutzfachmann-frau-alle-bkw-chur",
       "slugByLocale": {
         "it": "brandschutzfachmann-frau-alle-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-ch",
+        "en": "fire-protection-specialist-woman-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "brandschutzfachmann-frau-alle-bkw-ch"
       },
@@ -19969,6 +20001,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "brandschutzfachmann-frau-alle-bkw-ch"
+        ],
+        "en": [
           "brandschutzfachmann-frau-alle-bkw-ch"
         ]
       },
@@ -20741,9 +20776,9 @@
     },
     {
       "id": "bkw-dc4c90171ea7",
-      "slug": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch",
+      "slug": "installatore-sanitario-con-cfc-raboud-energy-sa-bkw-bulle",
       "slugByLocale": {
-        "it": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch",
+        "it": "installatore-sanitario-con-cfc-raboud-energy-sa-bkw-bulle",
         "en": "plumbers-with-cfc-raboud-energie-sa-bkw-bulle",
         "de": "klempner-mit-cfc-raboud-energie-sa-bkw-bulle",
         "fr": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch"
@@ -20800,7 +20835,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch"
+      ]
     },
     {
       "id": "bkw-6e7d2b8424c1",
@@ -22541,7 +22584,7 @@
         "it": "sap-vendor-manager-bkw-ch",
         "en": "sap-vendor-manager-bkw-ch",
         "de": "sap-vendor-manager-bkw-ch",
-        "fr": "sap-vendor-manager-bkw-ch"
+        "fr": "responsable-des-fournisseurs-sap-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22681,8 +22724,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-elektro-alle-bkw-ch",
         "it": "responsabile-di-progetto-elektro-alle-bkw-root",
-        "en": "projektleiter-in-elektro-alle-bkw-ch",
-        "fr": "projektleiter-in-elektro-alle-bkw-ch"
+        "en": "project-manager-elektro-alle-bkw-root",
+        "fr": "chef-de-projet-elektro-alle-bkw-root"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22728,6 +22771,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-elektro-alle-bkw-ch"
+        ],
+        "en": [
+          "projektleiter-in-elektro-alle-bkw-ch"
+        ],
+        "fr": [
           "projektleiter-in-elektro-alle-bkw-ch"
         ]
       },

@@ -433,12 +433,12 @@
     },
     {
       "id": "clinica-holistica-engiadina-09ac05533755",
-      "slug": "jungkoch-jungkochin-clinica-holistica-engiadina-susch",
+      "slug": "giovane-cuoco-giovane-cuoco-clinica-holistica-engiadina-susch",
       "slugByLocale": {
-        "it": "jungkoch-jungkochin-clinica-holistica-engiadina-susch",
-        "en": "jungkoch-jungkochin-clinica-holistica-engiadina-susch",
+        "it": "giovane-cuoco-giovane-cuoco-clinica-holistica-engiadina-susch",
+        "en": "young-cook-young-cook-clinica-holistica-engiadina-susch",
         "de": "jungkoch-jungkochin-clinica-holistica-engiadina-susch",
-        "fr": "jungkoch-jungkochin-clinica-holistica-engiadina-susch"
+        "fr": "jeunes-cuisiniers-jeune-cuisinier-clinica-holistica-engiadina-susch"
       },
       "company": "Clinica Holistica Engiadina",
       "companyKey": "clinica-holistica-engiadina",
@@ -490,7 +490,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "jungkoch-jungkochin-clinica-holistica-engiadina-susch"
+        ],
+        "en": [
+          "jungkoch-jungkochin-clinica-holistica-engiadina-susch"
+        ],
+        "fr": [
+          "jungkoch-jungkochin-clinica-holistica-engiadina-susch"
+        ]
+      },
+      "previousSlugs": [
+        "jungkoch-jungkochin-clinica-holistica-engiadina-susch"
+      ]
     }
   ]
 }

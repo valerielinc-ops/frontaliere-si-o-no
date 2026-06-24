@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "nestle-1407549433",
-      "slug": "anlagenfuhrer-in-special-products-nestle-ch",
+      "slug": "prodotti-speciali-anlagenfuhrer-in-nestle-konolfingen-ch",
       "slugByLocale": {
         "en": "anlagenfuhrer-in-special-products-nestle-ch",
-        "it": "anlagenfuhrer-in-special-products-nestle-ch",
-        "de": "anlagenfuhrer-in-special-products-nestle-ch",
-        "fr": "anlagenfuhrer-in-special-products-nestle-ch"
+        "it": "prodotti-speciali-anlagenfuhrer-in-nestle-konolfingen-ch",
+        "de": "anlagenfuhrer-in-spezialprodukte-nestle-konolfingen-ch",
+        "fr": "anlagenfuhrer-dans-produits-speciaux-nestle-konolfingen-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -64,7 +64,21 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-23T22:51:58.233Z"
+      "firstSeenAt": "2026-06-23T22:51:58.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-special-products-nestle-ch"
+        ],
+        "de": [
+          "anlagenfuhrer-in-special-products-nestle-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-special-products-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-special-products-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1391905133",
@@ -3326,7 +3340,7 @@
       "slug": "tirocinante-automazione-robotica-nestle-orbe-ch",
       "slugByLocale": {
         "it": "tirocinante-automazione-robotica-nestle-orbe-ch",
-        "en": "stagiaire-automation-robotique-nestle-ch",
+        "en": "robotic-automation-trainee-nestle-orbe-ch",
         "de": "stagiaire-automation-robotique-nestle-ch",
         "fr": "stagiaire-automation-robotique-nestle-ch"
       },
@@ -3372,6 +3386,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stagiaire-automation-robotique-nestle-ch"
+        ],
+        "en": [
           "stagiaire-automation-robotique-nestle-ch"
         ]
       },
@@ -3679,10 +3696,10 @@
     },
     {
       "id": "nestle-1407536233",
-      "slug": "instandhalterin-mechanik-nestle-konolfingen-ch",
+      "slug": "instandhalter-in-mechanik-nestle-konolfingen-ch",
       "slugByLocale": {
         "en": "instandhalterin-mechanik-nestle-ch",
-        "it": "instandhalterin-mechanik-nestle-konolfingen-ch",
+        "it": "instandhalter-in-mechanik-nestle-konolfingen-ch",
         "de": "instandhalterin-mechanik-nestle-ch",
         "fr": "instandhalterin-mechanik-nestle-konolfingen-ch"
       },
@@ -3727,11 +3744,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "instandhalterin-mechanik-nestle-ch"
+          "instandhalterin-mechanik-nestle-ch",
+          "instandhalterin-mechanik-nestle-konolfingen-ch"
         ]
       },
       "previousSlugs": [
-        "instandhalterin-mechanik-nestle-ch"
+        "instandhalterin-mechanik-nestle-ch",
+        "instandhalterin-mechanik-nestle-konolfingen-ch"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4031,8 +4050,7 @@
           "stagiaire-she-h-f-d-nestle-ch"
         ],
         "en": [
-          "trainee-she-h-f-d-nestle-romont-ch",
-          "stagiaire-she-h-f-d-nestle-ch"
+          "trainee-she-h-f-d-nestle-romont-ch"
         ],
         "de": [
           "stagiaire-she-h-f-d-nestle-ch"

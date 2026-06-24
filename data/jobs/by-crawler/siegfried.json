@@ -7,7 +7,7 @@
       "slug": "elettricista-di-manutenzione-siegfried-zofingen",
       "slugByLocale": {
         "it": "elettricista-di-manutenzione-siegfried-zofingen",
-        "en": "betriebselektriker-in-siegfried-zofingen",
+        "en": "business-electrician-siegfried-zofingen",
         "de": "betriebselektriker-in-siegfried-ch",
         "fr": "electricien-de-maintenance-siegfried-zofingen"
       },
@@ -83,7 +83,8 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebselektriker-in-siegfried-ch",
-        "betriebsleiter-siegfried-zofingen"
+        "betriebsleiter-siegfried-zofingen",
+        "betriebselektriker-in-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -91,6 +92,9 @@
         ],
         "de": [
           "betriebsleiter-siegfried-zofingen"
+        ],
+        "en": [
+          "betriebselektriker-in-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.288Z",
@@ -290,9 +294,9 @@
     },
     {
       "id": "siegfried-edb1dd9691d1",
-      "slug": "analytical-data-reviewer-siegfried-ch",
+      "slug": "recensione-dati-analitica-siegfried-zofingen",
       "slugByLocale": {
-        "it": "analytical-data-reviewer-siegfried-ch",
+        "it": "recensione-dati-analitica-siegfried-zofingen",
         "en": "anal-rev-siegfried-zofingen",
         "de": "analytical-data-reviewer-siegfried-ch",
         "fr": "chercheur-de-donnees-analytiques-siegfried-zofingen"
@@ -337,11 +341,15 @@
       "jobReqId": "R26_289",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "analytische-datenprufer-siegfried-zofingen"
+        "analytische-datenprufer-siegfried-zofingen",
+        "analytical-data-reviewer-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "analytische-datenprufer-siegfried-zofingen"
+        ],
+        "it": [
+          "analytical-data-reviewer-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
@@ -604,10 +612,10 @@
       "id": "siegfried-8bf702f14b39",
       "slug": "ingegnere-di-produzione-siegfried-zofingen",
       "slugByLocale": {
-        "it": "ingegnere-di-produzione-siegfried-zofingen",
+        "it": "betriebsingenieur-in-siegfried-zofingen",
         "en": "betriebsingenieur-in-siegfried-zofingen",
         "de": "betriebsingenieur-in-siegfried-ch",
-        "fr": "ingenieur-de-production-siegfried-zofingen"
+        "fr": "betriebsingenieur-in-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -650,15 +658,13 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "betriebsingenieur-in-siegfried-zofingen"
+        "ingenieur-de-production-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsingenieur-in-siegfried-ch",
-          "betriebsingenieur-in-siegfried-zofingen"
+          "betriebsingenieur-in-siegfried-ch"
         ],
         "fr": [
-          "betriebsingenieur-in-siegfried-zofingen",
           "ingenieur-de-production-siegfried-zofingen"
         ]
       },
@@ -755,9 +761,9 @@
     },
     {
       "id": "siegfried-612b054c6700",
-      "slug": "lab-technician-r-d-siegfried-ch",
+      "slug": "laboratorio-tecnico-r-d-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "lab-technician-r-d-siegfried-ch",
+        "it": "laboratorio-tecnico-r-d-siegfried-evionnaz",
         "en": "lab-technician-r-d-siegfried-evionnaz",
         "de": "lab-techniker-r-d-siegfried-evionnaz",
         "fr": "lab-technician-r-d-siegfried-ch"
@@ -802,11 +808,10 @@
       "jobReqId": "R26_438",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "laboratorio-tecnico-r-d-siegfried-evionnaz"
+        "lab-technician-r-d-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratorio-tecnico-r-d-siegfried-evionnaz",
           "lab-technician-r-d-siegfried-ch"
         ]
       },
@@ -828,9 +833,9 @@
     },
     {
       "id": "siegfried-ac6024cfb924",
-      "slug": "executive-assistant-siegfried-ch",
+      "slug": "assistente-esecutivo-siegfried-zofingen",
       "slugByLocale": {
-        "it": "executive-assistant-siegfried-ch",
+        "it": "assistente-esecutivo-siegfried-zofingen",
         "en": "executive-assistant-siegfried-ch",
         "de": "executive-assistant-siegfried-ch",
         "fr": "executive-assistant-siegfried-zofingen"
@@ -875,11 +880,10 @@
       "jobReqId": "R26_413",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "assistente-esecutivo-siegfried-zofingen"
+        "executive-assistant-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-esecutivo-siegfried-zofingen",
           "executive-assistant-siegfried-ch"
         ]
       },
@@ -1627,7 +1631,7 @@
         "de": "process-manager-production-siegfried-ch",
         "it": "process-manager-production-siegfried-ch",
         "en": "process-manager-production-siegfried-ch",
-        "fr": "process-manager-production-siegfried-ch"
+        "fr": "gestionnaire-de-processus-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",

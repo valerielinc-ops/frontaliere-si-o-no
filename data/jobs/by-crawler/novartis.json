@@ -4174,12 +4174,12 @@
     },
     {
       "id": "novartis-b6dd86bbf240",
-      "slug": "principal-scientist-i-ii-oncology-drug-discovery-biology-novartis-ch",
+      "slug": "principale-scienziato-i-ii-oncology-drug-discovery-biologia-novartis-basel-city",
       "slugByLocale": {
-        "it": "principal-scientist-i-ii-oncology-drug-discovery-biology-novartis-ch",
+        "it": "principale-scienziato-i-ii-oncology-drug-discovery-biologia-novartis-basel-city",
         "en": "principal-scientist-i-ii-oncology-drug-discovery-biology-novartis-ch",
         "de": "principal-scientist-i-ii-oncology-drug-discovery-biology-novartis-ch",
-        "fr": "principal-scientist-i-ii-oncology-drug-discovery-biology-novartis-ch"
+        "fr": "chercheur-principal-i-ii-oncologie-decouverte-des-medicaments-biologie-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4233,7 +4233,18 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-scientist-i-ii-oncology-drug-discovery-biology-novartis-ch"
+        ],
+        "fr": [
+          "principal-scientist-i-ii-oncology-drug-discovery-biology-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-scientist-i-ii-oncology-drug-discovery-biology-novartis-ch"
+      ]
     },
     {
       "id": "novartis-ede48f0aa69a",
@@ -4383,7 +4394,7 @@
         "en": "senior-expert-ai-engineering-novartis-ch",
         "it": "senior-expert-ai-engineering-novartis-ch",
         "de": "senior-expert-ai-engineering-novartis-ch",
-        "fr": "senior-expert-ai-engineering-novartis-ch"
+        "fr": "expert-principal-ingenierie-de-l-ia-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",

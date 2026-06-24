@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "implenia-bd06773d1ac4",
-      "slug": "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-thurgauerstrasse-101a",
+      "slug": "all-rounder-real-estate-marketing-m-f-d-opfikon-80-100-temporaneo-implenia-thurgauerstrasse-101a",
       "slugByLocale": {
-        "it": "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-thurgauerstrasse-101a",
-        "en": "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-ch",
+        "it": "all-rounder-real-estate-marketing-m-f-d-opfikon-80-100-temporaneo-implenia-thurgauerstrasse-101a",
+        "en": "all-rounder-real-estate-marketing-m-f-d-opfikon-80-100-temporary-implenia-thurgauerstrasse-101a",
         "de": "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-ch",
-        "fr": "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-ch"
+        "fr": "marketing-immobilier-complet-m-f-d-opfikon-80-100-temporaire-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -51,10 +51,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-ch"
+        "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-ch",
+        "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-thurgauerstrasse-101a"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-ch",
+          "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-thurgauerstrasse-101a"
+        ],
+        "en": [
+          "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-ch"
+        ],
+        "fr": [
           "allrounder-immobilienvermarktung-m-w-d-opfikon-80-100-befristet-implenia-ch"
         ]
       },
@@ -74,12 +82,12 @@
     },
     {
       "id": "implenia-4a140b0d4323",
-      "slug": "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch",
+      "slug": "junior-real-estate-manager-m-f-d-basilea-80-implenia-basel-wohnen-1",
       "slugByLocale": {
-        "it": "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch",
-        "en": "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch",
+        "it": "junior-real-estate-manager-m-f-d-basilea-80-implenia-basel-wohnen-1",
+        "en": "junior-real-estate-manager-m-f-d-basel-80-implenia-basel-wohnen-1",
         "de": "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch",
-        "fr": "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch"
+        "fr": "directeur-immobilier-junior-m-f-d-bale-80-implenia-basel-wohnen-1"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -132,7 +140,21 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch"
+        ],
+        "en": [
+          "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch"
+        ],
+        "fr": [
+          "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-immobilienbewirtschafter-m-w-d-basel-80-implenia-ch"
+      ]
     },
     {
       "id": "implenia-96c78cc6e5a7",
@@ -733,12 +755,12 @@
     },
     {
       "id": "implenia-04e1ff38d9dc",
-      "slug": "cost-manager-datacenter-w-md-implenia-ch",
+      "slug": "datacenter-f-md-implenia-glattpark-opfikon",
       "slugByLocale": {
-        "it": "cost-manager-datacenter-w-md-implenia-ch",
+        "it": "datacenter-f-md-implenia-glattpark-opfikon",
         "en": "cost-manager-datacenter-w-md-implenia-ch",
         "de": "cost-manager-datacenter-w-md-implenia-ch",
-        "fr": "cost-manager-datacenter-w-md-implenia-ch"
+        "fr": "gestionnaire-de-couts-datacenter-f-md-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -792,7 +814,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cost-manager-datacenter-w-md-implenia-ch"
+        ],
+        "fr": [
+          "cost-manager-datacenter-w-md-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cost-manager-datacenter-w-md-implenia-ch"
+      ]
     },
     {
       "id": "implenia-adacb649a488",
@@ -1177,12 +1210,12 @@
     },
     {
       "id": "implenia-c4124c624985",
-      "slug": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
+      "slug": "conversione-dei-costi-di-costruzione-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "baukostenplaner-umbau-w-m-d-implenia-ch",
-        "it": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
-        "en": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
-        "fr": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        "it": "conversione-dei-costi-di-costruzione-f-m-d-implenia-glattpark-opfikon",
+        "en": "construction-cost-planner-conversion-f-m-d-implenia-glattpark-opfikon",
+        "fr": "conversion-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1227,11 +1260,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "baukostenplaner-umbau-w-m-d-implenia-ch"
+          "baukostenplaner-umbau-w-m-d-implenia-ch",
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
-        "baukostenplaner-umbau-w-m-d-implenia-ch"
+        "baukostenplaner-umbau-w-m-d-implenia-ch",
+        "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1249,12 +1290,12 @@
     },
     {
       "id": "implenia-14f7cf90437c",
-      "slug": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch",
+      "slug": "studente-di-lavoro-digital-building-bim-f-m-d-40-60-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch",
-        "it": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch",
-        "en": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch",
-        "fr": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+        "it": "studente-di-lavoro-digital-building-bim-f-m-d-40-60-implenia-glattpark-opfikon",
+        "en": "working-student-digital-building-bim-f-m-d-40-60-implenia-glattpark-opfikon",
+        "fr": "etudiante-en-cours-d-emploi-batiment-numerique-bim-f-m-d-40-60-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1309,16 +1350,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T22:32:13.012Z"
+      "firstSeenAt": "2026-06-23T22:32:13.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+        ],
+        "en": [
+          "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+        ],
+        "fr": [
+          "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+      ]
     },
     {
       "id": "implenia-f4091f213da6",
       "slug": "collaboratore-trice-bauablaufplanung-avor-m-w-d-80-100-implenia-glattpark-opfikon",
       "slugByLocale": {
         "it": "collaboratore-trice-bauablaufplanung-avor-m-w-d-80-100-implenia-glattpark-opfikon",
-        "en": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
+        "en": "employee-construction-scheduling-avor-m-f-d-80-100-implenia-glattpark-opfikon",
         "de": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
-        "fr": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        "fr": "calendrier-de-construction-des-employes-avor-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1364,6 +1419,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
           "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
         ]
       },
@@ -1588,9 +1649,9 @@
       "slug": "senior-immobilienbewirtschafter-m-w-d-basel-o-rheinfelden-80-100-implenia-basel",
       "slugByLocale": {
         "it": "senior-immobilienbewirtschafter-m-w-d-basel-o-rheinfelden-80-100-implenia-basel",
-        "en": "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-implenia-ch",
+        "en": "senior-real-estate-manager-m-f-d-basel-or-rheinfelden-80-100-implenia-basel",
         "de": "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-implenia-ch",
-        "fr": "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-implenia-ch"
+        "fr": "directeur-immobilier-m-f-d-bale-ou-rheinfelden-80-100-implenia-basel"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1637,6 +1698,12 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-implenia-ch"
+        ],
+        "en": [
+          "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-implenia-ch"
+        ],
+        "fr": [
+          "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-06-23T12:10:18.183Z",
@@ -1658,9 +1725,9 @@
       "slug": "senior-immobilienbewirtschafter-m-w-d-basel-o-rheinfelden-80-100-befristet-implenia-basel",
       "slugByLocale": {
         "it": "senior-immobilienbewirtschafter-m-w-d-basel-o-rheinfelden-80-100-befristet-implenia-basel",
-        "en": "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-befristet-implenia-ch",
+        "en": "senior-real-estate-manager-m-f-d-basel-or-rheinfelden-80-100-temporary-implenia-basel",
         "de": "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-befristet-implenia-ch",
-        "fr": "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-befristet-implenia-ch"
+        "fr": "aine-gestionnaire-immobilier-m-f-j-bale-ou-rheinfelden-80-100-temporaire-implenia-basel"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1706,6 +1773,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-befristet-implenia-ch"
+        ],
+        "en": [
+          "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-befristet-implenia-ch"
+        ],
+        "fr": [
           "senior-immobilienbewirtschafter-m-w-d-basel-oder-rheinfelden-80-100-befristet-implenia-ch"
         ]
       },
@@ -3055,12 +3128,12 @@
     },
     {
       "id": "implenia-bbd3211955e2",
-      "slug": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a",
+      "slug": "contabili-immobiliari-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a",
       "slugByLocale": {
-        "it": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a",
-        "en": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a",
+        "it": "contabili-immobiliari-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a",
+        "en": "real-estate-accountants-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a",
         "de": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch",
-        "fr": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
+        "fr": "comptables-immobiliers-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3102,11 +3175,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch"
+        "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch",
+        "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch"
+          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch",
+          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
+        ],
+        "en": [
+          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
+        ],
+        "fr": [
+          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
         ]
       },
       "firstSeenAt": "2026-06-23T12:10:08.209Z",
@@ -3192,7 +3273,7 @@
         "it": "technischer-leiter-center-e-mixed-use-site-management-m-w-d-opfikon-100-implenia-thurgauerstrasse-101a",
         "en": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch",
         "de": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch",
-        "fr": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
+        "fr": "directeur-technique-centre-et-gestion-des-sites-a-usage-mixte-m-f-d-opfikon-100-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3239,6 +3320,9 @@
       "previousSlugsByLocale": {
         "it": [
           "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
+        ],
+        "fr": [
+          "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-06-23T12:10:07.306Z",
@@ -3257,12 +3341,12 @@
     },
     {
       "id": "implenia-23486558f35e",
-      "slug": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
+      "slug": "fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "it": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "en": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "fr": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        "it": "fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
+        "en": "pension-fund-m-f-d-bern-40-60-implenia-glattpark-opfikon",
+        "fr": "caisse-de-retraite-m-f-j-berne-40-60-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3317,7 +3401,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T22:32:02.906Z"
+      "firstSeenAt": "2026-06-23T22:32:02.906Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+      ]
     },
     {
       "id": "implenia-f1bf58228d0c",
@@ -3654,12 +3752,12 @@
     },
     {
       "id": "implenia-768610a7e5f2",
-      "slug": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck",
+      "slug": "responsabile-commerciale-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
       "slugByLocale": {
         "de": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
-        "it": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck",
-        "en": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
-        "fr": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        "it": "responsabile-commerciale-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
+        "en": "commercial-manager-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
+        "fr": "directeur-commercial-directeur-principal-m-f-d-bale-klybeck-80-100-implenia-basel-klybeck"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3704,11 +3802,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck"
+        ],
+        "en": [
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        ],
+        "fr": [
           "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
+        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -4409,9 +4515,9 @@
       "slug": "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon",
       "slugByLocale": {
         "it": "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon",
-        "en": "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch",
+        "en": "calculator-tunnelling-m-f-d-80-100-implenia-opfikon",
         "de": "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch",
-        "fr": "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch"
+        "fr": "calculatrice-tunnelling-m-f-d-80-100-implenia-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4457,6 +4563,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
           "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch"
         ]
       },

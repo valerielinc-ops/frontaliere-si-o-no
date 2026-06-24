@@ -113,8 +113,8 @@
       "slug": "cdi-terapista-occupazionale-clinique-de-valere-sion",
       "slugByLocale": {
         "it": "cdi-terapista-occupazionale-clinique-de-valere-sion",
-        "en": "cdi-ergotherapeute-clinique-de-valere",
-        "de": "cdi-ergotherapeute-clinique-de-valere",
+        "en": "cdi-occupational-therapist-clinique-de-valere-sion",
+        "de": "cdi-ergotherapeut-clinique-de-valere-sion",
         "fr": "cdi-ergotherapeute-clinique-de-valere"
       },
       "company": "Clinique de Valère",
@@ -162,6 +162,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "cdi-ergotherapeute-clinique-de-valere"
+        ],
+        "en": [
+          "cdi-ergotherapeute-clinique-de-valere"
+        ],
+        "de": [
           "cdi-ergotherapeute-clinique-de-valere"
         ]
       },
@@ -259,11 +265,11 @@
     },
     {
       "id": "clinique-de-valere-aef921969925",
-      "slug": "receptionniste-clinique-de-valere",
+      "slug": "ricevitore-clinique-de-valere-sion",
       "slugByLocale": {
-        "it": "receptionniste-clinique-de-valere",
-        "en": "receptionniste-clinique-de-valere",
-        "de": "receptionniste-clinique-de-valere",
+        "it": "ricevitore-clinique-de-valere-sion",
+        "en": "receptionist-clinique-de-valere-sion",
+        "de": "rezeptionist-clinique-de-valere-sion",
         "fr": "receptionniste-clinique-de-valere"
       },
       "company": "Clinique de Valère",
@@ -318,7 +324,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionniste-clinique-de-valere"
+        ],
+        "en": [
+          "receptionniste-clinique-de-valere"
+        ],
+        "de": [
+          "receptionniste-clinique-de-valere"
+        ]
+      },
+      "previousSlugs": [
+        "receptionniste-clinique-de-valere"
+      ]
     }
   ]
 }

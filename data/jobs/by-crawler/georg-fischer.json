@@ -78,12 +78,12 @@
     },
     {
       "id": "georg-fischer-368fe1a38cce",
-      "slug": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch",
+      "slug": "housekeeper-m-f-d-30-salario-orario-georg-fischer-seewis",
       "slugByLocale": {
-        "it": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch",
-        "en": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch",
+        "it": "housekeeper-m-f-d-30-salario-orario-georg-fischer-seewis",
+        "en": "housekeeper-m-f-d-30-hourly-wage-georg-fischer-seewis",
         "de": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch",
-        "fr": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch"
+        "fr": "menage-m-f-j-30-salaire-horaire-georg-fischer-seewis"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -138,16 +138,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "previousSlugsByLocale": {
+        "it": [
+          "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch"
+        ],
+        "en": [
+          "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch"
+        ],
+        "fr": [
+          "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-6419ee03c152",
-      "slug": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch-2",
+      "slug": "housekeeper-m-f-d-30-salario-orario-georg-fischer-seewis-ceeb4e",
       "slugByLocale": {
-        "it": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch-2",
-        "en": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch-2",
+        "it": "housekeeper-m-f-d-30-salario-orario-georg-fischer-seewis-ceeb4e",
+        "en": "housekeeper-m-f-d-30-hourly-wage-georg-fischer-seewis-ceeb4e",
         "de": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch",
-        "fr": "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch-2"
+        "fr": "menage-m-f-j-30-salaire-horaire-georg-fischer-seewis-ceeb4e"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -202,16 +216,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "previousSlugsByLocale": {
+        "it": [
+          "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch-2"
+        ],
+        "en": [
+          "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch-2"
+        ],
+        "fr": [
+          "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "raumpfleger-m-w-d-30-stundenlohn-georg-fischer-ch-2"
+      ]
     },
     {
       "id": "georg-fischer-f90c29aa9524",
-      "slug": "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch",
+      "slug": "stage-in-gestione-di-progetti-it-focus-su-magazzinaggio-m-w-d-georg-fischer-sissach",
       "slugByLocale": {
-        "it": "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch",
-        "en": "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch",
+        "it": "stage-in-gestione-di-progetti-it-focus-su-magazzinaggio-m-w-d-georg-fischer-sissach",
+        "en": "it-project-management-internship-focus-warehousing-m-f-d-georg-fischer-sissach",
         "de": "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch",
-        "fr": "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
+        "fr": "stage-en-gestion-de-projets-it-specialisation-sur-la-logistique-m-w-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -264,7 +292,21 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-b55c7efb1df3",
@@ -339,12 +381,12 @@
     },
     {
       "id": "georg-fischer-b631734129ef",
-      "slug": "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch",
+      "slug": "servizio-clienti-tecnico-m-f-d-georg-fischer-sissach",
       "slugByLocale": {
-        "it": "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch",
-        "en": "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch",
+        "it": "servizio-clienti-tecnico-m-f-d-georg-fischer-sissach",
+        "en": "technical-customer-service-m-f-d-georg-fischer-sissach",
         "de": "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch",
-        "fr": "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch"
+        "fr": "service-technique-a-la-clientele-m-f-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -398,7 +440,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-technischer-kundendienst-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-187f701d61d0",
@@ -480,12 +536,12 @@
     },
     {
       "id": "georg-fischer-2168c44f7fda",
-      "slug": "koch-kochin-m-w-d-georg-fischer-ch",
+      "slug": "cucinare-cucinare-m-f-d-georg-fischer-schlatt",
       "slugByLocale": {
-        "it": "koch-kochin-m-w-d-georg-fischer-ch",
-        "en": "koch-kochin-m-w-d-georg-fischer-ch",
+        "it": "cucinare-cucinare-m-f-d-georg-fischer-schlatt",
+        "en": "cook-cook-m-f-d-georg-fischer-schlatt",
         "de": "koch-kochin-m-w-d-georg-fischer-ch",
-        "fr": "koch-kochin-m-w-d-georg-fischer-ch"
+        "fr": "cuire-cuire-m-f-d-georg-fischer-schlatt"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -540,13 +596,27 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "koch-kochin-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "koch-kochin-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-1b433d82587d",
-      "slug": "tool-maintenance-technician-m-w-d-georg-fischer-ch",
+      "slug": "tecnica-di-manutenzione-degli-utensili-m-f-d-georg-fischer-subingen",
       "slugByLocale": {
-        "it": "tool-maintenance-technician-m-w-d-georg-fischer-ch",
+        "it": "tecnica-di-manutenzione-degli-utensili-m-f-d-georg-fischer-subingen",
         "en": "tool-maintenance-technician-m-w-d-georg-fischer-ch",
         "de": "tool-maintenance-technician-m-w-d-georg-fischer-ch",
         "fr": "tool-maintenance-technicien-m-w-d-georg-fischer-subingen"
@@ -604,7 +674,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4500"
+      "postalCode": "4500",
+      "previousSlugsByLocale": {
+        "it": [
+          "tool-maintenance-technician-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tool-maintenance-technician-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-21281eaca99d",
@@ -612,8 +690,8 @@
       "slugByLocale": {
         "it": "internship-portfolio-marketing-m-f-d-6-months-12-months-georg-fischer-ch",
         "en": "internship-portfolio-marketing-m-f-d-6-months-12-months-georg-fischer-ch",
-        "de": "internship-portfolio-marketing-m-f-d-6-months-12-months-georg-fischer-ch",
-        "fr": "internship-portfolio-marketing-m-f-d-6-months-12-months-georg-fischer-ch"
+        "de": "praktikum-portfolio-marketing-m-w-d-6-monate-12-monate-georg-fischer-schaffhausen",
+        "fr": "commercialisation-du-portefeuille-de-stages-m-f-d-6-mois-12-mois-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -672,12 +750,12 @@
     },
     {
       "id": "georg-fischer-3fd7b6a0853e",
-      "slug": "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch",
+      "slug": "meccanica-nella-fonderia-di-manutenzione-m-f-d-georg-fischer-sissach",
       "slugByLocale": {
-        "it": "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch",
-        "en": "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch",
+        "it": "meccanica-nella-fonderia-di-manutenzione-m-f-d-georg-fischer-sissach",
+        "en": "mechanic-in-maintenance-foundry-m-f-d-georg-fischer-sissach",
         "de": "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch",
-        "fr": "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch"
+        "fr": "mecanicien-dans-la-fonderie-d-entretien-m-f-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -731,7 +809,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanikerin-instandhaltung-giesserei-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-8cfdaffd01ee",
@@ -813,9 +905,9 @@
       "slug": "praktikum-im-bereich-forschung-e-entwicklung-m-w-d-6-monate-o-nach-absprache-georg-fischer-schaffhausen",
       "slugByLocale": {
         "it": "praktikum-im-bereich-forschung-e-entwicklung-m-w-d-6-monate-o-nach-absprache-georg-fischer-schaffhausen",
-        "en": "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
+        "en": "internship-in-research-and-development-m-f-d-6-months-or-by-agreement-georg-fischer-schaffhausen",
         "de": "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
-        "fr": "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+        "fr": "stage-en-recherche-et-developpement-m-f-d-6-mois-ou-accord-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -863,6 +955,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+        ],
+        "en": [
+          "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+        ],
+        "fr": [
+          "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
         ]
       },
       "firstSeenAt": "2026-06-23T11:32:44.041Z",
@@ -882,12 +980,12 @@
     },
     {
       "id": "georg-fischer-bf2f79f01172",
-      "slug": "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch",
+      "slug": "efficienza-delle-vendite-di-stage-m-f-d-6-12-mesi-georg-fischer-schaffhausen",
       "slugByLocale": {
-        "it": "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch",
+        "it": "efficienza-delle-vendite-di-stage-m-f-d-6-12-mesi-georg-fischer-schaffhausen",
         "en": "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch",
-        "de": "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch",
-        "fr": "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
+        "de": "praktikum-sales-effectiveness-m-w-d-6-12-monate-georg-fischer-schaffhausen",
+        "fr": "efficacite-des-ventes-de-stages-m-f-d-6-a-12-mois-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -942,7 +1040,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
+        ],
+        "de": [
+          "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
+        ],
+        "fr": [
+          "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-a3415d8a9eef",
@@ -1024,12 +1136,12 @@
     },
     {
       "id": "georg-fischer-d7a9008703b7",
-      "slug": "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch",
+      "slug": "specialista-nella-sicurezza-del-lavoro-m-f-d-georg-fischer-seewis",
       "slugByLocale": {
-        "it": "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch",
-        "en": "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch",
+        "it": "specialista-nella-sicurezza-del-lavoro-m-f-d-georg-fischer-seewis",
+        "en": "specialist-in-occupational-safety-m-f-d-georg-fischer-seewis",
         "de": "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch",
-        "fr": "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch"
+        "fr": "specialiste-de-la-securite-au-travail-m-f-d-georg-fischer-seewis"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1084,7 +1196,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialistin-arbeitssicherheit-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-003aa3ca8863",
@@ -1093,7 +1219,7 @@
         "it": "hr-business-partner-50-60-m-w-d-georg-fischer-ch",
         "en": "hr-business-partner-50-60-m-w-d-georg-fischer-ch",
         "de": "hr-business-partner-50-60-m-w-d-georg-fischer-ch",
-        "fr": "hr-business-partner-50-60-m-w-d-georg-fischer-ch"
+        "fr": "partenaire-d-affaires-rh-50-60-m-f-j-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1152,12 +1278,12 @@
     },
     {
       "id": "georg-fischer-abe14bdb2259",
-      "slug": "automatikerin-m-w-d-georg-fischer-ch",
+      "slug": "automatico-m-f-d-georg-fischer-sissach",
       "slugByLocale": {
-        "it": "automatikerin-m-w-d-georg-fischer-ch",
-        "en": "automatikerin-m-w-d-georg-fischer-ch",
+        "it": "automatico-m-f-d-georg-fischer-sissach",
+        "en": "automatic-m-f-d-georg-fischer-sissach",
         "de": "automatikerin-m-w-d-georg-fischer-ch",
-        "fr": "automatikerin-m-w-d-georg-fischer-ch"
+        "fr": "automatique-m-f-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1211,16 +1337,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatikerin-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "automatikerin-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "automatikerin-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatikerin-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-764d3901a500",
       "slug": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
       "slugByLocale": {
         "it": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
-        "en": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
+        "en": "hr-business-partner-m-f-d-50-60-georg-fischer-sissach",
         "de": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
-        "fr": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch"
+        "fr": "partenaire-d-affaires-rh-m-f-d-50-60-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",

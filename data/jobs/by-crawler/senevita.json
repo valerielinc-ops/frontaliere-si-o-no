@@ -1097,9 +1097,9 @@
       "slug": "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-munsingen-be",
       "slugByLocale": {
         "it": "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-munsingen-be",
-        "en": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be",
+        "en": "apprenticeship-professional-health-efz-senevita-munsingen-be",
         "de": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be",
-        "fr": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be"
+        "fr": "apprentissage-sante-professionnelle-efz-senevita-munsingen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1147,6 +1147,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-munsingen-be"
         ]
       },
@@ -1418,9 +1424,9 @@
       "slug": "apprendistato-assistent-in-gesundheit-soziales-afp-senevita-munsingen-be",
       "slugByLocale": {
         "it": "apprendistato-assistent-in-gesundheit-soziales-afp-senevita-munsingen-be",
-        "en": "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be",
+        "en": "assistant-in-health-social-eba-senevita-munsingen-be",
         "de": "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be",
-        "fr": "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be"
+        "fr": "assistant-en-sante-social-eba-senevita-munsingen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1468,6 +1474,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be"
+        ],
+        "en": [
+          "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be"
+        ],
+        "fr": [
           "lehrstelle-assistent-in-gesundheit-soziales-eba-senevita-munsingen-be"
         ]
       },
@@ -1906,12 +1918,12 @@
     },
     {
       "id": "senevita-8a9c9ae53856",
-      "slug": "koch-kochin-senevita-burgdorf-be",
+      "slug": "cucina-chef-senevita-burgdorf-be",
       "slugByLocale": {
-        "it": "koch-kochin-senevita-burgdorf-be",
-        "en": "koch-kochin-senevita-burgdorf-be",
+        "it": "cucina-chef-senevita-burgdorf-be",
+        "en": "cook-chef-senevita-burgdorf-be",
         "de": "koch-kochin-senevita-burgdorf-be",
-        "fr": "koch-kochin-senevita-burgdorf-be"
+        "fr": "cuisson-chef-senevita-burgdorf-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1966,7 +1978,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-senevita-burgdorf-be"
+        ],
+        "en": [
+          "koch-kochin-senevita-burgdorf-be"
+        ],
+        "fr": [
+          "koch-kochin-senevita-burgdorf-be"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-senevita-burgdorf-be"
+      ]
     },
     {
       "id": "senevita-3771784936d1",
@@ -2051,8 +2077,8 @@
       "slug": "infermiera-hes-80-con-contratto-a-tempo-determinato-3-mesi-senevita-senevita-casa-geneve",
       "slugByLocale": {
         "it": "infermiera-hes-80-con-contratto-a-tempo-determinato-3-mesi-senevita-senevita-casa-geneve",
-        "en": "infirmiere-er-hes-80-en-cdd-3-mois-senevita-senevita-casa-geneve",
-        "de": "infirmiere-er-hes-80-en-cdd-3-mois-senevita-senevita-casa-geneve",
+        "en": "nurse-80-in-csd-3-months-senevita-senevita-casa-geneve",
+        "de": "krankenschwester-80-in-csd-3-monate-senevita-senevita-casa-geneve",
         "fr": "infirmiere-er-hes-80-en-cdd-3-mois-senevita-senevita-casa-geneve"
       },
       "company": "Senevita",
@@ -2100,6 +2126,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "infirmiere-er-hes-80-en-cdd-3-mois-senevita-senevita-casa-geneve"
+        ],
+        "en": [
+          "infirmiere-er-hes-80-en-cdd-3-mois-senevita-senevita-casa-geneve"
+        ],
+        "de": [
           "infirmiere-er-hes-80-en-cdd-3-mois-senevita-senevita-casa-geneve"
         ]
       },
@@ -2677,9 +2709,9 @@
       "slug": "fachperson-gesundheit-cfc-70-senevita-spreitenbach-ag",
       "slugByLocale": {
         "it": "fachperson-gesundheit-cfc-70-senevita-spreitenbach-ag",
-        "en": "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag",
+        "en": "health-professional-efz-70-senevita-spreitenbach-ag",
         "de": "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag",
-        "fr": "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag"
+        "fr": "professionnels-de-la-sante-efz-70-senevita-spreitenbach-ag"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -2725,6 +2757,12 @@
       "firstSeenAt": "2026-06-23T12:37:54.029Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-70-senevita-spreitenbach-ag"
         ]
       },
@@ -3697,12 +3735,12 @@
     },
     {
       "id": "senevita-fbe57798bf5d",
-      "slug": "fachfrau-mann-gesundheit-40-100-senevita-abtwil",
+      "slug": "salute-professionale-40-100-senevita-abtwil",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-40-100-senevita-abtwil",
-        "it": "fachfrau-mann-gesundheit-40-100-senevita-abtwil",
-        "en": "fachfrau-mann-gesundheit-40-100-senevita-abtwil",
-        "fr": "fachfrau-mann-gesundheit-40-100-senevita-abtwil"
+        "it": "salute-professionale-40-100-senevita-abtwil",
+        "en": "professional-health-40-100-senevita-abtwil",
+        "fr": "sante-professionnelle-40-100-senevita-abtwil"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -3758,7 +3796,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T23:03:03.976Z"
+      "firstSeenAt": "2026-06-23T23:03:03.976Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-40-100-senevita-abtwil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-40-100-senevita-abtwil"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-40-100-senevita-abtwil"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-40-100-senevita-abtwil"
+      ]
     },
     {
       "id": "senevita-a8e263ff2467",
@@ -6090,7 +6142,7 @@
       "slug": "diplomato-a-della-cura-hf-80-100-con-funzione-aggiuntiva-formazione-professionale-senevita-spreitenbach-ag",
       "slugByLocale": {
         "it": "diplomato-a-della-cura-hf-80-100-con-funzione-aggiuntiva-formazione-professionale-senevita-spreitenbach-ag",
-        "en": "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-spreitenbach-ag",
+        "en": "dipl-nurse-hf-80-100-with-additional-function-vocational-training-senevita-spreitenbach-ag",
         "de": "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-spreitenbach-ag",
         "fr": "diplome-e-en-soins-infirmiers-hf-80-100-avec-fonction-supplementaire-en-formation-professionnelle-senevita-spreitenbach"
       },
@@ -6165,6 +6217,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-spreitenbach-ag"
+        ],
+        "en": [
           "dipl-pflegefachperson-hf-80-100-mit-zusatzfunktion-berufsbildung-senevita-spreitenbach-ag"
         ]
       },
@@ -6434,7 +6489,7 @@
       "slug": "dipl-infermiere-a-40-50-senevita-olten-so",
       "slugByLocale": {
         "it": "dipl-infermiere-a-40-50-senevita-olten-so",
-        "en": "dipl-pflegefachperson-40-50-senevita-olten-so",
+        "en": "dipl-care-professional-40-50-senevita-olten-so",
         "de": "dipl-pflegefachperson-40-50-senevita-olten-so",
         "fr": "diplome-e-es-en-soins-infirmiers-40-50-senevita-olten-so"
       },
@@ -6511,6 +6566,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-40-50-senevita-olten-so"
+        ],
+        "en": [
           "dipl-pflegefachperson-40-50-senevita-olten-so"
         ]
       },
@@ -7272,9 +7330,9 @@
     },
     {
       "id": "senevita-0d72c6961885",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-burgdorf-be",
+      "slug": "dipl-infermieristica-professionale-hf-fh-70-100-senevita-burgdorf-be",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-burgdorf-be",
+        "it": "dipl-infermieristica-professionale-hf-fh-70-100-senevita-burgdorf-be",
         "en": "dipl-nursing-professional-hf-fh-70-100-senevita-burgdorf-be",
         "de": "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-burgdorf-be",
         "fr": "diplome-e-es-en-soins-infirmiers-hf-fh-70-100-senevita-burgdorf-be"
@@ -7346,13 +7404,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-burgdorf-be"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-fh-70-100-senevita-burgdorf-be"
+      ]
     },
     {
       "id": "senevita-1cfefba8576f",
-      "slug": "dipl-pflegefachfrau-mann-60-100-senevita-bern-be",
+      "slug": "dipl-infermieristica-professionale-60-100-senevita-bern-be",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-60-100-senevita-bern-be",
+        "it": "dipl-infermieristica-professionale-60-100-senevita-bern-be",
         "en": "diploma-in-nursing-60-100-senevita-bern-be",
         "de": "dipl-pflegefachfrau-mann-60-100-senevita-bern-be",
         "fr": "diplome-e-en-soins-infirmiers-60-100-senevita-bern-be"
@@ -7437,13 +7503,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-60-100-senevita-bern-be"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-60-100-senevita-bern-be"
+      ]
     },
     {
       "id": "senevita-2049abb5c721",
-      "slug": "dipl-pflegefachfrau-mann-50-100-senevita-zollikofen-be",
+      "slug": "dipl-infermieristica-professionale-50-100-senevita-zollikofen-be",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-50-100-senevita-zollikofen-be",
+        "it": "dipl-infermieristica-professionale-50-100-senevita-zollikofen-be",
         "en": "diploma-in-nursing-50-100-senevita-zollikofen-be",
         "de": "dipl-pflegefachfrau-mann-50-100-senevita-zollikofen-be",
         "fr": "diplome-e-en-soins-infirmiers-50-100-senevita-zollikofen-be"
@@ -7523,7 +7597,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-50-100-senevita-zollikofen-be"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-50-100-senevita-zollikofen-be"
+      ]
     },
     {
       "id": "senevita-d3dc5e8e2aee",
@@ -7699,7 +7781,7 @@
       "slug": "formazione-per-diplomato-a-in-assistenza-infermieristica-hf-senevita-arbon-tg",
       "slugByLocale": {
         "it": "formazione-per-diplomato-a-in-assistenza-infermieristica-hf-senevita-arbon-tg",
-        "en": "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg",
+        "en": "training-for-dipl-care-professional-hf-senevita-arbon-tg",
         "de": "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg",
         "fr": "formation-pour-devenir-assistant-e-en-soins-infirmiers-hf-senevita-arbon-tg"
       },
@@ -7771,6 +7853,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg"
+        ],
+        "en": [
           "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg"
         ]
       },
@@ -7862,12 +7947,12 @@
     },
     {
       "id": "senevita-71c0820a8555",
-      "slug": "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
+      "slug": "assistente-in-salute-e-affari-sociali-assistente-infermieristico-del-50-100-senevita-studen-be",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
-        "it": "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
-        "en": "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be",
-        "fr": "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be"
+        "it": "assistente-in-salute-e-affari-sociali-assistente-infermieristico-del-50-100-senevita-studen-be",
+        "en": "assistant-in-health-social-affairs-nursing-assistant-in-50-100-senevita-studen-be",
+        "fr": "assistant-en-sante-et-affaires-sociales-assistant-infirmier-en-50-100-senevita-studen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7923,7 +8008,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-23T23:02:35.404Z"
+      "firstSeenAt": "2026-06-23T23:02:35.404Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be"
+        ],
+        "en": [
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-gesundheit-soziales-pflegehelfer-in-50-100-senevita-studen-be"
+      ]
     },
     {
       "id": "senevita-6b27ad095579",

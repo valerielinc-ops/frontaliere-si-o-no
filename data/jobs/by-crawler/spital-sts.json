@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-sts-537b99704399",
-      "slug": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez",
+      "slug": "assistente-medico-assistente-medico-oncologia-spital-sts-thun-und-spiez",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez",
-        "en": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez",
+        "it": "assistente-medico-assistente-medico-oncologia-spital-sts-thun-und-spiez",
+        "en": "assistant-doctor-assistant-doctor-oncology-spital-sts-thun-und-spiez",
         "de": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez",
-        "fr": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+        "fr": "assistant-medecin-assistant-medecin-oncologie-spital-sts-thun-und-spiez"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -63,7 +63,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+      ]
     },
     {
       "id": "spital-sts-c3fba66bd07e",
@@ -300,9 +314,9 @@
     },
     {
       "id": "spital-sts-1d63c7ed914d",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+        "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
         "en": "dipl-radiology-specialist-radiology-specialist-hf-spital-sts-thun",
         "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
         "fr": "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-thun"
@@ -358,7 +372,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-b5318df664c0",

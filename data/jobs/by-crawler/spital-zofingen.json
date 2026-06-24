@@ -82,9 +82,9 @@
     },
     {
       "id": "spital-zofingen-99c886c95b84",
-      "slug": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital",
+      "slug": "formazione-per-dipl-infermieristica-professionale-hf-nel-centro-di-cura-e-nell-ospedale-acuto-spital-zofingen-zofingen",
       "slugByLocale": {
-        "it": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital",
+        "it": "formazione-per-dipl-infermieristica-professionale-hf-nel-centro-di-cura-e-nell-ospedale-acuto-spital-zofingen-zofingen",
         "en": "training-for-dipl-care-specialist-hf-in-the-nursing-centre-and-in-the-acute-hospital-spital-zofingen-zofingen",
         "de": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital",
         "fr": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital"
@@ -141,14 +141,22 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital"
+      ]
     },
     {
       "id": "spital-zofingen-dd39eafb4edd",
       "slug": "dipl-expert-expert-emergency-care-nds-hf-su-chiamata-nel-salario-orario-spital-zofingen-zofingen",
       "slugByLocale": {
         "it": "dipl-expert-expert-emergency-care-nds-hf-su-chiamata-nel-salario-orario-spital-zofingen-zofingen",
-        "en": "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen",
+        "en": "dipl-expert-expert-emergency-care-nds-hf-on-call-in-hourly-wages-spital-zofingen-zofingen",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen",
         "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-sur-appel-en-salaire-horaire-spital-zofingen-zofingen"
       },
@@ -200,6 +208,9 @@
           "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen"
         ],
         "fr": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen"
+        ],
+        "en": [
           "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen"
         ]
       },
@@ -769,7 +780,7 @@
       "slug": "dipl-specialista-hf-fh-specialista-piscina-sanitaria-spital-zofingen-zofingen",
       "slugByLocale": {
         "it": "dipl-specialista-hf-fh-specialista-piscina-sanitaria-spital-zofingen-zofingen",
-        "en": "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen",
+        "en": "dipl-nursing-professional-hf-fh-health-professional-care-pool-spital-zofingen-zofingen",
         "de": "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen",
         "fr": "dipl-specialiste-des-soins-hf-fh-specialiste-groupe-de-soins-de-sante-spital-zofingen-zofingen"
       },
@@ -821,6 +832,9 @@
           "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen"
+        ],
+        "en": [
           "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen"
         ]
       },
@@ -1060,7 +1074,7 @@
       "slug": "dipl-specialista-di-radiologia-hf-fh-spital-zofingen-zofingen",
       "slugByLocale": {
         "it": "dipl-specialista-di-radiologia-hf-fh-spital-zofingen-zofingen",
-        "en": "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen",
+        "en": "dipl-radiology-specialist-hf-fh-spital-zofingen-zofingen",
         "de": "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen",
         "fr": "dipl-specialiste-de-radiologie-hf-fh-spital-zofingen-zofingen"
       },
@@ -1113,6 +1127,9 @@
         ],
         "fr": [
           "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-05T22:50:37.938Z",
@@ -1134,7 +1151,7 @@
       "slug": "dipl-esperto-in-pronto-soccorso-nds-spital-zofingen-zofingen",
       "slugByLocale": {
         "it": "dipl-esperto-in-pronto-soccorso-nds-spital-zofingen-zofingen",
-        "en": "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen",
+        "en": "dipl-expert-emergency-care-nds-spital-zofingen-zofingen",
         "de": "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen",
         "fr": "dipl-expert-en-soins-d-urgence-nds-spital-zofingen-zofingen"
       },
@@ -1187,6 +1204,9 @@
         ],
         "fr": [
           "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-05T22:50:37.543Z",
@@ -1208,7 +1228,7 @@
       "slug": "dipl-pflegefachperson-hf-imc-o-dipl-expertin-experte-intensivpflege-nds-spital-zofingen",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-imc-o-dipl-expertin-experte-intensivpflege-nds-spital-zofingen",
-        "en": "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen",
+        "en": "dipl-care-professional-hf-imc-or-dipl-expert-expert-intensive-care-nds-spital-zofingen-zofingen",
         "de": "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen",
         "fr": "dipl-specialiste-des-soins-hf-imc-ou-dipl-sdn-expert-expert-en-soins-intensifs-spital-zofingen-zofingen"
       },
@@ -1261,6 +1281,9 @@
         ],
         "fr": [
           "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-05T22:50:37.149Z",
@@ -1282,7 +1305,7 @@
       "slug": "dipl-specialista-hf-centro-di-cura-spital-zofingen-zofingen",
       "slugByLocale": {
         "it": "dipl-specialista-hf-centro-di-cura-spital-zofingen-zofingen",
-        "en": "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen",
+        "en": "dipl-nursing-professional-hf-nursing-pool-nursing-centre-spital-zofingen-zofingen",
         "de": "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen",
         "fr": "dipl-specialiste-des-soins-hf-piscine-centre-de-soins-spital-zofingen-zofingen"
       },
@@ -1334,6 +1357,9 @@
           "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+        ],
+        "en": [
           "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen"
         ]
       },
@@ -2206,7 +2232,7 @@
       "slug": "dipl-carriera-hf-fh-dipartimento-112-spital-zofingen-zofingen",
       "slugByLocale": {
         "it": "dipl-carriera-hf-fh-dipartimento-112-spital-zofingen-zofingen",
-        "en": "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen",
+        "en": "dipl-nurse-hf-fh-department-112-spital-zofingen-zofingen",
         "de": "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen",
         "fr": "dipl-carriere-hf-fh-departement-112-spital-zofingen-zofingen"
       },
@@ -2258,6 +2284,9 @@
           "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen"
+        ],
+        "en": [
           "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen"
         ]
       },
@@ -2667,12 +2696,12 @@
     },
     {
       "id": "spital-zofingen-fdf9c9c5ea4e",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen",
+      "slug": "esperta-esperto-dipl-di-anestesia-nds-hf-spital-zofingen-zofingen",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen",
+        "it": "esperta-esperto-dipl-di-anestesia-nds-hf-spital-zofingen-zofingen",
+        "en": "dipl-expert-in-anesthesia-nursing-nds-hf-spital-zofingen-zofingen",
         "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen"
+        "fr": "expert-e-en-soins-anesthesiques-nds-hf-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2726,7 +2755,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-spital-zofingen-zofingen"
+      ]
     }
   ]
 }

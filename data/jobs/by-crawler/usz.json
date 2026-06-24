@@ -16016,12 +16016,12 @@
     },
     {
       "id": "usz-585aac888737",
-      "slug": "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch",
+      "slug": "infermiera-hf-fh-chirurgia-cardiaca-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch",
-        "en": "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch",
+        "it": "infermiera-hf-fh-chirurgia-cardiaca-80-100-universitatsspital-zurich-usz-campus",
+        "en": "nurse-hf-fh-heart-surgery-80-100-universitatsspital-zurich-usz-campus",
         "de": "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch",
-        "fr": "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch"
+        "fr": "infirmiere-hf-fh-chirurgie-cardiaque-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16075,16 +16075,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-f705c220862a",
       "slug": "fage-per-la-herzchirurgie-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "it": "fage-per-la-herzchirurgie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "fage-fur-die-herzchirurgie-80-100-usz-ch",
+        "en": "fage-for-heart-surgery-80-100-universitatsspital-zurich-usz-campus",
         "de": "fage-fur-die-herzchirurgie-80-100-usz-ch",
-        "fr": "fage-fur-die-herzchirurgie-80-100-usz-ch"
+        "fr": "fage-pour-chirurgie-cardiaque-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16131,6 +16145,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fage-fur-die-herzchirurgie-80-100-usz-ch"
+        ],
+        "en": [
+          "fage-fur-die-herzchirurgie-80-100-usz-ch"
+        ],
+        "fr": [
+          "fage-fur-die-herzchirurgie-80-100-usz-ch"
         ]
       },
       "needsRetranslation": true,
@@ -16154,8 +16174,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-dialyse-am-standort-campus-und-circle-80-100-usz-ch",
         "it": "pflegefachperson-dialyse-am-standort-campus-e-circle-80-100-universitatsspital-zurich-usz-campus",
-        "en": "pflegefachperson-dialyse-am-standort-campus-und-circle-80-100-usz-ch",
-        "fr": "pflegefachperson-dialyse-am-standort-campus-und-circle-80-100-usz-ch"
+        "en": "nurse-dialysis-at-campus-and-circle-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "infirmiere-dialyse-au-campus-et-au-cercle-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16201,6 +16221,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-dialyse-am-standort-campus-und-circle-80-100-usz-ch"
+        ],
+        "en": [
+          "pflegefachperson-dialyse-am-standort-campus-und-circle-80-100-usz-ch"
+        ],
+        "fr": [
+          "pflegefachperson-dialyse-am-standort-campus-und-circle-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -16225,9 +16251,9 @@
       "slug": "pflegefachperson-onkologie-e-radioonkologie-40-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "it": "pflegefachperson-onkologie-e-radioonkologie-40-100-universitatsspital-zurich-usz-campus",
-        "en": "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch",
+        "en": "nurse-oncology-and-radiation-oncology-40-100-universitatsspital-zurich-usz-campus",
         "de": "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch",
-        "fr": "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch"
+        "fr": "infirmiere-en-oncologie-et-radiooncologie-40-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16274,6 +16300,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch"
+        ],
+        "en": [
+          "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch"
+        ],
+        "fr": [
+          "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch"
         ]
       },
       "needsRetranslation": true,
@@ -16293,12 +16325,12 @@
     },
     {
       "id": "usz-5b85899fe659",
-      "slug": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch",
+      "slug": "personale-in-amministrazione-consultazione-tempo-paziente-direttiva-20-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch",
-        "en": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch",
+        "it": "personale-in-amministrazione-consultazione-tempo-paziente-direttiva-20-universitatsspital-zurich-usz-campus",
+        "en": "personnel-in-administration-consultation-time-patient-directive-20-universitatsspital-zurich-usz-campus",
         "de": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch",
-        "fr": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+        "fr": "personnel-en-administration-consultation-temps-directive-patient-20-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16352,7 +16384,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+      ]
     },
     {
       "id": "usz-b221ecbe52a1",
@@ -16360,8 +16406,8 @@
       "slugByLocale": {
         "de": "fage-bettenstation-e-ost-3-viszeral-und-transplantationschirurgie-80-100-usz-ch",
         "it": "fage-bettenstation-e-ost-3-viszeral-e-transplantationschirurgie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "fage-bettenstation-e-ost-3-viszeral-und-transplantationschirurgie-80-100-usz-ch",
-        "fr": "fage-bettenstation-e-ost-3-viszeral-und-transplantationschirurgie-80-100-usz-ch"
+        "en": "fage-bed-station-e-east-3-visceral-and-transplantation-surgery-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "station-de-lit-fage-e-est-3-chirurgie-des-visceraux-et-de-la-transplantation-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16406,6 +16452,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fage-bettenstation-e-ost-3-viszeral-und-transplantationschirurgie-80-100-usz-ch"
+        ],
+        "en": [
+          "fage-bettenstation-e-ost-3-viszeral-und-transplantationschirurgie-80-100-usz-ch"
+        ],
+        "fr": [
           "fage-bettenstation-e-ost-3-viszeral-und-transplantationschirurgie-80-100-usz-ch"
         ]
       },

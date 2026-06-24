@@ -9,7 +9,7 @@
         "it": "qa-tester-six-group-warsaw",
         "en": "qa-tester-six-group-warsaw",
         "de": "qa-tester-six-group-warsaw",
-        "fr": "qa-tester-six-group-warsaw"
+        "fr": "testeur-qa-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -67,12 +67,12 @@
     },
     {
       "id": "six-group-7b2477f7e00f",
-      "slug": "technical-writer-six-group-madrid",
+      "slug": "scrittore-tecnico-six-group-madrid",
       "slugByLocale": {
-        "it": "technical-writer-six-group-madrid",
+        "it": "scrittore-tecnico-six-group-madrid",
         "en": "technical-writer-six-group-madrid",
-        "de": "technical-writer-six-group-madrid",
-        "fr": "technical-writer-six-group-madrid"
+        "de": "technischer-redakteur-six-group-madrid",
+        "fr": "redacteur-technique-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -126,16 +126,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-writer-six-group-madrid"
+        ],
+        "de": [
+          "technical-writer-six-group-madrid"
+        ],
+        "fr": [
+          "technical-writer-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "technical-writer-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-0796c98b493f",
-      "slug": "it-solution-designer-six-group-warsaw",
+      "slug": "designer-di-soluzioni-it-six-group-warsaw",
       "slugByLocale": {
-        "it": "it-solution-designer-six-group-warsaw",
+        "it": "designer-di-soluzioni-it-six-group-warsaw",
         "en": "it-solution-designer-six-group-warsaw",
         "de": "it-solution-designer-six-group-warsaw",
-        "fr": "it-solution-designer-six-group-warsaw"
+        "fr": "conception-de-solutions-informatiques-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -189,7 +203,18 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-solution-designer-six-group-warsaw"
+        ],
+        "fr": [
+          "it-solution-designer-six-group-warsaw"
+        ]
+      },
+      "previousSlugs": [
+        "it-solution-designer-six-group-warsaw"
+      ]
     },
     {
       "id": "six-group-135d76ddfa66",
@@ -198,7 +223,7 @@
         "it": "senior-software-engineer-six-group-zurich",
         "en": "senior-software-engineer-six-group-zurich",
         "de": "senior-software-engineer-six-group-zurich",
-        "fr": "senior-software-engineer-six-group-zurich"
+        "fr": "ingenieur-logiciel-senior-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -381,12 +406,12 @@
     },
     {
       "id": "six-group-9b3f582599c9",
-      "slug": "technical-account-manager-six-group-frankfurt",
+      "slug": "responsabile-account-tecnico-six-group-frankfurt",
       "slugByLocale": {
-        "it": "technical-account-manager-six-group-frankfurt",
+        "it": "responsabile-account-tecnico-six-group-frankfurt",
         "en": "technical-account-manager-six-group-frankfurt",
         "de": "technical-account-manager-six-group-frankfurt",
-        "fr": "technical-account-manager-six-group-frankfurt"
+        "fr": "gestionnaire-de-comptes-techniques-six-group-frankfurt"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -440,16 +465,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-account-manager-six-group-frankfurt"
+        ],
+        "fr": [
+          "technical-account-manager-six-group-frankfurt"
+        ]
+      },
+      "previousSlugs": [
+        "technical-account-manager-six-group-frankfurt"
+      ]
     },
     {
       "id": "six-group-03451c06fa93",
-      "slug": "it-workplace-support-specialist-six-group-zurich",
+      "slug": "specialista-di-sostegno-del-posto-di-lavoro-it-six-group-zurich",
       "slugByLocale": {
-        "it": "it-workplace-support-specialist-six-group-zurich",
+        "it": "specialista-di-sostegno-del-posto-di-lavoro-it-six-group-zurich",
         "en": "it-workplace-support-specialist-six-group-zurich",
-        "de": "it-workplace-support-specialist-six-group-zurich",
-        "fr": "it-workplace-support-specialist-six-group-zurich"
+        "de": "it-arbeitsplatz-support-spezialist-six-group-zurich",
+        "fr": "specialiste-de-support-de-poste-de-travail-it-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -502,7 +538,21 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-workplace-support-specialist-six-group-zurich"
+        ],
+        "de": [
+          "it-workplace-support-specialist-six-group-zurich"
+        ],
+        "fr": [
+          "it-workplace-support-specialist-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "it-workplace-support-specialist-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-988fd4f86793",
@@ -763,7 +813,7 @@
         "it": "senior-it-audit-risk-officer-six-group-warsaw",
         "en": "senior-it-audit-risk-officer-six-group-warsaw",
         "de": "senior-it-audit-risk-officer-six-group-warsaw",
-        "fr": "senior-it-audit-risk-officer-six-group-warsaw"
+        "fr": "agent-principal-de-verification-et-de-risque-en-ti-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -897,12 +947,12 @@
     },
     {
       "id": "six-group-98b24a1bb32c",
-      "slug": "project-management-officer-six-group-madrid",
+      "slug": "responsabile-della-gestione-del-progetto-six-group-madrid",
       "slugByLocale": {
-        "it": "project-management-officer-six-group-madrid",
+        "it": "responsabile-della-gestione-del-progetto-six-group-madrid",
         "en": "project-management-officer-six-group-madrid",
         "de": "project-management-officer-six-group-madrid",
-        "fr": "project-management-officer-six-group-madrid"
+        "fr": "specialiste-de-la-gestion-des-projets-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -956,7 +1006,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-management-officer-six-group-madrid"
+        ],
+        "fr": [
+          "project-management-officer-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "project-management-officer-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-9641ef88dbbf",
@@ -1039,7 +1100,7 @@
         "it": "business-information-security-officer-six-group-madrid",
         "en": "business-information-security-officer-six-group-madrid",
         "de": "business-information-security-officer-six-group-madrid",
-        "fr": "business-information-security-officer-six-group-madrid"
+        "fr": "agent-de-la-securite-de-l-information-commerciale-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -1286,12 +1347,12 @@
     },
     {
       "id": "six-group-a32a7e8d9de6",
-      "slug": "solution-analyst-asset-service-it-six-group-olten",
+      "slug": "analista-soluzioni-servizi-asset-it-six-group-olten",
       "slugByLocale": {
-        "it": "solution-analyst-asset-service-it-six-group-olten",
+        "it": "analista-soluzioni-servizi-asset-it-six-group-olten",
         "en": "solution-analyst-asset-service-it-six-group-olten",
-        "de": "solution-analyst-asset-service-it-six-group-olten",
-        "fr": "solution-analyst-asset-service-it-six-group-olten"
+        "de": "losungsspezialist-asset-service-it-six-group-olten",
+        "fr": "analyste-en-solutions-service-des-actifs-it-six-group-olten"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -1344,7 +1405,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-analyst-asset-service-it-six-group-olten"
+        ],
+        "de": [
+          "solution-analyst-asset-service-it-six-group-olten"
+        ],
+        "fr": [
+          "solution-analyst-asset-service-it-six-group-olten"
+        ]
+      },
+      "previousSlugs": [
+        "solution-analyst-asset-service-it-six-group-olten"
+      ]
     },
     {
       "id": "six-group-769485adecd5",
@@ -1415,7 +1490,7 @@
       "slugByLocale": {
         "it": "business-analyst-market-data-six-group-warsaw",
         "en": "business-analyst-market-data-six-group-warsaw",
-        "de": "business-analyst-market-data-six-group-warsaw",
+        "de": "business-analyst-marktdaten-six-group-warsaw",
         "fr": "business-analyst-market-data-six-group-warsaw"
       },
       "company": "SIX Group",
@@ -1541,7 +1616,7 @@
       "slugByLocale": {
         "it": "business-analyst-funds-with-french-six-group-warsaw",
         "en": "business-analyst-funds-with-french-six-group-warsaw",
-        "de": "business-analyst-funds-with-french-six-group-warsaw",
+        "de": "business-analyst-fonds-mit-franzosisch-six-group-warsaw",
         "fr": "business-analyst-funds-with-french-six-group-warsaw"
       },
       "company": "SIX Group",
@@ -1663,12 +1738,12 @@
     },
     {
       "id": "six-group-c44ab09932aa",
-      "slug": "senior-data-scientist-six-group-warsaw",
+      "slug": "ricerca-di-dati-senior-six-group-warsaw",
       "slugByLocale": {
-        "it": "senior-data-scientist-six-group-warsaw",
+        "it": "ricerca-di-dati-senior-six-group-warsaw",
         "en": "senior-data-scientist-six-group-warsaw",
         "de": "senior-data-scientist-six-group-warsaw",
-        "fr": "senior-data-scientist-six-group-warsaw"
+        "fr": "chercheur-principal-en-donnees-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -1722,7 +1797,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-data-scientist-six-group-warsaw"
+        ],
+        "fr": [
+          "senior-data-scientist-six-group-warsaw"
+        ]
+      },
+      "previousSlugs": [
+        "senior-data-scientist-six-group-warsaw"
+      ]
     },
     {
       "id": "six-group-dfc2002782b0",
@@ -1794,7 +1880,7 @@
         "it": "risorse-umane-consulente-six-group-warsaw",
         "en": "hr-consultant-six-group-warsaw",
         "de": "personalwesen-berater-six-group-warsaw",
-        "fr": "hr-consultant-six-group-warsaw"
+        "fr": "ressources-humaines-consultant-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -1843,6 +1929,9 @@
         ],
         "de": [
           "hr-consultant-six-group-warsaw"
+        ],
+        "fr": [
+          "hr-consultant-six-group-warsaw"
         ]
       },
       "previousSlugs": [
@@ -1868,7 +1957,7 @@
         "it": "equity-commercial-department-internship-six-group-madrid",
         "en": "equity-commercial-department-internship-six-group-madrid",
         "de": "equity-commercial-department-internship-six-group-madrid",
-        "fr": "equity-commercial-department-internship-six-group-madrid"
+        "fr": "ministere-de-l-equite-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -1926,9 +2015,9 @@
     },
     {
       "id": "six-group-f76e6a4b47eb",
-      "slug": "senior-application-engineer-100-six-group-zurich",
+      "slug": "ingegnere-di-applicazioni-senior-100-six-group-zurich",
       "slugByLocale": {
-        "it": "senior-application-engineer-100-six-group-zurich",
+        "it": "ingegnere-di-applicazioni-senior-100-six-group-zurich",
         "en": "senior-application-engineer-100-six-group-zurich",
         "de": "senior-application-engineer-100-six-group-zurich",
         "fr": "senior-application-engineer-100-six-group-zurich"
@@ -1984,7 +2073,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-application-engineer-100-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-application-engineer-100-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-360bf8cf208b",
@@ -2065,12 +2162,12 @@
     },
     {
       "id": "six-group-f77b6297b912",
-      "slug": "senior-tax-expert-six-group-madrid",
+      "slug": "esperto-fiscale-senior-six-group-madrid",
       "slugByLocale": {
-        "it": "senior-tax-expert-six-group-madrid",
+        "it": "esperto-fiscale-senior-six-group-madrid",
         "en": "senior-tax-expert-six-group-madrid",
         "de": "senior-tax-expert-six-group-madrid",
-        "fr": "senior-tax-expert-six-group-madrid"
+        "fr": "expert-fiscal-principal-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2124,16 +2221,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-tax-expert-six-group-madrid"
+        ],
+        "fr": [
+          "senior-tax-expert-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "senior-tax-expert-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-59ae4a0d824b",
-      "slug": "working-student-sic-operations-six-group-zurich",
+      "slug": "lavoratore-a-tempo-parziale-operazioni-sic-six-group-zurich",
       "slugByLocale": {
-        "it": "working-student-sic-operations-six-group-zurich",
+        "it": "lavoratore-a-tempo-parziale-operazioni-sic-six-group-zurich",
         "en": "working-student-sic-operations-six-group-zurich",
         "de": "working-student-sic-operations-six-group-zurich",
-        "fr": "working-student-sic-operations-six-group-zurich"
+        "fr": "etudiant-travailleur-a-temps-partiel-operations-sic-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2186,7 +2294,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-sic-operations-six-group-zurich"
+        ],
+        "fr": [
+          "working-student-sic-operations-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-sic-operations-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-b6b0632db9d0",
@@ -2252,12 +2371,12 @@
     },
     {
       "id": "six-group-fc2d8111fc26",
-      "slug": "client-onboarding-manager-financial-regulatory-technology-six-group-madrid",
+      "slug": "client-onboarding-manager-tecnologia-di-regolamentazione-finanziaria-six-group-madrid",
       "slugByLocale": {
-        "it": "client-onboarding-manager-financial-regulatory-technology-six-group-madrid",
+        "it": "client-onboarding-manager-tecnologia-di-regolamentazione-finanziaria-six-group-madrid",
         "en": "client-onboarding-manager-financial-regulatory-technology-six-group-madrid",
-        "de": "client-onboarding-manager-financial-regulatory-technology-six-group-madrid",
-        "fr": "client-onboarding-manager-financial-regulatory-technology-six-group-madrid"
+        "de": "client-onboarding-manager-finanzaufsichtstechnologie-six-group-madrid",
+        "fr": "gestionnaire-de-bord-du-client-technologie-de-reglementation-financiere-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2311,16 +2430,30 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-onboarding-manager-financial-regulatory-technology-six-group-madrid"
+        ],
+        "de": [
+          "client-onboarding-manager-financial-regulatory-technology-six-group-madrid"
+        ],
+        "fr": [
+          "client-onboarding-manager-financial-regulatory-technology-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "client-onboarding-manager-financial-regulatory-technology-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-d7f5bc836969",
-      "slug": "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group",
+      "slug": "senior-client-onboarding-platform-operations-tecnologia-di-regolamentazione-finanziaria-six-group-madrid",
       "slugByLocale": {
-        "it": "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group",
+        "it": "senior-client-onboarding-platform-operations-tecnologia-di-regolamentazione-finanziaria-six-group-madrid",
         "en": "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group",
         "de": "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group",
-        "fr": "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group"
+        "fr": "client-principal-operations-d-embarquement-et-de-plateforme-technologie-de-reglementation-financiere-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2374,13 +2507,24 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group"
+        ],
+        "fr": [
+          "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group"
+        ]
+      },
+      "previousSlugs": [
+        "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group"
+      ]
     },
     {
       "id": "six-group-9624d4973bb6",
-      "slug": "senior-application-engineer-80-100-six-group-zurich",
+      "slug": "ingegnere-applicativo-senior-80-100-six-group-zurich",
       "slugByLocale": {
-        "it": "senior-application-engineer-80-100-six-group-zurich",
+        "it": "ingegnere-applicativo-senior-80-100-six-group-zurich",
         "en": "senior-application-engineer-80-100-six-group-zurich",
         "de": "senior-application-engineer-80-100-six-group-zurich",
         "fr": "senior-application-engineer-80-100-six-group-zurich"
@@ -2436,7 +2580,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-application-engineer-80-100-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-application-engineer-80-100-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-10ca21c4728c",
@@ -2734,12 +2886,12 @@
     },
     {
       "id": "six-group-a195f622460a",
-      "slug": "fixed-income-sales-manager-six-group-london",
+      "slug": "responsabile-vendite-a-reddito-fisso-six-group-london",
       "slugByLocale": {
-        "it": "fixed-income-sales-manager-six-group-london",
+        "it": "responsabile-vendite-a-reddito-fisso-six-group-london",
         "en": "fixed-income-sales-manager-six-group-london",
         "de": "fixed-income-sales-manager-six-group-london",
-        "fr": "fixed-income-sales-manager-six-group-london"
+        "fr": "gestionnaire-des-ventes-a-revenu-fixe-six-group-london"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2793,7 +2945,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fixed-income-sales-manager-six-group-london"
+        ],
+        "fr": [
+          "fixed-income-sales-manager-six-group-london"
+        ]
+      },
+      "previousSlugs": [
+        "fixed-income-sales-manager-six-group-london"
+      ]
     },
     {
       "id": "six-group-bae03cc178eb",
@@ -2802,7 +2965,7 @@
         "it": "qa-testing-governance-lead-six-group-madrid",
         "en": "qa-testing-governance-lead-six-group-madrid",
         "de": "qa-testing-governance-lead-six-group-madrid",
-        "fr": "qa-testing-governance-lead-six-group-madrid"
+        "fr": "aq-et-test-de-gouvernance-responsable-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3064,7 +3227,7 @@
         "it": "working-student-asset-servicing-60-six-group-olten",
         "en": "working-student-asset-servicing-60-six-group-olten",
         "de": "working-student-asset-servicing-60-six-group-olten",
-        "fr": "working-student-asset-servicing-60-six-group-olten"
+        "fr": "stagiaire-asset-servicing-60-six-group-olten"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3258,12 +3421,12 @@
     },
     {
       "id": "six-group-c90980c3db3a",
-      "slug": "senior-observability-engineer-six-group-zurich",
+      "slug": "ingegnere-senior-di-osservabilita-six-group-zurich",
       "slugByLocale": {
-        "it": "senior-observability-engineer-six-group-zurich",
+        "it": "ingegnere-senior-di-osservabilita-six-group-zurich",
         "en": "senior-observability-engineer-six-group-zurich",
-        "de": "senior-observability-engineer-six-group-zurich",
-        "fr": "senior-observability-engineer-six-group-zurich"
+        "de": "senior-beobachter-ingenieur-six-group-zurich",
+        "fr": "ingenieur-senior-en-observabilite-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3316,7 +3479,21 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-observability-engineer-six-group-zurich"
+        ],
+        "de": [
+          "senior-observability-engineer-six-group-zurich"
+        ],
+        "fr": [
+          "senior-observability-engineer-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-observability-engineer-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-6b90ae43aa81",
@@ -3387,7 +3564,7 @@
       "slugByLocale": {
         "it": "enterprise-architect-six-group-warsaw",
         "en": "enterprise-architect-six-group-warsaw",
-        "de": "enterprise-architect-six-group-warsaw",
+        "de": "enterprise-architekt-six-group-warsaw",
         "fr": "enterprise-architecte-six-group-warsaw"
       },
       "company": "SIX Group",
@@ -3572,12 +3749,12 @@
     },
     {
       "id": "six-group-757b3174f34b",
-      "slug": "guided-tours-bme-events-internship-six-group-madrid",
+      "slug": "visite-guidate-bme-eventi-stage-six-group-madrid",
       "slugByLocale": {
-        "it": "guided-tours-bme-events-internship-six-group-madrid",
+        "it": "visite-guidate-bme-eventi-stage-six-group-madrid",
         "en": "guided-tours-bme-events-internship-six-group-madrid",
-        "de": "guided-tours-bme-events-internship-six-group-madrid",
-        "fr": "guided-tours-bme-events-internship-six-group-madrid"
+        "de": "gefuhrte-touren-bme-events-praktikum-six-group-madrid",
+        "fr": "visites-guidees-et-evenements-bme-stage-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3631,7 +3808,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "guided-tours-bme-events-internship-six-group-madrid"
+        ],
+        "de": [
+          "guided-tours-bme-events-internship-six-group-madrid"
+        ],
+        "fr": [
+          "guided-tours-bme-events-internship-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "guided-tours-bme-events-internship-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-9072028641d0",
@@ -3775,12 +3966,12 @@
     },
     {
       "id": "six-group-bbfb1e88a26d",
-      "slug": "treasury-manager-80-100-six-group-zurich",
+      "slug": "responsabile-del-tesoro-80-100-six-group-zurich",
       "slugByLocale": {
-        "it": "treasury-manager-80-100-six-group-zurich",
+        "it": "responsabile-del-tesoro-80-100-six-group-zurich",
         "en": "treasury-manager-80-100-six-group-zurich",
         "de": "treasury-manager-80-100-six-group-zurich",
-        "fr": "treasury-manager-80-100-six-group-zurich"
+        "fr": "gestionnaire-de-tresorerie-80-100-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -3834,7 +4025,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "treasury-manager-80-100-six-group-zurich"
+        ],
+        "fr": [
+          "treasury-manager-80-100-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "treasury-manager-80-100-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-767e338f30fe",
@@ -4041,12 +4243,12 @@
     },
     {
       "id": "six-group-cf704b5d0261",
-      "slug": "senior-corporate-administration-lead-six-group-london",
+      "slug": "amministrazione-aziendale-senior-lead-six-group-london",
       "slugByLocale": {
-        "it": "senior-corporate-administration-lead-six-group-london",
+        "it": "amministrazione-aziendale-senior-lead-six-group-london",
         "en": "senior-corporate-administration-lead-six-group-london",
         "de": "senior-corporate-administration-lead-six-group-london",
-        "fr": "senior-corporate-administration-lead-six-group-london"
+        "fr": "responsable-principal-de-l-administration-generale-six-group-london"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4100,7 +4302,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-corporate-administration-lead-six-group-london"
+        ],
+        "fr": [
+          "senior-corporate-administration-lead-six-group-london"
+        ]
+      },
+      "previousSlugs": [
+        "senior-corporate-administration-lead-six-group-london"
+      ]
     },
     {
       "id": "six-group-da881896675a",
@@ -4312,7 +4525,7 @@
         "it": "senior-it-governance-officer-six-group-warsaw",
         "en": "senior-it-governance-officer-six-group-warsaw",
         "de": "senior-it-governance-officer-six-group-warsaw",
-        "fr": "senior-it-governance-officer-six-group-warsaw"
+        "fr": "agent-principal-de-la-gouvernance-des-ti-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4447,12 +4660,12 @@
     },
     {
       "id": "six-group-0efba2717588",
-      "slug": "head-clearing-product-business-development-six-group-madrid",
+      "slug": "determinazione-dei-prodotti-e-sviluppo-aziendale-six-group-madrid",
       "slugByLocale": {
-        "it": "head-clearing-product-business-development-six-group-madrid",
+        "it": "determinazione-dei-prodotti-e-sviluppo-aziendale-six-group-madrid",
         "en": "head-clearing-product-business-development-six-group-madrid",
-        "de": "head-clearing-product-business-development-six-group-madrid",
-        "fr": "head-clearing-product-business-development-six-group-madrid"
+        "de": "head-clearing-produkt-geschaftsentwicklung-six-group-madrid",
+        "fr": "chef-effacement-des-produits-et-developpement-des-affaires-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4506,7 +4719,21 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-clearing-product-business-development-six-group-madrid"
+        ],
+        "de": [
+          "head-clearing-product-business-development-six-group-madrid"
+        ],
+        "fr": [
+          "head-clearing-product-business-development-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "head-clearing-product-business-development-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-4bc7e47734cc",
@@ -4592,7 +4819,7 @@
         "it": "accounts-receivable-accountant-six-group-warsaw",
         "en": "accounts-receivable-accountant-six-group-warsaw",
         "de": "accounts-receivable-accountant-six-group-warsaw",
-        "fr": "accounts-receivable-accountant-six-group-warsaw"
+        "fr": "comptable-debiteur-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4650,12 +4877,12 @@
     },
     {
       "id": "six-group-1e5d8a4988c5",
-      "slug": "customer-support-agent-six-group-leudelange",
+      "slug": "agente-di-assistenza-clienti-six-group-leudelange",
       "slugByLocale": {
-        "it": "customer-support-agent-six-group-leudelange",
+        "it": "agente-di-assistenza-clienti-six-group-leudelange",
         "en": "customer-support-agent-six-group-leudelange",
         "de": "customer-support-agent-six-group-leudelange",
-        "fr": "customer-support-agent-six-group-leudelange"
+        "fr": "agent-de-soutien-a-la-clientele-six-group-leudelange"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4709,7 +4936,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-support-agent-six-group-leudelange"
+        ],
+        "fr": [
+          "customer-support-agent-six-group-leudelange"
+        ]
+      },
+      "previousSlugs": [
+        "customer-support-agent-six-group-leudelange"
+      ]
     },
     {
       "id": "six-group-7119f2e87193",
@@ -4718,7 +4956,7 @@
         "it": "senior-treasurer-80-100-six-group-zurich",
         "en": "senior-treasurer-80-100-six-group-zurich",
         "de": "senior-treasurer-80-100-six-group-zurich",
-        "fr": "senior-treasurer-80-100-six-group-zurich"
+        "fr": "tresorier-principal-80-100-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4839,12 +5077,12 @@
     },
     {
       "id": "six-group-f48e98f43ff8",
-      "slug": "it-governance-officer-six-group-warsaw",
+      "slug": "responsabile-della-governance-it-six-group-warsaw",
       "slugByLocale": {
-        "it": "it-governance-officer-six-group-warsaw",
+        "it": "responsabile-della-governance-it-six-group-warsaw",
         "en": "it-governance-officer-six-group-warsaw",
         "de": "it-governance-officer-six-group-warsaw",
-        "fr": "it-governance-officer-six-group-warsaw"
+        "fr": "specialiste-de-la-gouvernance-informatique-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4898,16 +5136,27 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-governance-officer-six-group-warsaw"
+        ],
+        "fr": [
+          "it-governance-officer-six-group-warsaw"
+        ]
+      },
+      "previousSlugs": [
+        "it-governance-officer-six-group-warsaw"
+      ]
     },
     {
       "id": "six-group-cb13819424e5",
-      "slug": "legal-counsel-six-group-zurich",
+      "slug": "avviso-legale-six-group-zurich",
       "slugByLocale": {
-        "it": "legal-counsel-six-group-zurich",
+        "it": "avviso-legale-six-group-zurich",
         "en": "legal-counsel-six-group-zurich",
         "de": "legal-counsel-six-group-zurich",
-        "fr": "legal-counsel-six-group-zurich"
+        "fr": "conseiller-juridique-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -4961,7 +5210,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-six-group-zurich"
+        ],
+        "fr": [
+          "legal-counsel-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-69de231834cc",
@@ -5091,12 +5351,12 @@
     },
     {
       "id": "six-group-473c3f13a4c3",
-      "slug": "senior-sales-manager-six-group-london",
+      "slug": "responsabile-vendite-senior-six-group-london",
       "slugByLocale": {
-        "it": "senior-sales-manager-six-group-london",
+        "it": "responsabile-vendite-senior-six-group-london",
         "en": "senior-sales-manager-six-group-london",
         "de": "senior-sales-manager-six-group-london",
-        "fr": "senior-sales-manager-six-group-london"
+        "fr": "directeur-principal-des-ventes-six-group-london"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5150,16 +5410,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sales-manager-six-group-london"
+        ],
+        "fr": [
+          "senior-sales-manager-six-group-london"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sales-manager-six-group-london"
+      ]
     },
     {
       "id": "six-group-8844ce29a795",
-      "slug": "senior-qa-testing-lead-six-group-madrid",
+      "slug": "piombo-di-test-qa-senior-six-group-madrid",
       "slugByLocale": {
-        "it": "senior-qa-testing-lead-six-group-madrid",
+        "it": "piombo-di-test-qa-senior-six-group-madrid",
         "en": "senior-qa-testing-lead-six-group-madrid",
         "de": "senior-qa-testing-lead-six-group-madrid",
-        "fr": "senior-qa-testing-lead-six-group-madrid"
+        "fr": "responsable-principal-des-tests-d-aq-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5213,7 +5484,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-qa-testing-lead-six-group-madrid"
+        ],
+        "fr": [
+          "senior-qa-testing-lead-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "senior-qa-testing-lead-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-5920fef0a900",
@@ -5347,8 +5629,8 @@
       "slugByLocale": {
         "it": "it-product-manager-six-group-warsaw",
         "en": "it-product-manager-six-group-warsaw",
-        "de": "it-product-manager-six-group-warsaw",
-        "fr": "it-product-manager-six-group-warsaw"
+        "de": "it-produktmanager-six-group-warsaw",
+        "fr": "gestionnaire-de-produits-informatiques-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5469,12 +5751,12 @@
     },
     {
       "id": "six-group-e6c88b85626e",
-      "slug": "business-analyst-six-group-warsaw-2",
+      "slug": "business-analista-six-group-warsaw-5e3f43",
       "slugByLocale": {
-        "it": "business-analyst-six-group-warsaw-2",
+        "it": "business-analista-six-group-warsaw-5e3f43",
         "en": "business-analyst-six-group-warsaw",
         "de": "business-analyst-six-group-warsaw-2",
-        "fr": "business-analyst-six-group-warsaw-2"
+        "fr": "business-analyste-six-group-warsaw-5e3f43"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5528,7 +5810,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-six-group-warsaw-2"
+        ],
+        "fr": [
+          "business-analyst-six-group-warsaw-2"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-six-group-warsaw-2"
+      ]
     },
     {
       "id": "six-group-a15687d7f4f2",
@@ -5600,7 +5893,7 @@
         "it": "talent-sourcer-six-group-warsaw",
         "en": "talent-sourcer-six-group-warsaw",
         "de": "talent-sourcer-six-group-warsaw",
-        "fr": "talent-sourcer-six-group-warsaw"
+        "fr": "source-de-talents-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5726,7 +6019,7 @@
         "it": "senior-it-risk-and-control-officer-six-group-warsaw",
         "en": "senior-it-risk-and-control-officer-six-group-warsaw",
         "de": "senior-it-risk-and-control-officer-six-group-warsaw",
-        "fr": "senior-it-risk-and-control-officer-six-group-warsaw"
+        "fr": "agent-principal-des-risques-et-du-controle-de-la-ti-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5789,7 +6082,7 @@
         "it": "senior-corporate-governance-counsel-six-group-madrid",
         "en": "senior-corporate-governance-counsel-six-group-madrid",
         "de": "senior-corporate-governance-counsel-six-group-madrid",
-        "fr": "senior-corporate-governance-counsel-six-group-madrid"
+        "fr": "conseiller-principal-en-gouvernance-d-entreprise-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5978,7 +6271,7 @@
         "it": "senior-account-manager-80-100-six-group-zurich",
         "en": "senior-account-manager-80-100-six-group-zurich",
         "de": "senior-account-manager-80-100-six-group-zurich",
-        "fr": "senior-account-manager-80-100-six-group-zurich"
+        "fr": "gestionnaire-principal-de-comptes-80-100-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6225,12 +6518,12 @@
     },
     {
       "id": "six-group-db02271f1a93",
-      "slug": "head-controlling-exchanges-80-100-six-group-madrid",
+      "slug": "scambi-di-controllo-della-testa-80-100-six-group-madrid",
       "slugByLocale": {
-        "it": "head-controlling-exchanges-80-100-six-group-madrid",
+        "it": "scambi-di-controllo-della-testa-80-100-six-group-madrid",
         "en": "head-controlling-exchanges-80-100-six-group-madrid",
         "de": "head-controlling-exchanges-80-100-six-group-madrid",
-        "fr": "head-controlling-exchanges-80-100-six-group-madrid"
+        "fr": "echanges-de-commandes-de-tetes-80-100-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6284,7 +6577,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-controlling-exchanges-80-100-six-group-madrid"
+        ],
+        "fr": [
+          "head-controlling-exchanges-80-100-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "head-controlling-exchanges-80-100-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-03c437722a82",
@@ -6478,12 +6782,12 @@
     },
     {
       "id": "six-group-053eff486e5c",
-      "slug": "product-owner-six-group-warsaw",
+      "slug": "titolare-del-prodotto-six-group-warsaw",
       "slugByLocale": {
-        "it": "product-owner-six-group-warsaw",
+        "it": "titolare-del-prodotto-six-group-warsaw",
         "en": "product-owner-six-group-warsaw",
         "de": "product-owner-six-group-warsaw",
-        "fr": "product-owner-six-group-warsaw"
+        "fr": "proprietaire-du-produit-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6537,16 +6841,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-six-group-warsaw"
+        ],
+        "fr": [
+          "product-owner-six-group-warsaw"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-six-group-warsaw"
+      ]
     },
     {
       "id": "six-group-1c9c38e2e7a8",
-      "slug": "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich",
+      "slug": "gestione-delle-vendite-e-degli-account-per-le-carte-atm-e-twint-80-100-six-group-zurich",
       "slugByLocale": {
-        "it": "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich",
+        "it": "gestione-delle-vendite-e-degli-account-per-le-carte-atm-e-twint-80-100-six-group-zurich",
         "en": "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich",
         "de": "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich",
-        "fr": "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich"
+        "fr": "gestion-des-ventes-et-des-comptes-pour-les-cartes-les-guichets-automatiques-et-les-twint-80-100-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6600,7 +6915,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich"
+        ],
+        "fr": [
+          "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich"
+      ]
     }
   ]
 }

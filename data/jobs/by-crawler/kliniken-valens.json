@@ -104,9 +104,9 @@
     },
     {
       "id": "kliniken-valens-bd1d2453bd76",
-      "slug": "psychologin-psychologen-m-w-a-80-kliniken-valens-gais",
+      "slug": "psicologo-psicologo-m-f-a-80-kliniken-valens-gais",
       "slugByLocale": {
-        "it": "psychologin-psychologen-m-w-a-80-kliniken-valens-gais",
+        "it": "psicologo-psicologo-m-f-a-80-kliniken-valens-gais",
         "en": "psychologist-80-kliniken-valens-gais",
         "de": "psychologin-psychologen-m-w-a-80-kliniken-valens-gais",
         "fr": "psychologue-80-sebours-kliniken-valens-gais"
@@ -173,6 +173,7 @@
         ]
       },
       "previousSlugs": [
+        "psychologin-psychologen-m-w-a-80-kliniken-valens-gais",
         "servicefachangestelle-n-m-w-a-60-100-kliniken-valens-gais",
         "service-assistant-m-f-a-60-100-kliniken-valens-gais",
         "assistant-e-de-service-m-f-a-60-100-kliniken-valens-gais",
@@ -190,13 +191,18 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologen-m-w-a-80-kliniken-valens-gais"
+        ]
       }
     },
     {
       "id": "kliniken-valens-2076a7540cf8",
-      "slug": "unterassistent-in-neurologie-m-w-a-kliniken-valens-valens",
+      "slug": "sub-assistante-in-neurologia-m-f-a-kliniken-valens-valens",
       "slugByLocale": {
-        "it": "unterassistent-in-neurologie-m-w-a-kliniken-valens-valens",
+        "it": "sub-assistante-in-neurologia-m-f-a-kliniken-valens-valens",
         "en": "neurology-assistant-m-f-a-kliniken-valens-valens",
         "de": "unterassistent-in-neurologie-m-w-a-kliniken-valens-valens",
         "fr": "assistant-en-neurologie-h-f-x-kliniken-valens-valens"
@@ -264,11 +270,15 @@
         ]
       },
       "previousSlugs": [
-        "neurologie-m-w-a-kliniken-valens-valens"
+        "neurologie-m-w-a-kliniken-valens-valens",
+        "unterassistent-in-neurologie-m-w-a-kliniken-valens-valens"
       ],
       "previousSlugsByLocale": {
         "de": [
           "neurologie-m-w-a-kliniken-valens-valens"
+        ],
+        "it": [
+          "unterassistent-in-neurologie-m-w-a-kliniken-valens-valens"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.837Z",
@@ -1098,9 +1108,9 @@
     },
     {
       "id": "kliniken-valens-bc660347fdfe",
-      "slug": "pflegefachfrau-mann-in-der-neurologischen-rehabilitation-m-w-a-30-70-kliniken-valens",
+      "slug": "professionista-infermieristico-nella-riabilitazione-neurologica-m-f-a-30-70-kliniken-valens-valens",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-in-der-neurologischen-rehabilitation-m-w-a-30-70-kliniken-valens",
+        "it": "professionista-infermieristico-nella-riabilitazione-neurologica-m-f-a-30-70-kliniken-valens-valens",
         "en": "neurological-rehabilitation-nurse-m-f-a-30-70-kliniken-valens-valens",
         "de": "pflegefachfrau-mann-in-der-neurologischen-rehabilitation-m-w-a-30-70-kliniken-valens",
         "fr": "infirmier-ere-en-rehabilitation-neurologique-m-f-a-30-70-kliniken-valens-valens"
@@ -1185,7 +1195,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-in-der-neurologischen-rehabilitation-m-w-a-30-70-kliniken-valens"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-mann-in-der-neurologischen-rehabilitation-m-w-a-30-70-kliniken-valens"
+      ]
     },
     {
       "id": "kliniken-valens-0963131e5f4d",
@@ -1280,9 +1298,9 @@
     },
     {
       "id": "kliniken-valens-618be8d0206d",
-      "slug": "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg",
+      "slug": "terapista-in-m-f-a-70-100-kliniken-valens-walenstadtberg",
       "slugByLocale": {
-        "it": "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg",
+        "it": "terapista-in-m-f-a-70-100-kliniken-valens-walenstadtberg",
         "en": "occupational-therapist-m-f-a-70-100-kliniken-valens-walenstadtberg",
         "de": "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg",
         "fr": "therapeute-en-ergotherapie-h-f-70-100-kliniken-valens-walenstadtberg"
@@ -1367,7 +1385,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg"
+      ]
     },
     {
       "id": "kliniken-valens-a0af7a0099fa",
@@ -1475,7 +1501,7 @@
       "slug": "assistente-a-alla-riabilitazione-neuromuscoloscheletrica-kliniken-valens-valens",
       "slugByLocale": {
         "it": "assistente-a-alla-riabilitazione-neuromuscoloscheletrica-kliniken-valens-valens",
-        "en": "pflegeassistent-in-neuromuskuloskelettale-rehabilitation-40-60-kliniken-valens-valens",
+        "en": "nursing-assistant-in-neuromusculoskeletal-rehabilitation-40-60-kliniken-valens-valens",
         "de": "pflegeassistent-in-neuromuskuloskelettale-rehabilitation-40-60-kliniken-valens-valens",
         "fr": "assistant-en-reeducation-neuromusculaire-squelettique-kliniken-valens-valens"
       },
@@ -1554,6 +1580,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegeassistent-in-neuromuskuloskelettale-rehabilitation-40-60-kliniken-valens-valens"
+        ],
+        "en": [
           "pflegeassistent-in-neuromuskuloskelettale-rehabilitation-40-60-kliniken-valens-valens"
         ]
       },
@@ -1857,9 +1886,9 @@
     },
     {
       "id": "kliniken-valens-17c7d7efb3bd",
-      "slug": "vorpraktikum-in-der-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-walenstadtberg",
+      "slug": "pre-stage-in-fisioterapia-terapia-professionale-m-f-a-100-kliniken-valens-walenstadtberg",
       "slugByLocale": {
-        "it": "vorpraktikum-in-der-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-walenstadtberg",
+        "it": "pre-stage-in-fisioterapia-terapia-professionale-m-f-a-100-kliniken-valens-walenstadtberg",
         "en": "internship-in-physiotherapy-ergotherapy-m-f-a-100-kliniken-valens-walenstadtberg",
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-walenstadtberg",
         "fr": "stage-en-physiotherapie-ergotherapie-h-f-x-a-100-kliniken-valens-walenstadtberg"
@@ -1935,13 +1964,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-walenstadtberg"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-walenstadtberg"
+      ]
     },
     {
       "id": "kliniken-valens-94a0f03c0975",
-      "slug": "assistenzneuropsychologin-assistenzneuropsychologe-m-w-a-80-kliniken-valens-valens",
+      "slug": "assistente-neuropsicologo-assistente-neuropsicologo-m-f-a-80-kliniken-valens-valens",
       "slugByLocale": {
-        "it": "assistenzneuropsychologin-assistenzneuropsychologe-m-w-a-80-kliniken-valens-valens",
+        "it": "assistente-neuropsicologo-assistente-neuropsicologo-m-f-a-80-kliniken-valens-valens",
         "en": "assistant-neuropsychologist-m-f-a-80-kliniken-valens-valens",
         "de": "assistenzneuropsychologin-assistenzneuropsychologe-m-w-a-80-kliniken-valens-valens",
         "fr": "neuropsychologue-assistant-e-m-f-a-80-kliniken-valens-valens"
@@ -2016,11 +2053,15 @@
         ]
       },
       "previousSlugs": [
-        "assistenzneuropsychologe-assistenzneuropsychologe-m-w-a-80-kliniken-valens-valens"
+        "assistenzneuropsychologe-assistenzneuropsychologe-m-w-a-80-kliniken-valens-valens",
+        "assistenzneuropsychologin-assistenzneuropsychologe-m-w-a-80-kliniken-valens-valens"
       ],
       "previousSlugsByLocale": {
         "de": [
           "assistenzneuropsychologe-assistenzneuropsychologe-m-w-a-80-kliniken-valens-valens"
+        ],
+        "it": [
+          "assistenzneuropsychologin-assistenzneuropsychologe-m-w-a-80-kliniken-valens-valens"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.800Z",
@@ -2039,9 +2080,9 @@
     },
     {
       "id": "kliniken-valens-b0834b5f307a",
-      "slug": "unterassistenzarztstelle-cand-med-m-w-a-100-kliniken-valens-davos-clavadel",
+      "slug": "ufficio-medico-di-assistenza-cand-med-m-f-a-100-kliniken-valens-davos-clavadel",
       "slugByLocale": {
-        "it": "unterassistenzarztstelle-cand-med-m-w-a-100-kliniken-valens-davos-clavadel",
+        "it": "ufficio-medico-di-assistenza-cand-med-m-f-a-100-kliniken-valens-davos-clavadel",
         "en": "medical-student-assistant-m-f-a-100-kliniken-valens-davos-clavadel",
         "de": "unterassistenzarztstelle-cand-med-m-w-a-100-kliniken-valens-davos-clavadel",
         "fr": "unterassistenzarztstelle-cand-med-m-w-a-100-kliniken-valens-davos-clavadel"
@@ -2126,7 +2167,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistenzarztstelle-cand-med-m-w-a-100-kliniken-valens-davos-clavadel"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistenzarztstelle-cand-med-m-w-a-100-kliniken-valens-davos-clavadel"
+      ]
     },
     {
       "id": "kliniken-valens-0cdaa9f4b156",
@@ -2499,9 +2548,9 @@
     },
     {
       "id": "kliniken-valens-730a74755eca",
-      "slug": "dipl-pflegefachmann-frau-hf-m-w-a-50-100-kliniken-valens-gais",
+      "slug": "dipl-infermieristica-professionale-hf-m-f-a-50-100-kliniken-valens-gais",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-hf-m-w-a-50-100-kliniken-valens-gais",
+        "it": "dipl-infermieristica-professionale-hf-m-f-a-50-100-kliniken-valens-gais",
         "en": "diploma-in-nursing-hf-m-f-a-50-100-kliniken-valens-gais",
         "de": "dipl-pflegefachmann-frau-hf-m-w-a-50-100-kliniken-valens-gais",
         "fr": "diplome-e-en-soins-infirmiers-hf-h-f-50-100-kliniken-valens-gais"
@@ -2580,7 +2629,15 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachmann-frau-hf-m-w-a-50-100-kliniken-valens-gais"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachmann-frau-hf-m-w-a-50-100-kliniken-valens-gais"
+      ]
     },
     {
       "id": "kliniken-valens-88b0c91983e5",
@@ -2678,9 +2735,9 @@
     },
     {
       "id": "kliniken-valens-997eae15d69a",
-      "slug": "diplomierte-pflegefachperson-hf-fh-m-w-a-60-100-kliniken-valens-walzenhausen",
+      "slug": "infermiera-laureata-hf-fh-m-f-a-60-100-kliniken-valens-walzenhausen",
       "slugByLocale": {
-        "it": "diplomierte-pflegefachperson-hf-fh-m-w-a-60-100-kliniken-valens-walzenhausen",
+        "it": "infermiera-laureata-hf-fh-m-f-a-60-100-kliniken-valens-walzenhausen",
         "en": "diploma-in-nursing-hf-fh-m-f-a-60-100-kliniken-valens-walzenhausen",
         "de": "diplomierte-pflegefachperson-hf-fh-m-w-a-60-100-kliniken-valens-walzenhausen",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-m-f-a-60-100-kliniken-valens-walzenhausen"
@@ -2745,11 +2802,15 @@
         ]
       },
       "previousSlugs": [
-        "abgeschlossene-fachkraft-hf-fh-m-w-a-60-100-kliniken-valens-walzenhausen"
+        "abgeschlossene-fachkraft-hf-fh-m-w-a-60-100-kliniken-valens-walzenhausen",
+        "diplomierte-pflegefachperson-hf-fh-m-w-a-60-100-kliniken-valens-walzenhausen"
       ],
       "previousSlugsByLocale": {
         "de": [
           "abgeschlossene-fachkraft-hf-fh-m-w-a-60-100-kliniken-valens-walzenhausen"
+        ],
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-a-60-100-kliniken-valens-walzenhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.791Z",
@@ -2859,9 +2920,9 @@
     },
     {
       "id": "kliniken-valens-8dfeda9338f3",
-      "slug": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
+      "slug": "consulente-in-specializzato-diabete-m-f-a-50-70-kliniken-valens-st-gallen",
       "slugByLocale": {
-        "it": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
+        "it": "consulente-in-specializzato-diabete-m-f-a-50-70-kliniken-valens-st-gallen",
         "en": "diabetes-specialist-advisor-m-f-a-50-70-kliniken-valens-st-gallen",
         "de": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
         "fr": "conseiller-ere-specialise-e-en-diabete-m-f-a-50-70-kliniken-valens-st-gallen"
@@ -2946,13 +3007,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen"
+      ]
     },
     {
       "id": "kliniken-valens-7bb80c7117ca",
-      "slug": "fachverantwortliche-r-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-valens",
+      "slug": "riabilitazione-neurologica-m-f-a-80-100-kliniken-valens-valens",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-valens",
+        "it": "riabilitazione-neurologica-m-f-a-80-100-kliniken-valens-valens",
         "en": "specialist-nurse-in-neurological-rehabilitation-m-f-a-80-100-kliniken-valens-valens",
         "de": "fachverantwortliche-r-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-valens",
         "fr": "responsable-specialise-en-readaptation-neurologique-m-f-a-80-100-kliniken-valens-valens"
@@ -3028,7 +3097,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortliche-r-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-valens"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortliche-r-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-valens"
+      ]
     },
     {
       "id": "kliniken-valens-9f7b0b8985f3",
@@ -3220,9 +3297,9 @@
     },
     {
       "id": "kliniken-valens-2623e3cb87d2",
-      "slug": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
+      "slug": "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans",
       "slugByLocale": {
-        "it": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
+        "it": "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans",
         "en": "tariff-specialist-m-f-a-40-60-kliniken-valens-sargans",
         "de": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
         "fr": "specialiste-des-tarifs-h-f-a-40-60-kliniken-valens-sargans"
@@ -3285,11 +3362,15 @@
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
+        "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans",
+        "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
       ],
       "previousSlugsByLocale": {
         "de": [
           "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
+        ],
+        "it": [
+          "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.781Z",
@@ -3596,9 +3677,9 @@
     },
     {
       "id": "kliniken-valens-0a8c69458a39",
-      "slug": "vorpraktikant-in-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-chur",
+      "slug": "pre-pratico-in-fisioterapia-terapia-professionale-m-f-a-100-kliniken-valens-chur",
       "slugByLocale": {
-        "it": "vorpraktikant-in-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-chur",
+        "it": "pre-pratico-in-fisioterapia-terapia-professionale-m-f-a-100-kliniken-valens-chur",
         "en": "physiotherapy-occupational-therapy-trainee-m-f-a-100-kliniken-valens-chur",
         "de": "vorpraktikant-in-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-chur",
         "fr": "vorpraktikant-in-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-chur"
@@ -3663,11 +3744,15 @@
         ]
       },
       "previousSlugs": [
-        "vorpraktikant-in-ph-zucchsiotherapie-ergotherapie-m-szr-a-100-kliniken-valens-chur"
+        "vorpraktikant-in-ph-zucchsiotherapie-ergotherapie-m-szr-a-100-kliniken-valens-chur",
+        "vorpraktikant-in-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-chur"
       ],
       "previousSlugsByLocale": {
         "de": [
           "vorpraktikant-in-ph-zucchsiotherapie-ergotherapie-m-szr-a-100-kliniken-valens-chur"
+        ],
+        "it": [
+          "vorpraktikant-in-physiotherapie-ergotherapie-m-w-a-100-kliniken-valens-chur"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.776Z",
@@ -3778,9 +3863,9 @@
     },
     {
       "id": "kliniken-valens-8efe218602ae",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-w-m-a-80-100-kliniken-valens-bad-ragaz",
+      "slug": "dipl-infermieristica-professionale-hf-fh-f-m-a-80-100-kliniken-valens-bad-ragaz",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-w-m-a-80-100-kliniken-valens-bad-ragaz",
+        "it": "dipl-infermieristica-professionale-hf-fh-f-m-a-80-100-kliniken-valens-bad-ragaz",
         "en": "diploma-in-nursing-hf-fh-m-f-a-80-100-kliniken-valens-bad-ragaz",
         "de": "dipl-pflegefachfrau-mann-hf-fh-w-m-a-80-100-kliniken-valens-bad-ragaz",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-h-f-80-100-kliniken-valens-bad-ragaz"
@@ -3855,13 +3940,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-w-m-a-80-100-kliniken-valens-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-fh-w-m-a-80-100-kliniken-valens-bad-ragaz"
+      ]
     },
     {
       "id": "kliniken-valens-6e48b0b15d55",
-      "slug": "teamleiter-in-ergotherapie-m-w-a-80-100-kliniken-valens-walenstadtberg",
+      "slug": "team-leader-in-terapia-professionale-m-f-a-80-100-kliniken-valens-walenstadtberg",
       "slugByLocale": {
-        "it": "teamleiter-in-ergotherapie-m-w-a-80-100-kliniken-valens-walenstadtberg",
+        "it": "team-leader-in-terapia-professionale-m-f-a-80-100-kliniken-valens-walenstadtberg",
         "en": "team-leader-occupational-therapy-m-f-a-80-100-kliniken-valens-walenstadtberg",
         "de": "teamleiter-in-ergotherapie-m-w-a-80-100-kliniken-valens-walenstadtberg",
         "fr": "responsable-d-equipe-en-ergotherapie-h-f-80-100-kliniken-valens-walenstadtberg"
@@ -3948,13 +4041,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-ergotherapie-m-w-a-80-100-kliniken-valens-walenstadtberg"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-ergotherapie-m-w-a-80-100-kliniken-valens-walenstadtberg"
+      ]
     },
     {
       "id": "kliniken-valens-ff7c097790cf",
-      "slug": "dipl-ergotherapeut-in-m-w-a-50-70-kliniken-valens-gais",
+      "slug": "dipl-terapeuta-professionale-in-m-f-a-50-70-kliniken-valens-gais",
       "slugByLocale": {
-        "it": "dipl-ergotherapeut-in-m-w-a-50-70-kliniken-valens-gais",
+        "it": "dipl-terapeuta-professionale-in-m-f-a-50-70-kliniken-valens-gais",
         "en": "occupational-therapist-m-f-a-50-70-kliniken-valens-gais",
         "de": "dipl-ergotherapeut-in-m-w-a-50-70-kliniken-valens-gais",
         "fr": "therapeute-en-ergotherapie-h-f-50-70-kliniken-valens-gais"
@@ -4032,7 +4133,15 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-m-w-a-50-70-kliniken-valens-gais"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-m-w-a-50-70-kliniken-valens-gais"
+      ]
     },
     {
       "id": "kliniken-valens-8bed910fa883",
@@ -4128,9 +4237,9 @@
     },
     {
       "id": "kliniken-valens-61cb217c5a3b",
-      "slug": "unterassistenzarzt-unterassistenzarztin-cand-med-m-w-a-100-kliniken-valens-wald",
+      "slug": "medico-subassista-cand-med-m-f-a-100-kliniken-valens-wald",
       "slugByLocale": {
-        "it": "unterassistenzarzt-unterassistenzarztin-cand-med-m-w-a-100-kliniken-valens-wald",
+        "it": "medico-subassista-cand-med-m-f-a-100-kliniken-valens-wald",
         "en": "medical-student-cand-med-m-f-a-100-kliniken-valens-wald",
         "de": "unterassistenzarzt-unterassistenzarztin-cand-med-m-w-a-100-kliniken-valens-wald",
         "fr": "etudiant-en-medecine-cand-med-m-f-a-100-kliniken-valens-wald"
@@ -4195,7 +4304,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistenzarzt-unterassistenzarztin-cand-med-m-w-a-100-kliniken-valens-wald"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistenzarzt-unterassistenzarztin-cand-med-m-w-a-100-kliniken-valens-wald"
+      ]
     },
     {
       "id": "kliniken-valens-9a1955ed17dd",
@@ -5218,9 +5335,9 @@
     },
     {
       "id": "kliniken-valens-c88764b8a040",
-      "slug": "stationsleiter-in-pflege-m-w-a-100-kliniken-valens-chur",
+      "slug": "responsabile-stazione-in-cura-m-f-a-100-kliniken-valens-chur",
       "slugByLocale": {
-        "it": "stationsleiter-in-pflege-m-w-a-100-kliniken-valens-chur",
+        "it": "responsabile-stazione-in-cura-m-f-a-100-kliniken-valens-chur",
         "en": "head-of-care-station-m-f-a-100-kliniken-valens-chur",
         "de": "stationsleiter-in-pflege-m-w-a-100-kliniken-valens-chur",
         "fr": "responsable-de-la-station-de-soins-h-f-100-kliniken-valens-chur"
@@ -5306,7 +5423,15 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-pflege-m-w-a-100-kliniken-valens-chur"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiter-in-pflege-m-w-a-100-kliniken-valens-chur"
+      ]
     },
     {
       "id": "kliniken-valens-3340bda2e578",
@@ -5795,9 +5920,9 @@
     },
     {
       "id": "kliniken-valens-859243a22ea5",
-      "slug": "fachkraft-hauswirtschaft-m-w-a-50-100-montag-bis-sonntag-06-45-bis-15-45-uhr-kliniken",
+      "slug": "specialista-pulizia-m-f-a-50-100-dal-lunedi-alla-domenica-06-45-a-15-45-kliniken-valens-walzenhausen",
       "slugByLocale": {
-        "it": "fachkraft-hauswirtschaft-m-w-a-50-100-montag-bis-sonntag-06-45-bis-15-45-uhr-kliniken",
+        "it": "specialista-pulizia-m-f-a-50-100-dal-lunedi-alla-domenica-06-45-a-15-45-kliniken-valens-walzenhausen",
         "en": "fachkraft-hauswirtschaft-m-w-a-50-100-monday-to-sunday-06-45-to-15-45-kliniken-valens-walzenhausen",
         "de": "fachkraft-hauswirtschaft-m-w-a-50-100-montag-bis-sonntag-06-45-bis-15-45-uhr-kliniken",
         "fr": "fachkraft-hauswirtschaft-m-p-a-50-100-du-lundi-au-dimanche-de-6-h-45-a-15-h-45-kliniken-valens-walzenhausen"
@@ -5853,7 +5978,15 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachkraft-hauswirtschaft-m-w-a-50-100-montag-bis-sonntag-06-45-bis-15-45-uhr-kliniken"
+        ]
+      },
+      "previousSlugs": [
+        "fachkraft-hauswirtschaft-m-w-a-50-100-montag-bis-sonntag-06-45-bis-15-45-uhr-kliniken"
+      ]
     },
     {
       "id": "kliniken-valens-0972fed8cd6e",
@@ -6033,9 +6166,9 @@
     },
     {
       "id": "kliniken-valens-b094f909aad1",
-      "slug": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-80-100-kliniken-valens-gais",
+      "slug": "dipl-infermieristica-psicosomatica-psichiatria-m-f-a-50-kliniken-valens-gais",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-80-100-kliniken-valens-gais",
+        "it": "dipl-infermieristica-psicosomatica-psichiatria-m-f-a-50-kliniken-valens-gais",
         "en": "diploma-in-psychosomatics-psychiatry-nursing-m-f-a-80-100-kliniken-valens-gais",
         "de": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-80-100-kliniken-valens-gais",
         "fr": "diplome-e-en-soins-infirmiers-en-psychosomatique-psychiatrie-h-f-80-100-kliniken-valens-gais"
@@ -6108,11 +6241,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-50-kliniken-valens-gais"
+        "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-50-kliniken-valens-gais",
+        "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-80-100-kliniken-valens-gais"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-50-kliniken-valens-gais"
+          "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-50-kliniken-valens-gais",
+          "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-80-100-kliniken-valens-gais"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.745Z",
@@ -6452,9 +6587,9 @@
       "slug": "esperto-infermieristico-m-f-a-80-100-kliniken-valens-gais",
       "slugByLocale": {
         "it": "esperto-infermieristico-m-f-a-80-100-kliniken-valens-gais",
-        "en": "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais",
+        "en": "senior-consultant-m-w-a-kliniken-valens-gais",
         "de": "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais",
-        "fr": "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
+        "fr": "consultant-principal-m-m-a-kliniken-valens-gais"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -6496,20 +6631,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais",
-        "senior-consultant-m-w-a-kliniken-valens-gais",
-        "consultant-principal-m-m-a-kliniken-valens-gais"
+        "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
         ],
         "en": [
-          "senior-consultant-m-w-a-kliniken-valens-gais",
           "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
         ],
         "fr": [
-          "consultant-principal-m-m-a-kliniken-valens-gais",
           "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
         ]
       },
@@ -6532,7 +6663,7 @@
       "slug": "stage-in-fisioterapia-ergoterapia-m-f-a-100-nuovi-posti-disponibili-a-partire-da-aprile-2027-kliniken-valens-valens",
       "slugByLocale": {
         "it": "stage-in-fisioterapia-ergoterapia-m-f-a-100-nuovi-posti-disponibili-a-partire-da-aprile-2027-kliniken-valens-valens",
-        "en": "vorpraktikum-physiotherapie-ergotherapie-m-w-a-100-ab-april-2027-wieder-freie-platze",
+        "en": "pre-internship-physiotherapy-occupational-therapy-m-f-a-100-from-july-2027-again-free-places-kliniken-valens-valens",
         "de": "vorpraktikum-physiotherapie-ergotherapie-m-w-a-100-ab-april-2027-wieder-freie-platze",
         "fr": "stage-en-kinesitherapie-ergotherapie-h-f-x-100-nouvelles-places-disponibles-a-partir-d-avril-2027-kliniken-valens-valens"
       },
@@ -6603,6 +6734,9 @@
         "it": [
           "vorpraktikum-physiotherapie-ergotherapie-m-w-a-100-ab-april-2027-wieder-freie-platze",
           "vorpraktikum-physiotherapie-ergotherapie-m-w-a-100-ab-juli-2027-wieder-freie-platze"
+        ],
+        "en": [
+          "vorpraktikum-physiotherapie-ergotherapie-m-w-a-100-ab-april-2027-wieder-freie-platze"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.811Z",
@@ -6956,9 +7090,9 @@
     },
     {
       "id": "kliniken-valens-0b501a4d4a29",
-      "slug": "network-amp-security-technician-m-w-a-80-100-junior-auch-moglich-kliniken-valens-sargans",
+      "slug": "network-security-technician-m-f-a-80-100-giunior-anche-possibile-kliniken-valens-sargans",
       "slugByLocale": {
-        "it": "network-amp-security-technician-m-w-a-80-100-junior-auch-moglich-kliniken-valens-sargans",
+        "it": "network-security-technician-m-f-a-80-100-giunior-anche-possibile-kliniken-valens-sargans",
         "en": "network-security-technician-m-f-a-80-100-junior-also-possible-kliniken-valens-sargans",
         "de": "network-amp-security-technician-m-w-a-80-100-junior-auch-moglich-kliniken-valens-sargans",
         "fr": "technicien-en-reseau-et-securite-m-f-a-80-100-junior-aussi-possible-kliniken-valens-sargans"
@@ -7014,7 +7148,15 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "network-amp-security-technician-m-w-a-80-100-junior-auch-moglich-kliniken-valens-sargans"
+        ]
+      },
+      "previousSlugs": [
+        "network-amp-security-technician-m-w-a-80-100-junior-auch-moglich-kliniken-valens-sargans"
+      ]
     },
     {
       "id": "kliniken-valens-533bc231d8ac",
@@ -7321,9 +7463,9 @@
     },
     {
       "id": "kliniken-valens-e99ada05315e",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-70-m-w-a-kliniken-valens-davos-clavadel",
+      "slug": "dipl-guardia-notturna-professionale-hf-fh-50-m-f-a-kliniken-valens-davos-clavadel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-70-m-w-a-kliniken-valens-davos-clavadel",
+        "it": "dipl-guardia-notturna-professionale-hf-fh-50-m-f-a-kliniken-valens-davos-clavadel",
         "en": "diploma-in-nursing-hf-fh-night-shift-70-m-f-a-kliniken-valens-davos-clavadel",
         "de": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-70-m-w-a-kliniken-valens-davos-clavadel",
         "fr": "infirmier-ere-hf-fh-de-nuit-70-h-f-kliniken-valens-davos-clavadel"
@@ -7403,7 +7545,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-nachtwache-70-m-w-a-kliniken-valens-davos-clavadel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-fh-nachtwache-70-m-w-a-kliniken-valens-davos-clavadel"
+      ]
     },
     {
       "id": "kliniken-valens-15ae442b879f",
@@ -7507,9 +7657,9 @@
     },
     {
       "id": "kliniken-valens-3caaf72d771f",
-      "slug": "dipl-ergotherapeut-in-w-m-a-50-kliniken-valens-davos-clavadel",
+      "slug": "dipl-terapista-in-w-m-a-50-kliniken-valens-davos-clavadel",
       "slugByLocale": {
-        "it": "dipl-ergotherapeut-in-w-m-a-50-kliniken-valens-davos-clavadel",
+        "it": "dipl-terapista-in-w-m-a-50-kliniken-valens-davos-clavadel",
         "en": "dipl-occupational-therapist-m-f-50-kliniken-valens-davos-clavadel",
         "de": "dipl-ergotherapeut-in-w-m-a-50-kliniken-valens-davos-clavadel",
         "fr": "ergotherapeute-dipl-h-f-50-kliniken-valens-davos-clavadel"
@@ -7583,7 +7733,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-w-m-a-50-kliniken-valens-davos-clavadel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-w-m-a-50-kliniken-valens-davos-clavadel"
+      ]
     },
     {
       "id": "kliniken-valens-1884662dc052",
@@ -7674,9 +7832,9 @@
     },
     {
       "id": "kliniken-valens-1e9145cace63",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-m-w-a-50-100-kliniken-valens-davos-clavadel",
+      "slug": "dipl-infermieristica-professionale-hf-fh-m-f-a-50-100-kliniken-valens-davos-clavadel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-m-w-a-50-100-kliniken-valens-davos-clavadel",
+        "it": "dipl-infermieristica-professionale-hf-fh-m-f-a-50-100-kliniken-valens-davos-clavadel",
         "en": "diploma-in-nursing-hf-fh-m-f-a-50-100-kliniken-valens-davos-clavadel",
         "de": "dipl-pflegefachfrau-mann-hf-fh-m-w-a-50-100-kliniken-valens-davos-clavadel",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-m-f-a-50-100-kliniken-valens-davos-clavadel"
@@ -7751,7 +7909,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-m-w-a-50-100-kliniken-valens-davos-clavadel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-fh-m-w-a-50-100-kliniken-valens-davos-clavadel"
+      ]
     },
     {
       "id": "kliniken-valens-efb43df9f238",
@@ -7844,9 +8010,9 @@
     },
     {
       "id": "kliniken-valens-6e97257fd832",
-      "slug": "stv-stationsleiter-in-interdisziplinare-privatabteilung-w-m-a-80-100-kliniken-valens-davos",
+      "slug": "stv-station-manager-in-reparto-privato-interdisciplinare-f-m-a-80-100-kliniken-valens-davos-clavadel",
       "slugByLocale": {
-        "it": "stv-stationsleiter-in-interdisziplinare-privatabteilung-w-m-a-80-100-kliniken-valens-davos",
+        "it": "stv-station-manager-in-reparto-privato-interdisciplinare-f-m-a-80-100-kliniken-valens-davos-clavadel",
         "en": "interdisciplinary-private-department-head-nurse-m-f-d-80-100-kliniken-valens-davos-clavadel",
         "de": "stv-stationsleiter-in-interdisziplinare-privatabteilung-w-m-a-80-100-kliniken-valens-davos",
         "fr": "chef-de-service-interdisciplinaire-secteur-prive-h-f-80-100-kliniken-valens-davos-clavadel"
@@ -7905,11 +8071,15 @@
         ]
       },
       "previousSlugs": [
-        "stv-stationsleiter-in-interdisziplin-graffre-privatabteilung-sqs-m-a-80-100-kliniken-valens-davos-clavadel"
+        "stv-stationsleiter-in-interdisziplin-graffre-privatabteilung-sqs-m-a-80-100-kliniken-valens-davos-clavadel",
+        "stv-stationsleiter-in-interdisziplinare-privatabteilung-w-m-a-80-100-kliniken-valens-davos"
       ],
       "previousSlugsByLocale": {
         "de": [
           "stv-stationsleiter-in-interdisziplin-graffre-privatabteilung-sqs-m-a-80-100-kliniken-valens-davos-clavadel"
+        ],
+        "it": [
+          "stv-stationsleiter-in-interdisziplinare-privatabteilung-w-m-a-80-100-kliniken-valens-davos"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.806Z",

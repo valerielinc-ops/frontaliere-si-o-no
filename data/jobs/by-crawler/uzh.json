@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "uzh-ccb1115ea27c",
-      "slug": "arztsekretarin-sekretar-uzh-zurich-schlieren",
+      "slug": "segretario-medico-segretario-universitat-zurich-zurich-schlieren",
       "slugByLocale": {
-        "it": "arztsekretarin-sekretar-uzh-zurich-schlieren",
-        "en": "arztsekretarin-sekretar-uzh-zurich-schlieren",
+        "it": "segretario-medico-segretario-universitat-zurich-zurich-schlieren",
+        "en": "medical-secretary-secretary-universitat-zurich-zurich-schlieren",
         "de": "arztsekretarin-sekretar-uzh-zurich-schlieren",
-        "fr": "arztsekretarin-sekretar-uzh-zurich-schlieren"
+        "fr": "secretaire-medical-secretaire-universitat-zurich-zurich-schlieren"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -63,16 +63,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-sekretar-uzh-zurich-schlieren"
+        ],
+        "en": [
+          "arztsekretarin-sekretar-uzh-zurich-schlieren"
+        ],
+        "fr": [
+          "arztsekretarin-sekretar-uzh-zurich-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-sekretar-uzh-zurich-schlieren"
+      ]
     },
     {
       "id": "uzh-96b3fcf7d444",
-      "slug": "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine-langerfristige-zusammenarbeit-ist-jedoch-gewunscht-universitat-zurich",
+      "slug": "3-veterinari-veterinari-nella-ricerca-iniziale-limitata-a-1-anno-ma-si-desidera-una-cooperazione-a-piu-lungo-termine",
       "slugByLocale": {
-        "it": "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine-langerfristige-zusammenarbeit-ist-jedoch-gewunscht-universitat-zurich",
-        "en": "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine",
+        "it": "3-veterinari-veterinari-nella-ricerca-iniziale-limitata-a-1-anno-ma-si-desidera-una-cooperazione-a-piu-lungo-termine",
+        "en": "3-veterinarians-veterinarians-in-research-initial-limited-to-1-year-but-a-longer-term-cooperation-is-desired-universitat",
         "de": "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine",
-        "fr": "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine"
+        "fr": "3-veterinaires-veterinaires-en-recherche-d-abord-limite-a-un-an-mais-une-cooperation-a-plus-long-terme-est-souhaitee"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -115,10 +129,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine"
+        "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine",
+        "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine-langerfristige-zusammenarbeit-ist-jedoch-gewunscht-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine",
+          "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine-langerfristige-zusammenarbeit-ist-jedoch-gewunscht-universitat-zurich"
+        ],
+        "en": [
+          "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine"
+        ],
+        "fr": [
           "3-tierarztinnnen-tierarzte-in-der-forschung-initial-befristet-auf-1-jahr-eine"
         ]
       },
@@ -138,12 +160,12 @@
     },
     {
       "id": "uzh-d7d1e50831b6",
-      "slug": "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-uzh",
+      "slug": "3-scienziati-veterinari-inizialmente-definiti-per-1-anno-l-impegno-a-lungo-termine-e-auspicabile-universitat-zurich",
       "slugByLocale": {
-        "it": "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-uzh",
+        "it": "3-scienziati-veterinari-inizialmente-definiti-per-1-anno-l-impegno-a-lungo-termine-e-auspicabile-universitat-zurich",
         "en": "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-uzh",
-        "de": "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-uzh",
-        "fr": "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-universitat-zurich-zurich"
+        "de": "3-veterinarwissenschaftler-zunachst-fur-1-jahr-bezeichnet-langfristiges-engagement-ist-wunschenswert-universitat-zurich",
+        "fr": "3-scientifiques-veterinaires-initialement-nommes-pour-un-an-un-engagement-a-long-terme-est-souhaitable-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -197,16 +219,31 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-uzh"
+        ],
+        "de": [
+          "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-uzh"
+        ],
+        "fr": [
+          "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-universitat-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-uzh",
+        "3-veterinary-scientists-initially-termed-for-1-year-long-term-commitment-is-desirable-universitat-zurich-zurich"
+      ]
     },
     {
       "id": "uzh-2ea48756552c",
-      "slug": "oberarzt-arztin-uzh-zurich",
+      "slug": "medico-senior-medico-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "oberarzt-arztin-uzh-zurich",
-        "en": "oberarzt-arztin-uzh-zurich",
+        "it": "medico-senior-medico-universitat-zurich-zurich",
+        "en": "senior-physician-doctor-universitat-zurich-zurich",
         "de": "oberarzt-arztin-uzh-zurich",
-        "fr": "oberarzt-arztin-uzh-zurich"
+        "fr": "medecin-principal-medecin-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -260,16 +297,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-arztin-uzh-zurich"
+        ],
+        "en": [
+          "oberarzt-arztin-uzh-zurich"
+        ],
+        "fr": [
+          "oberarzt-arztin-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-arztin-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-2ab8c75d9083",
       "slug": "dentalhygieniker-in-mit-rontgenberechtigung-universitat-zurich-zurich",
       "slugByLocale": {
         "it": "dentalhygieniker-in-mit-rontgenberechtigung-universitat-zurich-zurich",
-        "en": "dentalhygieniker-in-mit-rontgenberechtigung-universitat-zurich-zurich",
+        "en": "dental-hygienist-in-with-x-ray-authorization-universitat-zurich-zurich",
         "de": "dentalhygieniker-in-mit-rontgenberechtigung-uzh-zurich",
-        "fr": "dentalhygieniker-in-mit-rontgenberechtigung-universitat-zurich-zurich"
+        "fr": "hygieniste-dentaire-avec-autorisation-de-radiographie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -335,12 +386,12 @@
     },
     {
       "id": "uzh-112f21e462d0",
-      "slug": "professorship-in-gender-economics-universitat-zurich-zurich",
+      "slug": "professore-in-economia-di-genere-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "professorship-in-gender-economics-universitat-zurich-zurich",
+        "it": "professore-in-economia-di-genere-universitat-zurich-zurich",
         "en": "professorship-in-gender-economics-uzh-zurich",
-        "de": "professorship-in-gender-economics-uzh-zurich",
-        "fr": "professorship-in-gender-economics-uzh-zurich"
+        "de": "professur-fur-gender-economics-universitat-zurich-zurich",
+        "fr": "professeur-d-economie-des-sexes-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -382,10 +433,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "professorship-in-gender-economics-uzh-zurich"
+        "professorship-in-gender-economics-uzh-zurich",
+        "professorship-in-gender-economics-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "professorship-in-gender-economics-uzh-zurich",
+          "professorship-in-gender-economics-universitat-zurich-zurich"
+        ],
+        "de": [
+          "professorship-in-gender-economics-uzh-zurich"
+        ],
+        "fr": [
           "professorship-in-gender-economics-uzh-zurich"
         ]
       },
@@ -405,12 +464,12 @@
     },
     {
       "id": "uzh-4210f595c773",
-      "slug": "phd-position-in-cognitive-neuroscience-for-4-years-universitat-zurich-neumunsterallee-9",
+      "slug": "posizione-di-dottorato-in-neuroscienze-cognitive-per-4-anni-universitat-zurich-neumunsterallee-9",
       "slugByLocale": {
-        "it": "phd-position-in-cognitive-neuroscience-for-4-years-universitat-zurich-neumunsterallee-9",
+        "it": "posizione-di-dottorato-in-neuroscienze-cognitive-per-4-anni-universitat-zurich-neumunsterallee-9",
         "en": "phd-position-in-cognitive-neuroscience-for-4-years-uzh-neumunsterallee-9",
-        "de": "phd-position-in-cognitive-neuroscience-for-4-years-uzh-neumunsterallee-9",
-        "fr": "phd-position-in-cognitive-neuroscience-for-4-years-universitat-zurich-neumunsterallee-9"
+        "de": "phd-position-in-der-kognitiven-neurowissenschaft-fur-4-jahre-universitat-zurich-neumunsterallee-9",
+        "fr": "doctorat-en-neuroscience-cognitive-pendant-4-ans-universitat-zurich-neumunsterallee-9"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -453,11 +512,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-in-cognitive-neuroscience-for-4-years-uzh-neumunsterallee-9"
+        "phd-position-in-cognitive-neuroscience-for-4-years-uzh-neumunsterallee-9",
+        "phd-position-in-cognitive-neuroscience-for-4-years-universitat-zurich-neumunsterallee-9"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "phd-position-in-cognitive-neuroscience-for-4-years-uzh-neumunsterallee-9",
+          "phd-position-in-cognitive-neuroscience-for-4-years-universitat-zurich-neumunsterallee-9"
+        ],
+        "de": [
           "phd-position-in-cognitive-neuroscience-for-4-years-uzh-neumunsterallee-9"
+        ],
+        "fr": [
+          "phd-position-in-cognitive-neuroscience-for-4-years-universitat-zurich-neumunsterallee-9"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.841Z",
@@ -479,9 +546,9 @@
       "slug": "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich",
       "slugByLocale": {
         "it": "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich",
-        "en": "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich",
+        "en": "dental-assistant-in-with-x-ray-authorization-universitat-zurich-zurich",
         "de": "dentalassistent-in-mit-rontgenberechtigung-uzh-zurich",
-        "fr": "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich"
+        "fr": "assistant-dentaire-avec-autorisation-de-radiographie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -550,9 +617,9 @@
       "slug": "tiermedizinische-r-praxisassistent-in-der-abteilung-per-weichteil-e-tumorchirurgie-universitat-zurich",
       "slugByLocale": {
         "it": "tiermedizinische-r-praxisassistent-in-der-abteilung-per-weichteil-e-tumorchirurgie-universitat-zurich",
-        "en": "tiermedizinische-r-praxisassistent-in-in-der-abteilung-fur-weichteil-und-tumorchirurgie",
+        "en": "veterinary-practice-assistant-in-the-department-for-soft-tissue-and-tumor-surgery-universitat-zurich-zurich",
         "de": "tiermedizinische-r-praxisassistent-in-in-der-abteilung-fur-weichteil-und-tumorchirurgie",
-        "fr": "tiermedizinische-r-praxisassistent-in-in-der-abteilung-fur-weichteil-und-tumorchirurgie"
+        "fr": "assistant-de-pratique-veterinaire-dans-le-departement-pour-la-chirurgie-des-tissus-mous-et-des-tumeurs-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -600,6 +667,12 @@
       "previousSlugsByLocale": {
         "it": [
           "tiermedizinische-r-praxisassistent-in-in-der-abteilung-fur-weichteil-und-tumorchirurgie"
+        ],
+        "en": [
+          "tiermedizinische-r-praxisassistent-in-in-der-abteilung-fur-weichteil-und-tumorchirurgie"
+        ],
+        "fr": [
+          "tiermedizinische-r-praxisassistent-in-in-der-abteilung-fur-weichteil-und-tumorchirurgie"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.838Z",
@@ -621,9 +694,9 @@
       "slug": "teamleitung-gebaude-e-forschungstechnik-botanischer-garten-universitat-zurich",
       "slugByLocale": {
         "it": "teamleitung-gebaude-e-forschungstechnik-botanischer-garten-universitat-zurich",
-        "en": "teamleitung-gebaude-und-forschungstechnik-botanischer-garten-uzh-zurich",
+        "en": "team-management-building-and-research-technology-botanical-garden-universitat-zurich-zurich",
         "de": "teamleitung-gebaude-und-forschungstechnik-botanischer-garten-uzh-zurich",
-        "fr": "teamleitung-gebaude-und-forschungstechnik-botanischer-garten-uzh-zurich"
+        "fr": "gestion-d-equipe-construction-et-technologie-de-recherche-jardin-botanique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -671,6 +744,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-gebaude-und-forschungstechnik-botanischer-garten-uzh-zurich"
+        ],
+        "en": [
+          "teamleitung-gebaude-und-forschungstechnik-botanischer-garten-uzh-zurich"
+        ],
+        "fr": [
+          "teamleitung-gebaude-und-forschungstechnik-botanischer-garten-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.837Z",
@@ -689,12 +768,12 @@
     },
     {
       "id": "uzh-a67a733d1c9a",
-      "slug": "gebaudetechniker-in-elektro-universitat-zurich-zurich",
+      "slug": "tecnico-edile-in-elettrico-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "gebaudetechniker-in-elektro-universitat-zurich-zurich",
-        "en": "gebaudetechniker-in-elektro-universitat-zurich-zurich",
+        "it": "tecnico-edile-in-elettrico-universitat-zurich-zurich",
+        "en": "building-technician-in-electric-universitat-zurich-zurich",
         "de": "gebaudetechniker-in-elektro-uzh-zurich",
-        "fr": "gebaudetechniker-in-elektro-universitat-zurich-zurich"
+        "fr": "technicien-du-batiment-en-electric-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -737,11 +816,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gebaudetechniker-in-elektro-uzh-zurich"
+        "gebaudetechniker-in-elektro-uzh-zurich",
+        "gebaudetechniker-in-elektro-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gebaudetechniker-in-elektro-uzh-zurich"
+          "gebaudetechniker-in-elektro-uzh-zurich",
+          "gebaudetechniker-in-elektro-universitat-zurich-zurich"
+        ],
+        "en": [
+          "gebaudetechniker-in-elektro-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "gebaudetechniker-in-elektro-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.836Z",
@@ -760,12 +847,12 @@
     },
     {
       "id": "uzh-a70c7f87a3a8",
-      "slug": "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik",
+      "slug": "assistente-di-pratica-veterinaria-tpa-coordinatore-della-clinica-in-chirurgia-piccola-clinica-animale-universitat-zurich",
       "slugByLocale": {
-        "it": "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik",
-        "en": "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik",
+        "it": "assistente-di-pratica-veterinaria-tpa-coordinatore-della-clinica-in-chirurgia-piccola-clinica-animale-universitat-zurich",
+        "en": "veterinary-practice-assistant-tpa-clinic-coordinator-in-surgery-small-animal-clinic-universitat-zurich-zurich",
         "de": "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik",
-        "fr": "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik"
+        "fr": "coordonnatrice-de-la-clinique-de-l-adjointe-a-la-pratique-veterinaire-en-chirurgie-clinique-pour-petits-animaux"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -819,16 +906,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik"
+        ],
+        "en": [
+          "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik"
+        ],
+        "fr": [
+          "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik"
+        ]
+      },
+      "previousSlugs": [
+        "tiermedizinische-r-praxisassistent-in-tpa-klinikkoordinator-in-chirurgie-kleintierklinik"
+      ]
     },
     {
       "id": "uzh-7867d317c190",
       "slug": "laborant-in-cfc-bma-universitat-zurich-zurich",
       "slugByLocale": {
         "it": "laborant-in-cfc-bma-universitat-zurich-zurich",
-        "en": "laborant-in-efz-bma-uzh-zurich",
+        "en": "laboratorin-efz-bma-universitat-zurich-zurich",
         "de": "laborant-in-efz-bma-uzh-zurich",
-        "fr": "laborant-in-efz-bma-uzh-zurich"
+        "fr": "laboratorine-efz-bma-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -874,6 +975,12 @@
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-efz-bma-uzh-zurich"
+        ],
+        "en": [
+          "laborant-in-efz-bma-uzh-zurich"
+        ],
+        "fr": [
+          "laborant-in-efz-bma-uzh-zurich"
         ]
       },
       "previousSlugs": [
@@ -897,9 +1004,9 @@
       "slug": "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich",
       "slugByLocale": {
         "it": "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich",
-        "en": "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich",
+        "en": "department-head-of-bacteriology-m-f-d-with-famh-degree-universitat-zurich-zurich",
         "de": "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich",
-        "fr": "fachbereichsleitung-bakteriologie-m-w-d-mit-famh-abschluss-uzh-zurich"
+        "fr": "chef-de-departement-de-bacteriologie-m-f-d-avec-diplome-famh-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -960,9 +1067,9 @@
       "slug": "weiterbildungsassistent-in-per-kinderzahnmedizin-universitat-zurich",
       "slugByLocale": {
         "it": "weiterbildungsassistent-in-per-kinderzahnmedizin-universitat-zurich",
-        "en": "weiterbildungsassistent-in-fur-kinderzahnmedizin-universitat-zurich-zurich",
+        "en": "further-education-assistant-in-for-child-dentistry-universitat-zurich-zurich",
         "de": "weiterbildungsassistent-in-fur-kinderzahnmedizin-uzh-zurich",
-        "fr": "weiterbildungsassistent-in-fur-kinderzahnmedizin-universitat-zurich-zurich"
+        "fr": "assistant-de-formation-continue-pour-la-dentisterie-enfantine-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1005,11 +1112,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "weiterbildungsassistent-in-fur-kinderzahnmedizin-uzh-zurich"
+        "weiterbildungsassistent-in-fur-kinderzahnmedizin-uzh-zurich",
+        "weiterbildungsassistent-in-fur-kinderzahnmedizin-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weiterbildungsassistent-in-fur-kinderzahnmedizin-uzh-zurich"
+        ],
+        "en": [
+          "weiterbildungsassistent-in-fur-kinderzahnmedizin-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "weiterbildungsassistent-in-fur-kinderzahnmedizin-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.830Z",
@@ -1028,12 +1142,12 @@
     },
     {
       "id": "uzh-909b9df64e55",
-      "slug": "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren",
+      "slug": "medico-r-assistente-pratico-in-mpa-universitat-zurich-zurich-schlieren",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren",
-        "en": "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren",
+        "it": "medico-r-assistente-pratico-in-mpa-universitat-zurich-zurich-schlieren",
+        "en": "medical-r-practical-assistant-in-mpa-universitat-zurich-zurich-schlieren",
         "de": "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren",
-        "fr": "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren"
+        "fr": "assistante-medicale-et-pratique-en-mpa-universitat-zurich-zurich-schlieren"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1087,16 +1201,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-mpa-uzh-zurich-schlieren"
+      ]
     },
     {
       "id": "uzh-faf9d9189551",
-      "slug": "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich",
+      "slug": "assistente-veterinario-tpa-dipartimento-di-medicina-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich",
-        "en": "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich",
+        "it": "assistente-veterinario-tpa-dipartimento-di-medicina-universitat-zurich-zurich",
+        "en": "veterinary-assistant-tpa-department-of-medicine-universitat-zurich-zurich",
         "de": "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich",
-        "fr": "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich"
+        "fr": "assistant-veterinaire-apt-departement-de-medecine-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1150,16 +1278,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich"
+        ],
+        "en": [
+          "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich"
+        ],
+        "fr": [
+          "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "tiermedizinische-r-praxisassistent-in-tpa-abteilung-medizin-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-52ef38f2ef7c",
-      "slug": "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich",
+      "slug": "professore-di-antropologia-evolutiva-e-primatologia-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich",
+        "it": "professore-di-antropologia-evolutiva-e-primatologia-universitat-zurich-zurich",
         "en": "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich",
-        "de": "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich",
-        "fr": "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich"
+        "de": "professur-fur-evolutionare-anthropologie-und-primatologie-universitat-zurich-zurich",
+        "fr": "professeur-d-anthropologie-evolutive-et-de-primatologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1212,16 +1354,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich"
+        ],
+        "de": [
+          "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich"
+        ],
+        "fr": [
+          "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "professorship-for-evolutionary-anthropology-and-primatology-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-47b08019ef92",
-      "slug": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist",
+      "slug": "infermiere-infermiere-di-studio-ambulatorium-neuro-urologia-universitat-zurich-universitatsklinik-balgrist",
       "slugByLocale": {
-        "it": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist",
+        "it": "infermiere-infermiere-di-studio-ambulatorium-neuro-urologia-universitat-zurich-universitatsklinik-balgrist",
         "en": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist",
         "de": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist",
-        "fr": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist"
+        "fr": "infirmiere-infirmiere-d-etudes-neuro-urologie-ambulatoire-universitat-zurich-universitatsklinik-balgrist"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1275,7 +1431,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist"
+        ],
+        "fr": [
+          "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist"
+      ]
     },
     {
       "id": "uzh-583efd5f232c",
@@ -1284,7 +1451,7 @@
         "it": "predoctoral-fellowship-hans-joachim-voth-uzh-zurich",
         "en": "predoctoral-fellowship-hans-joachim-voth-uzh-zurich",
         "de": "predoctoral-fellowship-hans-joachim-voth-uzh-zurich",
-        "fr": "predoctoral-fellowship-hans-joachim-voth-uzh-zurich"
+        "fr": "bourse-predoctorale-hans-joachim-voth-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1342,12 +1509,12 @@
     },
     {
       "id": "uzh-4fffb457d80e",
-      "slug": "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich",
+      "slug": "snsf-avvio-sovvenzione-richiedenti-presso-il-dipartimento-di-astrofisica-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich",
+        "it": "snsf-avvio-sovvenzione-richiedenti-presso-il-dipartimento-di-astrofisica-universitat-zurich-zurich",
         "en": "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich",
-        "de": "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich",
-        "fr": "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich"
+        "de": "snf-starting-grant-bewerber-am-fachbereich-astrophysik-universitat-zurich-zurich",
+        "fr": "snsf-debut-des-demandes-de-subvention-au-departement-d-astrophysique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1400,16 +1567,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich"
+        ],
+        "de": [
+          "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich"
+        ],
+        "fr": [
+          "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "snsf-starting-grant-applicants-at-the-department-of-astrophysics-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-0e4c90528f59",
-      "slug": "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich",
+      "slug": "ricercatore-post-dottorato-in-nanotecnologia-scienza-di-superficie-scienza-polimerica-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich",
+        "it": "ricercatore-post-dottorato-in-nanotecnologia-scienza-di-superficie-scienza-polimerica-universitat-zurich-zurich",
         "en": "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich",
-        "de": "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich",
-        "fr": "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich"
+        "de": "postdoktorand-in-nanotechnologie-surface-science-polymer-science-universitat-zurich-zurich",
+        "fr": "chercheur-postdoctoral-en-nanotechnologie-sciences-de-surface-polymere-science-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1463,16 +1644,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-nanotechnology-surface-science-polymer-science-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-a95bf8b2e81f",
-      "slug": "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der",
+      "slug": "vice-capo-analista-biomedico-hf-team-leader-in-bacteriologia-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der",
-        "en": "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der",
+        "it": "vice-capo-analista-biomedico-hf-team-leader-in-bacteriologia-universitat-zurich-zurich",
+        "en": "deputy-chief-biomedical-analyst-hf-team-leader-in-bacteriology-universitat-zurich-zurich",
         "de": "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der",
-        "fr": "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der"
+        "fr": "analyste-biomedical-adjoint-hf-chef-d-equipe-en-bacteriologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1526,16 +1721,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der"
+        ],
+        "en": [
+          "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der"
+        ],
+        "fr": [
+          "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-r-leitende-r-biomedizinische-r-analytiker-in-hf-teamleitung-in-der"
+      ]
     },
     {
       "id": "uzh-f81ca21443ea",
-      "slug": "wissenschaftliche-assistenz-universitat-zurich-zurich",
+      "slug": "assistenza-scientifica-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-assistenz-universitat-zurich-zurich",
-        "en": "wissenschaftliche-assistenz-universitat-zurich-zurich",
+        "it": "assistenza-scientifica-universitat-zurich-zurich",
+        "en": "scientific-assistance-universitat-zurich-zurich",
         "de": "wissenschaftliche-assistenz-uzh-zurich",
-        "fr": "wissenschaftliche-assistenz-universitat-zurich-zurich"
+        "fr": "assistance-scientifique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1578,11 +1787,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wissenschaftliche-assistenz-uzh-zurich"
+        "wissenschaftliche-assistenz-uzh-zurich",
+        "wissenschaftliche-assistenz-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-assistenz-uzh-zurich"
+          "wissenschaftliche-assistenz-uzh-zurich",
+          "wissenschaftliche-assistenz-universitat-zurich-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-assistenz-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.814Z",
@@ -1601,12 +1818,12 @@
     },
     {
       "id": "uzh-61c598e4425a",
-      "slug": "ecvs-residency-stelle-nutztierchirurgie-universitat-zurich",
+      "slug": "centro-di-residenza-ecvs-per-la-chirurgia-del-bestiame-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "ecvs-residency-stelle-nutztierchirurgie-universitat-zurich",
-        "en": "ecvs-residency-stelle-nutztierchirurgie-uzh-zurich",
+        "it": "centro-di-residenza-ecvs-per-la-chirurgia-del-bestiame-universitat-zurich-zurich",
+        "en": "ecvs-residency-centre-for-livestock-surgery-universitat-zurich-zurich",
         "de": "ecvs-residency-stelle-nutztierchirurgie-uzh-zurich",
-        "fr": "ecvs-residency-stelle-nutztierchirurgie-uzh-zurich"
+        "fr": "centre-de-residence-ecvs-pour-la-chirurgie-du-betail-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1649,10 +1866,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ecvs-residency-stelle-nutztierchirurgie-uzh-zurich"
+        "ecvs-residency-stelle-nutztierchirurgie-uzh-zurich",
+        "ecvs-residency-stelle-nutztierchirurgie-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ecvs-residency-stelle-nutztierchirurgie-uzh-zurich",
+          "ecvs-residency-stelle-nutztierchirurgie-universitat-zurich"
+        ],
+        "en": [
+          "ecvs-residency-stelle-nutztierchirurgie-uzh-zurich"
+        ],
+        "fr": [
           "ecvs-residency-stelle-nutztierchirurgie-uzh-zurich"
         ]
       },
@@ -1672,12 +1897,12 @@
     },
     {
       "id": "uzh-5ab3b159cac3",
-      "slug": "oberassistenz-islamwissenschaft-universitat-zurich-ramistr-59",
+      "slug": "assistente-senior-agli-studi-islamici-universitat-zurich-ramistr",
       "slugByLocale": {
-        "it": "oberassistenz-islamwissenschaft-universitat-zurich-ramistr-59",
-        "en": "oberassistenz-islamwissenschaft-universitat-zurich-ramistr-59",
+        "it": "assistente-senior-agli-studi-islamici-universitat-zurich-ramistr",
+        "en": "senior-assistant-to-islamic-studies-universitat-zurich-ramistr",
         "de": "oberassistenz-islamwissenschaft-uzh-ramistr-59",
-        "fr": "oberassistenz-islamwissenschaft-universitat-zurich-ramistr-59"
+        "fr": "assistant-principal-aux-etudes-islamiques-universitat-zurich-ramistr"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1720,11 +1945,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberassistenz-islamwissenschaft-uzh-ramistr-59"
+        "oberassistenz-islamwissenschaft-uzh-ramistr-59",
+        "oberassistenz-islamwissenschaft-universitat-zurich-ramistr-59"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberassistenz-islamwissenschaft-uzh-ramistr-59"
+          "oberassistenz-islamwissenschaft-uzh-ramistr-59",
+          "oberassistenz-islamwissenschaft-universitat-zurich-ramistr-59"
+        ],
+        "en": [
+          "oberassistenz-islamwissenschaft-universitat-zurich-ramistr-59"
+        ],
+        "fr": [
+          "oberassistenz-islamwissenschaft-universitat-zurich-ramistr-59"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.810Z",
@@ -1743,12 +1976,12 @@
     },
     {
       "id": "uzh-6be12793dc6e",
-      "slug": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
+      "slug": "studente-di-dottorato-in-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
-        "en": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
+        "it": "studente-di-dottorato-in-universitat-zurich-zurich",
+        "en": "job-advertisement-doctoral-student-in-universitat-zurich-zurich",
         "de": "stellenausschreibung-doktorand-in-uzh-zurich",
-        "fr": "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
+        "fr": "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1791,11 +2024,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellenausschreibung-doktorand-in-uzh-zurich"
+        "stellenausschreibung-doktorand-in-uzh-zurich",
+        "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellenausschreibung-doktorand-in-uzh-zurich"
+          "stellenausschreibung-doktorand-in-uzh-zurich",
+          "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.807Z",
@@ -1891,12 +2132,12 @@
     },
     {
       "id": "uzh-315228613d4d",
-      "slug": "tiermedizinische-r-praxisassistent-in-intensivstation-universitat-zurich-zurich",
+      "slug": "veterinaria-r-assistente-di-pratica-in-unita-di-cura-intensiva-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "tiermedizinische-r-praxisassistent-in-intensivstation-universitat-zurich-zurich",
-        "en": "tiermedizinische-r-praxisassistent-in-intensivstation-universitat-zurich-zurich",
+        "it": "veterinaria-r-assistente-di-pratica-in-unita-di-cura-intensiva-universitat-zurich-zurich",
+        "en": "veterinary-r-practice-assistant-in-intensive-care-unit-universitat-zurich-zurich",
         "de": "tiermedizinische-r-praxisassistent-in-intensivstation-uzh-zurich",
-        "fr": "tiermedizinische-r-praxisassistent-in-intensivstation-universitat-zurich-zurich"
+        "fr": "veterinaire-assistant-a-la-pratique-en-unite-de-soins-intensifs-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1939,11 +2180,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tiermedizinische-r-praxisassistent-in-intensivstation-uzh-zurich"
+        "tiermedizinische-r-praxisassistent-in-intensivstation-uzh-zurich",
+        "tiermedizinische-r-praxisassistent-in-intensivstation-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tiermedizinische-r-praxisassistent-in-intensivstation-uzh-zurich"
+          "tiermedizinische-r-praxisassistent-in-intensivstation-uzh-zurich",
+          "tiermedizinische-r-praxisassistent-in-intensivstation-universitat-zurich-zurich"
+        ],
+        "en": [
+          "tiermedizinische-r-praxisassistent-in-intensivstation-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "tiermedizinische-r-praxisassistent-in-intensivstation-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.802Z",
@@ -1965,9 +2214,9 @@
       "slug": "praktikant-innen-per-la-pferdeklinik-universitat-zurich",
       "slugByLocale": {
         "it": "praktikant-innen-per-la-pferdeklinik-universitat-zurich",
-        "en": "praktikant-innen-fur-die-pferdeklinik-uzh-zurich",
+        "en": "interns-for-the-horse-clinic-universitat-zurich-zurich",
         "de": "praktikant-innen-fur-die-pferdeklinik-uzh-zurich",
-        "fr": "praktikant-innen-fur-die-pferdeklinik-uzh-zurich"
+        "fr": "internats-pour-la-clinique-des-chevaux-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2015,6 +2264,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikant-innen-fur-die-pferdeklinik-uzh-zurich"
+        ],
+        "en": [
+          "praktikant-innen-fur-die-pferdeklinik-uzh-zurich"
+        ],
+        "fr": [
+          "praktikant-innen-fur-die-pferdeklinik-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.800Z",
@@ -2036,9 +2291,9 @@
       "slug": "praktikant-innen-per-la-nutztierpflege-universitat-zurich",
       "slugByLocale": {
         "it": "praktikant-innen-per-la-nutztierpflege-universitat-zurich",
-        "en": "praktikant-innen-fur-die-nutztierpflege-uzh-zurich",
+        "en": "trainees-for-farm-animal-care-universitat-zurich-zurich",
         "de": "praktikant-innen-fur-die-nutztierpflege-uzh-zurich",
-        "fr": "praktikant-innen-fur-die-nutztierpflege-uzh-zurich"
+        "fr": "stagiaires-pour-soins-aux-animaux-de-ferme-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2086,6 +2341,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikant-innen-fur-die-nutztierpflege-uzh-zurich"
+        ],
+        "en": [
+          "praktikant-innen-fur-die-nutztierpflege-uzh-zurich"
+        ],
+        "fr": [
+          "praktikant-innen-fur-die-nutztierpflege-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.798Z",
@@ -2104,12 +2365,12 @@
     },
     {
       "id": "uzh-3fccd79fc788",
-      "slug": "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich",
+      "slug": "assistenza-scientifica-nel-campo-del-diritto-migratorio-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich",
-        "en": "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich",
+        "it": "assistenza-scientifica-nel-campo-del-diritto-migratorio-universitat-zurich-zurich",
+        "en": "scientific-assistance-in-the-field-of-migration-law-universitat-zurich-zurich",
         "de": "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich",
-        "fr": "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich"
+        "fr": "assistance-scientifique-dans-le-domaine-du-droit-des-migrations-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2163,16 +2424,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "wissenschaftliche-assistenz-im-bereich-migrationsrecht-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-7ffc3d6c2957",
-      "slug": "postdoctoral-researcher-in-translational-control-uzh-schlieren",
+      "slug": "ricercatore-post-dottorato-nel-controllo-traduttivo-universitat-zurich-schlieren",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-in-translational-control-uzh-schlieren",
+        "it": "ricercatore-post-dottorato-nel-controllo-traduttivo-universitat-zurich-schlieren",
         "en": "postdoctoral-researcher-in-translational-control-uzh-schlieren",
-        "de": "postdoctoral-researcher-in-translational-control-uzh-schlieren",
-        "fr": "postdoctoral-researcher-in-translational-control-universitat-zurich-schlieren"
+        "de": "postdoktorand-in-der-translationalen-kontrolle-universitat-zurich-schlieren",
+        "fr": "chercheur-postdoctoral-en-controle-translationnel-universitat-zurich-schlieren"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2226,16 +2501,31 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-translational-control-uzh-schlieren"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-translational-control-uzh-schlieren"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-translational-control-universitat-zurich-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-translational-control-uzh-schlieren",
+        "postdoctoral-researcher-in-translational-control-universitat-zurich-schlieren"
+      ]
     },
     {
       "id": "uzh-e9df5051adc5",
       "slug": "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-o-zimmermann-zimmerin-universitat-zurich",
       "slugByLocale": {
         "it": "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-o-zimmermann-zimmerin-universitat-zurich",
-        "en": "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-universitat-zurich-zurich",
+        "en": "professional-maintenance-building-maintenance-schreiner-in-or-zimmermann-zimmerin-universitat-zurich-zurich",
         "de": "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-uzh",
-        "fr": "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-universitat-zurich-zurich"
+        "fr": "entretien-professionnel-des-batiments-schreiner-in-ou-zimmermann-zimmerin-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2278,11 +2568,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-uzh"
+        "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-uzh",
+        "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-uzh"
+        ],
+        "en": [
+          "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-instandhaltung-gebaudeunterhalt-schreiner-in-oder-zimmermann-zimmerin-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.794Z",
@@ -2301,12 +2598,12 @@
     },
     {
       "id": "uzh-c0a7cd04c122",
-      "slug": "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh",
+      "slug": "phd-posizione-degli-studenti-nella-spettroscopia-vibrazionale-ultraveloce-dei-catalizzatori-di-riduzione-di-co2",
       "slugByLocale": {
-        "it": "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh",
+        "it": "phd-posizione-degli-studenti-nella-spettroscopia-vibrazionale-ultraveloce-dei-catalizzatori-di-riduzione-di-co2",
         "en": "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh",
-        "de": "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh",
-        "fr": "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh"
+        "de": "doktorandenposition-in-der-ultraschnellen-vibrationsspektroskopie-von-co2-reduktionskatalysatoren-universitat-zurich",
+        "fr": "poste-d-etudiant-au-doctorat-en-spectroscopie-vibrante-ultrarapide-des-catalyseurs-de-reduction-du-co2-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2359,16 +2656,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh"
+        ],
+        "de": [
+          "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh"
+        ],
+        "fr": [
+          "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-position-in-ultrafast-vibrational-spectroscopy-of-co2-reduction-catalysts-uzh"
+      ]
     },
     {
       "id": "uzh-aba473aa742c",
       "slug": "verwaltungsassistent-in-geschaftsfuhrung-wwpk-e-aes-universitat-zurich",
       "slugByLocale": {
         "it": "verwaltungsassistent-in-geschaftsfuhrung-wwpk-e-aes-universitat-zurich",
-        "en": "verwaltungsassistent-in-geschaftsfuhrung-wwpk-und-aes-uzh-zurich",
+        "en": "administrative-assistant-in-management-wwpk-and-aes-universitat-zurich-zurich",
         "de": "verwaltungsassistent-in-geschaftsfuhrung-wwpk-und-aes-uzh-zurich",
-        "fr": "verwaltungsassistent-in-geschaftsfuhrung-wwpk-und-aes-uzh-zurich"
+        "fr": "assistant-administratif-en-gestion-wwpk-et-aes-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2416,6 +2727,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verwaltungsassistent-in-geschaftsfuhrung-wwpk-und-aes-uzh-zurich"
+        ],
+        "en": [
+          "verwaltungsassistent-in-geschaftsfuhrung-wwpk-und-aes-uzh-zurich"
+        ],
+        "fr": [
+          "verwaltungsassistent-in-geschaftsfuhrung-wwpk-und-aes-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.791Z",
@@ -2434,12 +2751,12 @@
     },
     {
       "id": "uzh-cbdfa153eb90",
-      "slug": "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich",
+      "slug": "una-posizione-dottorale-incorporata-in-un-progetto-snf-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich",
+        "it": "una-posizione-dottorale-incorporata-in-un-progetto-snf-universitat-zurich-zurich",
         "en": "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich",
-        "de": "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich",
-        "fr": "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich"
+        "de": "eine-doktorandenstelle-eingebettet-in-ein-snf-projekt-universitat-zurich-zurich",
+        "fr": "un-poste-de-doctorat-integre-a-un-projet-du-snf-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2493,7 +2810,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich"
+        ],
+        "de": [
+          "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich"
+        ],
+        "fr": [
+          "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "one-doctoral-position-embedded-in-an-snf-project-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-2a1990ad396f",
@@ -2501,8 +2832,8 @@
       "slugByLocale": {
         "it": "international-fully-funded-phd-positions-in-the-life-sciences-uzh-zurich-basel",
         "en": "international-fully-funded-phd-positions-in-the-life-sciences-uzh-zurich-basel",
-        "de": "international-fully-funded-phd-positions-in-the-life-sciences-uzh-zurich-basel",
-        "fr": "international-fully-funded-phd-positions-in-the-life-sciences-uzh-zurich-basel"
+        "de": "internationale-vollstandig-finanzierte-phd-stellen-in-den-life-sciences-universitat-zurich-zurich-basel",
+        "fr": "postes-internationaux-de-doctorat-entierement-finances-dans-les-sciences-de-la-vie-universitat-zurich-zurich-basel"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2560,12 +2891,12 @@
     },
     {
       "id": "uzh-28a62f310c96",
-      "slug": "post-doktorand-in-uzh-zurich",
+      "slug": "ricercatore-post-dottorato-in-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "post-doktorand-in-uzh-zurich",
-        "en": "post-doktorand-in-uzh-zurich",
+        "it": "ricercatore-post-dottorato-in-universitat-zurich-zurich",
+        "en": "post-doctoral-researcher-in-universitat-zurich-zurich",
         "de": "post-doktorand-in-uzh-zurich",
-        "fr": "post-doktorand-in-uzh-zurich"
+        "fr": "chercheur-postdoctoral-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2619,16 +2950,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "post-doktorand-in-uzh-zurich"
+        ],
+        "en": [
+          "post-doktorand-in-uzh-zurich"
+        ],
+        "fr": [
+          "post-doktorand-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "post-doktorand-in-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-4016d78ae1e0",
-      "slug": "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie",
+      "slug": "offriamo-ora-un-assistente-per-una-formazione-ulteriore-in-patologia-veterinaria-residency-universitat-zurich-institut",
       "slugByLocale": {
-        "it": "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie",
-        "en": "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie",
+        "it": "offriamo-ora-un-assistente-per-una-formazione-ulteriore-in-patologia-veterinaria-residency-universitat-zurich-institut",
+        "en": "we-now-offer-an-assistant-office-for-further-training-in-veterinary-pathology-residency-universitat-zurich-institut-fur",
         "de": "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie",
-        "fr": "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie"
+        "fr": "nous-offrons-maintenant-un-bureau-adjoint-pour-la-formation-continue-en-pathologie-veterinaire-residence-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2682,16 +3027,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie"
+        ],
+        "en": [
+          "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie"
+        ],
+        "fr": [
+          "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie"
+        ]
+      },
+      "previousSlugs": [
+        "wir-bieten-ab-sofort-eine-assistenzstelle-zur-weiterbildung-in-der-veterinarpathologie"
+      ]
     },
     {
       "id": "uzh-bfbd489184cd",
-      "slug": "training-position-in-veterinary-pathology-universitat-zurich-institut-fur-veterinarpathologie",
+      "slug": "posizione-di-formazione-in-patologia-veterinaria-universitat-zurich-institut-fur-veterinarpathologie",
       "slugByLocale": {
-        "it": "training-position-in-veterinary-pathology-universitat-zurich-institut-fur-veterinarpathologie",
+        "it": "posizione-di-formazione-in-patologia-veterinaria-universitat-zurich-institut-fur-veterinarpathologie",
         "en": "training-position-in-veterinary-pathology-uzh-institut-fur-veterinarpathologie",
-        "de": "training-position-in-veterinary-pathology-uzh-institut-fur-veterinarpathologie",
-        "fr": "training-position-in-veterinary-pathology-universitat-zurich-institut-fur-veterinarpathologie"
+        "de": "ausbildungsposition-in-der-veterinarpathologie-universitat-zurich-institut-fur-veterinarpathologie",
+        "fr": "poste-de-formation-en-pathologie-veterinaire-universitat-zurich-institut-fur-veterinarpathologie"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2734,11 +3093,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "training-position-in-veterinary-pathology-uzh-institut-fur-veterinarpathologie"
+        "training-position-in-veterinary-pathology-uzh-institut-fur-veterinarpathologie",
+        "training-position-in-veterinary-pathology-universitat-zurich-institut-fur-veterinarpathologie"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "training-position-in-veterinary-pathology-uzh-institut-fur-veterinarpathologie",
+          "training-position-in-veterinary-pathology-universitat-zurich-institut-fur-veterinarpathologie"
+        ],
+        "de": [
           "training-position-in-veterinary-pathology-uzh-institut-fur-veterinarpathologie"
+        ],
+        "fr": [
+          "training-position-in-veterinary-pathology-universitat-zurich-institut-fur-veterinarpathologie"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.784Z",
@@ -2760,9 +3127,9 @@
       "slug": "zahnarzt-arztin-per-den-bereich-kariologie-e-restaurative-zahnerhaltung-universitat-zurich",
       "slugByLocale": {
         "it": "zahnarzt-arztin-per-den-bereich-kariologie-e-restaurative-zahnerhaltung-universitat-zurich",
-        "en": "zahnarzt-arztin-fur-den-bereich-kariologie-und-restaurative-zahnerhaltung-uzh-zurich",
+        "en": "dentist-doctor-for-cariology-and-restorative-dental-preservation-universitat-zurich-zurich",
         "de": "zahnarzt-arztin-fur-den-bereich-kariologie-und-restaurative-zahnerhaltung-uzh-zurich",
-        "fr": "zahnarzt-arztin-fur-den-bereich-kariologie-und-restaurative-zahnerhaltung-uzh-zurich"
+        "fr": "dentiste-medecin-en-cardiologie-et-en-restauration-dentaire-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2810,6 +3177,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zahnarzt-arztin-fur-den-bereich-kariologie-und-restaurative-zahnerhaltung-uzh-zurich"
+        ],
+        "en": [
+          "zahnarzt-arztin-fur-den-bereich-kariologie-und-restaurative-zahnerhaltung-uzh-zurich"
+        ],
+        "fr": [
+          "zahnarzt-arztin-fur-den-bereich-kariologie-und-restaurative-zahnerhaltung-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.782Z",
@@ -2828,12 +3201,12 @@
     },
     {
       "id": "uzh-1086546c76e7",
-      "slug": "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich",
+      "slug": "assistenza-scientifica-in-diritto-pubblico-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich",
-        "en": "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich",
+        "it": "assistenza-scientifica-in-diritto-pubblico-universitat-zurich-zurich",
+        "en": "scientific-assistance-in-public-law-universitat-zurich-zurich",
         "de": "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich",
-        "fr": "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich"
+        "fr": "assistance-scientifique-en-droit-public-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2887,16 +3260,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "wissenschaftliche-assistenz-im-offentlichen-recht-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-806ff702cfeb",
-      "slug": "assistenzstelle-universitat-zurich-winterthurerstrasse-260",
+      "slug": "assistenza-universitat-zurich-winterthurerstrasse-260",
       "slugByLocale": {
-        "it": "assistenzstelle-universitat-zurich-winterthurerstrasse-260",
-        "en": "assistenzstelle-universitat-zurich-winterthurerstrasse-260",
+        "it": "assistenza-universitat-zurich-winterthurerstrasse-260",
+        "en": "assistance-universitat-zurich-winterthurerstrasse-260",
         "de": "assistenzstelle-uzh-winterthurerstrasse-260",
-        "fr": "assistenzstelle-universitat-zurich-winterthurerstrasse-260"
+        "fr": "concours-universitat-zurich-winterthurerstrasse-260"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2939,11 +3326,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzstelle-uzh-winterthurerstrasse-260"
+        "assistenzstelle-uzh-winterthurerstrasse-260",
+        "assistenzstelle-universitat-zurich-winterthurerstrasse-260"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzstelle-uzh-winterthurerstrasse-260"
+          "assistenzstelle-uzh-winterthurerstrasse-260",
+          "assistenzstelle-universitat-zurich-winterthurerstrasse-260"
+        ],
+        "en": [
+          "assistenzstelle-universitat-zurich-winterthurerstrasse-260"
+        ],
+        "fr": [
+          "assistenzstelle-universitat-zurich-winterthurerstrasse-260"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.780Z",
@@ -3033,12 +3428,12 @@
     },
     {
       "id": "uzh-831740136ea3",
-      "slug": "professorship-for-muon-spectroscopy-uzh-villigen-psi",
+      "slug": "professore-di-spettroscopia-muon-universitat-zurich-villigen-psi",
       "slugByLocale": {
-        "it": "professorship-for-muon-spectroscopy-uzh-villigen-psi",
+        "it": "professore-di-spettroscopia-muon-universitat-zurich-villigen-psi",
         "en": "professorship-for-muon-spectroscopy-uzh-villigen-psi",
-        "de": "professorship-for-muon-spectroscopy-uzh-villigen-psi",
-        "fr": "professorship-for-muon-spectroscopy-uzh-villigen-psi"
+        "de": "professur-fur-muonenspektroskopie-universitat-zurich-villigen-psi",
+        "fr": "professeur-de-spectroscopie-muon-universitat-zurich-villigen-psi"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3091,16 +3486,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "professorship-for-muon-spectroscopy-uzh-villigen-psi"
+        ],
+        "de": [
+          "professorship-for-muon-spectroscopy-uzh-villigen-psi"
+        ],
+        "fr": [
+          "professorship-for-muon-spectroscopy-uzh-villigen-psi"
+        ]
+      },
+      "previousSlugs": [
+        "professorship-for-muon-spectroscopy-uzh-villigen-psi"
+      ]
     },
     {
       "id": "uzh-0f5921d83813",
-      "slug": "hilfsassistent-in-im-masterstudium-uzh-zurich",
+      "slug": "assistente-nel-master-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "hilfsassistent-in-im-masterstudium-uzh-zurich",
-        "en": "hilfsassistent-in-im-masterstudium-uzh-zurich",
+        "it": "assistente-nel-master-universitat-zurich-zurich",
+        "en": "assistant-in-the-master-s-degree-universitat-zurich-zurich",
         "de": "hilfsassistent-in-im-masterstudium-uzh-zurich",
-        "fr": "hilfsassistent-in-im-masterstudium-uzh-zurich"
+        "fr": "assistant-maitrise-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3154,16 +3563,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsassistent-in-im-masterstudium-uzh-zurich"
+        ],
+        "en": [
+          "hilfsassistent-in-im-masterstudium-uzh-zurich"
+        ],
+        "fr": [
+          "hilfsassistent-in-im-masterstudium-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hilfsassistent-in-im-masterstudium-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-b0e56d5ccf75",
       "slug": "leitende-n-dentalassistent-in-con-weiterbildung-come-dipl-praxismanager-in-universitat-zurich",
       "slugByLocale": {
         "it": "leitende-n-dentalassistent-in-con-weiterbildung-come-dipl-praxismanager-in-universitat-zurich",
-        "en": "leitende-n-dentalassistent-in-mit-weiterbildung-als-dipl-praxismanager-in-uzh-zurich",
+        "en": "senior-n-dental-assistant-in-with-further-education-as-dipl-practice-manager-in-universitat-zurich-zurich",
         "de": "leitende-n-dentalassistent-in-mit-weiterbildung-als-dipl-praxismanager-in-uzh-zurich",
-        "fr": "leitende-n-dentalassistent-in-mit-weiterbildung-als-dipl-praxismanager-in-uzh-zurich"
+        "fr": "senior-n-dental-assistant-avec-des-etudes-plus-poussees-comme-dipl-gestionnaire-de-la-pratique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3210,6 +3633,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leitende-n-dentalassistent-in-mit-weiterbildung-als-dipl-praxismanager-in-uzh-zurich"
+        ],
+        "en": [
+          "leitende-n-dentalassistent-in-mit-weiterbildung-als-dipl-praxismanager-in-uzh-zurich"
+        ],
+        "fr": [
           "leitende-n-dentalassistent-in-mit-weiterbildung-als-dipl-praxismanager-in-uzh-zurich"
         ]
       },
@@ -3380,12 +3809,12 @@
     },
     {
       "id": "uzh-1e46b63da6c6",
-      "slug": "phd-position-in-hydrology-uzh-zurich",
+      "slug": "posizione-di-dottorato-in-idrologia-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-position-in-hydrology-uzh-zurich",
+        "it": "posizione-di-dottorato-in-idrologia-universitat-zurich-zurich",
         "en": "phd-position-in-hydrology-uzh-zurich",
-        "de": "phd-position-in-hydrology-uzh-zurich",
-        "fr": "phd-position-in-hydrology-uzh-zurich"
+        "de": "phd-position-in-der-hydrologie-universitat-zurich-zurich",
+        "fr": "doctorat-en-hydrologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3439,7 +3868,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-hydrology-uzh-zurich"
+        ],
+        "de": [
+          "phd-position-in-hydrology-uzh-zurich"
+        ],
+        "fr": [
+          "phd-position-in-hydrology-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-hydrology-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-a2dd699d18a2",
@@ -3447,8 +3890,8 @@
       "slugByLocale": {
         "it": "inbreeding-in-a-wild-mammal-system-for-4-years-uzh-zurich",
         "en": "inbreeding-in-a-wild-mammal-system-for-4-years-uzh-zurich",
-        "de": "inbreeding-in-a-wild-mammal-system-for-4-years-uzh-zurich",
-        "fr": "inbreeding-in-a-wild-mammal-system-for-4-years-uzh-zurich"
+        "de": "inzucht-in-einem-wilden-saugetiersystem-fur-4-jahre-universitat-zurich-zurich",
+        "fr": "la-consanguinite-dans-un-systeme-de-mammiferes-sauvages-pendant-4-ans-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3509,9 +3952,9 @@
       "slug": "gastprofessur-per-islamische-theologie-e-bildung-universitat-zurich",
       "slugByLocale": {
         "it": "gastprofessur-per-islamische-theologie-e-bildung-universitat-zurich",
-        "en": "gastprofessur-fur-islamische-theologie-und-bildung-uzh-zurich",
+        "en": "visiting-professorship-for-islamic-theology-and-education-universitat-zurich-zurich",
         "de": "gastprofessur-fur-islamische-theologie-und-bildung-uzh-zurich",
-        "fr": "gastprofessur-fur-islamische-theologie-und-bildung-uzh-zurich"
+        "fr": "professeur-invite-pour-la-theologie-islamique-et-l-education-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3559,6 +4002,12 @@
       "previousSlugsByLocale": {
         "it": [
           "gastprofessur-fur-islamische-theologie-und-bildung-uzh-zurich"
+        ],
+        "en": [
+          "gastprofessur-fur-islamische-theologie-und-bildung-uzh-zurich"
+        ],
+        "fr": [
+          "gastprofessur-fur-islamische-theologie-und-bildung-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.767Z",
@@ -3580,9 +4029,9 @@
       "slug": "tutor-innen-gesucht-per-einfuhrung-in-das-wissenschaftliche-arbeiten-im-hs26-alle-oec-inf-fachrichtungen-universitat-zurich-8032",
       "slugByLocale": {
         "it": "tutor-innen-gesucht-per-einfuhrung-in-das-wissenschaftliche-arbeiten-im-hs26-alle-oec-inf-fachrichtungen-universitat-zurich-8032",
-        "en": "tutor-innen-gesucht-fur-einfuhrung-in-das-wissenschaftliche-arbeiten-im-hs26-alle-oec-inf",
+        "en": "tutors-wanted-for-introduction-to-scientific-work-in-hs26-all-oec-inf-disciplines-universitat-zurich-8032",
         "de": "tutor-innen-gesucht-fur-einfuhrung-in-das-wissenschaftliche-arbeiten-im-hs26-alle-oec-inf",
-        "fr": "tutor-innen-gesucht-fur-einfuhrung-in-das-wissenschaftliche-arbeiten-im-hs26-alle-oec-inf"
+        "fr": "tuteurs-recherches-pour-l-introduction-a-des-travaux-scientifiques-dans-hs26-toutes-les-disciplines-oec-inf-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3630,6 +4079,12 @@
       "previousSlugsByLocale": {
         "it": [
           "tutor-innen-gesucht-fur-einfuhrung-in-das-wissenschaftliche-arbeiten-im-hs26-alle-oec-inf"
+        ],
+        "en": [
+          "tutor-innen-gesucht-fur-einfuhrung-in-das-wissenschaftliche-arbeiten-im-hs26-alle-oec-inf"
+        ],
+        "fr": [
+          "tutor-innen-gesucht-fur-einfuhrung-in-das-wissenschaftliche-arbeiten-im-hs26-alle-oec-inf"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.765Z",
@@ -3648,12 +4103,12 @@
     },
     {
       "id": "uzh-c68aea42e332",
-      "slug": "tierpfleger-in-schwerpunkt-pferdechirurgie-universitat-zurich-zurich",
+      "slug": "infermiere-animale-messa-a-fuoco-su-chirurgia-cavallo-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "tierpfleger-in-schwerpunkt-pferdechirurgie-universitat-zurich-zurich",
-        "en": "tierpfleger-in-schwerpunkt-pferdechirurgie-universitat-zurich-zurich",
+        "it": "infermiere-animale-messa-a-fuoco-su-chirurgia-cavallo-universitat-zurich-zurich",
+        "en": "animal-nurse-focus-on-horse-surgery-universitat-zurich-zurich",
         "de": "tierpfleger-in-schwerpunkt-pferdechirurgie-uzh-zurich",
-        "fr": "tierpfleger-in-schwerpunkt-pferdechirurgie-universitat-zurich-zurich"
+        "fr": "infirmiere-animale-focus-sur-la-chirurgie-des-chevaux-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3696,11 +4151,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tierpfleger-in-schwerpunkt-pferdechirurgie-uzh-zurich"
+        "tierpfleger-in-schwerpunkt-pferdechirurgie-uzh-zurich",
+        "tierpfleger-in-schwerpunkt-pferdechirurgie-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tierpfleger-in-schwerpunkt-pferdechirurgie-uzh-zurich"
+          "tierpfleger-in-schwerpunkt-pferdechirurgie-uzh-zurich",
+          "tierpfleger-in-schwerpunkt-pferdechirurgie-universitat-zurich-zurich"
+        ],
+        "en": [
+          "tierpfleger-in-schwerpunkt-pferdechirurgie-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "tierpfleger-in-schwerpunkt-pferdechirurgie-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.762Z",
@@ -3719,12 +4182,12 @@
     },
     {
       "id": "uzh-2e4e858d3520",
-      "slug": "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich",
+      "slug": "gestione-del-museo-di-storia-naturale-dell-universita-di-zurigo-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich",
-        "en": "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich",
+        "it": "gestione-del-museo-di-storia-naturale-dell-universita-di-zurigo-universitat-zurich-zurich",
+        "en": "management-of-the-natural-history-museum-of-the-university-of-zurich-universitat-zurich-zurich",
         "de": "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich",
-        "fr": "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich"
+        "fr": "gestion-du-musee-d-histoire-naturelle-de-l-universite-de-zurich-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3778,16 +4241,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich"
+        ],
+        "en": [
+          "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich"
+        ],
+        "fr": [
+          "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrung-naturhistorisches-museum-der-universitat-zurich-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-cf065d9cc80c",
-      "slug": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology",
+      "slug": "mnf-open-phd-posizione-branching-spirali-in-tempo-profondo-filogenesi-ammoniaca-e-macroecologia-universitat-zurich",
       "slugByLocale": {
-        "it": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology",
+        "it": "mnf-open-phd-posizione-branching-spirali-in-tempo-profondo-filogenesi-ammoniaca-e-macroecologia-universitat-zurich",
         "en": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology",
-        "de": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology",
-        "fr": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology"
+        "de": "mnf-offene-phd-position-verzweigung-spiralen-in-der-tiefe-der-zeit-ammonoid-phylogenie-und-makrookologie-universitat",
+        "fr": "mnf-open-phd-position-spirales-de-branchement-en-temps-profond-phylogenie-des-ammoniacs-et-macroecologie-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3840,16 +4317,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology"
+        ],
+        "de": [
+          "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology"
+        ],
+        "fr": [
+          "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology"
+        ]
+      },
+      "previousSlugs": [
+        "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology"
+      ]
     },
     {
       "id": "uzh-2b35bc0adc66",
-      "slug": "phd-in-network-science-modeling-of-animal-networks-uzh-zurich",
+      "slug": "phd-in-network-science-modellazione-di-reti-animali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-in-network-science-modeling-of-animal-networks-uzh-zurich",
+        "it": "phd-in-network-science-modellazione-di-reti-animali-universitat-zurich-zurich",
         "en": "phd-in-network-science-modeling-of-animal-networks-uzh-zurich",
-        "de": "phd-in-network-science-modeling-of-animal-networks-uzh-zurich",
-        "fr": "phd-in-network-science-modeling-of-animal-networks-uzh-zurich"
+        "de": "phd-in-network-science-modellierung-von-tiernetzwerken-universitat-zurich-zurich",
+        "fr": "doctorat-en-sciences-du-reseau-modelisation-des-reseaux-d-animaux-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3903,16 +4394,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-in-network-science-modeling-of-animal-networks-uzh-zurich"
+        ],
+        "de": [
+          "phd-in-network-science-modeling-of-animal-networks-uzh-zurich"
+        ],
+        "fr": [
+          "phd-in-network-science-modeling-of-animal-networks-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-in-network-science-modeling-of-animal-networks-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-5779c41620d0",
-      "slug": "tiermedizinische-r-praxisassistent-in-notfallklinik-universitat-zurich-zurich",
+      "slug": "veterinario-r-assistente-di-pratica-in-clinica-di-emergenza-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "tiermedizinische-r-praxisassistent-in-notfallklinik-universitat-zurich-zurich",
-        "en": "tiermedizinische-r-praxisassistent-in-notfallklinik-universitat-zurich-zurich",
+        "it": "veterinario-r-assistente-di-pratica-in-clinica-di-emergenza-universitat-zurich-zurich",
+        "en": "veterinary-r-practice-assistant-in-emergency-clinic-universitat-zurich-zurich",
         "de": "tiermedizinische-r-praxisassistent-in-notfallklinik-uzh-zurich",
-        "fr": "tiermedizinische-r-praxisassistent-in-notfallklinik-universitat-zurich-zurich"
+        "fr": "veterinaire-assistant-de-pratique-en-clinique-d-urgence-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3955,11 +4460,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tiermedizinische-r-praxisassistent-in-notfallklinik-uzh-zurich"
+        "tiermedizinische-r-praxisassistent-in-notfallklinik-uzh-zurich",
+        "tiermedizinische-r-praxisassistent-in-notfallklinik-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tiermedizinische-r-praxisassistent-in-notfallklinik-uzh-zurich"
+          "tiermedizinische-r-praxisassistent-in-notfallklinik-uzh-zurich",
+          "tiermedizinische-r-praxisassistent-in-notfallklinik-universitat-zurich-zurich"
+        ],
+        "en": [
+          "tiermedizinische-r-praxisassistent-in-notfallklinik-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "tiermedizinische-r-praxisassistent-in-notfallklinik-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.756Z",
@@ -3978,12 +4491,12 @@
     },
     {
       "id": "uzh-29af5d9a7e3a",
-      "slug": "study-nurse-uzh-zurich",
+      "slug": "studio-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "study-nurse-uzh-zurich",
+        "it": "studio-universitat-zurich-zurich",
         "en": "study-nurse-uzh-zurich",
         "de": "study-nurse-uzh-zurich",
-        "fr": "study-nurse-uzh-zurich"
+        "fr": "infirmiere-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4037,16 +4550,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-uzh-zurich"
+        ],
+        "fr": [
+          "study-nurse-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-874ede030777",
-      "slug": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology-2",
+      "slug": "mnf-open-phd-posizione-branching-spirali-in-tempo-profondo-filogenesi-ammoniaca-e-macroecologia-universitat-22970d",
       "slugByLocale": {
-        "it": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology-2",
+        "it": "mnf-open-phd-posizione-branching-spirali-in-tempo-profondo-filogenesi-ammoniaca-e-macroecologia-universitat-22970d",
         "en": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology",
-        "de": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology-2",
-        "fr": "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology-2"
+        "de": "mnf-offene-phd-position-verzweigung-spiralen-in-der-tiefe-der-zeit-ammonoid-phylogenie-und-makrookologie-22970d",
+        "fr": "mnf-open-phd-position-spirales-de-branchement-en-temps-profond-phylogenie-des-ammoniacs-et-macroecologie-22970d"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4099,16 +4623,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology-2"
+        ],
+        "de": [
+          "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology-2"
+        ],
+        "fr": [
+          "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology-2"
+        ]
+      },
+      "previousSlugs": [
+        "mnf-open-phd-position-branching-spirals-in-deep-time-ammonoid-phylogeny-and-macroecology-2"
+      ]
     },
     {
       "id": "uzh-268fabe6593d",
       "slug": "wissenschaftliche-r-collaboratore-trice-in-support-forschung-e-lehre-bzw-hilfsassistenz-universitat-zurich",
       "slugByLocale": {
         "it": "wissenschaftliche-r-collaboratore-trice-in-support-forschung-e-lehre-bzw-hilfsassistenz-universitat-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-universitat-zurich-zurich",
+        "en": "scientific-employee-support-research-and-teaching-or-auxiliary-assistance-universitat-zurich-zurich",
         "de": "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-uzh",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-universitat-zurich-zurich"
+        "fr": "employe-scientifique-appui-a-la-recherche-et-a-l-enseignement-ou-assistance-auxiliaire-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4151,11 +4689,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-uzh"
+        "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-uzh",
+        "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-uzh"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-support-forschung-und-lehre-bzw-hilfsassistenz-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.752Z",
@@ -4174,12 +4719,12 @@
     },
     {
       "id": "uzh-7afbaa460792",
-      "slug": "residency-stelle-in-klinischer-pathologie-ecvcp-universitat-zurich",
+      "slug": "ufficio-residenziale-in-patologia-clinica-ecvcp-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "residency-stelle-in-klinischer-pathologie-ecvcp-universitat-zurich",
-        "en": "residency-stelle-in-klinischer-pathologie-ecvcp-uzh-zurich",
+        "it": "ufficio-residenziale-in-patologia-clinica-ecvcp-universitat-zurich-zurich",
+        "en": "residency-office-in-clinical-pathology-ecvcp-universitat-zurich-zurich",
         "de": "residency-stelle-in-klinischer-pathologie-ecvcp-uzh-zurich",
-        "fr": "residency-stelle-in-klinischer-pathologie-ecvcp-uzh-zurich"
+        "fr": "bureau-de-residence-en-pathologie-clinique-ecvcp-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4222,10 +4767,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "residency-stelle-in-klinischer-pathologie-ecvcp-uzh-zurich"
+        "residency-stelle-in-klinischer-pathologie-ecvcp-uzh-zurich",
+        "residency-stelle-in-klinischer-pathologie-ecvcp-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "residency-stelle-in-klinischer-pathologie-ecvcp-uzh-zurich",
+          "residency-stelle-in-klinischer-pathologie-ecvcp-universitat-zurich"
+        ],
+        "en": [
+          "residency-stelle-in-klinischer-pathologie-ecvcp-uzh-zurich"
+        ],
+        "fr": [
           "residency-stelle-in-klinischer-pathologie-ecvcp-uzh-zurich"
         ]
       },
@@ -4245,9 +4798,9 @@
     },
     {
       "id": "uzh-848d4f8557ec",
-      "slug": "md-phd-position-m-w-uzh-zurich",
+      "slug": "posizione-md-phd-m-w-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "md-phd-position-m-w-uzh-zurich",
+        "it": "posizione-md-phd-m-w-universitat-zurich-zurich",
         "en": "md-phd-position-m-w-universitat-zurich-zurich",
         "de": "md-phd-position-m-w-uzh-zurich",
         "fr": "md-phd-position-m-w-uzh-zurich"
@@ -4304,16 +4857,24 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "md-phd-position-m-w-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "md-phd-position-m-w-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-4a22d131bac7",
-      "slug": "research-manager-in-uzh-zurich",
+      "slug": "ricerca-manager-in-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "research-manager-in-uzh-zurich",
+        "it": "ricerca-manager-in-universitat-zurich-zurich",
         "en": "research-manager-in-universitat-zurich-zurich",
         "de": "research-manager-in-uzh-zurich",
-        "fr": "research-manager-in-uzh-zurich"
+        "fr": "recherche-manager-in-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4367,16 +4928,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "research-manager-in-uzh-zurich"
+        ],
+        "fr": [
+          "research-manager-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "research-manager-in-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-3eabfd2400c1",
       "slug": "praktikant-in-per-psychokardiologisches-forschungsprojekt-usz-stadtspital-triemli-universitat-zurich",
       "slugByLocale": {
         "it": "praktikant-in-per-psychokardiologisches-forschungsprojekt-usz-stadtspital-triemli-universitat-zurich",
-        "en": "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-stadtspital-triemli-universitat-zurich-zurich",
+        "en": "intern-in-psychocardiological-research-project-usz-stadtspital-triemli-universitat-zurich-zurich",
         "de": "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-amp-stadtspital-triemli-uzh",
-        "fr": "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-stadtspital-triemli-universitat-zurich-zurich"
+        "fr": "stagiaire-projet-de-recherche-psychocardiologique-usz-stadtspital-triemli-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4419,11 +4991,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-amp-stadtspital-triemli-uzh"
+        "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-amp-stadtspital-triemli-uzh",
+        "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-stadtspital-triemli-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-amp-stadtspital-triemli-uzh"
+        ],
+        "en": [
+          "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-stadtspital-triemli-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "praktikant-in-fur-psychokardiologisches-forschungsprojekt-usz-stadtspital-triemli-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.746Z",
@@ -4507,9 +5086,9 @@
       "slug": "assistenzprofessur-per-chirurgie-der-fortgeschrittenen-funktionellen-lungenerkrankungen-universitat-zurich",
       "slugByLocale": {
         "it": "assistenzprofessur-per-chirurgie-der-fortgeschrittenen-funktionellen-lungenerkrankungen-universitat-zurich",
-        "en": "assistenzprofessur-fur-chirurgie-der-fortgeschrittenen-funktionellen-lungenerkrankungen",
+        "en": "assistant-professorship-for-surgery-of-advanced-functional-pulmonary-diseases-universitat-zurich-zurich",
         "de": "assistenzprofessur-fur-chirurgie-der-fortgeschrittenen-funktionellen-lungenerkrankungen",
-        "fr": "assistenzprofessur-fur-chirurgie-der-fortgeschrittenen-funktionellen-lungenerkrankungen"
+        "fr": "professeur-adjoint-pour-la-chirurgie-des-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4556,6 +5135,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenzprofessur-fur-chirurgie-der-fortgeschrittenen-funktionellen-lungenerkrankungen"
+        ],
+        "en": [
+          "assistenzprofessur-fur-chirurgie-der-fortgeschrittenen-funktionellen-lungenerkrankungen"
+        ],
+        "fr": [
           "assistenzprofessur-fur-chirurgie-der-fortgeschrittenen-funktionellen-lungenerkrankungen"
         ]
       },
@@ -4652,9 +5237,9 @@
       "slug": "tutorinnen-e-tutoren-per-mathematik-i-im-hs26-universitat-zurich",
       "slugByLocale": {
         "it": "tutorinnen-e-tutoren-per-mathematik-i-im-hs26-universitat-zurich",
-        "en": "tutorinnen-und-tutoren-fur-mathematik-i-im-hs26-uzh-zurich",
+        "en": "tutors-for-mathematics-i-at-hs26-universitat-zurich-zurich",
         "de": "tutorinnen-und-tutoren-fur-mathematik-i-im-hs26-uzh-zurich",
-        "fr": "tutorinnen-und-tutoren-fur-mathematik-i-im-hs26-uzh-zurich"
+        "fr": "tuteurs-pour-mathematiques-i-a-hs26-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4702,6 +5287,12 @@
       "previousSlugsByLocale": {
         "it": [
           "tutorinnen-und-tutoren-fur-mathematik-i-im-hs26-uzh-zurich"
+        ],
+        "en": [
+          "tutorinnen-und-tutoren-fur-mathematik-i-im-hs26-uzh-zurich"
+        ],
+        "fr": [
+          "tutorinnen-und-tutoren-fur-mathematik-i-im-hs26-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.739Z",
@@ -4720,12 +5311,12 @@
     },
     {
       "id": "uzh-a5971f3c3c94",
-      "slug": "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich",
+      "slug": "phd-posizione-degli-studenti-nella-chimica-fisica-sperimentale-e-nella-catalisi-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich",
+        "it": "phd-posizione-degli-studenti-nella-chimica-fisica-sperimentale-e-nella-catalisi-universitat-zurich-zurich",
         "en": "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich",
-        "de": "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich",
-        "fr": "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich"
+        "de": "phd-student-position-in-experimenteller-physikalischer-chemie-und-katalyse-universitat-zurich-zurich",
+        "fr": "poste-d-etudiant-au-doctorat-en-chimie-physique-experimentale-et-en-catalyse-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4779,16 +5370,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich"
+        ],
+        "de": [
+          "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich"
+        ],
+        "fr": [
+          "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-position-in-experimental-physical-chemistry-and-catalysis-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-31d7cf6e29ee",
-      "slug": "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich",
+      "slug": "posizione-del-dottorato-in-neuroimaging-mri-funzionale-nel-midollo-spinale-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich",
+        "it": "posizione-del-dottorato-in-neuroimaging-mri-funzionale-nel-midollo-spinale-universitat-zurich-zurich",
         "en": "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich",
-        "de": "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich",
-        "fr": "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich"
+        "de": "phd-position-im-neuroimaging-funktionelle-mrt-im-ruckenmark-universitat-zurich-zurich",
+        "fr": "position-du-doctorat-en-neuroimagerie-irm-fonctionnelle-dans-la-moelle-epiniere-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4842,16 +5447,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich"
+        ],
+        "de": [
+          "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich"
+        ],
+        "fr": [
+          "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-neuroimaging-functional-mri-in-the-spinal-cord-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-719c5e6bcdc1",
-      "slug": "prophylaxeassistent-in-universitat-zurich-zurich",
+      "slug": "assistente-profilassi-in-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "prophylaxeassistent-in-universitat-zurich-zurich",
-        "en": "prophylaxeassistent-in-universitat-zurich-zurich",
+        "it": "assistente-profilassi-in-universitat-zurich-zurich",
+        "en": "prophylaxis-assistant-in-universitat-zurich-zurich",
         "de": "prophylaxeassistent-in-uzh-zurich",
-        "fr": "prophylaxeassistent-in-universitat-zurich-zurich"
+        "fr": "assistant-prophylactique-in-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4894,11 +5513,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "prophylaxeassistent-in-uzh-zurich"
+        "prophylaxeassistent-in-uzh-zurich",
+        "prophylaxeassistent-in-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prophylaxeassistent-in-uzh-zurich"
+          "prophylaxeassistent-in-uzh-zurich",
+          "prophylaxeassistent-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "prophylaxeassistent-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "prophylaxeassistent-in-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.735Z",
@@ -4920,9 +5547,9 @@
       "slug": "dentalassistent-in-con-rontgenberechtigung-per-unsere-mobile-zahnklinik-universitat-zurich",
       "slugByLocale": {
         "it": "dentalassistent-in-con-rontgenberechtigung-per-unsere-mobile-zahnklinik-universitat-zurich",
-        "en": "dentalassistent-in-mit-rontgenberechtigung-fur-unsere-mobile-zahnklinik-uzh-zurich",
+        "en": "dental-assistant-in-with-x-ray-authorization-for-our-mobile-dental-clinic-universitat-zurich-zurich",
         "de": "dentalassistent-in-mit-rontgenberechtigung-fur-unsere-mobile-zahnklinik-uzh-zurich",
-        "fr": "dentalassistent-in-mit-rontgenberechtigung-fur-unsere-mobile-zahnklinik-uzh-zurich"
+        "fr": "assistant-dentaire-avec-autorisation-de-radiographie-pour-notre-clinique-dentaire-mobile-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4970,6 +5597,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dentalassistent-in-mit-rontgenberechtigung-fur-unsere-mobile-zahnklinik-uzh-zurich"
+        ],
+        "en": [
+          "dentalassistent-in-mit-rontgenberechtigung-fur-unsere-mobile-zahnklinik-uzh-zurich"
+        ],
+        "fr": [
+          "dentalassistent-in-mit-rontgenberechtigung-fur-unsere-mobile-zahnklinik-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.733Z",
@@ -4988,12 +5621,12 @@
     },
     {
       "id": "uzh-f2ede88ce6c3",
-      "slug": "doktorand-in-uzh-zurich",
+      "slug": "studente-di-dottorato-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "doktorand-in-uzh-zurich",
-        "en": "doktorand-in-universitat-zurich-zurich",
+        "it": "studente-di-dottorato-universitat-zurich-zurich",
+        "en": "doctoral-student-universitat-zurich-zurich",
         "de": "doktorand-in-uzh-zurich",
-        "fr": "doktorand-in-uzh-zurich"
+        "fr": "etudiante-au-doctorat-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5047,16 +5680,31 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-uzh-zurich"
+        ],
+        "en": [
+          "doktorand-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "doktorand-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-uzh-zurich",
+        "doktorand-in-universitat-zurich-zurich"
+      ]
     },
     {
       "id": "uzh-386f0d534e5b",
-      "slug": "residency-internal-medicine-acvim-kleintiermedizin-uzh-winterthurerstrasse-260",
+      "slug": "medicina-interna-di-residenza-acvim-piccola-medicina-animale-universitat-zurich-winterthurerstrasse-260",
       "slugByLocale": {
-        "it": "residency-internal-medicine-acvim-kleintiermedizin-uzh-winterthurerstrasse-260",
+        "it": "medicina-interna-di-residenza-acvim-piccola-medicina-animale-universitat-zurich-winterthurerstrasse-260",
         "en": "residency-internal-medicine-acvim-kleintiermedizin-uzh-winterthurerstrasse-260",
         "de": "residency-internal-medicine-acvim-kleintiermedizin-uzh-winterthurerstrasse-260",
-        "fr": "residency-internal-medicine-acvim-kleintiermedizin-uzh-winterthurerstrasse-260"
+        "fr": "residence-medecine-interne-acvim-petite-medecine-animale-universitat-zurich-winterthurerstrasse-260"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5110,16 +5758,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "residency-internal-medicine-acvim-kleintiermedizin-uzh-winterthurerstrasse-260"
+        ],
+        "fr": [
+          "residency-internal-medicine-acvim-kleintiermedizin-uzh-winterthurerstrasse-260"
+        ]
+      },
+      "previousSlugs": [
+        "residency-internal-medicine-acvim-kleintiermedizin-uzh-winterthurerstrasse-260"
+      ]
     },
     {
       "id": "uzh-8f3d7f215ed7",
-      "slug": "assistierendenstelle-kleintiermedizin-2-jahre-universitat-zurich-winterthurerstrasse-260",
+      "slug": "centro-di-assistenza-per-la-piccola-medicina-animale-2-anni-universitat-zurich-winterthurerstrasse-260",
       "slugByLocale": {
-        "it": "assistierendenstelle-kleintiermedizin-2-jahre-universitat-zurich-winterthurerstrasse-260",
-        "en": "assistierendenstelle-kleintiermedizin-2-jahre-universitat-zurich-winterthurerstrasse-260",
+        "it": "centro-di-assistenza-per-la-piccola-medicina-animale-2-anni-universitat-zurich-winterthurerstrasse-260",
+        "en": "assisting-centre-for-small-animal-medicine-2-years-universitat-zurich-winterthurerstrasse-260",
         "de": "assistierendenstelle-kleintiermedizin-2-jahre-uzh-winterthurerstrasse-260",
-        "fr": "assistierendenstelle-kleintiermedizin-2-jahre-universitat-zurich-winterthurerstrasse-260"
+        "fr": "centre-d-assistance-en-medecine-des-petits-animaux-2-ans-universitat-zurich-winterthurerstrasse-260"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5162,11 +5821,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistierendenstelle-kleintiermedizin-2-jahre-uzh-winterthurerstrasse-260"
+        "assistierendenstelle-kleintiermedizin-2-jahre-uzh-winterthurerstrasse-260",
+        "assistierendenstelle-kleintiermedizin-2-jahre-universitat-zurich-winterthurerstrasse-260"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistierendenstelle-kleintiermedizin-2-jahre-uzh-winterthurerstrasse-260"
+          "assistierendenstelle-kleintiermedizin-2-jahre-uzh-winterthurerstrasse-260",
+          "assistierendenstelle-kleintiermedizin-2-jahre-universitat-zurich-winterthurerstrasse-260"
+        ],
+        "en": [
+          "assistierendenstelle-kleintiermedizin-2-jahre-universitat-zurich-winterthurerstrasse-260"
+        ],
+        "fr": [
+          "assistierendenstelle-kleintiermedizin-2-jahre-universitat-zurich-winterthurerstrasse-260"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.729Z",
@@ -5185,12 +5852,12 @@
     },
     {
       "id": "uzh-8b6ab6f3e5a8",
-      "slug": "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich",
+      "slug": "responsabile-ufficio-oec-alumni-uzh-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich",
-        "en": "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich",
+        "it": "responsabile-ufficio-oec-alumni-uzh-universitat-zurich-zurich",
+        "en": "responsible-r-office-oec-alumni-uzh-universitat-zurich-zurich",
         "de": "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich",
-        "fr": "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich"
+        "fr": "responsable-bureau-oec-alumni-uzh-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5244,16 +5911,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich"
+        ],
+        "en": [
+          "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich"
+        ],
+        "fr": [
+          "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortliche-r-geschaftsstelle-oec-alumni-uzh-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-0aeeaafb9f66",
-      "slug": "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse",
+      "slug": "posizione-dottorale-programma-dr-med-vet-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse",
+        "it": "posizione-dottorale-programma-dr-med-vet-universitat-zurich-zurich",
         "en": "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse",
-        "de": "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse",
-        "fr": "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse"
+        "de": "promotion-dr-med-vet-programme-br-institut-fur-veterinaranatomie-br-vetsuisse-faculty-br-universitat-zurich-universitat",
+        "fr": "poste-de-medecin-programme-de-medecin-veterinaire-br-institut-d-anatomie-veterinaire-br-faculte-de-vetsuisse-br"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5307,16 +5988,30 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse"
+        ],
+        "de": [
+          "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse"
+        ],
+        "fr": [
+          "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-dr-med-vet-programme-br-institute-of-veterinary-anatomy-br-vetsuisse"
+      ]
     },
     {
       "id": "uzh-ea659d9031cf",
-      "slug": "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich",
+      "slug": "responsabile-archivio-del-phonogrammarchiv-dell-universita-di-zurigo-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich",
-        "en": "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich",
+        "it": "responsabile-archivio-del-phonogrammarchiv-dell-universita-di-zurigo-universitat-zurich-zurich",
+        "en": "archive-manager-of-the-phonogrammarchiv-of-the-university-of-zurich-universitat-zurich-zurich",
         "de": "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich",
-        "fr": "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich"
+        "fr": "responsable-des-archives-du-phonogrammarchiv-de-l-universite-de-zurich-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5370,16 +6065,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich"
+        ],
+        "en": [
+          "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich"
+        ],
+        "fr": [
+          "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "archivleiter-in-des-phonogrammarchivs-der-universitat-zurich-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-ac0921f18898",
       "slug": "hilfsassistenz-o-assistenz-con-promotionsmoglichkeit-universitat-zurich",
       "slugByLocale": {
         "it": "hilfsassistenz-o-assistenz-con-promotionsmoglichkeit-universitat-zurich",
-        "en": "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-universitat-zurich-zurich",
+        "en": "assistance-or-assistance-with-promotional-opportunity-universitat-zurich-zurich",
         "de": "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-uzh-zurich",
-        "fr": "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-universitat-zurich-zurich"
+        "fr": "assistance-ou-assistance-avec-possibilite-de-promotion-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5422,11 +6131,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-uzh-zurich"
+        "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-uzh-zurich",
+        "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-uzh-zurich"
+        ],
+        "en": [
+          "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.721Z",
@@ -5445,12 +6161,12 @@
     },
     {
       "id": "uzh-cda1bf635ea2",
-      "slug": "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat",
+      "slug": "coordinatore-del-progetto-universitat-zurich-ticino",
       "slugByLocale": {
-        "it": "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat",
-        "en": "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat",
+        "it": "coordinatore-del-progetto-universitat-zurich-ticino",
+        "en": "project-coordinator-universitat-zurich-ticino",
         "de": "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat",
-        "fr": "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat"
+        "fr": "coordonnateur-du-projet-universitat-zurich-ticino"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5504,16 +6220,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat"
+        ],
+        "en": [
+          "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat"
+        ],
+        "fr": [
+          "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat"
+        ]
+      },
+      "previousSlugs": [
+        "projektkoordinator-in-uzh-zurich-hub-for-drug-and-device-development-zh3d-universitat"
+      ]
     },
     {
       "id": "uzh-ab6f75b1671b",
-      "slug": "doktorand-in-uzh-zurich-2",
+      "slug": "dottorato-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "doktorand-in-uzh-zurich-2",
-        "en": "doktorand-in-uzh-zurich-2",
+        "it": "dottorato-universitat-zurich-zurich",
+        "en": "doctoral-student-universitat-zurich-zurich-4623c0",
         "de": "doktorand-in-uzh-zurich",
-        "fr": "doktorand-in-uzh-zurich-2"
+        "fr": "etudiant-au-doctorat-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5567,16 +6297,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-uzh-zurich-2"
+        ],
+        "en": [
+          "doktorand-in-uzh-zurich-2"
+        ],
+        "fr": [
+          "doktorand-in-uzh-zurich-2"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-uzh-zurich-2"
+      ]
     },
     {
       "id": "uzh-47e2a655246d",
-      "slug": "assistenzarzt-arztin-uzh-zurich",
+      "slug": "assistente-medico-medico-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "assistenzarzt-arztin-uzh-zurich",
-        "en": "assistenzarzt-arztin-uzh-zurich",
+        "it": "assistente-medico-medico-universitat-zurich-zurich",
+        "en": "assistant-doctor-doctor-universitat-zurich-zurich",
         "de": "assistenzarzt-arztin-uzh-zurich",
-        "fr": "assistenzarzt-arztin-uzh-zurich"
+        "fr": "medecin-assistant-medecin-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5630,7 +6374,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-arztin-uzh-zurich"
+        ],
+        "en": [
+          "assistenzarzt-arztin-uzh-zurich"
+        ],
+        "fr": [
+          "assistenzarzt-arztin-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-arztin-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-41f1db19b7b9",
@@ -5708,12 +6466,12 @@
     },
     {
       "id": "uzh-5bb70fd51444",
-      "slug": "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich",
+      "slug": "cooperazione-scientifica-presso-la-svizzera-edlab-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich",
-        "en": "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich",
+        "it": "cooperazione-scientifica-presso-la-svizzera-edlab-universitat-zurich-zurich",
+        "en": "scientific-cooperation-at-the-swiss-edlab-universitat-zurich-zurich",
         "de": "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich",
-        "fr": "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich"
+        "fr": "cooperation-scientifique-au-swiss-edlab-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5767,16 +6525,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-ce5312eabec4",
-      "slug": "wissenschaftliche-mitarbeit-im-swiss-edlab-universitat-zurich-zurich",
+      "slug": "cooperazione-scientifica-presso-la-svizzera-edlab-universitat-zurich-zurich-882c4a",
       "slugByLocale": {
-        "it": "wissenschaftliche-mitarbeit-im-swiss-edlab-universitat-zurich-zurich",
-        "en": "wissenschaftliche-mitarbeit-im-swiss-edlab-universitat-zurich-zurich",
+        "it": "cooperazione-scientifica-presso-la-svizzera-edlab-universitat-zurich-zurich-882c4a",
+        "en": "scientific-cooperation-at-the-swiss-edlab-universitat-zurich-zurich-882c4a",
         "de": "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich",
-        "fr": "wissenschaftliche-mitarbeit-im-swiss-edlab-universitat-zurich-zurich"
+        "fr": "cooperation-scientifique-au-swiss-edlab-universitat-zurich-zurich-882c4a"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5819,11 +6591,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich-2"
+        "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich-2",
+        "wissenschaftliche-mitarbeit-im-swiss-edlab-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich-2"
+          "wissenschaftliche-mitarbeit-im-swiss-edlab-uzh-zurich-2",
+          "wissenschaftliche-mitarbeit-im-swiss-edlab-universitat-zurich-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-mitarbeit-im-swiss-edlab-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-mitarbeit-im-swiss-edlab-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.710Z",
@@ -5842,12 +6622,12 @@
     },
     {
       "id": "uzh-5806ef94b7f7",
-      "slug": "teamleiter-in-unterhaltsreinigung-universitat-zurich-zurich",
+      "slug": "team-leader-nella-pulizia-della-manutenzione-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "teamleiter-in-unterhaltsreinigung-universitat-zurich-zurich",
-        "en": "teamleiter-in-unterhaltsreinigung-universitat-zurich-zurich",
+        "it": "team-leader-nella-pulizia-della-manutenzione-universitat-zurich-zurich",
+        "en": "team-leader-in-maintenance-cleaning-universitat-zurich-zurich",
         "de": "teamleiter-in-unterhaltsreinigung-uzh-zurich",
-        "fr": "teamleiter-in-unterhaltsreinigung-universitat-zurich-zurich"
+        "fr": "chef-d-equipe-en-nettoyage-d-entretien-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5890,11 +6670,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-unterhaltsreinigung-uzh-zurich"
+        "teamleiter-in-unterhaltsreinigung-uzh-zurich",
+        "teamleiter-in-unterhaltsreinigung-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-unterhaltsreinigung-uzh-zurich"
+          "teamleiter-in-unterhaltsreinigung-uzh-zurich",
+          "teamleiter-in-unterhaltsreinigung-universitat-zurich-zurich"
+        ],
+        "en": [
+          "teamleiter-in-unterhaltsreinigung-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "teamleiter-in-unterhaltsreinigung-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.708Z",
@@ -5913,11 +6701,11 @@
     },
     {
       "id": "uzh-0d83805c6357",
-      "slug": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer",
+      "slug": "posizione-di-ricerca-doctorale-presidenza-della-comunicazione-di-scienza-prof-dr-mike-s-schafer-universitat-zurich",
       "slugByLocale": {
-        "it": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer",
+        "it": "posizione-di-ricerca-doctorale-presidenza-della-comunicazione-di-scienza-prof-dr-mike-s-schafer-universitat-zurich",
         "en": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer",
-        "de": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer",
+        "de": "doktorale-forschungsposition-auf-dem-stuhl-fur-die-wissenschaftskommunikation-prof-dr-mike-s-schafer-universitat-zurich",
         "fr": "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer"
       },
       "company": "Universität Zürich",
@@ -5972,16 +6760,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer"
+        ],
+        "de": [
+          "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-researcher-position-at-the-chair-for-science-communication-prof-dr-mike-s-schafer"
+      ]
     },
     {
       "id": "uzh-3bce860dd4b4",
-      "slug": "postdoc-stelle-universitat-zurich",
+      "slug": "ufficio-postdoc-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "postdoc-stelle-universitat-zurich",
-        "en": "postdoc-stelle-uzh-zurich",
+        "it": "ufficio-postdoc-universitat-zurich-zurich",
+        "en": "postdoc-office-universitat-zurich-zurich",
         "de": "postdoc-stelle-uzh-zurich",
-        "fr": "postdoc-stelle-uzh-zurich"
+        "fr": "bureau-de-poste-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6024,10 +6823,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-stelle-uzh-zurich"
+        "postdoc-stelle-uzh-zurich",
+        "postdoc-stelle-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "postdoc-stelle-uzh-zurich",
+          "postdoc-stelle-universitat-zurich"
+        ],
+        "en": [
+          "postdoc-stelle-uzh-zurich"
+        ],
+        "fr": [
           "postdoc-stelle-uzh-zurich"
         ]
       },
@@ -6047,10 +6854,10 @@
     },
     {
       "id": "uzh-6164c5943b76",
-      "slug": "hilfsassistent-in-uzh-zurich",
+      "slug": "assistente-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "hilfsassistent-in-uzh-zurich",
-        "en": "hilfsassistent-in-uzh-zurich",
+        "it": "assistente-universitat-zurich-zurich",
+        "en": "assistant-universitat-zurich-zurich",
         "de": "hilfsassistent-in-uzh-zurich",
         "fr": "hilfsassistent-in-uzh-zurich"
       },
@@ -6106,16 +6913,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsassistent-in-uzh-zurich"
+        ],
+        "en": [
+          "hilfsassistent-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hilfsassistent-in-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-f511681c6509",
       "slug": "sachbearbeiter-in-brandschutz-evakuationsmanagement-br-operative-umsetzung-von-evakuations-e-brandschutzkonzepten-an-der-uzh-br-befristet-auf-3-jahre-universitat-zurich",
       "slugByLocale": {
         "it": "sachbearbeiter-in-brandschutz-evakuationsmanagement-br-operative-umsetzung-von-evakuations-e-brandschutzkonzepten-an-der-uzh-br-befristet-auf-3-jahre-universitat-zurich",
-        "en": "sachbearbeiter-in-brandschutz-evakuationsmanagement-br-operative-umsetzung-von-evakuations-und-brandschutzkonzepten-an",
+        "en": "personnel-in-fire-protection-evacuation-management-br-operational-implementation-of-evacuation-and-fire-protection",
         "de": "sachbearbeiter-in-brandschutz-amp-evakuationsmanagement-br-operative-umsetzung-von",
-        "fr": "sachbearbeiter-in-brandschutz-evakuationsmanagement-br-operative-umsetzung-von-evakuations-und-brandschutzkonzepten-an"
+        "fr": "personnel-charge-de-la-protection-contre-l-incendie-et-de-la-gestion-de-l-evacuation-br-application-operationnelle-des"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6158,11 +6976,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-brandschutz-amp-evakuationsmanagement-br-operative-umsetzung-von"
+        "sachbearbeiter-in-brandschutz-amp-evakuationsmanagement-br-operative-umsetzung-von",
+        "sachbearbeiter-in-brandschutz-evakuationsmanagement-br-operative-umsetzung-von-evakuations-und-brandschutzkonzepten-an"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-brandschutz-amp-evakuationsmanagement-br-operative-umsetzung-von"
+        ],
+        "en": [
+          "sachbearbeiter-in-brandschutz-evakuationsmanagement-br-operative-umsetzung-von-evakuations-und-brandschutzkonzepten-an"
+        ],
+        "fr": [
+          "sachbearbeiter-in-brandschutz-evakuationsmanagement-br-operative-umsetzung-von-evakuations-und-brandschutzkonzepten-an"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.703Z",
@@ -6181,12 +7006,12 @@
     },
     {
       "id": "uzh-99dfed107d83",
-      "slug": "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh-befristet-auf-3-jahre-universitat-zurich",
+      "slug": "project-manager-in-fire-safety-evacuation-management-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh-befristet-auf-3-jahre-universitat-zurich",
-        "en": "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh",
+        "it": "project-manager-in-fire-safety-evacuation-management-universitat-zurich-zurich",
+        "en": "project-manager-in-fire-safety-evacuation-management-br-strategic-further-development-of-uzh-s-evacuation-capability",
         "de": "projektleiter-in-brandschutz-amp-evakuationsmanagement-br-strategische-weiterentwicklung",
-        "fr": "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh"
+        "fr": "gestionnaire-de-projet-en-gestion-de-la-securite-incendie-et-de-l-evacuation-br-developpement-strategique-de-la-capacite"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6229,11 +7054,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-brandschutz-amp-evakuationsmanagement-br-strategische-weiterentwicklung"
+        "projektleiter-in-brandschutz-amp-evakuationsmanagement-br-strategische-weiterentwicklung",
+        "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh-befristet-auf-3-jahre-universitat-zurich",
+        "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-brandschutz-amp-evakuationsmanagement-br-strategische-weiterentwicklung"
+          "projektleiter-in-brandschutz-amp-evakuationsmanagement-br-strategische-weiterentwicklung",
+          "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh-befristet-auf-3-jahre-universitat-zurich"
+        ],
+        "en": [
+          "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh"
+        ],
+        "fr": [
+          "projektleiter-in-brandschutz-evakuationsmanagement-br-strategische-weiterentwicklung-der-evakuationsfahigkeit-der-uzh"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.701Z",
@@ -6252,12 +7086,12 @@
     },
     {
       "id": "uzh-570133300352",
-      "slug": "verwaltungsmitarbeitende-promotionsstudium-universitat-zurich-zurich",
+      "slug": "studi-medici-amministrativi-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "verwaltungsmitarbeitende-promotionsstudium-universitat-zurich-zurich",
-        "en": "verwaltungsmitarbeitende-promotionsstudium-universitat-zurich-zurich",
+        "it": "studi-medici-amministrativi-universitat-zurich-zurich",
+        "en": "administrative-doctoral-studies-universitat-zurich-zurich",
         "de": "verwaltungsmitarbeitende-promotionsstudium-uzh-zurich",
-        "fr": "verwaltungsmitarbeitende-promotionsstudium-universitat-zurich-zurich"
+        "fr": "etudes-de-doctorat-administratif-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6300,11 +7134,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verwaltungsmitarbeitende-promotionsstudium-uzh-zurich"
+        "verwaltungsmitarbeitende-promotionsstudium-uzh-zurich",
+        "verwaltungsmitarbeitende-promotionsstudium-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsmitarbeitende-promotionsstudium-uzh-zurich"
+          "verwaltungsmitarbeitende-promotionsstudium-uzh-zurich",
+          "verwaltungsmitarbeitende-promotionsstudium-universitat-zurich-zurich"
+        ],
+        "en": [
+          "verwaltungsmitarbeitende-promotionsstudium-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "verwaltungsmitarbeitende-promotionsstudium-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.700Z",
@@ -6326,9 +7168,9 @@
       "slug": "professur-per-neutestamentliche-wissenschaft-con-dem-schwerpunkt-antikes-judentum-universitat-zurich",
       "slugByLocale": {
         "it": "professur-per-neutestamentliche-wissenschaft-con-dem-schwerpunkt-antikes-judentum-universitat-zurich",
-        "en": "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-universitat-zurich-zurich",
+        "en": "professorship-of-new-testament-science-with-a-focus-on-ancient-judaism-universitat-zurich-zurich",
         "de": "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-uzh",
-        "fr": "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-universitat-zurich-zurich"
+        "fr": "professeur-de-la-science-du-nouveau-testament-avec-un-accent-sur-le-judaisme-ancien-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6371,11 +7213,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-uzh"
+        "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-uzh",
+        "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-uzh"
+        ],
+        "en": [
+          "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "professur-fur-neutestamentliche-wissenschaft-mit-dem-schwerpunkt-antikes-judentum-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.698Z",
@@ -6471,12 +7320,12 @@
     },
     {
       "id": "uzh-20f2702ddb9b",
-      "slug": "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich",
+      "slug": "professore-in-studi-del-nuovo-testamento-con-un-focus-sull-ebraismo-antico-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich",
+        "it": "professore-in-studi-del-nuovo-testamento-con-un-focus-sull-ebraismo-antico-universitat-zurich-zurich",
         "en": "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich",
-        "de": "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich",
-        "fr": "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich"
+        "de": "professur-fur-neutestamentliche-studien-mit-schwerpunkt-auf-altem-judentum-universitat-zurich-zurich",
+        "fr": "professeur-en-etudes-du-nouveau-testament-avec-un-accent-sur-le-judaisme-ancien-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6529,16 +7378,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich"
+        ],
+        "de": [
+          "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich"
+        ],
+        "fr": [
+          "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "professorship-in-new-testament-studies-with-a-focus-on-ancient-judaism-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-d41ba7dfedd3",
-      "slug": "studentische-hilfskraft-uzh-zurich",
+      "slug": "assistente-studentesco-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "studentische-hilfskraft-uzh-zurich",
-        "en": "studentische-hilfskraft-uzh-zurich",
+        "it": "assistente-studentesco-universitat-zurich-zurich",
+        "en": "student-assistant-universitat-zurich-zurich",
         "de": "studentische-hilfskraft-uzh-zurich",
-        "fr": "studentische-hilfskraft-uzh-zurich"
+        "fr": "assistant-etudiant-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6592,16 +7455,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-hilfskraft-uzh-zurich"
+        ],
+        "en": [
+          "studentische-hilfskraft-uzh-zurich"
+        ],
+        "fr": [
+          "studentische-hilfskraft-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-hilfskraft-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-bf75a0ced1c2",
-      "slug": "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich",
+      "slug": "scientifico-r-assistente-medico-in-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich",
-        "en": "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich",
+        "it": "scientifico-r-assistente-medico-in-universitat-zurich-zurich",
+        "en": "scientific-r-assistant-doctor-in-universitat-zurich-zurich",
         "de": "wissenschaftliche-r-assistenzarzt-in-uzh-zurich",
-        "fr": "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
+        "fr": "docteur-adjoint-scientifique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6644,11 +7521,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wissenschaftliche-r-assistenzarzt-in-uzh-zurich"
+        "wissenschaftliche-r-assistenzarzt-in-uzh-zurich",
+        "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-assistenzarzt-in-uzh-zurich"
+          "wissenschaftliche-r-assistenzarzt-in-uzh-zurich",
+          "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.691Z",
@@ -6821,12 +7706,12 @@
     },
     {
       "id": "uzh-8b7384388e91",
-      "slug": "operator-in-servicecenter-universitat-zurich-zurich",
+      "slug": "operatore-in-servicecenter-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "operator-in-servicecenter-universitat-zurich-zurich",
+        "it": "operatore-in-servicecenter-universitat-zurich-zurich",
         "en": "operator-in-servicecenter-uzh-zurich",
         "de": "operator-in-servicecenter-uzh-zurich",
-        "fr": "operator-in-servicecenter-uzh-zurich"
+        "fr": "operateur-in-servicecenter-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6869,10 +7754,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operator-in-servicecenter-uzh-zurich"
+        "operator-in-servicecenter-uzh-zurich",
+        "operator-in-servicecenter-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "operator-in-servicecenter-uzh-zurich",
+          "operator-in-servicecenter-universitat-zurich-zurich"
+        ],
+        "fr": [
           "operator-in-servicecenter-uzh-zurich"
         ]
       },
@@ -6892,12 +7782,12 @@
     },
     {
       "id": "uzh-527112b494fa",
-      "slug": "phd-position-in-synthetic-organic-materials-uzh-zurich",
+      "slug": "phd-posizione-nei-materiali-organici-sintetici-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-position-in-synthetic-organic-materials-uzh-zurich",
+        "it": "phd-posizione-nei-materiali-organici-sintetici-universitat-zurich-zurich",
         "en": "phd-position-in-synthetic-organic-materials-uzh-zurich",
-        "de": "phd-position-in-synthetic-organic-materials-uzh-zurich",
-        "fr": "phd-position-in-synthetic-organic-materials-uzh-zurich"
+        "de": "phd-position-in-synthetischen-organischen-materialien-universitat-zurich-zurich",
+        "fr": "position-du-doctorat-en-materiaux-organiques-synthetiques-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6951,16 +7841,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-synthetic-organic-materials-uzh-zurich"
+        ],
+        "de": [
+          "phd-position-in-synthetic-organic-materials-uzh-zurich"
+        ],
+        "fr": [
+          "phd-position-in-synthetic-organic-materials-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-synthetic-organic-materials-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-85612a3c4c67",
       "slug": "collaboratore-trice-kafigreinigungsanlage-universitat-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-kafigreinigungsanlage-universitat-zurich",
-        "en": "mitarbeiter-in-kafigreinigungsanlage-universitat-zurich-zurich",
+        "en": "employees-in-cage-cleaning-plant-universitat-zurich-zurich",
         "de": "mitarbeiter-in-kafigreinigungsanlage-uzh-zurich",
-        "fr": "mitarbeiter-in-kafigreinigungsanlage-universitat-zurich-zurich"
+        "fr": "employes-dans-l-usine-de-nettoyage-de-cage-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7003,11 +7907,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kafigreinigungsanlage-uzh-zurich"
+        "mitarbeiter-in-kafigreinigungsanlage-uzh-zurich",
+        "mitarbeiter-in-kafigreinigungsanlage-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kafigreinigungsanlage-uzh-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-kafigreinigungsanlage-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-kafigreinigungsanlage-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.683Z",
@@ -7026,12 +7937,12 @@
     },
     {
       "id": "uzh-6d6e5db27929",
-      "slug": "hilfsassistenz-uzh-zurich",
+      "slug": "assistenza-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "hilfsassistenz-uzh-zurich",
-        "en": "hilfsassistenz-uzh-zurich",
+        "it": "assistenza-universitat-zurich-zurich",
+        "en": "assistance-universitat-zurich-zurich",
         "de": "hilfsassistenz-uzh-zurich",
-        "fr": "hilfsassistenz-uzh-zurich"
+        "fr": "concours-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7085,16 +7996,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsassistenz-uzh-zurich"
+        ],
+        "en": [
+          "hilfsassistenz-uzh-zurich"
+        ],
+        "fr": [
+          "hilfsassistenz-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hilfsassistenz-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-b25a44da3b87",
-      "slug": "phd-position-in-human-geography-uzh-zurich",
+      "slug": "posizione-del-dottorato-in-geografia-umana-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-position-in-human-geography-uzh-zurich",
+        "it": "posizione-del-dottorato-in-geografia-umana-universitat-zurich-zurich",
         "en": "phd-position-in-human-geography-uzh-zurich",
         "de": "phd-position-in-human-geography-uzh-zurich",
-        "fr": "phd-position-in-human-geography-uzh-zurich"
+        "fr": "doctorat-en-geographie-humaine-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7148,16 +8073,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-human-geography-uzh-zurich"
+        ],
+        "fr": [
+          "phd-position-in-human-geography-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-human-geography-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-66bd0ca0b3c8",
       "slug": "assistenzstelle-mit-promotionsmoglichkeit-universitat-zurich-zurich",
       "slugByLocale": {
         "it": "assistenzstelle-mit-promotionsmoglichkeit-universitat-zurich-zurich",
-        "en": "assistenzstelle-mit-promotionsmoglichkeit-universitat-zurich-zurich",
+        "en": "assistant-with-promotional-opportunity-universitat-zurich-zurich",
         "de": "assistenzstelle-mit-promotionsmoglichkeit-uzh-zurich",
-        "fr": "assistenzstelle-mit-promotionsmoglichkeit-universitat-zurich-zurich"
+        "fr": "assistant-avec-possibilite-de-promotion-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7223,12 +8159,12 @@
     },
     {
       "id": "uzh-ca6b713ace8e",
-      "slug": "studentische-hilfskraft-ki-tutorate-uzh-zurich",
+      "slug": "assistente-studentesco-ai-tutorial-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "studentische-hilfskraft-ki-tutorate-uzh-zurich",
-        "en": "studentische-hilfskraft-ki-tutorate-uzh-zurich",
+        "it": "assistente-studentesco-ai-tutorial-universitat-zurich-zurich",
+        "en": "student-assistant-ai-tutorial-universitat-zurich-zurich",
         "de": "studentische-hilfskraft-ki-tutorate-uzh-zurich",
-        "fr": "studentische-hilfskraft-ki-tutorate-uzh-zurich"
+        "fr": "assistant-etudiant-au-tutoriel-ai-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7282,16 +8218,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-hilfskraft-ki-tutorate-uzh-zurich"
+        ],
+        "en": [
+          "studentische-hilfskraft-ki-tutorate-uzh-zurich"
+        ],
+        "fr": [
+          "studentische-hilfskraft-ki-tutorate-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-hilfskraft-ki-tutorate-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-07df4f49d850",
-      "slug": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-universitat-zurich-universitatsklinik-balgrist",
+      "slug": "infermiere-infermiere-di-studio-ambulatorium-neuro-urologia-universitat-zurich-universitatsklinik-balgrist-9d41e4",
       "slugByLocale": {
-        "it": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-universitat-zurich-universitatsklinik-balgrist",
+        "it": "infermiere-infermiere-di-studio-ambulatorium-neuro-urologia-universitat-zurich-universitatsklinik-balgrist-9d41e4",
         "en": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-universitat-zurich-universitatsklinik-balgrist",
         "de": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist",
-        "fr": "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-universitat-zurich-universitatsklinik-balgrist"
+        "fr": "infirmiere-infirmiere-d-etudes-neuro-urologie-ambulatoire-universitat-zurich-universitatsklinik-balgrist-9d41e4"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7334,11 +8284,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist-2"
+        "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist-2",
+        "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-universitat-zurich-universitatsklinik-balgrist"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist-2"
+          "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-uzh-universitatsklinik-balgrist-2",
+          "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-universitat-zurich-universitatsklinik-balgrist"
+        ],
+        "fr": [
+          "pflegefachperson-study-nurse-ambulatorium-neuro-urologie-universitat-zurich-universitatsklinik-balgrist"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.675Z",
@@ -7357,12 +8312,12 @@
     },
     {
       "id": "uzh-69741040b49f",
-      "slug": "elektroniker-in-elektrotechniker-in-universitat-zurich-zurich",
+      "slug": "elettronica-ingegnere-ingegnere-elettrico-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "elektroniker-in-elektrotechniker-in-universitat-zurich-zurich",
-        "en": "elektroniker-in-elektrotechniker-in-universitat-zurich-zurich",
+        "it": "elettronica-ingegnere-ingegnere-elettrico-universitat-zurich-zurich",
+        "en": "electronics-engineer-electrical-engineer-universitat-zurich-zurich",
         "de": "elektroniker-in-elektrotechniker-in-uzh-zurich",
-        "fr": "elektroniker-in-elektrotechniker-in-universitat-zurich-zurich"
+        "fr": "ingenieur-electronique-ingenieur-electrique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7405,11 +8360,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektroniker-in-elektrotechniker-in-uzh-zurich"
+        "elektroniker-in-elektrotechniker-in-uzh-zurich",
+        "elektroniker-in-elektrotechniker-in-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroniker-in-elektrotechniker-in-uzh-zurich"
+          "elektroniker-in-elektrotechniker-in-uzh-zurich",
+          "elektroniker-in-elektrotechniker-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "elektroniker-in-elektrotechniker-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "elektroniker-in-elektrotechniker-in-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.653Z",
@@ -7428,12 +8391,12 @@
     },
     {
       "id": "uzh-4d7b071bc74f",
-      "slug": "administrative-assistant-uzh-zurich",
+      "slug": "assistente-amministrativo-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "administrative-assistant-uzh-zurich",
+        "it": "assistente-amministrativo-universitat-zurich-zurich",
         "en": "administrative-assistant-uzh-zurich",
-        "de": "administrative-assistant-uzh-zurich",
-        "fr": "administrative-assistant-universitat-zurich-zurich"
+        "de": "administrative-assistent-universitat-zurich-zurich",
+        "fr": "assistant-administratif-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7487,16 +8450,31 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-uzh-zurich"
+        ],
+        "de": [
+          "administrative-assistant-uzh-zurich"
+        ],
+        "fr": [
+          "administrative-assistant-universitat-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-uzh-zurich",
+        "administrative-assistant-universitat-zurich-zurich"
+      ]
     },
     {
       "id": "uzh-79b4e9df3282",
-      "slug": "assistenzarzt-arztin-uzh-zurich-2",
+      "slug": "assistente-medico-medico-universitat-zurich-zurich-2d3e3b",
       "slugByLocale": {
-        "it": "assistenzarzt-arztin-uzh-zurich-2",
-        "en": "assistenzarzt-arztin-uzh-zurich-2",
+        "it": "assistente-medico-medico-universitat-zurich-zurich-2d3e3b",
+        "en": "assistant-doctor-doctor-universitat-zurich-zurich-2d3e3b",
         "de": "assistenzarzt-arztin-uzh-zurich",
-        "fr": "assistenzarzt-arztin-uzh-zurich-2"
+        "fr": "medecin-assistant-medecin-universitat-zurich-zurich-2d3e3b"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7550,16 +8528,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-arztin-uzh-zurich-2"
+        ],
+        "en": [
+          "assistenzarzt-arztin-uzh-zurich-2"
+        ],
+        "fr": [
+          "assistenzarzt-arztin-uzh-zurich-2"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-arztin-uzh-zurich-2"
+      ]
     },
     {
       "id": "uzh-a1b7228ed3ee",
-      "slug": "techniker-in-klinik-gebaude-uzh-zurich",
+      "slug": "tecnico-in-clinica-costruzione-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "techniker-in-klinik-gebaude-uzh-zurich",
-        "en": "techniker-in-klinik-gebaude-uzh-zurich",
+        "it": "tecnico-in-clinica-costruzione-universitat-zurich-zurich",
+        "en": "technician-in-clinic-building-universitat-zurich-zurich",
         "de": "techniker-in-klinik-gebaude-uzh-zurich",
-        "fr": "techniker-in-klinik-gebaude-uzh-zurich"
+        "fr": "technicien-en-clinique-batiment-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7613,16 +8605,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-klinik-gebaude-uzh-zurich"
+        ],
+        "en": [
+          "techniker-in-klinik-gebaude-uzh-zurich"
+        ],
+        "fr": [
+          "techniker-in-klinik-gebaude-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-klinik-gebaude-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-81dbd0a96732",
-      "slug": "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich",
+      "slug": "posizione-del-dottorato-nella-genetica-spaziale-degli-ecosistemi-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich",
+        "it": "posizione-del-dottorato-nella-genetica-spaziale-degli-ecosistemi-universitat-zurich-zurich",
         "en": "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich",
-        "de": "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich",
-        "fr": "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich"
+        "de": "phd-position-in-der-raumlichen-genetik-von-okosystemen-universitat-zurich-zurich",
+        "fr": "doctorat-en-genetique-spatiale-des-ecosystemes-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7676,16 +8682,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich"
+        ],
+        "de": [
+          "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich"
+        ],
+        "fr": [
+          "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-the-spatial-genetics-of-ecosystems-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-842b5cd66b54",
-      "slug": "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich",
+      "slug": "assistenza-alla-ricerca-presso-il-registro-svizzero-ms-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich",
-        "en": "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich",
+        "it": "assistenza-alla-ricerca-presso-il-registro-svizzero-ms-universitat-zurich-zurich",
+        "en": "research-assistance-at-the-swiss-ms-register-universitat-zurich-zurich",
         "de": "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich",
-        "fr": "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich"
+        "fr": "aide-a-la-recherche-au-registre-suisse-des-etats-membres-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7739,7 +8759,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich"
+        ],
+        "en": [
+          "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich"
+        ],
+        "fr": [
+          "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "forschungsassistenz-beim-schweizer-ms-register-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-a3763f8c34f7",
@@ -7820,12 +8854,12 @@
     },
     {
       "id": "uzh-6333656a0b2d",
-      "slug": "doktorand-in-in-geocomputation-uzh-zurich",
+      "slug": "dottorato-in-geocomputazione-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "doktorand-in-in-geocomputation-uzh-zurich",
-        "en": "doktorand-in-in-geocomputation-uzh-zurich",
+        "it": "dottorato-in-geocomputazione-universitat-zurich-zurich",
+        "en": "doctoral-student-in-geocomputation-universitat-zurich-zurich",
         "de": "doktorand-in-in-geocomputation-uzh-zurich",
-        "fr": "doktorand-in-in-geocomputation-uzh-zurich"
+        "fr": "doctorant-etudiant-en-geocomputation-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7879,16 +8913,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-in-geocomputation-uzh-zurich"
+        ],
+        "en": [
+          "doktorand-in-in-geocomputation-uzh-zurich"
+        ],
+        "fr": [
+          "doktorand-in-in-geocomputation-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-in-geocomputation-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-4676f2a8696b",
-      "slug": "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich",
+      "slug": "posizione-postdoc-finanziata-da-erc-nella-psichiatria-computazionale-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich",
+        "it": "posizione-postdoc-finanziata-da-erc-nella-psichiatria-computazionale-universitat-zurich-zurich",
         "en": "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich",
-        "de": "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich",
-        "fr": "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich"
+        "de": "erc-finanzierte-postdoc-position-in-der-computerpsychiatrie-universitat-zurich-zurich",
+        "fr": "poste-postdoctoral-finance-par-le-cee-en-psychiatrie-informatique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7942,16 +8990,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich"
+        ],
+        "de": [
+          "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich"
+        ],
+        "fr": [
+          "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "erc-funded-postdoc-position-in-computational-psychiatry-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-d33e32a5ca5f",
-      "slug": "verwaltungssekretar-in-universitat-zurich-schlieren",
+      "slug": "segretariato-amministrativo-universitat-zurich-schlieren",
       "slugByLocale": {
-        "it": "verwaltungssekretar-in-universitat-zurich-schlieren",
-        "en": "verwaltungssekretar-in-universitat-zurich-schlieren",
+        "it": "segretariato-amministrativo-universitat-zurich-schlieren",
+        "en": "administrative-secretary-in-universitat-zurich-schlieren",
         "de": "verwaltungssekretar-in-uzh-schlieren",
-        "fr": "verwaltungssekretar-in-universitat-zurich-schlieren"
+        "fr": "secretaire-administratif-universitat-zurich-schlieren"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7994,11 +9056,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verwaltungssekretar-in-uzh-schlieren"
+        "verwaltungssekretar-in-uzh-schlieren",
+        "verwaltungssekretar-in-universitat-zurich-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssekretar-in-uzh-schlieren"
+          "verwaltungssekretar-in-uzh-schlieren",
+          "verwaltungssekretar-in-universitat-zurich-schlieren"
+        ],
+        "en": [
+          "verwaltungssekretar-in-universitat-zurich-schlieren"
+        ],
+        "fr": [
+          "verwaltungssekretar-in-universitat-zurich-schlieren"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.638Z",
@@ -8017,12 +9087,12 @@
     },
     {
       "id": "uzh-a705fa1b3cf0",
-      "slug": "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich",
+      "slug": "veterinario-r-assistente-di-pratica-in-chirurgia-di-allattamento-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich",
-        "en": "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich",
+        "it": "veterinario-r-assistente-di-pratica-in-chirurgia-di-allattamento-universitat-zurich-zurich",
+        "en": "veterinary-r-practice-assistant-in-nursing-surgery-universitat-zurich-zurich",
         "de": "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich",
-        "fr": "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich"
+        "fr": "assistant-a-la-pratique-veterinaire-en-chirurgie-infirmiere-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8076,16 +9146,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich"
+        ],
+        "en": [
+          "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich"
+        ],
+        "fr": [
+          "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "tiermedizinische-r-praxisassistent-in-pflege-chirurgie-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-be11fa2d2b51",
-      "slug": "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh",
+      "slug": "posizione-del-dottorato-ricostruzione-dell-altezza-del-baldacchino-della-foresta-multitemporale-dai-dati-satellitari",
       "slugByLocale": {
-        "it": "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh",
+        "it": "posizione-del-dottorato-ricostruzione-dell-altezza-del-baldacchino-della-foresta-multitemporale-dai-dati-satellitari",
         "en": "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh",
-        "de": "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh",
-        "fr": "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh"
+        "de": "phd-position-multitemporale-rekonstruktion-der-baumkronenhohe-aus-satellitendaten-universitat-zurich-zurich",
+        "fr": "doctorat-reconstruction-de-la-hauteur-du-couvert-forestier-multitemporel-a-partir-de-donnees-satellitaires-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8139,16 +9223,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh"
+        ],
+        "de": [
+          "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh"
+        ],
+        "fr": [
+          "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-multi-temporal-forest-canopy-height-reconstruction-from-satellite-data-uzh"
+      ]
     },
     {
       "id": "uzh-12c789a9399b",
-      "slug": "fachspezialist-in-notfallmanagement-universitat-zurich-zurich",
+      "slug": "specialista-nella-gestione-delle-emergenze-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "fachspezialist-in-notfallmanagement-universitat-zurich-zurich",
-        "en": "fachspezialist-in-notfallmanagement-universitat-zurich-zurich",
+        "it": "specialista-nella-gestione-delle-emergenze-universitat-zurich-zurich",
+        "en": "specialist-in-emergency-management-universitat-zurich-zurich",
         "de": "fachspezialist-in-notfallmanagement-uzh-zurich",
-        "fr": "fachspezialist-in-notfallmanagement-universitat-zurich-zurich"
+        "fr": "specialiste-gestion-des-urgences-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8191,11 +9289,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-notfallmanagement-uzh-zurich"
+        "fachspezialist-in-notfallmanagement-uzh-zurich",
+        "fachspezialist-in-notfallmanagement-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-notfallmanagement-uzh-zurich"
+          "fachspezialist-in-notfallmanagement-uzh-zurich",
+          "fachspezialist-in-notfallmanagement-universitat-zurich-zurich"
+        ],
+        "en": [
+          "fachspezialist-in-notfallmanagement-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "fachspezialist-in-notfallmanagement-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.631Z",
@@ -8214,12 +9320,12 @@
     },
     {
       "id": "uzh-8f410dbd0209",
-      "slug": "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon",
+      "slug": "assistente-alla-gestione-universitat-zurich-zurich-oerlikon",
       "slugByLocale": {
-        "it": "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon",
-        "en": "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon",
+        "it": "assistente-alla-gestione-universitat-zurich-zurich-oerlikon",
+        "en": "assistant-to-management-universitat-zurich-zurich-oerlikon",
         "de": "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon",
-        "fr": "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon"
+        "fr": "assistant-a-la-gestion-universitat-zurich-zurich-oerlikon"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8273,16 +9379,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon"
+        ],
+        "en": [
+          "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon"
+        ],
+        "fr": [
+          "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-der-geschaftsfuhrung-uzh-zurich-oerlikon"
+      ]
     },
     {
       "id": "uzh-f5fb2eddba9b",
       "slug": "professur-per-neurologie-universitat-zurich",
       "slugByLocale": {
         "it": "professur-per-neurologie-universitat-zurich",
-        "en": "professur-fur-neurologie-uzh-zurich",
+        "en": "chair-of-neurology-universitat-zurich-zurich",
         "de": "professur-fur-neurologie-uzh-zurich",
-        "fr": "professur-fur-neurologie-uzh-zurich"
+        "fr": "president-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8330,6 +9450,12 @@
       "previousSlugsByLocale": {
         "it": [
           "professur-fur-neurologie-uzh-zurich"
+        ],
+        "en": [
+          "professur-fur-neurologie-uzh-zurich"
+        ],
+        "fr": [
+          "professur-fur-neurologie-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.628Z",
@@ -8348,12 +9474,12 @@
     },
     {
       "id": "uzh-f59c46e68552",
-      "slug": "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich",
+      "slug": "professore-di-traumatologia-del-sistema-musculoscheletale-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich",
+        "it": "professore-di-traumatologia-del-sistema-musculoscheletale-universitat-zurich-zurich",
         "en": "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich",
-        "de": "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich",
-        "fr": "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich"
+        "de": "professur-fur-traumatologie-des-bewegungsapparates-universitat-zurich-zurich",
+        "fr": "professeur-de-traumatologie-du-systeme-musculosquelettique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8406,16 +9532,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich"
+        ],
+        "de": [
+          "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich"
+        ],
+        "fr": [
+          "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "professorship-of-traumatology-of-the-musculoskeletal-system-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-53f2b8ea90ef",
       "slug": "professur-per-traumatologie-des-bewegungsapparates-universitat-zurich",
       "slugByLocale": {
         "it": "professur-per-traumatologie-des-bewegungsapparates-universitat-zurich",
-        "en": "professur-fur-traumatologie-des-bewegungsapparates-uzh-zurich",
+        "en": "chair-of-traumatology-of-the-motion-apparatus-universitat-zurich-zurich",
         "de": "professur-fur-traumatologie-des-bewegungsapparates-uzh-zurich",
-        "fr": "professur-fur-traumatologie-des-bewegungsapparates-uzh-zurich"
+        "fr": "president-de-traumatologie-de-l-appareil-motion-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8463,6 +9603,12 @@
       "previousSlugsByLocale": {
         "it": [
           "professur-fur-traumatologie-des-bewegungsapparates-uzh-zurich"
+        ],
+        "en": [
+          "professur-fur-traumatologie-des-bewegungsapparates-uzh-zurich"
+        ],
+        "fr": [
+          "professur-fur-traumatologie-des-bewegungsapparates-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.624Z",
@@ -8481,12 +9627,12 @@
     },
     {
       "id": "uzh-f724b9700a28",
-      "slug": "professorship-of-neurology-uzh-zurich",
+      "slug": "professore-di-neurologia-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "professorship-of-neurology-uzh-zurich",
+        "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
-        "de": "professorship-of-neurology-uzh-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich-zurich"
+        "de": "professur-fur-neurologie-universitat-zurich-zurich",
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8539,16 +9685,31 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "professorship-of-neurology-uzh-zurich"
+        ],
+        "de": [
+          "professorship-of-neurology-uzh-zurich"
+        ],
+        "fr": [
+          "professorship-of-neurology-universitat-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "professorship-of-neurology-uzh-zurich",
+        "professorship-of-neurology-universitat-zurich-zurich"
+      ]
     },
     {
       "id": "uzh-03151fa6169d",
-      "slug": "direktionsassistent-in-universitat-zurich-zurich",
+      "slug": "direttore-aggiunto-in-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "direktionsassistent-in-universitat-zurich-zurich",
-        "en": "direktionsassistent-in-universitat-zurich-zurich",
+        "it": "direttore-aggiunto-in-universitat-zurich-zurich",
+        "en": "assistant-director-in-universitat-zurich-zurich",
         "de": "direktionsassistent-in-uzh-zurich",
-        "fr": "direktionsassistent-in-universitat-zurich-zurich"
+        "fr": "directeur-adjoint-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8591,11 +9752,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "direktionsassistent-in-uzh-zurich"
+        "direktionsassistent-in-uzh-zurich",
+        "direktionsassistent-in-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "direktionsassistent-in-uzh-zurich"
+          "direktionsassistent-in-uzh-zurich",
+          "direktionsassistent-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "direktionsassistent-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "direktionsassistent-in-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.620Z",
@@ -8614,12 +9783,12 @@
     },
     {
       "id": "uzh-c0d309a95626",
-      "slug": "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich",
+      "slug": "project-manager-nell-osservazione-della-terra-spettroscopia-di-imaging-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich",
+        "it": "project-manager-nell-osservazione-della-terra-spettroscopia-di-imaging-universitat-zurich-zurich",
         "en": "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich",
-        "de": "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich",
-        "fr": "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich"
+        "de": "projektleiter-erdbeobachtung-imaging-spektroskopie-universitat-zurich-zurich",
+        "fr": "gestionnaire-de-projet-en-observation-de-la-terre-spectroscopie-d-imagerie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8673,16 +9842,30 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich"
+        ],
+        "de": [
+          "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich"
+        ],
+        "fr": [
+          "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-in-earth-observation-imaging-spectroscopy-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-7bdcd6bfaf2a",
       "slug": "dentalassistent-in-leitender-funktion-br-con-rontgenberechtigung-e-ausbilderausweis-universitat-zurich",
       "slugByLocale": {
         "it": "dentalassistent-in-leitender-funktion-br-con-rontgenberechtigung-e-ausbilderausweis-universitat-zurich",
-        "en": "dentalassistent-in-in-leitender-funktion-br-mit-rontgenberechtigung-und-ausbilderausweis",
+        "en": "dental-assistant-in-a-senior-function-br-with-x-ray-authorization-and-instructor-id-universitat-zurich-zurich",
         "de": "dentalassistent-in-in-leitender-funktion-br-mit-rontgenberechtigung-und-ausbilderausweis",
-        "fr": "dentalassistent-in-in-leitender-funktion-br-mit-rontgenberechtigung-und-ausbilderausweis"
+        "fr": "assistant-dentaire-dans-une-fonction-superieure-br-avec-autorisation-de-radiographie-et-identification-de-l-instructeur"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8730,6 +9913,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dentalassistent-in-in-leitender-funktion-br-mit-rontgenberechtigung-und-ausbilderausweis"
+        ],
+        "en": [
+          "dentalassistent-in-in-leitender-funktion-br-mit-rontgenberechtigung-und-ausbilderausweis"
+        ],
+        "fr": [
+          "dentalassistent-in-in-leitender-funktion-br-mit-rontgenberechtigung-und-ausbilderausweis"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.616Z",
@@ -8751,9 +9940,9 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-zurich",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-zurich",
-        "en": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-uzh-zurich",
+        "en": "scientific-staff-member-scientific-staff-member-universitat-zurich-zurich",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-uzh-zurich",
-        "fr": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-uzh-zurich"
+        "fr": "membre-du-personnel-scientifique-membre-du-personnel-scientifique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8800,6 +9989,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-uzh-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-uzh-zurich"
+        ],
+        "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-uzh-zurich"
         ]
       },
@@ -8896,12 +10091,12 @@
     },
     {
       "id": "uzh-2833b8d8002a",
-      "slug": "staff-mass-spectrometrist-universitat-zurich-zurich",
+      "slug": "spettrometria-di-massa-personale-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "staff-mass-spectrometrist-universitat-zurich-zurich",
+        "it": "spettrometria-di-massa-personale-universitat-zurich-zurich",
         "en": "staff-mass-spectrometrist-uzh-zurich",
-        "de": "staff-mass-spectrometrist-uzh-zurich",
-        "fr": "staff-mass-spectrometrist-uzh-zurich"
+        "de": "mitarbeiter-mass-spectrometrist-universitat-zurich-zurich",
+        "fr": "spectrometriste-de-masse-du-personnel-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8944,10 +10139,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "staff-mass-spectrometrist-uzh-zurich"
+        "staff-mass-spectrometrist-uzh-zurich",
+        "staff-mass-spectrometrist-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "staff-mass-spectrometrist-uzh-zurich",
+          "staff-mass-spectrometrist-universitat-zurich-zurich"
+        ],
+        "de": [
+          "staff-mass-spectrometrist-uzh-zurich"
+        ],
+        "fr": [
           "staff-mass-spectrometrist-uzh-zurich"
         ]
       },
@@ -9044,12 +10247,12 @@
     },
     {
       "id": "uzh-6b90ae2c5042",
-      "slug": "jurist-in-uzh-zurich",
+      "slug": "un-avvocato-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "jurist-in-uzh-zurich",
-        "en": "jurist-in-uzh-zurich",
+        "it": "un-avvocato-universitat-zurich-zurich",
+        "en": "a-lawyer-universitat-zurich-zurich",
         "de": "jurist-in-uzh-zurich",
-        "fr": "jurist-in-uzh-zurich"
+        "fr": "un-avocat-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9103,16 +10306,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-uzh-zurich"
+        ],
+        "en": [
+          "jurist-in-uzh-zurich"
+        ],
+        "fr": [
+          "jurist-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-6bb5fc68f3ae",
-      "slug": "hr-fachperson-uzh-zurich",
+      "slug": "risorse-umane-fachperson-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "hr-fachperson-uzh-zurich",
-        "en": "hr-fachperson-universitat-zurich-zurich",
+        "it": "risorse-umane-fachperson-universitat-zurich-zurich",
+        "en": "hr-specialist-universitat-zurich-zurich",
         "de": "hr-fachperson-uzh-zurich",
-        "fr": "hr-fachperson-uzh-zurich"
+        "fr": "ressources-humaines-fachperson-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9166,7 +10383,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-fachperson-uzh-zurich"
+        ],
+        "en": [
+          "hr-fachperson-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "hr-fachperson-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hr-fachperson-uzh-zurich",
+        "hr-fachperson-universitat-zurich-zurich"
+      ]
     },
     {
       "id": "uzh-6bfd3397e8ac",
@@ -9175,7 +10407,7 @@
         "it": "industry-amp-partnership-manager-uzh-ai-uzh-zurich",
         "en": "industry-amp-partnership-manager-uzh-ai-uzh-zurich",
         "de": "industry-amp-partnership-manager-uzh-ai-uzh-zurich",
-        "fr": "industry-amp-partnership-manager-uzh-ai-uzh-zurich"
+        "fr": "directeur-de-l-industrie-et-des-partenariats-uzh-ai-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",

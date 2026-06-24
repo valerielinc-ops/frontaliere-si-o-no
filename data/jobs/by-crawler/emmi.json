@@ -4131,12 +4131,12 @@
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "account-manager-emmi-ch",
+      "slug": "gestione-account-emmi-luzern-luzern",
       "slugByLocale": {
-        "it": "account-manager-emmi-ch",
+        "it": "gestione-account-emmi-luzern-luzern",
         "en": "account-manager-emmi-luzern",
         "de": "account-manager-emmi-ch",
-        "fr": "account-manager-emmi-ch"
+        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -4194,16 +4194,13 @@
         ]
       },
       "previousSlugs": [
-        "gestione-account-emmi-luzern-luzern",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "account-manager-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-account-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ]
       },
@@ -5123,12 +5120,12 @@
     },
     {
       "id": "emmi-49d267d27fb0",
-      "slug": "anlagenfuhrer-in-trocknung-emmi-ch",
+      "slug": "operatore-a-di-impianto-essiccazione-emmi-dagmersellen-luzern",
       "slugByLocale": {
-        "it": "anlagenfuhrer-in-trocknung-emmi-ch",
-        "en": "anlagenfuhrer-in-trocknung-emmi-ch",
+        "it": "operatore-a-di-impianto-essiccazione-emmi-dagmersellen-luzern",
+        "en": "plant-operator-drying-emmi-dagmersellen-luzern",
         "de": "anlagenfuhrer-in-trocknung-emmi-ch",
-        "fr": "anlagenfuhrer-in-trocknung-emmi-ch"
+        "fr": "operateur-trice-d-installation-sechage-emmi-dagmersellen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5196,7 +5193,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-trocknung-emmi-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-trocknung-emmi-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-trocknung-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-trocknung-emmi-ch"
+      ]
     }
   ]
 }
