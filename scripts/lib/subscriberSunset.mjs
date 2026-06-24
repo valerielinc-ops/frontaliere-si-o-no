@@ -100,7 +100,10 @@ export function classifySunset(sub, nowMs) {
 
   const sends = num(sub?.send_count ?? sub?.sendCount);
   const firstSeen = firstSeenMillis(sub);
-  const ageDays = firstSeen == null ? Infinity : (nowMs - firstSeen) / DAY_MS;
+  // No age anchor → we can't prove the subscriber has been on the list long
+  // enough, so treat as too-young (ageDays 0) and never sunset. Conservative by
+  // design: a missing date must not silently bypass the 120-day floor.
+  const ageDays = firstSeen == null ? 0 : (nowMs - firstSeen) / DAY_MS;
 
   const isCandidate = sends >= SUNSET_MIN_SENDS && ageDays >= SUNSET_MIN_AGE_DAYS;
   if (!isCandidate) {
@@ -110,6 +113,18 @@ export function classifySunset(sub, nowMs) {
   const winbackAt = toMillis(sub?.winback_sent_at ?? sub?.winbackSentAt);
   if (winbackAt == null) {
     return { action: 'winback', reason: `${sends} ignored sends over ${Math.floor(ageDays)}d, no engagement` };
+  }
+
+  // Explicit re-consent: the win-back CTA hits ?action=resubscribe, whose handler
+  // stamps `resubscribed_at` (status → 'confirmed'). A click is NOT necessarily
+  // recorded as an ESP `click_count` (the win-back is sent click-tracking-free),
+  // so honor the resubscribe timestamp directly — otherwise a user who clicked
+  // "yes, keep me" would still be sunset at grace expiry. Provider-independent.
+  const reengagedAt = toMillis(
+    sub?.resubscribed_at ?? sub?.resubscribedAt ?? sub?.reactivated_at ?? sub?.reactivatedAt,
+  );
+  if (reengagedAt != null && reengagedAt >= winbackAt) {
+    return { action: 'none', reason: 'resubscribed/reactivated after win-back — explicit stay' };
   }
 
   const graceDays = (nowMs - winbackAt) / DAY_MS;

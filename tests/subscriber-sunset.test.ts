@@ -53,6 +53,28 @@ describe('classifySunset', () => {
     expect(classifySunset(graceExpired, NOW).action).toBe('sunset');
   });
 
+  it('spares a subscriber who resubscribed AFTER the win-back (explicit stay), even with grace expired', () => {
+    const responded = zombie({
+      winback_sent_at: daysAgo(WINBACK_GRACE_DAYS + 5),
+      resubscribed_at: daysAgo(1), // clicked "yes, keep me" — but click not ESP-tracked
+    });
+    expect(classifySunset(responded, NOW).action).toBe('none');
+  });
+
+  it('still sunsets when the only resubscribe predates the win-back (stale signal)', () => {
+    const stale = zombie({
+      winback_sent_at: daysAgo(WINBACK_GRACE_DAYS + 1),
+      resubscribed_at: daysAgo(WINBACK_GRACE_DAYS + 30),
+    });
+    expect(classifySunset(stale, NOW).action).toBe('sunset');
+  });
+
+  it('never sunsets when the signup date is unknown (conservative age floor)', () => {
+    const noDate = zombie();
+    delete (noDate as Record<string, unknown>).created_at;
+    expect(classifySunset(noDate, NOW).action).toBe('none');
+  });
+
   it('reactivates an inactive subscriber who has since engaged', () => {
     expect(classifySunset({ status: 'inactive', open_count: 1 }, NOW).action).toBe('reactivate');
   });
