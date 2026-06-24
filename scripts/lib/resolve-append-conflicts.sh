@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Auto-resolve merge conflicts in append-only files used by the article
 # generator (BlogArticles.tsx, router.ts, routerBlogData.ts, seoService.ts,
-# sitemaps, blog-meta-*.ts, article-source-urls.json, blog-articles-data.ts).
+# sitemaps, blog-meta-*.ts, article-source-urls.json, blog-articles-data.ts,
+# swiss-articles-data.ts, seo-blog-ch.ts, seo-pages.ts).
 #
 # When the article generator and a concurrent main writer both append at the
 # same insertion point, git marks the spot as a conflict; both additions are
@@ -10,7 +11,12 @@
 #   2. Repairs JSON files that lose commas during marker removal.
 #   3. Dedupes single-declaration conflicts in routerBlogData.ts and router.ts
 #      (`export const ALL_BLOG_ARTICLE_IDS = [...]`, `type _BlogId<N> = …`).
-#   4. Validates blog-articles-data.ts for duplicate / merged article entries.
+#   4. Validates BOTH article registries (blog-articles-data.ts AND the SVIZZERA
+#      sibling swiss-articles-data.ts) for duplicate / merged article entries.
+#   5. Generic backstop: every conflicted .ts/.tsx must still parse and be free
+#      of duplicate object keys (a mid-entry conflict boundary fuses two entries
+#      into one object — e.g. seo-blog-ch.ts dup keys, seo-pages.ts missing
+#      comma — which previously slipped through and broke the deploy build).
 #
 # Usage (sourced — preferred so the function is in scope of the caller):
 #   source scripts/lib/resolve-append-conflicts.sh
@@ -148,9 +154,15 @@ resolve_append_conflicts() {
       fi
     fi
 
-    # Syntax check for blog-articles-data.ts — detect merged entries
-    # (FRO-328 moved ARTICLES array from BlogArticles.tsx to this file).
-    if [[ "$file" == *"blog-articles-data.ts" ]]; then
+    # Syntax check for the article registries — detect merged entries.
+    # FRONTALIERE → blog-articles-data.ts (FRO-328 moved ARTICLES here);
+    # SVIZZERA → swiss-articles-data.ts (same `[{ id: '…' }, …]` shape). Both
+    # are conflict-prone the same way, so the SVIZZERA sibling MUST share this
+    # guard — omitting it let a mid-entry conflict boundary merge two SVIZZERA
+    # articles into one object (duplicate id/category/date/image keys), which
+    # reached main and broke the per-locale Vite build (dist/index.html never
+    # written → og-pages spa-bundle-resolver poll-exhausted).
+    if [[ "$file" == *"blog-articles-data.ts" ]] || [[ "$file" == *"swiss-articles-data.ts" ]]; then
       if ! node -e "
         const fs = require('fs');
         const src = fs.readFileSync('$file', 'utf8');
@@ -168,7 +180,26 @@ resolve_append_conflicts() {
         }
         console.log('  ✅ $file: ' + ids.length + ' article entries validated (no duplicates)');
       " 2>&1; then
-        echo "  ❌ $file: blog-articles-data.ts validation failed after conflict resolution"
+        echo "  ❌ $file: article-registry validation failed after conflict resolution"
+        ALL_RESOLVED=false
+        continue
+      fi
+    fi
+
+    # Generic guard for ALL conflicted TS/TSX files: after marker removal the
+    # file MUST still parse AND be free of duplicate object keys. A conflict
+    # boundary that falls MID-ENTRY leaves the `{`…tail as common context and
+    # only conflicts the inner fields, so "keep both sides" silently fuses two
+    # entries into one object → duplicate keys (seo-blog-ch.ts) or a missing
+    # separator → syntax error (seo-pages.ts ItemList). esbuild flags both
+    # ("Duplicate … key" warning / parse error); we treat either as fatal so
+    # the corrupted tree never gets pushed. Runs after the router/registry
+    # repairs above so their intentionally-merged single declarations are clean.
+    if [[ "$file" == *.ts ]] || [[ "$file" == *.tsx ]]; then
+      ESB_OUT=$(npx esbuild "$file" --loader:.ts=ts --loader:.tsx=tsx --log-level=warning 2>&1 >/dev/null || true)
+      if echo "$ESB_OUT" | grep -qE '\[ERROR\]|ERROR:|Duplicate (object )?key'; then
+        echo "  ❌ $file: parse/duplicate-key check failed after conflict resolution (merged entry?)"
+        echo "$ESB_OUT" | grep -E '\[ERROR\]|ERROR:|Duplicate' | head -3
         ALL_RESOLVED=false
         continue
       fi
