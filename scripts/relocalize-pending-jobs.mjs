@@ -97,7 +97,16 @@ const TIME_BUDGET_MS = 320 * 60 * 1000;
 // inside the 350min timeout. Falls back to now() when no marker exists
 // (cascade-first / standalone), identical to the prior behaviour.
 const RUN_START_MS = readRunStartMs() ?? Date.now();
-const CASCADE_LOCALIZATION_DEADLINE_MS = 250 * 60 * 1000;
+// Run-wide deadline for the slow HTTP/ONNX cascade. Default 250min (cascade-first
+// era: the cascade IS the primary translator). Under Argos-first the fast
+// CTranslate2 bulk (Phase 2a) + the Argos mop-up (Phase 2c) already cover the
+// backlog, so the cascade only needs a SHORT premium-upgrade / contamination-fix
+// pass — translate-pending.yml caps it via JOBS_CASCADE_DEADLINE_MS so the cascade
+// stops expanding to fill 250min and the whole job's wall-clock drops. Measured
+// from RUN_START_MS, so a long Phase 2a self-throttles the cascade (it steps aside
+// when the bulk pass ran long, takes its window when the bulk was quick).
+const CASCADE_LOCALIZATION_DEADLINE_MS =
+  Number(process.env.JOBS_CASCADE_DEADLINE_MS) || 250 * 60 * 1000;
 
 function readJson(filePath) {
   try {

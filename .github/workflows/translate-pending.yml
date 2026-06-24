@@ -226,6 +226,17 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          # Cap the slow cascade's run-wide deadline so it does a SHORT top-up pass
+          # instead of expanding to fill 250min (measured: Phase 2b grew to 229min /
+          # ~269min total on run 28074729486 even though Phase 2a had already drained
+          # the bulk in 23min — the cascade always runs to its budget). Under Argos-first
+          # the fast engine (Phase 2a + the Phase 2c mop-up) covers the backlog, so 90min
+          # is plenty for the premium-upgrade + contamination-fix the cascade uniquely
+          # does; the rest defers to the next of ~7 runs/day. Self-throttling: the
+          # deadline is measured from RUN_START, so a long Phase 2a shrinks the window.
+          # Revert path (TRANSLATE_ARGOS_FIRST_DISABLE=1, cascade is primary) keeps the
+          # full 250min. (== '1' avoids the '' vs '0' numeric-coercion footgun.)
+          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
           # Local Opus-MT tier (Helsinki-NLP via @huggingface/transformers, on-runner).
           # Free, deterministic, offline; reuses the ONNX runtime proven for embeddings.
           # Kept ON as the cascade's local fallback for the remainder (and for the
