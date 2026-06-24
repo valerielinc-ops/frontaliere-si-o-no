@@ -4893,6 +4893,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iva-aumento-governo-decisione-previsto': {
+    title: 'Aumento IVA: il Governo decide di attenuare l\'incremento',
+    description: 'Il Consiglio federale ha deciso di attenuare l\'aumento dell\'IVA destinato a finanziare il rafforzamento dell\'esercito. Scopri le novità e le implicazioni per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, governo, decide, attenuare',
+    ogTitle: 'Aumento IVA: il Consiglio federale decide di attenuare l\'incremento',
+    ogDescription: 'Il Consiglio federale ha deciso di attenuare l\'aumento dell\'IVA destinato a finanziare il rafforzamento dell\'esercito. Scopri le novità e le implicazioni per i',
+    canonicalPath: '/articoli-svizzera/iva-aumento-governo-decisione-previsto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento IVA: il Governo decide di attenuare l'incremento",
+      "description": "Il Consiglio federale ha deciso di attenuare l'aumento dell'IVA destinato a finanziare il rafforzamento dell'esercito. Scopri le novità e le implicazioni per i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iva-aumento-governo-decisione-previsto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un lago con montagne in Svizzera"
+      },
+      "datePublished": "2026-06-24T15:06:28+00:00",
+      "dateModified": "2026-06-24T15:06:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iva-aumento-governo-decisione-previsto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -151,6 +151,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'scambio-dati-salariali-italia': { it: 'scambio-dati-salariali-italia', en: 'salary-data-exchange-italy', de: 'austausch-gehaltsdaten-italien', fr: 'echange-donnees-salariales-italie' },
  'diminuiscono-annunci-alloggi-frontaliere-ticino': { it: 'diminuiscono-annunci-alloggi-frontaliere-ticino', en: 'diminuiscono-annunci-alloggi-frontaliere-ticino', de: 'diminuiscono-annunci-alloggi-frontaliere-ticino', fr: 'diminuiscono-annunci-alloggi-frontaliere-ticino' },
  'prettigovia-progetto-467-5-milioni': { it: 'prettigovia-progetto-467-5-milioni', en: 'prettigovia-project-467-5-millions', de: 'prettigovia-projekt-467-5-millionen', fr: 'prettigovia-projet-467-5-millions' },
+ 'iva-aumento-governo-decisione-previsto': { it: 'iva-aumento-governo-decisione-previsto', en: 'iva-increase-government-decision-pending', de: 'iva-erhoehung-regierungsentscheidung-geplant', fr: 'tva-hausse-decision-gouvernement-prevue' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

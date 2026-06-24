@@ -385,6 +385,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prettigovia-progetto-467-5-milioni.title': 'More GR: 467.5 million project by road and rail in Prettigovia',
     'blog.article.prettigovia-progetto-467-5-milioni.excerpt': 'The road and railway reconstruction project in Prettigovia costs CHF 467.5 million',
     'blog.article.prettigovia-progetto-467-5-milioni.imageAlt': 'Road construction in Switzerland',
+    'blog.article.iva-aumento-governo-decisione-previsto.title': 'VAT increase: the Government decides to mitigate the increase',
+    'blog.article.iva-aumento-governo-decisione-previsto.excerpt': 'The Federal Council has decided to mitigate the increase in VAT intended to finance the strengthening of the army.',
+    'blog.article.iva-aumento-governo-decisione-previsto.imageAlt': 'Image of a lake with mountains in Switzerland',
 };
 
 export default blogMetaChEn;
