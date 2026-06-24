@@ -31,6 +31,7 @@ export type KillSwitchKey =
   | 'orphanLandings'
   | 'gptPocSlot'
   | 'articleRailAds'
+  | 'desktopTopBanner'
   | 'headerBidding';
 
 export type KillSwitchState = Readonly<Record<KillSwitchKey, boolean>>;
@@ -48,6 +49,7 @@ export const KILL_SWITCH_RC_KEYS: Readonly<Record<KillSwitchKey, string>> = {
   orphanLandings: 'KILL_ORPHAN_LANDINGS_LINKS',
   gptPocSlot: 'KILL_GPT_POC_SLOT',
   articleRailAds: 'KILL_ARTICLE_RAIL_ADS',
+  desktopTopBanner: 'KILL_DESKTOP_TOP_BANNER',
   headerBidding: 'KILL_HEADER_BIDDING',
 } as const;
 
@@ -59,6 +61,7 @@ const DEFAULT_STATE: KillSwitchState = {
   orphanLandings: false,
   gptPocSlot: false,
   articleRailAds: false,
+  desktopTopBanner: false,
   headerBidding: false,
 } as const;
 

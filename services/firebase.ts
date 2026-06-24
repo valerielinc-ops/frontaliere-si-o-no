@@ -82,6 +82,10 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // 'false' = rails SHOWN. Flip to 'true' in the Remote Config console to kill
  // both rail ads within ~1 min (no redeploy) if they regress Auto Ads / RPM / CWV.
  KILL_ARTICLE_RAIL_ADS: 'false',
+ // Desktop top banner (dedicated GPT/GAM leaderboard above the H1). Default
+ // 'false' = shown. Flip to 'true' to kill it within ~1 min (no redeploy);
+ // Auto Ads keep serving untouched.
+ KILL_DESKTOP_TOP_BANNER: 'false',
  // Header-bidding (Prebid) pre-auction on the explicit GPT slots. Default
  // 'false' = auction allowed (still gated by PREBID_ENABLED in
  // services/headerBidding.ts). Flip to 'true' to disable Prebid within ~1 min
