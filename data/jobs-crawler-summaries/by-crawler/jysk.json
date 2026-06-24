@@ -1,16 +1,16 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-06-24T11:55:32.690Z",
-  "total": 44,
+  "generatedAt": "2026-06-24T22:17:07.708Z",
+  "total": 43,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 35,
-  "durationMs": 39559,
-  "avgDurationMs": 39559,
+  "unchangedCount": 34,
+  "durationMs": 36030,
+  "avgDurationMs": 36030,
   "durationHistory": [
-    39559
+    36030
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -483,41 +483,6 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "company-845pfb",
-      "slug": "assistente-vendite-a-20-40-nella-filiale-solothurn-langenthal-mercoledi-sabato-1-2-giorni-jysk-solothurn",
-      "company": "JYSK",
-      "title": "Verkäufer/in (a) 20-40% in der Filiale Solothurn - Langenthal (MI - SA / 1-2 Tage)",
-      "location": "Solothurn",
-      "canton": "SO",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-40-der-filiale-solothurn-langenthal-mi-sa-1-2-tage",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-06-18T12:32:11.629Z",
-      "firstSeenAt": "2026-06-18T12:32:11.629Z",
-      "sourceLang": "de",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "employmentType": "FULL_TIME",
-      "postalCode": "4500",
-      "addressLocality": "Solothurn",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "SO",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1355,6 +1320,40 @@
         "richness": 22,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "id": "company-qrsmyr",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+      "company": "JYSK",
+      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
+      "location": "Schattdorf",
+      "canton": "UR",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-03",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-06-02T23:55:53.817Z",
+      "firstSeenAt": "2026-06-02T23:55:53.817Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Schattdorf",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "UR",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
       }
     }
   ]
