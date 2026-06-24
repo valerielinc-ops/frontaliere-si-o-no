@@ -4135,6 +4135,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia': { name: 'Frontaliere Svizzera', path: '/articoli-svizzera/frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia/', parent: 'blog' },
     'blog-pomodori-economici-spagnoli-unera-al-capolinea': { name: 'Novità', path: '/articoli-svizzera/pomodori-economici-spagnoli-unera-al-capolinea/', parent: 'blog' },
     'blog-traffico-ferroviario-sospeso-germania-guasto-tecnico': { name: 'Traffico ferroviario Germania', path: '/articoli-svizzera/traffico-ferroviario-sospeso-germania-guasto-tecnico/', parent: 'blog' },
+    'blog-sensibilita-al-lavoro-personale': { name: 'Sensibilità al lavoro', path: '/articoli-frontaliere/sensibilita-al-lavoro-personale', parent: 'blog' },
  };
 
  const info = sectionNames[section];
