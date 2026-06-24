@@ -1,31 +1,31 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-06-23T22:12:51.944Z",
-  "total": 35,
+  "generatedAt": "2026-06-24T11:14:20.387Z",
+  "total": 36,
   "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 31,
-  "durationMs": 18562,
-  "avgDurationMs": 18562,
+  "unchangedCount": 32,
+  "durationMs": 19649,
+  "avgDurationMs": 19649,
   "durationHistory": [
-    18562
+    19649
   ],
   "newJobs": [
     {
-      "id": "efg-6334",
-      "slug": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
+      "id": "efg-5892",
+      "slug": "data-engineer-efg-geneve",
       "company": "EFG International AG",
-      "title": "Senior Compliance Officer Onboarding & Periodic Reviews",
+      "title": "Data Engineer",
       "location": "Geneve",
       "canton": "GE",
-      "category": "finance",
+      "category": "tech",
       "contract": "permanent",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-23",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6334",
+      "postedDate": "2026-06-24",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5892",
       "source": "Oracle HCM API",
       "sourceLang": "en",
       "companyKey": "efg-international",
@@ -34,90 +34,28 @@
         "byLocale": {
           "en": {
             "summary": [
-              "In Compliance, for our team Onboarding & Periodic Reviews of 21 Compliance Officers in Switzerland we are looking for an experienced Senior Compliance Officer Onboarding & Periodic Reviews able to deal with complex clients. Previous consolidated experience in Private Banking required as well as good knowledge of international markets. Fluent English is a must."
+              "<p><span><strong>General Info</strong></span></p><p><span>Department: IT Data Department</span><br><span>Work time Percentage: 100%</span><br><span>Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Introduction to the Team</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Data Ops Services’ mission is to ensure adequate servicing of all data interfaces supported by our data platform. It covers a large spectrum of interfaces, from very critical order processing to more regular analytical systems.</span></li><li><span>The Data Ops team is supporting global systems serving the entire group worldwide.</span></li><li><span>As our platform and data landscape evolve, we would like to strengthen our team with a skilled Data Engineer specialised in Talend and enterprise‑grade ETL / ESB integrations.</span></li><li><span>As the technological landscape continues to evolve, our integration framework is modernising likewise. Microservices, API gateway management and Kafka are all technologies at the centre of this team.</span></li></ul><p> </p><p><span><strong>Main Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Design, implement and maintain ETL/ELT data pipelines (batch and near real time) using Qlik Talend and related integration components.</span></li><li><span>Develop and operate ESB‑style integrations between core banking systems, data platforms and downstream applications, ensuring robustness, scalability and reusability.</span></li><li><span>Take operational ownership of Talend (change management, data quality management, SLA monitoring, SOPs and runbooks).</span></li><li><span>Monitor and ensure the smooth operation of critical data pipelines, including incident analysis, root cause identification and implementation of preventive measures.</span></li><li><span>Apply CI/CD practices using the existing framework to automate and streamline deployments and configuration changes.</span></li><li><span>Implement controls using the observability framework, ensuring service continuity and accuracy.</span></li><li><span>Create, maintain and improve documentation and operational procedures for the data integrations under your ownership.</span></li><li><span>Collaborate with cross‑functional teams (application owners, architects, business analysts, data consumers) to design integration patterns and improve governance around data flows.</span></li><li><span>Contribute to the standardisation and industrialisation of integration patterns, promoting convergence, normalisation and reusability across projects.</span></li><li><span>Stay current with advancements in data engineering, ETL/ESB technologies and cloud‑based integration platforms to support continuous improvement of our DataOps capabilities.</span></li></ul><p> </p><p><span><strong>Skills and Experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of proven hands‑on experience in data engineering and data integration, with a strong focus on ETL/ELT pipelines and ESB‑style integrations.</span></li><li><span>Solid experience with Qlik Talend ETL and ESB on‑premise, including job design, orchestration, error handling and performance optimisation.</span></li><li><span>Strong ETL / data modelling skills, including handling of large datasets, complex transformations and integration of heterogeneous data sources.</span></li><li><span>Good knowledge of SQL and experience working with relational databases and/or cloud data platforms.</span></li><li><span>Experience with CI/CD practices and tools in a hybrid environment (e.g. Azure DevOps, GitHub Actions) applied to data integration components.</span></li><li><span>Familiarity with ESB concepts, API‑based integrations, messaging and event‑driven patterns is a strong plus.</span></li><li><span>Experience with data quality, metadata management and data lineage tools or frameworks is an asset.</span></li><li><span>Enjoy providing operational support on Talend jobs and data integration workflows (incident analysis, troubleshooting).</span></li><li><span>Good communication and collaboration skills, able to work closely with both technical and business stakeholders.</span></li><li><span>Rigorous and methodical in documentation, process creation and change management.</span></li><li><span>High interest in standardisation, convergence and reusability of integration components.</span></li><li><span>Curious, enthusiastic and proactive, with a hands‑on mindset and a strong desire to learn and grow in a demanding environment.</span></li><li><span>Passionate about data processing and integration technologies.</span></li><li><span>Fluent in spoken and written English; French is an asset.</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results.</span></li><li><span>Passionate: Being committed and striving for excellence.</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><br> </p>"
             ],
-            "responsibilities": [
-              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;",
-              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;",
-              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;",
-              "Advise and support to front office on matters relating to Anti-Money Laundering (AML), Know Your customer (KYC) and agreement on the Swiss banks' code of conduct in the context of the exercise of due diligence (CDB 20);",
-              "Assessments of clients' tax compliance, including FATCA and CRS forms, and other relevant elements, documentation of such assessments;",
-              "Management of other requests (e.g. enquiries from other departments or third parties, overrides);",
-              "Support the tasks regarding internal and externaI Audit upon request;",
-              "Escalate potentially suspicious cases to the Financial Intelligence unit (FIU);",
-              "Work in coordination with other units when required, such as the Sanctions Team, Legal department, Account Documentation, and other relevant departments, to ensure thorough clients assessments."
-            ],
-            "requirements": [
-              "Professional English required.",
-              "5+ years prior experience in role",
-              "Principled, autonomous and strong team player/collaborative personality.",
-              "Capable of expressing oneself clearly both speaking and in writing.",
-              "Strong knowledge of industry best practices.",
-              "Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.",
-              "Strong time management and organizational skills to meet tight deadlines."
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
             "process": [],
-            "highlights": [
-              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;",
-              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;",
-              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;",
-              "Professional English required.",
-              "5+ years prior experience in role",
-              "Principled, autonomous and strong team player/collaborative personality.",
-              "Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Professional English required.",
-              "5+ years prior experience in role",
-              "Principled",
-              "Capable of expressing oneself clearly both speaking and in writing.",
-              "Strong knowledge of industry best practices.",
-              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities",
-              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures",
-              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations",
-              "Advise and support to front office on matters relating to Anti-Money Laundering (AML)"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.483Z",
+      "crawledAt": "2026-06-24T11:14:17.928Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "needsRetranslation": true,
-      "datePosted": "2026-06-23",
-      "_qualityScore": 68,
+      "datePosted": "2026-06-24",
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -157,7 +95,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.480Z",
+      "crawledAt": "2026-06-24T11:14:17.933Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -304,7 +242,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
-      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -382,7 +319,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.507Z",
+      "crawledAt": "2026-06-24T11:14:17.956Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -475,7 +412,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.505Z",
+      "crawledAt": "2026-06-24T11:14:17.954Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -529,7 +466,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.504Z",
+      "crawledAt": "2026-06-24T11:14:17.953Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -584,7 +521,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.503Z",
+      "crawledAt": "2026-06-24T11:14:17.951Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -699,7 +636,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.502Z",
+      "crawledAt": "2026-06-24T11:14:17.951Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -754,7 +691,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.501Z",
+      "crawledAt": "2026-06-24T11:14:17.949Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -884,7 +821,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.499Z",
+      "crawledAt": "2026-06-24T11:14:17.947Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -985,7 +922,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.498Z",
+      "crawledAt": "2026-06-24T11:14:17.946Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1103,7 +1040,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.497Z",
+      "crawledAt": "2026-06-24T11:14:17.945Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1158,7 +1095,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.496Z",
+      "crawledAt": "2026-06-24T11:14:17.943Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1282,7 +1219,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.493Z",
+      "crawledAt": "2026-06-24T11:14:17.942Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1337,7 +1274,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.492Z",
+      "crawledAt": "2026-06-24T11:14:17.941Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1392,7 +1329,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.491Z",
+      "crawledAt": "2026-06-24T11:14:17.940Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1447,7 +1384,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.490Z",
+      "crawledAt": "2026-06-24T11:14:17.939Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1570,7 +1507,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.488Z",
+      "crawledAt": "2026-06-24T11:14:17.938Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1699,7 +1636,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.487Z",
+      "crawledAt": "2026-06-24T11:14:17.937Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1723,7 +1660,7 @@
     },
     {
       "id": "efg-4543",
-      "slug": "group-financial-controller-efg-geneve",
+      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Group Financial Controller",
       "location": "Geneve",
@@ -1849,7 +1786,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-23T22:12:49.485Z",
+      "crawledAt": "2026-06-24T11:14:17.935Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1861,6 +1798,122 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6334",
+      "slug": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Senior Compliance Officer Onboarding & Periodic Reviews",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6334",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "In Compliance, for our team Onboarding & Periodic Reviews of 21 Compliance Officers in Switzerland we are looking for an experienced Senior Compliance Officer Onboarding & Periodic Reviews able to deal with complex clients. Previous consolidated experience in Private Banking required as well as good knowledge of international markets. Fluent English is a must."
+            ],
+            "responsibilities": [
+              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;",
+              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;",
+              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;",
+              "Advise and support to front office on matters relating to Anti-Money Laundering (AML), Know Your customer (KYC) and agreement on the Swiss banks' code of conduct in the context of the exercise of due diligence (CDB 20);",
+              "Assessments of clients' tax compliance, including FATCA and CRS forms, and other relevant elements, documentation of such assessments;",
+              "Management of other requests (e.g. enquiries from other departments or third parties, overrides);",
+              "Support the tasks regarding internal and externaI Audit upon request;",
+              "Escalate potentially suspicious cases to the Financial Intelligence unit (FIU);",
+              "Work in coordination with other units when required, such as the Sanctions Team, Legal department, Account Documentation, and other relevant departments, to ensure thorough clients assessments."
+            ],
+            "requirements": [
+              "Professional English required.",
+              "5+ years prior experience in role",
+              "Principled, autonomous and strong team player/collaborative personality.",
+              "Capable of expressing oneself clearly both speaking and in writing.",
+              "Strong knowledge of industry best practices.",
+              "Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.",
+              "Strong time management and organizational skills to meet tight deadlines."
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;",
+              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;",
+              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;",
+              "Professional English required.",
+              "5+ years prior experience in role",
+              "Principled, autonomous and strong team player/collaborative personality.",
+              "Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Professional English required.",
+              "5+ years prior experience in role",
+              "Principled",
+              "Capable of expressing oneself clearly both speaking and in writing.",
+              "Strong knowledge of industry best practices.",
+              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities",
+              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures",
+              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations",
+              "Advise and support to front office on matters relating to Anti-Money Laundering (AML)"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-06-24T11:14:17.932Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-06-23",
+      "salaryMin": 174500,
+      "salaryMax": 306000,
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1204",
+      "country": "CH",
+      "firstSeenAt": "2026-06-23T22:12:49.483Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -2956,120 +3009,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6101",
-      "slug": "senior-cloud-engineer-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Senior Cloud Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-25",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6101",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "Cloud & Infrastructure Design and Implementation"
-            ],
-            "responsibilities": [
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">M365 & Azure Engineering</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud Adoption & Optimization</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Drive and support cloud adoption initiatives, including: </p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Application and infrastructure readiness assessments</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Data and workload migration to M365/Azure</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Performance tuning and optimization of cloud environments</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Automation & Operational Excellence</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the standardization and industrialization of infrastructure services and processes.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Support continuous improvement of operational procedures, documentation and runbooks.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Collaboration & Support</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.</p>"
-            ],
-            "requirements": [],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>"
-            ],
-            "keywords": [
-              "<p style=\"color"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Skills & Experience Required",
-                "paragraphs": [
-                  "Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.",
-                  "Solid background with Windows Server, virtualization, networking and hybrid environments.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span>",
-                  "Used to working in complex, regulated environments; financial services / banking experience is a plus.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span>",
-                  "English fluent (must); French is a plus.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span>",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span>",
-                  "High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.",
-                  "Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.",
-                  "Our Values"
-                ],
-                "bullets": [
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.</p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Solid background with Windows Server, virtualization, networking and hybrid environments.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Used to working in complex, regulated environments; financial services / banking experience is a plus.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">English fluent (must); French is a plus.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span></p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.</p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.</p>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Accountability</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Hands-on</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being proactive to rapidly deliver high-quality results</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Passionate</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being committed and striving for excellence</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Solution-driven</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Partnership-oriented</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span>"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-21T11:47:31.192Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-03-25",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.896Z",
-      "country": "CH",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
