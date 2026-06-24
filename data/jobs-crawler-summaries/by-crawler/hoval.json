@@ -1,49 +1,18 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-06-24T11:45:59.610Z",
+  "generatedAt": "2026-06-24T22:16:15.820Z",
   "total": 16,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 15,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 21067,
-  "avgDurationMs": 21067,
+  "unchangedCount": 1,
+  "durationMs": 20267,
+  "avgDurationMs": 20267,
   "durationHistory": [
-    21067
+    20267
   ],
-  "newJobs": [
-    {
-      "title": "Product & Remote Support Engineer (m/w/d)",
-      "slug": "product-remote-support-engineer-m-w-d-hoval-feldmeilen",
-      "url": "https://www.hoval.it/it_IT/job/3977",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3977/Application/New/1?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Feldmeilen",
-      "addressLocality": "Feldmeilen",
-      "addressRegion": "CH",
-      "addressCountry": "CH",
-      "canton": "CH",
-      "country": "CH",
-      "category": "it",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 65,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
@@ -600,5 +569,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Product & Remote Support Engineer (m/w/d)",
+      "slug": "product-remote-support-engineer-m-w-d-hoval-feldmeilen",
+      "url": "https://www.hoval.it/it_IT/job/3977",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3977/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Feldmeilen",
+      "addressLocality": "Feldmeilen",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "CH",
+      "country": "CH",
+      "category": "it",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-8ae4adaaf74b",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "",
+      "firstSeenAt": "2026-06-24T11:45:59.607Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ]
 }
