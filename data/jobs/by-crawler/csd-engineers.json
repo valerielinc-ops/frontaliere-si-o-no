@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csd-engineers",
-  "assembledAt": "2026-06-24T11:23:57.359Z",
+  "assembledAt": "2026-06-24T21:53:05.665Z",
   "jobs": [
     {
       "id": "csd-engineers-01683e54e340",
@@ -33,7 +33,7 @@
       "url": "https://jobs.csd.ch/jobs/5761536-ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:54.671Z",
+      "crawledAt": "2026-06-24T21:53:02.988Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -94,7 +94,7 @@
       "url": "https://jobs.csd.ch/jobs/5761617-projektleiter-in-bauingenieur-in-hochbau-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:54.317Z",
+      "crawledAt": "2026-06-24T21:53:02.569Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -169,7 +169,7 @@
       "url": "https://jobs.csd.ch/jobs/5761889-bauingenieur-in-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:53.966Z",
+      "crawledAt": "2026-06-24T21:53:02.183Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -244,7 +244,7 @@
       "url": "https://jobs.csd.ch/jobs/5761929-teamleiter-in-bauingenieur-in-hochbau-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:53.613Z",
+      "crawledAt": "2026-06-24T21:53:01.798Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -319,7 +319,7 @@
       "url": "https://jobs.csd.ch/jobs/5761953-zeichner-in-fachrichtung-ingenieurbau-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:53.261Z",
+      "crawledAt": "2026-06-24T21:53:01.413Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -394,7 +394,7 @@
       "url": "https://jobs.csd.ch/jobs/5762077-praktikant-in-bauingenieurwesen-oder-holzbau",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:52.911Z",
+      "crawledAt": "2026-06-24T21:53:01.027Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -445,8 +445,8 @@
       "id": "csd-engineers-1e47d2083df1",
       "slug": "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
       "slugByLocale": {
-        "en": "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
         "it": "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
+        "en": "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
         "de": "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
         "fr": "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch"
       },
@@ -455,8 +455,8 @@
       "companyDomain": "csd.ch",
       "title": "Projektingenieur im Hochbau 70-100% (w/m/d)",
       "titleByLocale": {
-        "en": "Projektingenieur im Hochbau 70-100% (w/m/d)",
         "it": "Projektingenieur im Hochbau 70-100% (w/m/d)",
+        "en": "Projektingenieur im Hochbau 70-100% (w/m/d)",
         "de": "Projektingenieur im Hochbau 70-100% (w/m/d)",
         "fr": "Projektingenieur im Hochbau 70-100% (m/j)"
       },
@@ -469,7 +469,7 @@
       "url": "https://jobs.csd.ch/jobs/5762150-projektingenieur-im-hochbau-70-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T11:23:52.556Z",
+      "crawledAt": "2026-06-24T21:53:00.643Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -485,10 +485,9 @@
       "postedDate": "2025-04-02",
       "applyUrl": "https://jobs.csd.ch/jobs/5762150-projektingenieur-im-hochbau-70-100-w-m-d",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T11:23:52.556Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -501,8 +500,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL",
-      "firstSeenAt": "2026-06-24T11:23:52.556Z"
+      "addressRegion": "BL"
     },
     {
       "id": "csd-engineers-78551301fa35",
@@ -535,7 +533,7 @@
       "url": "https://jobs.csd.ch/jobs/5762909-chef-de-projet-environnement-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:51.679Z",
+      "crawledAt": "2026-06-24T21:53:00.258Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "streetAddress": "Av. des Sports 14",
@@ -567,6 +565,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:18.208Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -609,7 +608,7 @@
       "url": "https://jobs.csd.ch/jobs/5882813-bauingenieur-als-projektleiter-geotechnik-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:51.326Z",
+      "crawledAt": "2026-06-24T21:52:59.840Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -681,7 +680,7 @@
       "url": "https://jobs.csd.ch/jobs/6136143-bauingenieur-als-projektingenieur-tragwerksplanung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:50.986Z",
+      "crawledAt": "2026-06-24T21:52:59.455Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -756,7 +755,7 @@
       "url": "https://jobs.csd.ch/jobs/6354078-zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:50.645Z",
+      "crawledAt": "2026-06-24T21:52:59.072Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -830,7 +829,7 @@
       "url": "https://jobs.csd.ch/jobs/6563044-chef-de-projet-cvc-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:50.304Z",
+      "crawledAt": "2026-06-24T21:52:58.688Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -891,7 +890,7 @@
       "url": "https://jobs.csd.ch/jobs/6632866-praktikant-bauingenieurwesen-4-6-monate-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:49.952Z",
+      "crawledAt": "2026-06-24T21:52:58.270Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -966,7 +965,7 @@
       "url": "https://jobs.csd.ch/jobs/6632871-erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:49.614Z",
+      "crawledAt": "2026-06-24T21:52:57.887Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -1041,7 +1040,7 @@
       "url": "https://jobs.csd.ch/jobs/6732528-dessinateur-en-genie-civil-80-100-f-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:49.269Z",
+      "crawledAt": "2026-06-24T21:52:57.501Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "streetAddress": "Chem. des Mosseires 63",
@@ -1119,7 +1118,7 @@
       "url": "https://jobs.csd.ch/jobs/6761296-projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:48.917Z",
+      "crawledAt": "2026-06-24T21:52:57.083Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1194,7 +1193,7 @@
       "url": "https://jobs.csd.ch/jobs/6771563-erfahrener-geologe-teamleiter-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:48.576Z",
+      "crawledAt": "2026-06-24T21:52:56.700Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1272,7 +1271,7 @@
       "url": "https://jobs.csd.ch/jobs/6794096-ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:48.223Z",
+      "crawledAt": "2026-06-24T21:52:56.282Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "streetAddress": "Chem. des Mosseires 63",
@@ -1323,7 +1322,7 @@
       "slug": "idrogeologie-di-esperti-60-100-w-m-d-csd-engineers-bern",
       "slugByLocale": {
         "it": "idrogeologie-di-esperti-60-100-w-m-d-csd-engineers-bern",
-        "en": "expert-hydrogeology-60-100-w-m-d-csd-engineers-bern",
+        "en": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
         "de": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
         "fr": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
       },
@@ -1333,7 +1332,7 @@
       "title": "Experte Hydrogeologie 60-100% (w/m/d)",
       "titleByLocale": {
         "it": "Idrogeologie di esperti 60-100% (w/m/d)",
-        "en": "Expert Hydrogeology 60-100% (w/m/d)",
+        "en": "Experte Hydrogeologie 60-100% (w/m/d)",
         "de": "Experte Hydrogeologie 60-100% (w/m/d)",
         "fr": "Experte Hydrogéologie 60-100 % (m/j)"
       },
@@ -1349,7 +1348,7 @@
       "url": "https://jobs.csd.ch/jobs/6900060-experte-hydrogeologie-60-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:47.871Z",
+      "crawledAt": "2026-06-24T21:52:55.864Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1367,17 +1366,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
+        "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
+        "expert-hydrogeology-60-100-w-m-d-csd-engineers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
         ],
         "en": [
+          "expert-hydrogeology-60-100-w-m-d-csd-engineers-bern",
           "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:12.541Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1423,7 +1425,7 @@
       "url": "https://jobs.csd.ch/jobs/6901991-projektleiter-altlasten-w-m-d-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:47.519Z",
+      "crawledAt": "2026-06-24T21:52:55.446Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1494,7 +1496,7 @@
       "url": "https://jobs.csd.ch/jobs/6910104-chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:47.169Z",
+      "crawledAt": "2026-06-24T21:52:55.005Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "streetAddress": "Rte Jo Siffert 4",
@@ -1527,6 +1529,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.859Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1572,7 +1575,7 @@
       "url": "https://jobs.csd.ch/jobs/6964011-projektleiter-siedlungsentwasserung-und-digitales-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:46.817Z",
+      "crawledAt": "2026-06-24T21:52:54.588Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "streetAddress": "Bahnhofstrasse 19",
@@ -1604,6 +1607,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.396Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1649,7 +1653,7 @@
       "url": "https://jobs.csd.ch/jobs/7022753-diagnostiker-bauschadstoffe-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:46.449Z",
+      "crawledAt": "2026-06-24T21:52:54.130Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Flurhofstrasse 150",
@@ -1681,6 +1685,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.920Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1726,7 +1731,7 @@
       "url": "https://jobs.csd.ch/jobs/7038517-chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:46.098Z",
+      "crawledAt": "2026-06-24T21:52:53.713Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -1758,6 +1763,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.458Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1786,7 +1792,7 @@
       "companyDomain": "csd.ch",
       "title": "Chef de Projet Energie Senior (f/h/d) 80-100%",
       "titleByLocale": {
-        "it": "Senior Energy Project Leader (f/h/d) 80-100%",
+        "it": "Chef de Projet Energie Senior (f/h/d) 80-100%",
         "en": "Senior Energy Project Leader (f/h/d) 80-100%",
         "de": "Senior Energy Project Leader (f/h/d) 80-100%",
         "fr": "Chef de Projet Energie Senior (f/h/d) 80-100%"
@@ -1803,7 +1809,7 @@
       "url": "https://jobs.csd.ch/jobs/7041166-chef-de-projet-energie-senior-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:45.746Z",
+      "crawledAt": "2026-06-24T21:52:53.297Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -1821,6 +1827,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-02T23:14:09.998Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1866,7 +1873,7 @@
       "url": "https://jobs.csd.ch/jobs/7184735-ingenieur-junior-hydraulique-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:45.393Z",
+      "crawledAt": "2026-06-24T21:52:52.880Z",
       "addressLocality": "Sion",
       "postalCode": "1950",
       "streetAddress": "Rue de l'Industrie 54",
@@ -1923,6 +1930,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:17.486Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1968,7 +1976,7 @@
       "url": "https://jobs.csd.ch/jobs/7221757-projektleiter-umwelt-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:45.037Z",
+      "crawledAt": "2026-06-24T21:52:52.458Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -2000,6 +2008,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:09.195Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2016,11 +2025,11 @@
     },
     {
       "id": "csd-engineers-cbb9b77ee626",
-      "slug": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
       "slugByLocale": {
-        "it": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "it": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
         "en": "chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2029,7 +2038,7 @@
       "title": "Chef de Projets Planification & Grands Projets (BAMO+DGT) (f/h/d) 80-100%",
       "titleByLocale": {
         "it": "Pianificazione e progetti principali (BAMO+DGT) (e/h/d) 80-100%",
-        "en": "Project Leader Planning & Major Projects (BAMO+DGT) (e/h/d) 80-100%",
+        "en": "Chef de Projets Planification & Grands Projets (BAMO+DGT) (f/h/d) 80-100%",
         "de": "Projektleiter Planung & Großprojekte (BAMO+DGT) (e/h/d) 80-100%",
         "fr": "Chef de Projets Planification & Grands Projets (BAMO+DGT) (f/h/d) 80-100%"
       },
@@ -2045,7 +2054,7 @@
       "url": "https://jobs.csd.ch/jobs/7237464-chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:44.688Z",
+      "crawledAt": "2026-06-24T21:52:52.064Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2063,17 +2072,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
+        "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
+          "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.736Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2090,11 +2103,11 @@
     },
     {
       "id": "csd-engineers-6e8ca344904c",
-      "slug": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
       "slugByLocale": {
-        "it": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "it": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
         "en": "chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2103,7 +2116,7 @@
       "title": "Chef de Projets Planification & Grands Projets (BAMO) (f/h/d) 80-100%",
       "titleByLocale": {
         "it": "Pianificazione e progetti principali (BAMO) (e/h/d) 80-100%",
-        "en": "Project Leader Planning & Major Projects (BAMO) (e/h/d) 80-100%",
+        "en": "Chef de Projets Planification & Grands Projets (BAMO) (f/h/d) 80-100%",
         "de": "Projektleiter Planung und Großprojekte (BAMO) (e/h/d) 80-100%",
         "fr": "Chef de Projets Planification & Grands Projets (BAMO) (f/h/d) 80-100%"
       },
@@ -2119,7 +2132,7 @@
       "url": "https://jobs.csd.ch/jobs/7237667-chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:44.336Z",
+      "crawledAt": "2026-06-24T21:52:51.646Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2137,17 +2150,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
+        "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
+          "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.267Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2193,7 +2210,7 @@
       "url": "https://jobs.csd.ch/jobs/7361647-projektingenieur-siedlungsentwasserung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:43.980Z",
+      "crawledAt": "2026-06-24T21:52:51.228Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -2270,7 +2287,7 @@
       "url": "https://jobs.csd.ch/jobs/7678428-chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:43.639Z",
+      "crawledAt": "2026-06-24T21:52:50.842Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2303,6 +2320,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.774Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2348,7 +2366,7 @@
       "url": "https://jobs.csd.ch/jobs/7678706-stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:43.282Z",
+      "crawledAt": "2026-06-24T21:52:50.424Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2380,6 +2398,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.304Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2425,7 +2444,7 @@
       "url": "https://jobs.csd.ch/jobs/7705442-zeichner-fachrichtung-ingenieurbau-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:42.929Z",
+      "crawledAt": "2026-06-24T21:52:50.004Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "streetAddress": "Bahnhofstrasse 19",
@@ -2454,6 +2473,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.840Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2499,7 +2519,7 @@
       "url": "https://jobs.csd.ch/jobs/7745880-geologue-chef-de-projets-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:42.577Z",
+      "crawledAt": "2026-06-24T21:52:49.587Z",
       "addressLocality": "Sion",
       "postalCode": "1950",
       "streetAddress": "Rue de l'Industrie 54",
@@ -2531,6 +2551,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:11:52.666Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2576,7 +2597,7 @@
       "url": "https://jobs.csd.ch/jobs/7762493-chef-de-projet-traitement-des-eaux-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:42.223Z",
+      "crawledAt": "2026-06-24T21:52:49.163Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2608,6 +2629,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.159Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2653,7 +2675,7 @@
       "url": "https://jobs.csd.ch/jobs/7774786-projektleiter-geologie-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:41.873Z",
+      "crawledAt": "2026-06-24T21:52:48.743Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -2685,6 +2707,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.700Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2730,7 +2753,7 @@
       "url": "https://jobs.csd.ch/jobs/7798058-cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:41.530Z",
+      "crawledAt": "2026-06-24T21:52:48.359Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -2762,6 +2785,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.234Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2775,6 +2799,72 @@
         }
       },
       "addressRegion": "GE"
+    },
+    {
+      "id": "csd-engineers-7e71baf0dc1c",
+      "slug": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
+      "slugByLocale": {
+        "fr": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
+        "it": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
+        "en": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
+        "de": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch"
+      },
+      "company": "CSD ENGINEERS",
+      "companyKey": "csd-engineers",
+      "companyDomain": "csd.ch",
+      "title": "Collaborateur Comptabilité AP + AR 80-100% (f/h/d)",
+      "titleByLocale": {
+        "fr": "Collaborateur Comptabilité AP + AR 80-100% (f/h/d)",
+        "it": "Collaborateur Comptabilité AP + AR 80-100% (f/m/d)",
+        "en": "Collaborateur Comptabilité AP + AR 80-100% (f/h/d)",
+        "de": "Collaborateur Comptabilité AP + AR 80-100% (f/h/d)"
+      },
+      "description": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
+      "descriptionByLocale": {
+        "fr": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
+        "it": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
+        "en": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
+        "de": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>"
+      },
+      "location": "Givisiez",
+      "canton": "FR",
+      "url": "https://jobs.csd.ch/jobs/7839292-collaborateur-comptabilite-ap-ar-80-100-f-h-d",
+      "source": "CSD ENGINEERS Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-24T21:52:47.939Z",
+      "addressLocality": "Givisiez",
+      "postalCode": "1762",
+      "streetAddress": "Rte Jo Siffert 4",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Ingegneria / Ambiente",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://jobs.csd.ch/jobs/7839292-collaborateur-comptabilite-ap-ar-80-100-f-h-d",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-06-24T21:52:47.939Z"
     },
     {
       "id": "csd-engineers-e418fe092dc6",
@@ -2807,7 +2897,7 @@
       "url": "https://jobs.csd.ch/jobs/7852725-stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:41.175Z",
+      "crawledAt": "2026-06-24T21:52:47.322Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2839,6 +2929,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:10.601Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2884,7 +2975,7 @@
       "url": "https://jobs.csd.ch/jobs/7853687-stagiaire-en-environnement-eau-f-h-d-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:40.822Z",
+      "crawledAt": "2026-06-24T21:52:46.902Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -2916,6 +3007,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:09.709Z",
+      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2961,7 +3053,7 @@
       "url": "https://jobs.csd.ch/jobs/7853694-praktikant-geologie-und-umwelt-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:40.471Z",
+      "crawledAt": "2026-06-24T21:52:46.486Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Alexanderstrasse 16",
@@ -2990,6 +3082,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:08.812Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3035,7 +3128,7 @@
       "url": "https://jobs.csd.ch/jobs/7856150-chef-de-projet-en-electricite-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:40.131Z",
+      "crawledAt": "2026-06-24T21:52:46.104Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "streetAddress": "Av. des Sports 14",
@@ -3112,7 +3205,7 @@
       "url": "https://jobs.csd.ch/jobs/7856647-baumanager-w-m-d-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:39.776Z",
+      "crawledAt": "2026-06-24T21:52:45.682Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -3130,6 +3223,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-16T13:11:07.085Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "baumanager-w-m-d-100-csd-engineers-ch"
@@ -3189,7 +3283,7 @@
       "url": "https://jobs.csd.ch/jobs/7857380-bauleiter-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:39.422Z",
+      "crawledAt": "2026-06-24T21:52:45.258Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -3223,6 +3317,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:42:35.643Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3268,7 +3363,7 @@
       "url": "https://jobs.csd.ch/jobs/7867787-teilprojektleiter-architektur-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:38.643Z",
+      "crawledAt": "2026-06-24T21:52:44.837Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -3300,6 +3395,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:45:29.856Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3345,7 +3441,7 @@
       "url": "https://jobs.csd.ch/jobs/7873607-apprenti-dessinateur-durant-4-annees-de-2027-a-2031-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:37.774Z",
+      "crawledAt": "2026-06-24T21:52:44.418Z",
       "addressLocality": "Porrentruy",
       "postalCode": "2900",
       "streetAddress": "Rte de Courgenay 18",
@@ -3379,6 +3475,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T22:17:28.345Z",
+      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 77000,
       "baseSalary": {
@@ -3424,7 +3521,7 @@
       "url": "https://jobs.csd.ch/jobs/7873966-ingenieur-en-genie-civil-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:37.422Z",
+      "crawledAt": "2026-06-24T21:52:43.996Z",
       "addressLocality": "Porrentruy",
       "postalCode": "2900",
       "streetAddress": "Rte de Courgenay 18",
@@ -3456,6 +3553,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:17:14.783Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3501,7 +3599,7 @@
       "url": "https://jobs.csd.ch/jobs/7879468-projektleiter-umwelt-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:37.067Z",
+      "crawledAt": "2026-06-24T21:52:43.577Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Alexanderstrasse 16",
@@ -3578,7 +3676,7 @@
       "url": "https://jobs.csd.ch/jobs/7881026-mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T11:23:36.724Z",
+      "crawledAt": "2026-06-24T21:52:43.188Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -3610,6 +3708,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:15:26.576Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3626,9 +3725,9 @@
     },
     {
       "id": "csd-engineers-2b7e1089208c",
-      "slug": "senior-project-leader-80-100-e-h-d-csd-engineers-lancy",
+      "slug": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch",
       "slugByLocale": {
-        "it": "senior-project-leader-80-100-e-h-d-csd-engineers-lancy",
+        "it": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch",
         "en": "senior-project-manager-80-100-f-m-d-csd-engineers-lancy",
         "de": "senior-project-manager-80-100-f-m-d-csd-engineers-lancy",
         "fr": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch"
@@ -3638,7 +3737,7 @@
       "companyDomain": "csd.ch",
       "title": "Chef de projet senior 80-100% (f/h/d)",
       "titleByLocale": {
-        "it": "Senior Project Leader 80-100% (e/h/d)",
+        "it": "Chef de projet senior 80-100% (f/h/d)",
         "en": "Senior Project Manager 80-100% (f/m/d)",
         "de": "Senior Project Manager 80-100 % (F/M/D)",
         "fr": "Chef de projet senior 80-100% (f/h/d)"
@@ -3655,7 +3754,7 @@
       "url": "https://jobs.csd.ch/jobs/7915869-chef-de-projet-senior-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:36.372Z",
+      "crawledAt": "2026-06-24T21:52:42.765Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -3673,14 +3772,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch"
+        "senior-project-leader-80-100-e-h-d-csd-engineers-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-project-leader-80-100-e-h-d-csd-engineers-lancy",
           "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-16T13:11:03.730Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3726,7 +3827,7 @@
       "url": "https://jobs.csd.ch/jobs/7926546-stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T11:23:36.016Z",
+      "crawledAt": "2026-06-24T21:52:42.340Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -3752,6 +3853,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:37.296Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
