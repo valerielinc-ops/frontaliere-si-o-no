@@ -1,0 +1,94 @@
+# Deploy the Cloudflare Email Routing Worker (infra/cloudflare-email-worker).
+#
+# Same gap deploy-worker.yml closed for the locale-router: nothing re-deployed
+# the email worker, so the STOP-reply + reply-tracking handler sat in the repo
+# without ever going live (it did NOT exist on the account). This deploys it on
+# every push to main that touches its directory, then configures it via the CF
+# API (scripts/cf-email-worker-setup.mjs): sets the worker secrets STOP_SECRET
+# (= NEWSLETTER_SECRET) and FORWARD_TO (resolved from the zone catch-all target,
+# so no email is committed), and binds the outreach reply address to the worker.
+#
+# Credentials come from Firebase Remote Config (repo convention — same as
+# deploy-worker.yml), hydrated by scripts/load-rc-env.mjs:
+#   CF_API_TOKEN      — needs Workers Scripts:Edit (deploy + secrets) and, for the
+#                       inbound binding, Zone→Email Routing:Edit. Missing the
+#                       Email Routing scope only skips the rule (warns), not the deploy.
+#   CF_ACCOUNT_ID     — Cloudflare account id.
+#   NEWSLETTER_SECRET — becomes the worker's STOP_SECRET (matches the Cloud Function side).
+# FIREBASE_SERVICE_ACCOUNT_JSON (repo secret) authenticates the RC read.
+name: Deploy Email Worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'infra/cloudflare-email-worker/**'
+      - 'scripts/cf-email-worker-setup.mjs'
+  workflow_dispatch: {}
+
+# Never cancel an in-flight deploy: a half-applied worker/routing change is worse
+# than waiting. Serialize so concurrent merges deploy in order.
+concurrency:
+  group: deploy-email-worker
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # load-rc-env.mjs only needs firebase-admin — install it standalone
+      # instead of a full `npm ci` (the repo's install is heavy and unneeded).
+      - name: Install firebase-admin (for RC read)
+        run: npm install --no-save firebase-admin
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON not set — cannot read CF creds from Remote Config."
+            exit 1
+          fi
+
+      - name: Load Cloudflare creds + NEWSLETTER_SECRET from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Verify creds present
+        run: |
+          if [ -z "$CF_API_TOKEN" ] || [ -z "$CF_ACCOUNT_ID" ]; then
+            echo "::error::CF_API_TOKEN / CF_ACCOUNT_ID not hydrated from Remote Config."
+            exit 1
+          fi
+          if [ -z "$NEWSLETTER_SECRET" ]; then
+            echo "::error::NEWSLETTER_SECRET not hydrated from Remote Config — cannot set STOP_SECRET."
+            exit 1
+          fi
+
+      - name: Deploy Email Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ env.CF_API_TOKEN }}
+          accountId: ${{ env.CF_ACCOUNT_ID }}
+          workingDirectory: infra/cloudflare-email-worker
+          command: deploy
+
+      # Sets STOP_SECRET + FORWARD_TO worker secrets via the CF API and binds the
+      # outreach reply address to the worker. Runs AFTER deploy so the worker
+      # script exists. Secrets are essential (fail on error); the routing rule is
+      # best-effort (warns if the token lacks Email Routing:Edit).
+      - name: Configure secrets + Email Routing binding
+        run: node scripts/cf-email-worker-setup.mjs
