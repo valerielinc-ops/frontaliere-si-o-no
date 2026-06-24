@@ -88475,10 +88475,10 @@
     },
     {
       "id": "roche-176783f434aa",
-      "slug": "patient-journey-partner-roche-ch-3",
+      "slug": "partner-del-viaggio-paziente-roche-jalisco",
       "slugByLocale": {
         "fr": "patient-journey-partner-roche-ch",
-        "it": "patient-journey-partner-roche-ch-3",
+        "it": "partner-del-viaggio-paziente-roche-jalisco",
         "en": "patient-journey-partner-roche-ch-3",
         "de": "patient-journey-partner-roche-ch-3"
       },
@@ -88535,7 +88535,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:04:53.441Z"
+      "firstSeenAt": "2026-06-23T23:04:53.441Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-roche-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-roche-ch-3"
+      ]
     },
     {
       "id": "roche-89fe7f766abf",
@@ -91103,12 +91111,12 @@
     },
     {
       "id": "roche-6cba45786d3b",
-      "slug": "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch",
+      "slug": "gestione-dei-metadati-e-delle-terminologie-esperto-della-consegna-delle-piattaforme-di-dati-roche-basel",
       "slugByLocale": {
         "en": "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch",
-        "it": "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch",
-        "de": "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch",
-        "fr": "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch"
+        "it": "gestione-dei-metadati-e-delle-terminologie-esperto-della-consegna-delle-piattaforme-di-dati-roche-basel",
+        "de": "metadaten-terminologien-management-experte-fur-die-bereitstellung-von-datenplattformen-roche-basel",
+        "fr": "gestion-des-metadonnees-et-terminologies-expert-en-prestation-des-plateformes-de-donnees-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91163,7 +91171,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:04:16.710Z"
+      "firstSeenAt": "2026-06-23T23:04:16.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch"
+        ],
+        "de": [
+          "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch"
+        ],
+        "fr": [
+          "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "metadata-terminologies-management-data-platforms-delivery-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-138fb3f52d84",
@@ -91231,12 +91253,12 @@
     },
     {
       "id": "roche-06def65e00a8",
-      "slug": "external-affairs-lead-southern-african-network-roche-ch",
+      "slug": "leader-degli-affari-esteri-rete-africana-meridionale-roche-johannesburg",
       "slugByLocale": {
         "en": "external-affairs-lead-southern-african-network-roche-ch",
-        "it": "external-affairs-lead-southern-african-network-roche-ch",
-        "de": "external-affairs-lead-southern-african-network-roche-ch",
-        "fr": "external-affairs-lead-southern-african-network-roche-ch"
+        "it": "leader-degli-affari-esteri-rete-africana-meridionale-roche-johannesburg",
+        "de": "external-affairs-lead-sudafrikanisches-netzwerk-roche-johannesburg",
+        "fr": "responsable-des-affaires-exterieures-reseau-sud-africain-roche-johannesburg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91291,16 +91313,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:04:14.840Z"
+      "firstSeenAt": "2026-06-23T23:04:14.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "external-affairs-lead-southern-african-network-roche-ch"
+        ],
+        "de": [
+          "external-affairs-lead-southern-african-network-roche-ch"
+        ],
+        "fr": [
+          "external-affairs-lead-southern-african-network-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "external-affairs-lead-southern-african-network-roche-ch"
+      ]
     },
     {
       "id": "roche-ed32c6f1b402",
-      "slug": "sales-manager-diabetes-care-roche-ch",
+      "slug": "responsabile-vendite-cura-di-dabetes-roche-vilnius",
       "slugByLocale": {
         "en": "sales-manager-diabetes-care-roche-ch",
-        "it": "sales-manager-diabetes-care-roche-ch",
-        "de": "sales-manager-diabetes-care-roche-ch",
-        "fr": "sales-manager-diabetes-care-roche-ch"
+        "it": "responsabile-vendite-cura-di-dabetes-roche-vilnius",
+        "de": "verkaufsleiter-diabetes-care-roche-vilnius",
+        "fr": "directeur-des-ventes-diabetes-care-roche-vilnius"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91355,16 +91391,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:04:12.986Z"
+      "firstSeenAt": "2026-06-23T23:04:12.986Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-diabetes-care-roche-ch"
+        ],
+        "de": [
+          "sales-manager-diabetes-care-roche-ch"
+        ],
+        "fr": [
+          "sales-manager-diabetes-care-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-diabetes-care-roche-ch"
+      ]
     },
     {
       "id": "roche-2f1369ed4dd4",
-      "slug": "sales-manager-diabetes-care-roche-ch-2",
+      "slug": "responsabile-vendite-cura-di-dabetes-roche-kaunas",
       "slugByLocale": {
         "en": "sales-manager-diabetes-care-roche-ch",
-        "it": "sales-manager-diabetes-care-roche-ch-2",
-        "de": "sales-manager-diabetes-care-roche-ch-2",
-        "fr": "sales-manager-diabetes-care-roche-ch-2"
+        "it": "responsabile-vendite-cura-di-dabetes-roche-kaunas",
+        "de": "verkaufsleiter-diabetes-care-roche-kaunas",
+        "fr": "directeur-des-ventes-diabetes-care-roche-kaunas"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91419,16 +91469,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:04:12.201Z"
+      "firstSeenAt": "2026-06-23T23:04:12.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-diabetes-care-roche-ch-2"
+        ],
+        "de": [
+          "sales-manager-diabetes-care-roche-ch-2"
+        ],
+        "fr": [
+          "sales-manager-diabetes-care-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-diabetes-care-roche-ch-2"
+      ]
     },
     {
       "id": "roche-5bf5f86e8fee",
-      "slug": "key-account-manager-near-patient-care-roche-ch",
+      "slug": "key-account-manager-vicino-alla-cura-del-paziente-roche-kaunas",
       "slugByLocale": {
         "en": "key-account-manager-near-patient-care-roche-ch",
-        "it": "key-account-manager-near-patient-care-roche-ch",
-        "de": "key-account-manager-near-patient-care-roche-ch",
-        "fr": "key-account-manager-near-patient-care-roche-ch"
+        "it": "key-account-manager-vicino-alla-cura-del-paziente-roche-kaunas",
+        "de": "key-account-manager-nahe-patientenversorgung-roche-kaunas",
+        "fr": "gestionnaire-de-compte-cle-soins-aux-patients-proches-roche-kaunas"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91483,7 +91547,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:04:11.273Z"
+      "firstSeenAt": "2026-06-23T23:04:11.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-near-patient-care-roche-ch"
+        ],
+        "de": [
+          "key-account-manager-near-patient-care-roche-ch"
+        ],
+        "fr": [
+          "key-account-manager-near-patient-care-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-near-patient-care-roche-ch"
+      ]
     },
     {
       "id": "roche-756337a15e72",
@@ -91615,12 +91693,12 @@
     },
     {
       "id": "roche-156af657ec78",
-      "slug": "technical-product-owner-service-ai-roche-ch",
+      "slug": "titolare-del-prodotto-tecnico-service-ai-roche-basel",
       "slugByLocale": {
         "en": "technical-product-owner-service-ai-roche-ch",
-        "it": "technical-product-owner-service-ai-roche-ch",
+        "it": "titolare-del-prodotto-tecnico-service-ai-roche-basel",
         "de": "technical-product-owner-service-ai-roche-ch",
-        "fr": "technical-product-owner-service-ai-roche-ch"
+        "fr": "proprietaire-de-produit-technique-service-ai-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91675,7 +91753,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:04:08.466Z"
+      "firstSeenAt": "2026-06-23T23:04:08.466Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-owner-service-ai-roche-ch"
+        ],
+        "fr": [
+          "technical-product-owner-service-ai-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-owner-service-ai-roche-ch"
+      ]
     },
     {
       "id": "roche-ef85e706f5cc",
@@ -91683,8 +91772,8 @@
       "slugByLocale": {
         "en": "central-operations-lead-fixed-term-pv-pharmacovigilance-roche-ch",
         "it": "central-operations-lead-fixed-term-pv-pharmacovigilance-roche-ch",
-        "de": "central-operations-lead-fixed-term-pv-pharmacovigilance-roche-ch",
-        "fr": "central-operations-lead-fixed-term-pv-pharmacovigilance-roche-ch"
+        "de": "central-operations-lead-festlaufzeit-pv-pharmakovigilanz-roche-budapest",
+        "fr": "operations-centrales-plomb-duree-determinee-pv-pharmacovigilance-roche-budapest"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91826,8 +91915,8 @@
       "slugByLocale": {
         "en": "senior-product-manager-roche-ch",
         "it": "senior-product-manager-roche-ch-3",
-        "de": "senior-product-manager-roche-ch-3",
-        "fr": "senior-product-manager-roche-ch-3"
+        "de": "senior-produktmanager-roche-shanghai-5ca18a",
+        "fr": "aine-gestionnaire-de-produits-roche-shanghai-5ca18a"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91886,12 +91975,12 @@
     },
     {
       "id": "roche-d6a3e8c2e4b3",
-      "slug": "senior-statistician-roche-ch",
+      "slug": "statistici-senior-roche-welwyn",
       "slugByLocale": {
         "en": "senior-statistician-roche-ch",
-        "it": "senior-statistician-roche-ch",
-        "de": "senior-statistician-roche-ch",
-        "fr": "senior-statistician-roche-ch"
+        "it": "statistici-senior-roche-welwyn",
+        "de": "senior-statistiker-roche-welwyn",
+        "fr": "statistique-superieur-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91946,7 +92035,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:04:04.574Z"
+      "firstSeenAt": "2026-06-23T23:04:04.574Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-statistician-roche-ch"
+        ],
+        "de": [
+          "senior-statistician-roche-ch"
+        ],
+        "fr": [
+          "senior-statistician-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-statistician-roche-ch"
+      ]
     },
     {
       "id": "roche-fe01c73b0cdf",
@@ -92019,7 +92122,7 @@
         "en": "service-delivery-manager-rdt-onsite-europe-west-roche-ch",
         "it": "service-delivery-manager-rdt-onsite-europe-west-roche-ch",
         "de": "service-delivery-manager-rdt-onsite-europe-west-roche-ch",
-        "fr": "service-delivery-manager-rdt-onsite-europe-west-roche-ch"
+        "fr": "gestionnaire-de-la-prestation-des-services-rdt-sur-place-europe-ouest-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92275,7 +92378,7 @@
         "en": "business-finance-senior-partner-roche-ch",
         "it": "business-finance-senior-partner-roche-ch",
         "de": "business-finance-senior-partner-roche-ch",
-        "fr": "business-finance-senior-partner-roche-ch"
+        "fr": "financement-des-entreprises-partenaire-principal-roche-san-jose-costa-rica"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92398,10 +92501,10 @@
     },
     {
       "id": "roche-4f1a58f8f7a8",
-      "slug": "quality-partner-roche-ch",
+      "slug": "partner-di-qualita-roche-tucson",
       "slugByLocale": {
         "en": "quality-partner-roche-ch",
-        "it": "quality-partner-roche-ch",
+        "it": "partner-di-qualita-roche-tucson",
         "de": "qualitat-partner-roche-tucson",
         "fr": "qualite-partner-roche-tucson"
       },
@@ -92458,7 +92561,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:03:57.511Z"
+      "firstSeenAt": "2026-06-23T23:03:57.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-3f597bdfe023",
@@ -92467,7 +92578,7 @@
         "en": "senior-ai-ml-data-scientist-roche-ch",
         "it": "senior-ai-ml-data-scientist-roche-ch",
         "de": "senior-ai-ml-data-scientist-roche-ch",
-        "fr": "senior-ai-ml-data-scientist-roche-ch"
+        "fr": "chercheur-principal-en-donnees-sur-l-ia-ml-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92590,12 +92701,12 @@
     },
     {
       "id": "roche-504bf9d2064e",
-      "slug": "senior-manufacturing-formulator-roche-ch",
+      "slug": "formulatore-di-produzione-senior-roche-tucson",
       "slugByLocale": {
         "en": "senior-manufacturing-formulator-roche-ch",
-        "it": "senior-manufacturing-formulator-roche-ch",
+        "it": "formulatore-di-produzione-senior-roche-tucson",
         "de": "senior-manufacturing-formulator-roche-ch",
-        "fr": "senior-manufacturing-formulator-roche-ch"
+        "fr": "formulateur-de-fabrication-senior-roche-tucson"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92650,7 +92761,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:03:54.872Z"
+      "firstSeenAt": "2026-06-23T23:03:54.872Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manufacturing-formulator-roche-ch"
+        ],
+        "fr": [
+          "senior-manufacturing-formulator-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manufacturing-formulator-roche-ch"
+      ]
     },
     {
       "id": "roche-3d286dc58d7e",
@@ -92658,7 +92780,7 @@
       "slugByLocale": {
         "en": "manufacturing-operator-roche-ch",
         "it": "manufacturing-operatore-roche-tucson",
-        "de": "manufacturing-operator-roche-ch",
+        "de": "herstellungsbetrieb-roche-tucson",
         "fr": "manufacturing-operateur-roche-tucson"
       },
       "company": "Roche",
@@ -92721,6 +92843,9 @@
         ],
         "fr": [
           "manufacturing-operator-roche-ch"
+        ],
+        "de": [
+          "manufacturing-operator-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -92729,12 +92854,12 @@
     },
     {
       "id": "roche-8db96ec8f062",
-      "slug": "administrative-assistant-roche-ch-2",
+      "slug": "assistente-amministrativo-roche-pleasanton",
       "slugByLocale": {
         "en": "administrative-assistant-roche-ch",
-        "it": "administrative-assistant-roche-ch-2",
+        "it": "assistente-amministrativo-roche-pleasanton",
         "de": "administrative-assistent-roche-pleasanton",
-        "fr": "administrative-assistant-roche-pleasanton"
+        "fr": "assistant-administratif-roche-pleasanton"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92789,7 +92914,19 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-23T23:03:52.796Z"
+      "firstSeenAt": "2026-06-23T23:03:52.796Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-roche-ch-2"
+        ],
+        "fr": [
+          "administrative-assistant-roche-pleasanton"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-roche-ch-2",
+        "administrative-assistant-roche-pleasanton"
+      ]
     },
     {
       "id": "roche-c116f9bd76fd",

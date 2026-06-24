@@ -684,12 +684,12 @@
     },
     {
       "id": "helsana-58dbae0c6408",
-      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-b6161b",
+      "slug": "consulente-assicurativo-nel-settore-del-servizio-a-80-100-helsana-ticino",
       "slugByLocale": {
-        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-b6161b",
+        "it": "consulente-assicurativo-nel-settore-del-servizio-a-80-100-helsana-ticino",
         "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-b6161b",
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
-        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-b6161b"
+        "fr": "consultant-en-assurance-dans-le-service-exterieur-a-80-100-helsana-ticino"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -745,17 +745,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-b6161b"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
         ],
         "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
+          "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-b6161b"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
+        "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-b6161b",
+        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-b6161b"
       ]
     },
     {
@@ -1218,10 +1222,10 @@
     },
     {
       "id": "helsana-709987c120b9",
-      "slug": "ktg-uvg-corporate-business-a-helsana-ticino",
+      "slug": "responsabile-ktg-uvg-aziendale-helsana-ticino",
       "slugByLocale": {
-        "it": "ktg-uvg-corporate-business-a-helsana-ticino",
-        "en": "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
+        "it": "responsabile-ktg-uvg-aziendale-helsana-ticino",
+        "en": "ktg-uvg-business-administrator-helsana-ticino",
         "de": "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
         "fr": "ktg-uvg-entreprise-a-helsana-ticino"
       },
@@ -1279,14 +1283,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
+          "ktg-uvg-corporate-business-a-helsana-ticino"
         ],
         "fr": [
+          "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
           "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
+        "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
+        "ktg-uvg-corporate-business-a-helsana-ticino"
       ]
     },
     {

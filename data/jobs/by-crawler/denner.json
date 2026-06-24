@@ -2620,10 +2620,10 @@
       "id": "denner-153606f30e3d",
       "slug": "venditore-con-salario-orario-denner-frauenfeld",
       "slugByLocale": {
-        "it": "venditore-con-salario-orario-denner-frauenfeld",
-        "en": "salesperson-on-an-hourly-wage-denner-frauenfeld",
+        "it": "venditore-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-rubigen",
-        "fr": "vendeur-a-salaire-horaire-denner-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2682,7 +2682,9 @@
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-frauenfeld"
+        "verkaufer-in-denner-frauenfeld",
+        "salesperson-on-an-hourly-wage-denner-frauenfeld",
+        "vendeur-a-salaire-horaire-denner-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2691,14 +2693,16 @@
         ],
         "en": [
           "verkaufer-in-denner-frauenfeld",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "salesperson-on-an-hourly-wage-denner-frauenfeld"
         ],
         "de": [
           "verkaufer-in-denner-frauenfeld"
         ],
         "fr": [
           "verkaufer-in-denner-frauenfeld",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "vendeur-a-salaire-horaire-denner-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-23T11:30:12.156Z",
