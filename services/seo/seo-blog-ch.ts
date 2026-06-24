@@ -4510,6 +4510,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pomodori-economici-spagnoli-unera-al-capolinea': {
+    title: 'Pomodori economici spagnoli, un\'era al capolinea?',
+    description: 'L\'importazione di frutta e verdura dalla Spagna potrebbe diminuire a causa di salari più elevati e concorrenza estera. La Spagna è il principale fornitore di',
+    keywords: 'frontalieri, ticino, svizzera, italia, pomodori, economici, spagnoli, capolinea',
+    ogTitle: 'Pomodori economici spagnoli, un\'era al capolinea?',
+    ogDescription: 'L\'importazione di frutta e verdura dalla Spagna potrebbe diminuire a causa di salari più elevati e concorrenza estera. La Spagna è il principale fornitore di',
+    canonicalPath: '/articoli-svizzera/pomodori-economici-spagnoli-unera-al-capolinea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pomodori economici spagnoli, un'era al capolinea?",
+      "description": "L'importazione di frutta e verdura dalla Spagna potrebbe diminuire a causa di salari più elevati e concorrenza estera. La Spagna è il principale fornitore di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pomodori-economici-spagnoli-unera-al-capolinea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Serre in plastica per la coltivazione di pomodori in Spagna"
+      },
+      "datePublished": "2026-06-24T03:40:07+00:00",
+      "dateModified": "2026-06-24T03:40:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pomodori-economici-spagnoli-unera-al-capolinea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

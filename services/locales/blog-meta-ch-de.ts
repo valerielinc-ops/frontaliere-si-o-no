@@ -358,6 +358,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.title': 'Schweiz, erfolgreiche Wahl für Arbeit und Steuern',
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.excerpt': 'Finden Sie heraus, warum immer mehr Grenzgänger die Schweiz für Arbeit, Gehalt, Steuern und Verkehr wählen.',
     'blog.article.frontaliere-scelta-svizzera-lavoro-stipendio-tasse-traffico-confronto-italia.imageAlt': 'Eine Person, die durch die Straßen von Lugano spaziert, mit dem See im Hintergrund und den Bergen in der Ferne.',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.title': 'Spanier, eine Ära am Ende der Linie?',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.excerpt': 'Der Import von Obst und Gemüse aus Spanien könnte aufgrund höherer Löhne und ausländischer Konkurrenz zurückgehen.',
+    'blog.article.pomodori-economici-spagnoli-unera-al-capolinea.imageAlt': 'Tomatenanbau in Spanien',
 };
 
 export default blogMetaChDe;
