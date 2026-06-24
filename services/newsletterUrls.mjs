@@ -39,3 +39,30 @@ export function makeResubscribeUrl(email) {
   const base = `${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(email)}`;
   return token ? `${base}&token=${token}` : base;
 }
+
+/**
+ * Deterministic, never-expiring autologin code (HMAC over `autologin:<email>`).
+ * The SPA's unsubscribe/resubscribe action handler (App.tsx) REQUIRES this `ac`
+ * credential to authenticate the recipient — a bare email+token link is rejected
+ * with "Link non valido". Mirrors generateAutologinCode in send-newsletter.mjs.
+ * @param {string} email
+ * @returns {string|null} 64-char hex code, or null when NEWSLETTER_SECRET is unset
+ */
+export function generateAutologinCode(email) {
+  const secret = process.env.NEWSLETTER_SECRET;
+  if (!secret) return null;
+  return createHmac('sha256', secret).update('autologin:' + email.toLowerCase().trim()).digest('hex');
+}
+
+/**
+ * Authenticated newsletter action link the SPA accepts: carries `email` + the
+ * `ac` autologin code so App.tsx can sign the recipient in and apply the action.
+ * @param {'resubscribe'|'unsubscribe'} action
+ * @param {string} email
+ * @returns {string}
+ */
+export function makeAuthenticatedActionUrl(action, email) {
+  const code = generateAutologinCode(email);
+  const base = `${BASE_URL}/?action=${action}&email=${encodeURIComponent(email)}&utm_medium=newsletter`;
+  return code ? `${base}&ac=${code}` : base;
+}

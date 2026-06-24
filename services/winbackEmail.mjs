@@ -11,7 +11,7 @@
  * Pure + dependency-light (only the shared HMAC URL builders) so it is unit
  * testable. Table-based inline-styled HTML for email-client compatibility.
  */
-import { makeUnsubscribeUrl, makeResubscribeUrl } from './newsletterUrls.mjs';
+import { makeUnsubscribeUrl, makeAuthenticatedActionUrl } from './newsletterUrls.mjs';
 
 // Brand tokens — kept in sync with services/newsletter-template.mjs.
 const BRAND_ORANGE = '#f97316'; // accent / wordmark
@@ -81,7 +81,11 @@ function norm(locale) {
 export function buildWinbackEmail({ email, locale = 'it' }) {
   const l = norm(locale);
   const s = COPY[l];
-  const stayUrl = makeResubscribeUrl(email);
+  // Authenticated links (carry the `ac` autologin code) so the SPA accepts the
+  // action instead of rejecting with "Link non valido".
+  const stayUrl = makeAuthenticatedActionUrl('resubscribe', email);
+  const footerUnsubUrl = makeAuthenticatedActionUrl('unsubscribe', email);
+  // Header List-Unsubscribe uses the token form (RFC 8058 one-click endpoint).
   const unsubscribeUrl = makeUnsubscribeUrl(email);
 
   const html = `<!DOCTYPE html>
@@ -112,7 +116,7 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
       </td></tr>
       <!-- footer -->
       <tr><td style="border-top:1px solid #eef2f7;padding:18px 32px 24px;text-align:center;">
-        <a href="${unsubscribeUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${MUTED};text-decoration:underline;">${s.unsub}</a>
+        <a href="${footerUnsubUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${MUTED};text-decoration:underline;">${s.unsub}</a>
       </td></tr>
     </table>
     <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:#94a3b8;text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
@@ -122,7 +126,7 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
 </html>`;
 
   // Plain-text part mirrors the message (emoji stripped from the CTA label).
-  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${s.unsub}: ${unsubscribeUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n`;
+  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${s.unsub}: ${footerUnsubUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n`;
 
   return { subject: s.subject, html, text, unsubscribeUrl };
 }

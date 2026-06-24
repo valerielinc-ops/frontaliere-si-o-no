@@ -43,7 +43,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
-import { makeUnsubscribeUrl, makeResubscribeUrl } from '../services/newsletterUrls.mjs';
+import { makeUnsubscribeUrl, makeResubscribeUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
@@ -561,17 +561,9 @@ function makePreferencesUrl(email, locale = 'it') {
   return `${base}&token=${token}`;
 }
 
-// Generate a deterministic HMAC-based autologin code for a subscriber.
-// Unlike Firebase custom tokens (which expire in 1 hour), this code never
-// expires — the client exchanges it for a fresh token via Cloud Function.
-function generateAutologinCode(email) {
-  const secret = process.env.NEWSLETTER_SECRET;
-  if (!secret) return null;
-  return createHmac('sha256', secret)
-    .update('autologin:' + email.toLowerCase().trim())
-    .digest('hex');
-}
-
+// generateAutologinCode lives in services/newsletterUrls.mjs (shared with the
+// win-back/sunset runner so the autologin HMAC scheme can't drift). Deterministic,
+// never-expiring; the client exchanges it for a fresh token via Cloud Function.
 function makeAuthenticatedUrl(targetUrl, email, autologinCode) {
   const url = new URL(targetUrl, BASE_URL);
   // Short param names keep total URL < 1000 chars — Mailgun silently
