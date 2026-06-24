@@ -5205,6 +5205,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dati-tasse-frontalieri-italia': {
+    title: 'Pasticcio dati e tasse dei vecchi frontalieri: \'Si faccia piena luce\'',
+    description: 'Dati salariali di migliaia di vecchi frontalieri trasmessi per errore nelle precompilate italiane. Chiarimenti richiesti da Molteni e Grammatica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pasticcio, dati, tasse, vecchi',
+    ogTitle: 'Pasticcio dati e tasse dei vecchi frontalieri: \'Non basta parlare di errore, si faccia piena luce\'',
+    ogDescription: 'Dati salariali di migliaia di vecchi frontalieri trasmessi per errore nelle precompilate italiane. Chiarimenti richiesti da Molteni e Grammatica.',
+    canonicalPath: '/articoli-svizzera/dati-tasse-frontalieri-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pasticcio dati e tasse dei vecchi frontalieri: 'Si faccia piena luce'",
+      "description": "Dati salariali di migliaia di vecchi frontalieri trasmessi per errore nelle precompilate italiane. Chiarimenti richiesti da Molteni e Grammatica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dati-tasse-frontalieri-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il Lago Ceresio e le montagne circostanti"
+      },
+      "datePublished": "2026-06-24T21:22:44+00:00",
+      "dateModified": "2026-06-24T21:22:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dati-tasse-frontalieri-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

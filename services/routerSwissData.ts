@@ -159,6 +159,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'aumento-iva-esercito-2024': { it: 'aumento-iva-esercito-2024', en: 'increase-vat-army-2024', de: 'erhohung-mwst-armee-2024', fr: 'augmentation-tva-armee-2024' },
  'riordino-incentivi-imprese': { it: 'riordino-incentivi-imprese', en: 'reorganization-of-business-incentives', de: 'neuordnung-der-unternehmensfoerderungen', fr: 'reorganisation-des-aides-aux-entreprises' },
  'calcolo-rendita-lpp-ubs': { it: 'calcolo-rendita-lpp-ubs', en: 'calculating-lpp-pension-ubs', de: 'berechnung-lpp-rente-ubs', fr: 'calcul-rente-lpp-ubs' },
+ 'dati-tasse-frontalieri-italia': { it: 'dati-tasse-frontalieri-italia', en: 'data-tax-frontalieri-italy', de: 'daten-steuern-frontalieri-italien', fr: 'donnees-impots-frontalieri-italie' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

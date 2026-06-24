@@ -409,6 +409,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calcolo-rendita-lpp-ubs.title': 'How to calculate the LPP - UBS annuity',
     'blog.article.calcolo-rendita-lpp-ubs.excerpt': 'Learn how to calculate your LPP annuity with UBS. Complete and practical guide for border workers.',
     'blog.article.calcolo-rendita-lpp-ubs.imageAlt': 'A financial advisor explaining the LPP pension calculation to a client in a modern office.',
+    'blog.article.dati-tasse-frontalieri-italia.title': 'Data and tax mess of the old border workers: \'Let there be full light\'',
+    'blog.article.dati-tasse-frontalieri-italia.excerpt': 'Salary data of thousands of old frontier workers transmitted by mistake in the Italian pre-files. Clarifications requested by Molteni and Grammar.',
+    'blog.article.dati-tasse-frontalieri-italia.imageAlt': 'Panoramic view of Lugano with Lake Ceresio and surrounding mountains',
 };
 
 export default blogMetaChEn;

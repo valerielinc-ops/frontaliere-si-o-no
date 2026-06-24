@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2903,
+ "numberOfItems": 2904,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7549,7 +7549,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2900, "name": "Per TPL un 2025 tra passato e futuro, con numer...", "url": `${BASE_URL}/articoli-frontaliere/tpl-2025-record-numeri` },
           { "@type": "ListItem", "position": 2901, "name": "Aumento IVA per l'esercito: il Consiglio federa...", "url": `${BASE_URL}/articoli-frontaliere/aumento-iva-esercito-2024` },
           { "@type": "ListItem", "position": 2902, "name": "Riordino incentivi alle imprese: cosa cambia co...", "url": `${BASE_URL}/articoli-frontaliere/riordino-incentivi-imprese` },
-          { "@type": "ListItem", "position": 2903, "name": "Come si calcola la rendita LPP - UBS", "url": `${BASE_URL}/articoli-frontaliere/calcolo-rendita-lpp-ubs` }
+          { "@type": "ListItem", "position": 2903, "name": "Come si calcola la rendita LPP - UBS", "url": `${BASE_URL}/articoli-frontaliere/calcolo-rendita-lpp-ubs` },
+          { "@type": "ListItem", "position": 2904, "name": "Pasticcio dati e tasse dei vecchi frontalieri: ...", "url": `${BASE_URL}/articoli-frontaliere/dati-tasse-frontalieri-italia` }
  ]
  },
  {

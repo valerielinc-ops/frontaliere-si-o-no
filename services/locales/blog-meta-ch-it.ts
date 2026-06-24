@@ -409,6 +409,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcolo-rendita-lpp-ubs.title': 'Come si calcola la rendita LPP - UBS',
     'blog.article.calcolo-rendita-lpp-ubs.excerpt': 'Scopri come calcolare la tua rendita LPP con UBS. Guida completa e pratica per i frontalieri.',
     'blog.article.calcolo-rendita-lpp-ubs.imageAlt': 'Un consulente finanziario spiega il calcolo della rendita LPP a un cliente in un ufficio moderno.',
+    'blog.article.dati-tasse-frontalieri-italia.title': 'Pasticcio dati e tasse dei vecchi frontalieri: \'Si faccia piena luce\'',
+    'blog.article.dati-tasse-frontalieri-italia.excerpt': 'Dati salariali di migliaia di vecchi frontalieri trasmessi per errore nelle precompilate italiane. Chiarimenti richiesti da Molteni e Grammatica.',
+    'blog.article.dati-tasse-frontalieri-italia.imageAlt': 'Vista panoramica di Lugano con il Lago Ceresio e le montagne circostanti',
 };
 
 export default blogMetaChIt;
