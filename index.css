@@ -509,26 +509,38 @@ body.modal-open .google-auto-placed {
      1. Cap their max-height so the shift is bounded.
      2. Use `contain: layout` so the shift does NOT propagate up to siblings
         — only the local container reflows.
-     3. Set an `aspect-ratio` hint + `min-height` reserve so the browser
-        allocates the expected in-page ad height before the iframe fills.
-        aspect-ratio: 4/1 alone allocated only ~97px at 390px viewport;
-        min-height: 250px raises the floor to a typical medium-rectangle
-        (300×250), eliminating the 97→250px growth phase that caused
+     3. Reserve a `min-height` floor so the browser allocates the expected
+        in-page ad height before the iframe fills. 250px ≈ a typical medium
+        rectangle (300×250), eliminating the 0→250px growth phase that caused
         CLS ~0.18 on #main-content at ~2.3s (#2190).
+        NB: an `aspect-ratio: 4/1` hint used to sit here too, but on desktop it
+        forced the container to a 4:1 box (≈478px, capped to max-height 400px)
+        — far taller than the real auto-ad (~280px), leaving ~120px of blank
+        space INSIDE the container above the fold (reported gap). The floor
+        alone reserves the height; the box now hugs the filled ad (clamped to
+        [min-height, max-height]) with no internal gap. Mobile is unaffected:
+        min-height 250 + max-height 250 already pinned it to 250px regardless.
      4. Collapse fully when ad failed to fill so empty space doesn't sit.
         min-height: 0 in the collapse rule overrides the base min-height
         so unfilled/empty containers vanish rather than leaving a 250px gap. */
 .google-auto-placed {
   contain: layout;
-  aspect-ratio: 4 / 1;
   min-height: 250px;
+}
+/* Google sets `margin: 10px auto` inline on the auto-placed <ins>; the `auto`
+   centres it horizontally (keep) but the 10px top/bottom left a ~20px band
+   between the creative and the surrounding content. Zero the vertical margin so
+   the container hugs the creative exactly (gap → 0). */
+.google-auto-placed > ins {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* ===== Top in-page Auto Ad CLS reserve (homepage) ════════════════════════
    Google injects `.google-auto-placed` as a flow sibling directly above
    <main> on the homepage, pushing content down ~250-298px after hydration
    (measured live CLS 0.19 desktop / 0.25 mobile — the dominant shift). The
-   #2190 mitigation above (contain/aspect/min-height) CANNOT prevent this:
+   #2190 mitigation above (contain/min-height) CANNOT prevent this:
    `contain: layout` isolates a box's INTERNAL layout, it does not stop an
    in-flow sibling injected above <main> from displacing <main> downward.
 
