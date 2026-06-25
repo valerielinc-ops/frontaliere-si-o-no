@@ -551,6 +551,14 @@ jobs:
           fi
           git config user.name "dist-history-bot"
           git config user.email "dist-history-bot@frontaliereticino.ch"
+          # Wire up the custom merge driver declared in .gitattributes for
+          # data/url-first-seen.json (`merge=json-first-seen`). Without this
+          # config the attribute is inert and git falls back to a 3-way text
+          # merge → the very CONFLICT that wedged this loop. The driver unions
+          # the two URL→date maps keeping the earliest first-seen, so the
+          # rebase below auto-resolves instead of aborting.
+          git config merge.json-first-seen.driver \
+            'node scripts/ci/merge-json-first-seen.mjs %O %A %B'
           git add data/dist-size-history.jsonl data/url-first-seen.json
           git commit -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})"
           # The build job leaves dist/ and other generated files dirty
@@ -570,15 +578,18 @@ jobs:
           # regularly out-race a 3×5 s window. The extended budget hits
           # a ~95 s total wait before giving up, which empirically
           # covers every observed conflict cluster on the main branch.
-          # A `pull --rebase` that hits a conflict (concurrent producer added
-          # rows to data/dist-size-history.jsonl / url-first-seen.json) leaves
-          # the tree mid-rebase. Without aborting, every later attempt dies on
+          # Both committed files now auto-resolve during the rebase via
+          # .gitattributes merge drivers: `merge=union` for the JSONL append
+          # log, and `merge=json-first-seen` (configured above) for the
+          # url-first-seen.json map. Historically url-first-seen.json had NO
+          # driver, so a concurrent producer touching nearby lines left the
+          # tree mid-rebase; without aborting, every later attempt died on
           # "Pulling is not possible because you have unmerged files" and the
-          # loop wedges until the job is canceled (run 27976954013). The
-          # merge=union .gitattributes resolves the JSONL append cleanly, and
-          # the abort below recovers from any residual conflict so each retry
-          # starts from a clean tree. `--abort` is a safe no-op when no rebase
-          # is in progress (e.g. a push-rejected race).
+          # loop wedged until the job was canceled (run 27976954013, and again
+          # run 28142157430 where all 5 attempts CONFLICTed). The `--abort`
+          # below stays as a belt-and-braces recovery for any unexpected
+          # mid-rebase state; it is a safe no-op when no rebase is in progress
+          # (e.g. a plain push-rejected race).
           for i in 1 2 3 4 5; do
             if git -c rebase.autoStash=true pull --rebase origin main \
                 && git push origin HEAD:main; then
