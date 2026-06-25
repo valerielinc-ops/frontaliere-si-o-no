@@ -715,6 +715,7 @@ const translations: Record<string, string> = {
  'jobBoard.contract.contract': 'Contratto/Progetto',
  'jobBoard.contract.internship': 'Stage',
  'jobBoard.resultsCount': '{count} offerte trovate',
+ 'jobBoard.loadingResults': 'Caricamento offerte…',
  'jobBoard.demoNotice': 'Annunci reali da aziende in {canton}',
  'jobBoard.pagination.prev': 'Precedente',
  'jobBoard.pagination.next': 'Successivo',

@@ -1893,6 +1893,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // the legacy path) for the healthy-shard search case. One-shot per mount.
  const searchBroadenFetchAttempted = useRef(false);
  const [jobsLoading, setJobsLoading] = useState(true);
+ // In-flight count of the lazy broaden / cross-locale fallback fetches. A thin
+ // canton-scoped search/company page reads `filteredJobs.length === 0` after the
+ // initial index loads, then bumps to the real count once these pools land — so
+ // while any are pending we show a loading state instead of the "0 / no results"
+ // flash. Incremented when a fetch starts, decremented when it settles.
+ const [pendingFallbacks, setPendingFallbacks] = useState(0);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
@@ -3184,6 +3190,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (orFallbackInCantonJobs.length > 0) return;
  if (crossCantonFallbackJobs.length > 0) return;
  crossLocaleFetchAttempted.current = true;
+ setPendingFallbacks((n) => n + 1);
  let cancelled = false;
  const allLocales: ReadonlyArray<Locale> = ['it', 'en', 'de', 'fr'];
  const otherLocales = allLocales.filter((l) => l !== locale);
@@ -3215,6 +3222,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setCrossLocaleJobs(dedupeJobsForListing(collected));
  } catch (err: unknown) {
  reportCaughtError(err, 'jobBoard.loadJobs.crossLocale');
+ } finally {
+ setPendingFallbacks((n) => n - 1);
  }
  })();
  return () => { cancelled = true; };
@@ -3254,6 +3263,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (strictFilteredJobs.length > 0) return; // employer has in-canton openings
  if (unscopedJobs.length > 0) return; // pool already available
  companyBroadenFetchAttempted.current = true;
+ setPendingFallbacks((n) => n + 1);
  let cancelled = false;
  (async () => {
  try {
@@ -3262,6 +3272,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setUnscopedJobs(pool);
  } catch (err: unknown) {
  reportCaughtError(err, 'jobBoard.loadJobs.companyBroaden');
+ } finally {
+ setPendingFallbacks((n) => n - 1);
  }
  })();
  return () => { cancelled = true; };
@@ -3285,6 +3297,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  if (inCantonCount >= BROADEN_BELOW) return; // enough in-canton results already
  searchBroadenFetchAttempted.current = true;
+ setPendingFallbacks((n) => n + 1);
  let cancelled = false;
  (async () => {
  try {
@@ -3293,6 +3306,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setUnscopedJobs(pool);
  } catch (err: unknown) {
  reportCaughtError(err, 'jobBoard.loadJobs.searchBroaden');
+ } finally {
+ setPendingFallbacks((n) => n - 1);
  }
  })();
  return () => { cancelled = true; };
@@ -3422,6 +3437,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (companyBroadeningFallbackJobs.length > 0) return featuredFirst(companyBroadeningFallbackJobs);
  return featuredFirst(crossLocaleFallbackJobs);
  }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
+
+ // A thin canton-scoped search/company page momentarily reads `filteredJobs`
+ // empty: the initial index loaded (jobsLoading already false) but the wider
+ // broaden / cross-locale pools that actually answer the query are still being
+ // fetched lazily. Treat that window as "loading" so the count + empty-state
+ // never flash "0 offerte trovate" before the real results land. Covers both
+ // the in-flight phase (pendingFallbacks) and the first frame after the index
+ // load, before the fetch effects have fired (no fallback attempted yet).
+ const anyFallbackAttempted =
+ searchBroadenFetchAttempted.current
+ || companyBroadenFetchAttempted.current
+ || crossLocaleFetchAttempted.current;
+ const resultsResolving =
+ filteredJobs.length === 0
+ && (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
+ && (pendingFallbacks > 0 || !anyFallbackAttempted);
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -7967,8 +7998,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 min-h-[28px]">
- <p className="text-xs sm:text-sm text-muted">
- {isMobile && filteredJobs.length > 0
+ <p className="text-xs sm:text-sm text-muted" aria-live="polite">
+ {resultsResolving
+ ? t('jobBoard.loadingResults')
+ : isMobile && filteredJobs.length > 0
  ? t('jobBoard.showingNJobs', { count: String(displayJobs.length), total: String(filteredJobs.length) })
  : t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}
  </p>
@@ -8105,7 +8138,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  })}
 
- {filteredJobs.length === 0 && (
+ {/* Loading list skeleton while the broaden / cross-locale fallback pools
+ resolve — mirrors the loaded card layout so the count + cards reconcile
+ in place (no CLS) instead of flashing the empty-state. */}
+ {filteredJobs.length === 0 && resultsResolving && (
+ <div className="space-y-3" aria-hidden="true">
+ {Array.from({ length: 6 }).map((_, i) => (
+ <div key={`results-skel-${i}`} className="h-24 sm:h-[120px] rounded-xl bg-surface-raised animate-pulse" />
+ ))}
+ </div>
+ )}
+
+ {filteredJobs.length === 0 && !resultsResolving && (
  <div className="text-center py-12 text-muted">
  <Briefcase className="w-10 h-10 mx-auto mb-3 opacity-30" />
  <p className="font-medium">{t('jobBoard.noResults')}</p>

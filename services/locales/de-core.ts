@@ -678,6 +678,7 @@ const deCore: Record<string, string> = {
  'jobBoard.contract.contract': 'Vertrag/Projekt',
  'jobBoard.contract.internship': 'Praktikum',
  'jobBoard.resultsCount': '{count} Angebote gefunden',
+ 'jobBoard.loadingResults': 'Angebote werden geladen…',
  'jobBoard.demoNotice': 'Echte Stellenangebote von Unternehmen {cantonPrep}',
  'jobBoard.pagination.prev': 'Zurück',
  'jobBoard.pagination.next': 'Weiter',
