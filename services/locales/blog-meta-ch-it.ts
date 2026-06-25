@@ -472,6 +472,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pemsa-lugano-mercato-lavoro.title': 'Pemsa Lugano: ruolo e impatto nel mercato del lavoro svizzero',
     'blog.article.pemsa-lugano-mercato-lavoro.excerpt': 'Pemsa Lugano opera nel settore risorse umane, con sede a Lugano. Focus su servizi per il mercato svizzero.',
     'blog.article.pemsa-lugano-mercato-lavoro.imageAlt': 'Vista del quartiere affari di Lugano con edifici e bandiere svizzere.',
+    'blog.article.cassa-malati-neuchatel-giovani-19-25.title': 'Premi cassa malati Neuchâtel per giovani adulti 19-25 anni',
+    'blog.article.cassa-malati-neuchatel-giovani-19-25.excerpt': 'Analisi delle condizioni, premi e opzioni delle casse malati per giovani adulti residenti a Neuchâtel nella fascia 19-25 anni.',
+    'blog.article.cassa-malati-neuchatel-giovani-19-25.imageAlt': 'Vista di Neuchâtel con giovani adulti e segnaletica sanitaria svizzera.',
 };
 
 export default blogMetaChIt;

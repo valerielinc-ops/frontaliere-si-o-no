@@ -180,6 +180,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'aumento-costi-abitazione-e-mobilita-in-svizzera': { it: 'aumento-costi-abitazione-e-mobilita-in-svizzera', en: 'increase-housing-mobility-costs-switzerland', de: 'erhohung-wohn-und-mobilitatskosten-schweiz', fr: 'augmentation-couts-logement-mobilite-suisse' },
  'venditti-lugano-contesto-nazionale': { it: 'venditti-lugano-contesto-nazionale', en: 'venditti-lugano-national-context', de: 'venditti-lugano-nationaler-kontext', fr: 'venditti-lugano-contexte-national' },
  'pemsa-lugano-mercato-lavoro': { it: 'pemsa-lugano-mercato-lavoro', en: 'pemsa-lugano-job-market', de: 'pemsa-lugano-arbeitsmarkt', fr: 'pemsa-lugano-marche-travail' },
+ 'cassa-malati-neuchatel-giovani-19-25': { it: 'cassa-malati-neuchatel-giovani-19-25', en: 'health-insurance-neuchatel-young-adults', de: 'krankenkasse-neuchatel-jugendliche', fr: 'assurance-maladie-neuchatel-jeunes-19-25' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
