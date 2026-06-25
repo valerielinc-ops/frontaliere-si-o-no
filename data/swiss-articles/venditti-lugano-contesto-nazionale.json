@@ -1,0 +1,40 @@
+{
+  "id": "venditti-lugano-contesto-nazionale",
+  "slug": "venditti-lugano-contesto-nazionale",
+  "publishedAt": "2026-06-25T17:29:27.978Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 22.322835245258222,
+    "confidence": 0.8,
+    "finalScore": 17.858268196206577,
+    "topK": [
+      {
+        "slug": "mercatino-primavera-lugano-2026",
+        "cosine": 0.8585705863560856
+      },
+      {
+        "slug": "furti-serie-automobili-luganese-arrestato",
+        "cosine": 0.8553847189544354
+      },
+      {
+        "slug": "venditti-estival-lugano-2026",
+        "cosine": 0.8537482205786023
+      },
+      {
+        "slug": "pasto-vegetale-gratis-ticino-2026",
+        "cosine": 0.8436874939340933
+      },
+      {
+        "slug": "estival-jazz-lugano-pagamento-2024",
+        "cosine": 0.8434118794482793
+      }
+    ],
+    "score": 8.929134098103289,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

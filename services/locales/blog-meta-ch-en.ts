@@ -466,6 +466,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.title': 'Swiss Housing & Mobility Costs Rise: Middle Class Impact',
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.excerpt': 'Housing and mobility costs in Switzerland increased by 1.7% compared to the same month of the previous year. Ticino is the most affected region.',
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.imageAlt': 'A Swiss family driving a car in Zurich',
+    'blog.article.venditti-lugano-contesto-nazionale.title': 'Sales in Lugano: what impact on the Swiss national context',
+    'blog.article.venditti-lugano-contesto-nazionale.excerpt': 'The Sales event in Lugano is analysed to assess possible national implications; practical data not yet specified.',
+    'blog.article.venditti-lugano-contesto-nazionale.imageAlt': 'Lugano skyline with lake and urban view in Swiss context.',
 };
 
 export default blogMetaChEn;

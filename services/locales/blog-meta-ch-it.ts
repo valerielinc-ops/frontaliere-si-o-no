@@ -466,6 +466,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.title': 'Aumento dei costi di abitazione e mobilità in Svizzera: impatto sul ceto medio',
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.excerpt': 'I costi per abitazione e mobilità in Svizzera sono aumentati dell\'1,7% rispetto allo stesso mese dell\'anno precedente. Il Ticino è la regione più colpita.',
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.imageAlt': 'Una famiglia svizzera in auto a Zurigo',
+    'blog.article.venditti-lugano-contesto-nazionale.title': 'Venditti a Lugano: quale impatto sul contesto nazionale svizzero',
+    'blog.article.venditti-lugano-contesto-nazionale.excerpt': 'L\'evento Venditti a Lugano viene analizzato per valutare possibili implicazioni nazionali; dati pratici non ancora specificati.',
+    'blog.article.venditti-lugano-contesto-nazionale.imageAlt': 'Panorama di Lugano con il lago e skyline urbano in contesto svizzero.',
 };
 
 export default blogMetaChIt;

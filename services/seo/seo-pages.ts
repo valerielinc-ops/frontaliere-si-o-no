@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2925,
+ "numberOfItems": 2926,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7571,7 +7571,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2922, "name": "Il Diritto dei Frontalieri di Lavorare nel Pubb...", "url": `${BASE_URL}/articoli-frontaliere/ginevra-frontalieri-settore-pubblico` },
           { "@type": "ListItem", "position": 2923, "name": "Terzo pilastro per frontalieri: guida pratica 2024", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-frontalieri-guida` },
           { "@type": "ListItem", "position": 2924, "name": "Cassa malattia Neuchâtel: guida per giovani adu...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-malattia-neuchatel-giovani` },
-          { "@type": "ListItem", "position": 2925, "name": "Aumento dei costi di abitazione e mobilità in S...", "url": `${BASE_URL}/articoli-frontaliere/aumento-costi-abitazione-e-mobilita-in-svizzera` }
+          { "@type": "ListItem", "position": 2925, "name": "Aumento dei costi di abitazione e mobilità in S...", "url": `${BASE_URL}/articoli-frontaliere/aumento-costi-abitazione-e-mobilita-in-svizzera` },
+          { "@type": "ListItem", "position": 2926, "name": "Venditti a Lugano: quale impatto sul contesto n...", "url": `${BASE_URL}/articoli-frontaliere/venditti-lugano-contesto-nazionale` }
  ]
  },
  {

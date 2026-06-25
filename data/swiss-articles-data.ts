@@ -1394,6 +1394,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'venditti-lugano-contesto-nazionale',
+    category: 'novita',
+    date: '2026-06-25T17:29:26.368Z',
+    image: '/images/blog/venditti-lugano-contesto-nazionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
