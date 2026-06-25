@@ -4186,6 +4186,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-caldo-ferroviario-svizzera': { name: 'Traffico ferroviario', path: '/articoli-svizzera/caldo-ferroviario-svizzera/', parent: 'blog' },
     'blog-frontaliere-doppia-imposizione-credito-imposta': { name: 'Fiscale', path: '/articoli-svizzera/frontaliere-doppia-imposizione-credito-imposta/', parent: 'blog' },
     'blog-costo-auto-pendolare-ticino': { name: 'Costo auto', path: '/articoli-svizzera/costo-auto-pendolare-ticino/', parent: 'blog' },
+    'blog-dichiarazione-redditi-frontaliere-730-guida': { name: 'Dichiarazione Redditi', path: '/articoli-svizzera/dichiarazione-redditi-frontaliere-730-guida/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

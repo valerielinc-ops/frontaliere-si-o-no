@@ -430,6 +430,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costo-auto-pendolare-ticino.title': 'Kosten Grenzpendelwagen Tessin: alle Kosten',
     'blog.article.costo-auto-pendolare-ticino.excerpt': 'Entdecken Sie alle Kosten des Autos für das Pendeln: Benzin, Vignetten, Parken, Verschleiß, Vergleich mit Zug und Bus.',
     'blog.article.costo-auto-pendolare-ticino.imageAlt': 'Panoramablick auf den Luganersee mit geparkten Autos',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.title': 'Steuererklärung Grenzgänger 730: Komplette Anleitung',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.excerpt': 'Erfahren Sie, wie Sie die Steuererklärung 730 für Grenzgänger, die erforderlichen Unterlagen und Fristen ausfüllen.',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.imageAlt': 'Ein Arbeiter füllt ein Steuerformular mit der Schweizer Flagge im Hintergrund aus.',
 };
 
 export default blogMetaChDe;

@@ -1286,6 +1286,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dichiarazione-redditi-frontaliere-730-guida',
+    category: 'pratico',
+    date: '2026-06-25T03:03:43.605Z',
+    image: '/images/blog/dichiarazione-redditi-frontaliere-730-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
