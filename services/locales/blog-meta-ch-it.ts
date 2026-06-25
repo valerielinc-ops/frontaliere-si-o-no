@@ -448,6 +448,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parmelin-missione-economica-nordamerica.title': 'Parmelin in missione economica in Nordamerica',
     'blog.article.parmelin-missione-economica-nordamerica.excerpt': 'Il presidente della Confederazione Guy Parmelin visita USA, Canada e Messico. Relazioni economiche delicate con gli Stati Uniti.',
     'blog.article.parmelin-missione-economica-nordamerica.imageAlt': 'Veduta del Lago Lemano e delle Alpi Svizzere, con focus sulla città di Ginevra e il famoso getto d\'acqua.',
+    'blog.article.cantiere-ffs-trasporti-ticino.title': 'L’estate dei cantieri FFS: orari stravolti per chi viaggia in Ticino',
+    'blog.article.cantiere-ffs-trasporti-ticino.excerpt': 'Dal 20 luglio al 30 agosto, modifiche ai collegamenti ferroviari in Ticino a causa di cantieri estivi delle FFS.',
+    'blog.article.cantiere-ffs-trasporti-ticino.imageAlt': 'Stazione ferroviaria in Ticino durante lavori estivi con treni in circolazione',
 };
 
 export default blogMetaChIt;

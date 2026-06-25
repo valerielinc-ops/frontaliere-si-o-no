@@ -172,6 +172,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'tassazione-frontalieri-oltre-20km-confine': { it: 'tassazione-frontalieri-oltre-20km-confine', en: 'taxation-cross-border-workers-beyond-20km', de: 'besteuerung-grenzgaenger-jenseits-20km', fr: 'imposition-frontaliers-au-dela-20km' },
  'mc-27-mostra-lugano-2026': { it: 'mc-27-mostra-lugano-2026', en: 'mc-27-lugano-exhibition-2026', de: 'mc-27-ausstellung-lugano-2026', fr: 'exposition-mc-27-lugano-2026' },
  'parmelin-missione-economica-nordamerica': { it: 'parmelin-missione-economica-nordamerica', en: 'parmelin-economic-mission-north-america', de: 'parmelin-wirtschaftsmission-nordamerika', fr: 'mission-economique-parmelin-amerique-du-nord' },
+ 'cantiere-ffs-trasporti-ticino': { it: 'cantiere-ffs-trasporti-ticino', en: 'summer-ffs-construction-ticino', de: 'sommer-bauarbeiten-ffs-tessin', fr: 'travaux-ffs-ete-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

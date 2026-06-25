@@ -4194,6 +4194,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-radio-materia-volontari-banca-etica-libri-sport': { name: 'Volontari Banca Etica e libri sportivi', path: '/articoli-frontaliere/radio-materia-volontari-banca-etica-libri-sport', parent: 'blog' },
     'blog-parmelin-missione-economica-nordamerica': { name: 'Missione economica', path: '/articoli-svizzera/parmelin-missione-economica-nordamerica/', parent: 'blog' },
     'blog-fermentino-mercato-contadino-giubiano': { name: 'Mercato Contadino Giubiano', path: '/articoli-frontaliere/fermentino-mercato-contadino-giubiano', parent: 'blog' },
+    'blog-cantiere-ffs-trasporti-ticino': { name: 'lavori estivi', path: '/articoli-svizzera/cantiere-ffs-trasporti-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -448,6 +448,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parmelin-missione-economica-nordamerica.title': 'Parmelin auf Wirtschaftsmission in Nordamerika',
     'blog.article.parmelin-missione-economica-nordamerica.excerpt': 'Bundespräsident Guy Parmelin besucht die USA, Kanada und Mexiko. Empfindliche Wirtschaftsbeziehungen zu den USA.',
     'blog.article.parmelin-missione-economica-nordamerica.imageAlt': 'Blick auf den Genfersee und die Schweizer Alpen, mit Fokus auf die Stadt Genf und den berühmten Wasserstrahl.',
+    'blog.article.cantiere-ffs-trasporti-ticino.title': 'Der Sommer auf den SBB Baustellen: verkehrte Fahrpläne für Reisende im Tessin',
+    'blog.article.cantiere-ffs-trasporti-ticino.excerpt': 'Vom 20. Juli bis 30. August, Änderungen der Bahnverbindungen im Tessin aufgrund von Sommerbaustellen der SBB.',
+    'blog.article.cantiere-ffs-trasporti-ticino.imageAlt': 'Schweizer Bahnhof während Sommerarbeiten mit fahrenden Zügen',
 };
 
 export default blogMetaChDe;

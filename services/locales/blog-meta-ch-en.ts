@@ -448,6 +448,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parmelin-missione-economica-nordamerica.title': 'Parmelin on an economic mission in North America',
     'blog.article.parmelin-missione-economica-nordamerica.excerpt': 'Confederation President Guy Parmelin visits the US, Canada and Mexico. Delicate economic relations with the United States.',
     'blog.article.parmelin-missione-economica-nordamerica.imageAlt': 'View of Lake Geneva and the Swiss Alps, focusing on the city of Geneva and the famous Jet d\'Eau fountain.',
+    'blog.article.cantiere-ffs-trasporti-ticino.title': 'Summer SBB construction sites: Ticino travel disruptions',
+    'blog.article.cantiere-ffs-trasporti-ticino.excerpt': 'From 20 July to 30 August, changes to rail connections in Ticino due to SBB summer construction sites.',
+    'blog.article.cantiere-ffs-trasporti-ticino.imageAlt': 'Swiss railway station during summer maintenance with trains in operation',
 };
 
 export default blogMetaChEn;
