@@ -38,6 +38,24 @@ describe('parseEmailField', () => {
     }
   });
 
+  it('degenerate / non-address inputs → empty address (no bogus truthy key)', () => {
+    // Name-only string (no "@") must not pass through the bare fallback as a
+    // truthy "email" — it would seed a bogus subscriber key downstream.
+    expect(parseEmailField('Mario Rossi')).toEqual({ email: '', displayName: null });
+    // Wrapped multi-address / comma forms the angle regex rejects fall to the
+    // bare branch; they contain "@" but are not a single usable address.
+    expect(parseEmailField('Name <a@x, b@y>')).toEqual({ email: '', displayName: null });
+    // Address with an internal space is not a single bare token.
+    expect(parseEmailField('foo bar@example.com')).toEqual({ email: '', displayName: null });
+    // Comma list inside the angle brackets ([^<>\s]+ allows commas) → reject.
+    expect(parseEmailField('Name <a@x,b@y>')).toEqual({ email: '', displayName: null });
+  });
+
+  it('subscriberFromFirestoreRow drops a row whose email is a non-address string', () => {
+    expect(subscriberFromFirestoreRow({ email: 'Mario Rossi', name: null })).toBeNull();
+    expect(subscriberFromFirestoreRow({ email: 'Name <a@x, b@y>', name: null })).toBeNull();
+  });
+
   it('normalizeEmailAddress strips the display wrapper', () => {
     expect(normalizeEmailAddress('Mario Rossi <mario.rossi@example.com>')).toBe('mario.rossi@example.com');
     expect(normalizeEmailAddress('bare@example.com')).toBe('bare@example.com');
