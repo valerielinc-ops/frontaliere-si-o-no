@@ -451,6 +451,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cantiere-ffs-trasporti-ticino.title': 'Der Sommer auf den SBB Baustellen: verkehrte Fahrpläne für Reisende im Tessin',
     'blog.article.cantiere-ffs-trasporti-ticino.excerpt': 'Vom 20. Juli bis 30. August, Änderungen der Bahnverbindungen im Tessin aufgrund von Sommerbaustellen der SBB.',
     'blog.article.cantiere-ffs-trasporti-ticino.imageAlt': 'Schweizer Bahnhof während Sommerarbeiten mit fahrenden Zügen',
+    'blog.article.ge-troppo-caldo-stop-lavoro.title': 'Genf: Arbeitsstopp im Freien ab Mittag während der Hitzewelle',
+    'blog.article.ge-troppo-caldo-stop-lavoro.excerpt': 'Geneva hat beschlossen, alle externen Aktivitäten ab 13:00 Uhr für die Hitzewelle einzustellen',
+    'blog.article.ge-troppo-caldo-stop-lavoro.imageAlt': 'Bauarbeiter in der Schweiz machen eine Pause an einem heißen Sommertag.',
 };
 
 export default blogMetaChDe;

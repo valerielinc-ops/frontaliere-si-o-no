@@ -1349,6 +1349,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ge-troppo-caldo-stop-lavoro',
+    category: 'pratico',
+    date: '2026-06-25T10:15:45.392Z',
+    image: '/images/blog/ge-troppo-caldo-stop-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

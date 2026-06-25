@@ -451,6 +451,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cantiere-ffs-trasporti-ticino.title': 'L’été des chantiers CFF : des horaires décalés pour ceux qui voyagent au Tessin',
     'blog.article.cantiere-ffs-trasporti-ticino.excerpt': 'Du 20 juillet au 30 août, modifications des liaisons ferroviaires au Tessin en raison des chantiers d\'été des CFF.',
     'blog.article.cantiere-ffs-trasporti-ticino.imageAlt': 'Gare ferroviaire suisse en été avec travaux et trains en circulation',
+    'blog.article.ge-troppo-caldo-stop-lavoro.title': 'Genève : Arrêtez de travailler en plein air à partir de midi pendant la canicule',
+    'blog.article.ge-troppo-caldo-stop-lavoro.excerpt': 'Geneva a décidé d\'arrêter toutes les activités extérieures à partir de 13h00 pour la canicule',
+    'blog.article.ge-troppo-caldo-stop-lavoro.imageAlt': 'Des ouvriers en Suisse font une pause pendant une journée d\'été chaude.',
 };
 
 export default blogMetaChFr;
