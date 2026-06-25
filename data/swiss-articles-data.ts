@@ -1403,6 +1403,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pemsa-lugano-mercato-lavoro',
+    category: 'pratico',
+    date: '2026-06-25T18:35:59.803Z',
+    image: '/images/blog/pemsa-lugano-mercato-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

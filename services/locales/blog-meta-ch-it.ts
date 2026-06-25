@@ -469,6 +469,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.venditti-lugano-contesto-nazionale.title': 'Venditti a Lugano: quale impatto sul contesto nazionale svizzero',
     'blog.article.venditti-lugano-contesto-nazionale.excerpt': 'L\'evento Venditti a Lugano viene analizzato per valutare possibili implicazioni nazionali; dati pratici non ancora specificati.',
     'blog.article.venditti-lugano-contesto-nazionale.imageAlt': 'Panorama di Lugano con il lago e skyline urbano in contesto svizzero.',
+    'blog.article.pemsa-lugano-mercato-lavoro.title': 'Pemsa Lugano: ruolo e impatto nel mercato del lavoro svizzero',
+    'blog.article.pemsa-lugano-mercato-lavoro.excerpt': 'Pemsa Lugano opera nel settore risorse umane, con sede a Lugano. Focus su servizi per il mercato svizzero.',
+    'blog.article.pemsa-lugano-mercato-lavoro.imageAlt': 'Vista del quartiere affari di Lugano con edifici e bandiere svizzere.',
 };
 
 export default blogMetaChIt;

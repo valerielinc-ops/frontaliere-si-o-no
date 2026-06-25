@@ -469,6 +469,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.venditti-lugano-contesto-nazionale.title': 'Sales in Lugano: what impact on the Swiss national context',
     'blog.article.venditti-lugano-contesto-nazionale.excerpt': 'The Sales event in Lugano is analysed to assess possible national implications; practical data not yet specified.',
     'blog.article.venditti-lugano-contesto-nazionale.imageAlt': 'Lugano skyline with lake and urban view in Swiss context.',
+    'blog.article.pemsa-lugano-mercato-lavoro.title': 'Pemsa Lugano: role and impact in the Swiss labour market',
+    'blog.article.pemsa-lugano-mercato-lavoro.excerpt': 'Pemsa Lugano operates in the human resources sector, based in Lugano. Focus on services for the Swiss market.',
+    'blog.article.pemsa-lugano-mercato-lavoro.imageAlt': 'View of Lugano\'s business district with buildings and Swiss flags.',
 };
 
 export default blogMetaChEn;

@@ -179,6 +179,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'terzo-pilastro-frontalieri-guida': { it: 'terzo-pilastro-frontalieri-guida', en: 'pillar-3a-cross-border-workers', de: 'dritte-saeule-grenzgaenger', fr: 'troisieme-pilier-frontaliers' },
  'aumento-costi-abitazione-e-mobilita-in-svizzera': { it: 'aumento-costi-abitazione-e-mobilita-in-svizzera', en: 'increase-housing-mobility-costs-switzerland', de: 'erhohung-wohn-und-mobilitatskosten-schweiz', fr: 'augmentation-couts-logement-mobilite-suisse' },
  'venditti-lugano-contesto-nazionale': { it: 'venditti-lugano-contesto-nazionale', en: 'venditti-lugano-national-context', de: 'venditti-lugano-nationaler-kontext', fr: 'venditti-lugano-contexte-national' },
+ 'pemsa-lugano-mercato-lavoro': { it: 'pemsa-lugano-mercato-lavoro', en: 'pemsa-lugano-job-market', de: 'pemsa-lugano-arbeitsmarkt', fr: 'pemsa-lugano-marche-travail' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
