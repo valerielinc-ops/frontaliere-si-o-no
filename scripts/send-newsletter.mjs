@@ -48,6 +48,7 @@ import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
 import { deriveNameFromEmail } from './lib/deriveNameFromEmail.mjs';
+import { parseEmailField, normalizeEmailAddress } from './lib/parseEmailField.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -119,7 +120,9 @@ function readArgValue(name) {
 }
 
 function normalizeEmail(raw) {
-  return String(raw || '').trim().toLowerCase();
+  // Strip any "Name <addr>" display wrapper so To:/unsubscribe/doc-lookups
+  // always get the bare lowercased address (see parseEmailField).
+  return normalizeEmailAddress(raw);
 }
 
 function hashEmail(email) {
@@ -1277,12 +1280,15 @@ function enrichSubscriberJobContext(subscriber, jobIndex) {
 const EXCLUDED_STATUSES = NEWSLETTER_EXCLUDED_STATUSES;
 
 function subscriberFromFirestoreRow(row) {
-  const email = normalizeEmail(row.email);
+  const parsed = parseEmailField(row.email);
+  const email = parsed.email;
   if (!email) return null;
   const fresh = calculateEngagementScore(row);
   return {
     email,
-    name: row.name || null,
+    // Greeting-name resolution: stored social name → display name harvested
+    // from a "Name <addr>" email field → (later) dataset-validated email guess.
+    name: row.name || parsed.displayName || null,
     locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
     sourceChannel: row.source_channel || row.source || 'newsletter_page',
     locationInterest: row.location_interest || null,
