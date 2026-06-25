@@ -451,6 +451,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cantiere-ffs-trasporti-ticino.title': 'L’estate dei cantieri FFS: orari stravolti per chi viaggia in Ticino',
     'blog.article.cantiere-ffs-trasporti-ticino.excerpt': 'Dal 20 luglio al 30 agosto, modifiche ai collegamenti ferroviari in Ticino a causa di cantieri estivi delle FFS.',
     'blog.article.cantiere-ffs-trasporti-ticino.imageAlt': 'Stazione ferroviaria in Ticino durante lavori estivi con treni in circolazione',
+    'blog.article.ge-troppo-caldo-stop-lavoro.title': 'Geneva: Stop al lavoro all\'aperto da mezzogiorno durante la canicola',
+    'blog.article.ge-troppo-caldo-stop-lavoro.excerpt': 'Geneva ha deciso di fermare tutte le attività esterne dalle 13:00 per la canicola',
+    'blog.article.ge-troppo-caldo-stop-lavoro.imageAlt': 'Operai in Svizzera fanno una pausa dal lavoro durante una giornata calda d\'estate.',
 };
 
 export default blogMetaChIt;
