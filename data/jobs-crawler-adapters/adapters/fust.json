@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/36addeab-7b4c-428f-8801-59a68b132e68",
     "https://jobs.fust.ch/offene-stellen/verkaeufer-in-planer-in-kuechen-baeder/c2d8a5e9-e859-4594-9b61-8702698f035f",
     "https://jobs.fust.ch/offene-stellen/chauffeur-in-kat-c-ce/4981366b-a380-4e31-b338-2f979de88459",
     "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrokleingeraete/0578fa2e-106d-4706-b0cc-d4850c1de4c4",
@@ -50,10 +51,15 @@
     "https://jobs.fust.ch/offene-stellen/verkaeufer-in-planer-in-kuechen-baeder/513d0e18-1123-45b1-9230-1b9f17bc06d2",
     "https://jobs.fust.ch/offene-stellen/2nd-level-support-engineer/6818beb2-8388-440f-9ea7-f4b6065c7f02",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/08a51a1f-b9c5-4a53-8eee-c051c5955cae",
-    "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-kommissionierung/fea4ef68-0814-4b62-90fb-c27836ebabe1",
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt/ba07bd30-6bb6-4ea5-b1fc-d8190564dcaf"
+    "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-kommissionierung/fea4ef68-0814-4b62-90fb-c27836ebabe1"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/36addeab-7b4c-428f-8801-59a68b132e68": {
+      "location": "Berna",
+      "canton": "BE",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/verkaeufer-in-planer-in-kuechen-baeder/c2d8a5e9-e859-4594-9b61-8702698f035f": {
       "location": "Berna",
       "canton": "BE",
@@ -299,14 +305,8 @@
       "canton": "SG",
       "company": "Fust",
       "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt/ba07bd30-6bb6-4ea5-b1fc-d8190564dcaf": {
-      "location": "Argovia",
-      "canton": "AG",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-06-24T22:02:07.432Z"
+  "updatedAt": "2026-06-25T11:08:30.327Z"
 }
