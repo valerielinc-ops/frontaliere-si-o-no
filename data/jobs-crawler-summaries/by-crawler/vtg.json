@@ -1,18 +1,52 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-06-25T12:34:22.184Z",
-  "total": 37,
-  "newCount": 0,
+  "generatedAt": "2026-06-25T23:36:03.511Z",
+  "total": 38,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 28,
-  "durationMs": 53719,
-  "avgDurationMs": 53719,
+  "durationMs": 103320,
+  "avgDurationMs": 103320,
   "durationHistory": [
-    53719
+    103320
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-qf6gqz",
+      "slug": "spezialist-in-fordertechnik-swiss-armed-forces-vtg-bern-qf6gqz",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Spezialist/-in Fördertechnik",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "engineering",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "url": "https://jobs.admin.ch/offene-stellen/spezialist-in-foerdertechnik/93b8a897-e56f-4fa8-ade0-0b690d374924",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Andermatt",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-25T23:36:00.644Z",
+      "firstSeenAt": "2026-06-25T23:36:00.644Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-1au6lp",
