@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-06-24T21:58:34.919Z",
+  "generatedAt": "2026-06-25T11:14:28.770Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1777,
-  "avgDurationMs": 1777,
+  "durationMs": 1427,
+  "avgDurationMs": 1427,
   "durationHistory": [
-    1777
+    1427
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -359,50 +359,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior Java Engineer",
-      "slug": "senior-java-ingegnere-fincons-group-lugano",
-      "url": "https://fincons.applytojob.com/apply/atITl735eH/Senior-Java-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/atITl735eH/Senior-Java-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-23",
-      "validThrough": "2026-09-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260623065854_VPH91WGG5LKG4Y1N",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": "Lugano"
-      },
-      "id": "fincons-group-6f4532dcc360",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-06-23T11:38:21.084Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
