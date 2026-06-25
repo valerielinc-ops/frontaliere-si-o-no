@@ -40,7 +40,7 @@ import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-
 import { loadCampaignVariantTotals, previousCampaignIds } from './lib/newsletter-ab-data.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
-import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
+import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
@@ -48,6 +48,8 @@ import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
 import { deriveNameFromEmail } from './lib/deriveNameFromEmail.mjs';
+import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
+import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -119,7 +121,9 @@ function readArgValue(name) {
 }
 
 function normalizeEmail(raw) {
-  return String(raw || '').trim().toLowerCase();
+  // Strip any "Name <addr>" display wrapper so To:/unsubscribe/doc-lookups
+  // always get the bare lowercased address (see parseEmailField).
+  return normalizeEmailAddress(raw);
 }
 
 function hashEmail(email) {
@@ -1276,36 +1280,6 @@ function enrichSubscriberJobContext(subscriber, jobIndex) {
 // Shared source of truth (services/emailSuppression.mjs) so all senders agree.
 const EXCLUDED_STATUSES = NEWSLETTER_EXCLUDED_STATUSES;
 
-function subscriberFromFirestoreRow(row) {
-  const email = normalizeEmail(row.email);
-  if (!email) return null;
-  const fresh = calculateEngagementScore(row);
-  return {
-    email,
-    name: row.name || null,
-    locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
-    sourceChannel: row.source_channel || row.source || 'newsletter_page',
-    locationInterest: row.location_interest || null,
-    sectorInterest: row.sector_interest || null,
-    job_slug: row.job_slug || null,
-    job_company: row.job_company || null,
-    job_location: row.job_location || null,
-    job_category: row.job_category || null,
-    job_search_query: row.job_search_query || null,
-    job_context_backfill_slug: row.job_context_backfill_slug || null,
-    source: row.source || null,
-    preferences: row.preferences || {},
-    type: row.type || null,
-    // Default true: only skip autologin if user explicitly opted out
-    autologinEnabled: row.autologin_enabled !== false,
-    createdAt: row.createdAt?.toDate?.() || (row.created_at ? new Date(row.created_at) : null),
-    // Engagement metadata used for prioritized send order
-    sendCount: Number(row.send_count || row.sendCount) || 0,
-    engagementScore: fresh.score,
-    engagementLevel: fresh.level,
-  };
-}
-
 async function fetchTargetSubscriber(email) {
   const normalized = normalizeEmail(email);
   if (!normalized) return null;
@@ -1328,14 +1302,16 @@ async function fetchSubscribers() {
     snap.docs.forEach((d) => {
       if (d.id === '_meta_') return;
       const row = d.data();
-      const email = normalizeEmail(row.email);
-      if (!email) return;
+      if (!row.email) return;
       const status = (row.status || '').toLowerCase();
       if (EXCLUDED_STATUSES.has(status)) return;
       // Belt-and-suspenders: also exclude if unsubscribedAt is set (frontend handler bug backfill)
       if (row.unsubscribedAt || row.unsubscribed_at) return;
-      const subscriber = subscriberFromFirestoreRow({ ...row, email });
-      if (subscriber) subscribers.set(email, subscriber);
+      // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
+      // "Name <addr>" display name; it strips the wrapper internally and
+      // returns the bare address on subscriber.email.
+      const subscriber = subscriberFromFirestoreRow(row);
+      if (subscriber) subscribers.set(subscriber.email, subscriber);
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
