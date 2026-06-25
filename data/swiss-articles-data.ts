@@ -1331,6 +1331,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'parmelin-missione-economica-nordamerica',
+    category: 'novita',
+    date: '2026-06-25T07:59:27.896Z',
+    image: '/images/blog/parmelin-missione-economica-nordamerica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
