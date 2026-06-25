@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-06-25T11:37:33.608Z",
+  "assembledAt": "2026-06-25T22:39:58.078Z",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:37:31.490Z",
+      "crawledAt": "2026-06-25T22:39:55.978Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -69,6 +69,7 @@
           "Charge de travail : jours fériés individuels et week-ends par an"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
@@ -99,7 +100,7 @@
       "slug": "fisioterapista-sup-a-80-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "fisioterapista-sup-a-80-kantonsspital-obwalden-sarnen",
-        "en": "physiotherapist-in-fh-a-80-kantonsspital-obwalden-sarnen",
+        "en": "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen",
         "de": "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen",
         "fr": "physiotherapeute-hes-f-m-80-kantonsspital-obwalden-sarnen"
       },
@@ -109,7 +110,7 @@
       "title": "Physiotherapeut/in FH (a) 80%",
       "titleByLocale": {
         "it": "Fisioterapista SUP (a) 80%",
-        "en": "Physiotherapist/in FH (a) 80 %",
+        "en": "Physiotherapeut/in FH (a) 80%",
         "de": "Physiotherapeut/in FH (a) 80%",
         "fr": "Physiothérapeute HES (f/m) 80%"
       },
@@ -125,7 +126,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-fh/a6efg0x6if55x3bdlwflcg4mxfhjffmtjnm5uw3koat4yk6k46zwti4vfj3n5085",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:37:29.918Z",
+      "crawledAt": "2026-06-25T22:39:54.396Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -161,6 +162,7 @@
           "Esprit d'équipe et ouverture"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "physiotherapeut-in-fh-a-80-ksow-sarnen"
@@ -169,12 +171,13 @@
           "physiotherapeut-in-fh-a-80-ksow-sarnen"
         ],
         "en": [
+          "physiotherapist-in-fh-a-80-kantonsspital-obwalden-sarnen",
           "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "physiotherapeut-in-fh-a-80-ksow-sarnen",
-        "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen"
+        "physiotherapist-in-fh-a-80-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:27.865Z",
       "salaryMin": 69500,
@@ -221,7 +224,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-anaesthesiepflege-nds-hf/hchi3byoxnduiomr2q4tb57d5q2hclz4a4rlhxrx251bbwzfp46rw7d7eza4dy67",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:37:28.266Z",
+      "crawledAt": "2026-06-25T22:39:52.831Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -260,6 +263,7 @@
           "Plaisir pour la collaboration interdisciplinaire"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
@@ -316,7 +320,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:37:26.453Z",
+      "crawledAt": "2026-06-25T22:39:51.291Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -355,6 +359,7 @@
           "Activité en tant que sage-femme indépendante"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
@@ -415,7 +420,7 @@
       "url": "https://link.ostendis.com/publication/medizinischen-praxisassistent-in-arztsekretaer-in-kardiologie/kw35cynp40el68mt1mz2we0kmenedovs1oke05mtly4bp51ycqhei2d2ipcn33t2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:37:24.867Z",
+      "crawledAt": "2026-06-25T22:39:49.674Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -463,6 +468,7 @@
           "Réalisation autonome d'examens médicaux"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
@@ -493,7 +499,7 @@
       "slug": "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen",
-        "en": "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen",
+        "en": "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
         "de": "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
         "fr": "technicien-en-salle-d-operation-es-a-50-100-kantonsspital-obwalden-sarnen"
       },
@@ -503,7 +509,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
       "titleByLocale": {
         "it": "Tecnico di Sala Operatoria SSS (a) 50–100%",
-        "en": "Dipl. Specialist Operations Technique HF (a) 50–100 %",
+        "en": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "de": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "fr": "Technicien en salle d'opération ES (a) 50–100%"
       },
@@ -519,7 +525,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:37:23.263Z",
+      "crawledAt": "2026-06-25T22:39:48.106Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -562,6 +568,7 @@
           "Esprit d'équipe, flexibilité et plaisir à travailler dans un environnement dynamique"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
@@ -570,12 +577,13 @@
           "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
         ],
         "en": [
+          "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen",
           "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
+        "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:17.375Z",
       "salaryMin": 69500,
@@ -622,7 +630,7 @@
       "url": "https://link.ostendis.com/publication/lagerungspfleger-in/yaqj7d7po5spp85wtqx7hjpqaayw4gehzssx738m7stclh6jo3eyv4afnghcohrd",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:37:21.631Z",
+      "crawledAt": "2026-06-25T22:39:46.530Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -660,6 +668,7 @@
           "Personnalité flexible et orientée service"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "lagerungspfleger-in-a-60-100-ksow-sarnen"
@@ -716,7 +725,7 @@
       "url": "https://link.ostendis.com/publication/techn-sterilisationsassistent-in-befristet/rfpa5h3aw8vi46v8rsi32eyl2x5kkjolkqxz333k3ce3025g2ag5gq44iz2bitgm",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:37:01.358Z",
+      "crawledAt": "2026-06-25T22:39:43.945Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -757,6 +766,7 @@
           "Bonnes connaissances en allemand et compétences informatiques"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "techn-sterilisationsassistent-in-50-befristet-ksow-sarnen"
@@ -813,7 +823,7 @@
       "url": "https://link.ostendis.com/publication/oberarzt-leitender-arzt-gastroenterologie/2yph4crwy1zhmnm3ych5gvhtd5rs22y4wom17lshe3x7mbquftb50ie3c4vrlie7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:36:59.750Z",
+      "crawledAt": "2026-06-25T22:39:42.331Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -856,6 +866,7 @@
           "Haute compétence sociale ainsi qu'une communication précieuse"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
@@ -885,10 +896,10 @@
       "id": "ksow-aa3d4a817280",
       "slug": "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
+        "it": "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen",
         "en": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
         "de": "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "fr": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
+        "fr": "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -896,7 +907,7 @@
       "title": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
       "titleByLocale": {
         "it": "Responsabile Comunicazione & Integrazione 80–100 %",
-        "en": "Responsible for Communication & Integration 80-100%",
+        "en": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
         "de": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
         "fr": "Responsable Communication & Intégration 80–100 %"
       },
@@ -912,7 +923,7 @@
       "url": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:36:58.121Z",
+      "crawledAt": "2026-06-25T22:39:40.750Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -929,15 +940,18 @@
       "applyUrl": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
+        "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen"
+          "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
+          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
         ],
         "fr": [
+          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
           "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
         ]
       },
@@ -959,9 +973,9 @@
       "id": "ksow-f85271e09bfc",
       "slug": "arztsekretar-in-chirurgie-e-belegarzte-a-80-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "de": "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen",
         "it": "arztsekretar-in-chirurgie-e-belegarzte-a-80-kantonsspital-obwalden-sarnen",
         "en": "medical-secretary-and-attending-physicians-a-80-kantonsspital-obwalden-sarnen",
+        "de": "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen",
         "fr": "secretaire-medical-et-medecin-traitant-a-80-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -969,24 +983,24 @@
       "companyDomain": "ksow.ch",
       "title": "Arztsekretär/in Chirurgie und Belegärzte (a) 80%",
       "titleByLocale": {
-        "de": "Arztsekretär/in Chirurgie und Belegärzte (a) 80%",
         "it": "Arztsekretär/in Chirurgie e Belegärzte (a) 80%",
         "en": "Medical secretary and attending physicians (a) 80 %",
+        "de": "Arztsekretär/in Chirurgie und Belegärzte (a) 80%",
         "fr": "Secrétaire médical et médecin traitant (a) 80 %"
       },
       "description": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, Frauenklinik sowie Anästhesie.\n\nFür unsere Sekretariate Belegärzte und Chirurgie suchen wir per 1. September 2026 ein neues Teammitglied:\n\nARZTSEKRETÄR/IN CHIRURGIE UND BELEGÄRZTE (a) 80%\n Du bist bei uns goldrichtig, wenn Folgendes zutrifft\n Du hast eine abgeschlossene kaufmännische und/oder medizinische Ausbildung mit Weiterbildung als Arztsekretär/in und bringst bereits Berufserfahrung mit. Zudem liegen uns folgende Punkte ebenfalls sehr am Herzen:\n\n• Gute MS Office Kenntnisse sind ein Muss.\n\n• Neben deiner Berufserfahrung wünschen wir uns eine offene, kommunikative Persönlichkeit mit hoher Sozialkompetenz.\n\n• Die Wörter vertrauensvoll, selbständig und belastbar sind dir nicht fremd.\n\n• Du arbeitest speditiv und bist dich exaktes Arbeiten gewohnt.\n\n• Du bist dienstleistungsorientiert und hast Freude am direkten Patientenkontakt.\n\n• Eine flexible und teamorientierte Arbeitsweise bringst du im Rucksack bereits mit.\n\n• Du besitzt sehr gute sowie stilsichere Deutschkenntnisse.\n\nDein künftiges Team\n ist freundlich, weltoffen, motiviert und energiegeladen. Wir pflegen eine ehrliche sowie sehr offene Kommunikation. Fehler werden gemeinsam besprochen und durch die gemeinsame Erarbeitung/Optimierung der Prozesse aus der Welt geschafft.\n\nDas sind deine Aufgaben\n\n• Planung von Operationen und Kleineingriffen (Einweisungen von Haus- oder Fachärzten).\n\n• Planung allfälliger Labortermine und radiologischer Aufnahmen im RAP.\n\n• Du pflegst regen telefonischen sowie schriftlichen Kontakt zu Patientinnen, Patienten, Ärztinnen und Ärzten, Zuweisern und internen als auch externen Stellen.\n\n• Du schreibst und versendest Diktate mit Dragon (Austritts-, Operations-, Notfall- sowie Konsiliarberichte).\n\n• Das Organisieren der Sprechstunden sowie das Koordinieren von diversen Terminen im Bereich der Chirurgie, Urologie, Neurochirurgie und der Orthopädie bringt dir würze.\n\n• Mithilfe beim Bearbeiten von Versicherungsanfragen sowie diverse administrative Tätigkeiten.\n\nDarauf kannst du dich freuen\n\n• Das Kantonsspital Obwalden ist ein zukunftsorientiertes, modernes und überschaubares Spital.\n\n• Wir bieten eine abwechslungsreiche Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenem Umfeld.\n\n• Ein Betrieb in welchem die DU-Kultur im ganzen Haus gelebt und geschätzt wird.\n\n• Unser Arbeitsort liegt direkt an einer attraktiven Lage in Sarnen am See, mit sehr guter Anbindung an den öffentlichen Verkehr\n\nHaben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung.\n Jetzt bewerben Deine Ansprechperson bei Fragen oder Auskünften Daniela Häuptli, Leiterin Sekretariat Chirurgie und Belegärzte, Tel. Direkt: 041 666 41 83 / daniela.haeuptli@ksow.ch\nMelina Durrer, Stv. Leiterin Sekretariat Chirurgie und Belegärzte, Tel. Direkt: 041 666 40 70 / melina.durrer@ksow.ch\n\nBist du unser fehlendes Puzzleteil? Dann freut sich die Personalabteilung auf die Bewerbung via Online-Plattform oder per E-Mail an:\n personalabteilung@ksow.ch.\n\nKantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22\n\nDaniela Häuptli, Bereichsleiterin Sekretariat Chirurgie, Tel. Direkt: 041 666 41 83 / daniela.haeuptli@ksow.ch",
       "descriptionByLocale": {
-        "de": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, Frauenklinik sowie Anästhesie.\n\nFür unsere Sekretariate Belegärzte und Chirurgie suchen wir per 1. September 2026 ein neues Teammitglied:\n\nARZTSEKRETÄR/IN CHIRURGIE UND BELEGÄRZTE (a) 80%\n Du bist bei uns goldrichtig, wenn Folgendes zutrifft\n Du hast eine abgeschlossene kaufmännische und/oder medizinische Ausbildung mit Weiterbildung als Arztsekretär/in und bringst bereits Berufserfahrung mit. Zudem liegen uns folgende Punkte ebenfalls sehr am Herzen:\n\n• Gute MS Office Kenntnisse sind ein Muss.\n\n• Neben deiner Berufserfahrung wünschen wir uns eine offene, kommunikative Persönlichkeit mit hoher Sozialkompetenz.\n\n• Die Wörter vertrauensvoll, selbständig und belastbar sind dir nicht fremd.\n\n• Du arbeitest speditiv und bist dich exaktes Arbeiten gewohnt.\n\n• Du bist dienstleistungsorientiert und hast Freude am direkten Patientenkontakt.\n\n• Eine flexible und teamorientierte Arbeitsweise bringst du im Rucksack bereits mit.\n\n• Du besitzt sehr gute sowie stilsichere Deutschkenntnisse.\n\nDein künftiges Team\n ist freundlich, weltoffen, motiviert und energiegeladen. Wir pflegen eine ehrliche sowie sehr offene Kommunikation. Fehler werden gemeinsam besprochen und durch die gemeinsame Erarbeitung/Optimierung der Prozesse aus der Welt geschafft.\n\nDas sind deine Aufgaben\n\n• Planung von Operationen und Kleineingriffen (Einweisungen von Haus- oder Fachärzten).\n\n• Planung allfälliger Labortermine und radiologischer Aufnahmen im RAP.\n\n• Du pflegst regen telefonischen sowie schriftlichen Kontakt zu Patientinnen, Patienten, Ärztinnen und Ärzten, Zuweisern und internen als auch externen Stellen.\n\n• Du schreibst und versendest Diktate mit Dragon (Austritts-, Operations-, Notfall- sowie Konsiliarberichte).\n\n• Das Organisieren der Sprechstunden sowie das Koordinieren von diversen Terminen im Bereich der Chirurgie, Urologie, Neurochirurgie und der Orthopädie bringt dir würze.\n\n• Mithilfe beim Bearbeiten von Versicherungsanfragen sowie diverse administrative Tätigkeiten.\n\nDarauf kannst du dich freuen\n\n• Das Kantonsspital Obwalden ist ein zukunftsorientiertes, modernes und überschaubares Spital.\n\n• Wir bieten eine abwechslungsreiche Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenem Umfeld.\n\n• Ein Betrieb in welchem die DU-Kultur im ganzen Haus gelebt und geschätzt wird.\n\n• Unser Arbeitsort liegt direkt an einer attraktiven Lage in Sarnen am See, mit sehr guter Anbindung an den öffentlichen Verkehr\n\nHaben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung.\n Jetzt bewerben Deine Ansprechperson bei Fragen oder Auskünften Daniela Häuptli, Leiterin Sekretariat Chirurgie und Belegärzte, Tel. Direkt: 041 666 41 83 / daniela.haeuptli@ksow.ch\nMelina Durrer, Stv. Leiterin Sekretariat Chirurgie und Belegärzte, Tel. Direkt: 041 666 40 70 / melina.durrer@ksow.ch\n\nBist du unser fehlendes Puzzleteil? Dann freut sich die Personalabteilung auf die Bewerbung via Online-Plattform oder per E-Mail an:\n personalabteilung@ksow.ch.\n\nKantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22\n\nDaniela Häuptli, Bereichsleiterin Sekretariat Chirurgie, Tel. Direkt: 041 666 41 83 / daniela.haeuptli@ksow.ch",
-        "it": "L'Ospedale cantonale Obwalden è un innovativo e versatile ospedale primario in Svizzera centrale con le cliniche Generali, Chirurgia Accidentale e Viscerale, Ortopedia, Medicina Interna, Ospedale femminile e Anestesia.\n\nPer i nostri segretariati medici e chirurgia stiamo cercando 1. settembre 2026 un nuovo membro del team:\n\nSETTORE MEDICO/IN SURGIA E BELEGATIVE (a) 80 %\n Lei ha ragione con noi se il seguente è vero\n Hai completato la formazione commerciale e / o medica con ulteriore formazione come segretario medico e già hanno esperienza professionale. Inoltre, per noi sono importanti anche i seguenti punti:\n\n• Buona SM La conoscenza dell'ufficio è un must.\n\n• Oltre alla vostra esperienza professionale, vogliamo una personalità aperta e comunicativa con un alto livello di competenza sociale.\n\n• Le parole fiduciose, indipendenti e resilienti non ti sono estranee.\n\n• Si lavora velocemente e sono abituati a lavorare esattamente.\n\n• Siete orientati al servizio e godetevi il contatto diretto del paziente.\n\n• Hai già portato un modo flessibile e orientato al team di lavorare nel tuo zaino.\n\n• Hai una conoscenza molto buona ed elegante del tedesco.\n\nIl tuo futuro team\n è amichevole, cosmopolita, motivato ed energico. Manteniamo una comunicazione onesta e molto aperta. Gli errori vengono discussi insieme ed eliminati dallo sviluppo comune / ottimizzazione dei processi.\n\nQuesti sono i tuoi compiti\n\n• Pianificazione delle operazioni e delle piccole procedure (ammissione di familiari o specialisti).\n\n• Pianificazione di eventuali appuntamenti di laboratorio e registrazioni radiologiche nella RAP.\n\n• Si mantiene il telefono e il contatto scritto con pazienti, medici, arbitri e corpi interni e esterni.\n\n• Lei scrive e invia dittazione con Dragon (uscita, operazione, emergenza e rapporti consiliari).\n\n• Organizzare le ore di consultazione e coordinare vari appuntamenti nel campo della chirurgia, urologia, neurochirurgia e ortopedia ti porta spezie.\n\n• Assistenza nel trattamento delle richieste di assicurazione e varie attività amministrative.\n\nNon vedo l'ora.\n\n• L'Ospedale cantonale Obwalden è un ospedale moderno, moderno e gestibile in futuro.\n\n• Offriamo una variegata attività in un ambiente interdisciplinare, motivato, impegnato e aperto.\n\n• Un'azienda in cui la cultura DU è vissuta e apprezzata in tutta la casa.\n\n• Il nostro luogo di lavoro si trova direttamente su una posizione attraente a Sarnen sul lago, con ottimi collegamenti ai trasporti pubblici\n\nAbbiamo suscitato il vostro interesse a questo punto? Il reparto risorse umane è impaziente per la vostra applicazione online.\n Ora la persona di contatto si applica per domande o informazioni Daniela Häuptli, responsabile dell'Ufficio di Chirurgia e Osservatorio Medici, tel. Diretto: 041 666 41 83 / daniela.haeuptli@ksow.ch\nMelina Durrer, Stv. Head of Secretariat Surgery and Observatory Medici, tel. Diretto: 041 666 40 70 / melina.durrer@ksow.ch\n\nSei il nostro pezzo di puzzle scomparso? Allora il dipartimento HR non vede l'ora di applicare tramite piattaforma online o via e-mail:\n personaleabteilung@ksow.ch.\n\nOspedale cantonale Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22\n\nDaniela Häuptli, Responsabile del Dipartimento di Chirurgia, Tel.: 041 666 41 83 / daniela.haeuptli@ksow.ch",
-        "en": "The Cantonal Hospital Obwalden is an innovative, versatile primary care hospital in Central Switzerland with the clinics General, Accident and Visceral Surgery, Orthopaedics, Internal Medicine, Women's Hospital and Anesthesia.\n\nFor our secretariats medical doctors and surgery we are looking for 1. September 2026 a new team member:\n\nMEDICAL SECRETARY/IN SURGY AND BELEGATIVES (a) 80 %\n You are right with us if the following is true\n You have completed commercial and / or medical training with further training as a doctor secretary and already have professional experience. In addition, the following points are also very important to us:\n\n• Good MS Office knowledge is a must.\n\n• In addition to your professional experience, we want an open, communicative personality with a high level of social competence.\n\n• The words trusting, independent and resilient are no stranger to you.\n\n• You work fast and are used to working exactly.\n\n• You are service-oriented and enjoy direct patient contact.\n\n• You already bring a flexible and team-oriented way of working in your backpack.\n\n• You have very good and stylish knowledge of German.\n\nYour future team\n is friendly, cosmopolitan, motivated and energetic. We maintain an honest and very open communication. Errors are discussed together and eliminated by the joint development / optimization of processes.\n\nThese are your tasks\n\n• Planning of operations and small procedures (admissions of family or specialists).\n\n• Planning of any laboratory appointments and radiological recordings in the RAP.\n\n• You maintain telephone and written contact with patients, doctors, referees and internal as well as external bodies.\n\n• You write and send dictation with Dragon (exit, operation, emergency and consiliar reports).\n\n• Organizing the consultation hours as well as coordinating various appointments in the field of surgery, urology, neurosurgery and orthopaedics brings you spice.\n\n• Assistance in handling insurance inquiries and various administrative activities.\n\nYou can look forward to that.\n\n• The Cantonal Hospital Obwalden is a future-oriented, modern and manageable hospital.\n\n• We offer a varied activity in an interdisciplinary, motivated, committed and open-minded environment.\n\n• A company in which the DU culture is lived and appreciated throughout the house.\n\n• Our place of work is located directly on an attractive location in Sarnen on the lake, with very good connections to public transport\n\nDid we arouse your interest at this point? The HR department is looking forward to your online application.\n Now your contact person applies for questions or information Daniela Häuptli, Head of the Office of Surgery and Observatory Doctors, tel. Direct: 041 666 41 83 / daniela.haeuptli@ksow.ch\nMelina Durrer, Stv. Head of Secretariat Surgery and Observatory Doctors, tel. Direct: 041 666 40 70 / melina.durrer@ksow.ch\n\nAre you our missing puzzle piece? Then the HR department looks forward to applying via online platform or by e-mail:\n personnelabteilung@ksow.ch.\n\nCantonal Hospital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22\n\nDaniela Häuptli, Head of the Department of Surgery, Tel. Direct: 041 666 41 83 / daniela.haeuptli@ksow.ch",
-        "fr": "L'hôpital cantonal Obwalden est un hôpital de soins primaires innovant et polyvalent en Suisse centrale avec les cliniques Chirurgie générale, Accident et Viscérale, Orthopédie, Médecine interne, Hôpital pour femmes et Anesthésie.\n\nPour nos secrétariats médecins et chirurgie nous cherchons 1. Septembre 2026 un nouveau membre de l'équipe:\n\nSECRÉTAIRE MÉDICAL/SURGY ET BÉLÉGATIFS (a) 80 %\n Vous avez raison avec nous si ce qui suit est vrai\n Vous avez suivi une formation commerciale et/ou médicale avec une formation complémentaire en tant que secrétaire de médecin et avez déjà une expérience professionnelle. En outre, les points suivants sont très importants pour nous:\n\n• Bonne EM Les connaissances de bureau sont un must.\n\n• En plus de votre expérience professionnelle, nous voulons une personnalité ouverte et communicative avec un haut niveau de compétence sociale.\n\n• Les mots confiants, indépendants et résilients ne vous sont pas étrangers.\n\n• Tu travailles vite et tu travailles exactement.\n\n• Vous êtes orienté vers le service et profitez d'un contact direct avec le patient.\n\n• Vous apportez déjà une façon flexible et axée sur l'équipe de travailler dans votre sac à dos.\n\n• Vous avez une très bonne et élégante connaissance de l'allemand.\n\nVotre future équipe\n est amical, cosmopolite, motivé et énergique. Nous maintenons une communication honnête et très ouverte. Les erreurs sont discutées ensemble et éliminées par le développement / optimisation conjointe des processus.\n\nCe sont vos tâches\n\n• Planification des opérations et des petites procédures (admissions de la famille ou des spécialistes).\n\n• Planification des rendez-vous en laboratoire et des enregistrements radiologiques dans le PAR.\n\n• Vous maintenez un contact téléphonique et écrit avec les patients, les médecins, les arbitres et les organismes internes et externes.\n\n• Vous écrivez et envoyez la dictée avec Dragon (sortie, opération, rapports d'urgence et de consul).\n\n• L'organisation des heures de consultation et la coordination de divers rendez-vous dans le domaine de la chirurgie, de l'urologie, de la neurochirurgie et de l'orthopédie vous apportent des épices.\n\n• Assistance pour le traitement des demandes d'assurance et diverses activités administratives.\n\nVous pouvez attendre avec impatience.\n\n• L'hôpital cantonal Obwalden est un hôpital tourné vers l'avenir, moderne et gérable.\n\n• Nous offrons une activité variée dans un environnement interdisciplinaire, motivé, engagé et ouvert d'esprit.\n\n• Une entreprise dans laquelle la culture DU est vécue et appréciée dans toute la maison.\n\n• Notre lieu de travail est situé directement sur un emplacement attrayant à Sarnen sur le lac, avec de très bonnes connexions aux transports en commun\n\nAvons-nous suscité votre intérêt à ce stade ? Le ministère des RH attend avec impatience votre demande en ligne.\n Maintenant votre personne de contact demande des questions ou des informations Daniela Häuptli, Chef du Bureau de Chirurgie et des Médecins d'Observatoire, tel. Direct: 041 666 41 83 / daniela.haeuptli@ksow.ch\nMelina Durrer, Chef du Secrétariat Chirurgie et observatoire Médecins, tél.: 041 666 40 70 / melina.durrer@ksow.ch\n\nÊtes-vous notre pièce de puzzle manquante ? Ensuite, le service RH se réjouit de présenter sa candidature par l'intermédiaire de la plateforme en ligne ou par courriel :\n personnelabteilung@ksow.ch.\n\nHôpital cantonal Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22\n\nDaniela Häuptli, Chef du Département de Chirurgie, Tél."
+        "it": "L'Ospedale cantonale Obwalden è un innovativo e versatile ospedale primario in Svizzera centrale con le cliniche Generali, Chirurgia Accidentale e Viscerale, Ortopedia, Medicina Interna, Ospedale femminile e Anestesia. Per i nostri segretariati medici e chirurgia stiamo cercando 1. settembre 2026 un nuovo membro del team: SETTORE MEDICO/IN SURGIA E BELEGATIVE (a) 80 % Lei ha ragione con noi se il seguente è vero Hai completato la formazione commerciale e / o medica con ulteriore formazione come segretario medico e già hanno esperienza professionale. Inoltre, per noi sono importanti anche i seguenti punti:\n• Buona SM La conoscenza dell'ufficio è un must.\n• Oltre alla vostra esperienza professionale, vogliamo una personalità aperta e comunicativa con un alto livello di competenza sociale.\n• Le parole fiduciose, indipendenti e resilienti non ti sono estranee.\n• Si lavora velocemente e sono abituati a lavorare esattamente.\n• Siete orientati al servizio e godetevi il contatto diretto del paziente.\n• Hai già portato un modo flessibile e orientato al team di lavorare nel tuo zaino.\n• Hai una conoscenza molto buona ed elegante del tedesco. Il tuo futuro team è amichevole, cosmopolita, motivato ed energico. Manteniamo una comunicazione onesta e molto aperta. Gli errori vengono discussi insieme ed eliminati dallo sviluppo comune / ottimizzazione dei processi. Questi sono i tuoi compiti\n• Pianificazione delle operazioni e delle piccole procedure (ammissione di familiari o specialisti).\n• Pianificazione di eventuali appuntamenti di laboratorio e registrazioni radiologiche nella RAP.\n• Si mantiene il telefono e il contatto scritto con pazienti, medici, arbitri e corpi interni e esterni.\n• Lei scrive e invia dittazione con Dragon (uscita, operazione, emergenza e rapporti consiliari).\n• Organizzare le ore di consultazione e coordinare vari appuntamenti nel campo della chirurgia, urologia, neurochirurgia e ortopedia ti porta spezie.\n• Assistenza nel trattamento delle richieste di assicurazione e varie attività amministrative. Non vedo l'ora.\n• L'Ospedale cantonale Obwalden è un ospedale moderno, moderno e gestibile in futuro.\n• Offriamo una variegata attività in un ambiente interdisciplinare, motivato, impegnato e aperto.\n• Un'azienda in cui la cultura DU è vissuta e apprezzata in tutta la casa.\n• Il nostro luogo di lavoro si trova direttamente su una posizione attraente a Sarnen sul lago, con ottimi collegamenti ai trasporti pubblici Abbiamo suscitato il vostro interesse a questo punto? Il reparto risorse umane è impaziente per la vostra applicazione online. Ora la persona di contatto si applica per domande o informazioni Daniela Häuptli, responsabile dell'Ufficio di Chirurgia e Osservatorio Medici, tel. Diretto: 041 666 41 83 / daniela.haeuptli@ksow.ch Melina Durrer, Stv. Head of Secretariat Surgery and Observatory Medici, tel. Diretto: 041 666 40 70 / melina.durrer@ksow.ch Sei il nostro pezzo di puzzle scomparso? Allora il dipartimento HR non vede l'ora di applicare tramite piattaforma online o via e-mail: personaleabteilung@ksow.ch. Ospedale cantonale Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22 Daniela Häuptli, Responsabile del Dipartimento di Chirurgia, Tel.: 041 666 41 83 / daniela.haeuptli@ksow.ch",
+        "en": "The Cantonal Hospital Obwalden is an innovative, versatile primary care hospital in Central Switzerland with the clinics General, Accident and Visceral Surgery, Orthopaedics, Internal Medicine, Women's Hospital and Anesthesia. For our secretariats medical doctors and surgery we are looking for 1. September 2026 a new team member: MEDICAL SECRETARY/IN SURGY AND BELEGATIVES (a) 80 % You are right with us if the following is true You have completed commercial and / or medical training with further training as a doctor secretary and already have professional experience. In addition, the following points are also very important to us:\n• Good MS Office knowledge is a must.\n• In addition to your professional experience, we want an open, communicative personality with a high level of social competence.\n• The words trusting, independent and resilient are no stranger to you.\n• You work fast and are used to working exactly.\n• You are service-oriented and enjoy direct patient contact.\n• You already bring a flexible and team-oriented way of working in your backpack.\n• You have very good and stylish knowledge of German. Your future team is friendly, cosmopolitan, motivated and energetic. We maintain an honest and very open communication. Errors are discussed together and eliminated by the joint development / optimization of processes. These are your tasks\n• Planning of operations and small procedures (admissions of family or specialists).\n• Planning of any laboratory appointments and radiological recordings in the RAP.\n• You maintain telephone and written contact with patients, doctors, referees and internal as well as external bodies.\n• You write and send dictation with Dragon (exit, operation, emergency and consiliar reports).\n• Organizing the consultation hours as well as coordinating various appointments in the field of surgery, urology, neurosurgery and orthopaedics brings you spice.\n• Assistance in handling insurance inquiries and various administrative activities. You can look forward to that.\n• The Cantonal Hospital Obwalden is a future-oriented, modern and manageable hospital.\n• We offer a varied activity in an interdisciplinary, motivated, committed and open-minded environment.\n• A company in which the DU culture is lived and appreciated throughout the house.\n• Our place of work is located directly on an attractive location in Sarnen on the lake, with very good connections to public transport Did we arouse your interest at this point? The HR department is looking forward to your online application. Now your contact person applies for questions or information Daniela Häuptli, Head of the Office of Surgery and Observatory Doctors, tel. Direct: 041 666 41 83 / daniela.haeuptli@ksow.ch Melina Durrer, Stv. Head of Secretariat Surgery and Observatory Doctors, tel. Direct: 041 666 40 70 / melina.durrer@ksow.ch Are you our missing puzzle piece? Then the HR department looks forward to applying via online platform or by e-mail: personnelabteilung@ksow.ch. Cantonal Hospital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22 Daniela Häuptli, Head of the Department of Surgery, Tel. Direct: 041 666 41 83 / daniela.haeuptli@ksow.ch",
+        "de": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, Frauenklinik sowie Anästhesie. Für unsere Sekretariate Belegärzte und Chirurgie suchen wir per 1. September 2026 ein neues Teammitglied: ARZTSEKRETÄR/IN CHIRURGIE UND BELEGÄRZTE (a) 80% Du bist bei uns goldrichtig, wenn Folgendes zutrifft Du hast eine abgeschlossene kaufmännische und/oder medizinische Ausbildung mit Weiterbildung als Arztsekretär/in und bringst bereits Berufserfahrung mit. Zudem liegen uns folgende Punkte ebenfalls sehr am Herzen:\n• Gute MS Office Kenntnisse sind ein Muss.\n• Neben deiner Berufserfahrung wünschen wir uns eine offene, kommunikative Persönlichkeit mit hoher Sozialkompetenz.\n• Die Wörter vertrauensvoll, selbständig und belastbar sind dir nicht fremd.\n• Du arbeitest speditiv und bist dich exaktes Arbeiten gewohnt.\n• Du bist dienstleistungsorientiert und hast Freude am direkten Patientenkontakt.\n• Eine flexible und teamorientierte Arbeitsweise bringst du im Rucksack bereits mit.\n• Du besitzt sehr gute sowie stilsichere Deutschkenntnisse. Dein künftiges Team ist freundlich, weltoffen, motiviert und energiegeladen. Wir pflegen eine ehrliche sowie sehr offene Kommunikation. Fehler werden gemeinsam besprochen und durch die gemeinsame Erarbeitung/Optimierung der Prozesse aus der Welt geschafft. Das sind deine Aufgaben\n• Planung von Operationen und Kleineingriffen (Einweisungen von Haus- oder Fachärzten).\n• Planung allfälliger Labortermine und radiologischer Aufnahmen im RAP.\n• Du pflegst regen telefonischen sowie schriftlichen Kontakt zu Patientinnen, Patienten, Ärztinnen und Ärzten, Zuweisern und internen als auch externen Stellen.\n• Du schreibst und versendest Diktate mit Dragon (Austritts-, Operations-, Notfall- sowie Konsiliarberichte).\n• Das Organisieren der Sprechstunden sowie das Koordinieren von diversen Terminen im Bereich der Chirurgie, Urologie, Neurochirurgie und der Orthopädie bringt dir würze.\n• Mithilfe beim Bearbeiten von Versicherungsanfragen sowie diverse administrative Tätigkeiten. Darauf kannst du dich freuen\n• Das Kantonsspital Obwalden ist ein zukunftsorientiertes, modernes und überschaubares Spital.\n• Wir bieten eine abwechslungsreiche Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenem Umfeld.\n• Ein Betrieb in welchem die DU-Kultur im ganzen Haus gelebt und geschätzt wird.\n• Unser Arbeitsort liegt direkt an einer attraktiven Lage in Sarnen am See, mit sehr guter Anbindung an den öffentlichen Verkehr Haben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung. Jetzt bewerben Deine Ansprechperson bei Fragen oder Auskünften Daniela Häuptli, Leiterin Sekretariat Chirurgie und Belegärzte, Tel. Direkt: 041 666 41 83 / daniela.haeuptli@ksow.ch Melina Durrer, Stv. Leiterin Sekretariat Chirurgie und Belegärzte, Tel. Direkt: 041 666 40 70 / melina.durrer@ksow.ch Bist du unser fehlendes Puzzleteil? Dann freut sich die Personalabteilung auf die Bewerbung via Online-Plattform oder per E-Mail an: personalabteilung@ksow.ch. Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22 Daniela Häuptli, Bereichsleiterin Sekretariat Chirurgie, Tel. Direkt: 041 666 41 83 / daniela.haeuptli@ksow.ch",
+        "fr": "L'hôpital cantonal Obwalden est un hôpital de soins primaires innovant et polyvalent en Suisse centrale avec les cliniques Chirurgie générale, Accident et Viscérale, Orthopédie, Médecine interne, Hôpital pour femmes et Anesthésie. Pour nos secrétariats médecins et chirurgie nous cherchons 1. Septembre 2026 un nouveau membre de l'équipe: SECRÉTAIRE MÉDICAL/SURGY ET BÉLÉGATIFS (a) 80 % Vous avez raison avec nous si ce qui suit est vrai Vous avez suivi une formation commerciale et/ou médicale avec une formation complémentaire en tant que secrétaire de médecin et avez déjà une expérience professionnelle. En outre, les points suivants sont très importants pour nous:\n• Bonne EM Les connaissances de bureau sont un must.\n• En plus de votre expérience professionnelle, nous voulons une personnalité ouverte et communicative avec un haut niveau de compétence sociale.\n• Les mots confiants, indépendants et résilients ne vous sont pas étrangers.\n• Tu travailles vite et tu travailles exactement.\n• Vous êtes orienté vers le service et profitez d'un contact direct avec le patient.\n• Vous apportez déjà une façon flexible et axée sur l'équipe de travailler dans votre sac à dos.\n• Vous avez une très bonne et élégante connaissance de l'allemand. Votre future équipe est amical, cosmopolite, motivé et énergique. Nous maintenons une communication honnête et très ouverte. Les erreurs sont discutées ensemble et éliminées par le développement / optimisation conjointe des processus. Ce sont vos tâches\n• Planification des opérations et des petites procédures (admissions de la famille ou des spécialistes).\n• Planification des rendez-vous en laboratoire et des enregistrements radiologiques dans le PAR.\n• Vous maintenez un contact téléphonique et écrit avec les patients, les médecins, les arbitres et les organismes internes et externes.\n• Vous écrivez et envoyez la dictée avec Dragon (sortie, opération, rapports d'urgence et de consul).\n• L'organisation des heures de consultation et la coordination de divers rendez-vous dans le domaine de la chirurgie, de l'urologie, de la neurochirurgie et de l'orthopédie vous apportent des épices.\n• Assistance pour le traitement des demandes d'assurance et diverses activités administratives. Vous pouvez attendre avec impatience.\n• L'hôpital cantonal Obwalden est un hôpital tourné vers l'avenir, moderne et gérable.\n• Nous offrons une activité variée dans un environnement interdisciplinaire, motivé, engagé et ouvert d'esprit.\n• Une entreprise dans laquelle la culture DU est vécue et appréciée dans toute la maison.\n• Notre lieu de travail est situé directement sur un emplacement attrayant à Sarnen sur le lac, avec de très bonnes connexions aux transports en commun Avons-nous suscité votre intérêt à ce stade ? Le ministère des RH attend avec impatience votre demande en ligne. Maintenant votre personne de contact demande des questions ou des informations Daniela Häuptli, Chef du Bureau de Chirurgie et des Médecins d'Observatoire, tel. Direct: 041 666 41 83 / daniela.haeuptli@ksow.ch Melina Durrer, Chef du Secrétariat Chirurgie et observatoire Médecins, tél.: 041 666 40 70 / melina.durrer@ksow.ch Êtes-vous notre pièce de puzzle manquante ? Ensuite, le service RH se réjouit de présenter sa candidature par l'intermédiaire de la plateforme en ligne ou par courriel : personnelabteilung@ksow.ch. Hôpital cantonal Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22 Daniela Häuptli, Chef du Département de Chirurgie, Tél."
       },
       "location": "Sarnen",
       "canton": "OW",
       "url": "https://link.ostendis.com/publication/arztsekretaer-in-chirurgie-und-belegaerzte/6ma2h98zyhwoalv2qvtuurisbrp7vrnc8gm3hx8lv7uxlfst7sqj6ji7trnveuzi",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:36:56.504Z",
+      "crawledAt": "2026-06-25T22:39:39.128Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1002,9 +1016,11 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://link.ostendis.com/publication/arztsekretaer-in-chirurgie-und-belegaerzte/6ma2h98zyhwoalv2qvtuurisbrp7vrnc8gm3hx8lv7uxlfst7sqj6ji7trnveuzi",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen"
@@ -1016,9 +1032,7 @@
           "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen"
         ]
       },
-      "previousSlugs": [
-        "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen"
-      ],
+      "firstSeenAt": "2026-06-25T11:36:56.504Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1030,8 +1044,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-25T11:36:56.504Z"
+      }
     }
   ]
 }
