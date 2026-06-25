@@ -43,6 +43,8 @@ import {
  type JobCardJob,
  type JobCardLocale,
 } from './shared/jobCardHtml';
+import { infeedAdGridBlockHtml } from './lib/adSlotHtml';
+import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
 import {
@@ -9033,7 +9035,7 @@ ${staticAnalyticsHtml}
      const listingGrid = cantonJobs.length > 0
        ? `<section data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
          JOB_CARD_ICON_SYMBOLS +
-         cantonJobs.map((j) => {
+         cantonJobs.map((j, jIdx) => {
            const jt = j as {
              slugByLocale?: Record<string, string>;
              slug?: string;
@@ -9057,10 +9059,16 @@ ${staticAnalyticsHtml}
            const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
            const jSection = buildCantonAwareSection(entry.locale, jCanton);
            const jHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${jSection}/${jslug}`.replace(/\/+/g, '/'))}`;
-           return renderJobCardHtml(jt, {
+           const card = renderJobCardHtml(jt, {
              href: jHref,
              locale: entry.locale as JobCardLocale,
            });
+           // In-feed ad after every Nth card (never after the last one).
+           const ad =
+             jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1)
+               ? infeedAdGridBlockHtml()
+               : '';
+           return card + ad;
          }).join('') +
          `</section>`
        : '';

@@ -106,7 +106,7 @@ import { useExpiredJob, hasSeededExpiredData, seededJobMatchesSlug } from '@/hoo
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
-import { AD_SLOTS } from '@/services/adsenseSlots';
+import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import {
@@ -4587,6 +4587,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  );
 
+ // Device-split in-feed ad, reused across every SPA job-list surface (main
+ // list + editorial-landing sections). Mobile vs desktop slot mirrors the
+ // static `infeedAdListItemHtml`; cadence is the shared `shouldPlaceInfeedAd`.
+ const renderInfeedAd = (keySuffix: string): React.ReactNode =>
+ isMobile ? (
+ <div key={`infeed-m-${keySuffix}-${adRefreshKey}`} className="min-h-[280px]">
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
+ adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
+ adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
+ fullWidthResponsive={false}
+ className="my-3"
+ />
+ </div>
+ ) : (
+ <div key={`infeed-d-${keySuffix}-${adRefreshKey}`} className="min-h-[220px]">
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
+ adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
+ adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
+ fullWidthResponsive={false}
+ className="my-3"
+ />
+ </div>
+ );
+
+ // Interleave one in-feed ad after every Nth job card (shared `shouldPlaceInfeedAd`
+ // cadence), never after the last card. Used by the editorial-landing sections;
+ // the canonical main list inlines the same logic at its `displayJobs.map`.
+ const renderJobListWithAds = (jobs: JobListing[], keyPrefix: string): React.ReactNode[] =>
+ jobs.flatMap((job, i) => {
+ const nodes: React.ReactNode[] = [renderJobCard(job)];
+ if (i + 1 < jobs.length && shouldPlaceInfeedAd(i + 1)) {
+ nodes.push(renderInfeedAd(`${keyPrefix}-${i}`));
+ }
+ return nodes;
+ });
+
  const handleAuthAndOpen = async (provider: 'google' | 'facebook') => {
  const authFn = provider === 'google' ? onGoogleAuthRequired : onFacebookAuthRequired;
  if (!authFn) return;
@@ -5460,7 +5498,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
  <h2 className="text-lg font-bold font-display text-heading mb-4">{section.label}</h2>
  <div className="space-y-3">
- {section.jobs.map((job) => renderJobCard(job))}
+ {renderJobListWithAds(section.jobs, section.id)}
  </div>
  </section>
  ))}
@@ -5565,7 +5603,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </div>
  <div className="space-y-3">
- {section.jobs.map((job) => renderJobCard(job))}
+ {renderJobListWithAds(section.jobs, section.id)}
  </div>
  </section>
  ))}
@@ -5673,7 +5711,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </div>
  <div className="space-y-3">
- {section.jobs.map((job) => renderJobCard(job))}
+ {renderJobListWithAds(section.jobs, section.id)}
  </div>
  </section>
  ))}
@@ -5785,7 +5823,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </div>
  <div className="space-y-3">
- {section.jobs.map((job) => renderJobCard(job))}
+ {renderJobListWithAds(section.jobs, section.id)}
  </div>
  </section>
  ))}
@@ -5898,7 +5936,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </div>
  <div className="space-y-3">
- {section.jobs.map((job) => renderJobCard(job))}
+ {renderJobListWithAds(section.jobs, section.id)}
  </div>
  </section>
  ))}
@@ -5995,7 +6033,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </div>
  <div className="space-y-3">
- {section.jobs.map((job) => renderJobCard(job))}
+ {renderJobListWithAds(section.jobs, section.id)}
  </div>
  </section>
  ))}
@@ -6092,7 +6130,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </div>
  <div className="space-y-3">
- {section.jobs.map((job) => renderJobCard(job))}
+ {renderJobListWithAds(section.jobs, section.id)}
  </div>
  </section>
  ))}
@@ -6189,7 +6227,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </div>
  <div className="space-y-3">
- {section.jobs.map((job) => renderJobCard(job))}
+ {renderJobListWithAds(section.jobs, section.id)}
  </div>
  </section>
  ))}
@@ -8073,34 +8111,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {displayJobs.map((job, idx) => {
  const pos = idx + 1;
- const AD_INTERVAL = 8;
- const FIRST_AD_AFTER = 3;
- const showAd = pos === FIRST_AD_AFTER || (pos > FIRST_AD_AFTER && (pos - FIRST_AD_AFTER) % AD_INTERVAL === 0);
+ // One in-feed ad after every Nth card (shared `shouldPlaceInfeedAd`
+ // cadence: 3, 6, 9, …), never after the last loaded card.
+ const showAd = shouldPlaceInfeedAd(pos) && pos < displayJobs.length;
  return (
  <React.Fragment key={job.id || job.slug || idx}>
  {renderJobCard(job)}
- {showAd && isMobile && (
- <div key={`infeed-m-${idx}-${adRefreshKey}`} className="min-h-[280px]">
- <AdSenseBanner
- adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
- adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
- adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
- fullWidthResponsive={false}
- className="my-3"
- />
- </div>
- )}
- {showAd && !isMobile && (
- <div key={`infeed-d-${idx}-${adRefreshKey}`} className="min-h-[220px]">
- <AdSenseBanner
- adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
- adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
- adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
- fullWidthResponsive={false}
- className="my-3"
- />
- </div>
- )}
+ {showAd && renderInfeedAd(`main-${idx}`)}
  </React.Fragment>
  );
  })}

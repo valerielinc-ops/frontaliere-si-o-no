@@ -14,6 +14,7 @@ import {
   titleCaseLocalityIfLowercase,
   type JobCardJob,
 } from '../../build-plugins/shared/jobCardHtml';
+import { AD_SLOTS } from '../../services/adsenseSlots';
 
 const FIXED_NOW = new Date('2026-05-01T12:00:00Z');
 
@@ -309,5 +310,37 @@ describe('jobCardHtml — renderJobCardListHtml', () => {
       { locale: 'it', ulClassName: 'flex flex-col gap-4' },
     );
     expect(html).toContain('class="flex flex-col gap-4"');
+  });
+});
+
+describe('jobCardHtml — renderJobCardListHtml in-feed ads', () => {
+  const items = Array.from({ length: 7 }, (_, i) => ({
+    job: { ...baseJob, title: `Job ${i}` },
+    href: `/j${i}/`,
+  }));
+
+  it('injects a device-split in-feed ad after every 3rd card by default', () => {
+    const html = renderJobCardListHtml(items, { locale: 'it' });
+    // 7 cards → ads after card 3 and 6 (never after the last) → 2 ad items.
+    const adItems = (html.match(/<li class="ft-infeed-ad/g) || []).length;
+    expect(adItems).toBe(2);
+    // each ad item carries BOTH device variants so the right format shows.
+    expect(html).toContain('block md:hidden');
+    expect(html).toContain('hidden md:block');
+    expect(html).toContain(AD_SLOTS.JOBLIST_INFEED_MOBILE.slot);
+    expect(html).toContain(AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot);
+  });
+
+  it('never places an in-feed ad after the last card', () => {
+    const html = renderJobCardListHtml(items.slice(0, 3), { locale: 'it' });
+    expect(html).not.toContain('ft-infeed-ad');
+  });
+
+  it('can be disabled via interleaveInfeedAds:false', () => {
+    const html = renderJobCardListHtml(items, {
+      locale: 'it',
+      interleaveInfeedAds: false,
+    });
+    expect(html).not.toContain('ft-infeed-ad');
   });
 });

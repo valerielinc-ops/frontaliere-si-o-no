@@ -200,3 +200,15 @@ export const AD_SLOTS = {
 export function isPlaceholderAdSlot(slotId: string): boolean {
  return slotId.startsWith('TBD-');
 }
+
+/** In-feed ad cadence for EVERY job/employer listing surface — SPA (JobBoard)
+ *  and static build-plugins alike: place one in-feed ad after every Nth card.
+ *  Single source of truth so the two render paths never drift (CLAUDE.md rule
+ *  #6 — a cadence duplicated as a literal in ≥2 files would drift by-hand). */
+export const JOBLIST_AD_EVERY_N = 3;
+
+/** True when an in-feed ad should be placed immediately after the card at this
+ *  1-based position. Ad after card 3, 6, 9, … (every `JOBLIST_AD_EVERY_N`). */
+export function shouldPlaceInfeedAd(position1Based: number): boolean {
+ return position1Based > 0 && position1Based % JOBLIST_AD_EVERY_N === 0;
+}

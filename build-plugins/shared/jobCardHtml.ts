@@ -21,6 +21,8 @@ import { firstParsableDateStr } from './firstParsableDate';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './stripLiteralMarkdown';
 import { resolveJobLogoSrc as resolveJobCardLogo } from './companyLogoResolver';
 import { LOGO_FALLBACK_SCRIPT } from './logoFallbackScript';
+import { infeedAdListItemHtml } from '../lib/adSlotHtml';
+import { shouldPlaceInfeedAd } from '../../services/adsenseSlots';
 
 export { resolveJobCardLogo, escHtml };
 
@@ -392,6 +394,14 @@ export interface JobCardListOptions {
   ulClassName?: string;
   /** Empty-state HTML when `items` is empty (must be safe HTML). */
   emptyStateHtml?: string;
+  /** Inject a device-split in-feed ad after every Nth card (`JOBLIST_AD_EVERY_N`).
+   *  Defaults `true` so every static job-list surface (sector / profession /
+   *  recency / orphan-query / nursing / career landings) gets between-card ads,
+   *  matching the SPA JobBoard. Set `false` to opt a list out. */
+  interleaveInfeedAds?: boolean;
+  /** When the list renders as a multi-column grid, make each ad item span every
+   *  column so the ad keeps full width. Default `false` (single-column lists). */
+  adSpanFullGrid?: boolean;
 }
 
 const DEFAULT_UL_CLASS = 'list-none p-0 m-0 grid gap-3';
@@ -406,14 +416,22 @@ export function renderJobCardListHtml(
 ): string {
   if (items.length === 0) return opts.emptyStateHtml ?? '';
   const ulClass = opts.ulClassName ?? DEFAULT_UL_CLASS;
+  const interleave = opts.interleaveInfeedAds ?? true;
   const cards = items
-    .map(({ job, href }) =>
-      `<li>${renderJobCardHtml(job, {
+    .map(({ job, href }, i) => {
+      const card = `<li>${renderJobCardHtml(job, {
         href,
         locale: opts.locale,
         linkifyLocation: opts.linkifyLocation,
-      })}</li>`,
-    )
+      })}</li>`;
+      // In-feed ad after every Nth card, never after the last one (the
+      // end-of-list multiplex already sits there).
+      const ad =
+        interleave && i + 1 < items.length && shouldPlaceInfeedAd(i + 1)
+          ? infeedAdListItemHtml({ spanFull: opts.adSpanFullGrid })
+          : '';
+      return card + ad;
+    })
     .join('');
   // Prepend the SVG symbol DEFS once per list. Each card's `<svg><use>` then
   // references these symbols by ID. If a page contains more than one card
