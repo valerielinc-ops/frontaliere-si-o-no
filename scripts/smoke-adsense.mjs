@@ -15,8 +15,8 @@
  *   ARTICLE_RAIL_RIGHT        desktop only  — rendered inside `isDesktopLg` block
  *   ARTICLE_INLINE_MOBILE     mobile only   — rendered inside `!isDesktopLg` or `isMobile` block
  *   ARTICLE_END_MULTIPLEX     all devices   — single placement at end of article
- *   JOBLIST_INFEED_DESKTOP    desktop only  — rendered when `!isMobile`
- *   JOBLIST_INFEED_MOBILE     mobile only   — rendered when `isMobile`
+ *   JOBLIST_INFEED_DESKTOP    desktop only  — selected via `isMobile ? … : …` ternary
+ *   JOBLIST_INFEED_MOBILE     mobile only   — selected via `isMobile ? … : …` ternary
  *   JOBDETAIL_SIDEBAR         desktop only  — rendered inside `isDesktopLg` block
  *   JOBDETAIL_END_MULTIPLEX   all devices   — single placement at end of job detail
  *   JOBDETAIL_AUTH_GATE       all devices   — below sign-in form on auth gate
@@ -38,15 +38,24 @@ const EXPECTED_SLOTS = {
   ARTICLE_RAIL_RIGHT:       '9739778973',
   ARTICLE_INLINE_MOBILE:    '1982411173',
   ARTICLE_END_MULTIPLEX:    '5196931137',
-  JOBLIST_INFEED_DESKTOP:   '9770600968',
-  JOBLIST_INFEED_MOBILE:    '6979586981',
+  JOBLIST_INFEED_DESKTOP:   '8164676143',
+  JOBLIST_INFEED_MOBILE:    '3205029282',
   JOBDETAIL_SIDEBAR:        '8164676143',
   JOBDETAIL_END_MULTIPLEX:  '3205192616',
   JOBDETAIL_AUTH_GATE:      '3205029282',
   AUTHGATE_END_MULTIPLEX:   '5826714385',
 };
 
-/** Placements that must be mounted mutually exclusive (desktop XOR mobile). */
+/** Placements that must be mounted mutually exclusive (desktop XOR mobile).
+ *
+ *  Two mount styles:
+ *   - `ternary`: a single ad is rendered, its slot chosen by an
+ *     `isMobile ? <mobile> : <desktop>` expression. Mutual exclusivity is
+ *     guaranteed by construction (only one branch evaluates), so the check
+ *     verifies the ternary itself exists (JobBoard in-feed, single-slot design
+ *     since #2926).
+ *   - `guarded-blocks`: desktop and mobile units live in separate JSX blocks,
+ *     each behind its own breakpoint guard. The check verifies both guards. */
 const MUTUALLY_EXCLUSIVE_PAIRS = [
   {
     desktop:      'JOBLIST_INFEED_DESKTOP',
@@ -54,8 +63,7 @@ const MUTUALLY_EXCLUSIVE_PAIRS = [
     file:         'components/community/JobBoard.tsx',
     desktopToken: 'AD_SLOTS.JOBLIST_INFEED_DESKTOP',
     mobileToken:  'AD_SLOTS.JOBLIST_INFEED_MOBILE',
-    desktopGuard: '!isMobile',
-    mobileGuard:  'isMobile',
+    mountStyle:   'ternary',
   },
   {
     desktop:      'ARTICLE_RAIL_RIGHT',
@@ -63,10 +71,16 @@ const MUTUALLY_EXCLUSIVE_PAIRS = [
     file:         'components/community/BlogArticles.tsx',
     desktopToken: 'AD_SLOTS.ARTICLE_RAIL_RIGHT',
     mobileToken:  'AD_SLOTS.ARTICLE_INLINE_MOBILE',
+    mountStyle:   'guarded-blocks',
     desktopGuard: 'isDesktop',  // matches isDesktopLg, isDesktopXl, etc.
     mobileGuard:  'isMobile',
   },
 ];
+
+/** Escape a string for safe use as a RegExp literal. */
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 const ADSENSE_BANNER_PATH  = path.join(ROOT, 'components', 'shared', 'AdSenseBanner.tsx');
 const ADSENSE_SLOTS_PATH   = path.join(ROOT, 'services', 'adsenseSlots.ts');
@@ -195,7 +209,7 @@ function checkNoDirectPush() {
 function checkMutuallyExclusivePairs() {
   console.log('\n📋 Check 5: Mutually exclusive desktop/mobile mounting');
 
-  for (const { desktop, mobile, file, desktopToken, mobileToken, desktopGuard, mobileGuard } of MUTUALLY_EXCLUSIVE_PAIRS) {
+  for (const { desktop, mobile, file, desktopToken, mobileToken, mountStyle, desktopGuard, mobileGuard } of MUTUALLY_EXCLUSIVE_PAIRS) {
     const filePath = path.join(ROOT, file);
     if (!fs.existsSync(filePath)) {
       warn(`${file} not found — cannot verify ${desktop}/${mobile} exclusivity`);
@@ -215,7 +229,23 @@ function checkMutuallyExclusivePairs() {
       continue;
     }
 
-    // Look for a conditional guard within 600 chars before the token reference.
+    // Single-slot ternary design: one ad renders, its slot picked by
+    // `isMobile ? <mobile> : <desktop>`. Exclusivity is by construction (only
+    // one branch evaluates), so confirm the ternary expression is present.
+    if (mountStyle === 'ternary') {
+      const ternaryRx = new RegExp(
+        `isMobile\\s*\\?\\s*${escapeRegExp(mobileToken)}\\s*:\\s*${escapeRegExp(desktopToken)}`
+      );
+      if (ternaryRx.test(content)) {
+        pass(`${file}: ${desktop}/${mobile} selected mutually-exclusively via isMobile ternary`);
+      } else {
+        fail(`${file}: single-slot ternary \`isMobile ? ${mobileToken} : ${desktopToken}\` not found — desktop/mobile exclusivity not verifiable`);
+      }
+      continue;
+    }
+
+    // Guarded-blocks design: each unit sits in its own breakpoint-guarded JSX
+    // block. Look for a conditional guard within 600 chars before each token.
     const desktopIdx = content.indexOf(desktopToken);
     const mobileIdx  = content.indexOf(mobileToken);
 
