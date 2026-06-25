@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "pittore-per-interni-esterni-pemsa-cadempino",
-        "en": "pittor-for-international-external-pemsa-cadempino",
-        "de": "pittor-fur-international-aussen-pemsa-cadempino",
-        "fr": "pitteur-international-exterieur-pemsa-cadempino"
+        "en": "pittor-for-the-internals-esterns-pemsa-cadempino",
+        "de": "pittor-fur-die-internalen-estern-pemsa-cadempino",
+        "fr": "pitteur-pour-les-internals-esterns-pemsa-cadempino"
       },
       "id": "pemsa-07635ef93b92",
       "salaryMin": 49500,
@@ -59,7 +59,23 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-06-24T22:37:54.074Z"
+      "firstSeenAt": "2026-06-24T22:37:54.074Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "pittor-for-international-external-pemsa-cadempino"
+        ],
+        "de": [
+          "pittor-fur-international-aussen-pemsa-cadempino"
+        ],
+        "fr": [
+          "pitteur-international-exterieur-pemsa-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "pittor-for-international-external-pemsa-cadempino",
+        "pittor-fur-international-aussen-pemsa-cadempino",
+        "pitteur-international-exterieur-pemsa-cadempino"
+      ]
     },
     {
       "title": "MONTATORE DI PANNELLI SOLARI",
