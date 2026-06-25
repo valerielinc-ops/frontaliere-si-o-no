@@ -698,7 +698,7 @@
       "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
-        "en": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
+        "en": "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
         "de": "klinikleiter-mit-oder-ohne-fachtitel-fellowship-in-der-padiatrischen-intensivmedizin-100-hug-geneve",
         "fr": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
       },
@@ -3108,9 +3108,9 @@
     },
     {
       "id": "hug-87803c0ec6d6",
-      "slug": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+      "slug": "educatore-sociale-in-psichiatria-80-hug-thonex",
       "slugByLocale": {
-        "it": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+        "it": "educatore-sociale-in-psichiatria-80-hug-thonex",
         "en": "educator-or-social-educator-in-psychiatry-80-hug-thonex",
         "de": "padagoge-oder-sozialpadagoge-in-der-psychiatrie-80-hug-thonex",
         "fr": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
@@ -3156,6 +3156,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
+        "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
         "social-educator-in-psychiatry-80-hug-thonex",
         "sozialpadagoge-in-der-psychiatrie-80-hug-thonex"
       ],
@@ -4291,12 +4292,12 @@
     },
     {
       "id": "hug-d4f9efb2c65b",
-      "slug": "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg",
+      "slug": "controller-o-controller-del-dipartimento-80-hug-chene-bourg",
       "slugByLocale": {
         "fr": "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg",
-        "it": "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg",
-        "en": "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg",
-        "de": "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg"
+        "it": "controller-o-controller-del-dipartimento-80-hug-chene-bourg",
+        "en": "departmental-controller-or-controller-80-hug-chene-bourg",
+        "de": "abteilungsleiter-oder-controller-80-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4352,7 +4353,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-24T22:21:31.196Z"
+      "firstSeenAt": "2026-06-24T22:21:31.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg"
+        ],
+        "en": [
+          "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg"
+        ],
+        "de": [
+          "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-ou-controleuse-de-gestion-de-departement-80-hug-chene-bourg"
+      ]
     }
   ]
 }

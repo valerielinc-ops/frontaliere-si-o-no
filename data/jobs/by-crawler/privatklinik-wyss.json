@@ -98,12 +98,12 @@
     },
     {
       "id": "privatklinik-wyss-e125fc56d64a",
-      "slug": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
+      "slug": "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "it": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "en": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "fr": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
+        "it": "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee",
+        "en": "stv-music-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
+        "fr": "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -158,7 +158,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-24T22:36:14.843Z"
+      "firstSeenAt": "2026-06-24T22:36:14.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
+      ]
     },
     {
       "id": "privatklinik-wyss-b5e2dc7af012",
@@ -349,7 +363,7 @@
       "slug": "dipl-professionista-della-salute-hf-fh-m-f-d-reparto-acuto-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "it": "dipl-professionista-della-salute-hf-fh-m-f-d-reparto-acuto-privatklinik-wyss-munchenbuchsee",
-        "en": "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch",
+        "en": "dipl-nurse-hf-fh-f-m-d-acute-care-department-privatklinik-wyss-munchenbuchsee",
         "de": "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch",
         "fr": "dipl-professionnel-de-la-sante-hf-fh-h-f-d-departement-aigu-privatklinik-wyss-munchenbuchsee"
       },
@@ -417,15 +431,13 @@
       "pensumMax": 100,
       "pensum": "70 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch",
-        "dipl-nurse-hf-fh-f-m-d-acute-care-department-privatklinik-wyss-munchenbuchsee"
+        "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch"
         ],
         "en": [
-          "dipl-nurse-hf-fh-f-m-d-acute-care-department-privatklinik-wyss-munchenbuchsee",
           "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch"
         ]
       },

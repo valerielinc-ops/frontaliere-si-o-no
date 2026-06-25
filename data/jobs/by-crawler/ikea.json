@@ -94,7 +94,7 @@
         "it": "soluzione-di-adempimento-unita-responsabile-100-ikea-itingen",
         "en": "unit-fulfilment-solution-responsible-100-ikea-ch",
         "de": "unit-fulfillment-losung-verantwortlich-100-ikea-itingen",
-        "fr": "unit-fulfilment-solution-responsible-100-ikea-ch"
+        "fr": "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -136,8 +136,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unit-fulfilment-solution-responsible-100-ikea-ch",
-        "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
+        "unit-fulfilment-solution-responsible-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -147,7 +146,6 @@
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ],
         "fr": [
-          "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland",
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ]
       },
@@ -1949,9 +1947,9 @@
     },
     {
       "id": "ikea-7a66eddf61cd",
-      "slug": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
+      "slug": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
+        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "koch-kellnerin-ikea-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -1996,7 +1994,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland"
+        "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
+        "collaborateur-trice-cuisine-ikea-40-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2329,12 +2328,12 @@
     },
     {
       "id": "ikea-7ee5cda74338",
-      "slug": "collaborateur-trice-logistique-40-ikea-ch",
+      "slug": "collaboratore-logistico-40-ikea-riddes-valais-switzerland",
       "slugByLocale": {
         "fr": "collaborateur-trice-logistique-40-ikea-ch",
-        "it": "collaborateur-trice-logistique-40-ikea-ch",
-        "en": "collaborateur-trice-logistique-40-ikea-ch",
-        "de": "collaborateur-trice-logistique-40-ikea-ch"
+        "it": "collaboratore-logistico-40-ikea-riddes-valais-switzerland",
+        "en": "logistics-contributor-40-ikea-riddes-valais-switzerland",
+        "de": "logistikbeitrag-40-ikea-riddes-valais-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2389,7 +2388,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:13:45.542Z"
+      "firstSeenAt": "2026-06-24T22:13:45.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-logistique-40-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-logistique-40-ikea-ch"
+        ],
+        "de": [
+          "collaborateur-trice-logistique-40-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-logistique-40-ikea-ch"
+      ]
     },
     {
       "id": "ikea-b3b3983e0081",
@@ -2469,12 +2482,12 @@
     },
     {
       "id": "ikea-e6a66109d910",
-      "slug": "collaborateur-trice-en-communication-graphique-ikea-ch",
+      "slug": "collaboratore-nella-comunicazione-grafica-ikea-aubonne-vaud-switzerland",
       "slugByLocale": {
         "fr": "collaborateur-trice-en-communication-graphique-ikea-ch",
-        "it": "collaborateur-trice-en-communication-graphique-ikea-ch",
-        "en": "collaborateur-trice-en-communication-graphique-ikea-ch",
-        "de": "collaborateur-trice-en-communication-graphique-ikea-ch"
+        "it": "collaboratore-nella-comunicazione-grafica-ikea-aubonne-vaud-switzerland",
+        "en": "collaborator-in-graphic-communication-ikea-aubonne-vaud-switzerland",
+        "de": "mitarbeiter-in-der-grafischen-kommunikation-ikea-aubonne-vaud-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2529,7 +2542,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:13:45.531Z"
+      "firstSeenAt": "2026-06-24T22:13:45.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-en-communication-graphique-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-en-communication-graphique-ikea-ch"
+        ],
+        "de": [
+          "collaborateur-trice-en-communication-graphique-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-en-communication-graphique-ikea-ch"
+      ]
     },
     {
       "id": "ikea-67467dc30a44",
@@ -2590,9 +2617,6 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-teppich-und-dekorationsabteilung-20-40-ikea-ch",
         "mitarbeiter-in-verkauf-dekorationsabteilung-80-ikea-ch",
-        "vendita-per-dipendenti-dipartimento-tappeti-e-decorazioni-20-40-ikea-spreitenbach",
-        "employee-sales-carpet-and-decoration-department-20-40-ikea-spreitenbach",
-        "departement-des-ventes-des-employes-tapis-et-decoration-20-40-ikea-spreitenbach",
         "dipartimento-decorazioni-dipendenti-vendite-80-ikea-dietlikon"
       ],
       "salaryMin": 62000,
@@ -2683,12 +2707,12 @@
     },
     {
       "id": "ikea-8bfb104a07e9",
-      "slug": "internal-audit-leader-ikea-ch",
+      "slug": "leader-dell-audit-interno-ikea-pratteln-bl-switzerland",
       "slugByLocale": {
         "en": "internal-audit-leader-ikea-ch",
-        "it": "internal-audit-leader-ikea-ch",
-        "de": "internal-audit-leader-ikea-ch",
-        "fr": "internal-audit-leader-ikea-ch"
+        "it": "leader-dell-audit-interno-ikea-pratteln-bl-switzerland",
+        "de": "leiter-der-internen-revision-ikea-pratteln-bl-switzerland",
+        "fr": "chef-de-la-verification-interne-ikea-pratteln-bl-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2743,7 +2767,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:13:45.501Z"
+      "firstSeenAt": "2026-06-24T22:13:45.501Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internal-audit-leader-ikea-ch"
+        ],
+        "de": [
+          "internal-audit-leader-ikea-ch"
+        ],
+        "fr": [
+          "internal-audit-leader-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internal-audit-leader-ikea-ch"
+      ]
     },
     {
       "id": "ikea-9b070926d983",

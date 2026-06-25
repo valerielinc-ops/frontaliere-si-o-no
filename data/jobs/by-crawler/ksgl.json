@@ -542,7 +542,7 @@
       "slug": "diplomata-infermiere-ore-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "it": "diplomata-infermiere-ore-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
+        "en": "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus",
         "de": "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-chirurgie-kantonsspital-glarus-ksgl-glarus"
       },
@@ -613,15 +613,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
-        "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus"
         ],
         "en": [
-          "dipl-nurse-mann-hf-fh-surgery-kantonsspital-glarus-ksgl-glarus",
           "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus"
         ]
       },
@@ -1000,7 +998,7 @@
       "slug": "esperta-esperta-di-diploma-nds-hf-in-cure-d-emergenza-e-o-dipl-infermiere-iinfermiere-hf-in-cure-d-emergenza",
       "slugByLocale": {
         "it": "esperta-esperta-di-diploma-nds-hf-in-cure-d-emergenza-e-o-dipl-infermiere-iinfermiere-hf-in-cure-d-emergenza",
-        "en": "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall",
+        "en": "dipl-expert-expert-nds-hf-emergency-care-and-or-dipl-nursing-professional-hf-emergency-kantonsspital-glarus-ksgl-glarus",
         "de": "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall",
         "fr": "diplome-e-en-soins-infirmiers-d-urgence-nds-hf-et-ou-diplome-e-en-soins-infirmiers-hf-d-urgence-kantonsspital-glarus"
       },
@@ -1062,15 +1060,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall",
-        "dipl-expert-expert-nds-hf-emergency-care-and-or-dipl-nursing-professional-hf-emergency-kantonsspital-glarus-ksgl-glarus"
+        "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall"
         ],
         "en": [
-          "dipl-expert-expert-nds-hf-emergency-care-and-or-dipl-nursing-professional-hf-emergency-kantonsspital-glarus-ksgl-glarus",
           "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall"
         ]
       },
@@ -1637,7 +1633,7 @@
       "slug": "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "it": "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
-        "en": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
+        "en": "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus",
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
         "fr": "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus"
       },
@@ -1681,15 +1677,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
-        "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus"
+        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
         ],
         "en": [
-          "dipl-expert-expert-intensive-care-nds-hf-kantonsspital-glarus-ksgl-glarus",
           "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
         ],
         "fr": [
@@ -1946,9 +1940,9 @@
       "slug": "dipl-radiologiefachfrau-mann-hf-rfp-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "it": "dipl-radiologiefachfrau-mann-hf-rfp-kantonsspital-glarus-ksgl-glarus",
-        "en": "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus",
+        "en": "radiologic-technologist-mrt-hf-kantonsspital-glarus-ksgl-glarus",
         "de": "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus",
-        "fr": "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus"
+        "fr": "technicien-en-radiologie-medicale-trm-es-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1990,20 +1984,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus",
-        "radiologic-technologist-mrt-hf-kantonsspital-glarus-ksgl-glarus",
-        "technicien-en-radiologie-medicale-trm-es-kantonsspital-glarus-ksgl-glarus"
+        "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus"
         ],
         "en": [
-          "radiologic-technologist-mrt-hf-kantonsspital-glarus-ksgl-glarus",
           "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus"
         ],
         "fr": [
-          "technicien-en-radiologie-medicale-trm-es-kantonsspital-glarus-ksgl-glarus",
           "dipl-radiologiefachfrau-mann-hf-rfp-ksgl-glarus"
         ]
       },

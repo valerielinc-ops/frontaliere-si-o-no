@@ -1740,10 +1740,7 @@
       "previousSlugs": [
         "wissenschaftliche-assistenz-uzh-zurich",
         "wissenschaftliche-assistenz-universitat-zurich-zurich",
-        "wissenschaftliche-assistenz-uzh-zurich-2",
-        "assistenza-scientifica-universitat-zurich-zurich",
-        "scientific-assistance-universitat-zurich-zurich",
-        "assistance-scientifique-universitat-zurich-zurich"
+        "wissenschaftliche-assistenz-uzh-zurich-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1981,10 +1978,7 @@
       "previousSlugs": [
         "stellenausschreibung-doktorand-in-uzh-zurich",
         "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
-        "stellenausschreibung-doktorand-in-uzh-zurich-2",
-        "studente-di-dottorato-in-universitat-zurich-zurich",
-        "job-advertisement-doctoral-student-in-universitat-zurich-zurich",
-        "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich"
+        "stellenausschreibung-doktorand-in-uzh-zurich-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3914,10 +3908,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "inbreeding-in-a-wild-mammal-system-for-4-years-uzh-zurich"
-      ]
+      }
     },
     {
       "id": "uzh-0dedf9f317a6",
@@ -4864,7 +4855,7 @@
         "it": "posizione-md-phd-m-w-universitat-zurich-zurich",
         "en": "md-phd-position-m-w-universitat-zurich-zurich",
         "de": "md-phd-position-m-w-uzh-zurich",
-        "fr": "md-phd-position-m-w-uzh-zurich"
+        "fr": "poste-md-phd-h-f-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4907,15 +4898,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "md-phd-position-m-w-uzh-zurich",
-        "poste-md-phd-h-f-universitat-zurich-zurich"
+        "md-phd-position-m-w-uzh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "md-phd-position-m-w-uzh-zurich"
         ],
         "fr": [
-          "poste-md-phd-h-f-universitat-zurich-zurich",
           "md-phd-position-m-w-uzh-zurich"
         ]
       },
@@ -10336,10 +10325,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "industry-amp-partnership-manager-uzh-ai-uzh-zurich"
-      ]
+      }
     },
     {
       "id": "uzh-24b3d726ce7d",
@@ -10485,10 +10471,10 @@
       "id": "uzh-768408efecbd",
       "slug": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
+        "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "fr": "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10532,15 +10518,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "liaison-librarian-ub-naturwissenschaften-uzh-zurich"
         ],
         "fr": [
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-24T12:46:54.711Z",
@@ -10563,7 +10548,7 @@
       "slugByLocale": {
         "en": "research-assistant-positions-uzh-kantonsschulstrasse-3",
         "it": "research-assistant-positions-universitat-zurich-kantonsschulstrasse-3",
-        "de": "research-assistant-positions-uzh-kantonsschulstrasse-3",
+        "de": "forschung-assistent-positions-universitat-zurich-kantonsschulstrasse-3",
         "fr": "research-assistant-positions-universitat-zurich-kantonsschulstrasse-3"
       },
       "company": "Universität Zürich",
@@ -10610,6 +10595,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "research-assistant-positions-uzh-kantonsschulstrasse-3"
+        ],
+        "de": [
           "research-assistant-positions-uzh-kantonsschulstrasse-3"
         ]
       },

@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "microsoft-200040138",
-      "slug": "data-center-project-manager-microsoft-geneva",
+      "slug": "responsabile-del-progetto-data-center-microsoft-geneva",
       "slugByLocale": {
-        "it": "data-center-project-manager-microsoft-geneva",
+        "it": "responsabile-del-progetto-data-center-microsoft-geneva",
         "en": "data-center-project-manager-microsoft-geneva",
         "de": "projektmanager-data-center-microsoft-geneva",
         "fr": "gestionnaire-de-projet-data-center-microsoft-geneva"
@@ -62,7 +62,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-center-project-manager-microsoft-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "data-center-project-manager-microsoft-geneva"
+      ]
     },
     {
       "id": "microsoft-200040955",

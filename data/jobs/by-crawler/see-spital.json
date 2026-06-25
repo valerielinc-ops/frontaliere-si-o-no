@@ -1507,7 +1507,7 @@
       "slug": "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen",
       "slugByLocale": {
         "it": "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen",
-        "en": "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+        "en": "dipl-nurse-hf-medicine-see-spital-horgen",
         "de": "dipl-pflegefachperson-hf-medizin-see-spital-ch",
         "fr": "dipl-pflegefachperson-hf-medecine-see-spital-horgen"
       },
@@ -1583,15 +1583,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-see-spital-ch",
-        "dipl-nurse-hf-medicine-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
         ],
         "en": [
-          "dipl-nurse-hf-medicine-see-spital-horgen",
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
         ]
       },
@@ -2946,9 +2944,9 @@
     },
     {
       "id": "see-spital-b31b0f026929",
-      "slug": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
+      "slug": "specialista-di-radiologia-hf-see-spital-horgen",
       "slugByLocale": {
-        "it": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
+        "it": "specialista-di-radiologia-hf-see-spital-horgen",
         "en": "radiologist-hf-see-spital-horgen",
         "de": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
         "fr": "radiologue-hf-see-spital-horgen"
@@ -3036,7 +3034,8 @@
       "previousSlugs": [
         "radiologiefachfrau-mann-hf-see-spital-horgen",
         "radiologiefachfrau-mann-hf-see-spital-ch",
-        "specialista-in-radiologia-hf-see-spital-horgen"
+        "specialista-in-radiologia-hf-see-spital-horgen",
+        "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:44.131Z",
       "salaryMin": 73500,

@@ -400,9 +400,9 @@
     },
     {
       "id": "solothurner-spitaeler-9fdb2ad5479b",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-pflegepool-w-m-d-soh-ch",
+      "slug": "dipl-infermieristica-professionale-infermieristica-piscina-professionale-f-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-pflegepool-w-m-d-soh-ch",
+        "it": "dipl-infermieristica-professionale-infermieristica-piscina-professionale-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "diploma-in-nursing-pool-male-female-solothurner-spitaler-ag-soh-solothurn",
         "de": "dipl-pflegefachfrau-pflegefachmann-pflegepool-w-m-d-soh-ch",
         "fr": "diplome-e-en-soins-infirmiers-du-pool-h-f-solothurner-spitaler-ag-soh-solothurn"
@@ -450,6 +450,7 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugs": [
         "dipl-piscina-per-infermieristica-professionale-infermieristica-f-m-d-solothurner-spitaler-soh-solothurn",
+        "dipl-pflegefachfrau-pflegefachmann-pflegepool-w-m-d-soh-ch",
         "pflegefachfrau-pflegefachmann-pflegepool-w-m-d-solothurner-spitaler-soh-solothurn",
         "pflegefachfrau-pflegefachmann-solothurner-spitaler-soh-solothurn",
         "dipl-pflegefachfrau-pflegefachmann-pflegepool-w-m-d-soh-solothurner-spitaeler-solothurn",
@@ -464,7 +465,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-piscina-per-infermieristica-professionale-infermieristica-f-m-d-solothurner-spitaler-soh-solothurn"
+          "dipl-piscina-per-infermieristica-professionale-infermieristica-f-m-d-solothurner-spitaler-soh-solothurn",
+          "dipl-pflegefachfrau-pflegefachmann-pflegepool-w-m-d-soh-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-pflegepool-w-m-d-solothurner-spitaler-soh-solothurn"
@@ -493,9 +495,9 @@
     },
     {
       "id": "solothurner-spitaeler-313527f28885",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch",
+      "slug": "dipl-infermiera-medicina-dell-infermiera-f-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch",
+        "it": "dipl-infermiera-medicina-dell-infermiera-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "dipl-nurse-medicine-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch",
         "fr": "infirmier-infirmiere-dipl-medecine-w-m-d-solothurner-spitaler-ag-soh-solothurn"
@@ -542,7 +544,7 @@
       "department": "Pflegedienst / Medizin",
       "workplace": "Bürgerspital Solothurn",
       "previousSlugs": [
-        "dipl-infermiera-medicina-dell-infermiera-f-m-d-solothurner-spitaler-soh-solothurn",
+        "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch",
         "dipl-senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
         "pflegefachfrau-pflegefachmann-medizinw-m-d-solothurner-spitaler-soh-solothurn",
         "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-solothurner-spitaeler-solothurn",
@@ -550,7 +552,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-medicina-dell-infermiera-f-m-d-solothurner-spitaler-soh-solothurn"
+          "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch"
         ],
         "en": [
           "dipl-senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn"
@@ -779,9 +781,9 @@
     },
     {
       "id": "solothurner-spitaeler-e9e5170d32bf",
-      "slug": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
+      "slug": "dipl-infermieristica-professionale-cura-acuta-f-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
+        "it": "dipl-infermieristica-professionale-cura-acuta-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "dipl-nurse-acute-geriatrics-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
         "fr": "infirmier-infirmiere-diplome-e-en-geriatrie-aigue-w-m-d-solothurner-spitaler-ag-soh-solothurn"
@@ -829,13 +831,15 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugs": [
         "dipl-infermieristica-professionale-geriatria-acuta-f-m-d-solothurner-spitaler-soh-solothurn",
+        "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
         "pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-solothurner-spitaler-soh-solothurn",
         "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-solothurner-spitaeler-solothurn",
         "pflegfachfrau-pflegefachmann-w-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-geriatria-acuta-f-m-d-solothurner-spitaler-soh-solothurn"
+          "dipl-infermieristica-professionale-geriatria-acuta-f-m-d-solothurner-spitaler-soh-solothurn",
+          "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch"
         ],
         "en": [
           "pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-solothurner-spitaler-soh-solothurn"
@@ -3086,7 +3090,7 @@
         "it": "psicologo-a-stoffwechselzentrum-m-f-d-solothurner-spitaler-soh-solothurn",
         "en": "psychologist-psychologist-metabolic-center-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch",
-        "fr": "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch"
+        "fr": "psychologue-psychologue-centre-metabolique-f-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3152,8 +3156,7 @@
       "previousSlugs": [
         "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch",
         "psicologo-centro-metabolico-psicologo-w-m-d-solothurner-spitaler-soh-solothurn",
-        "psychologin-psychologin-stoffwechselzentrum-w-m-d-solothurner-spitaler-soh-solothurn",
-        "psychologue-psychologue-centre-metabolique-f-m-d-solothurner-spitaler-soh-solothurn"
+        "psychologin-psychologin-stoffwechselzentrum-w-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3167,7 +3170,7 @@
           "psychologin-psychologin-stoffwechselzentrum-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
-          "psychologue-psychologue-centre-metabolique-f-m-d-solothurner-spitaler-soh-solothurn"
+          "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.396Z",
@@ -3278,7 +3281,7 @@
       "slug": "esperto-esperta-in-cure-intensive-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "esperto-esperta-in-cure-intensive-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "expertin-experte-intensivpflege-w-m-d-soh-ch",
+        "en": "expert-expert-intensive-care-f-m-d-solothurner-spitaler-soh-olten",
         "de": "expertin-experte-intensivpflege-w-m-d-soh-ch",
         "fr": "expert-e-en-soins-intensifs-w-m-d-solothurner-spitaler-soh-olten"
       },
@@ -3333,7 +3336,8 @@
           "expertin-experte-intensivpflege-w-m-d-soh-ch"
         ],
         "en": [
-          "expert-intensive-care-f-m-d-solothurner-spitaler-soh-olten"
+          "expert-intensive-care-f-m-d-solothurner-spitaler-soh-olten",
+          "expertin-experte-intensivpflege-w-m-d-soh-ch"
         ],
         "de": [
           "praktikant-praktikantin-intensivpflege-w-m-d-solothurner-spitaler-soh-olten"
@@ -3759,7 +3763,7 @@
       "slug": "infermiere-a-specializzato-a-di-chirurgia-uomo-donna-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-di-chirurgia-uomo-donna-solothurner-spitaler-soh-olten",
-        "en": "dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgie-w-m-d-soh-ch",
+        "en": "dipl-nursing-specialist-nursing-specialist-nursing-pool-surgery-f-m-d-solothurner-spitaler-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgie-w-m-d-soh-ch",
         "fr": "infirmier-ere-specialise-e-en-chirurgie-h-f-solothurner-spitaler-soh-olten"
       },
@@ -3806,8 +3810,7 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgie-w-m-d-soh-ch",
-        "dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgia-w-m-d-solothurner-spitaler-soh-olten",
-        "dipl-nursing-specialist-nursing-specialist-nursing-pool-surgery-f-m-d-solothurner-spitaler-soh-olten"
+        "dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgia-w-m-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3815,7 +3818,7 @@
           "dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgia-w-m-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
-          "dipl-nursing-specialist-nursing-specialist-nursing-pool-surgery-f-m-d-solothurner-spitaler-soh-olten"
+          "dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgie-w-m-d-soh-ch"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgie-w-m-d-soh-ch"
@@ -5981,9 +5984,9 @@
     },
     {
       "id": "solothurner-spitaeler-cda36b3323e3",
-      "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
+      "slug": "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
+        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "nuclear-medicine-radiology-technologist-m-f-d-solothurner-spitaler-soh-solothurn",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
         "fr": "technicien-ne-en-radiologie-specialise-e-en-medecine-nucleaire-h-f-solothurner-spitaler-soh-solothurn"
@@ -6030,7 +6033,7 @@
       "department": "Bürgerspital Solothurn",
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
-        "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-soh-solothurn",
+        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
         "radiology-specialist-60-100-solothurner-spitaler-ag-soh-solothurn",
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-solothurn",
         "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-solothurner-spitaeler-solothurn",
@@ -6050,7 +6053,7 @@
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
-          "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-soh-solothurn"
+          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch"
         ],
         "en": [
           "radiology-specialist-60-100-solothurner-spitaler-ag-soh-solothurn",
@@ -6649,9 +6652,9 @@
     },
     {
       "id": "solothurner-spitaeler-96877bc703ba",
-      "slug": "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
+      "slug": "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
+        "it": "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn",
         "en": "radiology-specialist-60-100-solothurner-spitaler-ag-soh-solothurn",
         "de": "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
         "fr": "specialiste-en-radiologie-60-100-solothurner-spitaler-ag-soh-solothurn"
@@ -6697,8 +6700,8 @@
       "requirementsByLocale": {},
       "department": "Bürgerspital Solothurn",
       "previousSlugs": [
-        "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn",
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
+        "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
         "radiology-fachfrau-radiology-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn",
         "radiologie-fachfrau-radiologie-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn",
         "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-solothurner-spitaeler-solothurn",
@@ -6716,8 +6719,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn",
-          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch"
+          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
+          "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch"
         ],
         "en": [
           "radiology-fachfrau-radiology-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn"
@@ -6749,7 +6752,7 @@
       "slug": "dipl-infermiere-infermiera-palliative-care-medicina-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "dipl-infermiere-infermiera-palliative-care-medicina-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch",
+        "en": "dipl-nursing-professional-palliative-care-medicine-f-m-d-solothurner-spitaler-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch",
         "fr": "infirmier-infirmiere-diplome-e-en-soins-palliatifs-medecine-w-m-d-solothurner-spitaler-soh-olten"
       },
@@ -6822,7 +6825,6 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch",
-        "dipl-nursing-professional-palliative-care-medicine-f-m-d-solothurner-spitaler-soh-olten",
         "dipl-pflegefachfrau-pflegefachmann-palliative-versorgung-medizin-w-m-d-solothurner-spitaler-soh-olten",
         "dipl-pflegefachfrau-pflegefachmann-soins-palliatifs-medizin-p-m-d-solothurner-spitaler-soh-olten"
       ],
@@ -6831,7 +6833,7 @@
           "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch"
         ],
         "en": [
-          "dipl-nursing-professional-palliative-care-medicine-f-m-d-solothurner-spitaler-soh-olten"
+          "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-palliative-versorgung-medizin-w-m-d-solothurner-spitaler-soh-olten"
@@ -6856,9 +6858,9 @@
     },
     {
       "id": "solothurner-spitaeler-78212b99d274",
-      "slug": "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch",
+      "slug": "coordinatore-clinico-coordinatore-clinico-neurologia-f-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch",
+        "it": "coordinatore-clinico-coordinatore-clinico-neurologia-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "clinical-coordinator-clinical-coordinator-neurology-male-female-solothurner-spitaler-ag-soh-solothurn",
         "de": "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch",
         "fr": "coordonnateur-clinique-coordonnateur-clinique-neurologie-homme-femme-solothurner-spitaler-ag-soh-solothurn"
@@ -6905,7 +6907,7 @@
       "department": "Neurologie",
       "workplace": "Bürgerspital Solothurn",
       "previousSlugs": [
-        "coordinatore-clinico-coordinatore-clinico-neurologia-f-m-d-solothurner-spitaler-soh-solothurn",
+        "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch",
         "clinical-coordinator-clinical-coordinator-neurology-w-m-d-solothurner-spitaler-soh-solothurn",
         "klinikkoordinator-klinikkoordinator-neurologie-w-m-d-solothurner-spitaler-soh-solothurn",
         "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-solothurner-spitaeler-solothurn",
@@ -6913,7 +6915,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinatore-clinico-coordinatore-clinico-neurologia-f-m-d-solothurner-spitaler-soh-solothurn"
+          "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch"
         ],
         "en": [
           "clinical-coordinator-clinical-coordinator-neurology-w-m-d-solothurner-spitaler-soh-solothurn"
@@ -7341,10 +7343,10 @@
       "id": "solothurner-spitaeler-cec35b631bd4",
       "slug": "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-soh-solothurn",
+        "it": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
-        "fr": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7416,18 +7418,16 @@
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
         "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn",
-        "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
-        "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn"
+        "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
+        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
-          "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn",
-          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+          "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
           "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
-          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
           "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
         ]
       },
@@ -7541,10 +7541,10 @@
       "id": "solothurner-spitaeler-f3896c8634b7",
       "slug": "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-soh-solothurn",
+        "it": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
-        "fr": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7616,18 +7616,16 @@
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
         "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn",
-        "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
-        "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn"
+        "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
+        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
-          "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn",
-          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
+          "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
           "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
-          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
           "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
         ]
       },
@@ -7972,9 +7970,9 @@
     },
     {
       "id": "solothurner-spitaeler-323c2bc0334b",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch",
+      "slug": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch",
+        "it": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten",
         "en": "diploma-in-nursing-dialysis-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch",
         "fr": "diplome-e-en-soins-infirmiers-dialyse-h-f-solothurner-spitaler-ag-soh-olten"
@@ -8021,13 +8019,13 @@
       "department": "Dialyse/Nephrologie",
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
-        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch",
         "pflegefachfrau-pflegefachmann-dialyse-w-m-d-solothurner-spitaler-soh-olten",
         "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten"
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-dialyse-w-m-d-solothurner-spitaler-soh-olten"
@@ -8380,9 +8378,9 @@
     },
     {
       "id": "solothurner-spitaeler-bf6b87021311",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
+      "slug": "infermiera-infermiera-hf-medicina-f-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
+        "it": "infermiera-infermiera-hf-medicina-f-m-d-solothurner-spitaler-soh-olten",
         "en": "diploma-in-nursing-professional-nurse-hf-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
         "fr": "diplome-e-en-soins-infirmiers-infirmier-ere-professionnel-le-hf-h-f-d-solothurner-spitaler-ag-soh-olten"
@@ -8429,7 +8427,7 @@
       "department": "Medizin Pflegestation",
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
-        "infermiera-infermiera-hf-medicina-f-m-d-solothurner-spitaler-soh-olten",
+        "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
         "dipl-senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
         "pflegefachfrau-pflegefachmann-hf-medizinw-m-d-solothurner-spitaler-soh-olten",
         "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-solothurner-spitaeler-olten",
@@ -8437,7 +8435,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermiera-infermiera-hf-medicina-f-m-d-solothurner-spitaler-soh-olten"
+          "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch"
         ],
         "en": [
           "dipl-senior-consultant-w-m-d-solothurner-spitaler-soh-olten"
@@ -8469,7 +8467,7 @@
       "slug": "esperta-esperto-di-cure-d-emergenza-uomo-donna-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "it": "esperta-esperto-di-cure-d-emergenza-uomo-donna-solothurner-spitaler-soh-solothurn",
-        "en": "expertin-experte-notfallpflege-w-m-d-soh-ch",
+        "en": "expert-emergency-care-f-m-d-solothurner-spitaler-soh-solothurn",
         "de": "expertin-experte-notfallpflege-w-m-d-soh-ch",
         "fr": "expert-en-soins-d-urgence-h-f-solothurner-spitaler-soh-solothurn"
       },
@@ -8528,7 +8526,8 @@
           "expertin-experte-notfallpflege-w-m-d-soh-ch"
         ],
         "en": [
-          "expert-expert-emergency-care-f-m-d-solothurner-spitaler-soh-solothurn"
+          "expert-expert-emergency-care-f-m-d-solothurner-spitaler-soh-solothurn",
+          "expertin-experte-notfallpflege-w-m-d-soh-ch"
         ],
         "de": [
           "praktikant-praktikantin-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn"
@@ -9185,10 +9184,10 @@
       "id": "solothurner-spitaeler-262b4bbd19bc",
       "slug": "ergoterapista-ergoterapista-u-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "ergoterapista-ergoterapista-u-m-d-solothurner-spitaler-soh-solothurn",
+        "it": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-        "fr": "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "fr": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -9240,17 +9239,15 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-        "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
-        "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn"
+        "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
+        "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+          "ergotherapeutin-ergotherapeut-w-m-d-soh-ch"
         ],
         "fr": [
           "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
-          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
           "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
         ]
       },
@@ -10872,7 +10869,7 @@
         "it": "senior-controller-contabilita-aziendale-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "senior-controller-business-accounting-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch",
-        "fr": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
+        "fr": "comptabilite-des-controleurs-superieurs-f-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -10927,7 +10924,8 @@
           "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
         ],
         "fr": [
-          "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-soh-solothurn"
+          "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-soh-solothurn",
+          "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
         ]
       },
       "firstSeenAt": "2026-06-01T16:10:40.429Z",
@@ -11364,7 +11362,7 @@
       "slug": "consulente-senior-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "consulente-senior-m-d-solothurner-spitaler-soh-olten",
-        "en": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
+        "en": "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "fr": "conseiller-principal-m-d-solothurner-spitaler-soh-olten"
       },
@@ -11438,7 +11436,8 @@
           "esperto-esperta-in-anestesia-w-m-d-solothurner-spitaler-soh-dornach"
         ],
         "en": [
-          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten"
+          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
+          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
@@ -12029,7 +12028,7 @@
         "it": "op-disponentin-op-disponent-m-w-d-solothurner-spitaler-soh-dornach",
         "en": "op-disponentin-op-disponent-w-m-d-soh-ch",
         "de": "op-disponentin-op-disponent-w-m-d-soh-ch",
-        "fr": "op-disponentin-op-disponent-w-m-d-soh-ch"
+        "fr": "op-disponent-op-disponente-h-f-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -12075,8 +12074,7 @@
       "previousSlugs": [
         "op-disponentin-op-disponent-w-m-d-soh-ch",
         "operatore-or-f-m-d-solothurner-spitaler-soh-dornach",
-        "op-disposant-op-disposant-w-m-d-solothurner-spitaler-soh-dornach",
-        "op-disponent-op-disponente-h-f-solothurner-spitaler-soh-dornach"
+        "op-disposant-op-disposant-w-m-d-solothurner-spitaler-soh-dornach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12085,7 +12083,6 @@
         ],
         "fr": [
           "op-disposant-op-disposant-w-m-d-solothurner-spitaler-soh-dornach",
-          "op-disponent-op-disponente-h-f-solothurner-spitaler-soh-dornach",
           "op-disponentin-op-disponent-w-m-d-soh-ch"
         ]
       },

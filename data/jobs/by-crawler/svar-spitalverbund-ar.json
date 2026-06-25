@@ -327,8 +327,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretun",
         "it": "dipl-pflegefachperson-hf-fh-per-unsere-psychiatrische-privatstation-mutterschaftsvertretung-befristet-per-6-7-monate-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretung-befristet-fur-6-7-monate",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretung-befristet-fur-6-7-monate"
+        "en": "dipl-nursing-specialist-hf-fh-for-our-psychiatric-private-unit-maternity-representation-limited-to-6-7-months",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-pour-notre-unite-privee-psychiatrique-representation-de-maternite-limitee-a"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -375,10 +375,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretun"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretung-befristet-fur-6-7-monate"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretung-befristet-fur-6-7-monate"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretun"
+        "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretun",
+        "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-mutterschaftsvertretung-befristet-fur-6-7-monate"
       ],
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -545,7 +552,7 @@
       "slug": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
       "slugByLocale": {
         "it": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
-        "en": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
+        "en": "dipl-expert-emergency-care-nds-with-additional-function-vocational-training-m-f-d-spitalverbund-appenzell-ausserrhoden",
         "de": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
         "fr": "dipl-expert-emergency-care-nds-avec-fonction-supplementaire-formation-professionnelle-m-f-d-spitalverbund-appenzell"
       },
@@ -590,14 +597,6 @@
       "requirementsByLocale": {},
       "externalId": "4026609",
       "firstSeenAt": "2026-06-24T12:25:25.443Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "dipl-expert-emergency-care-nds-with-additional-function-vocational-training-m-f-d-spitalverbund-appenzell-ausserrhoden"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-expert-emergency-care-nds-with-additional-function-vocational-training-m-f-d-spitalverbund-appenzell-ausserrhoden"
-      ],
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -687,12 +686,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-f32dbcaa3944",
-      "slug": "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "responsabile-dell-istruzione-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "responsabile-dell-istruzione-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "responsible-for-education-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "responsable-de-l-education-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -748,7 +747,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:59:46.622Z"
+      "firstSeenAt": "2026-06-24T22:59:46.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "bildungsverantwortliche-r-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     }
   ]
 }

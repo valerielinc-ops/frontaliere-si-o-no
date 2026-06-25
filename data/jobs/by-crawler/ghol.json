@@ -923,10 +923,10 @@
     },
     {
       "id": "ghol-bde7aa2f6e4e",
-      "slug": "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest",
+      "slug": "assistente-medico-dr-barriol-urologia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest",
-        "it": "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest",
+        "it": "assistente-medico-dr-barriol-urologia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest",
         "de": "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest"
       },
@@ -979,7 +979,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:01:29.543Z"
+      "firstSeenAt": "2026-06-24T22:01:29.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest"
+      ]
     }
   ]
 }

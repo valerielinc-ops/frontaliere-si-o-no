@@ -110,12 +110,12 @@
         "en": "Personnel:in claims management",
         "fr": "Personnel:dans la gestion des réclamations"
       },
-      "slug": "sachbearbeiter-in-schadenmanagement-post",
+      "slug": "personale-nella-gestione-dei-crediti-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-schadenmanagement-post",
-        "en": "sachbearbeiter-in-schadenmanagement-die-schweizerische-post-bern",
+        "it": "personale-nella-gestione-dei-crediti-die-schweizerische-post-bern",
+        "en": "personnel-in-claims-management-die-schweizerische-post-bern",
         "de": "sachbearbeiter-in-schadenmanagement-die-schweizerische-post-bern",
-        "fr": "sachbearbeiter-in-schadenmanagement-die-schweizerische-post-bern"
+        "fr": "personnel-dans-la-gestion-des-reclamations-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -150,7 +150,22 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-24T22:46:30.977Z"
+      "firstSeenAt": "2026-06-24T22:46:30.977Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-schadenmanagement-post"
+        ],
+        "en": [
+          "sachbearbeiter-in-schadenmanagement-die-schweizerische-post-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-schadenmanagement-die-schweizerische-post-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-schadenmanagement-post",
+        "sachbearbeiter-in-schadenmanagement-die-schweizerische-post-bern"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74138-de_DE",
