@@ -427,6 +427,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.title': 'Frontalier : comment éviter la double imposition avec le crédit d\'impôt',
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.excerpt': 'Guide complet pour les frontaliers sur le fonctionnement du mécanisme du crédit d\'impôt pour éviter la double imposition.',
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.imageAlt': 'Vue de la ville de Lugano depuis le lac avec les montagnes en arrière-plan',
+    'blog.article.costo-auto-pendolare-ticino.title': 'Coût de la voiture de banlieue frontalière Tessin : tous les coûts',
+    'blog.article.costo-auto-pendolare-ticino.excerpt': 'Découvrez tous les coûts de la voiture pour la navette : essence, vignettes, stationnement, usure, comparaison avec le train et le bus.',
+    'blog.article.costo-auto-pendolare-ticino.imageAlt': 'Vue panoramique du lac de Lugano avec des voitures garées',
 };
 
 export default blogMetaChFr;

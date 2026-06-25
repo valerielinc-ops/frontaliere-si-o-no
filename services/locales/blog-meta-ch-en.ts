@@ -427,6 +427,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.title': 'Frontier: how to avoid double taxation with the tax credit',
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.excerpt': 'Complete guide for border crossers on how the tax credit mechanism works to avoid double taxation.',
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.imageAlt': 'View of Lugano city from the lake with the mountains in the background',
+    'blog.article.costo-auto-pendolare-ticino.title': 'Ticino border commuter car cost: all costs',
+    'blog.article.costo-auto-pendolare-ticino.excerpt': 'Discover all the car costs for commuters: petrol, vignettes, parking, wear and tear, comparison with train and bus.',
+    'blog.article.costo-auto-pendolare-ticino.imageAlt': 'Panoramic view of Lake Lugano with parked cars',
 };
 
 export default blogMetaChEn;

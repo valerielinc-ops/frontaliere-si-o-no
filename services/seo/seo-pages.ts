@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2909,
+ "numberOfItems": 2910,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7555,7 +7555,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2906, "name": "LAMal o CMI frontaliere: quale conviene nel 2026", "url": `${BASE_URL}/articoli-frontaliere/lamal-cmi-frontalieri-confronta-2026` },
           { "@type": "ListItem", "position": 2907, "name": "Calcolo pensione frontaliere: AVS svizzera e IN...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontaliere-avs-inps` },
           { "@type": "ListItem", "position": 2908, "name": "La canicola incide anche sul traffico ferroviario", "url": `${BASE_URL}/articoli-frontaliere/caldo-ferroviario-svizzera` },
-          { "@type": "ListItem", "position": 2909, "name": "Frontaliere: come evitare la doppia tassazione ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-doppia-imposizione-credito-imposta` }
+          { "@type": "ListItem", "position": 2909, "name": "Frontaliere: come evitare la doppia tassazione ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-doppia-imposizione-credito-imposta` },
+          { "@type": "ListItem", "position": 2910, "name": "Costo auto pendolare frontaliere Ticino: tutti ...", "url": `${BASE_URL}/articoli-frontaliere/costo-auto-pendolare-ticino` }
  ]
  },
  {

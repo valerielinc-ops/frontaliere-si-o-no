@@ -427,6 +427,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.title': 'Frontaliere: come evitare la doppia tassazione con il credito d\'imposta',
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.excerpt': 'Guida completa per i frontalieri su come funziona il meccanismo del credito d\'imposta per evitare la doppia tassazione.',
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.imageAlt': 'Vista della città di Lugano dal lago con le montagne sullo sfondo',
+    'blog.article.costo-auto-pendolare-ticino.title': 'Costo auto pendolare frontaliere Ticino: tutti i costi',
+    'blog.article.costo-auto-pendolare-ticino.excerpt': 'Scopri tutti i costi dell\'auto per il pendolare: benzina, vignette, parcheggio, usura, confronto con treno e bus.',
+    'blog.article.costo-auto-pendolare-ticino.imageAlt': 'Vista panoramica del Lago di Lugano con auto parcheggiate',
 };
 
 export default blogMetaChIt;
