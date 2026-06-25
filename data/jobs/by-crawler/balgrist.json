@@ -1513,7 +1513,7 @@
       "slug": "infermiere-diplomata-hf-fh-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "it": "infermiere-diplomata-hf-fh-50-100-universitatsklinik-balgrist-zurich",
-        "en": "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich",
+        "en": "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
         "de": "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
         "fr": "infirmier-e-diplome-e-hf-fh-50-100-universitatsklinik-balgrist-zurich"
       },
@@ -1586,13 +1586,15 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
+        "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
+        "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
         ],
         "en": [
+          "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich",
           "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
         ]
       },
@@ -2375,7 +2377,7 @@
       "slug": "assistente-medico-specialista-clinico-specialisti-clinici-m-f-d-80-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "it": "assistente-medico-specialista-clinico-specialisti-clinici-m-f-d-80-100-universitatsklinik-balgrist-zurich",
-        "en": "physician-associate-clinical-specialist-clinical-specialist-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "en": "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100",
         "de": "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100",
         "fr": "associe-medical-specialiste-clinique-h-f-80-100-universitatsklinik-balgrist-zurich"
       },
@@ -2443,6 +2445,7 @@
       },
       "previousSlugs": [
         "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100",
+        "physician-associate-clinical-specialist-clinical-specialist-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "assistenzarzt-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2450,6 +2453,7 @@
           "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100"
         ],
         "en": [
+          "physician-associate-clinical-specialist-clinical-specialist-m-f-d-80-100-universitatsklinik-balgrist-zurich",
           "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100"
         ],
         "de": [
@@ -2572,10 +2576,10 @@
       "id": "balgrist-d79b9afb12fa",
       "slug": "diplomato-a-della-cura-infermieristica-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
+        "it": "diplomato-a-della-cura-infermieristica-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+        "fr": "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -2618,7 +2622,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
         "dipl-infermiere-a-hf-fh-sorveglianza-infermieristica-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "dipl-nursing-professional-hf-fh-post-operative-care-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "dipl-pflegefachperson-hf-fh-uberwachungspflege-m-w-d-80-100-balgrist-zurich",
@@ -2626,9 +2630,11 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
           "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich"
         ]
       },
@@ -3192,7 +3198,7 @@
       "slug": "fisioterapia-physiotherapeut-w-m-d-90-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "it": "fisioterapia-physiotherapeut-w-m-d-90-100-universitatsklinik-balgrist-zurich",
-        "en": "physiotherapist-physiotherapist-f-m-d-90-100-universitatsklinik-balgrist-zurich",
+        "en": "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich",
         "de": "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich",
         "fr": "physiotherapeutine-physiotherapeut-m-j-90-100-universitatsklinik-balgrist-zurich"
       },
@@ -3237,7 +3243,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fisioterapeuta-physiotherapeut-w-m-d-90-100-universitatsklinik-balgrist-zurich",
-        "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich"
+        "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich",
+        "physiotherapist-physiotherapist-f-m-d-90-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3245,6 +3252,7 @@
           "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich"
         ],
         "en": [
+          "physiotherapist-physiotherapist-f-m-d-90-100-universitatsklinik-balgrist-zurich",
           "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich"
         ],
         "fr": [
@@ -3270,7 +3278,7 @@
       "slug": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich",
       "slugByLocale": {
         "it": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich",
-        "en": "occupational-therapist-f-m-d-80-100-universitatsklinik-balgrist-zurich",
+        "en": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich",
         "de": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich",
         "fr": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich"
       },
@@ -3314,6 +3322,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-02T22:42:24.483Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "occupational-therapist-f-m-d-80-100-universitatsklinik-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "occupational-therapist-f-m-d-80-100-universitatsklinik-balgrist-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3741,7 +3757,7 @@
       "slug": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-        "en": "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+        "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
       },
@@ -3751,7 +3767,7 @@
       "title": "Dipl. Pflegefachperson HF/FH (m/w/d) 50–100%",
       "titleByLocale": {
         "it": "Infermiera HF/FH (m/f/d) 50–100 %",
-        "en": "Dipl. Care professional HF/FH (m/f/d) 50–100 %",
+        "en": "Dipl. Nurse HF/FH (m/f/d) 50–100 %",
         "de": "Dipl. Pflegefachperson HF/FH (m/w/d) 50–100%",
         "fr": "Infirmière diplômée HF/FH (m/f/d) 50–100 %"
       },
@@ -3788,6 +3804,7 @@
         "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "infermiera-diplomata-ic-fh-lunedi-f-d-50-100-universitatsklinik-balgrist-zurich",
+        "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
@@ -3797,7 +3814,7 @@
           "infermiera-diplomata-ic-fh-lunedi-f-d-50-100-universitatsklinik-balgrist-zurich"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+          "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
         ],
         "fr": [
           "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
@@ -3980,8 +3997,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-70-balgrist-zurich",
         "it": "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-70-universitatsklinik-balgrist-zurich",
-        "en": "employee-patient-service-m-f-d-70-universitatsklinik-balgrist-zurich",
-        "fr": "service-aux-patients-m-f-j-70-universitatsklinik-balgrist-zurich"
+        "en": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-70-balgrist-zurich",
+        "fr": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-70-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -3996,9 +4013,9 @@
       "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung.<br/><br/>Der Patientenservice betreut unsere Patientinnen und Patienten sicher und professionell.<br/>Für unser motiviertes Team suchen wir befristet vom 15. Juni 2026 bis 31. Dezember 2026 eine/einen\n\nAufgaben:\n• Erfassung der Menüwünsche von Patienten und Gästen mittels elektronischem Menüwahlsystem\n\n• Alle anfallenden Aufgaben rund um Vor- und Nachbereitung für den Service\n\n• Erledigung von kundenorientiertem Getränke- und Mahlzeitenservice sowie die Wäschelogistik auf den Patientenzimmern\n\n• Wöchentliche Bestellung von Food und Nonfood für die Stationen\n\n• Organisation des Rooming-ins von Gästen sowie Blumenpflege\n\n• Täglicher Beitrag zum Wohlbefinden unserer Patienten\n\nAnforderungen:\n• Einige Jahre Erfahrung im Servicebereich, idealerweise in der Hotellerie oder in einem Klinikumfeld\n\n• Gute PC-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Verstehen von Schweizer Mundart), Fremdsprachenkenntnisse sind wünschenswert\n\n• Gepflegtes Auftreten sowie ein zuvorkommender und respektvoller Umgang mit Patientinnen und Patienten\n\n• Teamfähigkeit, professionelle Gesprächskompetenz\n\nWir bieten:\n• Möglichkeit, in einer orthopädischen Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• 4-Tage Woche (bei 100 %)\n\n• Arbeitseinsätze ohne Zimmerstunde\n\n• Zusammenarbeit mit motivierten und sehr engagierten Mitarbeitenden\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder einen jährlichen Beitrag an ein Generalabonnement\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Geschenkter freier Tag zum Geburtstag\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
       "descriptionByLocale": {
         "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung.<br/><br/>Der Patientenservice betreut unsere Patientinnen und Patienten sicher und professionell.<br/>Für unser motiviertes Team suchen wir befristet vom 15. Juni 2026 bis 31. Dezember 2026 eine/einen\n\nAufgaben:\n• Erfassung der Menüwünsche von Patienten und Gästen mittels elektronischem Menüwahlsystem\n\n• Alle anfallenden Aufgaben rund um Vor- und Nachbereitung für den Service\n\n• Erledigung von kundenorientiertem Getränke- und Mahlzeitenservice sowie die Wäschelogistik auf den Patientenzimmern\n\n• Wöchentliche Bestellung von Food und Nonfood für die Stationen\n\n• Organisation des Rooming-ins von Gästen sowie Blumenpflege\n\n• Täglicher Beitrag zum Wohlbefinden unserer Patienten\n\nAnforderungen:\n• Einige Jahre Erfahrung im Servicebereich, idealerweise in der Hotellerie oder in einem Klinikumfeld\n\n• Gute PC-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Verstehen von Schweizer Mundart), Fremdsprachenkenntnisse sind wünschenswert\n\n• Gepflegtes Auftreten sowie ein zuvorkommender und respektvoller Umgang mit Patientinnen und Patienten\n\n• Teamfähigkeit, professionelle Gesprächskompetenz\n\nWir bieten:\n• Möglichkeit, in einer orthopädischen Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• 4-Tage Woche (bei 100 %)\n\n• Arbeitseinsätze ohne Zimmerstunde\n\n• Zusammenarbeit mit motivierten und sehr engagierten Mitarbeitenden\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder einen jährlichen Beitrag an ein Generalabonnement\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Geschenkter freier Tag zum Geburtstag\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
-        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate della Svizzera con un centro affiliato per la paraplegia e il riconoscimento internazionale. <br/> <br/ > Il servizio paziente si prende cura dei nostri pazienti in modo sicuro e professionale. Stiamo cercando il nostro team motivato su una base temporanea da 15. Dal 2026 al 31 giugno. Dicembre 2026 uno\n\nCompiti:\n• Registrazione dei desideri dei pazienti e degli ospiti tramite sistema di selezione dei menu elettronico\n\n• Tutti i compiti coinvolti nella preparazione e nel follow-up per il servizio\n\n• Completamento del servizio di bevande e pasti orientati al cliente e della logistica della lavanderia nelle camere del paziente\n\n• Ordinazione settimanale di alimenti e non alimentari per le stazioni\n\n• Organizzazione di alloggiamento di ospiti e cura dei fiori\n\n• Contributo giornaliero al benessere dei nostri pazienti\n\nRequisiti\n• Alcuni anni di esperienza nel settore dei servizi, idealmente nell'industria alberghiera o in un ambiente ospedaliero\n\n• Buona conoscenza dell'utente del PC\n\n• Molto buona conoscenza del tedesco in parola e scrittura (indipendentemente dal dialetto svizzero), la conoscenza delle lingue straniere è auspicabile\n\n• Aspetto attento e trattamento cortese e rispettoso dei pazienti\n\n• Lavoro di squadra, competenze di conversazione professionali\n\nOffriamo:\n• Opportunità di partecipare a una clinica ortopedica con una reputazione eccellente\n\n• Settimana di 4 giorni (100%)\n\n• Assegnazioni di lavoro senza ore di camera\n\n• Collaborazione con dipendenti motivati e molto impegnati\n\n• 50% di sconto sul bonus pass ZVV o un contributo annuale a un abbonamento generale\n\n• Godetevi un pranzo sano ed equilibrato a prezzi scontati presso il nostro ristorante personale aziendale\n\n• Regalato giorno libero per compleanno\n Ulteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
-        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with an affiliated centre for paraplegia and international recognition. <br/><br/ >The patient service takes care of our patients safely and professionally.<br/>We are looking for our motivated team on a temporary basis from 15. June 2026 to 31. December 2026 one/one\n\nTasks:\n• Recording of the wishes of patients and guests by electronic menu selection system\n\n• All tasks involved in preparation and follow-up for the service\n\n• Completion of customer-oriented beverage and meal service as well as laundry logistics in the patient rooms\n\n• Weekly ordering of food and non-food for the stations\n\n• Organization of rooming-in of guests and flower care\n\n• Daily contribution to the well-being of our patients\n\nRequirements\n• Some years of experience in the service sector, ideally in the hotel industry or in a hospital environment\n\n• Good PC user knowledge\n\n• Very good knowledge of German in word and writing (understanding of Swiss dialect), knowledge of foreign languages is desirable\n\n• Careful appearance and courteous and respectful treatment of patients\n\n• Teamwork, professional conversation skills\n\nWe offer:\n• Opportunity to participate in an orthopaedic clinic with an excellent reputation\n\n• 4-day week (100%)\n\n• Work assignments without room hours\n\n• Collaboration with motivated and very committed employees\n\n• 50% discount on the ZVV bonus pass or an annual contribution to a general subscription\n\n• Enjoy a healthy and balanced lunch at discounted prices at our company-owned staff restaurant\n\n• Gifted free day for birthday\n Further advantages are just one click away: Attractive offers for our employees",
-        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées de Suisse avec un centre affilié pour la paraplégie et la reconnaissance internationale. <br/><br/ > Le service aux patients s'occupe de nos patients de façon sécuritaire et professionnelle.<br/> Nous recherchons notre équipe motivée sur une base temporaire à partir de 15. Du 2026 au 31 juin. Décembre 2026\n\nTâches :\n• Enregistrement des souhaits des patients et des invités par le système électronique de sélection des menus\n\n• Toutes les tâches liées à la préparation et au suivi du service\n\n• Achèvement du service de boissons et de repas axé sur le client ainsi que de la logistique de blanchisserie dans les salles des patients\n\n• Commande hebdomadaire de denrées alimentaires et non alimentaires pour les stations\n\n• Organisation des chambres d'hôtes et des soins aux fleurs\n\n• Contribution quotidienne au bien-être de nos patients\n\nExigences\n• Quelques années d'expérience dans le secteur des services, idéalement dans l'hôtellerie ou dans un environnement hospitalier\n\n• Bonne connaissance de l'utilisateur de PC\n\n• Très bonne connaissance de l'allemand dans la parole et l'écriture (comprendre le dialecte suisse), connaissance des langues étrangères est souhaitable\n\n• Aspect attentif et traitement courtois et respectueux des patients\n\n• Travail d'équipe, compétences en conversation professionnelle\n\nNous offrons:\n• Possibilité de participer à une clinique orthopédique avec une excellente réputation\n\n• Semaine de 4 jours (100%)\n\n• Fonctions sans heures de chambre\n\n• Collaboration avec des employés motivés et très engagés\n\n• Réduction de 50% sur le bonus ZVV ou une contribution annuelle à un abonnement général\n\n• Profitez d'un déjeuner sain et équilibré à prix réduit dans notre restaurant de l'entreprise\n\n• Journée offerte pour l'anniversaire\n D'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
+        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate in Svizzera con un centro affiliato per la paraplegia e il riconoscimento internazionale. <br/> <br/ > Il servizio paziente si prende cura dei nostri pazienti in modo sicuro e professionale. Stiamo cercando il nostro team motivato su una base temporanea da 15. Dal 2026 al 31 giugno. Dicembre 2026 uno\n\nCompiti:\n• Registrazione dei desideri dei pazienti e degli ospiti mediante un sistema elettronico di selezione menu\n\n• Tutte le attività in preparazione e follow-up per il servizio\n\n• Completamento del servizio di bevande e pasti orientati al cliente e della logistica della lavanderia nelle camere del paziente\n\n• Ordinazione settimanale di alimenti e non alimentari per le stazioni\n\n• Organizzazione di alloggiamento di ospiti e cura dei fiori\n\n• Contributo giornaliero al benessere dei nostri pazienti\n\nRequisiti\n• Alcuni anni di esperienza nel settore dei servizi, idealmente nell'industria alberghiera o in un ambiente ospedaliero\n\n• Buona conoscenza dell'utente del PC\n\n• Molto buona conoscenza del tedesco in parola e scrittura (indipendentemente dal dialetto svizzero), la conoscenza delle lingue straniere è auspicabile\n\n• Aspetto attento e trattamento cortese e rispettoso dei pazienti\n\n• Lavoro di squadra, competenze di conversazione professionale\n\nOffriamo:\n• Opportunità di partecipare a una clinica ortopedica con una reputazione eccellente\n\n• Settimana di 4 giorni (100%)\n\n• Assegnazioni di lavoro senza ore di camera\n\n• Collaborazione con dipendenti motivati e molto impegnati\n\n• 50 % di sconto sul bonus pass ZVV o un contributo annuale a un abbonamento generale\n\n• Godetevi un pranzo sano ed equilibrato a prezzi scontati presso il nostro ristorante personale aziendale\n\n• Regalato giorno libero per compleanno\n Ulteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
+        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with an affiliated centre for paraplegia and international recognition. <br/><br/ >The patient service takes care of our patients safely and professionally.<br/>We are looking for our motivated team on a temporary basis from 15. June 2026 to 31. December 2026 one/one\n\nTasks:\n• Recording of the wishes of patients and guests by means of an electronic menu selection system\n\n• All tasks involved in preparation and follow-up for the service\n\n• Completion of customer-oriented beverage and meal service as well as laundry logistics in the patient rooms\n\n• Weekly ordering of food and nonfood for the stations\n\n• Organization of rooming-in of guests and flower care\n\n• Daily contribution to the well-being of our patients\n\nRequirements\n• Some years of experience in the service sector, ideally in the hotel industry or in a hospital environment\n\n• Good PC user knowledge\n\n• Very good knowledge of German in word and writing (understanding of Swiss dialect), knowledge of foreign languages is desirable\n\n• Careful appearance and courteous and respectful treatment of patients\n\n• Teamwork, professional conversation skills\n\nWe offer:\n• Opportunity to participate in an orthopaedic clinic with an excellent reputation\n\n• 4-day week (100%)\n\n• Work assignments without room hours\n\n• Collaboration with motivated and very committed employees\n\n• 50 % discount on the ZVV bonus pass or an annual contribution to a general subscription\n\n• Enjoy a healthy and balanced lunch at discounted prices at our company-owned staff restaurant\n\n• Gifted free day for birthday\n Further advantages are just one click away: Attractive offers for our employees",
+        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées en Suisse avec un centre affilié pour la paraplégie et la reconnaissance internationale. <br/><br/ > Le service aux patients s'occupe de nos patients de façon sécuritaire et professionnelle.<br/> Nous recherchons notre équipe motivée sur une base temporaire à partir de 15. Du 2026 au 31 juin. Décembre 2026 un/un\n\nTâches :\n• Enregistrement des souhaits des patients et des invités au moyen d'un système électronique de sélection des menus\n\n• Toutes les tâches liées à la préparation et au suivi du service\n\n• Achèvement du service de boissons et de repas axé sur le client ainsi que de la logistique de blanchisserie dans les salles des patients\n\n• Commande hebdomadaire de produits alimentaires et non alimentaires pour les stations\n\n• Organisation de la chambre d'hôtes et soin des fleurs\n\n• Contribution quotidienne au bien-être de nos patients\n\nExigences\n• Quelques années d'expérience dans le secteur des services, idéalement dans l'hôtellerie ou dans un environnement hospitalier\n\n• Bonne connaissance des utilisateurs de PC\n\n• Très bonne connaissance de l'allemand en paroles et en écriture (comprendre le dialecte suisse), connaissance des langues étrangères est souhaitable\n\n• Aspect attentif et traitement courtois et respectueux des patients\n\n• Travail d'équipe, compétences en conversation professionnelle\n\nNous offrons:\n• Possibilité de participer à une clinique orthopédique avec une excellente réputation\n\n• Semaine de 4 jours (100%)\n\n• Fonctions sans heures de chambre\n\n• Collaboration avec des employés motivés et très engagés\n\n• Réduction de 50 % sur la prime ZVV ou une contribution annuelle à un abonnement général\n\n• Profitez d'un déjeuner sain et équilibré à prix réduit dans notre restaurant de l'entreprise\n\n• Journée offerte pour l'anniversaire\n D'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -4027,12 +4044,6 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-70-balgrist-zurich"
-        ],
-        "en": [
-          "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-70-balgrist-zurich"
-        ],
-        "fr": [
-          "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-70-balgrist-zurich"
         ]
       },
       "previousSlugs": [
@@ -4058,8 +4069,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-80-balgrist-zurich",
         "it": "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-80-universitatsklinik-balgrist-zurich",
-        "en": "employee-patient-service-m-f-d-80-universitatsklinik-balgrist-zurich",
-        "fr": "service-aux-patients-m-f-j-80-universitatsklinik-balgrist-zurich"
+        "en": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-80-balgrist-zurich",
+        "fr": "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-80-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4074,9 +4085,9 @@
       "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung.<br/><br/>Der Patientenservice betreut unsere Patientinnen und Patienten sicher und professionell.<br/>Für unser motiviertes Team suchen wir per 1. August 2026 oder nach Vereinbarung eine/einen\n\nAufgaben:\n• Erfassung der Menüwünsche von Patienten und Gästen mittels elektronischem Menüwahlsystem\n\n• Alle anfallenden Aufgaben rund um Vor- und Nachbereitung für den Service\n\n• Erledigung von kundenorientiertem Getränke- und Mahlzeitenservice sowie die Wäschelogistik auf den Patientenzimmern\n\n• Wöchentliche Bestellung von Food und Nonfood für die Stationen\n\n• Organisation des Rooming-ins von Gästen sowie Blumenpflege\n\n• Täglicher Beitrag zum Wohlbefinden unserer Patienten\n\nAnforderungen:\n• Einige Jahre Erfahrung im Servicebereich, idealerweise in der Hotellerie oder in einem Klinikumfeld\n\n• Gute PC-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Verstehen von Schweizer Mundart), Fremdsprachenkenntnisse sind wünschenswert\n\n• Gepflegtes Auftreten sowie ein zuvorkommender und respektvoller Umgang mit Patientinnen und Patienten\n\n• Teamfähigkeit, professionelle Gesprächskompetenz\n\nWir bieten:\n• Möglichkeit, in einer orthopädischen Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• 4-Tage Woche (bei 100 %)\n\n• Arbeitseinsätze ohne Zimmerstunde\n\n• Zusammenarbeit mit motivierten und sehr engagierten Mitarbeitenden\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder einen jährlichen Beitrag an ein Generalabonnement\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Geschenkter freier Tag zum Geburtstag\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
       "descriptionByLocale": {
         "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung.<br/><br/>Der Patientenservice betreut unsere Patientinnen und Patienten sicher und professionell.<br/>Für unser motiviertes Team suchen wir per 1. August 2026 oder nach Vereinbarung eine/einen\n\nAufgaben:\n• Erfassung der Menüwünsche von Patienten und Gästen mittels elektronischem Menüwahlsystem\n\n• Alle anfallenden Aufgaben rund um Vor- und Nachbereitung für den Service\n\n• Erledigung von kundenorientiertem Getränke- und Mahlzeitenservice sowie die Wäschelogistik auf den Patientenzimmern\n\n• Wöchentliche Bestellung von Food und Nonfood für die Stationen\n\n• Organisation des Rooming-ins von Gästen sowie Blumenpflege\n\n• Täglicher Beitrag zum Wohlbefinden unserer Patienten\n\nAnforderungen:\n• Einige Jahre Erfahrung im Servicebereich, idealerweise in der Hotellerie oder in einem Klinikumfeld\n\n• Gute PC-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Verstehen von Schweizer Mundart), Fremdsprachenkenntnisse sind wünschenswert\n\n• Gepflegtes Auftreten sowie ein zuvorkommender und respektvoller Umgang mit Patientinnen und Patienten\n\n• Teamfähigkeit, professionelle Gesprächskompetenz\n\nWir bieten:\n• Möglichkeit, in einer orthopädischen Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• 4-Tage Woche (bei 100 %)\n\n• Arbeitseinsätze ohne Zimmerstunde\n\n• Zusammenarbeit mit motivierten und sehr engagierten Mitarbeitenden\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder einen jährlichen Beitrag an ein Generalabonnement\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Geschenkter freier Tag zum Geburtstag\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
-        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate della Svizzera con un centro affiliato per la paraplegia e il riconoscimento internazionale. <br/> <br/ > Il servizio paziente si prende cura dei nostri pazienti in modo sicuro e professionale. Stiamo cercando il nostro team motivato da 1. agosto 2026 o per accordo uno o\n\nCompiti:\n• Registrazione dei desideri dei pazienti e degli ospiti tramite sistema di selezione dei menu elettronico\n\n• Tutti i compiti coinvolti nella preparazione e nel follow-up per il servizio\n\n• Completamento del servizio di bevande e pasti orientati al cliente e della logistica della lavanderia nelle camere del paziente\n\n• Ordinazione settimanale di alimenti e non alimentari per le stazioni\n\n• Organizzazione di alloggiamento di ospiti e cura dei fiori\n\n• Contributo giornaliero al benessere dei nostri pazienti\n\nRequisiti\n• Alcuni anni di esperienza nel settore dei servizi, idealmente nell'industria alberghiera o in un ambiente ospedaliero\n\n• Buona conoscenza dell'utente del PC\n\n• Molto buona conoscenza del tedesco in parola e scrittura (indipendentemente dal dialetto svizzero), la conoscenza delle lingue straniere è auspicabile\n\n• Aspetto attento e trattamento cortese e rispettoso dei pazienti\n\n• Lavoro di squadra, competenze di conversazione professionali\n\nOffriamo:\n• Opportunità di partecipare a una clinica ortopedica con una reputazione eccellente\n\n• Settimana di 4 giorni (100%)\n\n• Assegnazioni di lavoro senza ore di camera\n\n• Collaborazione con dipendenti motivati e molto impegnati\n\n• 50% di sconto sul bonus pass ZVV o un contributo annuale a un abbonamento generale\n\n• Godetevi un pranzo sano ed equilibrato a prezzi scontati presso il nostro ristorante personale aziendale\n\n• Regalato giorno libero per compleanno\n Ulteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
-        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with an affiliated centre for paraplegia and international recognition. <br/><br/ >The patient service takes care of our patients safely and professionally.<br/>We are looking for our motivated team from 1. August 2026 or by arrangement one or\n\nTasks:\n• Recording of the wishes of patients and guests by electronic menu selection system\n\n• All tasks involved in preparation and follow-up for the service\n\n• Completion of customer-oriented beverage and meal service as well as laundry logistics in the patient rooms\n\n• Weekly ordering of food and non-food for the stations\n\n• Organization of rooming-in of guests and flower care\n\n• Daily contribution to the well-being of our patients\n\nRequirements\n• Some years of experience in the service sector, ideally in the hotel industry or in a hospital environment\n\n• Good PC user knowledge\n\n• Very good knowledge of German in word and writing (understanding of Swiss dialect), knowledge of foreign languages is desirable\n\n• Careful appearance and courteous and respectful treatment of patients\n\n• Teamwork, professional conversation skills\n\nWe offer:\n• Opportunity to participate in an orthopaedic clinic with an excellent reputation\n\n• 4-day week (100%)\n\n• Work assignments without room hours\n\n• Collaboration with motivated and very committed employees\n\n• 50% discount on the ZVV bonus pass or an annual contribution to a general subscription\n\n• Enjoy a healthy and balanced lunch at discounted prices at our company-owned staff restaurant\n\n• Gifted free day for birthday\n Further advantages are just one click away: Attractive offers for our employees",
-        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées de Suisse avec un centre affilié pour la paraplégie et la reconnaissance internationale. <br/><br/ > Le service aux patients s'occupe de nos patients de façon sécuritaire et professionnelle.<br/> Nous cherchons notre équipe motivée de 1. Août 2026 ou par arrangement un ou\n\nTâches :\n• Enregistrement des souhaits des patients et des invités par le système électronique de sélection des menus\n\n• Toutes les tâches liées à la préparation et au suivi du service\n\n• Achèvement du service de boissons et de repas axé sur le client ainsi que de la logistique de blanchisserie dans les salles des patients\n\n• Commande hebdomadaire de denrées alimentaires et non alimentaires pour les stations\n\n• Organisation des chambres d'hôtes et des soins aux fleurs\n\n• Contribution quotidienne au bien-être de nos patients\n\nExigences\n• Quelques années d'expérience dans le secteur des services, idéalement dans l'hôtellerie ou dans un environnement hospitalier\n\n• Bonne connaissance de l'utilisateur de PC\n\n• Très bonne connaissance de l'allemand dans la parole et l'écriture (comprendre le dialecte suisse), connaissance des langues étrangères est souhaitable\n\n• Aspect attentif et traitement courtois et respectueux des patients\n\n• Travail d'équipe, compétences en conversation professionnelle\n\nNous offrons:\n• Possibilité de participer à une clinique orthopédique avec une excellente réputation\n\n• Semaine de 4 jours (100%)\n\n• Fonctions sans heures de chambre\n\n• Collaboration avec des employés motivés et très engagés\n\n• Réduction de 50% sur le bonus ZVV ou une contribution annuelle à un abonnement général\n\n• Profitez d'un déjeuner sain et équilibré à prix réduit dans notre restaurant de l'entreprise\n\n• Journée offerte pour l'anniversaire\n D'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
+        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate in Svizzera con un centro affiliato per la paraplegia e il riconoscimento internazionale. <br/> <br/ > Il servizio paziente si prende cura dei nostri pazienti in modo sicuro e professionale. Stiamo cercando il nostro team motivato da 1. agosto 2026 o per accordo uno o\n\nCompiti:\n• Registrazione dei desideri dei pazienti e degli ospiti mediante un sistema elettronico di selezione menu\n\n• Tutte le attività in preparazione e follow-up per il servizio\n\n• Completamento del servizio di bevande e pasti orientati al cliente e della logistica della lavanderia nelle camere del paziente\n\n• Ordinazione settimanale di alimenti e non alimentari per le stazioni\n\n• Organizzazione di alloggiamento di ospiti e cura dei fiori\n\n• Contributo giornaliero al benessere dei nostri pazienti\n\nRequisiti\n• Alcuni anni di esperienza nel settore dei servizi, idealmente nell'industria alberghiera o in un ambiente ospedaliero\n\n• Buona conoscenza dell'utente del PC\n\n• Molto buona conoscenza del tedesco in parola e scrittura (indipendentemente dal dialetto svizzero), la conoscenza delle lingue straniere è auspicabile\n\n• Aspetto attento e trattamento cortese e rispettoso dei pazienti\n\n• Lavoro di squadra, competenze di conversazione professionale\n\nOffriamo:\n• Opportunità di partecipare a una clinica ortopedica con una reputazione eccellente\n\n• Settimana di 4 giorni (100%)\n\n• Assegnazioni di lavoro senza ore di camera\n\n• Collaborazione con dipendenti motivati e molto impegnati\n\n• 50 % di sconto sul bonus pass ZVV o un contributo annuale a un abbonamento generale\n\n• Godetevi un pranzo sano ed equilibrato a prezzi scontati presso il nostro ristorante personale aziendale\n\n• Regalato giorno libero per compleanno\n Ulteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
+        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with an affiliated centre for paraplegia and international recognition. <br/><br/ >The patient service takes care of our patients safely and professionally.<br/>We are looking for our motivated team from 1. August 2026 or by arrangement one or\n\nTasks:\n• Recording of the wishes of patients and guests by means of an electronic menu selection system\n\n• All tasks involved in preparation and follow-up for the service\n\n• Completion of customer-oriented beverage and meal service as well as laundry logistics in the patient rooms\n\n• Weekly ordering of food and nonfood for the stations\n\n• Organization of rooming-in of guests and flower care\n\n• Daily contribution to the well-being of our patients\n\nRequirements\n• Some years of experience in the service sector, ideally in the hotel industry or in a hospital environment\n\n• Good PC user knowledge\n\n• Very good knowledge of German in word and writing (understanding of Swiss dialect), knowledge of foreign languages is desirable\n\n• Careful appearance and courteous and respectful treatment of patients\n\n• Teamwork, professional conversation skills\n\nWe offer:\n• Opportunity to participate in an orthopaedic clinic with an excellent reputation\n\n• 4-day week (100%)\n\n• Work assignments without room hours\n\n• Collaboration with motivated and very committed employees\n\n• 50 % discount on the ZVV bonus pass or an annual contribution to a general subscription\n\n• Enjoy a healthy and balanced lunch at discounted prices at our company-owned staff restaurant\n\n• Gifted free day for birthday\n Further advantages are just one click away: Attractive offers for our employees",
+        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées en Suisse avec un centre affilié pour la paraplégie et la reconnaissance internationale. <br/><br/ > Le service aux patients s'occupe de nos patients de façon sécuritaire et professionnelle.<br/> Nous recherchons notre équipe motivée de 1. Août 2026 ou par arrangement un ou\n\nTâches :\n• Enregistrement des souhaits des patients et des invités au moyen d'un système électronique de sélection des menus\n\n• Toutes les tâches liées à la préparation et au suivi du service\n\n• Achèvement du service de boissons et de repas axé sur le client ainsi que de la logistique de blanchisserie dans les salles des patients\n\n• Commande hebdomadaire de produits alimentaires et non alimentaires pour les stations\n\n• Organisation de la chambre d'hôtes et soin des fleurs\n\n• Contribution quotidienne au bien-être de nos patients\n\nExigences\n• Quelques années d'expérience dans le secteur des services, idéalement dans l'hôtellerie ou dans un environnement hospitalier\n\n• Bonne connaissance des utilisateurs de PC\n\n• Très bonne connaissance de l'allemand en paroles et en écriture (comprendre le dialecte suisse), connaissance des langues étrangères est souhaitable\n\n• Aspect attentif et traitement courtois et respectueux des patients\n\n• Travail d'équipe, compétences en conversation professionnelle\n\nNous offrons:\n• Possibilité de participer à une clinique orthopédique avec une excellente réputation\n\n• Semaine de 4 jours (100%)\n\n• Fonctions sans heures de chambre\n\n• Collaboration avec des employés motivés et très engagés\n\n• Réduction de 50 % sur la prime ZVV ou une contribution annuelle à un abonnement général\n\n• Profitez d'un déjeuner sain et équilibré à prix réduit dans notre restaurant de l'entreprise\n\n• Journée offerte pour l'anniversaire\n D'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -4104,12 +4115,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-80-balgrist-zurich"
-        ],
-        "en": [
-          "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-80-balgrist-zurich"
-        ],
-        "fr": [
           "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-80-balgrist-zurich"
         ]
       },

@@ -1940,9 +1940,9 @@
     },
     {
       "id": "helsana-8741069036c2",
-      "slug": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
+      "slug": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
       "slugByLocale": {
-        "it": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
+        "it": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
         "en": "insurance-physician-d-i-a-40-60-helsana-ticino",
         "de": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
         "fr": "medecin-d-assurance-d-i-a-40-60-helsana-ticino"
@@ -1987,10 +1987,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        "assicurazione-medico-d-i-a-40-60-helsana-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assicurazione-medico-d-i-a-40-60-helsana-ticino",
           "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
         ],
         "en": [
@@ -2626,7 +2627,7 @@
         "it": "regolatore-di-gruppo-a-80-100-helsana-dubendorf",
         "en": "group-controller-a-80-100-helsana-dubendorf",
         "de": "group-controller-a-80-100-helsana-dubendorf",
-        "fr": "controleur-de-groupe-a-80-100-helsana-dubendorf"
+        "fr": "group-controller-a-80-100-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2668,13 +2669,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-controller-a-80-100-helsana-dubendorf"
+        "group-controller-a-80-100-helsana-dubendorf",
+        "controleur-de-groupe-a-80-100-helsana-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-controller-a-80-100-helsana-dubendorf"
         ],
         "fr": [
+          "controleur-de-groupe-a-80-100-helsana-dubendorf",
           "group-controller-a-80-100-helsana-dubendorf"
         ]
       },
@@ -4103,7 +4106,7 @@
       "title": "Release- und Test-Engineer (a) 80-100%",
       "titleByLocale": {
         "it": "Rilascio e collaudo (a) 80-100%",
-        "en": "Release and test engineer (a) 80-100 %",
+        "en": "Release and Test Engineer (a) 80-100 %",
         "de": "Release- und Test-Ingenieur (a) 80-100%",
         "fr": "Moteur de sortie et d'essai (a) 80-100 %"
       },
@@ -5060,7 +5063,7 @@
         "de": "leiter-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "it": "leiter-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff",
         "en": "leiter-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "responsable-du-portail-et-des-solutions-de-donnees-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "fr": "leiter-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
