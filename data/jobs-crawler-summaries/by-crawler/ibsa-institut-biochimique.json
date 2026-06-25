@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-06-25T11:33:07.856Z",
-  "total": 10,
-  "newCount": 10,
+  "generatedAt": "2026-06-25T22:34:04.176Z",
+  "total": 9,
+  "newCount": 9,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 24409,
-  "avgDurationMs": 24409,
+  "durationMs": 14796,
+  "avgDurationMs": 14796,
   "durationHistory": [
-    24409
+    14796
   ],
   "newJobs": [
     {
@@ -218,47 +218,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-e3ivbg",
-      "slug": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
-      "company": "IBSA Institut Biochimique",
-      "title": "Meccatronico / Meccanico",
-      "location": "Lugano-Pazzall",
-      "canton": "TI",
-      "category": "other",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://career.ibsagroup.com/job/Lugano-Pazzallo-Meccatronico-Meccanico-TI-6912/1342644055/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "ibsa-institut-biochimique",
-      "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-05-21T12:14:05.531Z",
-      "firstSeenAt": "2026-05-21T12:14:05.531Z",
-      "sourceLang": "it",
-      "country": "CH",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via del Piano 29",
-      "postalCode": "6926",
-      "addressLocality": "Lugano-Pazzall",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
