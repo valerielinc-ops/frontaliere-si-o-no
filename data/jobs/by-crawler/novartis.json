@@ -1161,7 +1161,7 @@
         "it": "assistente-senior-in-contenzioso-brevettuale-novartis-basel-city",
         "en": "senior-patent-litigation-paralegal-novartis-ch",
         "de": "senior-patent-litigation-paralegal-novartis-ch",
-        "fr": "litige-principal-en-matiere-de-brevets-novartis-basel-city"
+        "fr": "litige-de-brevet-principal-parajuriste-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1202,7 +1202,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-patent-litigation-paralegal-novartis-ch",
-        "litige-de-brevet-principal-parajuriste-novartis-basel-city"
+        "litige-principal-en-matiere-de-brevets-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1210,7 +1210,7 @@
         ],
         "fr": [
           "senior-patent-litigation-paralegal-novartis-ch",
-          "litige-de-brevet-principal-parajuriste-novartis-basel-city"
+          "litige-principal-en-matiere-de-brevets-novartis-basel-city"
         ]
       },
       "needsRetranslation": true,
@@ -4555,7 +4555,7 @@
         "en": "director-ai-enablement-corporate-affairs-novartis-ch",
         "it": "director-ai-enablement-corporate-affairs-novartis-ch",
         "de": "director-ai-enablement-corporate-affairs-novartis-ch",
-        "fr": "director-ai-enablement-corporate-affairs-novartis-ch"
+        "fr": "directeur-ai-activement-affaires-generales-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4619,7 +4619,7 @@
         "en": "international-medical-affairs-director-neuroscience-novartis-ch",
         "it": "international-medical-affairs-director-neuroscience-novartis-ch",
         "de": "international-medical-affairs-director-neuroscience-novartis-ch",
-        "fr": "international-medical-affairs-director-neuroscience-novartis-ch"
+        "fr": "directeur-des-affaires-medicales-internationales-neuroscience-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4678,12 +4678,12 @@
     },
     {
       "id": "novartis-83db061d29cd",
-      "slug": "integrated-insights-business-partner-novartis-ch",
+      "slug": "partner-aziendale-integrato-novartis-rotkreuz-office",
       "slugByLocale": {
         "en": "integrated-insights-business-partner-novartis-ch",
-        "it": "integrated-insights-business-partner-novartis-ch",
-        "de": "integrated-insights-business-partner-novartis-ch",
-        "fr": "integrated-insights-business-partner-novartis-ch"
+        "it": "partner-aziendale-integrato-novartis-rotkreuz-office",
+        "de": "integrated-insights-geschaftspartner-novartis-rotkreuz-office",
+        "fr": "insights-integrees-partenaire-d-affaires-novartis-rotkreuz-office"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4738,16 +4738,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-24T22:30:31.508Z"
+      "firstSeenAt": "2026-06-24T22:30:31.508Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "integrated-insights-business-partner-novartis-ch"
+        ],
+        "de": [
+          "integrated-insights-business-partner-novartis-ch"
+        ],
+        "fr": [
+          "integrated-insights-business-partner-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "integrated-insights-business-partner-novartis-ch"
+      ]
     },
     {
       "id": "novartis-e0444ddb259a",
-      "slug": "patent-attorney-novartis-ch",
+      "slug": "procuratore-di-brevetto-novartis-basel-city",
       "slugByLocale": {
         "en": "patent-attorney-novartis-ch",
-        "it": "patent-attorney-novartis-ch",
-        "de": "patent-attorney-novartis-ch",
-        "fr": "patent-attorney-novartis-ch"
+        "it": "procuratore-di-brevetto-novartis-basel-city",
+        "de": "patentanwalt-novartis-basel-city",
+        "fr": "avocat-en-brevets-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4802,7 +4816,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-24T22:30:30.660Z"
+      "firstSeenAt": "2026-06-24T22:30:30.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patent-attorney-novartis-ch"
+        ],
+        "de": [
+          "patent-attorney-novartis-ch"
+        ],
+        "fr": [
+          "patent-attorney-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patent-attorney-novartis-ch"
+      ]
     }
   ]
 }

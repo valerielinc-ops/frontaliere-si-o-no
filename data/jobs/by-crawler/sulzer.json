@@ -2063,12 +2063,12 @@
     },
     {
       "id": "sulzer-da553708c3b9",
-      "slug": "electrical-fitter-sulzer-ch",
+      "slug": "apparecchi-elettrici-sulzer-winterthur",
       "slugByLocale": {
-        "it": "electrical-fitter-sulzer-ch",
+        "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
         "de": "electrical-fitter-sulzer-winterthur",
-        "fr": "electrical-fitter-sulzer-ch"
+        "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2108,16 +2108,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apparecchi-elettrici-sulzer-winterthur",
-        "avertisseur-electrique-sulzer-winterthur"
+        "electrical-fitter-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apparecchi-elettrici-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ],
         "fr": [
-          "avertisseur-electrique-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ]
       },
@@ -6617,11 +6614,11 @@
     },
     {
       "id": "sulzer-0d5749c831c9",
-      "slug": "engenheiro-a-de-aplicacao-sulzer-ch",
+      "slug": "ing-di-applicazione-sulzer-winterthur",
       "slugByLocale": {
-        "it": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "it": "ing-di-applicazione-sulzer-winterthur",
         "en": "engenheiro-a-de-aplicacao-sulzer-ch",
-        "de": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "de": "anwendungstechniker-sulzer-winterthur",
         "fr": "engenheiro-a-de-aplicacao-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -6663,19 +6660,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingegnere-applicazioni-sulzer-winterthur",
-        "ing-di-applicazione-sulzer-winterthur",
-        "anwendungsingenieur-sulzer-winterthur",
-        "anwendungstechniker-sulzer-winterthur"
+        "engenheiro-a-de-aplicacao-sulzer-ch",
+        "anwendungsingenieur-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-applicazioni-sulzer-winterthur",
-          "ing-di-applicazione-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ],
         "de": [
           "anwendungsingenieur-sulzer-winterthur",
-          "anwendungstechniker-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ]
       },
@@ -14261,7 +14255,7 @@
         "it": "risorse-umane-business-partner-sulzer-shanghai",
         "en": "hr-business-partner-sulzer-ch",
         "de": "personalwesen-business-partner-sulzer-shanghai",
-        "fr": "partenaire-operationnel-rh-sulzer-shanghai"
+        "fr": "partenaire-d-affaires-rh-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -14304,7 +14298,7 @@
       "previousSlugs": [
         "hr-business-partner-sulzer-ch",
         "hr-business-partner-sulzer-shanghai",
-        "partenaire-d-affaires-rh-sulzer-shanghai"
+        "partenaire-operationnel-rh-sulzer-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14315,7 +14309,7 @@
         ],
         "fr": [
           "hr-business-partner-sulzer-shanghai",
-          "partenaire-d-affaires-rh-sulzer-shanghai"
+          "partenaire-operationnel-rh-sulzer-shanghai"
         ]
       },
       "firstSeenAt": "2026-05-28T14:24:07.018Z",
@@ -15594,12 +15588,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -15640,17 +15634,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-manager-w-m-d-sulzer-ch",
-        "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-w-m-d-sulzer-ch",
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -22609,11 +22600,11 @@
     },
     {
       "id": "sulzer-147033af3efc",
-      "slug": "it-expert-sulzer-ch",
+      "slug": "esperto-it-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
         "en": "it-expert-sulzer-ch",
-        "it": "it-expert-sulzer-ch",
-        "de": "it-expert-sulzer-ch",
+        "it": "esperto-it-sulzer-cuautitlan-izcalli",
+        "de": "it-experte-sulzer-cuautitlan-izcalli",
         "fr": "it-expert-sulzer-ch"
       },
       "company": "Sulzer",
@@ -22669,7 +22660,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-24T22:57:24.130Z"
+      "firstSeenAt": "2026-06-24T22:57:24.130Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-expert-sulzer-ch"
+        ],
+        "de": [
+          "it-expert-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-expert-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-dcf84410e999",
@@ -22678,7 +22680,7 @@
         "en": "serviceleder-sulzer-ch",
         "it": "serviceleder-sulzer-ch",
         "de": "serviceleder-sulzer-asker",
-        "fr": "serviceleder-sulzer-ch"
+        "fr": "chef-de-service-sulzer-asker"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22737,10 +22739,10 @@
     },
     {
       "id": "sulzer-9c148919ba58",
-      "slug": "motor-control-technician-sulzer-ch",
+      "slug": "tecnologia-di-controllo-del-motore-sulzer-santa-ana",
       "slugByLocale": {
         "en": "motor-control-technician-sulzer-ch",
-        "it": "motor-control-technician-sulzer-ch",
+        "it": "tecnologia-di-controllo-del-motore-sulzer-santa-ana",
         "de": "motor-control-technician-sulzer-ch",
         "fr": "motor-control-technician-sulzer-ch"
       },
@@ -22797,14 +22799,22 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-24T22:57:22.503Z"
+      "firstSeenAt": "2026-06-24T22:57:22.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "motor-control-technician-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "motor-control-technician-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-981d397a2008",
-      "slug": "motor-control-technician-sulzer-ch-2",
+      "slug": "tecnologia-di-controllo-del-motore-sulzer-santa-ana-2c29ab",
       "slugByLocale": {
         "en": "motor-control-technician-sulzer-ch",
-        "it": "motor-control-technician-sulzer-ch-2",
+        "it": "tecnologia-di-controllo-del-motore-sulzer-santa-ana-2c29ab",
         "de": "motor-control-technician-sulzer-ch-2",
         "fr": "motor-control-technician-sulzer-ch-2"
       },
@@ -22861,16 +22871,24 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-24T22:57:21.762Z"
+      "firstSeenAt": "2026-06-24T22:57:21.762Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "motor-control-technician-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "motor-control-technician-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-ba5b8297013d",
-      "slug": "project-scheduler-sulzer-ch",
+      "slug": "programmazione-del-progetto-sulzer-leeds",
       "slugByLocale": {
         "en": "project-scheduler-sulzer-ch",
-        "it": "project-scheduler-sulzer-ch",
-        "de": "project-scheduler-sulzer-ch",
-        "fr": "project-scheduler-sulzer-ch"
+        "it": "programmazione-del-progetto-sulzer-leeds",
+        "de": "projektplaner-sulzer-leeds",
+        "fr": "planificateur-de-projet-sulzer-leeds"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22925,7 +22943,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-24T22:57:20.934Z"
+      "firstSeenAt": "2026-06-24T22:57:20.934Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-scheduler-sulzer-ch"
+        ],
+        "de": [
+          "project-scheduler-sulzer-ch"
+        ],
+        "fr": [
+          "project-scheduler-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-scheduler-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-2f0e3ef2c25d",

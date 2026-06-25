@@ -1326,9 +1326,9 @@
       "slug": "venditore-denner-ag-langenthal",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal",
+        "en": "seller-denner-ag-langenthal-d47c8f",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-634638"
+        "fr": "vendeur-denner-ag-langenthal-d47c8f"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1386,18 +1386,18 @@
       "crawledAt": "2026-06-24T21:53:24.239Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "seller-denner-ag-langenthal-d47c8f",
-        "vendeur-denner-ag-langenthal-d47c8f"
+        "seller-denner-ag-langenthal",
+        "vendeur-denner-ag-langenthal-634638"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner"
         ],
         "en": [
-          "seller-denner-ag-langenthal-d47c8f"
+          "seller-denner-ag-langenthal"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-d47c8f"
+          "vendeur-denner-ag-langenthal-634638"
         ]
       },
       "firstSeenAt": "2026-06-23T11:30:12.956Z",
@@ -2255,12 +2255,12 @@
     },
     {
       "id": "denner-89845c241133",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-bellach",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-2",
+        "it": "assistente-nella-gestione-delle-branche-denner-bellach",
+        "en": "assistant-in-branch-management-denner-bellach",
         "de": "assistent-in-filialleitung-denner-bellach",
-        "fr": "assistent-in-filialleitung-denner-2"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-bellach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2319,11 +2319,19 @@
       "crawledAt": "2026-06-24T21:53:21.798Z",
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-filialleitung-denner-2",
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-2"
+        ],
+        "fr": [
           "assistent-in-filialleitung-denner-2"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-2"
+        "assistent-in-filialleitung-denner-2",
+        "assistent-in-filialleitung-denner"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2342,12 +2350,12 @@
     },
     {
       "id": "denner-f9cfc736893d",
-      "slug": "verkaufer-in-im-stundenlohn-denner",
+      "slug": "venditore-nel-salario-orario-denner-frutigen",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner-frutigen",
+        "it": "venditore-nel-salario-orario-denner-frutigen",
+        "en": "seller-in-the-hourly-wage-denner-frutigen",
         "de": "verkaufer-in-im-stundenlohn-denner-frutigen",
-        "fr": "verkaufer-in-im-stundenlohn-denner-frutigen"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-frutigen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2406,11 +2414,20 @@
       "crawledAt": "2026-06-24T21:53:21.794Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-2"
+          "verkaufer-in-im-stundenlohn-denner-2",
+          "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-frutigen"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-frutigen"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-2"
+        "verkaufer-in-im-stundenlohn-denner-2",
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-frutigen"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2429,12 +2446,12 @@
     },
     {
       "id": "denner-b5ce524884b5",
-      "slug": "filialleiter-in-in-ausbildung-denner",
+      "slug": "responsabile-della-filiale-nella-formazione-denner-wadenswil",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner",
-        "en": "filialleiter-in-in-ausbildung-denner-wadenswil",
+        "it": "responsabile-della-filiale-nella-formazione-denner-wadenswil",
+        "en": "branch-manager-in-training-denner-wadenswil",
         "de": "filialleiter-in-in-ausbildung-denner-wadenswil",
-        "fr": "filialleiter-in-in-ausbildung-denner-wadenswil"
+        "fr": "directeur-de-branche-en-formation-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2493,11 +2510,20 @@
       "crawledAt": "2026-06-24T21:53:21.012Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner-2"
+          "filialleiter-in-in-ausbildung-denner-2",
+          "filialleiter-in-in-ausbildung-denner"
+        ],
+        "en": [
+          "filialleiter-in-in-ausbildung-denner-wadenswil"
+        ],
+        "fr": [
+          "filialleiter-in-in-ausbildung-denner-wadenswil"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-in-ausbildung-denner-2"
+        "filialleiter-in-in-ausbildung-denner-2",
+        "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-wadenswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

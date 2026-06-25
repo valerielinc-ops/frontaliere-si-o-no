@@ -9,7 +9,7 @@
         "de": "senior-key-account-manager-m-w-d-opfikon-80-100-implenia-ch",
         "it": "senior-key-account-manager-m-w-d-opfikon-80-100-implenia-ch",
         "en": "senior-key-account-manager-m-w-d-opfikon-80-100-implenia-ch",
-        "fr": "senior-key-account-manager-m-w-d-opfikon-80-100-implenia-ch"
+        "fr": "gestionnaire-principal-de-comptes-cles-m-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -212,8 +212,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch",
         "it": "installatore-trice-elettrico-a-elektroservicemonteur-cfc-m-w-d-100-implenia-glattpark-opfikon",
-        "en": "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch",
-        "fr": "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch"
+        "en": "electrical-installer-electrical-service-installer-efz-f-m-d-100-implenia-glattpark-opfikon",
+        "fr": "installation-electrique-installation-de-service-electrique-efz-f-m-d-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -258,6 +258,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch"
+        ],
+        "en": [
+          "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch"
+        ],
+        "fr": [
           "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch"
         ]
       },
@@ -1706,9 +1712,9 @@
     },
     {
       "id": "implenia-3d88eb17bdcd",
-      "slug": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+      "slug": "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
       "slugByLocale": {
-        "it": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+        "it": "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
         "en": "rental-specialist-real-estate-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
         "de": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
         "fr": "location-de-biens-immobiliers-specialises-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
@@ -1753,11 +1759,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
+        "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
+          "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
         ],
         "en": [
           "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
@@ -1998,12 +2006,12 @@
     },
     {
       "id": "implenia-9f0b50c6e48a",
-      "slug": "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
+      "slug": "rimediazione-dell-inquinamento-dell-impresa-w-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
-        "it": "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
-        "en": "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
-        "fr": "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        "it": "rimediazione-dell-inquinamento-dell-impresa-w-m-d-implenia-glattpark-opfikon",
+        "en": "construction-manager-pollution-remediation-w-m-d-implenia-glattpark-opfikon",
+        "fr": "directeur-de-la-construction-assainissement-de-la-pollution-p-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2048,11 +2056,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch"
+          "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
+          "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
-        "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch"
+        "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
+        "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2070,12 +2086,12 @@
     },
     {
       "id": "implenia-c4124c624985",
-      "slug": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
+      "slug": "conversione-dei-costi-di-costruzione-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "baukostenplaner-umbau-w-m-d-implenia-ch",
-        "it": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
-        "en": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
-        "fr": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        "it": "conversione-dei-costi-di-costruzione-f-m-d-implenia-glattpark-opfikon",
+        "en": "construction-cost-planner-conversion-f-m-d-implenia-glattpark-opfikon",
+        "fr": "transformation-du-planificateur-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2120,11 +2136,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "baukostenplaner-umbau-w-m-d-implenia-ch"
+          "baukostenplaner-umbau-w-m-d-implenia-ch",
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
-        "baukostenplaner-umbau-w-m-d-implenia-ch"
+        "baukostenplaner-umbau-w-m-d-implenia-ch",
+        "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2142,12 +2166,12 @@
     },
     {
       "id": "implenia-14f7cf90437c",
-      "slug": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch",
+      "slug": "studente-di-lavoro-digital-building-bim-f-m-d-40-60-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch",
-        "it": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch",
-        "en": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch",
-        "fr": "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+        "it": "studente-di-lavoro-digital-building-bim-f-m-d-40-60-implenia-glattpark-opfikon",
+        "en": "working-student-digital-building-bim-f-m-d-40-60-implenia-glattpark-opfikon",
+        "fr": "etudiant-en-cours-de-travail-batiment-numerique-bim-f-m-d-40-60-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2202,7 +2226,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:14:46.261Z"
+      "firstSeenAt": "2026-06-24T22:14:46.261Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+        ],
+        "en": [
+          "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+        ],
+        "fr": [
+          "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-digitales-bauen-bim-w-m-d-40-60-implenia-ch"
+      ]
     },
     {
       "id": "implenia-f4091f213da6",
@@ -2210,8 +2248,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
         "it": "collaboratore-trice-bauablaufplanung-avor-m-w-d-80-100-implenia-glattpark-opfikon",
-        "en": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
-        "fr": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        "en": "employee-construction-scheduling-avor-m-f-d-80-100-implenia-glattpark-opfikon",
+        "fr": "calendrier-de-construction-des-employes-avor-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2256,6 +2294,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
           "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
         ]
       },
@@ -2342,12 +2386,12 @@
     },
     {
       "id": "implenia-5f74215b8c1e",
-      "slug": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon",
+      "slug": "technician-project-manager-building-digitalization-m-f-d-80-100-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
-        "it": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon",
+        "it": "technician-project-manager-building-digitalization-m-f-d-80-100-implenia-glattpark-opfikon",
         "en": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
-        "fr": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
+        "fr": "technicien-gestionnaire-de-projet-digitalisation-des-batiments-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2392,11 +2436,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
+          "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon"
+        ],
+        "fr": [
           "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
+        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
+        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2483,7 +2532,7 @@
         "de": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch",
         "it": "technischer-leiter-center-e-mixed-use-site-management-m-w-d-opfikon-100-implenia-thurgauerstrasse-101a",
         "en": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch",
-        "fr": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
+        "fr": "directeur-technique-centre-et-gestion-du-site-a-usage-mixte-m-f-d-opfikon-100-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2529,6 +2578,9 @@
       "previousSlugsByLocale": {
         "it": [
           "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
+        ],
+        "fr": [
+          "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -2550,12 +2602,12 @@
     },
     {
       "id": "implenia-23486558f35e",
-      "slug": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
+      "slug": "fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "it": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "en": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "fr": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        "it": "fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
+        "en": "pension-fund-m-f-d-bern-40-60-implenia-glattpark-opfikon",
+        "fr": "caisse-de-retraite-m-f-j-berne-40-60-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2610,7 +2662,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:14:42.630Z"
+      "firstSeenAt": "2026-06-24T22:14:42.630Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+      ]
     },
     {
       "id": "implenia-f1bf58228d0c",
@@ -2684,7 +2750,7 @@
         "de": "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch",
         "it": "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch",
         "en": "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch",
-        "fr": "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch"
+        "fr": "opfikon-50-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3237,9 +3303,9 @@
     },
     {
       "id": "implenia-41afb0f1832c",
-      "slug": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
-        "it": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
+        "it": "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "en": "senior-calculator-holzbau-m-f-d-80-100-implenia-rumlang",
         "de": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
         "fr": "calculatrice-senior-holzbau-m-f-d-80-100-implenia-rumlang"
@@ -3295,7 +3361,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-95ef097ca0d2",

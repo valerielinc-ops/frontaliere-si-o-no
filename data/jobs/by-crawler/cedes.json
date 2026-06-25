@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "cedes-08f2188aed4b",
-      "slug": "packaging-line-worker-100-cedes-landquart",
+      "slug": "linea-di-confezionamento-worker-100-cedes-ag-landquart",
       "slugByLocale": {
         "en": "packaging-line-worker-100-cedes-landquart",
-        "it": "packaging-line-worker-100-cedes-landquart",
-        "de": "packaging-line-worker-100-cedes-landquart",
-        "fr": "packaging-line-worker-100-cedes-landquart"
+        "it": "linea-di-confezionamento-worker-100-cedes-ag-landquart",
+        "de": "verpackungslinienarbeiter-100-cedes-ag-landquart",
+        "fr": "travailleur-de-ligne-d-emballage-100-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes",
@@ -61,7 +61,21 @@
       "postalCode": "7302",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-24T21:41:21.298Z"
+      "firstSeenAt": "2026-06-24T21:41:21.298Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "packaging-line-worker-100-cedes-landquart"
+        ],
+        "de": [
+          "packaging-line-worker-100-cedes-landquart"
+        ],
+        "fr": [
+          "packaging-line-worker-100-cedes-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "packaging-line-worker-100-cedes-landquart"
+      ]
     },
     {
       "id": "cedes-3fa516c3ca31",

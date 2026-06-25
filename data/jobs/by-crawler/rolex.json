@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rolex-a44f52b78578",
-      "slug": "charge-de-projets-pmo-h-f-rolex-ch",
+      "slug": "pmo-project-manager-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "charge-de-projets-pmo-h-f-rolex-ch",
-        "it": "charge-de-projets-pmo-h-f-rolex-ch",
+        "it": "pmo-project-manager-h-f-rolex-geneve",
         "en": "charge-de-projets-pmo-h-f-rolex-ch",
-        "de": "charge-de-projets-pmo-h-f-rolex-ch"
+        "de": "pmo-projektmanager-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -63,7 +63,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:42:17.358Z"
+      "firstSeenAt": "2026-06-24T22:42:17.358Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-pmo-h-f-rolex-ch"
+        ],
+        "de": [
+          "charge-de-projets-pmo-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-pmo-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-e6a17e096651",
@@ -1346,12 +1357,12 @@
     },
     {
       "id": "rolex-940f57d8d01b",
-      "slug": "coordinateur-projets-cdm-h-f-rolex-ch",
+      "slug": "coordinatore-del-progetto-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "coordinateur-projets-cdm-h-f-rolex-ch",
-        "it": "coordinateur-projets-cdm-h-f-rolex-ch",
-        "en": "coordinateur-projets-cdm-h-f-rolex-ch",
-        "de": "coordinateur-projets-cdm-h-f-rolex-ch"
+        "it": "coordinatore-del-progetto-h-f-rolex-geneve",
+        "en": "project-coordinator-h-f-rolex-geneve",
+        "de": "projektkoordinator-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -1407,8 +1418,20 @@
       },
       "firstSeenAt": "2026-06-24T22:41:58.172Z",
       "previousSlugs": [
+        "coordinateur-projets-cdm-h-f-rolex-ch",
         "coordinateur-relations-presse-projets-rp-h-f-cdm-rolex-ch"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-projets-cdm-h-f-rolex-ch"
+        ],
+        "en": [
+          "coordinateur-projets-cdm-h-f-rolex-ch"
+        ],
+        "de": [
+          "coordinateur-projets-cdm-h-f-rolex-ch"
+        ]
+      }
     },
     {
       "id": "rolex-db0040e9c358",
@@ -1488,7 +1511,7 @@
         "fr": "charge-de-projets-en-supply-chain-h-f-rolex-ch",
         "it": "responsabile-progetto-della-supply-chain-m-f-rolex-geneve",
         "en": "supply-chain-project-manager-m-f-rolex-geneve",
-        "de": "charge-de-projets-en-supply-chain-h-f-rolex-ch"
+        "de": "supply-chain-projektmanager-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -1532,6 +1555,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "charge-de-projets-en-supply-chain-h-f-rolex-ch"
+        ],
+        "de": [
           "charge-de-projets-en-supply-chain-h-f-rolex-ch"
         ]
       },
@@ -2194,12 +2220,12 @@
     },
     {
       "id": "rolex-514a812cdcb7",
-      "slug": "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
+      "slug": "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
         "en": "head-of-new-products-projects-h-f-rolex-geneve",
         "de": "leiter-new-products-projects-h-f-rolex-geneve",
-        "it": "chef-de-projets-nouveaux-produits-h-f-rolex-ch"
+        "it": "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -2255,8 +2281,13 @@
       },
       "firstSeenAt": "2026-06-24T22:41:45.930Z",
       "previousSlugs": [
-        "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve"
-      ]
+        "chef-de-projets-nouveaux-produits-h-f-rolex-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projets-nouveaux-produits-h-f-rolex-ch"
+        ]
+      }
     },
     {
       "id": "rolex-c1c9899272f0",
@@ -3051,7 +3082,7 @@
         "fr": "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch",
         "it": "programma-di-dottorato-in-sistemi-informativi-analista-di-business-plm-m-f-rolex-geneve",
         "de": "informationssystem-graduiertenprogramm-plm-business-analyst-m-f-rolex-geneve",
-        "en": "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
+        "en": "young-graduates-programme-information-systems-business-analyst-plm-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -3096,11 +3127,13 @@
       "previousSlugsByLocale": {
         "it": [
           "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
+        ],
+        "en": [
+          "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
         ]
       },
       "previousSlugs": [
-        "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch",
-        "young-graduates-programme-information-systems-business-analyst-plm-h-f-rolex-geneve"
+        "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
       ],
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -6399,7 +6432,7 @@
         "fr": "manager-d-equipe-horloger-h-f-rolex-ch",
         "it": "responsabile-di-team-orologiaio-h-f-rolex-geneve",
         "de": "teamleiter-uhrmacher-m-w-rolex-geneve",
-        "en": "manager-d-equipe-horloger-h-f-rolex-ch"
+        "en": "team-manager-watchmaker-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -6444,11 +6477,13 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-d-equipe-horloger-h-f-rolex-ch"
+        ],
+        "en": [
+          "manager-d-equipe-horloger-h-f-rolex-ch"
         ]
       },
       "previousSlugs": [
-        "manager-d-equipe-horloger-h-f-rolex-ch",
-        "team-manager-watchmaker-h-f-rolex-geneve"
+        "manager-d-equipe-horloger-h-f-rolex-ch"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -10305,7 +10340,7 @@
         "fr": "charge-d-industrialisation-h-f-rolex-ch",
         "it": "charge-d-industrialisation-h-f-rolex-bienne",
         "en": "charge-d-industrialisation-h-f-rolex-bienne",
-        "de": "charge-d-industrialisation-h-f-rolex-ch"
+        "de": "industrialisierungsbeauftragter-h-f-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -10348,6 +10383,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "charge-d-industrialisation-h-f-rolex-ch"
+        ],
+        "de": [
           "charge-d-industrialisation-h-f-rolex-ch"
         ]
       },

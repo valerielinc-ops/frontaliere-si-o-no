@@ -76,12 +76,12 @@
     },
     {
       "id": "klinik-schloss-mammern-c5ed2de83afd",
-      "slug": "teamleitung-floristik-100-klinik-schloss-mammern-mammern",
+      "slug": "team-management-floristry-100-klinik-schloss-mammern-mammern",
       "slugByLocale": {
         "de": "teamleitung-floristik-100-klinik-schloss-mammern-mammern",
-        "it": "teamleitung-floristik-100-klinik-schloss-mammern-mammern",
+        "it": "team-management-floristry-100-klinik-schloss-mammern-mammern",
         "en": "teamleitung-floristik-100-klinik-schloss-mammern-mammern",
-        "fr": "teamleitung-floristik-100-klinik-schloss-mammern-mammern"
+        "fr": "gestion-d-equipe-floristry-100-klinik-schloss-mammern-mammern"
       },
       "company": "Klinik Schloss Mammern",
       "companyKey": "klinik-schloss-mammern",
@@ -136,7 +136,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:19:43.827Z"
+      "firstSeenAt": "2026-06-24T22:19:43.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-floristik-100-klinik-schloss-mammern-mammern"
+        ],
+        "fr": [
+          "teamleitung-floristik-100-klinik-schloss-mammern-mammern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-floristik-100-klinik-schloss-mammern-mammern"
+      ]
     },
     {
       "id": "klinik-schloss-mammern-e152c286883c",
@@ -642,8 +653,8 @@
       "slugByLocale": {
         "de": "fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-40-10-flexibel-nach",
         "it": "fachperson-betreuung-specializzazione-kinderbetreuung-come-springer-in-40-10-flexibel-nach-bedarf-klinik-schloss-mammern",
-        "en": "fachperson-betreuung-specializzazione-kinderbetreuung-come-springer-in-40-10-flexibel-nach-bedarf-klinik-schloss-mammern",
-        "fr": "fachperson-betreuung-specializzazione-kinderbetreuung-come-springer-in-40-10-flexibel-nach-bedarf-klinik-schloss-mammern"
+        "en": "specialist-childcare-as-a-jumper-40-10-flexible-as-required-klinik-schloss-mammern-mammern",
+        "fr": "garde-d-enfants-specialisee-comme-sauteur-40-10-flexible-au-besoin-klinik-schloss-mammern-mammern"
       },
       "company": "Klinik Schloss Mammern",
       "companyKey": "klinik-schloss-mammern",
