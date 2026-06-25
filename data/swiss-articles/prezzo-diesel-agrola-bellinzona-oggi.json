@@ -1,0 +1,40 @@
+{
+  "id": "prezzo-diesel-agrola-bellinzona-oggi",
+  "slug": "prezzo-diesel-agrola-bellinzona-oggi",
+  "publishedAt": "2026-06-25T22:48:20.356Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.950505951337277,
+    "confidence": 0.8,
+    "finalScore": 4.760404761069822,
+    "topK": [
+      {
+        "slug": "diesel-aumento-prezzi-svizzera-2026",
+        "cosine": 0.850072278762468
+      },
+      {
+        "slug": "carburanti-prezzo-rialzo-ticino",
+        "cosine": 0.8409198535362014
+      },
+      {
+        "slug": "fattura-miliardaria-energia-2026",
+        "cosine": 0.8347480567378047
+      },
+      {
+        "slug": "autotrasporto-rincari-confine-2026",
+        "cosine": 0.8309270213110023
+      },
+      {
+        "slug": "carburanti-ticino-aumento-prezzi",
+        "cosine": 0.8295162891260449
+      }
+    ],
+    "score": 2.380202380534911,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

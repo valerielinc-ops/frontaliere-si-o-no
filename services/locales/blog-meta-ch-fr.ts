@@ -481,6 +481,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.chiasso-brogeda-tempi-attesa-odierni.title': 'Temps d\'attente à la frontière de Chiasso-Brogeda aujourd\'hui',
     'blog.article.chiasso-brogeda-tempi-attesa-odierni.excerpt': 'Temps d\'attente actuels au point de passage suisse de Chiasso-Brogeda. Mise à jour en temps réel pour ceux qui traversent la frontière.',
     'blog.article.chiasso-brogeda-tempi-attesa-odierni.imageAlt': 'Trafic et infrastructures frontalières à Chiasso-Brogeda.',
+    'blog.article.prezzo-diesel-agrola-bellinzona-oggi.title': 'Prix diesel Agrola Bellinzona aujourd\'hui : mise à jour et détails',
+    'blog.article.prezzo-diesel-agrola-bellinzona-oggi.excerpt': 'Le prix actuel du diesel à Agrola via San Gottardo, Bellinzona : données actualisées et détails pratiques pour les fournisseurs en Suisse.',
+    'blog.article.prezzo-diesel-agrola-bellinzona-oggi.imageAlt': 'Station Agrola à Bellinzone avec afficheur des prix du diesel.',
 };
 
 export default blogMetaChFr;
