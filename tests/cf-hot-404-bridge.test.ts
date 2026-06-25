@@ -62,6 +62,26 @@ describe('cfHot404BridgePlugin', () => {
     const file = path.join(tmp, 'dist', rel('/cerca-lavoro-zurigo/preexisting-richer-role'));
     expect(fs.readFileSync(file, 'utf-8')).toBe('<html>RICHER</html>');
   });
+
+  it('emits a legacy cluster orphan as a meta-refresh REDIRECT to its live target, not an archived bridge', () => {
+    // Data-driven: pick a real entry from the committed cluster recovery map so
+    // the test survives map regeneration.
+    const map = (
+      JSON.parse(fs.readFileSync(path.resolve('data/search-cluster-301-map.json'), 'utf-8')) as {
+        map: Record<string, string>;
+      }
+    ).map;
+    const [legacyPath, target] = Object.entries(map)[0];
+    const file = path.join(tmp, 'dist', rel(legacyPath.replace(/\/$/, '')));
+    expect(fs.existsSync(file)).toBe(true);
+    const html = fs.readFileSync(file, 'utf-8');
+    // Redirects the user straight to the live page…
+    expect(html).toContain(`<meta http-equiv="refresh" content="0; url=${target}"`);
+    expect(html).toContain(`rel="canonical" href="https://frontaliereticino.ch${target}"`);
+    expect(html).toContain('noindex');
+    // …instead of dead-ending on the archived compat copy.
+    expect(html).not.toContain('Pagina archiviata');
+  });
 });
 
 /**

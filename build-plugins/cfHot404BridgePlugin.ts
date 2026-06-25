@@ -40,6 +40,13 @@ import searchClusterMapFile from '../data/search-cluster-301-map.json';
 const SEARCH_CLUSTER_LEGACY_PATHS: string[] = Object.keys(
   (searchClusterMapFile as { map?: Record<string, string> }).map ?? {},
 );
+// Trailing-slash-normalized lookup: these legacy cluster orphans have a
+// VERIFIED-LIVE target (a specific live cluster or the canton board), so they
+// must REDIRECT the user to the real page rather than dead-end on a "Pagina
+// archiviata" compat bridge — see the meta-refresh branch in the emit loop.
+const SEARCH_CLUSTER_LEGACY_SET = new Set(
+  SEARCH_CLUSTER_LEGACY_PATHS.map((p) => p.replace(/\/+$/, '')),
+);
 
 // Anti-runaway rail (NOT a recovery limit): the 40k hard cap used to bite the
 // real CF-confirmed 404 universe — a time-sliced sweep (build-cf-hot-404s.mjs,
@@ -206,6 +213,9 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
 
         const to = withSlash(resolution.canonicalPath);
         const kind = resolution.kind;
+        // A legacy cluster orphan whose target is verified-live: redirect the
+        // user straight there instead of serving the archived compat bridge.
+        const isClusterRedirect = SEARCH_CLUSTER_LEGACY_SET.has(fromNorm);
 
         // Canton-drift recovery as a REAL 200 page WITH the job's full content.
         // For an IT canton-moved orphan (the apex is NOT behind the locale Worker,
@@ -254,16 +264,38 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         // straight at it. Other kinds land on a listing/landing.
         const body = kind === 'canton-moved'
           ? `Questo annuncio e stato spostato. Lo trovi aggiornato alla pagina collegata qui sotto.`
+          : isClusterRedirect
+          ? `Questa ricerca ha una versione aggiornata. Ti stiamo portando alla pagina corretta; se non vieni reindirizzato, aprila qui sotto.`
           : `Questa pagina ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : "dell annuncio"} non e piu disponibile. Abbiamo mantenuto una pagina compatibile per evitare un errore e mostrarti le offerte aggiornate per questa zona.`;
-        const html = buildCanonicalBridgePage({
+        let html = buildCanonicalBridgePage({
           canonicalUrl: `${BASE_URL}${to}`,
           pathLabel: to,
-          title: kind === 'canton-moved' ? 'Annuncio spostato | Frontaliere Ticino' : 'Pagina archiviata | Frontaliere Ticino',
+          title: kind === 'canton-moved'
+            ? 'Annuncio spostato | Frontaliere Ticino'
+            : isClusterRedirect
+            ? 'Ricerca aggiornata | Frontaliere Ticino'
+            : 'Pagina archiviata | Frontaliere Ticino',
           description: kind === 'canton-moved' ? `Annuncio spostato: vedi ${to}.` : `Annuncio non piu disponibile collegato a ${to}.`,
           body,
-          ctaLabel: kind === 'canton-moved' ? 'Vai all annuncio' : 'Vedi le offerte aggiornate',
+          ctaLabel: kind === 'canton-moved'
+            ? 'Vai all annuncio'
+            : isClusterRedirect
+            ? 'Apri la ricerca aggiornata'
+            : 'Vedi le offerte aggiornate',
           noindex: true,
         });
+
+        if (isClusterRedirect) {
+          // Land the user on the real (verified-live) page immediately. With the
+          // canonical link + noindex already set on the page, a meta-refresh is
+          // 301-equivalent for crawlers and an instant redirect for users — the
+          // same pattern cantonOrphanRedirectsPlugin uses. Replaces the dead-end
+          // "Pagina archiviata" compat bridge for these orphans.
+          html = html.replace(
+            '</head>',
+            `  <meta http-equiv="refresh" content="0; url=${to}">\n  </head>`,
+          );
+        }
 
         fs.mkdirSync(outDir, { recursive: true });
         fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
