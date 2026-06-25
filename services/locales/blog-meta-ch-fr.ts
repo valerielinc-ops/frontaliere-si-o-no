@@ -442,6 +442,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassazione-frontalieri-oltre-20km-confine.title': 'Fiscalité frontalière : impacts et gestion fiscale',
     'blog.article.tassazione-frontalieri-oltre-20km-confine.excerpt': 'Analyse de la fiscalité pour les frontaliers travaillant en Suisse : détails sur l\'IRPEF, le crédit d\'impôt et les procédures de déclaration correcte des revenus.',
     'blog.article.tassazione-frontalieri-oltre-20km-confine.imageAlt': 'Vue panoramique d\'une zone frontalière suisse avec montagnes',
+    'blog.article.mc-27-mostra-lugano-2026.title': 'MC\'27 emmène l\'art wear au cœur de Lugano : l\'exposition exclusive à La Poste',
+    'blog.article.mc-27-mostra-lugano-2026.excerpt': 'Du 25 juin au 9 juillet 2026 à Lugano, MC’27 présente l’Art Wear dans une exposition unique à La Poste de Lugano 1',
+    'blog.article.mc-27-mostra-lugano-2026.imageAlt': 'Vue de l\'exposition de vêtements d\'art contemporain dans un bureau de poste suisse',
 };
 
 export default blogMetaChFr;
