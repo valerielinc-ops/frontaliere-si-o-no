@@ -8154,6 +8154,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fermentino-mercato-contadino-giubiano.title': 'Varese: Torna Fermentino - Bauernmarkt von Giubiano',
     'blog.article.fermentino-mercato-contadino-giubiano.excerpt': 'Am 26. Juni findet wieder der abendliche Bauernmarkt in Giubiano statt. Lokale Brauer und Craft Beer in einer kostenlosen Veranstaltung.',
     'blog.article.fermentino-mercato-contadino-giubiano.imageAlt': 'Abendmarkt in Giubiano mit lokalen Ständen und Menschen, die sich unterhalten',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.title': 'Krankenkasse Neuenburg: Leitfaden für junge Erwachsene 19-25 Jahre',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.excerpt': 'Übersicht Krankenkassen in Neuenburg für junge Erwachsene 19-25 Jahre. Details zu den Anforderungen und Verfahren, praktische Informationen.',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.imageAlt': 'Junger Erwachsener im Tessin mit Schweizer Stadt im Hintergrund',
 };
 
 export default blogMetaDe;
