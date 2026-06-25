@@ -2286,11 +2286,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::en::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-28cbcn",
-    "winnerCanonical": "seller-denner-ag-basel-8b3f9b",
+    "winnerJobIdentifier": "company-xf6s8h",
+    "winnerCanonical": "salesperson-denner-ag-basel",
     "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -3212,6 +3212,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::fr::vendeur-dans-la-nourriture-coop-genossenschaft-basel": {
+    "winnerJobIdentifier": "company-dm8m1m",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-basel-8510f5",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::fr::verkaufer-in-denner": {
     "winnerJobIdentifier": "denner-0851c2a2772b",
     "winnerCanonical": "verkaufer-in-denner-binningen",
@@ -3222,11 +3231,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-28cbcn",
-    "winnerCanonical": "vendeur-denner-ag-basel-8b3f9b",
+    "winnerJobIdentifier": "company-xf6s8h",
+    "winnerCanonical": "vendeur-denner-ag-basel",
     "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -4455,12 +4464,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner": {
-    "winnerJobIdentifier": "denner-0851c2a2772b",
-    "winnerCanonical": "verkaufer-in-denner-binningen",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 1,
+    "winnerJobIdentifier": "denner-5d4fff5a7c68",
+    "winnerCanonical": "venditore-denner-ag-therwil",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner-ag-basel": {
@@ -4473,12 +4482,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner-ag-basel-2": {
-    "winnerJobIdentifier": "company-28cbcn",
-    "winnerCanonical": "venditore-denner-ag-basel-8b3f9b",
+    "winnerJobIdentifier": "company-b1y7ze",
+    "winnerCanonical": "venditore-a-denner-ag-allschwil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
-    "score": 0.375,
-    "candidatesCount": 2,
+    "score": 0.2222,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-frischprodukte-coop-zurich-5": {
@@ -4487,6 +4496,15 @@
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::verkaufer-in-im-stundenlohn-denner": {
+    "winnerJobIdentifier": "denner-8067de556cec",
+    "winnerCanonical": "venditore-nel-salario-orario-denner-binningen",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.1,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -9594,12 +9612,12 @@
     "canton": "BE"
   },
   "BE::it::verkaufer-in-denner": {
-    "winnerJobIdentifier": "denner-6682c6afcb6c",
-    "winnerCanonical": "venditore-denner-ag-langenthal",
-    "decidedAt": "2026-06-23T00:00:00.000Z",
-    "lastSeenAt": "2026-06-23T00:00:00.000Z",
-    "score": 0.1667,
-    "candidatesCount": 1,
+    "winnerJobIdentifier": "denner-2f777e03cedd",
+    "winnerCanonical": "venditore-denner-interlaken",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 4,
     "canton": "BE"
   },
   "BE::it::verkaufer-in-denner-ag-interlaken": {
@@ -13401,11 +13419,11 @@
     "canton": "GR"
   },
   "GR::en::financial-specialist-50-100-ferrovia-retica-rhb-chur": {
-    "winnerJobIdentifier": "company-6k373a",
-    "winnerCanonical": "specialist-installer-mechanic-maintenance-80-100-ferrovia-retica-rhb-chur",
+    "winnerJobIdentifier": "company-76lgzu",
+    "winnerCanonical": "spezialist-in-kundeninformation-50-60-ferrovia-retica-rhb-chur",
     "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -17289,8 +17307,8 @@
     "canton": "GR"
   },
   "GR::it::specialiste-des-finances-50-100-ferrovia-retica-rhb-chur": {
-    "winnerJobIdentifier": "company-6k373a",
-    "winnerCanonical": "installatore-specializzato-meccanico-manutenzione-80-100-ferrovia-retica-rhb-chur",
+    "winnerJobIdentifier": "company-76lgzu",
+    "winnerCanonical": "specialista-dell-informazione-clienti-50-60-ferrovia-retica-rhb-chur",
     "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.3571,
@@ -17298,8 +17316,8 @@
     "canton": "GR"
   },
   "GR::it::spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur": {
-    "winnerJobIdentifier": "company-6k373a",
-    "winnerCanonical": "installatore-specializzato-meccanico-manutenzione-80-100-ferrovia-retica-rhb-chur",
+    "winnerJobIdentifier": "company-76lgzu",
+    "winnerCanonical": "specialista-dell-informazione-clienti-50-60-ferrovia-retica-rhb-chur",
     "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.3571,
@@ -17307,8 +17325,8 @@
     "canton": "GR"
   },
   "GR::it::spezialist-in-anlagebuchhaltung-50-100-rhaetische-bahn-chur": {
-    "winnerJobIdentifier": "company-6k373a",
-    "winnerCanonical": "installatore-specializzato-meccanico-manutenzione-80-100-ferrovia-retica-rhb-chur",
+    "winnerJobIdentifier": "company-76lgzu",
+    "winnerCanonical": "specialista-dell-informazione-clienti-50-60-ferrovia-retica-rhb-chur",
     "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.125,
@@ -17574,6 +17592,15 @@
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.1538,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::verkaufer-in-denner": {
+    "winnerJobIdentifier": "denner-6fa65f0c05ae",
+    "winnerCanonical": "venditore-denner-schiers",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-chur-graubunden": {
@@ -20205,10 +20232,10 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-16T00:00:00.000Z",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20223,10 +20250,10 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-16T00:00:00.000Z",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.5455,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20277,10 +20304,10 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
-    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-    "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-16T00:00:00.000Z",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
     "score": 0.5833,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21132,11 +21159,11 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-e9dc6ded9a20",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4",
-    "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-12T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -21150,11 +21177,11 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-a736bae8f32c",
-    "winnerCanonical": "dipl-nursing-professional-40-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-06-23T00:00:00.000Z",
-    "score": 0.5833,
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.5455,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -21213,11 +21240,11 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
-    "winnerJobIdentifier": "hoch-health-5a811b32e6d6",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen-2",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
-    "score": 0.5714,
+    "score": 0.5833,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -22158,11 +22185,11 @@
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-e9dc6ded9a20",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4",
-    "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-12T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -22176,11 +22203,11 @@
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-a736bae8f32c",
-    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-40-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-06-23T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.5455,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -22239,11 +22266,11 @@
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
-    "winnerJobIdentifier": "hoch-health-e9dc6ded9a20",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4",
-    "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-12T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.5833,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -23310,11 +23337,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
-    "winnerJobIdentifier": "hoch-health-3f19ebbdc10b",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-come-ausbildner-in-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-06-23T00:00:00.000Z",
-    "lastSeenAt": "2026-06-23T00:00:00.000Z",
-    "score": 0.7143,
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -36557,6 +36584,24 @@
     "candidatesCount": 1,
     "canton": "VD"
   },
+  "VD::it::educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd": {
+    "winnerJobIdentifier": "institution-lavigny-9c3cdc09d0e5",
+    "winnerCanonical": "educatore-specializzato-laboratori-di-sviluppo-personale-e-animazione-cdi-cdd-tra-il-60-e-il-100-institution-de-lavigny",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.16,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
+  "VD::it::educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd-2": {
+    "winnerJobIdentifier": "institution-lavigny-9c3cdc09d0e5",
+    "winnerCanonical": "educatore-specializzato-laboratori-di-sviluppo-personale-e-animazione-cdi-cdd-tra-il-60-e-il-100-institution-de-lavigny",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::it::enseignant-e-specialise-e-ophtalmique-lausanne": {
     "winnerJobIdentifier": "ophtalmique-d32c006f140f",
     "winnerCanonical": "insegnante-specializzato-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
@@ -45666,12 +45711,12 @@
     "canton": "ZH"
   },
   "ZH::it::psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur": {
-    "winnerJobIdentifier": "forel-klinik-77e386636f17",
-    "winnerCanonical": "psicoterapeuta-m-f-d-80-forel-klinik-ellikon-an-der-thur",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "forel-klinik-e4156f5082f9",
+    "winnerCanonical": "terapista-occupazionale-m-f-d-50-forel-klinik-ellikon-an-der-thur",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
     "lastSeenAt": "2026-06-24T00:00:00.000Z",
-    "score": 0.6429,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl": {
@@ -46503,11 +46548,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-horgen-ugymek": {
-    "winnerJobIdentifier": "company-jmd8ow",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-wadenswil",
-    "decidedAt": "2026-06-18T00:00:00.000Z",
-    "lastSeenAt": "2026-06-18T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "company-j69zes",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-horgen",
+    "decidedAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "ZH"
   },
