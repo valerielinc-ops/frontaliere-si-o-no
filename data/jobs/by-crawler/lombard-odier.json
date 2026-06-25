@@ -438,8 +438,7 @@
           "private-assets-investment-controller-80-100-lombard-odier-ch"
         ],
         "fr": [
-          "controleur-des-investissements-prives-80-100-lombard-odier-geneva",
-          "private-assets-investment-controller-80-100-lombard-odier-ch"
+          "controleur-des-investissements-prives-80-100-lombard-odier-geneva"
         ]
       },
       "firstSeenAt": "2026-05-27T23:38:41.078Z",
@@ -2112,8 +2111,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditore-interno-it-80-100-lombard-odier-geneva",
-          "it-internal-auditor-80-100-lombard-odier-ch"
+          "auditore-interno-it-80-100-lombard-odier-geneva"
         ]
       },
       "firstSeenAt": "2026-06-18T23:11:30.723Z",
@@ -2660,10 +2658,10 @@
     },
     {
       "id": "lombard-odier-4b19709e5327",
-      "slug": "chef-fe-de-partie-lombard-odier-ch",
+      "slug": "capopartita-lombard-odier-geneva",
       "slugByLocale": {
         "en": "chef-fe-de-partie-lombard-odier-ch",
-        "it": "chef-fe-de-partie-lombard-odier-ch",
+        "it": "capopartita-lombard-odier-geneva",
         "de": "chef-fe-de-partie-lombard-odier-ch",
         "fr": "chef-fe-de-partie-lombard-odier-ch"
       },
@@ -2721,14 +2719,22 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-25T11:35:08.303Z"
+      "firstSeenAt": "2026-06-25T11:35:08.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-partie-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-partie-lombard-odier-ch"
+      ]
     },
     {
       "id": "lombard-odier-598980498c95",
-      "slug": "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch",
+      "slug": "account-manager-global-custody-80-100-lombard-odier-geneva",
       "slugByLocale": {
         "fr": "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch",
-        "it": "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch",
+        "it": "account-manager-global-custody-80-100-lombard-odier-geneva",
         "en": "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch",
         "de": "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch"
       },
@@ -2786,7 +2792,15 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-25T11:35:07.448Z"
+      "firstSeenAt": "2026-06-25T11:35:07.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch"
+      ]
     }
   ]
 }

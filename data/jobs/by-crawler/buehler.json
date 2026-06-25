@@ -6788,7 +6788,7 @@
         "it": "process-ingegnere-buhler-group-uzwil",
         "en": "process-engineer-buhler-group-uzwil",
         "de": "process-engineer-buehler-uzwil",
-        "fr": "process-engineer-buehler-uzwil"
+        "fr": "ingenieur-de-processus-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6830,15 +6830,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "process-engineer-buehler-uzwil",
-        "ingenieur-de-processus-buhler-group-uzwil"
+        "process-engineer-buehler-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "process-engineer-buehler-uzwil"
         ],
         "fr": [
-          "ingenieur-de-processus-buhler-group-uzwil",
           "process-engineer-buehler-uzwil"
         ]
       },
@@ -10843,12 +10841,12 @@
     },
     {
       "id": "buehler-6fcfa4a9512d",
-      "slug": "project-operations-lead-buehler-izmir",
+      "slug": "piombo-delle-operazioni-di-progetto-buhler-group-izmir",
       "slugByLocale": {
         "en": "project-operations-lead-buehler-izmir",
-        "it": "project-operations-lead-buehler-izmir",
-        "de": "project-operations-lead-buehler-izmir",
-        "fr": "project-operations-lead-buehler-izmir"
+        "it": "piombo-delle-operazioni-di-progetto-buhler-group-izmir",
+        "de": "leiter-projektbetrieb-buhler-group-izmir",
+        "fr": "chef-de-projet-buhler-group-izmir"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -10903,16 +10901,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T10:49:07.035Z"
+      "firstSeenAt": "2026-06-25T10:49:07.035Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-operations-lead-buehler-izmir"
+        ],
+        "de": [
+          "project-operations-lead-buehler-izmir"
+        ],
+        "fr": [
+          "project-operations-lead-buehler-izmir"
+        ]
+      },
+      "previousSlugs": [
+        "project-operations-lead-buehler-izmir"
+      ]
     },
     {
       "id": "buehler-3f38785db567",
-      "slug": "montageleiter-m-w-d-im-internationalen-anlagenbau-buhler-group-beilngries",
+      "slug": "assembly-manager-m-f-d-nella-costruzione-internazionale-di-impianti-buhler-group-beilngries",
       "slugByLocale": {
         "de": "montageleiter-m-w-d-im-internationalen-anlagenbau-buehler-beilngries",
-        "it": "montageleiter-m-w-d-im-internationalen-anlagenbau-buhler-group-beilngries",
-        "en": "montageleiter-m-w-d-im-internationalen-anlagenbau-buhler-group-beilngries",
-        "fr": "montageleiter-m-w-d-im-internationalen-anlagenbau-buhler-group-beilngries"
+        "it": "assembly-manager-m-f-d-nella-costruzione-internazionale-di-impianti-buhler-group-beilngries",
+        "en": "assembly-manager-m-f-d-in-international-plant-construction-buhler-group-beilngries",
+        "fr": "gestionnaire-de-montage-m-f-d-dans-la-construction-d-installations-internationales-buhler-group-beilngries"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -10957,11 +10969,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "montageleiter-m-w-d-im-internationalen-anlagenbau-buehler-beilngries"
+          "montageleiter-m-w-d-im-internationalen-anlagenbau-buehler-beilngries",
+          "montageleiter-m-w-d-im-internationalen-anlagenbau-buhler-group-beilngries"
+        ],
+        "en": [
+          "montageleiter-m-w-d-im-internationalen-anlagenbau-buhler-group-beilngries"
+        ],
+        "fr": [
+          "montageleiter-m-w-d-im-internationalen-anlagenbau-buhler-group-beilngries"
         ]
       },
       "previousSlugs": [
-        "montageleiter-m-w-d-im-internationalen-anlagenbau-buehler-beilngries"
+        "montageleiter-m-w-d-im-internationalen-anlagenbau-buehler-beilngries",
+        "montageleiter-m-w-d-im-internationalen-anlagenbau-buhler-group-beilngries"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

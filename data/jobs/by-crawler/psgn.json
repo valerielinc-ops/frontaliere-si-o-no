@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "psgn-8432ca9e7009",
-      "slug": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+      "slug": "medico-assistente-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "it": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+        "it": "medico-assistente-psychiatrie-st-gallen-wil-sg",
         "en": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
         "fr": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
       },
@@ -55,11 +55,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-psgn-wil-sg"
+          "assistenzarztin-assistenzarzt-psgn-wil-sg",
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-psgn-wil-sg"
+        "assistenzarztin-assistenzarzt-psgn-wil-sg",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -457,10 +459,10 @@
       "id": "psgn-385650fe4ec0",
       "slug": "dipl-infermiera-hf-fh-arte-terapia-attivita-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "dipl-infermiera-hf-fh-arte-terapia-attivita-psychiatrie-st-gallen-wil-sg",
+        "it": "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
         "en": "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
         "de": "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psgn-wil-sg",
-        "fr": "dipl-infirmiere-hf-fh-art-therapy-activite-psychiatrie-st-gallen-wil-sg"
+        "fr": "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -505,16 +507,15 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psgn-wil-sg",
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-        "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+        "dipl-infirmiere-hf-fh-art-therapy-activite-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psgn-wil-sg"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+          "dipl-infirmiere-hf-fh-art-therapy-activite-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-24T12:07:08.286Z",
@@ -535,10 +536,10 @@
       "id": "psgn-07d4e48dcae2",
       "slug": "terapista-professionale-terapista-professionale-attivita-di-terapia-artistica-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "terapista-professionale-terapista-professionale-attivita-di-terapia-artistica-psychiatrie-st-gallen-wil-sg",
+        "it": "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
         "en": "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
         "de": "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psgn-wil-sg",
-        "fr": "ergotherapeute-ergotherapeute-activite-de-therapie-artistique-psychiatrie-st-gallen-wil-sg"
+        "fr": "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -583,16 +584,15 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psgn-wil-sg",
         "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-        "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+        "ergotherapeute-ergotherapeute-activite-de-therapie-artistique-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psgn-wil-sg",
-          "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-          "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+          "ergotherapeutin-ergotherapeut-psgn-wil-sg"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+          "ergotherapeute-ergotherapeute-activite-de-therapie-artistique-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-24T12:07:07.549Z",
@@ -611,10 +611,10 @@
     },
     {
       "id": "psgn-67a38cb9e173",
-      "slug": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+      "slug": "infermiere-laureato-in-hf-fh-servizio-notturno-psychiatrie-st-gallen-wil-sg-bbbc9d",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
-        "it": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+        "it": "infermiere-laureato-in-hf-fh-servizio-notturno-psychiatrie-st-gallen-wil-sg-bbbc9d",
         "en": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
         "fr": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
       },
@@ -662,11 +662,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg"
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg"
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

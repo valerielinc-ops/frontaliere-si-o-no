@@ -943,8 +943,7 @@
           "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
         ],
         "en": [
-          "psychotherapist-psychotherapist-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
-          "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
+          "psychotherapist-psychotherapist-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal"
         ],
         "fr": [
           "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
@@ -1022,8 +1021,7 @@
           "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
         ],
         "en": [
-          "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal",
-          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
+          "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
@@ -1122,10 +1120,10 @@
     },
     {
       "id": "klinik-sgm-936a5de63113",
-      "slug": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
+      "slug": "psicoterapeuta-psicoterapeuta-ambulatorio-di-spiez-klinik-sgm-langenthal-spiez",
       "slugByLocale": {
         "de": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
-        "it": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
+        "it": "psicoterapeuta-psicoterapeuta-ambulatorio-di-spiez-klinik-sgm-langenthal-spiez",
         "en": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
         "fr": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
       },
@@ -1183,7 +1181,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T11:23:35.575Z"
+      "firstSeenAt": "2026-06-25T11:23:35.575Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
+      ]
     }
   ]
 }

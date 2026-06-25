@@ -4988,8 +4988,7 @@
           "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
         ],
         "fr": [
-          "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich",
-          "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
+          "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.745Z",
@@ -10340,10 +10339,10 @@
       "id": "uzh-768408efecbd",
       "slug": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
+        "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "fr": "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10387,15 +10386,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "liaison-librarian-ub-naturwissenschaften-uzh-zurich"
         ],
         "fr": [
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
           "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
         ]
       },
@@ -10708,10 +10705,10 @@
     },
     {
       "id": "uzh-c4e2a494a282",
-      "slug": "koordinator-in-forschungsinfrastrukturen-universitat-zurich-zurich",
+      "slug": "infrastrutture-di-ricerca-coordinatori-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "koordinator-in-forschungsinfrastrukturen-uzh-zurich",
-        "it": "koordinator-in-forschungsinfrastrukturen-universitat-zurich-zurich",
+        "it": "infrastrutture-di-ricerca-coordinatori-universitat-zurich-zurich",
         "en": "koordinator-in-forschungsinfrastrukturen-universitat-zurich-zurich",
         "fr": "koordinator-in-forschungsinfrastrukturen-universitat-zurich-zurich"
       },
@@ -10759,11 +10756,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "koordinator-in-forschungsinfrastrukturen-uzh-zurich"
+          "koordinator-in-forschungsinfrastrukturen-uzh-zurich",
+          "koordinator-in-forschungsinfrastrukturen-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "koordinator-in-forschungsinfrastrukturen-uzh-zurich"
+        "koordinator-in-forschungsinfrastrukturen-uzh-zurich",
+        "koordinator-in-forschungsinfrastrukturen-universitat-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
