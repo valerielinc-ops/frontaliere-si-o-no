@@ -714,7 +714,7 @@
       "addressCountry": "CH",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-22T15:16:16.205Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73599-de_DE",
@@ -6781,10 +6781,10 @@
       "country": "CH",
       "description": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
       "descriptionByLocale": {
-        "it": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
+        "it": "Descrizione - Hai un innato senso dell'organizzazione, apprezzi la varietà e vorresti scoprire diversi campi?",
         "en": "Descrizione - Do you have an innate sense of organization, you appreciate variety and you would like to discover different fields?",
         "de": "Descrizione - Haben Sie ein angeborenes Gefühl der Organisation, schätzen Sie Vielfalt und möchten verschiedene Felder entdecken?",
-        "fr": "## Descrizione - Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
+        "fr": "## Descrizione\n- Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
         "it": "Imparare i dipendenti SWC, Servizi e Amministrazione - Berna (lingua francese)",
@@ -6850,7 +6850,7 @@
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post",
         "apprendistato-commerciale-efz-servizi-e-amministrazione-berna-francofono-la-poste-suisse-bienne"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "url": "https://job.post.ch/default/job/Conseill%C3%A8reConseiller-client%C3%A8le-PME/73679-fr_FR",
@@ -6943,13 +6943,13 @@
       "country": "CH",
       "description": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
       "descriptionByLocale": {
-        "it": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
+        "it": "Descrizione - Hai un innato senso dell'organizzazione, apprezzi la varietà e vorresti scoprire diversi campi?",
         "en": "Descrizione - Do you have an innate sense of organization, you appreciate variety and you would like to discover different fields?",
         "de": "Descrizione - Haben Sie ein angeborenes Gefühl der Organisation, schätzen Sie Vielfalt und möchten verschiedene Felder entdecken?",
-        "fr": "## Descrizione - Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
+        "fr": "## Descrizione\n- Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
-        "it": "Apprentissage d'employé-e de commerce CFC, Services et administration - Jura",
+        "it": "Apprendistato di impiegato/a di commercio AFC, Servizi e amministrazione - Giura",
         "en": "Business Employee Learning SWC, Services and Administration - Jura",
         "de": "Business Employee Lernen SWC, Dienstleistungen und Verwaltung - Jura",
         "fr": "Apprentissage d'employé-e de commerce CFC, Services et administration - Jura"
@@ -7010,10 +7010,9 @@
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post",
         "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-jura-la-poste-suisse-porrentruy"
       ],
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 117,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 117
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC-Distribution-Neuch%C3%A2tel/73238-fr_FR",

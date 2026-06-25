@@ -5706,9 +5706,9 @@
       "firstSeenAt": "2026-06-23T22:57:43.962Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal-d47c8f",
+        "en": "seller-denner-ag-langenthal",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-d47c8f"
+        "fr": "vendeur-denner-ag-langenthal-634638"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -5757,14 +5757,18 @@
       "previousSlugs": [
         "seller-denner-ag-langenthal",
         "vendeur-denner-ag-langenthal-634638",
-        "venditore-denner-ag-langenthal-634638"
+        "venditore-denner-ag-langenthal-634638",
+        "seller-denner-ag-langenthal-d47c8f",
+        "vendeur-denner-ag-langenthal-d47c8f"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-langenthal"
+          "seller-denner-ag-langenthal",
+          "seller-denner-ag-langenthal-d47c8f"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-634638"
+          "vendeur-denner-ag-langenthal-634638",
+          "vendeur-denner-ag-langenthal-d47c8f"
         ]
       }
     },
@@ -15536,8 +15540,8 @@
       "firstSeenAt": "2026-06-22T15:05:49.371Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-wetzikon",
-        "en": "seller-denner-ag-wetzikon",
-        "fr": "vendeur-denner-ag-wetzikon",
+        "en": "seller-denner-ag-wetzikon-8e6f7a",
+        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
       "titleByLocale": {
@@ -15571,10 +15575,12 @@
           "verkaufer-in-denner-ag-wetzikon-douzkp"
         ],
         "en": [
-          "seller-denner-ag-wetzikon-8e6f7a"
+          "seller-denner-ag-wetzikon-8e6f7a",
+          "seller-denner-ag-wetzikon"
         ],
         "fr": [
-          "vendeur-denner-ag-wetzikon-8e6f7a"
+          "vendeur-denner-ag-wetzikon-8e6f7a",
+          "vendeur-denner-ag-wetzikon"
         ],
         "it": [
           "verkaufer-in-denner-ag-allschwil",
@@ -15591,7 +15597,9 @@
         "venditore-denner-ag-zurich-1ed56c",
         "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
-        "venditore-denner-ag-wetzikon-8e6f7a"
+        "venditore-denner-ag-wetzikon-8e6f7a",
+        "seller-denner-ag-wetzikon",
+        "vendeur-denner-ag-wetzikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
