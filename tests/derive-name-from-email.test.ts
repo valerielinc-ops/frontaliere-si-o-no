@@ -1,6 +1,20 @@
 import { describe, it, expect } from 'vitest';
-import { deriveNameFromEmail } from '../scripts/lib/deriveNameFromEmail.mjs';
+import { deriveNameFromEmail, recognizeFirstName } from '../scripts/lib/deriveNameFromEmail.mjs';
 import { sanitizeFirstName, personalizeGreeting } from '../services/newsletter-template.mjs';
+
+describe('recognizeFirstName (shared validator)', () => {
+  it('recognizes a real first name from a display name or token, title-cased', () => {
+    expect(recognizeFirstName('Mario Rossi')).toBe('Mario');
+    expect(recognizeFirstName('giuseppe')).toBe('Giuseppe');
+    expect(recognizeFirstName('FRANCESCA galli')).toBe('Francesca');
+  });
+
+  it('rejects role/brand words and non-names → null', () => {
+    for (const v of ['Frontaliere Ticino', 'Newsletter', 'info', 'no-reply', 'cooldude', '', null, undefined]) {
+      expect(recognizeFirstName(v as string)).toBeNull();
+    }
+  });
+});
 
 describe('deriveNameFromEmail (dataset-validated)', () => {
   it('derives recognized first names from the local-part', () => {

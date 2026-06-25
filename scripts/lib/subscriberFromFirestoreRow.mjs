@@ -1,5 +1,36 @@
 import { parseEmailField } from './parseEmailField.mjs';
+import { deriveNameFromEmail, recognizeFirstName } from './deriveNameFromEmail.mjs';
+import { sanitizeFirstName } from '../../services/newsletter-template.mjs';
 import { calculateEngagementScore } from '../../functions/src/lib/engagementScore.js';
+
+/**
+ * Resolve the greeting first name for a subscriber row, highest confidence
+ * first. Anything not confidently a real human first name resolves to null,
+ * and the caller falls back to the generic "frontaliere" greeting.
+ *
+ *   1. row.firstName — clean stored first name (no re-derivation needed)
+ *   2. row.name      — social display name (Google/LinkedIn/Facebook auth)
+ *   3. display name harvested from a "Name <addr>" email field — dataset-validated
+ *   4. dataset-validated guess from the email local-part
+ *
+ * (1)/(2) are trusted auth-provided names → only sanitized. (3)/(4) are
+ * lower-trust → must clear recognizeFirstName/deriveNameFromEmail (role-word
+ * + open-source names dataset), so "Frontaliere Ticino <addr>" or "info@…"
+ * never produce a bogus greeting.
+ *
+ * @param {Record<string, any>} row
+ * @param {{ email: string, displayName: string|null }} parsed
+ * @returns {string|null}
+ */
+function resolveFirstName(row, parsed) {
+  return (
+    sanitizeFirstName(row.firstName) ||
+    sanitizeFirstName(row.name) ||
+    recognizeFirstName(parsed.displayName) ||
+    deriveNameFromEmail(parsed.email) ||
+    null
+  );
+}
 
 /**
  * Project a raw `newsletter_subscribers` Firestore row into the subscriber
@@ -21,11 +52,15 @@ export function subscriberFromFirestoreRow(row) {
   const email = parsed.email;
   if (!email) return null;
   const fresh = calculateEngagementScore(row);
+  const firstName = resolveFirstName(row, parsed);
   return {
     email,
-    // Greeting-name resolution: stored social name → display name harvested
-    // from a "Name <addr>" email field → (later) dataset-validated email guess.
     name: row.name || parsed.displayName || null,
+    // Greeting first name (high-confidence or null → generic greeting).
+    firstName,
+    // When the doc has no stored firstName yet but we resolved one, persist it
+    // on the next send so future runs skip re-derivation (see persistDelivery).
+    firstNameToPersist: !row.firstName && firstName ? firstName : null,
     locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
     sourceChannel: row.source_channel || row.source || 'newsletter_page',
     locationInterest: row.location_interest || null,
