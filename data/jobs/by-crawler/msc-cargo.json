@@ -362,11 +362,7 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-          "experience-development-delivery-manager-new-builds-msc-geneva"
-        ],
-        "it": [
-          "experience-development-delivery-manager-new-builds-msc-geneva"
+          "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
         ]
       }
     },
@@ -504,22 +500,18 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "direct-to-consumer-channels-analyste-msc-group-geneva",
-          "direct-to-consumer-channels-analyst-msc-geneva"
-        ],
-        "it": [
-          "direct-to-consumer-channels-analyst-msc-geneva"
+          "direct-to-consumer-channels-analyste-msc-group-geneva"
         ]
       }
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "gestione-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
-        "de": "travelling-destination-manager-msc-geneva",
-        "fr": "travelling-destination-manager-msc-geneva"
+        "it": "gestione-delle-destinazioni-msc-group-geneva",
+        "de": "reisezielmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-destination-itinerante-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -577,15 +569,13 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-23T22:50:36.003Z",
       "previousSlugs": [
-        "gestione-delle-destinazioni-msc-group-geneva"
+        "travelling-destination-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "reisezielmanager-msc-group-geneva",
           "travelling-destination-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-destination-itinerante-msc-group-geneva",
           "travelling-destination-manager-msc-geneva"
         ],
         "it": [
@@ -671,7 +661,7 @@
         "en": "brand-manager-brand-product-msc-geneva",
         "it": "brand-manager-brand-product-msc-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",

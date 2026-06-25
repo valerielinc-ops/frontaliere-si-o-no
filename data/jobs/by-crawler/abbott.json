@@ -1490,7 +1490,7 @@
         "it": "direttore-commercial-excellence-emea-structural-heart-abbott-basel",
         "en": "director-commercial-excellence-emea-structural-heart-abbott-ch",
         "de": "direktor-commercial-excellence-emea-structural-heart-abbott-basel",
-        "fr": "director-commercial-excellence-emea-structural-heart-abbott-ch"
+        "fr": "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1532,8 +1532,7 @@
       "requirementsByLocale": {},
       "jobReqId": "31146965",
       "previousSlugs": [
-        "director-commercial-excellence-emea-structural-heart-abbott-ch",
-        "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel"
+        "director-commercial-excellence-emea-structural-heart-abbott-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1543,7 +1542,6 @@
           "director-commercial-excellence-emea-structural-heart-abbott-ch"
         ],
         "fr": [
-          "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel",
           "director-commercial-excellence-emea-structural-heart-abbott-ch"
         ]
       },
@@ -1564,12 +1562,12 @@
     },
     {
       "id": "abbott-36e37a87f2e8",
-      "slug": "global-medical-manager-women-s-health-abbott-ch",
+      "slug": "global-medical-manager-salute-delle-donne-abbott-basel",
       "slugByLocale": {
         "en": "global-medical-manager-women-s-health-abbott-ch",
-        "it": "global-medical-manager-women-s-health-abbott-ch",
+        "it": "global-medical-manager-salute-delle-donne-abbott-basel",
         "de": "global-medical-manager-women-s-health-abbott-ch",
-        "fr": "global-medical-manager-women-s-health-abbott-ch"
+        "fr": "directeur-medical-mondial-sante-des-femmes-abbott-basel"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1625,7 +1623,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-25T10:33:41.274Z"
+      "firstSeenAt": "2026-06-25T10:33:41.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-medical-manager-women-s-health-abbott-ch"
+        ],
+        "fr": [
+          "global-medical-manager-women-s-health-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-medical-manager-women-s-health-abbott-ch"
+      ]
     }
   ]
 }

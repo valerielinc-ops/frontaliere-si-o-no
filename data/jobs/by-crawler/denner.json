@@ -1230,9 +1230,9 @@
       "slug": "venditore-denner-ag-langenthal",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal",
+        "en": "seller-denner-ag-langenthal-d47c8f",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-634638"
+        "fr": "vendeur-denner-ag-langenthal-d47c8f"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1291,21 +1291,17 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-langenthal",
-        "vendeur-denner-ag-langenthal-634638",
-        "seller-denner-ag-langenthal-d47c8f",
-        "vendeur-denner-ag-langenthal-d47c8f"
+        "vendeur-denner-ag-langenthal-634638"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner"
         ],
         "en": [
-          "seller-denner-ag-langenthal",
-          "seller-denner-ag-langenthal-d47c8f"
+          "seller-denner-ag-langenthal"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-634638",
-          "vendeur-denner-ag-langenthal-d47c8f"
+          "vendeur-denner-ag-langenthal-634638"
         ]
       },
       "firstSeenAt": "2026-06-23T11:30:12.956Z",
@@ -1414,9 +1410,9 @@
       "slug": "venditore-denner-ag-frauenfeld",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld-008421",
+        "en": "seller-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld-008421"
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1478,10 +1474,10 @@
         "venditore-con-salario-orario-denner-frauenfeld",
         "verkaufer-in-denner-frauenfeld",
         "salesperson-on-an-hourly-wage-denner-frauenfeld",
+        "seller-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-rubigen",
         "vendeur-a-salaire-horaire-denner-frauenfeld",
-        "seller-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld"
+        "vendeur-denner-ag-frauenfeld-008421"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1493,7 +1489,7 @@
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner",
           "salesperson-on-an-hourly-wage-denner-frauenfeld",
-          "seller-denner-ag-frauenfeld"
+          "seller-denner-ag-frauenfeld-008421"
         ],
         "de": [
           "verkaufer-in-denner-frauenfeld",
@@ -1503,7 +1499,7 @@
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner",
           "vendeur-a-salaire-horaire-denner-frauenfeld",
-          "vendeur-denner-ag-frauenfeld"
+          "vendeur-denner-ag-frauenfeld-008421"
         ]
       },
       "firstSeenAt": "2026-06-23T11:30:12.156Z",
@@ -2364,12 +2360,12 @@
     },
     {
       "id": "denner-b5bc19ed7aeb",
-      "slug": "verkaufer-in-im-stundenlohn-denner-spiez",
+      "slug": "venditore-nel-salario-orario-denner-spiez",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-spiez",
+        "it": "venditore-nel-salario-orario-denner-spiez",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-spiez-ymszpp",
-        "en": "verkaufer-in-im-stundenlohn-denner-spiez",
-        "fr": "verkaufer-in-im-stundenlohn-denner-spiez"
+        "en": "seller-in-the-hourly-wage-denner-spiez",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-spiez"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2428,11 +2424,19 @@
       "crawledAt": "2026-06-25T10:59:15.035Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-spiez"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-spiez"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-spiez"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-spiez"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2451,12 +2455,12 @@
     },
     {
       "id": "denner-1dd6dc22036a",
-      "slug": "verkaufer-in-im-stundenlohn-denner-interlaken",
+      "slug": "venditore-nel-salario-orario-denner-interlaken",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-interlaken",
+        "it": "venditore-nel-salario-orario-denner-interlaken",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
-        "en": "verkaufer-in-im-stundenlohn-denner-interlaken",
-        "fr": "verkaufer-in-im-stundenlohn-denner-interlaken"
+        "en": "seller-in-the-hourly-wage-denner-interlaken",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-interlaken"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2515,11 +2519,19 @@
       "crawledAt": "2026-06-25T10:59:14.461Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-interlaken"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-interlaken"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-interlaken"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-interlaken"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2636,12 +2648,12 @@
     },
     {
       "id": "denner-6f621cb833a6",
-      "slug": "verkaufer-in-denner-frauenfeld",
+      "slug": "venditore-denner-frauenfeld",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-frauenfeld",
+        "it": "venditore-denner-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "en": "verkaufer-in-denner-frauenfeld",
-        "fr": "verkaufer-in-denner-frauenfeld"
+        "en": "seller-denner-frauenfeld",
+        "fr": "vendeur-denner-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2700,11 +2712,19 @@
       "crawledAt": "2026-06-25T10:59:14.455Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-frauenfeld"
+        ],
+        "en": [
+          "verkaufer-in-denner-frauenfeld"
+        ],
+        "fr": [
+          "verkaufer-in-denner-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-frauenfeld"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2723,12 +2743,12 @@
     },
     {
       "id": "denner-eaf92c7e2352",
-      "slug": "verkaufer-in-im-stundenlohn-denner-gstaad",
+      "slug": "venditore-nel-salario-orario-denner-gstaad",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-gstaad",
+        "it": "venditore-nel-salario-orario-denner-gstaad",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-gstaad-lt4qle",
-        "en": "verkaufer-in-im-stundenlohn-denner-gstaad",
-        "fr": "verkaufer-in-im-stundenlohn-denner-gstaad"
+        "en": "seller-in-the-hourly-wage-denner-gstaad",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-gstaad"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2787,11 +2807,19 @@
       "crawledAt": "2026-06-25T10:59:13.898Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-gstaad"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-gstaad"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-gstaad"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-gstaad"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2810,12 +2838,12 @@
     },
     {
       "id": "denner-22d8ec5bf4de",
-      "slug": "verkaufer-in-im-stundenlohn-denner",
+      "slug": "venditore-nel-salario-orario-denner-glis",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner-glis",
+        "it": "venditore-nel-salario-orario-denner-glis",
+        "en": "seller-in-the-hourly-wage-denner-glis",
         "de": "verkaufer-in-im-stundenlohn-denner-glis",
-        "fr": "verkaufer-in-im-stundenlohn-denner-glis"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-glis"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2874,11 +2902,20 @@
       "crawledAt": "2026-06-25T10:59:13.895Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-2"
+          "verkaufer-in-im-stundenlohn-denner-2",
+          "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-glis"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-glis"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-2"
+        "verkaufer-in-im-stundenlohn-denner-2",
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-glis"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

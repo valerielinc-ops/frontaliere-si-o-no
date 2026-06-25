@@ -160,7 +160,7 @@
         "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "reservations-manager-m-w-d-badrutts-palace-ch",
-        "fr": "reservations-manager-m-w-d-badrutts-palace-ch"
+        "fr": "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -202,7 +202,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "reservations-manager-m-w-d-badrutts-palace-ch",
-        "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-w-d-badrutts-palace-ch",
@@ -225,7 +224,6 @@
           "reservations-manager-m-w-d-badrutts-palace-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "reservations-manager-m-w-d-badrutts-palace-ch"
         ]
       },
@@ -383,12 +381,12 @@
     },
     {
       "id": "badrutts-palace-cd87ec22959a",
-      "slug": "spontaneous-application-badrutts-palace-ch",
+      "slug": "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "de": "spontaneous-application-badrutts-palace-ch",
-        "it": "spontaneous-application-badrutts-palace-ch",
+        "it": "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz",
         "en": "spontaneous-application-badrutt-s-palace-hotel-st-moritz",
-        "fr": "spontaneous-application-badrutts-palace-ch"
+        "fr": "demande-spontanee-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -443,7 +441,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-25T10:42:20.554Z"
+      "firstSeenAt": "2026-06-25T10:42:20.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spontaneous-application-badrutts-palace-ch"
+        ],
+        "fr": [
+          "spontaneous-application-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spontaneous-application-badrutts-palace-ch"
+      ]
     }
   ]
 }
