@@ -4590,28 +4590,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Device-split in-feed ad, reused across every SPA job-list surface (main
  // list + editorial-landing sections). Mobile vs desktop slot mirrors the
  // static `infeedAdListItemHtml`; cadence is the shared `shouldPlaceInfeedAd`.
- const renderInfeedAd = (keySuffix: string): React.ReactNode =>
- isMobile ? (
- <div key={`infeed-m-${keySuffix}-${adRefreshKey}`} className="min-h-[280px]">
+ const renderInfeedAd = (keySuffix: string): React.ReactNode => {
+ const cfg = isMobile ? AD_SLOTS.JOBLIST_INFEED_MOBILE : AD_SLOTS.JOBLIST_INFEED_DESKTOP;
+ return (
+ <div key={`infeed-${isMobile ? 'm' : 'd'}-${keySuffix}-${adRefreshKey}`} className="min-h-[280px]">
  <AdSenseBanner
- adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
- adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
- adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
- fullWidthResponsive={false}
- className="my-3"
- />
- </div>
- ) : (
- <div key={`infeed-d-${keySuffix}-${adRefreshKey}`} className="min-h-[220px]">
- <AdSenseBanner
- adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
- adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
- adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
- fullWidthResponsive={false}
+ adSlot={cfg.slot}
+ adFormat={cfg.format}
+ fullWidthResponsive={cfg.fullWidthResponsive}
  className="my-3"
  />
  </div>
  );
+ };
 
  // Interleave one in-feed ad after every Nth job card (shared `shouldPlaceInfeedAd`
  // cadence), never after the last card. Used by the editorial-landing sections;
