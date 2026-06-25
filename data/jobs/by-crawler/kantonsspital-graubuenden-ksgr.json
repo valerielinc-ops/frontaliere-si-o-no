@@ -25,13 +25,22 @@
       "crawledAt": "2026-06-24T22:21:49.663Z",
       "slug": "kinderphysiotherapeut-in-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "kinderphysiotherapeut-in-kantonsspital-graubunden-chur"
+        "de": "kinderphysiotherapeut-in-kantonsspital-graubunden-chur",
+        "it": "kinderphysiotherapeut-in-kantonsspital-graubunden-chur",
+        "en": "kinderphysiotherapeut-in-kantonsspital-graubunden-chur",
+        "fr": "kinderphysiotherapeut-in-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Kinderphysiotherapeut:in"
+        "de": "Kinderphysiotherapeut:in",
+        "it": "Bambino fisioterapista:",
+        "en": "Child Physiotherapist:",
+        "fr": "Physiothérapeute pour enfants :"
       },
       "descriptionByLocale": {
-        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du führst Behandlungen von Kindern jeglichen Alters, sowohl stationär als auch ambulant durch\n\n• Du arbeitest interdisziplinär mit Kolleginnen und Kollegen zusammen\n\n• Du führst Instruktionen und Coachings von Eltern und Bezugspersonen durch\n\nAnforderungen:\n• Du bist Physiotherapeut:in FH/HF und verfügst über eine SRK-Anerkennung\n\n• Du hast Weiterbildungen im Fachbereich Pädiatrie absolviert und bist bereit, dich kontinuierlich weiterzuentwickeln\n\n• Du bringst Erfahrung in der Behandlung Säuglingen, Kindern und Jugendlichen mit\n\n• Du bist offen dafür, dein Fachwissen an Mitarbeiter:innen und Studierende weiterzugeben\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du führst Behandlungen von Kindern jeglichen Alters, sowohl stationär als auch ambulant durch\n\n• Du arbeitest interdisziplinär mit Kolleginnen und Kollegen zusammen\n\n• Du führst Instruktionen und Coachings von Eltern und Bezugspersonen durch\n\nAnforderungen:\n• Du bist Physiotherapeut:in FH/HF und verfügst über eine SRK-Anerkennung\n\n• Du hast Weiterbildungen im Fachbereich Pädiatrie absolviert und bist bereit, dich kontinuierlich weiterzuentwickeln\n\n• Du bringst Erfahrung in der Behandlung Säuglingen, Kindern und Jugendlichen mit\n\n• Du bist offen dafür, dein Fachwissen an Mitarbeiter:innen und Studierende weiterzugeben\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Avviare per accordo come\n\nCompiti:\n• Effettuate trattamenti per bambini di tutte le età, ambulatoriali e ambulatoriali\n\n• Lavori interdisciplinari con i colleghi\n\n• Effettuare istruzioni e coaching di genitori e assistenti\n\nRequisiti\n• Sei un fisioterapista: in FH/HF e hai un riconoscimento SRK\n\n• Hai completato un'ulteriore formazione nel Dipartimento di Pediatria e sei pronto a sviluppare continuamente\n\n• Porti esperienza nel trattamento di neonati, bambini e adolescenti\n\n• Sei aperto a trasmettere la tua esperienza ai dipendenti: studenti\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start by agreement as\n\nTasks:\n• You carry out treatments for children of all ages, both inpatient and outpatient\n\n• You work interdisciplinary with colleagues\n\n• You carry out instructions and coaching of parents and caregivers\n\nRequirements\n• You are a physiotherapist: in FH/HF and have an SRK recognition\n\n• You have completed further training in the Department of Pediatrics and are ready to continuously develop\n\n• You bring experience in treating infants, children and adolescents\n\n• You are open to passing on your expertise to employees: students\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencer par un accord\n\nTâches :\n• Vous effectuez des traitements pour les enfants de tous âges, hospitalisés et externes\n\n• Vous travaillez interdisciplinaire avec des collègues\n\n• Vous suivez les instructions et l'encadrement des parents et des soignants\n\nExigences\n• Vous êtes physiothérapeute : en FH/HF et avez une reconnaissance SRK\n\n• Vous avez suivi une formation complémentaire au Département de pédiatrie et êtes prêt à se développer en permanence.\n\n• Vous apportez de l'expérience dans le traitement des nourrissons, des enfants et des adolescents\n\n• Vous pouvez transmettre votre expertise aux employés : étudiants\n\nPouvez-vous faire quelque chose que les autres peuvent faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +53,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -1618,7 +1626,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -1685,7 +1692,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,

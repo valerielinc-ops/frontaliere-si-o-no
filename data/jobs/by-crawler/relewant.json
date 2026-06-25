@@ -393,7 +393,7 @@
       "description": "## Technical Architect\n\n**ReleWant** — Chiasso, Ticino, Svizzera\n\n### Chi siamo?\nRelewant è una società di consulenza specializzata in ambito informatico con sede a Chiasso, in Svizzera. Con noi, potrai mettere a frutto il tuo potenziale in un team coeso e vincente ed esplorare tecnologie sempre più innovative in contesti multinazionali.\n\n### La nostra Mission\nIl nostro successo nasce dalle qualità delle persone che fanno parte del gruppo. Competenza, professionalità e voglia di stare al passo in un mercato tecnologico in continua evoluzione ci contraddistinguono. Proprio per questo motivo attrarre i migliori talenti è una nostra priorità.\n\n### Chi stiamo cercando?\nPer un importante progetto, siamo alla ricerca di un\nTechnical Architect\ncon focus sulle piattaforme\nApp e Web\n.\nLa risorsa avrà un ruolo chiave nel supportare e guidare il team Flutter nelle decisioni architetturali relative alla piattaforma web, assicurando soluzioni scalabili, performanti e allineate alle best practice. Parallelamente, collaborerà a stretto contatto con i team E-commerce (Next.js), con l’obiettivo di garantire un’integrazione efficace e coerente tra ecosistema mobile e web.\nResponsabilità principali:\n- Web Architecture: Co-progettare l'infrastruttura di hosting e delivery per Flutter Web (CDN, S3/CloudFront, gestione dei Web Server e SPA fallback).\n- Performance & Rendering: Supportare la decisione ed implementazione delle strategie di rendering ottimali (conoscenza approfondita di Skwasm / WasmGC vs CanvasKit), gestendo i relativi header di sicurezza server (COOP/COEP) e le policy di fallback per i browser meno recenti.\n- Integrazione & Shared Auth: Co-progettare l'architettura per la condivisione della sessione utente (Shared Authentication tramite Cookie HTTP-Only inter-dominio) tra le piattaforme Next.js esistenti e la nuova web app Flutter.\n- Web Routing & Interoperabilità: Supportare l’analisi di scelte architetturali per una navigazione ibrida e il deep linking (gestione URL nativi, App Links, Universal Links) per garantire coerenza tra il mondo APP e il mondo WEB.\n- Mentoring Inter-team: Supportare gli sviluppatori mobile-first nell'adottare le best practice del mondo web (gestione memoria su browser, CORS, caching) e facilitare il dialogo tecnico con i team Next.js.\n\n### Cosa offriamo?\nAssunzione a tempo indeterminato con contratto Svizzero.\nSede di lavoro Chiasso con eventuali trasferte su Milano.\n\n### Cosa aspetti?\nCogli l'opportunità di crescere professionalmente in un ambiente positivo e dinamico, sviluppando le tue competenze in un'azienda attenta al cambiamento e vicina ai propri collaboratori!\nIl presente annuncio è rivolto ad entrambi i sessi e a persone di tutte le età e le nazionalità.\nI dati saranno trattati e conservati esclusivamente per le finalità di questa o future selezioni, nel rispetto della Legge federale sulla protezione dei dati (LPD) e garantendo i diritti di cui all'art. 13 del Regolamento UE 679/16 (GDPR).\n\n**Esperienza richiesta:** 4-5 anni\n**Settore:** Servizi IT\n**Sede:** Chiasso, TI, Svizzera\n**Tipo:** A tempo pieno",
       "titleByLocale": {
         "it": "Technical Architect",
-        "en": "Technical Architect",
+        "en": "Technical architecture",
         "de": "Technischer Architekt",
         "fr": "Architecte Technique"
       },
@@ -445,8 +445,7 @@
           "architecte-technique-relewant-chiasso"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:18:42.772Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T22:18:42.772Z"
     },
     {
       "title": "Java Developer",
