@@ -475,6 +475,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cassa-malati-neuchatel-giovani-19-25.title': 'Neuchâtel health insurance premiums for young adults aged 19-25',
     'blog.article.cassa-malati-neuchatel-giovani-19-25.excerpt': 'Analysis of the conditions, premiums and options of sickness funds for young adults residing in Neuchâtel in the 19-25 age group.',
     'blog.article.cassa-malati-neuchatel-giovani-19-25.imageAlt': 'View of Neuchâtel with young adults and Swiss health signage.',
+    'blog.article.lavoro-lugano-mercato-annunci.title': 'Working in Lugano: overview and updated listings',
+    'blog.article.lavoro-lugano-mercato-annunci.excerpt': 'Labour market analysis in Lugano and available opportunities according to published announcements.',
+    'blog.article.lavoro-lugano-mercato-annunci.imageAlt': 'Lugano business district with workers and Swiss flags.',
 };
 
 export default blogMetaChEn;

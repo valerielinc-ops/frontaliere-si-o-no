@@ -6063,6 +6063,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-lugano-mercato-annunci': {
+    title: 'Lavoro a Lugano: panoramica e annunci aggiornati',
+    description: 'Scopri l\'andamento degli annunci di lavoro a Lugano e come candidarti. Analisi opportunità e strumenti utili per chi cerca impiego. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, lugano, panoramica, annunci',
+    ogTitle: 'Annunci di lavoro a Lugano: tendenze e guida pratica',
+    ogDescription: 'Panoramica sulle offerte di lavoro a Lugano e guida alle procedure di candidatura.',
+    canonicalPath: '/articoli-svizzera/lavoro-lugano-mercato-annunci/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro a Lugano: panoramica e annunci aggiornati",
+      "description": "Scopri l'andamento degli annunci di lavoro a Lugano e come candidarti. Analisi opportunità e strumenti utili per chi cerca impiego. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-lugano-mercato-annunci.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del centro affari di Lugano con lavoratori e bandiere svizzere."
+      },
+      "datePublished": "2026-06-25T20:56:11+00:00",
+      "dateModified": "2026-06-25T20:56:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-lugano-mercato-annunci/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
