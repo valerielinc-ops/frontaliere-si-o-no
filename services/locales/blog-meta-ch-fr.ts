@@ -484,6 +484,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzo-diesel-agrola-bellinzona-oggi.title': 'Prix diesel Agrola Bellinzona aujourd\'hui : mise à jour et détails',
     'blog.article.prezzo-diesel-agrola-bellinzona-oggi.excerpt': 'Le prix actuel du diesel à Agrola via San Gottardo, Bellinzona : données actualisées et détails pratiques pour les fournisseurs en Suisse.',
     'blog.article.prezzo-diesel-agrola-bellinzona-oggi.imageAlt': 'Station Agrola à Bellinzone avec afficheur des prix du diesel.',
+    'blog.article.notifica-fine-attivita-g-spop-ticino.title': 'Notification de fin d\'activité G : procédure SPOP dans le canton du Tessin',
+    'blog.article.notifica-fine-attivita-g-spop-ticino.excerpt': 'Guide pratique pour la notification de fin d\'activité avec permis G auprès de SPOP (DI) du canton du Tessin. Procédure, implications, scénarios.',
+    'blog.article.notifica-fine-attivita-g-spop-ticino.imageAlt': 'Bureau administratif à Bellinzone avec documents officiels du canton du Tessin.',
 };
 
 export default blogMetaChFr;
