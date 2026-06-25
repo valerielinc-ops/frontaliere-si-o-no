@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "ophtalmique-94c326f79a80",
-      "slug": "aprenti-e-assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
+      "slug": "apresti-e-community-health-and-care-assistant-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
       "slugByLocale": {
         "fr": "aprenti-e-assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
-        "it": "aprenti-e-assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
+        "it": "apresti-e-community-health-and-care-assistant-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
         "en": "aprenti-e-assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
         "de": "aprenti-e-assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
       },
@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T12:14:41.936Z"
+      "firstSeenAt": "2026-06-25T12:14:41.936Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aprenti-e-assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "aprenti-e-assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
+      ]
     },
     {
       "id": "ophtalmique-5130a3583a47",

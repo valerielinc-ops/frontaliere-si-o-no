@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-automatiker-chur-m-w-heineken-ch-chur",
         "it": "installatore-trice-elettrico-a-automatiker-chur-m-w-d-heineken-switzerland-chur",
-        "en": "installatore-trice-elettrico-a-automatiker-chur-m-w-d-heineken-switzerland-chur",
-        "fr": "installatore-trice-elettrico-a-automatiker-chur-m-w-d-heineken-switzerland-chur"
+        "en": "electrical-installer-automatic-chur-m-f-heineken-switzerland-chur",
+        "fr": "installateur-electrique-cur-automatique-m-f-heineken-switzerland-chur"
       },
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
@@ -233,7 +233,7 @@
       "slugByLocale": {
         "it": "logistician-heineken-switzerland-denges",
         "en": "logisticsian-heineken-switzerland-denges",
-        "de": "logistician-heineken-ch-denges",
+        "de": "logistiker-heineken-switzerland-denges",
         "fr": "logistician-heineken-ch-denges"
       },
       "company": "Heineken Switzerland",
@@ -276,7 +276,7 @@
       "previousSlugsByLocale": {
         "de": [
           "logistik-heineken-switzerland-denges",
-          "logistiker-heineken-switzerland-denges"
+          "logistician-heineken-ch-denges"
         ],
         "it": [
           "logistician-heineken-ch-denges"
@@ -287,7 +287,6 @@
       },
       "previousSlugs": [
         "logistik-heineken-switzerland-denges",
-        "logistiker-heineken-switzerland-denges",
         "logistician-heineken-ch-denges"
       ],
       "firstSeenAt": "2026-05-13T11:12:42.166Z",

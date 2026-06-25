@@ -311,7 +311,7 @@
       "slug": "specialista-infermieristico-dipl-hf-m-p-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "specialista-infermieristico-dipl-hf-m-p-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "specialiste-en-soins-infirmiers-m-p-p-gesundheitszentrum-fricktal-rheinfelden"
       },
@@ -357,7 +357,6 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "infermiere-dipl-sss-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-carriera-m-d-piscina-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden",
         "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -370,7 +369,7 @@
           "infermiere-dipl-sss-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
-          "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -470,7 +469,7 @@
       "slug": "tecnico-di-sala-operatoria-diplomato-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "tecnico-di-sala-operatoria-diplomato-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "dipl-specialist-surgical-technique-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "technicien-en-salle-d-operation-diplome-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
@@ -515,7 +514,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-specialist-surgical-technique-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-professional-operating-technique-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
@@ -523,8 +521,8 @@
           "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
-          "dipl-specialist-surgical-technique-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-professional-operating-technique-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-professional-operating-technique-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+          "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
           "dipl-fachperson-operationstechnik-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -701,8 +699,8 @@
       "slugByLocale": {
         "de": "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden",
         "it": "dirigente-medico-m-f-d-gastroenterologia-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
+        "en": "senior-physician-m-f-d-gastroenterology-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "medecin-principal-m-f-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -760,6 +758,12 @@
       "firstSeenAt": "2026-06-25T11:24:09.323Z",
       "previousSlugsByLocale": {
         "it": [
+          "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
           "leitender-arzt-m-w-d-gastroenterologie-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },

@@ -165,7 +165,7 @@
       "slugByLocale": {
         "it": "segretario-medico-80-medizinische-r-sekretar-in-80-hopital-fribourgeois-hfr-fribourg",
         "en": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
-        "de": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
+        "de": "medizinische-r-sekretarin-in-80-hopital-fribourgeois-hfr-fribourg",
         "fr": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -209,15 +209,14 @@
       "requirementsByLocale": {},
       "externalId": "b23818017759",
       "previousSlugs": [
-        "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
-        "medizinische-r-sekretarin-in-80-hopital-fribourgeois-hfr-fribourg"
+        "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
         ],
         "de": [
-          "medizinische-r-sekretarin-in-80-hopital-fribourgeois-hfr-fribourg"
+          "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:05.602Z",
@@ -240,7 +239,7 @@
       "slugByLocale": {
         "it": "segretaria-medica-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
         "en": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
-        "de": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
+        "de": "medizinische-r-sekretarin-in-60-hopital-fribourgeois-hfr-fribourg",
         "fr": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -286,7 +285,6 @@
       "previousSlugs": [
         "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
         "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
-        "medizinische-r-sekretarin-in-60-hopital-fribourgeois-hfr-fribourg",
         "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
@@ -295,7 +293,7 @@
           "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg"
         ],
         "de": [
-          "medizinische-r-sekretarin-in-60-hopital-fribourgeois-hfr-fribourg"
+          "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:04.968Z",
@@ -1112,7 +1110,7 @@
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
         "it": "medico-capo-reparto-80-100-klinikchefarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
-        "en": "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
+        "en": "chief-medical-officer-80-100-klinikchempart-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
         "de": "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -1172,6 +1170,9 @@
       "firstSeenAt": "2026-06-25T11:27:04.647Z",
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
+        ],
+        "en": [
           "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
         ]
       },
@@ -1677,8 +1678,8 @@
       "slugByLocale": {
         "fr": "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
         "it": "infermiera-esperta-in-cure-anestesiologiche-50-100-cdi-hopital-fribourgeois-hfr-fribourg",
-        "en": "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
-        "de": "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
+        "en": "nurse-expert-in-anesthesia-care-50-to-100-cdi-hopital-fribourgeois-hfr-fribourg",
+        "de": "krankenschwester-experte-in-anasthesie-pflege-50-bis-100-cdi-hopital-fribourgeois-hfr-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -1737,6 +1738,12 @@
       "firstSeenAt": "2026-06-25T11:27:00.109Z",
       "previousSlugsByLocale": {
         "it": [
+          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
+        ],
+        "en": [
+          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
+        ],
+        "de": [
           "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
         ]
       },
@@ -2103,7 +2110,7 @@
       "slugByLocale": {
         "it": "collaborateur-trice-administratif-ve-60-collaboratore-trice-administration-60-hopital-fribourgeois-hfr-fribourg",
         "en": "administrative-collaborator-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg",
-        "de": "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital",
+        "de": "administrativer-mitarbeiter-w-60-mitarbeiter-in-verwaltung-60-hopital-fribourgeois-hfr-fribourg",
         "fr": "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -2148,7 +2155,6 @@
       "externalId": "df7451e3ad4c",
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital",
-        "administrativer-mitarbeiter-w-60-mitarbeiter-in-verwaltung-60-hopital-fribourgeois-hfr-fribourg",
         "administrative-mitarbeiter-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
@@ -2159,8 +2165,8 @@
           "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
         ],
         "de": [
-          "administrativer-mitarbeiter-w-60-mitarbeiter-in-verwaltung-60-hopital-fribourgeois-hfr-fribourg",
-          "administrative-mitarbeiter-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg"
+          "administrative-mitarbeiter-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg",
+          "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
         ]
       },
       "firstSeenAt": "2026-06-05T11:56:11.057Z",
@@ -2183,7 +2189,7 @@
       "slugByLocale": {
         "it": "collaborateur-trice-intendance-100-collaboratore-trice-hauswirtschaft-hopital-fribourgeois-hfr-fribourg",
         "en": "100-co-workers-mitarbeiter-in-hauswirtschaft-hopital-fribourgeois-hfr-fribourg",
-        "de": "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois",
+        "de": "employee-stewardship-100-mitarbeiter-in-hauswirtschaft-hopital-fribourgeois-hfr-fribourg",
         "fr": "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -2227,8 +2233,7 @@
       "requirementsByLocale": {},
       "externalId": "3b2f83c38de7",
       "previousSlugs": [
-        "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois",
-        "employee-stewardship-100-mitarbeiter-in-hauswirtschaft-hopital-fribourgeois-hfr-fribourg"
+        "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2238,7 +2243,7 @@
           "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
         ],
         "de": [
-          "employee-stewardship-100-mitarbeiter-in-hauswirtschaft-hopital-fribourgeois-hfr-fribourg"
+          "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
         ]
       },
       "firstSeenAt": "2026-06-23T11:57:53.973Z",
@@ -2261,7 +2266,7 @@
       "slugByLocale": {
         "it": "capo-della-clinica-o-medico-associato-80-100-capo-specialista-ospedaliero-80-100-hopital-fribourgeois-hfr-fribourg",
         "en": "head-of-clinic-or-associate-physician-80-100-senior-hospital-physician-80-100-hopital-fribourgeois-hfr-fribourg",
-        "de": "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt",
+        "de": "klinikleiter-oder-assoziierter-arzt-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100-hopital",
         "fr": "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -2331,7 +2336,6 @@
       "externalId": "947dcfafe2c3",
       "previousSlugs": [
         "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt",
-        "klinikleiter-oder-assoziierter-arzt-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100-hopital",
         "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-ou-specialiste-hospitalier-80-100-hopital"
       ],
       "previousSlugsByLocale": {
@@ -2339,7 +2343,7 @@
           "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt"
         ],
         "de": [
-          "klinikleiter-oder-assoziierter-arzt-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100-hopital"
+          "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt"
         ],
         "fr": [
           "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-ou-specialiste-hospitalier-80-100-hopital"
@@ -2534,7 +2538,7 @@
       "slugByLocale": {
         "it": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100-oberarzt-oberarztin-o-stv-oberarzt-oberarztin-100-hopital-fribourgeois-hfr-fribourg",
         "en": "head-of-clinic-or-assistant-head-of-clinic-in-gynaecology-obstetrics-100-oberarzt-oberarztin-oder-stv-oberarzt",
-        "de": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100",
+        "de": "klinikleiterin-oder-assistenzklinikleiterin-gynakologie-geburtshilfe-100-oberarzt-oberarztin-oder-stv-oberarzt",
         "fr": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -2579,8 +2583,7 @@
       "externalId": "047455d46006",
       "previousSlugs": [
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100",
-        "responsabile-clinica-o-assistente-responsabile-clinica-in-ginecologia-ostetricia-100-oberarzt-oberarztin-oder-stv",
-        "klinikleiterin-oder-assistenzklinikleiterin-gynakologie-geburtshilfe-100-oberarzt-oberarztin-oder-stv-oberarzt"
+        "responsabile-clinica-o-assistente-responsabile-clinica-in-ginecologia-ostetricia-100-oberarzt-oberarztin-oder-stv"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2591,7 +2594,7 @@
           "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100"
         ],
         "de": [
-          "klinikleiterin-oder-assistenzklinikleiterin-gynakologie-geburtshilfe-100-oberarzt-oberarztin-oder-stv-oberarzt"
+          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100"
         ]
       },
       "firstSeenAt": "2026-05-27T12:40:09.485Z",

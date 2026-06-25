@@ -237,8 +237,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
         "it": "reparto-specialistico-di-medicina-interna-spital-zollikerberg-zollikerberg",
-        "en": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
+        "en": "professional-health-station-internal-medicine-spital-zollikerberg-zollikerberg",
+        "fr": "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -296,6 +296,12 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
         ]
       },
@@ -386,8 +392,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital",
         "it": "dipl-infermiera-con-noi-non-esiste-la-noia-spital-zollikerberg-zollikerberg",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital"
+        "en": "dipl-nursing-professional-dipl-care-professional-there-is-no-boredom-with-us-spital-zollikerberg-zollikerberg",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnel-de-soins-il-n-y-a-pas-d-ennui-avec-nous-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -445,6 +451,12 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital"
         ]
       },
