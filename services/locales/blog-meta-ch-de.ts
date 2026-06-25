@@ -454,6 +454,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ge-troppo-caldo-stop-lavoro.title': 'Genf: Arbeitsstopp im Freien ab Mittag während der Hitzewelle',
     'blog.article.ge-troppo-caldo-stop-lavoro.excerpt': 'Geneva hat beschlossen, alle externen Aktivitäten ab 13:00 Uhr für die Hitzewelle einzustellen',
     'blog.article.ge-troppo-caldo-stop-lavoro.imageAlt': 'Bauarbeiter in der Schweiz machen eine Pause an einem heißen Sommertag.',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.title': 'Post Chiasso: Rolle und Dienstleistungen im schweizerischen Kontext',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.excerpt': 'Analyse der von der Post Chiasso angebotenen Dienstleistungen und ihrer Relevanz in der Schweiz. Praktische Auswirkungen für Anwohner und Arbeitnehmer.',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.imageAlt': 'Außenansicht einer Schweizer Postfiliale in einer Stadt mit Post-Schild.',
 };
 
 export default blogMetaChDe;

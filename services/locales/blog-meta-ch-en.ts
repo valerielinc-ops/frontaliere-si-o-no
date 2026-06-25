@@ -454,6 +454,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ge-troppo-caldo-stop-lavoro.title': 'Geneva: Stop working outdoors from noon during the dogfight',
     'blog.article.ge-troppo-caldo-stop-lavoro.excerpt': 'Geneva has decided to stop all outdoor activities from 13:00 for the dogfight',
     'blog.article.ge-troppo-caldo-stop-lavoro.imageAlt': 'Construction workers in Switzerland taking a break during a hot summer day.',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.title': 'Posta Chiasso: role and services in the Swiss national context',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.excerpt': 'Analysis of the services offered by Posta di Chiasso and their relevance in Switzerland. Practical implications for residents and workers.',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.imageAlt': 'Exterior of a Swiss post office in a city, Post signage.',
 };
 
 export default blogMetaChEn;
