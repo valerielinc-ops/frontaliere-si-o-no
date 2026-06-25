@@ -1367,6 +1367,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ginevra-frontalieri-settore-pubblico',
+    category: 'pratico',
+    date: '2026-06-25T13:31:39.912Z',
+    image: '/images/blog/ginevra-frontalieri-settore-pubblico.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
