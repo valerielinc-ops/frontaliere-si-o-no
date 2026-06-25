@@ -1899,6 +1899,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // while any are pending we show a loading state instead of the "0 / no results"
  // flash. Incremented when a fetch starts, decremented when it settles.
  const [pendingFallbacks, setPendingFallbacks] = useState(0);
+ // True until the AUTHORITATIVE full job index has landed. On aggregate / TI
+ // routes a tiny first-page slim payload paints early (jobsLoading flips false)
+ // for a fast LCP. For a SEARCH/company view that provisional payload yields a
+ // misleading count + fallback banner (e.g. "1 offerta", then "0", then "34")
+ // before the real shard replaces it. The effect-level first-paint skip can miss
+ // this on SSG hydration (the load effect runs before `searchQuery` syncs from
+ // the slug), so we ALSO suppress at render: while this is true a search/company
+ // view shows the loading skeleton instead of the provisional count + cards.
+ const [fullLoadPending, setFullLoadPending] = useState(true);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
@@ -2185,6 +2194,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  */
  useEffect(() => {
  let cancelled = false;
+ // Fresh load for this locale/canton → the authoritative index is pending again.
+ setFullLoadPending(true);
 
  /** Top-N cantons fetched when no canton intent is detected (req #4). */
  const TOP_AGGREGATE_CANTONS: ReadonlyArray<string> = [
@@ -2273,6 +2284,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // fallback to the same canton.
  const targetCanton = initialFilterCanton || getDefaultCantonForVisit();
 
+ // Wrap the whole load so `fullLoadPending` clears once the authoritative
+ // index settles via ANY exit (full shard, legacy fallback, empty-legacy
+ // early-return, or error) — never on the provisional first-page paint below.
+ try {
  // First-page fast paint (#2580): on listing routes (no build-time seed),
  // fetch the tiny first-page slim asset first and paint page-1 cards before
  // the full index lands. The full load below still runs and replaces `jobs`
@@ -2345,6 +2360,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  reportCaughtError(legacyErr, 'jobBoard.loadJobs.legacy');
  if (!cancelled) setJobsLoading(false);
  }
+ }
+ } finally {
+ // Authoritative index settled (or failed) — the count is no longer
+ // provisional, so search/company views can stop holding the skeleton.
+ if (!cancelled) setFullLoadPending(false);
  }
  };
 
@@ -3446,21 +3466,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return featuredFirst(crossLocaleFallbackJobs);
  }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
- // A thin canton-scoped search/company page momentarily reads `filteredJobs`
- // empty: the initial index loaded (jobsLoading already false) but the wider
- // broaden / cross-locale pools that actually answer the query are still being
- // fetched lazily. Treat that window as "loading" so the count + empty-state
- // never flash "0 offerte trovate" before the real results land. Covers both
- // the in-flight phase (pendingFallbacks) and the first frame after the index
- // load, before the fetch effects have fired (no fallback attempted yet).
+ // A search/company view momentarily shows a non-authoritative `filteredJobs`:
+ // either empty while the lazy broaden / cross-locale pools are still being
+ // fetched, OR a misleading provisional count from the first-page slim paint
+ // before the full shard lands (`fullLoadPending`). Treat both windows as
+ // "loading" so the count + banner + cards never flash "1 / 0" before the real
+ // results land. The `fullLoadPending` arm is what catches the provisional
+ // count on SSG hydration, where the effect-level first-paint skip can miss it
+ // (the load effect runs before `searchQuery` syncs from the slug). Covers the
+ // in-flight fallback phase (pendingFallbacks) and the first frame after the
+ // index load, before the fetch effects have fired (no fallback attempted yet).
  const anyFallbackAttempted =
  searchBroadenFetchAttempted.current
  || companyBroadenFetchAttempted.current
  || crossLocaleFetchAttempted.current;
  const resultsResolving =
- filteredJobs.length === 0
- && (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
- && (pendingFallbacks > 0 || !anyFallbackAttempted);
+ (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
+ && (
+ fullLoadPending
+ || (filteredJobs.length === 0 && (pendingFallbacks > 0 || !anyFallbackAttempted))
+ );
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -8046,6 +8071,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
 
  <div className="space-y-3 min-h-[600px]">
+ {/* While the authoritative results are still resolving (provisional
+ first-page count or in-flight fallback pools), hide the count banners
+ and provisional cards — the skeleton below stands in their place. */}
+ {!resultsResolving && (
+ <>
  {isUsingSearchFallback && (
  <div
  role="status"
@@ -8153,11 +8183,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </React.Fragment>
  );
  })}
+ </>
+ )}
 
- {/* Loading list skeleton while the broaden / cross-locale fallback pools
- resolve — mirrors the loaded card layout so the count + cards reconcile
- in place (no CLS) instead of flashing the empty-state. */}
- {filteredJobs.length === 0 && resultsResolving && (
+ {/* Loading list skeleton while results resolve (empty-while-fetching OR a
+ provisional first-page count) — mirrors the loaded card layout so the
+ count + cards reconcile in place (no CLS) instead of flashing. */}
+ {resultsResolving && (
  <div className="space-y-3" aria-hidden="true">
  {Array.from({ length: 6 }).map((_, i) => (
  <div key={`results-skel-${i}`} className="h-24 sm:h-[120px] rounded-xl bg-surface-raised animate-pulse" />
