@@ -8155,6 +8155,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fermentino-mercato-contadino-giubiano.title': 'Varese: Torna Fermentino - Giubiano Farmers\' Market',
     'blog.article.fermentino-mercato-contadino-giubiano.excerpt': 'On 26 June, the evening farmers\' market returns to Giubiano. Local producers and craft beer at a free event.',
     'blog.article.fermentino-mercato-contadino-giubiano.imageAlt': 'Evening market in Giubiano with local food stalls and people socializing',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.title': 'Neuchâtel sickness fund: a guide for young adults aged 19-25',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.excerpt': 'Overview of sickness funds in Neuchâtel for young adults 19-25 years old. Details on requirements and procedures, practical info.',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.imageAlt': 'Young adult in Ticino with a Swiss urban background',
 };
 
 export default blogMetaEn;

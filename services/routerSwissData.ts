@@ -176,6 +176,8 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ge-troppo-caldo-stop-lavoro': { it: 'ge-troppo-caldo-stop-lavoro', en: 'geneva-too-hot-work-stop', de: 'geneva-zu-heiss-arbeit-stopp', fr: 'geneve-trop-chaud-arret-travail' },
  'servizi-posta-chiasso-contesto-nazionale': { it: 'servizi-posta-chiasso-contesto-nazionale', en: 'chiasso-postal-services-national-context', de: 'postdienste-chiasso-nationaler-kontext', fr: 'services-postaux-chiasso-contexte-national' },
  'ginevra-frontalieri-settore-pubblico': { it: 'ginevra-frontalieri-settore-pubblico', en: 'geneva-cross-border-public-sector', de: 'genf-grenzgaenger-offentlicher-sektor', fr: 'geneve-frontaliers-secteur-public' },
+ 'terzo-pilastro-frontalieri-guida': { it: 'terzo-pilastro-frontalieri-guida', en: 'pillar-3a-cross-border-workers', de: 'dritte-saeule-grenzgaenger', fr: 'troisieme-pilier-frontaliers' },
+ 'aumento-costi-abitazione-e-mobilita-in-svizzera': { it: 'aumento-costi-abitazione-e-mobilita-in-svizzera', en: 'increase-housing-mobility-costs-switzerland', de: 'erhohung-wohn-und-mobilitatskosten-schweiz', fr: 'augmentation-couts-logement-mobilite-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
