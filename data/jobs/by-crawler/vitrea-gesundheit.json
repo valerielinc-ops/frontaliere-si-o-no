@@ -1,160 +1,7 @@
 {
   "crawlerKey": "vitrea-gesundheit",
-  "assembledAt": "2026-06-25T12:27:21.595Z",
+  "assembledAt": "2026-06-25T23:23:12.846Z",
   "jobs": [
-    {
-      "id": "vitrea-gesundheit-0e43ed5c337d",
-      "slug": "fisioterapista-60-100-vitrea-gesundheit-tschugg",
-      "slugByLocale": {
-        "it": "fisioterapista-60-100-vitrea-gesundheit-tschugg",
-        "en": "physiotherapist-in-60-100-vitrea-gesundheit-tschugg",
-        "de": "physiotherapeut-in-60-100-vitrea-gesundheit-tschugg",
-        "fr": "kinesitherapeute-60-100-vitrea-gesundheit-tschugg"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Physiotherapeut/in 60-100%",
-      "titleByLocale": {
-        "it": "Fisioterapista 60-100%",
-        "en": "Physiotherapist/in 60-100 %",
-        "de": "Physiotherapeut/in 60-100%",
-        "fr": "Kinésithérapeute 60-100%"
-      },
-      "description": "Physiotherapeut/in 60-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Descrizione Fisioterapista 60-100% a Vitrea Health (ex VAMED Svizzera), Tschugg, Svizzera. - Orario di lavoro: part time / full time - Posizione: Tschugg - Area: Servizi di riabilitazione e assistenza - Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Health",
-        "en": "Descrizione Physiotherapist 60-100% at Vitrea Health (formerly VAMED Switzerland), Tschugg, Switzerland. - Working time: part time / full time - Location: Tschugg - Area: Rehabilitation and care services - Application via the softgarden onlyfy.jobs career portal of Vitrea Health",
-        "de": "Physiotherapeut/in 60-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Descrizione Physiothérapeute 60-100% à Vitrea Health (anciennement VAMED Suisse), Tschugg, Suisse. - Temps de travail: temps partiel / temps plein - Lieu: Tschugg - Zone: Services de réadaptation et de soins - Application via le portail de carrière softgarden onlyfy.jobs de Vitrea Health"
-      },
-      "location": "Tschugg",
-      "canton": "GR",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/rrcdp03hbx7s5r04s77joj30qb7k60b",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:19.650Z",
-      "addressLocality": "Tschugg",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/rrcdp03hbx7s5r04s77joj30qb7k60b",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "physiotherapeut-in-60-100-vitrea-gesundheit-tschugg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeut-in-60-100-vitrea-gesundheit-tschugg"
-        ],
-        "en": [
-          "physiotherapeut-in-60-100-vitrea-gesundheit-tschugg"
-        ],
-        "fr": [
-          "physiotherapeut-in-60-100-vitrea-gesundheit-tschugg"
-        ]
-      },
-      "firstSeenAt": "2026-06-05T23:04:18.664Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vitrea-gesundheit-2263701e66f3",
-      "slug": "studenti-a-cura-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
-      "slugByLocale": {
-        "it": "studenti-a-cura-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "students-a-care-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "de": "diatkoch-diatkochin-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "fr": "eleves-a-soins-de-sante-vitrea-gesundheit-zihlschlacht-sitterdorf"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Studierende (a) Pflege HF | FH",
-      "titleByLocale": {
-        "it": "Studenti (a) Cura HF | FH",
-        "en": "Students (a) Care HF | FH",
-        "de": "Studierende (a) Pflege HF | FH",
-        "fr": "Élèves a) Soins de santé"
-      },
-      "description": "Studierende (a) Pflege HF | FH bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Studenti (a) Care HF | FH at Vitrea Gesundheit (ex VAMED Svizzera), Zihlschlacht-Sitterdorf, Svizzera.\n• Ore lavorative: full time Posizione: Zihlschlacht-Sitterdorf\n• Area: servizi di riabilitazione e assistenza\n• Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
-        "en": "Students (a) Care HF | FH at Vitrea Gesundheit (formerly VAMED Switzerland), Zihlschlacht-Sitterdorf, Switzerland.\n• Working hours: full time Location: Zihlschlacht-Sitterdorf\n• Area: Rehabilitation and care services\n• Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
-        "de": "Studierende (a) Pflege HF | FH bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Etudiants a) Soins à la FH HF à Vitrea Gesundheit (anciennement VAMED Suisse), Zihlschlacht-Sitterdorf, Suisse.\n• Heures de travail: à temps plein Lieu: Zihlschlacht-Sitterdorf\n• Région: Services de réadaptation et de soins\n• Application via le portail de carrière softgarden onlyfy.jobs de Vitrea Gesundheit"
-      },
-      "needsRetranslation": false,
-      "location": "Zihlschlacht-Sitterdorf",
-      "canton": "GR",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/9t8m10s2vybvxynl2oye140rfnyulco",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:18.187Z",
-      "addressLocality": "Zihlschlacht-Sitterdorf",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-09",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/9t8m10s2vybvxynl2oye140rfnyulco",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-09T12:31:49.401Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ],
-        "en": [
-          "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ],
-        "fr": [
-          "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ]
-      },
-      "previousSlugs": [
-        "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "vitrea-gesundheit-b6dd1cc722ba",
       "slug": "dipl-assistenza-sanitaria-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
@@ -170,7 +17,7 @@
       "title": "Dipl. Pflegefachperson HF (a) 80-100%",
       "titleByLocale": {
         "it": "Dipl. Assistenza Sanitaria HF (a) 80-100%",
-        "en": "Dipl. Nurse HF (a) 80-100 %",
+        "en": "Dipl. Pflegefachperson HF (a) 80-100%",
         "de": "Dipl. Pflegefachperson HF (a) 80-100%",
         "fr": "Dipl. Assistant de Santé HF (a) 80-100%"
       },
@@ -181,12 +28,13 @@
         "de": "Dipl. Pflegefachperson HF (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seewis im Prättigau, Schweiz.\n• Arbeitszeit: Vollzeit\n• Standort: Seewis im Prättigau\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
         "fr": "Descrizione Dipl. Infirmière HF (a) 80-100% à Vitrea Health (anciennement VAMED Suisse), Seewis im Prättigau, Suisse. Temps de travail: temps plein Lieu: Seewis dans le Prättigau Domaine: Services de réadaptation et de soins - Application via le portail de carrière softgarden onlyfy.jobs de Vitrea Gesundheit"
       },
+      "needsRetranslation": true,
       "location": "Seewis im Prättigau",
       "canton": "GR",
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/xyg85mmxmjs0i0ag0tnrus09ij54fmn",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:16.813Z",
+      "crawledAt": "2026-06-25T23:23:10.833Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -263,7 +111,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/5n1roy8st7fik489hex560alu15yvrj",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:15.331Z",
+      "crawledAt": "2026-06-25T23:23:09.400Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -340,7 +188,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fpk5ifrnwt03a95e8w5955lj5xxus1f",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:13.917Z",
+      "crawledAt": "2026-06-25T23:23:07.981Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -417,7 +265,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fm3pk0tcmcn1doy4ipmocp7trf3jcpo",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:12.523Z",
+      "crawledAt": "2026-06-25T23:23:06.189Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -494,7 +342,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/pop9fv4abvypxd7itthskh4tkoekmk7",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:11.115Z",
+      "crawledAt": "2026-06-25T23:23:04.791Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -571,7 +419,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ylv2yis7kx04l0kd4x39q8p5fmsr09b",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:09.689Z",
+      "crawledAt": "2026-06-25T23:23:03.383Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -617,6 +465,71 @@
       }
     },
     {
+      "id": "vitrea-gesundheit-bc76b2f4fabb",
+      "slug": "nachtwache-schlaflabor-epileptologie-20-40-vitrea-gesundheit-tschugg",
+      "slugByLocale": {
+        "de": "diatkoch-diatkochin-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "it": "nachtwache-schlaflabor-epileptologie-20-40-vitrea-gesundheit-tschugg",
+        "en": "nachtwache-schlaflabor-epileptologie-20-40-vitrea-gesundheit-tschugg",
+        "fr": "nachtwache-schlaflabor-epileptologie-20-40-vitrea-gesundheit-tschugg"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Nachtwache Schlaflabor / Epileptologie 20-40%",
+      "titleByLocale": {
+        "de": "Nachtwache Schlaflabor / Epileptologie 20-40%",
+        "it": "Nachtwache Schlaflabor / Epileptologie 20-40%",
+        "en": "Nachtwache Schlaflabor / Epileptologie 20-40%",
+        "fr": "Nachtwache Schlaflabor / Epileptologie 20-40%"
+      },
+      "description": "Nachtwache Schlaflabor / Epileptologie 20-40% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "de": "Nachtwache Schlaflabor / Epileptologie 20-40% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "it": "Nachtwache Schlaflabor / Epileptologie 20-40% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Nachtwache Schlaflabor / Epileptologie 20-40% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Nachtwache Schlaflabor / Epileptologie 20-40% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Tschugg",
+      "canton": "GR",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/9z1e3ycaquag6fe26lu7puy0d4s8gc8",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T23:23:01.976Z",
+      "addressLocality": "Tschugg",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/9z1e3ycaquag6fe26lu7puy0d4s8gc8",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-25T23:23:01.976Z"
+    },
+    {
       "id": "vitrea-gesundheit-1ddf22abb46a",
       "slug": "praktikantin-robotik-e-sport-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
@@ -648,7 +561,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/h8qjo1txifk5d7git4xyw6l7qc0jgsl",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:27:06.814Z",
+      "crawledAt": "2026-06-25T23:23:00.144Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -694,6 +607,152 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "vitrea-gesundheit-97ddba55b180",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-e-cfc-vitrea-gesundheit-tschugg",
+      "slugByLocale": {
+        "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-e-efz-vitrea-gesundheit-tschugg",
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-e-cfc-vitrea-gesundheit-tschugg",
+        "en": "lehrstelle-als-fachfrau-fachmann-gesundheit-e-efz-vitrea-gesundheit-tschugg",
+        "fr": "lehrstelle-als-fachfrau-fachmann-gesundheit-e-efz-vitrea-gesundheit-tschugg"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ",
+      "titleByLocale": {
+        "de": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ",
+        "it": "Apprendistato come Fachfrau/Fachmann Gesundheit E CFC",
+        "en": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ",
+        "fr": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ"
+      },
+      "description": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "de": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "it": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Lehrstelle als Fachfrau/Fachmann Gesundheit E EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Tschugg",
+      "canton": "GR",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/4jy5ehqpnw3o4s3r8fbjl38v3bkk351",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T23:22:58.721Z",
+      "addressLocality": "Tschugg",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/4jy5ehqpnw3o4s3r8fbjl38v3bkk351",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-e-efz-vitrea-gesundheit-tschugg"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-e-efz-vitrea-gesundheit-tschugg"
+      ],
+      "salaryMin": 54000,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-25T23:22:58.721Z"
+    },
+    {
+      "id": "vitrea-gesundheit-70dfff997646",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-vitrea-gesundheit-tschugg",
+      "slugByLocale": {
+        "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-vitrea-gesundheit-tschugg",
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-vitrea-gesundheit-tschugg",
+        "en": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-vitrea-gesundheit-tschugg",
+        "fr": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-vitrea-gesundheit-tschugg"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ",
+      "titleByLocale": {
+        "de": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ",
+        "it": "Apprendistato come Fachfrau/Fachmann Gesundheit CFC",
+        "en": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ",
+        "fr": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ"
+      },
+      "description": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "de": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "it": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Lehrstelle als Fachfrau/Fachmann Gesundheit EFZ bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Tschugg",
+      "canton": "GR",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/op1qimdk92leupri5lcsn275buoanxl",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T23:22:57.310Z",
+      "addressLocality": "Tschugg",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/op1qimdk92leupri5lcsn275buoanxl",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-vitrea-gesundheit-tschugg"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-vitrea-gesundheit-tschugg"
+      ],
+      "salaryMin": 54000,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-25T23:22:57.310Z"
     }
   ]
 }
