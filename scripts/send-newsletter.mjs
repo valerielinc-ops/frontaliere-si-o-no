@@ -47,7 +47,6 @@ import { makeUnsubscribeUrl, makeResubscribeUrl, generateAutologinCode } from '.
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
-import { deriveNameFromEmail } from './lib/deriveNameFromEmail.mjs';
 import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 
@@ -1477,11 +1476,17 @@ async function persistDelivery(recipient, messageId, meta) {
       }, { merge: true });
     }
     // Update subscriber-level counters
-    await subRef.set({
+    const subUpdate = {
       last_sent_at: new Date(),
       send_count: FieldValue ? FieldValue.increment(1) : 1,
       updated_at: new Date(),
-    }, { merge: true });
+    };
+    // Persist a freshly-resolved first name (display-name harvest / dataset
+    // email guess) so future sends read it from firstName instead of
+    // re-deriving. Only set when the doc had none (subscriberFromFirestoreRow
+    // leaves firstNameToPersist null otherwise) → never clobbers a stored name.
+    if (recipient.firstNameToPersist) subUpdate.firstName = recipient.firstNameToPersist;
+    await subRef.set(subUpdate, { merge: true });
     // Refresh engagement score after counter changes (FRO-17). Belt-and-suspenders
     // alongside the ESP webhook recompute, so the persisted score stays fresh
     // even if a webhook delivery is lost.
@@ -2133,10 +2138,10 @@ async function main() {
       weeklyFact: getWeeklyFact(locale),
       metrics,
       locale,
-      // Stored name (from social sign-in) first; else a dataset-validated guess
-      // from the email local-part; else null → generic greeting. The template's
-      // personalizeGreeting title-cases it (handles ALL-CAPS stored names).
-      recipientName: subscriber.name || deriveNameFromEmail(subscriber.email),
+      // High-confidence first name resolved in subscriberFromFirestoreRow
+      // (stored firstName/name → harvested display name → dataset email guess),
+      // or null → generic greeting. personalizeGreeting title-cases it.
+      recipientName: subscriber.firstName,
       issueNumber,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
