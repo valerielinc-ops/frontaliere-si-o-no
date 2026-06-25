@@ -4206,6 +4206,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cassa-malati-neuchatel-giovani-19-25': { name: 'Cassa malati Neuchâtel', path: '/articoli-svizzera/cassa-malati-neuchatel-giovani-19-25/', parent: 'blog' },
     'blog-lavoro-lugano-mercato-annunci': { name: 'Lavoro a Lugano', path: '/articoli-svizzera/lavoro-lugano-mercato-annunci/', parent: 'blog' },
     'blog-chiasso-brogeda-tempi-attesa-odierni': { name: 'Chiasso-Brogeda oggi', path: '/articoli-svizzera/chiasso-brogeda-tempi-attesa-odierni/', parent: 'blog' },
+    'blog-prezzo-diesel-agrola-bellinzona-oggi': { name: 'Diesel Agrola Bellinzona', path: '/articoli-svizzera/prezzo-diesel-agrola-bellinzona-oggi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

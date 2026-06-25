@@ -1439,6 +1439,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'prezzo-diesel-agrola-bellinzona-oggi',
+    category: 'pratico',
+    date: '2026-06-25T22:48:18.705Z',
+    image: '/images/blog/prezzo-diesel-agrola-bellinzona-oggi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

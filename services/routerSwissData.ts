@@ -183,6 +183,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'cassa-malati-neuchatel-giovani-19-25': { it: 'cassa-malati-neuchatel-giovani-19-25', en: 'health-insurance-neuchatel-young-adults', de: 'krankenkasse-neuchatel-jugendliche', fr: 'assurance-maladie-neuchatel-jeunes-19-25' },
  'lavoro-lugano-mercato-annunci': { it: 'lavoro-lugano-mercato-annunci', en: 'lugano-job-market-overview', de: 'lugano-arbeitsmarkt-uebersicht', fr: 'marche-emploi-lugano-apercu' },
  'chiasso-brogeda-tempi-attesa-odierni': { it: 'chiasso-brogeda-tempi-attesa-odierni', en: 'chiasso-brogeda-wait-times-today', de: 'chiasso-brogeda-wartezeiten-heute', fr: 'chiasso-brogeda-temps-attente-aujourdhui' },
+ 'prezzo-diesel-agrola-bellinzona-oggi': { it: 'prezzo-diesel-agrola-bellinzona-oggi', en: 'agrola-diesel-price-bellinzona-today', de: 'agrola-dieselpreis-bellinzona-heute', fr: 'prix-diesel-agrola-bellinzone-aujourdhui' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
