@@ -5706,9 +5706,9 @@
       "firstSeenAt": "2026-06-23T22:57:43.962Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal",
+        "en": "seller-denner-ag-langenthal-d47c8f",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-634638"
+        "fr": "vendeur-denner-ag-langenthal-d47c8f"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -5757,19 +5757,14 @@
       "previousSlugs": [
         "seller-denner-ag-langenthal",
         "vendeur-denner-ag-langenthal-634638",
-        "venditore-denner-ag-langenthal-634638",
-        "verkaufer-in-denner-ag-langenthal",
-        "seller-denner-ag-langenthal-d47c8f",
-        "vendeur-denner-ag-langenthal-d47c8f"
+        "venditore-denner-ag-langenthal-634638"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-langenthal",
-          "seller-denner-ag-langenthal-d47c8f"
+          "seller-denner-ag-langenthal"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-634638",
-          "vendeur-denner-ag-langenthal-d47c8f"
+          "vendeur-denner-ag-langenthal-634638"
         ]
       }
     },
@@ -15541,8 +15536,8 @@
       "firstSeenAt": "2026-06-22T15:05:49.371Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-wetzikon",
-        "en": "seller-denner-ag-wetzikon-8e6f7a",
-        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
+        "en": "seller-denner-ag-wetzikon",
+        "fr": "vendeur-denner-ag-wetzikon",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
       "titleByLocale": {
@@ -15576,12 +15571,10 @@
           "verkaufer-in-denner-ag-wetzikon-douzkp"
         ],
         "en": [
-          "seller-denner-ag-wetzikon-8e6f7a",
-          "seller-denner-ag-wetzikon"
+          "seller-denner-ag-wetzikon-8e6f7a"
         ],
         "fr": [
-          "vendeur-denner-ag-wetzikon-8e6f7a",
-          "vendeur-denner-ag-wetzikon"
+          "vendeur-denner-ag-wetzikon-8e6f7a"
         ],
         "it": [
           "verkaufer-in-denner-ag-allschwil",
@@ -15598,10 +15591,7 @@
         "venditore-denner-ag-zurich-1ed56c",
         "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
-        "venditore-denner-ag-wetzikon-8e6f7a",
-        "verkaufer-in-denner-ag-wetzikon",
-        "seller-denner-ag-wetzikon",
-        "vendeur-denner-ag-wetzikon"
+        "venditore-denner-ag-wetzikon-8e6f7a"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31526,7 +31516,6 @@
         "fitness-instructor-m-w-d-activ-fitness-thun-7zqdt4",
         "fitnesstrainer-m-w-d-activ-fitness-thun-7zqdt4",
         "fitness-instructor-m-w-d-activ-fitness-thun",
-        "istruttore-di-fitness-f-m-d-activ-fitness-thun",
         "fitnesstrainer-m-w-d-activ-fitness-thun-3b12g6",
         "fitnesstrainer-w-m-d-activ-fitness-thun",
         "fitness-instructor-m-w-d-activ-fitness-thun-3b12g6"
@@ -31749,7 +31738,6 @@
         "pizzaiolo-baden-pizzeria-ristorante-molino-baden-q9gttd",
         "chef-de-partie-baden-pizzeria-ristorante-molino-baden",
         "chef-de-partie-baden-pizzeria-ristorante-molino-baden-vj2ad6",
-        "user-safety-safe-pizzeria-ristorante-molino-baden",
         "capopartita-baden-pizzeria-ristorante-molino-baden"
       ],
       "salaryMin": 62000,
@@ -49158,8 +49146,7 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,

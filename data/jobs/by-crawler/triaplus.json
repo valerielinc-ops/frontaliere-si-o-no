@@ -830,7 +830,7 @@
         "it": "vice-responsabile-di-reparto-m-f-d-psichiatria-acuta-e-generale-triaplus-ag-oberwil",
         "en": "deputy-ward-manager-m-f-d-acute-and-general-psychiatry-triaplus-ag-oberwil",
         "de": "stv-stationsleiterin-w-m-d-akut-und-allgemeinpsychiatrie-triaplus-stv-stationsleiterin-w-m",
-        "fr": "stv-stationsleiterin-w-m-d-akut-und-allgemeinpsychiatrie-triaplus-stv-stationsleiterin-w-m"
+        "fr": "directeur-de-station-stv-f-m-d-psychiatrie-aigue-et-generale-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -906,6 +906,9 @@
         ],
         "de": [
           "stv-stationsleiterin-w-m-d-triaplus-ag-oberwil"
+        ],
+        "fr": [
+          "stv-stationsleiterin-w-m-d-akut-und-allgemeinpsychiatrie-triaplus-stv-stationsleiterin-w-m"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:14.452Z",
@@ -2735,8 +2738,8 @@
       "slugByLocale": {
         "de": "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder",
         "it": "fachpsychologe-o-psychologe-in-weiterbildung-m-w-d-triaplus-ag-oberwil",
-        "en": "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder",
-        "fr": "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder"
+        "en": "specialist-psychologist-or-psychologist-in-further-education-m-f-d-triaplus-ag-oberwil",
+        "fr": "psychologue-specialise-ou-psychologue-en-formation-continue-m-f-d-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2781,6 +2784,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder"
+        ],
+        "en": [
+          "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder"
+        ],
+        "fr": [
           "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder"
         ]
       },

@@ -3993,12 +3993,12 @@
     },
     {
       "id": "unibe-5ed73bb1db54",
-      "slug": "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai",
+      "slug": "assistente-del-professor-tenure-track-per-metodi-psicologici-e-intelligenza-artificiale-ai-universitat-bern-bern",
       "slugByLocale": {
-        "it": "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai",
+        "it": "assistente-del-professor-tenure-track-per-metodi-psicologici-e-intelligenza-artificiale-ai-universitat-bern-bern",
         "en": "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai",
         "de": "assistent-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai-universitat-bern-bern",
-        "fr": "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai"
+        "fr": "professeur-adjoint-track-d-occupation-pour-les-methodes-psychologiques-et-l-intelligence-artificielle-ia-universitat"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4051,7 +4051,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai"
+        ],
+        "fr": [
+          "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai"
+      ]
     },
     {
       "id": "unibe-6b542bde3fb6",
@@ -4746,12 +4757,12 @@
     },
     {
       "id": "unibe-7f4cb9815ca8",
-      "slug": "specialiste-en-catalogage-de-livres-anciens-unibe-bern",
+      "slug": "specialista-nella-catalogazione-di-libri-antichi-universitat-bern-bern",
       "slugByLocale": {
         "fr": "specialiste-en-catalogage-de-livres-anciens-unibe-bern",
-        "it": "specialiste-en-catalogage-de-livres-anciens-unibe-bern",
-        "en": "specialiste-en-catalogage-de-livres-anciens-unibe-bern",
-        "de": "specialiste-en-catalogage-de-livres-anciens-unibe-bern"
+        "it": "specialista-nella-catalogazione-di-libri-antichi-universitat-bern-bern",
+        "en": "specialist-in-cataloguing-ancient-books-universitat-bern-bern",
+        "de": "spezialist-fur-die-katalogisierung-alter-bucher-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4806,7 +4817,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T23:10:35.365Z"
+      "firstSeenAt": "2026-06-24T23:10:35.365Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-catalogage-de-livres-anciens-unibe-bern"
+        ],
+        "en": [
+          "specialiste-en-catalogage-de-livres-anciens-unibe-bern"
+        ],
+        "de": [
+          "specialiste-en-catalogage-de-livres-anciens-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-catalogage-de-livres-anciens-unibe-bern"
+      ]
     }
   ]
 }
