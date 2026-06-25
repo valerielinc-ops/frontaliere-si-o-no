@@ -1385,6 +1385,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'aumento-costi-abitazione-e-mobilita-in-svizzera',
+    category: 'fiscale',
+    date: '2026-06-25T15:19:43.620Z',
+    image: '/images/blog/aumento-costi-abitazione-e-mobilita-in-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

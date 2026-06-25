@@ -463,6 +463,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.terzo-pilastro-frontalieri-guida.title': 'Troisième pilier pour les frontaliers : guide pratique 2024',
     'blog.article.terzo-pilastro-frontalieri-guida.excerpt': 'Le troisième pilier 3a pour les frontaliers : qui peut l\'ouvrir, comment cela fonctionne, différences avec les résidents, limites et scénarios pratiques.',
     'blog.article.terzo-pilastro-frontalieri-guida.imageAlt': 'Panorama de Lugano avec frontaliers arrivant au travail.',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.title': 'Augmentation des coûts de logement et de mobilité en Suisse : impact sur la classe moyenne',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.excerpt': 'Les coûts de logement et de mobilité en Suisse ont augmenté de 1,7% par rapport au même mois de l\'année précédente. Le Tessin est la région la plus touchée.',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.imageAlt': 'Une famille suisse conduisant une voiture à Zurich',
 };
 
 export default blogMetaChFr;

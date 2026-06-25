@@ -463,6 +463,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-frontalieri-guida.title': 'Third pillar for border guards: practical guide 2024',
     'blog.article.terzo-pilastro-frontalieri-guida.excerpt': 'The third pillar 3a for border workers: who can open it, how it works, differences with residents, limits and practical scenarios.',
     'blog.article.terzo-pilastro-frontalieri-guida.imageAlt': 'Lugano panorama with cross-border workers arriving.',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.title': 'Swiss Housing & Mobility Costs Rise: Middle Class Impact',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.excerpt': 'Housing and mobility costs in Switzerland increased by 1.7% compared to the same month of the previous year. Ticino is the most affected region.',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.imageAlt': 'A Swiss family driving a car in Zurich',
 };
 
 export default blogMetaChEn;
