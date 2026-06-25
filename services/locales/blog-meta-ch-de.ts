@@ -436,6 +436,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.documenti-frontalieri-lavoro-svizzera.title': 'Benötigte Dokumente, um in der Schweiz zu arbeiten: Vollständiger Leitfaden',
     'blog.article.documenti-frontalieri-lavoro-svizzera.excerpt': 'Entdecken Sie die vollständige Checkliste der Dokumente, die Sie benötigen, um in der Schweiz als Grenzgänger zu arbeiten.',
     'blog.article.documenti-frontalieri-lavoro-svizzera.imageAlt': 'Pendler, die die Schweizerisch-Italienische Grenze mit dem Lugano Skyline im Hintergrund überqueren',
+    'blog.article.frontalieri-asili-nido-ticino.title': 'Grenzgänger mit Kindern: Kindergärten in der Schweiz und im Tessin',
+    'blog.article.frontalieri-asili-nido-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger mit Kindern: Kosten, Wartelisten, Leistungen und Alternativen für Kindergärten im Tessin',
+    'blog.article.frontalieri-asili-nido-ticino.imageAlt': 'Tessiner Kinderkrippe mit Kindern und Erziehern',
 };
 
 export default blogMetaChDe;
