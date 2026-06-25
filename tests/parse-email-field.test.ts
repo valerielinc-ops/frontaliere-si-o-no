@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { parseEmailField, normalizeEmailAddress } from '../scripts/lib/parseEmailField.mjs';
 import { personalizeGreeting } from '../services/newsletter-template.mjs';
+import { subscriberFromFirestoreRow } from '../scripts/lib/subscriberFromFirestoreRow.mjs';
 
 describe('parseEmailField', () => {
   it('passes through a bare address (lowercased)', () => {
@@ -58,5 +59,30 @@ describe('greeting harvested from a polluted email field', () => {
     const row = { email: 'Mario Rossi <mario.rossi@example.com>', name: 'Gianni' };
     const recipientName = row.name || parseEmailField(row.email).displayName;
     expect(personalizeGreeting('it', recipientName)).toBe('Buongiorno, Gianni.');
+  });
+});
+
+// Regression guard for the real send path: subscriberFromFirestoreRow must
+// receive the RAW row.email and harvest the display name itself, returning the
+// bare address on .email. (A caller that pre-strips the wrapper before passing
+// the row would silently disable the harvest — the bug caught in review.)
+describe('subscriberFromFirestoreRow harvests name from a polluted email field', () => {
+  it('returns bare email + harvested name when only the email field carries it', () => {
+    const s = subscriberFromFirestoreRow({ email: 'Mario Rossi <mario.rossi@example.com>', name: null });
+    expect(s?.email).toBe('mario.rossi@example.com');
+    expect(s?.name).toBe('Mario Rossi');
+    expect(personalizeGreeting('it', s?.name)).toBe('Buongiorno, Mario.');
+  });
+
+  it('stored name wins; bare email still normalized', () => {
+    const s = subscriberFromFirestoreRow({ email: 'Mario Rossi <mario.rossi@example.com>', name: 'Gianni' });
+    expect(s?.email).toBe('mario.rossi@example.com');
+    expect(s?.name).toBe('Gianni');
+  });
+
+  it('plain bare email yields no harvested name', () => {
+    const s = subscriberFromFirestoreRow({ email: 'bare@example.com', name: null });
+    expect(s?.email).toBe('bare@example.com');
+    expect(s?.name).toBeNull();
   });
 });
