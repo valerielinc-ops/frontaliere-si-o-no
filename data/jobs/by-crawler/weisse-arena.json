@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-06-25T12:33:25.296Z",
+  "assembledAt": "2026-06-25T23:30:45.878Z",
   "jobs": [
     {
       "id": "weisse-arena-faeb9def7024",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4502&jobTitle=Elektroinstallateur%3Ain%2FTechniker%3Ain+Infrastruktur",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.846Z",
+      "crawledAt": "2026-06-25T23:30:43.783Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4462&jobTitle=Restaurantleiter%3Ain+Camino",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.846Z",
+      "crawledAt": "2026-06-25T23:30:43.783Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -163,6 +163,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -208,7 +209,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4461&jobTitle=Stellvertretende%3Ar+K%C3%BCchenchef%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.846Z",
+      "crawledAt": "2026-06-25T23:30:43.783Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -272,6 +273,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -317,7 +319,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4515&jobTitle=Event+Manager",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.845Z",
+      "crawledAt": "2026-06-25T23:30:43.782Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -349,6 +351,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T13:10:24.517Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -394,7 +397,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4514&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.845Z",
+      "crawledAt": "2026-06-25T23:30:43.782Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -474,7 +477,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4510&jobTitle=Mitarbeiter%3Ain+Verkauf+und+Administration+Wintersaison+%2870-100%25%29",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.845Z",
+      "crawledAt": "2026-06-25T23:30:43.782Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -524,6 +527,86 @@
       "addressRegion": "GR"
     },
     {
+      "id": "weisse-arena-c79c97c1152d",
+      "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "assistente-cuoco-weisse-arena-gruppe-laax",
+        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
+        "de": "hilfskoch-hilfskochin-weisse-arena-ch",
+        "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Hilfskoch/Hilfsköchin",
+      "titleByLocale": {
+        "it": "Assistente cuoco",
+        "en": "Auxiliary cook",
+        "de": "Hilfskoch/Hilfsköchin",
+        "fr": "Cuisinière auxiliaire"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das sich dem Kochen mit dem Feuer verschrieben hat. Unsere Gerichte werden auf dem offen Grill und über der Glut zubereitet. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung Unterstützung. | Was du bewegst:\n• Du kümmerst dich um das Mise en place\n• Du bist verantwortlich für die Zubereitung der kalten Gerichte\n• Du bereitest die warmen Speisen über dem Feuer zu\n• Vor- und Nachbereitung der Arbeitsstationen und Einhaltung aller Qualitäts- und Hygienestandards (HACCP) in der Küche | Was dich ausmacht:\n• Du verfügst über fundierte praktische Erfahrung als Hilfskoch/Hilfsköchin\n• Du kennst die Abläufe und die Anforderungen in einer professionellen Küche\n• Auch in stressigen Situationen behältst du einen klaren Kopf und passt dich flexibel an wechselnde Anforderungen an\n• Du arbeitest eigenverantwortlich und zuverlässig, ohne dabei die wichtigen Details aus den Augen zu verlieren\n• Du sprichst Deutsch; Englischkenntnisse sind ein Plus | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, d ich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende diverse società di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. Il ristorante Grandis Vinoteca & Grill di Laax con una chiara attenzione alla qualità e all'ospitalità è un luogo che delizia gli amanti del vino e i buongustai. Il nostro concept combina un vinothek di prima classe con un moderno ristorante barbecue dedicato alla cucina con il fuoco. I nostri piatti sono preparati sulla griglia aperta e sulle braci. # Per il nostro ristorante, che è completamente dedicato alla cucina regionale, stagionale e una scelta consapevole di carne, siamo alla ricerca di sostegno da ora su o su appuntamento. Cosa fai?\n• Si prende cura della mise in atto\n• Siete responsabili della preparazione dei piatti freddi\n• Preparate il cibo caldo sopra il fuoco\n• Preparazione e follow-up di postazioni di lavoro e conformità a tutti gli standard di qualità e igiene (HACCP) in cucina | Cosa ti fa notare:\n• Hai un'esperienza pratica approfondita come cuoca ausiliaria\n• Conosci le procedure e i requisiti in una cucina professionale\n• Anche in situazioni stressanti, si mantiene una testa chiara e si adatta in modo flessibile ai requisiti di cambiamento\n• Si lavora in modo indipendente e affidabile senza perdere di vista i dettagli importanti\n• Si parla tedesco; le competenze in inglese sono un plus | Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è per voi. Inoltre, avete la possibilità di sviluppare ulteriormente d ich nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale con il Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax",
+        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering companies, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. The Grandis Vinoteca & Grill restaurant in Laax with a clear focus on quality and hospitality is a place that delights wine lovers and foodies alike. Our concept combines a first-class vinothek with a modern barbecue restaurant dedicated to cooking with fire. Our dishes are prepared on the open grill and over the embers. | For our restaurant, which is completely dedicated to regional, seasonal cuisine and a conscious choice of meat, we are looking for support from now on or by appointment. What you do move:\n• You take care of the mise en place\n• You are responsible for preparing the cold dishes\n• You prepare the warm food over the fire\n• Preparation and follow-up of workstations and compliance with all quality and hygiene standards (HACCP) in the kitchen | What makes you stand out:\n• You have in-depth practical experience as an auxiliary cook\n• You know the procedures and requirements in a professional kitchen\n• Even in stressful situations, you keep a clear head and adapt flexibly to changing requirements\n• You work independently and reliably without losing sight of the important details\n• You speak German; English skills are a plus | An attractive workplace in the midst of a breathtaking mountain world is for you. In addition, you have the opportunity to further develop d ich in our dynamic, bright team and lively corporate culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family. Start your professional adventure with the Weissen Arena Group now with your complete online application with photo. We look forward to it. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das sich dem Kochen mit dem Feuer verschrieben hat. Unsere Gerichte werden auf dem offen Grill und über der Glut zubereitet. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung Unterstützung. | Was du bewegst:\n• Du kümmerst dich um das Mise en place\n• Du bist verantwortlich für die Zubereitung der kalten Gerichte\n• Du bereitest die warmen Speisen über dem Feuer zu\n• Vor- und Nachbereitung der Arbeitsstationen und Einhaltung aller Qualitäts- und Hygienestandards (HACCP) in der Küche | Was dich ausmacht:\n• Du verfügst über fundierte praktische Erfahrung als Hilfskoch/Hilfsköchin\n• Du kennst die Abläufe und die Anforderungen in einer professionellen Küche\n• Auch in stressigen Situationen behältst du einen klaren Kopf und passt dich flexibel an wechselnde Anforderungen an\n• Du arbeitest eigenverantwortlich und zuverlässig, ohne dabei die wichtigen Details aus den Augen zu verlieren\n• Du sprichst Deutsch; Englischkenntnisse sind ein Plus | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, d ich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Le restaurant Grandis Vinoteca & Grill à Laax avec un accent clair sur la qualité et l'hospitalité est un endroit qui ravit les amateurs de vin et les gourmets. Notre concept combine un vinothek de première classe avec un restaurant barbecue moderne dédié à la cuisine avec le feu. Nos plats sont préparés sur le grill ouvert et sur les braises. - Oui. Pour notre restaurant, entièrement dédié à la cuisine régionale, saisonnière et à un choix conscient de viande, nous recherchons désormais du soutien sur rendez-vous. Ce que vous faites bouger:\n• Vous prenez soin de la mise en place\n• Vous êtes responsable de la préparation des plats froids\n• Vous préparez la nourriture chaude sur le feu\n• Préparation et suivi des postes de travail et respect de toutes les normes de qualité et d'hygiène (HACCP) dans la cuisine Ce qui te distingue :\n• Vous avez une expérience pratique approfondie en tant que cuisinier auxiliaire\n• Vous connaissez les procédures et les exigences dans une cuisine professionnelle\n• Même dans les situations stressantes, vous gardez une tête claire et vous adaptez avec souplesse aux exigences changeantes\n• Vous travaillez de manière indépendante et fiable sans perdre de vue les détails importants\n• Vous parlez allemand; les compétences en anglais sont un plus Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est pour vous. En outre, vous avez l'occasion de développer davantage dich dans notre équipe dynamique, lumineuse et la culture d'entreprise animée. Profitez de nombreux avantages pour les employés, tels que des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle avec le groupe Weissen Arena maintenant avec votre demande en ligne complète avec photo. Nous attendons avec impatience. Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tél. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T23:30:43.781Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Turismo",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4519&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Grandis Ustria da vin",
+      "jobNumber": "WAG02397",
+      "pensum": "100%",
+      "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-weisse-arena-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskoch-hilfskochin-weisse-arena-ch"
+        ],
+        "en": [
+          "hilfskoch-hilfskochin-weisse-arena-ch"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T14:41:43.954Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
       "id": "weisse-arena-f75d8e4df5ab",
       "slug": "koch-kochin-con-feuer-e-leidenschaft-weisse-arena-gruppe-laax",
       "slugByLocale": {
@@ -554,7 +637,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.844Z",
+      "crawledAt": "2026-06-25T23:30:43.781Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -589,6 +672,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -634,7 +718,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.844Z",
+      "crawledAt": "2026-06-25T23:30:43.781Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -723,7 +807,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.843Z",
+      "crawledAt": "2026-06-25T23:30:43.780Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -770,86 +854,6 @@
       "addressRegion": "GR"
     },
     {
-      "id": "weisse-arena-c79c97c1152d",
-      "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "assistente-cuoco-weisse-arena-gruppe-laax",
-        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
-        "de": "hilfskoch-hilfskochin-weisse-arena-ch",
-        "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Hilfskoch/Hilfsköchin",
-      "titleByLocale": {
-        "it": "Assistente cuoco",
-        "en": "Auxiliary cook",
-        "de": "Hilfskoch/Hilfsköchin",
-        "fr": "Cuisinière auxiliaire"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das sich dem Kochen mit dem Feuer verschrieben hat. Unsere Gerichte werden auf dem offen Grill und über der Glut zubereitet. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung Unterstützung. | Was du bewegst:\n• Du kümmerst dich um das Mise en place\n• Du bist verantwortlich für die Zubereitung der kalten Gerichte\n• Du bereitest die warmen Speisen über dem Feuer zu\n• Vor- und Nachbereitung der Arbeitsstationen und Einhaltung aller Qualitäts- und Hygienestandards (HACCP) in der Küche | Was dich ausmacht:\n• Du verfügst über fundierte praktische Erfahrung als Hilfskoch/Hilfsköchin\n• Du kennst die Abläufe und die Anforderungen in einer professionellen Küche\n• Auch in stressigen Situationen behältst du einen klaren Kopf und passt dich flexibel an wechselnde Anforderungen an\n• Du arbeitest eigenverantwortlich und zuverlässig, ohne dabei die wichtigen Details aus den Augen zu verlieren\n• Du sprichst Deutsch; Englischkenntnisse sind ein Plus | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, d ich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende diverse società di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. Il ristorante Grandis Vinoteca & Grill di Laax con una chiara attenzione alla qualità e all'ospitalità è un luogo che delizia gli amanti del vino e i buongustai. Il nostro concept combina un vinothek di prima classe con un moderno ristorante barbecue dedicato alla cucina con il fuoco. I nostri piatti sono preparati sulla griglia aperta e sulle braci. # Per il nostro ristorante, che è completamente dedicato alla cucina regionale, stagionale e una scelta consapevole di carne, siamo alla ricerca di sostegno da ora su o su appuntamento. Cosa fai?\n• Si prende cura della mise in atto\n• Siete responsabili della preparazione dei piatti freddi\n• Preparate il cibo caldo sopra il fuoco\n• Preparazione e follow-up di postazioni di lavoro e conformità a tutti gli standard di qualità e igiene (HACCP) in cucina | Cosa ti fa notare:\n• Hai un'esperienza pratica approfondita come cuoca ausiliaria\n• Conosci le procedure e i requisiti in una cucina professionale\n• Anche in situazioni stressanti, si mantiene una testa chiara e si adatta in modo flessibile ai requisiti di cambiamento\n• Si lavora in modo indipendente e affidabile senza perdere di vista i dettagli importanti\n• Si parla tedesco; le competenze in inglese sono un plus | Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è per voi. Inoltre, avete la possibilità di sviluppare ulteriormente d ich nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale con il Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax",
-        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering companies, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. The Grandis Vinoteca & Grill restaurant in Laax with a clear focus on quality and hospitality is a place that delights wine lovers and foodies alike. Our concept combines a first-class vinothek with a modern barbecue restaurant dedicated to cooking with fire. Our dishes are prepared on the open grill and over the embers. | For our restaurant, which is completely dedicated to regional, seasonal cuisine and a conscious choice of meat, we are looking for support from now on or by appointment. What you do move:\n• You take care of the mise en place\n• You are responsible for preparing the cold dishes\n• You prepare the warm food over the fire\n• Preparation and follow-up of workstations and compliance with all quality and hygiene standards (HACCP) in the kitchen | What makes you stand out:\n• You have in-depth practical experience as an auxiliary cook\n• You know the procedures and requirements in a professional kitchen\n• Even in stressful situations, you keep a clear head and adapt flexibly to changing requirements\n• You work independently and reliably without losing sight of the important details\n• You speak German; English skills are a plus | An attractive workplace in the midst of a breathtaking mountain world is for you. In addition, you have the opportunity to further develop d ich in our dynamic, bright team and lively corporate culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family. Start your professional adventure with the Weissen Arena Group now with your complete online application with photo. We look forward to it. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das sich dem Kochen mit dem Feuer verschrieben hat. Unsere Gerichte werden auf dem offen Grill und über der Glut zubereitet. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung Unterstützung. | Was du bewegst:\n• Du kümmerst dich um das Mise en place\n• Du bist verantwortlich für die Zubereitung der kalten Gerichte\n• Du bereitest die warmen Speisen über dem Feuer zu\n• Vor- und Nachbereitung der Arbeitsstationen und Einhaltung aller Qualitäts- und Hygienestandards (HACCP) in der Küche | Was dich ausmacht:\n• Du verfügst über fundierte praktische Erfahrung als Hilfskoch/Hilfsköchin\n• Du kennst die Abläufe und die Anforderungen in einer professionellen Küche\n• Auch in stressigen Situationen behältst du einen klaren Kopf und passt dich flexibel an wechselnde Anforderungen an\n• Du arbeitest eigenverantwortlich und zuverlässig, ohne dabei die wichtigen Details aus den Augen zu verlieren\n• Du sprichst Deutsch; Englischkenntnisse sind ein Plus | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, d ich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Le restaurant Grandis Vinoteca & Grill à Laax avec un accent clair sur la qualité et l'hospitalité est un endroit qui ravit les amateurs de vin et les gourmets. Notre concept combine un vinothek de première classe avec un restaurant barbecue moderne dédié à la cuisine avec le feu. Nos plats sont préparés sur le grill ouvert et sur les braises. - Oui. Pour notre restaurant, entièrement dédié à la cuisine régionale, saisonnière et à un choix conscient de viande, nous recherchons désormais du soutien sur rendez-vous. Ce que vous faites bouger:\n• Vous prenez soin de la mise en place\n• Vous êtes responsable de la préparation des plats froids\n• Vous préparez la nourriture chaude sur le feu\n• Préparation et suivi des postes de travail et respect de toutes les normes de qualité et d'hygiène (HACCP) dans la cuisine Ce qui te distingue :\n• Vous avez une expérience pratique approfondie en tant que cuisinier auxiliaire\n• Vous connaissez les procédures et les exigences dans une cuisine professionnelle\n• Même dans les situations stressantes, vous gardez une tête claire et vous adaptez avec souplesse aux exigences changeantes\n• Vous travaillez de manière indépendante et fiable sans perdre de vue les détails importants\n• Vous parlez allemand; les compétences en anglais sont un plus Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est pour vous. En outre, vous avez l'occasion de développer davantage dich dans notre équipe dynamique, lumineuse et la culture d'entreprise animée. Profitez de nombreux avantages pour les employés, tels que des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle avec le groupe Weissen Arena maintenant avec votre demande en ligne complète avec photo. Nous attendons avec impatience. Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tél. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.843Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Turismo",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4519&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Grandis Ustria da vin",
-      "jobNumber": "WAG02397",
-      "pensum": "100%",
-      "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "hilfskoch-hilfskochin-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hilfskoch-hilfskochin-weisse-arena-ch"
-        ],
-        "en": [
-          "hilfskoch-hilfskochin-weisse-arena-ch"
-        ],
-        "fr": [
-          "hilfskoch-hilfskochin-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T14:41:43.954Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "weisse-arena-c801e73870c9",
       "slug": "portatore-notturno-weisse-arena-gruppe-laax",
       "slugByLocale": {
@@ -880,7 +884,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T12:33:22.842Z",
+      "crawledAt": "2026-06-25T23:30:43.779Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
