@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-06-24T21:38:38.523Z",
+  "generatedAt": "2026-06-25T10:45:04.798Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 17160,
-  "avgDurationMs": 17160,
+  "durationMs": 16093,
+  "avgDurationMs": 16093,
   "durationHistory": [
-    17160
+    16093
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Lehrstelle Kauffrau / Kaufmann 2027 - REF289852B",
+      "slug": "lehrstelle-kauffrau-kaufmann-2027-ref289852b-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF289852B-lehrstelle-kauffrau-kaufmann-2027-ref289852b",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000134207812-lehrstelle-kauffrau-kaufmann-2027-ref289852b?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "apprenticeship",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-25",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Teamleader Production (w/m/div.) - REF287851S",
@@ -229,10 +260,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Instandhaltung (w/m/div.) - REF285547A",
-      "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
+      "slug": "manutenzione-f-m-div-ref285547a-bosch-thermotechnik-ag-st",
       "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125158826-instandhaltung-w-m-div-ref285547a?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -267,7 +300,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Key Account Manager – Bosch Building Technologies 100% (w/m/div.) REF287492K",
