@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-06-24T22:19:33.496Z",
+  "assembledAt": "2026-06-25T11:24:07.632Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:21.500Z",
+      "crawledAt": "2026-06-25T11:23:55.775Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:20.869Z",
+      "crawledAt": "2026-06-25T11:23:55.090Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -200,6 +201,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -245,7 +247,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:20.238Z",
+      "crawledAt": "2026-06-25T11:23:54.403Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -306,6 +308,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -351,7 +354,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:19.606Z",
+      "crawledAt": "2026-06-25T11:23:53.717Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -412,6 +415,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -427,72 +431,60 @@
       "addressRegion": "GR"
     },
     {
-      "id": "kanton-gr-d1f2787a6c8f",
-      "slug": "lavoratore-sociale-kantonale-verwaltung-graubunden-chur-fac501",
+      "id": "kanton-gr-e513b4e066db",
+      "slug": "assistenz-digitale-transformation-kanton-gr-ch",
       "slugByLocale": {
-        "it": "lavoratore-sociale-kantonale-verwaltung-graubunden-chur-fac501",
-        "en": "social-worker-in-kantonale-verwaltung-graubunden-chur-fac501",
-        "de": "sozialarbeiter-in-kanton-gr-ch",
-        "fr": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur-fac501"
+        "de": "assistenz-digitale-transformation-kanton-gr-ch",
+        "it": "assistenz-digitale-transformation-kanton-gr-ch",
+        "en": "assistenz-digitale-transformation-kanton-gr-ch",
+        "fr": "assistenz-digitale-transformation-kanton-gr-ch"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
       "companyDomain": "gr.ch",
-      "title": "Sozialarbeiter/-in",
+      "title": "Assistenz digitale Transformation",
       "titleByLocale": {
-        "it": "Lavoratore sociale",
-        "en": "Social worker/in",
-        "de": "Sozialarbeiter/-in",
-        "fr": "Travailleurs sociaux/in"
+        "de": "Assistenz digitale Transformation",
+        "it": "Assistenz digitale Transformation",
+        "en": "Assistenz digitale Transformation",
+        "fr": "Assistenz digitale Transformation"
       },
-      "description": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste.\n\nDer regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung und finanzielle Unterstützung von Personen mit Schutzstatus S aus der Ukraine in individuellen Unterkünften\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+      "description": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus.",
       "descriptionByLocale": {
-        "it": "A nome dei comuni, l'ufficio cantonale del welfare svolge il compito di assistenza sociale e di dipendenza personale e sostiene le persone nello sviluppo dell'assistenza sociale economica. Esso fornisce otto servizi sociali regionali nelle regioni del Cantone. Il servizio sociale regionale Chur/Plessur/Imboden è responsabile per 10 comuni con una superficie di cattura di 67 000 persone. Consulenza sociale, Addizione e Supporto finanziario (gr.ch) Stiamo cercando la posizione Chur su 1. agosto 2026 o d'accordo un lavoratore sociale Compiti\n• Consulenza sociale orientata alla soluzione e alle risorse per individui e famiglie\n• Sviluppo delle prestazioni di sicurezza sociale e dell'assistenza economica\n• Consulenza e sostegno finanziario delle persone con status di protezione S dall'Ucraina in alloggi individuali\n• Consulenza riconosciuta e provvisoriamente ammessa ai rifugiati e agli stranieri sull'integrazione linguistica, professionale e sociale\n• Cooperazione con le autorità sociali e gli organismi specializzati\n• Altre attività versatili, interessanti e responsabili Requisiti\n• Formazione completa come lavoratore sociale/in BSc/FH o una laurea in formazione comparabile\n• Divertiti a lavorare con persone provenienti da contesti sociali e/o culturali diversi\n• Un elevato livello di competenza consultiva e un'approfondita esperienza nel diritto di assistenza sociale e nell'assicurazione sociale\n• Sociabile, resiliente, capace di lavorare di squadra, buone capacità comunicative, organizzative e amministrative\n• Idealmente buone competenze linguistiche straniere\n• Lavoro indipendente e orientato alla soluzione",
-        "en": "On behalf of the municipalities, the cantonal welfare office performs the task of personal social and addiction assistance and supports people in the development of economic social assistance. It provides eight regional social services in the regions of the canton. The Chur/Plessur/Imboden Regional Social Service is responsible for 10 municipalities with a catchment area of 67 000 people. Social Advice, Addiction and Financial Support (gr.ch) We are looking for the location Chur on 1. August 2026 or by agreement a social worker Tasks\n• Solution- and resource-oriented social advice for individuals and families\n• Development of social security benefits and economic assistance\n• Advice and financial support of persons with protection status S from Ukraine in individual accommodation\n• Advising recognised and provisionally admitted refugees and foreigners on linguistic, professional and social integration\n• Cooperation with social authorities and specialised bodies\n• Other versatile, interesting and responsible activities Requirements\n• Completed training as a social worker/in BSc/FH or a degree in comparable training\n• Enjoy working with people from different social and/or cultural backgrounds\n• High level of advisory competence as well as in-depth expertise in social assistance law and social insurance\n• Sociable, resilient, capable of teamwork, good communicative, organizational and administrative skills\n• Ideally good foreign language skills\n• Independent and solution-oriented work",
-        "de": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch) Wir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in Aufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n• Beratung und finanzielle Unterstützung von Personen mit Schutzstatus S aus der Ukraine in individuellen Unterkünften\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten Anforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n• Hohe Beratungskompetenz sowie fundiertes Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n• Idealerweise gute Fremdsprachenkenntnisse\n• Selbstständiges und lösungsorientiertes Arbeiten",
-        "fr": "Au nom des municipalités, le bureau cantonal d'aide sociale s'occupe de l'assistance sociale personnelle et de l'aide aux toxicomanes et aide les populations à développer l'aide sociale économique. Il fournit huit services sociaux régionaux dans les régions du canton. Le service social régional Chur/Plessur/Imboden est responsable de 10 municipalités ayant un bassin versant de 67 000 personnes. Conseils sociaux, toxicomanie et soutien financier (gr.ch) Nous cherchons l'emplacement Chur sur 1. Août 2026 ou d'un commun accord un travailleur social Tâche\n• Conseils sociaux axés sur les solutions et les ressources pour les individus et les familles\n• Développement des prestations de sécurité sociale et assistance économique\n• Conseils et soutien financier aux personnes bénéficiant du statut de protection S en provenance d ' Ukraine dans un logement individuel\n• Conseiller les réfugiés et les étrangers reconnus et provisoirement admis sur l'intégration linguistique, professionnelle et sociale\n• Coopération avec les autorités sociales et les organismes spécialisés\n• Autres activités polyvalentes, intéressantes et responsables Exigences\n• Formation complète en tant que travailleur social/en BSc/FH ou diplôme en formation comparable\n• Profitez de travailler avec des gens de différents milieux sociaux et/ou culturels\n• Haute compétence en matière de conseil et expertise approfondie en matière de droit de l ' assistance sociale et d ' assurance sociale\n• Sociable, résilient, capable de travailler en équipe, de bonnes compétences en communication, en organisation et en administration\n• Idéalement de bonnes compétences en langues étrangères\n• Travaux indépendants axés sur la solution"
+        "de": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus.",
+        "it": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus.",
+        "en": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus.",
+        "fr": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus."
       },
       "location": "Chur",
       "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2698/pub/10/index.html",
+      "url": "https://apply.refline.ch/514915/2746/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:18.975Z",
+      "crawledAt": "2026-06-25T11:23:53.031Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Sociale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "category": "Amministrazione Pubblica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
-      "applyUrl": "https://apply.refline.ch/514915/2698/pub/10/index.html",
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://apply.refline.ch/514915/2746/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Sozialamt",
-      "applicationDeadline": "2026-07-10",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "sozialarbeiter-in-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialarbeiter-in-kanton-gr-ch"
-        ],
-        "en": [
-          "sozialarbeiter-in-kanton-gr-ch"
-        ],
-        "fr": [
-          "sozialarbeiter-in-kanton-gr-ch"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
-      "firstSeenAt": "2026-06-24T11:58:27.882Z",
+      "department": "Departementssekretariat DFG",
+      "applicationDeadline": "2026-07-31",
+      "pensumMin": 50,
+      "pensumMax": 50,
+      "pensum": "50%",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -505,7 +497,304 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-25T11:23:53.031Z"
+    },
+    {
+      "id": "kanton-gr-07524dfb80e1",
+      "slug": "ict-supporter-in-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "ict-supporter-in-kanton-gr-ch",
+        "it": "ict-supporter-in-kanton-gr-ch",
+        "en": "ict-supporter-in-kanton-gr-ch",
+        "fr": "ict-supporter-in-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "ICT-Supporter/-in",
+      "titleByLocale": {
+        "de": "ICT-Supporter/-in",
+        "it": "ICT-Supporter/-in",
+        "en": "ICT-Supporter/-in",
+        "fr": "ICT-Supporter/-in"
+      },
+      "description": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit.\n\nAufgaben\n• Professionelle Betreuung und Unterstützung der Mitarbeitenden im 1st und 2nd Level Support bei sämtlichen IT-Anliegen\n\n• Installation, Konfiguration und Unterhalt von Client-Hardware sowie die Einrichtung moderner IT-Arbeitsplätze\n\n• Verantwortung für die Beschaffung, Verwaltung und das Lifecycle-Management von Hard- und Software (inkl. Bestellungen, Lizenzmanagement und Inventarführung)\n\n• Paketierung und Rollout von Software-Paketen\n\n• Betrieb, Unterhalt und Optimierung der Schulungsumgebung\n\n• Betreuung und Begleitung von stellensuchenden Personen während SIZ-Anwenderschulungen\n\n• Dokumentation der Kursteilnahme vom Eintritt bis zum Austritt und Berichterstattung an die zuweisenden Stellen (RAV, Invalidenversicherung, Sozialdienste)\n\n• Abteilungsübergreifende Übernahme der Funktion des/der stellvertretenden Power-User/-in\n\nAnforderungen\n• Eine abgeschlossene Aus- oder Weiterbildung in der Informatik sowie fundierte Berufserfahrung im IT-Support und technischen Applikationsbetrieb\n\n• Fundierte Kenntnisse im Windows-Client-/Server-Umfeld und idealerweise Erfahrung mit gängigen Automatisierungswerkzeugen\n\n• Erste Erfahrung oder Berührungspunkte mit der Microsoft 365 Umgebung (SharePoint, MS Teams) sowie Azure sind ein grosses Plus, aber kein Must-have\n\n• Selbstständiges, vernetztes und analytisches Denken sowie eine strukturierte, zuverlässige und teamorientierte Arbeitsweise\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift. Kenntnisse einer zweiten Kantonssprache oder weiterer Sprachen sind ein Plus und erleichtern den Austausch in einem vielfältigen Umfeld\n\n• Führerschein Kat. B und die Bereitschaft zu gelegentlichen Einsätzen an weiteren Standorten im Kanton Graubünden",
+      "descriptionByLocale": {
+        "de": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit.\n\nAufgaben\n• Professionelle Betreuung und Unterstützung der Mitarbeitenden im 1st und 2nd Level Support bei sämtlichen IT-Anliegen\n\n• Installation, Konfiguration und Unterhalt von Client-Hardware sowie die Einrichtung moderner IT-Arbeitsplätze\n\n• Verantwortung für die Beschaffung, Verwaltung und das Lifecycle-Management von Hard- und Software (inkl. Bestellungen, Lizenzmanagement und Inventarführung)\n\n• Paketierung und Rollout von Software-Paketen\n\n• Betrieb, Unterhalt und Optimierung der Schulungsumgebung\n\n• Betreuung und Begleitung von stellensuchenden Personen während SIZ-Anwenderschulungen\n\n• Dokumentation der Kursteilnahme vom Eintritt bis zum Austritt und Berichterstattung an die zuweisenden Stellen (RAV, Invalidenversicherung, Sozialdienste)\n\n• Abteilungsübergreifende Übernahme der Funktion des/der stellvertretenden Power-User/-in\n\nAnforderungen\n• Eine abgeschlossene Aus- oder Weiterbildung in der Informatik sowie fundierte Berufserfahrung im IT-Support und technischen Applikationsbetrieb\n\n• Fundierte Kenntnisse im Windows-Client-/Server-Umfeld und idealerweise Erfahrung mit gängigen Automatisierungswerkzeugen\n\n• Erste Erfahrung oder Berührungspunkte mit der Microsoft 365 Umgebung (SharePoint, MS Teams) sowie Azure sind ein grosses Plus, aber kein Must-have\n\n• Selbstständiges, vernetztes und analytisches Denken sowie eine strukturierte, zuverlässige und teamorientierte Arbeitsweise\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift. Kenntnisse einer zweiten Kantonssprache oder weiterer Sprachen sind ein Plus und erleichtern den Austausch in einem vielfältigen Umfeld\n\n• Führerschein Kat. B und die Bereitschaft zu gelegentlichen Einsätzen an weiteren Standorten im Kanton Graubünden",
+        "it": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit.\n\nAufgaben\n• Professionelle Betreuung und Unterstützung der Mitarbeitenden im 1st und 2nd Level Support bei sämtlichen IT-Anliegen\n\n• Installation, Konfiguration und Unterhalt von Client-Hardware sowie die Einrichtung moderner IT-Arbeitsplätze\n\n• Verantwortung für die Beschaffung, Verwaltung und das Lifecycle-Management von Hard- und Software (inkl. Bestellungen, Lizenzmanagement und Inventarführung)\n\n• Paketierung und Rollout von Software-Paketen\n\n• Betrieb, Unterhalt und Optimierung der Schulungsumgebung\n\n• Betreuung und Begleitung von stellensuchenden Personen während SIZ-Anwenderschulungen\n\n• Dokumentation der Kursteilnahme vom Eintritt bis zum Austritt und Berichterstattung an die zuweisenden Stellen (RAV, Invalidenversicherung, Sozialdienste)\n\n• Abteilungsübergreifende Übernahme der Funktion des/der stellvertretenden Power-User/-in\n\nAnforderungen\n• Eine abgeschlossene Aus- oder Weiterbildung in der Informatik sowie fundierte Berufserfahrung im IT-Support und technischen Applikationsbetrieb\n\n• Fundierte Kenntnisse im Windows-Client-/Server-Umfeld und idealerweise Erfahrung mit gängigen Automatisierungswerkzeugen\n\n• Erste Erfahrung oder Berührungspunkte mit der Microsoft 365 Umgebung (SharePoint, MS Teams) sowie Azure sind ein grosses Plus, aber kein Must-have\n\n• Selbstständiges, vernetztes und analytisches Denken sowie eine strukturierte, zuverlässige und teamorientierte Arbeitsweise\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift. Kenntnisse einer zweiten Kantonssprache oder weiterer Sprachen sind ein Plus und erleichtern den Austausch in einem vielfältigen Umfeld\n\n• Führerschein Kat. B und die Bereitschaft zu gelegentlichen Einsätzen an weiteren Standorten im Kanton Graubünden",
+        "en": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit.\n\nAufgaben\n• Professionelle Betreuung und Unterstützung der Mitarbeitenden im 1st und 2nd Level Support bei sämtlichen IT-Anliegen\n\n• Installation, Konfiguration und Unterhalt von Client-Hardware sowie die Einrichtung moderner IT-Arbeitsplätze\n\n• Verantwortung für die Beschaffung, Verwaltung und das Lifecycle-Management von Hard- und Software (inkl. Bestellungen, Lizenzmanagement und Inventarführung)\n\n• Paketierung und Rollout von Software-Paketen\n\n• Betrieb, Unterhalt und Optimierung der Schulungsumgebung\n\n• Betreuung und Begleitung von stellensuchenden Personen während SIZ-Anwenderschulungen\n\n• Dokumentation der Kursteilnahme vom Eintritt bis zum Austritt und Berichterstattung an die zuweisenden Stellen (RAV, Invalidenversicherung, Sozialdienste)\n\n• Abteilungsübergreifende Übernahme der Funktion des/der stellvertretenden Power-User/-in\n\nAnforderungen\n• Eine abgeschlossene Aus- oder Weiterbildung in der Informatik sowie fundierte Berufserfahrung im IT-Support und technischen Applikationsbetrieb\n\n• Fundierte Kenntnisse im Windows-Client-/Server-Umfeld und idealerweise Erfahrung mit gängigen Automatisierungswerkzeugen\n\n• Erste Erfahrung oder Berührungspunkte mit der Microsoft 365 Umgebung (SharePoint, MS Teams) sowie Azure sind ein grosses Plus, aber kein Must-have\n\n• Selbstständiges, vernetztes und analytisches Denken sowie eine strukturierte, zuverlässige und teamorientierte Arbeitsweise\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift. Kenntnisse einer zweiten Kantonssprache oder weiterer Sprachen sind ein Plus und erleichtern den Austausch in einem vielfältigen Umfeld\n\n• Führerschein Kat. B und die Bereitschaft zu gelegentlichen Einsätzen an weiteren Standorten im Kanton Graubünden",
+        "fr": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit.\n\nAufgaben\n• Professionelle Betreuung und Unterstützung der Mitarbeitenden im 1st und 2nd Level Support bei sämtlichen IT-Anliegen\n\n• Installation, Konfiguration und Unterhalt von Client-Hardware sowie die Einrichtung moderner IT-Arbeitsplätze\n\n• Verantwortung für die Beschaffung, Verwaltung und das Lifecycle-Management von Hard- und Software (inkl. Bestellungen, Lizenzmanagement und Inventarführung)\n\n• Paketierung und Rollout von Software-Paketen\n\n• Betrieb, Unterhalt und Optimierung der Schulungsumgebung\n\n• Betreuung und Begleitung von stellensuchenden Personen während SIZ-Anwenderschulungen\n\n• Dokumentation der Kursteilnahme vom Eintritt bis zum Austritt und Berichterstattung an die zuweisenden Stellen (RAV, Invalidenversicherung, Sozialdienste)\n\n• Abteilungsübergreifende Übernahme der Funktion des/der stellvertretenden Power-User/-in\n\nAnforderungen\n• Eine abgeschlossene Aus- oder Weiterbildung in der Informatik sowie fundierte Berufserfahrung im IT-Support und technischen Applikationsbetrieb\n\n• Fundierte Kenntnisse im Windows-Client-/Server-Umfeld und idealerweise Erfahrung mit gängigen Automatisierungswerkzeugen\n\n• Erste Erfahrung oder Berührungspunkte mit der Microsoft 365 Umgebung (SharePoint, MS Teams) sowie Azure sind ein grosses Plus, aber kein Must-have\n\n• Selbstständiges, vernetztes und analytisches Denken sowie eine strukturierte, zuverlässige und teamorientierte Arbeitsweise\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift. Kenntnisse einer zweiten Kantonssprache oder weiterer Sprachen sind ein Plus und erleichtern den Austausch in einem vielfältigen Umfeld\n\n• Führerschein Kat. B und die Bereitschaft zu gelegentlichen Einsätzen an weiteren Standorten im Kanton Graubünden"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2748/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T11:23:52.345Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://apply.refline.ch/514915/2748/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Industrie Gewerbe und Arbeit",
+      "applicationDeadline": "2026-07-20",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-25T11:23:52.345Z"
+    },
+    {
+      "id": "kanton-gr-362db6cf5c75",
+      "slug": "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "de": "produktverantwortliche-r-microsoft-m365-kanton-gr-ch",
+        "it": "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur",
+        "en": "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur",
+        "fr": "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Produktverantwortliche/-r Microsoft M365",
+      "titleByLocale": {
+        "de": "Produktverantwortliche/-r Microsoft M365",
+        "it": "Produktverantwortliche/-r Microsoft M365",
+        "en": "Produktverantwortliche/-r Microsoft M365",
+        "fr": "Produktverantwortliche/-r Microsoft M365"
+      },
+      "description": "Bist du bereit, den digitalen Wandel mitzuentwickeln? Als ICT-Dienstleistungs- und Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere internen Kunden mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran.\n\nAufgaben\n• Du betreust das Produkt «Kollaboration & Automatisierung» auf Basis von Microsoft 365 und entwickelst es weiter\n\n• Du evaluierst und priorisierst Produktziele und setzt diese um\n\n• Du koordinierst zwischen Fachbereichen, IT-Partnern und Lieferanten\n\nAnforderungen\n• Eine Aus- oder Weiterbildung in Informatik, Wirtschaftsinformatik oder einem vergleichbaren Umfeld\n\n• Erfahrung als Produktverantwortliche/-r oder Motivation und Fähigkeit, dich in diese Rolle einzuarbeiten\n\n• Erfahrung mit Microsoft 365 (Teams, SharePoint, Power Platform)\n\n• Strukturierte, kunden- und lösungsorientierte Arbeitsweise\n\n• Gute Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "de": "Bist du bereit, den digitalen Wandel mitzuentwickeln? Als ICT-Dienstleistungs- und Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere internen Kunden mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran.\n\nAufgaben\n• Du betreust das Produkt «Kollaboration & Automatisierung» auf Basis von Microsoft 365 und entwickelst es weiter\n\n• Du evaluierst und priorisierst Produktziele und setzt diese um\n\n• Du koordinierst zwischen Fachbereichen, IT-Partnern und Lieferanten\n\nAnforderungen\n• Eine Aus- oder Weiterbildung in Informatik, Wirtschaftsinformatik oder einem vergleichbaren Umfeld\n\n• Erfahrung als Produktverantwortliche/-r oder Motivation und Fähigkeit, dich in diese Rolle einzuarbeiten\n\n• Erfahrung mit Microsoft 365 (Teams, SharePoint, Power Platform)\n\n• Strukturierte, kunden- und lösungsorientierte Arbeitsweise\n\n• Gute Deutschkenntnisse in Wort und Schrift",
+        "it": "Bist du bereit, den digitalen Wandel mitzuentwickeln? Als ICT-Dienstleistungs- und Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere internen Kunden mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran.\n\nAufgaben\n• Du betreust das Produkt «Kollaboration & Automatisierung» auf Basis von Microsoft 365 und entwickelst es weiter\n\n• Du evaluierst und priorisierst Produktziele und setzt diese um\n\n• Du koordinierst zwischen Fachbereichen, IT-Partnern und Lieferanten\n\nAnforderungen\n• Eine Aus- oder Weiterbildung in Informatik, Wirtschaftsinformatik oder einem vergleichbaren Umfeld\n\n• Erfahrung als Produktverantwortliche/-r oder Motivation und Fähigkeit, dich in diese Rolle einzuarbeiten\n\n• Erfahrung mit Microsoft 365 (Teams, SharePoint, Power Platform)\n\n• Strukturierte, kunden- und lösungsorientierte Arbeitsweise\n\n• Gute Deutschkenntnisse in Wort und Schrift",
+        "en": "Bist du bereit, den digitalen Wandel mitzuentwickeln? Als ICT-Dienstleistungs- und Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere internen Kunden mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran.\n\nAufgaben\n• Du betreust das Produkt «Kollaboration & Automatisierung» auf Basis von Microsoft 365 und entwickelst es weiter\n\n• Du evaluierst und priorisierst Produktziele und setzt diese um\n\n• Du koordinierst zwischen Fachbereichen, IT-Partnern und Lieferanten\n\nAnforderungen\n• Eine Aus- oder Weiterbildung in Informatik, Wirtschaftsinformatik oder einem vergleichbaren Umfeld\n\n• Erfahrung als Produktverantwortliche/-r oder Motivation und Fähigkeit, dich in diese Rolle einzuarbeiten\n\n• Erfahrung mit Microsoft 365 (Teams, SharePoint, Power Platform)\n\n• Strukturierte, kunden- und lösungsorientierte Arbeitsweise\n\n• Gute Deutschkenntnisse in Wort und Schrift",
+        "fr": "Bist du bereit, den digitalen Wandel mitzuentwickeln? Als ICT-Dienstleistungs- und Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere internen Kunden mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran.\n\nAufgaben\n• Du betreust das Produkt «Kollaboration & Automatisierung» auf Basis von Microsoft 365 und entwickelst es weiter\n\n• Du evaluierst und priorisierst Produktziele und setzt diese um\n\n• Du koordinierst zwischen Fachbereichen, IT-Partnern und Lieferanten\n\nAnforderungen\n• Eine Aus- oder Weiterbildung in Informatik, Wirtschaftsinformatik oder einem vergleichbaren Umfeld\n\n• Erfahrung als Produktverantwortliche/-r oder Motivation und Fähigkeit, dich in diese Rolle einzuarbeiten\n\n• Erfahrung mit Microsoft 365 (Teams, SharePoint, Power Platform)\n\n• Strukturierte, kunden- und lösungsorientierte Arbeitsweise\n\n• Gute Deutschkenntnisse in Wort und Schrift"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2742/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T11:23:51.657Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://apply.refline.ch/514915/2742/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Informatik",
+      "applicationDeadline": "2026-07-15",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "pensum": "60-100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "produktverantwortliche-r-microsoft-m365-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "produktverantwortliche-r-microsoft-m365-kanton-gr-ch"
+      ],
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-25T11:23:51.657Z"
+    },
+    {
+      "id": "kanton-gr-ffb03f0fd6d2",
+      "slug": "berater-in-e-lehrer-in-biolandbau-kantonale-verwaltung-graubunden-landquart",
+      "slugByLocale": {
+        "de": "berater-in-und-lehrer-in-biolandbau-kanton-gr-ch",
+        "it": "berater-in-e-lehrer-in-biolandbau-kantonale-verwaltung-graubunden-landquart",
+        "en": "berater-in-und-lehrer-in-biolandbau-kanton-gr-ch",
+        "fr": "berater-in-und-lehrer-in-biolandbau-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Berater/-in und Lehrer/-in Biolandbau",
+      "titleByLocale": {
+        "de": "Berater/-in und Lehrer/-in Biolandbau",
+        "it": "Berater/-in e Lehrer/-in Biolandbau",
+        "en": "Berater/-in und Lehrer/-in Biolandbau",
+        "fr": "Berater/-in und Lehrer/-in Biolandbau"
+      },
+      "description": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb.\n\nAufgaben\n• Fachberatung im Biolandbau in den Kantonen Graubünden und Glarus\n\n• Fachunterricht Biolandbau in der Grundbildung sowie in den weiterführenden Lehrgängen\n\n• Beratung und Weiterentwicklung der Bio-Gutsbetriebe Plantahof\n\n• Mitwirkung und Beratung Vorstand Bio Grischun\n\n• Vernetzung mit kantonalen sowie nationalen Gremien und Kommissionen des Biolandbaus\n\n• Weitere Aufgaben im Projekt Klimaneutrale Landwirtschaft Graubünden sowie in der Klimastrategie des Plantahofs\n\nAnforderungen\n• Agronom/-in (Bachelor oder Master); oder gleichwertige Ausbildung\n\n• Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung und Beratung)\n\n• Freude und Kenntnisse im Bereich Biolandbau sowie im Bereich Klima\n\n• Erfahrung in Beratung und Weiterbildung\n\n• Teamfähige, zuverlässige und aufgestellte Persönlichkeit\n\n• Bereitschaft zur Verantwortungsübernahme als Themenleader/-in Biolandbau\n\n• Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse einer weiteren Kantonssprache sind von Vorteil",
+      "descriptionByLocale": {
+        "de": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb.\n\nAufgaben\n• Fachberatung im Biolandbau in den Kantonen Graubünden und Glarus\n\n• Fachunterricht Biolandbau in der Grundbildung sowie in den weiterführenden Lehrgängen\n\n• Beratung und Weiterentwicklung der Bio-Gutsbetriebe Plantahof\n\n• Mitwirkung und Beratung Vorstand Bio Grischun\n\n• Vernetzung mit kantonalen sowie nationalen Gremien und Kommissionen des Biolandbaus\n\n• Weitere Aufgaben im Projekt Klimaneutrale Landwirtschaft Graubünden sowie in der Klimastrategie des Plantahofs\n\nAnforderungen\n• Agronom/-in (Bachelor oder Master); oder gleichwertige Ausbildung\n\n• Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung und Beratung)\n\n• Freude und Kenntnisse im Bereich Biolandbau sowie im Bereich Klima\n\n• Erfahrung in Beratung und Weiterbildung\n\n• Teamfähige, zuverlässige und aufgestellte Persönlichkeit\n\n• Bereitschaft zur Verantwortungsübernahme als Themenleader/-in Biolandbau\n\n• Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse einer weiteren Kantonssprache sind von Vorteil",
+        "it": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb.\n\nAufgaben\n• Fachberatung im Biolandbau in den Kantonen Graubünden und Glarus\n\n• Fachunterricht Biolandbau in der Grundbildung sowie in den weiterführenden Lehrgängen\n\n• Beratung und Weiterentwicklung der Bio-Gutsbetriebe Plantahof\n\n• Mitwirkung und Beratung Vorstand Bio Grischun\n\n• Vernetzung mit kantonalen sowie nationalen Gremien und Kommissionen des Biolandbaus\n\n• Weitere Aufgaben im Projekt Klimaneutrale Landwirtschaft Graubünden sowie in der Klimastrategie des Plantahofs\n\nAnforderungen\n• Agronom/-in (Bachelor oder Master); oder gleichwertige Ausbildung\n\n• Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung und Beratung)\n\n• Freude und Kenntnisse im Bereich Biolandbau sowie im Bereich Klima\n\n• Erfahrung in Beratung und Weiterbildung\n\n• Teamfähige, zuverlässige und aufgestellte Persönlichkeit\n\n• Bereitschaft zur Verantwortungsübernahme als Themenleader/-in Biolandbau\n\n• Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse einer weiteren Kantonssprache sind von Vorteil",
+        "en": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb.\n\nAufgaben\n• Fachberatung im Biolandbau in den Kantonen Graubünden und Glarus\n\n• Fachunterricht Biolandbau in der Grundbildung sowie in den weiterführenden Lehrgängen\n\n• Beratung und Weiterentwicklung der Bio-Gutsbetriebe Plantahof\n\n• Mitwirkung und Beratung Vorstand Bio Grischun\n\n• Vernetzung mit kantonalen sowie nationalen Gremien und Kommissionen des Biolandbaus\n\n• Weitere Aufgaben im Projekt Klimaneutrale Landwirtschaft Graubünden sowie in der Klimastrategie des Plantahofs\n\nAnforderungen\n• Agronom/-in (Bachelor oder Master); oder gleichwertige Ausbildung\n\n• Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung und Beratung)\n\n• Freude und Kenntnisse im Bereich Biolandbau sowie im Bereich Klima\n\n• Erfahrung in Beratung und Weiterbildung\n\n• Teamfähige, zuverlässige und aufgestellte Persönlichkeit\n\n• Bereitschaft zur Verantwortungsübernahme als Themenleader/-in Biolandbau\n\n• Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse einer weiteren Kantonssprache sind von Vorteil",
+        "fr": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb.\n\nAufgaben\n• Fachberatung im Biolandbau in den Kantonen Graubünden und Glarus\n\n• Fachunterricht Biolandbau in der Grundbildung sowie in den weiterführenden Lehrgängen\n\n• Beratung und Weiterentwicklung der Bio-Gutsbetriebe Plantahof\n\n• Mitwirkung und Beratung Vorstand Bio Grischun\n\n• Vernetzung mit kantonalen sowie nationalen Gremien und Kommissionen des Biolandbaus\n\n• Weitere Aufgaben im Projekt Klimaneutrale Landwirtschaft Graubünden sowie in der Klimastrategie des Plantahofs\n\nAnforderungen\n• Agronom/-in (Bachelor oder Master); oder gleichwertige Ausbildung\n\n• Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung und Beratung)\n\n• Freude und Kenntnisse im Bereich Biolandbau sowie im Bereich Klima\n\n• Erfahrung in Beratung und Weiterbildung\n\n• Teamfähige, zuverlässige und aufgestellte Persönlichkeit\n\n• Bereitschaft zur Verantwortungsübernahme als Themenleader/-in Biolandbau\n\n• Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse einer weiteren Kantonssprache sind von Vorteil"
+      },
+      "location": "Landquart",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2744/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T11:23:50.972Z",
+      "addressLocality": "Landquart",
+      "postalCode": "7302",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://apply.refline.ch/514915/2744/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Plantahof",
+      "applicationDeadline": "2026-07-17",
+      "pensumMin": 50,
+      "pensumMax": 70,
+      "pensum": "50-70%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-in-und-lehrer-in-biolandbau-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berater-in-und-lehrer-in-biolandbau-kanton-gr-ch"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-25T11:23:50.972Z"
+    },
+    {
+      "id": "kanton-gr-f55e340cb08e",
+      "slug": "sozialarbeiter-in-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "sozialarbeiter-in-kanton-gr-ch",
+        "it": "sozialarbeiter-in-kanton-gr-ch",
+        "en": "sozialarbeiter-in-kanton-gr-ch",
+        "fr": "sozialarbeiter-in-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Sozialarbeiter/-in",
+      "titleByLocale": {
+        "de": "Sozialarbeiter/-in",
+        "it": "Sozialarbeiter/-in",
+        "en": "Sozialarbeiter/-in",
+        "fr": "Sozialarbeiter/-in"
+      },
+      "description": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. Oktober 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in als Vertretung während eines Mutterschaftsurlaubs. Die Stelle ist bis 31. März 2026 befristet.\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+      "descriptionByLocale": {
+        "de": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. Oktober 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in als Vertretung während eines Mutterschaftsurlaubs. Die Stelle ist bis 31. März 2026 befristet.\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+        "it": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. Oktober 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in als Vertretung während eines Mutterschaftsurlaubs. Die Stelle ist bis 31. März 2026 befristet.\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+        "en": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. Oktober 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in als Vertretung während eines Mutterschaftsurlaubs. Die Stelle ist bis 31. März 2026 befristet.\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
+        "fr": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen.\nSozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch)\n\nWir suchen für den Standort Chur per 1. Oktober 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in als Vertretung während eines Mutterschaftsurlaubs. Die Stelle ist bis 31. März 2026 befristet.\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH oder einen Abschluss in einer vergleichbaren Ausbildung\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und im Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2747/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T11:23:50.286Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sociale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://apply.refline.ch/514915/2747/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Sozialamt",
+      "applicationDeadline": "2026-07-10",
+      "pensumMin": 90,
+      "pensumMax": 90,
+      "pensum": "90%",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-25T11:23:50.286Z"
     },
     {
       "id": "kanton-gr-19cb03b3a1e9",
@@ -538,7 +827,7 @@
       "url": "https://apply.refline.ch/514915/2644/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:17.711Z",
+      "crawledAt": "2026-06-25T11:23:48.222Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -619,7 +908,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:17.079Z",
+      "crawledAt": "2026-06-25T11:23:47.536Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -665,9 +954,9 @@
     },
     {
       "id": "kanton-gr-61b4bd8f9444",
-      "slug": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+      "slug": "systems-engineer-in-windows-server-kanton-gr-ch",
       "slugByLocale": {
-        "it": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+        "it": "systems-engineer-in-windows-server-kanton-gr-ch",
         "en": "systems-engineer-in-windows-server-kantonale-verwaltung-graubunden-chur",
         "de": "systems-engineer-in-windows-server-kanton-gr-ch",
         "fr": "systems-engineer-in-windows-server-kanton-gr-ch"
@@ -678,7 +967,7 @@
       "title": "Systems Engineer/-in Windows Server",
       "titleByLocale": {
         "it": "Ingegnere/a di sistema Windows Server",
-        "en": "Systems Engineer/in Windows Server",
+        "en": "Systems Engineer/-in Windows Server",
         "de": "Systems Ingenieur/-in Windows Server",
         "fr": "Ingénieur systèmes Windows Server"
       },
@@ -694,7 +983,7 @@
       "url": "https://apply.refline.ch/514915/2738/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:16.446Z",
+      "crawledAt": "2026-06-25T11:23:46.848Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -716,7 +1005,7 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "systems-engineer-in-windows-server-kanton-gr-ch",
+        "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur",
         "systems-engineer-in-per-applicazioni-windows-kantonale-verwaltung-graubunden-chur",
@@ -726,6 +1015,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
           "systems-engineer-in-windows-server-kanton-gr-ch"
         ],
         "fr": [
@@ -734,6 +1024,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:01.610Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -779,7 +1070,7 @@
       "url": "https://apply.refline.ch/514915/2743/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:15.813Z",
+      "crawledAt": "2026-06-25T11:23:46.164Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -809,6 +1100,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:00.957Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -854,7 +1146,7 @@
       "url": "https://apply.refline.ch/514915/2741/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:15.181Z",
+      "crawledAt": "2026-06-25T11:23:45.478Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -939,7 +1231,7 @@
       "url": "https://apply.refline.ch/514915/2745/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:14.550Z",
+      "crawledAt": "2026-06-25T11:23:44.791Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1014,7 +1306,7 @@
       "url": "https://apply.refline.ch/514915/2737/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:13.918Z",
+      "crawledAt": "2026-06-25T11:23:44.102Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1104,7 +1396,7 @@
       "url": "https://apply.refline.ch/514915/2730/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:13.277Z",
+      "crawledAt": "2026-06-25T11:23:43.413Z",
       "addressLocality": "Davos Frauenkirch",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1155,10 +1447,10 @@
       "id": "kanton-gr-411b4f827a54",
       "slug": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
+        "it": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1166,7 +1458,7 @@
       "title": "Dipl. Pflegefachperson HF",
       "titleByLocale": {
         "it": "Infermiere Laureato in HF",
-        "en": "Dipl. Care professional HF",
+        "en": "Dipl. Pflegefachperson HF",
         "de": "Dipl. Pflegefachperson HF",
         "fr": "Infirmière diplômée en HF"
       },
@@ -1182,7 +1474,7 @@
       "url": "https://apply.refline.ch/514915/2711/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:12.633Z",
+      "crawledAt": "2026-06-25T11:23:42.626Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1206,18 +1498,21 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-kanton-gr-ch",
         "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-        "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
+        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-kanton-gr-ch",
-          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis"
+          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
+          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
           "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-06-18T12:32:57.645Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1263,7 +1558,7 @@
       "url": "https://apply.refline.ch/514915/2727/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:12.000Z",
+      "crawledAt": "2026-06-25T11:23:41.938Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1341,7 +1636,7 @@
       "url": "https://apply.refline.ch/514915/2739/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:11.371Z",
+      "crawledAt": "2026-06-25T11:23:41.227Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1422,7 +1717,7 @@
       "url": "https://apply.refline.ch/514915/2721/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:10.739Z",
+      "crawledAt": "2026-06-25T11:23:40.515Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1497,7 +1792,7 @@
       "url": "https://apply.refline.ch/514915/2731/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:10.107Z",
+      "crawledAt": "2026-06-25T11:23:39.806Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1571,7 +1866,7 @@
       "url": "https://apply.refline.ch/514915/2734/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:09.474Z",
+      "crawledAt": "2026-06-25T11:23:39.120Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1646,7 +1941,7 @@
       "url": "https://apply.refline.ch/514915/2719/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:08.844Z",
+      "crawledAt": "2026-06-25T11:23:38.435Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1727,7 +2022,7 @@
       "url": "https://apply.refline.ch/514915/2735/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:08.213Z",
+      "crawledAt": "2026-06-25T11:23:37.746Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1802,7 +2097,7 @@
       "url": "https://apply.refline.ch/514915/2729/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:07.579Z",
+      "crawledAt": "2026-06-25T11:23:37.058Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1866,7 +2161,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Streetkeeper/in",
+        "it": "Strassenwart/-in",
         "en": "Streetkeeper/in",
         "de": "Strassenwart/-in",
         "fr": "Gardien de rue/in"
@@ -1883,7 +2178,7 @@
       "url": "https://apply.refline.ch/514915/2728/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:06.942Z",
+      "crawledAt": "2026-06-25T11:23:36.371Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1966,7 +2261,7 @@
       "url": "https://apply.refline.ch/514915/2699/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:06.295Z",
+      "crawledAt": "2026-06-25T11:23:35.672Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2030,6 +2325,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2075,7 +2371,7 @@
       "url": "https://apply.refline.ch/514915/2725/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:05.664Z",
+      "crawledAt": "2026-06-25T11:23:34.986Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2106,6 +2402,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:53.758Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2151,7 +2448,7 @@
       "url": "https://apply.refline.ch/514915/2722/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:05.032Z",
+      "crawledAt": "2026-06-25T11:23:34.299Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2237,7 +2534,7 @@
       "url": "https://apply.refline.ch/514915/2726/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:04.398Z",
+      "crawledAt": "2026-06-25T11:23:33.608Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2273,6 +2570,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:52.468Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2318,7 +2616,7 @@
       "url": "https://apply.refline.ch/514915/2723/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:03.767Z",
+      "crawledAt": "2026-06-25T11:23:32.919Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2396,7 +2694,7 @@
       "url": "https://apply.refline.ch/514915/2720/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:03.135Z",
+      "crawledAt": "2026-06-25T11:23:32.081Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2479,7 +2777,7 @@
       "url": "https://apply.refline.ch/514915/2714/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:02.484Z",
+      "crawledAt": "2026-06-25T11:23:31.376Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2560,7 +2858,7 @@
       "url": "https://apply.refline.ch/514915/2715/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:01.850Z",
+      "crawledAt": "2026-06-25T11:23:30.678Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2590,6 +2888,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:49.867Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2635,7 +2934,7 @@
       "url": "https://apply.refline.ch/514915/2716/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:01.218Z",
+      "crawledAt": "2026-06-25T11:23:29.988Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2710,7 +3009,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:19:00.585Z",
+      "crawledAt": "2026-06-25T11:23:29.300Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2740,6 +3039,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.927Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2785,7 +3085,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:18:59.310Z",
+      "crawledAt": "2026-06-25T11:23:25.698Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2849,6 +3149,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
