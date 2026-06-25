@@ -457,6 +457,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.servizi-posta-chiasso-contesto-nazionale.title': 'Posta Chiasso: role and services in the Swiss national context',
     'blog.article.servizi-posta-chiasso-contesto-nazionale.excerpt': 'Analysis of the services offered by Posta di Chiasso and their relevance in Switzerland. Practical implications for residents and workers.',
     'blog.article.servizi-posta-chiasso-contesto-nazionale.imageAlt': 'Exterior of a Swiss post office in a city, Post signage.',
+    'blog.article.ginevra-frontalieri-settore-pubblico.title': 'The Right of Frontier Workers to Work in the Public Sector in Geneva',
+    'blog.article.ginevra-frontalieri-settore-pubblico.excerpt': 'Learn about the rights of frontier workers in the public sector in Geneva and its implications.',
+    'blog.article.ginevra-frontalieri-settore-pubblico.imageAlt': 'Panoramic view of Geneva with iconic landmarks.',
 };
 
 export default blogMetaChEn;

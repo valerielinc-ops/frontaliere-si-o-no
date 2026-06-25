@@ -4197,6 +4197,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cantiere-ffs-trasporti-ticino': { name: 'lavori estivi', path: '/articoli-svizzera/cantiere-ffs-trasporti-ticino/', parent: 'blog' },
     'blog-ge-troppo-caldo-stop-lavoro': { name: 'Stop lavoro', path: '/articoli-svizzera/ge-troppo-caldo-stop-lavoro/', parent: 'blog' },
     'blog-servizi-posta-chiasso-contesto-nazionale': { name: 'Posta Chiasso', path: '/articoli-svizzera/servizi-posta-chiasso-contesto-nazionale/', parent: 'blog' },
+    'blog-ginevra-frontalieri-settore-pubblico': { name: 'Frontalieri a Ginevra', path: '/articoli-svizzera/ginevra-frontalieri-settore-pubblico/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

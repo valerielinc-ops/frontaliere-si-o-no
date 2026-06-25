@@ -457,6 +457,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.servizi-posta-chiasso-contesto-nazionale.title': 'Poste Chiasso : rôle et services dans le contexte national suisse',
     'blog.article.servizi-posta-chiasso-contesto-nazionale.excerpt': 'Analyse des services offerts par la Poste de Chiasso et de leur pertinence en Suisse. Implications pratiques pour les résidents et les travailleurs.',
     'blog.article.servizi-posta-chiasso-contesto-nazionale.imageAlt': 'Extérieur d\'un bureau de poste suisse en ville, enseigne Post.',
+    'blog.article.ginevra-frontalieri-settore-pubblico.title': 'Le droit des frontaliers de travailler dans le public à Genève',
+    'blog.article.ginevra-frontalieri-settore-pubblico.excerpt': 'Découvrez les droits des frontaliers dans le secteur public à Genève et ses implications.',
+    'blog.article.ginevra-frontalieri-settore-pubblico.imageAlt': 'Vue panoramique de Genève avec des monuments emblématiques.',
 };
 
 export default blogMetaChFr;
