@@ -436,6 +436,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.documenti-frontalieri-lavoro-svizzera.title': 'Documenti Necessari per Iniziare a Lavorare in Svizzera: Guida Completa',
     'blog.article.documenti-frontalieri-lavoro-svizzera.excerpt': 'Scopri la checklist completa dei documenti necessari per iniziare a lavorare in Svizzera come frontaliere.',
     'blog.article.documenti-frontalieri-lavoro-svizzera.imageAlt': 'Commutatori che attraversano il confine Svizzera-Italia con lo skyline di Lugano in lontananza',
+    'blog.article.frontalieri-asili-nido-ticino.title': 'Frontaliere con figli: asili nido in Svizzera e Ticino',
+    'blog.article.frontalieri-asili-nido-ticino.excerpt': 'Guida pratica per frontalieri con figli: costi, liste d\'attesa, sussidi e alternative per gli asili nido in Ticino',
+    'blog.article.frontalieri-asili-nido-ticino.imageAlt': 'Asilo nido ticinese con bambini e educatori',
 };
 
 export default blogMetaChIt;

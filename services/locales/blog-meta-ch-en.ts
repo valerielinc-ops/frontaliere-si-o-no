@@ -436,6 +436,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.documenti-frontalieri-lavoro-svizzera.title': 'Documents Needed to Start Working in Switzerland: Complete Guide',
     'blog.article.documenti-frontalieri-lavoro-svizzera.excerpt': 'Discover the complete checklist of documents required to start working in Switzerland as a border worker.',
     'blog.article.documenti-frontalieri-lavoro-svizzera.imageAlt': 'Commuters crossing the Swiss-Italian border with the Lugano skyline in the background',
+    'blog.article.frontalieri-asili-nido-ticino.title': 'Border workers with children: nurseries in Switzerland and Ticino',
+    'blog.article.frontalieri-asili-nido-ticino.excerpt': 'Practical guide for border workers with children: costs, waiting lists, subsidies and alternatives for nurseries in Ticino',
+    'blog.article.frontalieri-asili-nido-ticino.imageAlt': 'Ticinese nursery school with children and educators',
 };
 
 export default blogMetaChEn;

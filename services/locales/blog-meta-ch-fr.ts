@@ -436,6 +436,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.documenti-frontalieri-lavoro-svizzera.title': 'Documents nécessaires pour commencer à travailler en Suisse : Guide complet',
     'blog.article.documenti-frontalieri-lavoro-svizzera.excerpt': 'Découvrez la liste de contrôle complète des documents nécessaires pour commencer à travailler en Suisse en tant que frontalier.',
     'blog.article.documenti-frontalieri-lavoro-svizzera.imageAlt': 'Navetteurs traversant la frontière suisse-italienne avec le skyline de Lugano en arrière-plan',
+    'blog.article.frontalieri-asili-nido-ticino.title': 'Frontalier avec enfants : crèches en Suisse et au Tessin',
+    'blog.article.frontalieri-asili-nido-ticino.excerpt': 'Guide pratique pour les frontaliers avec enfants : coûts, listes d\'attente, subventions et alternatives pour les crèches au Tessin',
+    'blog.article.frontalieri-asili-nido-ticino.imageAlt': 'Crèche tessinoise avec enfants et éducateurs',
 };
 
 export default blogMetaChFr;

@@ -168,6 +168,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'costo-auto-pendolare-ticino': { it: 'costo-auto-pendolare-ticino', en: 'cost-of-car-for-commuter-ticino', de: 'kosten-des-autos-fur-pendler-tessin', fr: 'cout-de-la-voiture-pour-les-navetteurs-tessin' },
  'dichiarazione-redditi-frontaliere-730-guida': { it: 'dichiarazione-redditi-frontaliere-730-guida', en: 'tax-return-frontalieri-730-guide', de: 'steuererklaerung-frontalieri-730-fuehrer', fr: 'declaration-revenus-frontalieri-730-guide' },
  'documenti-frontalieri-lavoro-svizzera': { it: 'documenti-frontalieri-lavoro-svizzera', en: 'documents-for-frontalieri-starting-work-in-switzerland', de: 'dokumente-fur-grenzgaenger-die-in-der-schweiz-arbeiten', fr: 'documents-pour-les-frontaliers-commencant-a-travailler-en-suisse' },
+ 'frontalieri-asili-nido-ticino': { it: 'frontalieri-asili-nido-ticino', en: 'cross-border-workers-nursery-switzerland-ticino', de: 'grenzgaenger-kinderkrippe-schweiz-tessin', fr: 'frontaliers-creche-suisse-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
