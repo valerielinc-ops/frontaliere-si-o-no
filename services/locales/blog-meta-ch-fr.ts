@@ -430,6 +430,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costo-auto-pendolare-ticino.title': 'Coût de la voiture de banlieue frontalière Tessin : tous les coûts',
     'blog.article.costo-auto-pendolare-ticino.excerpt': 'Découvrez tous les coûts de la voiture pour la navette : essence, vignettes, stationnement, usure, comparaison avec le train et le bus.',
     'blog.article.costo-auto-pendolare-ticino.imageAlt': 'Vue panoramique du lac de Lugano avec des voitures garées',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.title': 'Déclaration des revenus frontaliers 730 : Guide complet',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.excerpt': 'Découvrez comment remplir la déclaration de revenus 730 pour les frontaliers, les documents nécessaires et les délais.',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.imageAlt': 'Un travailleur remplissant une déclaration de revenus avec le drapeau suisse en arrière-plan.',
 };
 
 export default blogMetaChFr;

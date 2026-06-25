@@ -430,6 +430,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costo-auto-pendolare-ticino.title': 'Ticino border commuter car cost: all costs',
     'blog.article.costo-auto-pendolare-ticino.excerpt': 'Discover all the car costs for commuters: petrol, vignettes, parking, wear and tear, comparison with train and bus.',
     'blog.article.costo-auto-pendolare-ticino.imageAlt': 'Panoramic view of Lake Lugano with parked cars',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.title': 'Border Income Statement 730: Complete Guide',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.excerpt': 'Find out how to fill out the 730 tax return for border workers, the necessary documents and deadlines.',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.imageAlt': 'A worker filling out a tax form with a Swiss flag in the background.',
 };
 
 export default blogMetaChEn;

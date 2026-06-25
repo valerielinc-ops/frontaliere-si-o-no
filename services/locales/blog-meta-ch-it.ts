@@ -430,6 +430,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costo-auto-pendolare-ticino.title': 'Costo auto pendolare frontaliere Ticino: tutti i costi',
     'blog.article.costo-auto-pendolare-ticino.excerpt': 'Scopri tutti i costi dell\'auto per il pendolare: benzina, vignette, parcheggio, usura, confronto con treno e bus.',
     'blog.article.costo-auto-pendolare-ticino.imageAlt': 'Vista panoramica del Lago di Lugano con auto parcheggiate',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.title': 'Dichiarazione Redditi Frontaliere 730: Guida Completa',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.excerpt': 'Scopri come compilare la dichiarazione dei redditi 730 per i frontalieri, i documenti necessari e le scadenze.',
+    'blog.article.dichiarazione-redditi-frontaliere-730-guida.imageAlt': 'Un lavoratore che compila una dichiarazione dei redditi con la bandiera svizzera sullo sfondo.',
 };
 
 export default blogMetaChIt;

@@ -5478,6 +5478,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dichiarazione-redditi-frontaliere-730-guida': {
+    title: 'Dichiarazione Redditi Frontaliere 730: Guida Completa',
+    description: 'Scopri come compilare la dichiarazione dei redditi 730 per i frontalieri, i documenti necessari e le scadenze. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, redditi, completa, scopri',
+    ogTitle: 'Dichiarazione Redditi Frontaliere 730: Guida Completa',
+    ogDescription: 'Scopri come compilare la dichiarazione dei redditi 730 per i frontalieri, i documenti necessari e le scadenze.',
+    canonicalPath: '/articoli-svizzera/dichiarazione-redditi-frontaliere-730-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dichiarazione Redditi Frontaliere 730: Guida Completa",
+      "description": "Scopri come compilare la dichiarazione dei redditi 730 per i frontalieri, i documenti necessari e le scadenze. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dichiarazione-redditi-frontaliere-730-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un lavoratore che compila una dichiarazione dei redditi con la bandiera svizzera sullo sfondo."
+      },
+      "datePublished": "2026-06-25T03:03:43+00:00",
+      "dateModified": "2026-06-25T03:03:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dichiarazione-redditi-frontaliere-730-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
