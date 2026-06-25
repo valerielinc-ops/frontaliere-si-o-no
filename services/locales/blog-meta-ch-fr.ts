@@ -454,6 +454,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ge-troppo-caldo-stop-lavoro.title': 'Genève : Arrêtez de travailler en plein air à partir de midi pendant la canicule',
     'blog.article.ge-troppo-caldo-stop-lavoro.excerpt': 'Geneva a décidé d\'arrêter toutes les activités extérieures à partir de 13h00 pour la canicule',
     'blog.article.ge-troppo-caldo-stop-lavoro.imageAlt': 'Des ouvriers en Suisse font une pause pendant une journée d\'été chaude.',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.title': 'Poste Chiasso : rôle et services dans le contexte national suisse',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.excerpt': 'Analyse des services offerts par la Poste de Chiasso et de leur pertinence en Suisse. Implications pratiques pour les résidents et les travailleurs.',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.imageAlt': 'Extérieur d\'un bureau de poste suisse en ville, enseigne Post.',
 };
 
 export default blogMetaChFr;

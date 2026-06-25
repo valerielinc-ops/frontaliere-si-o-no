@@ -454,6 +454,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ge-troppo-caldo-stop-lavoro.title': 'Geneva: Stop al lavoro all\'aperto da mezzogiorno durante la canicola',
     'blog.article.ge-troppo-caldo-stop-lavoro.excerpt': 'Geneva ha deciso di fermare tutte le attività esterne dalle 13:00 per la canicola',
     'blog.article.ge-troppo-caldo-stop-lavoro.imageAlt': 'Operai in Svizzera fanno una pausa dal lavoro durante una giornata calda d\'estate.',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.title': 'Posta Chiasso: ruolo e servizi nel contesto nazionale svizzero',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.excerpt': 'Analisi dei servizi offerti dalla Posta di Chiasso e loro rilevanza in Svizzera. Implicazioni pratiche per residenti e lavoratori.',
+    'blog.article.servizi-posta-chiasso-contesto-nazionale.imageAlt': 'Esterno di un ufficio postale svizzero in città, insegna Posta.',
 };
 
 export default blogMetaChIt;
