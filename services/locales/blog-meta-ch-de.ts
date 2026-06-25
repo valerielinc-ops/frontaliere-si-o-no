@@ -478,6 +478,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-lugano-mercato-annunci.title': 'Arbeit in Lugano: Übersicht und aktuelle Meldungen',
     'blog.article.lavoro-lugano-mercato-annunci.excerpt': 'Analyse des Arbeitsmarktes in Lugano und verfügbare Möglichkeiten gemäß den veröffentlichten Anzeigen.',
     'blog.article.lavoro-lugano-mercato-annunci.imageAlt': 'Geschäftszentrum Lugano mit Arbeitern und Schweizer Fahnen.',
+    'blog.article.chiasso-brogeda-tempi-attesa-odierni.title': 'Wartezeiten an der Grenze Chiasso-Brogeda heute',
+    'blog.article.chiasso-brogeda-tempi-attesa-odierni.excerpt': 'Aktuelle Wartezeiten am Schweizer Grenzübergang Chiasso-Brogeda. Echtzeit-Update für diejenigen, die die Grenze überqueren.',
+    'blog.article.chiasso-brogeda-tempi-attesa-odierni.imageAlt': 'Verkehr und Grenzanlagen am Übergang Chiasso-Brogeda.',
 };
 
 export default blogMetaChDe;

@@ -478,6 +478,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-lugano-mercato-annunci.title': 'Lavoro a Lugano: panoramica e annunci aggiornati',
     'blog.article.lavoro-lugano-mercato-annunci.excerpt': 'Analisi del mercato del lavoro a Lugano e opportunità disponibili secondo gli annunci pubblicati.',
     'blog.article.lavoro-lugano-mercato-annunci.imageAlt': 'Vista del centro affari di Lugano con lavoratori e bandiere svizzere.',
+    'blog.article.chiasso-brogeda-tempi-attesa-odierni.title': 'Tempi di attesa alla frontiera di Chiasso-Brogeda oggi',
+    'blog.article.chiasso-brogeda-tempi-attesa-odierni.excerpt': 'Tempi di attesa attuali al valico svizzero di Chiasso-Brogeda. Aggiornamento in tempo reale per chi attraversa la frontiera.',
+    'blog.article.chiasso-brogeda-tempi-attesa-odierni.imageAlt': 'Traffico e strutture di frontiera al valico di Chiasso-Brogeda.',
 };
 
 export default blogMetaChIt;
