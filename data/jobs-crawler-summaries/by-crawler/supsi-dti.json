@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-24T23:07:46.282Z",
+  "generatedAt": "2026-06-25T12:32:45.406Z",
   "total": 27,
   "newCount": 27,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 157263,
-  "avgDurationMs": 157263,
+  "durationMs": 106143,
+  "avgDurationMs": 106143,
   "durationHistory": [
-    157263
+    106143
   ],
   "newJobs": [
     {
@@ -173,10 +173,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 21,
         "translation": 23,
         "completeness": 25
       }
@@ -509,11 +509,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -654,7 +654,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
+      "postedDate": "2026-06-03",
       "url": "https://www.supsi.ch/bando26_1010",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -677,11 +677,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 18,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -1074,7 +1074,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
+      "postedDate": "2026-06-25",
       "url": "https://www.supsi.ch/bando26_1009",
       "source": "Company Careers Crawler",
       "_targetScope": {
