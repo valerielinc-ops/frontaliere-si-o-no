@@ -1295,6 +1295,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'documenti-frontalieri-lavoro-svizzera',
+    category: 'pratico',
+    date: '2026-06-25T03:46:56.878Z',
+    image: '/images/blog/documenti-frontalieri-lavoro-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
