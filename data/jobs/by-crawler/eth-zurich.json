@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eth-zurich",
-  "assembledAt": "2026-06-25T11:14:38.722Z",
+  "assembledAt": "2026-06-25T22:18:18.334Z",
   "jobs": [
     {
       "id": "eth-zurich-b1c012c76ba3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_TArW94qDaszIXc4rjr",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:35.505Z",
+      "crawledAt": "2026-06-25T22:18:15.097Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_pQp7llgQZUJrmY5FzE",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:35.037Z",
+      "crawledAt": "2026-06-25T22:18:14.617Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -185,7 +185,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Xdr29FStCpSNZrH3uM",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:34.574Z",
+      "crawledAt": "2026-06-25T22:18:14.138Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,7 +263,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_PeBFLlVSXBQT8tuOqj",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:34.103Z",
+      "crawledAt": "2026-06-25T22:18:13.655Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -341,7 +341,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_lbxiZpaZyPtM481Z2F",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:33.635Z",
+      "crawledAt": "2026-06-25T22:18:13.177Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -371,6 +371,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.080Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -417,7 +418,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_opiPoY6wNmVdhqPzn8",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:33.166Z",
+      "crawledAt": "2026-06-25T22:18:12.691Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -493,7 +494,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_gtjCeuZ4w1ZElLaqZj",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:32.697Z",
+      "crawledAt": "2026-06-25T22:18:12.212Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -577,7 +578,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Oeh8DJugfO4uHuMn5f",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:32.224Z",
+      "crawledAt": "2026-06-25T22:18:11.734Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -655,7 +656,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_hBmDb2lMaunGJw7M73",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:31.491Z",
+      "crawledAt": "2026-06-25T22:18:10.945Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -732,7 +733,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_LuuVwjV0ImnUtkXIWw",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:31.015Z",
+      "crawledAt": "2026-06-25T22:18:10.467Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -808,7 +809,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_bDqPgyc49K5ltJNN1t",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:30.552Z",
+      "crawledAt": "2026-06-25T22:18:09.987Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -888,7 +889,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_7GGGGkSQy7VMoVr4ho",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:30.084Z",
+      "crawledAt": "2026-06-25T22:18:09.511Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -964,7 +965,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_mlRP2d7pXqRQcS4l5r",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:29.611Z",
+      "crawledAt": "2026-06-25T22:18:09.025Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1040,7 +1041,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Nak0hmCItjOLBSrryW",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:29.147Z",
+      "crawledAt": "2026-06-25T22:18:08.549Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1122,7 +1123,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_AHOWOrcZAeaE8eWHnm",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:28.672Z",
+      "crawledAt": "2026-06-25T22:18:08.065Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1199,7 +1200,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_I6a3vNesklXQh2vW1d",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:28.203Z",
+      "crawledAt": "2026-06-25T22:18:07.588Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1285,7 +1286,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_tq3AkVKojMFE0jIyj4",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:27.739Z",
+      "crawledAt": "2026-06-25T22:18:07.107Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1316,6 +1317,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:39.934Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1362,7 +1364,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_nRbDb7Pw2j3k7p38Fa",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:27.268Z",
+      "crawledAt": "2026-06-25T22:18:06.630Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1438,7 +1440,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_GJi6HcPSAZ1Sw6MtIM",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:26.796Z",
+      "crawledAt": "2026-06-25T22:18:06.151Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1526,7 +1528,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Bmek368wtQOdQm2vY3",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:26.329Z",
+      "crawledAt": "2026-06-25T22:18:05.674Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1606,7 +1608,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_CUbwMUIvGTpM608m4g",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:25.863Z",
+      "crawledAt": "2026-06-25T22:18:05.197Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1666,7 +1668,7 @@
       "title": "Construction Project Manager:in (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile del progetto di costruzione:in (m/w/d)",
-        "en": "Construction Project Manager:in (m/f/d)",
+        "en": "Construction Project Manager:in (m/w/d)",
         "de": "Construction Project Manager:in (m/w/d)",
         "fr": "Gestionnaire de projet de construction : en (m/m/j)"
       },
@@ -1682,7 +1684,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_IVz0c0qeNGIAn6X3mn",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:25.394Z",
+      "crawledAt": "2026-06-25T22:18:04.715Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1709,6 +1711,7 @@
         ]
       },
       "firstSeenAt": "2026-05-15T10:57:03.020Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1755,7 +1758,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_ZBgigXgp6j0zLuBhRJ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:24.928Z",
+      "crawledAt": "2026-06-25T22:18:04.235Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1807,7 +1810,7 @@
         "it": "office-manager-in-am-quantum-device-lab-m-w-d-eth-zurich-ch",
         "en": "office-manager-in-at-the-quantum-device-laboratory-m-w-d-eth-zurich-zurich",
         "de": "office-manager-in-am-quantum-device-lab-m-w-d-eth-zurich-ch",
-        "fr": "gestionnaire-de-bureau-au-laboratoire-quantum-device-m-f-d-eth-zurich-zurich"
+        "fr": "office-manager-in-am-quantum-device-lab-m-w-d-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -1817,7 +1820,7 @@
         "it": "Office Manager: in am Quantum Device Lab (m/w/d)",
         "en": "Office Manager/in at the Quantum Device Laboratory (m/w/d)",
         "de": "Office Manager:in am Quantum Device Lab (m/w/d)",
-        "fr": "Gestionnaire de bureau au laboratoire Quantum Device (m/f/d)"
+        "fr": "Office Manager:in am Quantum Device Lab (m/w/d)"
       },
       "description": "Office Manager:in am Quantum Device Lab (m/w/d)\n\n40%-70%, Zürich, befristet\n\nprint\nDrucken\n\nIm Rahmen einer Mutterschaftsvertretung suchen wir eine:n Office Manager:in mit einem Pensum von 40% - 70% zur Unterstützung des Quantum Device Labs der ETH Zürich.\n\nIn dieser abwechslungsreichen und vielseitigen Funktion unterstützen Sie das Team in administrativen und organisatorischen Belangen und tragen wesentlich zum reibungslosen Ablauf des wissenschaftlichen Alltags bei. Sie arbeiten in einem internationalen Umfeld und stehen dabei in enger Zusammenarbeit mit internen ETH-Abteilungen wie Finanzen & Controlling sowie Human Resources und externen Partnern – und leisten damit einen wichtigen Beitrag zu effizienten Prozessen und einer professionellen Zusammenarbeit.\n\nDer Stellenantritt ist per sofort oder nach Vereinbarung. Die Mutterschaftsvertretung ist befristet für einen Zeitraum von 12 Monaten, mit Option auf Verlängerung.\n\nStellenbeschreibung\n\n• In dieser Position sind Sie verantwortlich für die Administration des Quantum Device Lab\n\n• Bearbeitung von Bestellungen, Spesenabrechnungen, die Überwachung der Finanzen sowie die Unterstützung der Gruppenmitglieder\n\n• Eintritte- und Austritte von Mitarbeitenden\n\n• Eigenständige Planung und Durchführung von kleineren Anlässen\n\n• Aktualisieren der Website\n\n• Die Korrespondenz erfolgt in Deutsch und Englisch\n\nProfil\n\n• Sie verfügen über eine Ausbildung im administrativen Bereich oder eine vergleichbare Qualifikation und haben mehrjährige Berufserfahrung in einer ähnlichen Position\n\n• Sie besitzen gute Kenntnisse in Excel, haben ein gutes Zahlenverständnis und beherrschen die MS-Office-Programme sicher\n\n• Eine präzise Arbeitsweise und ausgezeichnete Deutsch- und Englischkenntnisse sind erforderlich\n\n• Sie arbeiten gerne in einem internationalen, wissenschaftsorientierten Umfeld\n\nArbeitsort\n\nWir bieten\n\n• Ihr Beruf mit Wirkung: Werden Sie Teil der ETH Zürich, die nicht nur Ihre berufliche Entwicklung unterstützt, sondern auch aktiv zu positiven Veränderungen in der Gesellschaft beiträgt\n\n• Mitarbeit in einem engagierten und interdisziplinären Team\n\n• Abwechslungsreiche und selbstständige Arbeit\n\n• Flexible Arbeitszeiten und moderne Arbeitsbedingungen\n\n• Ein umfangreiches Weiterbildungsangebot\n\n• Es erwarten Sie zahlreiche Vergünstigungen , wie z.B. &Ouml;V-Abonnemente und Car Sharing, ein breites Sportangebot des ASVZ , Kinderbetreuung sowie attraktive Vorsorgeleistungen\n\nchevron_right\nArbeiten, Lehren und Forschen an der ETH Zürich\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung, einschliesslich\n\n• Motivationsschreiben\n\n• Lebenslauf\n\n• Diplomen und Arbeitszeugnissen\n\nBitte nutzen Sie ausschliesslich unser Online-Bewerbungsportal. Bewerbungen per E-Mail oder auf dem Postweg können nicht berücksichtigt werden. Für Auskünfte steht Ihnen Frau Francesca Bay, fbay@phys.ethz.ch (keine Bewerbungsunterlagen) gerne zur Verfügung.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt",
       "descriptionByLocale": {
@@ -1831,7 +1834,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_XonfDOq0vDLk8ZEfvg",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:24.463Z",
+      "crawledAt": "2026-06-25T22:18:03.758Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1847,6 +1850,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-15T21:44:58.997Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "gestionnaire-de-bureau-au-laboratoire-quantum-device-m-f-d-eth-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-de-bureau-au-laboratoire-quantum-device-m-f-d-eth-zurich-zurich"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1893,7 +1905,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Pi2t0bOcbgbsnqBOO7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:24.002Z",
+      "crawledAt": "2026-06-25T22:18:03.280Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1969,7 +1981,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_sEignuTNJdzV4LSG0L",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:23.536Z",
+      "crawledAt": "2026-06-25T22:18:02.804Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2045,7 +2057,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_H2LT0NwW3jMUIidxaC",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:23.067Z",
+      "crawledAt": "2026-06-25T22:18:02.324Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2121,7 +2133,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_8FvpO7pNvMn5ciifpB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:22.602Z",
+      "crawledAt": "2026-06-25T22:18:01.843Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2194,7 +2206,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_4qitaLpc1SITqqBSBf",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:22.134Z",
+      "crawledAt": "2026-06-25T22:18:01.358Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2270,7 +2282,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_62kXVzwjdU5uzTWUi7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:21.668Z",
+      "crawledAt": "2026-06-25T22:18:00.881Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2348,7 +2360,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_dD5VokGttiMeopnhfu",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:21.201Z",
+      "crawledAt": "2026-06-25T22:18:00.406Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2428,7 +2440,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_g50OpI0fA4iH7MWlIn",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:20.735Z",
+      "crawledAt": "2026-06-25T22:17:59.930Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2506,7 +2518,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_r0JbaaqzI3nxifdI4y",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:20.269Z",
+      "crawledAt": "2026-06-25T22:17:59.452Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2582,7 +2594,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_gOISO85dB3E3Vs2Lj4",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:19.804Z",
+      "crawledAt": "2026-06-25T22:17:58.973Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2658,7 +2670,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_DTDA0242Qmbwdd2au2",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:19.338Z",
+      "crawledAt": "2026-06-25T22:17:58.494Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2734,7 +2746,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_oAWLhjGMXAbUR1v2Ep",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:18.870Z",
+      "crawledAt": "2026-06-25T22:17:58.011Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2810,7 +2822,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Wndy2U7SPCESCnan3h",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:18.401Z",
+      "crawledAt": "2026-06-25T22:17:57.534Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2840,6 +2852,7 @@
         ]
       },
       "firstSeenAt": "2026-05-22T22:07:41.982Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2886,7 +2899,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_MVTPqKOtjeJV6vKE6h",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:17.935Z",
+      "crawledAt": "2026-06-25T22:17:57.055Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2938,7 +2951,7 @@
         "it": "assistente-di-laboratorio-proteomics-eth-zurich-zurich",
         "en": "proteomics-laboratory-assistant-eth-zurich-ch",
         "de": "proteomics-laboratory-assistent-eth-zurich-zurich",
-        "fr": "assistant-de-laboratoire-en-proteomique-eth-zurich-zurich"
+        "fr": "proteomics-laboratory-assistant-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -2948,7 +2961,7 @@
         "it": "Assistente di laboratorio Proteomics",
         "en": "Proteomics Laboratory Assistant",
         "de": "Proteomics Laboratory Assistent",
-        "fr": "Assistant de laboratoire en protéomique"
+        "fr": "Proteomics Laboratory Assistant"
       },
       "description": "Proteomics Laboratory Assistant\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Functional Genomics Center Zurich (FGCZ) is a joint state-of-the-art research and training facility of the ETH Zurich and the University of Zurich. With the latest technologies and key expertise for omics research, the FGCZ provides research services and project support to the Zurich life science research community.\n\nProject background\n\nThe FGCZ Proteomics Unit supports internal and external research groups by offering services, training, and instrument access. The analytical portfolio includes identifying, characterizing and quantifying proteins in body fluids, tissues and cells. Together with the Bioinformatics team, the Proteomics Unit covers all steps from initial consultation, experimental design, sample preparation, liquid chromatography mass spectrometry (LC-MS) data acquisition, data processing and data analysis. The group is supported by IT and bioinformatics experts and by the Metabolomics and Genomics Units of the FGCZ to support multi-omics approaches.\n\nJob description\n\n• You will be part of an international team of specialists working in the FGCZ proteomics core facility\n\n• You will be primarily supporting the team during the sample preparation and the data acquisition for a variety of mass spectrometry-based proteomics workflows aimed at the identification, characterization and quantification of peptides and proteins using LC-MS from various biological sources\n\n• Examples of responsibilities are routine sample preparation methods such as in-gel, on-beads and in-solution digestion, peptide desalting, evaluating and interpreting quality control features during and after data acquisition and basic data analysis workflows\n\n• Furthermore, you will be responsible for the maintenance of different LC-MS instrument platforms, and support practical organizational aspects of the proteomics laboratories. This position is initially foreseen as a two-year contract\n\nProfile\n\n• Completed professional training as a chemistry or biology laboratory technician or, alternatively, bachelor in analytical chemistry, biology, or in a closely related field\n\n• Wet lab experience in biochemistry and/or analytical chemistry\n\n• Hands-on experience with LC-MS and/or other protein analysis techniques is an asset\n\n• Organizational skills, with the flexibility to adapt to a wide range of analytical protocols in a highly dynamic environment. Attention to detail and adherence to SOPs\n\n• Problem-solving skills\n\n• Effective and good written and oral communication skills in English are a must, knowledge of German is helpful\n\n• Team player, ambitious, and motivated to learn and make a difference through proteomics and protein analysis\n\nWorkplace\n\nWe offer\n\n• Your job with impact: Become part of ETH Zurich, which not only supports your professional development, but also actively contributes to positive change in society\n\n• You can expect numerous benefits , such as public transport season tickets and car sharing, a wide range of sports offered by the ASVZ , childcare and attractive pension benefits\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and learning environment in which the rights and dignity of all our staff and students are respected. Visit our Equal Opportunities and Diversity website to find out how we ensure a fair and open environment that allows everyone to grow and flourish. Sustainability is a core value for us – we are consistently working towards a climate-neutral future .\n\nCurious? So are we.\n\nWe are looking forward to receiving your online application with the following documents:\n\n• Motivation letter\n\n• CV\n\n• Apprenticeship and/or degree certificates\n\n• Reference letters/work certificates\n\nPlease note that we exclusively accept applications submitted",
       "descriptionByLocale": {
@@ -2962,7 +2975,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_YIAGusehVDGDBmBEsI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:17.465Z",
+      "crawledAt": "2026-06-25T22:17:56.578Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2979,7 +2992,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "proteomics-laboratory-assistant-eth-zurich-ch",
-        "proteomics-laborassistent-eth-zurich-zurich"
+        "proteomics-laborassistent-eth-zurich-zurich",
+        "assistant-de-laboratoire-en-proteomique-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2990,10 +3004,12 @@
           "proteomics-laborassistent-eth-zurich-zurich"
         ],
         "fr": [
+          "assistant-de-laboratoire-en-proteomique-eth-zurich-zurich",
           "proteomics-laboratory-assistant-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-05-22T11:35:19.493Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3040,7 +3056,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_TGK2F1mbvhUN2rbFCZ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:16.992Z",
+      "crawledAt": "2026-06-25T22:17:56.102Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3116,7 +3132,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_NsbRpbuQBjtyLQxCiz",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:16.524Z",
+      "crawledAt": "2026-06-25T22:17:55.623Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -3191,7 +3207,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_G6bG74Zi61Jz9j3ND8",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:16.057Z",
+      "crawledAt": "2026-06-25T22:17:55.147Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3267,7 +3283,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_WPpziRSErnvCE0GCTf",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:15.593Z",
+      "crawledAt": "2026-06-25T22:17:54.668Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3343,7 +3359,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_VMgBwTKkf0UDtee8nX",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:15.126Z",
+      "crawledAt": "2026-06-25T22:17:54.190Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3413,7 +3429,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_uEJAWCTRpKZ0n7NYUt",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:14.662Z",
+      "crawledAt": "2026-06-25T22:17:53.709Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3489,7 +3505,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_pPQbOEVFpuNEe6dwGQ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:14.193Z",
+      "crawledAt": "2026-06-25T22:17:53.234Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -3565,7 +3581,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_5s1YukSEIuRSf1QvQ7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:13.728Z",
+      "crawledAt": "2026-06-25T22:17:52.736Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3641,7 +3657,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_LZYLuA0PbY3i83Xnqc",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:13.259Z",
+      "crawledAt": "2026-06-25T22:17:52.259Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3717,7 +3733,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_xMrY6GwYK5XCm9r3ql",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:12.791Z",
+      "crawledAt": "2026-06-25T22:17:51.781Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3798,7 +3814,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_WutDHRW09osQjhn0JB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:12.327Z",
+      "crawledAt": "2026-06-25T22:17:51.305Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -3874,7 +3890,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_zGGXXq1toaJBr0smZv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:11.858Z",
+      "crawledAt": "2026-06-25T22:17:50.828Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3950,7 +3966,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_oztBIyJMFkzrazCjEl",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:11.395Z",
+      "crawledAt": "2026-06-25T22:17:50.354Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4026,7 +4042,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_yD8SBG1VJIv6DUeuOI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:10.927Z",
+      "crawledAt": "2026-06-25T22:17:49.875Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4108,7 +4124,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_QdlbwzXIscCjdDYXCL",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:10.455Z",
+      "crawledAt": "2026-06-25T22:17:49.399Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4184,7 +4200,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_GsxYQjDHWHGR9kTEAK",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:09.989Z",
+      "crawledAt": "2026-06-25T22:17:48.923Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4226,6 +4242,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:29:39.319Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4272,7 +4289,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_gOKX0EGP0Mvtw54IuK",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:09.524Z",
+      "crawledAt": "2026-06-25T22:17:48.446Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4355,7 +4372,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_q1xafmrUknvNXzCXuI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:09.059Z",
+      "crawledAt": "2026-06-25T22:17:47.968Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4406,7 +4423,7 @@
       "slugByLocale": {
         "it": "phd-in-fenologia-di-wildflower-eth-zurich-zurich",
         "en": "phd-in-wildflower-phenology-eth-zurich-ch",
-        "de": "phd-in-wildblumen-phanologie-eth-zurich-zurich",
+        "de": "phd-in-wildflower-phenology-eth-zurich-ch",
         "fr": "doctorat-en-phenologie-des-fleurs-sauvages-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
@@ -4416,7 +4433,7 @@
       "titleByLocale": {
         "it": "PhD in Fenologia di Wildflower",
         "en": "PhD in Wildflower Phenology",
-        "de": "PhD in Wildblumen-Phänologie",
+        "de": "PhD in Wildflower Phenology",
         "fr": "Doctorat en phénologie des fleurs sauvages"
       },
       "description": "PhD in Wildflower Phenology\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Plant Ecology Group at ETH Zürich, led by Professor Janneke Hille Ris Lambers, is seeking an enthusiastic PhD candidate to study how Alpine flowering communities vary over space and time, and what the consequences of this variation are for plant-pollinator dynamics. This topic is relevant to our understanding of how climate change will alter the timing and overlap in flowering phenology of co-occurring Alpine wildflowers, and the impacts of such novel flowering communities for pollinator dynamics and plant reproductive fitness. Addressing these topics has been challenging in Alpine systems, which harbor a high diversity of plants and pollinators whose interactions vary enormously over fine spatial and short temporal scales. Fortunately, recent technological and analytical developments allow us to quantify species interaction networks at high spatial and temporal resolution, potentially providing for new insights into this topic.\n\nJob description\n\nThe chosen PhD student will be expected to work collaboratively with the Plant Ecology Group (at ETH Zürich) and an international team of collaborators to address this topic. Specifically, the PhD candidate will conduct:\n\n• Field work to quantify flowering phenology (using phenocams) and plant-pollinator interactions across the growing season and elevational gradients.\n\n• Experiments to explore the implications of altered flowering phenology for pollinator visitation and plant reproductive fitness.\n\n• Analyses to quantify flowering phenology and interaction networks to explore questions of interest, including the application of deep learning approaches (for automated identification of flowers) and temporal network analyses.\n\nThe PhD student will have the opportunity to develop their own ideas within this project, and will also be expected to contribute to group responsibilities within the department and university (e.g. teaching, outreach, lab activities), as is expected of all group members.\n\nProfile\n\n• Enthusiasm and interest in the project\n\n• Relevant ecological knowledge (e.g. in phenology, plant-pollinator dynamics, and / or ecological impacts of climate change)\n\n• Experience with statistical modelling and / or deep learning approaches\n\n• Experience with identifying plants and identifying pollinators\n\n• Ability to work independently and collaboratively\n\n• Commitment to a collegial and inclusive workplace\n\n• Field work experience and a valid driver's license\n\n• Advanced English (oral and writing)\n\nWorkplace\n\nWe offer\n\nThe Plant Ecology Group at ETH Zürich conducts research on a diversity of topics within the realm of plant community ecology, including the drivers of Alpine wildflower phenology, the factors that limit forest regeneration, and the role of climate and species interactions in influencing plant populations and communities. We conduct projects and maintain long-term monitoring studies in Alpine and forest field sites in and Switzerland and the USA (Washington State). We are committed to fostering diversity and inclusivity in all our activities, as well as to conducting open and collaborative science. Please see our website for more information on activities in the research group.\n\nThis PhD is fully funded. You will be hired as a full-time researcher for four years. The annual salary is very competitive (see ETH Zurich regulations ). The position is based in Zurich, Switzerland. Remote work from outside of Switzerland is not possible due to legal constraints.\n\nOutstanding research groups at ETH Zürich, the adjacent University of Zürich, WSL (the Swiss Federal Institute for Forest, Snow and Landscape Research) and EAWAG (the Swiss Federal Institute of Aquatic Science and Technology) offer numerous opportunities for interaction and collaboration. Zürich is a cosmopolitan city with high living standards and easy access to forested and alpine research sites, out",
@@ -4431,7 +4448,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_FWmJ4QgmvRR8hOn4Cm",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:08.595Z",
+      "crawledAt": "2026-06-25T22:17:47.491Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4447,17 +4464,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-in-wildflower-phenology-eth-zurich-ch"
+        "phd-in-wildflower-phenology-eth-zurich-ch",
+        "phd-in-wildblumen-phanologie-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "phd-in-wildflower-phenology-eth-zurich-ch"
         ],
         "de": [
+          "phd-in-wildblumen-phanologie-eth-zurich-zurich",
           "phd-in-wildflower-phenology-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:26:06.324Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4504,7 +4524,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Afh8kTDkVYogvWKaOy",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:08.128Z",
+      "crawledAt": "2026-06-25T22:17:47.006Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4580,7 +4600,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_jx3UwD48qVWE5Vz6j6",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:07.657Z",
+      "crawledAt": "2026-06-25T22:17:46.526Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4656,7 +4676,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_hkSa6WxM6WZBjeh5nk",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:07.191Z",
+      "crawledAt": "2026-06-25T22:17:46.050Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4729,7 +4749,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_YUctWn3aOHyvwf4ytr",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:06.726Z",
+      "crawledAt": "2026-06-25T22:17:45.575Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4756,6 +4776,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:48:31.359Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4802,7 +4823,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_T4LAy013cx6DIjFsXP",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:06.255Z",
+      "crawledAt": "2026-06-25T22:17:45.096Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4878,7 +4899,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_CFYgE24Jdpp8pDK48g",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:05.787Z",
+      "crawledAt": "2026-06-25T22:17:44.612Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4940,7 +4961,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_ibKfv8BwosqQqTXr1V",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:05.320Z",
+      "crawledAt": "2026-06-25T22:17:44.137Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5035,7 +5056,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_55peH7GaneuaeqBmVT",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:04.857Z",
+      "crawledAt": "2026-06-25T22:17:43.652Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -5108,7 +5129,7 @@
       "url": "https://jobs.ethz.ch/job/view/11779",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:04.390Z",
+      "crawledAt": "2026-06-25T22:17:43.177Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5167,7 +5188,7 @@
       "companyDomain": "ethz.ch",
       "title": "PhD Researcher - Bone Organoids",
       "titleByLocale": {
-        "it": "Ricercatore di dottorato - Bone Organoids",
+        "it": "PhD Researcher - Bone Organoids",
         "en": "PhD Researcher - Bone Organoids",
         "de": "PhD Forscher - Knochenorganoide",
         "fr": "Chercheur au doctorat - Organoïdes osés"
@@ -5184,7 +5205,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Hn4dfz7Jol0JL6MMN1",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:03.920Z",
+      "crawledAt": "2026-06-25T22:17:42.703Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -5261,7 +5282,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_3PYobqeoP1vcrJ9tI6",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:03.458Z",
+      "crawledAt": "2026-06-25T22:17:42.216Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -5319,7 +5340,7 @@
       "companyDomain": "ethz.ch",
       "title": "Postdoctoral Researcher - Bone Organoids",
       "titleByLocale": {
-        "it": "Ricercatore post-dottorato - Bone Organoids",
+        "it": "Postdoctoral Researcher - Bone Organoids",
         "en": "Postdoctoral Researcher - Bone Organoids",
         "de": "Postdoktorandin - Knochenorganoide",
         "fr": "Chercheur postdoctoral - Organoïdes osseux"
@@ -5336,7 +5357,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_BTbjEqciY793L58b1f",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:02.994Z",
+      "crawledAt": "2026-06-25T22:17:41.735Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -5413,7 +5434,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_5Xk19e243YYxLCyinu",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:02.528Z",
+      "crawledAt": "2026-06-25T22:17:41.254Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5489,7 +5510,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_AY3hccIricAb6VIQkw",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:02.060Z",
+      "crawledAt": "2026-06-25T22:17:40.771Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5565,7 +5586,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_w3KSzQGOCbsF6XU78Q",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:01.594Z",
+      "crawledAt": "2026-06-25T22:17:40.290Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5627,7 +5648,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_NSAzqP0amVVvHveWTC",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:01.131Z",
+      "crawledAt": "2026-06-25T22:17:39.811Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5679,7 +5700,7 @@
         "it": "map-executive-direttore-eth-zurich-zurich",
         "en": "map-executive-director-eth-zurich-ch",
         "de": "map-executive-direktor-eth-zurich-zurich",
-        "fr": "directeur-executif-de-map-eth-zurich-zurich"
+        "fr": "map-executive-director-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -5689,7 +5710,7 @@
         "it": "MaP Executive Direttore",
         "en": "MaP Executive Director",
         "de": "MaP Executive Direktor",
-        "fr": "Directeur exécutif de MaP"
+        "fr": "MaP Executive Director"
       },
       "description": "MaP Executive Director\n\n80%-100%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe ETH Zürich Competence Center for Materials and Processes ( MaP ) is a multidisciplinary scientific network devoted to tackling the grand challenges in materials, processes and manufacturing technologies. We foster cross-disciplinary research, education, and outreach to other academic institutes, industry and society in this field. Current major initiatives of MaP are the MaP Doctoral School and ETH Sabbatical | CAS AMaP continuing education programme. To lead the executive office as the central coordination hub, MaP is currently hiring a new Executive Director, starting from 1 July 2026 or earlier on agreement.\n\nProject background\n\nWe are seeking an individual who is highly motivated to manage and develop MaP , together with the Steering Committee and the community of over 80 affiliated research groups . The Executive Director is responsible for leading the executive office, including managing strategy, human resources, finances, as well as operations and activities, governance and communications. The main focus of this key interfacing role is on community building and managing multi-stakeholder collaboration across a broad range of themes, therefore requiring a broad understanding of the grand challenges in Materials and Processes. The position embraces the designing, managing and overseeing of all research, education and outreach programs of MaP , including the MaP Doctoral School and ETH Sabbatical | CAS AMaP .\n\nJob description\n\nStrategic Leadership & Office Management\n\n• Manage and develop MaP in close collaboration with the Steering Committee and a community of over 80 affiliated research groups.\n\n• Lead the executive office, taking full responsibility for its operations and daily activities.\n\n• Oversee core management areas, including strategy, human resources, finances, and governance.\n\nCollaboration & Community Building\n\n• Foster community building and manage multi-stakeholder collaboration across a broad range of themes.\n\n• Act as a key interface between various research groups and research entities.\n\n• Direct/Develop communication strategies to engage and connect the MaP community.\n\nProgram Management & Oversight\n\n• Design, manage, and oversee all MaP research, education, and outreach programs.\n\n• Direct specific initiatives, including the MaP Doctoral School and the ETH Sabbatical | CAS AMaP.\n\nProfile\n\n• The successful candidate has a strong academic background in science and/or engineering and ample work experience in topics relevant to Materials and Processes.\n\n• Given the requirement to work across disciplines, sectors and cultures, the candidate must have excellent communication and organisational skills and experience in community building and further participatory processes.\n\n• Strong project and business management skills are essential, from strategy and conceptualisation to planning and effective implementation, along with budgeting, financial management, evaluation and reporting.\n\n• The ability to work in a motivated, independent, responsible, resourceful and resilient manner is vital.\n\n• And, ideally, the candidate has already gained some hands-on experience in managing people, having budget responsibility and running research projects and education programs. Fluency in English and German is required.\n\nWorkplace\n\nWe offer\n\nWe offer a dynamic work environment with a high degree of freedom in design and implementation and many opportunities for an individual with commensurate qualifications, a can-do attitude, and a proactive and creative mindset to further her/his professional goals. The position is limited to one year, with the possibility of extension depending on the further development of MaP and its initiatives.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity,",
       "descriptionByLocale": {
@@ -5703,7 +5724,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_HWRxww6Wu4Fng2tJ0A",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:14:00.666Z",
+      "crawledAt": "2026-06-25T22:17:39.325Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5719,7 +5740,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "map-executive-director-eth-zurich-ch"
+        "map-executive-director-eth-zurich-ch",
+        "directeur-executif-de-map-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5729,10 +5751,12 @@
           "map-executive-director-eth-zurich-ch"
         ],
         "fr": [
+          "directeur-executif-de-map-eth-zurich-zurich",
           "map-executive-director-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-06-12T12:05:39.283Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5779,7 +5803,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Zbo1k9gVUwtu5ABmFf",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:14:00.198Z",
+      "crawledAt": "2026-06-25T22:17:38.847Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5859,7 +5883,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_aJeRfAu7OJpnwc2GuJ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:59.727Z",
+      "crawledAt": "2026-06-25T22:17:38.366Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5906,9 +5930,9 @@
     },
     {
       "id": "eth-zurich-ef48c794a0ff",
-      "slug": "ricercatore-post-dottorato-in-cattura-co2-leggera-eth-zurich-zurich",
+      "slug": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
       "slugByLocale": {
-        "it": "ricercatore-post-dottorato-in-cattura-co2-leggera-eth-zurich-zurich",
+        "it": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
         "en": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
         "de": "postdoktorand-im-bereich-lichtgetriebener-co2-einscheidung-eth-zurich-zurich",
         "fr": "chercheur-postdoctoral-en-capture-du-co2-a-la-lumiere-eth-zurich-zurich"
@@ -5918,7 +5942,7 @@
       "companyDomain": "ethz.ch",
       "title": "Postdoctoral Researcher in Light-Driven CO2 Capture",
       "titleByLocale": {
-        "it": "Ricercatore post-dottorato in Cattura CO2 leggera",
+        "it": "Postdoctoral Researcher in Light-Driven CO2 Capture",
         "en": "Postdoctoral Researcher in Light-Driven CO2 Capture",
         "de": "Postdoktorand im Bereich lichtgetriebener CO2-Einscheidung",
         "fr": "Chercheur postdoctoral en capture du CO2 à la lumière"
@@ -5935,7 +5959,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_SEsDjBg4yDbJBXzxEY",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:59.253Z",
+      "crawledAt": "2026-06-25T22:17:37.888Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5952,15 +5976,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ricercatore-post-dottorato-in-cattura-co2-light-driven-eth-zurich-zurich",
-        "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch"
+        "ricercatore-post-dottorato-in-cattura-co2-leggera-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-cattura-co2-light-driven-eth-zurich-zurich",
+          "ricercatore-post-dottorato-in-cattura-co2-leggera-eth-zurich-zurich",
           "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-06-15T14:48:31.631Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6007,7 +6033,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_nHicNeceEMLPYD8dxs",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:58.790Z",
+      "crawledAt": "2026-06-25T22:17:37.411Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6083,7 +6109,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_2TKYGPAawN2ArLTcqd",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:58.326Z",
+      "crawledAt": "2026-06-25T22:17:36.933Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6163,7 +6189,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_dRUoCoJuD0wwF7pMvO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:57.859Z",
+      "crawledAt": "2026-06-25T22:17:36.448Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6239,7 +6265,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Bner0qEzUweIGYHkB2",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:57.390Z",
+      "crawledAt": "2026-06-25T22:17:35.968Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6317,7 +6343,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_gesqDnqKEFRU34t8OA",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:56.922Z",
+      "crawledAt": "2026-06-25T22:17:35.486Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6394,7 +6420,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_aQLv7zXxlJ4yxdZDqC",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:56.452Z",
+      "crawledAt": "2026-06-25T22:17:34.999Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6471,7 +6497,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_skSPdBEzYODyF54wNv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:55.985Z",
+      "crawledAt": "2026-06-25T22:17:34.455Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6547,7 +6573,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_1WDN4B33ZTBogBfOlq",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:55.515Z",
+      "crawledAt": "2026-06-25T22:17:33.975Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6620,7 +6646,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_TjHEAJOI8dRecXyJlK",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:55.049Z",
+      "crawledAt": "2026-06-25T22:17:33.498Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6696,7 +6722,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_qwf9mO56Hd2DLo0ONP",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:54.584Z",
+      "crawledAt": "2026-06-25T22:17:33.013Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6772,7 +6798,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0C0IW617lJJ49qKWOQ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:54.114Z",
+      "crawledAt": "2026-06-25T22:17:32.533Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6848,7 +6874,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_GeYPRCNq6dSw5Yawqm",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:53.650Z",
+      "crawledAt": "2026-06-25T22:17:32.051Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6924,7 +6950,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_VZv7l1hgHGEBTN8CTn",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:53.186Z",
+      "crawledAt": "2026-06-25T22:17:31.568Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7006,7 +7032,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_QFD5UY3P2lUjL0BcCR",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:52.718Z",
+      "crawledAt": "2026-06-25T22:17:31.086Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7061,7 +7087,7 @@
         "it": "assistente-amministrativo-eth-zurich-zurich",
         "en": "administrative-assistant-eth-zurich-ch",
         "de": "administrative-assistent-eth-zurich-zurich",
-        "fr": "assistant-administratif-eth-zurich-zurich"
+        "fr": "administrative-assistant-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7071,7 +7097,7 @@
         "it": "Assistente amministrativo",
         "en": "Administrative assistant",
         "de": "Verwaltungsassistent",
-        "fr": "Assistant administratif"
+        "fr": "Administrative assistant"
       },
       "description": "Administrative assistant\n\n30%-50%, Zurich, fixed-term\n\nprint\nDrucken\n\nLaboratory of Neuroepigenetics, Brain Research Institute and Institute of Neuroscience, UZH/ETHZ. The laboratory of Neuroepigenetics is a biology research group at the University Zürich (UZH) and ETH Zürich. It conducts fundamental research on how the brain and body are modified by environmental factors and life experiences and the consequences for physiology, behavior and health. The lab is composed of researchers, doctoral and postdoctoral students, and technical staff working in close collaboration on complementary research projects. The lab provides teaching to undergraduate and graduate students at UZH and ETHZ.\n\nJob description\n\n• Manage administrative support for a research group of about 15 people\n\n• Manage ressearch group's finances and budget (including research grants)\n\n• Responsible for personnel administration (contracts)\n\n• Prepare annual reports\n\n• General administrative duties Support in events organized by the research group\n\n• Correspondence in English and German\n\nProfile\n\n• Solid background in secretary work and administration or university degree (e.g. BSc in - - Business Administration)\n\n• Professional experience as adminitrative assistant or secretary of minimum 3 years\n\n• Experience in an academic institution (Swiss university) or environment\n\n• Service-oriented, dynamic and communicative\n\n• Very good English and German language skills (written and spoken)\n\n• Independent and precise workstyle\n\n• Enjoy working as part of team\n\n• Sound computer skills (MSOffice, SAP)\n\n• Flair for solution-oriented, unbureaucratic approaches\n\nWorkplace\n\nWe offer\n\nWork-Life Balance\n\n• Flexible working models (such as part-time positions, mobile working, job-sharing)\n\n• Childcare at the kihz foundation of UZH and ETH\nLearning and Development\n\n• Wide range of continuing education courses of UZH and the Canton of Zurich.\n\n• Language Center run jointly with ETH Zurich\n\nCurious? So are we.\n\nPlease submit your application as one pdf file including:\n\n• Resume\n\n• Cover letter\n\n• Reference letter\nFor further information about the position, please contact Isabelle Mansuy . Questions regarding the application procedure can be directed to Ellen Jaspers .",
       "descriptionByLocale": {
@@ -7085,7 +7111,7 @@
       "url": "https://jobs.ethz.ch/job/view/11810",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:52.254Z",
+      "crawledAt": "2026-06-25T22:17:30.604Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7101,17 +7127,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrative-assistant-eth-zurich-ch"
+        "administrative-assistant-eth-zurich-ch",
+        "assistant-administratif-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "administrative-assistant-eth-zurich-ch"
         ],
         "fr": [
+          "assistant-administratif-eth-zurich-zurich",
           "administrative-assistant-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T12:31:04.659Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7158,7 +7187,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_aht8giABx12UGrPMMZ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:51.792Z",
+      "crawledAt": "2026-06-25T22:17:30.129Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7234,7 +7263,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_vWUntUhejuNljGLwVh",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:51.326Z",
+      "crawledAt": "2026-06-25T22:17:29.649Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7312,7 +7341,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_gnIOUQw6F6A9A48NAB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:50.864Z",
+      "crawledAt": "2026-06-25T22:17:29.171Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7390,7 +7419,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_VDe7HVKqNZVZdvUAmt",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:50.399Z",
+      "crawledAt": "2026-06-25T22:17:28.689Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7466,7 +7495,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_uDWzQf2wCYNZuxZnEv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:49.930Z",
+      "crawledAt": "2026-06-25T22:17:28.210Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7496,6 +7525,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T11:27:24.431Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7542,7 +7572,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_LMaEP9jVrQC9cDD4NU",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:49.464Z",
+      "crawledAt": "2026-06-25T22:17:27.732Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7618,7 +7648,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_EvLC9fvRCMCVvNKGRU",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:48.993Z",
+      "crawledAt": "2026-06-25T22:17:27.253Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7694,7 +7724,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_LeUhF2WveK4IuFRTxh",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:48.527Z",
+      "crawledAt": "2026-06-25T22:17:26.773Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7770,7 +7800,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_KpOW7lYfI0yXlUiUCo",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:48.061Z",
+      "crawledAt": "2026-06-25T22:17:26.291Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7848,7 +7878,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0ZAkW6S2JIQMm2zZZQ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:47.596Z",
+      "crawledAt": "2026-06-25T22:17:25.813Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7924,7 +7954,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_seiUd0JDwczn2SLb4k",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:47.130Z",
+      "crawledAt": "2026-06-25T22:17:25.334Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7976,7 +8006,7 @@
         "it": "apertura-del-dottorato-in-scienze-materiali-di-conservazione-della-pietra-eth-zurich-zurich",
         "en": "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch",
         "de": "phd-eroffnung-in-der-materialwissenschaft-der-steinkonservierung-eth-zurich-zurich",
-        "fr": "ouverture-du-doctorat-en-science-materielle-de-la-conservation-de-la-pierre-eth-zurich-zurich"
+        "fr": "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7986,7 +8016,7 @@
         "it": "Apertura del dottorato in scienze materiali di conservazione della pietra",
         "en": "PhD opening in material science of stone conservation",
         "de": "PhD Eröffnung in der Materialwissenschaft der Steinkonservierung",
-        "fr": "Ouverture du doctorat en science matérielle de la conservation de la pierre"
+        "fr": "PhD opening in material science of stone conservation"
       },
       "description": "PhD opening in material science of stone conservation\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Chair for Physical Chemistry of Building Materials has one opening for PhD. position on the topic of stone conservation, in particular the mechanisms of contour scaling. This PhD is part of the collaborative project “Spatially graded 3D printing to elucidate contour scaling of building stones”. It aims at elucidating the mechanism of contour scaling on building stone, establishing on-site monitoring methods and testing possible treatments for it. The selected student will collaborate with another PhD candidate funded in the scheme and employed at the Chair for Digital Building Technologies in the Department of Architecture.\n\nProject background\n\nThis project aims to establish and validate a novel experimental approach to the study of stone deterioration by leveraging powder-bed 3D printing of stone-like materials. This enables the creation of spatially graded samples mimicking natural stones and their alteration through weathering. Most importantly, this can be done in a repetitive way and with systematic variations of the defect, flaws and inhomogeneities known to play an essential role in stone deterioration.\n\nThe specific stone deterioration mechanism that will be investigated is contour scaling, a process of particular concern to molasse sandstones largely used in the Swiss plateau. It leads to loss of cohesion below the exposed surface, at a depth in the range of some millimetres to several centimetres. It leads to highly inhomogeneous properties that our 3D printing approach would be able to mimic for the first time.\n\nThe 3D printing will begin using an innovative and large-scale 3D powder bed printer developed by the Chair for Digital Building Technologies, and will be advanced for the purpose of this project by the other PhD student.\n\nJob description\n\n• The present PhD student will use such 3D printed stones in the unique testing facilities of the Chair for Physical Chemistry of Building Materials\n\n• This will enable the reproduction under laboratory conditions of harsh events that condition the weathering of building stones on monuments\n\n• That study will be complemented by method development to enable rapid detection of contour scales on site, in addition to exploring possible means of halting the propagation and/or formation of such contour scales\n\nProfile\n\n• The successful candidate should have a keen interest, or preferably experience in heritage conservation science\n\n• They should additionally hold a Masters degree in conservation science, material science, chemistry, chemical engineering, civil engineering, or conservation architecture\n\n• In any case good experimental skills are a must\n\n• An excellent oral and written level of English is essential\n\n• Conversational knowledge of German is an advantage, but desire to learn it is a must\n\n• As the project involves collaboration between groups in addition to field practitioners, very good communication skills and willingness to collaborate with other researchers is essential\n\nWorkplace\n\nWe offer\n\nThe Chair of Physical Chemistry of Building Materials within the Institute for Building Materials offers many chances for jump-starting an academic or industrial research career in cement and concrete technology, with a strong basis in materials chemistry and rheology. Our highly diverse and international group also offers many networking opportunities through academic societies such as RILEM, industry connections, as well as internal ETH connections. We are committed to diversity by allowing flexibility in working hours, home office, and other measures to ensure team members can adequately perform their roles.\n\nchevron_right\nWorking, teaching and research at ETH Zurich\n\nWe value diversity and sustainability\n\nIn line with our values , ETH Zurich encourages an inclusive culture. We promote equality of opportunity, value diversity and nurture a working and",
       "descriptionByLocale": {
@@ -8000,7 +8030,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_8mKiqyt08ncBT4Vjmf",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:46.654Z",
+      "crawledAt": "2026-06-25T22:17:24.858Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8016,7 +8046,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch"
+        "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch",
+        "ouverture-du-doctorat-en-science-materielle-de-la-conservation-de-la-pierre-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8026,10 +8057,12 @@
           "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch"
         ],
         "fr": [
+          "ouverture-du-doctorat-en-science-materielle-de-la-conservation-de-la-pierre-eth-zurich-zurich",
           "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T21:57:04.655Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8059,7 +8092,7 @@
       "companyDomain": "ethz.ch",
       "title": "Administrative Assistenz (m/w/d)",
       "titleByLocale": {
-        "it": "Assistenza amministrativa (m/f/d)",
+        "it": "Administrative Assistenz (m/w/d)",
         "en": "Administrative Assistance (m/f/d)",
         "de": "Administrative Assistenz (m/w/d)",
         "fr": "Assistance administrative (m/f/d)"
@@ -8076,7 +8109,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_x6JSBzQc0UHvr4kEJH",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T11:13:46.186Z",
+      "crawledAt": "2026-06-25T22:17:24.376Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8106,6 +8139,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T11:13:17.081Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8125,8 +8159,8 @@
       "id": "eth-zurich-883df3667a32",
       "slug": "posizione-di-dottorato-per-lo-sviluppo-di-modelli-multi-fisici-di-induttori-planari-e-trasformatori-eth-zurich-zurich",
       "slugByLocale": {
-        "en": "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth",
         "it": "posizione-di-dottorato-per-lo-sviluppo-di-modelli-multi-fisici-di-induttori-planari-e-trasformatori-eth-zurich-zurich",
+        "en": "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth",
         "de": "phd-position-fur-die-entwicklung-von-multi-physik-modelle-von-planaren-induktoren-und-transformatoren-eth-zurich-zurich",
         "fr": "poste-de-doctorat-pour-le-developpement-de-modeles-multiphysiques-d-inducteurs-et-de-transformateurs-planaires-eth"
       },
@@ -8135,24 +8169,24 @@
       "companyDomain": "ethz.ch",
       "title": "PhD position for developing multi-physics models of planar inductors and transformers",
       "titleByLocale": {
-        "en": "PhD position for developing multi-physics models of planar inductors and transformers",
         "it": "Posizione di dottorato per lo sviluppo di modelli multi-fisici di induttori planari e trasformatori",
+        "en": "PhD position for developing multi-physics models of planar inductors and transformers",
         "de": "PhD Position für die Entwicklung von Multi-Physik-Modelle von planaren Induktoren und Transformatoren",
         "fr": "Poste de doctorat pour le développement de modèles multiphysiques d'inducteurs et de transformateurs planaires"
       },
       "description": "PhD position for developing multi-physics models of planar inductors and transformers\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Laboratory for High Power Electronic Systems (HPE) at the Department of Information Technology and Electrical Engineering of ETH Zurich conducts internationally leading research on power electronic converter systems, which are required, for example, in future energy distribution systems for the integration of renewable energy sources or in traction applications/electric vehicles. Another research focus is on solid-state pulse modulators for medical applications (computer tomography/cancer treatment) and accelerators (CERN). For the design and optimisation of the various power electronic systems, we develop advanced multi-physics models/digital twins/virtual prototypes at the component as well as at the system level. For a new research project on planar magnetics for highly compact, low profile power electronic systems, we are looking for a: PhD candidate (100%) for developing multi-physics models of planar inductors and transformers\n\nJob description\n\nWe are looking for highly motivated individuals with an outstanding academic background who are interested in pursuing a PhD in the important and multidisciplinary research area of modelling and optimising planar magnetic devices (inductors and transformers). Compact and highly efficient planar magnetic devices utilising for example PCB based winding structures are key components of many power electronic converters with a low profile, which are required for example for DC-DC converters (PoL-converters) in future data centres or in automotive applications for interconnecting the main drive battery with the 12V auxiliary battery. Planar magnetic devices are also often required in wireless charging/energy transfer systems, where they must be highly compact and efficient.\n\nTo push the efficiency and power density limits of such planar magnetic devices, you will develop multi-physics models of planar magnetics. These models will comprehensively describe the (HF) losses in the windings, the parasitic capacitances of the windings, and also the temperature distribution in the winding and also the core. Furthermore, you will develop models for designing the electrical insulation of the winding. Based on these models, you will work on optimising the core and winding geometry, as well as developing advanced cooling concepts for the windings and core. Based on the models and developed concepts, you will then identify technological barriers to power density of planar magnetics.\n\nThe developed models should be integrated into optimisation procedures for power electronic converter systems in a computationally efficient manner. This is essential for achieving outstanding system efficiencies and power densities, as well as gaining a competitive edge. The models are also part of an ongoing, wider modelling framework development project at HPE, offering the opportunity to collaborate with other PhD candidates on various modelling aspects.\n\nFor verifying the new cooling and winding concepts as well as the developed models, you will design and build different prototypes, including PE converter systems, to operate the planar magnetics under realistic conditions.\n\nOur laboratory is offering a challenging and scientifically exciting full-time position within a dynamic international team at one of the world's leading technical universities. We also strongly encourage participation in international conferences and offer a competitive salary, excellent benefits, and outstanding research and laboratory facilities for your experiments.\n\nProfile\n\n• You must have a diploma/M.Sc. degree in electrical engineering with excellent grades\n\n• Fundamental knowledge of power electronic converter systems\n\n• Good communication skills\n\n• Fluency in English\n\n• The willingness to fully commit yourself as part of an international team.\n\n• In addition, you should be interested in the detailed mode",
       "descriptionByLocale": {
-        "en": "PhD position for developing multi-physics models of planar inductors and transformers\n\n100%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Laboratory for High Power Electronic Systems (HPE) at the Department of Information Technology and Electrical Engineering of ETH Zurich conducts internationally leading research on power electronic converter systems, which are required, for example, in future energy distribution systems for the integration of renewable energy sources or in traction applications/electric vehicles. Another research focus is on solid-state pulse modulators for medical applications (computer tomography/cancer treatment) and accelerators (CERN). For the design and optimisation of the various power electronic systems, we develop advanced multi-physics models/digital twins/virtual prototypes at the component as well as at the system level. For a new research project on planar magnetics for highly compact, low profile power electronic systems, we are looking for a: PhD candidate (100%) for developing multi-physics models of planar inductors and transformers\n\nJob description\n\nWe are looking for highly motivated individuals with an outstanding academic background who are interested in pursuing a PhD in the important and multidisciplinary research area of modelling and optimising planar magnetic devices (inductors and transformers). Compact and highly efficient planar magnetic devices utilising for example PCB based winding structures are key components of many power electronic converters with a low profile, which are required for example for DC-DC converters (PoL-converters) in future data centres or in automotive applications for interconnecting the main drive battery with the 12V auxiliary battery. Planar magnetic devices are also often required in wireless charging/energy transfer systems, where they must be highly compact and efficient.\n\nTo push the efficiency and power density limits of such planar magnetic devices, you will develop multi-physics models of planar magnetics. These models will comprehensively describe the (HF) losses in the windings, the parasitic capacitances of the windings, and also the temperature distribution in the winding and also the core. Furthermore, you will develop models for designing the electrical insulation of the winding. Based on these models, you will work on optimising the core and winding geometry, as well as developing advanced cooling concepts for the windings and core. Based on the models and developed concepts, you will then identify technological barriers to power density of planar magnetics.\n\nThe developed models should be integrated into optimisation procedures for power electronic converter systems in a computationally efficient manner. This is essential for achieving outstanding system efficiencies and power densities, as well as gaining a competitive edge. The models are also part of an ongoing, wider modelling framework development project at HPE, offering the opportunity to collaborate with other PhD candidates on various modelling aspects.\n\nFor verifying the new cooling and winding concepts as well as the developed models, you will design and build different prototypes, including PE converter systems, to operate the planar magnetics under realistic conditions.\n\nOur laboratory is offering a challenging and scientifically exciting full-time position within a dynamic international team at one of the world's leading technical universities. We also strongly encourage participation in international conferences and offer a competitive salary, excellent benefits, and outstanding research and laboratory facilities for your experiments.\n\nProfile\n\n• You must have a diploma/M.Sc. degree in electrical engineering with excellent grades\n\n• Fundamental knowledge of power electronic converter systems\n\n• Good communication skills\n\n• Fluency in English\n\n• The willingness to fully commit yourself as part of an international team.\n\n• In addition, you should be interested in the detailed mode",
-        "it": "Posizione di dottorato per lo sviluppo di modelli multi-fisici di induttori planari e trasformatori\n\n100%, Zurigo, a tempo determinato\n\nstampa\nDruppo\n\nIl Laboratorio per sistemi elettronici ad alta potenza (HPE) presso il Dipartimento di Tecnologia dell'Informazione e Ingegneria Elettrica dell'ETH di Zurigo conduce ricerche leader a livello internazionale sui sistemi di conversione elettronica di potenza, che sono necessari, ad esempio, nei futuri sistemi di distribuzione dell'energia per l'integrazione di fonti di energia rinnovabile o nelle applicazioni di trazione / veicoli elettrici. Un'altra ricerca si concentra sui modulatori a impulsi a stato solido per applicazioni mediche (trattamento tomografia computer/cancro) e sugli acceleratori (CERN). Per la progettazione e l'ottimizzazione dei vari sistemi elettronici di potenza, sviluppiamo modelli multi-fisici avanzati / gemelli digitali / prototipi virtuali al componente e a livello di sistema. Per un nuovo progetto di ricerca sui magnetici planari per sistemi elettronici di potenza altamente compatti e di basso profilo, stiamo cercando un: Dottorato di ricerca (100%) per lo sviluppo di modelli multi-fisici di induttori planari e trasformatori\n\nDescrizione del lavoro\n\nSiamo alla ricerca di individui altamente motivati con un eccezionale background accademico che sono interessati a perseguire un dottorato nell'importante e multidisciplinare area di ricerca di modellazione e ottimizzazione dei dispositivi magnetici planari (induttori e trasformatori). I dispositivi magnetici planari compatti e altamente efficienti che utilizzano per esempio le strutture di avvolgimento basate su PCB sono componenti chiave di molti convertitori elettronici di potenza con un profilo basso, che sono necessari per esempio per i convertitori DC-DC (PoL-converter) nei centri di dati futuri o nelle applicazioni automobilistiche per collegare la batteria di azionamento principale con la batteria ausiliaria 12V. I dispositivi magnetici planari sono spesso richiesti anche nei sistemi di ricarica/di trasferimento di energia wireless, dove devono essere altamente compatti ed efficienti.\n\nPer spingere i limiti di efficienza e densità di potenza di tali dispositivi magnetici planari, svilupperai modelli multi-fisici di magnetici planari. Questi modelli descriveranno in modo completo le perdite (HF) negli avvolgimento, le capacità parassitarie degli avvolgimento, e anche la distribuzione della temperatura nell'avvolgimento e anche il nucleo. Inoltre, svilupperai modelli per la progettazione dell'isolamento elettrico dell'avvolgimento. Sulla base di questi modelli, si lavorerà sull'ottimizzazione della geometria del nucleo e dell'avvolgimento, oltre a sviluppare concetti di raffreddamento avanzati per gli avvolgimento e il nucleo. Sulla base dei modelli e dei concetti sviluppati, si identificano le barriere tecnologiche alla densità di potenza dei magnetici planari.\n\nI modelli sviluppati dovrebbero essere integrati in procedure di ottimizzazione per i sistemi di convertitori elettronici di potenza in modo computazionalmente efficiente. Questo è essenziale per raggiungere le efficienze del sistema e le densità di potenza eccezionali, così come ottenere un vantaggio competitivo. I modelli fanno parte anche di un continuo e più ampio progetto di sviluppo framework di modellazione presso HPE, offrendo l'opportunità di collaborare con altri candidati PhD su vari aspetti di modellazione.\n\nPer verificare i nuovi concetti di raffreddamento e avvolgimento così come i modelli sviluppati, si progetta e costruisce diversi prototipi, compresi i sistemi di convertitore PE, per operare i magnetici planari in condizioni realistiche.\n\nIl nostro laboratorio offre una posizione a tempo pieno impegnativo e scientificamente emozionante all'interno di un team internazionale dinamico in una delle principali università tecniche del mondo. Inoltre incoraggiamo fortemente la partecipazione a conferenze internazionali e offriamo uno stipendio competitivo, eccellenti vantaggi, e eccellenti strutture di ricerca e laboratorio per i vostri esperimenti.\n\nProfilo\n\n• È necessario avere un diploma / laurea in ingegneria elettrica con gradi eccellenti\n\n• Conoscenza fondamentale dei sistemi di convertitori elettronici di potenza\n\n• Buone capacità di comunicazione\n\n• Fluency in inglese\n\n• La volontà di impegnarsi pienamente come parte di un team internazionale.\n\n• Inoltre, si dovrebbe essere interessati alla modalità dettagliata",
-        "de": "PhD Position für die Entwicklung von Multi-Physik-Modelle von planaren Induktoren und Transformatoren\n\n100%, Zürich, befristet\n\nDruck\nDruckerzeugnisse\n\nDas Labor für Hochleistungselektronik (HPE) am Fachbereich Informationstechnik und Elektrotechnik der ETH Zürich betreibt international führende Forschung zu leistungselektronischen Wandlersystemen, die beispielsweise in zukünftigen Energieverteilungssystemen zur Integration erneuerbarer Energiequellen oder in Traktionsanwendungen/Elektrofahrzeugen benötigt werden. Ein weiterer Forschungsschwerpunkt liegt auf Festkörperpulsmodulatoren für medizinische Anwendungen (Computertomographie/Krebsbehandlung) und Beschleunigern (CERN). Für die Gestaltung und Optimierung der verschiedenen leistungselektronischen Systeme entwickeln wir fortschrittliche Multiphysikmodelle/digitale Zwillinge/virtuelle Prototypen auf Komponenten- und Systemebene. Für ein neues Forschungsprojekt zu Planarmagnetik für hochkompakt, Low Profile Leistungselektronik, suchen wir einen Doktoranden (100%) für die Entwicklung von Multi-Physik-Modellen von planaren Induktoren und Transformatoren.\n\nStellenbeschreibung\n\nWir suchen hochmotivierte Personen mit einem hervorragenden akademischen Hintergrund, die sich für eine Promotion im wichtigen und multidisziplinären Forschungsbereich der Modellierung und Optimierung planarer magnetischer Bauelemente (Induktoren und Transformatoren) interessieren. Kompakte und hocheffiziente planarmagnetische Bauelemente, die beispielsweise PCB-basierte Wicklungsstrukturen nutzen, sind Schlüsselkomponenten vieler leistungselektronischer Umrichter mit niedrigem Profil, die beispielsweise für DC-DC-Wandler (PoL-Wandler) in zukünftigen Rechenzentren oder in Automobilanwendungen zur Verschaltung der Hauptantriebsbatterie mit der 12V-Hilfsbatterie benötigt werden. Planare magnetische Geräte werden auch häufig in drahtlosen Lade-/Energieübertragungssystemen benötigt, wo sie sehr kompakt und effizient sein müssen.\n\nUm die Effizienz- und Leistungsdichtegrenzen solcher planaren magnetischen Geräte zu erweitern, werden Sie multiphysikalische Modelle der planaren Magnetik entwickeln. Diese Modelle werden die (HF-) Verluste in den Wicklungen, die parasitären Kapazitäten der Wicklungen sowie die Temperaturverteilung in der Wicklung und auch im Kern umfassend beschreiben. Darüber hinaus werden Sie Modelle für die Gestaltung der elektrischen Isolierung der Wicklung entwickeln. Basierend auf diesen Modellen arbeiten Sie an der Optimierung der Kern- und Wicklungsgeometrie sowie an der Entwicklung fortschrittlicher Kühlkonzepte für Wicklungen und Kern. Basierend auf den Modellen und entwickelten Konzepten werden Sie dann technologische Barrieren für die Leistungsdichte von planaren Magneten identifizieren.\n\nDie entwickelten Modelle sollten recheneffizient in Optimierungsverfahren für leistungselektronische Umrichtersysteme integriert werden. Dies ist unerlässlich, um hervorragende Systemeffizienzen und Leistungsdichten zu erzielen sowie einen Wettbewerbsvorteil zu erzielen. Die Modelle sind auch Teil eines laufenden, umfassenderen Modellierungsrahmenentwicklungsprojekts am HPE, das die Möglichkeit bietet, mit anderen Doktoranden an verschiedenen Modellierungsaspekten zusammenzuarbeiten.\n\nUm die neuen Kühl- und Wicklungskonzepte sowie die entwickelten Modelle zu verifizieren, entwerfen und bauen Sie verschiedene Prototypen, einschließlich PE-Konvertersystemen, um die Planarmagnete unter realistischen Bedingungen zu betreiben.\n\nUnser Labor bietet eine anspruchsvolle und wissenschaftlich spannende Vollzeitstelle in einem dynamischen internationalen Team an einer der weltweit führenden technischen Universitäten. Wir empfehlen auch die Teilnahme an internationalen Konferenzen und bieten ein wettbewerbsfähiges Gehalt, hervorragende Vorteile und hervorragende Forschungs- und Laboreinrichtungen für Ihre Experimente.\n\nProfil\n\n• Sie müssen ein Diplom / M.Sc. in Elektrotechnik mit ausgezeichneten Noten haben\n\n• Grundlegende Kenntnisse der Leistungselektronik\n\n• Gute Kommunikationsfähigkeit\n\n• Fluency in Englisch\n\n• Die Bereitschaft, sich als Teil eines internationalen Teams voll und ganz zu engagieren.\n\n• Darüber hinaus sollten Sie sich für den detaillierten Modus interessieren",
-        "fr": "Poste de doctorat pour le développement de modèles multiphysiques d'inducteurs et de transformateurs planaires\n\n100%, Zurich, durée déterminée\n\nimprimer\nPurée\n\nLe Laboratoire des systèmes électroniques de haute puissance (HPE) du Département des technologies de l'information et de l'ingénierie électrique de l'ETH de Zurich effectue des recherches de pointe sur les systèmes de convertisseurs électroniques de puissance, qui sont nécessaires, par exemple, dans les futurs systèmes de distribution d'énergie pour l'intégration des sources d'énergie renouvelables ou dans les applications de traction/véhicules électriques. La recherche porte également sur les modulateurs d'impulsions à l'état solide pour les applications médicales (tomographie par ordinateur/traitement du cancer) et les accélérateurs (CERN). Pour la conception et l'optimisation des différents systèmes électroniques de puissance, nous développons des modèles multiphysiques avancés, des jumeaux numériques et des prototypes virtuels au niveau du composant ainsi qu'au niveau du système. Pour un nouveau projet de recherche sur les magnétiques planaires pour les systèmes électroniques à faible puissance très compacts, nous recherchons un candidat au doctorat (100 %) pour développer des modèles multiphysiques d'inducteurs et de transformateurs planaires\n\nDescription de l'emploi\n\nNous recherchons des personnes hautement motivées ayant une formation universitaire exceptionnelle qui souhaitent poursuivre un doctorat dans le domaine important et multidisciplinaire de recherche de la modélisation et de l'optimisation des dispositifs magnétiques planaires (inducteurs et transformateurs). Des dispositifs magnétiques planaires compacts et très efficaces utilisant par exemple des structures d'enroulement à base de PCB sont des composants clés de nombreux convertisseurs électroniques de puissance à profil bas, qui sont nécessaires par exemple pour les convertisseurs DC-DC (convertisseurs PoL) dans les futurs centres de données ou dans les applications automobiles pour l'interconnexion de la batterie d'entraînement principale avec la batterie auxiliaire 12V. Les dispositifs magnétiques planaires sont aussi souvent nécessaires dans les systèmes de recharge sans fil/transfert d'énergie, où ils doivent être très compacts et efficaces.\n\nPour repousser les limites d'efficacité et de densité de puissance de ces appareils magnétiques planaires, vous développerez des modèles multiphysiques de magnétiques planaires. Ces modèles décrivent en détail les pertes (HF) dans les enroulements, les capacités parasitaires des enroulements, ainsi que la répartition de la température dans l'enroulement et aussi dans le noyau. De plus, vous développerez des modèles pour concevoir l'isolation électrique de l'enroulement. Sur la base de ces modèles, vous travaillerez à optimiser la géométrie du noyau et de l'enroulement, ainsi qu'à développer des concepts de refroidissement avancés pour les enroulements et le noyau. Sur la base des modèles et des concepts développés, vous identifierez ensuite les obstacles technologiques à la densité de puissance des magnétiques planaires.\n\nLes modèles développés devraient être intégrés dans les procédures d'optimisation des systèmes de convertisseur électronique de puissance d'une manière efficace par calcul. Cela est essentiel pour atteindre des gains d'efficacité et des densités de puissance remarquables et pour obtenir un avantage concurrentiel. Ces modèles font également partie d'un projet de développement d'un cadre de modélisation plus large et en cours à HPE, offrant la possibilité de collaborer avec d'autres doctorants sur divers aspects de la modélisation.\n\nPour vérifier les nouveaux concepts de refroidissement et d'enroulement ainsi que les modèles développés, vous allez concevoir et construire différents prototypes, y compris les systèmes de convertisseur PE, pour faire fonctionner les magnétiques planaires dans des conditions réalistes.\n\nNotre laboratoire offre un poste stimulant et scientifiquement excitant à temps plein au sein d'une équipe internationale dynamique dans l'une des plus grandes universités techniques du monde. Nous encourageons également fortement la participation à des conférences internationales et offrons un salaire compétitif, d'excellents avantages et des installations de recherche et de laboratoire exceptionnelles pour vos expériences.\n\nProfil\n\n• Vous devez avoir un diplôme / maîtrise en génie électrique avec d'excellentes qualités\n\n• Connaissance fondamentale des systèmes de convertisseur électronique de puissance\n\n• Bonnes compétences en communication\n\n• Connaissance de l'anglais\n\n• La volonté de s'engager pleinement dans une équipe internationale.\n\n• En outre, vous devriez être intéressé par le mode détaillé"
+        "it": "Posizione di dottorato per lo sviluppo di modelli multi-fisici di induttori planari e trasformatori 100%, Zurigo, a tempo determinato stampa Druppo Il Laboratorio per sistemi elettronici ad alta potenza (HPE) presso il Dipartimento di Tecnologia dell'Informazione e Ingegneria Elettrica dell'ETH di Zurigo conduce ricerche leader a livello internazionale sui sistemi di conversione elettronica di potenza, che sono necessari, ad esempio, nei futuri sistemi di distribuzione dell'energia per l'integrazione di fonti di energia rinnovabile o nelle applicazioni di trazione / veicoli elettrici. Un'altra ricerca si concentra sui modulatori a impulsi a stato solido per applicazioni mediche (trattamento tomografia computer/cancro) e sugli acceleratori (CERN). Per la progettazione e l'ottimizzazione dei vari sistemi elettronici di potenza, sviluppiamo modelli multi-fisici avanzati / gemelli digitali / prototipi virtuali al componente e a livello di sistema. Per un nuovo progetto di ricerca sui magnetici planari per sistemi elettronici di potenza altamente compatti e di basso profilo, stiamo cercando un: Dottorato di ricerca (100%) per lo sviluppo di modelli multi-fisici di induttori planari e trasformatori Descrizione del lavoro Siamo alla ricerca di individui altamente motivati con un eccezionale background accademico che sono interessati a perseguire un dottorato nell'importante e multidisciplinare area di ricerca di modellazione e ottimizzazione dei dispositivi magnetici planari (induttori e trasformatori). I dispositivi magnetici planari compatti e altamente efficienti che utilizzano per esempio le strutture di avvolgimento basate su PCB sono componenti chiave di molti convertitori elettronici di potenza con un profilo basso, che sono necessari per esempio per i convertitori DC-DC (PoL-converter) nei centri di dati futuri o nelle applicazioni automobilistiche per collegare la batteria di azionamento principale con la batteria ausiliaria 12V. I dispositivi magnetici planari sono spesso richiesti anche nei sistemi di ricarica/di trasferimento di energia wireless, dove devono essere altamente compatti ed efficienti. Per spingere i limiti di efficienza e densità di potenza di tali dispositivi magnetici planari, svilupperai modelli multi-fisici di magnetici planari. Questi modelli descriveranno in modo completo le perdite (HF) negli avvolgimento, le capacità parassitarie degli avvolgimento, e anche la distribuzione della temperatura nell'avvolgimento e anche il nucleo. Inoltre, svilupperai modelli per la progettazione dell'isolamento elettrico dell'avvolgimento. Sulla base di questi modelli, si lavorerà sull'ottimizzazione della geometria del nucleo e dell'avvolgimento, oltre a sviluppare concetti di raffreddamento avanzati per gli avvolgimento e il nucleo. Sulla base dei modelli e dei concetti sviluppati, si identificano le barriere tecnologiche alla densità di potenza dei magnetici planari. I modelli sviluppati dovrebbero essere integrati in procedure di ottimizzazione per i sistemi di convertitori elettronici di potenza in modo computazionalmente efficiente. Questo è essenziale per raggiungere le efficienze del sistema e le densità di potenza eccezionali, così come ottenere un vantaggio competitivo. I modelli fanno parte anche di un continuo e più ampio progetto di sviluppo framework di modellazione presso HPE, offrendo l'opportunità di collaborare con altri candidati PhD su vari aspetti di modellazione. Per verificare i nuovi concetti di raffreddamento e avvolgimento così come i modelli sviluppati, si progetta e costruisce diversi prototipi, compresi i sistemi di convertitore PE, per operare i magnetici planari in condizioni realistiche. Il nostro laboratorio offre una posizione a tempo pieno impegnativo e scientificamente emozionante all'interno di un team internazionale dinamico in una delle principali università tecniche del mondo. Inoltre incoraggiamo fortemente la partecipazione a conferenze internazionali e offriamo uno stipendio competitivo, eccellenti vantaggi, e eccellenti strutture di ricerca e laboratorio per i vostri esperimenti. Profilo\n• È necessario avere un diploma / laurea in ingegneria elettrica con gradi eccellenti\n• Conoscenza fondamentale dei sistemi di convertitori elettronici di potenza\n• Buone capacità di comunicazione\n• Fluency in inglese\n• La volontà di impegnarsi pienamente come parte di un team internazionale.\n• Inoltre, si dovrebbe essere interessati alla modalità dettagliata",
+        "en": "PhD position for developing multi-physics models of planar inductors and transformers 100%, Zurich, fixed-term print Drucken The Laboratory for High Power Electronic Systems (HPE) at the Department of Information Technology and Electrical Engineering of ETH Zurich conducts internationally leading research on power electronic converter systems, which are required, for example, in future energy distribution systems for the integration of renewable energy sources or in traction applications/electric vehicles. Another research focus is on solid-state pulse modulators for medical applications (computer tomography/cancer treatment) and accelerators (CERN). For the design and optimisation of the various power electronic systems, we develop advanced multi-physics models/digital twins/virtual prototypes at the component as well as at the system level. For a new research project on planar magnetics for highly compact, low profile power electronic systems, we are looking for a: PhD candidate (100%) for developing multi-physics models of planar inductors and transformers Job description We are looking for highly motivated individuals with an outstanding academic background who are interested in pursuing a PhD in the important and multidisciplinary research area of modelling and optimising planar magnetic devices (inductors and transformers). Compact and highly efficient planar magnetic devices utilising for example PCB based winding structures are key components of many power electronic converters with a low profile, which are required for example for DC-DC converters (PoL-converters) in future data centres or in automotive applications for interconnecting the main drive battery with the 12V auxiliary battery. Planar magnetic devices are also often required in wireless charging/energy transfer systems, where they must be highly compact and efficient. To push the efficiency and power density limits of such planar magnetic devices, you will develop multi-physics models of planar magnetics. These models will comprehensively describe the (HF) losses in the windings, the parasitic capacitances of the windings, and also the temperature distribution in the winding and also the core. Furthermore, you will develop models for designing the electrical insulation of the winding. Based on these models, you will work on optimising the core and winding geometry, as well as developing advanced cooling concepts for the windings and core. Based on the models and developed concepts, you will then identify technological barriers to power density of planar magnetics. The developed models should be integrated into optimisation procedures for power electronic converter systems in a computationally efficient manner. This is essential for achieving outstanding system efficiencies and power densities, as well as gaining a competitive edge. The models are also part of an ongoing, wider modelling framework development project at HPE, offering the opportunity to collaborate with other PhD candidates on various modelling aspects. For verifying the new cooling and winding concepts as well as the developed models, you will design and build different prototypes, including PE converter systems, to operate the planar magnetics under realistic conditions. Our laboratory is offering a challenging and scientifically exciting full-time position within a dynamic international team at one of the world's leading technical universities. We also strongly encourage participation in international conferences and offer a competitive salary, excellent benefits, and outstanding research and laboratory facilities for your experiments. Profile\n• You must have a diploma/M.Sc. degree in electrical engineering with excellent grades\n• Fundamental knowledge of power electronic converter systems\n• Good communication skills\n• Fluency in English\n• The willingness to fully commit yourself as part of an international team.\n• In addition, you should be interested in the detailed mode",
+        "de": "PhD Position für die Entwicklung von Multi-Physik-Modelle von planaren Induktoren und Transformatoren 100%, Zürich, befristet Druck Druckerzeugnisse Das Labor für Hochleistungselektronik (HPE) am Fachbereich Informationstechnik und Elektrotechnik der ETH Zürich betreibt international führende Forschung zu leistungselektronischen Wandlersystemen, die beispielsweise in zukünftigen Energieverteilungssystemen zur Integration erneuerbarer Energiequellen oder in Traktionsanwendungen/Elektrofahrzeugen benötigt werden. Ein weiterer Forschungsschwerpunkt liegt auf Festkörperpulsmodulatoren für medizinische Anwendungen (Computertomographie/Krebsbehandlung) und Beschleunigern (CERN). Für die Gestaltung und Optimierung der verschiedenen leistungselektronischen Systeme entwickeln wir fortschrittliche Multiphysikmodelle/digitale Zwillinge/virtuelle Prototypen auf Komponenten- und Systemebene. Für ein neues Forschungsprojekt zu Planarmagnetik für hochkompakt, Low Profile Leistungselektronik, suchen wir einen Doktoranden (100%) für die Entwicklung von Multi-Physik-Modellen von planaren Induktoren und Transformatoren. Stellenbeschreibung Wir suchen hochmotivierte Personen mit einem hervorragenden akademischen Hintergrund, die sich für eine Promotion im wichtigen und multidisziplinären Forschungsbereich der Modellierung und Optimierung planarer magnetischer Bauelemente (Induktoren und Transformatoren) interessieren. Kompakte und hocheffiziente planarmagnetische Bauelemente, die beispielsweise PCB-basierte Wicklungsstrukturen nutzen, sind Schlüsselkomponenten vieler leistungselektronischer Umrichter mit niedrigem Profil, die beispielsweise für DC-DC-Wandler (PoL-Wandler) in zukünftigen Rechenzentren oder in Automobilanwendungen zur Verschaltung der Hauptantriebsbatterie mit der 12V-Hilfsbatterie benötigt werden. Planare magnetische Geräte werden auch häufig in drahtlosen Lade-/Energieübertragungssystemen benötigt, wo sie sehr kompakt und effizient sein müssen. Um die Effizienz- und Leistungsdichtegrenzen solcher planaren magnetischen Geräte zu erweitern, werden Sie multiphysikalische Modelle der planaren Magnetik entwickeln. Diese Modelle werden die (HF-) Verluste in den Wicklungen, die parasitären Kapazitäten der Wicklungen sowie die Temperaturverteilung in der Wicklung und auch im Kern umfassend beschreiben. Darüber hinaus werden Sie Modelle für die Gestaltung der elektrischen Isolierung der Wicklung entwickeln. Basierend auf diesen Modellen arbeiten Sie an der Optimierung der Kern- und Wicklungsgeometrie sowie an der Entwicklung fortschrittlicher Kühlkonzepte für Wicklungen und Kern. Basierend auf den Modellen und entwickelten Konzepten werden Sie dann technologische Barrieren für die Leistungsdichte von planaren Magneten identifizieren. Die entwickelten Modelle sollten recheneffizient in Optimierungsverfahren für leistungselektronische Umrichtersysteme integriert werden. Dies ist unerlässlich, um hervorragende Systemeffizienzen und Leistungsdichten zu erzielen sowie einen Wettbewerbsvorteil zu erzielen. Die Modelle sind auch Teil eines laufenden, umfassenderen Modellierungsrahmenentwicklungsprojekts am HPE, das die Möglichkeit bietet, mit anderen Doktoranden an verschiedenen Modellierungsaspekten zusammenzuarbeiten. Um die neuen Kühl- und Wicklungskonzepte sowie die entwickelten Modelle zu verifizieren, entwerfen und bauen Sie verschiedene Prototypen, einschließlich PE-Konvertersystemen, um die Planarmagnete unter realistischen Bedingungen zu betreiben. Unser Labor bietet eine anspruchsvolle und wissenschaftlich spannende Vollzeitstelle in einem dynamischen internationalen Team an einer der weltweit führenden technischen Universitäten. Wir empfehlen auch die Teilnahme an internationalen Konferenzen und bieten ein wettbewerbsfähiges Gehalt, hervorragende Vorteile und hervorragende Forschungs- und Laboreinrichtungen für Ihre Experimente. Profil\n• Sie müssen ein Diplom / M.Sc. in Elektrotechnik mit ausgezeichneten Noten haben\n• Grundlegende Kenntnisse der Leistungselektronik\n• Gute Kommunikationsfähigkeit\n• Fluency in Englisch\n• Die Bereitschaft, sich als Teil eines internationalen Teams voll und ganz zu engagieren.\n• Darüber hinaus sollten Sie sich für den detaillierten Modus interessieren",
+        "fr": "Poste de doctorat pour le développement de modèles multiphysiques d'inducteurs et de transformateurs planaires 100%, Zurich, durée déterminée imprimer Purée Le Laboratoire des systèmes électroniques de haute puissance (HPE) du Département des technologies de l'information et de l'ingénierie électrique de l'ETH de Zurich effectue des recherches de pointe sur les systèmes de convertisseurs électroniques de puissance, qui sont nécessaires, par exemple, dans les futurs systèmes de distribution d'énergie pour l'intégration des sources d'énergie renouvelables ou dans les applications de traction/véhicules électriques. La recherche porte également sur les modulateurs d'impulsions à l'état solide pour les applications médicales (tomographie par ordinateur/traitement du cancer) et les accélérateurs (CERN). Pour la conception et l'optimisation des différents systèmes électroniques de puissance, nous développons des modèles multiphysiques avancés, des jumeaux numériques et des prototypes virtuels au niveau du composant ainsi qu'au niveau du système. Pour un nouveau projet de recherche sur les magnétiques planaires pour les systèmes électroniques à faible puissance très compacts, nous recherchons un candidat au doctorat (100 %) pour développer des modèles multiphysiques d'inducteurs et de transformateurs planaires Description de l'emploi Nous recherchons des personnes hautement motivées ayant une formation universitaire exceptionnelle qui souhaitent poursuivre un doctorat dans le domaine important et multidisciplinaire de recherche de la modélisation et de l'optimisation des dispositifs magnétiques planaires (inducteurs et transformateurs). Des dispositifs magnétiques planaires compacts et très efficaces utilisant par exemple des structures d'enroulement à base de PCB sont des composants clés de nombreux convertisseurs électroniques de puissance à profil bas, qui sont nécessaires par exemple pour les convertisseurs DC-DC (convertisseurs PoL) dans les futurs centres de données ou dans les applications automobiles pour l'interconnexion de la batterie d'entraînement principale avec la batterie auxiliaire 12V. Les dispositifs magnétiques planaires sont aussi souvent nécessaires dans les systèmes de recharge sans fil/transfert d'énergie, où ils doivent être très compacts et efficaces. Pour repousser les limites d'efficacité et de densité de puissance de ces appareils magnétiques planaires, vous développerez des modèles multiphysiques de magnétiques planaires. Ces modèles décrivent en détail les pertes (HF) dans les enroulements, les capacités parasitaires des enroulements, ainsi que la répartition de la température dans l'enroulement et aussi dans le noyau. De plus, vous développerez des modèles pour concevoir l'isolation électrique de l'enroulement. Sur la base de ces modèles, vous travaillerez à optimiser la géométrie du noyau et de l'enroulement, ainsi qu'à développer des concepts de refroidissement avancés pour les enroulements et le noyau. Sur la base des modèles et des concepts développés, vous identifierez ensuite les obstacles technologiques à la densité de puissance des magnétiques planaires. Les modèles développés devraient être intégrés dans les procédures d'optimisation des systèmes de convertisseur électronique de puissance d'une manière efficace par calcul. Cela est essentiel pour atteindre des gains d'efficacité et des densités de puissance remarquables et pour obtenir un avantage concurrentiel. Ces modèles font également partie d'un projet de développement d'un cadre de modélisation plus large et en cours à HPE, offrant la possibilité de collaborer avec d'autres doctorants sur divers aspects de la modélisation. Pour vérifier les nouveaux concepts de refroidissement et d'enroulement ainsi que les modèles développés, vous allez concevoir et construire différents prototypes, y compris les systèmes de convertisseur PE, pour faire fonctionner les magnétiques planaires dans des conditions réalistes. Notre laboratoire offre un poste stimulant et scientifiquement excitant à temps plein au sein d'une équipe internationale dynamique dans l'une des plus grandes universités techniques du monde. Nous encourageons également fortement la participation à des conférences internationales et offrons un salaire compétitif, d'excellents avantages et des installations de recherche et de laboratoire exceptionnelles pour vos expériences. Profil\n• Vous devez avoir un diplôme / maîtrise en génie électrique avec d'excellentes qualités\n• Connaissance fondamentale des systèmes de convertisseur électronique de puissance\n• Bonnes compétences en communication\n• Connaissance de l'anglais\n• La volonté de s'engager pleinement dans une équipe internationale.\n• En outre, vous devriez être intéressé par le mode détaillé"
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_JYD685xNuBZ4Ds3FgG",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:45.713Z",
+      "crawledAt": "2026-06-25T22:17:23.900Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8166,9 +8200,22 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_JYD685xNuBZ4Ds3FgG",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
+        ],
+        "de": [
+          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
+        ],
+        "fr": [
+          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
+        ]
       },
+      "firstSeenAt": "2026-06-25T11:13:45.713Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8182,29 +8229,14 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-25T11:13:45.713Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
-        ],
-        "de": [
-          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
-        ],
-        "fr": [
-          "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
-        ]
-      },
-      "previousSlugs": [
-        "phd-position-for-developing-multi-physics-models-of-planar-inductors-and-transformers-eth"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "eth-zurich-df246af8f94f",
       "slug": "software-ricerca-development-ingegnere-eth-zurich-zurich",
       "slugByLocale": {
-        "en": "software-research-development-engineer-eth-zurich-ch",
         "it": "software-ricerca-development-ingegnere-eth-zurich-zurich",
+        "en": "software-research-development-engineer-eth-zurich-ch",
         "de": "software-forschung-development-ingenieur-eth-zurich-zurich",
         "fr": "software-recherche-development-ingenieur-eth-zurich-zurich"
       },
@@ -8213,24 +8245,24 @@
       "companyDomain": "ethz.ch",
       "title": "Software Research & Development Engineer",
       "titleByLocale": {
-        "en": "Software Research & Development Engineer",
         "it": "Software Ricerca & Development Ingegnere",
+        "en": "Software Research & Development Engineer",
         "de": "Software Forschung & Development Ingenieur",
         "fr": "Software Recherche & Development Ingénieur"
       },
       "description": "Software Research & Development Engineer\n\n80%-100%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Swiss Data Science Center (SDSC) is a national research infrastructure in data science and artificial intelligence (AI) of the ETH domain, with EPFL and ETH Zurich as founding partners. Its mission is to support academic labs, hospitals, industry and public sector stakeholders, including cantonal and federal administrations, through their entire data science journey, from the collection and management of data to machine learning, AI, and industrialization. With a large multidisciplinary team of professionals across three locations (Lausanne, Zurich, Villigen), the SDSC provides expertise and services to various domains, such as health and biomedical sciences, energy and sustainability, climate and environment, and large-scale scientific infrastructures.\n\nProject background\n\nThe Swiss Data Science Center (SDSC) is hiring a Software Research & Development Engineer to join its project-based engineering team in Zürich. This team focuses on transforming research outcomes into production-ready data science infrastructure. It operates in a complementary role to platform teams: exploring, building, and validating solutions before they are adopted as sustainable services.\n\nYou will work at the intersection of research and engineering, taking early-stage ideas, prototypes, and emerging solutions, and turning them into reusable systems ready for real-world deployment. This includes aligning with FAIR principles while going further: ensuring that what is FAIR is also usable, scalable, and sustainable in practice.\n\nProjects are driven by concrete needs across domains such as health and biomedical sciences, climate and environment, energy and sustainability, digital society, and large-scale data ecosystems.\n\nStart of position : June 1, 2026 (negotiable)\n\nJob description\n\n• You will contribute to projects that evolve through two complementary modes.\n\n• In early phases, you will engage in focused exploration and prototyping, shaping solution spaces, testing approaches, and making technical choices.\n\n• As projects mature, you will contribute to Minimum Viable Product (MVP) development, building operational, reusable components that can transition into production environments.\n\n• You will collaborate with engineers across the stack to build end-to-end solutions, contributing primarily to backend, data, and infrastructure components, while occasionally supporting lightweight user-facing elements where needed.\n\n• A key part of the role is to ensure continuity beyond the project lifecycle. You will work closely with internal platform teams and partner IT units to transition successful MVPs into production, ensuring they are maintainable, transferable, and ready for operational use.\n\n• Across all phases, you will co-design solutions with users and domain experts, participate in collaborative workshops, and iteratively refine requirements into robust implementations.\n\n• Our work follows established engineering and data best practices , with a strong focus on reproducibility, maintainability, interoperability, and production readiness:\n\nProfile\n\n• We are open to candidates across different levels of experience. You may be early in your career or already experienced; what matters most is your approach to problem-solving and collaboration.\n\n• You enjoy building systems that work in practice, not just in theory. You are comfortable navigating ambiguity, engaging with stakeholders, and iterating towards solutions.\n\n• You care about quality, clarity, long-term usability, and building systems that are secure by design and aligned with best practices.\n\n• You likely have a background in software engineering, data engineering, or a related field, and an interest in data-intensive systems.\n\n• You bring a solid foundation in software or data engineering, typically developed through a Master’s degree or higher (e.g. PhD) in Computer Science or a related field, o",
       "descriptionByLocale": {
-        "en": "Software Research & Development Engineer\n\n80%-100%, Zurich, fixed-term\n\nprint\nDrucken\n\nThe Swiss Data Science Center (SDSC) is a national research infrastructure in data science and artificial intelligence (AI) of the ETH domain, with EPFL and ETH Zurich as founding partners. Its mission is to support academic labs, hospitals, industry and public sector stakeholders, including cantonal and federal administrations, through their entire data science journey, from the collection and management of data to machine learning, AI, and industrialization. With a large multidisciplinary team of professionals across three locations (Lausanne, Zurich, Villigen), the SDSC provides expertise and services to various domains, such as health and biomedical sciences, energy and sustainability, climate and environment, and large-scale scientific infrastructures.\n\nProject background\n\nThe Swiss Data Science Center (SDSC) is hiring a Software Research & Development Engineer to join its project-based engineering team in Zürich. This team focuses on transforming research outcomes into production-ready data science infrastructure. It operates in a complementary role to platform teams: exploring, building, and validating solutions before they are adopted as sustainable services.\n\nYou will work at the intersection of research and engineering, taking early-stage ideas, prototypes, and emerging solutions, and turning them into reusable systems ready for real-world deployment. This includes aligning with FAIR principles while going further: ensuring that what is FAIR is also usable, scalable, and sustainable in practice.\n\nProjects are driven by concrete needs across domains such as health and biomedical sciences, climate and environment, energy and sustainability, digital society, and large-scale data ecosystems.\n\nStart of position : June 1, 2026 (negotiable)\n\nJob description\n\n• You will contribute to projects that evolve through two complementary modes.\n\n• In early phases, you will engage in focused exploration and prototyping, shaping solution spaces, testing approaches, and making technical choices.\n\n• As projects mature, you will contribute to Minimum Viable Product (MVP) development, building operational, reusable components that can transition into production environments.\n\n• You will collaborate with engineers across the stack to build end-to-end solutions, contributing primarily to backend, data, and infrastructure components, while occasionally supporting lightweight user-facing elements where needed.\n\n• A key part of the role is to ensure continuity beyond the project lifecycle. You will work closely with internal platform teams and partner IT units to transition successful MVPs into production, ensuring they are maintainable, transferable, and ready for operational use.\n\n• Across all phases, you will co-design solutions with users and domain experts, participate in collaborative workshops, and iteratively refine requirements into robust implementations.\n\n• Our work follows established engineering and data best practices , with a strong focus on reproducibility, maintainability, interoperability, and production readiness:\n\nProfile\n\n• We are open to candidates across different levels of experience. You may be early in your career or already experienced; what matters most is your approach to problem-solving and collaboration.\n\n• You enjoy building systems that work in practice, not just in theory. You are comfortable navigating ambiguity, engaging with stakeholders, and iterating towards solutions.\n\n• You care about quality, clarity, long-term usability, and building systems that are secure by design and aligned with best practices.\n\n• You likely have a background in software engineering, data engineering, or a related field, and an interest in data-intensive systems.\n\n• You bring a solid foundation in software or data engineering, typically developed through a Master’s degree or higher (e.g. PhD) in Computer Science or a related field, o",
-        "it": "Software Research & Development Engineer\n\n80%-100%, Zurigo, a tempo determinato\n\nstampa\nDruppo\n\nLo Swiss Data Science Center (SDSC) è un'infrastruttura di ricerca nazionale nella scienza dei dati e nell'intelligenza artificiale (AI) del dominio ETH, con EPFL e ETH Zurich come partner fondatori. La sua missione è di sostenere laboratori accademici, ospedali, industria e parti interessate del settore pubblico, tra cui le amministrazioni cantonali e federali, attraverso il loro intero percorso di scienza dei dati, dalla raccolta e gestione dei dati all'apprendimento automatico, AI e industrializzazione. Con un grande team multidisciplinare di professionisti in tre sedi (Lausanne, Zurigo, Villigen), il SDSC fornisce competenze e servizi a vari ambiti, come la salute e le scienze biomediche, l'energia e la sostenibilità, il clima e l'ambiente, e le infrastrutture scientifiche su larga scala.\n\nSfondo del progetto\n\nLo Swiss Data Science Center (SDSC) sta assumendo un Software Research & Development Engineer per unirsi al suo team di ingegneri basato sul progetto a Zurigo. Questo team si concentra sulla trasformazione dei risultati della ricerca nell'infrastruttura informatica pronta alla produzione. Funziona in un ruolo complementare ai team di piattaforma: esplorare, costruire e validare le soluzioni prima di essere adottate come servizi sostenibili.\n\nPotrai lavorare all'incrocio tra ricerca e ingegneria, prendendo idee, prototipi, e soluzioni emergenti, e trasformandoli in sistemi riutilizzabili pronti per la distribuzione del mondo reale. Ciò include l'allineamento con i principi FAIR, andando oltre: garantire che ciò che è FAIR è anche utilizzabile, scalabile e sostenibile nella pratica.\n\nI progetti sono guidati da esigenze concrete in settori quali la salute e le scienze biomediche, il clima e l'ambiente, l'energia e la sostenibilità, la società digitale e gli ecosistemi di dati su larga scala.\n\nInizio della posizione: 1 giugno 2026 (negoziabile)\n\nDescrizione del lavoro\n\n• Contribuirai a progetti che si evolvono attraverso due modalità complementari.\n\n• Nelle prime fasi, vi impegnate nell'esplorazione focalizzata e nella prototipazione, modellando gli spazi delle soluzioni, sperimentando gli approcci e facendo scelte tecniche.\n\n• Come i progetti maturano, contribuirai allo sviluppo di Minimo Viable Product (MVP), alla costruzione di componenti operativi e riutilizzabili in grado di passare in ambienti produttivi.\n\n• Potrai collaborare con gli ingegneri di tutto lo stack per costruire soluzioni end-to-end, contribuendo principalmente a backend, dati e componenti infrastrutturali, supportando occasionalmente elementi di facile utilizzo in cui necessario.\n\n• Una parte fondamentale del ruolo è garantire la continuità al di là del ciclo di vita del progetto. Potrai lavorare a stretto contatto con i team di piattaforme interne e le unità IT partner per trasferire i MVP di successo nella produzione, assicurando che siano manutenbili, trasferibili e pronti per l'uso operativo.\n\n• In tutte le fasi, co-progettare soluzioni con utenti e esperti di dominio, partecipare a workshop collaborativi, e affinare in modo iterativo i requisiti in implementazioni robuste.\n\n• Il nostro lavoro segue le best practice di ingegneria e dati consolidate, con un forte focus sulla riproducibilità, manutenbilità, interoperabilità e prontezza di produzione:\n\nProfilo\n\n• Siamo aperti ai candidati attraverso diversi livelli di esperienza. Si può essere presto nella vostra carriera o già sperimentato; ciò che conta di più è il vostro approccio alla risoluzione dei problemi e la collaborazione.\n\n• Ti piace costruire sistemi che funzionano in pratica, non solo in teoria. Sei comodo navigare ambiguità, impegnarsi con gli stakeholder, e iterating verso soluzioni.\n\n• Ti preoccupi di qualità, chiarezza, usabilità a lungo termine e sistemi di costruzione che sono sicuri dal design e allineati con le migliori pratiche.\n\n• Probabilmente avete un background in ingegneria del software, ingegneria dei dati, o un campo correlato, e un interesse per i sistemi ad alta intensità di dati.\n\n• Si porta una solida base in software o ingegneria dei dati, tipicamente sviluppato attraverso un master o superiore (ad esempio PhD) in Informatica o un campo correlato, o",
-        "de": "Software Research & Development Engineer\n\n80%-100%, Zürich, befristet\n\nDruck\nDruckerzeugnisse\n\nDas Swiss Data Science Center (SDSC) ist eine nationale Forschungsinfrastruktur im Bereich Data Science und Künstliche Intelligenz (KI) der ETH, mit EPFL und ETH Zürich als Gründungspartnern. Seine Mission ist es, akademische Labore, Krankenhäuser, Industrie und Interessengruppen des öffentlichen Sektors, einschließlich kantonaler und föderaler Verwaltungen, während ihrer gesamten Datenwissenschaftsreise zu unterstützen, von der Sammlung und Verwaltung von Daten bis hin zu maschinellem Lernen, KI und Industrialisierung. Mit einem großen multidisziplinären Team von Fachleuten an drei Standorten (Lausanne, Zürich, Villigen) bietet das SDSC Fachwissen und Dienstleistungen für verschiedene Bereiche wie Gesundheit und Biomedizin, Energie und Nachhaltigkeit, Klima und Umwelt sowie große wissenschaftliche Infrastrukturen.\n\nProjekthintergrund\n\nDas Swiss Data Science Center (SDSC) stellt einen Software Research & Development Engineer für sein projektbasiertes Engineering-Team in Zürich ein. Dieses Team konzentriert sich auf die Umwandlung von Forschungsergebnissen in eine produktionsfähige Data-Science-Infrastruktur. Es agiert in einer komplementären Rolle zu Plattformteams: Erkunden, Erstellen und Validieren von Lösungen, bevor sie als nachhaltige Dienstleistungen übernommen werden.\n\nSie arbeiten an der Schnittstelle von Forschung und Technik, nehmen Ideen, Prototypen und neue Lösungen in der Frühphase und verwandeln sie in wiederverwendbare Systeme, die für den Einsatz in der realen Welt bereit sind. Dazu gehört, sich an den FAIR-Prinzipien auszurichten und weiter zu gehen: sicherzustellen, dass das, was FAIR ist, auch in der Praxis nutzbar, skalierbar und nachhaltig ist.\n\nDie Projekte werden von konkreten Bedürfnissen in Bereichen wie Gesundheit und Biomedizin, Klima und Umwelt, Energie und Nachhaltigkeit, digitale Gesellschaft und große Datenökosysteme angetrieben.\n\nStart der Position : 1. Juni 2026 (verhandelbar)\n\nStellenbeschreibung\n\n• Sie werden zu Projekten beitragen, die sich durch zwei komplementäre Modi entwickeln.\n\n• In frühen Phasen werden Sie sich mit fokussierter Exploration und Prototyping beschäftigen, Lösungsräume gestalten, Ansätze testen und technische Entscheidungen treffen.\n\n• Wenn Projekte ausgereift sind, tragen Sie zur Entwicklung eines Minimum Viable Product (MVP) bei und bauen operative, wiederverwendbare Komponenten, die in Produktionsumgebungen übergehen können.\n\n• Sie arbeiten mit Ingenieuren über den gesamten Stack hinweg zusammen, um End-to-End-Lösungen zu entwickeln, die in erster Linie zu Backend-, Daten- und Infrastrukturkomponenten beitragen und gelegentlich leichte benutzerorientierte Elemente unterstützen, wo sie benötigt werden.\n\n• Ein wichtiger Teil der Rolle ist die Gewährleistung der Kontinuität über den Projektlebenszyklus hinaus. Sie arbeiten eng mit internen Plattformteams und Partner-IT-Einheiten zusammen, um erfolgreiche MVPs in die Produktion zu überführen und sicherzustellen, dass sie wartbar, übertragbar und betriebsbereit sind.\n\n• In allen Phasen entwerfen Sie gemeinsam mit Benutzern und Domain-Experten Lösungen, nehmen an kollaborativen Workshops teil und verfeinern iterativ die Anforderungen zu robusten Implementierungen.\n\n• Unsere Arbeit folgt etablierten Engineering- und Data Best Practices mit einem starken Fokus auf Reproduzierbarkeit, Wartbarkeit, Interoperabilität und Produktionsbereitschaft:\n\nProfil\n\n• Wir sind offen für Kandidaten mit unterschiedlichen Erfahrungsniveaus. Sie sind vielleicht früh in Ihrer Karriere oder bereits erfahren; Was am wichtigsten ist, ist Ihr Ansatz zur Problemlösung und Zusammenarbeit.\n\n• Sie genießen es, Systeme zu bauen, die in der Praxis funktionieren, nicht nur in der Theorie. Sie sind bequem navigieren Mehrdeutigkeit, die Interaktion mit Stakeholdern, und iterieren in Richtung Lösungen.\n\n• Sie legen Wert auf Qualität, Klarheit, langfristige Benutzerfreundlichkeit und Gebäudesysteme, die durch Design sicher und auf Best Practices ausgerichtet sind.\n\n• Sie haben wahrscheinlich einen Hintergrund in Software Engineering, Data Engineering oder einem verwandten Bereich und ein Interesse an datenintensiven Systemen.\n\n• Sie bringen eine solide Grundlage in Software oder Data Engineering, in der Regel durch einen Master-Abschluss oder höher entwickelt (zB PhD) in Informatik oder einem verwandten Bereich, o",
-        "fr": "Ingénieur en recherche et développement logiciel\n\n80%-100%, Zurich, durée déterminée\n\nimprimer\nPurée\n\nLe Swiss Data Science Center (SDSC) est une infrastructure nationale de recherche en data science et en intelligence artificielle (AI) du domaine ETH, avec l'EPFL et l'ETH Zurich comme partenaires fondateurs. Sa mission est de soutenir les laboratoires universitaires, les hôpitaux, l'industrie et les acteurs du secteur public, y compris les administrations cantonales et fédérales, tout au long de leur parcours data science, de la collecte et de la gestion des données à l'apprentissage automatique, à l'IA et à l'industrialisation. Avec une grande équipe multidisciplinaire de professionnels répartis sur trois sites (Lausanne, Zurich, Villigen), le SDSC fournit expertise et services dans divers domaines, tels que la santé et les sciences biomédicales, l'énergie et la durabilité, le climat et l'environnement, et les grandes infrastructures scientifiques.\n\nContexte du projet\n\nLe Swiss Data Science Center (SDSC) recrute un ingénieur en recherche et développement logiciel pour rejoindre son équipe d'ingénierie basée sur des projets à Zurich. Cette équipe se concentre sur la transformation des résultats de la recherche en une infrastructure de données scientifiques prête à la production. Elle joue un rôle complémentaire pour les équipes de plateforme : explorer, construire et valider des solutions avant qu'elles ne soient adoptées comme services durables.\n\nVous travaillerez à l'intersection de la recherche et de l'ingénierie, en prenant des idées, des prototypes et des solutions émergentes, et en les transformant en systèmes réutilisables prêts à être déployés dans le monde réel. Cela inclut l'alignement sur les principes FAIR tout en allant plus loin: s'assurer que ce qui est FAIR est également utilisable, évolutive et durable dans la pratique.\n\nLes projets sont motivés par des besoins concrets dans des domaines tels que la santé et les sciences biomédicales, le climat et l'environnement, l'énergie et la durabilité, la société numérique et les écosystèmes de données à grande échelle.\n\nDébut de la position : 1er juin 2026 (négociable)\n\nDescription de l'emploi\n\n• Vous contribuerez à des projets qui évoluent selon deux modes complémentaires.\n\n• Dans les premières phases, vous vous engagerez dans l'exploration et le prototypage ciblés, façonner des espaces de solution, tester des approches et faire des choix techniques.\n\n• Au fur et à mesure que les projets arrivent à maturité, vous contribuerez au développement du produit minimum viable (PMV), à la construction de composants opérationnels et réutilisables qui peuvent se transformer en environnements de production.\n\n• Vous collaborerez avec des ingénieurs à travers la pile pour construire des solutions de bout en bout, contribuant principalement aux composants d'arrière-plan, de données et d'infrastructure, tout en soutenant parfois des éléments légers face à l'utilisateur au besoin.\n\n• Un élément clé du rôle consiste à assurer la continuité au-delà du cycle de vie du projet. Vous travaillerez en étroite collaboration avec les équipes de plateformes internes et les unités informatiques partenaires pour faire passer les MVP réussis à la production, en s'assurant qu'ils sont durables, transférables et prêts à être utilisés.\n\n• Dans toutes les phases, vous co-concevoirez des solutions avec des utilisateurs et des experts de domaine, participerez à des ateliers collaboratifs et affinerez les exigences de façon itérative en des implémentations robustes.\n\n• Notre travail suit les pratiques exemplaires établies en matière d'ingénierie et de données, en mettant l'accent sur la reproductibilité, la maintenance, l'interopérabilité et la préparation à la production :\n\nProfil\n\n• Nous sommes ouverts aux candidats à différents niveaux d'expérience. Vous pouvez être au début de votre carrière ou déjà expérimenté; ce qui compte le plus, c'est votre approche de la résolution de problèmes et de la collaboration.\n\n• Vous aimez construire des systèmes qui fonctionnent en pratique, pas seulement en théorie. Vous êtes à l'aise de naviguer l'ambiguïté, d'engager avec les intervenants, et d'aller vers des solutions.\n\n• Vous vous souciez de la qualité, de la clarté, de la convivialité à long terme et des systèmes de construction qui sont sécurisés par la conception et alignés sur les meilleures pratiques.\n\n• Vous avez probablement une formation en génie logiciel, en ingénierie des données ou dans un domaine connexe, et un intérêt pour les systèmes à forte intensité de données.\n\n• Vous apportez une base solide en ingénierie de logiciels ou de données, généralement développé par une maîtrise ou plus (p. ex. doctorat) en informatique ou un domaine connexe, o"
+        "it": "Software Research & Development Engineer 80%-100%, Zurigo, a tempo determinato stampa Druppo Lo Swiss Data Science Center (SDSC) è un'infrastruttura di ricerca nazionale nella scienza dei dati e nell'intelligenza artificiale (AI) del dominio ETH, con EPFL e ETH Zurich come partner fondatori. La sua missione è di sostenere laboratori accademici, ospedali, industria e parti interessate del settore pubblico, tra cui le amministrazioni cantonali e federali, attraverso il loro intero percorso di scienza dei dati, dalla raccolta e gestione dei dati all'apprendimento automatico, AI e industrializzazione. Con un grande team multidisciplinare di professionisti in tre sedi (Lausanne, Zurigo, Villigen), il SDSC fornisce competenze e servizi a vari ambiti, come la salute e le scienze biomediche, l'energia e la sostenibilità, il clima e l'ambiente, e le infrastrutture scientifiche su larga scala. Sfondo del progetto Lo Swiss Data Science Center (SDSC) sta assumendo un Software Research & Development Engineer per unirsi al suo team di ingegneri basato sul progetto a Zurigo. Questo team si concentra sulla trasformazione dei risultati della ricerca nell'infrastruttura informatica pronta alla produzione. Funziona in un ruolo complementare ai team di piattaforma: esplorare, costruire e validare le soluzioni prima di essere adottate come servizi sostenibili. Potrai lavorare all'incrocio tra ricerca e ingegneria, prendendo idee, prototipi, e soluzioni emergenti, e trasformandoli in sistemi riutilizzabili pronti per la distribuzione del mondo reale. Ciò include l'allineamento con i principi FAIR, andando oltre: garantire che ciò che è FAIR è anche utilizzabile, scalabile e sostenibile nella pratica. I progetti sono guidati da esigenze concrete in settori quali la salute e le scienze biomediche, il clima e l'ambiente, l'energia e la sostenibilità, la società digitale e gli ecosistemi di dati su larga scala. Inizio della posizione: 1 giugno 2026 (negoziabile) Descrizione del lavoro\n• Contribuirai a progetti che si evolvono attraverso due modalità complementari.\n• Nelle prime fasi, vi impegnate nell'esplorazione focalizzata e nella prototipazione, modellando gli spazi delle soluzioni, sperimentando gli approcci e facendo scelte tecniche.\n• Come i progetti maturano, contribuirai allo sviluppo di Minimo Viable Product (MVP), alla costruzione di componenti operativi e riutilizzabili in grado di passare in ambienti produttivi.\n• Potrai collaborare con gli ingegneri di tutto lo stack per costruire soluzioni end-to-end, contribuendo principalmente a backend, dati e componenti infrastrutturali, supportando occasionalmente elementi di facile utilizzo in cui necessario.\n• Una parte fondamentale del ruolo è garantire la continuità al di là del ciclo di vita del progetto. Potrai lavorare a stretto contatto con i team di piattaforme interne e le unità IT partner per trasferire i MVP di successo nella produzione, assicurando che siano manutenbili, trasferibili e pronti per l'uso operativo.\n• In tutte le fasi, co-progettare soluzioni con utenti e esperti di dominio, partecipare a workshop collaborativi, e affinare in modo iterativo i requisiti in implementazioni robuste.\n• Il nostro lavoro segue le best practice di ingegneria e dati consolidate, con un forte focus sulla riproducibilità, manutenbilità, interoperabilità e prontezza di produzione: Profilo\n• Siamo aperti ai candidati attraverso diversi livelli di esperienza. Si può essere presto nella vostra carriera o già sperimentato; ciò che conta di più è il vostro approccio alla risoluzione dei problemi e la collaborazione.\n• Ti piace costruire sistemi che funzionano in pratica, non solo in teoria. Sei comodo navigare ambiguità, impegnarsi con gli stakeholder, e iterating verso soluzioni.\n• Ti preoccupi di qualità, chiarezza, usabilità a lungo termine e sistemi di costruzione che sono sicuri dal design e allineati con le migliori pratiche.\n• Probabilmente avete un background in ingegneria del software, ingegneria dei dati, o un campo correlato, e un interesse per i sistemi ad alta intensità di dati.\n• Si porta una solida base in software o ingegneria dei dati, tipicamente sviluppato attraverso un master o superiore (ad esempio PhD) in Informatica o un campo correlato, o",
+        "en": "Software Research & Development Engineer 80%-100%, Zurich, fixed-term print Drucken The Swiss Data Science Center (SDSC) is a national research infrastructure in data science and artificial intelligence (AI) of the ETH domain, with EPFL and ETH Zurich as founding partners. Its mission is to support academic labs, hospitals, industry and public sector stakeholders, including cantonal and federal administrations, through their entire data science journey, from the collection and management of data to machine learning, AI, and industrialization. With a large multidisciplinary team of professionals across three locations (Lausanne, Zurich, Villigen), the SDSC provides expertise and services to various domains, such as health and biomedical sciences, energy and sustainability, climate and environment, and large-scale scientific infrastructures. Project background The Swiss Data Science Center (SDSC) is hiring a Software Research & Development Engineer to join its project-based engineering team in Zürich. This team focuses on transforming research outcomes into production-ready data science infrastructure. It operates in a complementary role to platform teams: exploring, building, and validating solutions before they are adopted as sustainable services. You will work at the intersection of research and engineering, taking early-stage ideas, prototypes, and emerging solutions, and turning them into reusable systems ready for real-world deployment. This includes aligning with FAIR principles while going further: ensuring that what is FAIR is also usable, scalable, and sustainable in practice. Projects are driven by concrete needs across domains such as health and biomedical sciences, climate and environment, energy and sustainability, digital society, and large-scale data ecosystems. Start of position : June 1, 2026 (negotiable) Job description\n• You will contribute to projects that evolve through two complementary modes.\n• In early phases, you will engage in focused exploration and prototyping, shaping solution spaces, testing approaches, and making technical choices.\n• As projects mature, you will contribute to Minimum Viable Product (MVP) development, building operational, reusable components that can transition into production environments.\n• You will collaborate with engineers across the stack to build end-to-end solutions, contributing primarily to backend, data, and infrastructure components, while occasionally supporting lightweight user-facing elements where needed.\n• A key part of the role is to ensure continuity beyond the project lifecycle. You will work closely with internal platform teams and partner IT units to transition successful MVPs into production, ensuring they are maintainable, transferable, and ready for operational use.\n• Across all phases, you will co-design solutions with users and domain experts, participate in collaborative workshops, and iteratively refine requirements into robust implementations.\n• Our work follows established engineering and data best practices , with a strong focus on reproducibility, maintainability, interoperability, and production readiness: Profile\n• We are open to candidates across different levels of experience. You may be early in your career or already experienced; what matters most is your approach to problem-solving and collaboration.\n• You enjoy building systems that work in practice, not just in theory. You are comfortable navigating ambiguity, engaging with stakeholders, and iterating towards solutions.\n• You care about quality, clarity, long-term usability, and building systems that are secure by design and aligned with best practices.\n• You likely have a background in software engineering, data engineering, or a related field, and an interest in data-intensive systems.\n• You bring a solid foundation in software or data engineering, typically developed through a Master’s degree or higher (e.g. PhD) in Computer Science or a related field, o",
+        "de": "Software Research & Development Engineer 80%-100%, Zürich, befristet Druck Druckerzeugnisse Das Swiss Data Science Center (SDSC) ist eine nationale Forschungsinfrastruktur im Bereich Data Science und Künstliche Intelligenz (KI) der ETH, mit EPFL und ETH Zürich als Gründungspartnern. Seine Mission ist es, akademische Labore, Krankenhäuser, Industrie und Interessengruppen des öffentlichen Sektors, einschließlich kantonaler und föderaler Verwaltungen, während ihrer gesamten Datenwissenschaftsreise zu unterstützen, von der Sammlung und Verwaltung von Daten bis hin zu maschinellem Lernen, KI und Industrialisierung. Mit einem großen multidisziplinären Team von Fachleuten an drei Standorten (Lausanne, Zürich, Villigen) bietet das SDSC Fachwissen und Dienstleistungen für verschiedene Bereiche wie Gesundheit und Biomedizin, Energie und Nachhaltigkeit, Klima und Umwelt sowie große wissenschaftliche Infrastrukturen. Projekthintergrund Das Swiss Data Science Center (SDSC) stellt einen Software Research & Development Engineer für sein projektbasiertes Engineering-Team in Zürich ein. Dieses Team konzentriert sich auf die Umwandlung von Forschungsergebnissen in eine produktionsfähige Data-Science-Infrastruktur. Es agiert in einer komplementären Rolle zu Plattformteams: Erkunden, Erstellen und Validieren von Lösungen, bevor sie als nachhaltige Dienstleistungen übernommen werden. Sie arbeiten an der Schnittstelle von Forschung und Technik, nehmen Ideen, Prototypen und neue Lösungen in der Frühphase und verwandeln sie in wiederverwendbare Systeme, die für den Einsatz in der realen Welt bereit sind. Dazu gehört, sich an den FAIR-Prinzipien auszurichten und weiter zu gehen: sicherzustellen, dass das, was FAIR ist, auch in der Praxis nutzbar, skalierbar und nachhaltig ist. Die Projekte werden von konkreten Bedürfnissen in Bereichen wie Gesundheit und Biomedizin, Klima und Umwelt, Energie und Nachhaltigkeit, digitale Gesellschaft und große Datenökosysteme angetrieben. Start der Position : 1. Juni 2026 (verhandelbar) Stellenbeschreibung\n• Sie werden zu Projekten beitragen, die sich durch zwei komplementäre Modi entwickeln.\n• In frühen Phasen werden Sie sich mit fokussierter Exploration und Prototyping beschäftigen, Lösungsräume gestalten, Ansätze testen und technische Entscheidungen treffen.\n• Wenn Projekte ausgereift sind, tragen Sie zur Entwicklung eines Minimum Viable Product (MVP) bei und bauen operative, wiederverwendbare Komponenten, die in Produktionsumgebungen übergehen können.\n• Sie arbeiten mit Ingenieuren über den gesamten Stack hinweg zusammen, um End-to-End-Lösungen zu entwickeln, die in erster Linie zu Backend-, Daten- und Infrastrukturkomponenten beitragen und gelegentlich leichte benutzerorientierte Elemente unterstützen, wo sie benötigt werden.\n• Ein wichtiger Teil der Rolle ist die Gewährleistung der Kontinuität über den Projektlebenszyklus hinaus. Sie arbeiten eng mit internen Plattformteams und Partner-IT-Einheiten zusammen, um erfolgreiche MVPs in die Produktion zu überführen und sicherzustellen, dass sie wartbar, übertragbar und betriebsbereit sind.\n• In allen Phasen entwerfen Sie gemeinsam mit Benutzern und Domain-Experten Lösungen, nehmen an kollaborativen Workshops teil und verfeinern iterativ die Anforderungen zu robusten Implementierungen.\n• Unsere Arbeit folgt etablierten Engineering- und Data Best Practices mit einem starken Fokus auf Reproduzierbarkeit, Wartbarkeit, Interoperabilität und Produktionsbereitschaft: Profil\n• Wir sind offen für Kandidaten mit unterschiedlichen Erfahrungsniveaus. Sie sind vielleicht früh in Ihrer Karriere oder bereits erfahren; Was am wichtigsten ist, ist Ihr Ansatz zur Problemlösung und Zusammenarbeit.\n• Sie genießen es, Systeme zu bauen, die in der Praxis funktionieren, nicht nur in der Theorie. Sie sind bequem navigieren Mehrdeutigkeit, die Interaktion mit Stakeholdern, und iterieren in Richtung Lösungen.\n• Sie legen Wert auf Qualität, Klarheit, langfristige Benutzerfreundlichkeit und Gebäudesysteme, die durch Design sicher und auf Best Practices ausgerichtet sind.\n• Sie haben wahrscheinlich einen Hintergrund in Software Engineering, Data Engineering oder einem verwandten Bereich und ein Interesse an datenintensiven Systemen.\n• Sie bringen eine solide Grundlage in Software oder Data Engineering, in der Regel durch einen Master-Abschluss oder höher entwickelt (zB PhD) in Informatik oder einem verwandten Bereich, o",
+        "fr": "Ingénieur en recherche et développement logiciel 80%-100%, Zurich, durée déterminée imprimer Purée Le Swiss Data Science Center (SDSC) est une infrastructure nationale de recherche en data science et en intelligence artificielle (AI) du domaine ETH, avec l'EPFL et l'ETH Zurich comme partenaires fondateurs. Sa mission est de soutenir les laboratoires universitaires, les hôpitaux, l'industrie et les acteurs du secteur public, y compris les administrations cantonales et fédérales, tout au long de leur parcours data science, de la collecte et de la gestion des données à l'apprentissage automatique, à l'IA et à l'industrialisation. Avec une grande équipe multidisciplinaire de professionnels répartis sur trois sites (Lausanne, Zurich, Villigen), le SDSC fournit expertise et services dans divers domaines, tels que la santé et les sciences biomédicales, l'énergie et la durabilité, le climat et l'environnement, et les grandes infrastructures scientifiques. Contexte du projet Le Swiss Data Science Center (SDSC) recrute un ingénieur en recherche et développement logiciel pour rejoindre son équipe d'ingénierie basée sur des projets à Zurich. Cette équipe se concentre sur la transformation des résultats de la recherche en une infrastructure de données scientifiques prête à la production. Elle joue un rôle complémentaire pour les équipes de plateforme : explorer, construire et valider des solutions avant qu'elles ne soient adoptées comme services durables. Vous travaillerez à l'intersection de la recherche et de l'ingénierie, en prenant des idées, des prototypes et des solutions émergentes, et en les transformant en systèmes réutilisables prêts à être déployés dans le monde réel. Cela inclut l'alignement sur les principes FAIR tout en allant plus loin: s'assurer que ce qui est FAIR est également utilisable, évolutive et durable dans la pratique. Les projets sont motivés par des besoins concrets dans des domaines tels que la santé et les sciences biomédicales, le climat et l'environnement, l'énergie et la durabilité, la société numérique et les écosystèmes de données à grande échelle. Début de la position : 1er juin 2026 (négociable) Description de l'emploi\n• Vous contribuerez à des projets qui évoluent selon deux modes complémentaires.\n• Dans les premières phases, vous vous engagerez dans l'exploration et le prototypage ciblés, façonner des espaces de solution, tester des approches et faire des choix techniques.\n• Au fur et à mesure que les projets arrivent à maturité, vous contribuerez au développement du produit minimum viable (PMV), à la construction de composants opérationnels et réutilisables qui peuvent se transformer en environnements de production.\n• Vous collaborerez avec des ingénieurs à travers la pile pour construire des solutions de bout en bout, contribuant principalement aux composants d'arrière-plan, de données et d'infrastructure, tout en soutenant parfois des éléments légers face à l'utilisateur au besoin.\n• Un élément clé du rôle consiste à assurer la continuité au-delà du cycle de vie du projet. Vous travaillerez en étroite collaboration avec les équipes de plateformes internes et les unités informatiques partenaires pour faire passer les MVP réussis à la production, en s'assurant qu'ils sont durables, transférables et prêts à être utilisés.\n• Dans toutes les phases, vous co-concevoirez des solutions avec des utilisateurs et des experts de domaine, participerez à des ateliers collaboratifs et affinerez les exigences de façon itérative en des implémentations robustes.\n• Notre travail suit les pratiques exemplaires établies en matière d'ingénierie et de données, en mettant l'accent sur la reproductibilité, la maintenance, l'interopérabilité et la préparation à la production : Profil\n• Nous sommes ouverts aux candidats à différents niveaux d'expérience. Vous pouvez être au début de votre carrière ou déjà expérimenté; ce qui compte le plus, c'est votre approche de la résolution de problèmes et de la collaboration.\n• Vous aimez construire des systèmes qui fonctionnent en pratique, pas seulement en théorie. Vous êtes à l'aise de naviguer l'ambiguïté, d'engager avec les intervenants, et d'aller vers des solutions.\n• Vous vous souciez de la qualité, de la clarté, de la convivialité à long terme et des systèmes de construction qui sont sécurisés par la conception et alignés sur les meilleures pratiques.\n• Vous avez probablement une formation en génie logiciel, en ingénierie des données ou dans un domaine connexe, et un intérêt pour les systèmes à forte intensité de données.\n• Vous apportez une base solide en ingénierie de logiciels ou de données, généralement développé par une maîtrise ou plus (p. ex. doctorat) en informatique ou un domaine connexe, o"
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_WTmPDiJWNwiWOfPWrg",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T11:13:45.222Z",
+      "crawledAt": "2026-06-25T22:17:23.400Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8244,24 +8276,7 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_WTmPDiJWNwiWOfPWrg",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-25T11:13:45.222Z",
+      "requirementsByLocale": {},
       "previousSlugs": [
         "software-research-development-engineer-eth-zurich-ch",
         "software-ingegnere-eth-zurich-singapore",
@@ -8278,7 +8293,22 @@
         "fr": [
           "software-research-development-engineer-eth-zurich-ch"
         ]
-      }
+      },
+      "firstSeenAt": "2026-06-25T11:13:45.222Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     }
   ]
 }
