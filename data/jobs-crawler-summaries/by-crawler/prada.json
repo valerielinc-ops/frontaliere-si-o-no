@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-06-25T12:00:28.244Z",
+  "generatedAt": "2026-06-25T22:58:06.720Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8651,
-  "avgDurationMs": 8651,
+  "durationMs": 6835,
+  "avgDurationMs": 6835,
   "durationHistory": [
-    8651
+    6835
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-6a85662f1110",
       "slug": "addetto-a-rimaglio-e-confezione-maglieria-prada-group-torgiano-addettoa-rimaglio-e-confezione-maglieria",
@@ -33,17 +34,16 @@
       "url": "https://jobs.pradagroup.com/job/Torgiano-Addettoa-Rimaglio-e-Confezione-Maglieria/1281135001/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-25T12:00:25.169Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-06-25T22:58:04.066Z",
+      "firstSeenAt": "2026-06-25T12:00:25.169Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -64,7 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T12:00:22.859Z",
+      "crawledAt": "2026-06-25T22:58:02.277Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -97,18 +97,19 @@
       "url": "https://jobs.pradagroup.com/job/Torgiano-Addettoa-Rimaglio-e-Confezione-Maglieria/1281135001/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-25T12:00:25.169Z",
+      "crawledAt": "2026-06-25T22:58:04.066Z",
+      "firstSeenAt": "2026-06-25T12:00:25.169Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -132,7 +133,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T12:00:22.859Z",
+      "crawledAt": "2026-06-25T22:58:02.277Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
