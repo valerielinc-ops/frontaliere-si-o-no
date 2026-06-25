@@ -8156,6 +8156,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fermentino-mercato-contadino-giubiano.title': 'Varese: Torna Fermentino - Mercato Contadino di Giubiano',
     'blog.article.fermentino-mercato-contadino-giubiano.excerpt': 'Il 26 giugno torna il mercato contadino serale a Giubiano. Produttori locali e birra artigianale in un evento gratuito.',
     'blog.article.fermentino-mercato-contadino-giubiano.imageAlt': 'Mercato serale a Giubiano con bancarelle di prodotti locali e persone che socializzano',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.title': 'Cassa malattia Neuchâtel: guida per giovani adulti 19-25 anni',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.excerpt': 'Panoramica sulle casse malattia a Neuchâtel per giovani adulti 19-25 anni. Dettagli sui requisiti e sulle procedure, info pratiche.',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.imageAlt': 'Giovane adulto in Ticino con sfondo urbano svizzero',
 };
 
 export default blogMetaIt;

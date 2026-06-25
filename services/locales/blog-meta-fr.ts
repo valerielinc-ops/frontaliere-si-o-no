@@ -8156,6 +8156,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fermentino-mercato-contadino-giubiano.title': 'Varèse : Retour Fermentino - Marché Paysan de Giubiano',
     'blog.article.fermentino-mercato-contadino-giubiano.excerpt': 'Le 26 juin, le marché paysan du soir revient à Giubiano. Des producteurs locaux et de la bière artisanale lors d\'un événement gratuit.',
     'blog.article.fermentino-mercato-contadino-giubiano.imageAlt': 'Marché du soir à Giubiano avec des stands de produits locaux et des gens qui socialisent',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.title': 'Caisse maladie Neuchâtel : guide pour jeunes adultes 19-25 ans',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.excerpt': 'Aperçu des caisses-maladie à Neuchâtel pour jeunes adultes 19-25 ans. Détails sur les exigences et les procédures, informations pratiques.',
+    'blog.article.assicurazione-malattia-neuchatel-giovani.imageAlt': 'Jeune adulte au Tessin avec une ville suisse en arrière-plan',
 };
 
 export default blogMetaFr;

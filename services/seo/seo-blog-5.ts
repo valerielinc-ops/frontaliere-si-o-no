@@ -44885,6 +44885,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-malattia-neuchatel-giovani': {
+    title: 'Cassa malattia Neuchâtel: guida per giovani adulti 19-25 anni',
+    description: 'Informazioni pratiche sulle casse malattia a Neuchâtel per giovani adulti 19-25 anni. Requisiti, procedure e dettagli per frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malattia, neuch, giovani',
+    ogTitle: 'Cassa malattia Neuchâtel: guida giovani 19-25 anni',
+    ogDescription: 'Requisiti e procedure per la cassa malattia a Neuchâtel dedicata ai giovani adulti 19-25 anni.',
+    canonicalPath: '/articoli-frontaliere/assicurazione-malattia-neuchatel-giovani',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malattia Neuchâtel: guida per giovani adulti 19-25 anni",
+      "description": "Informazioni pratiche sulle casse malattia a Neuchâtel per giovani adulti 19-25 anni. Requisiti, procedure e dettagli per frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-malattia-neuchatel-giovani.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane adulto in Ticino con sfondo urbano svizzero"
+      },
+      "datePublished": "2026-06-25T14:56:45+00:00",
+      "dateModified": "2026-06-25T14:56:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assicurazione-malattia-neuchatel-giovani`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
