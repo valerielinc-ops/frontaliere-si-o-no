@@ -475,6 +475,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cassa-malati-neuchatel-giovani-19-25.title': 'Primes caisse maladie Neuchâtel jeunes adultes 19-25 ans',
     'blog.article.cassa-malati-neuchatel-giovani-19-25.excerpt': 'Analyse des conditions, primes et options des caisses-maladie pour jeunes adultes résidant à Neuchâtel dans la tranche d\'âge 19-25 ans.',
     'blog.article.cassa-malati-neuchatel-giovani-19-25.imageAlt': 'Vue de Neuchâtel avec de jeunes adultes et signalétique santé suisse.',
+    'blog.article.lavoro-lugano-mercato-annunci.title': 'Emploi à Lugano : aperçu et annonces mises à jour',
+    'blog.article.lavoro-lugano-mercato-annunci.excerpt': 'Analyse du marché du travail à Lugano et opportunités disponibles selon les annonces publiées.',
+    'blog.article.lavoro-lugano-mercato-annunci.imageAlt': 'Quartier des affaires de Lugano avec travailleurs et drapeaux suisses.',
 };
 
 export default blogMetaChFr;

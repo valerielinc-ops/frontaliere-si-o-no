@@ -1421,6 +1421,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavoro-lugano-mercato-annunci',
+    category: 'pratico',
+    date: '2026-06-25T20:56:11.087Z',
+    image: '/images/blog/lavoro-lugano-mercato-annunci.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2928,
+ "numberOfItems": 2929,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7574,7 +7574,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2925, "name": "Aumento dei costi di abitazione e mobilità in S...", "url": `${BASE_URL}/articoli-frontaliere/aumento-costi-abitazione-e-mobilita-in-svizzera` },
           { "@type": "ListItem", "position": 2926, "name": "Venditti a Lugano: quale impatto sul contesto n...", "url": `${BASE_URL}/articoli-frontaliere/venditti-lugano-contesto-nazionale` },
           { "@type": "ListItem", "position": 2927, "name": "Pemsa Lugano: ruolo e impatto nel mercato del l...", "url": `${BASE_URL}/articoli-frontaliere/pemsa-lugano-mercato-lavoro` },
-          { "@type": "ListItem", "position": 2928, "name": "Premi cassa malati Neuchâtel per giovani adulti...", "url": `${BASE_URL}/articoli-frontaliere/cassa-malati-neuchatel-giovani-19-25` }
+          { "@type": "ListItem", "position": 2928, "name": "Premi cassa malati Neuchâtel per giovani adulti...", "url": `${BASE_URL}/articoli-frontaliere/cassa-malati-neuchatel-giovani-19-25` },
+          { "@type": "ListItem", "position": 2929, "name": "Lavoro a Lugano: panoramica e annunci aggiornati", "url": `${BASE_URL}/articoli-frontaliere/lavoro-lugano-mercato-annunci` }
  ]
  },
  {

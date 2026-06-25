@@ -475,6 +475,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cassa-malati-neuchatel-giovani-19-25.title': 'Krankenkassenprämien Neuenburg für junge Erwachsene 19-25 Jahre',
     'blog.article.cassa-malati-neuchatel-giovani-19-25.excerpt': 'Analyse der Bedingungen, Prämien und Optionen der Krankenkassen für junge Erwachsene mit Wohnsitz in Neuenburg im Alter von 19-25 Jahren.',
     'blog.article.cassa-malati-neuchatel-giovani-19-25.imageAlt': 'Blick auf Neuchâtel mit jungen Erwachsenen und Schweizer Gesundheitsschildern.',
+    'blog.article.lavoro-lugano-mercato-annunci.title': 'Arbeit in Lugano: Übersicht und aktuelle Meldungen',
+    'blog.article.lavoro-lugano-mercato-annunci.excerpt': 'Analyse des Arbeitsmarktes in Lugano und verfügbare Möglichkeiten gemäß den veröffentlichten Anzeigen.',
+    'blog.article.lavoro-lugano-mercato-annunci.imageAlt': 'Geschäftszentrum Lugano mit Arbeitern und Schweizer Fahnen.',
 };
 
 export default blogMetaChDe;
