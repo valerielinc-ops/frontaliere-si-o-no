@@ -183,6 +183,13 @@ export const SEO_STATIC_GRID_RESERVE_CSS =
  *   - `.s-S6PRaY` grid (`minmax(220px)`, `margin:0 0 18px`) — the collapse.
  *   - its tile box + value/label metrics, grouped with the `.s-t*` twins where
  *     layout-identical (`.s-9UotdJ`==`.s-tval`; `.s-JFi4vt`/`.s-z4q8yI`==`.s-tlbl`).
+ *   - the official-competitions hub variant (`#official-competitions` editorial
+ *     page) emits a THIRD tile shape in the same `.s-S6PRaY` grid (issue #2770
+ *     item 2 audit): `.s-Fy0wEh` box (layout-identical to `.s-0kclVO` —
+ *     `padding:18px`/`border-radius:22px`), `.s-aoTYtA` label (==`.s-AnMfGC`) and
+ *     `.s-ahW6q9` value (its OWN metrics — `font-size:15px`, NOT the `.s-9UotdJ`
+ *     28px — because the value is a `concorsi.ti.ch` link, not a count). The link
+ *     itself (`.s-U9K6Vf`) is colour-only → paint, not layout → not reserved.
  *   - the city-hub `<header>` is `.s-S_0cal sx-hero`; its async padding+margin
  *     live on `.sx-hero` (reserved below), NOT `.s-S_0cal` (whose margin loses
  *     the cascade to `.sx-hero` — see the `.sx-hero` note).
@@ -195,10 +202,11 @@ export const SEO_STATIC_HERO_RESERVE_CSS =
   '.s-XENO3U{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px}' +
   '.s-S6PRaY{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px}' +
   '.s-tbase,.s-tacc,.s-tok,.s-twrn,.s-tdng,.s-CGuDZg,.s-3kP_AL{padding:18px;border:1px solid transparent;border-radius:14px}' +
-  '.s-0kclVO{padding:18px;border:1px solid transparent;border-radius:22px}' +
+  '.s-0kclVO,.s-Fy0wEh{padding:18px;border:1px solid transparent;border-radius:22px}' +
   '.s-tlbl,.s-JFi4vt,.s-z4q8yI{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}' +
-  '.s-AnMfGC{font-size:12px;font-weight:700;text-transform:uppercase}' +
+  '.s-AnMfGC,.s-aoTYtA{font-size:12px;font-weight:700;text-transform:uppercase}' +
   '.s-tval,.s-9UotdJ{margin-top:8px;font-size:28px;font-weight:800;line-height:1.1}' +
+  '.s-ahW6q9{margin-top:8px;font-size:15px;font-weight:800}' +
   '.s-bcr{margin:0 0 14px;font-size:13px}' +
   // font-weight:700 reserved so CTA glyph width (hence any adjacent inline
   // element) is stable; mobile mirrors the async ≤639px full-width swap.
