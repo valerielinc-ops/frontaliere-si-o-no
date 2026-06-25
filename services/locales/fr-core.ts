@@ -678,6 +678,7 @@ const frCore: Record<string, string> = {
  'jobBoard.contract.contract': 'Contrat/Projet',
  'jobBoard.contract.internship': 'Stage',
  'jobBoard.resultsCount': '{count} offres trouvées',
+ 'jobBoard.loadingResults': 'Chargement des offres…',
  'jobBoard.demoNotice': 'Offres réelles d\'entreprises {cantonPrep}',
  'jobBoard.pagination.prev': 'Précédent',
  'jobBoard.pagination.next': 'Suivant',
