@@ -559,9 +559,9 @@
       "firstSeenAt": "2026-06-24T11:29:28.038Z",
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
@@ -605,26 +605,16 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
-        ],
-        "it": [
-          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil178",
-          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5z",
-          "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
-          "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
-          "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
-          "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
-          "stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
-          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
-          "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio",
-          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
-          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil172"
+          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
@@ -641,7 +631,10 @@
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
         "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil172"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil172",
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -2753,21 +2746,21 @@
       "firstSeenAt": "2026-05-31T11:08:50.669Z",
       "slugByLocale": {
         "it": "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedali",
-        "en": "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero",
+        "en": "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-ospedaliero",
         "de": "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale"
+        "fr": "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
       },
       "titleByLocale": {
         "it": "Medico Perito SAM con specializzazione in medicina interna generale (percentuale lavorativa da definire)",
-        "en": "Doctor Perito SAM with specialization in general internal medicine (percentage to be defined)",
+        "en": "SAM Medical Expert with specialization in general internal medicine (work percentage to be defined)",
         "de": "Doktor Perito SAM mit Spezialisierung auf allgemeine Innere Medizin (Prozentsatz noch zu definieren)",
         "fr": "Docteur Perito SAM avec spécialisation en médecine interne générale (pourcentage à définir)"
       },
       "descriptionByLocale": {
         "it": "Medico Perito SAM con specializzazione in medicina interna generale - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. Per completare il nostro team presso il Servizio di Accertamento Medico (SAM) di Bellinzona, che si occupa di eseguire perizie mediche pluridisciplinari e bidisciplinari cerchiamo un (a) Medico Perito SAM con specializzazione in medicina interna generale (percentuale lavorativa da definire) Profilo: La persona che cerchiamo possiede esperienza professionale ed autonomia, motivato ad acquisire competenze in ambito peritale /assicurativo (se non già in possesso).\n• Requisiti necessari: Il/la medico che cerchiamo dovrà possedere: il titolo di medico ed un titolo di specializzazione in medicina interna generale (per i titoli esteri necessario riconoscimento MEBEKO già ottenuto prima dell’inizio dell’attività). Dovrà inoltre aver già iscritto in Medreg, prima del suo inizio, le sue conoscenze linguistiche in Italiano (minimo livello B2) secondo le nuove disposizioni LPMed in vigore dal 1° gennaio 2018; l’attestato di libero esercizio nel Canton Ticino ottenuto prima dell’inizio presso il nostro Istituto; spiccate capacità relazionali e di lavoro in team; senso dell’organizzazione. Costituiranno titolo preferenziale: esperienza in ambito peritale/assicurativo; conoscenze del tedesco e altre lingue nazionali; conoscenze del sistema assicurativo svizzero e delle sentenze principali in ambito assicurativo/peritale. Informiamo inoltre che i compiti principali che il medico dovrà eseguire sono : stesura di valutazioni peritali in lingua italiana; comprensive di: dettatura degli atti medici; estesa raccolta anamnestica; esame clinico approfondito; discussione pluridisciplinare del caso con gli specialisti coinvolti; discussione delle valutazioni precedenti e dei punti litigiosi e contraddittori agli atti; stesura della perizia medica con risposta chiara e precisa a tutti i quesiti peritali; rispetto dei termini di consegna della perizia e dei criteri di qualità della perizia. Data d'entrata: da concordare, prima possibile. Ulteriori informazioni possono essere richieste alla Dr.ssa Wania Roggiani, Responsabile del servizio di Accertamento medico SAM, al numero telefonico 091 811 15 80 oppure via email al seguente indirizzo: Wania.Roggiani@eoc.ch . Le candidature devono pervenirci entro e non oltre il 31 dicembre 2026 . Non verranno accettate candid",
-        "en": "Doctor Perito SAM with specialization in general internal medicine - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the entire cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of more than 6,500 employees and their attention to the human relationship, EOC ensures quality health care by taking care of more than 41,000 patients per year and providing more than 600,000 outpatients. To complete our team at the Bellinzona Medical Insurance Service (SAM) in Bellinzona, which is responsible for performing multidisciplinary and bidisciplinary medical examinations we look for a (a) Medical Perito SAM with specialization in general internal medicine (work permit to be defined) Profile: The person we are looking for has professional experience and autonomy, motivated to acquire skills in the perital / insurance (if not already in possession).\n• Requirements: The doctor we seek will have to possess: the medical title and a specialization title in general internal medicine (for foreign titles necessary MEBEKO recognition already obtained before the start of the activity). It will also have to have already enrolled in Medreg, before its beginning, its linguistic knowledge in Italian (minimum level B2) according to the new LPMed provisions in force from 1 January 2018; the certificate of free exercise in the Canton Ticino obtained before the beginning at our Institute; strong relational skills and teamwork; sense of organization. They will provide preferential title: experience in the perital/insurance field; knowledge of German and other national languages; knowledge of the Swiss insurance system and the main decisions in the insurance/perital field. We also inform you that the main tasks the doctor will have to perform are : drafting perital evaluations in Italian; including: dictation of medical acts; extensive anamnestic collection; thorough clinical examination; multidisciplinary discussion of the case with the specialists involved; discussion of previous evaluations and quarrels and contradictory points to acts; drafting of medical expertise with clear and precise answer to all perital questions; compliance with the terms of delivery of expertise and quality criteria of expertise. Date of entry: to be agreed, as soon as possible. Further information may be requested by Dr. Wania Roggiani, Head of SAM Medical Insurance Service, phone number 091 811 15 80 or by email at the following address: Wania. Roggiani@eoc.ch . Applications must reach us by 31 December 2026 . They will not be accepted candid",
-        "de": "Doktor Perito SAM mit Spezialisierung auf allgemeine Innere Medizin - Ausschreibung L’EOC Das Tessiner Mehrspeisekrankenhaus ist mit seinen Instituten auf dem gesamten Kantonsgebiet für insgesamt 1’000 Betten präsent. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen benötigt werden. Dank des Engagements und der Expertise von mehr als 6.500 Mitarbeitern und ihrer Aufmerksamkeit für die menschliche Beziehung gewährleistet EOC eine qualitativ hochwertige Gesundheitsversorgung, indem es mehr als 41.000 Patienten pro Jahr betreut und mehr als 600.000 ambulante Patienten zur Verfügung stellt. Um unser Team bei der Bellinzona Medical Insurance Service (SAM) in Bellinzona zu vervollständigen, die für die Durchführung multidisziplinärer und bidisziplinärer medizinischer Untersuchungen verantwortlich ist, suchen wir nach einem (a) Medical Perito SAM mit Spezialisierung auf allgemeine Innere Medizin (Arbeitserlaubnis wird noch definiert) Profil: Die Person, die wir suchen, hat Berufserfahrung und Autonomie, motiviert, Fähigkeiten in der Perital / Versicherung zu erwerben (wenn nicht bereits im Besitz).\n• Anforderungen: Der Arzt, den wir suchen, muss besitzen: den medizinischen Titel und einen Spezialisierungstitel in der allgemeinen inneren Medizin (für ausländische Titel notwendig MEBEKO Anerkennung bereits vor Beginn der Tätigkeit erhalten). Es muss auch bereits in Medreg eingeschrieben sein, vor seinem Beginn, seine Sprachkenntnisse in Italienisch (Mindestniveau B2) nach den neuen LPMed-Bestimmungen, die ab dem 1. Januar 2018 in Kraft sind; das Zertifikat der freien Ausübung im Kanton Tessin, das vor dem Beginn an unserem Institut erworben wurde; starke Beziehungskompetenz und Teamwork; Sinn für Organisation. Sie werden Vorzugstitel zur Verfügung stellen: Erfahrung im Bereich Perital / Versicherung; Kenntnisse der deutschen und anderen Landessprachen; Kenntnisse des Schweizer Versicherungssystems und die wichtigsten Entscheidungen im Bereich Versicherung / Perital. Wir informieren Sie auch darüber, dass die Hauptaufgaben, die der Arzt ausführen muss, folgende sind: Erstellung von peritalen Bewertungen auf Italienisch; einschließlich: Diktat von medizinischen Handlungen; umfangreiche anamnestische Sammlung; gründliche klinische Untersuchung; multidisziplinäre Diskussion des Falles mit den beteiligten Spezialisten; Diskussion früherer Bewertungen und Streitigkeiten und widersprüchlicher Punkte zu Handlungen; Erstellung von medizinischem Fachwissen mit klarer und präziser Antwort auf alle peritalen Fragen; Einhaltung der Bedingungen für die Bereitstellung von Fachwissen und Qualitätskriterien von Fachwissen. Datum der Einreise: so bald wie möglich zu vereinbaren. Weitere Informationen können von Dr. Wania Roggiani, Leiter des SAM Medical Insurance Service, Telefonnummer 091 811 15 80 oder per E-Mail an folgende Adresse angefordert werden: Wania. Roggiani@eoc.ch . Anträge müssen uns bis zum 31. Dezember 2026 erreichen. Sie werden nicht akzeptiert offen",
-        "fr": "Docteur Perito SAM avec spécialisation en médecine interne générale - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à l'attention qu'ils portent à la relation humaine, le COE assure la qualité des soins de santé en prenant soin de plus de 41 000 patients par année et en fournissant plus de 600 000 consultations externes. Pour compléter notre équipe au Bellinzona Medical Insurance Service (SAM) à Bellinzona, qui est responsable d'effectuer des examens médicaux multidisciplinaires et bidisciplinaires, nous cherchons un (a) Périto médical SAM avec spécialisation en médecine interne générale (le permis de travail à définir) Profil: La personne que nous recherchons a une expérience professionnelle et une autonomie, motivée pour acquérir des compétences dans le périnal / assurance (si pas déjà en possession).\n• Exigences: Le médecin que nous recherchons devra posséder : le titre médical et un titre de spécialisation en médecine interne générale (pour les titres étrangers nécessaire reconnaissance MEBEKO déjà obtenu avant le début de l'activité). Il devra également avoir déjà inscrit à Medreg, avant son début, ses connaissances linguistiques en italien (niveau minimum B2) selon les nouvelles dispositions LPMed en vigueur à partir du 1er janvier 2018; le certificat d'exercice libre dans le canton du Tessin obtenu avant le début à notre Institut; des compétences relationnelles fortes et du travail d'équipe; le sens de l'organisation. Ils fourniront un titre préférentiel: expérience dans le domaine de l'assurance périnatale; connaissance de l'allemand et d'autres langues nationales; connaissance du système d'assurance suisse et des principales décisions dans le domaine de l'assurance périnatale. Nous vous informons également que les principales tâches que le médecin devra accomplir sont les suivantes : rédiger des évaluations péritales en italien; y compris : la dictée d'actes médicaux; une vaste collection d'anamnésie; un examen clinique approfondi; une discussion multidisciplinaire du cas avec les spécialistes concernés; une discussion sur les évaluations et les querelles antérieures et les points contradictoires des actes; une rédaction d'expertise médicale avec des réponses claires et précises à toutes les questions péritales; le respect des conditions de fourniture de l'expertise et des critères de qualité de l'expertise. Date d'entrée: à convenir dès que possible. Des informations complémentaires peuvent être demandées par le Dr Wania Roggiani, Chef du Service d'assurance médicale SAM, numéro de téléphone 091 811 15 80 ou par courriel à l'adresse suivante: Wania. Roggiani@eoc.ch . Les candidatures doivent nous parvenir d'ici le 31 décembre 2026 . Ils ne seront pas acceptés honnêtement"
+        "en": "Doctor Perito SAM with specialization in general internal medicine - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 6,500 employees and their attention to the human relationship, the EOC ensures quality health care by taking care of over 41, 000 patients who are deceased a year and providing over 600,000 outpatients. To complete our team at the Bellinzona Medical Insurance Service (SAM) in Bellinzona, which is responsible for performing multidisciplinary and bidisciplinary medical expertise, we look for a (a) Medical Perito SAM with specialization in general internal medicine (work permit to be defined) Profile: The person we are looking for has professional experience and autonomy, motivated to acquire skills in the perital / insurance (if not already in possession).\n• Requirements: The doctor we seek will have to possess: the medical qualification and a specialization title in general internal medicine (for foreign titles necessary MEBEKO recognition already obtained before the start of the activity). It will also have to have already enrolled in Medreg, before its beginning, its linguistic knowledge in Italian (minimum level B2) according to the new LPMed provisions in force from 1 January 2018; the certificate of free exercise in the Canton Ticino obtained before the beginning at our Institute; strong relational skills and teamwork; sense of organization. They will provide preferential title: experience in the perital/insurance field; knowledge of German and other national languages; knowledge of the Swiss insurance system and the main decisions in the insurance/perital field. We also inform you that the main tasks the doctor will have to perform are : drafting perital evaluations in Italian; including: dictation of medical acts; extensive anamnestic collection; thorough clinical examination; multidisciplinary discussion of the case with the specialists involved; discussion of previous evaluations and quarrels and contradictory points to acts; drafting of medical expertise with clear and precise answer to all perital questions; compliance with the terms of delivery of expertise and quality criteria of the expert. Date of entry: to be agreed, as soon as possible. Further information may be requested by Dr. Wania Roggiani, Head of SAM Medical Insurance Service, phone number 091 811 15 80 or by email at the following address: Wania. Roggiani@eoc.ch . Applications must reach us by 31 December 2026 . They will not be accepted candid",
+        "de": "Doktor Perito SAM mit Spezialisierung auf allgemeine Innere Medizin - Ausschreibung L’EOC Das Tessiner Mehrspeisekrankenhaus ist mit seinen Instituten auf dem gesamten Kantonsgebiet für insgesamt 1’000 Betten präsent. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 6.500 Mitarbeitern und ihrer Aufmerksamkeit für die menschliche Beziehung gewährleistet das EOC eine qualitativ hochwertige Gesundheitsversorgung, indem es über 40.000 Patienten betreut, die jährlich verstorben sind, und über 600.000 ambulante Patienten versorgt. Um unser Team bei der Bellinzona Medical Insurance Service (SAM) in Bellinzona zu vervollständigen, die für die Durchführung multidisziplinärer und bidisziplinärer medizinischer Expertise verantwortlich ist, suchen wir nach einem (a) Medical Perito SAM mit Spezialisierung auf allgemeine Innere Medizin (Arbeitserlaubnis wird noch definiert) Profil: Die Person, die wir suchen, hat Berufserfahrung und Autonomie, motiviert, Fähigkeiten in der Perital / Versicherung zu erwerben (wenn nicht bereits im Besitz).\n• Anforderungen: Der Arzt, den wir suchen, muss besitzen: die medizinische Qualifikation und einen Spezialisierungstitel in der allgemeinen inneren Medizin (für ausländische Titel erforderlich MEBEKO Anerkennung bereits vor Beginn der Tätigkeit erhalten). Es muss auch bereits in Medreg eingeschrieben sein, vor seinem Beginn, seine Sprachkenntnisse in Italienisch (Mindestniveau B2) nach den neuen LPMed-Bestimmungen, die ab dem 1. Januar 2018 in Kraft sind; das Zertifikat der freien Ausübung im Kanton Tessin, das vor dem Beginn an unserem Institut erworben wurde; starke Beziehungsfähigkeit und Teamwork; Sinn für Organisation. Sie werden Vorzugstitel liefern: Erfahrung im Bereich Perital / Versicherung; Kenntnisse der deutschen und anderen Landessprachen; Kenntnisse des Schweizer Versicherungssystems und die wichtigsten Entscheidungen im Bereich Versicherung / Perital. Wir informieren Sie auch darüber, dass die Hauptaufgaben, die der Arzt ausführen muss, folgende sind: Ausarbeitung von peritalen Bewertungen auf Italienisch; einschließlich: Diktat von medizinischen Handlungen; umfangreiche anamnestische Sammlung; gründliche klinische Untersuchung; multidisziplinäre Diskussion des Falles mit den beteiligten Spezialisten; Diskussion früherer Bewertungen und Streitigkeiten und widersprüchliche Punkte zu Handlungen; Ausarbeitung von medizinischem Fachwissen mit klarer und präziser Antwort auf alle peritalen Fragen; Einhaltung der Bedingungen für die Bereitstellung von Fachwissen und Qualitätskriterien des Experten. Datum der Einreise: so bald wie möglich zu vereinbaren. Weitere Informationen können von Dr. Wania Roggiani, Leiter des SAM Medical Insurance Service, Telefonnummer 091 811 15 80 oder per E-Mail an folgende Adresse angefordert werden: Wania. Roggiani@eoc.ch . Anträge müssen uns bis zum 31. Dezember 2026 erreichen. Sie werden nicht akzeptiert offen",
+        "fr": "Docteur Perito SAM avec spécialisation en médecine interne générale - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à leur attention sur la relation humaine, le COE assure des soins de qualité en prenant soin de plus de 41 000 patients décédés chaque année et en fournissant plus de 600 000 consultations externes. Pour compléter notre équipe au Service d'assurance médicale de Bellinzona (SAM) à Bellinzona, qui est responsable de l'exécution de l'expertise médicale multidisciplinaire et bidisciplinaire, nous recherchons un (a) SAM médical Perito avec spécialisation en médecine interne générale (le permis de travail à définir) Profil: La personne que nous recherchons a une expérience professionnelle et une autonomie, motivée pour acquérir des compétences dans le périnal / assurance (si pas déjà en possession).\n• Exigences: Le médecin que nous recherchons devra posséder : la qualification médicale et un titre de spécialisation en médecine interne générale (pour les titres étrangers nécessaire reconnaissance MEBEKO déjà obtenu avant le début de l'activité). Il devra également avoir déjà inscrit à Medreg, avant son début, ses connaissances linguistiques en italien (niveau minimum B2) selon les nouvelles dispositions LPMed en vigueur à partir du 1er janvier 2018; le certificat d'exercice libre dans le canton du Tessin obtenu avant le début à notre institut; solides compétences relationnelles et travail d'équipe; sens de l'organisation. Ils fourniront un titre préférentiel: expérience dans le domaine de l'assurance périnatale; connaissance de l'allemand et d'autres langues nationales; connaissance du système d'assurance suisse et des principales décisions dans le domaine de l'assurance périnatale. Nous vous informons également que les principales tâches que le médecin devra accomplir sont les suivantes : rédaction d'évaluations péritales en italien; y compris : dictée d'actes médicaux; vaste collection anamnétique; examen clinique approfondi; discussion multidisciplinaire du cas avec les spécialistes concernés; discussion des évaluations et querelles antérieures et des points contradictoires des actes; rédaction d'expertise médicale avec une réponse claire et précise à toutes les questions péritales; respect des conditions de fourniture d'expertise et des critères de qualité de l'expert. Date d'entrée: à convenir dès que possible. Pour de plus amples informations, veuillez contacter le Dr Wania Roggiani, Chef du Service d'assurance médicale SAM, numéro de téléphone 091 811 15 80 ou par courriel à l'adresse suivante : Wania. Roggiani@eoc.ch . Les candidatures doivent nous parvenir avant le 31 décembre 2026 . Ils ne seront pas acceptés honnêtement"
       },
       "requirementsByLocale": {
         "it": [
@@ -2783,27 +2776,31 @@
       "previousSlugsByLocale": {
         "en": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi",
-          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
+          "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero"
         ],
         "de": [
           "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero"
         ],
         "fr": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi",
-          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
+          "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale"
         ]
       },
       "previousSlugs": [
-        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi",
-        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
-        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero",
         "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-d46b9a",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqfi",
         "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-4d6bce",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqhe",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
         "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce",
-        "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-4d6bce"
+        "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-4d6bce",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
+        "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero",
+        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero",
+        "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -6483,9 +6480,9 @@
       },
       "descriptionByLocale": {
         "it": "Cuoco/a e/o Cuoco/a in dietetica - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Cuoco/a e/o Cuoco/a in dietetica Profilo: Il/la futuro/a collaboratore/trice è in possesso di ottime capacità tecnico-professionali. Svolge tutte le attività operative del settore nel rispetto di programmi, norme e procedure di lavoro definite. Organizza efficacemente il proprio lavoro definendo le priorità. È una persona disponibile, orientata al cambiamento ed è in grado di rispondere alle sollecitazioni. Fa fronte a carichi di lavoro importanti con prontezza e serietà, mantenendo buone relazioni in un contesto multiculturale.\n• Requisiti necessari: Attestato federale di capacità di cuoco/a e/o cuoco/a in dietetica. Pluriennale esperienza professionale, maturata in analoga posizione presso organizzazioni pubbliche o private di medio/grandi dimensioni. Ottime conoscenze delle norme e delle procedure vigenti sull’igiene (HACCP). Disponibilità a turni di lavoro flessibili (7/7 e serali fino alle 22.00). Autonomia e flessibilità. Spirito d’iniziativa, affidabilità e creatività. Ottima conoscenza della lingua italiana parlata e scritta. Buone conoscenze dei principali mezzi informatici (pacchetto office). Data d'entrata e osservazioni: --> Non essendoci al momento posti liberi non è prevista attualmente una data d’entrata. La valutazione delle candidature verrà effettuata solo in caso di esigenze di servizio con i profili che corrispondono ai requisiti richiesti. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. Verranno considerate unicamente le candidature inoltrate tramite l’apposita piattaforma sul sito aziendale. EOC - il nostro ospedale. Interessato/a?",
-        "en": "Cuoco/a and/or Cuoco/a in dietetics - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of more than 6,500 employees and their attention to the human relationship, EOC ensures quality health care by taking care of more than 41,000 patients per year and providing more than 600,000 outpatients. The following position is addressed to candidates wishing to apply spontaneously such as Cuoco/a and/or Cuoco/a in dietetics Profile: The future/cooperator/professional is in possession of excellent technical and professional skills. It carries out all the operational activities of the sector in compliance with defined programmes, standards and working procedures. Effectively organize your work by defining priorities. It is a person available, geared to change and is able to respond to stress. It copes with important workloads with readiness and seriousness, maintaining good relations in a multicultural context.\n• Requirements: Federal certification of cook/cook and/or cook/cook capacity in dietetics. Multiannual professional experience, gained in similar position at medium-sized public or private organizations. Excellent knowledge of hygiene standards and procedures (HACCP). Flexible work shifts (7/7 and evenings until 22.00). Autonomy and flexibility. Spirit of initiative, reliability and creativity. Excellent knowledge of the Italian language spoken and written. Good knowledge of the main IT media (office package). Date of entry and comments: --> Since there are currently no free places there is no date of entry. Applications will be assessed only in case of service requirements with profiles that meet the requirements. As a position for spontaneous applications, telephone information is not released. Only applications submitted via the appropriate platform will be considered on the company website. EOC - our hospital. Interested?",
+        "en": "Cuoco/a and/or Cuoco/a in dietetics - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 6,500 employees and their attention to the human relationship, the EOC ensures quality health care by taking care of over 41, 000 patients who are deceased a year and providing over 600,000 outpatients. The following position is addressed to candidates wishing to apply spontaneously such as Cuoco/a and/or Cuoco/a in dietetics Profile: The future/cooperator/cooperator has excellent technical and professional skills. It carries out all the operational activities of the sector in compliance with defined programmes, standards and working procedures. Effectively organize your work by defining priorities. It is a person available, geared to change and is able to respond to stress. It copes with important workloads with readiness and seriousness, maintaining good relations in a multicultural context.\n• Requirements: Federal certification of cook/cook and/or cook/cook capacity in dietetics. Multiannual professional experience, gained in similar position at public or private organizations of medium/large size. Excellent knowledge of hygiene standards and procedures (HACCP). Flexible work shifts (7/7 and evenings until 22.00). Autonomy and flexibility. Spirit of initiative, reliability and creativity. Excellent knowledge of the Italian language spoken and written. Good knowledge of the main IT media (office package). Date of entry and observations: --> Since there are currently no free seats there is no date of entry. Applications will be assessed only in case of service requirements with profiles that meet the requirements. As a position for spontaneous applications, telephone information is not released. Only applications submitted via the appropriate platform will be considered on the company website. EOC - our hospital. Interested?",
         "de": "Spital Männedorf – Dein ganz besonderer Arbeitsort. Ob ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation. Das Wesen deiner Tätigkeit:\n• Behandlung unserer ambulanten Patientinnen und Patienten auf den Gebieten der Orthopädie, Chirurgie, Inneren Medizin, Akutgeriatrie, Rheumatologie, Neurologie, Gynäkologie und Onkologie\n• Sporadische Einsätze im stationären Bereich (Orthopädie, Chirurgie, Inneren Medizin, Akutgeriatrie, Rheumatologie, Neurologie, Gynäkologie und Onkologie)\n• Leisten von Wochenenddiensten Die Basis deiner Leistung:\n• Ausbildung als Dipl. Physiotherapeut/in FH (SRK-Anerkennung bei ausländischem Diplom)\n• Gewinnende und innovative Persönlichkeit, die unsere Patientinnen und Patienten zur Mitarbeit in der Therapie motivieren kann\n• Offenheit und Engagement in der Zusammenarbeit im Team und interdisziplinär Die Gründe deiner Entscheidung: Wir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen. Fragen zum Leben in der Schweiz? Bei Fragen zum Leben in der Schweiz steht der externe Partner relo2 mit einem kostenlosen Service zur Verfügung. Dieser unterstützt bei allen Themen rund um Leben, Arbeiten und Umziehen in die Schweiz. hier klicken, um den Service zu nutzen.",
-        "fr": "Cuoco/a et/ou Cuoco/a en diététique - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à l'attention qu'ils portent à la relation humaine, le COE assure la qualité des soins de santé en prenant soin de plus de 41 000 patients par année et en fournissant plus de 600 000 consultations externes. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément comme Cuoco/a et/ou Cuoco/a dans le profil diététique : Le futur/coopérateur/professionnel possède d'excellentes compétences techniques et professionnelles. Elle mène toutes les activités opérationnelles du secteur conformément aux programmes, normes et procédures de travail définis. Organisez efficacement votre travail en définissant des priorités. C'est une personne disponible, adaptée au changement et capable de réagir au stress. Il fait face à d'importantes charges de travail avec disponibilité et sérieux, en maintenant de bonnes relations dans un contexte multiculturel.\n• Exigences: Certification fédérale de la capacité de cuisson et/ou de cuisson en diététique. Expérience professionnelle pluriannuelle acquise dans des organisations publiques ou privées de taille moyenne. Excellente connaissance des normes et procédures d'hygiène (HACCP). Temps de travail flexible (7/7 et soir jusqu'à 22h). Autonomie et flexibilité. Esprit d'initiative, fiabilité et créativité. Excellente connaissance de la langue italienne parlée et écrite. Bonne connaissance des principaux médias informatiques (paquet bureau). Date d'entrée et d'observation: --> Étant donné qu'il n'y a actuellement aucun endroit libre, il n'y a pas de date d'entrée. Les demandes ne seront évaluées qu'en cas d'exigences de service dont les profils répondent aux exigences. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. Seules les demandes soumises par l'intermédiaire de la plateforme appropriée seront examinées sur le site Web de l'entreprise. EOC - notre hôpital. Intéressé ?"
+        "fr": "Cuoco/a et/ou Cuoco/a en diététique - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à leur attention sur la relation humaine, le COE assure des soins de qualité en prenant soin de plus de 41 000 patients décédés chaque année et en fournissant plus de 600 000 consultations externes. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément comme Cuoco/a et/ou Cuoco/a dans le profil diététique : L'avenir/coopérateur/coopérateur possède d'excellentes compétences techniques et professionnelles. Il exécute toutes les activités opérationnelles du secteur conformément aux programmes, normes et procédures de travail définis. Organisez efficacement votre travail en définissant des priorités. C'est une personne disponible, adaptée au changement et capable de répondre au stress. Il fait face à d'importantes charges de travail avec disponibilité et sérieux, en maintenant de bonnes relations dans un contexte multiculturel.\n• Exigences: Certification fédérale de la capacité de cuisson en diététique. Expérience professionnelle pluriannuelle acquise dans des organisations publiques ou privées de taille moyenne ou grande. Excellente connaissance des normes et procédures d'hygiène (HACCP). Des postes flexibles (7/7 et soirs jusqu'à 22h00). Autonomie et flexibilité. Esprit d'initiative, fiabilité et créativité. Excellente connaissance de la langue italienne parlée et écrite. Bonne connaissance des principaux médias informatiques (paquet bureau). Date d'entrée et d'observation: --> Comme il n'y a actuellement aucun siège libre, il n'y a pas de date d'entrée. Les demandes ne seront évaluées qu'en cas d'exigences de service dont les profils répondent aux exigences. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. Seules les demandes soumises par l'intermédiaire de la plateforme appropriée seront examinées sur le site Web de l'entreprise. EOC - notre hôpital. Intéressé ?"
       },
       "requirementsByLocale": {
         "it": [
@@ -12296,13 +12293,13 @@
         "it": "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "52-weeks-to-obtain-commercial-professional-maturity-100-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "52-wochen-um-kommerzielle-berufliche-reife-zu-erhalten-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "52-semaines-pour-obtenir-une-maturite-professionnelle-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano"
+        "fr": "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Praticante 52 settimane (per otenere la maturità professionale commerciale)",
         "en": "52 weeks (to obtain commercial professional maturity) (100%)",
         "de": "52 Wochen (um kommerzielle berufliche Reife zu erhalten) (100%)",
-        "fr": "52 semaines (pour obtenir une maturité professionnelle commerciale) (100 %)"
+        "fr": "52 semaines (pour obtenir une maturité professionnelle commerciale) (100%)"
       },
       "descriptionByLocale": {
         "it": "Praticante 52 settimane (per ottenere la maturità professionale commerciale) - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. Per completare il team amministrativo dell'Istituto Cardiocentro Ticino di Lugano cerchiamo un(a) Praticante 52 settimane (per ottenere la maturità professionale commerciale) (100%) Profilo: La persona che stiamo cercando è un/una praticante in formazione che lavorerà presso i servizi amministrativi del nostro Istituto. Sarà affiancato/a e seguito/a da una formatrice di pratica che lo/a aiuterà a raggiungere gli obiettivi previsti dal programma di formazione e a sviluppare le proprie competenze personali e professionali.\n• Requisiti necessari: Terminare il 3° anno di una Scuola media di Commercio al fine di ottenere l'Attestato Federale di Capacità (AFC) quale impiegato/a di commercio con Maturità Professionale. Buone conoscenze dell'utilizzo dei mezzi informatici (pacchetto Office). Madrelingua italiana o livello C1. È gradita la conoscenza di una seconda lingua nazionale. Spirito d'iniziativa e buone capacità relazionali e comunicative. Flessibilità e atteggiamento positivo, piacere a lavorare in team e a collaborare a livello trasversale. Data d'entrata: dal 1° agosto 2026 Le candidature, complete di curriculum vitae, lettera di motivazione e certificati scolastici (pagelle del 1° e del 2° anno e pagella intermedia del 3° anno) dovranno pervenire entro il 31 maggio 2026 solo in formato elettronico tramite il sito www.eoc.ch . Le candidature cartacee o inviate per posta elettronica, come pure quelle che non adempiono ai requisiti, non verranno prese in considerazione. Ulteriori informazioni possono essere richieste alla signora April Rusconi, Responsabile dei servizi amministrativi scrivendo all’indirizzo april.rusconi@eoc.ch .",
@@ -12328,7 +12325,8 @@
           "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-permette-di-combinare-efficacemente-approccio-locale-e-vision-uilqhd"
         ],
         "fr": [
-          "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-permette-di-combinare-efficacemente-approccio-locale-e-vision-uilqhd"
+          "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-permette-di-combinare-efficacemente-approccio-locale-e-vision-uilqhd",
+          "52-semaines-pour-obtenir-une-maturite-professionnelle-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "sourceLang": "it",
@@ -12352,6 +12350,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-permette-di-combinare-efficacemente-approccio-locale-e-vision-uilqhd",
+        "52-semaines-pour-obtenir-une-maturite-professionnelle-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano",
         "praticante-52-settimane-pro-ottenere-la-maturita-professionale-commerciale-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "praticante-52-settimane-per-otenere-la-maturita-professionale-commerciale-eoc-ente-ospedaliero-cantonale-bellinzona",
         "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -12733,7 +12732,7 @@
       "slugByLocale": {
         "it": "tecnici-in-analisi-biomediche-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "technicians-in-biomedical-analysis-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "techniker-in-der-biomedizinischen-analyse-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "tecnici-in-analisi-biomediche-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "techniciens-en-analyse-biomedicale-50-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -12762,7 +12761,8 @@
           "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu"
         ],
         "de": [
-          "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu"
+          "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu",
+          "techniker-in-der-biomedizinischen-analyse-50-100-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu"
@@ -12773,6 +12773,7 @@
       },
       "previousSlugs": [
         "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu",
+        "techniker-in-der-biomedizinischen-analyse-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "analista-biomedico-50-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "sourceLang": "it",
@@ -14306,21 +14307,21 @@
       "firstSeenAt": "2026-06-25T11:26:36.707Z",
       "slugByLocale": {
         "it": "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedali",
-        "en": "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce",
+        "en": "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-ospedaliero",
         "de": "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-4d6bce"
+        "fr": "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
       },
       "titleByLocale": {
         "it": "Medico Perito SAM con specializzazione in medicina interna generale (percentuale lavorativa da definire)",
-        "en": "Doctor Perito SAM with specialization in general internal medicine (percentage to be defined)",
+        "en": "SAM Medical Expert with specialization in general internal medicine (work percentage to be defined)",
         "de": "Doktor Perito SAM mit Spezialisierung auf allgemeine Innere Medizin (Prozentsatz noch zu definieren)",
         "fr": "Docteur Perito SAM avec spécialisation en médecine interne générale (pourcentage à définir)"
       },
       "descriptionByLocale": {
         "it": "Medico Perito SAM con specializzazione in medicina interna generale - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. Per completare il nostro team presso il Servizio di Accertamento Medico (SAM) di Bellinzona, che si occupa di eseguire perizie mediche pluridisciplinari e bidisciplinari cerchiamo un (a) Medico Perito SAM con specializzazione in medicina interna generale (percentuale lavorativa da definire) Profilo: La persona che cerchiamo possiede esperienza professionale ed autonomia, motivato ad acquisire competenze in ambito peritale /assicurativo (se non già in possesso).\n• Requisiti necessari: Il/la medico che cerchiamo dovrà possedere: il titolo di medico ed un titolo di specializzazione in medicina interna generale (per i titoli esteri necessario riconoscimento MEBEKO già ottenuto prima dell’inizio dell’attività). Dovrà inoltre aver già iscritto in Medreg, prima del suo inizio, le sue conoscenze linguistiche in Italiano (minimo livello B2) secondo le nuove disposizioni LPMed in vigore dal 1° gennaio 2018; l’attestato di libero esercizio nel Canton Ticino ottenuto prima dell’inizio presso il nostro Istituto; spiccate capacità relazionali e di lavoro in team; senso dell’organizzazione. Costituiranno titolo preferenziale: esperienza in ambito peritale/assicurativo; conoscenze del tedesco e altre lingue nazionali; conoscenze del sistema assicurativo svizzero e delle sentenze principali in ambito assicurativo/peritale. Informiamo inoltre che i compiti principali che il medico dovrà eseguire sono : stesura di valutazioni peritali in lingua italiana; comprensive di: dettatura degli atti medici; estesa raccolta anamnestica; esame clinico approfondito; discussione pluridisciplinare del caso con gli specialisti coinvolti; discussione delle valutazioni precedenti e dei punti litigiosi e contraddittori agli atti; stesura della perizia medica con risposta chiara e precisa a tutti i quesiti peritali; rispetto dei termini di consegna della perizia e dei criteri di qualità della perizia. Data d'entrata: da concordare, prima possibile. Ulteriori informazioni possono essere richieste alla Dr.ssa Wania Roggiani, Responsabile del servizio di Accertamento medico SAM, al numero telefonico 091 811 15 80 oppure via email al seguente indirizzo: Wania.Roggiani@eoc.ch . Le candidature devono pervenirci entro e non oltre il 31 dicembre 2026 . Non verranno accettate candid",
-        "en": "Doctor Perito SAM with specialization in general internal medicine - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the entire cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of more than 6,500 employees and their attention to the human relationship, EOC ensures quality health care by taking care of more than 41,000 patients per year and providing more than 600,000 outpatients. To complete our team at the Bellinzona Medical Insurance Service (SAM) in Bellinzona, which is responsible for performing multidisciplinary and bidisciplinary medical examinations we look for a (a) Medical Perito SAM with specialization in general internal medicine (work permit to be defined) Profile: The person we are looking for has professional experience and autonomy, motivated to acquire skills in the perital / insurance (if not already in possession).\n• Requirements: The doctor we seek will have to possess: the medical title and a specialization title in general internal medicine (for foreign titles necessary MEBEKO recognition already obtained before the start of the activity). It will also have to have already enrolled in Medreg, before its beginning, its linguistic knowledge in Italian (minimum level B2) according to the new LPMed provisions in force from 1 January 2018; the certificate of free exercise in the Canton Ticino obtained before the beginning at our Institute; strong relational skills and teamwork; sense of organization. They will provide preferential title: experience in the perital/insurance field; knowledge of German and other national languages; knowledge of the Swiss insurance system and the main decisions in the insurance/perital field. We also inform you that the main tasks the doctor will have to perform are : drafting perital evaluations in Italian; including: dictation of medical acts; extensive anamnestic collection; thorough clinical examination; multidisciplinary discussion of the case with the specialists involved; discussion of previous evaluations and quarrels and contradictory points to acts; drafting of medical expertise with clear and precise answer to all perital questions; compliance with the terms of delivery of expertise and quality criteria of expertise. Date of entry: to be agreed, as soon as possible. Further information may be requested by Dr. Wania Roggiani, Head of SAM Medical Insurance Service, phone number 091 811 15 80 or by email at the following address: Wania. Roggiani@eoc.ch . Applications must reach us by 31 December 2026 . They will not be accepted candid",
-        "de": "Doktor Perito SAM mit Spezialisierung auf allgemeine Innere Medizin - Ausschreibung L’EOC Das Tessiner Mehrspeisekrankenhaus ist mit seinen Instituten auf dem gesamten Kantonsgebiet für insgesamt 1’000 Betten präsent. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen benötigt werden. Dank des Engagements und der Expertise von mehr als 6.500 Mitarbeitern und ihrer Aufmerksamkeit für die menschliche Beziehung gewährleistet EOC eine qualitativ hochwertige Gesundheitsversorgung, indem es mehr als 41.000 Patienten pro Jahr betreut und mehr als 600.000 ambulante Patienten zur Verfügung stellt. Um unser Team bei der Bellinzona Medical Insurance Service (SAM) in Bellinzona zu vervollständigen, die für die Durchführung multidisziplinärer und bidisziplinärer medizinischer Untersuchungen verantwortlich ist, suchen wir nach einem (a) Medical Perito SAM mit Spezialisierung auf allgemeine Innere Medizin (Arbeitserlaubnis wird noch definiert) Profil: Die Person, die wir suchen, hat Berufserfahrung und Autonomie, motiviert, Fähigkeiten in der Perital / Versicherung zu erwerben (wenn nicht bereits im Besitz).\n• Anforderungen: Der Arzt, den wir suchen, muss besitzen: den medizinischen Titel und einen Spezialisierungstitel in der allgemeinen inneren Medizin (für ausländische Titel notwendig MEBEKO Anerkennung bereits vor Beginn der Tätigkeit erhalten). Es muss auch bereits in Medreg eingeschrieben sein, vor seinem Beginn, seine Sprachkenntnisse in Italienisch (Mindestniveau B2) nach den neuen LPMed-Bestimmungen, die ab dem 1. Januar 2018 in Kraft sind; das Zertifikat der freien Ausübung im Kanton Tessin, das vor dem Beginn an unserem Institut erworben wurde; starke Beziehungskompetenz und Teamwork; Sinn für Organisation. Sie werden Vorzugstitel zur Verfügung stellen: Erfahrung im Bereich Perital / Versicherung; Kenntnisse der deutschen und anderen Landessprachen; Kenntnisse des Schweizer Versicherungssystems und die wichtigsten Entscheidungen im Bereich Versicherung / Perital. Wir informieren Sie auch darüber, dass die Hauptaufgaben, die der Arzt ausführen muss, folgende sind: Erstellung von peritalen Bewertungen auf Italienisch; einschließlich: Diktat von medizinischen Handlungen; umfangreiche anamnestische Sammlung; gründliche klinische Untersuchung; multidisziplinäre Diskussion des Falles mit den beteiligten Spezialisten; Diskussion früherer Bewertungen und Streitigkeiten und widersprüchlicher Punkte zu Handlungen; Erstellung von medizinischem Fachwissen mit klarer und präziser Antwort auf alle peritalen Fragen; Einhaltung der Bedingungen für die Bereitstellung von Fachwissen und Qualitätskriterien von Fachwissen. Datum der Einreise: so bald wie möglich zu vereinbaren. Weitere Informationen können von Dr. Wania Roggiani, Leiter des SAM Medical Insurance Service, Telefonnummer 091 811 15 80 oder per E-Mail an folgende Adresse angefordert werden: Wania. Roggiani@eoc.ch . Anträge müssen uns bis zum 31. Dezember 2026 erreichen. Sie werden nicht akzeptiert offen",
-        "fr": "Docteur Perito SAM avec spécialisation en médecine interne générale - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à l'attention qu'ils portent à la relation humaine, le COE assure la qualité des soins de santé en prenant soin de plus de 41 000 patients par année et en fournissant plus de 600 000 consultations externes. Pour compléter notre équipe au Bellinzona Medical Insurance Service (SAM) à Bellinzona, qui est responsable d'effectuer des examens médicaux multidisciplinaires et bidisciplinaires, nous cherchons un (a) Périto médical SAM avec spécialisation en médecine interne générale (le permis de travail à définir) Profil: La personne que nous recherchons a une expérience professionnelle et une autonomie, motivée pour acquérir des compétences dans le périnal / assurance (si pas déjà en possession).\n• Exigences: Le médecin que nous recherchons devra posséder : le titre médical et un titre de spécialisation en médecine interne générale (pour les titres étrangers nécessaire reconnaissance MEBEKO déjà obtenu avant le début de l'activité). Il devra également avoir déjà inscrit à Medreg, avant son début, ses connaissances linguistiques en italien (niveau minimum B2) selon les nouvelles dispositions LPMed en vigueur à partir du 1er janvier 2018; le certificat d'exercice libre dans le canton du Tessin obtenu avant le début à notre Institut; des compétences relationnelles fortes et du travail d'équipe; le sens de l'organisation. Ils fourniront un titre préférentiel: expérience dans le domaine de l'assurance périnatale; connaissance de l'allemand et d'autres langues nationales; connaissance du système d'assurance suisse et des principales décisions dans le domaine de l'assurance périnatale. Nous vous informons également que les principales tâches que le médecin devra accomplir sont les suivantes : rédiger des évaluations péritales en italien; y compris : la dictée d'actes médicaux; une vaste collection d'anamnésie; un examen clinique approfondi; une discussion multidisciplinaire du cas avec les spécialistes concernés; une discussion sur les évaluations et les querelles antérieures et les points contradictoires des actes; une rédaction d'expertise médicale avec des réponses claires et précises à toutes les questions péritales; le respect des conditions de fourniture de l'expertise et des critères de qualité de l'expertise. Date d'entrée: à convenir dès que possible. Des informations complémentaires peuvent être demandées par le Dr Wania Roggiani, Chef du Service d'assurance médicale SAM, numéro de téléphone 091 811 15 80 ou par courriel à l'adresse suivante: Wania. Roggiani@eoc.ch . Les candidatures doivent nous parvenir d'ici le 31 décembre 2026 . Ils ne seront pas acceptés honnêtement"
+        "en": "Doctor Perito SAM with specialization in general internal medicine - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 6,500 employees and their attention to the human relationship, the EOC ensures quality health care by taking care of over 41, 000 patients who are deceased a year and providing over 600,000 outpatients. To complete our team at the Bellinzona Medical Insurance Service (SAM) in Bellinzona, which is responsible for performing multidisciplinary and bidisciplinary medical expertise, we look for a (a) Medical Perito SAM with specialization in general internal medicine (work permit to be defined) Profile: The person we are looking for has professional experience and autonomy, motivated to acquire skills in the perital / insurance (if not already in possession).\n• Requirements: The doctor we seek will have to possess: the medical qualification and a specialization title in general internal medicine (for foreign titles necessary MEBEKO recognition already obtained before the start of the activity). It will also have to have already enrolled in Medreg, before its beginning, its linguistic knowledge in Italian (minimum level B2) according to the new LPMed provisions in force from 1 January 2018; the certificate of free exercise in the Canton Ticino obtained before the beginning at our Institute; strong relational skills and teamwork; sense of organization. They will provide preferential title: experience in the perital/insurance field; knowledge of German and other national languages; knowledge of the Swiss insurance system and the main decisions in the insurance/perital field. We also inform you that the main tasks the doctor will have to perform are : drafting perital evaluations in Italian; including: dictation of medical acts; extensive anamnestic collection; thorough clinical examination; multidisciplinary discussion of the case with the specialists involved; discussion of previous evaluations and quarrels and contradictory points to acts; drafting of medical expertise with clear and precise answer to all perital questions; compliance with the terms of delivery of expertise and quality criteria of the expert. Date of entry: to be agreed, as soon as possible. Further information may be requested by Dr. Wania Roggiani, Head of SAM Medical Insurance Service, phone number 091 811 15 80 or by email at the following address: Wania. Roggiani@eoc.ch . Applications must reach us by 31 December 2026 . They will not be accepted candid",
+        "de": "Doktor Perito SAM mit Spezialisierung auf allgemeine Innere Medizin - Ausschreibung L’EOC Das Tessiner Mehrspeisekrankenhaus ist mit seinen Instituten auf dem gesamten Kantonsgebiet für insgesamt 1’000 Betten präsent. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 6.500 Mitarbeitern und ihrer Aufmerksamkeit für die menschliche Beziehung gewährleistet das EOC eine qualitativ hochwertige Gesundheitsversorgung, indem es über 40.000 Patienten betreut, die jährlich verstorben sind, und über 600.000 ambulante Patienten versorgt. Um unser Team bei der Bellinzona Medical Insurance Service (SAM) in Bellinzona zu vervollständigen, die für die Durchführung multidisziplinärer und bidisziplinärer medizinischer Expertise verantwortlich ist, suchen wir nach einem (a) Medical Perito SAM mit Spezialisierung auf allgemeine Innere Medizin (Arbeitserlaubnis wird noch definiert) Profil: Die Person, die wir suchen, hat Berufserfahrung und Autonomie, motiviert, Fähigkeiten in der Perital / Versicherung zu erwerben (wenn nicht bereits im Besitz).\n• Anforderungen: Der Arzt, den wir suchen, muss besitzen: die medizinische Qualifikation und einen Spezialisierungstitel in der allgemeinen inneren Medizin (für ausländische Titel erforderlich MEBEKO Anerkennung bereits vor Beginn der Tätigkeit erhalten). Es muss auch bereits in Medreg eingeschrieben sein, vor seinem Beginn, seine Sprachkenntnisse in Italienisch (Mindestniveau B2) nach den neuen LPMed-Bestimmungen, die ab dem 1. Januar 2018 in Kraft sind; das Zertifikat der freien Ausübung im Kanton Tessin, das vor dem Beginn an unserem Institut erworben wurde; starke Beziehungsfähigkeit und Teamwork; Sinn für Organisation. Sie werden Vorzugstitel liefern: Erfahrung im Bereich Perital / Versicherung; Kenntnisse der deutschen und anderen Landessprachen; Kenntnisse des Schweizer Versicherungssystems und die wichtigsten Entscheidungen im Bereich Versicherung / Perital. Wir informieren Sie auch darüber, dass die Hauptaufgaben, die der Arzt ausführen muss, folgende sind: Ausarbeitung von peritalen Bewertungen auf Italienisch; einschließlich: Diktat von medizinischen Handlungen; umfangreiche anamnestische Sammlung; gründliche klinische Untersuchung; multidisziplinäre Diskussion des Falles mit den beteiligten Spezialisten; Diskussion früherer Bewertungen und Streitigkeiten und widersprüchliche Punkte zu Handlungen; Ausarbeitung von medizinischem Fachwissen mit klarer und präziser Antwort auf alle peritalen Fragen; Einhaltung der Bedingungen für die Bereitstellung von Fachwissen und Qualitätskriterien des Experten. Datum der Einreise: so bald wie möglich zu vereinbaren. Weitere Informationen können von Dr. Wania Roggiani, Leiter des SAM Medical Insurance Service, Telefonnummer 091 811 15 80 oder per E-Mail an folgende Adresse angefordert werden: Wania. Roggiani@eoc.ch . Anträge müssen uns bis zum 31. Dezember 2026 erreichen. Sie werden nicht akzeptiert offen",
+        "fr": "Docteur Perito SAM avec spécialisation en médecine interne générale - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à leur attention sur la relation humaine, le COE assure des soins de qualité en prenant soin de plus de 41 000 patients décédés chaque année et en fournissant plus de 600 000 consultations externes. Pour compléter notre équipe au Service d'assurance médicale de Bellinzona (SAM) à Bellinzona, qui est responsable de l'exécution de l'expertise médicale multidisciplinaire et bidisciplinaire, nous recherchons un (a) SAM médical Perito avec spécialisation en médecine interne générale (le permis de travail à définir) Profil: La personne que nous recherchons a une expérience professionnelle et une autonomie, motivée pour acquérir des compétences dans le périnal / assurance (si pas déjà en possession).\n• Exigences: Le médecin que nous recherchons devra posséder : la qualification médicale et un titre de spécialisation en médecine interne générale (pour les titres étrangers nécessaire reconnaissance MEBEKO déjà obtenu avant le début de l'activité). Il devra également avoir déjà inscrit à Medreg, avant son début, ses connaissances linguistiques en italien (niveau minimum B2) selon les nouvelles dispositions LPMed en vigueur à partir du 1er janvier 2018; le certificat d'exercice libre dans le canton du Tessin obtenu avant le début à notre institut; solides compétences relationnelles et travail d'équipe; sens de l'organisation. Ils fourniront un titre préférentiel: expérience dans le domaine de l'assurance périnatale; connaissance de l'allemand et d'autres langues nationales; connaissance du système d'assurance suisse et des principales décisions dans le domaine de l'assurance périnatale. Nous vous informons également que les principales tâches que le médecin devra accomplir sont les suivantes : rédaction d'évaluations péritales en italien; y compris : dictée d'actes médicaux; vaste collection anamnétique; examen clinique approfondi; discussion multidisciplinaire du cas avec les spécialistes concernés; discussion des évaluations et querelles antérieures et des points contradictoires des actes; rédaction d'expertise médicale avec une réponse claire et précise à toutes les questions péritales; respect des conditions de fourniture d'expertise et des critères de qualité de l'expert. Date d'entrée: à convenir dès que possible. Pour de plus amples informations, veuillez contacter le Dr Wania Roggiani, Chef du Service d'assurance médicale SAM, numéro de téléphone 091 811 15 80 ou par courriel à l'adresse suivante : Wania. Roggiani@eoc.ch . Les candidatures doivent nous parvenir avant le 31 décembre 2026 . Ils ne seront pas acceptés honnêtement"
       },
       "requirementsByLocale": {
         "it": [
@@ -14336,18 +14337,15 @@
       "previousSlugsByLocale": {
         "en": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
-          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
-          "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-ospedaliero"
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
         ],
         "fr": [
-          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
-          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe"
         ]
       },
       "previousSlugs": [
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
-        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
-        "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-ospedaliero"
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -14461,9 +14459,9 @@
       "firstSeenAt": "2026-06-24T11:29:28.038Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Operatore/trice socio sanitario/a",
@@ -14500,23 +14498,29 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+          "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+          "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio"
+          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+          "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
+          "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
-        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
         "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n4e",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n55",
-        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56"
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56",
+        "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
+        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -14544,9 +14548,9 @@
       "firstSeenAt": "2026-06-24T11:29:28.038Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -14578,28 +14582,33 @@
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r",
           "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
-          "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r"
+          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
+        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r",
@@ -14607,19 +14616,11 @@
         "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
-        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
-        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r"
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -14679,9 +14680,9 @@
       },
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {
         "it": [
@@ -14693,6 +14694,13 @@
         "fr": []
       },
       "previousSlugs": [
+        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
+        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
@@ -14701,18 +14709,11 @@
         "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
-        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r"
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -14725,24 +14726,22 @@
           "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r"
+          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
           "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
         ]
       },
       "salaryMin": 70500,
@@ -14802,9 +14801,9 @@
       },
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {
         "it": [
@@ -14816,6 +14815,14 @@
         "fr": []
       },
       "previousSlugs": [
+        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
+        "fisioterapista-diplomato-a-eoc-novaggio-x29n6r",
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
@@ -14824,18 +14831,10 @@
         "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
-        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64"
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -14849,25 +14848,22 @@
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r",
           "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64"
+          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
         ]
       },
       "salaryMin": 70500,
@@ -14914,9 +14910,9 @@
       "firstSeenAt": "2026-06-24T11:29:28.038Z",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Ergoterapista diplomato/a",
@@ -14941,22 +14937,28 @@
       "previousSlugsByLocale": {
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
-          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
-          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
-          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -15015,9 +15017,9 @@
       },
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
-        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
-        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
+        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {
         "it": [
@@ -15032,7 +15034,10 @@
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -15042,15 +15047,18 @@
         ],
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
-          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
-          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
-          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
         ]
       },
       "salaryMin": 70500,
@@ -15109,9 +15117,9 @@
       },
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
-        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
-        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
+        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {
         "it": [
@@ -15126,7 +15134,10 @@
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -15136,15 +15147,18 @@
         ],
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
-          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
-          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
-          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
         ]
       },
       "salaryMin": 70500,
@@ -15258,7 +15272,7 @@
       "firstSeenAt": "2026-06-23T22:18:27.990Z",
       "slugByLocale": {
         "it": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
+        "en": "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -15297,11 +15311,13 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "household-employee-eoc-ente-ospedaliero-cantonale-novaggio"
+          "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
         ]
       },
       "previousSlugs": [
-        "household-employee-eoc-ente-ospedaliero-cantonale-novaggio"
+        "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
       ]
     },
     {
@@ -15530,9 +15546,9 @@
       "firstSeenAt": "2026-06-23T22:18:27.990Z",
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Infermiere/a in cure generali",
@@ -15569,20 +15585,26 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio"
+          "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio",
+          "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
+          "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+          "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
+          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
+          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio",
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
         "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
-        "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z"
+        "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z",
+        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
+        "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -15607,9 +15629,9 @@
       "firstSeenAt": "2026-06-23T22:18:27.990Z",
       "slugByLocale": {
         "it": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+        "de": "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Medico assistente / Medico ospedaliero",
@@ -15627,15 +15649,18 @@
       "previousSlugsByLocale": {
         "en": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c"
+          "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+          "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+          "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
+          "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -15643,7 +15668,10 @@
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
         "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
         "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio",
-        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
+        "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -15688,9 +15716,9 @@
       "firstSeenAt": "2026-06-23T22:18:27.990Z",
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
-        "de": "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "career-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Assistente di cura",
@@ -15727,20 +15755,26 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "career-eoc-ente-ospedaliero-cantonale-novaggio"
+          "career-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57"
         ],
         "de": [
-          "karriere-eoc-ente-ospedaliero-cantonale-novaggio"
+          "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
+          "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
+          "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "career-eoc-ente-ospedaliero-cantonale-novaggio",
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58"
+        "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+        "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -15766,7 +15800,7 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -15789,7 +15823,8 @@
         ],
         "de": [
           "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
-          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio"
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+          "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
@@ -15800,7 +15835,8 @@
         "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
         "stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
-        "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio"
+        "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio",
+        "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 63000,
@@ -15848,9 +15884,9 @@
       "firstSeenAt": "2026-06-23T22:18:27.990Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -15877,32 +15913,23 @@
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
-        ],
-        "it": [
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63"
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ]
       },
       "previousSlugs": [
-        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -15913,14 +15940,16 @@
         "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63"
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -15967,9 +15996,9 @@
       "firstSeenAt": "2026-06-23T22:18:27.990Z",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
-        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
-        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
+        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Ergoterapista diplomato/a",
@@ -15995,27 +16024,33 @@
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
           "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
           "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
           "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio",
-          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ]
       },
       "previousSlugs": [
-        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
-        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio",
-        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -16071,7 +16106,7 @@
         "fr": "Contributeurs/ordre économique national"
       },
       "descriptionByLocale": {
-        "it": "Collaboratore/trice economia domestica - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all'impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all'anno e fornendo oltre 600'000 consulti ambulatoriali. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Collaboratore/trice economia domestica Profilo Il/la collaboratore/trice di economia domestica deve eseguire, nel rispetto di programmi e procedure di lavoro predefinite (tempi, modalità, materiali, attrezzature, ecc.), tutte le attività operative di economia domestica atte a garantire sia il rispetto delle condizioni di igiene e pulizia previste sia un servizio accurato e di qualità. L'attività si svolge a turni (pomeriggio, sera, weekend e festivi).\n• Requisiti necessari - comprovata esperienza nel ramo delle pulizie in strutture alberghiere o ospedaliere (ospedali e case anziani) in Svizzera - disponibilità e flessibilità per gli orari di lavoro (turni pomeridiani, turni serali, turni weekend e festivi) Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - insieme per curare meglio. Interessato/a?",
+        "it": "Collaboratore/trice economia domestica - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Collaboratore/trice economia domestica Profilo Il/la collaboratore/trice di economia domestica deve eseguire, nel rispetto di programmi e procedure di lavoro predefinite (tempi, modalità, materiali, attrezzature, ecc.), tutte le attività operative di economia domestica atte a garantire sia il rispetto delle condizioni di igiene e pulizia previste sia un servizio accurato e di qualità alle funzioni utilizzatrici. L'attività si svolge a turni (pomeriggio, sera, weekend e festivi).\n• Requisiti necessari - comprovata esperienza nel ramo delle pulizie in strutture alberghiere o ospedaliere (ospedali e case anziani) in Svizzera - disponibilità e flessibilità per gli orari di lavoro (turni pomeridiani, turni serali, turni weekend e festivi) Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - il nostro ospedale. Interessato/a?",
         "en": "Helper/cooperator domestic economy - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the entire cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality health care to 380,000 patients per year. The following position is addressed to candidates who wish to apply spontaneously as a Contributor/trice domestic economy Profile The collaborator/la collaborator/trice of domestic economy must perform, in accordance with predefined programs and working procedures (types, modes, materials, equipment, etc.), all the operational activities of domestic economy to ensure both the compliance of hygiene and cleaning conditions provided both an accurate and quality service to the utilitarian functions. The activity takes place in turn (afternoon, evening, weekends and holidays).\n• Requirements - proven experience in the cleaning branch in hotel or hospital facilities (hospitals and old houses) in Switzerland - availability and flexibility for working hours ( afternoon shifts, evening shifts, weekend shifts and holidays) Comments --> Applications of those who do not have the above requirements will not be taken into account in any case and will therefore be eliminated from our database. Applications will be assessed only in case of service requirements. As a position for spontaneous applications, telephone information is not released. EOC - our hospital. Interested?",
         "de": "Helper/Cooperator domestic economy - Ausschreibung L’EOC Das Tessiner Multisite-Krankenhaus ist mit seinen Instituten auf dem gesamten Kantonsgebiet für insgesamt 1’000 Betten präsent. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit für die menschliche Beziehung bietet EOC 380.000 Patienten pro Jahr eine qualitativ hochwertige Gesundheitsversorgung. Die folgende Position richtet sich an Kandidaten, die sich spontan als Contributor/trikes Inlandswirtschaftsprofil bewerben möchten Der Mitarbeiter / Mitarbeiter / Mitarbeiter der heimischen Wirtschaft muss in Übereinstimmung mit vordefinierten Programmen und Arbeitsverfahren (Typen, Modi, Materialien, Ausrüstung usw.) alle operativen Aktivitäten der heimischen Wirtschaft durchführen, um sowohl die Einhaltung der Hygiene- als auch der Reinigungsbedingungen sicherzustellen, die sowohl einen genauen als auch qualitativ hochwertigen Service für die utilitaristischen Funktionen bieten. Die Aktivität findet abwechselnd statt (Nachmittag, Abend, Wochenenden und Feiertage).\n• Anforderungen - nachgewiesene Erfahrung in der Reinigungsbranche in Hotel- oder Krankenhauseinrichtungen (Krankenhäuser und Althäuser) in der Schweiz - Verfügbarkeit und Flexibilität für Arbeitszeiten (Nachmittagsschichten, Abendschichten, Wochenendschichten und Ferien) Kommentare --> Anträge von Personen, die die oben genannten Anforderungen nicht haben, werden in keinem Fall berücksichtigt und werden daher aus unserer Datenbank entfernt. Anwendungen werden nur im Falle von Serviceanforderungen bewertet. Als Position für spontane Anwendungen werden Telefoninformationen nicht freigegeben. EOC - unser Krankenhaus. Interessiert?",
         "fr": "Aide/coopérateur économie domestique - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1.000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, le COE fournit des soins de santé de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats qui désirent postuler spontanément à titre de cotisant ou de membre de l'économie nationale Profil Le collaborateur/la collaboratrice/trice de l'économie nationale doit exécuter, conformément à des programmes et procédures de travail prédéfinis (types, modes, matériaux, équipements, etc.), toutes les activités opérationnelles de l'économie nationale pour assurer à la fois la conformité des conditions d'hygiène et de nettoyage, un service précis et de qualité aux fonctions utilitaires. L'activité a lieu à son tour (après-midi, soir, week-end et jours fériés).\n• Besoins - expérience prouvée dans la branche de nettoyage dans les installations hôtelières ou hospitalières (hôpitaux et maisons anciennes) en Suisse - disponibilité et flexibilité pour les heures de travail (équipes d'après-midi, de soirée, de week-end et de vacances) Commentaires --> Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc éliminées de notre base de données. Les demandes seront évaluées uniquement en cas d'exigences de service. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. EOC - notre hôpital. Intéressé ?"
@@ -16198,9 +16233,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "medici-assistenti-in-formazione-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medici-assistenti-in-formazione-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona-uilnbl",
-        "de": "ausbildende-assistenzarzte-innere-medizin-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "medecins-assistants-en-formation-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "doctors-training-assistants-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "arzte-ausbildung-assistenten-interne-medizin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "assistants-de-formation-des-medecins-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Medici assistenti in formazione (Medicina interna)",
@@ -16244,26 +16279,32 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
-        "doctors-in-training-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "doctors-training-assistants-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "arzte-in-der-ausbildung-innenmedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "arzte-ausbildung-assistenten-interne-medizin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "assistants-de-formation-des-medecins-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona",
         "medici-assistenti-in-formazione-medicina-interna-eoc-bellinzona-uilr22",
         "medici-assistenti-in-formazione-medicina-interna-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-po-uilr22",
-        "medecins-assistants-en-formation-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzon"
+        "medecins-assistants-en-formation-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzon",
+        "doctors-in-training-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "doctors-training-assistants-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medici-assistenti-in-formazione-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona-uilnbl",
+        "arzte-in-der-ausbildung-innenmedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "ausbildende-assistenzarzte-innere-medizin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medecins-assistants-en-formation-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
           "doctors-in-training-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "doctors-training-assistants-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "doctors-training-assistants-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "medici-assistenti-in-formazione-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona-uilnbl"
         ],
         "de": [
           "arzte-in-der-ausbildung-innenmedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "arzte-ausbildung-assistenten-interne-medizin-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "arzte-ausbildung-assistenten-interne-medizin-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "ausbildende-assistenzarzte-innere-medizin-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "assistants-de-formation-des-medecins-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "assistants-de-formation-des-medecins-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "medecins-assistants-en-formation-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       }
     }

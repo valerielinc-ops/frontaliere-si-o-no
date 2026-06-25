@@ -41,8 +41,8 @@
       "slugByLocale": {
         "it": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
         "en": "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate",
-        "de": "elektronische-wartung-medacta-international-sa-castel-san-pietro-rancate",
-        "fr": "entretien-electronique-medacta-international-sa-castel-san-pietro-rancate"
+        "de": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
+        "fr": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro/Rancate",
@@ -53,11 +53,19 @@
         ],
         "en": [
           "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate"
+        ],
+        "de": [
+          "elektronische-wartung-medacta-international-sa-castel-san-pietro-rancate"
+        ],
+        "fr": [
+          "entretien-electronique-medacta-international-sa-castel-san-pietro-rancate"
         ]
       },
       "previousSlugs": [
         "manutentore-elettromeccanico-medacta-castel-san-pietro-rancate",
-        "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate"
+        "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
+        "elektronische-wartung-medacta-international-sa-castel-san-pietro-rancate",
+        "entretien-electronique-medacta-international-sa-castel-san-pietro-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -117,7 +125,7 @@
         "it": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
         "en": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
         "de": "demand-planer-medacta-international-sa-castel-san-pietro-mendrisio",
-        "fr": "planificateur-de-demande-medacta-international-sa-castel-san-pietro-mendrisio"
+        "fr": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro, Mendrisio",
@@ -130,6 +138,9 @@
           "bedarfsplaner-medacta-international-sa-castel-san-pietro-mendrisio",
           "anfrage-planer-medacta-international-sa-castel-san-pietro-mendrisio"
         ],
+        "fr": [
+          "planificateur-de-demande-medacta-international-sa-castel-san-pietro-mendrisio"
+        ],
         "en": [
           "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio"
         ]
@@ -138,6 +149,7 @@
         "demand-planner-medacta-castel-san-pietro-mendrisio",
         "bedarfsplaner-medacta-international-sa-castel-san-pietro-mendrisio",
         "anfrage-planer-medacta-international-sa-castel-san-pietro-mendrisio",
+        "planificateur-de-demande-medacta-international-sa-castel-san-pietro-mendrisio",
         "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio"
       ],
       "salaryMin": 58000,
@@ -183,8 +195,8 @@
       "titleByLocale": {
         "en": "Thesis R&D Orthopedics",
         "it": "Thesis R&D Orthopedics",
-        "de": "Thesis R&D Orthopädie",
-        "fr": "Thèse R-D Orthopédie"
+        "de": "Dissertation F&E Orthopädie",
+        "fr": "Thèse Orthopédie R & D"
       },
       "descriptionByLocale": {
         "it": "## Panoramica Ruolo\nMedacta International SA sta cercando Thesis R&D Orthopedics con sede a Rancate. Reparto: Research & Development. Ticino\n## Mansioni Principali\n- Eseguirai attivita operative e tecniche su impianti, processi o linee produttive.\n- Collaborerai con Produzione, Qualita e R&D per migliorare affidabilita e tempi.\n- Aggiornerai checklist, documentazione tecnica e standard di manutenzione o processo.\n## Profilo Richiesto\n- Esperienza in ruolo tecnico analogo, preferibilmente in contesto industriale.\n- Conoscenza di sicurezza, qualita e risoluzione strutturata dei problemi.\n- Autonomia operativa, orientamento al risultato e capacita di lavoro in squadra.\n## Cosa Offre Medacta\n- Contesto internazionale medicale con impatto reale su chirurgia ortopedica e cura del paziente.\n- Collaborazione con team cross-funzionali in un ambiente strutturato su qualita e sicurezza.\n- Percorsi di crescita tramite progetti interni, formazione tecnica e confronto continuo.\n## Dettagli Candidatura\nInvia la candidatura tramite la pagina ufficiale Medacta allegando CV e documentazione rilevante.",
@@ -995,7 +1007,7 @@
       "titleByLocale": {
         "en": "Associate Designer",
         "it": "Associate Designer",
-        "de": "Associate Designer",
+        "de": "Assoziierter Designer",
         "fr": "Designer associé"
       },
       "descriptionByLocale": {
@@ -1009,8 +1021,8 @@
       "slugByLocale": {
         "it": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
         "en": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
-        "de": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
-        "fr": "designer-associe-medacta-international-sa-castel-san-pietro"
+        "de": "assoziierter-designer-medacta-international-sa-castel-san-pietro",
+        "fr": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
@@ -1019,15 +1031,17 @@
         "it": [
           "associate-designer-medacta-castel-san-pietro"
         ],
+        "fr": [
+          "designer-associe-medacta-international-sa-castel-san-pietro"
+        ],
         "de": [
-          "assoziierter-designer-medacta-international-sa-castel-san-pietro",
           "assistenten-designer-medacta-international-sa-castel-san-pietro",
           "partner-designer-medacta-international-sa-castel-san-pietro"
         ]
       },
       "previousSlugs": [
         "associate-designer-medacta-castel-san-pietro",
-        "assoziierter-designer-medacta-international-sa-castel-san-pietro",
+        "designer-associe-medacta-international-sa-castel-san-pietro",
         "assistenten-designer-medacta-international-sa-castel-san-pietro",
         "partner-designer-medacta-international-sa-castel-san-pietro",
         "designer-associato-medacta-international-sa-castel-san-pietro"
@@ -1090,7 +1104,7 @@
         "it": "measuring-instruments-responsible-medacta-international-sa-castel-san-pietro-m4s3bt",
         "en": "measuring-instruments-responsible-medacta-international-sa-castel-san-pietro-m4s3bt",
         "de": "zustandige-messgerate-medacta-international-sa-castel-san-pietro",
-        "fr": "instruments-de-mesure-responsables-medacta-international-sa-castel-san-pietro"
+        "fr": "measuring-instruments-responsible-medacta-international-sa-castel-san-pietro-m4s3bt"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
@@ -1105,6 +1119,7 @@
           "messinstrumente-verantwortung-medacta-international-sa-castel-san-pietro"
         ],
         "fr": [
+          "instruments-de-mesure-responsables-medacta-international-sa-castel-san-pietro",
           "responsable-des-instruments-de-mesure-medacta-international-sa-castel-san-pietro"
         ],
         "en": [
@@ -1128,6 +1143,7 @@
         "messinstrumente-verantwortlich-medacta-international-sa-castel-san-pietro",
         "verantwortlicher-fur-messinstrumente-medacta-international-sa-castel-san-pietro",
         "messinstrumente-verantwortung-medacta-international-sa-castel-san-pietro",
+        "instruments-de-mesure-responsables-medacta-international-sa-castel-san-pietro",
         "responsable-des-instruments-de-mesure-medacta-international-sa-castel-san-pietro",
         "measurement-instruments-manager-medacta-international-sa-castel-san-pietro",
         "think-okay-let-s-tackle-this-translation-the-job-title-is-measuring-instruments-responsible-first-i-need-to-make-sure-i",

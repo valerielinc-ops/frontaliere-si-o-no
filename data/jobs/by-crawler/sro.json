@@ -429,7 +429,7 @@
       "slug": "psicologo-psicologo-vecchio-eta-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "psicologo-psicologo-vecchio-eta-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "psychologist-psychologist-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
         "de": "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
         "fr": "psychologue-psychologue-psychiatrie-de-l-age-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
@@ -439,7 +439,7 @@
       "title": "Psychologin/Psychologen Alterspsychiatrie 80 - 100 %",
       "titleByLocale": {
         "it": "Psicologo/psicologo Vecchio Età Psichiatria 80 - 100%",
-        "en": "Psychologist/psychologist Age psychiatry 80 - 100%",
+        "en": "Psychologist/psychologist Old Age Psychiatry 80 - 100%",
         "de": "Psychologin/Psychologen Alterspsychiatrie 80 - 100 %",
         "fr": "Psychologue/psychologue Psychiatrie de l'âge 80 - 100%"
       },
@@ -480,6 +480,7 @@
       "previousSlugs": [
         "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
         "psychologist-psychologist-old-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "psychologist-psychologist-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psicologa-psicologo-psichiatria-geriatrica-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psychologue-therapeute-psychiatrie-geriatrique-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psychologin-psychologen-fur-alterspsychiatrie-80-100-or-klinische-psychologin-klinische-psychologen-schwerpunkt"
@@ -490,7 +491,7 @@
         ],
         "en": [
           "psychologist-psychologist-old-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal"
+          "psychologist-psychologist-age-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal"
@@ -1074,7 +1075,7 @@
       "slug": "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
         "de": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
         "fr": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
       },
@@ -1123,14 +1124,15 @@
       "validThrough": "2026-07-08",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+        "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+        "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
         ],
         "en": [
-          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+          "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:58.050Z",
@@ -1741,12 +1743,12 @@
     },
     {
       "id": "sro-42f198e3a8c0",
-      "slug": "professional-health-fage-centro-di-emergenza-50-100-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "centro-di-pronto-soccorso-specialista-sanitario-fage-50-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-notfallzentrum-50-100-sro-langenthal",
-        "it": "professional-health-fage-centro-di-emergenza-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "professional-health-fage-emergency-center-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "fr": "centre-d-urgence-en-sante-professionnelle-fage-50-100-sro-ag-spital-region-oberaargau-langenthal"
+        "it": "centro-di-pronto-soccorso-specialista-sanitario-fage-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "fachperson-gesundheit-fage-notfallzentrum-50-100-sro-langenthal",
+        "fr": "fachperson-gesundheit-fage-notfallzentrum-50-100-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1754,16 +1756,16 @@
       "title": "Fachperson Gesundheit (FaGe) Notfallzentrum 50 - 100 %",
       "titleByLocale": {
         "de": "Fachperson Gesundheit (FaGe) Notfallzentrum 50 - 100 %",
-        "it": "Professional Health (FaGe) Centro di emergenza 50 - 100%",
-        "en": "Professional Health (FaGe) Emergency Center 50 - 100%",
-        "fr": "Centre d'urgence en santé professionnelle (FaGe) 50 - 100%"
+        "it": "Centro di Pronto Soccorso Specialista Sanitario (FaGe) 50 - 100 %",
+        "en": "Specialist Health (FaGe) Emergency Center 50 - 100%",
+        "fr": "Centre d'urgence spécialisé en santé (FaGe) 50 - 100%"
       },
       "description": "Wir suchen ab dem 01. September 2026 oder nach Vereinbarung eine Das bewirken Sie bei uns\n• Mithilfe oder selbständige Behandlung und Betreuung von Patienten des Notfallzentrums\n• Durchführung einfacher Blutanalysen\n• Schreiben von EKG's\n• Unterstützung der Ärzte und der Pflege bei behandlungspflegerischen Verrichtungen\n• Anpassen jeglicher Art von Fixationen oder Gipsverbänden\n• Hauswirtschaftliche Tätigkeiten im Notfallzentrum Das bringen Sie mit\n• Abgeschlossene Ausbildung zur FaGe\n• Einige Jahre Berufserfahrung auf einer Akutabteilung\n• Selbständige und eigenverantwortliche Arbeitsweise Bei uns arbeiten\n• Verantwortungsvolle und interessante Aufgaben in einem dynamischen Umfeld\n• Eine patientenorientierte und interdisziplinäre Zusammenarbeit\n• Eine moderne und hochstehende Infrastruktur\n• Zeitgemässe Anstellungsbedingungen nach GAV\n• Parkplätze und eine gute Anbindung an den ÖV\n• Weiterbildungsmöglichkeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Mithilfe oder selbständige Behandlung und Betreuung von Patienten des Notfallzentrums\n• Durchführung einfacher Blutanalysen\n• Schreiben von EKG's\n• Unterstützung der Ärzte und der Pflege bei behandlungspflegerischen Verrichtungen\n• Anpassen jeglicher Art von Fixationen oder Gipsverbänden\n• Hauswirtschaftliche Tätigkeiten im Notfallzentrum\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur FaGe\n• Einige Jahre Berufserfahrung auf einer Akutabteilung\n• Selbständige und eigenverantwortliche Arbeitsweise",
       "descriptionByLocale": {
         "de": "Wir suchen ab dem 01. September 2026 oder nach Vereinbarung eine Das bewirken Sie bei uns\n• Mithilfe oder selbständige Behandlung und Betreuung von Patienten des Notfallzentrums\n• Durchführung einfacher Blutanalysen\n• Schreiben von EKG's\n• Unterstützung der Ärzte und der Pflege bei behandlungspflegerischen Verrichtungen\n• Anpassen jeglicher Art von Fixationen oder Gipsverbänden\n• Hauswirtschaftliche Tätigkeiten im Notfallzentrum Das bringen Sie mit\n• Abgeschlossene Ausbildung zur FaGe\n• Einige Jahre Berufserfahrung auf einer Akutabteilung\n• Selbständige und eigenverantwortliche Arbeitsweise Bei uns arbeiten\n• Verantwortungsvolle und interessante Aufgaben in einem dynamischen Umfeld\n• Eine patientenorientierte und interdisziplinäre Zusammenarbeit\n• Eine moderne und hochstehende Infrastruktur\n• Zeitgemässe Anstellungsbedingungen nach GAV\n• Parkplätze und eine gute Anbindung an den ÖV\n• Weiterbildungsmöglichkeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Mithilfe oder selbständige Behandlung und Betreuung von Patienten des Notfallzentrums\n• Durchführung einfacher Blutanalysen\n• Schreiben von EKG's\n• Unterstützung der Ärzte und der Pflege bei behandlungspflegerischen Verrichtungen\n• Anpassen jeglicher Art von Fixationen oder Gipsverbänden\n• Hauswirtschaftliche Tätigkeiten im Notfallzentrum\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur FaGe\n• Einige Jahre Berufserfahrung auf einer Akutabteilung\n• Selbständige und eigenverantwortliche Arbeitsweise",
-        "it": "Cerchiamo dal 01. Settembre 2026 o su richiesta Questo porterà a noi\n• Assistenza o trattamento indipendente e cura dei pazienti del centro di emergenza\n• Eseguire semplici analisi del sangue\n• Lettera di ECG\n• Supporto per i medici e la cura nei servizi di cura\n• Adattare qualsiasi tipo di fissazioni o cast\n• Attività di pulizia nel centro di emergenza\n• Formazione completa per FaGe\n• Diversi anni di esperienza professionale in un reparto acuto\n• Metodi di lavoro autonomi e responsabili\n• Attività responsabili e interessanti in un ambiente dinamico\n• Cooperazione paziente e interdisciplinare\n• Un'infrastruttura moderna e di alto livello\n• Condizioni di lavoro attuali secondo GAV\n• Parcheggio e una buona connessione ai trasporti pubblici\n• SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nCompiti:\n• Assistenza o trattamento indipendente e cura dei pazienti del centro di emergenza\n• Eseguire semplici analisi del sangue\n• Lettera di ECG\n• Supporto per i medici e la cura nei servizi di cura\n• Adattare qualsiasi tipo di fissazioni o cast\n• Attività domestiche nel centro di emergenza\n\nRequisiti\n• Formazione completa per FaGe\n• Diversi anni di esperienza professionale in un reparto acuto\n• Metodi di lavoro autonomi e responsabili",
-        "en": "We search from 01. September 2026 or by arrangement This will bring about with us\n• Assistance or independent treatment and care of patients of the emergency center\n• Perform simple blood analyses\n• Letter from ECG's\n• Support for doctors and care in treatment nursing services\n• Adapting any type of fixations or casts\n• Housekeeping activities in the emergency center\n• Completed training for FaGe\n• Several years of professional experience in an acute department\n• Self-employed and self-responsible working methods Work for us\n• Responsible and interesting tasks in a dynamic environment\n• Patient-oriented and interdisciplinary cooperation\n• A modern and high-level infrastructure\n• Current employment conditions according to GAV\n• Parking and a good connection to public transport\n• Further training opportunities SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTasks:\n• Assistance or independent treatment and care of patients of the emergency center\n• Perform simple blood analyses\n• Letter from ECG's\n• Support for doctors and care in treatment nursing services\n• Adapting any type of fixations or casts\n• Domestic activities in the emergency centre\n\nRequirements\n• Completed training for FaGe\n• Several years of professional experience in an acute department\n• Self-employed and self-responsible working methods",
-        "fr": "Nous cherchons à partir de 01. Septembre 2026 ou par arrangement Cela nous amènera à\n• Assistance ou traitement et soins indépendants des patients du centre d'urgence\n• Effectuer de simples analyses sanguines\n• Lettre de ECG\n• Soutien aux médecins et aux soins dans les services de soins infirmiers\n• Adapter tout type de fixation ou de moulage\n• Activités de ménage dans le centre d'urgence\n• Formation complète pour FaGe\n• Plusieurs années d'expérience professionnelle dans un service aigu\n• Méthodes de travail indépendantes et indépendantes Travaillez pour nous\n• Des tâches responsables et intéressantes dans un environnement dynamique\n• Coopération axée sur le patient et interdisciplinaire\n• Une infrastructure moderne et de haut niveau\n• Conditions d'emploi actuelles selon GAV\n• Parking et une bonne connexion aux transports en commun\n• Autres possibilités de formation SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\n• Assistance ou traitement et soins indépendants des patients du centre d'urgence\n• Effectuer de simples analyses sanguines\n• Lettre de ECG\n• Soutien aux médecins et aux soins dans les services de soins infirmiers\n• Adapter tout type de fixation ou de moulage\n• Activités domestiques dans le centre d'urgence\n\nExigences\n• Formation complète pour FaGe\n• Plusieurs années d'expérience professionnelle dans un service aigu\n• Méthodes de travail indépendantes et indépendantes"
+        "it": "Cerchiamo dal 01. Settembre 2026 o su richiesta Questo porterà a noi\n• Assistenza o trattamento indipendente e cura dei pazienti del centro di emergenza\n• Eseguire semplici analisi del sangue\n• Lettera di ECG\n• Assistenza a medici e infermieri nei servizi di trattamento\n• Adattare qualsiasi tipo di fissazioni o cast\n• Attività di pulizia nel centro di emergenza\n• Formazione completa per FaGe\n• Diversi anni di esperienza professionale in un reparto acuto\n• Metodi di lavoro autonomi e responsabili\n• Attività responsabili e interessanti in un ambiente dinamico\n• Cooperazione paziente e interdisciplinare\n• Un'infrastruttura moderna e di alto livello\n• Condizioni di lavoro attuali secondo GAV\n• Parcheggio e una buona connessione ai trasporti pubblici\n• SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nCompiti:\n• Assistenza o trattamento indipendente e cura dei pazienti del centro di emergenza\n• Eseguire semplici analisi del sangue\n• Lettera di ECG\n• Assistenza a medici e infermieri nei servizi di trattamento\n• Adattare qualsiasi tipo di fissazioni o cast\n• Attività domestiche nel centro di emergenza\n\nRequisiti\n• Formazione completa per FaGe\n• Diversi anni di esperienza professionale in un reparto acuto\n• Metodi di lavoro autonomi e responsabili",
+        "en": "We search from 01. September 2026 or by arrangement This will bring about with us\n• Assistance or independent treatment and care of patients of the emergency center\n• Perform simple blood analyses\n• Letter from ECG's\n• Assistance to doctors and nursing in treatment services\n• Adapting any type of fixations or casts\n• Housekeeping activities in the emergency center\n• Completed training for FaGe\n• Several years of professional experience in an acute department\n• Self-employed and self-responsible working methods Working for us\n• Responsible and interesting tasks in a dynamic environment\n• Patient-oriented and interdisciplinary cooperation\n• A modern and high-level infrastructure\n• Current employment conditions according to GAV\n• Parking and a good connection to public transport\n• Further training opportunities SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTasks:\n• Assistance or independent treatment and care of patients of the emergency center\n• Perform simple blood analyses\n• Letter from ECG's\n• Assistance to doctors and nursing in treatment services\n• Adapting any type of fixations or casts\n• Domestic activities in the emergency centre\n\nRequirements\n• Completed training for FaGe\n• Several years of professional experience in an acute department\n• Self-employed and self-responsible working methods",
+        "fr": "Nous cherchons depuis 01. Septembre 2026 ou par arrangement Cela nous amènera à\n• Assistance ou traitement et soins indépendants des patients du centre d'urgence\n• Effectuer des analyses de sang simples\n• Lettre de ECG\n• Assistance aux médecins et aux infirmières dans les services de traitement\n• Adapter tout type de fixation ou de moulage\n• Activités de ménage dans le centre d'urgence\n• Formation complète pour FaGe\n• Plusieurs années d'expérience professionnelle dans un service aigu\n• Méthodes de travail indépendantes et indépendantes Travaillant pour nous\n• Des tâches responsables et intéressantes dans un environnement dynamique\n• Coopération axée sur le patient et interdisciplinaire\n• Une infrastructure moderne et de haut niveau\n• Conditions d'emploi actuelles selon GAV\n• Parking et une bonne connexion aux transports publics\n• Autres possibilités de formation SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\n• Assistance ou traitement et soins indépendants des patients du centre d'urgence\n• Effectuer des analyses de sang simples\n• Lettre de ECG\n• Assistance aux médecins et aux infirmières dans les services de traitement\n• Adapter tout type de fixation ou de moulage\n• Activités domestiques dans le centre d'urgence\n\nExigences\n• Formation complète pour FaGe\n• Plusieurs années d'expérience professionnelle dans un service aigu\n• Méthodes de travail indépendantes et indépendantes"
       },
       "location": "Langenthal",
       "canton": "BE",
@@ -1809,19 +1811,11 @@
       "firstSeenAt": "2026-06-25T12:04:55.320Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fage-notfallzentrum-50-100-sro-langenthal",
-          "centro-di-pronto-soccorso-specialista-sanitario-fage-50-100-sro-ag-spital-region-oberaargau-langenthal"
-        ],
-        "en": [
-          "fachperson-gesundheit-fage-notfallzentrum-50-100-sro-langenthal"
-        ],
-        "fr": [
           "fachperson-gesundheit-fage-notfallzentrum-50-100-sro-langenthal"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fage-notfallzentrum-50-100-sro-langenthal",
-        "centro-di-pronto-soccorso-specialista-sanitario-fage-50-100-sro-ag-spital-region-oberaargau-langenthal"
+        "fachperson-gesundheit-fage-notfallzentrum-50-100-sro-langenthal"
       ]
     },
     {
@@ -2500,7 +2494,7 @@
       "slug": "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital",
       "slugByLocale": {
         "it": "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital",
-        "en": "dipl-nursing-professional-hf-fh-80-100-br-department-of-general-medicine-geriatric-acute-rehabilitation-sro-ag-spital",
+        "en": "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
         "de": "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
         "fr": "infirmiere-diplomee-hf-fh-80-100-departement-de-medecine-generale-reeducation-aigue-geriatrique-sro-ag-spital-region"
       },
@@ -2552,6 +2546,7 @@
         "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
         "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
+        "dipl-nursing-professional-hf-fh-80-100-br-department-of-general-medicine-geriatric-acute-rehabilitation-sro-ag-spital",
         "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal",
         "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal"
@@ -2563,7 +2558,7 @@
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
-          "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische"
+          "dipl-nursing-professional-hf-fh-80-100-br-department-of-general-medicine-geriatric-acute-rehabilitation-sro-ag-spital"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
@@ -2592,7 +2587,7 @@
       "slug": "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
         "de": "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
         "fr": "dipl-infirmiere-ic-fh-70-100-medecine-generale-sro-ag-spital-region-oberaargau-langenthal"
       },
@@ -2641,14 +2636,15 @@
       "validThrough": "2026-07-14",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
+        "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+          "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
@@ -2673,7 +2669,7 @@
       "slug": "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
         "de": "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
         "fr": "dipl-infirmiere-ic-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
       },
@@ -2722,14 +2718,15 @@
       "validThrough": "2026-07-14",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+        "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
+          "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
@@ -2835,7 +2832,7 @@
       "slug": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-cura-di-palliativ-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-cura-di-palliativ-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-care-professional-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
         "de": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
         "fr": "dipl-soins-professionnels-hf-fh-40-100-br-soins-medicaux-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal"
       },
@@ -2845,7 +2842,7 @@
       "title": "Dipl. Pflegefachperson HF/FH 40 - 100%<br/>Medizin / Palliativ Care",
       "titleByLocale": {
         "it": "Dipl. Pflegefachperson HF/FH 40 - 100% <br/>Medizin / Cura di Palliativ",
-        "en": "Dipl. Care professional HF/FH 40 - 100%<br/>Medicine / Palliative Care",
+        "en": "Dipl. Nurse HF/FH 40 - 100%<br/>Medicine / Palliative Care",
         "de": "Dipl. Pflegefachperson HF/FH 40 - 100%<br/>Medizin / Palliativ Care",
         "fr": "Dipl. Soins professionnels HF/FH 40 - 100% <br/> Soins médicaux / soins palliatifs"
       },
@@ -2886,6 +2883,7 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
         "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-care-professional-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-40-100-medizin-palliativ-sro-ag-spital-region-oberaargau-langenthal",
         "infermiere-diplomato-hf-fh-40-100-medicina-palliativ-care-sro-ag-spital-region-oberaargau-langenthal",
         "infirmier-diplome-hf-fh-40-100-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal"
@@ -2896,7 +2894,7 @@
         ],
         "en": [
           "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
+          "dipl-care-professional-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-04T13:47:07.724Z",
@@ -2915,9 +2913,9 @@
     },
     {
       "id": "sro-1812e0a96933",
-      "slug": "dipl-infermiera-hf-80-100-urologia-ambulatoria-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "dipl-pflegefachperson-hf-80-100-ambulante-urologie-sro-langenthal",
       "slugByLocale": {
-        "it": "dipl-infermiera-hf-80-100-urologia-ambulatoria-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "dipl-pflegefachperson-hf-80-100-ambulante-urologie-sro-langenthal",
         "en": "dipl-nurse-hf-80-100-ambulatory-urology-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachperson-hf-80-100-ambulante-urologie-sro-langenthal",
         "fr": "dipl-pflegefachperson-hf-80-100-urologie-sro-ag-spital-region-oberaargau-langenthal"
@@ -2967,11 +2965,11 @@
       "validThrough": "2026-07-10",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-80-100-ambulante-urologie-sro-langenthal"
+        "dipl-infermiera-hf-80-100-urologia-ambulatoria-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-80-100-ambulante-urologie-sro-langenthal"
+          "dipl-infermiera-hf-80-100-urologia-ambulatoria-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-12T23:18:44.661Z",
@@ -3577,7 +3575,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF oder TOA 80 - 100 %",
       "titleByLocale": {
         "it": "Dipl. Fachperson Operationstechnik HF o TOA 80 - 100 %",
-        "en": "Dipl. Specialist surgical technique HF or TOA 80 - 100%",
+        "en": "Dipl. Specialist surgical technology HF or TOA 80 - 100%",
         "de": "Dipl. Fachperson Operationstechnik HF oder TOA 80 - 100 %",
         "fr": "Dipl. Technique chirurgicale spécialisée HF ou TOA 80 - 100%"
       },

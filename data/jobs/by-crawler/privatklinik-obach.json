@@ -7,7 +7,7 @@
       "slug": "diplomato-a-in-tecnica-operativa-hf-privatklinik-obach-solothurn",
       "slugByLocale": {
         "it": "diplomato-a-in-tecnica-operativa-hf-privatklinik-obach-solothurn",
-        "en": "dipl-specialist-operations-engineering-hf-privatklinik-obach-solothurn",
+        "en": "dipl-fachperson-operationstechnik-hf-privatklinik-obach",
         "de": "dipl-fachperson-operationstechnik-hf-privatklinik-obach",
         "fr": "diplome-e-en-technique-operatoire-hf-privatklinik-obach-solothurn"
       },
@@ -17,7 +17,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF",
       "titleByLocale": {
         "it": "Diplomato/a in Tecnica Operativa HF",
-        "en": "Dipl. Specialist Operations Engineering HF",
+        "en": "Dipl. Specialist surgical technique HF",
         "de": "Dipl. Fachperson Operationstechnik HF",
         "fr": "Diplômé(e) en Technique Opératoire HF"
       },
@@ -73,7 +73,8 @@
       },
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-privatklinik-obach",
-        "dipl-specialist-surgical-technique-hf-privatklinik-obach-solothurn"
+        "dipl-specialist-surgical-technique-hf-privatklinik-obach-solothurn",
+        "dipl-specialist-operations-engineering-hf-privatklinik-obach-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -81,6 +82,7 @@
         ],
         "en": [
           "dipl-specialist-surgical-technique-hf-privatklinik-obach-solothurn",
+          "dipl-specialist-operations-engineering-hf-privatklinik-obach-solothurn",
           "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
         ]
       },

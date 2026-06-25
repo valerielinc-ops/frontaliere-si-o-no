@@ -1469,9 +1469,9 @@
     },
     {
       "id": "lonza-b4558804df92",
-      "slug": "operatore-operatore-senior-lonza-ch",
+      "slug": "operator-senior-operator-lonza-ch",
       "slugByLocale": {
-        "it": "operatore-operatore-senior-lonza-ch",
+        "it": "operator-senior-operator-lonza-ch",
         "en": "operator-senior-operator-lonza-ch",
         "de": "betreiber-senior-operator-lonza-ch",
         "fr": "operateur-senior-operateur-lonza-ch"
@@ -1515,10 +1515,11 @@
       "crawledAt": "2026-06-25T11:39:53.935Z",
       "jobReqId": "R62662",
       "previousSlugs": [
-        "operator-senior-operator-lonza-ch"
+        "operatore-operatore-senior-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "operatore-operatore-senior-lonza-ch",
           "operator-senior-operator-lonza-ch"
         ]
       },
@@ -1542,7 +1543,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-f-m-d-lonza-ch",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechanik-f-m-d-lonza-ch",
+        "de": "line-mechanic-f-m-d-lonza-ch",
         "fr": "mecanicien-de-ligne-f-m-d-lonza-ch"
       },
       "company": "Lonza",
@@ -1584,13 +1585,15 @@
       "crawledAt": "2026-06-25T11:39:52.830Z",
       "jobReqId": "R75658",
       "previousSlugs": [
-        "line-mechanic-f-m-d-lonza-ch"
+        "line-mechanic-f-m-d-lonza-ch",
+        "streckenmechanik-f-m-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "line-mechanic-f-m-d-lonza-ch"
         ],
         "de": [
+          "streckenmechanik-f-m-d-lonza-ch",
           "line-mechanic-f-m-d-lonza-ch"
         ],
         "fr": [
@@ -1760,7 +1763,7 @@
       "slug": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
       "slugByLocale": {
         "it": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
-        "en": "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
+        "en": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
         "de": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
         "fr": "genie-du-travail-pour-6-a-12-mois-m-f-j-lonza-ch"
       },
@@ -1770,7 +1773,7 @@
       "title": "Praktikum Betriebsengineering für 6-12 Monate (m/w/d)",
       "titleByLocale": {
         "it": "Praktikum Betriebsengineering per 6-12 Monate (m/w/d)",
-        "en": "Workplace engineering for 6-12 months (m/f/d)",
+        "en": "Workplace Engineering for 6-12 months (m/f/d)",
         "de": "Praktikum Betriebsengineering für 6-12 Monate (m/w/d)",
         "fr": "Génie du travail pour 6 à 12 mois (m/f/j)"
       },
@@ -1803,13 +1806,15 @@
       "crawledAt": "2026-06-25T11:39:50.135Z",
       "jobReqId": "R75798",
       "previousSlugs": [
-        "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch"
+        "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
+        "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch"
         ],
         "en": [
+          "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch"
         ]
       },
@@ -3701,9 +3706,9 @@
     },
     {
       "id": "lonza-e7a11433b07a",
-      "slug": "corso-di-laurea-integrato-pibs-stage-nel-team-sostenibilita-40-100-m-f-d-lonza-ch",
+      "slug": "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "corso-di-laurea-integrato-pibs-stage-nel-team-sostenibilita-40-100-m-f-d-lonza-ch",
+        "it": "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch",
         "en": "integrated-bachelor-s-degree-pibs-internship-in-the-sustainability-team-40-100-m-f-d-lonza-ch",
         "de": "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch",
         "fr": "baccalaureat-integre-pibs-stage-dans-l-equipe-de-durabilite-40-100-m-f-d-lonza-ch"
@@ -3713,7 +3718,7 @@
       "companyDomain": "lonza.com",
       "title": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team 40–100% (m/w/d)",
       "titleByLocale": {
-        "it": "Corso di laurea integrato (PiBS): Stage nel Team Sostenibilità 40-100% (m/f/d)",
+        "it": "Corso di laurea integrato (PiBS): stage in Sostenibilità Team 40-100% (m/f/d)",
         "en": "Integrated Bachelor’s degree (PiBS): Internship in the Sustainability Team 40–100% (m/f/d)",
         "de": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team 40–100% (m/w/d)",
         "fr": "Baccalauréat intégré (PiBS): Stage dans l'équipe de durabilité 40–100% (m/f/d)"
@@ -3751,6 +3756,7 @@
           "laurea-triennale-integrata-nella-pratica-pibs-tirocinio-nel-team-di-sostenibilita-40-100-m-f-d-lonza-ch",
           "corso-di-laurea-integrato-pibs-stage-in-sostenibilita-team-40-100-m-f-d-lonza-ch",
           "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-40-100-m-w-d-lonza-ch",
+          "corso-di-laurea-integrato-pibs-stage-nel-team-sostenibilita-40-100-m-f-d-lonza-ch",
           "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch"
         ],
         "en": [
@@ -3764,7 +3770,7 @@
         "laurea-triennale-integrata-nella-pratica-pibs-tirocinio-nel-team-di-sostenibilita-40-100-m-f-d-lonza-ch",
         "corso-di-laurea-integrato-pibs-stage-in-sostenibilita-team-40-100-m-f-d-lonza-ch",
         "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-40-100-m-w-d-lonza-ch",
-        "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch"
+        "corso-di-laurea-integrato-pibs-stage-nel-team-sostenibilita-40-100-m-f-d-lonza-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T23:26:08.273Z",
@@ -4012,7 +4018,7 @@
         "it": "Tecnico di laboratorio / Tecnico di automazione 80-100% (m/f/g)",
         "en": "Laborator(in) / Automatician 80-100% (m/f/d)",
         "de": "Laborant(in) / Automatiker 80-100% (m/w/d)",
-        "fr": "Laboratoire(in) / Automatique 80-100% (m/f/d)"
+        "fr": "Laborator(in) / Automatician 80-100% (m/f/d)"
       },
       "description": "Lonza ist heute ein weltweit führendes Unternehmen im Bereich Life Sciences, welches auf fünf Kontinenten tätig ist. Wir sind in der Wissenschaft tätig, jedoch gibt es keine Zauberformel dafür, wie wir die Arbeit angehen. Unsere wichtigste wissenschaftliche Lösung sind talentierte Mitarbeitende, die zusammenarbeiten und Ideen entwickeln, die anderen Unternehmen helfen, Menschen zu helfen. Im Gegenzug steuern unsere Mitarbeitenden ihre Karriere selbstständig. Denn ihre Ideen, ob gross und klein, verbessern die Welt. Und das ist die Art von Arbeit, an der wir Teil haben möchten.\n\nAm Standort Visp  wird ein/eine Laborant/in – Automatiker/in gesucht.\nDer Stelleninhaber ist für den Betrieb, die Instandhaltung, Störungsbehebung und Neu-Beschaffung von Laborgeräten und Laborautomaten verantwortlich.\n\nIhre Aufgaben\n\n• Verwaltung, Kontrolle und Pflege aller zugeordneten Laborgeräte und ‑automaten in den Entwicklungs‑ und Prozessoptimierungslaboren\n\n• Sicherstellung einer aktuellen und vollständigen Dokumentation aller Laborgeräte in SAP\n\n• Instandhaltung, Störungsbehebung sowie Koordination von Neubeschaffungen und Upgrades des Laborgeräteparks\n\n• Schulung der Laborteams in der fachgerechten Bedienung von Laborgeräten und Laborautomaten\n\n• Pflege und Nachverfolgung der Gerätehistorie in SAP\n\nIhr Anforderungsprofil\n\n• Abgeschlossene Ausbildung als Laborant/in oder Automatiker/in\n\n• Mehrjährige Berufserfahrung im Syntheselaborumfeld, idealerweise mit Fokus auf Laborautomatisation\n\n• Erfahrung im Aufbau, in der Konfiguration und Anpassung von Laborautomaten\n\n• Erfahrung in der Planung und Durchführung von Schulungen sowie in der Erstellung von Schulungsunterlagen\n\n• Technisches Verständnis und handwerkliches Geschick für mechanische Anpassungen und Reparaturen an Laborgeräten\n\n• Gutes Verständnis für Sicherheits‑ und Qualitätsstandards im Laborbetrieb\n\n• Ausgeprägte Kommunikations‑ und Präsentationsfähigkeiten\n\n• Teamfähigkeit sowie Freude an der Arbeit in einem dynamischen Umfeld\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Problemlösungsfähigkeit und technisches Verständnis\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Englischkenntnisse sind von Vorteil\n\nLonzas Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt.\n\nZu Lonza kommen Menschen, die Herausforderungen annehmen und mit ihrer Kreativität im Bereich Life Science neue Ideen für komplexe Problemstellungen entwickeln. Zusammen leisten wir einen Beitrag, der das Leben vieler Menschen auf der ganzen Welt verbessern kann. Dies bietet ihnen die Gewissheit und die Zufriedenheit, mit der eigenen Arbeit wirklich einen Unterschied zu machen.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
@@ -6590,7 +6596,7 @@
       "slug": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-m-w-d-offen-lonza-ch",
       "slugByLocale": {
         "it": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-m-w-d-offen-lonza-ch",
-        "en": "bioprocess-engineer-automation-in-pharmaceutical-production-m-f-d-open-lonza-ch",
+        "en": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-m-w-d-offen-lonza-c",
         "de": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-m-w-d-offen-lonza-c",
         "fr": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-m-w-d-offen-lonza-ch"
       },
@@ -6633,10 +6639,11 @@
       "crawledAt": "2026-06-25T11:38:46.434Z",
       "jobReqId": "R72763",
       "previousSlugs": [
-        "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-m-w-d-offen-lonza-c"
+        "bioprocess-engineer-automation-in-pharmaceutical-production-m-f-d-open-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "bioprocess-engineer-automation-in-pharmaceutical-production-m-f-d-open-lonza-ch",
           "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-m-w-d-offen-lonza-c"
         ]
       },
@@ -9084,7 +9091,7 @@
       "slug": "ingegnere-di-progetto-80-100-lun-venedi-d-lonza-ch",
       "slugByLocale": {
         "it": "ingegnere-di-progetto-80-100-lun-venedi-d-lonza-ch",
-        "en": "project-engineer-80-100-m-f-d-lonza-ch",
+        "en": "projektingenieur-80-100-m-w-d-lonza-ch",
         "de": "projektingenieur-80-100-m-w-d-lonza-ch",
         "fr": "ingenieur-de-projet-80-100-m-f-j-lonza-ch"
       },
@@ -9127,13 +9134,15 @@
       "crawledAt": "2026-06-25T11:38:13.738Z",
       "jobReqId": "R73097",
       "previousSlugs": [
-        "projektingenieur-80-100-m-w-d-lonza-ch"
+        "projektingenieur-80-100-m-w-d-lonza-ch",
+        "project-engineer-80-100-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektingenieur-80-100-m-w-d-lonza-ch"
         ],
         "en": [
+          "project-engineer-80-100-m-f-d-lonza-ch",
           "projektingenieur-80-100-m-w-d-lonza-ch"
         ],
         "fr": [
@@ -10508,9 +10517,9 @@
     },
     {
       "id": "lonza-ee37613ec844",
-      "slug": "operatore-operatore-centrale-bioconjugates-pcp-100-m-f-d-lonza-ch",
+      "slug": "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch",
       "slugByLocale": {
-        "it": "operatore-operatore-centrale-bioconjugates-pcp-100-m-f-d-lonza-ch",
+        "it": "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch",
         "en": "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch",
         "de": "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch",
         "fr": "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch"
@@ -10554,10 +10563,11 @@
       "crawledAt": "2026-06-25T11:37:54.548Z",
       "jobReqId": "R75989",
       "previousSlugs": [
-        "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch"
+        "operatore-operatore-centrale-bioconjugates-pcp-100-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "operatore-operatore-centrale-bioconjugates-pcp-100-m-f-d-lonza-ch",
           "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch"
         ]
       },
@@ -10869,9 +10879,9 @@
     },
     {
       "id": "lonza-65553d5c3a1c",
-      "slug": "biotecnologo-m-f-d-lonza-ch",
+      "slug": "biotechnologist-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "biotecnologo-m-f-d-lonza-ch",
+        "it": "biotechnologist-m-f-d-lonza-ch",
         "en": "biotechnologist-m-f-d-lonza-ch",
         "de": "biotechnologist-m-f-d-lonza-ch",
         "fr": "biotechnologue-m-f-d-lonza-ch"
@@ -10915,10 +10925,11 @@
       "crawledAt": "2026-06-25T11:37:49.305Z",
       "jobReqId": "R73688",
       "previousSlugs": [
-        "biotechnologist-m-f-d-lonza-ch"
+        "biotecnologo-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "biotecnologo-m-f-d-lonza-ch",
           "biotechnologist-m-f-d-lonza-ch"
         ],
         "fr": [
@@ -11330,7 +11341,7 @@
         "it": "Laboratorio (m/f) QC Mammalian",
         "en": "Laboratory (m/f) QC Mammalian",
         "de": "Laborant (m/w) QC Mammalian",
-        "fr": "Laboratoire (m/f) QC Mammalian"
+        "fr": "Laboratoire (m/f) QC Mammalien"
       },
       "description": "Ibex® Solutions (www.ibex.lonza.com) ist ein modularer Komplex für die Entwicklung und Herstellung von biologischen Produkten. Unternehmen können damit auf eine Komplettlösung zugreifen, dabei an Schnelligkeit gewinnen und eine vereinfachte Wertschöpfungskette erreichen.\n\nDer Ibex® Komplex ist unser Beitrag für die Medizin von morgen und möglicherweise der nächste Schritt in Ihrer persönlichen Entwicklung. Starten Sie noch heute Ihre Karriere bei Lonza. Bewerben Sie sich als Laborant/-in 60-100% (m/w/d) QC Mammalian an unserem Standort in Visp, Switzerland.\n\nLaborant (m/w) QC Mammalian 60-100%\n\n• Durchführung analytischer Methoden im GMP-Umfeld wie zum Beispiel:\n\n• Chromatographie: HPLC, CE, icIEF etc.\n\n• Biochemie: ELISA, qPCR, SDS-Page etc.\n\n• Mitarbeit bei Transfer und Validierung neuer Methoden\n\n• Betreuung von Laborequipment und damit verbundene Geräteverantwortung\n\n• Untersuchen von Abweichungen und unerwarteten Resultaten, Troubleshooting\n\n• Datenextraktionen und -auswertung (u.a. MS Excel)\n\n•\n\nAnforderungsprofil:\n\n• Berufsausbildung (Laborant Biologie/Chemie) und erste Berufserfahrungen\n\n• Kenntnisse in der Durchführung analytischer Methoden (Chromatographie und/oder Biochemie)\n\n• Idealerweise Erfahrung im GMP-Umfeld\n\n• gute Deutschkenntnisse und gutes Leseverständnis englischsprachiger Dokumente\n\nEs bereitet ihnen Freude, sich auf wechselnden Herausforderungen im Projektumfeld einzulassen und Teil einer diversen Firmenkultur zu werden? Offenheit, Teamfähigkeit und Flexibilität zeichnen sie aus und ihr Profil wird durch einen effizienten und kooperativen Kommunikationsstil abgerundet? Wir bieten ihnen ein internationales und schnellebiges Umfeld, in dem sie ihr Fähigkeiten entfalten und weiterentwickeln können. Wenn sie mehr über Lonza und diese Position erfahren möchten, freuen wir uns bereits auf den Eingang ihrer Bewerbung.\n\nLonza’s Produkte und Services wirken sich täglich positiv auf Millionen von Menschen aus. Für uns stellt dies nicht nur eine grosse Ehre, sondern auch eine grosse Verantwortung, dar. Wie wir unsere Geschäftsergebnisse erreichen ist für uns genauso wichtig wie unsere Erfolge selbst. Bei Lonza wird Respekt grossgeschrieben und wir schützen sowohl unsere Mitarbeiter als auch unsere Umwelt. Erfolg für uns bedeutet moralisch vertretbarer Fortschritt.\n\nMenschen werden Teil der Lonza, um herausfordernde und komplexe Problemstellungen durch kreative und innovative Ansätze im Bereich Life Sciences zu lösen. Im Gegenzug bieten wir die Zufriedenheit, die mit der Verbesserung des Lebens auf der ganzen Welt einhergeht. Die Zufriedenheit, die damit einhergeht, einen sinnvollen Unterschied zu machen.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
@@ -11616,7 +11627,7 @@
         "it": "Senior Laborant solidi 80-100% (m/f/d)",
         "en": "Senior Laborant Solids 80-100% (m/w/d)",
         "de": "Senior Laborant Feststoffe 80-100% (m/w/d)",
-        "fr": "Solides pour travailleurs âgés de 80 à 100 % (m/p/j)"
+        "fr": "Solides de travail senior 80-100 % (m/m/j)"
       },
       "description": "Location. Der tatsächliche Ort dieser Stelle befindet sich in Visp, Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung.\n\nAm Standort Visp wird im Bereich Pharma (Advanced Synthesis) ein/e erfahrene/r Laborant/in (m/w/d) mit Feststoffexpertise gesucht. In dieser Rolle sind Sie für die Planung, Durchführung und Auswertung von Laborexperimenten im Feststoffbereich zuständig. Im Weiteren sind Sie für den Betrieb und die Weiterentwicklung des Feststofflabors zuständig und stehen Kollegen bei Experimenten beratend zur Seite. Zusammen mit Sachbearbeitern vertreten Sie den Feststoffbereich in Projektteams im Bereich Entwicklung, Optimierung und Troubleshooting.\n\nWas auf Sie wartet:\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Ein integratives und ethisches Arbeitsumfeld\n\n• Vergütungsprogramme, die hohe Leistung anerkennen.\n\nNeben einem wettbewerbsfähigen Gehalt erwarten Sie zahlreiche Vorteile für Lifestyle, Familie und Freizeit. Unsere vollständige Liste der lokalen Benefits finden Sie unten:\n\n• Benefits in Visp: https://bit.ly/3wjkoFi\n\nIhre Aufgaben:\n\n• Planung, Durchführung und Auswertung von Laborexperimenten im Bereich Kristallisation, Filtration, Trocknung, Mahlen, Sieben und Feststoffcharakterisierung\n\n• Betrieb und Weiterentwicklung vom Feststofflabor sowie Unterhalt der Geräte\n\n• Fachtechnische Laborverantwortung und Ansprechpartner für feststoffspezifische Fragestellung bei Laborexperimenten\n\n• Aus- und Weiterbildung von Lehrlingen & Praktikanten\n\n• Mitarbeit in Projekten bei feststoffspezifischen Fragestellungen und Unterstützung der Forschungs- und Entwicklungsgruppen, sowie der Produktionsbetriebe\n\nWas wir suchen:\n\n• Laborant EFZ (Chemie) oder vergleichbar\n\n• Mehrjährige Berufserfahrung im Feststoffbereich\n\n• Gute Deutschkenntnisse sind notwendig, zusätzliche Englischkenntnisse sind von Vorteil\n\n• Teamfähigkeit\n\n• Freude an der interdisziplinären Arbeit\n\n• Vernetztes Denken\n\n• Kreatives, lösungsorientiertes Handeln\n\nÜber Lonza\nBei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte: Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen.\nInnovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen.\nBereit die Zukunft der Life Sciences zu gestalten? Jetzt bewerben!\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
