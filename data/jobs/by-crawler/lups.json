@@ -1839,7 +1839,7 @@
       "slug": "operatore-socio-sanitario-60-80-luzerner-psychiatrie-lups-sursee",
       "slugByLocale": {
         "it": "operatore-socio-sanitario-60-80-luzerner-psychiatrie-lups-sursee",
-        "en": "nurse-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
+        "en": "pflegefachperson-m-w-d-60-80-luzerner-psychiatrie-lups-sursee",
         "de": "pflegefachperson-m-w-d-60-80-luzerner-psychiatrie-lups-sursee",
         "fr": "professionnel-de-sante-h-f-60-80-luzerner-psychiatrie-lups-sursee"
       },
@@ -1849,7 +1849,7 @@
       "title": "Pflegefachperson (m/w/d) 60-80%",
       "titleByLocale": {
         "it": "Operatore Socio Sanitario 60-80%",
-        "en": "Nurse (m/f/d) 60-80 %",
+        "en": "Care professional (m/f/d) 60-80 %",
         "de": "Pflegefachperson (m/w/d) 60-80%",
         "fr": "Professionnel de santé (H/F) 60-80%"
       },
@@ -1917,13 +1917,14 @@
         ],
         "en": [
           "care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
+          "nurse-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
           "pflegefachperson-m-w-d-60-80-luzerner-psychiatrie-lups-sursee"
         ]
       },
       "previousSlugs": [
         "pflegefachperson-m-w-d-60-80-lups-sursee",
         "care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-sursee",
-        "pflegefachperson-m-w-d-60-80-luzerner-psychiatrie-lups-sursee"
+        "nurse-m-f-d-60-80-luzerner-psychiatrie-lups-sursee"
       ],
       "firstSeenAt": "2026-05-19T13:04:02.625Z",
       "salaryMin": 69500,
@@ -2347,7 +2348,7 @@
       "slug": "pflegefachperson-w-m-d-80-100-lups-sarnen",
       "slugByLocale": {
         "it": "pflegefachperson-w-m-d-80-100-lups-sarnen",
-        "en": "nurse-f-m-d-80-100-luzerner-psychiatrie-lups-sarnen",
+        "en": "pflegefachperson-w-m-d-80-100-lups-sarnen",
         "de": "pflegefachperson-w-m-d-80-100-lups-sarnen",
         "fr": "pflegefachperson-w-m-d-80-100-lups-sarnen"
       },
@@ -2416,12 +2417,18 @@
         ]
       },
       "previousSlugs": [
+        "nurse-f-m-d-80-100-luzerner-psychiatrie-lups-sarnen",
         "operatore-socio-sanitario-notturno-m-f-d-80-100-luzerner-psychiatrie-lups-sarnen",
         "night-care-nurse-m-f-d-80-100-luzerner-psychiatrie-lups-sarnen",
         "pflegefachperson-nachtwache-m-w-d-80-100-lups-sarnen",
         "infirmier-de-nuit-h-f-80-100-luzerner-psychiatrie-lups-sarnen"
       ],
       "firstSeenAt": "2026-05-19T13:03:58.361Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "nurse-f-m-d-80-100-luzerner-psychiatrie-lups-sarnen"
+        ]
+      },
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2743,7 +2750,7 @@
       "slug": "professionista-infermieristico-60-m-f-d-luzerner-psychiatrie-lups-sursee",
       "slugByLocale": {
         "it": "professionista-infermieristico-60-m-f-d-luzerner-psychiatrie-lups-sursee",
-        "en": "care-professional-60-m-f-d-luzerner-psychiatrie-lups-sursee",
+        "en": "pflegefachperson-60-m-w-d-luzerner-psychiatrie-lups-sursee",
         "de": "pflegefachperson-60-m-w-d-luzerner-psychiatrie-lups-sursee",
         "fr": "professionnel-le-de-soins-infirmier-e-s-60-h-f-luzerner-psychiatrie-lups-sursee"
       },
@@ -2815,12 +2822,13 @@
           "pflegefachperson-60-m-w-d-lups-sursee"
         ],
         "en": [
+          "care-professional-60-m-f-d-luzerner-psychiatrie-lups-sursee",
           "pflegefachperson-60-m-w-d-luzerner-psychiatrie-lups-sursee"
         ]
       },
       "previousSlugs": [
         "pflegefachperson-60-m-w-d-lups-sursee",
-        "pflegefachperson-60-m-w-d-luzerner-psychiatrie-lups-sursee"
+        "care-professional-60-m-f-d-luzerner-psychiatrie-lups-sursee"
       ],
       "firstSeenAt": "2026-05-19T13:03:55.105Z",
       "salaryMin": 69500,
@@ -3817,7 +3825,7 @@
         "it": "Psicologa Ambulante Transizioni Psichiatrici 80-100% (m/f/d)",
         "en": "Ambulant Psychologist Transitions Psychiatry 80-100% (m/f/d)",
         "de": "Psychologin Ambulante Transitionspsychiatrie 80-100% (m/w/d)",
-        "fr": "Psychologue en transition ambulatoire Psychiatrie 80-100 % (m/f/j)"
+        "fr": "Psychologue Ambulatoire Transition Psychiatrie 80-100% (m/f/j)"
       },
       "description": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nPsychologin Ambulante Transitionspsychiatrie 80-100% (m/w/d)\n\nIhre Aufgaben\n\n• Durchführung psychiatrischer Abklärungen von Jugendlichen und jungen Erwachsenen\n\n• Integrierte psychiatrisch-psychotherapeutische Behandlungen von Jugendlichen und ihren Familien im Übergang ins Erwachsenenalter (Transitionspsychiatrie)\n\n• Teilnahme an Fallbesprechungen\n\n• Engagierte Pflege der internen Schnittstellen zu KJPD, Erwachsenenpsychiatrie und Kriseninterventionszentrum (KIZ)\n\nIhr Profil\n\n• Fortgeschrittene oder abgeschlossene psychotherapeutische Weiterbildung\n\n• Mind. 1-2 Jahre Erfahrung in ambulanter und/oder stationärer Kinder-/Jugend-Psychiatrie und/oder Erwachsenenpsychiatrie\n\n• Kommunikative, flexible und offene Persönlichkeit mit einer selbstständigen Arbeitsweise und der Fähigkeit bereichsübergreifend und vernetzt zu arbeiten.\n\n• Freude und Neugier am sozialpsychiatrischen Spektrum und an der Arbeit mit Menschen im Adoleszenzalter\n\nVorteile\n\n• Teilnahme an externen Gruppensupervisionsangeboten und Weiterbildungen\n\n• Mind. 5 Wochen Ferien, Treuetag ab 3. Dienstjahr\n\n• Möglichkeit für unbezahlte Urlaube/Sabbatical\n\n• Vorteilhafte Sozialleistungen (Übernahme der KTG-Prämie und 2/3 der PK-Prämie)\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Liliane Michlig, Leitende Psychologin/Co-Stellenleitung T 058 856 54 58, liliane.michlig@lups.ch freut sich auf Ihre Kontaktaufnahme.\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Durchführung psychiatrischer Abklärungen von Jugendlichen und jungen Erwachsenen\n\nAnforderungen:\n• Fortgeschrittene oder abgeschlossene psychotherapeutische Weiterbildung",
       "descriptionByLocale": {
@@ -4189,7 +4197,7 @@
       "slug": "operatore-socio-sanitario-80-m-f-d-luzerner-psychiatrie-lups-sursee",
       "slugByLocale": {
         "it": "operatore-socio-sanitario-80-m-f-d-luzerner-psychiatrie-lups-sursee",
-        "en": "nurse-80-m-f-d-luzerner-psychiatrie-lups-sursee",
+        "en": "pflegefachperson-80-m-w-d-luzerner-psychiatrie-lups-sursee",
         "de": "pflegefachperson-80-m-w-d-luzerner-psychiatrie-lups-sursee",
         "fr": "professionnel-de-sante-80-h-f-luzerner-psychiatrie-lups-sursee"
       },
@@ -4250,12 +4258,13 @@
           "pflegefachperson-80-m-w-d-lups-sursee"
         ],
         "en": [
+          "nurse-80-m-f-d-luzerner-psychiatrie-lups-sursee",
           "pflegefachperson-80-m-w-d-luzerner-psychiatrie-lups-sursee"
         ]
       },
       "previousSlugs": [
         "pflegefachperson-80-m-w-d-lups-sursee",
-        "pflegefachperson-80-m-w-d-luzerner-psychiatrie-lups-sursee"
+        "nurse-80-m-f-d-luzerner-psychiatrie-lups-sursee"
       ],
       "firstSeenAt": "2026-05-19T13:03:43.680Z",
       "salaryMin": 69500,
@@ -4373,7 +4382,7 @@
       "slug": "ergoterapista-50-80-m-f-d-luzerner-psychiatrie-lups-sursee",
       "slugByLocale": {
         "it": "ergoterapista-50-80-m-f-d-luzerner-psychiatrie-lups-sursee",
-        "en": "occupational-therapist-50-60-m-f-d-luzerner-psychiatrie-lups-sursee",
+        "en": "ergotherapeut-50-80-m-w-d-luzerner-psychiatrie-lups-sursee",
         "de": "ergotherapeut-50-80-m-w-d-luzerner-psychiatrie-lups-sursee",
         "fr": "therapeute-en-ergotherapie-50-80-h-f-luzerner-psychiatrie-lups-sursee"
       },
@@ -4450,13 +4459,14 @@
           "ergotherapeut-50-60-m-w-d-lups-sursee"
         ],
         "en": [
+          "occupational-therapist-50-60-m-f-d-luzerner-psychiatrie-lups-sursee",
           "ergotherapeut-50-80-m-w-d-luzerner-psychiatrie-lups-sursee"
         ]
       },
       "previousSlugs": [
         "ergotherapeut-50-80-m-w-d-lups-sursee",
         "ergotherapeut-50-60-m-w-d-lups-sursee",
-        "ergotherapeut-50-80-m-w-d-luzerner-psychiatrie-lups-sursee"
+        "occupational-therapist-50-60-m-f-d-luzerner-psychiatrie-lups-sursee"
       ],
       "firstSeenAt": "2026-05-19T13:03:42.027Z",
       "salaryMin": 69500,
@@ -5900,7 +5910,7 @@
       "slug": "psicomotorik-terapia-40-m-w-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
         "it": "psicomotorik-terapia-40-m-w-d-luzerner-psychiatrie-lups-kriens",
-        "en": "psychomotor-therapist-40-m-f-d-luzerner-psychiatrie-lups-kriens",
+        "en": "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
         "de": "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
         "fr": "psychomotrice-therapeutine-40-m-p-j-luzerner-psychiatrie-lups-kriens"
       },
@@ -5944,13 +5954,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychomotorik-therapeutin-40-m-w-d-lups-kriens"
+        "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
+        "psychomotor-therapist-40-m-f-d-luzerner-psychiatrie-lups-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotorik-therapeutin-40-m-w-d-lups-kriens"
         ],
         "en": [
+          "psychomotor-therapist-40-m-f-d-luzerner-psychiatrie-lups-kriens",
           "psychomotorik-therapeutin-40-m-w-d-lups-kriens"
         ],
         "fr": [
@@ -6140,7 +6152,7 @@
       "title": "Dipl. Pflegefachperson HF 80-100% (m/w/d)",
       "titleByLocale": {
         "it": "Dipl. Cura professionale HF 80-100% (m/f/d)",
-        "en": "Dipl. Nurse HF 80-100% (m/f/d)",
+        "en": "Dipl. Care professional HF 80-100% (m/f/d)",
         "de": "Dipl. Pflegefachperson HF 80-100% (m/w/d)",
         "fr": "Dipl. professionnel de soins HF 80-100% (m/f/d)"
       },
@@ -6529,7 +6541,7 @@
         "it": "tirocinante-psicologia-80-m-f-d-luzerner-psychiatrie-lups-kriens",
         "en": "psychology-intern-80-m-f-d-luzerner-psychiatrie-lups-kriens",
         "de": "praktikantin-psychologie-80-m-w-d-lups-kriens",
-        "fr": "psychologie-interne-80-m-f-j-luzerner-psychiatrie-lups-kriens"
+        "fr": "praktikantin-psychologie-80-m-w-d-lups-kriens"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6571,7 +6583,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikantin-psychologie-80-m-w-d-lups-kriens"
+        "praktikantin-psychologie-80-m-w-d-lups-kriens",
+        "psychologie-interne-80-m-f-j-luzerner-psychiatrie-lups-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6581,6 +6594,7 @@
           "praktikantin-psychologie-80-m-w-d-lups-kriens"
         ],
         "fr": [
+          "psychologie-interne-80-m-f-j-luzerner-psychiatrie-lups-kriens",
           "praktikantin-psychologie-80-m-w-d-lups-kriens"
         ]
       },
@@ -7426,8 +7440,8 @@
       "slugByLocale": {
         "de": "oberarzt-oder-spitalfacharzt-m-w-d-60-100-psychiatrie-oder-padiatrie-lups-luzern",
         "it": "oberarzt-o-spitalfacharzt-m-w-d-60-100-psychiatrie-o-padiatrie-luzerner-psychiatrie-lups-luzern",
-        "en": "senior-physician-or-hospital-specialist-m-f-d-60-100-psychiatry-or-pediatrics-luzerner-psychiatrie-lups-luzern",
-        "fr": "medecin-principal-ou-specialiste-hospitalier-m-f-j-60-100-psychiatrie-ou-pediatrie-luzerner-psychiatrie-lups-luzern"
+        "en": "oberarzt-oder-spitalfacharzt-m-w-d-60-100-psychiatrie-oder-padiatrie-lups-luzern",
+        "fr": "oberarzt-oder-spitalfacharzt-m-w-d-60-100-psychiatrie-oder-padiatrie-lups-luzern"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7442,9 +7456,9 @@
       "description": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nOberarzt oder Spitalfacharzt (m/w/d) 60 - 100%\n(Psychiatrie oder Pädiatrie)\n\nIhre Aufgaben\n\n• Ambulante Tätigkeit im Tandem mit einer Heilpädagogin/Psychologin im Rahmen eines Konsiliardienstes in den Sonderschulen und Heilpädagogischen Zentren LU, OW, NW\n\n• Differentialdiagnostik, Interventionsplanung sowie medikamentöse Therapien\n\n• Intensive, lösungsorientierte Zusammen-arbeit mit Erziehungsberechtigten/Familien sowie internen und externen Fachpersonen\n\nIhr Profil\n\n• Facharzt/in für Pädiatrie oder Psychiatrie, idealerweise Kinder- und Jugendpsychiatrie\n\n• Erfahrung und/oder Offenheit, sich in den Bereich intellektuelle Entwicklungsstörung einzuarbeiten\n\n• Interesse an interdisziplinärer Arbeit\n\n• Zuverlässige, flexible und teamfähige Persönlichkeit\n\n• Empathisch, wertschätzend, kontaktfreudig und humorvoll\n\n• Teamplayer/in\n\n• Interesse an Innovationen\n\nVorteile\n\n• Wertschätzendes und wohlwollendes Arbeitsklima\n\n• Kollegiales, multidisziplinäres, hochkompetentes Team\n\n• Sehr familienfreundliche Anstellungsbedingungen\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Brigitte Schiffer, Leiterin Heilpädagogisch-Psychiatrische Fachstelle, T 058 856 41 63, freut sich auf Ihre Kontaktaufnahme\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Ambulante Tätigkeit im Tandem mit einer Heilpädagogin/Psychologin im Rahmen eines Konsiliardienstes in den Sonderschulen und Heilpädagogischen Zentren LU, OW, NW\n\nAnforderungen:\n• Facharzt/in für Pädiatrie oder Psychiatrie, idealerweise Kinder- und Jugendpsychiatrie",
       "descriptionByLocale": {
         "de": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nOberarzt oder Spitalfacharzt (m/w/d) 60 - 100%\n(Psychiatrie oder Pädiatrie)\n\nIhre Aufgaben\n\n• Ambulante Tätigkeit im Tandem mit einer Heilpädagogin/Psychologin im Rahmen eines Konsiliardienstes in den Sonderschulen und Heilpädagogischen Zentren LU, OW, NW\n\n• Differentialdiagnostik, Interventionsplanung sowie medikamentöse Therapien\n\n• Intensive, lösungsorientierte Zusammen-arbeit mit Erziehungsberechtigten/Familien sowie internen und externen Fachpersonen\n\nIhr Profil\n\n• Facharzt/in für Pädiatrie oder Psychiatrie, idealerweise Kinder- und Jugendpsychiatrie\n\n• Erfahrung und/oder Offenheit, sich in den Bereich intellektuelle Entwicklungsstörung einzuarbeiten\n\n• Interesse an interdisziplinärer Arbeit\n\n• Zuverlässige, flexible und teamfähige Persönlichkeit\n\n• Empathisch, wertschätzend, kontaktfreudig und humorvoll\n\n• Teamplayer/in\n\n• Interesse an Innovationen\n\nVorteile\n\n• Wertschätzendes und wohlwollendes Arbeitsklima\n\n• Kollegiales, multidisziplinäres, hochkompetentes Team\n\n• Sehr familienfreundliche Anstellungsbedingungen\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Brigitte Schiffer, Leiterin Heilpädagogisch-Psychiatrische Fachstelle, T 058 856 41 63, freut sich auf Ihre Kontaktaufnahme\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Ambulante Tätigkeit im Tandem mit einer Heilpädagogin/Psychologin im Rahmen eines Konsiliardienstes in den Sonderschulen und Heilpädagogischen Zentren LU, OW, NW\n\nAnforderungen:\n• Facharzt/in für Pädiatrie oder Psychiatrie, idealerweise Kinder- und Jugendpsychiatrie",
-        "it": "Lucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti da una vasta gamma di gruppi e dipartimenti professionali sono umanamente e competentimente impegnati nel benessere dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\nSpecialista medico o ospedaliero senior (m/f/d) 60 - 100%\n(psichiatria o pediatrica)\n\nI loro compiti\n\n• Lavoro ambulatoriale in tandem con un pedagogogo curativo/psicologo come parte di un servizio di consulenza nelle scuole speciali e centri pedagogici curativi LU, OW, NW\n\n• Diagnostica differenziale, pianificazione degli interventi e terapie farmacologiche\n\n• Cooperazione intensiva e orientata alla soluzione con genitori/famiglie e specialisti interni ed esterni\n\nIl tuo profilo\n\n• Specialista in pediatria o psichiatria, idealmente bambino e psichiatria adolescente\n\n• Esperienza e/o apertura per impegnarsi in disturbi dello sviluppo intellettuale\n\n• Interessi del lavoro interdisciplinare\n\n• Personalità affidabile, flessibile e capace di squadra\n\n• Empathetic, apprezzativo, socievole e divertente\n\n• Giocatore di squadra/in\n\n• Interesse per l'innovazione\n\nVantaggi\n\n• Atmosfera di lavoro apprezzata e benevola\n\n• Squadra Collegiale, multidisciplinare, altamente competente\n\n• Condizioni di lavoro molto familiari\n\nInformazioni di contatto\n\nVuoi informazioni più dettagliate su questa posizione? Brigitte Schiffer, Capo dell'Ufficio psichiatrico psichiatrico Healing, T 058 856 41 63, non vede l'ora di contattare\n\nInformazioni su Lucerna Psychiatry AG\n\nLucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti da una vasta gamma di gruppi e dipartimenti professionali sono umanamente e competentimente impegnati nel benessere dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\n\nCompiti:\n• Lavoro ambulatoriale in tandem con un pedagogogo curativo/psicologo come parte di un servizio di consulenza nelle scuole speciali e centri pedagogici curativi LU, OW, NW\n\nRequisiti\n• Specialista in pediatria o psichiatria, idealmente bambino e psichiatria adolescente",
-        "en": "Lucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from a wide range of professional groups and departments are humanely and competently committed to the well-being of patients. The offers are aimed at children, adolescents and adults up to old age.\nSenior physician or hospital specialist (m/f/d) 60 - 100%\n(psychiatry or paediatrics)\n\nTheir tasks\n\n• Outpatient work in tandem with a curative pedagogue/psychologist as part of a consultancy service in the special schools and curative pedagogical centers LU, OW, NW\n\n• Differential diagnostics, intervention planning and drug therapies\n\n• Intensive, solution-oriented cooperation with parents/families as well as internal and external specialists\n\nYour profile\n\n• Specialist in pediatrics or psychiatry, ideally child and adolescent psychiatry\n\n• Experience and/or openness to engage in intellectual developmental disorder\n\n• Interest in interdisciplinary work\n\n• Reliable, flexible and team capable personality\n\n• Empathetic, appreciative, sociable and humorous\n\n• Team player/in\n\n• Interest in innovation\n\nBenefits\n\n• Appreciative and benevolent working atmosphere\n\n• Collegial, multidisciplinary, highly competent team\n\n• Very family-friendly employment conditions\n\nContact details\n\nDo you want more detailed information about this position? Brigitte Schiffer, Head of the Healing Pedagogical Psychiatric Office, T 058 856 41 63, looks forward to your contact\n\nAbout Lucerne Psychiatry AG\n\nLucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from a wide range of professional groups and departments are humanely and competently committed to the well-being of patients. The offers are aimed at children, adolescents and adults up to old age.\n\nTasks:\n• Outpatient work in tandem with a curative pedagogue/psychologist as part of a consultancy service in the special schools and curative pedagogical centers LU, OW, NW\n\nRequirements\n• Specialist in pediatrics or psychiatry, ideally child and adolescent psychiatry",
-        "fr": "Lucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à divers endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés provenant d'un large éventail de groupes et de départements professionnels s'engagent avec humanité et compétence dans le bien-être des patients. Ces offres s ' adressent aux enfants, aux adolescents et aux adultes jusqu ' à la vieillesse.\nMédecin principal ou spécialiste hospitalier (m/f/j) 60 - 100%\n(psychiatrie ou pédiatrie)\n\nLeurs tâches\n\n• Travail ambulatoire en association avec un pédagogue/psychologue curatif dans le cadre d'un service de conseil dans les écoles spéciales et les centres pédagogiques curatifs LU, OW, NW\n\n• Diagnostic différentiel, planification des interventions et pharmacothérapies\n\n• Coopération intensive et axée sur la solution avec les parents et les familles, ainsi qu'avec des spécialistes internes et externes\n\nVotre profil\n\n• Spécialiste en pédiatrie ou psychiatrie, idéalement psychiatrie des enfants et des adolescents\n\n• Expérience ou ouverture à s'engager dans un trouble du développement intellectuel\n\n• Intérêt pour le travail interdisciplinaire\n\n• Personnalité fiable, flexible et capable d'équipe\n\n• Empathique, reconnaissant, sociable et humoristique\n\n• Joueur/in de l'équipe\n\n• Intérêt pour l'innovation\n\nAvantages\n\n• Ambiance de travail appréciée et bienveillante\n\n• Équipe collégiale, multidisciplinaire et hautement compétente\n\n• Conditions d'emploi très favorables à la famille\n\nCoordonnées\n\nVoulez-vous des renseignements plus détaillés sur ce poste? Brigitte Schiffer, Chef du Bureau psychiatrique de guérison, T 058 856 41 63, attend avec impatience votre contact\n\nÀ propos de Lucerne Psychiatry AG\n\nLucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à divers endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés provenant d'un large éventail de groupes et de départements professionnels s'engagent avec humanité et compétence dans le bien-être des patients. Ces offres s ' adressent aux enfants, aux adolescents et aux adultes jusqu ' à la vieillesse.\n\nTâches :\n• Travail ambulatoire en association avec un pédagogue/psychologue curatif dans le cadre d'un service de conseil dans les écoles spéciales et les centres pédagogiques curatifs LU, OW, NW\n\nExigences\n• Spécialiste en pédiatrie ou psychiatrie, idéalement psychiatrie des enfants et des adolescents"
+        "it": "Lucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti di vari gruppi e dipartimenti professionali sono impegnati al benessere umano e competente dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\nSpecialista medico o ospedaliero senior (m/f/d) 60 - 100%\n(Psichiatria o pediatrica)\n\nI loro compiti\n\n• Lavoro ambulatoriale in tandem con un pedagogogo curativo/psicologo come parte di un servizio di consulenza nelle scuole speciali e centri pedagogici curativi LU, OW, NW\n\n• Diagnostica differenziale, pianificazione degli interventi e terapie farmacologiche\n\n• Cooperazione intensiva e orientata alla soluzione con guardiani/famiglie e specialisti interni ed esterni\n\nIl tuo profilo\n\n• Specialista in pediatria o psichiatria, idealmente bambino e psichiatria adolescente\n\n• Esperienza e/o apertura a familiarizzare con disturbi dello sviluppo intellettuale\n\n• Interessi del lavoro interdisciplinare\n\n• Personalità affidabile, flessibile e capace di squadra\n\n• Empathetic, apprezzativo, socievole e divertente\n\n• Giocatore di squadra/in\n\n• Interesse per l'innovazione\n\nVantaggi\n\n• Ambiente di lavoro favorevole e benevolo\n\n• Squadra Collegiale, multidisciplinare, altamente competente\n\n• Condizioni di lavoro molto familiari\n\nInformazioni di contatto\n\nVuoi informazioni più dettagliate su questa posizione? Brigitte Schiffer, Capo dell'Ufficio Medico di Psichiatria Pedagogica, T 058 856 41 63, è impaziente di contattare\n\nInformazioni su Lucerna Psychiatry AG\n\nLucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti di vari gruppi e dipartimenti professionali sono impegnati al benessere umano e competente dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\n\nCompiti:\n• Lavoro ambulatoriale in tandem con un pedagogogo curativo/psicologo come parte di un servizio di consulenza nelle scuole speciali e centri pedagogici curativi LU, OW, NW\n\nRequisiti\n• Specialista in pediatria o psichiatria, idealmente bambino e psichiatria adolescente",
+        "en": "Lucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from various professional groups and departments are committed to the human and competent welfare of patients. The offers are aimed at children, adolescents and adults up to old age.\nSenior physician or hospital specialist (m/f/d) 60 - 100%\n(Psychiatry or paediatrics)\n\nTheir tasks\n\n• Outpatient work in tandem with a curative pedagogue/psychologist as part of a consultancy service in the special schools and curative pedagogical centers LU, OW, NW\n\n• Differential diagnostics, intervention planning and drug therapies\n\n• Intensive, solution-oriented cooperation with guardians/families as well as internal and external specialists\n\nYour profile\n\n• Specialist in pediatrics or psychiatry, ideally child and adolescent psychiatry\n\n• Experience and/or openness to becoming familiar with intellectual developmental disorder\n\n• Interest in interdisciplinary work\n\n• Reliable, flexible and team capable personality\n\n• Empathetic, appreciative, sociable and humorous\n\n• Team player/in\n\n• Interest in innovation\n\nBenefits\n\n• Appreciative and benevolent working environment\n\n• Collegial, multidisciplinary, highly competent team\n\n• Very family-friendly employment conditions\n\nContact details\n\nDo you want more detailed information about this position? Brigitte Schiffer, Head of the Medical Pedagogical Psychiatric Office, T 058 856 41 63, is looking forward to your contact\n\nAbout Lucerne Psychiatry AG\n\nLucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from various professional groups and departments are committed to the human and competent welfare of patients. The offers are aimed at children, adolescents and adults up to old age.\n\nTasks:\n• Outpatient work in tandem with a curative pedagogue/psychologist as part of a consultancy service in the special schools and curative pedagogical centers LU, OW, NW\n\nRequirements\n• Specialist in pediatrics or psychiatry, ideally child and adolescent psychiatry",
+        "fr": "Lucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à différents endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés de divers groupes professionnels et départements sont engagés dans le bien-être humain et compétent des patients. Les offres sont destinées aux enfants, aux adolescents et aux adultes jusqu'à la vieillesse.\nMédecin principal ou spécialiste hospitalier (m/f/j) 60 - 100%\n(psychiatrie ou pédiatrie)\n\nLeurs tâches\n\n• Travail ambulatoire en association avec un pédagogue/psychologue curatif dans le cadre d'un service de conseil dans les écoles spéciales et les centres pédagogiques curatifs LU, OW, NW\n\n• Diagnostic différentiel, planification des interventions et pharmacothérapies\n\n• Coopération intensive et axée sur la solution avec les tuteurs/familles ainsi que les spécialistes internes et externes\n\nVotre profil\n\n• Spécialiste en pédiatrie ou psychiatrie, idéalement psychiatrie des enfants et des adolescents\n\n• Expérience ou ouverture à se familiariser avec le trouble du développement intellectuel\n\n• Intérêt pour le travail interdisciplinaire\n\n• Personnalité fiable, flexible et capable d'équipe\n\n• Empathique, reconnaissant, sociable et humoristique\n\n• Joueur/in de l'équipe\n\n• Intérêt pour l'innovation\n\nAvantages\n\n• Environnement de travail favorable et bienveillant\n\n• Équipe collégiale, multidisciplinaire et hautement compétente\n\n• Conditions d'emploi très favorables à la famille\n\nCoordonnées\n\nVoulez-vous des informations plus détaillées sur ce poste? Brigitte Schiffer, Chef du Bureau psychiatrique médical, T 058 856 41 63, attend avec impatience votre contact\n\nÀ propos de Lucerne Psychiatry AG\n\nLucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à différents endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés de divers groupes professionnels et départements sont engagés dans le bien-être humain et compétent des patients. Les offres sont destinées aux enfants, aux adolescents et aux adultes jusqu'à la vieillesse.\n\nTâches :\n• Travail ambulatoire en association avec un pédagogue/psychologue curatif dans le cadre d'un service de conseil dans les écoles spéciales et les centres pédagogiques curatifs LU, OW, NW\n\nExigences\n• Spécialiste en pédiatrie ou psychiatrie, idéalement psychiatrie des enfants et des adolescents"
       },
       "location": "Luzern",
       "canton": "LU",
@@ -7473,12 +7487,6 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-oder-spitalfacharzt-m-w-d-60-100-psychiatrie-oder-padiatrie-lups-luzern"
-        ],
-        "en": [
-          "oberarzt-oder-spitalfacharzt-m-w-d-60-100-psychiatrie-oder-padiatrie-lups-luzern"
-        ],
-        "fr": [
-          "oberarzt-oder-spitalfacharzt-m-w-d-60-100-psychiatrie-oder-padiatrie-lups-luzern"
         ]
       },
       "previousSlugs": [
@@ -7504,8 +7512,8 @@
       "slugByLocale": {
         "de": "kunst-oder-aktivierungstherapeutin-m-w-d-50-70-lups-sarnen",
         "it": "kunst-o-aktivierungstherapeutin-m-w-d-50-70-luzerner-psychiatrie-lups-sarnen",
-        "en": "art-or-activation-therapist-m-f-d-50-70-luzerner-psychiatrie-lups-sarnen",
-        "fr": "therapeute-d-art-ou-d-activation-m-f-d-50-70-luzerner-psychiatrie-lups-sarnen"
+        "en": "kunst-oder-aktivierungstherapeutin-m-w-d-50-70-lups-sarnen",
+        "fr": "kunst-oder-aktivierungstherapeutin-m-w-d-50-70-lups-sarnen"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7520,9 +7528,9 @@
       "description": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nKunst- oder Aktivierungstherapeutin (m/w/d) 50-70%\n\nIhre Aufgaben\n\n• Spezialtherapeutische Behandlung von Patientinnen und Patienten auf einer Psychiatrischen Akutabteilung mit vielfältigen Störungsbildern\n\n• Enge Zusammenarbeit in einem interdisziplinären Team\n\n• Selbstständige Planung und Durchführung individueller Therapien im Einzelsetting und Kleingruppen\n\nIhr Profil\n\n• Sie verfügen über ein anerkanntes Diplom als Kunst- und Bewegungstherapeut/in\n\n• Sie verfügen über mind. zwei Jahre Berufserfahrung in der Spezialtherapie, vorzugsweise im psychiatrischen Umfeld\n\n• Selbstständiges Arbeiten, hohe Verlässlichkeit, physische und psychische Belastbarkeit\n\n• Sie verfügen über hohe Sozialkompetenzen, eine positive Grundhaltung und pflegen einen empathischen Umgang\n\nVorteile\n\n• Wertschätzendes und wohlwollendes Arbeitsklima\n\n• Grosszügige Unterstützung hinsichtlich Weiterbildungen\n\n• Mind. 5 Wochen Ferien, Treuetag und Möglichkeit von unbezahltem Urlaub\n\n• Besondere Sozialzulagen für Familien\n\n• Vorteilhafte Sozialleistungen (Übernahme KTG-Prämie und 2/3 der PK-Prämie)\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Ahmed Hishmi, Oberarzt Sarnen B, freut sich auf Ihre Kontaktaufnahme unter T 058 856 68 22.\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Spezialtherapeutische Behandlung von Patientinnen und Patienten auf einer Psychiatrischen Akutabteilung mit vielfältigen Störungsbildern\n\nAnforderungen:\n• Sie verfügen über ein anerkanntes Diplom als Kunst- und Bewegungstherapeut/in",
       "descriptionByLocale": {
         "de": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nKunst- oder Aktivierungstherapeutin (m/w/d) 50-70%\n\nIhre Aufgaben\n\n• Spezialtherapeutische Behandlung von Patientinnen und Patienten auf einer Psychiatrischen Akutabteilung mit vielfältigen Störungsbildern\n\n• Enge Zusammenarbeit in einem interdisziplinären Team\n\n• Selbstständige Planung und Durchführung individueller Therapien im Einzelsetting und Kleingruppen\n\nIhr Profil\n\n• Sie verfügen über ein anerkanntes Diplom als Kunst- und Bewegungstherapeut/in\n\n• Sie verfügen über mind. zwei Jahre Berufserfahrung in der Spezialtherapie, vorzugsweise im psychiatrischen Umfeld\n\n• Selbstständiges Arbeiten, hohe Verlässlichkeit, physische und psychische Belastbarkeit\n\n• Sie verfügen über hohe Sozialkompetenzen, eine positive Grundhaltung und pflegen einen empathischen Umgang\n\nVorteile\n\n• Wertschätzendes und wohlwollendes Arbeitsklima\n\n• Grosszügige Unterstützung hinsichtlich Weiterbildungen\n\n• Mind. 5 Wochen Ferien, Treuetag und Möglichkeit von unbezahltem Urlaub\n\n• Besondere Sozialzulagen für Familien\n\n• Vorteilhafte Sozialleistungen (Übernahme KTG-Prämie und 2/3 der PK-Prämie)\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Ahmed Hishmi, Oberarzt Sarnen B, freut sich auf Ihre Kontaktaufnahme unter T 058 856 68 22.\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Spezialtherapeutische Behandlung von Patientinnen und Patienten auf einer Psychiatrischen Akutabteilung mit vielfältigen Störungsbildern\n\nAnforderungen:\n• Sie verfügen über ein anerkanntes Diplom als Kunst- und Bewegungstherapeut/in",
-        "it": "Lucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti da una vasta gamma di gruppi e dipartimenti professionali sono umanamente e competentimente impegnati nel benessere dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\nTerapista d'arte o di attivazione (m/f/d) 50-70 %\n\nI loro compiti\n\n• Trattamento terapeutico speciale dei pazienti in un reparto acuto psichiatrico con una vasta gamma di disturbi\n\n• Una stretta cooperazione in un team interdisciplinare\n\n• Pianificazione e attuazione indipendenti delle terapie individuali in singoli ambienti e piccoli gruppi\n\nIl tuo profilo\n\n• Hai un diploma riconosciuto come terapista dell'arte e del movimento\n\n• Ne hai almeno uno. due anni di esperienza professionale in terapia speciale, preferibilmente nell'ambiente psichiatrico\n\n• Lavorare in modo indipendente, alta affidabilità, resistenza fisica e psicologica\n\n• Hanno competenze sociali elevate, un atteggiamento di base positivo e mantenere un approccio empatico\n\nVantaggi\n\n• Atmosfera di lavoro apprezzata e benevola\n\n• Sostegno generoso per un'ulteriore formazione\n\n• Mente. 5 settimane vacanze, giorno di fedeltà e possibilità di congedo non pagato\n\n• Assegni sociali speciali per le famiglie\n\n• Benefici sociali (acquisizione del premio KTG e 2/3 del premio PK)\n\nInformazioni di contatto\n\nVuoi informazioni più dettagliate su questa posizione? Ahmed Hishmi, medico senior Sarnen B, non vede l'ora di contattarti al T 058 856 68 22.\n\nInformazioni su Lucerna Psychiatry AG\n\nLucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti da una vasta gamma di gruppi e dipartimenti professionali sono umanamente e competentimente impegnati nel benessere dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\n\nCompiti:\n• Trattamento terapeutico speciale dei pazienti in un reparto acuto psichiatrico con una vasta gamma di disturbi\n\nRequisiti\n• Hai un diploma riconosciuto come terapista dell'arte e del movimento",
-        "en": "Lucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from a wide range of professional groups and departments are humanely and competently committed to the well-being of patients. The offers are aimed at children, adolescents and adults up to old age.\nArt or Activation Therapist (m/f/d) 50-70 %\n\nTheir tasks\n\n• Special therapeutic treatment of patients in a psychiatric acute department with a wide range of disorders\n\n• Close cooperation in an interdisciplinary team\n\n• Independent planning and implementation of individual therapies in individual setting and small groups\n\nYour profile\n\n• You have a recognised diploma as an art and movement therapist\n\n• You have at least one. two years of professional experience in special therapy, preferably in the psychiatric environment\n\n• Working independently, high reliability, physical and psychological resilience\n\n• They have high social skills, a positive basic attitude and maintain an empathetic approach\n\nBenefits\n\n• Appreciative and benevolent working atmosphere\n\n• Generous support for further training\n\n• Mind. 5 weeks holidays, loyalty day and possibility of unpaid leave\n\n• Special social allowances for families\n\n• Benefitful social benefits (acquisition of KTG premium and 2/3 of PK premium)\n\nContact details\n\nDo you want more detailed information about this position? Ahmed Hishmi, senior physician Sarnen B, is looking forward to contacting you at T 058 856 68 22.\n\nAbout Lucerne Psychiatry AG\n\nLucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from a wide range of professional groups and departments are humanely and competently committed to the well-being of patients. The offers are aimed at children, adolescents and adults up to old age.\n\nTasks:\n• Special therapeutic treatment of patients in a psychiatric acute department with a wide range of disorders\n\nRequirements\n• You have a recognised diploma as an art and movement therapist",
-        "fr": "Lucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à divers endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés provenant d'un large éventail de groupes et de départements professionnels s'engagent avec humanité et compétence dans le bien-être des patients. Ces offres s ' adressent aux enfants, aux adolescents et aux adultes jusqu ' à la vieillesse.\nThérapeute d'art ou d'activation (m/f/d) 50-70 %\n\nLeurs tâches\n\n• Traitement thérapeutique spécial des patients dans un service psychiatrique aigu présentant un large éventail de troubles\n\n• Coopération étroite dans une équipe interdisciplinaire\n\n• Planification et mise en œuvre indépendantes de thérapies individuelles en milieu individuel et en petits groupes\n\nVotre profil\n\n• Vous avez un diplôme reconnu comme thérapeute d'art et de mouvement\n\n• Vous en avez au moins un. deux ans d'expérience professionnelle en thérapie spéciale, de préférence en milieu psychiatrique\n\n• Travailler de façon indépendante, de haute fiabilité, de résilience physique et psychologique\n\n• Ils ont des compétences sociales élevées, une attitude de base positive et maintiennent une approche empathique\n\nAvantages\n\n• Ambiance de travail appréciée et bienveillante\n\n• Soutien généreux à la formation continue\n\n• De rien. 5 semaines de congés, jour de fidélité et possibilité de congé non payé\n\n• Allocations sociales spéciales pour les familles\n\n• Prestations sociales avantageuses (acquisition de la prime KTG et 2/3 de la prime PK)\n\nCoordonnées\n\nVoulez-vous des renseignements plus détaillés sur ce poste? Ahmed Hishmi, médecin principal Sarnen B, est impatient de vous contacter au T 058 856 68 22.\n\nÀ propos de Lucerne Psychiatry AG\n\nLucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à divers endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés provenant d'un large éventail de groupes et de départements professionnels s'engagent avec humanité et compétence dans le bien-être des patients. Ces offres s ' adressent aux enfants, aux adolescents et aux adultes jusqu ' à la vieillesse.\n\nTâches :\n• Traitement thérapeutique spécial des patients dans un service psychiatrique aigu présentant un large éventail de troubles\n\nExigences\n• Vous avez un diplôme reconnu comme thérapeute d'art et de mouvement"
+        "it": "Lucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti di vari gruppi e dipartimenti professionali sono impegnati al benessere umano e competente dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\nTerapista d'arte o di attivazione (m/f/d) 50-70 %\n\nI loro compiti\n\n• Trattamento terapeutico speciale dei pazienti in un reparto acuto psichiatrico con una vasta gamma di disturbi\n\n• Una stretta cooperazione in un team interdisciplinare\n\n• Pianificazione e attuazione indipendenti delle singole terapie in singole impostazioni e piccoli gruppi\n\nIl tuo profilo\n\n• Hai un diploma riconosciuto come terapista dell'arte e del movimento\n\n• Ne hai almeno uno. due anni di esperienza professionale in terapia speciale, preferibilmente in ambiente psichiatrico\n\n• Lavorare in modo indipendente, alta affidabilità, resistenza fisica e psicologica\n\n• Hanno alte capacità sociali, un atteggiamento positivo e mantenere un approccio empatico\n\nVantaggi\n\n• Ambiente di lavoro favorevole e benevolo\n\n• Sostegno generoso per un'ulteriore formazione\n\n• Mente. 5 settimane vacanze, giorno di fedeltà e possibilità di congedo non pagato\n\n• Assegni sociali speciali per le famiglie\n\n• Benefici sociali (acquisizione del premio KTG e 2/3 del premio PK)\n\nInformazioni di contatto\n\nVuoi informazioni più dettagliate su questa posizione? Ahmed Hishmi, medico senior Sarnen B, non vede l'ora di contattarti al T 058 856 68 22.\n\nInformazioni su Lucerna Psychiatry AG\n\nLucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti di vari gruppi e dipartimenti professionali sono impegnati al benessere umano e competente dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\n\nCompiti:\n• Trattamento terapeutico speciale dei pazienti in un reparto acuto psichiatrico con una vasta gamma di disturbi\n\nRequisiti\n• Hai un diploma riconosciuto come terapista dell'arte e del movimento",
+        "en": "Lucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from various professional groups and departments are committed to the human and competent welfare of patients. The offers are aimed at children, adolescents and adults up to old age.\nArt or Activation Therapist (m/f/d) 50-70 %\n\nTheir tasks\n\n• Special therapeutic treatment of patients in a psychiatric acute department with a wide range of disorders\n\n• Close cooperation in an interdisciplinary team\n\n• Independent planning and implementation of individual therapies in individual setting and small groups\n\nYour profile\n\n• You have a recognised diploma as an art and movement therapist\n\n• You have at least one. two years of professional experience in special therapy, preferably in the psychiatric environment\n\n• Working independently, high reliability, physical and psychological resilience\n\n• They have high social skills, a positive attitude and maintain an empathetic approach\n\nBenefits\n\n• Appreciative and benevolent working environment\n\n• Generous support for further training\n\n• Mind. 5 weeks holidays, loyalty day and possibility of unpaid leave\n\n• Special social allowances for families\n\n• Benefitful social benefits (acquisition of KTG premium and 2/3 of the PK premium)\n\nContact details\n\nDo you want more detailed information about this position? Ahmed Hishmi, senior physician Sarnen B, is looking forward to contacting you at T 058 856 68 22.\n\nAbout Lucerne Psychiatry AG\n\nLucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from various professional groups and departments are committed to the human and competent welfare of patients. The offers are aimed at children, adolescents and adults up to old age.\n\nTasks:\n• Special therapeutic treatment of patients in a psychiatric acute department with a wide range of disorders\n\nRequirements\n• You have a recognised diploma as an art and movement therapist",
+        "fr": "Lucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à différents endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés de divers groupes professionnels et départements sont engagés dans le bien-être humain et compétent des patients. Les offres sont destinées aux enfants, aux adolescents et aux adultes jusqu'à la vieillesse.\nThérapeute d'art ou d'activation (m/f/d) 50-70 %\n\nLeurs tâches\n\n• Traitement thérapeutique spécial des patients atteints de troubles psychiatriques aigus\n\n• Coopération étroite dans une équipe interdisciplinaire\n\n• Planification et mise en œuvre indépendantes de thérapies individuelles en milieu individuel et en petits groupes\n\nVotre profil\n\n• Vous avez un diplôme reconnu comme thérapeute d'art et de mouvement\n\n• Vous en avez au moins une. deux ans d'expérience professionnelle en thérapie spéciale, de préférence en milieu psychiatrique\n\n• Travail indépendant, haute fiabilité, résilience physique et psychologique\n\n• Ils ont des compétences sociales élevées, une attitude positive et maintiennent une approche empathique\n\nAvantages\n\n• Environnement de travail favorable et bienveillant\n\n• Soutien généreux à la formation continue\n\n• De rien. 5 semaines de vacances, jour de fidélité et possibilité de congé non rémunéré\n\n• Allocations sociales spéciales pour les familles\n\n• Prestations sociales (acquisition de la prime KTG et 2/3 de la prime PK)\n\nCoordonnées\n\nVoulez-vous des informations plus détaillées sur ce poste? Ahmed Hishmi, médecin principal Sarnen B, est impatient de vous contacter au T 058 856 68 22.\n\nÀ propos de Lucerne Psychiatry AG\n\nLucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à différents endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés de divers groupes professionnels et départements sont engagés dans le bien-être humain et compétent des patients. Les offres sont destinées aux enfants, aux adolescents et aux adultes jusqu'à la vieillesse.\n\nTâches :\n• Traitement thérapeutique spécial des patients atteints de troubles psychiatriques aigus\n\nExigences\n• Vous avez un diplôme reconnu comme thérapeute d'art et de mouvement"
       },
       "location": "Sarnen",
       "canton": "OW",
@@ -7550,12 +7558,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kunst-oder-aktivierungstherapeutin-m-w-d-50-70-lups-sarnen"
-        ],
-        "en": [
-          "kunst-oder-aktivierungstherapeutin-m-w-d-50-70-lups-sarnen"
-        ],
-        "fr": [
           "kunst-oder-aktivierungstherapeutin-m-w-d-50-70-lups-sarnen"
         ]
       },

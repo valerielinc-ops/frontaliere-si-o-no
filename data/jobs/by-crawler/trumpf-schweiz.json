@@ -201,7 +201,7 @@
       "slugByLocale": {
         "it": "digitaler-marketing-manager-per-elektrowerkzeuge-m-w-d-trumpf-schweiz-ag-grusch",
         "en": "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-r00038943",
-        "de": "vertriebsmitarbeiter-m-w-d-trumpf-schweiz-ag-grusch",
+        "de": "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-r00038943",
         "fr": "directeur-marketing-fur-elektrowerkzeuge-m-w-d-trumpf-schweiz-ag-grusch"
       },
       "crawledAt": "2026-06-25T12:15:22.410Z",
@@ -217,12 +217,14 @@
           "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-schweiz-ag-grusch"
         ],
         "de": [
-          "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-r00038943"
+          "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-r00038943",
+          "vertriebsmitarbeiter-m-w-d-trumpf-schweiz-ag-grusch"
         ]
       },
       "previousSlugs": [
         "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-r00038943",
-        "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-schweiz-ag-grusch"
+        "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-schweiz-ag-grusch",
+        "vertriebsmitarbeiter-m-w-d-trumpf-schweiz-ag-grusch"
       ],
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -845,7 +847,8 @@
       },
       "postalCode": "7214",
       "firstSeenAt": "2026-06-22T15:23:55.715Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Konstrukteur / Projektleiter Kundenprojekte (m/w/d)",
@@ -921,7 +924,8 @@
       },
       "postalCode": "7214",
       "firstSeenAt": "2026-06-22T15:23:56.343Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle 2027 Polymechaniker/in EFZ",

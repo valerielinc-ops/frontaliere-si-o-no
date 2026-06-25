@@ -165,7 +165,7 @@
       "slugByLocale": {
         "it": "segretario-medico-80-medizinische-r-sekretar-in-80-hopital-fribourgeois-hfr-fribourg",
         "en": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
-        "de": "medizinische-r-sekretarin-in-80-hopital-fribourgeois-hfr-fribourg",
+        "de": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
         "fr": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -209,14 +209,15 @@
       "requirementsByLocale": {},
       "externalId": "b23818017759",
       "previousSlugs": [
-        "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
+        "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
+        "medizinische-r-sekretarin-in-80-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
         ],
         "de": [
-          "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
+          "medizinische-r-sekretarin-in-80-hopital-fribourgeois-hfr-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:05.602Z",
@@ -239,7 +240,7 @@
       "slugByLocale": {
         "it": "segretaria-medica-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
         "en": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
-        "de": "medizinische-r-sekretarin-in-60-hopital-fribourgeois-hfr-fribourg",
+        "de": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
         "fr": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -285,6 +286,7 @@
       "previousSlugs": [
         "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
         "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
+        "medizinische-r-sekretarin-in-60-hopital-fribourgeois-hfr-fribourg",
         "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
@@ -293,7 +295,7 @@
           "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg"
         ],
         "de": [
-          "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
+          "medizinische-r-sekretarin-in-60-hopital-fribourgeois-hfr-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:04.968Z",
@@ -1047,13 +1049,13 @@
       "titleByLocale": {
         "fr": "Médecin-adjoint-e 80-100 % / Stv. Chefarzt/Chefärztin 80-100 %",
         "de": "Assistenzarzt 80-100% / Stv. Chefarzt/Chefärztin 80-100%",
-        "it": "Assistente medico 80-100% / Stv. Chefarzt / Chefärztin 80-100%",
+        "it": "Assistente medico 80-100% / Stv. Chefarzt/Chefärztin 80-100%",
         "en": "Assistant physician 80-100% / Stv. Chefarzt/Chefärztin 80-100%"
       },
       "description": "Médecin-adjoint-e 80-100 % / Stv. Chefarzt/Chefärztin 80-100 % chez Hôpital fribourgeois (HFR) à Fribourg.\n\nL'Hôpital fribourgeois (HFR) est le réseau hospitalier public du canton de Fribourg. Il regroupe les sites de Fribourg, Riaz, Tafers, Meyriez-Murten et Billens, et emploie plus de 3'500 collaboratrices et collaborateurs.",
       "descriptionByLocale": {
         "fr": "Médecin-adjoint-e 80-100 % / Stv. Chefarzt/Chefärztin 80-100 % chez Hôpital fribourgeois (HFR) à Fribourg.\n\nL'Hôpital fribourgeois (HFR) est le réseau hospitalier public du canton de Fribourg. Il regroupe les sites de Fribourg, Riaz, Tafers, Meyriez-Murten et Billens, et emploie plus de 3'500 collaboratrices et collaborateurs.",
-        "it": "Assistente medico 80-100% / Stv. Chefarzt / Chefärztin 80-100% presso l'ospedale di Friburgo (HFR) a Friburgo.\n\nL'Ospedale di Friburgo (HFR) è la rete ospedaliera pubblica nel cantone di Friburgo. Esso riunisce i siti di Fribourg, Riaz, Tafers, Meyriez-Murten e Billens, e impiega oltre 3.500 collaboratori.",
+        "it": "Assistente medico 80-100% / Stv. Chefarzt / Chefärztin 80-100% presso l'ospedale di Friburgo (HFR) a Friburgo.\n\nL'Ospedale di Friburgo (HFR) è la rete ospedaliera pubblica nel cantone di Friburgo. riunisce i siti di Fribourg, Riaz, Tafers, Meyriez-Murten e Billens, e impiega oltre 3.500 collaboratori.",
         "en": "Assistant physician 80-100% / Stv. Chefarzt/Chefärztin 80-100% at the Freiburg Hospital (HFR) in Freiburg.\n\nThe Freiburg Hospital (HFR) is the public hospital network in the canton of Freiburg. It brings together the sites of Fribourg, Riaz, Tafers, Meyriez-Murten and Billens, and employs more than 3,500 collaborators.",
         "de": "Assistenzarzt 80-100% / Stv. Chefarzt/Chefärztin 80-100% am Freiburger Krankenhaus (HFR) in Freiburg.\n\nDas Freiburger Krankenhaus (HFR) ist das öffentliche Krankenhausnetzwerk im Kanton Freiburg. Es vereint die Standorte Freiburg, Riaz, Tafers, Meyriez-Murten und Billens und beschäftigt mehr als 3.500 Mitarbeiter."
       },
@@ -1106,12 +1108,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-b90823677e7c",
-      "slug": "ufficiale-medico-capo-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
+      "slug": "medico-capo-reparto-80-100-klinikchefarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
-        "it": "ufficiale-medico-capo-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
-        "en": "chief-medical-officer-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
-        "de": "chefarzt-80-100-klinikchemarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
+        "it": "medico-capo-reparto-80-100-klinikchefarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
+        "en": "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
+        "de": "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -1119,15 +1121,15 @@
       "title": "Médecin chef-fe de service 80-100 % / Klinikchefarzt/Klinikchefärztin 80-100 %",
       "titleByLocale": {
         "fr": "Médecin chef-fe de service 80-100 % / Klinikchefarzt/Klinikchefärztin 80-100 %",
-        "de": "Chefarzt 80-100% / Klinikchemarzt/Klinikchefärztin 80-100%",
-        "it": "Ufficiale medico capo 80-100% / Klinikchemsarzt/Klinikchefärztin 80-100%",
-        "en": "Chief Medical Officer 80-100% / Klinikchemsarzt/Klinikchefärztin 80-100%"
+        "de": "Chief Medical Officer 80-100% / Klinikchempart/Klinikchefärztin 80-100%",
+        "it": "Medico capo reparto 80-100% / Klinikchefarzt/Klinikchefärztin 80-100%",
+        "en": "Chief Medical Officer 80-100% / Klinikchempart/Klinikchefärztin 80-100%"
       },
       "description": "Médecin chef-fe de service 80-100 % / Klinikchefarzt/Klinikchefärztin 80-100 % chez Hôpital fribourgeois (HFR) à Fribourg.\n\nL'Hôpital fribourgeois (HFR) est le réseau hospitalier public du canton de Fribourg. Il regroupe les sites de Fribourg, Riaz, Tafers, Meyriez-Murten et Billens, et emploie plus de 3'500 collaboratrices et collaborateurs.",
       "descriptionByLocale": {
         "fr": "Médecin chef-fe de service 80-100 % / Klinikchefarzt/Klinikchefärztin 80-100 % chez Hôpital fribourgeois (HFR) à Fribourg.\n\nL'Hôpital fribourgeois (HFR) est le réseau hospitalier public du canton de Fribourg. Il regroupe les sites de Fribourg, Riaz, Tafers, Meyriez-Murten et Billens, et emploie plus de 3'500 collaboratrices et collaborateurs.",
-        "it": "Ufficiale medico capo 80-100% / Klinikcheparzt/Klinikchefärztin 80-100% presso l'ospedale di Friburgo (HFR) a Friburgo.\n\nL'Ospedale di Friburgo (HFR) è la rete ospedaliera pubblica nel cantone di Friburgo. Esso riunisce i siti di Fribourg, Riaz, Tafers, Meyriez-Murten e Billens, e impiega oltre 3.500 collaboratori.",
-        "en": "Chief Medical Officer 80-100% / Klinikcheparzt/Klinikchefärztin 80-100% at the Freiburg Hospital (HFR) in Freiburg.\n\nThe Freiburg Hospital (HFR) is the public hospital network in the canton of Freiburg. It brings together the sites of Fribourg, Riaz, Tafers, Meyriez-Murten and Billens, and employs more than 3,500 collaborators.",
+        "it": "Ufficiale medico capo 80-100% / Klinikcheparzt/Klinikchefärztin 80-100% presso l'ospedale di Friburgo (HFR) a Friburgo.\n\nL'Ospedale di Friburgo (HFR) è la rete ospedaliera pubblica nel cantone di Friburgo. riunisce i siti di Fribourg, Riaz, Tafers, Meyriez-Murten e Billens, e impiega oltre 3.500 collaboratori.",
+        "en": "Chief Medical Officer 80-100% / Klinikcheparzt/Klinikchefärztin 80-100% at Freiburg Hospital (HFR) in Freiburg.\n\nThe Freiburg Hospital (HFR) is the public hospital network in the canton of Freiburg. It brings together the sites of Fribourg, Riaz, Tafers, Meyriez-Murten and Billens, and employs more than 3,500 collaborators.",
         "de": "Chief Medical Officer 80-100% / Klinikcheparzt/Klinikchefärztin 80-100% am Freiburger Krankenhaus (HFR) in Freiburg.\n\nDas Freiburger Krankenhaus (HFR) ist das öffentliche Krankenhausnetzwerk im Kanton Freiburg. Es vereint die Standorte Freiburg, Riaz, Tafers, Meyriez-Murten und Billens und beschäftigt mehr als 3.500 Mitarbeiter."
       },
       "location": "Fribourg",
@@ -1170,19 +1172,11 @@
       "firstSeenAt": "2026-06-25T11:27:04.647Z",
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
-          "medico-capo-reparto-80-100-klinikchefarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
-        ],
-        "en": [
-          "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
-        ],
-        "de": [
           "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
         ]
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
-        "medico-capo-reparto-80-100-klinikchefarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
+        "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
       ]
     },
     {
@@ -1679,12 +1673,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-03e5d90f7193",
-      "slug": "infermiera-e-esperto-in-anestesia-da-50-a-100-cdi-hopital-fribourgeois-hfr-fribourg",
+      "slug": "infermiera-esperta-in-cure-anestesiologiche-50-100-cdi-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
         "fr": "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
-        "it": "infermiera-e-esperto-in-anestesia-da-50-a-100-cdi-hopital-fribourgeois-hfr-fribourg",
-        "en": "nurse-e-expert-in-anesthesia-care-50-to-100-cdi-hopital-fribourgeois-hfr-fribourg",
-        "de": "nurse-e-experte-in-anasthesie-pflege-50-bis-100-cdi-hopital-fribourgeois-hfr-fribourg"
+        "it": "infermiera-esperta-in-cure-anestesiologiche-50-100-cdi-hopital-fribourgeois-hfr-fribourg",
+        "en": "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
+        "de": "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -1692,15 +1686,15 @@
       "title": "Infirmier-ère expert-e en soins d’anesthésie (50 à 100% – CDI)",
       "titleByLocale": {
         "fr": "Infirmier-ère expert-e en soins d’anesthésie (50 à 100% – CDI)",
-        "it": "Infermiera-e-esperto in anestesia (da 50 a 100% – CDI)",
-        "en": "Nurse-e-expert in anesthesia care (50 to 100% – CDI)",
-        "de": "Nurse-e-Experte in Anästhesie Pflege (50 bis 100% - CDI)"
+        "it": "Infermiera esperta in cure anestesiologiche (50-100% – CDI)",
+        "en": "Nurse expert in anesthesia care (50 to 100% – CDI)",
+        "de": "Krankenschwester Experte in Anästhesie Pflege (50 bis 100% - CDI)"
       },
       "description": "Infirmier-ère expert-e en soins d’anesthésie (50 à 100% – CDI) chez Hôpital fribourgeois (HFR) à Fribourg.\n\nL'Hôpital fribourgeois (HFR) est le réseau hospitalier public du canton de Fribourg. Il regroupe les sites de Fribourg, Riaz, Tafers, Meyriez-Murten et Billens, et emploie plus de 3'500 collaboratrices et collaborateurs.",
       "descriptionByLocale": {
         "fr": "Infirmier-ère expert-e en soins d’anesthésie (50 à 100% – CDI) chez Hôpital fribourgeois (HFR) à Fribourg.\n\nL'Hôpital fribourgeois (HFR) est le réseau hospitalier public du canton de Fribourg. Il regroupe les sites de Fribourg, Riaz, Tafers, Meyriez-Murten et Billens, et emploie plus de 3'500 collaboratrices et collaborateurs.",
-        "it": "Infermiera-esperta nella cura dell'anestesia (da 50 a 100% CDI) presso l'ospedale di Friburgo (HFR) a Friburgo.\n\nL'Ospedale di Friburgo (HFR) è la rete ospedaliera pubblica nel cantone di Friburgo. Esso riunisce i siti di Fribourg, Riaz, Tafers, Meyriez-Murten e Billens, e impiega oltre 3.500 collaboratori.",
-        "en": "Nurse-e-expert in the care of anesthesia (50 to 100% – CDI) at the Freiburg Hospital (HFR) in Fribourg.\n\nThe Freiburg Hospital (HFR) is the public hospital network in the canton of Freiburg. It brings together the sites of Fribourg, Riaz, Tafers, Meyriez-Murten and Billens, and employs more than 3,500 collaborators.",
+        "it": "Infermiera-e-esperta nella cura dell'anestesia (da 50 a 100% CDI) presso l'ospedale di Friburgo (HFR) a Friburgo.\n\nL'Ospedale di Friburgo (HFR) è la rete ospedaliera pubblica nel cantone di Friburgo. riunisce i siti di Fribourg, Riaz, Tafers, Meyriez-Murten e Billens, e impiega oltre 3.500 collaboratori.",
+        "en": "Nurse-e-expert in the care of anaesthesia (50 to 100% – CDI) at the Freiburg Hospital (HFR) in Fribourg.\n\nThe Freiburg Hospital (HFR) is the public hospital network in the canton of Freiburg. It brings together the sites of Fribourg, Riaz, Tafers, Meyriez-Murten and Billens, and employs more than 3,500 collaborators.",
         "de": "Nurse-e-Expertin in der Pflege der Anästhesie (50 bis 100% – CDI) am Freiburger Krankenhaus (HFR) in Freiburg.\n\nDas Freiburger Krankenhaus (HFR) ist das öffentliche Krankenhausnetzwerk im Kanton Freiburg. Es vereint die Standorte Freiburg, Riaz, Tafers, Meyriez-Murten und Billens und beschäftigt mehr als 3.500 Mitarbeiter."
       },
       "location": "Fribourg",
@@ -1743,19 +1737,11 @@
       "firstSeenAt": "2026-06-25T11:27:00.109Z",
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
-          "infermiera-esperta-in-cure-anestesiologiche-50-100-cdi-hopital-fribourgeois-hfr-fribourg"
-        ],
-        "en": [
-          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
-        ],
-        "de": [
           "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
-        "infermiera-esperta-in-cure-anestesiologiche-50-100-cdi-hopital-fribourgeois-hfr-fribourg"
+        "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
       ]
     },
     {
@@ -2117,7 +2103,7 @@
       "slugByLocale": {
         "it": "collaborateur-trice-administratif-ve-60-collaboratore-trice-administration-60-hopital-fribourgeois-hfr-fribourg",
         "en": "administrative-collaborator-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg",
-        "de": "administrative-mitarbeiter-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg",
+        "de": "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital",
         "fr": "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -2127,7 +2113,7 @@
       "titleByLocale": {
         "it": "Collaborateur-trice administratif-ve 60 % / Collaboratore/trice Administration 60 %",
         "en": "Administrative Collaborator-W 60% / Mitarbeiter/in Administration 60%",
-        "de": "Administrative Mitarbeiter-W 60% / Mitarbeiter/in Administration 60%",
+        "de": "Administrativer Mitarbeiter-W 60% / Mitarbeiter/in Verwaltung 60%",
         "fr": "Collaborateur-trice administratif-ve 60 % / Mitarbeiter/in Administration 60 %"
       },
       "description": "Afin de compléter son équipe, le service Gestion Administrative du Patient (GAP) de l’hôpital fribourgeois recherche un-e\n\nCollaborateur-trice administratif-ve\n 60 %\n\nVotre mission :\n\n• accomplir les tâches administratives nécessaires à la bonne gestion des dossiers assécurologiques de l'hôpital et en assurer le suivi\n\n• répondre aux demandes et sollicitations des clients et des partenaires contractuels\n\n• coordonner les informations entre les différents services hospitaliers\n\nVotre profil :\n\n• formation commerciale de base (CFC d'employé-e de commerce ou équivalent)\n\n• expérience professionnelle de l’administratrion hospitalière, ou de l'assurance maladie et accidents\n\n• maîtrise des outils informatiques courants (MS Office), Opale un atout\n\n• maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\n• personnalité flexible, organisée, consciencieuse, apte à travailler dans un équipe dynamique et ayant une bonne résistance au stress\n\nEntrée en fonction : 1 er novembre 2026\n\nRenseignements : M. F. Clément, responsable gestion administrative du patient, T. +41 26 306 04 21\n\nDélai de postulation : 28 juin 2026\n\nRéf. : HFR-A-262301\n\nUm ihr Team zu ergänzen, sucht die Patientenadministration des freiburger spitals einen/eine\n\nMitarbeiter/in Administration\n 60 %\n\nAufgaben\n\n• Sie sorgen durch Ihre administrative Tätigkeit für die reibungslose Bearbeitung der Krankenkassen- und Unfallversicherungsdossiers des Spitals und kümmern sich auch um deren Weiterverfolgung.\n\n• Sie beantworten Anfragen von Kunden und Vertragspartnern.\n\n• Sie koordinieren die Informationen zwischen den verschiedenen Spitalabteilungen.\n\nProfil\n\n• Kaufmännische Grundausbildung (Kauffrau/-mann EFZ oder gleichwertige Ausbildung)\n\n• Verwaltungserfahrung im Spitalwesen oder im Bereich Krankenkassen und Unfallversicherungen\n\n• Beherrschen von MS Office, Kenntnisse in Opale von Vorteil\n\n• Französisch mit guten Deutschkenntnissen\n\n• Flexibilität, Organisationsvermögen, Gewissenhaftigkeit, Belastbarkeit und Fähigkeit zur Arbeit in einem dynamischen Team\n\nStellenantritt: 1. November 2026\n\nAuskunft: Herr F. Clément, Leiter Patientenadministration,\nT +41 26 306 04 21\n\nBewerbungsfrist : 28. Juni 2026\n\nRef : HFR-A-262301",
@@ -2162,7 +2148,8 @@
       "externalId": "df7451e3ad4c",
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital",
-        "administrativer-mitarbeiter-w-60-mitarbeiter-in-verwaltung-60-hopital-fribourgeois-hfr-fribourg"
+        "administrativer-mitarbeiter-w-60-mitarbeiter-in-verwaltung-60-hopital-fribourgeois-hfr-fribourg",
+        "administrative-mitarbeiter-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2173,7 +2160,7 @@
         ],
         "de": [
           "administrativer-mitarbeiter-w-60-mitarbeiter-in-verwaltung-60-hopital-fribourgeois-hfr-fribourg",
-          "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
+          "administrative-mitarbeiter-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-05T11:56:11.057Z",
@@ -2196,7 +2183,7 @@
       "slugByLocale": {
         "it": "collaborateur-trice-intendance-100-collaboratore-trice-hauswirtschaft-hopital-fribourgeois-hfr-fribourg",
         "en": "100-co-workers-mitarbeiter-in-hauswirtschaft-hopital-fribourgeois-hfr-fribourg",
-        "de": "employee-stewardship-100-mitarbeiter-in-hauswirtschaft-hopital-fribourgeois-hfr-fribourg",
+        "de": "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois",
         "fr": "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -2240,7 +2227,8 @@
       "requirementsByLocale": {},
       "externalId": "3b2f83c38de7",
       "previousSlugs": [
-        "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
+        "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois",
+        "employee-stewardship-100-mitarbeiter-in-hauswirtschaft-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2250,7 +2238,7 @@
           "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
         ],
         "de": [
-          "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
+          "employee-stewardship-100-mitarbeiter-in-hauswirtschaft-hopital-fribourgeois-hfr-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-23T11:57:53.973Z",
@@ -2273,7 +2261,7 @@
       "slugByLocale": {
         "it": "capo-della-clinica-o-medico-associato-80-100-capo-specialista-ospedaliero-80-100-hopital-fribourgeois-hfr-fribourg",
         "en": "head-of-clinic-or-associate-physician-80-100-senior-hospital-physician-80-100-hopital-fribourgeois-hfr-fribourg",
-        "de": "klinikleiter-oder-assoziierter-arzt-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100-hopital",
+        "de": "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt",
         "fr": "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -2343,6 +2331,7 @@
       "externalId": "947dcfafe2c3",
       "previousSlugs": [
         "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt",
+        "klinikleiter-oder-assoziierter-arzt-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100-hopital",
         "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-ou-specialiste-hospitalier-80-100-hopital"
       ],
       "previousSlugsByLocale": {
@@ -2350,7 +2339,7 @@
           "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt"
         ],
         "de": [
-          "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt"
+          "klinikleiter-oder-assoziierter-arzt-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100-hopital"
         ],
         "fr": [
           "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-ou-specialiste-hospitalier-80-100-hopital"
@@ -2386,7 +2375,7 @@
       "titleByLocale": {
         "it": "Chef-fe de clinique ou chef-fe de clinique adjoint-e / Oberärztin/Oberarzt o stellvertretende/n Oberärztin/Oberarzt",
         "en": "Chief of Clinic or Deputy Chief of Clinic",
-        "de": "Klinikleiter oder stellvertretender Klinikleiter / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt",
+        "de": "Klinikleiter oder stellvertretender Klinikleiter / Oberärztin/Oberarzt oder stellvertretene/n Oberärztin/Oberarzt",
         "fr": "Chef-fe de clinique ou chef-fe de clinique adjoint-e / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt"
       },
       "description": "Afin de compléter son équipe, la Direction médicale recherche pour le service de gériatrie aigue/réadaptation gériatrique de l'HFR Riaz un-e :\n\nChef-fe de clinique ou chef-fe de clinique adjoint-e\n 60 - 100 %\n\nVotre mission :\n\n• assurer la supervision de l'activité et de la formation des médecins assistants\n\n• dispenser de l'enseignement pour pré- et post-gradué ainsi que pour la formation continue médicale\n\n• participer à l'élaboration de projets de service et de projets scientifiques\n\n• participer au service de garde sur le site\n\nVotre profil :\n\n• vous êtes porteur-se d'un titre de FMH en médecine interne ou générale, ou en voie de l'obtenir, ou formation jugée équivalente\n\n• vous maîtrisez la langue française\n\n• vous êtes motivé-e à contribuer à une bonne atmosphère de travail et appréciez l'échange collégial\n\nEntrée en fonction : 1 er novembre 2026 à convenir\n\nRenseignements : Dr A. Laszlo, Médecin-chef de service, +41 26 306 44 30\n\nHFR-M-260202",
@@ -2545,7 +2534,7 @@
       "slugByLocale": {
         "it": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100-oberarzt-oberarztin-o-stv-oberarzt-oberarztin-100-hopital-fribourgeois-hfr-fribourg",
         "en": "head-of-clinic-or-assistant-head-of-clinic-in-gynaecology-obstetrics-100-oberarzt-oberarztin-oder-stv-oberarzt",
-        "de": "klinikleiterin-oder-assistenzklinikleiterin-gynakologie-geburtshilfe-100-oberarzt-oberarztin-oder-stv-oberarzt",
+        "de": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100",
         "fr": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -2590,7 +2579,8 @@
       "externalId": "047455d46006",
       "previousSlugs": [
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100",
-        "responsabile-clinica-o-assistente-responsabile-clinica-in-ginecologia-ostetricia-100-oberarzt-oberarztin-oder-stv"
+        "responsabile-clinica-o-assistente-responsabile-clinica-in-ginecologia-ostetricia-100-oberarzt-oberarztin-oder-stv",
+        "klinikleiterin-oder-assistenzklinikleiterin-gynakologie-geburtshilfe-100-oberarzt-oberarztin-oder-stv-oberarzt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2601,7 +2591,7 @@
           "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100"
         ],
         "de": [
-          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100"
+          "klinikleiterin-oder-assistenzklinikleiterin-gynakologie-geburtshilfe-100-oberarzt-oberarztin-oder-stv-oberarzt"
         ]
       },
       "firstSeenAt": "2026-05-27T12:40:09.485Z",
@@ -3050,7 +3040,7 @@
         "it": "Assistente tecnica specializzata in sala operatoria (ATSSO) (90 - 100%) / Tecnico/a di sala operatoria (90-100%)",
         "en": "Assistant-e technique spécialisé-e en salle d’opération (ATSSO) (90 - 100%) / Technische Operationsassistentin/Technischen Operationsassistenten (90-100%)",
         "de": "Assistent-e technique spécialisé-e en salle d’opération (ATSSO) (90 - 100%) / Technische Operationsassistentin/Technischen Operationsassistenten (90-100%)",
-        "fr": "Assistant-e technique spécialisée-e en salle d'opération (ATSSO) (90 - 100%) / Assistant d'opération technique/Assistant d'opération technique (90-100%)"
+        "fr": "Assistant-e technique spécialisé-e en salle d'opération (ATSSO) (90 - 100%) / Assistant technique/Assistant technique (90-100%)"
       },
       "description": "Afin de compléter son équipe, la direction médicale de l’hôpital fribourgeois recherche pour les centres opératoires de l'HFR un-e\n\nAssistant-e technique spécialisé-e en salle d’opération (ATSSO)\n\n90 - 100%\n\nVotre mission :\n\n• Assurer la prise en charge du patient au bloc opératoire et les activités de circulant-e\n\n• Assister l’infirmier-ère instrumentiste ou le technicien-ne spécialisé-e en salle d’opération (TSO) pour toutes les interventions chirurgicales\n\n• Préparer, installer et manipuler les dispositifs médicaux et participer à la gestion\n\n• Garantir les activités en lien avec l’hygiène et la sécurité\n\n• Participer aux activités d’intégration des nouveaux collaborateurs-trices et au développement du service\n\nVotre profil :\n\n• Formation d’aide spécialisée en salle d'opération ou CR aide-soignant-e ou équivalent et/ou titulaire du certificat ATSSO niveau 1 ou disposé-e à le faire\n\n• Expérience professionnelle hospitalière\n\n• Maîtrise des outils informatiques usuels\n\n• Maîtrise de la langue française, bonnes connaissances de l’allemand un atout\n\n• Aptitude à travailler en équipe multidisciplinaires, sens de l’organisation, autonomie et sens des responsabilités, sens de la communication\n\n• Grande résistance au stress et flexibilité\n\nEntrée en fonction : de suite ou à convenir\n\nRenseignements : M. Ivan Mellado, Coordinateur des ATSSO et agent-e-s bionettoyage, Tél. +41 26 306 05 69\n\nRéf : HFR-M-240901\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion des freiburger spitals für die Operationszentren des HFR eine/n\n\nTechnische Operationsassistentin/Technischen Operationsassistenten\n\nAufgaben\n\n• Sie betreuen die Patientinnen und Patienten im Operationstrakt und bei den Springertätigkeiten.\n\n• Sie assistieren der Pflegefachperson Operationsbereich oder den Fachpersonen Operationstechnik bei allen chirurgischen Eingriffen.\n\n• Sie bereiten die Medizingeräte vor, legen sie bereit, reichen sie weiter und beteiligen sich an der Verwaltung.\n\n• Sie kümmern sich um die Arbeitsschritte im Zusammenhang mit der Hygiene und der Sicherheit.\n\n• Sie beteiligen sich an der Einarbeitung neuer Mitarbeitender und an der Weiterentwicklung der Abteilung.\n\nProfil\n\n• Abschluss als Assistent/in OP oder Pflegehelfer/in SRK bzw. gleichwertige Ausbildung und/oder französischsprachiges Zertifikat als technische/r Operationsassistentin/-assistent Stufe 1 bzw. Bereitschaft, dieses zu absolvieren\n\n• Berufserfahrung im Spitalwesen\n\n• Beherrschen der gängigen Informatikprogramme\n\n• Französisch, gute Deutschkenntnisse von Vorteil\n\n• Mitarbeit in einem interdisziplinären Team, Organisationsvermögen, Selbstständigkeit und Verantwortungsbewusstsein, Kommunikationsgeschick\n\n• Ausgeprägte Belastbarkeit und Flexibilität\n\nStellenantritt : sofort oder nach Vereinbarung\n\nAuskunft : Herr Ivan Mellado, Koordinator der Operationsassistentinnen und -assistenten und der Mitarbeitenden für die biologische Reinigung\n\nT +41 26 306 05 6",
       "descriptionByLocale": {
