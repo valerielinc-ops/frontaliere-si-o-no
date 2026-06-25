@@ -10,30 +10,22 @@
  * ── Round history ──────────────────────────────────────────────────────────
  * Round 1 (`authgate-headline-v1`, CLOSED): control vs `frictionless`.
  *   Winner = `frictionless` (+50.8% relative on per-person auth_success,
- *   p=1.25e-9). Promoted to 100%: the `jobBoard.gate.title` i18n key now holds
- *   the frictionless copy, so the round-2 `control` arm IS the round-1 winner.
+ *   p=1.25e-9). Promoted to 100%: the `jobBoard.gate.title` i18n key held the
+ *   frictionless copy, so the round-2 `control` arm WAS the round-1 winner.
  *   Full results: docs/AUTHGATE-HEADLINE-EXPERIMENT.md.
  *
- * Round 2 (`authgate-headline-v2`, ACTIVE): control (= round-1 winner) vs two
- * new challengers that probe different framings against the proven baseline:
- *   control     — t('jobBoard.gate.title'), the round-1 frictionless winner.
- *   free_unlock — cost-removal + immediacy ("unlock the full listing for free").
- *   apply_now   — goal-proximity toward applying ("see how to apply").
+ * Round 2 (`authgate-headline-v2`, CLOSED 2026-06-25): control (= round-1
+ * winner) vs free_unlock vs apply_now. apply_now led on per-person CR
+ * (23.26% vs 21.80% control, +1.46pp) while free_unlock was flat (-0.13pp);
+ * owner promoted apply_now to 100%. The `jobBoard.gate.title` i18n key now
+ * holds the apply_now copy and the PostHog flag is deactivated, so every
+ * viewer sees the promoted headline via the `control` fall-back. The
+ * `CHALLENGER_HEADLINES` map below is retained as the last round's config for
+ * a future round-3 (redefine the arms + reactivate the flag to reuse it).
  *
  * Initial render is always control until PostHog loads (~200-400 ms cold).
  * The experiment's exposure metric should be `gate_view WHERE headline_variant
  * IS NOT NULL` so the brief unattributed window does not bias the outcome.
- *
- * ── Model experiment (orthogonal to the headline copy test) ──────────────────
- * `useAuthGateModelVariant` (flag `authgate-model-v1`) probes a *structural*
- * change rather than copy: round-2 headline arms came back inconclusive
- * (apply_now +1.99pp p=0.20, free_unlock +1.28pp p=0.41 over 30d), i.e. copy is
- * exhausted as a lever while the dominant drop is gate_view → engagement (~88%
- * of viewers never click any method; ~17% overall conversion). The `value_first`
- * arm reveals substantially more of the job description before the gate (the
- * control teaser is throttled to ~220 chars / ≤80px) to build information scent
- * + reciprocity. Tagged via the `gate_model` super-property; split the funnel by
- * it with `node scripts/query-authgate-experiment.mjs --prop gate_model`.
  */
 
 import { useEffect, useState } from 'react';
@@ -98,41 +90,4 @@ export function useAuthGateHeadlineVariant(
 
   const headline = variant === 'control' ? controlHeadline : resolveChallenger(variant, locale);
   return { variant, headline };
-}
-
-// ─── Model-level experiment (structural, not copy) ───────────────────────────
-
-const MODEL_FLAG_KEY = 'authgate-model-v1';
-
-export type AuthGateModel = 'control' | 'value_first';
-
-function normalizeModel(raw: unknown): AuthGateModel | null {
-  if (raw === 'control' || raw === 'value_first') return raw;
-  return null;
-}
-
-/**
- * Resolves the active auth-gate *model* from the PostHog flag
- * `authgate-model-v1` and tags every subsequent event with `gate_model` so the
- * funnel can split by arm. Falls back to `control` (current behaviour) until
- * PostHog loads, or whenever the flag is absent/disabled — so the code is safe
- * to ship before the experiment is created.
- *
- *   control     — current gate: ~220-char / ≤80px description teaser.
- *   value_first — reveal much more of the description before the gate.
- */
-export function useAuthGateModelVariant(): AuthGateModel {
-  const [model, setModel] = useState<AuthGateModel>('control');
-
-  useEffect(() => {
-    const unsubscribe = onFeatureFlags(() => {
-      const resolved = normalizeModel(getFeatureFlag(MODEL_FLAG_KEY));
-      setModel(resolved ?? 'control');
-      if (!resolved) return;
-      registerSuperProperty('gate_model', resolved);
-    });
-    return unsubscribe;
-  }, []);
-
-  return model;
 }

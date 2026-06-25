@@ -1,7 +1,7 @@
 import { renderHook, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 
-import { useAuthGateHeadlineVariant, useAuthGateModelVariant } from '@/services/authGateExperiment';
+import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { getFeatureFlag, onFeatureFlags, registerSuperProperty } from '@/services/posthog';
 
 const getFeatureFlagMock = vi.mocked(getFeatureFlag);
@@ -103,61 +103,5 @@ describe('useAuthGateHeadlineVariant', () => {
       variant: 'free_unlock',
       headline: "Sblocca gratis l'annuncio completo",
     });
-  });
-});
-
-describe('useAuthGateModelVariant', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    onFeatureFlagsMock.mockImplementation((callback) => {
-      callback();
-      return vi.fn();
-    });
-  });
-
-  it('falls back to control without tagging gate_model when PostHog has no assignment', async () => {
-    getFeatureFlagMock.mockReturnValue(null);
-
-    const { result } = renderHook(() => useAuthGateModelVariant());
-
-    await waitFor(() => expect(onFeatureFlagsMock).toHaveBeenCalled());
-
-    expect(result.current).toBe('control');
-    expect(registerSuperPropertyMock).not.toHaveBeenCalled();
-  });
-
-  it('tags gate_model when PostHog explicitly assigns control', async () => {
-    getFeatureFlagMock.mockReturnValue('control');
-
-    const { result } = renderHook(() => useAuthGateModelVariant());
-
-    await waitFor(() =>
-      expect(registerSuperPropertyMock).toHaveBeenCalledWith('gate_model', 'control'),
-    );
-
-    expect(result.current).toBe('control');
-  });
-
-  it('resolves and tags the value_first arm', async () => {
-    getFeatureFlagMock.mockReturnValue('value_first');
-
-    const { result } = renderHook(() => useAuthGateModelVariant());
-
-    await waitFor(() =>
-      expect(registerSuperPropertyMock).toHaveBeenCalledWith('gate_model', 'value_first'),
-    );
-
-    expect(result.current).toBe('value_first');
-  });
-
-  it('ignores an unknown arm and stays on control', async () => {
-    getFeatureFlagMock.mockReturnValue('mystery_arm');
-
-    const { result } = renderHook(() => useAuthGateModelVariant());
-
-    await waitFor(() => expect(onFeatureFlagsMock).toHaveBeenCalled());
-
-    expect(result.current).toBe('control');
-    expect(registerSuperPropertyMock).not.toHaveBeenCalled();
   });
 });
