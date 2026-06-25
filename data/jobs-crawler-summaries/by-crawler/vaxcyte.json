@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-06-24T23:11:41.901Z",
-  "total": 3,
+  "generatedAt": "2026-06-25T12:14:02.606Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2610,
-  "avgDurationMs": 2610,
+  "durationMs": 2396,
+  "avgDurationMs": 2396,
   "durationHistory": [
-    2610
+    2396
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T23:11:39.747Z",
+      "crawledAt": "2026-06-25T12:14:00.670Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T23:11:39.684Z",
+      "crawledAt": "2026-06-25T12:14:00.606Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -95,10 +95,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "vaxcyte-c9c634d0bcbe",
-      "slug": "vice-president-manufacturing-operations-managing-director-vaxcyte-ch",
+      "slug": "vice-presidente-manufacturing-operations-managing-director-vaxcyte-visp",
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
       "companyDomain": "vaxcyte.com",
@@ -129,15 +131,16 @@
         "location": "Visp"
       },
       "firstSeenAt": "2026-04-18T10:19:24.971Z",
-      "_qualityScore": 74,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
-        "cleanliness": 12,
+        "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
