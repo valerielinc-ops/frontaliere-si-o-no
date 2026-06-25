@@ -210,10 +210,10 @@
     },
     {
       "id": "spitex-ch-f3a93ba50a10",
-      "slug": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
+      "slug": "capo-squadra-servizio-notturno-ricovero-e-ambulatoriale-spitex-der-seegemeinden-weggis",
       "slugByLocale": {
         "de": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "it": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
+        "it": "capo-squadra-servizio-notturno-ricovero-e-ambulatoriale-spitex-der-seegemeinden-weggis",
         "en": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
         "fr": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
       },
@@ -272,7 +272,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T12:09:29.774Z"
+      "firstSeenAt": "2026-06-25T12:09:29.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+      ]
     },
     {
       "id": "spitex-ch-466fc967cee3",
@@ -547,8 +555,7 @@
         ],
         "en": [
           "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
-          "care-specialist-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
-          "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+          "care-specialist-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen"
         ],
         "fr": [
           "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen"
@@ -1395,10 +1402,10 @@
     },
     {
       "id": "spitex-ch-340c8cc04e20",
-      "slug": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
+      "slug": "specialista-della-salute-60-80-spitex-horgen-oberrieden-horgen",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
-        "it": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
+        "it": "specialista-della-salute-60-80-spitex-horgen-oberrieden-horgen",
         "en": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
         "fr": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
       },
@@ -1457,14 +1464,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T12:09:17.196Z"
+      "firstSeenAt": "2026-06-25T12:09:17.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
+      ]
     },
     {
       "id": "spitex-ch-ac1cc1d81c14",
-      "slug": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
+      "slug": "specialista-della-salute-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
-        "it": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
+        "it": "specialista-della-salute-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
         "en": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
         "fr": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
       },
@@ -1523,14 +1538,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T12:09:16.497Z"
+      "firstSeenAt": "2026-06-25T12:09:16.497Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+      ]
     },
     {
       "id": "spitex-ch-4fa6d2a4754c",
-      "slug": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen",
+      "slug": "infermiere-qualificato-hf-fh-focus-in-psichiatria-50-70-a-spitex-zurichsee-meilen",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen",
-        "it": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen",
+        "it": "infermiere-qualificato-hf-fh-focus-in-psichiatria-50-70-a-spitex-zurichsee-meilen",
         "en": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen",
         "fr": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen"
       },
@@ -1589,7 +1612,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T12:09:15.159Z"
+      "firstSeenAt": "2026-06-25T12:09:15.159Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen"
+      ]
     },
     {
       "id": "spitex-ch-8412852a6438",

@@ -24,12 +24,12 @@
         "de": "Kundendienst Koordinator",
         "fr": "Service Client Coordinateur"
       },
-      "slug": "customer-service-coordinator-zegna",
+      "slug": "servizio-clienti-coordinatore-ermenegildo-zegna-group-stabio",
       "slugByLocale": {
         "en": "customer-service-coordinator-zegna",
-        "it": "customer-service-coordinator-zegna",
-        "de": "customer-service-coordinator-zegna",
-        "fr": "customer-service-coordinator-zegna"
+        "it": "servizio-clienti-coordinatore-ermenegildo-zegna-group-stabio",
+        "de": "kundendienst-koordinator-ermenegildo-zegna-group-stabio",
+        "fr": "service-client-coordinateur-ermenegildo-zegna-group-stabio"
       },
       "department": "Other/Other",
       "category": "Other/Other",
@@ -66,7 +66,21 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-06-25T12:34:56.254Z"
+      "firstSeenAt": "2026-06-25T12:34:56.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-coordinator-zegna"
+        ],
+        "de": [
+          "customer-service-coordinator-zegna"
+        ],
+        "fr": [
+          "customer-service-coordinator-zegna"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-coordinator-zegna"
+      ]
     },
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",

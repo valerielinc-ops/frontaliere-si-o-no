@@ -908,8 +908,7 @@
         ],
         "en": [
           "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
-          "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
-          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
+          "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve"
         ],
         "de": [
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
@@ -3249,8 +3248,7 @@
       "previousSlugsByLocale": {
         "it": [
           "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
+          "educatore-sociale-in-psichiatria-80-hug-thonex"
         ],
         "en": [
           "social-educator-in-psychiatry-80-hug-thonex"
@@ -4444,10 +4442,10 @@
     },
     {
       "id": "hug-88f93307252f",
-      "slug": "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de",
+      "slug": "professore-o-professore-ordinario-o-associato-primario-o-capo-del-servizio-di-cardiologia-100-hug-geneve",
       "slugByLocale": {
         "fr": "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de",
-        "it": "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de",
+        "it": "professore-o-professore-ordinario-o-associato-primario-o-capo-del-servizio-di-cardiologia-100-hug-geneve",
         "en": "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de",
         "de": "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de"
       },
@@ -4506,14 +4504,22 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-25T11:20:40.144Z"
+      "firstSeenAt": "2026-06-25T11:20:40.144Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de"
+        ]
+      },
+      "previousSlugs": [
+        "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de"
+      ]
     },
     {
       "id": "hug-fde8be5cc70f",
-      "slug": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
+      "slug": "assistenza-in-cure-e-accompagnamento-in-chirurgia-80-100-hug-geneve",
       "slugByLocale": {
         "fr": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
-        "it": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
+        "it": "assistenza-in-cure-e-accompagnamento-in-chirurgia-80-100-hug-geneve",
         "en": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
         "de": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
       },
@@ -4572,14 +4578,22 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-25T11:20:40.142Z"
+      "firstSeenAt": "2026-06-25T11:20:40.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-a9be436e303e",
-      "slug": "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve",
+      "slug": "tecnico-o-tecnica-in-analisi-biomediche-65-hug-geneve",
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve",
-        "it": "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve",
+        "it": "tecnico-o-tecnica-in-analisi-biomediche-65-hug-geneve",
         "en": "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve",
         "de": "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve"
       },
@@ -4638,7 +4652,15 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-25T11:20:40.132Z"
+      "firstSeenAt": "2026-06-25T11:20:40.132Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve"
+      ]
     }
   ]
 }

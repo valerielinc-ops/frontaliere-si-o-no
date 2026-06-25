@@ -484,8 +484,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur"
+          "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-05T22:15:31.956Z",
@@ -560,8 +559,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur"
+          "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-08T13:07:12.838Z",
@@ -1246,10 +1244,10 @@
     },
     {
       "id": "ipw-7bb6b5a91900",
-      "slug": "assistenzarztin-assistenzarzt-ipw-winterthur",
+      "slug": "medico-assistente-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "it": "assistenzarztin-assistenzarzt-ipw-winterthur",
+        "it": "medico-assistente-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "assistenzarztin-assistenzarzt-ipw-winterthur",
         "fr": "assistenzarztin-assistenzarzt-ipw-winterthur"
       },
@@ -1311,7 +1309,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T11:34:28.278Z"
+      "firstSeenAt": "2026-06-25T11:34:28.278Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-58f8d662fce9",

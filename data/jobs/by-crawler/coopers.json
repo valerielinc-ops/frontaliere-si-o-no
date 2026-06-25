@@ -793,7 +793,7 @@
       "slug": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "it": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
-        "en": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
+        "en": "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "de": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
         "fr": "gestion-du-projet-m-w-d-coopers-group-ag-aargau"
       },
@@ -854,7 +854,6 @@
       },
       "previousSlugs": [
         "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
-        "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "gestione-del-prodotto-m-w-d-coopers-group-ag-luzern",
         "quality-control-inspector-m-w-d-coopers-luzern",
         "gestion-du-projet-m-w-d-coopers-group-ag-luzern"
@@ -864,7 +863,6 @@
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "en": [
-          "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "fr": [
@@ -4342,12 +4340,12 @@
     },
     {
       "id": "coopers-d1faa6c6e713",
-      "slug": "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt",
+      "slug": "ingegnere-di-qualificazione-in-pura-media-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "de": "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt",
-        "it": "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt",
-        "en": "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt",
-        "fr": "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt"
+        "it": "ingegnere-di-qualificazione-in-pura-media-m-f-d-coopers-group-ag-basel-stadt",
+        "en": "qualification-engineer-in-pure-media-m-f-d-coopers-group-ag-basel-stadt",
+        "fr": "ingenieur-de-qualification-en-milieu-pur-m-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4416,7 +4414,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-25T11:01:10.334Z"
+      "firstSeenAt": "2026-06-25T11:01:10.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt"
+        ],
+        "en": [
+          "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-5a6dbc145096",

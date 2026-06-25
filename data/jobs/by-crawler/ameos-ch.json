@@ -9,7 +9,7 @@
         "it": "corporate-contabile-m-w-d-ameos-schweiz-zurich",
         "en": "corporate-accountant-m-w-d-ameos-zurich",
         "de": "corporate-accountant-m-w-d-ameos-zurich",
-        "fr": "corporate-accountant-m-w-d-ameos-zurich"
+        "fr": "comptable-des-entreprises-m-f-d-ameos-schweiz-zurich"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -51,15 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "corporate-accountant-m-w-d-ameos-zurich",
-        "comptable-des-entreprises-m-f-d-ameos-schweiz-zurich"
+        "corporate-accountant-m-w-d-ameos-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "corporate-accountant-m-w-d-ameos-zurich"
         ],
         "fr": [
-          "comptable-des-entreprises-m-f-d-ameos-schweiz-zurich",
           "corporate-accountant-m-w-d-ameos-zurich"
         ]
       },
@@ -774,8 +772,8 @@
       "slugByLocale": {
         "de": "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
         "it": "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln",
-        "en": "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
-        "fr": "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
+        "en": "paramedic-training-station-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "station-de-formation-paramedicale-m-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -820,6 +818,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
+        ],
+        "en": [
+          "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
+        ],
+        "fr": [
           "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
         ]
       },

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "daler-hopital-1ffc66761bfe",
-      "slug": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
+      "slug": "assistente-amministrativo-hopital-daler-fribourg",
       "slugByLocale": {
         "fr": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
-        "it": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
-        "en": "collaborateur-rice-administratif-ve-daler-hopital-fribourg",
-        "de": "collaborateur-rice-administratif-ve-daler-hopital-fribourg"
+        "it": "assistente-amministrativo-hopital-daler-fribourg",
+        "en": "administrative-assistant-hopital-daler-fribourg",
+        "de": "verwaltungsassistent-hopital-daler-fribourg"
       },
       "company": "Hôpital Daler",
       "companyKey": "daler-hopital",
@@ -55,11 +55,19 @@
       "externalId": "4098",
       "previousSlugsByLocale": {
         "it": [
+          "collaborateur-rice-administratif-ve-daler-hopital-fribourg",
+          "aide-de-salle-d-operation-atsso-daler-hopital-fribourg"
+        ],
+        "en": [
+          "collaborateur-rice-administratif-ve-daler-hopital-fribourg"
+        ],
+        "de": [
           "collaborateur-rice-administratif-ve-daler-hopital-fribourg"
         ]
       },
       "previousSlugs": [
-        "collaborateur-rice-administratif-ve-daler-hopital-fribourg"
+        "collaborateur-rice-administratif-ve-daler-hopital-fribourg",
+        "aide-de-salle-d-operation-atsso-daler-hopital-fribourg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

@@ -432,10 +432,10 @@
     },
     {
       "id": "kanton-gr-e513b4e066db",
-      "slug": "assistenz-digitale-transformation-kanton-gr-ch",
+      "slug": "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "assistenz-digitale-transformation-kanton-gr-ch",
-        "it": "assistenz-digitale-transformation-kanton-gr-ch",
+        "it": "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur",
         "en": "assistenz-digitale-transformation-kanton-gr-ch",
         "fr": "assistenz-digitale-transformation-kanton-gr-ch"
       },
@@ -498,14 +498,22 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-25T11:23:53.031Z"
+      "firstSeenAt": "2026-06-25T11:23:53.031Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-digitale-transformation-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-digitale-transformation-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-07524dfb80e1",
-      "slug": "ict-supporter-in-kanton-gr-ch",
+      "slug": "supporto-ict-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "ict-supporter-in-kanton-gr-ch",
-        "it": "ict-supporter-in-kanton-gr-ch",
+        "it": "supporto-ict-kantonale-verwaltung-graubunden-chur",
         "en": "ict-supporter-in-kanton-gr-ch",
         "fr": "ict-supporter-in-kanton-gr-ch"
       },
@@ -568,14 +576,22 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-25T11:23:52.345Z"
+      "firstSeenAt": "2026-06-25T11:23:52.345Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-362db6cf5c75",
-      "slug": "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur",
+      "slug": "responsabile-i-del-prodotto-microsoft-m365-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "produktverantwortliche-r-microsoft-m365-kanton-gr-ch",
-        "it": "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur",
+        "it": "responsabile-i-del-prodotto-microsoft-m365-kantonale-verwaltung-graubunden-chur",
         "en": "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur",
         "fr": "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur"
       },
@@ -627,11 +643,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "produktverantwortliche-r-microsoft-m365-kanton-gr-ch"
+          "produktverantwortliche-r-microsoft-m365-kanton-gr-ch",
+          "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "produktverantwortliche-r-microsoft-m365-kanton-gr-ch"
+        "produktverantwortliche-r-microsoft-m365-kanton-gr-ch",
+        "produktverantwortliche-r-microsoft-m365-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -728,10 +746,10 @@
     },
     {
       "id": "kanton-gr-f55e340cb08e",
-      "slug": "sozialarbeiter-in-kanton-gr-ch",
+      "slug": "assistente-sociale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "sozialarbeiter-in-kanton-gr-ch",
-        "it": "sozialarbeiter-in-kanton-gr-ch",
+        "it": "assistente-sociale-kantonale-verwaltung-graubunden-chur",
         "en": "sozialarbeiter-in-kanton-gr-ch",
         "fr": "sozialarbeiter-in-kanton-gr-ch"
       },
@@ -794,7 +812,15 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-25T11:23:50.286Z"
+      "firstSeenAt": "2026-06-25T11:23:50.286Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-19cb03b3a1e9",
@@ -954,9 +980,9 @@
     },
     {
       "id": "kanton-gr-61b4bd8f9444",
-      "slug": "systems-engineer-in-windows-server-kanton-gr-ch",
+      "slug": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "systems-engineer-in-windows-server-kanton-gr-ch",
+        "it": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
         "en": "systems-engineer-in-windows-server-kantonale-verwaltung-graubunden-chur",
         "de": "systems-engineer-in-windows-server-kanton-gr-ch",
         "fr": "systems-engineer-in-windows-server-kanton-gr-ch"
@@ -1005,7 +1031,7 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+        "systems-engineer-in-windows-server-kanton-gr-ch",
         "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur",
         "systems-engineer-in-per-applicazioni-windows-kantonale-verwaltung-graubunden-chur",
@@ -1015,7 +1041,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
           "systems-engineer-in-windows-server-kanton-gr-ch"
         ],
         "fr": [
@@ -1447,10 +1472,10 @@
       "id": "kanton-gr-411b4f827a54",
       "slug": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1498,16 +1523,14 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-kanton-gr-ch",
         "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+        "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-kanton-gr-ch",
-          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+          "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
           "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
         ]
       },

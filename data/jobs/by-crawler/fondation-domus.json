@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "fondation-domus-597828314199",
-      "slug": "secretaire-receptionniste-a-50-fondation-domus-ch",
+      "slug": "segretario-ricevitore-al-50-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "secretaire-receptionniste-a-50-fondation-domus-ch",
-        "it": "secretaire-receptionniste-a-50-fondation-domus-ch",
+        "it": "segretario-ricevitore-al-50-fondation-domus-ardon",
         "en": "secretaire-receptionniste-a-50-fondation-domus-ch",
         "de": "secretaire-receptionniste-a-50-fondation-domus-ch"
       },
@@ -65,7 +65,15 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-25T11:17:35.542Z"
+      "firstSeenAt": "2026-06-25T11:17:35.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-receptionniste-a-50-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-receptionniste-a-50-fondation-domus-ch"
+      ]
     }
   ]
 }

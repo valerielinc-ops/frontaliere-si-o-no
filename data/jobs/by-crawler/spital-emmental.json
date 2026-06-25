@@ -66,8 +66,7 @@
           "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-radiology-specialist-hf-a-spital-emmental-burgdorf-langnau",
-          "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
+          "dipl-radiology-specialist-hf-a-spital-emmental-burgdorf-langnau"
         ],
         "fr": [
           "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
@@ -174,8 +173,7 @@
           "praktikant-in-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-caregiver-endoscopy-a-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
+          "dipl-caregiver-endoscopy-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
@@ -262,8 +260,7 @@
           "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-specialist-surgical-technique-a-spital-emmental-burgdorf",
-          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+          "dipl-specialist-surgical-technique-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
@@ -1972,8 +1969,7 @@
           "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-care-professional-care-pool-a-spital-emmental-burgdorf-langnau",
-          "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
+          "dipl-care-professional-care-pool-a-spital-emmental-burgdorf-langnau"
         ],
         "fr": [
           "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
@@ -2482,8 +2478,7 @@
           "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "professional-child-care-a-spital-emmental-burgdorf",
-          "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
+          "professional-child-care-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
@@ -2993,8 +2988,7 @@
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-nurse-a-spital-emmental-burgdorf-2fc0f7",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+          "dipl-nurse-a-spital-emmental-burgdorf-2fc0f7"
         ],
         "fr": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
@@ -3267,10 +3261,10 @@
       "id": "spital-emmental-cdc2447c8034",
       "slug": "dipl-infermiera-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-infermiera-a-spital-emmental-burgdorf",
+        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf"
+        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3320,15 +3314,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+        "dipl-infirmiere-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
           "dipl-infirmiere-a-spital-emmental-burgdorf"
         ]
       },
@@ -4269,8 +4261,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf",
         "it": "collaboratore-trice-abwaschkuche-a-spital-emmental-burgdorf",
-        "en": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf",
-        "fr": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+        "en": "associate-abwaschkuche-a-spital-emmental-burgdorf",
+        "fr": "collaborateur-trice-abwaschkuche-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4322,6 +4314,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
         ]
       },
