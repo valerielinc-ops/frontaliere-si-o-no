@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2921,
+ "numberOfItems": 2922,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7567,7 +7567,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2918, "name": "Varese: Torna Fermentino - Mercato Contadino di...", "url": `${BASE_URL}/articoli-frontaliere/fermentino-mercato-contadino-giubiano` },
           { "@type": "ListItem", "position": 2919, "name": "L’estate dei cantieri FFS: orari stravolti per ...", "url": `${BASE_URL}/articoli-frontaliere/cantiere-ffs-trasporti-ticino` },
           { "@type": "ListItem", "position": 2920, "name": "Geneva: Stop al lavoro all'aperto da mezzogiorn...", "url": `${BASE_URL}/articoli-frontaliere/ge-troppo-caldo-stop-lavoro` },
-          { "@type": "ListItem", "position": 2921, "name": "Posta Chiasso: ruolo e servizi nel contesto naz...", "url": `${BASE_URL}/articoli-frontaliere/servizi-posta-chiasso-contesto-nazionale` }
+          { "@type": "ListItem", "position": 2921, "name": "Posta Chiasso: ruolo e servizi nel contesto naz...", "url": `${BASE_URL}/articoli-frontaliere/servizi-posta-chiasso-contesto-nazionale` },
+          { "@type": "ListItem", "position": 2922, "name": "Il Diritto dei Frontalieri di Lavorare nel Pubb...", "url": `${BASE_URL}/articoli-frontaliere/ginevra-frontalieri-settore-pubblico` }
  ]
  },
  {

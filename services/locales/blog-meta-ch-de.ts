@@ -457,6 +457,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.servizi-posta-chiasso-contesto-nazionale.title': 'Post Chiasso: Rolle und Dienstleistungen im schweizerischen Kontext',
     'blog.article.servizi-posta-chiasso-contesto-nazionale.excerpt': 'Analyse der von der Post Chiasso angebotenen Dienstleistungen und ihrer Relevanz in der Schweiz. Praktische Auswirkungen für Anwohner und Arbeitnehmer.',
     'blog.article.servizi-posta-chiasso-contesto-nazionale.imageAlt': 'Außenansicht einer Schweizer Postfiliale in einer Stadt mit Post-Schild.',
+    'blog.article.ginevra-frontalieri-settore-pubblico.title': 'Das Recht der Grenzgänger, in Genf im Publikum zu arbeiten',
+    'blog.article.ginevra-frontalieri-settore-pubblico.excerpt': 'Erfahren Sie mehr über die Rechte von Grenzgängern im öffentlichen Sektor in Genf und ihre Auswirkungen.',
+    'blog.article.ginevra-frontalieri-settore-pubblico.imageAlt': 'Panoramablick auf Genf mit ikonischen Wahrzeichen.',
 };
 
 export default blogMetaChDe;

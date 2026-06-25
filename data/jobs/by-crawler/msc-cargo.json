@@ -308,7 +308,7 @@
       "title": "Experience Development & Delivery Manager - New Builds",
       "titleByLocale": {
         "en": "Experience Development & Delivery Manager - New Builds",
-        "it": "Experience Development & Delivery Manager - New Builds",
+        "it": "Experience Development & Delivery Manager - Nuove Costruzioni",
         "de": "Experience Development & Delivery Manager - New Builds",
         "fr": "Experience Development & Delivery Manager - New Builds"
       },
@@ -363,11 +363,7 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-          "experience-development-delivery-manager-new-builds-msc-geneva"
-        ],
-        "it": [
-          "experience-development-delivery-manager-new-builds-msc-geneva"
+          "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
         ]
       }
     },
@@ -507,20 +503,16 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "direct-to-consumer-channels-analyste-msc-group-geneva",
-          "direct-to-consumer-channels-analyst-msc-geneva"
-        ],
-        "it": [
-          "direct-to-consumer-channels-analyst-msc-geneva"
+          "direct-to-consumer-channels-analyste-msc-group-geneva"
         ]
       }
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
+        "it": "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva",
         "de": "travelling-destination-manager-msc-geneva",
         "fr": "travelling-destination-manager-msc-geneva"
       },
@@ -530,7 +522,7 @@
       "title": "Travelling Destination Manager",
       "titleByLocale": {
         "en": "Travelling Destination Manager",
-        "it": "Travelling Destination Manager",
+        "it": "Responsabile delle destinazioni di viaggio",
         "de": "Travelling Destination Manager",
         "fr": "Travelling Destination Manager"
       },
@@ -581,16 +573,17 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-23T22:50:36.003Z",
       "previousSlugs": [
+        "reisezielmanager-msc-group-geneva",
+        "travelling-destination-manager-msc-geneva",
+        "gestionnaire-de-destination-itinerante-msc-group-geneva",
         "gestione-delle-destinazioni-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "reisezielmanager-msc-group-geneva",
-          "travelling-destination-manager-msc-geneva"
+          "reisezielmanager-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-de-destination-itinerante-msc-group-geneva",
-          "travelling-destination-manager-msc-geneva"
+          "gestionnaire-de-destination-itinerante-msc-group-geneva"
         ],
         "it": [
           "travelling-destination-manager-msc-geneva"
@@ -671,10 +664,10 @@
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
-      "slug": "brand-manager-brand-product-msc-geneva",
+      "slug": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
       "slugByLocale": {
         "en": "brand-manager-brand-product-msc-geneva",
-        "it": "brand-manager-brand-product-msc-geneva",
+        "it": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
         "fr": "brand-manager-brand-product-msc-geneva"
       },
@@ -684,7 +677,7 @@
       "title": "Brand Manager - Brand & Product",
       "titleByLocale": {
         "en": "Brand Manager - Brand & Product",
-        "it": "Brand Manager - Brand & Product",
+        "it": "Responsabile del marchio - Marchio e prodotto",
         "de": "Brand Manager - Brand & Product",
         "fr": "Brand Manager - Brand & Product"
       },
@@ -733,7 +726,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-25T11:56:35.528Z"
+      "firstSeenAt": "2026-06-25T11:56:35.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "brand-manager-brand-product-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "brand-manager-brand-product-msc-geneva"
+      ]
     }
   ]
 }

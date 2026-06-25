@@ -6812,10 +6812,10 @@
     },
     {
       "id": "six-group-fa7c6e444c88",
-      "slug": "accounting-internship-six-group-madrid",
+      "slug": "tirocinio-in-contabilita-six-group-madrid",
       "slugByLocale": {
         "en": "accounting-internship-six-group-madrid",
-        "it": "accounting-internship-six-group-madrid",
+        "it": "tirocinio-in-contabilita-six-group-madrid",
         "de": "accounting-internship-six-group-madrid",
         "fr": "accounting-internship-six-group-madrid"
       },
@@ -6825,7 +6825,7 @@
       "title": "Accounting Internship",
       "titleByLocale": {
         "en": "Accounting Internship",
-        "it": "Accounting Internship",
+        "it": "Tirocinio in Contabilità",
         "de": "Accounting Internship",
         "fr": "Accounting Internship"
       },
@@ -6873,7 +6873,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T12:25:48.296Z"
+      "firstSeenAt": "2026-06-25T12:25:48.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accounting-internship-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "accounting-internship-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-988fd4f86793",

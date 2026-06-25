@@ -443,10 +443,10 @@
     },
     {
       "id": "rehaklinik-hasliberg-0ef5c1738f42",
-      "slug": "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
+      "slug": "formatore-professionale-centrale-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
       "slugByLocale": {
         "de": "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "it": "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
+        "it": "formatore-professionale-centrale-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
         "en": "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
         "fr": "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh"
       },
@@ -456,7 +456,7 @@
       "title": "Zentrale:r Berufsbildner:in / 50% - 100%",
       "titleByLocale": {
         "de": "Zentrale:r Berufsbildner:in / 50% - 100%",
-        "it": "Zentrale:r Berufsbildner:in / 50% - 100%",
+        "it": "Formatore professionale centrale / 50% - 100%",
         "en": "Zentrale:r Berufsbildner:in / 50% - 100%",
         "fr": "Zentrale:r Berufsbildner:in / 50% - 100%"
       },
@@ -507,7 +507,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T11:57:48.124Z"
+      "firstSeenAt": "2026-06-25T11:57:48.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+        ]
+      },
+      "previousSlugs": [
+        "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+      ]
     }
   ]
 }

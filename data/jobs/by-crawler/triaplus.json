@@ -2825,10 +2825,10 @@
     },
     {
       "id": "triaplus-b8aedf35a220",
-      "slug": "dipl-aktivierungsfachperson-m-w-d-im-stundenlohn-triaplus-dipl-aktivierungsfachperson-m-w",
+      "slug": "dipl-specialista-dell-attivazione-m-f-d-con-salario-orario-triaplus-ag-oberwil",
       "slugByLocale": {
         "de": "dipl-aktivierungsfachperson-m-w-d-im-stundenlohn-triaplus-dipl-aktivierungsfachperson-m-w",
-        "it": "dipl-aktivierungsfachperson-m-w-d-im-stundenlohn-triaplus-dipl-aktivierungsfachperson-m-w",
+        "it": "dipl-specialista-dell-attivazione-m-f-d-con-salario-orario-triaplus-ag-oberwil",
         "en": "dipl-aktivierungsfachperson-m-w-d-im-stundenlohn-triaplus-dipl-aktivierungsfachperson-m-w",
         "fr": "dipl-aktivierungsfachperson-m-w-d-im-stundenlohn-triaplus-dipl-aktivierungsfachperson-m-w"
       },
@@ -2838,7 +2838,7 @@
       "title": "dipl. Aktivierungsfachperson (m/w/d) im Stundenlohn",
       "titleByLocale": {
         "de": "dipl. Aktivierungsfachperson (m/w/d) im Stundenlohn",
-        "it": "dipl. Aktivierungsfachperson (m/w/d) im Stundenlohn",
+        "it": "dipl. Specialista dell'attivazione (m/f/d) con salario orario",
         "en": "dipl. Aktivierungsfachperson (m/w/d) im Stundenlohn",
         "fr": "dipl. Aktivierungsfachperson (m/w/d) im Stundenlohn"
       },
@@ -2886,7 +2886,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T12:18:02.323Z"
+      "firstSeenAt": "2026-06-25T12:18:02.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-aktivierungsfachperson-m-w-d-im-stundenlohn-triaplus-dipl-aktivierungsfachperson-m-w"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-aktivierungsfachperson-m-w-d-im-stundenlohn-triaplus-dipl-aktivierungsfachperson-m-w"
+      ]
     }
   ]
 }

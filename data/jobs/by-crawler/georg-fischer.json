@@ -292,8 +292,7 @@
           "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
         ],
         "en": [
-          "it-project-management-internship-focus-warehousing-m-f-d-georg-fischer-sissach",
-          "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
+          "it-project-management-internship-focus-warehousing-m-f-d-georg-fischer-sissach"
         ],
         "fr": [
           "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
@@ -318,9 +317,9 @@
       "slug": "servicetechnikerin-m-w-d-georg-fischer-sissach",
       "slugByLocale": {
         "it": "servicetechnikerin-m-w-d-georg-fischer-sissach",
-        "en": "service-technician-m-w-d-georg-fischer-sissach",
+        "en": "servicetechnikerin-m-w-d-georg-fischer-sissach",
         "de": "servicetechnikerin-m-w-d-georg-fischer-ch",
-        "fr": "technicien-de-services-m-p-p-georg-fischer-sissach"
+        "fr": "servicetechnikerin-m-w-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -363,7 +362,9 @@
       "requirementsByLocale": {},
       "jobReqId": "JR09777",
       "previousSlugs": [
-        "servicetechnikerin-m-w-d-georg-fischer-ch"
+        "servicetechnikerin-m-w-d-georg-fischer-ch",
+        "service-technician-m-w-d-georg-fischer-sissach",
+        "technicien-de-services-m-p-p-georg-fischer-sissach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1394,9 +1395,9 @@
     },
     {
       "id": "georg-fischer-764d3901a500",
-      "slug": "hr-business-partner-m-p-d-50-60-georg-fischer-sissach",
+      "slug": "risorse-umane-business-partnerin-m-w-d-50-60-georg-fischer-sissach",
       "slugByLocale": {
-        "it": "hr-business-partner-m-p-d-50-60-georg-fischer-sissach",
+        "it": "risorse-umane-business-partnerin-m-w-d-50-60-georg-fischer-sissach",
         "en": "hr-business-partner-m-f-d-50-60-georg-fischer-sissach",
         "de": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
         "fr": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch"
@@ -1443,11 +1444,13 @@
       "jobReqId": "JR10329",
       "previousSlugs": [
         "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
+        "hr-business-partner-m-p-d-50-60-georg-fischer-sissach",
         "partenaire-d-affaires-rh-m-f-d-50-60-georg-fischer-sissach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch"
+          "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
+          "hr-business-partner-m-p-d-50-60-georg-fischer-sissach"
         ],
         "fr": [
           "partenaire-d-affaires-rh-m-f-d-50-60-georg-fischer-sissach"

@@ -175,6 +175,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'cantiere-ffs-trasporti-ticino': { it: 'cantiere-ffs-trasporti-ticino', en: 'summer-ffs-construction-ticino', de: 'sommer-bauarbeiten-ffs-tessin', fr: 'travaux-ffs-ete-tessin' },
  'ge-troppo-caldo-stop-lavoro': { it: 'ge-troppo-caldo-stop-lavoro', en: 'geneva-too-hot-work-stop', de: 'geneva-zu-heiss-arbeit-stopp', fr: 'geneve-trop-chaud-arret-travail' },
  'servizi-posta-chiasso-contesto-nazionale': { it: 'servizi-posta-chiasso-contesto-nazionale', en: 'chiasso-postal-services-national-context', de: 'postdienste-chiasso-nationaler-kontext', fr: 'services-postaux-chiasso-contexte-national' },
+ 'ginevra-frontalieri-settore-pubblico': { it: 'ginevra-frontalieri-settore-pubblico', en: 'geneva-cross-border-public-sector', de: 'genf-grenzgaenger-offentlicher-sektor', fr: 'geneve-frontaliers-secteur-public' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

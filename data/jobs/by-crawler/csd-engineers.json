@@ -565,7 +565,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:18.208Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1322,7 +1321,7 @@
       "slug": "idrogeologie-di-esperti-60-100-w-m-d-csd-engineers-bern",
       "slugByLocale": {
         "it": "idrogeologie-di-esperti-60-100-w-m-d-csd-engineers-bern",
-        "en": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
+        "en": "expert-hydrogeology-60-100-w-m-d-csd-engineers-bern",
         "de": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
         "fr": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
       },
@@ -1332,7 +1331,7 @@
       "title": "Experte Hydrogeologie 60-100% (w/m/d)",
       "titleByLocale": {
         "it": "Idrogeologie di esperti 60-100% (w/m/d)",
-        "en": "Experte Hydrogeologie 60-100% (w/m/d)",
+        "en": "Expert Hydrogeology 60-100% (w/m/d)",
         "de": "Experte Hydrogeologie 60-100% (w/m/d)",
         "fr": "Experte Hydrogéologie 60-100 % (m/j)"
       },
@@ -1366,20 +1365,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
-        "expert-hydrogeology-60-100-w-m-d-csd-engineers-bern"
+        "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
         ],
         "en": [
-          "expert-hydrogeology-60-100-w-m-d-csd-engineers-bern",
           "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:12.541Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1529,7 +1525,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.859Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1607,7 +1602,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.396Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1685,7 +1679,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.920Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1763,7 +1756,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.458Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1866,7 +1858,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:17.486Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1944,7 +1935,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:09.195Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1961,11 +1951,11 @@
     },
     {
       "id": "csd-engineers-cbb9b77ee626",
-      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
+      "slug": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
-        "it": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
+        "it": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
         "en": "chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
+        "de": "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -1974,7 +1964,7 @@
       "title": "Chef de Projets Planification & Grands Projets (BAMO+DGT) (f/h/d) 80-100%",
       "titleByLocale": {
         "it": "Pianificazione e progetti principali (BAMO+DGT) (e/h/d) 80-100%",
-        "en": "Chef de Projets Planification & Grands Projets (BAMO+DGT) (f/h/d) 80-100%",
+        "en": "Project Leader Planning & Major Projects (BAMO+DGT) (e/h/d) 80-100%",
         "de": "Projektleiter Planung & Großprojekte (BAMO+DGT) (e/h/d) 80-100%",
         "fr": "Chef de Projets Planification & Grands Projets (BAMO+DGT) (f/h/d) 80-100%"
       },
@@ -2008,21 +1998,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
-        "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne"
+        "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
-          "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.736Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2039,11 +2025,11 @@
     },
     {
       "id": "csd-engineers-6e8ca344904c",
-      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
+      "slug": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
-        "it": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
+        "it": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
         "en": "chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
+        "de": "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2052,7 +2038,7 @@
       "title": "Chef de Projets Planification & Grands Projets (BAMO) (f/h/d) 80-100%",
       "titleByLocale": {
         "it": "Pianificazione e progetti principali (BAMO) (e/h/d) 80-100%",
-        "en": "Chef de Projets Planification & Grands Projets (BAMO) (f/h/d) 80-100%",
+        "en": "Project Leader Planning & Major Projects (BAMO) (e/h/d) 80-100%",
         "de": "Projektleiter Planung und Großprojekte (BAMO) (e/h/d) 80-100%",
         "fr": "Chef de Projets Planification & Grands Projets (BAMO) (f/h/d) 80-100%"
       },
@@ -2086,21 +2072,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
-        "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne"
+        "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
-          "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.267Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2256,7 +2238,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.774Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2334,7 +2315,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.304Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2409,7 +2389,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.840Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2487,7 +2466,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:11:52.666Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2565,7 +2543,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.159Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2643,7 +2620,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.700Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2721,7 +2697,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.234Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2863,7 +2838,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:10.601Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2941,7 +2915,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:09.709Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3016,7 +2989,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:08.812Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3157,7 +3129,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-16T13:11:07.085Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "baumanager-w-m-d-100-csd-engineers-ch"
@@ -3251,7 +3222,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:42:35.643Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3329,7 +3299,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:45:29.856Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3409,7 +3378,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T22:17:28.345Z",
-      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 77000,
       "baseSalary": {
@@ -3487,7 +3455,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:17:14.783Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3642,7 +3609,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:15:26.576Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3659,9 +3625,9 @@
     },
     {
       "id": "csd-engineers-2b7e1089208c",
-      "slug": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch",
+      "slug": "senior-project-leader-80-100-e-h-d-csd-engineers-lancy",
       "slugByLocale": {
-        "it": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch",
+        "it": "senior-project-leader-80-100-e-h-d-csd-engineers-lancy",
         "en": "senior-project-manager-80-100-f-m-d-csd-engineers-lancy",
         "de": "senior-project-manager-80-100-f-m-d-csd-engineers-lancy",
         "fr": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch"
@@ -3671,7 +3637,7 @@
       "companyDomain": "csd.ch",
       "title": "Chef de projet senior 80-100% (f/h/d)",
       "titleByLocale": {
-        "it": "Chef de projet senior 80-100% (f/h/d)",
+        "it": "Senior Project Leader 80-100% (e/h/d)",
         "en": "Senior Project Manager 80-100% (f/m/d)",
         "de": "Senior Project Manager 80-100 % (F/M/D)",
         "fr": "Chef de projet senior 80-100% (f/h/d)"
@@ -3706,18 +3672,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-project-leader-80-100-e-h-d-csd-engineers-lancy",
-        "senior-project-manager-80-100-f-h-d-csd-engineers-lancy"
+        "senior-project-manager-80-100-f-h-d-csd-engineers-lancy",
+        "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-leader-80-100-e-h-d-csd-engineers-lancy",
           "senior-project-manager-80-100-f-h-d-csd-engineers-lancy",
           "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-16T13:11:03.730Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3789,7 +3753,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:37.296Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
