@@ -6801,8 +6801,8 @@
       "slugByLocale": {
         "en": "accounting-internship-six-group-madrid",
         "it": "tirocinio-in-contabilita-six-group-madrid",
-        "de": "accounting-internship-six-group-madrid",
-        "fr": "accounting-internship-six-group-madrid"
+        "de": "buchhaltungspraktikum-six-group-madrid",
+        "fr": "stage-en-comptabilite-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6860,6 +6860,12 @@
       "firstSeenAt": "2026-06-25T12:25:48.296Z",
       "previousSlugsByLocale": {
         "it": [
+          "accounting-internship-six-group-madrid"
+        ],
+        "de": [
+          "accounting-internship-six-group-madrid"
+        ],
+        "fr": [
           "accounting-internship-six-group-madrid"
         ]
       },

@@ -8,8 +8,8 @@
       "slugByLocale": {
         "en": "country-risk-internship-economics-data-ai-ubs",
         "it": "tirocinio-nel-rischio-nazionale-economia-dati-e-ia-ubs-ticino",
-        "de": "country-risk-internship-economics-data-ai-ubs",
-        "fr": "country-risk-internship-economics-data-ai-ubs"
+        "de": "landerrisiko-praktikum-wirtschaft-daten-ai-ubs-ticino",
+        "fr": "stage-a-risque-economie-donnees-et-ai-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -73,17 +73,15 @@
       },
       "firstSeenAt": "2026-06-24T12:29:41.900Z",
       "previousSlugs": [
-        "landerrisiko-praktikum-wirtschaft-daten-ai-ubs-ticino",
         "country-risk-internship-economics-data-ai-ubs",
-        "stage-a-risque-economie-donnees-et-ai-ubs-ticino",
         "stage-di-rischio-economia-dati-e-ai-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "landerrisiko-praktikum-wirtschaft-daten-ai-ubs-ticino"
+          "country-risk-internship-economics-data-ai-ubs"
         ],
         "fr": [
-          "stage-a-risque-economie-donnees-et-ai-ubs-ticino"
+          "country-risk-internship-economics-data-ai-ubs"
         ],
         "it": [
           "country-risk-internship-economics-data-ai-ubs"
@@ -248,12 +246,12 @@
     },
     {
       "id": "ubs-662baef4bd67",
-      "slug": "executive-assistant-private-funds-group-ubs",
+      "slug": "executive-assistant-gruppo-fondi-privati-ubs-ticino",
       "slugByLocale": {
         "en": "executive-assistant-private-funds-group-ubs",
-        "it": "executive-assistant-private-funds-group-ubs",
+        "it": "executive-assistant-gruppo-fondi-privati-ubs-ticino",
         "de": "executive-assistant-private-funds-group-ubs",
-        "fr": "executive-assistant-private-funds-group-ubs"
+        "fr": "assistant-executif-groupe-des-fonds-prives-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -317,11 +315,14 @@
       },
       "firstSeenAt": "2026-06-24T23:04:20.622Z",
       "previousSlugs": [
-        "executive-assistant-gruppo-fondi-privati-ubs-ticino"
+        "executive-assistant-private-funds-group-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "assistant-executif-groupe-des-fonds-prives-ubs-ticino"
+          "executive-assistant-private-funds-group-ubs"
+        ],
+        "it": [
+          "executive-assistant-private-funds-group-ubs"
         ]
       }
     },
@@ -482,7 +483,7 @@
         "en": "registered-client-associate-ubs",
         "it": "associato-cliente-registrato-ubs-ticino",
         "de": "registered-client-associate-ubs",
-        "fr": "registered-client-associate-ubs"
+        "fr": "client-enregistre-associe-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -557,7 +558,8 @@
         ],
         "fr": [
           "client-enregistre-associe-ubs-ticino-522447",
-          "registered-client-associate-ubs-2"
+          "registered-client-associate-ubs-2",
+          "registered-client-associate-ubs"
         ],
         "it": [
           "registered-client-associate-ubs-2",
@@ -643,7 +645,7 @@
         "en": "client-associate-ubs",
         "it": "cliente-associato-ubs-ticino",
         "de": "client-associate-ubs",
-        "fr": "client-associate-ubs"
+        "fr": "client-associe-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -707,12 +709,11 @@
       },
       "firstSeenAt": "2026-06-24T23:04:20.651Z",
       "previousSlugs": [
-        "client-associe-ubs-ticino",
         "client-associate-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "client-associe-ubs-ticino"
+          "client-associate-ubs"
         ],
         "it": [
           "client-associate-ubs"
@@ -726,7 +727,7 @@
         "en": "internship-in-banking-operations-ubs",
         "it": "tirocinio-nelle-operazioni-bancarie-ubs-ticino",
         "de": "internship-in-banking-operations-ubs",
-        "fr": "internship-in-banking-operations-ubs"
+        "fr": "stage-en-operations-bancaires-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -790,13 +791,12 @@
       },
       "firstSeenAt": "2026-06-24T23:04:20.636Z",
       "previousSlugs": [
-        "stage-en-operations-bancaires-ubs-ticino",
         "internship-in-banking-operations-ubs",
         "stage-in-operazioni-bancarie-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "stage-en-operations-bancaires-ubs-ticino"
+          "internship-in-banking-operations-ubs"
         ],
         "it": [
           "internship-in-banking-operations-ubs"
@@ -810,7 +810,7 @@
         "en": "global-banking-asia-tmt-ubs",
         "it": "attivita-bancaria-globale-asia-tmt-ubs-ticino",
         "de": "global-banking-asia-tmt-ubs",
-        "fr": "global-banking-asia-tmt-ubs"
+        "fr": "banque-mondiale-asie-tmt-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -875,8 +875,8 @@
       "firstSeenAt": "2026-06-24T12:29:41.895Z",
       "previousSlugsByLocale": {
         "fr": [
-          "banque-mondiale-asie-tmt-ubs-ticino",
-          "banque-mondiale-technologie-medias-et-telecommunications-tmt-ubs-ticino"
+          "banque-mondiale-technologie-medias-et-telecommunications-tmt-ubs-ticino",
+          "global-banking-asia-tmt-ubs"
         ],
         "de": [
           "global-banking-technologie-medien-und-telekommunikation-tmt-ubs-ticino"
@@ -886,10 +886,9 @@
         ]
       },
       "previousSlugs": [
-        "banque-mondiale-asie-tmt-ubs-ticino",
         "banque-mondiale-technologie-medias-et-telecommunications-tmt-ubs-ticino",
-        "global-banking-technologie-medien-und-telekommunikation-tmt-ubs-ticino",
         "global-banking-asia-tmt-ubs",
+        "global-banking-technologie-medien-und-telekommunikation-tmt-ubs-ticino",
         "global-banking-technology-media-and-telecommunications-tmt-ubs"
       ]
     },
@@ -977,8 +976,8 @@
       "slugByLocale": {
         "en": "fx-mm-settlements-operations-ubs",
         "it": "operazioni-fx-mm-settlements-ubs-ticino",
-        "de": "fx-mm-settlements-operations-ubs",
-        "fr": "fx-mm-settlements-operations-ubs"
+        "de": "fx-mm-abrechnungen-ubs-ticino",
+        "fr": "fx-mm-etablissements-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1042,17 +1041,17 @@
       },
       "firstSeenAt": "2026-06-24T23:04:20.639Z",
       "previousSlugs": [
-        "fx-mm-abrechnungen-ubs-ticino",
         "fx-mm-settlements-operations-ubs",
         "operations-fx-mm-sur-les-etablissements-ubs-ticino",
         "fx-mm-settlements-operazioni-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "fx-mm-abrechnungen-ubs-ticino"
+          "fx-mm-settlements-operations-ubs"
         ],
         "fr": [
-          "operations-fx-mm-sur-les-etablissements-ubs-ticino"
+          "operations-fx-mm-sur-les-etablissements-ubs-ticino",
+          "fx-mm-settlements-operations-ubs"
         ],
         "it": [
           "fx-mm-settlements-operations-ubs"
@@ -1374,7 +1373,7 @@
         "en": "us-life-sciences-associate-ubs",
         "it": "associato-in-scienze-della-vita-degli-stati-uniti-ubs-ticino",
         "de": "us-life-sciences-associate-ubs",
-        "fr": "us-life-sciences-associate-ubs"
+        "fr": "associe-americain-des-sciences-de-la-vie-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1438,13 +1437,12 @@
       },
       "firstSeenAt": "2026-06-24T23:04:20.640Z",
       "previousSlugs": [
-        "associe-americain-des-sciences-de-la-vie-ubs-ticino",
         "us-life-sciences-associate-ubs",
         "scienze-della-vita-degli-stati-uniti-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "associe-americain-des-sciences-de-la-vie-ubs-ticino"
+          "us-life-sciences-associate-ubs"
         ],
         "it": [
           "us-life-sciences-associate-ubs"
@@ -1457,8 +1455,8 @@
       "slugByLocale": {
         "en": "apac-fx-commodities-strategist-ubs",
         "it": "apac-fx-stratega-delle-materie-prime-ubs-ticino",
-        "de": "apac-fx-commodities-strategist-ubs",
-        "fr": "apac-fx-commodities-strategist-ubs"
+        "de": "apac-fx-rohstoffstratege-ubs-ticino",
+        "fr": "apac-fx-stratege-de-produits-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1522,19 +1520,17 @@
       },
       "firstSeenAt": "2026-06-24T12:29:41.889Z",
       "previousSlugs": [
-        "apac-fx-rohstoffstratege-ubs-ticino",
         "apac-fx-commodities-strategist-ubs",
         "apac-fx-stratege-des-produits-ubs-ticino",
-        "apac-fx-stratege-de-produits-ubs-ticino",
         "apac-fx-strategista-delle-materie-prime-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "apac-fx-rohstoffstratege-ubs-ticino"
+          "apac-fx-commodities-strategist-ubs"
         ],
         "fr": [
           "apac-fx-stratege-des-produits-ubs-ticino",
-          "apac-fx-stratege-de-produits-ubs-ticino"
+          "apac-fx-commodities-strategist-ubs"
         ],
         "it": [
           "apac-fx-commodities-strategist-ubs"
@@ -1694,8 +1690,8 @@
       "slugByLocale": {
         "de": "privatkundenberater-in-retail-bodensee-80-100-ubs",
         "it": "consulente-per-clienti-privati-retail-lake-constance-80-100-ubs-ticino",
-        "en": "privatkundenberater-in-retail-bodensee-80-100-ubs",
-        "fr": "privatkundenberater-in-retail-bodensee-80-100-ubs"
+        "en": "private-customer-consultant-in-retail-bodensee-80-100-ubs-ticino",
+        "fr": "consultant-client-prive-dans-retail-bodensee-80-100-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1760,18 +1756,16 @@
       "firstSeenAt": "2026-06-24T12:29:41.883Z",
       "previousSlugsByLocale": {
         "en": [
-          "private-customer-consultant-in-retail-bodensee-80-100-ubs-ticino"
+          "privatkundenberater-in-retail-bodensee-80-100-ubs"
         ],
         "fr": [
-          "consultant-client-prive-dans-retail-bodensee-80-100-ubs-ticino"
+          "privatkundenberater-in-retail-bodensee-80-100-ubs"
         ],
         "it": [
           "privatkundenberater-in-retail-bodensee-80-100-ubs"
         ]
       },
       "previousSlugs": [
-        "private-customer-consultant-in-retail-bodensee-80-100-ubs-ticino",
-        "consultant-client-prive-dans-retail-bodensee-80-100-ubs-ticino",
         "privatkundenberater-in-retail-bodensee-80-100-ubs"
       ]
     },
@@ -1852,8 +1846,8 @@
       "slugByLocale": {
         "fr": "specialiste-credits-80-100-ubs",
         "it": "specialista-del-credito-80-100-ubs-ticino",
-        "en": "specialiste-credits-80-100-ubs",
-        "de": "specialiste-credits-80-100-ubs"
+        "en": "specialist-appropriations-80-100-ubs-ticino",
+        "de": "spezialisierte-mittel-80-100-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1917,18 +1911,16 @@
       },
       "firstSeenAt": "2026-06-24T12:29:41.880Z",
       "previousSlugs": [
-        "specialist-appropriations-80-100-ubs-ticino",
         "specialiste-credits-80-100-ubs",
-        "spezialisierte-mittel-80-100-ubs-ticino",
         "stanziamenti-specialistici-80-100-ubs-ticino",
         "stanziamenti-specializzati-80-100-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "specialist-appropriations-80-100-ubs-ticino"
+          "specialiste-credits-80-100-ubs"
         ],
         "de": [
-          "spezialisierte-mittel-80-100-ubs-ticino"
+          "specialiste-credits-80-100-ubs"
         ],
         "it": [
           "specialiste-credits-80-100-ubs"
@@ -2190,12 +2182,12 @@
     },
     {
       "id": "ubs-0d93f530526e",
-      "slug": "executive-assistant-ubs",
+      "slug": "assistente-esecutivo-ubs-ticino",
       "slugByLocale": {
         "en": "executive-assistant-ubs",
-        "it": "executive-assistant-ubs",
+        "it": "assistente-esecutivo-ubs-ticino",
         "de": "executive-assistent-ubs-ticino",
-        "fr": "executive-assistant-ubs"
+        "fr": "assistant-executif-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2259,12 +2251,14 @@
       },
       "firstSeenAt": "2026-06-24T12:29:41.893Z",
       "previousSlugs": [
-        "assistant-executif-ubs-ticino",
-        "assistente-esecutivo-ubs-ticino"
+        "executive-assistant-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "assistant-executif-ubs-ticino"
+          "executive-assistant-ubs"
+        ],
+        "it": [
+          "executive-assistant-ubs"
         ]
       }
     },
@@ -2275,7 +2269,7 @@
         "en": "registered-client-associate-ubs",
         "it": "associato-cliente-registrato-ubs-ticino-6c68dd",
         "de": "registered-client-associate-ubs-2",
-        "fr": "registered-client-associate-ubs-2"
+        "fr": "client-enregistre-associe-ubs-ticino-6c68dd"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2340,7 +2334,6 @@
       "firstSeenAt": "2026-06-24T23:04:20.611Z",
       "previousSlugs": [
         "registered-client-associate-ubs-3",
-        "client-enregistre-associe-ubs-ticino-6c68dd",
         "registered-client-associate-ubs-2",
         "cliente-associato-registrato-ubs-ticino-6c68dd"
       ],
@@ -2349,8 +2342,8 @@
           "registered-client-associate-ubs-3"
         ],
         "fr": [
-          "client-enregistre-associe-ubs-ticino-6c68dd",
-          "registered-client-associate-ubs-3"
+          "registered-client-associate-ubs-3",
+          "registered-client-associate-ubs-2"
         ],
         "it": [
           "registered-client-associate-ubs-3",
@@ -2364,7 +2357,7 @@
       "slugByLocale": {
         "fr": "conseiller-ere-clientele-privee-retail-onu-ubs",
         "it": "consulente-per-clienti-privati-al-dettaglio-onu-ubs-ticino",
-        "en": "conseiller-ere-clientele-privee-retail-onu-ubs",
+        "en": "counsellor-private-clientele-retail-un-ubs-ticino",
         "de": "conseiller-ere-clientele-privee-retail-onu-ubs"
       },
       "company": "UBS",
@@ -2429,13 +2422,12 @@
       },
       "firstSeenAt": "2026-06-24T12:29:41.892Z",
       "previousSlugs": [
-        "counsellor-private-clientele-retail-un-ubs-ticino",
         "conseiller-ere-clientele-privee-retail-onu-ubs",
         "consulente-privato-clientele-retail-un-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "counsellor-private-clientele-retail-un-ubs-ticino"
+          "conseiller-ere-clientele-privee-retail-onu-ubs"
         ],
         "it": [
           "conseiller-ere-clientele-privee-retail-onu-ubs"
@@ -2676,7 +2668,7 @@
         "en": "junior-data-scientist-ubs",
         "it": "junior-data-scientist-ubs",
         "de": "junior-data-scientist-ubs",
-        "fr": "junior-data-scientist-ubs"
+        "fr": "chercheur-auxiliaire-en-donnees-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2738,12 +2730,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T12:29:41.902Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "chercheur-auxiliaire-en-donnees-ubs-ticino"
-        ]
-      }
+      "firstSeenAt": "2026-06-24T12:29:41.902Z"
     },
     {
       "id": "ubs-38b0ad5d78ae",
@@ -2751,8 +2738,8 @@
       "slugByLocale": {
         "en": "cost-basis-reporting-service-delivery-team-leader-ubs",
         "it": "cost-basis-reporting-service-delivery-team-leader-ubs",
-        "de": "cost-basis-reporting-service-delivery-team-leader-ubs",
-        "fr": "cost-basis-reporting-service-delivery-team-leader-ubs"
+        "de": "kostenbasis-berichterstattung-service-delivery-team-leader-ubs-ticino",
+        "fr": "rapports-sur-la-base-des-couts-chef-de-l-equipe-de-prestation-des-services-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3067,8 +3054,8 @@
       "slugByLocale": {
         "de": "privatkundenberater-in-affluent-mit-stv-funktion-meilen-80-100-ubs",
         "it": "privatkundenberater-in-affluent-mit-stv-funktion-meilen-80-100-ubs",
-        "en": "privatkundenberater-in-affluent-mit-stv-funktion-meilen-80-100-ubs",
-        "fr": "privatkundenberater-in-affluent-mit-stv-funktion-meilen-80-100-ubs"
+        "en": "private-client-advisor-in-affluent-with-stv-function-miles-80-100-ubs-ticino",
+        "fr": "conseiller-client-prive-en-affluent-avec-fonction-stv-miles-80-100-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3290,7 +3277,7 @@
         "en": "client-relationship-manager-wholesale-client-coverage-ubs",
         "it": "responsabile-delle-relazioni-con-i-clienti-copertura-clienti-all-ingrosso-ubs-ticino",
         "de": "client-relationship-manager-wholesale-client-coverage-ubs",
-        "fr": "client-relationship-manager-wholesale-client-coverage-ubs"
+        "fr": "gestionnaire-des-relations-avec-la-clientele-couverture-de-la-clientele-de-gros-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3356,6 +3343,9 @@
       "previousSlugsByLocale": {
         "it": [
           "client-relationship-manager-wholesale-client-coverage-ubs"
+        ],
+        "fr": [
+          "client-relationship-manager-wholesale-client-coverage-ubs"
         ]
       },
       "previousSlugs": [
@@ -3369,7 +3359,7 @@
         "en": "data-scientist-ubs",
         "it": "scienziato-dei-dati-ubs-ticino",
         "de": "data-scientist-ubs",
-        "fr": "data-scientist-ubs"
+        "fr": "scientifique-des-donnees-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3435,6 +3425,9 @@
       "previousSlugsByLocale": {
         "it": [
           "data-scientist-ubs"
+        ],
+        "fr": [
+          "data-scientist-ubs"
         ]
       },
       "previousSlugs": [
@@ -3447,7 +3440,7 @@
       "slugByLocale": {
         "en": "credit-risk-senior-model-validation-quantitative-analyst-ubs",
         "it": "credit-risk-senior-model-validation-quantitative-analyst-ubs",
-        "de": "credit-risk-senior-model-validation-quantitative-analyst-ubs",
+        "de": "kreditrisiko-senior-model-validation-quantitativer-analyst-ubs-ticino",
         "fr": "credit-risk-senior-model-validation-quantitative-analyst-ubs"
       },
       "company": "UBS",
@@ -3873,8 +3866,8 @@
       "slugByLocale": {
         "en": "compliance-officer-ubs",
         "it": "responsabile-della-conformita-ubs-ticino",
-        "de": "compliance-officer-ubs",
-        "fr": "compliance-officer-ubs"
+        "de": "compliance-beauftragter-ubs-ticino",
+        "fr": "specialiste-du-respect-des-dispositions-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3939,6 +3932,12 @@
       "firstSeenAt": "2026-06-25T12:32:27.464Z",
       "previousSlugsByLocale": {
         "it": [
+          "compliance-officer-ubs"
+        ],
+        "de": [
+          "compliance-officer-ubs"
+        ],
+        "fr": [
           "compliance-officer-ubs"
         ]
       },

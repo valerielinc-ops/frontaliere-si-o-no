@@ -632,7 +632,7 @@
       "slugByLocale": {
         "it": "designer-di-abbigliamento-globale-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2",
         "en": "global-apparel-designer-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-1za3pa",
-        "de": "global-apparel-designer-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-1za3pa",
+        "de": "globaler-bekleidungsdesigner-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2",
         "fr": "designer-d-habillement-mondial-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2"
       },
       "sourceLang": "en",
@@ -642,6 +642,9 @@
           "global-apparel-designer-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-1za3pa"
         ],
         "fr": [
+          "global-apparel-designer-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-1za3pa"
+        ],
+        "de": [
           "global-apparel-designer-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-1za3pa"
         ]
       },
@@ -2554,7 +2557,7 @@
     },
     {
       "id": "company-a228r9",
-      "slug": "controller-inventario-temporaneo-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+      "slug": "controllore-dell-inventario-temporario-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
       "company": "VF International (The North Face, Timberland)",
       "title": "Inventory Controller (Temporary)",
       "location": "EMEA · CHE · Stabio · VF Campus VF1",
@@ -2597,7 +2600,7 @@
       "crawledAt": "2026-05-17T11:19:45.782Z",
       "firstSeenAt": "2026-05-17T11:19:45.782Z",
       "slugByLocale": {
-        "it": "controller-inventario-temporaneo-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "it": "controllore-dell-inventario-temporario-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "en": "inventory-controller-temporary-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-a228r9",
         "de": "inventarcontroller-temporar-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "fr": "controleur-d-inventaire-temporaire-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
@@ -2624,7 +2627,8 @@
       "previousSlugsByLocale": {
         "it": [
           "inventory-controller-temporary-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-a228r9",
-          "inventory-controller-temporary-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+          "inventory-controller-temporary-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+          "controller-inventario-temporaneo-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
         ],
         "de": [
           "inventory-controller-temporary-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-a228r9"
@@ -2635,7 +2639,8 @@
       },
       "previousSlugs": [
         "inventory-controller-temporary-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-a228r9",
-        "inventory-controller-temporary-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "inventory-controller-temporary-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "controller-inventario-temporaneo-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
       ],
       "country": "CH"
     }

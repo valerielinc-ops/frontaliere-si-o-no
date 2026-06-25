@@ -852,7 +852,7 @@
       "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
-        "en": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
+        "en": "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
         "de": "klinikleiter-mit-oder-ohne-fachtitel-fellowship-in-der-padiatrischen-intensivmedizin-100-hug-geneve",
         "fr": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
       },
@@ -897,7 +897,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
-        "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
         "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
@@ -905,8 +904,8 @@
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "en": [
-          "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
-          "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve"
+          "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
+          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "de": [
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
@@ -3190,9 +3189,9 @@
     },
     {
       "id": "hug-87803c0ec6d6",
-      "slug": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+      "slug": "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
       "slugByLocale": {
-        "it": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+        "it": "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
         "en": "educator-or-social-educator-in-psychiatry-80-hug-thonex",
         "de": "padagoge-oder-sozialpadagoge-in-der-psychiatrie-80-hug-thonex",
         "fr": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
@@ -3237,15 +3236,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
         "educatore-sociale-in-psichiatria-80-hug-thonex",
+        "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
         "social-educator-in-psychiatry-80-hug-thonex",
         "sozialpadagoge-in-der-psychiatrie-80-hug-thonex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educatore-sociale-in-psichiatria-80-hug-thonex"
+          "educatore-sociale-in-psichiatria-80-hug-thonex",
+          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
         ],
         "en": [
           "social-educator-in-psychiatry-80-hug-thonex"
@@ -4293,11 +4292,11 @@
     },
     {
       "id": "hug-cea256417bb2",
-      "slug": "assistant-ou-assistante-de-gestion-60-hug-geneve",
+      "slug": "assistente-assistente-di-gestione-60-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-de-gestion-60-hug-geneve",
-        "it": "assistant-ou-assistante-de-gestion-60-hug-geneve",
-        "en": "assistant-ou-assistante-de-gestion-60-hug-geneve",
+        "it": "assistente-assistente-di-gestione-60-hug-geneve",
+        "en": "assistant-management-assistant-60-hug-geneve",
         "de": "assistant-ou-assistante-de-gestion-60-hug-geneve"
       },
       "company": "HUG",
@@ -4354,7 +4353,18 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-25T11:20:40.146Z"
+      "firstSeenAt": "2026-06-25T11:20:40.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-de-gestion-60-hug-geneve"
+        ],
+        "en": [
+          "assistant-ou-assistante-de-gestion-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-de-gestion-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-d4f9efb2c65b",
@@ -4439,8 +4449,8 @@
       "slugByLocale": {
         "fr": "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de",
         "it": "professore-o-professore-ordinario-o-associato-primario-o-capo-del-servizio-di-cardiologia-100-hug-geneve",
-        "en": "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de",
-        "de": "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de"
+        "en": "full-professor-or-associate-professor-chief-medical-officer-or-head-of-cardiology-100-hug-geneve",
+        "de": "professor-oder-associate-professor-chief-medical-officer-oder-leiter-der-kardiologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4500,6 +4510,12 @@
       "previousSlugsByLocale": {
         "it": [
           "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de"
+        ],
+        "en": [
+          "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de"
+        ],
+        "de": [
+          "professeure-ou-professeur-ordinaire-ou-associe-medecin-chef-ou-chefffe-du-service-de"
         ]
       },
       "previousSlugs": [
@@ -4512,8 +4528,8 @@
       "slugByLocale": {
         "fr": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
         "it": "assistenza-in-cure-e-accompagnamento-in-chirurgia-80-100-hug-geneve",
-        "en": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
-        "de": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        "en": "surgery-care-and-accompaniment-80-to-100-hug-geneve",
+        "de": "chirurgie-und-begleitung-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4573,6 +4589,12 @@
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
         ]
       },
       "previousSlugs": [
@@ -4585,8 +4607,8 @@
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve",
         "it": "tecnico-o-tecnica-in-analisi-biomediche-65-hug-geneve",
-        "en": "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve",
-        "de": "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve"
+        "en": "biomedical-technician-65-hug-geneve",
+        "de": "biomedizinischer-techniker-65-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4645,6 +4667,12 @@
       "firstSeenAt": "2026-06-25T11:20:40.132Z",
       "previousSlugsByLocale": {
         "it": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve"
+        ],
+        "en": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve"
+        ],
+        "de": [
           "technicien-ou-technicienne-en-analyses-biomedicales-65-hug-geneve"
         ]
       },

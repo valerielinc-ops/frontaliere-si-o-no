@@ -393,8 +393,8 @@
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a-spitex-basel-pflege",
         "it": "diplomierte-pflegefachperson-hf-fh-teil-e-vollzeit-a-spitex-basel",
-        "en": "diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a-spitex-basel-pflege",
-        "fr": "diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a-spitex-basel-pflege"
+        "en": "graduate-nurse-hf-fh-part-time-and-full-time-a-spitex-basel-basel",
+        "fr": "infirmiere-diplomee-hf-fh-a-temps-partiel-et-a-temps-plein-a-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -439,6 +439,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a-spitex-basel-pflege"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a-spitex-basel-pflege"
+        ],
+        "fr": [
           "diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a-spitex-basel-pflege"
         ]
       },

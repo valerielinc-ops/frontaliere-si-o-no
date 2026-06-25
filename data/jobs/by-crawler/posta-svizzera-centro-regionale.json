@@ -27,9 +27,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-trun",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-trun"
       },
       "sourceLang": "de",
       "department": "",
@@ -68,6 +68,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
@@ -99,9 +105,9 @@
       "slug": "stv-leiter-in-distributionsgebiet-entwicklungsprogramm-avanti-post",
       "slugByLocale": {
         "it": "stv-leiter-in-distributionsgebiet-entwicklungsprogramm-avanti-post",
-        "en": "stv-leiter-in-distributionsgebiet-entwicklungsprogramm-avanti-post",
+        "en": "stv-manager-in-distribution-area-development-program-avanti-die-schweizerische-post-ostermundigen",
         "de": "stv-leiter-in-distributionsgebiet-entwicklungsprogramm-avanti-post",
-        "fr": "stv-leiter-in-distributionsgebiet-entwicklungsprogramm-avanti-post"
+        "fr": "stv-manager-dans-la-zone-de-distribution-programme-de-developpement-avanti-die-schweizerische-post-ostermundigen"
       },
       "sourceLang": "de",
       "department": "",
@@ -163,9 +169,9 @@
       "slug": "consulente-clienti-die-schweizerische-post-zurich",
       "slugByLocale": {
         "it": "consulente-clienti-die-schweizerische-post-zurich",
-        "en": "kundenberater-in-die-schweizerische-post-zurich",
+        "en": "customer-advisor-in-die-schweizerische-post-zurich",
         "de": "kundenberater-in-die-schweizerische-post-zurich",
-        "fr": "kundenberater-in-die-schweizerische-post-zurich"
+        "fr": "conseiller-client-in-die-schweizerische-post-zurich"
       },
       "sourceLang": "de",
       "department": "",
@@ -204,10 +210,17 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-zurich"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-zurich"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-post"
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-zurich"
       ]
     },
     {
@@ -235,9 +248,9 @@
       "slug": "consulente-clienti-die-schweizerische-post-zurich-786a68",
       "slugByLocale": {
         "it": "consulente-clienti-die-schweizerische-post-zurich-786a68",
-        "en": "kundenberater-in-die-schweizerische-post-zurich",
+        "en": "customer-advisor-in-die-schweizerische-post-zurich-786a68",
         "de": "kundenberater-in-die-schweizerische-post-zurich",
-        "fr": "kundenberater-in-die-schweizerische-post-zurich"
+        "fr": "conseiller-client-in-die-schweizerische-post-zurich-786a68"
       },
       "sourceLang": "de",
       "department": "",
@@ -259,11 +272,18 @@
         "it": [
           "kundenberater-in-post-2",
           "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-zurich"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-zurich"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post-2",
-        "kundenberater-in-post"
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -309,9 +329,9 @@
       "slug": "pacchetti-parziali-di-operations-manager-die-schweizerische-post-harkingen",
       "slugByLocale": {
         "it": "pacchetti-parziali-di-operations-manager-die-schweizerische-post-harkingen",
-        "en": "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen",
+        "en": "partial-manager-in-packages-die-schweizerische-post-harkingen",
         "de": "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen",
-        "fr": "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen"
+        "fr": "gestionnaire-partiel-dans-les-paquets-die-schweizerische-post-harkingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -350,10 +370,17 @@
       "previousSlugsByLocale": {
         "it": [
           "teilbetriebsleiter-in-pakete-post"
+        ],
+        "en": [
+          "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen"
+        ],
+        "fr": [
+          "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen"
         ]
       },
       "previousSlugs": [
-        "teilbetriebsleiter-in-pakete-post"
+        "teilbetriebsleiter-in-pakete-post",
+        "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen"
       ]
     },
     {
@@ -381,9 +408,9 @@
       "slug": "teamleader-in-zustellung-lettere-e-pacchi-die-schweizerische-post-affoltern-am-albis",
       "slugByLocale": {
         "it": "teamleader-in-zustellung-lettere-e-pacchi-die-schweizerische-post-affoltern-am-albis",
-        "en": "teamleader-in-zustellung-briefe-und-pakete-post",
+        "en": "teamleader-in-delivery-letters-and-packages-die-schweizerische-post-affoltern-am-albis",
         "de": "teamleader-in-zustellung-briefe-und-pakete-post",
-        "fr": "teamleader-in-zustellung-briefe-und-pakete-post"
+        "fr": "teamleader-dans-les-lettres-de-livraison-et-les-colis-die-schweizerische-post-affoltern-am-albis"
       },
       "sourceLang": "de",
       "department": "",
@@ -422,6 +449,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleader-in-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "teamleader-in-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "teamleader-in-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
@@ -454,8 +487,8 @@
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schluein",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schluein",
-        "fr": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schluein"
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-schluein",
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-schluein"
       },
       "sourceLang": "de",
       "department": "",
@@ -525,9 +558,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-hitzkirch",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-hitzkirch",
-        "en": "zusteller-in-briefe-und-pakete-post-2",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-hitzkirch",
         "de": "zusteller-in-briefe-und-pakete-post-2",
-        "fr": "zusteller-in-briefe-und-pakete-post-2"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-hitzkirch"
       },
       "sourceLang": "de",
       "department": "",
@@ -549,6 +582,12 @@
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post-2"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post-2"
         ]
       },
       "previousSlugs": [
@@ -7031,8 +7070,8 @@
       "slug": "capo-squadra-staff-di-guida-carpostal-develier",
       "slugByLocale": {
         "it": "capo-squadra-staff-di-guida-carpostal-develier",
-        "en": "responsable-d-equipe-personnel-de-conduite-post",
-        "de": "responsable-d-equipe-personnel-de-conduite-post",
+        "en": "team-leader-driving-personnel-carpostal-develier",
+        "de": "teamleiter-fahrpersonal-carpostal-develier",
         "fr": "responsable-d-equipe-personnel-de-conduite-carpostal-develier"
       },
       "sourceLang": "fr",
@@ -7070,6 +7109,12 @@
       "firstSeenAt": "2026-06-25T12:14:16.450Z",
       "previousSlugsByLocale": {
         "it": [
+          "responsable-d-equipe-personnel-de-conduite-post"
+        ],
+        "en": [
+          "responsable-d-equipe-personnel-de-conduite-post"
+        ],
+        "de": [
           "responsable-d-equipe-personnel-de-conduite-post"
         ]
       },

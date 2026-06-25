@@ -414,9 +414,9 @@
     },
     {
       "id": "ipw-c362f079a1c8",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
+        "it": "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "dipl-care-specialist-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
         "fr": "dipl-specialiste-des-soins-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -465,7 +465,7 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-fh-hf-80-100-ipw-winterthur",
         "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -482,7 +482,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-05T22:15:31.956Z",
@@ -501,9 +501,9 @@
     },
     {
       "id": "ipw-0e916c460942",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur",
+      "slug": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur",
+        "it": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur",
         "fr": "pflegefachfrau-pflegefachmann-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -552,11 +552,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-08T13:07:12.838Z",
@@ -1243,8 +1243,8 @@
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-ipw-winterthur",
         "it": "medico-assistente-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "fr": "assistenzarztin-assistenzarzt-ipw-winterthur"
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1306,6 +1306,12 @@
       "firstSeenAt": "2026-06-25T11:34:28.278Z",
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-ipw-winterthur"
         ]
       },

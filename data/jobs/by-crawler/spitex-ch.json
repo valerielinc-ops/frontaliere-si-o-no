@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
         "it": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
-        "en": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
-        "fr": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
+        "en": "dipl-nursing-specialist-hf-psychiatry-dipl-nursing-specialist-hf-psychiatry-spitex-rebeno-ag-zollikofen",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-psychiatrie-dipl-specialiste-des-soins-infirmiers-hf-psychiatrie-spitex-rebeno"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -56,10 +56,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
+        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -81,8 +88,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
         "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-stafa-stafa",
+        "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-stafa-stafa"
       },
       "company": "Spitex Stäfa",
       "companyKey": "spitex-ch",
@@ -146,8 +153,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
         "it": "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
-        "en": "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
-        "fr": "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon"
+        "en": "health-professional-efz-50-80-spitex-kempt-effretikon",
+        "fr": "professionnels-de-la-sante-efz-50-80-spitex-kempt-effretikon"
       },
       "company": "SPITEX Kempt",
       "companyKey": "spitex-ch",
@@ -211,8 +218,8 @@
       "slugByLocale": {
         "de": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
         "it": "capo-squadra-servizio-notturno-ricovero-e-ambulatoriale-spitex-der-seegemeinden-weggis",
-        "en": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "fr": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        "en": "team-management-night-service-stationary-ambulatory-spitex-der-seegemeinden-weggis",
+        "fr": "gestion-d-equipe-service-de-nuit-stationnaire-ambulatoire-spitex-der-seegemeinden-weggis"
       },
       "company": "Spitex der Seegemeinden",
       "companyKey": "spitex-ch",
@@ -271,6 +278,12 @@
       "firstSeenAt": "2026-06-25T12:09:29.774Z",
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "en": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "fr": [
           "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
         ]
       },
@@ -494,7 +507,7 @@
       "slug": "specialista-di-assistenza-hf-con-funzione-aggiuntiva-stv-team-management-60-100-spitex-obwalden-sarnen",
       "slugByLocale": {
         "it": "specialista-di-assistenza-hf-con-funzione-aggiuntiva-stv-team-management-60-100-spitex-obwalden-sarnen",
-        "en": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+        "en": "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
         "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
         "fr": "specialiste-de-soins-hf-avec-fonction-supplementaire-stv-gestion-d-equipe-60-100-spitex-obwalden-sarnen"
       },
@@ -540,7 +553,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
-        "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
         "care-specialist-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
         "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen"
       ],
@@ -549,8 +561,8 @@
           "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
         ],
         "en": [
-          "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
-          "care-specialist-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen"
+          "care-specialist-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
+          "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
         ],
         "fr": [
           "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen"
@@ -1398,8 +1410,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
         "it": "specialista-della-salute-60-80-spitex-horgen-oberrieden-horgen",
-        "en": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
-        "fr": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
+        "en": "professional-health-60-80-spitex-horgen-oberrieden-horgen",
+        "fr": "sante-professionnelle-60-80-spitex-horgen-oberrieden-horgen"
       },
       "company": "Spitex Horgen-Oberrieden",
       "companyKey": "spitex-ch",
@@ -1459,6 +1471,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
         ]
       },
       "previousSlugs": [
@@ -1471,8 +1489,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
         "it": "specialista-della-salute-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
-        "en": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
-        "fr": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+        "en": "health-professional-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
+        "fr": "professionnels-de-la-sante-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil"
       },
       "company": "Spitex Rupperswil/Hunzenschwil/Auenstein",
       "companyKey": "spitex-ch",
@@ -1532,6 +1550,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
         ]
       },
       "previousSlugs": [
@@ -1544,8 +1568,8 @@
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen",
         "it": "infermiere-qualificato-hf-fh-focus-in-psichiatria-50-70-a-spitex-zurichsee-meilen",
-        "en": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen",
-        "fr": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen"
+        "en": "graduate-nurse-hf-fh-focus-on-psychiatry-50-70-a-spitex-zurichsee-meilen",
+        "fr": "infirmiere-diplomee-hf-fh-concentration-sur-la-psychiatrie-50-70-a-spitex-zurichsee-meilen"
       },
       "company": "Spitex Zürichsee",
       "companyKey": "spitex-ch",
@@ -1605,6 +1629,12 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-50-70-a-spitex-ch-meilen"
         ]
       },
       "previousSlugs": [
@@ -1617,8 +1647,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-ch-munchenstein",
         "it": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-birseck-munchenstein",
-        "en": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-birseck-munchenstein",
-        "fr": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-birseck-munchenstein"
+        "en": "dipl-nursing-professional-in-ambulatory-care-20-100-spitex-birseck-munchenstein",
+        "fr": "dipl-specialiste-des-soins-ambulatoires-20-100-spitex-birseck-munchenstein"
       },
       "company": "Spitex Birseck",
       "companyKey": "spitex-ch",
@@ -1690,8 +1720,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein",
         "it": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein",
-        "en": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein",
-        "fr": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein"
+        "en": "employees-in-planning-70-100-spitex-birseck-munchenstein",
+        "fr": "employes-en-planification-70-100-spitex-birseck-munchenstein"
       },
       "company": "Spitex Birseck",
       "companyKey": "spitex-ch",
@@ -1763,8 +1793,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
         "it": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
-        "en": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "fr": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten"
+        "en": "nurse-hf-psychiatry-40-80-spitex-region-olten-olten",
+        "fr": "infirmiere-hf-psychiatrie-40-80-spitex-region-olten-olten"
       },
       "company": "Spitex Region Olten",
       "companyKey": "spitex-ch",
@@ -1810,6 +1840,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
+        ],
+        "en": [
           "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
         ]
       },

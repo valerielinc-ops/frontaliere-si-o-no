@@ -156,7 +156,7 @@
       "slug": "payroll-specialista-teilzeit-sonova-staefa",
       "slugByLocale": {
         "it": "payroll-specialista-teilzeit-sonova-staefa",
-        "en": "payroll-specialist-teilzeit-sonova-staefa-switzerland",
+        "en": "payroll-specialist-part-time-sonova-staefa-switzerland",
         "de": "payroll-specialist-teilzeit-sonova-ch",
         "fr": "payroll-specialiste-teilzeit-sonova-staefa"
       },
@@ -199,7 +199,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "payroll-specialist-teilzeit-sonova-ch",
-        "payroll-specialist-part-time-sonova-staefa-switzerland"
+        "payroll-specialist-teilzeit-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -207,7 +207,7 @@
         ],
         "en": [
           "payroll-specialist-teilzeit-sonova-ch",
-          "payroll-specialist-part-time-sonova-staefa-switzerland"
+          "payroll-specialist-teilzeit-sonova-staefa-switzerland"
         ],
         "fr": [
           "payroll-specialist-teilzeit-sonova-ch"
@@ -674,7 +674,7 @@
         "en": "internship-data-ai-solution-sonova-ch",
         "it": "soluzioni-di-dati-e-ia-per-tirocini-sonova-staefa-switzerland",
         "de": "internship-data-ai-solution-sonova-ch",
-        "fr": "internship-data-ai-solution-sonova-ch"
+        "fr": "solution-de-donnees-de-stage-et-d-ia-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -731,6 +731,9 @@
       "firstSeenAt": "2026-06-25T12:22:06.267Z",
       "previousSlugsByLocale": {
         "it": [
+          "internship-data-ai-solution-sonova-ch"
+        ],
+        "fr": [
           "internship-data-ai-solution-sonova-ch"
         ]
       },
