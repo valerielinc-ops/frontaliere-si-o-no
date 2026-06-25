@@ -1313,6 +1313,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tassazione-frontalieri-oltre-20km-confine',
+    category: 'fiscale',
+    date: '2026-06-25T05:37:21.889Z',
+    image: '/images/blog/tassazione-frontalieri-oltre-20km-confine.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

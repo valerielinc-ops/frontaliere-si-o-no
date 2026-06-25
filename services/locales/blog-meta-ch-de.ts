@@ -439,6 +439,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-asili-nido-ticino.title': 'Grenzgänger mit Kindern: Kindergärten in der Schweiz und im Tessin',
     'blog.article.frontalieri-asili-nido-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger mit Kindern: Kosten, Wartelisten, Leistungen und Alternativen für Kindergärten im Tessin',
     'blog.article.frontalieri-asili-nido-ticino.imageAlt': 'Tessiner Kinderkrippe mit Kindern und Erziehern',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.title': 'Besteuerung von Grenzgängern: Auswirkungen und Steuermanagement',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.excerpt': 'Besteuerungsanalyse für in der Schweiz arbeitende Grenzgänger: Details zu IRPEF, Steuergutschrift und Verfahren zur korrekten Steuererklärung.',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.imageAlt': 'Panoramablick auf einen Schweizer Grenzbereich mit Bergen',
 };
 
 export default blogMetaChDe;

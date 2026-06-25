@@ -439,6 +439,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-asili-nido-ticino.title': 'Frontalier avec enfants : crèches en Suisse et au Tessin',
     'blog.article.frontalieri-asili-nido-ticino.excerpt': 'Guide pratique pour les frontaliers avec enfants : coûts, listes d\'attente, subventions et alternatives pour les crèches au Tessin',
     'blog.article.frontalieri-asili-nido-ticino.imageAlt': 'Crèche tessinoise avec enfants et éducateurs',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.title': 'Fiscalité frontalière : impacts et gestion fiscale',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.excerpt': 'Analyse de la fiscalité pour les frontaliers travaillant en Suisse : détails sur l\'IRPEF, le crédit d\'impôt et les procédures de déclaration correcte des revenus.',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.imageAlt': 'Vue panoramique d\'une zone frontalière suisse avec montagnes',
 };
 
 export default blogMetaChFr;
