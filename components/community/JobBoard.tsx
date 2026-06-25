@@ -2282,8 +2282,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // over normally. Skipped for canton-scoped pages other than TI because the
  // first-page asset is recency-ordered/TI-dominant — painting it for, say,
  // /cerca-lavoro-zurigo/ would flash mostly-TI cards before the scoped set.
+ //
+ // Also skipped for any FILTERED view (active search / company / location): the
+ // slim first-page is a recency-ordered generic payload, so filtering it yields
+ // a misleading provisional count + fallback banner (e.g. "1 offerta", then "0",
+ // then the real "34") before the authoritative shard lands. Holding the
+ // jobsLoading skeleton (hero + skeleton cards, same LCP element) until the full
+ // load is cleaner and avoids that flash; the unfiltered listing keeps the paint.
  const firstPaintEligible =
  !seededJob &&
+ !searchQuery.trim() && !companySlugFilter && !locationSlugFilter &&
  (targetCanton === AGGREGATE_CANTON_CODE || targetCanton === 'TI');
  if (firstPaintEligible) {
  const firstPage = await loadFirstPageSlim();
