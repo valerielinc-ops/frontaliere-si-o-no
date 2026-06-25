@@ -156,7 +156,7 @@
       "slug": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
       "slugByLocale": {
         "it": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-        "en": "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
+        "en": "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
         "de": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
         "fr": "infirmiere-hf-fh-60-80-m-f-j-caritas-schweiz-zentralschweiz"
       },
@@ -166,7 +166,7 @@
       "title": "Pflegefachperson HF/FH 60-80% (m/w/d)",
       "titleByLocale": {
         "it": "Infermiera HF/FH 60-80% (m/f/d)",
-        "en": "Care professional HF/FH 60-80% (m/f/d)",
+        "en": "Nurse HF/FH 60-80% (m/f/d)",
         "de": "Pflegefachperson HF/FH 60-80% (m/w/d)",
         "fr": "Infirmière HF/FH 60-80% (m/f/j)"
       },
@@ -204,7 +204,7 @@
       "pensum": "60 - 80%",
       "previousSlugs": [
         "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
+        "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -212,7 +212,7 @@
         ],
         "en": [
           "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-          "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
+          "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
         ],
         "fr": [
           "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
@@ -326,7 +326,7 @@
       "title": "SMO Head 80 - 100 % (m/w/d)",
       "titleByLocale": {
         "it": "Testa SMO 80 - 100 % (lunedì/f/g)",
-        "en": "SMO Head 80 - 100% (m/f/d)",
+        "en": "SMO Head 80 - 100% (m/w/d)",
         "de": "SMO Head 80 - 100 % (m/w/d)",
         "fr": "Tête SMO 80 - 100 % (lun/vendredi/j)"
       },
@@ -724,7 +724,7 @@
       "slug": "fachperson-finanzen-controlling-80-100-m-w-d-caritas-schweiz-luzern",
       "slugByLocale": {
         "it": "fachperson-finanzen-controlling-80-100-m-w-d-caritas-schweiz-luzern",
-        "en": "specialist-finance-controlling-80-100-m-f-d-caritas-schweiz-luzern",
+        "en": "fachperson-finanzen-controlling-80-100-m-w-d-caritas-schweiz-luzern",
         "de": "fachperson-finanzen-controlling-80-100-m-w-d-caritas-schweiz-luzern",
         "fr": "fachperson-finanzen-controlling-80-100-m-w-d-caritas-schweiz-luzern"
       },
@@ -771,11 +771,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "special-finance-controlling-80-100-m-f-d-caritas-schweiz-luzern"
+        "special-finance-controlling-80-100-m-f-d-caritas-schweiz-luzern",
+        "specialist-finance-controlling-80-100-m-f-d-caritas-schweiz-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "special-finance-controlling-80-100-m-f-d-caritas-schweiz-luzern"
+        ],
+        "en": [
+          "specialist-finance-controlling-80-100-m-f-d-caritas-schweiz-luzern"
         ]
       },
       "firstSeenAt": "2026-06-10T11:45:10.475Z",

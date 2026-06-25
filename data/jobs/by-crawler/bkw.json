@@ -7098,7 +7098,7 @@
         "it": "controllore-aziendale-energia-mobilita-telecom-m-f-d-bkw-wangen-an-der-aare",
         "en": "business-controller-energy-mobility-telecom-m-w-d-bkw-ch",
         "de": "business-controller-energy-mobility-telecom-m-w-d-bkw-ch",
-        "fr": "controleur-d-entreprise-energie-mobilite-et-telecommunications-m-f-d-bkw-wangen-an-der-aare"
+        "fr": "business-controller-energy-mobility-telecom-m-w-d-bkw-ch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -7140,13 +7140,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-controller-energy-mobility-telecom-m-w-d-bkw-ch"
+        "business-controller-energy-mobility-telecom-m-w-d-bkw-ch",
+        "controleur-d-entreprise-energie-mobilite-et-telecommunications-m-f-d-bkw-wangen-an-der-aare"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-controller-energy-mobility-telecom-m-w-d-bkw-ch"
         ],
         "fr": [
+          "controleur-d-entreprise-energie-mobilite-et-telecommunications-m-f-d-bkw-wangen-an-der-aare",
           "business-controller-energy-mobility-telecom-m-w-d-bkw-ch"
         ]
       },
@@ -9986,9 +9988,9 @@
     },
     {
       "id": "bkw-2e4d1927b6d2",
-      "slug": "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle",
+      "slug": "installateur-de-service-en-chauffage-tous-bkw-ch",
       "slugByLocale": {
-        "it": "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle",
+        "it": "installateur-de-service-en-chauffage-tous-bkw-ch",
         "en": "heating-service-installer-all-bkw-bulle",
         "de": "heizungsanlage-alle-bkw-bulle",
         "fr": "installateur-de-service-en-chauffage-tous-bkw-ch"
@@ -10034,10 +10036,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "installateur-de-service-en-chauffage-tous-bkw-ch"
+        "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle",
           "installateur-de-service-en-chauffage-tous-bkw-ch"
         ]
       },
@@ -10272,9 +10275,9 @@
     },
     {
       "id": "bkw-dc7ed85428e6",
-      "slug": "strutture-sanitarie-tutti-bkw-echallens",
+      "slug": "installateur-sanitaire-tous-bkw-ch",
       "slugByLocale": {
-        "it": "strutture-sanitarie-tutti-bkw-echallens",
+        "it": "installateur-sanitaire-tous-bkw-ch",
         "en": "health-facility-all-bkw-echallens",
         "de": "gesundheitseinrichtung-alle-bkw-echallens",
         "fr": "installateur-sanitaire-tous-bkw-ch"
@@ -10320,10 +10323,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "installateur-sanitaire-tous-bkw-ch"
+        "strutture-sanitarie-tutti-bkw-echallens"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "strutture-sanitarie-tutti-bkw-echallens",
           "installateur-sanitaire-tous-bkw-ch"
         ]
       },
@@ -10414,9 +10418,9 @@
     },
     {
       "id": "bkw-4399dbcb3732",
-      "slug": "sistema-di-riscaldamento-tutti-bkw-sullens",
+      "slug": "installateur-en-chauffage-tous-bkw-ch",
       "slugByLocale": {
-        "it": "sistema-di-riscaldamento-tutti-bkw-sullens",
+        "it": "installateur-en-chauffage-tous-bkw-ch",
         "en": "heating-installer-all-bkw-sullens",
         "de": "heizungsinstallateur-alle-bkw-sullens",
         "fr": "installateur-en-chauffage-tous-bkw-ch"
@@ -10462,10 +10466,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "installateur-en-chauffage-tous-bkw-ch"
+        "sistema-di-riscaldamento-tutti-bkw-sullens"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sistema-di-riscaldamento-tutti-bkw-sullens",
           "installateur-en-chauffage-tous-bkw-ch"
         ]
       },
@@ -19595,7 +19600,7 @@
       "slug": "brandschutzfachmann-frau-alle-bkw-chur",
       "slugByLocale": {
         "it": "brandschutzfachmann-frau-alle-bkw-chur",
-        "en": "fire-protection-specialist-woman-all-bkw-chur",
+        "en": "brandschutzfachmann-frau-alle-bkw-ch",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "brandschutzfachmann-frau-alle-bkw-ch"
       },
@@ -19640,13 +19645,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "brandschutzfachmann-frau-alle-bkw-ch"
+        "brandschutzfachmann-frau-alle-bkw-ch",
+        "fire-protection-specialist-woman-all-bkw-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachmann-frau-alle-bkw-ch"
         ],
         "en": [
+          "fire-protection-specialist-woman-all-bkw-chur",
           "brandschutzfachmann-frau-alle-bkw-ch"
         ]
       },
@@ -20200,9 +20207,9 @@
     },
     {
       "id": "bkw-dc4c90171ea7",
-      "slug": "installatore-sanitario-con-cfc-raboud-energy-sa-bkw-bulle",
+      "slug": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch",
       "slugByLocale": {
-        "it": "installatore-sanitario-con-cfc-raboud-energy-sa-bkw-bulle",
+        "it": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch",
         "en": "plumbers-with-cfc-raboud-energie-sa-bkw-bulle",
         "de": "klempner-mit-cfc-raboud-energie-sa-bkw-bulle",
         "fr": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch"
@@ -20248,10 +20255,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch"
+        "installatore-sanitario-con-cfc-raboud-energy-sa-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "installatore-sanitario-con-cfc-raboud-energy-sa-bkw-bulle",
           "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch"
         ]
       },
@@ -22378,12 +22386,12 @@
     },
     {
       "id": "bkw-6c5062a1ced1",
-      "slug": "stv-gruppo-leader-in-netzbau-tutti-bkw-bern",
+      "slug": "stv-gruppenleiter-in-netzbau-alle-bkw-ch",
       "slugByLocale": {
         "de": "stv-gruppenleiter-in-netzbau-alle-bkw-ch",
-        "it": "stv-gruppo-leader-in-netzbau-tutti-bkw-bern",
-        "en": "stv-group-leader-in-netzbau-all-bkw-bern",
-        "fr": "chef-du-groupe-stv-a-netzbau-tous-bkw-bern"
+        "it": "stv-gruppenleiter-in-netzbau-alle-bkw-ch",
+        "en": "stv-gruppenleiter-in-netzbau-alle-bkw-ch",
+        "fr": "stv-gruppenleiter-in-netzbau-alle-bkw-ch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22398,9 +22406,9 @@
       "description": "Dein Wirkungsfeld\n\n• Du übernimmst eine aktive Rolle im Aufbau des neuen Standorts und entwickelst Strukturen im Netzbau mit\n\n• Das Team führst du im Alltag fachlich und personell und unterstützt bei der Weiterentwicklung der Mitarbeitenden\n\n• Aufträge planst, koordinierst und stellst sicher, dass Bau-, Montage- und Instandhaltungsarbeiten reibungslos umgesetzt werden\n\n• Die Einsatzplanung von Material, Werkzeugen und Personal steuerst du vorausschauend und effizient\n\n• Baustellen überwachst du vor Ort und stellst die Einhaltung von Sicherheits-, Qualitäts- und Umweltvorgaben sicher\n\n• Kundenanliegen sowie Rückmeldungen aus dem Netz nimmst du auf und sorgst für eine saubere Weiterverarbeitung\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung im technischen Umfeld sowie eine Weiterbildung, z. B. als Leitende:r Netzmonteur:in\n\n• Erfahrung in der Führung von Mitarbeitenden oder in einer koordinierenden Rolle bringst du bereits mitoder du hast Lust dich in die Richtung zu entwickeln\n\n• Organisationstalent hilft dir, auch mehrere Aufträge und Anspruchsgruppen gleichzeitig im Blick zu behalten\n\n• Technische Abläufe im Netzbau verstehst du ganzheitlich und setzt diese sicher in der Praxis um\n\n• Du kommunizierst klar auf Deutsch und bewegst dich sicher im Austausch mit internen und externen Stellen\n\n• Ein Führerausweis der Kategorie B/BE sowie eine praxisnahe Arbeitsweise runden dein Profil ab\n\nWir wünschen keine Anfragen von Personaldienstleistern.\n\nWir freuen uns auf deine Online-Bewerbung.\n\nÜber uns\n\nDie BKW bietet ihren Kundinnen und Kunden international Gesamtlösungen in den Bereichen Energie, Gebäude und Infrastruktur an. Wir beschäftigen rund 11'500 Mitarbeitende. Gemeinsam bauen wir Netze, produzieren Energie, planen und realisieren energieeffiziente Gebäude und gestalten nachhaltige Lebensräume von morgen.\nDazu brauchen wir Sie: Menschen mit Ideen und Engagement. Leisten Sie mit uns einen wertvollen Beitrag für die Gesellschaft und unsere Umwelt!",
       "descriptionByLocale": {
         "de": "Dein Wirkungsfeld\n\n• Du übernimmst eine aktive Rolle im Aufbau des neuen Standorts und entwickelst Strukturen im Netzbau mit\n\n• Das Team führst du im Alltag fachlich und personell und unterstützt bei der Weiterentwicklung der Mitarbeitenden\n\n• Aufträge planst, koordinierst und stellst sicher, dass Bau-, Montage- und Instandhaltungsarbeiten reibungslos umgesetzt werden\n\n• Die Einsatzplanung von Material, Werkzeugen und Personal steuerst du vorausschauend und effizient\n\n• Baustellen überwachst du vor Ort und stellst die Einhaltung von Sicherheits-, Qualitäts- und Umweltvorgaben sicher\n\n• Kundenanliegen sowie Rückmeldungen aus dem Netz nimmst du auf und sorgst für eine saubere Weiterverarbeitung\n\nDas bringst du mit\n\n• Du verfügst über eine abgeschlossene Berufsausbildung im technischen Umfeld sowie eine Weiterbildung, z. B. als Leitende:r Netzmonteur:in\n\n• Erfahrung in der Führung von Mitarbeitenden oder in einer koordinierenden Rolle bringst du bereits mitoder du hast Lust dich in die Richtung zu entwickeln\n\n• Organisationstalent hilft dir, auch mehrere Aufträge und Anspruchsgruppen gleichzeitig im Blick zu behalten\n\n• Technische Abläufe im Netzbau verstehst du ganzheitlich und setzt diese sicher in der Praxis um\n\n• Du kommunizierst klar auf Deutsch und bewegst dich sicher im Austausch mit internen und externen Stellen\n\n• Ein Führerausweis der Kategorie B/BE sowie eine praxisnahe Arbeitsweise runden dein Profil ab\n\nWir wünschen keine Anfragen von Personaldienstleistern.\n\nWir freuen uns auf deine Online-Bewerbung.\n\nÜber uns\n\nDie BKW bietet ihren Kundinnen und Kunden international Gesamtlösungen in den Bereichen Energie, Gebäude und Infrastruktur an. Wir beschäftigen rund 11'500 Mitarbeitende. Gemeinsam bauen wir Netze, produzieren Energie, planen und realisieren energieeffiziente Gebäude und gestalten nachhaltige Lebensräume von morgen.\nDazu brauchen wir Sie: Menschen mit Ideen und Engagement. Leisten Sie mit uns einen wertvollen Beitrag für die Gesellschaft und unsere Umwelt!",
-        "it": "Il tuo campo di attività\n\n• Si assume un ruolo attivo nello sviluppo della nuova posizione e sviluppare strutture nella costruzione di rete\n\n• Guida il team professionalmente e il personale nella vita quotidiana e supporta l'ulteriore sviluppo dei dipendenti\n\n• Pianificare, coordinare e garantire che i lavori di costruzione, assemblaggio e manutenzione siano eseguiti senza intoppi\n\n• Si controlla la pianificazione di materiali, strumenti e personale in modo previsionale ed efficiente.\n\n• Monitorare i siti di costruzione in loco e garantire il rispetto dei requisiti di sicurezza, qualità e ambiente\n\n• Prendere le preoccupazioni dei clienti e feedback dalla rete e garantire un ulteriore trattamento pulito\n\nLo porti con te.\n\n• Ha completato la formazione professionale nell'ambiente tecnico, nonché l'ulteriore formazione, ad esempio come manager:r Netzmonteur:in\n\n• Esperienza nella gestione dei dipendenti o in un ruolo coordinante che già porti o vuoi sviluppare in direzione\n\n• Il talento organizzativo ti aiuta a tenere d'occhio diversi ordini e stakeholder allo stesso tempo\n\n• Comprendi i processi tecnici nella costruzione della rete in modo olistico e li implementi in modo sicuro nella pratica\n\n• Si comunica chiaramente in tedesco e si muove in modo sicuro in cambio di corpi interni ed esterni\n\n• Una patente di guida della categoria B/BE e un modo pratico di lavorare arrotonda il tuo profilo\n\nNon vogliamo richieste da fornitori di servizi di personale.\n\nAttendiamo con ansia la vostra applicazione online.\n\nInformazioni su di noi\n\nBKW offre ai propri clienti soluzioni complete a livello internazionale nel campo dell'energia, degli edifici e delle infrastrutture. Usiamo circa 11.500 persone. Insieme costruiamo reti, produciamo energia, pianifichiamo e realizziamo edifici ad alta efficienza energetica e progettiamo spazi abitativi sostenibili di domani.\nPer questo abbiamo bisogno di voi: persone con idee e impegno. Fai un prezioso contributo alla società e al nostro ambiente con noi!",
-        "en": "Your field of activity\n\n• You take an active role in the development of the new location and develop structures in network construction\n\n• You lead the team professionally and personnel in everyday life and support the further development of employees\n\n• Planning, coordinating and ensuring that construction, assembly and maintenance work is carried out smoothly\n\n• You control the planning of materials, tools and personnel in a forward-looking and efficient manner.\n\n• You monitor construction sites on site and ensure compliance with safety, quality and environmental requirements\n\n• You take customer concerns and feedback from the network and ensure a clean further processing\n\nYou bring that with you\n\n• You have completed vocational training in the technical environment as well as further training, e.g. as manager:r Netzmonteur:in\n\n• Experience in the management of employees or in a coordinating role you already bring or you want to develop in the direction\n\n• Organizational talent helps you to keep an eye on several orders and stakeholders at the same time\n\n• You understand technical processes in network construction holistically and implement them safely in practice\n\n• You communicate clearly in German and move safely in exchange with internal and external bodies\n\n• A driving licence of category B/BE as well as a practical way of working round off your profile\n\nWe do not want requests from personnel service providers.\n\nWe look forward to your online application.\n\nAbout us\n\nBKW offers its customers internationally complete solutions in the fields of energy, buildings and infrastructure. We employ around 11,500 people. Together we build networks, produce energy, plan and realise energy-efficient buildings and design sustainable living spaces of tomorrow.\nFor this we need you: people with ideas and commitment. Make a valuable contribution to society and our environment with us!",
-        "fr": "Votre domaine d'activité\n\n• Vous participez activement au développement du nouvel emplacement et développez des structures dans la construction de réseaux\n\n• Vous dirigez l'équipe professionnellement et le personnel dans la vie quotidienne et soutenir le développement ultérieur des employés\n\n• Planifier, coordonner et veiller à ce que les travaux de construction, d'assemblage et d'entretien soient effectués en douceur\n\n• Vous contrôlez la planification des matériaux, des outils et du personnel de manière prospective et efficace.\n\n• Vous surveillez les chantiers sur place et veillez au respect des exigences en matière de sécurité, de qualité et d'environnement\n\n• Vous prenez les préoccupations des clients et les commentaires du réseau et assurez un traitement ultérieur propre\n\nApporte ça avec toi.\n\n• Vous avez suivi une formation professionnelle dans l'environnement technique ainsi qu'une formation continue, par exemple en tant que responsable:\n\n• Expérience dans la gestion des employés ou dans un rôle de coordination que vous apportez déjà ou que vous voulez développer dans la direction\n\n• Le talent organisationnel vous aide à garder un œil sur plusieurs commandes et intervenants en même temps\n\n• Vous comprenez les processus techniques dans la construction de réseau holistique et les mettre en œuvre en toute sécurité dans la pratique\n\n• Vous communiquez clairement en allemand et vous déplacez en toute sécurité en échange avec des organismes internes et externes\n\n• Un permis de conduire de catégorie B/BE ainsi qu'une façon pratique de travailler complètent votre profil\n\nNous ne voulons pas de demandes de fournisseurs de services au personnel.\n\nNous nous réjouissons de votre candidature en ligne.\n\nSur nous\n\nBKW propose à ses clients des solutions internationales complètes dans les domaines de l'énergie, des bâtiments et des infrastructures. Nous employons environ 11 500 personnes. Ensemble, nous construisons des réseaux, produisons de l'énergie, planifions et réalisons des bâtiments économes en énergie et concevons des espaces de vie durables de demain.\nPour cela nous avons besoin de vous : des personnes avec des idées et de l'engagement. Faites une contribution précieuse à la société et à notre environnement avec nous!"
+        "it": "Il tuo campo di attività\n\n• Si assume un ruolo attivo nello sviluppo della nuova posizione e sviluppare strutture nella costruzione di rete\n\n• Guida il team professionalmente e il personale nella vita quotidiana e supporta l'ulteriore sviluppo dei dipendenti\n\n• Pianificare, coordinare e garantire che i lavori di costruzione, assemblaggio e manutenzione siano eseguiti senza intoppi\n\n• Si controlla la pianificazione di materiali, strumenti e personale in modo previsionale ed efficiente.\n\n• Monitorare i siti di costruzione in loco e garantire il rispetto dei requisiti di sicurezza, qualità e ambiente\n\n• Prendere le preoccupazioni dei clienti e feedback dalla rete e garantire un ulteriore trattamento pulito\n\nLo porti con te.\n\n• Ha completato la formazione professionale nell'ambiente tecnico, nonché l'ulteriore formazione, ad esempio come manager:r Netzmonteur:in\n\n• Esperienza nella gestione dei dipendenti o in un ruolo coordinante che già porti o vuoi sviluppare in direzione\n\n• Il talento organizzativo ti aiuta a tenere d'occhio diversi ordini e stakeholder allo stesso tempo\n\n• Comprendi i processi tecnici nella costruzione della rete in modo olistico e li implementi in modo sicuro nella pratica\n\n• Si comunica chiaramente in tedesco e si muove in modo sicuro in cambio di corpi interni ed esterni\n\n• Una patente di guida di categoria B/BE e un modo pratico di lavorare arrotonda il tuo profilo\n\nNon vogliamo richieste da fornitori di servizi di personale.\n\nAttendiamo con ansia la vostra applicazione online.\n\nSu di noi\n\nBKW offre ai propri clienti soluzioni complete a livello internazionale nel campo dell'energia, degli edifici e delle infrastrutture. Usiamo circa 11.500 persone. Insieme costruiamo reti, produciamo energia, progettiamo e realizziamo edifici a basso consumo energetico e progettiamo spazi abitativi sostenibili di domani.\nPer questo abbiamo bisogno di voi: persone con idee e impegno. Fai un prezioso contributo alla società e al nostro ambiente con noi!",
+        "en": "Your field of activity\n\n• You take an active role in the development of the new location and develop structures in network construction\n\n• You lead the team professionally and personnel in everyday life and support the further development of employees\n\n• Planning, coordinating and ensuring that construction, assembly and maintenance work is carried out smoothly\n\n• You control the planning of materials, tools and personnel in a forward-looking and efficient manner.\n\n• You monitor construction sites on site and ensure compliance with safety, quality and environmental requirements\n\n• You take customer concerns as well as feedback from the network and ensure a clean further processing\n\nYou bring that with you\n\n• You have completed vocational training in the technical environment as well as further training, e.g. as manager:r Netzmonteur:in\n\n• Experience in the management of employees or in a coordinating role you already bring or you want to develop in the direction\n\n• Organizational talent helps you to keep an eye on several orders and stakeholders at the same time\n\n• You understand technical processes in network construction holistically and implement them safely in practice\n\n• You communicate clearly in German and move safely in exchange with internal and external bodies\n\n• A category B/BE driving licence and a practical way of working round off your profile\n\nWe do not want requests from personnel service providers.\n\nWe look forward to your online application.\n\nAbout us\n\nBKW offers its customers internationally complete solutions in the fields of energy, buildings and infrastructure. We employ around 11,500 people. Together we build networks, produce energy, plan and realise energy-efficient buildings and design sustainable living spaces of tomorrow.\nFor this we need you: people with ideas and commitment. Make a valuable contribution to society and our environment with us!",
+        "fr": "Votre domaine d'activité\n\n• Vous jouez un rôle actif dans le développement du nouvel emplacement et développez des structures dans la construction de réseaux\n\n• Vous dirigez l'équipe professionnellement et le personnel dans la vie quotidienne et soutenir le développement ultérieur des employés\n\n• Planifier, coordonner et veiller à ce que les travaux de construction, d'assemblage et d'entretien soient effectués en douceur\n\n• Vous contrôlez la planification des matériaux, des outils et du personnel de manière prospective et efficace.\n\n• Vous surveillez les chantiers sur place et veillez au respect des exigences en matière de sécurité, de qualité et d'environnement\n\n• Vous prenez les préoccupations des clients ainsi que les commentaires du réseau et assurez un traitement ultérieur propre\n\nApporte ça avec toi.\n\n• Vous avez suivi une formation professionnelle dans l'environnement technique ainsi qu'une formation continue, par exemple en tant que directeur:\n\n• Expérience dans la gestion des employés ou dans un rôle de coordination que vous apportez déjà ou que vous voulez développer dans la direction\n\n• Le talent organisationnel vous aide à garder un œil sur plusieurs commandes et intervenants en même temps\n\n• Vous comprenez les processus techniques dans la construction de réseau holistique et les mettre en œuvre en toute sécurité dans la pratique\n\n• Vous communiquez clairement en allemand et vous déplacez en toute sécurité en échange avec des organismes internes et externes\n\n• Un permis de conduire de catégorie B/BE et une façon pratique de travailler complètent votre profil\n\nNous ne voulons pas de demandes de fournisseurs de services de personnel.\n\nNous attendons avec impatience votre candidature en ligne.\n\nÀ propos de nous\n\nBKW offre à ses clients des solutions internationales complètes dans les domaines de l'énergie, des bâtiments et des infrastructures. Nous employons environ 11 500 personnes. Ensemble, nous construisons des réseaux, produisons de l'énergie, planifions et réalisons des bâtiments économes en énergie et concevons des espaces de vie durables de demain.\nPour cela, nous avons besoin de vous : des personnes avec des idées et de l'engagement. Apportez une contribution précieuse à la société et à notre environnement avec nous!"
       },
       "location": "Bern",
       "canton": "BE",
@@ -22439,21 +22447,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T10:52:22.790Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-gruppenleiter-in-netzbau-alle-bkw-ch"
-        ],
-        "en": [
-          "stv-gruppenleiter-in-netzbau-alle-bkw-ch"
-        ],
-        "fr": [
-          "stv-gruppenleiter-in-netzbau-alle-bkw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "stv-gruppenleiter-in-netzbau-alle-bkw-ch"
-      ]
+      "firstSeenAt": "2026-06-25T10:52:22.790Z"
     },
     {
       "id": "bkw-955785a6f9b2",
