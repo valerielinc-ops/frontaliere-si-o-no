@@ -114,7 +114,7 @@ import {
  type Block as JobDescBlock,
  type Inline as JobDescInline,
 } from '@/build-plugins/shared/jobDescription/parser';
-import { useAuthGateHeadlineVariant, useAuthGateModelVariant } from '@/services/authGateExperiment';
+import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import {
  isMultiLocation,
@@ -1832,9 +1832,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { t } = useTranslation();
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
- // Structural auth-gate experiment (flag `authgate-model-v1`): `value_first`
- // reveals much more of the description before the gate. Falls back to control.
- const gateModel = useAuthGateModelVariant();
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
  // exchanging — the visitor is about to be signed in; flashing the gate is noise.
  const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
@@ -6382,16 +6379,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gatePosted = daysSincePosted(selectedJob.postedDate);
  const gateIsNew = isNewJob(selectedJob);
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl(selectedJob));
- // value_first reveals a much longer teaser before the gate (information scent
- // experiment); control keeps the throttled ~220-char snippet.
- const previewCharLimit = gateModel === 'value_first' ? 1100 : 220;
- // Fixed-height teaser box. Both arms keep a STATIC height (svh, not dvh) so
- // the box never shifts frame-to-frame within an arm — preserving the CLS
- // guard below. value_first just reserves a much taller window (and drops the
- // short-viewport hide) to show several paragraphs before the gate.
- const previewBoxClass = gateModel === 'value_first'
- ? 'h-[clamp(220px,calc(100svh_-_300px),560px)]'
- : '[@media(max-height:540px)]:hidden h-[clamp(0px,calc(100svh_-_540px),80px)]';
+ const previewCharLimit = 220;
+ // Fixed-height teaser box with a STATIC height (svh, not dvh) so it never
+ // shifts frame-to-frame — preserving the CLS guard below.
+ const previewBoxClass =
+ '[@media(max-height:540px)]:hidden h-[clamp(0px,calc(100svh_-_540px),80px)]';
  const descriptionPreview = String(
  selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
  )
