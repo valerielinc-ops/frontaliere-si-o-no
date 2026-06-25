@@ -167,6 +167,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-doppia-imposizione-credito-imposta': { it: 'frontaliere-doppia-imposizione-credito-imposta', en: 'frontaliers-double-taxation-tax-credit', de: 'grenzgaenger-doppelbesteuerung-steuergutschrift', fr: 'frontaliers-double-imposition-credit-dimpot' },
  'costo-auto-pendolare-ticino': { it: 'costo-auto-pendolare-ticino', en: 'cost-of-car-for-commuter-ticino', de: 'kosten-des-autos-fur-pendler-tessin', fr: 'cout-de-la-voiture-pour-les-navetteurs-tessin' },
  'dichiarazione-redditi-frontaliere-730-guida': { it: 'dichiarazione-redditi-frontaliere-730-guida', en: 'tax-return-frontalieri-730-guide', de: 'steuererklaerung-frontalieri-730-fuehrer', fr: 'declaration-revenus-frontalieri-730-guide' },
+ 'documenti-frontalieri-lavoro-svizzera': { it: 'documenti-frontalieri-lavoro-svizzera', en: 'documents-for-frontalieri-starting-work-in-switzerland', de: 'dokumente-fur-grenzgaenger-die-in-der-schweiz-arbeiten', fr: 'documents-pour-les-frontaliers-commencant-a-travailler-en-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

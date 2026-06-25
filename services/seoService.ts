@@ -4187,6 +4187,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-doppia-imposizione-credito-imposta': { name: 'Fiscale', path: '/articoli-svizzera/frontaliere-doppia-imposizione-credito-imposta/', parent: 'blog' },
     'blog-costo-auto-pendolare-ticino': { name: 'Costo auto', path: '/articoli-svizzera/costo-auto-pendolare-ticino/', parent: 'blog' },
     'blog-dichiarazione-redditi-frontaliere-730-guida': { name: 'Dichiarazione Redditi', path: '/articoli-svizzera/dichiarazione-redditi-frontaliere-730-guida/', parent: 'blog' },
+    'blog-documenti-frontalieri-lavoro-svizzera': { name: 'Documenti Frontalieri', path: '/articoli-svizzera/documenti-frontalieri-lavoro-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

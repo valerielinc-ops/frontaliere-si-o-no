@@ -433,6 +433,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.title': 'Steuererklärung Grenzgänger 730: Komplette Anleitung',
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.excerpt': 'Erfahren Sie, wie Sie die Steuererklärung 730 für Grenzgänger, die erforderlichen Unterlagen und Fristen ausfüllen.',
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.imageAlt': 'Ein Arbeiter füllt ein Steuerformular mit der Schweizer Flagge im Hintergrund aus.',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.title': 'Benötigte Dokumente, um in der Schweiz zu arbeiten: Vollständiger Leitfaden',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.excerpt': 'Entdecken Sie die vollständige Checkliste der Dokumente, die Sie benötigen, um in der Schweiz als Grenzgänger zu arbeiten.',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.imageAlt': 'Pendler, die die Schweizerisch-Italienische Grenze mit dem Lugano Skyline im Hintergrund überqueren',
 };
 
 export default blogMetaChDe;

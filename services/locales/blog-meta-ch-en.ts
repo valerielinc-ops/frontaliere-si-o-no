@@ -433,6 +433,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.title': 'Border Income Statement 730: Complete Guide',
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.excerpt': 'Find out how to fill out the 730 tax return for border workers, the necessary documents and deadlines.',
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.imageAlt': 'A worker filling out a tax form with a Swiss flag in the background.',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.title': 'Documents Needed to Start Working in Switzerland: Complete Guide',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.excerpt': 'Discover the complete checklist of documents required to start working in Switzerland as a border worker.',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.imageAlt': 'Commuters crossing the Swiss-Italian border with the Lugano skyline in the background',
 };
 
 export default blogMetaChEn;

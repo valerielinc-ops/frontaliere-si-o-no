@@ -433,6 +433,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.title': 'Déclaration des revenus frontaliers 730 : Guide complet',
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.excerpt': 'Découvrez comment remplir la déclaration de revenus 730 pour les frontaliers, les documents nécessaires et les délais.',
     'blog.article.dichiarazione-redditi-frontaliere-730-guida.imageAlt': 'Un travailleur remplissant une déclaration de revenus avec le drapeau suisse en arrière-plan.',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.title': 'Documents nécessaires pour commencer à travailler en Suisse : Guide complet',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.excerpt': 'Découvrez la liste de contrôle complète des documents nécessaires pour commencer à travailler en Suisse en tant que frontalier.',
+    'blog.article.documenti-frontalieri-lavoro-svizzera.imageAlt': 'Navetteurs traversant la frontière suisse-italienne avec le skyline de Lugano en arrière-plan',
 };
 
 export default blogMetaChFr;
