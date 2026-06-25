@@ -4207,6 +4207,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-lugano-mercato-annunci': { name: 'Lavoro a Lugano', path: '/articoli-svizzera/lavoro-lugano-mercato-annunci/', parent: 'blog' },
     'blog-chiasso-brogeda-tempi-attesa-odierni': { name: 'Chiasso-Brogeda oggi', path: '/articoli-svizzera/chiasso-brogeda-tempi-attesa-odierni/', parent: 'blog' },
     'blog-prezzo-diesel-agrola-bellinzona-oggi': { name: 'Diesel Agrola Bellinzona', path: '/articoli-svizzera/prezzo-diesel-agrola-bellinzona-oggi/', parent: 'blog' },
+    'blog-notifica-fine-attivita-g-spop-ticino': { name: 'Notifica fine attività G', path: '/articoli-svizzera/notifica-fine-attivita-g-spop-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

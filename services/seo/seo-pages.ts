@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2931,
+ "numberOfItems": 2932,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7577,7 +7577,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2928, "name": "Premi cassa malati Neuchâtel per giovani adulti...", "url": `${BASE_URL}/articoli-frontaliere/cassa-malati-neuchatel-giovani-19-25` },
           { "@type": "ListItem", "position": 2929, "name": "Lavoro a Lugano: panoramica e annunci aggiornati", "url": `${BASE_URL}/articoli-frontaliere/lavoro-lugano-mercato-annunci` },
           { "@type": "ListItem", "position": 2930, "name": "Tempi di attesa alla frontiera di Chiasso-Broge...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-brogeda-tempi-attesa-odierni` },
-          { "@type": "ListItem", "position": 2931, "name": "Prezzo diesel Agrola Bellinzona oggi: aggiornam...", "url": `${BASE_URL}/articoli-frontaliere/prezzo-diesel-agrola-bellinzona-oggi` }
+          { "@type": "ListItem", "position": 2931, "name": "Prezzo diesel Agrola Bellinzona oggi: aggiornam...", "url": `${BASE_URL}/articoli-frontaliere/prezzo-diesel-agrola-bellinzona-oggi` },
+          { "@type": "ListItem", "position": 2932, "name": "Notifica fine attività G: procedura SPOP nel Ca...", "url": `${BASE_URL}/articoli-frontaliere/notifica-fine-attivita-g-spop-ticino` }
  ]
  },
  {

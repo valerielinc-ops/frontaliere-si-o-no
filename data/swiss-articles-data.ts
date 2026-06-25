@@ -1448,6 +1448,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'notifica-fine-attivita-g-spop-ticino',
+    category: 'pratico',
+    date: '2026-06-25T23:48:17.913Z',
+    image: '/images/blog/notifica-fine-attivita-g-spop-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
