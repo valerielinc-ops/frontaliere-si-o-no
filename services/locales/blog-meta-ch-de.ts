@@ -427,6 +427,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.title': 'Grenzgänger: So vermeiden Sie Doppelbesteuerung mit Steuergutschrift',
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.excerpt': 'Umfassender Leitfaden für Grenzgänger zur Funktionsweise des Steuergutschriftsmechanismus zur Vermeidung von Doppelbesteuerung.',
     'blog.article.frontaliere-doppia-imposizione-credito-imposta.imageAlt': 'Blick auf die Stadt Lugano vom See mit den Bergen im Hintergrund',
+    'blog.article.costo-auto-pendolare-ticino.title': 'Kosten Grenzpendelwagen Tessin: alle Kosten',
+    'blog.article.costo-auto-pendolare-ticino.excerpt': 'Entdecken Sie alle Kosten des Autos für das Pendeln: Benzin, Vignetten, Parken, Verschleiß, Vergleich mit Zug und Bus.',
+    'blog.article.costo-auto-pendolare-ticino.imageAlt': 'Panoramablick auf den Luganersee mit geparkten Autos',
 };
 
 export default blogMetaChDe;
