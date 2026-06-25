@@ -4200,6 +4200,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ginevra-frontalieri-settore-pubblico': { name: 'Frontalieri a Ginevra', path: '/articoli-svizzera/ginevra-frontalieri-settore-pubblico/', parent: 'blog' },
     'blog-terzo-pilastro-frontalieri-guida': { name: 'Terzo pilastro frontalieri', path: '/articoli-svizzera/terzo-pilastro-frontalieri-guida/', parent: 'blog' },
     'blog-assicurazione-malattia-neuchatel-giovani': { name: 'Cassa malattia Neuchâtel', path: '/articoli-frontaliere/assicurazione-malattia-neuchatel-giovani', parent: 'blog' },
+    'blog-aumento-costi-abitazione-e-mobilita-in-svizzera': { name: 'Costi abitazione mobilità', path: '/articoli-svizzera/aumento-costi-abitazione-e-mobilita-in-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

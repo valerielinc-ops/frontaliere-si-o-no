@@ -463,6 +463,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-frontalieri-guida.title': 'Dritte Säule für Grenzgänger: Praxisleitfaden 2024',
     'blog.article.terzo-pilastro-frontalieri-guida.excerpt': 'Die dritte Säule 3a für Grenzgänger: Wer kann sie öffnen, wie funktioniert sie, Unterschiede zu Bewohnern, Grenzen und praktischen Szenarien.',
     'blog.article.terzo-pilastro-frontalieri-guida.imageAlt': 'Panorama von Lugano mit Grenzgängern auf dem Weg zur Arbeit.',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.title': 'Steigende Wohn- und Mobilitätskosten in der Schweiz: Auswirkungen auf den Mittelstand',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.excerpt': 'Die Kosten für Wohnen und Mobilität in der Schweiz stiegen im Vergleich zum Vorjahresmonat um 1,7%. Das Tessin ist die am stärksten betroffene Region.',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.imageAlt': 'Eine Schweizer Familie fährt mit dem Auto in Zürich',
 };
 
 export default blogMetaChDe;

@@ -463,6 +463,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-frontalieri-guida.title': 'Terzo pilastro per frontalieri: guida pratica 2024',
     'blog.article.terzo-pilastro-frontalieri-guida.excerpt': 'Il terzo pilastro 3a per frontalieri: chi può aprirlo, come funziona, differenze con residenti, limiti e scenari pratici.',
     'blog.article.terzo-pilastro-frontalieri-guida.imageAlt': 'Panorama di Lugano con frontalieri in arrivo al lavoro.',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.title': 'Aumento dei costi di abitazione e mobilità in Svizzera: impatto sul ceto medio',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.excerpt': 'I costi per abitazione e mobilità in Svizzera sono aumentati dell\'1,7% rispetto allo stesso mese dell\'anno precedente. Il Ticino è la regione più colpita.',
+    'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.imageAlt': 'Una famiglia svizzera in auto a Zurigo',
 };
 
 export default blogMetaChIt;

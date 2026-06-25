@@ -5907,6 +5907,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-costi-abitazione-e-mobilita-in-svizzera': {
+    title: 'Aumento dei costi di abitazione e mobilità in Svizzera: impatto sul ceto medio',
+    description: 'Scopri come l\'aumento dei costi di abitazione e mobilità in Svizzera sta impattando sul ceto medio e quali strategie puoi adottare per mitigare questi effetti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, costi, abitazione, mobilità',
+    ogTitle: 'Aumento dei costi di abitazione e mobilità in Svizzera',
+    ogDescription: 'L\'aumento dei costi di abitazione e mobilità in Svizzera sta avendo un impatto significativo sul ceto medio. Scopri di più.',
+    canonicalPath: '/articoli-svizzera/aumento-costi-abitazione-e-mobilita-in-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento dei costi di abitazione e mobilità in Svizzera: impatto sul ceto medio",
+      "description": "Scopri come l'aumento dei costi di abitazione e mobilità in Svizzera sta impattando sul ceto medio e quali strategie puoi adottare per mitigare questi effetti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-costi-abitazione-e-mobilita-in-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia svizzera in auto a Zurigo"
+      },
+      "datePublished": "2026-06-25T15:19:43+00:00",
+      "dateModified": "2026-06-25T15:19:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aumento-costi-abitazione-e-mobilita-in-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
