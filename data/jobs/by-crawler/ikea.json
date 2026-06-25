@@ -94,7 +94,7 @@
         "it": "soluzione-di-adempimento-unita-responsabile-100-ikea-itingen",
         "en": "unit-fulfilment-solution-responsible-100-ikea-ch",
         "de": "unit-fulfillment-losung-verantwortlich-100-ikea-itingen",
-        "fr": "unit-fulfilment-solution-responsible-100-ikea-ch"
+        "fr": "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -136,8 +136,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unit-fulfilment-solution-responsible-100-ikea-ch",
-        "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
+        "unit-fulfilment-solution-responsible-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -147,7 +146,7 @@
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ],
         "fr": [
-          "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
+          "unit-fulfilment-solution-responsible-100-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-06-11T22:51:53.915Z",
@@ -1948,9 +1947,9 @@
     },
     {
       "id": "ikea-7a66eddf61cd",
-      "slug": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
+      "slug": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
+        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "koch-kellnerin-ikea-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -1996,12 +1995,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
-        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland"
+        "collaborateur-trice-cuisine-ikea-40-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland"
+          "collaborateur-trice-cuisine-ikea-40-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.304Z",
@@ -2606,9 +2605,6 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-teppich-und-dekorationsabteilung-20-40-ikea-ch",
         "mitarbeiter-in-verkauf-dekorationsabteilung-80-ikea-ch",
-        "vendita-per-dipendenti-dipartimento-tappeti-e-decorazioni-20-40-ikea-spreitenbach",
-        "employee-sales-carpet-and-decoration-department-20-40-ikea-spreitenbach",
-        "departement-des-ventes-des-employes-tapis-et-decoration-20-40-ikea-spreitenbach",
         "dipartimento-decorazioni-dipendenti-vendite-80-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
@@ -2707,7 +2703,7 @@
       "slugByLocale": {
         "it": "leader-dell-audit-interno-ikea-pratteln-bl-switzerland",
         "en": "internal-audit-leader-ikea-ch",
-        "de": "internal-audit-leader-ikea-ch",
+        "de": "leiter-der-internen-revision-ikea-pratteln-bl-switzerland",
         "fr": "chef-de-la-verification-interne-ikea-pratteln-bl-switzerland"
       },
       "company": "IKEA",
@@ -2750,15 +2746,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internal-audit-leader-ikea-ch",
-        "leiter-der-internen-revision-ikea-pratteln-bl-switzerland"
+        "internal-audit-leader-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "internal-audit-leader-ikea-ch"
         ],
         "de": [
-          "leiter-der-internen-revision-ikea-pratteln-bl-switzerland"
+          "internal-audit-leader-ikea-ch"
         ],
         "fr": [
           "internal-audit-leader-ikea-ch"
@@ -2858,8 +2853,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-20-ikea-ch",
         "it": "collaboratore-trice-in-vendita-20-ikea-riddes",
-        "en": "mitarbeiter-in-sales-20-ikea-riddes-valais-switzerland",
-        "fr": "mitarbeiter-in-vente-20-ikea-riddes-valais-switzerland"
+        "en": "mitarbeiter-in-verkauf-20-ikea-riddes",
+        "fr": "mitarbeiter-in-verkauf-20-ikea-riddes"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2907,15 +2902,16 @@
           "mitarbeiter-in-verkauf-20-ikea-ch"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-20-ikea-riddes"
+          "mitarbeiter-in-sales-20-ikea-riddes-valais-switzerland"
         ],
         "fr": [
-          "mitarbeiter-in-verkauf-20-ikea-riddes"
+          "mitarbeiter-in-vente-20-ikea-riddes-valais-switzerland"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-verkauf-20-ikea-ch",
-        "mitarbeiter-in-verkauf-20-ikea-riddes"
+        "mitarbeiter-in-sales-20-ikea-riddes-valais-switzerland",
+        "mitarbeiter-in-vente-20-ikea-riddes-valais-switzerland"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
