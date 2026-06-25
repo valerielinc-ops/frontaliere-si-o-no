@@ -1,18 +1,19 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-06-24T21:41:23.540Z",
+  "generatedAt": "2026-06-25T10:51:53.957Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4569,
-  "avgDurationMs": 4569,
+  "durationMs": 4195,
+  "avgDurationMs": 4195,
   "durationHistory": [
-    4569
+    4195
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cedes-08f2188aed4b",
       "slug": "packaging-line-worker-100-cedes-landquart",
@@ -33,17 +34,16 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T21:41:21.298Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-06-25T10:51:52.032Z",
+      "firstSeenAt": "2026-06-24T21:41:21.298Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "cedes-3fa516c3ca31",
       "slug": "unsolicited-applications-cedes-landquart",
@@ -64,7 +64,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T21:41:20.928Z",
+      "crawledAt": "2026-06-25T10:51:51.710Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -79,7 +79,7 @@
   "unchangedJobs": [
     {
       "id": "cedes-08f2188aed4b",
-      "slug": "packaging-line-worker-100-cedes-landquart",
+      "slug": "linea-di-confezionamento-worker-100-cedes-ag-landquart",
       "company": "CEDES AG",
       "companyKey": "cedes",
       "companyDomain": "cedes.com",
@@ -97,18 +97,18 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T21:41:21.298Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-06-25T10:51:52.032Z",
+      "firstSeenAt": "2026-06-24T21:41:21.298Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "postalCode": "7302",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -132,7 +132,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-24T21:41:20.928Z",
+      "crawledAt": "2026-06-25T10:51:51.710Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
