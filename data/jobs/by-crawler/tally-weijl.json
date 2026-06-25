@@ -817,7 +817,7 @@
       "slug": "aiuto-flessibile-tally-weijl-chur",
       "slugByLocale": {
         "it": "aiuto-flessibile-tally-weijl-chur",
-        "en": "flexible-aushilfe-tally-weijl-chur",
+        "en": "flexible-assistance-tally-weijl-chur",
         "de": "flexible-aushilfe-tally-weijl-chur",
         "fr": "auchifte-flexible-tally-weijl-chur"
       },
@@ -867,6 +867,9 @@
         ],
         "fr": [
           "flexible-aushilfe-tally-weijl-chur"
+        ],
+        "en": [
+          "flexible-aushilfe-tally-weijl-chur"
         ]
       },
       "firstSeenAt": "2026-05-04T22:44:04.893Z",
@@ -890,7 +893,7 @@
       "slug": "aiuto-flessibile-tally-weijl-baden",
       "slugByLocale": {
         "it": "aiuto-flessibile-tally-weijl-baden",
-        "en": "flexible-aushilfe-tally-weijl-baden",
+        "en": "flexible-assistance-tally-weijl-baden",
         "de": "flexible-aushilfe-tally-weijl-baden",
         "fr": "auchifte-flexible-tally-weijl-baden"
       },
@@ -939,6 +942,9 @@
           "flexible-aushilfe-tally-weijl-baden"
         ],
         "fr": [
+          "flexible-aushilfe-tally-weijl-baden"
+        ],
+        "en": [
           "flexible-aushilfe-tally-weijl-baden"
         ]
       },
@@ -1884,9 +1890,9 @@
     },
     {
       "id": "tally-weijl-6dfb4331c1aa",
-      "slug": "fitting-models-tally-weijl-basel",
+      "slug": "moduli-di-montaggio-tally-weijl-basel",
       "slugByLocale": {
-        "it": "fitting-models-tally-weijl-basel",
+        "it": "moduli-di-montaggio-tally-weijl-basel",
         "en": "fitting-models-tally-weijl-basel",
         "de": "passformmodell-tally-weijl-basel",
         "fr": "modele-d-essayage-tally-weijl-basel"
@@ -1961,7 +1967,8 @@
       },
       "previousSlugs": [
         "fitting-modelle-tally-weijl-basel",
-        "modeles-d-ajustement-tally-weijl-basel"
+        "modeles-d-ajustement-tally-weijl-basel",
+        "fitting-models-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -1969,6 +1976,9 @@
         ],
         "fr": [
           "modeles-d-ajustement-tally-weijl-basel"
+        ],
+        "it": [
+          "fitting-models-tally-weijl-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",

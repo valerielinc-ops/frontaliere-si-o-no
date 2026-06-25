@@ -572,7 +572,7 @@
       "slug": "principali-hirslanden-klinik-search-42eeae",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-42eeae",
-        "en": "operating-room-assistant-hirslanden-klinik-geneve",
+        "en": "operating-aid-hirslanden-klinik-geneve",
         "de": "aide-de-bloc-operatoire-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-18"
       },
@@ -618,8 +618,8 @@
       "previousSlugs": [
         "taches-principales-hirslanden-search-18",
         "aide-de-bloc-operatoire-hirslanden-geneve",
-        "operating-aid-hirslanden-klinik-geneve",
         "operating-room-help-hirslanden-klinik-geneve",
+        "operating-room-assistant-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search",
         "aide-de-bloc-operatoire-hirslanden-klinik-geneve"
       ],
@@ -629,9 +629,9 @@
           "aide-de-bloc-operatoire-hirslanden-geneve"
         ],
         "en": [
-          "operating-aid-hirslanden-klinik-geneve",
           "operating-room-help-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-18"
+          "taches-principales-hirslanden-search-18",
+          "operating-room-assistant-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -3242,7 +3242,7 @@
       "slug": "principali-hirslanden-klinik-search-ec83c3",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-ec83c3",
-        "en": "clinical-oncology-pharmacist-at-80-in-cdd-hirslanden-klinik-geneve",
+        "en": "pharmacist-ne-clislinian-ne-in-oncology-80-in-the-year-of-the-year-hirslanden-klinik-geneve",
         "de": "pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-26"
       },
@@ -3292,6 +3292,7 @@
         "clinical-oncology-pharmacist-80-in-cdm-hirslanden-klinik-geneve",
         "pharmacist-n-clinician-n-in-80-oncology-cdm-hirslanden-klinik-geneve",
         "clinical-pharmacist-in-oncology-at-80-in-cdm-hirslanden-klinik-geneve",
+        "clinical-oncology-pharmacist-at-80-in-cdd-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search",
         "pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-klinik-geneve"
       ],
@@ -3305,7 +3306,8 @@
           "clinical-oncology-pharmacist-80-in-cdm-hirslanden-klinik-geneve",
           "pharmacist-n-clinician-n-in-80-oncology-cdm-hirslanden-klinik-geneve",
           "clinical-pharmacist-in-oncology-at-80-in-cdm-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-26"
+          "taches-principales-hirslanden-search-26",
+          "clinical-oncology-pharmacist-at-80-in-cdd-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -4503,7 +4505,7 @@
       "slug": "principali-hirslanden-klinik-search-da8f74",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-da8f74",
-        "en": "floor-host-hirslanden-klinik-geneve",
+        "en": "host-story-hirslanden-klinik-geneve",
         "de": "hote-sse-d-etage-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-29"
       },
@@ -4558,6 +4560,7 @@
         "bed-and-breakfast-hirslanden-klinik-geneve",
         "floor-hostess-hirslanden-klinik-geneve",
         "room-service-attendant-hirslanden-klinik-geneve",
+        "floor-host-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -4571,7 +4574,8 @@
           "bed-and-breakfast-hirslanden-klinik-geneve",
           "floor-hostess-hirslanden-klinik-geneve",
           "room-service-attendant-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-29"
+          "taches-principales-hirslanden-search-29",
+          "floor-host-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -14564,8 +14568,6 @@
         "specialiste-senior-fusions-et-acquisitions-a-80-100-hirslanden-klinik-zurich",
         "senior-spezialist-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich",
         "specialiste-senior-m-a-hirslanden-klinik-zurich",
-        "senior-specialista-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich",
-        "senior-specialiste-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich",
         "specialista-senior-operazioni-straordinarie-a-80-100-hirslanden-klinik-zurich"
       ],
       "previousSlugsByLocale": {
@@ -27754,7 +27756,6 @@
         "activite-principale-du-poste-hirslanden-search-4",
         "haupt-aktivitat-hirslanden-klinik-search",
         "chef-fe-de-projet-analyste-hirslanden-geneve",
-        "activite-principale-du-poste-hirslanden-search-3",
         "activite-principale-du-poste-hirslanden-search-2"
       ],
       "previousSlugsByLocale": {
@@ -30401,7 +30402,6 @@
         "activite-principale-du-poste-hirslanden-search-3",
         "un-e-infirmier-ere-hpci-a-100-hirslanden-geneve",
         "chef-fe-de-projet-immobilier-hirslanden-geneve",
-        "activite-principale-du-poste-hirslanden-search-4",
         "activite-principale-du-poste-hirslanden-search-2"
       ],
       "previousSlugsByLocale": {
@@ -30411,7 +30411,6 @@
         ],
         "de": [
           "activite-principale-du-poste-hirslanden-search",
-          "chef-fe-de-projet-analyste-hirslanden-geneve",
           "chef-fe-de-projet-immobilier-hirslanden-geneve"
         ]
       },

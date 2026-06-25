@@ -358,9 +358,9 @@
     },
     {
       "id": "viva-luzern-a5b1d168a969",
-      "slug": "praxisbildner-in-viva-luzern-luzern",
+      "slug": "allenatore-pratico-formatore-pratico-viva-luzern-luzern",
       "slugByLocale": {
-        "it": "praxisbildner-in-viva-luzern-luzern",
+        "it": "allenatore-pratico-formatore-pratico-viva-luzern-luzern",
         "en": "practical-trainer-viva-luzern-luzern",
         "de": "praxisbildner-in-viva-luzern-luzern",
         "fr": "formateur-pratique-viva-luzern-luzern"
@@ -441,7 +441,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praxisbildner-in-viva-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "praxisbildner-in-viva-luzern-luzern"
+      ]
     },
     {
       "id": "viva-luzern-62b11e643956",
