@@ -1,18 +1,19 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-06-25T10:54:42.889Z",
-  "total": 9,
-  "newCount": 1,
+  "generatedAt": "2026-06-25T22:06:16.931Z",
+  "total": 8,
+  "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 72122,
-  "avgDurationMs": 72122,
+  "durationMs": 73105,
+  "avgDurationMs": 73105,
   "durationHistory": [
-    72122
+    73105
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Kundenberaterin Vermögende Privatkunden Zürich (w/m)",
       "slug": "kundenberaterin-vermogende-privatkunden-zurich-w-m-banca-cler",
@@ -38,17 +39,22 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-25T10:53:33.115Z",
-      "_qualityScore": 73,
+      "crawledAt": "2026-06-25T22:05:06.251Z",
+      "id": "company-d2sloo",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-06-25T10:54:42.427Z",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 20
+        "translation": 15,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Fachspezialistin Anlegen (w/m)",
       "slug": "fachspezialistin-anlegen-w-m-banca-cler",
@@ -74,7 +80,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-25T10:53:33.825Z",
+      "crawledAt": "2026-06-25T22:05:06.855Z",
       "id": "company-ftg6n4",
       "contract": "full-time",
       "currency": "CHF",
@@ -115,7 +121,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-25T10:53:34.512Z",
+      "crawledAt": "2026-06-25T22:05:07.514Z",
       "id": "company-qhwx0i",
       "contract": "part-time",
       "currency": "CHF",
@@ -156,7 +162,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-25T10:53:35.196Z",
+      "crawledAt": "2026-06-25T22:05:08.114Z",
       "id": "company-8i84hb",
       "contract": "full-time",
       "currency": "CHF",
@@ -197,7 +203,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-25T10:53:35.824Z",
+      "crawledAt": "2026-06-25T22:05:08.745Z",
       "id": "company-4fztxe",
       "contract": "full-time",
       "currency": "CHF",
@@ -238,7 +244,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-25T10:53:36.520Z",
+      "crawledAt": "2026-06-25T22:05:09.292Z",
       "id": "company-nvbo6q",
       "contract": "full-time",
       "currency": "CHF",
@@ -277,7 +283,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-25T10:53:37.182Z",
+      "crawledAt": "2026-06-25T22:05:09.870Z",
       "id": "company-4gqp43",
       "contract": "full-time",
       "currency": "CHF",
@@ -318,7 +324,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-25T10:53:37.817Z",
+      "crawledAt": "2026-06-25T22:05:10.423Z",
       "id": "company-1r5az3",
       "contract": "full-time",
       "currency": "CHF",
@@ -335,13 +341,15 @@
         "translation": 15,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
-      "title": "Kundenberaterin Basis Zürich / Stv. Teamleiterin (w/m)",
-      "slug": "kundenberaterin-basis-zurich-stv-teamleiterin-w-m-banca-cler",
+      "title": "Kundenberaterin Basis Zürich / Stv. Teamleiterin (w/m) 80-100%",
+      "slug": "kundenberaterin-basis-zurich-stv-teamleiterin-m-w-d-banca-cler-bellinzona-phytkj",
       "url": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-zuerich-stv-teamleiterin-w-m-2647",
       "applyUrl": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-basis-zuerich-stv-teamleiterin-w-m-2647",
-      "company": "Banca Cler",
+      "company": "Bank Cler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
       "location": "Zürich",
@@ -353,7 +361,7 @@
       "category": "finance",
       "sector": "Banca / Servizi finanziari",
       "department": "Private Banking und Privatkunden",
-      "source": "cler-dedicated-crawler",
+      "source": "Company Careers Crawler",
       "sourceLang": "de",
       "postedDate": "2026-04-02",
       "validThrough": "",
@@ -369,15 +377,14 @@
       "salaryMax": 150000,
       "streetAddress": "Uraniastrasse 6",
       "postalCode": "8001",
-      "_qualityScore": 87,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
