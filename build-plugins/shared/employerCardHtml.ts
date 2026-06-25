@@ -12,6 +12,8 @@
 import { escHtml } from './htmlEscape';
 import { resolveJobLogoSrc } from './companyLogoResolver';
 import { LOGO_FALLBACK_SCRIPT } from './logoFallbackScript';
+import { infeedAdListItemHtml } from '../lib/adSlotHtml';
+import { shouldPlaceInfeedAd } from '../../services/adsenseSlots';
 
 export type EmployerCardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -155,6 +157,10 @@ export interface EmployerCardListOptions {
   ulClassName?: string;
   emptyStateHtml?: string;
   openingsLabel?: (n: number) => string;
+  /** Inject a device-split in-feed ad after every Nth employer card
+   *  (`JOBLIST_AD_EVERY_N`). Defaults `true` so the "aziende che assumono"
+   *  hubs monetise between listings like the job-card pages. */
+  interleaveInfeedAds?: boolean;
 }
 
 const DEFAULT_UL_COMPACT = 'list-none p-0 m-0 grid gap-2.5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
@@ -167,15 +173,24 @@ export function renderEmployerCardListHtml(
   if (items.length === 0) return opts.emptyStateHtml ?? '';
   const variant = opts.variant ?? 'compact';
   const ulClass = opts.ulClassName ?? (variant === 'detailed' ? DEFAULT_UL_DETAILED : DEFAULT_UL_COMPACT);
+  const interleave = opts.interleaveInfeedAds ?? true;
+  // Span every grid column when the list is multi-column so the ad keeps full
+  // width instead of squeezing into a single cell.
+  const spanFull = /grid-cols-(?:[2-9]|\d{2})/.test(ulClass);
   const cards = items
-    .map(({ employer, href }) =>
-      `<li>${renderEmployerCardHtml(employer, {
+    .map(({ employer, href }, i) => {
+      const card = `<li>${renderEmployerCardHtml(employer, {
         href,
         locale: opts.locale,
         variant,
         openingsLabel: opts.openingsLabel,
-      })}</li>`,
-    )
+      })}</li>`;
+      const ad =
+        interleave && i + 1 < items.length && shouldPlaceInfeedAd(i + 1)
+          ? infeedAdListItemHtml({ spanFull })
+          : '';
+      return card + ad;
+    })
     .join('');
   // Prepend the shared logo-fallback `<script>` once per list so `jcLF` (called
   // by each card's `onerror`) is defined even on employer-only pages that emit
