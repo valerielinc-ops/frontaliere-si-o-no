@@ -5673,6 +5673,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parmelin-missione-economica-nordamerica': {
+    title: 'Parmelin in missione economica in Nordamerica | Frontaliere Ticino',
+    description: 'Il presidente della Confederazione Guy Parmelin visita USA, Canada e Messico per rafforzare le relazioni economiche e scientifiche. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, parmelin, missione, economica, nordamerica',
+    ogTitle: 'Parmelin in missione economica in Nordamerica',
+    ogDescription: 'Il presidente della Confederazione Guy Parmelin visita USA, Canada e Messico per rafforzare le relazioni economiche.',
+    canonicalPath: '/articoli-svizzera/parmelin-missione-economica-nordamerica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parmelin in missione economica in Nordamerica",
+      "description": "Il presidente della Confederazione Guy Parmelin visita USA, Canada e Messico per rafforzare le relazioni economiche e scientifiche. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parmelin-missione-economica-nordamerica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Lago Lemano e delle Alpi Svizzere, con focus sulla città di Ginevra e il famoso getto d'acqua."
+      },
+      "datePublished": "2026-06-25T07:59:27+00:00",
+      "dateModified": "2026-06-25T07:59:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parmelin-missione-economica-nordamerica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

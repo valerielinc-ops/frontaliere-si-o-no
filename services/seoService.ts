@@ -4192,6 +4192,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassazione-frontalieri-oltre-20km-confine': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/tassazione-frontalieri-oltre-20km-confine/', parent: 'blog' },
     'blog-mc-27-mostra-lugano-2026': { name: 'Esposizione MC\'27 Lugano 2026', path: '/articoli-svizzera/mc-27-mostra-lugano-2026/', parent: 'blog' },
     'blog-radio-materia-volontari-banca-etica-libri-sport': { name: 'Volontari Banca Etica e libri sportivi', path: '/articoli-frontaliere/radio-materia-volontari-banca-etica-libri-sport', parent: 'blog' },
+    'blog-parmelin-missione-economica-nordamerica': { name: 'Missione economica', path: '/articoli-svizzera/parmelin-missione-economica-nordamerica/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

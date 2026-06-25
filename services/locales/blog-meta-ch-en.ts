@@ -445,6 +445,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mc-27-mostra-lugano-2026.title': 'MC\'27 Brings Art Wear to Lugano at La Posta',
     'blog.article.mc-27-mostra-lugano-2026.excerpt': 'From 25 June to 9 July 2026 in Lugano, MC’27 presents Art Wear in a unique exhibition at La Posta di Lugano 1',
     'blog.article.mc-27-mostra-lugano-2026.imageAlt': 'Exhibition view of contemporary art wear in a Swiss post office',
+    'blog.article.parmelin-missione-economica-nordamerica.title': 'Parmelin on an economic mission in North America',
+    'blog.article.parmelin-missione-economica-nordamerica.excerpt': 'Confederation President Guy Parmelin visits the US, Canada and Mexico. Delicate economic relations with the United States.',
+    'blog.article.parmelin-missione-economica-nordamerica.imageAlt': 'View of Lake Geneva and the Swiss Alps, focusing on the city of Geneva and the famous Jet d\'Eau fountain.',
 };
 
 export default blogMetaChEn;
