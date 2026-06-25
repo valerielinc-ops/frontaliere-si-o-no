@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-06-25T10:42:22.563Z",
+  "assembledAt": "2026-06-25T21:54:14.409Z",
   "jobs": [
     {
       "id": "badrutts-palace-b285db822441",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/4302998-revenue-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T10:42:20.575Z",
+      "crawledAt": "2026-06-25T21:54:12.459Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -66,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:07:05.997Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -111,7 +112,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6229812-fitness-trainer-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T10:42:20.574Z",
+      "crawledAt": "2026-06-25T21:54:12.458Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -139,6 +140,7 @@
         "fitness-trainer-m-w-d-badrutts-palace-ch"
       ],
       "firstSeenAt": "2026-06-24T10:50:10.933Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -160,7 +162,7 @@
         "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "reservations-manager-m-w-d-badrutts-palace-ch",
-        "fr": "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "fr": "reservations-manager-m-w-d-badrutts-palace-ch"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -168,7 +170,7 @@
       "title": "Reservations Manager (m/w/d)",
       "titleByLocale": {
         "it": "Account Manager (m/w/d)",
-        "en": "Reservations Manager (m/f/d)",
+        "en": "Reservations Manager (m/w/d)",
         "de": "Reservations Manager (m/w/d)",
         "fr": "Gestionnaire de compte (m/w/d)"
       },
@@ -184,7 +186,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-reservations-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T10:42:20.573Z",
+      "crawledAt": "2026-06-25T21:54:12.456Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -202,6 +204,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "reservations-manager-m-w-d-badrutts-palace-ch",
+        "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-w-d-badrutts-palace-ch",
@@ -224,10 +227,12 @@
           "reservations-manager-m-w-d-badrutts-palace-ch"
         ],
         "fr": [
+          "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "reservations-manager-m-w-d-badrutts-palace-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T11:52:11.757Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -273,7 +278,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7273895-chef-de-rang-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T10:42:20.569Z",
+      "crawledAt": "2026-06-25T21:54:12.453Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -290,6 +295,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-24T10:50:10.926Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -321,7 +327,7 @@
         "it": "Risorse Umane Recruiting Assistant (m/w/d)",
         "en": "Senior Consultant (m/w/d)",
         "de": "Personalwesen Recruiting Assistent (m/w/d)",
-        "fr": "Assistant au recrutement des RH (m/f/d)"
+        "fr": "HR Recruiting Assistant (m/w/d)"
       },
       "description": "<p><strong>Was Sie bei uns bewirken</strong></p><ul><li><p>Im abwechslungsreichen Arbeitsalltag unterstützen Sie unser HR-Team bei vielfältigen administrativen, organisatorischen und operativen \n• Aufgaben.</p></li><li><p><span>Sie unterstützen unser HR-Team schwerpunktmässig im Recruiting sowie bei der Gewinnung neuer Talente für unser Unternehmen. Zu Ihren Hauptaufgaben gehören die Veröffentlichung von Stellenanzeigen, die Bearbeitung von Bewerbungen, die Korrespondenz mit Kandidaten per E-Mail sowie die aktive Begleitung des gesamten Bewerbungsprozesses.</span></p></li><li><p>Sie unterstützen bei der Gestaltung und Weiterentwicklung unserer Recruiting-Kanäle und wirken bei der Optimierung unserer Stellenanzeigen sowie Auftritte auf Jobportalen und Social-Media-Plattformen mit.</p></li><li><p>Zu Ihrem Verantwortungsbereich gehört zudem die Erstellung und Bearbeitung von saisonalen sowie unbefristeten Arbeitsverträgen, Vertragsänderungen und weiteren HR-Dokumenten.</p></li><li><p>Darüber hinaus übernehmen Sie allgemeine administrative Tätigkeiten im HR-Bereich, wie die Pflege und Verwaltung von Personaldossiers, die Ablage und Archivierung von Dokumenten sowie die Unterstützung bei diversen administrativen Prozessen und Korrespondenzen.</p></li></ul><p><br><strong>Das bringen Sie mit</strong></p><p>Für diese verantwortungsvolle Position bringen Sie idealerweise folgendes mit:</p><ul><li><p>Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation; erste Berufserfahrung im HR‑Bereich von Vorteil.</p></li><li><p>Sie kommunizieren sicher auf Deutsch und Englisch. Weitere Sprachen, insbesondere Italienisch, sind ein zusätzliches Plus.</p></li><li><p>Organisierte, zuverlässige und selbständige Arbeitsweise mit hoher Dienstleistungsorientierung.</p></li><li><p>Diskretion und Professionalität sind für Sie selbstverständlich. Gleichzeitig überzeugen Sie mit Ihrer offenen, kommunikativen Persönlichkeit, arbeiten gerne im Team und fühlen sich in einem internationalen Umfeld wohl.</p></li><li><p>Idealerweise bringen Sie bereits erste Erfahrungen im Umgang mit HR-Tools und Plattformen mit oder zeichnen sich durch eine schnelle Auffassungsgabe sowie die Motivation aus, neue Systeme rasch zu erlernen.</p></li></ul><p><br><strong>Unser Angebot</strong></p><ul><li><p><span>Unbefristete Jahresstelle in St. Moritz.</span></p></li><li><p><span>5-Tage Woche im Schnitt bei 43.5 Stunden, 5 Wochen Ferien und 6 Feiertage pro Jahr.</span></p></li><li><p><span>13. Gehalt ab Eintritt (pro rata temporis).</span></p></li><li><p>Auf Wunsch zu Beginn eine Unterkunft in einem unserer Mitarbeiterhäuser.</p></li><li><p>Verpflegungsmöglichkeit in unserem modernen Mitarbeiter Restaurant.</p></li><li><p>Arbeiten in einem dynamischen, internationalen Team.</p></li></ul><p>Wenn Sie eine interessante, anspruchsvolle und vielseitige Tätigkeit schätzen und sich einem gut eingespielten Team anschliessen möchten, dann freuen wir uns auf Ihre vollständige Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting‑Betrug</em></strong></p><p><em>Unsere Personalabteilung wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E‑Mail‑Adressen mit der Endung</em> <strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
       "descriptionByLocale": {
@@ -335,7 +341,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7693799-hr-recruiting-assistant-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T10:42:20.566Z",
+      "crawledAt": "2026-06-25T21:54:12.450Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -365,6 +371,7 @@
         ]
       },
       "firstSeenAt": "2026-05-23T21:12:26.249Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -383,9 +390,9 @@
       "id": "badrutts-palace-cd87ec22959a",
       "slug": "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "de": "spontaneous-application-badrutts-palace-ch",
         "it": "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz",
         "en": "spontaneous-application-badrutt-s-palace-hotel-st-moritz",
+        "de": "spontaneous-application-badrutts-palace-ch",
         "fr": "demande-spontanee-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -393,24 +400,24 @@
       "companyDomain": "badruttscareers.com",
       "title": "Spontaneous application",
       "titleByLocale": {
-        "de": "Spontaneous application",
-        "en": "Spontaneous application",
         "it": "Applicazione spontanea",
+        "en": "Spontaneous application",
+        "de": "Spontaneous application",
         "fr": "Demande spontanée"
       },
       "description": "<p>Sind Sie bereit, Ihr Zeichen zu setzen? Wir sind immer auf der Suche nach talentierten Menschen, die unser Team verstärken möchten, auch wenn keine bestimmte Stelle ausgeschrieben ist. Ihre einzigartigen Fähigkeiten und Ihre Leidenschaft könnten genau das sein, was wir brauchen, um unser Unternehmen zu neuen Höhenflügen zu führen. Ergreifen Sie die Initiative und reichen Sie noch heute eine Initiativbewerbung ein!<em></em></p><p><em><br></em></p><p><em>Ready to make your mark? We're always on the lookout for talented individuals to join our team, even if there isn't a specific opening listed. Your unique skills and passion could be just what we need to elevate our company to new heights. Take the initiative and submit a spontaneous application today!</em></p><p><br></p>",
       "descriptionByLocale": {
-        "de": "<p>Sind Sie bereit, Ihr Zeichen zu setzen? Wir sind immer auf der Suche nach talentierten Menschen, die unser Team verstärken möchten, auch wenn keine bestimmte Stelle ausgeschrieben ist. Ihre einzigartigen Fähigkeiten und Ihre Leidenschaft könnten genau das sein, was wir brauchen, um unser Unternehmen zu neuen Höhenflügen zu führen. Ergreifen Sie die Initiative und reichen Sie noch heute eine Initiativbewerbung ein!<em></em></p><p><em><br></em></p><p><em>Ready to make your mark? We're always on the lookout for talented individuals to join our team, even if there isn't a specific opening listed. Your unique skills and passion could be just what we need to elevate our company to new heights. Take the initiative and submit a spontaneous application today!</em></p><p><br></p>",
         "it": "<p> Sei pronto per impostare il tuo marchio? Siamo sempre alla ricerca di persone di talento che vogliono unirsi alla nostra squadra, anche se nessun lavoro specifico è pubblicizzato. Le tue abilità e la tua passione unici potrebbero essere esattamente quello che dobbiamo portare la nostra azienda a nuove altezze. Prendere l'iniziativa e presentare oggi una domanda di iniziativa! Pronto a segnare? Siamo sempre alla ricerca di persone di talento per unirsi alla nostra squadra, anche se non c'è una specifica apertura elencata. Le tue abilità e la tua passione unici potrebbero essere proprio quello che ci serve per elevare la nostra azienda a nuove altezze. Prendere l'iniziativa e presentare una domanda spontanea oggi!",
         "en": "<p>Are you ready to set your mark? We are always looking for talented people who want to join our team, even if no specific job is advertised. Your unique skills and passion could be exactly what we need to take our company to new heights. Take the initiative and submit an initiative application today!<em></em></p><p><em><br></em></p><p><em>Ready to make your mark? We're always on the lookout for talented individuals to join our team, even if there isn't a specific opening listed. Your unique skills and passion could be just what we need to elevate our company to new heights. Take the initiative and submit a spontaneous application today!</em></p><p><br></p",
-        "fr": "<p>Êtes-vous prêt à mettre votre marque? Nous sommes toujours à la recherche de personnes talentueuses qui veulent rejoindre notre équipe, même si aucun emploi spécifique n'est annoncé. Vos compétences et votre passion uniques pourraient être exactement ce dont nous avons besoin pour amener notre entreprise à de nouveaux sommets. Prenez l'initiative et présentez une demande d'initiative aujourd'hui!<em></em></p><p><em><br></em></p><p><em> Prêt à marquer ? Nous sommes toujours à la recherche de personnes talentueuses pour rejoindre notre équipe, même s'il n'y a pas d'ouverture spécifique. Vos compétences et votre passion uniques pourraient être exactement ce dont nous avons besoin pour élever notre entreprise à de nouveaux sommets. Prenez l'initiative et soumettez une demande spontanée aujourd'hui!</em></p><p><br></p"
+        "de": "<p>Sind Sie bereit, Ihr Zeichen zu setzen? Wir sind immer auf der Suche nach talentierten Menschen, die unser Team verstärken möchten, auch wenn keine bestimmte Stelle ausgeschrieben ist. Ihre einzigartigen Fähigkeiten und Ihre Leidenschaft könnten genau das sein, was wir brauchen, um unser Unternehmen zu neuen Höhenflügen zu führen. Ergreifen Sie die Initiative und reichen Sie noch heute eine Initiativbewerbung ein!<em></em></p><p><em><br></em></p><p><em>Ready to make your mark? We're always on the lookout for talented individuals to join our team, even if there isn't a specific opening listed. Your unique skills and passion could be just what we need to elevate our company to new heights. Take the initiative and submit a spontaneous application today!</em></p><p><br></p>",
+        "fr": "<p>Êtes-vous prêt à mettre votre marque? Nous sommes toujours à la recherche de personnes talentueuses qui veulent rejoindre notre équipe, même si aucun emploi spécifique n'est annoncé. \n• Vos compétences et votre passion uniques pourraient être exactement ce dont nous avons besoin pour amener notre entreprise à de nouveaux sommets. Prenez l'initiative et présentez une demande d'initiative aujourd'hui!<em></em></p><p><em><br></em></p><p><em> Prêt à marquer ? Nous sommes toujours à la recherche de personnes talentueuses pour rejoindre notre équipe, même s'il n'y a pas d'ouverture spécifique. \n• Vos compétences et votre passion uniques pourraient être exactement ce dont nous avons besoin pour élever notre entreprise à de nouveaux sommets. Prenez l'initiative et soumettez une demande spontanée aujourd'hui!</em></p><p><br></p"
       },
       "location": "St. Moritz",
       "canton": "GR",
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/4085941-spontaneous-application",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T10:42:20.554Z",
+      "crawledAt": "2026-06-25T21:54:12.437Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -425,9 +432,20 @@
       "postedDate": "2024-04-22",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/4085941-spontaneous-application",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "spontaneous-application-badrutts-palace-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spontaneous-application-badrutts-palace-ch"
+        ],
+        "fr": [
+          "spontaneous-application-badrutts-palace-ch"
+        ]
       },
+      "firstSeenAt": "2026-06-25T10:42:20.554Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -440,19 +458,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-25T10:42:20.554Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "spontaneous-application-badrutts-palace-ch"
-        ],
-        "fr": [
-          "spontaneous-application-badrutts-palace-ch"
-        ]
-      },
-      "previousSlugs": [
-        "spontaneous-application-badrutts-palace-ch"
-      ]
+      "addressRegion": "GR"
     }
   ]
 }
