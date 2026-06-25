@@ -37,16 +37,31 @@ function deaccent(s) {
 }
 
 /**
+ * recognizeFirstName — high-confidence first name from a free-text candidate
+ * (an email local-part OR a display name like "Mario Rossi"). Takes the first
+ * token (split on space / . _ + -), rejects role/relay words, and requires it
+ * to be a recognized first name in the open-source dataset. Returns the
+ * title-cased name, or null when the token isn't a confident human first name
+ * (caller then falls back to the generic greeting). Precision over recall.
+ *
+ * @param {unknown} candidate
+ * @returns {string|null}
+ */
+export function recognizeFirstName(candidate) {
+  if (!candidate || typeof candidate !== 'string') return null;
+  const norm = candidate.toLowerCase().trim();
+  if (!norm || ROLE_LOCALPARTS.has(norm)) return null;
+  const first = norm.split(/[\s._+\-]+/).filter(Boolean)[0] || '';
+  if (!first || ROLE_LOCALPARTS.has(first)) return null;
+  if (!FIRST_NAMES.has(deaccent(first))) return null; // must be a real first name
+  return sanitizeFirstName(first); // validity + title-case display form
+}
+
+/**
  * @param {unknown} email
  * @returns {string|null} a title-cased first name, or null when not derivable
  */
 export function deriveNameFromEmail(email) {
   if (!email || typeof email !== 'string' || !email.includes('@')) return null;
-  const local = email.split('@')[0].toLowerCase().trim();
-  if (ROLE_LOCALPARTS.has(local)) return null;
-  // firstname<sep>lastname or a bare firstname — take the first token.
-  const first = local.split(/[._+\-]+/).filter(Boolean)[0] || '';
-  if (!first || ROLE_LOCALPARTS.has(first)) return null;
-  if (!FIRST_NAMES.has(deaccent(first))) return null; // must be a real first name
-  return sanitizeFirstName(first); // validity + title-case display form
+  return recognizeFirstName(email.split('@')[0]);
 }

@@ -104,3 +104,49 @@ describe('subscriberFromFirestoreRow harvests name from a polluted email field',
     expect(s?.name).toBeNull();
   });
 });
+
+// Confident first-name resolution + persistence flag (greet by name when sure,
+// else generic "frontaliere"; persist the resolved name so it isn't re-derived).
+describe('subscriberFromFirestoreRow first-name resolution', () => {
+  it('validates + flags a harvested name for persistence', () => {
+    const s = subscriberFromFirestoreRow({ email: 'Mario Rossi <mario.rossi@example.com>', name: null });
+    expect(s?.firstName).toBe('Mario');
+    expect(s?.firstNameToPersist).toBe('Mario'); // no stored firstName → persist
+    expect(personalizeGreeting('it', s?.firstName)).toBe('Buongiorno, Mario.');
+  });
+
+  it('stored firstName wins and is NOT re-flagged for persistence', () => {
+    const s = subscriberFromFirestoreRow({
+      email: 'Mario Rossi <mario.rossi@example.com>', name: null, firstName: 'Gianni',
+    });
+    expect(s?.firstName).toBe('Gianni');
+    expect(s?.firstNameToPersist).toBeNull();
+  });
+
+  it('stored social name wins over the email field', () => {
+    const s = subscriberFromFirestoreRow({ email: 'Mario Rossi <mario.rossi@example.com>', name: 'Luca Bianchi' });
+    expect(s?.firstName).toBe('Luca');
+  });
+
+  it('dataset-validated guess from the bare email local-part', () => {
+    const s = subscriberFromFirestoreRow({ email: 'giuseppe.verdi@example.com', name: null });
+    expect(s?.firstName).toBe('Giuseppe');
+    expect(s?.firstNameToPersist).toBe('Giuseppe');
+  });
+
+  // A role/brand display name in the email field must NOT produce a bogus
+  // greeting — it falls back to the generic "frontaliere", nothing persisted.
+  it('rejects a role/brand display name → generic greeting, nothing persisted', () => {
+    for (const email of [
+      'Frontaliere Ticino <weekly@example.com>',
+      'Newsletter <news@example.com>',
+      'Info <info@example.com>',
+      'cooldude2000@example.com',
+    ]) {
+      const s = subscriberFromFirestoreRow({ email, name: null });
+      expect(s?.firstName).toBeNull();
+      expect(s?.firstNameToPersist).toBeNull();
+      expect(personalizeGreeting('it', s?.firstName)).toBe('Buongiorno, frontaliere.');
+    }
+  });
+});
