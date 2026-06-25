@@ -466,6 +466,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.title': 'Augmentation des coûts de logement et de mobilité en Suisse : impact sur la classe moyenne',
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.excerpt': 'Les coûts de logement et de mobilité en Suisse ont augmenté de 1,7% par rapport au même mois de l\'année précédente. Le Tessin est la région la plus touchée.',
     'blog.article.aumento-costi-abitazione-e-mobilita-in-svizzera.imageAlt': 'Une famille suisse conduisant une voiture à Zurich',
+    'blog.article.venditti-lugano-contesto-nazionale.title': 'Ventes à Lugano : quel impact sur le contexte national suisse',
+    'blog.article.venditti-lugano-contesto-nazionale.excerpt': 'L\'événement Venditti à Lugano est analysé pour évaluer les implications nationales possibles ; données pratiques non encore spécifiées.',
+    'blog.article.venditti-lugano-contesto-nazionale.imageAlt': 'Panorama de Lugano avec lac et vue urbaine dans un contexte suisse.',
 };
 
 export default blogMetaChFr;

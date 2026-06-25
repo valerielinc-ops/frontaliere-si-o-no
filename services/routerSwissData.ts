@@ -178,6 +178,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ginevra-frontalieri-settore-pubblico': { it: 'ginevra-frontalieri-settore-pubblico', en: 'geneva-cross-border-public-sector', de: 'genf-grenzgaenger-offentlicher-sektor', fr: 'geneve-frontaliers-secteur-public' },
  'terzo-pilastro-frontalieri-guida': { it: 'terzo-pilastro-frontalieri-guida', en: 'pillar-3a-cross-border-workers', de: 'dritte-saeule-grenzgaenger', fr: 'troisieme-pilier-frontaliers' },
  'aumento-costi-abitazione-e-mobilita-in-svizzera': { it: 'aumento-costi-abitazione-e-mobilita-in-svizzera', en: 'increase-housing-mobility-costs-switzerland', de: 'erhohung-wohn-und-mobilitatskosten-schweiz', fr: 'augmentation-couts-logement-mobilite-suisse' },
+ 'venditti-lugano-contesto-nazionale': { it: 'venditti-lugano-contesto-nazionale', en: 'venditti-lugano-national-context', de: 'venditti-lugano-nationaler-kontext', fr: 'venditti-lugano-contexte-national' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
