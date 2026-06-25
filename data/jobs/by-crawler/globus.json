@@ -1,6 +1,6 @@
 {
   "crawlerKey": "globus",
-  "assembledAt": "2026-06-24T22:09:34.427Z",
+  "assembledAt": "2026-06-25T11:13:44.183Z",
   "jobs": [
     {
       "id": "globus-98a3f5dfb7a2",
@@ -33,7 +33,7 @@
       "url": "https://jobs.globus.ch/Stone-Island-Verkaufsberaterin-Herrenmode-100-mwd-de-j2388.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.034Z",
+      "crawledAt": "2026-06-25T11:13:41.836Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -104,7 +104,7 @@
       "url": "https://jobs.globus.ch/Mitarbeiterin-Visual-Merchandising-Damenmode-100-wmd-de-j2309.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.032Z",
+      "crawledAt": "2026-06-25T11:13:41.834Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -164,7 +164,7 @@
       "title": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
       "titleByLocale": {
         "it": "Supporto di vendita per incarichi nel settore non alimentare 20% - principalmente assegnazioni di sabato (f/m/d)",
-        "en": "Sales Support for assignments in the non-food sector 20% - mainly Saturday assignments (f/m/d)",
+        "en": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
         "de": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
         "fr": "Soutien aux ventes pour les missions dans le secteur non alimentaire 20% - principalement les missions du samedi (f/m/d)"
       },
@@ -180,7 +180,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Non-Food-Bereich-20-vorwie-de-j2086.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.031Z",
+      "crawledAt": "2026-06-25T11:13:41.832Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -210,6 +210,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.191Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -254,7 +255,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Metzgerei-80-wmd-de-j2409.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.029Z",
+      "crawledAt": "2026-06-25T11:13:41.830Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -325,7 +326,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Traiteur-Comestibles-80-wmd-de-j2404.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.027Z",
+      "crawledAt": "2026-06-25T11:13:41.829Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -352,6 +353,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.182Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -361,108 +363,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "globus-3f8c8e6b4250",
-      "slug": "vice-responsabile-vendite-beauty-accessori-80-100-w-m-d-globus-bern",
-      "slugByLocale": {
-        "it": "vice-responsabile-vendite-beauty-accessori-80-100-w-m-d-globus-bern",
-        "en": "deputy-sales-manager-beauty-accessories-80-100-m-f-d-globus-bern",
-        "de": "stellvertretende-r-verkaufsleiter-in-beauty-accessoires-80-100-w-m-d-globus-ch",
-        "fr": "directeur-trice-adjoint-e-des-ventes-beaute-accessoires-80-100-h-f-d-globus-bern"
-      },
-      "company": "Globus",
-      "companyKey": "globus",
-      "companyDomain": "globus.ch",
-      "title": "Stellvertretende:r Verkaufsleiter:in Beauty & Accessoires 80-100% (w/m/d)",
-      "titleByLocale": {
-        "it": "Vice Responsabile Vendite Beauty & Accessori 80-100% (w/m/d)",
-        "en": "Deputy Sales Manager Beauty & Accessories 80-100% (m/f/d)",
-        "de": "Stellvertretende:r Verkaufsleiter:in Beauty & Accessoires 80-100% (w/m/d)",
-        "fr": "Directeur/trice adjoint/e des ventes Beauté & Accessoires 80-100% (h/f/d)"
-      },
-      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Du stellst gemeinsam mit der Verkaufsleitung sicher, dass unsere Kund:innen nicht nur einkaufen, sondern ein Beauty-Erlebnis mitnehmen, das inspiriert und begeistert.\n\n• Du übernimmst bei Abwesenheit die personelle und organisatorische Führung der Abteilung und sorgst für ein Umfeld, in dem Beratungskultur, Stilbewusstsein und Teamspirit gelebt werden.\n\n• Du berätst das Team im Tagesgeschäft, förderst typgerechte Beratung und bringst deine Stärken im Visual Merchandising und in der Inszenierung von Marken- und Stilwelten ein.\n\n• Performance-Tracking und KPI-Analyse. Du behältst die Performance des Teams im Auge, um strategische Entscheidungen treffen zu können, die uns gemeinsam erfolgreich machen.\n\n• Du steuerst Prozesse effizient, unterstützt bei Events und administrativen Aufgaben – und sorgst dafür, dass auch digitale Tools smart genutzt werden.\n\n• Du begleitest neue Mitarbeitende und Lernende, zeigst Leadership mit Herz und Verstand.\n DAS ZEICHNET DICH AUS\n\n• Du bringst mehrjährige Berufs- und erste Führungserfahrung im gehobenen Retail mit – idealerweise als Stv. Verkaufsleiter:in oder Teamleiter:in.\n\n• Deine Basis ist eine abgeschlossene Ausbildung im Detailhandel EFZ – ergänzt durch Weiterbildungen\n\n• Du hast ein Gespür für Trends, Marken und Stile – und verstehst es, Menschen typgerecht, authentisch und mit Begeisterung zu beraten.\n\n• Du arbeitest strukturiert, denkst unternehmerisch und förderst das Team aktiv mit\n\n• Du kommunizierst sicher auf Deutsch, weitere Sprachkenntnisse sind ein Plus.\n\n• Digitale Anwendungen nutzt du mit Leichtigkeit.\n BENEFITS FÜR DICH\n\n• Ein Arbeitsplatz mitten in Bern– in einem Haus, das für Kultur Premiumbrands und exzellenten Service steht.\n\n• Ein Team mit Erfahrung, Beauty-Verstand und Feingefühl, das sich auf eine inspirierende Führungspersönlichkeit freut.\n\n• Attraktive Sozialleistungen und mindestens 5 Wochen Ferien – plus die Möglichkeit auf bis zu 180 Tage unbezahlten Urlaub.\n\n• Bis zu 50 % Rabatt auf das gesamte GLOBUS Sortiment.\n\n• Gezielte Weiterbildungen, damit du fachlich wie menschlich weiterkommst.\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-      "descriptionByLocale": {
-        "it": "Descrizione Con molto amore per il dettaglio, i nostri dipendenti rendono GLOBUS il principale indirizzo di lusso e premium della Svizzera. Sono persone come te che fanno la differenza e insieme a noi danno vita al «place we love to be». QUI FAI LA DIFFERENZA - Tu, insieme alla direzione vendite, ti assicuri che i nostri clienti non solo facciano acquisti, ma portino con sé un'esperienza di bellezza che ispira e entusiasma. - In assenza del responsabile, tu assumi la guida personale e organizzativa del reparto e crei un ambiente in cui la cultura del consiglio, lo stile e lo spirito di squadra sono vissuti. - Tu consigli il team nella gestione quotidiana, promuovi un consiglio adatto al tipo e porti le tue forze nel visual merchandising e nella presentazione di mondi di marca e di stile. - Monitoraggio delle prestazioni e analisi KPI. Tu tieni d'occhio le prestazioni del team per poter prendere decisioni strategiche che ci rendano vincenti insieme. - Tu gestisci i processi in modo efficiente, supporti gli eventi e le attività amministrative – e ti assicuri che anche gli strumenti digitali siano utilizzati in modo intelligente. - Tu accompagni i nuovi dipendenti e gli apprendisti, mostrando leadership con cuore e intelligenza.\n• Requisiti - Tu porti con te molti anni di esperienza professionale e di leadership nel retail di fascia alta – idealmente come vice responsabile vendite o team leader. - La tua base è una formazione completata nel commercio al dettaglio EFZ – completata da ulteriori corsi di formazione. - Tu hai un fiuto per le tendenze, le marche e gli stili – e sai come consigliare le persone in modo autentico e con entusiasmo. - Tu lavori in modo strutturato, pensi in modo imprenditoriale e promuovi attivamente il team. - Tu comunichi con sicurezza in tedesco, ulteriori conoscenze linguistiche sono un vantaggio. - Tu utilizzi le applicazioni digitali con facilità.\n• Cosa offriamo - Un posto di lavoro nel cuore di Berna – in un'azienda che rappresenta cultura, marchi premium e servizio eccellente. - Un team con esperienza, conoscenza della bellezza e sensibilità, che si rallegra di una personalità di leadership ispiratrice. - Prestazioni sociali attraenti e almeno 5 settimane di ferie – più la possibilità di fino a 180 giorni di congedo non retribuito. - Fino al 50% di sconto sull'intera gamma GLOBUS. - Formazione mirata, per avanzare professionalmente e umanamente. Contatto Siamo felici di ricevere la tua candidatura online. È molto semplice. Invece di una lettera di motivazione, siamo curiosi di conoscere le tue risposte alle nostre tre domande – segui semplicemente il link qui sotto \"",
-        "en": "Description With a keen eye for detail, our employees make GLOBUS the leading premium and luxury destination in Switzerland. It's people like you who make the difference and bring to life the «place we love to be» together with us. YOU MAKE THE DIFFERENCE HERE - Together with the sales management, you ensure that our customers don't just shop, but take away a beauty experience that inspires and delights. - In the absence of the sales manager, you take over the personnel and organizational management of the department and create an environment where advisory culture, style awareness, and team spirit are lived. - You advise the team in day-to-day business, promote type-specific advice, and bring your strengths in visual merchandising and staging brand and style worlds to the table. - Performance tracking and KPI analysis. You keep an eye on the team's performance to make strategic decisions that make us successful together. - You manage processes efficiently, support events and administrative tasks – and ensure that digital tools are used smartly. - You accompany new employees and trainees, showing leadership with heart and intelligence.\n• Requirements - You bring several years of professional experience and initial leadership experience in high-end retail – ideally as deputy sales manager or team leader. - Your foundation is a completed training in retail EFZ – supplemented by further education. - You have a feel for trends, brands, and styles – and know how to advise people in a type-specific, authentic, and enthusiastic manner. - You work in a structured way, think entrepreneurially, and actively promote the team. - You communicate confidently in German, additional language skills are a plus. - You use digital applications with ease.\n• What we offer - A workplace in the heart of Bern – in a house that stands for culture, premium brands, and excellent service. - A team with experience, beauty expertise, and a keen sense, which looks forward to an inspiring leadership personality. - Attractive social benefits and at least 5 weeks of vacation – plus the possibility of up to 180 days of unpaid leave. - Up to 50% discount on the entire GLOBUS range. - Targeted further training, so you can advance professionally and personally. Contact We look forward to receiving your online application. It's very straightforward. Instead of a cover letter, we're curious to see your answers to our three questions – just follow the link below \"Apply now!\". Further insights behind the scenes of GLOBUS and more information can be found here: https://karriere.globus.ch/ PS: Curious about the real GLOBUS feeling? Click in and grab insider info directly from the source on LinkedIn Life. Between photos, videos, and unvarnished employee stories, you'll discover what really drives us. Dare to learn more: LinkedIn Life (German): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note for recruitment consultants: only direct applications will be considered.)",
-        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n• Du stellst gemeinsam mit der Verkaufsleitung sicher, dass unsere Kund:innen nicht nur einkaufen, sondern ein Beauty-Erlebnis mitnehmen, das inspiriert und begeistert.\n• Du übernimmst bei Abwesenheit die personelle und organisatorische Führung der Abteilung und sorgst für ein Umfeld, in dem Beratungskultur, Stilbewusstsein und Teamspirit gelebt werden.\n• Du berätst das Team im Tagesgeschäft, förderst typgerechte Beratung und bringst deine Stärken im Visual Merchandising und in der Inszenierung von Marken- und Stilwelten ein.\n• Performance-Tracking und KPI-Analyse. Du behältst die Performance des Teams im Auge, um strategische Entscheidungen treffen zu können, die uns gemeinsam erfolgreich machen.\n• Du steuerst Prozesse effizient, unterstützt bei Events und administrativen Aufgaben – und sorgst dafür, dass auch digitale Tools smart genutzt werden.\n• Du begleitest neue Mitarbeitende und Lernende, zeigst Leadership mit Herz und Verstand. DAS ZEICHNET DICH AUS\n• Du bringst mehrjährige Berufs- und erste Führungserfahrung im gehobenen Retail mit – idealerweise als Stv. Verkaufsleiter:in oder Teamleiter:in.\n• Deine Basis ist eine abgeschlossene Ausbildung im Detailhandel EFZ – ergänzt durch Weiterbildungen\n• Du hast ein Gespür für Trends, Marken und Stile – und verstehst es, Menschen typgerecht, authentisch und mit Begeisterung zu beraten.\n• Du arbeitest strukturiert, denkst unternehmerisch und förderst das Team aktiv mit\n• Du kommunizierst sicher auf Deutsch, weitere Sprachkenntnisse sind ein Plus.\n• Digitale Anwendungen nutzt du mit Leichtigkeit. BENEFITS FÜR DICH\n• Ein Arbeitsplatz mitten in Bern– in einem Haus, das für Kultur Premiumbrands und exzellenten Service steht.\n• Ein Team mit Erfahrung, Beauty-Verstand und Feingefühl, das sich auf eine inspirierende Führungspersönlichkeit freut.\n• Attraktive Sozialleistungen und mindestens 5 Wochen Ferien – plus die Möglichkeit auf bis zu 180 Tage unbezahlten Urlaub.\n• Bis zu 50 % Rabatt auf das gesamte GLOBUS Sortiment.\n• Gezielte Weiterbildungen, damit du fachlich wie menschlich weiterkommst. Dein Kontakt Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/ PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren: LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-        "fr": "Description Avec beaucoup d'amour pour les détails, nos collaborateurs/trices font de GLOBUS la principale adresse de luxe et de premium en Suisse. Ce sont des personnes comme toi qui font la différence et qui, avec nous, donnent vie au «place we love to be». ICI, TU FAIS LA DIFFÉRENCE - Tu assures, avec la direction des ventes, que nos clients ne font pas que des achats, mais emportent avec eux une expérience de beauté qui inspire et enthousiasme. - En l'absence du/de la responsable des ventes, tu prends en charge la direction personnelle et organisationnelle du département et crées un environnement dans lequel la culture de conseil, la conscience du style et l'esprit d'équipe sont vécus. - Tu conseilles l'équipe dans la gestion quotidienne, promouvois un conseil adapté au type et apportes tes forces dans le merchandising visuel et la mise en scène de mondes de marque et de style. - Suivi des performances et analyse KPI. Tu gardes un œil sur les performances de l'équipe pour prendre des décisions stratégiques qui nous rendent gagnants ensemble. - Tu gères les processus de manière efficace, soutiens les événements et les tâches administratives – et t'assures que les outils numériques sont utilisés de manière intelligente. - Tu accompagnes les nouveaux collaborateurs/trices et les apprentis, en montrant un leadership avec cœur et intelligence.\n• Exigences - Tu apportes plusieurs années d'expérience professionnelle et une première expérience de direction dans le commerce de détail de luxe – idéalement en tant que directeur/trice adjoint/e des ventes ou chef d'équipe. - Ta base est une formation achevée dans le commerce de détail EFZ – complétée par des formations continues. - Tu as un flair pour les tendances, les marques et les styles – et sais comment conseiller les gens de manière authentique et avec enthousiasme. - Tu travailles de manière structurée, penses de manière entrepreneuriale et promouvois activement l'équipe. - Tu communiques avec assurance en allemand, des connaissances linguistiques supplémentaires sont un plus. - Tu utilises les applications numériques avec facilité. Ce que nous offrons - Un poste de travail au cœur de Berne – dans une maison qui représente la culture, les marques premium et un service excellent. - Une équipe avec expérience, connaissance de la beauté et sensibilité, qui se réjouit d'une personnalité de direction inspirante. - Des prestations sociales attractives et au moins 5 semaines de vacances – plus la possibilité de jusqu'à 180 jours de congé non payé. - Jusqu'à 50% de réduction sur toute la gamme GLOBUS. - Des formations ciblées, pour progresser professionnellement et humainement. Contact Nous sommes ravis de recevoir ta candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous sommes curieux de connaître tes réponses à nos trois questions – il suffit de suivre le lien ci-dessous «Postuler maintenant !». D'autres informations derrière les coulisses de GLOBUS et plus d'informations sont disponibles ici : https://karriere.globus.ch/ PS : Curieux de connaître le véritable feeling GLOBUS ? Clique et découvre les infos insider directement de la source sur LinkedIn Life. Entre les photos, les vidéos et les histoires de collaborateurs non maquillées, tu découvriras ce qui nous anime vraiment. Ose en savoir plus : LinkedIn Life (allemand) : https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note pour les consultants en recrutement : seules les candidatures directes seront prises en compte.)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.globus.ch/Stellvertretender-Verkaufsleiterin-Beauty-Accessoires-80-1-de-j2411.html",
-      "source": "Globus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.025Z",
-      "addressLocality": "Bern",
-      "streetAddress": "Spitalgasse 17 - 21",
-      "postalCode": "3001",
-      "addressRegion": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail (department store / luxury)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-14",
-      "applyUrl": "https://jobs.globus.ch/Stellvertretender-Verkaufsleiterin-Beauty-Accessoires-80-1-de-j2411.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Molti anni di esperienza professionale e di leadership nel retail di fascia alta",
-          "Formazione completata nel commercio al dettaglio EFZ",
-          "Fiuto per le tendenze, le marche e gli stili",
-          "Lavoro strutturato e pensiero imprenditoriale",
-          "Comunicazione sicura in tedesco",
-          "Utilizzo facile delle applicazioni digitali",
-          "Esperienza come vice responsabile vendite o team leader",
-          "Conoscenze linguistiche aggiuntive sono un vantaggio"
-        ],
-        "en": [
-          "Several years of professional experience and initial leadership experience in high-end retail",
-          "Completed training in retail EFZ",
-          "Feel for trends, brands, and styles",
-          "Structured work and entrepreneurial thinking",
-          "Confident communication in German",
-          "Easy use of digital applications",
-          "Experience as deputy sales manager or team leader",
-          "Additional language skills are a plus"
-        ],
-        "fr": [
-          "Plusieurs années d'expérience professionnelle et une première expérience de direction dans le commerce de détail de luxe",
-          "Formation achevée dans le commerce de détail EFZ",
-          "Flair pour les tendances, les marques et les styles",
-          "Travail structuré et pensée entrepreneuriale",
-          "Communication assurée en allemand",
-          "Utilisation facile des applications numériques",
-          "Expérience en tant que directeur/trice adjoint/e des ventes ou chef d'équipe",
-          "Connaissances linguistiques supplémentaires sont un plus"
-        ]
-      },
-      "previousSlugs": [
-        "stellvertretende-r-verkaufsleiter-in-beauty-accessoires-80-100-w-m-d-globus-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stellvertretende-r-verkaufsleiter-in-beauty-accessoires-80-100-w-m-d-globus-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:52:17.179Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -498,7 +398,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Parfuemerie-80-wmd-befristet-Juni-Dezemb-de-j2421.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.024Z",
+      "crawledAt": "2026-06-25T11:13:41.827Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -547,6 +447,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.178Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -575,7 +476,7 @@
       "title": "Burberry - Sales Consultant Premium Segment 70-80% (w/m/d)",
       "titleByLocale": {
         "it": "Burberry - Sales Consulente Premium Segment 70-80% (w/m/d)",
-        "en": "Burberry - Sales Consultant Premium Segment 70-80% (f/m/d)",
+        "en": "Burberry - Sales Consultant Premium Segment 70-80% (w/m/d)",
         "de": "Burberry - Sales Berater Premium Segment 70-80% (w/m/d)",
         "fr": "Burberry - Consultant en ventes Segment Premium 70-80 % (f/m/d)"
       },
@@ -591,7 +492,7 @@
       "url": "https://jobs.globus.ch/Burberry-Sales-Consultant-Premium-Segment-70-80-wmd-de-j2422.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.022Z",
+      "crawledAt": "2026-06-25T11:13:41.825Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -618,6 +519,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.176Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -662,7 +564,7 @@
       "url": "https://jobs.globus.ch/Sommeliere-Weinfachverkaeuferin-80-100-wmd-de-j2423.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.020Z",
+      "crawledAt": "2026-06-25T11:13:41.823Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -733,7 +635,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-20-wmd-de-j2424.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.018Z",
+      "crawledAt": "2026-06-25T11:13:41.821Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -760,6 +662,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.172Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -804,7 +707,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Diptyque-40-wmd-de-j2428.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.016Z",
+      "crawledAt": "2026-06-25T11:13:41.819Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -831,6 +734,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.170Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -849,7 +753,7 @@
       "slug": "supporto-di-vendita-sabato-assegna-20-in-profumeria-e-moda-maschile-f-m-d-globus-wallisellen",
       "slugByLocale": {
         "it": "supporto-di-vendita-sabato-assegna-20-in-profumeria-e-moda-maschile-f-m-d-globus-wallisellen",
-        "en": "sales-support-saturday-assignments-20-in-perfumery-men-s-fashion-f-m-d-globus-wallisellen",
+        "en": "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch",
         "de": "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch",
         "fr": "soutien-aux-ventes-affectations-du-samedi-20-dans-le-secteur-de-la-parfumerie-et-de-la-mode-masculine-f-m-d-globus"
       },
@@ -859,7 +763,7 @@
       "title": "Sales Support - Samstagseinsätze 20% im Bereich Parfümerie & Herrenmode (w/m/d)",
       "titleByLocale": {
         "it": "Supporto di vendita - Sabato assegna 20% in profumeria e moda maschile (f/m/d)",
-        "en": "Sales Support - Saturday assignments 20% in perfumery & men's fashion (f/m/d)",
+        "en": "Sales Support - Samstagseinsätze 20% im Bereich Parfümerie & Herrenmode (w/m/d)",
         "de": "Sales Support - Samstagseinsätze 20% im Bereich Parfümerie & Herrenmode (w/m/d)",
         "fr": "Soutien aux ventes - Affectations du samedi 20 % dans le secteur de la Parfumerie et de la Mode Masculine (f/m/d)"
       },
@@ -875,7 +779,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-Samstagseinsaetze-20-im-Bereich-Parfuemerie--de-j2430.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.015Z",
+      "crawledAt": "2026-06-25T11:13:41.817Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -894,17 +798,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch"
+        "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch",
+        "sales-support-saturday-assignments-20-in-perfumery-men-s-fashion-f-m-d-globus-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch"
         ],
         "en": [
+          "sales-support-saturday-assignments-20-in-perfumery-men-s-fashion-f-m-d-globus-wallisellen",
           "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.169Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -923,7 +830,7 @@
       "slug": "supporto-alle-vendite-incarichi-del-sabato-20-nel-settore-alimentare-f-m-d-globus-wallisellen",
       "slugByLocale": {
         "it": "supporto-alle-vendite-incarichi-del-sabato-20-nel-settore-alimentare-f-m-d-globus-wallisellen",
-        "en": "sales-support-saturday-assignments-20-in-the-food-sector-f-m-d-globus-wallisellen",
+        "en": "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch",
         "de": "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch",
         "fr": "soutien-aux-ventes-affectations-du-samedi-20-dans-le-secteur-alimentaire-f-m-d-globus-wallisellen"
       },
@@ -933,7 +840,7 @@
       "title": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
       "titleByLocale": {
         "it": "Supporto alle vendite - Incarichi del sabato 20% nel settore alimentare (f/m/d)",
-        "en": "Sales Support - Saturday assignments 20% in the food sector (f/m/d)",
+        "en": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
         "de": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
         "fr": "Soutien aux ventes - affectations du samedi 20 % dans le secteur alimentaire (f/m/d)"
       },
@@ -949,7 +856,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-Samstagseinsaetze-20-im-Bereich-Food-wmd-de-j2431.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.013Z",
+      "crawledAt": "2026-06-25T11:13:41.816Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -968,17 +875,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch"
+        "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch",
+        "sales-support-saturday-assignments-20-in-the-food-sector-f-m-d-globus-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch"
         ],
         "en": [
+          "sales-support-saturday-assignments-20-in-the-food-sector-f-m-d-globus-wallisellen",
           "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.165Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1023,7 +933,7 @@
       "url": "https://jobs.globus.ch/Mitarbeiterin-KundendienstService-Desk-80-wmd-de-j2426.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.011Z",
+      "crawledAt": "2026-06-25T11:13:41.814Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1100,7 +1010,7 @@
       "url": "https://jobs.globus.ch/Eventkoordinatorin-delicatessa-Gastronomie-80-100-wmd-de-j2433.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.009Z",
+      "crawledAt": "2026-06-25T11:13:41.812Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1171,7 +1081,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Wein-Spirituosen-80-100-wmd-de-j2434.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.006Z",
+      "crawledAt": "2026-06-25T11:13:41.810Z",
       "addressLocality": "St. Gallen",
       "streetAddress": "Multergasse 47",
       "postalCode": "9001",
@@ -1242,7 +1152,7 @@
       "url": "https://jobs.globus.ch/Ex-Nihilo-Verkaufsberaterin-Parfuemerie-100-wmd-de-j2436.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.005Z",
+      "crawledAt": "2026-06-25T11:13:41.809Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1313,7 +1223,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Beauty-fuer-die-Marke-CHANEL-80-100-wmd-de-j2437.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.003Z",
+      "crawledAt": "2026-06-25T11:13:41.807Z",
       "addressLocality": "Luzern",
       "streetAddress": "Pilatusstrasse 4",
       "postalCode": "6002",
@@ -1362,6 +1272,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.144Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1406,7 +1317,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Beauty-20-40-wmd-de-j2438.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.002Z",
+      "crawledAt": "2026-06-25T11:13:41.806Z",
       "addressLocality": "Luzern",
       "streetAddress": "Pilatusstrasse 4",
       "postalCode": "6002",
@@ -1483,7 +1394,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Herrenmode-Schuhe-100-wmd-de-j2439.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.001Z",
+      "crawledAt": "2026-06-25T11:13:41.805Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -1524,107 +1435,6 @@
       }
     },
     {
-      "id": "globus-7f43b6f5e782",
-      "slug": "collaboratore-trice-hausdienst-allrounder-80-w-m-d-globus-bern",
-      "slugByLocale": {
-        "it": "collaboratore-trice-hausdienst-allrounder-80-w-m-d-globus-bern",
-        "en": "housekeeping-all-rounder-80-w-m-d-globus-bern",
-        "de": "mitarbeiter-in-hausdienst-allrounder-80-w-m-d-globus-ch",
-        "fr": "collaborateur-trice-hausdienst-allrounder-80-w-m-d-globus-bern"
-      },
-      "company": "Globus",
-      "companyKey": "globus",
-      "companyDomain": "globus.ch",
-      "title": "Mitarbeiter:in Hausdienst / Allrounder 80% (w/m/d)",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Hausdienst / Allrounder 80% (w/m/d)",
-        "en": "Housekeeping / All-Rounder 80% (w/m/d)",
-        "de": "Mitarbeiter:in Hausdienst / Allrounder 80% (w/m/d)",
-        "fr": "Collaborateur/trice Hausdienst / Allrounder 80% (w/m/d)"
-      },
-      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Die im Alltag anfallenden Unterhalts- oder Reparaturarbeiten (Facility Management) im gesamten Warenhaus werden durch das Hausdienst Team koordiniert und ausgeführt.\n\n• Du beauftragst die Handwerker und holst die entsprechenden Offerten ein.\n\n• Mit deinem Team bewirtschaftest du die gesamte Warenlogistik (Warenannahme, Auslieferung usw.)\n\n• Du übernimmst regelmässig den Pikettdienst.\n\n• Du unterstützt das Team im Hausdienst und technischen Dienst bei seinen täglichen Aufgaben.\n\n• Du hilfst bei der Überwachung und Steuerung der Anlagen mit und führst kleine Reparaturarbeiten an diesen oder an der Infrastruktur aus.\n\n• Du unterstützt bei der Organisation und Begleitung von periodischen Instandhaltungskontrollen. Auch die lückenlose technische Dokumentation der Anlagen gehört zu deinem Verantwortungsbereich.\n\n• Du bist mitzuständig für die Durchführung der täglichen &Ouml;ffnungsrunde des Warenhauses.\n\n• Du bist mit zuständig für die Einhaltung von Ordnung und Sauberkeit und unterstützt die Abfallbewirtschaftung.\n\n• Du bist mitverantwortlich für das Bestellwesen und Versand-Aufgaben wie z.B. Kommissionierung, Bestandsprüfungen, Lagerorganisation, Verpacken/Etikettierung von Ware oder Qualitätskontrollen.\n DAS ZEICHNET DICH AUS\n\n• Du hast eine abgeschlossene Berufsausbildung.\n\n• Du bringst mehrjährige Erfahrung in den Bereichen Facility Management und/oder Warenbewirtschaftung mit.\n\n• Du besitzt eine hohe technische und digitale Affinität.\n\n• Du bist eine ziel- und ergebnisorientierte Persönlichkeit mit unternehmerischem Denken und Handeln.\n\n• Du bist belastbar, flexibel, durchsetzungsstark und hast ausgeprägte Kommunikationsfähigkeiten.\n\n• Du verfügst über gute mündliche und schriftliche Deutschkenntnisse, jede weitere Sprache ist von Vorteil.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 180 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-      "descriptionByLocale": {
-        "it": "Descrizione Con molto amore per i dettagli, i nostri dipendenti GLOBUS rendono la nostra azienda la principale destinazione premium e di lusso della Svizzera. Sono persone come te che fanno la differenza e insieme a noi rendono il \"place we love to be\" a realtà. Ecco cosa puoi fare per fare la differenza: - Le attività di manutenzione o riparazione (Facility Management) che si verificano quotidianamente nel grande magazzino vengono coordinate e eseguite dal team di servizio interno. - Tu incarichi i lavoratori e ottieni le relative offerte. - Con il tuo team gestisci l'intera logistica del magazzino (ricezione, spedizione, ecc.) - Tu assumi regolarmente il servizio di pattuglia. - Tu supporti il team di servizio interno e tecnico nelle sue attività quotidiane. - Tu aiuti a monitorare e gestire le attrezzature e fai piccole riparazioni su di esse o sull'infrastruttura. - Tu supporti nell'organizzazione e nella conduzione delle verifiche di manutenzione periodiche. Anche la documentazione tecnica completa delle attrezzature fa parte del tuo compito. - Tu sei coinvolto nella conduzione della ronda di apertura quotidiana del grande magazzino. - Tu sei responsabile per l'osservanza dell'ordine e della pulizia e supporti la gestione dei rifiuti. - Tu sei coinvolto nella gestione dell'ordine e della spedizione e delle attività di commissariamento, controllo di magazzino, organizzazione del magazzino, imballaggio e etichettatura di merci o controllo di qualità.\n• Requisiti - Hai una formazione professionale completata. - Hai esperienza di più anni nei settori di Facility Management e/o gestione di merci. - Hai una grande affinità tecnica e digitale. - Sei una persona orientata ai risultati e con un pensiero e un comportamento imprenditoriali. - Sei una persona robusta, flessibile, decisa e con una buona capacità di comunicazione. - Hai una buona conoscenza orale e scritta della lingua tedesca, ogni altra lingua è un vantaggio.\n• Cosa offriamo - Con i nostri 1700 dipendenti, sei un membro importante della nostra affascinante realtà premium e di lusso. - Vivi un'esperienza di valore, lavori in un team fantastico e noi ti diamo fiducia, in modo che tu possa sfruttare le tue abilità e fare la differenza. - Se capisci il tuo mestiere e porti una grande dose di entusiasmo, allora molte porte di carriera sono aperte. - Ti supportiamo con formazione interna e esterna. Contatto - Siamo felici di ricevere la tua candidatura online. - Questo è molto semplice. Al posto di un curriculum, siamo curiosi di leggere le tue risposte alle nostre tre domande - segui semplicemente il link \"Candidato\". - Troverai ulteriori informazioni sulla nostra azienda e sulla nostra cultura di lavoro qui: https://karriere.globus.ch/ - Sono a tua disposizione. PS: Sei curioso di scoprire il vero sentimento GLOBUS? Clicca qui e scopri le nostre storie e le nostre informazioni direttamente da noi su LinkedIn Life. Tra foto, video e storie dei dipendenti, scopri cosa ci spinge. - LinkedIn Life (Italiano): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Hinweis per i mediatori di carriera: vengono considerate solo le candidature dirette.)",
-        "en": "Description With a lot of love for details, our employees GLOBUS make our company the leading premium and luxury address in Switzerland. It's people like you who make the difference and together with us bring the \"place we love to be\" to life. HERE YOU MAKE THE DIFFERENCE - The daily maintenance or repair tasks (Facility Management) in the entire department store are coordinated and executed by the housekeeping team. - You commission the craftsmen and collect the corresponding offers. - With your team, you manage the entire logistics of the department store (receiving, delivery, etc.). - You regularly take over the patrol service. - You support the team in housekeeping and technical service in its daily tasks. - You help with monitoring and controlling the equipment and perform small repairs on them or on the infrastructure. - You support in organizing and conducting periodic maintenance checks. Even the complete technical documentation of the equipment is part of your responsibility. - You are involved in conducting the daily opening round of the department store. - You are responsible for maintaining order and cleanliness and support waste management. - You are involved in managing the order and delivery and in activities such as commissioning, inventory checks, warehouse organization, packaging and labeling of goods or quality control.\n• Requirements - You have a completed vocational training. - You bring several years of experience in the fields of Facility Management and/or merchandise management. - You have a high technical and digital affinity. - You are a goal- and result-oriented person with entrepreneurial thinking and acting. - You are robust, flexible, decisive and have good communication skills. - You have good spoken and written German knowledge, every other language is an advantage.\n• What we offer - With our 1700 employees, you are an important part of our fascinating premium and luxury world. - You experience real appreciation, work in a great team and we give you trust, so that you can use your skills and make a difference. - If you understand your craft and bring a lot of enthusiasm, then many career doors are open. - We support you with internal and external training. Contact - We are happy to receive your online application. - This is very simple. Instead of a motivation letter, we are curious about your answers to our three questions - follow the link \"Apply now!\". - You will find further information about our company and our culture of work here: https://karriere.globus.ch/ - I am at your disposal. PS: Are you curious about the real GLOBUS feeling? Click here and discover our stories and information directly from us on LinkedIn Life. Between photos, videos and employee stories, you will discover what drives us. - LinkedIn Life (English): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note for career mediators: Only direct applications are considered.)",
-        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n• Die im Alltag anfallenden Unterhalts- oder Reparaturarbeiten (Facility Management) im gesamten Warenhaus werden durch das Hausdienst Team koordiniert und ausgeführt.\n• Du beauftragst die Handwerker und holst die entsprechenden Offerten ein.\n• Mit deinem Team bewirtschaftest du die gesamte Warenlogistik (Warenannahme, Auslieferung usw.)\n• Du übernimmst regelmässig den Pikettdienst.\n• Du unterstützt das Team im Hausdienst und technischen Dienst bei seinen täglichen Aufgaben.\n• Du hilfst bei der Überwachung und Steuerung der Anlagen mit und führst kleine Reparaturarbeiten an diesen oder an der Infrastruktur aus.\n• Du unterstützt bei der Organisation und Begleitung von periodischen Instandhaltungskontrollen. Auch die lückenlose technische Dokumentation der Anlagen gehört zu deinem Verantwortungsbereich.\n• Du bist mitzuständig für die Durchführung der täglichen &Ouml;ffnungsrunde des Warenhauses.\n• Du bist mit zuständig für die Einhaltung von Ordnung und Sauberkeit und unterstützt die Abfallbewirtschaftung.\n• Du bist mitverantwortlich für das Bestellwesen und Versand-Aufgaben wie z.B. Kommissionierung, Bestandsprüfungen, Lagerorganisation, Verpacken/Etikettierung von Ware oder Qualitätskontrollen. DAS ZEICHNET DICH AUS\n• Du hast eine abgeschlossene Berufsausbildung.\n• Du bringst mehrjährige Erfahrung in den Bereichen Facility Management und/oder Warenbewirtschaftung mit.\n• Du besitzt eine hohe technische und digitale Affinität.\n• Du bist eine ziel- und ergebnisorientierte Persönlichkeit mit unternehmerischem Denken und Handeln.\n• Du bist belastbar, flexibel, durchsetzungsstark und hast ausgeprägte Kommunikationsfähigkeiten.\n• Du verfügst über gute mündliche und schriftliche Deutschkenntnisse, jede weitere Sprache ist von Vorteil. BENEFITS FÜR DICH Zusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen. Freue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 180 Tagen).\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n• vieles mehr... Dein Kontakt Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/ Ich bin gerne für dich da. PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren: LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-        "fr": "Description Avec beaucoup d'amour pour les détails, nos employés GLOBUS font de notre entreprise la principale adresse premium et de luxe de la Suisse. C'est des personnes comme vous qui font la différence et ensemble avec nous, nous faisons vivre le \"place we love to be\". VOICI CE QUE VOUS FAIREZ - Les tâches de maintenance ou de réparation quotidiennes (Gestion des installations) dans l'ensemble du magasin sont coordonnées et exécutées par l'équipe de maintenance. - Vous commettez les artisans et collectez les offres correspondantes. - Avec votre équipe, vous gérez l'ensemble de la logistique du magasin (reception, livraison, etc.). - Vous prenez régulièrement le service de patrouille. - Vous soutenez l'équipe de maintenance et de service technique dans ses tâches quotidiennes. - Vous aidez à surveiller et à contrôler les équipements et effectuez des petites réparations sur eux ou sur l'infrastructure. - Vous soutenez dans l'organisation et la conduite des vérifications de maintenance périodiques. Même la documentation technique complète des équipements fait partie de vos responsabilités. - Vous êtes impliqué dans la conduite de la ronde d'ouverture quotidienne du magasin. - Vous êtes responsable de maintenir l'ordre et la propreté et soutenez la gestion des déchets. - Vous êtes impliqué dans la gestion de l'ordre et de la livraison et dans des activités telles que la commission, les contrôles de stock, l'organisation du stock, l'emballage et l'étiquetage des marchandises ou le contrôle de qualité.\n• Exigences - Vous avez une formation professionnelle complétée. - Vous apportez plusieurs années d'expérience dans les domaines de la gestion des installations et/ou de la gestion des marchandises. - Vous avez une grande affinité technique et digitale. - Vous êtes une personne orientée vers les résultats et avec un pensée et un comportement entrepreneuriaux. - Vous êtes robuste, flexible, décisif et avez de bonnes compétences de communication. - Vous avez une bonne connaissance orale et écrite de l'allemand, toute autre langue est un avantage. Ce que nous offrons - Avec nos 1700 employés, vous êtes un membre important de notre monde fascinant de luxe et de premium. - Vous vivez une expérience de valeur, vous travaillez dans un équipe fantastique et nous vous donnons confiance, afin que vous puissiez utiliser vos compétences et faire la différence. - Si vous comprenez votre métier et que vous apportez beaucoup d'enthousiasme, alors de nombreuses portes de carrière sont ouvertes. - Nous vous soutenons avec des formations internes et externes. Contact - Nous sommes heureux de recevoir votre candidature en ligne. - C'est très simple. Au lieu d'une lettre de motivation, nous sommes curieux de vos réponses à nos trois questions - suivez le lien \"Postulez maintenant !\". - Vous trouverez des informations supplémentaires sur notre entreprise et notre culture de travail ici : https://karriere.globus.ch/ - Je suis à votre disposition. PS : Êtes-vous curieux du vrai sentiment GLOBUS ? Cliquez ici et découvrez nos histoires et nos informations directement de nous sur LinkedIn Life. Entre photos, vidéos et histoires d'employés, vous découvrirez ce qui nous pousse. - LinkedIn Life (français) : https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Nota pour les médiateurs de carrière : seuls les postulats directs sont considérés.)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.globus.ch/Mitarbeiterin-Hausdienst-Allrounder-80-wmd-de-j2440.html",
-      "source": "Globus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:32.000Z",
-      "addressLocality": "Bern",
-      "streetAddress": "Spitalgasse 17 - 21",
-      "postalCode": "3001",
-      "addressRegion": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail (department store / luxury)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://jobs.globus.ch/Mitarbeiterin-Hausdienst-Allrounder-80-wmd-de-j2440.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Hai una formazione professionale completata.",
-          "Hai esperienza di più anni nei settori di Facility Management e/o gestione di merci.",
-          "Hai una grande affinità tecnica e digitale.",
-          "Sei una persona orientata ai risultati e con un pensiero e un comportamento imprenditoriali.",
-          "Sei una persona robusta, flessibile, decisa e con una buona capacità di comunicazione.",
-          "Hai una buona conoscenza orale e scritta della lingua tedesca, ogni altra lingua è un vantaggio."
-        ],
-        "en": [
-          "You have a completed vocational training.",
-          "You bring several years of experience in the fields of Facility Management and/or merchandise management.",
-          "You have a high technical and digital affinity.",
-          "You are a goal- and result-oriented person with entrepreneurial thinking and acting.",
-          "You are robust, flexible, decisive and have good communication skills.",
-          "You have good spoken and written German knowledge, every other language is an advantage."
-        ],
-        "fr": [
-          "Vous avez une formation professionnelle complétée.",
-          "Vous avez une grande affinité technique et digitale.",
-          "Vous êtes une personne orientée vers les résultats et avec un pensée et un comportement entrepreneuriaux.",
-          "Vous êtes robuste, flexible, décisif et avez de bonnes compétences de communication.",
-          "Vous avez une bonne connaissance orale et écrite de l'allemand, toute autre langue est un avantage."
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-hausdienst-allrounder-80-w-m-d-globus-ch",
-        "miglioratore-in-del-servizio-interno-tutore-80-w-m-d-globus-bern",
-        "membre-du-personnel-de-maintenance-tuteur-80-w-m-d-globus-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-hausdienst-allrounder-80-w-m-d-globus-ch",
-          "miglioratore-in-del-servizio-interno-tutore-80-w-m-d-globus-bern"
-        ],
-        "fr": [
-          "membre-du-personnel-de-maintenance-tuteur-80-w-m-d-globus-bern"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:52:17.139Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "globus-d7987ed2fd25",
       "slug": "vice-direttore-vendite-in-delicatessa-100-f-m-d-globus-luzern",
       "slugByLocale": {
@@ -1655,7 +1465,7 @@
       "url": "https://jobs.globus.ch/Stellvertretender-Verkaufsleiterin-Delicatessa-100-wmd-de-j2442.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.999Z",
+      "crawledAt": "2026-06-25T11:13:41.804Z",
       "addressLocality": "Luzern",
       "streetAddress": "Pilatusstrasse 4",
       "postalCode": "6002",
@@ -1732,7 +1542,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Kids-Papeterie-Home-Lifestyle-80-wmd-de-j2446.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.998Z",
+      "crawledAt": "2026-06-25T11:13:41.803Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -1773,6 +1583,88 @@
       }
     },
     {
+      "id": "globus-d3bff7e0ab97",
+      "slug": "sales-support-per-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
+      "slugByLocale": {
+        "it": "sales-support-per-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
+        "en": "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus",
+        "de": "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus",
+        "fr": "soutien-commercial-pour-les-missions-dans-le-secteur-de-la-mode-20-principalement-les-devoirs-du-samedi-vendredi-mois-d"
+      },
+      "company": "Globus",
+      "companyKey": "globus",
+      "companyDomain": "globus.ch",
+      "title": "Sales Support für Einsätze im Bereich Fashion 20% - vorwiegend Samstagseinsätze (w/m/d)",
+      "titleByLocale": {
+        "it": "Supporto alle vendite per incarichi nel settore della moda 20% - principalmente incarichi del sabato (f/m/d)",
+        "en": "Sales Support für Einsätze im Bereich Fashion 20% - vorwiegend Samstagseinsätze (w/m/d)",
+        "de": "Sales Support für Einsätze im Bereich Fashion 20% - vorwiegend Samstagseinsätze (w/m/d)",
+        "fr": "Soutien commercial pour les missions dans le secteur de la mode 20 % - principalement les devoirs du samedi (vendredi / mois/d)"
+      },
+      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+      "descriptionByLocale": {
+        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS l'indirizzo premium e di lusso leader in Svizzera. Sono le persone come te che fanno la differenza e, insieme a noi, danno vita al “posto in cui amiamo essere”. QUI FAI LA DIFFERENZA\n• Come host ti assicuri che i nostri clienti si sentano benvenuti e coccolati come ospiti.\n• Grazie al vostro eccellente servizio, alla vostra passione per i nostri marchi e alla vostra consulenza individuale, assicurate esperienze di acquisto uniche.\n• Con il tuo carisma positivo e la tua passione per la moda contribuisci in modo decisivo al successo dell'azienda. COSA TI DISTINGUE\n• Sei una personalità orientata al servizio con una grande passione per la moda.\n• Ami e vivi il tuo ruolo di host e hai un forte orientamento al cliente.\n• Mantieni modi impeccabili e hai un aspetto curato.\n• Sei molto affidabile e agisci di tua iniziativa.\n• Hai un'ottima conoscenza della lingua tedesca; Ulteriori lingue non sono obbligatorie, ma rappresentano un grande vantaggio per i nostri ospiti internazionali. VANTAGGI PER VOI Insieme a circa 1.700 altri amanti dei dettagli, siete una parte importante del nostro affascinante mondo premium e di lusso. Sperimenterai un vero apprezzamento, lavorerai in una grande squadra e ci fideremo di te affinché tu possa usare la tua libertà e fare la differenza con le tue capacità. Se conosci il tuo mestiere e hai molta passione, allora ti si aprono molte porte di carriera. Siamo lieti di supportarvi con formazione interna ed esterna e perfezionamento. Inoltre potrai aspettarti:\n• un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Berna.\n• Bonus legati al rendimento e vantaggi sociali interessanti.\n• Fino al 50% di sconto sui prodotti Globus Welt per te e la tua famiglia.\n• molto di più... Il tuo contatto Saremo lieti di ricevere la tua candidatura online. Questo è molto semplice. Invece di una lettera di motivazione, attendiamo con ansia le vostre risposte alle nostre tre domande: seguite semplicemente il link \"Candidati ora!\" collegamento qui sotto. Potete trovare ulteriori approfondimenti dietro le quinte di GLOBUS e ulteriori informazioni qui: https://karriere.globus.ch/ Sono felice di essere lì per voi. PS: Curioso del vero feeling GLOBUS? Fai clic e ottieni informazioni privilegiate direttamente dalla fonte su LinkedIn Life. Tra foto, video e storie non verniciate dei dipendenti, scoprirai cosa ci spinge davvero. Osate saperne di più: LinkedIn Life (tedesco): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Nota per i reclutatori: verranno prese in considerazione solo le candidature dirette.)",
+        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and, together with us, bring the “place we love to be” to life. HERE YOU MAKE THE DIFFERENCE\n• As a host, you ensure that our customers feel welcome and cared for as guests.\n• Thanks to your excellent service, your fascination for our brands and your individual advice, you ensure unique shopping experiences.\n• With your positive charisma and your passion for fashion, you make a decisive contribution to the company's success. WHAT SETS YOU OUT\n• You are a service-oriented personality with a great passion for fashion.\n• You love and live your role as a host and have a strong customer orientation.\n• You maintain impeccable manners and have a well-groomed appearance.\n• You are very reliable and act on your own initiative.\n• You have excellent knowledge of German; Additional languages ​​are not a must, but are a great advantage for our international guests. BENEFITS FOR YOU Together with around 1,700 other detail-lovers, you are an important part of our fascinating premium and luxury world. You will experience real appreciation, work in a great team and we will trust you so that you can use your freedom and make the difference with your skills. If you know your craft and have a lot of passion, then many career doors are open to you. We are happy to support you with internal and external training and further education. You can also look forward to:\n• an exceptional working environment with flat hierarchies in the heart of Bern.\n• Performance-related bonuses and attractive social benefits.\n• Up to 50% discount on products from Globus Welt for you and your family.\n• much more... Your contact We look forward to receiving your online application. This is very easy. Instead of a letter of motivation, we are looking forward to your answers to our three questions - simply follow the “Apply now!” link below. You can find further insights behind the scenes at GLOBUS and further information here: https://karriere.globus.ch/ I am happy to be there for you. PS: Curious about the real GLOBUS feeling? Click in and get insider information straight from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you'll discover what really drives us. Dare to find out more: LinkedIn Life (German): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note for recruiters: Only direct applications will be considered.)",
+        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei. DAS ZEICHNET DICH AUS\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste. BENEFITS FÜR DICH Zusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen. Freue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n• vieles mehr... Dein Kontakt Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/ Ich bin gerne für dich da. PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren: LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "fr": "Avec un grand souci du détail, nos collaborateurs font de GLOBUS la première adresse premium et luxe en Suisse. Ce sont des gens comme vous qui font la différence et, avec nous, donnent vie à « l’endroit où nous aimons être ». ICI, VOUS FAITES LA DIFFÉRENCE\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent les bienvenus et pris en charge en tant qu'invités.\n• Grâce à votre excellent service, votre fascination pour nos marques et vos conseils personnalisés, vous garantissez des expériences d'achat uniques.\n• Avec votre charisme positif et votre passion pour la mode, vous apportez une contribution décisive au succès de l'entreprise. CE QUI VOUS DISTINGUE\n• Vous êtes une personnalité orientée vers le service et dotée d'une grande passion pour la mode.\n• Vous aimez et vivez votre rôle d'hôte et avez une forte orientation client.\n• Vous maintenez des manières impeccables et avez une apparence soignée.\n• Vous êtes très fiable et agissez de votre propre initiative.\n• Vous avez une excellente connaissance de l'allemand ; Des langues supplémentaires ne sont pas obligatoires, mais constituent un grand avantage pour nos clients internationaux. DES AVANTAGES POUR VOUS Avec environ 1 700 autres amoureux du détail, vous faites partie intégrante de notre monde fascinant du luxe et du premium. Vous ferez l'expérience d'une réelle appréciation, travaillerez au sein d'une belle équipe et nous vous ferons confiance pour que vous puissiez utiliser votre liberté et faire la différence avec vos compétences. Si vous connaissez votre métier et êtes passionné, de nombreuses portes de carrière s’offrent à vous. Nous sommes heureux de vous soutenir avec des formations et des formations continues internes et externes. Vous pouvez également vous attendre à :\n• un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Berne.\n• Primes liées à la performance et avantages sociaux attractifs.\n• Jusqu'à 50 % de réduction sur les produits Globus Welt pour vous et votre famille.\n• bien plus encore... Votre contact Nous attendons avec impatience de recevoir votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous attendons avec impatience vos réponses à nos trois questions - suivez simplement « Postulez maintenant ! » lien ci-dessous. Vous trouverez d'autres aperçus des coulisses de GLOBUS et de plus amples informations ici : https://karriere.globus.ch/ Je suis heureux d'être là pour vous. PS : Curieux de connaître le véritable ressenti de GLOBUS ? Cliquez et obtenez des informations privilégiées directement à partir de la source sur LinkedIn Life. Entre photos, vidéos et témoignages d'employés sans fard, vous découvrirez ce qui nous anime réellement. Osez en savoir plus : LinkedIn Life (allemand) : https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Remarque pour les recruteurs : seules les candidatures directes seront prises en compte.)"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Bereich-Fashion-20-vorwieg-de-j2447.html",
+      "source": "Globus Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T11:13:41.802Z",
+      "addressLocality": "Bern",
+      "streetAddress": "Spitalgasse 17 - 21",
+      "postalCode": "3001",
+      "addressRegion": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail (department store / luxury)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Bereich-Fashion-20-vorwieg-de-j2447.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus",
+        "sales-support-for-assignments-in-fashion-20-mainly-saturday-assignments-f-m-d-globus-bern",
+        "sales-support-for-assignments-in-the-fashion-sector-20-mainly-saturday-assignments-f-m-d-globus-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
+        ],
+        "en": [
+          "sales-support-for-assignments-in-fashion-20-mainly-saturday-assignments-f-m-d-globus-bern",
+          "sales-support-for-assignments-in-the-fashion-sector-20-mainly-saturday-assignments-f-m-d-globus-bern",
+          "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
+        ],
+        "fr": [
+          "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
+        ]
+      },
+      "firstSeenAt": "2026-06-19T12:37:46.359Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "globus-23ebff8a693c",
       "slug": "consulente-di-vendita-casa-stile-di-vita-80-f-m-d-globus-zurich-bahnhofstrasse",
       "slugByLocale": {
@@ -1803,7 +1695,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-80-wmd-de-j2448.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.997Z",
+      "crawledAt": "2026-06-25T11:13:41.801Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1830,6 +1722,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.122Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1839,85 +1732,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "globus-d3bff7e0ab97",
-      "slug": "sales-support-per-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
-      "slugByLocale": {
-        "it": "sales-support-per-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
-        "en": "sales-support-for-assignments-in-the-fashion-sector-20-mainly-saturday-assignments-f-m-d-globus-bern",
-        "de": "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus",
-        "fr": "soutien-commercial-pour-les-missions-dans-le-secteur-de-la-mode-20-principalement-les-devoirs-du-samedi-vendredi-mois-d"
-      },
-      "company": "Globus",
-      "companyKey": "globus",
-      "companyDomain": "globus.ch",
-      "title": "Sales Support für Einsätze im Bereich Fashion 20% - vorwiegend Samstagseinsätze (w/m/d)",
-      "titleByLocale": {
-        "it": "Supporto alle vendite per incarichi nel settore della moda 20% - principalmente incarichi del sabato (f/m/d)",
-        "en": "Sales Support for assignments in the fashion sector 20% - mainly Saturday assignments (f/m/d)",
-        "de": "Sales Support für Einsätze im Bereich Fashion 20% - vorwiegend Samstagseinsätze (w/m/d)",
-        "fr": "Soutien commercial pour les missions dans le secteur de la mode 20 % - principalement les devoirs du samedi (vendredi / mois/d)"
-      },
-      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-      "descriptionByLocale": {
-        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS l'indirizzo premium e di lusso leader in Svizzera. Sono le persone come te che fanno la differenza e, insieme a noi, danno vita al “posto in cui amiamo essere”. QUI FAI LA DIFFERENZA\n• Come host ti assicuri che i nostri clienti si sentano benvenuti e coccolati come ospiti.\n• Grazie al vostro eccellente servizio, alla vostra passione per i nostri marchi e alla vostra consulenza individuale, assicurate esperienze di acquisto uniche.\n• Con il tuo carisma positivo e la tua passione per la moda contribuisci in modo decisivo al successo dell'azienda. COSA TI DISTINGUE\n• Sei una personalità orientata al servizio con una grande passione per la moda.\n• Ami e vivi il tuo ruolo di host e hai un forte orientamento al cliente.\n• Mantieni modi impeccabili e hai un aspetto curato.\n• Sei molto affidabile e agisci di tua iniziativa.\n• Hai un'ottima conoscenza della lingua tedesca; Ulteriori lingue non sono obbligatorie, ma rappresentano un grande vantaggio per i nostri ospiti internazionali. VANTAGGI PER VOI Insieme a circa 1.700 altri amanti dei dettagli, siete una parte importante del nostro affascinante mondo premium e di lusso. Sperimenterai un vero apprezzamento, lavorerai in una grande squadra e ci fideremo di te affinché tu possa usare la tua libertà e fare la differenza con le tue capacità. Se conosci il tuo mestiere e hai molta passione, allora ti si aprono molte porte di carriera. Siamo lieti di supportarvi con formazione interna ed esterna e perfezionamento. Inoltre potrai aspettarti:\n• un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Berna.\n• Bonus legati al rendimento e vantaggi sociali interessanti.\n• Fino al 50% di sconto sui prodotti Globus Welt per te e la tua famiglia.\n• molto di più... Il tuo contatto Saremo lieti di ricevere la tua candidatura online. Questo è molto semplice. Invece di una lettera di motivazione, attendiamo con ansia le vostre risposte alle nostre tre domande: seguite semplicemente il link \"Candidati ora!\" collegamento qui sotto. Potete trovare ulteriori approfondimenti dietro le quinte di GLOBUS e ulteriori informazioni qui: https://karriere.globus.ch/ Sono felice di essere lì per voi. PS: Curioso del vero feeling GLOBUS? Fai clic e ottieni informazioni privilegiate direttamente dalla fonte su LinkedIn Life. Tra foto, video e storie non verniciate dei dipendenti, scoprirai cosa ci spinge davvero. Osate saperne di più: LinkedIn Life (tedesco): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Nota per i reclutatori: verranno prese in considerazione solo le candidature dirette.)",
-        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and, together with us, bring the “place we love to be” to life. HERE YOU MAKE THE DIFFERENCE\n• As a host, you ensure that our customers feel welcome and cared for as guests.\n• Thanks to your excellent service, your fascination for our brands and your individual advice, you ensure unique shopping experiences.\n• With your positive charisma and your passion for fashion, you make a decisive contribution to the company's success. WHAT SETS YOU OUT\n• You are a service-oriented personality with a great passion for fashion.\n• You love and live your role as a host and have a strong customer orientation.\n• You maintain impeccable manners and have a well-groomed appearance.\n• You are very reliable and act on your own initiative.\n• You have excellent knowledge of German; Additional languages ​​are not a must, but are a great advantage for our international guests. BENEFITS FOR YOU Together with around 1,700 other detail-lovers, you are an important part of our fascinating premium and luxury world. You will experience real appreciation, work in a great team and we will trust you so that you can use your freedom and make the difference with your skills. If you know your craft and have a lot of passion, then many career doors are open to you. We are happy to support you with internal and external training and further education. You can also look forward to:\n• an exceptional working environment with flat hierarchies in the heart of Bern.\n• Performance-related bonuses and attractive social benefits.\n• Up to 50% discount on products from Globus Welt for you and your family.\n• much more... Your contact We look forward to receiving your online application. This is very easy. Instead of a letter of motivation, we are looking forward to your answers to our three questions - simply follow the “Apply now!” link below. You can find further insights behind the scenes at GLOBUS and further information here: https://karriere.globus.ch/ I am happy to be there for you. PS: Curious about the real GLOBUS feeling? Click in and get insider information straight from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you'll discover what really drives us. Dare to find out more: LinkedIn Life (German): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note for recruiters: Only direct applications will be considered.)",
-        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei. DAS ZEICHNET DICH AUS\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste. BENEFITS FÜR DICH Zusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen. Freue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n• vieles mehr... Dein Kontakt Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/ Ich bin gerne für dich da. PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren: LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-        "fr": "Avec un grand souci du détail, nos collaborateurs font de GLOBUS la première adresse premium et luxe en Suisse. Ce sont des gens comme vous qui font la différence et, avec nous, donnent vie à « l’endroit où nous aimons être ». ICI, VOUS FAITES LA DIFFÉRENCE\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent les bienvenus et pris en charge en tant qu'invités.\n• Grâce à votre excellent service, votre fascination pour nos marques et vos conseils personnalisés, vous garantissez des expériences d'achat uniques.\n• Avec votre charisme positif et votre passion pour la mode, vous apportez une contribution décisive au succès de l'entreprise. CE QUI VOUS DISTINGUE\n• Vous êtes une personnalité orientée vers le service et dotée d'une grande passion pour la mode.\n• Vous aimez et vivez votre rôle d'hôte et avez une forte orientation client.\n• Vous maintenez des manières impeccables et avez une apparence soignée.\n• Vous êtes très fiable et agissez de votre propre initiative.\n• Vous avez une excellente connaissance de l'allemand ; Des langues supplémentaires ne sont pas obligatoires, mais constituent un grand avantage pour nos clients internationaux. DES AVANTAGES POUR VOUS Avec environ 1 700 autres amoureux du détail, vous faites partie intégrante de notre monde fascinant du luxe et du premium. Vous ferez l'expérience d'une réelle appréciation, travaillerez au sein d'une belle équipe et nous vous ferons confiance pour que vous puissiez utiliser votre liberté et faire la différence avec vos compétences. Si vous connaissez votre métier et êtes passionné, de nombreuses portes de carrière s’offrent à vous. Nous sommes heureux de vous soutenir avec des formations et des formations continues internes et externes. Vous pouvez également vous attendre à :\n• un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Berne.\n• Primes liées à la performance et avantages sociaux attractifs.\n• Jusqu'à 50 % de réduction sur les produits Globus Welt pour vous et votre famille.\n• bien plus encore... Votre contact Nous attendons avec impatience de recevoir votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous attendons avec impatience vos réponses à nos trois questions - suivez simplement « Postulez maintenant ! » lien ci-dessous. Vous trouverez d'autres aperçus des coulisses de GLOBUS et de plus amples informations ici : https://karriere.globus.ch/ Je suis heureux d'être là pour vous. PS : Curieux de connaître le véritable ressenti de GLOBUS ? Cliquez et obtenez des informations privilégiées directement à partir de la source sur LinkedIn Life. Entre photos, vidéos et témoignages d'employés sans fard, vous découvrirez ce qui nous anime réellement. Osez en savoir plus : LinkedIn Life (allemand) : https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Remarque pour les recruteurs : seules les candidatures directes seront prises en compte.)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Bereich-Fashion-20-vorwieg-de-j2447.html",
-      "source": "Globus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.997Z",
-      "addressLocality": "Bern",
-      "streetAddress": "Spitalgasse 17 - 21",
-      "postalCode": "3001",
-      "addressRegion": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail (department store / luxury)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Bereich-Fashion-20-vorwieg-de-j2447.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus",
-        "sales-support-for-assignments-in-fashion-20-mainly-saturday-assignments-f-m-d-globus-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
-        ],
-        "en": [
-          "sales-support-for-assignments-in-fashion-20-mainly-saturday-assignments-f-m-d-globus-bern",
-          "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
-        ],
-        "fr": [
-          "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
-        ]
-      },
-      "firstSeenAt": "2026-06-19T12:37:46.359Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1953,7 +1767,7 @@
       "url": "https://jobs.globus.ch/Bottega-Veneta-Verkaufsberaterin-Parfuemerie-80-100-wmd-de-j2449.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.995Z",
+      "crawledAt": "2026-06-25T11:13:41.799Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -2024,7 +1838,7 @@
       "url": "https://jobs.globus.ch/Bottega-Veneta-Verkaufsberaterin-Parfuemerie-20-40-wmd-de-j2450.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.993Z",
+      "crawledAt": "2026-06-25T11:13:41.797Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -2095,7 +1909,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Damenschuhe-50-wmd-de-j2451.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.990Z",
+      "crawledAt": "2026-06-25T11:13:41.795Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -2166,7 +1980,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Parfuemerie-Pflege-Haarpflege-100-wmd-de-j2452.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.989Z",
+      "crawledAt": "2026-06-25T11:13:41.794Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -2244,7 +2058,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Paul-Shark-100-wmd-de-j2453.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.987Z",
+      "crawledAt": "2026-06-25T11:13:41.792Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -2291,87 +2105,6 @@
       }
     },
     {
-      "id": "globus-9f1e82d24fc5",
-      "slug": "sales-support-per-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
-      "slugByLocale": {
-        "it": "sales-support-per-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
-        "en": "sales-support-for-assignments-in-the-food-sector-20-mainly-saturday-assignments-f-m-d-globus-bern",
-        "de": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
-        "fr": "soutien-commercial-pour-les-devoirs-dans-le-secteur-alimentaire-20-principalement-les-devoirs-du-samedi-vendredi-mois-j"
-      },
-      "company": "Globus",
-      "companyKey": "globus",
-      "companyDomain": "globus.ch",
-      "title": "Sales Support für Einsätze im Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
-      "titleByLocale": {
-        "it": "Supporto alle vendite per gli incarichi nel settore alimentare 20% - Principalmente compiti del sabato (f/m/d)",
-        "en": "Sales Support for assignments in the food sector 20% - mainly Saturday assignments (f/m/d)",
-        "de": "Sales Support für Einsätze im Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
-        "fr": "Soutien commercial pour les devoirs dans le secteur alimentaire 20 % - Principalement les devoirs du samedi (vendredi/mois/j)"
-      },
-      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für schöne Produkte und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft hochwertige Lebensmittel trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für schöne Produkte.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-      "descriptionByLocale": {
-        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS l'indirizzo premium e di lusso leader in Svizzera. Sono le persone come te che fanno la differenza e, insieme a noi, danno vita al “posto in cui amiamo essere”. QUI FAI LA DIFFERENZA\n• Come host ti assicuri che i nostri clienti si sentano benvenuti e coccolati come ospiti.\n• Grazie al vostro servizio eccellente, alla vostra passione per i prodotti belli e alla vostra consulenza individuale, assicurate esperienze di acquisto uniche.\n• Con il tuo carisma positivo e la tua passione per il cibo di alta qualità contribuisci in modo decisivo al successo dell'azienda. COSA TI DISTINGUE\n• Sei una personalità orientata al servizio con una grande passione per i prodotti belli.\n• Ami e vivi il tuo ruolo di host e hai un forte orientamento al cliente.\n• Mantieni modi impeccabili e hai un aspetto curato.\n• Sei molto affidabile e agisci di tua iniziativa.\n• Hai un'ottima conoscenza della lingua tedesca; Ulteriori lingue non sono obbligatorie, ma rappresentano un grande vantaggio per i nostri ospiti internazionali. VANTAGGI PER VOI Insieme a circa 1.700 altri amanti dei dettagli, siete una parte importante del nostro affascinante mondo premium e di lusso. Sperimenterai un vero apprezzamento, lavorerai in una grande squadra e ci fideremo di te affinché tu possa usare la tua libertà e fare la differenza con le tue capacità. Se conosci il tuo mestiere e hai molta passione, allora ti si aprono molte porte di carriera. Siamo lieti di supportarvi con formazione interna ed esterna e perfezionamento. Inoltre potrai aspettarti:\n• un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Berna.\n• Bonus legati al rendimento e vantaggi sociali interessanti.\n• Fino al 50% di sconto sui prodotti Globus Welt per te e la tua famiglia.\n• molto di più... Il tuo contatto Saremo lieti di ricevere la tua candidatura online. Questo è molto semplice. Invece di una lettera di motivazione, attendiamo con ansia le vostre risposte alle nostre tre domande: seguite semplicemente il link \"Candidati ora!\" collegamento qui sotto. Potete trovare ulteriori approfondimenti dietro le quinte di GLOBUS e ulteriori informazioni qui: https://karriere.globus.ch/ Sono felice di essere lì per voi. PS: Curioso del vero feeling GLOBUS? Fai clic e ottieni informazioni privilegiate direttamente dalla fonte su LinkedIn Life. Tra foto, video e storie non verniciate dei dipendenti, scoprirai cosa ci spinge davvero. Osate saperne di più: LinkedIn Life (tedesco): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Nota per i reclutatori: verranno prese in considerazione solo le candidature dirette.)",
-        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and, together with us, bring the “place we love to be” to life. HERE YOU MAKE THE DIFFERENCE\n• As a host, you ensure that our customers feel welcome and cared for as guests.\n• Thanks to your excellent service, your fascination for beautiful products and your individual advice, you ensure unique shopping experiences.\n• With your positive charisma and your passion for high-quality food, you make a decisive contribution to the company's success. WHAT SETS YOU OUT\n• You are a service-oriented personality with a great passion for beautiful products.\n• You love and live your role as a host and have a strong customer orientation.\n• You maintain impeccable manners and have a well-groomed appearance.\n• You are very reliable and act on your own initiative.\n• You have excellent knowledge of German; Additional languages ​​are not a must, but are a great advantage for our international guests. BENEFITS FOR YOU Together with around 1,700 other detail-lovers, you are an important part of our fascinating premium and luxury world. You will experience real appreciation, work in a great team and we will trust you so that you can use your freedom and make the difference with your skills. If you know your craft and have a lot of passion, then many career doors are open to you. We are happy to support you with internal and external training and further education. You can also look forward to:\n• an exceptional working environment with flat hierarchies in the heart of Bern.\n• Performance-related bonuses and attractive social benefits.\n• Up to 50% discount on products from Globus Welt for you and your family.\n• much more... Your contact We look forward to receiving your online application. This is very easy. Instead of a letter of motivation, we are looking forward to your answers to our three questions - simply follow the “Apply now!” link below. You can find further insights behind the scenes at GLOBUS and further information here: https://karriere.globus.ch/ I am happy to be there for you. PS: Curious about the real GLOBUS feeling? Click in and get insider information straight from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you'll discover what really drives us. Dare to find out more: LinkedIn Life (German): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note for recruiters: Only direct applications will be considered.)",
-        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n• Dank deines exzellenten Services, deiner Faszination für schöne Produkte und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft hochwertige Lebensmittel trägst du entscheidend zum Unternehmenserfolg bei. DAS ZEICHNET DICH AUS\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für schöne Produkte.\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste. BENEFITS FÜR DICH Zusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen. Freue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n• vieles mehr... Dein Kontakt Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/ Ich bin gerne für dich da. PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren: LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-        "fr": "Avec un grand souci du détail, nos collaborateurs font de GLOBUS la première adresse premium et luxe en Suisse. Ce sont des gens comme vous qui font la différence et, avec nous, donnent vie à « l’endroit où nous aimons être ». ICI, VOUS FAITES LA DIFFÉRENCE\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent les bienvenus et pris en charge en tant qu'invités.\n• Grâce à votre excellent service, votre fascination pour les beaux produits et vos conseils personnalisés, vous garantissez des expériences d'achat uniques.\n• Avec votre charisme positif et votre passion pour une alimentation de qualité, vous apportez une contribution décisive au succès de l'entreprise. CE QUI VOUS DISTINGUE\n• Vous êtes une personnalité orientée service et passionnée par les beaux produits.\n• Vous aimez et vivez votre rôle d'hôte et avez une forte orientation client.\n• Vous maintenez des manières impeccables et avez une apparence soignée.\n• Vous êtes très fiable et agissez de votre propre initiative.\n• Vous avez une excellente connaissance de l'allemand ; Des langues supplémentaires ne sont pas obligatoires, mais constituent un grand avantage pour nos clients internationaux. DES AVANTAGES POUR VOUS Avec environ 1 700 autres amoureux du détail, vous faites partie intégrante de notre monde fascinant du luxe et du premium. Vous ferez l'expérience d'une réelle appréciation, travaillerez au sein d'une belle équipe et nous vous ferons confiance pour que vous puissiez utiliser votre liberté et faire la différence avec vos compétences. Si vous connaissez votre métier et êtes passionné, de nombreuses portes de carrière s’offrent à vous. Nous sommes heureux de vous soutenir avec des formations et des formations continues internes et externes. Vous pouvez également vous attendre à :\n• un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Berne.\n• Primes liées à la performance et avantages sociaux attractifs.\n• Jusqu'à 50 % de réduction sur les produits Globus Welt pour vous et votre famille.\n• bien plus encore... Votre contact Nous attendons avec impatience de recevoir votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous attendons avec impatience vos réponses à nos trois questions - suivez simplement « Postulez maintenant ! » lien ci-dessous. Vous trouverez d'autres aperçus des coulisses de GLOBUS et de plus amples informations ici : https://karriere.globus.ch/ Je suis heureux d'être là pour vous. PS : Curieux de connaître le véritable ressenti de GLOBUS ? Cliquez et obtenez des informations privilégiées directement à partir de la source sur LinkedIn Life. Entre photos, vidéos et témoignages d'employés sans fard, vous découvrirez ce qui nous anime réellement. Osez en savoir plus : LinkedIn Life (allemand) : https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Remarque pour les recruteurs : seules les candidatures directes seront prises en compte.)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Food-Bereich-20-vorwiegend-de-j2454.html",
-      "source": "Globus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.974Z",
-      "addressLocality": "Bern",
-      "streetAddress": "Spitalgasse 17 - 21",
-      "postalCode": "3001",
-      "addressRegion": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail (department store / luxury)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-19",
-      "applyUrl": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Food-Bereich-20-vorwiegend-de-j2454.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
-        "supporto-alle-vendite-per-incarichi-nel-settore-non-alimentare-20-principalmente-incarichi-del-sabato-f-m-d-globus-bern",
-        "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-2",
-        "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
-        "soutien-commercial-pour-les-missions-dans-le-secteur-non-alimentaire-20-principalement-les-devoirs-du-samedi-vendredi-m"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
-        ],
-        "en": [
-          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
-        ],
-        "fr": [
-          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-19T12:37:46.301Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "globus-936038f20eee",
       "slug": "supporto-alle-vendite-assegnazioni-del-sabato-20-moda-f-m-d-globus-st-gallen",
       "slugByLocale": {
@@ -2386,7 +2119,7 @@
       "title": "Sales Support - Samstagseinsätze 20% Fashion (w/m/d)",
       "titleByLocale": {
         "it": "Supporto alle vendite - Assegnazioni del sabato 20% Moda (f/m/d)",
-        "en": "Sales Support - Saturday assignments 20% fashion (f/m/d)",
+        "en": "Sales Support - Samstagseinsätze 20% Fashion (w/m/d)",
         "de": "Sales Support - Samstagseinsätze 20% Fashion (w/m/d)",
         "fr": "Support commercial - Affectations du samedi 20 % mode (f/m/d)"
       },
@@ -2402,7 +2135,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-Samstagseinsaetze-20-Fashion-wmd-de-j2455.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.973Z",
+      "crawledAt": "2026-06-25T11:13:41.787Z",
       "addressLocality": "St. Gallen",
       "streetAddress": "Multergasse 47",
       "postalCode": "9001",
@@ -2432,6 +2165,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:37:46.296Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2441,6 +2175,90 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "globus-9f1e82d24fc5",
+      "slug": "sales-support-per-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
+      "slugByLocale": {
+        "it": "sales-support-per-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
+        "en": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
+        "de": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
+        "fr": "soutien-commercial-pour-les-devoirs-dans-le-secteur-alimentaire-20-principalement-les-devoirs-du-samedi-vendredi-mois-j"
+      },
+      "company": "Globus",
+      "companyKey": "globus",
+      "companyDomain": "globus.ch",
+      "title": "Sales Support für Einsätze im Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
+      "titleByLocale": {
+        "it": "Supporto alle vendite per gli incarichi nel settore alimentare 20% - Principalmente compiti del sabato (f/m/d)",
+        "en": "Sales Support für Einsätze im Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
+        "de": "Sales Support für Einsätze im Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
+        "fr": "Soutien commercial pour les devoirs dans le secteur alimentaire 20 % - Principalement les devoirs du samedi (vendredi/mois/j)"
+      },
+      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für schöne Produkte und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft hochwertige Lebensmittel trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für schöne Produkte.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+      "descriptionByLocale": {
+        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS l'indirizzo premium e di lusso leader in Svizzera. Sono le persone come te che fanno la differenza e, insieme a noi, danno vita al “posto in cui amiamo essere”. QUI FAI LA DIFFERENZA\n• Come host ti assicuri che i nostri clienti si sentano benvenuti e coccolati come ospiti.\n• Grazie al vostro servizio eccellente, alla vostra passione per i prodotti belli e alla vostra consulenza individuale, assicurate esperienze di acquisto uniche.\n• Con il tuo carisma positivo e la tua passione per il cibo di alta qualità contribuisci in modo decisivo al successo dell'azienda. COSA TI DISTINGUE\n• Sei una personalità orientata al servizio con una grande passione per i prodotti belli.\n• Ami e vivi il tuo ruolo di host e hai un forte orientamento al cliente.\n• Mantieni modi impeccabili e hai un aspetto curato.\n• Sei molto affidabile e agisci di tua iniziativa.\n• Hai un'ottima conoscenza della lingua tedesca; Ulteriori lingue non sono obbligatorie, ma rappresentano un grande vantaggio per i nostri ospiti internazionali. VANTAGGI PER VOI Insieme a circa 1.700 altri amanti dei dettagli, siete una parte importante del nostro affascinante mondo premium e di lusso. Sperimenterai un vero apprezzamento, lavorerai in una grande squadra e ci fideremo di te affinché tu possa usare la tua libertà e fare la differenza con le tue capacità. Se conosci il tuo mestiere e hai molta passione, allora ti si aprono molte porte di carriera. Siamo lieti di supportarvi con formazione interna ed esterna e perfezionamento. Inoltre potrai aspettarti:\n• un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Berna.\n• Bonus legati al rendimento e vantaggi sociali interessanti.\n• Fino al 50% di sconto sui prodotti Globus Welt per te e la tua famiglia.\n• molto di più... Il tuo contatto Saremo lieti di ricevere la tua candidatura online. Questo è molto semplice. Invece di una lettera di motivazione, attendiamo con ansia le vostre risposte alle nostre tre domande: seguite semplicemente il link \"Candidati ora!\" collegamento qui sotto. Potete trovare ulteriori approfondimenti dietro le quinte di GLOBUS e ulteriori informazioni qui: https://karriere.globus.ch/ Sono felice di essere lì per voi. PS: Curioso del vero feeling GLOBUS? Fai clic e ottieni informazioni privilegiate direttamente dalla fonte su LinkedIn Life. Tra foto, video e storie non verniciate dei dipendenti, scoprirai cosa ci spinge davvero. Osate saperne di più: LinkedIn Life (tedesco): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Nota per i reclutatori: verranno prese in considerazione solo le candidature dirette.)",
+        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and, together with us, bring the “place we love to be” to life. HERE YOU MAKE THE DIFFERENCE\n• As a host, you ensure that our customers feel welcome and cared for as guests.\n• Thanks to your excellent service, your fascination for beautiful products and your individual advice, you ensure unique shopping experiences.\n• With your positive charisma and your passion for high-quality food, you make a decisive contribution to the company's success. WHAT SETS YOU OUT\n• You are a service-oriented personality with a great passion for beautiful products.\n• You love and live your role as a host and have a strong customer orientation.\n• You maintain impeccable manners and have a well-groomed appearance.\n• You are very reliable and act on your own initiative.\n• You have excellent knowledge of German; Additional languages ​​are not a must, but are a great advantage for our international guests. BENEFITS FOR YOU Together with around 1,700 other detail-lovers, you are an important part of our fascinating premium and luxury world. You will experience real appreciation, work in a great team and we will trust you so that you can use your freedom and make the difference with your skills. If you know your craft and have a lot of passion, then many career doors are open to you. We are happy to support you with internal and external training and further education. You can also look forward to:\n• an exceptional working environment with flat hierarchies in the heart of Bern.\n• Performance-related bonuses and attractive social benefits.\n• Up to 50% discount on products from Globus Welt for you and your family.\n• much more... Your contact We look forward to receiving your online application. This is very easy. Instead of a letter of motivation, we are looking forward to your answers to our three questions - simply follow the “Apply now!” link below. You can find further insights behind the scenes at GLOBUS and further information here: https://karriere.globus.ch/ I am happy to be there for you. PS: Curious about the real GLOBUS feeling? Click in and get insider information straight from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you'll discover what really drives us. Dare to find out more: LinkedIn Life (German): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note for recruiters: Only direct applications will be considered.)",
+        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n• Dank deines exzellenten Services, deiner Faszination für schöne Produkte und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft hochwertige Lebensmittel trägst du entscheidend zum Unternehmenserfolg bei. DAS ZEICHNET DICH AUS\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für schöne Produkte.\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste. BENEFITS FÜR DICH Zusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen. Freue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Bern .\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n• vieles mehr... Dein Kontakt Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/ Ich bin gerne für dich da. PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren: LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "fr": "Avec un grand souci du détail, nos collaborateurs font de GLOBUS la première adresse premium et luxe en Suisse. Ce sont des gens comme vous qui font la différence et, avec nous, donnent vie à « l’endroit où nous aimons être ». ICI, VOUS FAITES LA DIFFÉRENCE\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent les bienvenus et pris en charge en tant qu'invités.\n• Grâce à votre excellent service, votre fascination pour les beaux produits et vos conseils personnalisés, vous garantissez des expériences d'achat uniques.\n• Avec votre charisme positif et votre passion pour une alimentation de qualité, vous apportez une contribution décisive au succès de l'entreprise. CE QUI VOUS DISTINGUE\n• Vous êtes une personnalité orientée service et passionnée par les beaux produits.\n• Vous aimez et vivez votre rôle d'hôte et avez une forte orientation client.\n• Vous maintenez des manières impeccables et avez une apparence soignée.\n• Vous êtes très fiable et agissez de votre propre initiative.\n• Vous avez une excellente connaissance de l'allemand ; Des langues supplémentaires ne sont pas obligatoires, mais constituent un grand avantage pour nos clients internationaux. DES AVANTAGES POUR VOUS Avec environ 1 700 autres amoureux du détail, vous faites partie intégrante de notre monde fascinant du luxe et du premium. Vous ferez l'expérience d'une réelle appréciation, travaillerez au sein d'une belle équipe et nous vous ferons confiance pour que vous puissiez utiliser votre liberté et faire la différence avec vos compétences. Si vous connaissez votre métier et êtes passionné, de nombreuses portes de carrière s’offrent à vous. Nous sommes heureux de vous soutenir avec des formations et des formations continues internes et externes. Vous pouvez également vous attendre à :\n• un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Berne.\n• Primes liées à la performance et avantages sociaux attractifs.\n• Jusqu'à 50 % de réduction sur les produits Globus Welt pour vous et votre famille.\n• bien plus encore... Votre contact Nous attendons avec impatience de recevoir votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous attendons avec impatience vos réponses à nos trois questions - suivez simplement « Postulez maintenant ! » lien ci-dessous. Vous trouverez d'autres aperçus des coulisses de GLOBUS et de plus amples informations ici : https://karriere.globus.ch/ Je suis heureux d'être là pour vous. PS : Curieux de connaître le véritable ressenti de GLOBUS ? Cliquez et obtenez des informations privilégiées directement à partir de la source sur LinkedIn Life. Entre photos, vidéos et témoignages d'employés sans fard, vous découvrirez ce qui nous anime réellement. Osez en savoir plus : LinkedIn Life (allemand) : https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Remarque pour les recruteurs : seules les candidatures directes seront prises en compte.)"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Food-Bereich-20-vorwiegend-de-j2454.html",
+      "source": "Globus Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T11:13:41.787Z",
+      "addressLocality": "Bern",
+      "streetAddress": "Spitalgasse 17 - 21",
+      "postalCode": "3001",
+      "addressRegion": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail (department store / luxury)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Food-Bereich-20-vorwiegend-de-j2454.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
+        "sales-support-for-assignments-in-the-food-sector-20-mainly-saturday-assignments-f-m-d-globus-bern",
+        "supporto-alle-vendite-per-incarichi-nel-settore-non-alimentare-20-principalmente-incarichi-del-sabato-f-m-d-globus-bern",
+        "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-2",
+        "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
+        "soutien-commercial-pour-les-missions-dans-le-secteur-non-alimentaire-20-principalement-les-devoirs-du-samedi-vendredi-m"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
+        ],
+        "en": [
+          "sales-support-for-assignments-in-the-food-sector-20-mainly-saturday-assignments-f-m-d-globus-bern",
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
+        ],
+        "fr": [
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-19T12:37:46.301Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -2460,7 +2278,7 @@
       "title": "Sales Support à 20% (samedis)",
       "titleByLocale": {
         "it": "Supporto vendite 20% (sabati)",
-        "en": "Sales Support 20% (Saturdays)",
+        "en": "Sales Support à 20% (samedis)",
         "de": "Sales Support 20% (Samstags)",
         "fr": "Sales Support à 20% (samedis)"
       },
@@ -2476,7 +2294,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-20-samedis-fr-j2272.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-24T22:09:31.967Z",
+      "crawledAt": "2026-06-25T11:13:41.784Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -2506,6 +2324,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T21:50:13.019Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2534,7 +2353,7 @@
       "title": "Sales Consultant Women Shoes/Fashion 60% (w/m/d)",
       "titleByLocale": {
         "it": "Sales Consulente Women Shoes/Fashion 60% (w/m/d)",
-        "en": "Sales Consultant Women Shoes/Fashion 60% (f/m/d)",
+        "en": "Sales Consultant Women Shoes/Fashion 60% (w/m/d)",
         "de": "Sales Berater Women Shoes/Fashion 60% (w/m/d)",
         "fr": "Conseil en ventes Femmes Chaussures/Fashion 60% (f/m/j)"
       },
@@ -2550,7 +2369,7 @@
       "url": "https://jobs.globus.ch/Sales-Consultant-Women-ShoesFashion-60-wmd-de-j2457.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.958Z",
+      "crawledAt": "2026-06-25T11:13:41.782Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -2577,6 +2396,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T14:19:19.665Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2621,7 +2441,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-AccessoiresSchuhe-60-wmd-de-j2458.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:09:31.932Z",
+      "crawledAt": "2026-06-25T11:13:41.760Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -2666,6 +2486,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "globus-0f4f2d9711f3",
+      "slug": "verkaufsberater-in-herrenmode-100-m-w-d-globus-ch",
+      "slugByLocale": {
+        "de": "verkaufsberater-in-herrenmode-100-m-w-d-globus-ch",
+        "it": "verkaufsberater-in-herrenmode-100-m-w-d-globus-ch",
+        "en": "verkaufsberater-in-herrenmode-100-m-w-d-globus-ch",
+        "fr": "verkaufsberater-in-herrenmode-100-m-w-d-globus-ch"
+      },
+      "company": "Globus",
+      "companyKey": "globus",
+      "companyDomain": "globus.ch",
+      "title": "Verkaufsberater:in Herrenmode 100% (m/w/d)",
+      "titleByLocale": {
+        "de": "Verkaufsberater:in Herrenmode 100% (m/w/d)",
+        "it": "Verkaufsberater:in Herrenmode 100% (m/w/d)",
+        "en": "Verkaufsberater:in Herrenmode 100% (m/w/d)",
+        "fr": "Verkaufsberater:in Herrenmode 100% (m/w/d)"
+      },
+      "description": "Verkaufsberater:in Fashion (Men&Women - w/m/d)\nMit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. Für unser Herrenmode Team in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort eine Verkaufspersönlichkeit im Pensum von 100% HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du unterstützen beim Visual Merchandising, was unsere Gäste zum Kauf unserer exklusiven Marken inspiriert.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du hast eine Berufsausbildung erfolgreich abgeschlossen und/oder bringst mehrjährige Verkaufserfahrung mit.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Zürich .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+      "descriptionByLocale": {
+        "de": "Verkaufsberater:in Fashion (Men&Women - w/m/d)\nMit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. Für unser Herrenmode Team in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort eine Verkaufspersönlichkeit im Pensum von 100% HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du unterstützen beim Visual Merchandising, was unsere Gäste zum Kauf unserer exklusiven Marken inspiriert.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du hast eine Berufsausbildung erfolgreich abgeschlossen und/oder bringst mehrjährige Verkaufserfahrung mit.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Zürich .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "it": "Verkaufsberater:in Fashion (Men&Women - w/m/d)\nMit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. Für unser Herrenmode Team in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort eine Verkaufspersönlichkeit im Pensum von 100% HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du unterstützen beim Visual Merchandising, was unsere Gäste zum Kauf unserer exklusiven Marken inspiriert.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du hast eine Berufsausbildung erfolgreich abgeschlossen und/oder bringst mehrjährige Verkaufserfahrung mit.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Zürich .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "en": "Verkaufsberater:in Fashion (Men&Women - w/m/d)\nMit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. Für unser Herrenmode Team in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort eine Verkaufspersönlichkeit im Pensum von 100% HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du unterstützen beim Visual Merchandising, was unsere Gäste zum Kauf unserer exklusiven Marken inspiriert.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du hast eine Berufsausbildung erfolgreich abgeschlossen und/oder bringst mehrjährige Verkaufserfahrung mit.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Zürich .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "fr": "Verkaufsberater:in Fashion (Men&Women - w/m/d)\nMit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. Für unser Herrenmode Team in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort eine Verkaufspersönlichkeit im Pensum von 100% HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Brands und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du unterstützen beim Visual Merchandising, was unsere Gäste zum Kauf unserer exklusiven Marken inspiriert.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Fashion trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für Fashion.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig und handelst aus Eigeninitiative.\n\n• Du hast eine Berufsausbildung erfolgreich abgeschlossen und/oder bringst mehrjährige Verkaufserfahrung mit.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Zürich .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)"
+      },
+      "location": "Zürich Bahnhofstrasse",
+      "canton": "ZH",
+      "url": "https://jobs.globus.ch/Verkaufsberaterin-Herrenmode-100-mwd-de-j2459.html",
+      "source": "Globus Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-25T11:13:41.735Z",
+      "addressLocality": "Zürich Bahnhofstrasse",
+      "streetAddress": "Schweizergasse 11",
+      "postalCode": "8001",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail (department store / luxury)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-Herrenmode-100-mwd-de-j2459.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-25T11:13:41.735Z"
     }
   ]
 }
