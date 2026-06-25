@@ -1412,6 +1412,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cassa-malati-neuchatel-giovani-19-25',
+    category: 'pratico',
+    date: '2026-06-25T19:27:13.945Z',
+    image: '/images/blog/cassa-malati-neuchatel-giovani-19-25.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -472,6 +472,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pemsa-lugano-mercato-lavoro.title': 'Pemsa Lugano: Rolle und Wirkung auf dem Schweizer Arbeitsmarkt',
     'blog.article.pemsa-lugano-mercato-lavoro.excerpt': 'Pemsa Lugano ist im Bereich Human Resources mit Sitz in Lugano tätig. Fokus auf Dienstleistungen für den Schweizer Markt.',
     'blog.article.pemsa-lugano-mercato-lavoro.imageAlt': 'Blick auf das Geschäftsviertel von Lugano mit Gebäuden und Schweizer Fahnen.',
+    'blog.article.cassa-malati-neuchatel-giovani-19-25.title': 'Krankenkassenprämien Neuenburg für junge Erwachsene 19-25 Jahre',
+    'blog.article.cassa-malati-neuchatel-giovani-19-25.excerpt': 'Analyse der Bedingungen, Prämien und Optionen der Krankenkassen für junge Erwachsene mit Wohnsitz in Neuenburg im Alter von 19-25 Jahren.',
+    'blog.article.cassa-malati-neuchatel-giovani-19-25.imageAlt': 'Blick auf Neuchâtel mit jungen Erwachsenen und Schweizer Gesundheitsschildern.',
 };
 
 export default blogMetaChDe;

@@ -6024,6 +6024,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassa-malati-neuchatel-giovani-19-25': {
+    title: 'Premi cassa malati Neuchâtel per giovani adulti 19-25 anni',
+    description: 'Tutte le condizioni e le opzioni delle casse malati per residenti 19-25 anni a Neuchâtel. Premi, procedure, confronto offerte. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, neuch',
+    ogTitle: 'Premi cassa malati Neuchâtel 19-25 anni: guida giovani adulti',
+    ogDescription: 'Condizioni e premi delle casse malati per giovani adulti a Neuchâtel. Guida pratica e confronto offerte.',
+    canonicalPath: '/articoli-svizzera/cassa-malati-neuchatel-giovani-19-25/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Neuchâtel per giovani adulti 19-25 anni",
+      "description": "Tutte le condizioni e le opzioni delle casse malati per residenti 19-25 anni a Neuchâtel. Premi, procedure, confronto offerte. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassa-malati-neuchatel-giovani-19-25.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Neuchâtel con giovani adulti e segnaletica sanitaria svizzera."
+      },
+      "datePublished": "2026-06-25T19:27:13+00:00",
+      "dateModified": "2026-06-25T19:27:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cassa-malati-neuchatel-giovani-19-25/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

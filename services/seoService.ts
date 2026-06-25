@@ -4203,6 +4203,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumento-costi-abitazione-e-mobilita-in-svizzera': { name: 'Costi abitazione mobilità', path: '/articoli-svizzera/aumento-costi-abitazione-e-mobilita-in-svizzera/', parent: 'blog' },
     'blog-venditti-lugano-contesto-nazionale': { name: 'Venditti Lugano', path: '/articoli-svizzera/venditti-lugano-contesto-nazionale/', parent: 'blog' },
     'blog-pemsa-lugano-mercato-lavoro': { name: 'Pemsa Lugano', path: '/articoli-svizzera/pemsa-lugano-mercato-lavoro/', parent: 'blog' },
+    'blog-cassa-malati-neuchatel-giovani-19-25': { name: 'Cassa malati Neuchâtel', path: '/articoli-svizzera/cassa-malati-neuchatel-giovani-19-25/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
