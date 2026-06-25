@@ -1322,6 +1322,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'mc-27-mostra-lugano-2026',
+    category: 'novita',
+    date: '2026-06-25T07:04:16.620Z',
+    image: '/images/blog/mc-27-mostra-lugano-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

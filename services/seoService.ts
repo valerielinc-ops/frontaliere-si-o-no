@@ -4190,6 +4190,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-documenti-frontalieri-lavoro-svizzera': { name: 'Documenti Frontalieri', path: '/articoli-svizzera/documenti-frontalieri-lavoro-svizzera/', parent: 'blog' },
     'blog-frontalieri-asili-nido-ticino': { name: 'Asili nido frontalieri', path: '/articoli-svizzera/frontalieri-asili-nido-ticino/', parent: 'blog' },
     'blog-tassazione-frontalieri-oltre-20km-confine': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/tassazione-frontalieri-oltre-20km-confine/', parent: 'blog' },
+    'blog-mc-27-mostra-lugano-2026': { name: 'Esposizione MC\'27 Lugano 2026', path: '/articoli-svizzera/mc-27-mostra-lugano-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
