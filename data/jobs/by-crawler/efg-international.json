@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-06-24T21:53:53.283Z",
+  "assembledAt": "2026-06-25T11:12:47.943Z",
   "jobs": [
     {
       "id": "efg-6266",
@@ -83,7 +83,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.483Z",
+      "crawledAt": "2026-06-25T11:12:45.402Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -126,7 +126,103 @@
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6219",
+      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Data Ops Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "General Info\n\n- Department: IT Data Departement\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n\n- Maintain high standards of data quality, reliability, and performance.\n\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n\n- Comfortable working with Python, SQL, PySpark and Databricks\n\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n\n- Familiarity with microservices architecture, API management and observability is a real plus\n\n- Experienced with Azure databricks.\n\n- Good communication and collaboration skills.\n\n- Rigorous and methodical in documentation and process creation\n\n- High interest for convergence, normalization and reusability.\n\n- Curious, enthusiastic and proactive\n\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Data Ops Engineer",
+        "it": "Ingegnere di Data Ops",
+        "de": "Data Ops Ingenieur",
+        "fr": "Ingénieur des opérations de données"
+      },
+      "descriptionByLocale": {
+        "en": "General Info\n- Department: IT Data Departement\n- Work time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n- Maintain high standards of data quality, reliability, and performance.\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n- Comfortable working with Python, SQL, PySpark and Databricks\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n- Familiarity with microservices architecture, API management and observability is a real plus\n- Experienced with Azure databricks.\n- Good communication and collaboration skills.\n- Rigorous and methodical in documentation and process creation\n- High interest for convergence, normalization and reusability.\n- Curious, enthusiastic and proactive\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+        "it": "Informazioni generali\n- Dipartimento: Dipartimento dati IT\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nLa missione del team di piattaforma DataOps è garantire un livello di servizio affidabile in ogni componente tecnologica della piattaforma dati EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nStiamo costruendo ed evolvendo la piattaforma CI/CD che supporta le implementazioni delle pipeline di dati, portando competenze di implementazione e lavorando a stretto contatto con i team di progetto per ottenere consegnabili attraverso la linea.\n\nLe responsabilità chiave del team includono, la governance CI/CD delle pipeline di dati, il supporto di distribuzione delle pipeline e la certificazione e il monitoraggio delle operazioni a livello di piattaforma.\n\nPrincipali responsabilità\n\nMentre la nostra piattaforma e il panorama dei dati si evolvono, vorremmo rafforzare il nostro team con un ingegnere CI/CD specializzato nelle implementazioni delle pipeline di dati.\n- Le aspettative sulla qualità dei dati sono in costante aumento con la necessità di una consegna di servizio estremamente stabile. Dobbiamo garantire che i nostri processi di consegna siano controllati e visibili ai nostri stakeholder.\n- Siamo particolarmente interessati a qualcuno che guida le operazioni di Kafka, Spark e Databricks con Python\n- Rinforzando il nostro team, contribuirai notevolmente alla continuità e alla qualità delle nostre operazioni.\n- Assumere la proprietà operativa di specifici servizi di dati (gestione del cambiamento, gestione dell'assicurazione di qualità, SLA, SOP)\n\n- tracciare e garantire il buon funzionamento dei datadotti critici durante le ore asiatiche, agendo come punto di contatto primario per problemi critici in un modello di supporto al sole.\n- Progettare, implementare e ottimizzare la pipeline di dati in modalità batch e streaming.\n- Seguire e applicare la pratica CI/CD per automatizzare e ottimizzare le implementazioni e le integrazioni.\n- Creare, mantenere e migliorare la documentazione e le procedure operative per le quali è garantita la proprietà operativa.\n- Collaborare con team interfunzionali per migliorare e rivedere la governance nelle operazioni di integrazione.\n- Mantenere elevati standard di qualità dei dati, affidabilità e prestazioni.\n- Mantenere corrente con progressi nell'ingegneria dei dati, di dataops tech stack, per supportare il miglioramento continuo\n\nRequisiti e qualifiche\n- Almeno 5 anni di comprovata esperienza pratica nell'ingegneria dei dati e nell'implementazione delle pipeline di dati radicate nella pratica dei devoti.\n- Confortevole lavoro con Python, SQL, PySpark e Databricks\n- Robusta esperienza di tutte le principali piattaforme e processi CI/CD in ambiente ibrido (ad esempio, Azure DevOps, GitLab CI, GitHub Actions ).\n- La familiarità con l'architettura dei microservizi, la gestione delle API e l'osservabilità è un vantaggio reale\n- Esperienza con i databrick Azure.\n- Buone capacità di comunicazione e collaborazione.\n- Rigoroso e metodico nella documentazione e nella creazione di processi\n- Alto interesse per la convergenza, la normalizzazione e la riutilizzabilità.\n- Curioso, entusiasta e proattivo\n- Appassionato sulle tecnologie di elaborazione dei dati, con un forte desiderio di imparare e crescere in un ambiente esigente\n- Fluente in inglese parlato e scritto, il francese è un bene.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
+        "de": "Allgemeine Info\n- Abteilung: IT Data Department\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale private Bankengruppe, die private Bank- und Asset-Management-Dienste anbietet. Wir servieren Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und strebt danach, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmerische Köpfe stärken, Wert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nDataOps-Plattform-Team-Mission ist, ein zuverlässiges Serviceniveau über jede technologische Komponente der EFG-Datenplattform (Databricks, Kafka, Spark, Eastic Search, Apache MQ, uServices Stack) zu gewährleisten.\n\nWir bauen und entwickeln die CI/CD-Plattform, die Datenpipeline-Bereitstellungen unterstützt, Implementierungskompetenz bringt und eng mit Projektteams zusammenarbeitet, um Lieferungen über die Strecke zu erhalten.\n\nZu den Hauptaufgaben des Teams gehören die CI/CD Governance von Datenpipelines, die Unterstützung der Pipeline-Bereitstellung und die Zertifizierung und Überwachung von Plattformebenenoperationen.\n\nHauptverantwortlichkeiten\n\nMit der Entwicklung unserer Plattform und Datenlandschaft möchten wir unser Team mit einem qualifizierten CI/CD-Ingenieur, der sich auf die Implementierung von Datenpipeline spezialisiert hat, stärken.\n- Erwartungen an die Datenqualität steigen ständig mit der Notwendigkeit einer extrem stabilen Service-Lieferung. Wir müssen sicherstellen, dass unsere Lieferprozesse für unsere Stakeholder kontrolliert und sichtbar werden.\n- Wir sind besonders an einem komfortablen Fahren von Kafka, Spark und Databricks mit Python interessiert\n- Durch die Verstärkung unseres Teams tragen Sie maßgeblich zur Kontinuität und Qualität unserer Operationen bei.\n- Nehmen Sie das operative Eigentum an bestimmten Datendiensten (Wechselmanagement, Qualitätssicherung, SLA, SOP)\n\n- den reibungslosen Betrieb von kritischen Datenpipelines während asiatischer Stunden verfolgen und sicherstellen, als primärer Ansprechpartner für kritische Fragen in einem Folgemodell der Sonnenunterstützung.\n- Entwicklung, Implementierung und Optimierung der Datenpipeline im Batch- und Streaming-Modus.\n- Folgen Sie der CI/CD-Praxis, um Bereitstellungen und Integrationen zu automatisieren und zu optimieren.\n- Erstellung, Wartung und Verbesserung der Dokumentation und der operativen Verfahren, für die das operative Eigentum gewährleistet ist.\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Verbesserung und Überprüfung der Governance bei Integrationsoperationen.\n- Bewahren Sie hohe Standards der Datenqualität, Zuverlässigkeit und Leistung.\n- Bleiben Sie aktuell mit Fortschritten in der Datentechnik, von Dataops Tech Stack, um kontinuierliche Verbesserung zu unterstützen\n\nAnforderungen und Qualifikationen\n- Mindestens 5 Jahre Erfahrung in der Datentechnik und Datenpipeline-Bereitstellung, die in der Praxis verwurzelt ist.\n- Komfortables Arbeiten mit Python, SQL, PySpark und Databricks\n- Robuste Erfahrung aller führenden CI/CD-Plattformen und Prozesse in hybrider Umgebung (z.B. Azure DevOps, GitLab CI, GitHub Actions).\n- Vertrautheit mit Mikroservice-Architektur, API-Management und Beobachtbarkeit ist ein echtes Plus\n- Erlebt mit Azure Databricks.\n- Gute Kommunikation und Zusammenarbeit.\n- Beständig und methodisch in der Dokumentation und Prozesserstellung\n- Hohes Interesse an Konvergenz, Normalisierung und Wiederverwendbarkeit.\n- Kurios, begeistert und proaktiv\n- Leidenschaftlich über Datenverarbeitungstechnologien, mit einem starken Wunsch, in einer anspruchsvollen Umgebung zu lernen und zu wachsen\n- Flöten in gesprochenem und geschriebenem Englisch, Französisch ist ein Vermögen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
+        "fr": "Informations générales\n- Département: Département des données informatiques\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLa mission de l'équipe de plate-forme DataOps est d'assurer un niveau de service fiable pour chaque composant technologique de la plate-forme de données EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices pile).\n\nNous développons et évoluons la plate-forme CI/CD qui appuie le déploiement de pipelines de données, apporte une expertise en mise en oeuvre et travaille en étroite collaboration avec les équipes de projet pour obtenir les résultats attendus.\n\nLes principales responsabilités de l'équipe comprennent la gouvernance des pipelines de données, le soutien au déploiement des pipelines et la certification et la surveillance des opérations au niveau des plates-formes.\n\nPrincipales responsabilités\n\nAu fur et à mesure que notre plateforme et notre paysage de données évoluent, nous souhaitons renforcer notre équipe avec un ingénieur CI/CD qualifié spécialisé dans les implémentations de pipelines de données.\n- Les attentes en matière de qualité des données ne cessent d'augmenter avec la nécessité d'une prestation de services extrêmement stable. Nous devons veiller à ce que nos processus de prestation soient contrôlés et visibles par nos intervenants.\n- Nous sommes particulièrement intéressés par quelqu'un confortable conduire des opérations Kafka, Spark et Databricks avec Python\n- En renforçant notre équipe, vous contribuerez grandement à la continuité et à la qualité de nos opérations.\n- Prise en charge opérationnelle de services de données spécifiques (gestion du changement, gestion de l'assurance qualité, SLA, SOP)\n\n- suivre et assurer le bon fonctionnement des pipelines de données critiques pendant les heures d'Asie, agissant comme point de contact principal pour les problèmes critiques dans un modèle de soutien solaire suivant.\n- Concevoir, mettre en œuvre et optimiser le pipeline de données en mode batch et streaming.\n- Suivre et appliquer la pratique de l'IC/CD pour automatiser et rationaliser les déploiements et les intégrations.\n- Créer, maintenir et améliorer la documentation et les procédures opérationnelles pour lesquelles la propriété opérationnelle est assurée.\n- Collaborer avec des équipes interfonctionnelles pour améliorer et examiner la gouvernance des opérations d'intégration.\n- Maintenir des normes élevées de qualité des données, de fiabilité et de performance.\n- Restez à jour avec les progrès de l'ingénierie des données, de la pile de technologie de données, pour soutenir l'amélioration continue\n\nExigences et qualifications\n- Au moins 5 ans d'expérience pratique prouvée en ingénierie des données et en déploiement de pipelines de données enracinés dans la pratique des dévops.\n- Travail confortable avec Python, SQL, PySpark et Databricks\n- Expérience robuste de toutes les plateformes et processus CI/CD de pointe dans l'environnement hybride (p. ex. Azure DevOps, GitLab CI, GitHub Actions).\n- Familiarité avec l'architecture des microservices, la gestion des API et l'observabilité est un vrai plus\n- Expérience avec Azure databricks.\n- Bonnes compétences en communication et collaboration.\n- Rigieuse et méthodique dans la documentation et la création de processus\n- Intérêt pour la convergence, la normalisation et la réutilisabilité.\n- Curieux, enthousiaste et proactif\n- Passionné par les technologies de traitement des données, avec un vif désir d'apprendre et de grandir dans un environnement exigeant\n- En anglais parlé et écrit, le français est un atout.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-25T11:12:45.401Z",
+      "slugByLocale": {
+        "it": "data-ops-ingegnere-efg-international-ag-geneve",
+        "en": "data-ops-engineer-efg-geneve",
+        "de": "data-ops-ingenieur-efg-international-ag-geneve",
+        "fr": "data-ops-ingenieur-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-20",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-20T22:46:49.521Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-ops-engineer-efg-geneve"
+        ],
+        "de": [
+          "data-ops-engineer-efg-geneve"
+        ],
+        "fr": [
+          "data-ops-engineer-efg-geneve",
+          "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "data-ops-engineer-efg-geneve",
+        "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
+      ],
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -215,7 +311,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.482Z",
+      "crawledAt": "2026-06-25T11:12:45.401Z",
       "slugByLocale": {
         "it": "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -255,100 +351,6 @@
       "country": "CH"
     },
     {
-      "id": "efg-6219",
-      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Ops Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Info\n\n- Department: IT Data Departement\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n\n- Maintain high standards of data quality, reliability, and performance.\n\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n\n- Comfortable working with Python, SQL, PySpark and Databricks\n\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n\n- Familiarity with microservices architecture, API management and observability is a real plus\n\n- Experienced with Azure databricks.\n\n- Good communication and collaboration skills.\n\n- Rigorous and methodical in documentation and process creation\n\n- High interest for convergence, normalization and reusability.\n\n- Curious, enthusiastic and proactive\n\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Data Ops Engineer",
-        "it": "Ingegnere di Data Ops",
-        "de": "Data Ops Ingenieur",
-        "fr": "Ingénieur des opérations de données"
-      },
-      "descriptionByLocale": {
-        "en": "General Info\n- Department: IT Data Departement\n- Work time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n- Maintain high standards of data quality, reliability, and performance.\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n- Comfortable working with Python, SQL, PySpark and Databricks\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n- Familiarity with microservices architecture, API management and observability is a real plus\n- Experienced with Azure databricks.\n- Good communication and collaboration skills.\n- Rigorous and methodical in documentation and process creation\n- High interest for convergence, normalization and reusability.\n- Curious, enthusiastic and proactive\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-        "it": "Informazioni generali\n- Dipartimento: Dipartimento dati IT\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nLa missione del team di piattaforma DataOps è garantire un livello di servizio affidabile in ogni componente tecnologica della piattaforma dati EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nStiamo costruendo ed evolvendo la piattaforma CI/CD che supporta le implementazioni delle pipeline di dati, portando competenze di implementazione e lavorando a stretto contatto con i team di progetto per ottenere consegnabili attraverso la linea.\n\nLe responsabilità chiave del team includono, la governance CI/CD delle pipeline di dati, il supporto di distribuzione delle pipeline e la certificazione e il monitoraggio delle operazioni a livello di piattaforma.\n\nPrincipali responsabilità\n\nMentre la nostra piattaforma e il panorama dei dati si evolvono, vorremmo rafforzare il nostro team con un ingegnere CI/CD specializzato nelle implementazioni delle pipeline di dati.\n- Le aspettative sulla qualità dei dati sono in costante aumento con la necessità di una consegna di servizio estremamente stabile. Dobbiamo garantire che i nostri processi di consegna siano controllati e visibili ai nostri stakeholder.\n- Siamo particolarmente interessati a qualcuno che guida le operazioni di Kafka, Spark e Databricks con Python\n- Rinforzando il nostro team, contribuirai notevolmente alla continuità e alla qualità delle nostre operazioni.\n- Assumere la proprietà operativa di specifici servizi di dati (gestione del cambiamento, gestione dell'assicurazione di qualità, SLA, SOP)\n\n- tracciare e garantire il buon funzionamento dei datadotti critici durante le ore asiatiche, agendo come punto di contatto primario per problemi critici in un modello di supporto al sole.\n- Progettare, implementare e ottimizzare la pipeline di dati in modalità batch e streaming.\n- Seguire e applicare la pratica CI/CD per automatizzare e ottimizzare le implementazioni e le integrazioni.\n- Creare, mantenere e migliorare la documentazione e le procedure operative per le quali è garantita la proprietà operativa.\n- Collaborare con team interfunzionali per migliorare e rivedere la governance nelle operazioni di integrazione.\n- Mantenere elevati standard di qualità dei dati, affidabilità e prestazioni.\n- Mantenere corrente con progressi nell'ingegneria dei dati, di dataops tech stack, per supportare il miglioramento continuo\n\nRequisiti e qualifiche\n- Almeno 5 anni di comprovata esperienza pratica nell'ingegneria dei dati e nell'implementazione delle pipeline di dati radicate nella pratica dei devoti.\n- Confortevole lavoro con Python, SQL, PySpark e Databricks\n- Robusta esperienza di tutte le principali piattaforme e processi CI/CD in ambiente ibrido (ad esempio, Azure DevOps, GitLab CI, GitHub Actions ).\n- La familiarità con l'architettura dei microservizi, la gestione delle API e l'osservabilità è un vantaggio reale\n- Esperienza con i databrick Azure.\n- Buone capacità di comunicazione e collaborazione.\n- Rigoroso e metodico nella documentazione e nella creazione di processi\n- Alto interesse per la convergenza, la normalizzazione e la riutilizzabilità.\n- Curioso, entusiasta e proattivo\n- Appassionato sulle tecnologie di elaborazione dei dati, con un forte desiderio di imparare e crescere in un ambiente esigente\n- Fluente in inglese parlato e scritto, il francese è un bene.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
-        "de": "Allgemeine Info\n- Abteilung: IT Data Department\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale private Bankengruppe, die private Bank- und Asset-Management-Dienste anbietet. Wir servieren Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und strebt danach, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmerische Köpfe stärken, Wert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nDataOps-Plattform-Team-Mission ist, ein zuverlässiges Serviceniveau über jede technologische Komponente der EFG-Datenplattform (Databricks, Kafka, Spark, Eastic Search, Apache MQ, uServices Stack) zu gewährleisten.\n\nWir bauen und entwickeln die CI/CD-Plattform, die Datenpipeline-Bereitstellungen unterstützt, Implementierungskompetenz bringt und eng mit Projektteams zusammenarbeitet, um Lieferungen über die Strecke zu erhalten.\n\nZu den Hauptaufgaben des Teams gehören die CI/CD Governance von Datenpipelines, die Unterstützung der Pipeline-Bereitstellung und die Zertifizierung und Überwachung von Plattformebenenoperationen.\n\nHauptverantwortlichkeiten\n\nMit der Entwicklung unserer Plattform und Datenlandschaft möchten wir unser Team mit einem qualifizierten CI/CD-Ingenieur, der sich auf die Implementierung von Datenpipeline spezialisiert hat, stärken.\n- Erwartungen an die Datenqualität steigen ständig mit der Notwendigkeit einer extrem stabilen Service-Lieferung. Wir müssen sicherstellen, dass unsere Lieferprozesse für unsere Stakeholder kontrolliert und sichtbar werden.\n- Wir sind besonders an einem komfortablen Fahren von Kafka, Spark und Databricks mit Python interessiert\n- Durch die Verstärkung unseres Teams tragen Sie maßgeblich zur Kontinuität und Qualität unserer Operationen bei.\n- Nehmen Sie das operative Eigentum an bestimmten Datendiensten (Wechselmanagement, Qualitätssicherung, SLA, SOP)\n\n- den reibungslosen Betrieb von kritischen Datenpipelines während asiatischer Stunden verfolgen und sicherstellen, als primärer Ansprechpartner für kritische Fragen in einem Folgemodell der Sonnenunterstützung.\n- Entwicklung, Implementierung und Optimierung der Datenpipeline im Batch- und Streaming-Modus.\n- Folgen Sie der CI/CD-Praxis, um Bereitstellungen und Integrationen zu automatisieren und zu optimieren.\n- Erstellung, Wartung und Verbesserung der Dokumentation und der operativen Verfahren, für die das operative Eigentum gewährleistet ist.\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Verbesserung und Überprüfung der Governance bei Integrationsoperationen.\n- Bewahren Sie hohe Standards der Datenqualität, Zuverlässigkeit und Leistung.\n- Bleiben Sie aktuell mit Fortschritten in der Datentechnik, von Dataops Tech Stack, um kontinuierliche Verbesserung zu unterstützen\n\nAnforderungen und Qualifikationen\n- Mindestens 5 Jahre Erfahrung in der Datentechnik und Datenpipeline-Bereitstellung, die in der Praxis verwurzelt ist.\n- Komfortables Arbeiten mit Python, SQL, PySpark und Databricks\n- Robuste Erfahrung aller führenden CI/CD-Plattformen und Prozesse in hybrider Umgebung (z.B. Azure DevOps, GitLab CI, GitHub Actions).\n- Vertrautheit mit Mikroservice-Architektur, API-Management und Beobachtbarkeit ist ein echtes Plus\n- Erlebt mit Azure Databricks.\n- Gute Kommunikation und Zusammenarbeit.\n- Beständig und methodisch in der Dokumentation und Prozesserstellung\n- Hohes Interesse an Konvergenz, Normalisierung und Wiederverwendbarkeit.\n- Kurios, begeistert und proaktiv\n- Leidenschaftlich über Datenverarbeitungstechnologien, mit einem starken Wunsch, in einer anspruchsvollen Umgebung zu lernen und zu wachsen\n- Flöten in gesprochenem und geschriebenem Englisch, Französisch ist ein Vermögen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
-        "fr": "Informations générales\n- Département: Département des données informatiques\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLa mission de l'équipe de plate-forme DataOps est d'assurer un niveau de service fiable pour chaque composant technologique de la plate-forme de données EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices pile).\n\nNous développons et évoluons la plate-forme CI/CD qui appuie le déploiement de pipelines de données, apporte une expertise en mise en oeuvre et travaille en étroite collaboration avec les équipes de projet pour obtenir les résultats attendus.\n\nLes principales responsabilités de l'équipe comprennent la gouvernance des pipelines de données, le soutien au déploiement des pipelines et la certification et la surveillance des opérations au niveau des plates-formes.\n\nPrincipales responsabilités\n\nAu fur et à mesure que notre plateforme et notre paysage de données évoluent, nous souhaitons renforcer notre équipe avec un ingénieur CI/CD qualifié spécialisé dans les implémentations de pipelines de données.\n- Les attentes en matière de qualité des données ne cessent d'augmenter avec la nécessité d'une prestation de services extrêmement stable. Nous devons veiller à ce que nos processus de prestation soient contrôlés et visibles par nos intervenants.\n- Nous sommes particulièrement intéressés par quelqu'un confortable conduire des opérations Kafka, Spark et Databricks avec Python\n- En renforçant notre équipe, vous contribuerez grandement à la continuité et à la qualité de nos opérations.\n- Prise en charge opérationnelle de services de données spécifiques (gestion du changement, gestion de l'assurance qualité, SLA, SOP)\n\n- suivre et assurer le bon fonctionnement des pipelines de données critiques pendant les heures d'Asie, agissant comme point de contact principal pour les problèmes critiques dans un modèle de soutien solaire suivant.\n- Concevoir, mettre en œuvre et optimiser le pipeline de données en mode batch et streaming.\n- Suivre et appliquer la pratique de l'IC/CD pour automatiser et rationaliser les déploiements et les intégrations.\n- Créer, maintenir et améliorer la documentation et les procédures opérationnelles pour lesquelles la propriété opérationnelle est assurée.\n- Collaborer avec des équipes interfonctionnelles pour améliorer et examiner la gouvernance des opérations d'intégration.\n- Maintenir des normes élevées de qualité des données, de fiabilité et de performance.\n- Restez à jour avec les progrès de l'ingénierie des données, de la pile de technologie de données, pour soutenir l'amélioration continue\n\nExigences et qualifications\n- Au moins 5 ans d'expérience pratique prouvée en ingénierie des données et en déploiement de pipelines de données enracinés dans la pratique des dévops.\n- Travail confortable avec Python, SQL, PySpark et Databricks\n- Expérience robuste de toutes les plateformes et processus CI/CD de pointe dans l'environnement hybride (p. ex. Azure DevOps, GitLab CI, GitHub Actions).\n- Familiarité avec l'architecture des microservices, la gestion des API et l'observabilité est un vrai plus\n- Expérience avec Azure databricks.\n- Bonnes compétences en communication et collaboration.\n- Rigieuse et méthodique dans la documentation et la création de processus\n- Intérêt pour la convergence, la normalisation et la réutilisabilité.\n- Curieux, enthousiaste et proactif\n- Passionné par les technologies de traitement des données, avec un vif désir d'apprendre et de grandir dans un environnement exigeant\n- En anglais parlé et écrit, le français est un atout.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-24T21:53:50.481Z",
-      "slugByLocale": {
-        "it": "data-ops-ingegnere-efg-international-ag-geneve",
-        "en": "data-ops-engineer-efg-geneve",
-        "de": "data-ops-ingenieur-efg-international-ag-geneve",
-        "fr": "data-ops-ingenieur-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-20",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-20T22:46:49.521Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "data-ops-engineer-efg-geneve"
-        ],
-        "de": [
-          "data-ops-engineer-efg-geneve"
-        ],
-        "fr": [
-          "data-ops-engineer-efg-geneve",
-          "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "data-ops-engineer-efg-geneve",
-        "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
-      ],
-      "country": "CH"
-    },
-    {
       "id": "efg-6210",
       "slug": "servizi-generali-dipendenti-efg-international-ag-geneve",
       "company": "EFG International AG",
@@ -369,7 +371,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -397,11 +399,11 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.480Z",
+      "crawledAt": "2026-06-25T11:12:45.400Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -433,184 +435,16 @@
           "general-services-employee-efg-geneve"
         ],
         "de": [
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
-        "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve"
-      ]
-    },
-    {
-      "id": "efg-6190",
-      "slug": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "PB Support Specialist Americas Geneva",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Job Description\n\nThe role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region.\n\n## Main responsibilities\n\n- Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations\n\n- Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases\n\n- Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner\n\n- Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business\n\n- Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate\n\n- Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department\n\n- Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise\n\n- Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally\n\n- Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently.\n\n## Skills and Experience\n\n- Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures\n\n- Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise\n\n- Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined\n\n- Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee\n\n- Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit\n\n- Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards\n\n## Our Values\n\n-  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [
-        "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-        "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
-        "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
-        "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
-        "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
-        "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
+        "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve"
       ],
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6190",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "PB Support Specialist Americas Geneva",
-        "it": "PB Support Specialista Americas Geneva",
-        "de": "PB Support Spezialist Americas Geneva",
-        "fr": "PB Support Spécialiste Americas Geneva"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nThe role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region.\n\n## Main responsibilities\n\n- Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations\n\n- Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases\n\n- Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner\n\n- Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business\n\n- Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate\n\n- Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department\n\n- Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise\n\n- Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally\n\n- Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently.\n\n## Skills and Experience\n\n- Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures\n\n- Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise\n\n- Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined\n\n- Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee\n\n- Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit\n\n- Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards\n\n## Our Values\n\n-  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Descrizione del lavoro\n\nIl ruolo collega le esigenze aziendali con gli standard normativi e garantisce l'esecuzione regolare, la conformità e i processi operativi per le attività nella regione Americas.\n\nPrincipali responsabilità\n- Responsabile per l'output dell'area di lavoro PB Support all'interno della disciplina, con l'obiettivo di implementare ed eseguire strategie e garantire l'allineamento con gli standard svizzeri e le aspettative normative\n- Sostenere i responsabili delle relazioni con i clienti nell'identificazione proattiva, nella gestione e nella mitigazione dei rischi derivanti dalle attività aziendali quotidiane, nell'applicazione di competenze professionali avanzate e di pensiero concettuale a casi complessi\n- Eseguire la due diligenza sulle relazioni prospettiche e dei clienti esistenti, garantendo un approccio coerente e applicando quadri, processi e routine allineati alle aspettative normative in modo tempestivo e qualitativo\n- Approva fondi e trasferimenti di titoli, concessione di crediti, overrides e operazioni che comportano sanzioni sensibili, all'interno dell'autorità delegata, assicurando che le decisioni riflettano gli standard e le specifiche applicabili al business\n- Distribuire le conoscenze di mercato e le migliori pratiche tra Client Relationship Officers, Client Service Officers e Account Managers, definendo e incorporando lo standard intorno al quale altri opereranno\n- Assicurare il completamento tempestivo e la bonifica dei follow-up in sospeso relativi alle attività del ciclo di vita del cliente, essendo responsabile per la consegna di processi/programmi assegnati che influiscono sul reparto\n- Approva i clienti e gli introduttori di business nuovi account, supervisiona il ciclo di vita di KYC e revisioni periodiche all'interno dell'autorità delegato da HoPB, assicurando che gli standard di supervisione e conformità siano rispettati attraverso una profonda competenza professionale\n- Agire come partner senior chiave per le funzioni di front office e di controllo e come un collegamento chiave tra FLOD e SLOD, assicurando percorsi di comunicazione e di escalation coerenti, e in rete con contatti chiave tra i livelli multipe e i team internamente ed esternamente\n- Rivedere le aperture del conto, le modifiche CIP e le revisioni periodiche per le squadre PBS locali in tutta la Regione, fornendo al contempo indicazioni per rafforzare la loro comprensione dei requisiti e degli standard di controllo. Attraverso il supporto continuo e la migliore condivisione delle pratiche, fornire una guida ai membri più giovani del team e contribuire a sviluppare la capacità di eseguire queste recensioni in modo indipendente.\n\nCompetenze ed Esperienza\n\n- portare progetti di medie dimensioni/assegnazione di BAU per migliorare le norme di controllo documentazione controlli di qualità e misure di mitigazione del rischio\n\n- fornire indicazioni e fornire sessioni di presentazione ai team di Front Office su temi di rischio, obblighi di controllo e aspettative di regolamentazione, consigliando frequentemente su questioni complesse legate al settore delle competenze\n- Condurre la valutazione del rischio, i controlli di controllo e le recensioni tematiche assegnate da Senior Management (Line Manager, HOPB & RBH), applicando il giudizio e l'innovazione in cui le questioni possono essere chiaramente definite\n- Preparare e presentare casi ad alto rischio e sensibili a nome del comitato HoPB-CAC\n- Risolvere i problemi di audit coordinando con gli stakeholder per implementare azioni correttive, essendo responsabile per la consegna dei piani di bonifica che influenzano il dipartimento e l'unità aziendale\n- Sostenere il team PBS locale nel migliorare i propri processi operativi, fornendo indicazioni sui requisiti di controllo, sui miglioramenti del flusso di lavoro e sulle misure di riduzione del rischio, tra cui lo sviluppo di soluzioni e quadri con una visione a più lungo termine, per garantire l'allineamento con gli standard svizzeri\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Job Description\n\nDie Rolle überbrückt die Geschäftsanforderungen mit regulatorischen Standards und gewährleistet die reibungslose Durchführung von regulatorischen, Compliance- und operativen Prozessen für Aktivitäten in der Region Amerika.\n\nHauptaufgaben\n- Verantwortlich für die Produktion des PB Support-Arbeitsbereichs innerhalb der Disziplin, mit Schwerpunkt auf der Umsetzung und Durchführung von Strategien und Sicherstellung der Angleichung an Schweizer Standards und regulatorische Erwartungen\n- Unterstützung der Client Relationship Officers bei der proaktiven Identifizierung, Verwaltung und Minderung von Risiken, die sich aus täglichen Geschäftsaktivitäten ergeben, Anwendung fortschrittlicher fachlicher Expertise und konzeptionellem Denken auf komplexe Fälle\n- Führen Sie Due Diligence auf prospektive und bestehende Kundenbeziehungen durch, um einen konsequenten Ansatz zu gewährleisten und Rahmen, Prozesse und Routinen anzuwenden, die den regulatorischen Erwartungen zeitnah und qualitativ entsprechen\n- Genehmigung von Geldern und Wertpapierübertragungen, Krediterteilungen, Überweisungen und Transaktionen mit Sanktionen, die die Sensitivität der Sanktionen betreffen, innerhalb der delegierten Behörde;\n- Verteilen Sie Marktkenntnisse und Best Practices unter Client Relationship Officers, Client Service Officers und Account Managers, definieren und einbetten Standard, um den andere bedienen werden\n- Gewährleistung der rechtzeitigen Fertigstellung und Abhilfe von anhängigen Follow-ups im Zusammenhang mit dem Lebenszyklus der Kunden, die für die Lieferung von zugewiesenen Prozessen/Programmen verantwortlich sind, die die Abteilung betreffen\n- Berechtigen Sie Kunden und Unternehmer neue Konten, beaufsichtigen Sie KYC-Lebenszyklus und regelmäßige Überprüfungen innerhalb der von HoPB delegierten Behörde, um sicherzustellen, dass Aufsichts- und Compliance-Standards durch gründliche fachliche Expertise erfüllt werden\n- Aktivieren Sie als wichtiger Senior Partner bei Front Office und Control Functions und als Schlüsselverbindung zwischen FLOD und SLOD, um einheitliche Kommunikations- und Eskalationswege zu gewährleisten und die Vernetzung mit Schlüsselkontakten über Multipe Levels und Teams intern und extern zu gewährleisten\n- Überprüfen Sie Kontoeröffnungen, CIP-Änderungen und regelmäßige Bewertungen für die lokalen PBS-Teams in der ganzen Region, während Sie Leitlinien für ihr Verständnis von Anforderungen und Kontrollstandards bieten. Durch die kontinuierliche Unterstützung und den bestmöglichen Übungsaustausch bieten wir mehr Junior-Mitglieder des Teams und helfen, die Fähigkeit zu entwickeln, diese Bewertungen unabhängig durchzuführen.\n\nFähigkeiten und Erfahrungen\n- Führen Sie mittelständische Projekte/BAU-Beauftragungen zur Verbesserung der Kontrollstandards Dokumentation Qualitätskontrollen und Risikominderungsmaßnahmen\n- Beratung und Präsentationssitzungen an Front Office-Teams zu Risikothemen, Kontrollpflichten und regulatorischen Erwartungen, häufig Beratung in komplexen Fragen rund um den Fachbereich\n- Durchführung von Risikobewertungen, Kontrollkontrollen und thematischen Bewertungen, die von Senior Management (Line Manager, HOPB & RBH) vergeben werden, bei der Beurteilung und Innovation, bei denen Probleme unklar definiert werden können\n- Vorbereiten und präsentieren hochrisikoreiche und sensible Fälle im Namen von HoPB zum CAC-Ausschuss\n- Behebung von Audit-Problemen durch Koordinierung mit Interessenvertretern zur Umsetzung von Korrekturmaßnahmen, die für die Lieferung von Sanierungsplänen, die die Abteilung und die Geschäftseinheit betreffen, verantwortlich sind\n- Unterstützung des lokalen PBS-Teams bei der Verbesserung ihrer operativen Prozesse, Beratung zu Steuerungsanforderungen, Workflow-Verbesserungen und Risikomitigationsmaßnahmen, einschließlich der Entwicklung von Lösungen und Rahmenbedingungen mit längerer Sicht, um die Angleichung an die Schweizer Standards zu gewährleisten\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
-        "fr": "Description de l'emploi\n\nLe rôle est de relier les besoins des entreprises aux normes réglementaires et d'assurer la bonne exécution des processus réglementaires, de conformité et opérationnels des activités dans la région des Amériques.\n\nPrincipales responsabilités\n- Responsable de la production du domaine de travail PB Support au sein de la discipline, en mettant l'accent sur la mise en œuvre et l'exécution des stratégies et en assurant l'alignement sur les normes suisses et les attentes réglementaires\n- Aider les agents de relations avec la clientèle à cerner, gérer et atténuer les risques découlant des activités courantes, en appliquant une expertise professionnelle avancée et une réflexion conceptuelle à des cas complexes\n- Faire preuve de diligence raisonnable en ce qui concerne les relations avec les clients potentiels et existants, en assurant une approche cohérente et en appliquant des cadres, des processus et des routines conformes aux attentes réglementaires en temps opportun et de manière qualitative\n- Approuver les transferts de fonds et de valeurs mobilières, l'octroi de crédits, les dérogations et les opérations touchant la sensibilité aux sanctions, dans le cadre des pouvoirs délégués, en veillant à ce que les décisions reflètent les normes et spécifications applicables à l'entreprise\n- Distribuer les connaissances du marché et les pratiques exemplaires entre les agents des relations avec la clientèle, les agents des services à la clientèle et les gestionnaires de comptes, en définissant et en intégrant la norme autour de laquelle les autres fonctionneront\n- Veiller à ce que les activités de suivi relatives au cycle de vie des clients soient menées à bien en temps voulu et à ce qu ' elles soient remises en état;\n- Approuver les nouveaux comptes des clients et des initiateurs d'entreprises, superviser le cycle de vie des CJK et les examens périodiques dans le cadre des pouvoirs délégués par HoPB, s'assurer que les normes de surveillance et de conformité sont respectées grâce à une expertise professionnelle approfondie\n- Agir en tant que partenaire principal clé du Front Office et des fonctions de contrôle et en tant que lien clé entre FLOD et SLOD, assurer des voies de communication et d'escalade cohérentes, et établir des réseaux avec des contacts clés à plusieurs niveaux et équipes internes et externes\n- Examiner les ouvertures de comptes, les modifications du CIP et les examens périodiques pour les équipes locales de BSP de la région, tout en fournissant des conseils pour mieux comprendre les exigences et les normes de contrôle. Grâce à un soutien continu et au partage des pratiques exemplaires, fournir des conseils à un plus grand nombre de membres subalternes de l'équipe et aider à développer la capacité d'effectuer ces examens de façon indépendante.\n\nCompétences et expérience\n- Diriger les projets de taille moyenne et les missions de l ' UAB pour améliorer les normes de contrôle\n- Fournir des conseils et des séances de présentation aux équipes de la Direction générale sur les risques, les obligations en matière de contrôle et les attentes en matière de réglementation, en donnant souvent des conseils sur des questions complexes liées au domaine de compétence\n- Effectuer des évaluations des risques, des contrôles et des examens thématiques assignés par la haute direction (gestionnaire de ligne, HOPB & RBH), appliquer le jugement et l'innovation là où les questions peuvent être mal définies\n- Préparer et présenter des cas à risque élevé et délicats au nom de HoPB au comité CAC\n- Résoudre les problèmes de vérification en coordonnant avec les intervenants la mise en oeuvre des mesures correctives, en rendant compte de l'exécution des plans d'assainissement touchant le Ministère et l'unité opérationnelle\n- Aider l ' équipe locale du Bureau à améliorer ses processus opérationnels, en donnant des orientations sur les exigences en matière de contrôle, l ' amélioration des flux de travail et les mesures d ' atténuation des risques, y compris en élaborant des solutions et des cadres dans une perspective à long terme, pour assurer l ' alignement sur les normes suisses\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis, ainsi que recherche d'amélioration continue\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionnée : être engagée et s'efforcer d'excellence\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter les clients avec équité avec un état d'esprit conscient des risques\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-          "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
-          "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
-          "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
-          "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
-          "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region."
-            ],
-            "responsibilities": [
-              "Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations",
-              "Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases",
-              "Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner",
-              "Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business",
-              "Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate",
-              "Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department",
-              "Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise",
-              "Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally",
-              "Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently."
-            ],
-            "requirements": [
-              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
-              "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
-              "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
-              "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
-              "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations",
-              "Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases",
-              "Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner",
-              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
-              "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics",
-              "Conduct risk assessment",
-              "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
-              "Resolve audit issues by coordinating with stakeholders to implement corrective actions",
-              "Responsible for the output of the PB Support work area within the discipline",
-              "Support the Client Relationship Officers in proactively identifying",
-              "Perform due diligence on prospective and existing client relationships",
-              "Approve funds and securities transfers"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-24T21:53:50.479Z",
-      "slugByLocale": {
-        "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
-        "en": "pb-support-specialist-americas-geneva-efg-geneve",
-        "de": "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
-        "fr": "pb-support-specialiste-americas-geneva-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-15",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.905Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pb-support-specialist-americas-geneva-efg-geneve",
-          "pb-specialist-americas-ginevra-efg-international-ag-geneve"
-        ],
-        "de": [
-          "pb-support-specialist-americas-geneva-efg-geneve"
-        ],
-        "fr": [
-          "pb-support-specialist-americas-geneva-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "pb-support-specialist-americas-geneva-efg-geneve",
-        "pb-specialist-americas-ginevra-efg-international-ag-geneve"
-      ],
-      "country": "CH"
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -661,7 +495,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.478Z",
+      "crawledAt": "2026-06-25T11:12:45.399Z",
       "slugByLocale": {
         "it": "client-support-officer-efg-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -699,7 +533,8 @@
           "funzionario-dell-assistenza-clienti-efg-international-ag-st"
         ]
       },
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -825,7 +660,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.476Z",
+      "crawledAt": "2026-06-25T11:12:45.398Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -870,7 +705,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1023,7 +859,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.475Z",
+      "crawledAt": "2026-06-25T11:12:45.397Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1251,7 +1087,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.474Z",
+      "crawledAt": "2026-06-25T11:12:45.396Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1386,7 +1222,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.473Z",
+      "crawledAt": "2026-06-25T11:12:45.395Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1568,7 +1404,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.472Z",
+      "crawledAt": "2026-06-25T11:12:45.395Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1606,7 +1442,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -1657,7 +1494,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.471Z",
+      "crawledAt": "2026-06-25T11:12:45.394Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -1701,7 +1538,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1752,7 +1590,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.470Z",
+      "crawledAt": "2026-06-25T11:12:45.393Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -1795,7 +1633,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6040",
@@ -1846,7 +1685,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.469Z",
+      "crawledAt": "2026-06-25T11:12:45.392Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -1889,7 +1728,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2040,7 +1880,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.468Z",
+      "crawledAt": "2026-06-25T11:12:45.391Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2257,7 +2097,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.467Z",
+      "crawledAt": "2026-06-25T11:12:45.390Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2317,11 +2157,12 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-4543",
-      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
+      "slug": "group-financial-controller-efg-geneve",
       "company": "EFG International AG",
       "title": "Group Financial Controller",
       "location": "Geneve",
@@ -2350,7 +2191,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2484,11 +2325,11 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.466Z",
+      "crawledAt": "2026-06-25T11:12:45.389Z",
       "slugByLocale": {
-        "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
+        "it": "group-financial-controller-efg-geneve",
         "en": "group-financial-controller-efg-geneve",
-        "de": "konzern-finanzverantwortlicher-efg-international-ag-geneve",
+        "de": "group-financial-controller-efg-geneve",
         "fr": "group-financial-controller-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -2513,16 +2354,20 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "previousSlugsByLocale": {
         "it": [
+          "gruppo-controllore-finanziario-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ],
         "de": [
+          "konzern-finanzverantwortlicher-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ]
       },
       "previousSlugs": [
-        "group-financial-controller-efg-geneve"
+        "gruppo-controllore-finanziario-efg-international-ag-geneve",
+        "konzern-finanzverantwortlicher-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -2544,7 +2389,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -2572,7 +2417,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.463Z",
+      "crawledAt": "2026-06-25T11:12:45.388Z",
       "slugByLocale": {
         "it": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -2629,7 +2474,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -2760,7 +2606,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.462Z",
+      "crawledAt": "2026-06-25T11:12:45.387Z",
       "slugByLocale": {
         "it": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
         "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
@@ -2794,7 +2640,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2845,7 +2692,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-24T21:53:50.459Z",
+      "crawledAt": "2026-06-25T11:12:45.384Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2883,6 +2730,178 @@
       "previousSlugs": [
         "data-engineer-efg-geneve"
       ]
+    },
+    {
+      "id": "efg-6190",
+      "slug": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "PB Support Specialist Americas Geneva",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Job Description\n\nThe role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region.\n\n## Main responsibilities\n\n- Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations\n\n- Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases\n\n- Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner\n\n- Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business\n\n- Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate\n\n- Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department\n\n- Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise\n\n- Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally\n\n- Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently.\n\n## Skills and Experience\n\n- Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures\n\n- Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise\n\n- Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined\n\n- Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee\n\n- Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit\n\n- Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards\n\n## Our Values\n\n-  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [
+        "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
+        "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
+        "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
+        "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
+        "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
+        "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
+      ],
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6190",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "PB Support Specialist Americas Geneva",
+        "it": "PB Support Specialista Americas Geneva",
+        "de": "PB Support Spezialist Americas Geneva",
+        "fr": "PB Support Spécialiste Americas Geneva"
+      },
+      "descriptionByLocale": {
+        "en": "## Job Description\n\nThe role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region.\n\n## Main responsibilities\n\n- Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations\n\n- Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases\n\n- Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner\n\n- Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business\n\n- Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate\n\n- Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department\n\n- Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise\n\n- Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally\n\n- Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently.\n\n## Skills and Experience\n\n- Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures\n\n- Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise\n\n- Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined\n\n- Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee\n\n- Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit\n\n- Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards\n\n## Our Values\n\n-  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "Descrizione del lavoro\n\nIl ruolo collega le esigenze aziendali con gli standard normativi e garantisce l'esecuzione regolare, la conformità e i processi operativi per le attività nella regione Americas.\n\nPrincipali responsabilità\n- Responsabile per l'output dell'area di lavoro PB Support all'interno della disciplina, con l'obiettivo di implementare ed eseguire strategie e garantire l'allineamento con gli standard svizzeri e le aspettative normative\n- Sostenere i responsabili delle relazioni con i clienti nell'identificazione proattiva, nella gestione e nella mitigazione dei rischi derivanti dalle attività aziendali quotidiane, nell'applicazione di competenze professionali avanzate e di pensiero concettuale a casi complessi\n- Eseguire la due diligenza sulle relazioni prospettiche e dei clienti esistenti, garantendo un approccio coerente e applicando quadri, processi e routine allineati alle aspettative normative in modo tempestivo e qualitativo\n- Approva fondi e trasferimenti di titoli, concessione di crediti, overrides e operazioni che comportano sanzioni sensibili, all'interno dell'autorità delegata, assicurando che le decisioni riflettano gli standard e le specifiche applicabili al business\n- Distribuire le conoscenze di mercato e le migliori pratiche tra Client Relationship Officers, Client Service Officers e Account Managers, definendo e incorporando lo standard intorno al quale altri opereranno\n- Assicurare il completamento tempestivo e la bonifica dei follow-up in sospeso relativi alle attività del ciclo di vita del cliente, essendo responsabile per la consegna di processi/programmi assegnati che influiscono sul reparto\n- Approva i clienti e gli introduttori di business nuovi account, supervisiona il ciclo di vita di KYC e revisioni periodiche all'interno dell'autorità delegato da HoPB, assicurando che gli standard di supervisione e conformità siano rispettati attraverso una profonda competenza professionale\n- Agire come partner senior chiave per le funzioni di front office e di controllo e come un collegamento chiave tra FLOD e SLOD, assicurando percorsi di comunicazione e di escalation coerenti, e in rete con contatti chiave tra i livelli multipe e i team internamente ed esternamente\n- Rivedere le aperture del conto, le modifiche CIP e le revisioni periodiche per le squadre PBS locali in tutta la Regione, fornendo al contempo indicazioni per rafforzare la loro comprensione dei requisiti e degli standard di controllo. Attraverso il supporto continuo e la migliore condivisione delle pratiche, fornire una guida ai membri più giovani del team e contribuire a sviluppare la capacità di eseguire queste recensioni in modo indipendente.\n\nCompetenze ed Esperienza\n\n- portare progetti di medie dimensioni/assegnazione di BAU per migliorare le norme di controllo documentazione controlli di qualità e misure di mitigazione del rischio\n\n- fornire indicazioni e fornire sessioni di presentazione ai team di Front Office su temi di rischio, obblighi di controllo e aspettative di regolamentazione, consigliando frequentemente su questioni complesse legate al settore delle competenze\n- Condurre la valutazione del rischio, i controlli di controllo e le recensioni tematiche assegnate da Senior Management (Line Manager, HOPB & RBH), applicando il giudizio e l'innovazione in cui le questioni possono essere chiaramente definite\n- Preparare e presentare casi ad alto rischio e sensibili a nome del comitato HoPB-CAC\n- Risolvere i problemi di audit coordinando con gli stakeholder per implementare azioni correttive, essendo responsabile per la consegna dei piani di bonifica che influenzano il dipartimento e l'unità aziendale\n- Sostenere il team PBS locale nel migliorare i propri processi operativi, fornendo indicazioni sui requisiti di controllo, sui miglioramenti del flusso di lavoro e sulle misure di riduzione del rischio, tra cui lo sviluppo di soluzioni e quadri con una visione a più lungo termine, per garantire l'allineamento con gli standard svizzeri\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Job Description\n\nDie Rolle überbrückt die Geschäftsanforderungen mit regulatorischen Standards und gewährleistet die reibungslose Durchführung von regulatorischen, Compliance- und operativen Prozessen für Aktivitäten in der Region Amerika.\n\nHauptaufgaben\n- Verantwortlich für die Produktion des PB Support-Arbeitsbereichs innerhalb der Disziplin, mit Schwerpunkt auf der Umsetzung und Durchführung von Strategien und Sicherstellung der Angleichung an Schweizer Standards und regulatorische Erwartungen\n- Unterstützung der Client Relationship Officers bei der proaktiven Identifizierung, Verwaltung und Minderung von Risiken, die sich aus täglichen Geschäftsaktivitäten ergeben, Anwendung fortschrittlicher fachlicher Expertise und konzeptionellem Denken auf komplexe Fälle\n- Führen Sie Due Diligence auf prospektive und bestehende Kundenbeziehungen durch, um einen konsequenten Ansatz zu gewährleisten und Rahmen, Prozesse und Routinen anzuwenden, die den regulatorischen Erwartungen zeitnah und qualitativ entsprechen\n- Genehmigung von Geldern und Wertpapierübertragungen, Krediterteilungen, Überweisungen und Transaktionen mit Sanktionen, die die Sensitivität der Sanktionen betreffen, innerhalb der delegierten Behörde;\n- Verteilen Sie Marktkenntnisse und Best Practices unter Client Relationship Officers, Client Service Officers und Account Managers, definieren und einbetten Standard, um den andere bedienen werden\n- Gewährleistung der rechtzeitigen Fertigstellung und Abhilfe von anhängigen Follow-ups im Zusammenhang mit dem Lebenszyklus der Kunden, die für die Lieferung von zugewiesenen Prozessen/Programmen verantwortlich sind, die die Abteilung betreffen\n- Berechtigen Sie Kunden und Unternehmer neue Konten, beaufsichtigen Sie KYC-Lebenszyklus und regelmäßige Überprüfungen innerhalb der von HoPB delegierten Behörde, um sicherzustellen, dass Aufsichts- und Compliance-Standards durch gründliche fachliche Expertise erfüllt werden\n- Aktivieren Sie als wichtiger Senior Partner bei Front Office und Control Functions und als Schlüsselverbindung zwischen FLOD und SLOD, um einheitliche Kommunikations- und Eskalationswege zu gewährleisten und die Vernetzung mit Schlüsselkontakten über Multipe Levels und Teams intern und extern zu gewährleisten\n- Überprüfen Sie Kontoeröffnungen, CIP-Änderungen und regelmäßige Bewertungen für die lokalen PBS-Teams in der ganzen Region, während Sie Leitlinien für ihr Verständnis von Anforderungen und Kontrollstandards bieten. Durch die kontinuierliche Unterstützung und den bestmöglichen Übungsaustausch bieten wir mehr Junior-Mitglieder des Teams und helfen, die Fähigkeit zu entwickeln, diese Bewertungen unabhängig durchzuführen.\n\nFähigkeiten und Erfahrungen\n- Führen Sie mittelständische Projekte/BAU-Beauftragungen zur Verbesserung der Kontrollstandards Dokumentation Qualitätskontrollen und Risikominderungsmaßnahmen\n- Beratung und Präsentationssitzungen an Front Office-Teams zu Risikothemen, Kontrollpflichten und regulatorischen Erwartungen, häufig Beratung in komplexen Fragen rund um den Fachbereich\n- Durchführung von Risikobewertungen, Kontrollkontrollen und thematischen Bewertungen, die von Senior Management (Line Manager, HOPB & RBH) vergeben werden, bei der Beurteilung und Innovation, bei denen Probleme unklar definiert werden können\n- Vorbereiten und präsentieren hochrisikoreiche und sensible Fälle im Namen von HoPB zum CAC-Ausschuss\n- Behebung von Audit-Problemen durch Koordinierung mit Interessenvertretern zur Umsetzung von Korrekturmaßnahmen, die für die Lieferung von Sanierungsplänen, die die Abteilung und die Geschäftseinheit betreffen, verantwortlich sind\n- Unterstützung des lokalen PBS-Teams bei der Verbesserung ihrer operativen Prozesse, Beratung zu Steuerungsanforderungen, Workflow-Verbesserungen und Risikomitigationsmaßnahmen, einschließlich der Entwicklung von Lösungen und Rahmenbedingungen mit längerer Sicht, um die Angleichung an die Schweizer Standards zu gewährleisten\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
+        "fr": "Description de l'emploi\n\nLe rôle est de relier les besoins des entreprises aux normes réglementaires et d'assurer la bonne exécution des processus réglementaires, de conformité et opérationnels des activités dans la région des Amériques.\n\nPrincipales responsabilités\n- Responsable de la production du domaine de travail PB Support au sein de la discipline, en mettant l'accent sur la mise en œuvre et l'exécution des stratégies et en assurant l'alignement sur les normes suisses et les attentes réglementaires\n- Aider les agents de relations avec la clientèle à cerner, gérer et atténuer les risques découlant des activités courantes, en appliquant une expertise professionnelle avancée et une réflexion conceptuelle à des cas complexes\n- Faire preuve de diligence raisonnable en ce qui concerne les relations avec les clients potentiels et existants, en assurant une approche cohérente et en appliquant des cadres, des processus et des routines conformes aux attentes réglementaires en temps opportun et de manière qualitative\n- Approuver les transferts de fonds et de valeurs mobilières, l'octroi de crédits, les dérogations et les opérations touchant la sensibilité aux sanctions, dans le cadre des pouvoirs délégués, en veillant à ce que les décisions reflètent les normes et spécifications applicables à l'entreprise\n- Distribuer les connaissances du marché et les pratiques exemplaires entre les agents des relations avec la clientèle, les agents des services à la clientèle et les gestionnaires de comptes, en définissant et en intégrant la norme autour de laquelle les autres fonctionneront\n- Veiller à ce que les activités de suivi relatives au cycle de vie des clients soient menées à bien en temps voulu et à ce qu ' elles soient remises en état;\n- Approuver les nouveaux comptes des clients et des initiateurs d'entreprises, superviser le cycle de vie des CJK et les examens périodiques dans le cadre des pouvoirs délégués par HoPB, s'assurer que les normes de surveillance et de conformité sont respectées grâce à une expertise professionnelle approfondie\n- Agir en tant que partenaire principal clé du Front Office et des fonctions de contrôle et en tant que lien clé entre FLOD et SLOD, assurer des voies de communication et d'escalade cohérentes, et établir des réseaux avec des contacts clés à plusieurs niveaux et équipes internes et externes\n- Examiner les ouvertures de comptes, les modifications du CIP et les examens périodiques pour les équipes locales de BSP de la région, tout en fournissant des conseils pour mieux comprendre les exigences et les normes de contrôle. Grâce à un soutien continu et au partage des pratiques exemplaires, fournir des conseils à un plus grand nombre de membres subalternes de l'équipe et aider à développer la capacité d'effectuer ces examens de façon indépendante.\n\nCompétences et expérience\n- Diriger les projets de taille moyenne et les missions de l ' UAB pour améliorer les normes de contrôle\n- Fournir des conseils et des séances de présentation aux équipes de la Direction générale sur les risques, les obligations en matière de contrôle et les attentes en matière de réglementation, en donnant souvent des conseils sur des questions complexes liées au domaine de compétence\n- Effectuer des évaluations des risques, des contrôles et des examens thématiques assignés par la haute direction (gestionnaire de ligne, HOPB & RBH), appliquer le jugement et l'innovation là où les questions peuvent être mal définies\n- Préparer et présenter des cas à risque élevé et délicats au nom de HoPB au comité CAC\n- Résoudre les problèmes de vérification en coordonnant avec les intervenants la mise en oeuvre des mesures correctives, en rendant compte de l'exécution des plans d'assainissement touchant le Ministère et l'unité opérationnelle\n- Aider l ' équipe locale du Bureau à améliorer ses processus opérationnels, en donnant des orientations sur les exigences en matière de contrôle, l ' amélioration des flux de travail et les mesures d ' atténuation des risques, y compris en élaborant des solutions et des cadres dans une perspective à long terme, pour assurer l ' alignement sur les normes suisses\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis, ainsi que recherche d'amélioration continue\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionnée : être engagée et s'efforcer d'excellence\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter les clients avec équité avec un état d'esprit conscient des risques\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
+          "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
+          "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
+          "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
+          "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
+          "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
+        ]
+      },
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region."
+            ],
+            "responsibilities": [
+              "Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations",
+              "Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases",
+              "Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner",
+              "Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business",
+              "Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate",
+              "Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department",
+              "Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise",
+              "Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally",
+              "Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently."
+            ],
+            "requirements": [
+              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
+              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
+              "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
+              "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
+              "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
+              "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
+            ],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations",
+              "Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases",
+              "Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner",
+              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
+              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
+              "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
+              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics",
+              "Conduct risk assessment",
+              "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
+              "Resolve audit issues by coordinating with stakeholders to implement corrective actions",
+              "Responsible for the output of the PB Support work area within the discipline",
+              "Support the Client Relationship Officers in proactively identifying",
+              "Perform due diligence on prospective and existing client relationships",
+              "Approve funds and securities transfers"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-24T21:53:50.479Z",
+      "slugByLocale": {
+        "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
+        "en": "pb-support-specialist-americas-geneva-efg-geneve",
+        "de": "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
+        "fr": "pb-support-specialiste-americas-geneva-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-15",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pb-support-specialist-americas-geneva-efg-geneve",
+          "pb-specialist-americas-ginevra-efg-international-ag-geneve"
+        ],
+        "de": [
+          "pb-support-specialist-americas-geneva-efg-geneve"
+        ],
+        "fr": [
+          "pb-support-specialist-americas-geneva-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "pb-support-specialist-americas-geneva-efg-geneve",
+        "pb-specialist-americas-ginevra-efg-international-ag-geneve"
+      ],
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -3065,7 +3084,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -3383,7 +3403,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -3665,7 +3686,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -3866,7 +3888,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -4076,7 +4099,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -4701,7 +4725,8 @@
         "operational-risk-and-advisory-it-and-information-security-specialiste-efg-international-ag-zurich",
         "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6101",
@@ -5034,7 +5059,7 @@
         "fr": "Apprenti Commercial"
       },
       "descriptionByLocale": {
-        "en": "Are you finishing middle school and interested in becoming a professional in the bank?\n\nIf this is your wish the AFC Trade Apprentice Bank of EFG Bank is what it does for you.\n\nYou will be working at the Swiss headquarters of EFG Bank in the centre of Lugano from August 2026 until August 2029 when you get the Federal Certificate of Capacity.\n\nDuring the three years you will experience different working teams working at national and international level, for example Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nIn addition to training in the company, in which you will be followed by a tutor dedicated to each team, you will attend the commercial professional school (CPC) of your interest and the courses at the banking competence center (CYP) along with all the business apprentices branch bank of the Canton.\n\nEFG Bank supports and encourages the development of integrated vocational training to ensure training as complete as possible at the end of the apprenticeship.\n\nDuring the course you can develop different professional skills, including:\n\n- analysis of the financial market and credit\n\n- knowledge of banking products\n\n- processing and verification of documents\n\n- schedule and priority management\n\n- use of financial IT systems\n\n## Requirements\n\n- Passion for the economy and banking world\n\n- High school license with excellent results\n\n- Expiced relational capabilities and ease to adapt to different working scenarios\n\n- Good computer knowledge\n\n- English Language Knowledge\n\nIf you are motivated, thank you for attaching to the online application: a motivation letter, CV, the three most recent school reports and the middle school license.",
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
         "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
         "de": "Sind Sie Abschluss der Mittelschule und daran interessiert, ein Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank der EFG Bank das, was sie für Sie tut.\n\nSie arbeiten am Schweizer Hauptsitz der EFG Bank im Zentrum von Lugano von August 2026 bis August 2029, wenn Sie das Federal Certificate of Capacity erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsteams erleben, die auf nationaler und internationaler Ebene arbeiten, z. B. Private Banking, Compliance, Kreditkarten, Central Filing, Credit, Business Risk Management, Asset Management usw.\n\nNeben der Ausbildung im Unternehmen, bei der Sie von einem Tutor begleitet werden, der jedem Team gewidmet ist, besuchen Sie die kaufmännische Berufsschule (CPC) Ihres Interesses und die Kurse im Bankenkompetenzzentrum (CYP) zusammen mit allen kaufmännischen Lehrlingen Zweigbank des Kantons.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsausbildung, um eine möglichst vollständige Ausbildung am Ende der Ausbildung sicherzustellen.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, einschließlich:\n- Analyse von Finanzmarkt und Kredit\n- Kenntnis der Bankprodukte\n- Verarbeitung und Überprüfung von Dokumenten\n- Terminplanung und Priority Management\n- Nutzung von Finanz-IT-Systemen\n\nAnforderungen\n- Leidenschaft für Wirtschaft und Bankenwelt\n- High School Lizenz mit hervorragenden Ergebnissen\n\nErklären Sie die relationalen Fähigkeiten und die einfache Anpassung an verschiedene Arbeitsszenarien\n- Gute Computerkenntnisse\n- Kenntnisse der englischen Sprache\n\nWenn Sie motiviert sind, danken Sie für das Anfügen an die Online-Bewerbung: ein Motivationsschreiben, Lebenslauf, die drei neuesten Schulberichte und die Mittelschullizenz.",
         "fr": "Finissez-vous le collège et souhaitez-vous devenir un professionnel à la banque ?\n\nSi tel est votre souhait, la Banque d'apprentissage commercial d'EFG est ce qu'elle fait pour vous.\n\nVous travaillerez au siège social suisse de la Banque EFG dans le centre de Lugano, entre août 2026 et août 2029, lorsque vous recevrez le Certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple Private Banking, Compliance, Credit Cards, Central Fileing, Credit, Business Risk Management, Asset Management, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur dédié à chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétences bancaires (CYP) avec tous les apprentis d'affaires de la banque du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée afin de garantir une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des délais et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n- Passion pour l'économie et le monde bancaire\n- Licence de lycée avec d'excellents résultats\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n- Bonne connaissance informatique\n- Connaissance de la langue anglaise\n\nSi vous êtes motivé, merci d'avoir joint à la demande en ligne : une lettre de motivation, un CV, les trois derniers rapports scolaires et la licence du collège."
@@ -5168,7 +5193,8 @@
         "afc-banque-employe-d-affaires-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
