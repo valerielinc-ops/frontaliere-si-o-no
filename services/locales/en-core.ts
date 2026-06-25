@@ -675,6 +675,7 @@ const enCore: Record<string, string> = {
  'jobBoard.contract.contract': 'Contract/Project',
  'jobBoard.contract.internship': 'Internship',
  'jobBoard.resultsCount': '{count} offers found',
+ 'jobBoard.loadingResults': 'Loading offers…',
  'jobBoard.demoNotice': 'Real job postings from {canton} companies',
  'jobBoard.pagination.prev': 'Previous',
  'jobBoard.pagination.next': 'Next',
