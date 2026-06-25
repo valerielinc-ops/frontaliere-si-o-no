@@ -424,6 +424,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caldo-ferroviario-svizzera.title': 'Heat stroke also affects rail traffic',
     'blog.article.caldo-ferroviario-svizzera.excerpt': 'Deformed tracks, air conditioning failures and delays. SBB, BLS and SOB guarantee a stable service despite the difficult conditions',
     'blog.article.caldo-ferroviario-svizzera.imageAlt': 'Swiss train crossing an alpine landscape',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.title': 'Frontier: how to avoid double taxation with the tax credit',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.excerpt': 'Complete guide for border crossers on how the tax credit mechanism works to avoid double taxation.',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.imageAlt': 'View of Lugano city from the lake with the mountains in the background',
 };
 
 export default blogMetaChEn;

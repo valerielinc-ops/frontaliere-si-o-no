@@ -424,6 +424,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-ferroviario-svizzera.title': 'Die Hitzewelle wirkt sich auch auf den Eisenbahnverkehr aus',
     'blog.article.caldo-ferroviario-svizzera.excerpt': 'Verformte Schienen, Klimaanlagenausfälle und Verzögerungen. SBB, BLS und SOB garantieren einen stabilen Service trotz schwieriger Bedingungen',
     'blog.article.caldo-ferroviario-svizzera.imageAlt': 'Schweizer Zug, der eine Alpenlandschaft durchquert',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.title': 'Grenzgänger: So vermeiden Sie Doppelbesteuerung mit Steuergutschrift',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.excerpt': 'Umfassender Leitfaden für Grenzgänger zur Funktionsweise des Steuergutschriftsmechanismus zur Vermeidung von Doppelbesteuerung.',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.imageAlt': 'Blick auf die Stadt Lugano vom See mit den Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;

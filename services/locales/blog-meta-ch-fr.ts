@@ -424,6 +424,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caldo-ferroviario-svizzera.title': 'La canicule affecte également le trafic ferroviaire',
     'blog.article.caldo-ferroviario-svizzera.excerpt': 'Rails déformés, défaillances des climatiseurs et retards. CFF, BLS et SOB garantissent un service stable malgré des conditions difficiles',
     'blog.article.caldo-ferroviario-svizzera.imageAlt': 'Train suisse traversant un paysage alpin',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.title': 'Frontalier : comment éviter la double imposition avec le crédit d\'impôt',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.excerpt': 'Guide complet pour les frontaliers sur le fonctionnement du mécanisme du crédit d\'impôt pour éviter la double imposition.',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.imageAlt': 'Vue de la ville de Lugano depuis le lac avec les montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;
