@@ -4191,6 +4191,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-asili-nido-ticino': { name: 'Asili nido frontalieri', path: '/articoli-svizzera/frontalieri-asili-nido-ticino/', parent: 'blog' },
     'blog-tassazione-frontalieri-oltre-20km-confine': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/tassazione-frontalieri-oltre-20km-confine/', parent: 'blog' },
     'blog-mc-27-mostra-lugano-2026': { name: 'Esposizione MC\'27 Lugano 2026', path: '/articoli-svizzera/mc-27-mostra-lugano-2026/', parent: 'blog' },
+    'blog-radio-materia-volontari-banca-etica-libri-sport': { name: 'Volontari Banca Etica e libri sportivi', path: '/articoli-frontaliere/radio-materia-volontari-banca-etica-libri-sport', parent: 'blog' },
  };
 
  const info = sectionNames[section];

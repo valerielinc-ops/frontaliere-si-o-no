@@ -8149,6 +8149,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sensibilita-al-lavoro-personale.title': 'Work Sensitivity: Managing Stress and Isolation',
     'blog.article.sensibilita-al-lavoro-personale.excerpt': '15-20% of the population is highly sensitive to work. Learn how to deal with stress and isolation.',
     'blog.article.sensibilita-al-lavoro-personale.imageAlt': 'Man working with noise-canceling headphones in a quiet office',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.title': 'Radio Materia: Volunteers of Banca Etica and sports books',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.excerpt': 'Today on Radio Materia we talk about volunteering and sports books. Two appointments in the afternoon.',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.imageAlt': 'Banca Etica volunteers working in a library with sports books',
 };
 
 export default blogMetaEn;
