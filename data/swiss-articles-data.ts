@@ -1340,6 +1340,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cantiere-ffs-trasporti-ticino',
+    category: 'pratico',
+    date: '2026-06-25T09:05:59.212Z',
+    image: '/images/blog/cantiere-ffs-trasporti-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

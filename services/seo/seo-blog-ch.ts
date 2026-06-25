@@ -5712,6 +5712,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cantiere-ffs-trasporti-ticino': {
+    title: 'L’estate dei cantieri FFS: orari stravolti per chi viaggia in Ticino',
+    description: 'Modifiche ai collegamenti ferroviari in Ticino a causa di cantieri estivi delle FFS, con impatto su orari e viaggi. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, estate, cantieri, orari, stravolti',
+    ogTitle: 'Lavori estivi FFS in Ticino: orari rivoluzionati',
+    ogDescription: 'Dal 20 luglio al 30 agosto, modifiche ai collegamenti ferroviari in Ticino per lavori estivi delle FFS.',
+    canonicalPath: '/articoli-svizzera/cantiere-ffs-trasporti-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’estate dei cantieri FFS: orari stravolti per chi viaggia in Ticino",
+      "description": "Modifiche ai collegamenti ferroviari in Ticino a causa di cantieri estivi delle FFS, con impatto su orari e viaggi. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantiere-ffs-trasporti-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria in Ticino durante lavori estivi con treni in circolazione"
+      },
+      "datePublished": "2026-06-25T09:05:59+00:00",
+      "dateModified": "2026-06-25T09:05:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cantiere-ffs-trasporti-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
