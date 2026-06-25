@@ -1,18 +1,59 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-06-25T12:14:02.606Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-06-25T23:32:49.443Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2396,
-  "avgDurationMs": 2396,
+  "durationMs": 2637,
+  "avgDurationMs": 2637,
   "durationHistory": [
-    2396
+    2637
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "vaxcyte-f558683786d7",
+      "slug": "staff-engineer-drug-substance-msat-vaxcyte-ch",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Staff Engineer, Drug Substance, MSAT",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-25T23:32:47.249Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
+      "department": "Global MSAT",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "vaxcyte-f57d2d8f4e2b",
@@ -26,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T12:14:00.670Z",
+      "crawledAt": "2026-06-25T23:32:47.232Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-25T12:14:00.606Z",
+      "crawledAt": "2026-06-25T23:32:47.168Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -97,50 +138,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "vaxcyte-c9c634d0bcbe",
-      "slug": "vice-presidente-manufacturing-operations-managing-director-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Vice President, Manufacturing Operations & Managing Director",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-24T23:11:39.768Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "1950",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-17",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
-      "department": "Swiss Manufacturing & Supply Chain",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-04-18T10:19:24.971Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
