@@ -421,6 +421,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calcolo-pensione-frontaliere-avs-inps.title': 'Border pension calculation: Swiss AVS and Italian INPS',
     'blog.article.calcolo-pensione-frontaliere-avs-inps.excerpt': 'Practical guide to calculating the pension for border workers: operation of AVS contributions, aggregation of insurance periods and coordination with INPS.',
     'blog.article.calcolo-pensione-frontaliere-avs-inps.imageAlt': 'Pension calculation for cross-border commuters in Switzerland and Italy',
+    'blog.article.caldo-ferroviario-svizzera.title': 'Heat stroke also affects rail traffic',
+    'blog.article.caldo-ferroviario-svizzera.excerpt': 'Deformed tracks, air conditioning failures and delays. SBB, BLS and SOB guarantee a stable service despite the difficult conditions',
+    'blog.article.caldo-ferroviario-svizzera.imageAlt': 'Swiss train crossing an alpine landscape',
 };
 
 export default blogMetaChEn;

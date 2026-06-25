@@ -1259,6 +1259,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'caldo-ferroviario-svizzera',
+    category: 'pratico',
+    date: '2026-06-25T00:27:14.999Z',
+    image: '/images/blog/caldo-ferroviario-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

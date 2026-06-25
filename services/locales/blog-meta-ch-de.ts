@@ -421,6 +421,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcolo-pensione-frontaliere-avs-inps.title': 'Berechnung Grenzrente: AHV Schweiz und INPS Italienisch',
     'blog.article.calcolo-pensione-frontaliere-avs-inps.excerpt': 'Praktischer Leitfaden zur Berechnung der Rente für Grenzgänger: Funktionsweise der AHV-Beiträge, Zusammenrechnung der Versicherungszeiten und Abstimmung mit dem NISF.',
     'blog.article.calcolo-pensione-frontaliere-avs-inps.imageAlt': 'Rentenberechnung für Grenzgänger in der Schweiz und Italien',
+    'blog.article.caldo-ferroviario-svizzera.title': 'Die Hitzewelle wirkt sich auch auf den Eisenbahnverkehr aus',
+    'blog.article.caldo-ferroviario-svizzera.excerpt': 'Verformte Schienen, Klimaanlagenausfälle und Verzögerungen. SBB, BLS und SOB garantieren einen stabilen Service trotz schwieriger Bedingungen',
+    'blog.article.caldo-ferroviario-svizzera.imageAlt': 'Schweizer Zug, der eine Alpenlandschaft durchquert',
 };
 
 export default blogMetaChDe;

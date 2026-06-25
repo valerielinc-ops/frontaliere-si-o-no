@@ -421,6 +421,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcolo-pensione-frontaliere-avs-inps.title': 'Calcolo pensione frontaliere: AVS svizzera e INPS italiana',
     'blog.article.calcolo-pensione-frontaliere-avs-inps.excerpt': 'Guida pratica al calcolo della pensione per frontalieri: funzionamento dei contributi AVS, totalizzazione dei periodi assicurativi e coordinamento con l\'INPS.',
     'blog.article.calcolo-pensione-frontaliere-avs-inps.imageAlt': 'Calcolo pensione per frontalieri in Svizzera e Italia',
+    'blog.article.caldo-ferroviario-svizzera.title': 'La canicola incide anche sul traffico ferroviario',
+    'blog.article.caldo-ferroviario-svizzera.excerpt': 'Binari deformati, guasti ai climatizzatori e ritardi. FFS, BLS e SOB garantiscono un servizio stabile nonostante le condizioni difficili',
+    'blog.article.caldo-ferroviario-svizzera.imageAlt': 'Treno svizzero che attraversa un paesaggio alpino',
 };
 
 export default blogMetaChIt;
