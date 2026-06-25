@@ -319,16 +319,18 @@ describe('jobCardHtml — renderJobCardListHtml in-feed ads', () => {
     href: `/j${i}/`,
   }));
 
-  it('injects a device-split in-feed ad after every 3rd card by default', () => {
+  it('injects a single responsive in-feed ad after every 3rd card by default', () => {
     const html = renderJobCardListHtml(items, { locale: 'it' });
     // 7 cards → ads after card 3 and 6 (never after the last) → 2 ad items.
     const adItems = (html.match(/<li class="ft-infeed-ad/g) || []).length;
     expect(adItems).toBe(2);
-    // each ad item carries BOTH device variants so the right format shows.
-    expect(html).toContain('block md:hidden');
-    expect(html).toContain('hidden md:block');
-    expect(html).toContain(AD_SLOTS.JOBLIST_INFEED_MOBILE.slot);
+    // exactly ONE <ins> per ad point (no dual device-split) so the static
+    // loader's push-per-ins stays aligned with the trailing multiplex.
+    const insCount = (html.match(/class="adsbygoogle"/g) || []).length;
+    expect(insCount).toBe(2);
+    // responsive DISPLAY unit (adapts per device), full-width-responsive.
     expect(html).toContain(AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot);
+    expect(html).toContain('data-full-width-responsive="true"');
   });
 
   it('never places an in-feed ad after the last card', () => {

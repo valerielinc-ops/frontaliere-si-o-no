@@ -31,25 +31,27 @@ export function adSlotHtml(slotKey: AdSlotKey): string {
 }
 
 /**
- * Device-split in-feed ad as a list `<li>` for static job/employer lists.
+ * In-feed ad for static job/employer lists.
  *
- * Mirrors the SPA `JobBoard` between-card ad (which picks the mobile vs desktop
- * in-feed slot via the `isMobile` JS flag): since static HTML has no per-request
- * device detection, we emit BOTH the mobile and desktop in-feed `<ins>` wrapped
- * in Tailwind show/hide (`block sm:hidden` / `hidden sm:block`) so the
- * device-appropriate format renders. The static AdSense loader
- * (`ADSENSE_LOADER_CONTENT`) only `push()`es a visible `<ins>` (it skips the
- * collapsed `display:none` device variant), so no wasted ad request fires.
+ * Static HTML has no per-request device detection, so unlike the SPA (which
+ * picks the mobile vs desktop slot via the `isMobile` flag) we emit a SINGLE
+ * responsive DISPLAY `<ins>` (`format:auto` + `data-full-width-responsive`) per
+ * in-feed point. AdSense serves a device-appropriate creative from the same
+ * responsive unit, so "format by device" still holds without a dual-`<ins>`
+ * show/hide pair — which would be unsafe here: the static loader
+ * (`ADSENSE_LOADER_CONTENT`) pushes once per `<ins>` in DOM order, and
+ * `adsbygoogle.push({})` is not slot-bound, so emitting a hidden off-device
+ * `<ins>` would consume a push and desync the trailing slots (e.g. the
+ * end-of-list multiplex). One `<ins>` per point keeps push↔slot aligned.
+ *
+ * Uses JOBLIST_INFEED_DESKTOP (the higher-fill ~92% responsive display unit);
+ * being responsive it adapts down to mobile widths too.
  *
  * `spanFull` makes the ad item span every column of a multi-column grid so the
- * ad keeps full width instead of squeezing into a single ~1/3-width cell.
+ * ad keeps full width instead of squeezing into a single ~1/N-width cell.
  */
 function infeedAdInnerHtml(): string {
-  // `md` cutoff (≥768px = desktop) mirrors the SPA JobBoard's
-  // `isMobile = max-width:767px` so the same device picks the same slot.
-  const mobile = `<div class="block md:hidden">${adSlotHtml('JOBLIST_INFEED_MOBILE')}</div>`;
-  const desktop = `<div class="hidden md:block">${adSlotHtml('JOBLIST_INFEED_DESKTOP')}</div>`;
-  return mobile + desktop;
+  return adSlotHtml('JOBLIST_INFEED_DESKTOP');
 }
 
 /** In-feed ad as a list `<li>` — for `<ul role="list">` job/employer lists. */

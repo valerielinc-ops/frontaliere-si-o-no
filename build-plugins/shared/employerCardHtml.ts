@@ -176,7 +176,7 @@ export function renderEmployerCardListHtml(
   const interleave = opts.interleaveInfeedAds ?? true;
   // Span every grid column when the list is multi-column so the ad keeps full
   // width instead of squeezing into a single cell.
-  const spanFull = /grid-cols-[2-9]/.test(ulClass);
+  const spanFull = /grid-cols-(?:[2-9]|\d{2})/.test(ulClass);
   const cards = items
     .map(({ employer, href }, i) => {
       const card = `<li>${renderEmployerCardHtml(employer, {

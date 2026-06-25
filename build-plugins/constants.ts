@@ -462,12 +462,14 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  *     no-rIC path, so both static-shell ad/CMP fetch paths are load-gated (not
  *     timer-gated). AdSenseBanner.tsx keeps a flat 1.5s no-rIC timer because it
  *     runs in a post-hydration effect (already after LCP), so it needs no gate.
- *  3. On script load, pushes {} for every VISIBLE slot currently in the DOM.
- *     Slots collapsed to 0×0 (a `display:none` device variant — e.g. the
- *     desktop in-feed `<ins>` hidden on mobile by `infeedAdListItemHtml`'s
- *     `block md:hidden`/`hidden md:block` pair) are skipped so no ad request
- *     fires for the off-device unit. Always-visible slots (end multiplex, etc.)
- *     behave exactly as before.
+ *  3. On script load, pushes {} once for every `<ins>` currently in the DOM.
+ *     NOTE: `adsbygoogle.push({})` is NOT bound to a specific slot — each push
+ *     fills the next not-yet-statused `<ins>` in DOM order. So the push COUNT
+ *     must equal the number of `<ins>` (push-per-ins), never a filtered subset,
+ *     or trailing slots (e.g. the end-of-list multiplex) would be left
+ *     unprocessed. Off-device/hidden units are avoided upstream by emitting a
+ *     single responsive `<ins>` per in-feed point (see `infeedAdListItemHtml`),
+ *     not by skipping pushes here.
  */
 /**
  * Plain JS body for the AdSense lazy loader — written to dist/assets/adsense-loader.js
@@ -475,7 +477,7 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{if(slots[i].offsetWidth===0&&slots[i].offsetHeight===0)continue;(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
+export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
