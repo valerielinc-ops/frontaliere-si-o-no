@@ -8150,6 +8150,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sensibilita-al-lavoro-personale.title': 'Sensibilità al lavoro: come gestire stress e isolamento',
     'blog.article.sensibilita-al-lavoro-personale.excerpt': '15-20% della popolazione è altamente sensibile al lavoro. Scopri come affrontare stress e isolamento.',
     'blog.article.sensibilita-al-lavoro-personale.imageAlt': 'Uomo al lavoro con cuffie anti-rumore in un ufficio tranquillo',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.title': 'Radio Materia: Volontari di Banca Etica e libri sportivi',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.excerpt': 'Oggi su Radio Materia si parla di volontariato e libri sportivi. Due appuntamenti nel pomeriggio.',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.imageAlt': 'Volontari di Banca Etica lavorano in una biblioteca con libri sportivi',
 };
 
 export default blogMetaIt;

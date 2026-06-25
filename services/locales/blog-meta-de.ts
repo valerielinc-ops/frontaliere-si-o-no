@@ -8148,6 +8148,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sensibilita-al-lavoro-personale.title': 'Arbeitsempfindlichkeit: Umgang mit Stress und Isolation',
     'blog.article.sensibilita-al-lavoro-personale.excerpt': '15-20% der Bevölkerung sind sehr arbeitssensibel. Erfahren Sie, wie Sie mit Stress und Isolation umgehen.',
     'blog.article.sensibilita-al-lavoro-personale.imageAlt': 'Mann arbeitet mit Kopfhörern in einem ruhigen Büro',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.title': 'Radio Materia: Freiwillige der Ethikbank und Sportbücher',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.excerpt': 'Heute spricht man auf Radio Materia von Freiwilligenarbeit und Sportbüchern. Zwei Termine am Nachmittag.',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.imageAlt': 'Banca Etica Freiwillige arbeiten in einer Bibliothek mit Sportbüchern',
 };
 
 export default blogMetaDe;

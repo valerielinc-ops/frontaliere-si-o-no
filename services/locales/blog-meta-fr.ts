@@ -8150,6 +8150,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sensibilita-al-lavoro-personale.title': 'Sensibilité au travail : comment gérer le stress et l\'isolement',
     'blog.article.sensibilita-al-lavoro-personale.excerpt': '15 à 20% de la population est très sensible au travail. Découvrez comment faire face au stress et à l\'isolement.',
     'blog.article.sensibilita-al-lavoro-personale.imageAlt': 'Homme travaillant avec des écouteurs anti-bruit dans un bureau calme',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.title': 'Radio Matière : Bénévoles de la Banque Éthique et livres de sport',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.excerpt': 'Aujourd\'hui, sur Radio Materia, on parle de bénévolat et de livres de sport. Deux rendez-vous dans l\'après-midi.',
+    'blog.article.radio-materia-volontari-banca-etica-libri-sport.imageAlt': 'Volontaires de Banca Etica travaillant dans une bibliothèque avec des livres de sport',
 };
 
 export default blogMetaFr;
