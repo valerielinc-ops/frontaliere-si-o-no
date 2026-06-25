@@ -8153,6 +8153,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.radio-materia-volontari-banca-etica-libri-sport.title': 'Radio Materia: Volontari di Banca Etica e libri sportivi',
     'blog.article.radio-materia-volontari-banca-etica-libri-sport.excerpt': 'Oggi su Radio Materia si parla di volontariato e libri sportivi. Due appuntamenti nel pomeriggio.',
     'blog.article.radio-materia-volontari-banca-etica-libri-sport.imageAlt': 'Volontari di Banca Etica lavorano in una biblioteca con libri sportivi',
+    'blog.article.fermentino-mercato-contadino-giubiano.title': 'Varese: Torna Fermentino - Mercato Contadino di Giubiano',
+    'blog.article.fermentino-mercato-contadino-giubiano.excerpt': 'Il 26 giugno torna il mercato contadino serale a Giubiano. Produttori locali e birra artigianale in un evento gratuito.',
+    'blog.article.fermentino-mercato-contadino-giubiano.imageAlt': 'Mercato serale a Giubiano con bancarelle di prodotti locali e persone che socializzano',
 };
 
 export default blogMetaIt;
