@@ -2711,7 +2711,15 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-25T11:35:08.303Z"
+      "firstSeenAt": "2026-06-25T11:35:08.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "capopartita-lombard-odier-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "capopartita-lombard-odier-geneva"
+      ]
     },
     {
       "id": "lombard-odier-598980498c95",
@@ -2778,7 +2786,8 @@
       "firstSeenAt": "2026-06-25T11:35:07.448Z",
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch"
+          "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch",
+          "account-manager-global-custody-80-100-lombard-odier-geneva"
         ],
         "en": [
           "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch"
@@ -2788,7 +2797,8 @@
         ]
       },
       "previousSlugs": [
-        "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch"
+        "charge-e-de-comptes-global-custody-80-100-lombard-odier-ch",
+        "account-manager-global-custody-80-100-lombard-odier-geneva"
       ]
     }
   ]
