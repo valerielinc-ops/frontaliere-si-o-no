@@ -11,7 +11,6 @@
   ],
   "seedUrls": [
     "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/",
-    "https://career.ibsagroup.com/job/Lugano-Pazzallo-Meccatronico-Meccanico-TI-6912/1342644055/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-%28sost_-maternit%C3%A0%29-TI-6926/1343827855/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Dossier-Compliance-Specialist-TI-6926/1354804755/",
@@ -24,16 +23,9 @@
     "https://career.ibsagroup.com/job/Manno-Health%2C-Safety-and-Environment-Specialist-TI-6928/1329492855/"
   ],
   "notes": "Dedicated IBSA crawler seeds from career.ibsagroup.com TI search and canonicalizes detail URLs under /job/.../:jobId/.",
-  "updatedAt": "2026-06-24T22:12:52.348Z",
+  "updatedAt": "2026-06-25T11:32:46.622Z",
   "seedMetaByUrl": {
     "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Lugano-Pazzallo-Meccatronico-Meccanico-TI-6912/1342644055/": {
       "location": "Ticino",
       "canton": "TI",
       "country": "CH",
