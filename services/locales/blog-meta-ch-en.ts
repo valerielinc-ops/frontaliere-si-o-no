@@ -439,6 +439,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-asili-nido-ticino.title': 'Border workers with children: nurseries in Switzerland and Ticino',
     'blog.article.frontalieri-asili-nido-ticino.excerpt': 'Practical guide for border workers with children: costs, waiting lists, subsidies and alternatives for nurseries in Ticino',
     'blog.article.frontalieri-asili-nido-ticino.imageAlt': 'Ticinese nursery school with children and educators',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.title': 'Border taxation: impacts and tax management',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.excerpt': 'Tax analysis for border workers working in Switzerland: details on personal income tax, tax credit and procedures for correct tax reporting.',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.imageAlt': 'Panoramic view of a Swiss border area with mountains',
 };
 
 export default blogMetaChEn;

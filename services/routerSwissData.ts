@@ -169,6 +169,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dichiarazione-redditi-frontaliere-730-guida': { it: 'dichiarazione-redditi-frontaliere-730-guida', en: 'tax-return-frontalieri-730-guide', de: 'steuererklaerung-frontalieri-730-fuehrer', fr: 'declaration-revenus-frontalieri-730-guide' },
  'documenti-frontalieri-lavoro-svizzera': { it: 'documenti-frontalieri-lavoro-svizzera', en: 'documents-for-frontalieri-starting-work-in-switzerland', de: 'dokumente-fur-grenzgaenger-die-in-der-schweiz-arbeiten', fr: 'documents-pour-les-frontaliers-commencant-a-travailler-en-suisse' },
  'frontalieri-asili-nido-ticino': { it: 'frontalieri-asili-nido-ticino', en: 'cross-border-workers-nursery-switzerland-ticino', de: 'grenzgaenger-kinderkrippe-schweiz-tessin', fr: 'frontaliers-creche-suisse-tessin' },
+ 'tassazione-frontalieri-oltre-20km-confine': { it: 'tassazione-frontalieri-oltre-20km-confine', en: 'taxation-cross-border-workers-beyond-20km', de: 'besteuerung-grenzgaenger-jenseits-20km', fr: 'imposition-frontaliers-au-dela-20km' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2913,
+ "numberOfItems": 2914,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7559,7 +7559,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2910, "name": "Costo auto pendolare frontaliere Ticino: tutti ...", "url": `${BASE_URL}/articoli-frontaliere/costo-auto-pendolare-ticino` },
           { "@type": "ListItem", "position": 2911, "name": "Dichiarazione Redditi Frontaliere 730: Guida Co...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-redditi-frontaliere-730-guida` },
           { "@type": "ListItem", "position": 2912, "name": "Documenti Necessari per Iniziare a Lavorare in ...", "url": `${BASE_URL}/articoli-frontaliere/documenti-frontalieri-lavoro-svizzera` },
-          { "@type": "ListItem", "position": 2913, "name": "Frontaliere con figli: asili nido in Svizzera e...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-asili-nido-ticino` }
+          { "@type": "ListItem", "position": 2913, "name": "Frontaliere con figli: asili nido in Svizzera e...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-asili-nido-ticino` },
+          { "@type": "ListItem", "position": 2914, "name": "Tassazione frontalieri: impatti e gestione fiscale", "url": `${BASE_URL}/articoli-frontaliere/tassazione-frontalieri-oltre-20km-confine` }
  ]
  },
  {

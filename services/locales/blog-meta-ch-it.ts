@@ -439,6 +439,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-asili-nido-ticino.title': 'Frontaliere con figli: asili nido in Svizzera e Ticino',
     'blog.article.frontalieri-asili-nido-ticino.excerpt': 'Guida pratica per frontalieri con figli: costi, liste d\'attesa, sussidi e alternative per gli asili nido in Ticino',
     'blog.article.frontalieri-asili-nido-ticino.imageAlt': 'Asilo nido ticinese con bambini e educatori',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.title': 'Tassazione frontalieri: impatti e gestione fiscale',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.excerpt': 'Analisi sulla tassazione per i frontalieri che lavorano in Svizzera: dettagli su IRPEF, credito d\'imposta e procedure per la corretta dichiarazione dei redditi.',
+    'blog.article.tassazione-frontalieri-oltre-20km-confine.imageAlt': 'Vista panoramica di un confine svizzero con montagne',
 };
 
 export default blogMetaChIt;
