@@ -927,7 +927,7 @@
         "it": "praktikum-im-bereich-forschung-e-entwicklung-m-w-d-6-monate-o-nach-absprache-georg-fischer-schaffhausen",
         "en": "internship-in-research-and-development-m-f-d-6-months-or-by-agreement-georg-fischer-schaffhausen",
         "de": "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
-        "fr": "stage-en-recherche-et-developpement-m-f-d-6-mois-ou-accord-georg-fischer-schaffhausen"
+        "fr": "stages-dans-le-domaine-de-la-recherche-et-du-developpement-m-w-d-6-mois-ou-par-arrangement-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -969,7 +969,8 @@
       "requirementsByLocale": {},
       "jobReqId": "JR10325",
       "previousSlugs": [
-        "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+        "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
+        "stage-en-recherche-et-developpement-m-f-d-6-mois-ou-accord-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -979,7 +980,8 @@
           "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
         ],
         "fr": [
-          "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+          "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
+          "stage-en-recherche-et-developpement-m-f-d-6-mois-ou-accord-georg-fischer-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-23T11:32:44.041Z",
@@ -1003,7 +1005,7 @@
       "slugByLocale": {
         "it": "efficienza-delle-vendite-di-stage-m-f-d-6-12-mesi-georg-fischer-schaffhausen",
         "en": "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch",
-        "de": "praktikum-sales-effectiveness-m-w-d-6-12-monate-georg-fischer-schaffhausen",
+        "de": "praktikum-umsatz-wirksamkeit-m-w-d-6-12-monate-georg-fischer-schaffhausen",
         "fr": "efficacite-des-ventes-de-stages-m-f-d-6-a-12-mois-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
@@ -1046,14 +1048,16 @@
       "requirementsByLocale": {},
       "jobReqId": "JR10162",
       "previousSlugs": [
-        "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
+        "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch",
+        "praktikum-sales-effectiveness-m-w-d-6-12-monate-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
         ],
         "de": [
-          "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
+          "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch",
+          "praktikum-sales-effectiveness-m-w-d-6-12-monate-georg-fischer-schaffhausen"
         ],
         "fr": [
           "internship-sales-effectiveness-m-f-d-6-12-months-georg-fischer-ch"
@@ -1370,9 +1374,9 @@
     },
     {
       "id": "georg-fischer-764d3901a500",
-      "slug": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
+      "slug": "hr-business-partner-m-p-d-50-60-georg-fischer-sissach",
       "slugByLocale": {
-        "it": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
+        "it": "hr-business-partner-m-p-d-50-60-georg-fischer-sissach",
         "en": "hr-business-partner-m-f-d-50-60-georg-fischer-sissach",
         "de": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
         "fr": "partenaire-d-affaires-rh-m-f-d-50-60-georg-fischer-sissach"
@@ -1428,7 +1432,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch"
+      ]
     }
   ]
 }

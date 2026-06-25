@@ -244,8 +244,8 @@
       "slugByLocale": {
         "it": "senior-techlead-piattaforme-del-centro-di-contatto-80-100-sunrise-communications-ag-zurich",
         "en": "senior-techlead-contact-center-platforms-80-100-sunrise-zurich",
-        "de": "senior-tech-lead-contact-center-plattformen-80-100-sunrise-communications-ag-zurich",
-        "fr": "senior-tech-lead-plates-formes-de-contact-center-80-100-sunrise-communications-ag-zurich"
+        "de": "senior-techlead-kontaktcenter-plattformen-80-100-sunrise-communications-ag-zurich",
+        "fr": "senior-techlead-plateformes-du-centre-de-contact-80-100-sunrise-communications-ag-zurich"
       },
       "id": "sunrise-sede-ticino-57638c61f5bd",
       "salaryMin": 121500,
@@ -265,10 +265,18 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-techlead-contact-center-platforms-80-100-sunrise-zurich"
+        ],
+        "de": [
+          "senior-tech-lead-contact-center-plattformen-80-100-sunrise-communications-ag-zurich"
+        ],
+        "fr": [
+          "senior-tech-lead-plates-formes-de-contact-center-80-100-sunrise-communications-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-techlead-contact-center-platforms-80-100-sunrise-zurich"
+        "senior-techlead-contact-center-platforms-80-100-sunrise-zurich",
+        "senior-tech-lead-contact-center-plattformen-80-100-sunrise-communications-ag-zurich",
+        "senior-tech-lead-plates-formes-de-contact-center-80-100-sunrise-communications-ag-zurich"
       ]
     },
     {
@@ -405,7 +413,6 @@
           "tech-care-specialist-80-100-sunrise-zurich"
         ],
         "de": [
-          "tech-care-specialist-80-100-sunrise-zurich",
           "tech-care-spezialist-80-100-sunrise-communications-ag-zurich"
         ],
         "fr": [
@@ -546,10 +553,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:38:57.481Z",
-      "previousSlugs": [
-        "tecnico-field-force-80-100-sunrise-communications-ag-basel"
-      ]
+      "firstSeenAt": "2026-06-11T13:38:57.481Z"
     },
     {
       "title": "Sales Agent Biel Nidaugasse 60-100%",
@@ -616,7 +620,6 @@
         ],
         "de": [
           "verkaufsagent-biel-nidaugasse-60-100-sunrise-communications-ag-biel",
-          "sales-agent-biel-nidaugasse-60-100-sunrise-biel",
           "vertriebsagent-biel-nidaugasse-60-100-sunrise-communications-ag-biel"
         ],
         "fr": [
@@ -696,7 +699,6 @@
           "sales-agent-rapperswil-60-100-sunrise-rapperswil"
         ],
         "de": [
-          "sales-agent-rapperswil-60-100-sunrise-rapperswil",
           "vertriebsagent-rapperswil-60-100-sunrise-communications-ag-rapperswil"
         ],
         "fr": [
@@ -776,7 +778,6 @@
         ],
         "de": [
           "vertriebsvertreter-zurich-migros-city-60-100-sunrise-communications-ag-zurich",
-          "sales-agent-zurich-migros-city-60-100-sunrise-zurich",
           "verkaufsagent-zurich-migros-city-60-100-sunrise-communications-ag-zurich"
         ],
         "fr": [
@@ -854,7 +855,6 @@
           "sales-agent-bern-railcity-60-100-sunrise-bern"
         ],
         "de": [
-          "sales-agent-bern-railcity-60-100-sunrise-bern",
           "verkaufsagent-bern-railcity-60-100-sunrise-communications-ag-bern"
         ],
         "fr": [
@@ -999,7 +999,6 @@
           "ott-platforms-specialist-full-stack-engineer-80-100-sunrise-zurich"
         ],
         "de": [
-          "ott-platforms-specialist-full-stack-engineer-80-100-sunrise-zurich",
           "ott-platforms-spezialist-vollstapel-ingenieur-80-100-sunrise-communications-ag-zurich"
         ]
       },
@@ -1212,7 +1211,6 @@
         ],
         "de": [
           "verkaufsvertreter-zurich-flagshipstore-60-100-sunrise-communications-ag-zurich",
-          "sales-agent-zurich-flagshipstore-60-100-sunrise-zurich",
           "vertriebsmitarbeiter-zurich-126shipstore-60-100-sunrise-communications-ag-zurich"
         ],
         "fr": [
@@ -1297,7 +1295,6 @@
           "sales-agent-zurich-flughafen-60-100-sunrise-zurich"
         ],
         "de": [
-          "sales-agent-zurich-flughafen-60-100-sunrise-zurich",
           "verkaufsagent-zurich-flughafen-60-100-sunrise-communications-ag-zurich"
         ]
       },
@@ -1370,7 +1367,6 @@
           "sales-agent-sursee-surseepark-60-100-sunrise-sursee"
         ],
         "de": [
-          "sales-agent-sursee-surseepark-60-100-sunrise-sursee",
           "verkaufsagent-sursee-surseepark-60-100-sunrise-communications-ag-sursee"
         ],
         "fr": [
@@ -1447,7 +1443,6 @@
           "sales-agent-zurich-shopville-60-100-sunrise-zurich"
         ],
         "de": [
-          "sales-agent-zurich-shopville-60-100-sunrise-zurich",
           "vertriebsvertreter-zurich-shopville-60-100-sunrise-communications-ag-zurich"
         ],
         "fr": [
@@ -1589,7 +1584,6 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "store-manager-mels-80-100-sunrise-mels",
           "filialleiter-mels-80-100-sunrise-communications-ag-mels"
         ],
         "fr": [
@@ -1662,7 +1656,6 @@
           "sales-agent-uster-60-100-sunrise-uster"
         ],
         "de": [
-          "sales-agent-uster-60-100-sunrise-uster",
           "vertriebsmitarbeiter-uster-60-100-sunrise-communications-ag-uster"
         ],
         "fr": [
@@ -1740,7 +1733,6 @@
         ],
         "de": [
           "vertriebsagent-ebikon-mall-der-schweiz-60-100-sunrise-communications-ag-ebikon",
-          "sales-agent-ebikon-mall-of-switzerland-60-100-sunrise-ebikon",
           "sales-agent-ebikon-mall-schweiz-60-100-sunrise-communications-ag-ebikon"
         ],
         "fr": [
@@ -1820,7 +1812,6 @@
           "sales-agent-basel-st-jakob-60-100-sunrise-basel"
         ],
         "de": [
-          "sales-agent-basel-st-jakob-60-100-sunrise-basel",
           "vertriebsagent-basel-st-jakob-60-100-sunrise-communications-ag-basel"
         ],
         "fr": [
@@ -1904,7 +1895,6 @@
         ],
         "de": [
           "verkaufsvertreter-luzern-weinmarkt-80-sunrise-communications-ag-luzern",
-          "sales-agent-luzern-weinmarkt-80-sunrise-luzern",
           "vertriebsmitarbeiter-lutern-weinmarkt-80-sunrise-communications-ag-luzern"
         ],
         "en": [
