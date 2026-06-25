@@ -4205,6 +4205,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pemsa-lugano-mercato-lavoro': { name: 'Pemsa Lugano', path: '/articoli-svizzera/pemsa-lugano-mercato-lavoro/', parent: 'blog' },
     'blog-cassa-malati-neuchatel-giovani-19-25': { name: 'Cassa malati Neuchâtel', path: '/articoli-svizzera/cassa-malati-neuchatel-giovani-19-25/', parent: 'blog' },
     'blog-lavoro-lugano-mercato-annunci': { name: 'Lavoro a Lugano', path: '/articoli-svizzera/lavoro-lugano-mercato-annunci/', parent: 'blog' },
+    'blog-chiasso-brogeda-tempi-attesa-odierni': { name: 'Chiasso-Brogeda oggi', path: '/articoli-svizzera/chiasso-brogeda-tempi-attesa-odierni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

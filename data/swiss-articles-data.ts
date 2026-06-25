@@ -1430,6 +1430,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'chiasso-brogeda-tempi-attesa-odierni',
+    category: 'pratico',
+    date: '2026-06-25T21:37:39.720Z',
+    image: '/images/blog/chiasso-brogeda-tempi-attesa-odierni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
