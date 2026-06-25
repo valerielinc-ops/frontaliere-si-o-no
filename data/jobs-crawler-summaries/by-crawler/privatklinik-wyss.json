@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-wyss",
   "label": "Privatklinik Wyss",
-  "generatedAt": "2026-06-24T22:36:18.031Z",
+  "generatedAt": "2026-06-25T12:03:18.984Z",
   "total": 7,
-  "newCount": 2,
-  "updatedCount": 6,
+  "newCount": 1,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14453,
-  "avgDurationMs": 14453,
+  "durationMs": 15165,
+  "avgDurationMs": 15165,
   "durationHistory": [
-    14453
+    15165
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/lehrstelle-fachfrau-fachmann-gesundheit-efz-august-2027-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:36:11.165Z",
+      "crawledAt": "2026-06-25T12:03:11.803Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -38,7 +38,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-24",
+      "postedDate": "2026-06-25",
       "applyUrl": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/lehrstelle-fachfrau-fachmann-gesundheit-efz-august-2027-w-m-d",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -50,7 +50,9 @@
         "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "privatklinik-wyss-e125fc56d64a",
       "slug": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
@@ -58,13 +60,13 @@
       "companyKey": "privatklinik-wyss",
       "companyDomain": "privatklinik-wyss.ch",
       "title": "Stv. Musiktherapeut*in (w/m/d)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Münchenbuchsee",
       "canton": "BE",
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-spezialtherapie/stv-musiktherapeut-in-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:36:14.843Z",
+      "crawledAt": "2026-06-25T12:03:15.669Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -78,16 +80,15 @@
       "featured": false,
       "postedDate": "2026-06-24",
       "applyUrl": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-spezialtherapie/stv-musiktherapeut-in-w-m-d",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-24T22:36:14.843Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "privatklinik-wyss-6a2c86e2d37a",
       "slug": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
@@ -101,7 +102,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/pflegedirektor-in-m-w-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:36:10.380Z",
+      "crawledAt": "2026-06-25T12:03:10.972Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -140,7 +141,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/try-and-hire-deine-flexible-anstellungsloesung",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:36:11.902Z",
+      "crawledAt": "2026-06-25T12:03:12.586Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -179,7 +180,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-w-m-d-auf-der-akutabteilung-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:36:12.639Z",
+      "crawledAt": "2026-06-25T12:03:13.369Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -218,7 +219,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:36:13.370Z",
+      "crawledAt": "2026-06-25T12:03:14.138Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -257,7 +258,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/zusatz-modul-b-zmb-in-der-psychiatrischen-pflege",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:36:14.113Z",
+      "crawledAt": "2026-06-25T12:03:14.903Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -296,7 +297,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/ausbildung-praktika/lehrstelle-fachfrau-fachmann-gesundheit-efz-august-2027-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-24T22:36:15.607Z",
+      "crawledAt": "2026-06-25T12:03:16.510Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
