@@ -1302,7 +1302,11 @@ async function fetchSubscribers() {
     snap.docs.forEach((d) => {
       if (d.id === '_meta_') return;
       const row = d.data();
-      if (!row.email) return;
+      // Skip rows whose email field carries no address at all (empty or a
+      // name-only string with no "@"); subscriberFromFirestoreRow is the
+      // authoritative guard (it returns null for any unparseable address), this
+      // just avoids the call on obviously-empty rows.
+      if (!row.email || !/@/.test(String(row.email))) return;
       const status = (row.status || '').toLowerCase();
       if (EXCLUDED_STATUSES.has(status)) return;
       // Belt-and-suspenders: also exclude if unsubscribedAt is set (frontend handler bug backfill)

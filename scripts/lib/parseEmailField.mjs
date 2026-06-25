@@ -26,11 +26,35 @@ export function parseEmailField(raw) {
   if (angle) {
     const name = angle[1].trim().replace(/^"(.*)"$/, '$1').trim();
     const email = angle[2].trim().toLowerCase();
+    // The inner token can still be a non-address (e.g. "<a@x,b@y>" — the regex
+    // allows commas) — don't trust it unvalidated, or it seeds a bogus key.
+    if (!isBareAddress(email)) return { email: '', displayName: null };
     // A "name" that is itself an address (or empty) is not a human name.
     return { email, displayName: name && !name.includes('@') ? name : null };
   }
 
-  return { email: str.toLowerCase(), displayName: null };
+  // Bare-address fallback. Degenerate forms the angle branch rejected ("Name
+  // <a@x, b@y>", an address with an internal space) and name-only strings reach
+  // here; a plain toLowerCase() would return a truthy NON-address that becomes a
+  // bogus subscriber key downstream (subscriberFromFirestoreRow only guards on a
+  // falsy email). Validate the shape and emit an empty (falsy) address instead.
+  const bare = str.toLowerCase();
+  return isBareAddress(bare) ? { email: bare, displayName: null } : { email: '', displayName: null };
+}
+
+/**
+ * Whether a string is a single usable bare address: exactly one `@` with no
+ * whitespace, angle brackets, or commas on either side. Rejects name-only
+ * strings, multi-address lists, and degenerate wrapped forms so they never
+ * become a (truthy) subscriber key. Intentionally permissive on the local/
+ * domain charset — full RFC5322 validation is out of scope; the goal is only to
+ * reject the clearly-not-an-address fallbacks the parser would otherwise pass
+ * through.
+ * @param {string} s
+ * @returns {boolean}
+ */
+function isBareAddress(s) {
+  return /^[^\s<>,@]+@[^\s<>,@]+$/.test(s);
 }
 
 /**
