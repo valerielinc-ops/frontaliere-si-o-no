@@ -4184,6 +4184,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lamal-cmi-frontalieri-confronta-2026': { name: 'Assicurazione frontaliere', path: '/articoli-svizzera/lamal-cmi-frontalieri-confronta-2026/', parent: 'blog' },
     'blog-calcolo-pensione-frontaliere-avs-inps': { name: 'Pensione frontaliere', path: '/articoli-svizzera/calcolo-pensione-frontaliere-avs-inps/', parent: 'blog' },
     'blog-caldo-ferroviario-svizzera': { name: 'Traffico ferroviario', path: '/articoli-svizzera/caldo-ferroviario-svizzera/', parent: 'blog' },
+    'blog-frontaliere-doppia-imposizione-credito-imposta': { name: 'Fiscale', path: '/articoli-svizzera/frontaliere-doppia-imposizione-credito-imposta/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

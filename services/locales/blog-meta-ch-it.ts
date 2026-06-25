@@ -424,6 +424,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caldo-ferroviario-svizzera.title': 'La canicola incide anche sul traffico ferroviario',
     'blog.article.caldo-ferroviario-svizzera.excerpt': 'Binari deformati, guasti ai climatizzatori e ritardi. FFS, BLS e SOB garantiscono un servizio stabile nonostante le condizioni difficili',
     'blog.article.caldo-ferroviario-svizzera.imageAlt': 'Treno svizzero che attraversa un paesaggio alpino',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.title': 'Frontaliere: come evitare la doppia tassazione con il credito d\'imposta',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.excerpt': 'Guida completa per i frontalieri su come funziona il meccanismo del credito d\'imposta per evitare la doppia tassazione.',
+    'blog.article.frontaliere-doppia-imposizione-credito-imposta.imageAlt': 'Vista della città di Lugano dal lago con le montagne sullo sfondo',
 };
 
 export default blogMetaChIt;

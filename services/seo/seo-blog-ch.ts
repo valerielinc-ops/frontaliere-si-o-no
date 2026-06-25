@@ -5400,6 +5400,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-doppia-imposizione-credito-imposta': {
+    title: 'Frontaliere: come evitare la doppia tassazione con il credito d\'imposta',
+    description: 'Guida completa per i frontalieri su come funziona il meccanismo del credito d\'imposta per evitare la doppia tassazione. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, evitare, doppia, tassazione, credito',
+    ogTitle: 'Frontaliere: come evitare la doppia tassazione con il credito d\'imposta',
+    ogDescription: 'Guida completa per i frontalieri su come funziona il meccanismo del credito d\'imposta per evitare la doppia tassazione.',
+    canonicalPath: '/articoli-svizzera/frontaliere-doppia-imposizione-credito-imposta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere: come evitare la doppia tassazione con il credito d'imposta",
+      "description": "Guida completa per i frontalieri su come funziona il meccanismo del credito d'imposta per evitare la doppia tassazione. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-doppia-imposizione-credito-imposta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista della città di Lugano dal lago con le montagne sullo sfondo"
+      },
+      "datePublished": "2026-06-25T01:13:54+00:00",
+      "dateModified": "2026-06-25T01:13:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-doppia-imposizione-credito-imposta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1268,6 +1268,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-doppia-imposizione-credito-imposta',
+    category: 'fiscale',
+    date: '2026-06-25T01:13:54.174Z',
+    image: '/images/blog/frontaliere-doppia-imposizione-credito-imposta.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

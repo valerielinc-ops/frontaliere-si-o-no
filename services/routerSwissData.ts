@@ -164,6 +164,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lamal-cmi-frontalieri-confronta-2026': { it: 'lamal-cmi-frontalieri-confronta-2026', en: 'lamal-or-cmi-cross-border-workers-which-is-better-2026', de: 'lamal-oder-kvg-grenzgaenger-was-lohnt-sich-2026', fr: 'lamal-ou-cmi-frontaliers-lequel-choisir-2026' },
  'calcolo-pensione-frontaliere-avs-inps': { it: 'calcolo-pensione-frontaliere-avs-inps', en: 'pension-calculation-cross-border-commuter', de: 'rentenberechnung-grenzgaenger-schweiz', fr: 'calcul-retraite-frontalier-suisse' },
  'caldo-ferroviario-svizzera': { it: 'caldo-ferroviario-svizzera', en: 'heat-impact-swiss-railways', de: 'hitzeeinfluss-schweizer-bahnen', fr: 'impact-chaleur-chemins-ferres-suisses' },
+ 'frontaliere-doppia-imposizione-credito-imposta': { it: 'frontaliere-doppia-imposizione-credito-imposta', en: 'frontaliers-double-taxation-tax-credit', de: 'grenzgaenger-doppelbesteuerung-steuergutschrift', fr: 'frontaliers-double-imposition-credit-dimpot' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
