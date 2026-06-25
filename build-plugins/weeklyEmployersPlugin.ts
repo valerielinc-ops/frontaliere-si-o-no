@@ -76,7 +76,8 @@ import {
   type WeeklyEmployersLocale,
 } from './weeklyEmployersData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
-import { adSlotHtml } from './lib/adSlotHtml';
+import { adSlotHtml, infeedAdListItemHtml } from './lib/adSlotHtml';
+import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import {
   H1_STYLE,
   H2_STYLE,
@@ -3289,7 +3290,16 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
             // CSS counter restores the visible "1.", "2." numbering that the
             // surrounding <ol> implies (the SPA card itself has no rank prefix).
             const rankBadge = `<span class="s-BF8Fx2" aria-hidden="true">${idx + 1}</span>`;
-            return `<li class="s-O_tf5k"><span class="s-jHHky4">${rankBadge}</span><div class="s-KGNylX">${card}</div></li>`;
+            const li = `<li class="s-O_tf5k"><span class="s-jHHky4">${rankBadge}</span><div class="s-KGNylX">${card}</div></li>`;
+            // In-feed ad after every Nth ranked job (never after the last). The
+            // ad `<li role="presentation">` is excluded from the <ol> ranking
+            // semantics; the visible "1./2./…" come from the explicit rankBadge,
+            // so interleaving does not disturb the numbering.
+            const ad =
+              idx + 1 < stats.activeJobs.length && shouldPlaceInfeedAd(idx + 1)
+                ? infeedAdListItemHtml()
+                : '';
+            return li + ad;
           })
           .join('')}</ol>`
       : `<p class="s-fne6Eu">${esc(copy.topCompaniesEmpty)}</p>`;

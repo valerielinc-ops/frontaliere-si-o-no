@@ -43,7 +43,7 @@ import {
  type JobCardJob,
  type JobCardLocale,
 } from './shared/jobCardHtml';
-import { infeedAdGridBlockHtml } from './lib/adSlotHtml';
+import { infeedAdGridBlockHtml, infeedAdListItemHtml } from './lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
@@ -3571,11 +3571,28 @@ ${staticAnalyticsHtml}
   * child of `<ul>` (a script-supporting element). Re-emitting it on a page
   * that also emits the symbols block just re-assigns `window.jcLF`.
   */
+ // Single entry point for every jobsSeo hub job list (per-canton sector/city/
+ // paginated/company/editorial + search landings, all cantons × all locales).
+ // Interleaves one in-feed DISPLAY ad `<li>` after every Nth card (shared
+ // `shouldPlaceInfeedAd` cadence), never after the last — same logic as the
+ // shared `renderJobCardListHtml`, so coverage stays uniform across page types.
+ // The wrapping `<ul class="s-0WjlyL">` is a plain block list (not a grid) →
+ // no `spanFull` needed; the ad `<li>` is full-width.
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
  const jobCardListBody = (jobs: ReadonlyArray<any>, locale: 'it' | 'en' | 'de' | 'fr'): string =>
  jobs.length === 0
  ? ''
- : LOGO_FALLBACK_SCRIPT + jobs.map((job) => renderJobCardLi(job, locale)).join('');
+ : LOGO_FALLBACK_SCRIPT +
+ jobs
+ .map((job, i) => {
+ const li = renderJobCardLi(job, locale);
+ const ad =
+ i + 1 < jobs.length && shouldPlaceInfeedAd(i + 1)
+ ? infeedAdListItemHtml()
+ : '';
+ return li + ad;
+ })
+ .join('');
 
  /** Render a row of sector/city hub link chips for the company. */
  const renderHubChipsHtml = (
