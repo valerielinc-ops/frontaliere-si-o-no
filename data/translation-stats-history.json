@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-05T16:34:12.065Z",
-    "label": "before",
-    "total": 10813,
-    "needsRetranslation": 7244,
-    "suppressed": 37,
-    "incomplete": 788,
-    "complete": 10025,
-    "missingByLocale": {
-      "it": 527,
-      "en": 399,
-      "de": 318,
-      "fr": 518
-    },
-    "topPending": [
-      {
-        "company": "Richemont",
-        "pending": 102
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 100
-      },
-      {
-        "company": "Roche",
-        "pending": 93
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 76
-      },
-      {
-        "company": "UBS",
-        "pending": 35
-      },
-      {
-        "company": "The Swatch Group (España) S.A.",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 21
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 20
-      },
-      {
-        "company": "Société coopérative Migros Vaud",
-        "pending": 16
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-05T20:04:14.317Z",
-    "label": "after",
-    "total": 10813,
-    "needsRetranslation": 2848,
-    "suppressed": 37,
-    "incomplete": 582,
-    "complete": 10231,
-    "missingByLocale": {
-      "it": 406,
-      "en": 287,
-      "de": 244,
-      "fr": 385
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 98
-      },
-      {
-        "company": "Roche",
-        "pending": 80
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 76
-      },
-      {
-        "company": "The Swatch Group (España) S.A.",
-        "pending": 28
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "Richemont",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 15
-      },
-      {
-        "company": "Sulzer",
-        "pending": 15
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-05T23:09:02.978Z",
-    "label": "before",
-    "total": 10879,
-    "needsRetranslation": 7361,
-    "suppressed": 37,
-    "incomplete": 900,
-    "complete": 9979,
-    "missingByLocale": {
-      "it": 570,
-      "en": 440,
-      "de": 284,
-      "fr": 544
-    },
-    "topPending": [
-      {
-        "company": "Richemont",
-        "pending": 102
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 100
-      },
-      {
-        "company": "Roche",
-        "pending": 89
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 79
-      },
-      {
-        "company": "UBS",
-        "pending": 36
-      },
-      {
-        "company": "Spital Zofingen",
-        "pending": 34
-      },
-      {
-        "company": "The Swatch Group (Canada) Ltd.",
-        "pending": 30
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-06T03:17:14.434Z",
-    "label": "after",
-    "total": 10879,
-    "needsRetranslation": 2930,
-    "suppressed": 36,
-    "incomplete": 689,
-    "complete": 10190,
-    "missingByLocale": {
-      "it": 418,
-      "en": 318,
-      "de": 244,
-      "fr": 399
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 99
-      },
-      {
-        "company": "Roche",
-        "pending": 81
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 76
-      },
-      {
-        "company": "UBS",
-        "pending": 34
-      },
-      {
-        "company": "The Swatch Group (Canada) Ltd.",
-        "pending": 30
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 19
-      },
-      {
-        "company": "Richemont",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 16
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-06T04:13:40.484Z",
     "label": "before",
     "total": 10875,
@@ -11486,6 +11258,120 @@
       {
         "company": "Sunrise Communications AG",
         "pending": 11
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bühler Group",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-25T11:52:12.452Z",
+    "label": "before",
+    "total": 17748,
+    "needsRetranslation": 3511,
+    "suppressed": 505,
+    "incomplete": 914,
+    "complete": 16834,
+    "missingByLocale": {
+      "it": 393,
+      "en": 284,
+      "de": 512,
+      "fr": 119
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 836
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 9
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bühler Group",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-25T12:55:01.791Z",
+    "label": "after",
+    "total": 17748,
+    "needsRetranslation": 2634,
+    "suppressed": 505,
+    "incomplete": 916,
+    "complete": 16832,
+    "missingByLocale": {
+      "it": 393,
+      "en": 278,
+      "de": 519,
+      "fr": 117
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 838
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 9
       },
       {
         "company": "Roche",
