@@ -460,6 +460,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ginevra-frontalieri-settore-pubblico.title': 'The Right of Frontier Workers to Work in the Public Sector in Geneva',
     'blog.article.ginevra-frontalieri-settore-pubblico.excerpt': 'Learn about the rights of frontier workers in the public sector in Geneva and its implications.',
     'blog.article.ginevra-frontalieri-settore-pubblico.imageAlt': 'Panoramic view of Geneva with iconic landmarks.',
+    'blog.article.terzo-pilastro-frontalieri-guida.title': 'Third pillar for border guards: practical guide 2024',
+    'blog.article.terzo-pilastro-frontalieri-guida.excerpt': 'The third pillar 3a for border workers: who can open it, how it works, differences with residents, limits and practical scenarios.',
+    'blog.article.terzo-pilastro-frontalieri-guida.imageAlt': 'Lugano panorama with cross-border workers arriving.',
 };
 
 export default blogMetaChEn;

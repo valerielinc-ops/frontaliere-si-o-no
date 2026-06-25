@@ -460,6 +460,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ginevra-frontalieri-settore-pubblico.title': 'Das Recht der Grenzgänger, in Genf im Publikum zu arbeiten',
     'blog.article.ginevra-frontalieri-settore-pubblico.excerpt': 'Erfahren Sie mehr über die Rechte von Grenzgängern im öffentlichen Sektor in Genf und ihre Auswirkungen.',
     'blog.article.ginevra-frontalieri-settore-pubblico.imageAlt': 'Panoramablick auf Genf mit ikonischen Wahrzeichen.',
+    'blog.article.terzo-pilastro-frontalieri-guida.title': 'Dritte Säule für Grenzgänger: Praxisleitfaden 2024',
+    'blog.article.terzo-pilastro-frontalieri-guida.excerpt': 'Die dritte Säule 3a für Grenzgänger: Wer kann sie öffnen, wie funktioniert sie, Unterschiede zu Bewohnern, Grenzen und praktischen Szenarien.',
+    'blog.article.terzo-pilastro-frontalieri-guida.imageAlt': 'Panorama von Lugano mit Grenzgängern auf dem Weg zur Arbeit.',
 };
 
 export default blogMetaChDe;
