@@ -460,6 +460,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ginevra-frontalieri-settore-pubblico.title': 'Il Diritto dei Frontalieri di Lavorare nel Pubblico a Ginevra',
     'blog.article.ginevra-frontalieri-settore-pubblico.excerpt': 'Scopri i diritti dei frontalieri nel settore pubblico a Ginevra e le sue implicazioni.',
     'blog.article.ginevra-frontalieri-settore-pubblico.imageAlt': 'Vista panoramica di Ginevra con monumenti iconici.',
+    'blog.article.terzo-pilastro-frontalieri-guida.title': 'Terzo pilastro per frontalieri: guida pratica 2024',
+    'blog.article.terzo-pilastro-frontalieri-guida.excerpt': 'Il terzo pilastro 3a per frontalieri: chi può aprirlo, come funziona, differenze con residenti, limiti e scenari pratici.',
+    'blog.article.terzo-pilastro-frontalieri-guida.imageAlt': 'Panorama di Lugano con frontalieri in arrivo al lavoro.',
 };
 
 export default blogMetaChIt;

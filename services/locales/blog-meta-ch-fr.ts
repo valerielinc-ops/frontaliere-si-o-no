@@ -460,6 +460,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ginevra-frontalieri-settore-pubblico.title': 'Le droit des frontaliers de travailler dans le public à Genève',
     'blog.article.ginevra-frontalieri-settore-pubblico.excerpt': 'Découvrez les droits des frontaliers dans le secteur public à Genève et ses implications.',
     'blog.article.ginevra-frontalieri-settore-pubblico.imageAlt': 'Vue panoramique de Genève avec des monuments emblématiques.',
+    'blog.article.terzo-pilastro-frontalieri-guida.title': 'Troisième pilier pour les frontaliers : guide pratique 2024',
+    'blog.article.terzo-pilastro-frontalieri-guida.excerpt': 'Le troisième pilier 3a pour les frontaliers : qui peut l\'ouvrir, comment cela fonctionne, différences avec les résidents, limites et scénarios pratiques.',
+    'blog.article.terzo-pilastro-frontalieri-guida.imageAlt': 'Panorama de Lugano avec frontaliers arrivant au travail.',
 };
 
 export default blogMetaChFr;

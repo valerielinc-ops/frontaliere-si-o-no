@@ -1376,6 +1376,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'terzo-pilastro-frontalieri-guida',
+    category: 'pensione',
+    date: '2026-06-25T14:23:22.631Z',
+    image: '/images/blog/terzo-pilastro-frontalieri-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
