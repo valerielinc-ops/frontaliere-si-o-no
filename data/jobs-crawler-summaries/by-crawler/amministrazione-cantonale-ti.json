@@ -1,18 +1,49 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-25T12:28:47.227Z",
-  "total": 14,
-  "newCount": 0,
+  "generatedAt": "2026-06-25T23:33:00.131Z",
+  "total": 15,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 17196,
-  "avgDurationMs": 17196,
+  "durationMs": 19578,
+  "avgDurationMs": 19578,
   "durationHistory": [
-    17196
+    19578
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213hq0",
+      "slug": "bibliotecario-a-i-a-tempo-parziale-50-presso-la-scuola-media-locarno-1-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-100",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Bibliotecario/a I a tempo parziale (50%), presso la Scuola Media Locarno 1",
+      "location": "Locarno",
+      "canton": "TI",
+      "category": "other",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4217",
+      "source": "Company Careers Crawler",
+      "salaryMin": 68456,
+      "salaryMax": 107475,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-06-25T23:32:54.631Z",
+      "firstSeenAt": "2026-06-25T23:32:54.631Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213j37",
