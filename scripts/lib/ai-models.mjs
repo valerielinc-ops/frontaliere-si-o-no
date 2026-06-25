@@ -627,6 +627,15 @@ function getSambaNovaApiKey()  { return (process.env.SAMBANOVA_API_KEY || '').tr
 function getCohereApiKey()    { return (process.env.COHERE_API_KEY || '').trim(); }
 function getCloudflareApiToken() { return (process.env.CF_API_TOKEN || '').trim(); }
 function getCfAccountId()    { return (process.env.CF_ACCOUNT_ID || '').trim(); }
+// Cloudflare Workers AI is DISABLED by default ($0 policy). Its "free" tier is a
+// hard 10K-neurons/day cap; every neuron past it bills at $0.011/1K (the
+// "Regular Twitch Neurons" line on the CF bill — measured ~50-86K neurons/day
+// = ~$0.50-0.84/day overage from the crawler/article LLM fallback chain). The
+// other 100+ free models across 13 providers cover all fallback need, so cf/*
+// stays off unless explicitly opted back in via CF_WORKERS_AI_ENABLED=1.
+function isCloudflareWorkersAiEnabled() {
+  return /^(1|true|yes|on)$/i.test((process.env.CF_WORKERS_AI_ENABLED || '').trim());
+}
 function getMistralApiKey()  { return (process.env.MISTRAL_API_KEY || '').trim(); }
 function getCodestralApiKey() { return getMistralApiKey(); }  // Same key, separate endpoint
 function getChutesApiKey()   { return (process.env.CHUTES_API_KEY || '').trim(); }
@@ -717,8 +726,10 @@ function getApiKeyForProvider(provider) {
     case PROVIDER.HUGGINGFACE: return getHuggingFaceApiKey();
     case PROVIDER.SAMBANOVA:   return getSambaNovaApiKey();
     case PROVIDER.COHERE:      return getCohereApiKey();
-    // Cloudflare needs BOTH token AND account ID to construct the endpoint
-    case PROVIDER.CLOUDFLARE:  return (getCloudflareApiToken() && getCfAccountId()) ? getCloudflareApiToken() : '';
+    // Cloudflare needs BOTH token AND account ID to construct the endpoint — and
+    // is off by default ($0 policy; see isCloudflareWorkersAiEnabled). Returning
+    // '' marks every cf/* model unavailable, so the chain never selects it.
+    case PROVIDER.CLOUDFLARE:  return (isCloudflareWorkersAiEnabled() && getCloudflareApiToken() && getCfAccountId()) ? getCloudflareApiToken() : '';
     case PROVIDER.MISTRAL:     return getMistralApiKey();
     case PROVIDER.CODESTRAL:   return getCodestralApiKey();
     case PROVIDER.CHUTES:      return getChutesApiKey();
@@ -2472,6 +2483,9 @@ function _callCohere(model, messages, opts) {
  * Endpoint is dynamic: requires CF_ACCOUNT_ID in the URL.
  */
 function _callCloudflare(model, messages, opts) {
+  // Defense-in-depth: cf/* should already be filtered out as unavailable, but
+  // refuse to spend billable neurons if any path reaches here with CF off.
+  if (!isCloudflareWorkersAiEnabled()) throw new Error('Cloudflare Workers AI disabled (CF_WORKERS_AI_ENABLED not set) — $0 policy');
   const apiModel = getApiModelId(model);
   const accountId = getCfAccountId();
   if (!accountId) throw new Error('CF_ACCOUNT_ID not set');
