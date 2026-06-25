@@ -1394,7 +1394,7 @@
       "companyDomain": "uzh.ch",
       "title": "Pflegefachperson/Study nurse, Ambulatorium Neuro-Urologie",
       "titleByLocale": {
-        "it": "Infermiere/Infermiere di studio, Ambulatorium Neuro-Urologie",
+        "it": "Infermiere/Infermiere di studio, Ambulatorium Neuro-Urologia",
         "en": "Nurse/Study nurse, Ambulatorium Neuro-Urology",
         "de": "Pflegefachperson/Study nurse, Ambulatorium Neuro-Urologie",
         "fr": "Infirmière/infirmière d'études, Neuro-Urologie ambulatoire"
@@ -1471,7 +1471,7 @@
         "it": "SNSF Avvio Sovvenzione Richiedenti presso il Dipartimento di Astrofisica",
         "en": "SNSF Starting Grant Applicants at the Department of Astrophysics",
         "de": "SNF-Starting Grant Bewerber am Fachbereich Astrophysik",
-        "fr": "SNSF Demandeurs de subventions au Département d'astrophysique"
+        "fr": "SNSF Début des demandes de subvention au Département d'astrophysique"
       },
       "description": "The University of Zurich, Switzerland's largest university, offers a range of attractive positions in various subject areas and professional fields. With around 10,000 employees and currently 12 professional apprenticeship streams the University offers an inspiring working environment on cutting-edge research and top-class education. Put your talent and skills to work with us. Find out more about UZH as an employer!\n\nAufgaben:\nCandidates are expected to submit a concrete project idea (maximum three pages). Above all, applicants should bring an inspiring and ambitious research vision. In addition to their research contributions, we expect successful candidates to play a pivotal role in teaching the department bachelor/master programs, cultivating and leading an independent science group, fostering collaboration (including with students and postdocs at the department), and mentoring the next generation of scientists.\n\nAnforderungen:\nThe department will only consider candidates who match the eligibility criteria of the SNSF Starting Grants funding scheme. Applicants have a PhD degree, or a medical degree, or a qualification that is equivalent to a PhD. In addition, they must fulfil three criteria: (1) Eligibility Window, (2) Career Stage, and (3) Swiss-link.\n\nThe SNSF is organising an online information event for researchers interested in this call on 19 February from 10 to 11:30 a.m. (Swiss local time).\n Registration for the online event on 19 Februar 2026\n\nWe are inviting applications in the general fields of Astrophysics, Planetary Science, Astrobiology, Galaxy Formation, Space Exploration, and Cosmology. We particularly encourage applications from researchers specializing in planetary, exoplanet, and space sciences from a theoretical, numerical, or observational perspective. This includes, but is not limited to, planetary atmospheres and exoplanetary characterization, planetary evolution, planetary magnetic fields and star-planet interaction, proto-stellar and protoplanetary disks, modelling of matter at the high pressures of planetary interiors, remote sensing of solar system planets, small bodies, searches for bio-signatures in the atmospheres of exoplanets, and space exploration of planets and moons. Candidates whose research has clear links to ongoing research activities of the institute will be preferred.\n\nWir bieten:\nOur employees benefit from a wide range of attractive offers. More",
       "descriptionByLocale": {
@@ -4035,6 +4035,7 @@
       "previousSlugs": [
         "wissenschaftliche-assistenz-uzh-zurich-2",
         "wissenschaftliche-assistenz-uzh-zurich",
+        "wissenschaftliche-assistenz-universitat-zurich-zurich",
         "assistenza-scientifica-universitat-zurich-zurich",
         "scientific-assistance-universitat-zurich-zurich",
         "assistance-scientifique-universitat-zurich-zurich"
@@ -5066,12 +5067,12 @@
     },
     {
       "id": "uzh-a8309039cfbf",
-      "slug": "professore-aggiunto-in-chirurgia-per-la-malattia-del-polmone-funzionale-avanzata-universitat-zurich-zurich",
+      "slug": "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich",
       "slugByLocale": {
-        "it": "professore-aggiunto-in-chirurgia-per-la-malattia-del-polmone-funzionale-avanzata-universitat-zurich-zurich",
+        "it": "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich",
         "en": "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich",
         "de": "assistent-professorship-in-surgery-for-advanced-functional-lung-disease-universitat-zurich-zurich",
-        "fr": "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich"
+        "fr": "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5124,18 +5125,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
-        ],
-        "fr": [
-          "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
-      ]
+      }
     },
     {
       "id": "uzh-8d91401e836a",
@@ -5266,6 +5256,7 @@
       "previousSlugs": [
         "stellenausschreibung-doktorand-in-uzh-zurich-2",
         "stellenausschreibung-doktorand-in-uzh-zurich",
+        "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
         "studente-di-dottorato-in-universitat-zurich-zurich",
         "job-advertisement-doctoral-student-in-universitat-zurich-zurich",
         "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich"
@@ -8249,7 +8240,7 @@
       "companyDomain": "uzh.ch",
       "title": "Pflegefachperson/Study nurse, Ambulatorium Neuro-Urologie",
       "titleByLocale": {
-        "it": "Infermiere/Infermiere di studio, Ambulatorium Neuro-Urologie",
+        "it": "Infermiere/Infermiere di studio, Ambulatorium Neuro-Urologia",
         "en": "Nurse/Study nurse, Ambulatorium Neuro-Urology",
         "de": "Pflegefachperson/Study nurse, Ambulatorium Neuro-Urologie",
         "fr": "Infirmière/infirmière d'études, Neuro-Urologie ambulatoire"
@@ -10185,7 +10176,7 @@
       "title": "HR-Fachperson",
       "titleByLocale": {
         "it": "Risorse Umane-Fachperson",
-        "en": "HR professional",
+        "en": "HR specialist",
         "de": "Personalwesen-Fachperson",
         "fr": "Ressources Humaines-Fachperson"
       },
@@ -10507,7 +10498,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich",
+        "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10553,9 +10545,9 @@
       "description": "The University of Zurich, Switzerland's largest university, offers a range of attractive positions in various subject areas and professional fields. With around 10,000 employees and currently 12 professional apprenticeship streams the University offers an inspiring working environment on cutting-edge research and top-class education. Put your talent and skills to work with us. Find out more about UZH as an employer!\n\nAufgaben:\nThe position to be filled is within a collaborative research project of the Institute of Education (Prof. Dr. Martin J. Tomasik) and the Psychological Institute (Prof. Dr. Charles Driver) funded by the Swiss National Science Foundation (SNSF).\nMain task consists of supporting projects involving programming and data Analysis skills (Python, R, and Git/GitHub). Varied challenges await you in our team, such as supporting us with data collection activities, and machine learning analyses (e.g., exploratory data analysis, statistics, deep learning).\n\nAnforderungen:\nExcellent programming skills (prior projects and working experience) are required. Experience in Deep Learning (e.g., GNNs, Pytorch) is an advantage. Fluency in English is required. Knowledge of German is a plus. Good to have good organizational skills.\n\nWir bieten:\nOur employees benefit from a wide range of attractive offers. Find out more: https://www.uzh.ch/de/explore/work.html.",
       "descriptionByLocale": {
         "en": "The University of Zurich, Switzerland's largest university, offers a range of attractive positions in various subject areas and professional fields. With around 10,000 employees and currently 12 professional apprenticeship streams the University offers an inspiring working environment on cutting-edge research and top-class education. Put your talent and skills to work with us. Find out more about UZH as an employer!\n\nAufgaben:\nThe position to be filled is within a collaborative research project of the Institute of Education (Prof. Dr. Martin J. Tomasik) and the Psychological Institute (Prof. Dr. Charles Driver) funded by the Swiss National Science Foundation (SNSF).\nMain task consists of supporting projects involving programming and data Analysis skills (Python, R, and Git/GitHub). Varied challenges await you in our team, such as supporting us with data collection activities, and machine learning analyses (e.g., exploratory data analysis, statistics, deep learning).\n\nAnforderungen:\nExcellent programming skills (prior projects and working experience) are required. Experience in Deep Learning (e.g., GNNs, Pytorch) is an advantage. Fluency in English is required. Knowledge of German is a plus. Good to have good organizational skills.\n\nWir bieten:\nOur employees benefit from a wide range of attractive offers. Find out more: https://www.uzh.ch/de/explore/work.html.",
-        "it": "L'Università di Zurigo, la più grande università della Svizzera, offre una gamma di posizioni attraenti in varie aree tematiche e campi professionali. Con circa 10.000 dipendenti e attualmente 12 corsi di apprendistato professionale, l'Università offre un ambiente di lavoro stimolante sulla ricerca all'avanguardia e sull'istruzione di prima classe. Metti il tuo talento e le tue capacità per lavorare con noi. Scopri di più su UZH come datore di lavoro!\n\nAufgaben:\nLa posizione da riempire è all'interno di un progetto di ricerca collaborativo dell'Istituto di Istruzione (Prof. Dr. Martin J. Tomasik) e dell'Istituto Psicologico (Prof. Dr. Charles Driver) finanziato dalla Swiss National Science Foundation (SNSF).\nIl compito principale consiste nel sostenere progetti che coinvolgono competenze di programmazione e analisi dei dati (Python, R e Git/GitHub). Varie sfide vi attendono nel nostro team, come il supporto a noi con le attività di raccolta dati e analisi di machine learning (ad esempio, analisi dei dati esplorativi, statistiche, deep learning).\n\nAnforderungen:\nSono necessarie eccellenti capacità di programmazione (progetti prioritari e esperienza lavorativa). L'esperienza nel Deep Learning (ad esempio, GNN, Pytorch) è un vantaggio. È richiesta una fluidità in inglese. La conoscenza del tedesco è un plus. È bello avere buone capacità organizzative.\n\nWir bieten:\nI nostri dipendenti beneficiano di una vasta gamma di offerte interessanti. Maggiori informazioni: https://www.uzh.ch/de/explore/work.html",
-        "de": "Die Universität Zürich, die größte Universität der Schweiz, bietet eine Reihe attraktiver Positionen in verschiedenen Fachgebieten und Berufsfeldern. Mit rund 10.000 Mitarbeitern und derzeit 12 beruflichen Ausbildungsströmen bietet die Universität ein inspirierendes Arbeitsumfeld für Spitzenforschung und erstklassige Bildung. Setzen Sie Ihr Talent und Ihre Fähigkeiten ein, um mit uns zu arbeiten. Erfahren Sie mehr über die UZH als Arbeitgeber!\n\nAufgaben:\nDie zu besetzende Stelle ist Teil eines Verbundforschungsprojekts des Instituts für Bildung (Prof. Dr. Martin J. Tomasik) und des Psychologischen Instituts (Prof. Dr. Charles Driver), das vom Schweizerischen Nationalfonds (SNF) gefördert wird.\nHauptaufgabe ist die Unterstützung von Projekten mit Programmier- und Datenanalysefähigkeiten (Python, R und Git/GitHub). Vielfältige Herausforderungen erwarten Sie in unserem Team, wie z.B. die Unterstützung bei Datenerhebungsaktivitäten und maschinellen Lernanalysen (z.B. explorative Datenanalyse, Statistik, Deep Learning).\n\nAnforderungen:\nHervorragende Programmierkenntnisse (Vorprojekte und Arbeitserfahrung) sind erforderlich. Erfahrung im Deep Learning (z.B. GNNs, Pytorch) ist ein Vorteil. Fließend in Englisch ist erforderlich. Deutschkenntnisse sind ein Plus. Gut, gute organisatorische Fähigkeiten zu haben.\n\nWir bieten:\nUnsere Mitarbeiter profitieren von einer breiten Palette attraktiver Angebote. Weitere Informationen finden Sie unter https://www.uzh.ch/de/explore/work.html.",
-        "fr": "L'Université de Zurich, la plus grande université de Suisse, offre une gamme de postes attrayants dans différents domaines et domaines professionnels. Avec environ 10 000 employés et actuellement 12 filières d'apprentissage professionnel, l'Université offre un environnement de travail inspirant sur la recherche de pointe et l'éducation de haut niveau. Mettez votre talent et vos compétences à travailler avec nous. En savoir plus sur l'UZH comme employeur!\n\nAufgaben:\nLe poste à pourvoir fait partie d'un projet de recherche collaboratif de l'Institut d'éducation (prof. Martin J. Tomasik) et de l'Institut de psychologie (prof. Charles Driver) financé par la Fondation nationale suisse des sciences (SNSF).\nLa tâche principale consiste à appuyer des projets comportant des compétences en programmation et en analyse des données (Python, R et Git/GitHub). Des défis variés vous attendent au sein de notre équipe, comme nous soutenir dans des activités de collecte de données et des analyses d'apprentissage automatique (p. ex., analyse de données exploratoires, statistiques, apprentissage profond).\n\nC'est pas vrai.\nD'excellentes compétences en programmation (projets antérieurs et expérience de travail) sont requises. L'expérience de l'apprentissage profond (p. ex. GNN, Pytorch) est un avantage. La maîtrise de l'anglais est requise. La connaissance de l'allemand est un plus. Bon d'avoir de bonnes compétences organisationnelles.\n\n- Oui.\nNos employés bénéficient d'un large éventail d'offres attrayantes. Pour en savoir plus: https://www.uzh.ch/de/explore/work.html."
+        "it": "L'Università di Zurigo, la più grande università della Svizzera, offre una gamma di posizioni attraenti in varie aree tematiche e campi professionali. Con circa 10.000 dipendenti e attualmente 12 corsi di apprendistato professionale, l'Università offre un ambiente di lavoro stimolante sulla ricerca all'avanguardia e sull'istruzione di prima classe. Metti il tuo talento e le tue capacità per lavorare con noi. Scopri di più su UZH come datore di lavoro!\n\nAufgaben:\nLa posizione da riempire è all'interno di un progetto di ricerca collaborativo dell'Istituto di Istruzione (Prof. Dr. Martin J. Tomasik) e dell'Istituto Psicologico (Prof. Dr. Charles Driver) finanziato dalla Swiss National Science Foundation (SNSF).\nIl compito principale consiste nel sostenere progetti che coinvolgono competenze di programmazione e analisi dei dati (Python, R e Git/GitHub). Varie sfide vi attendono nel nostro team, come il supporto a noi con attività di raccolta dati e analisi di machine learning (ad esempio, analisi dei dati esplorativi, statistiche, deep learning).\n\nAnforderungen:\nSono necessarie eccellenti capacità di programmazione (progetti prioritari e esperienza lavorativa). L'esperienza nel Deep Learning (ad esempio, GNN, Pytorch) è un vantaggio. È richiesta una fluidità in inglese. La conoscenza del tedesco è un plus. È bello avere buone capacità organizzative.\n\nWir bieten:\nI nostri dipendenti beneficiano di una vasta gamma di offerte interessanti. Maggiori informazioni: https://www.uzh.ch/de/explore/work.html",
+        "de": "Die Universität Zürich, die größte Universität der Schweiz, bietet eine Reihe attraktiver Positionen in verschiedenen Fachgebieten und Berufsfeldern. Mit rund 10.000 Mitarbeitern und derzeit 12 beruflichen Ausbildungsströmen bietet die Universität ein inspirierendes Arbeitsumfeld für Spitzenforschung und erstklassige Bildung. Setzen Sie Ihr Talent und Ihre Fähigkeiten ein, um mit uns zu arbeiten. Erfahren Sie mehr über die UZH als Arbeitgeber!\n\nAufgaben:\nDie zu besetzende Stelle ist Teil eines Verbundforschungsprojekts des Bildungsinstituts (Prof. Dr. Martin J. Tomasik) und des Psychologischen Instituts (Prof. Dr. Charles Driver), das vom Schweizerischen Nationalfonds (SNF) gefördert wird.\nHauptaufgabe ist die Unterstützung von Projekten mit Programmier- und Datenanalysefähigkeiten (Python, R und Git/GitHub). Vielfältige Herausforderungen erwarten Sie in unserem Team, wie z.B. die Unterstützung bei Datenerhebungsaktivitäten und Machine-Learning-Analysen (z.B. explorative Datenanalyse, Statistik, Deep Learning).\n\nAnforderungen:\nHervorragende Programmierkenntnisse (Vorprojekte und Arbeitserfahrung) sind erforderlich. Erfahrung im Deep Learning (z. B. GNNs, Pytorch) ist von Vorteil. Fließend in Englisch ist erforderlich. Deutschkenntnisse sind ein Plus. Gut, gute organisatorische Fähigkeiten zu haben.\n\nWir bieten:\nUnsere Mitarbeiter profitieren von einer breiten Palette attraktiver Angebote. Weitere Informationen finden Sie unter https://www.uzh.ch/de/explore/work.html.",
+        "fr": "L'Université de Zurich, la plus grande université de Suisse, offre une gamme de postes attrayants dans différents domaines et domaines professionnels. Avec environ 10 000 employés et actuellement 12 filières d'apprentissage professionnel, l'Université offre un environnement de travail inspirant sur la recherche de pointe et l'éducation de haut niveau. Mettez votre talent et vos compétences au travail avec nous. En savoir plus sur UZH en tant qu'employeur!\n\nAufgaben:\nLe poste à pourvoir fait partie d'un projet de recherche collaboratif de l'Institut d'éducation (prof. Martin J. Tomasik) et de l'Institut psychologique (prof. Charles Driver) financé par la Fondation nationale suisse des sciences (SNSF).\nLa tâche principale consiste à soutenir des projets impliquant des compétences en programmation et en analyse des données (Python, R, et Git/GitHub). Des défis variés vous attendent au sein de notre équipe, tels que nous soutenir dans des activités de collecte de données et des analyses d'apprentissage automatique (p. ex. analyse de données exploratoires, statistiques, apprentissage profond).\n\n- C'est pas vrai.\nD'excellentes compétences en programmation (projets antérieurs et expérience de travail) sont requises. L'expérience de l'apprentissage profond (p. ex., GNN, Pytorch) est un avantage. La maîtrise de l'anglais est requise. La connaissance de l'allemand est un plus. Bon d'avoir de bonnes compétences organisationnelles.\n\n- Oui.\nNos employés bénéficient d'un large éventail d'offres attrayantes. Pour en savoir plus : https://www.uzh.ch/de/explore/work.html."
       },
       "location": "Kantonsschulstrasse 3",
       "canton": "ZH",
