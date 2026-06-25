@@ -44846,6 +44846,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fermentino-mercato-contadino-giubiano': {
+    title: 'Varese: Torna Fermentino - Mercato Contadino di Giubiano',
+    description: 'Il 26 giugno torna Fermentino a Giubiano. Produttori locali, musica e birra artigianale. Ingresso libero dalle 18 alle 21. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, torna, fermentino, mercato',
+    ogTitle: 'Mercato Contadino Serale a Giubiano - Evento Gratuito',
+    ogDescription: 'Il 26 giugno torna Fermentino a Giubiano. Prodotti locali, musica e birra artigianale. Ingresso libero.',
+    canonicalPath: '/articoli-frontaliere/fermentino-mercato-contadino-giubiano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: Torna Fermentino - Mercato Contadino di Giubiano",
+      "description": "Il 26 giugno torna Fermentino a Giubiano. Produttori locali, musica e birra artigianale. Ingresso libero dalle 18 alle 21. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fermentino-mercato-contadino-giubiano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato serale a Giubiano con bancarelle di prodotti locali e persone che socializzano"
+      },
+      "datePublished": "2026-06-25T08:37:05+00:00",
+      "dateModified": "2026-06-25T08:37:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fermentino-mercato-contadino-giubiano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

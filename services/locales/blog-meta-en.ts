@@ -8152,6 +8152,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.radio-materia-volontari-banca-etica-libri-sport.title': 'Radio Materia: Volunteers of Banca Etica and sports books',
     'blog.article.radio-materia-volontari-banca-etica-libri-sport.excerpt': 'Today on Radio Materia we talk about volunteering and sports books. Two appointments in the afternoon.',
     'blog.article.radio-materia-volontari-banca-etica-libri-sport.imageAlt': 'Banca Etica volunteers working in a library with sports books',
+    'blog.article.fermentino-mercato-contadino-giubiano.title': 'Varese: Torna Fermentino - Giubiano Farmers\' Market',
+    'blog.article.fermentino-mercato-contadino-giubiano.excerpt': 'On 26 June, the evening farmers\' market returns to Giubiano. Local producers and craft beer at a free event.',
+    'blog.article.fermentino-mercato-contadino-giubiano.imageAlt': 'Evening market in Giubiano with local food stalls and people socializing',
 };
 
 export default blogMetaEn;

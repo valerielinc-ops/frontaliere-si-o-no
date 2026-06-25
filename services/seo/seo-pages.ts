@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2917,
+ "numberOfItems": 2918,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7563,7 +7563,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2914, "name": "Tassazione frontalieri: impatti e gestione fiscale", "url": `${BASE_URL}/articoli-frontaliere/tassazione-frontalieri-oltre-20km-confine` },
           { "@type": "ListItem", "position": 2915, "name": "MC'27 porta l'art wear nel cuore di Lugano: l'e...", "url": `${BASE_URL}/articoli-frontaliere/mc-27-mostra-lugano-2026` },
           { "@type": "ListItem", "position": 2916, "name": "Radio Materia: Volontari di Banca Etica e libri...", "url": `${BASE_URL}/articoli-frontaliere/radio-materia-volontari-banca-etica-libri-sport` },
-          { "@type": "ListItem", "position": 2917, "name": "Parmelin in missione economica in Nordamerica", "url": `${BASE_URL}/articoli-frontaliere/parmelin-missione-economica-nordamerica` }
+          { "@type": "ListItem", "position": 2917, "name": "Parmelin in missione economica in Nordamerica", "url": `${BASE_URL}/articoli-frontaliere/parmelin-missione-economica-nordamerica` },
+          { "@type": "ListItem", "position": 2918, "name": "Varese: Torna Fermentino - Mercato Contadino di...", "url": `${BASE_URL}/articoli-frontaliere/fermentino-mercato-contadino-giubiano` }
  ]
  },
  {

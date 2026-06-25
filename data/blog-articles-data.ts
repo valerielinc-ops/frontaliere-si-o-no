@@ -25839,6 +25839,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fermentino-mercato-contadino-giubiano',
+ category: 'pratico',
+ date: '2026-06-25T08:37:05.137Z',
+ image: '/images/blog/fermentino-mercato-contadino-giubiano.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
