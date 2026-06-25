@@ -109,8 +109,11 @@ describe('SEO static-page ad slots — regression guard', () => {
     const files = Array.from(new Set([...SPECS.map(s => s.file), ...FILE_SPECS.map(s => s.file)]));
     for (const file of files) {
       const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      // adSlotHtml must come from the centralized helper. Allow co-imports in
+      // the same `{ … }` (e.g. `infeedAdListItemHtml`) — the gate only requires
+      // adSlotHtml to be imported from './lib/adSlotHtml', not that it be alone.
       expect(src, `${file} must import adSlotHtml from './lib/adSlotHtml'`)
-        .toMatch(/import\s*\{\s*adSlotHtml\s*\}\s*from\s*['"]\.\/lib\/adSlotHtml['"]/);
+        .toMatch(/import\s*\{[^}]*\badSlotHtml\b[^}]*\}\s*from\s*['"]\.\/lib\/adSlotHtml['"]/);
     }
   });
 

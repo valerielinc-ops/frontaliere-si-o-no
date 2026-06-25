@@ -224,8 +224,22 @@ export function isPlaceholderAdSlot(slotId: string): boolean {
  *  #6 — a cadence duplicated as a literal in ≥2 files would drift by-hand). */
 export const JOBLIST_AD_EVERY_N = 3;
 
+/** Safety cap on in-feed ads per single list. "One ad every 3 cards" on a long
+ *  list (per-canton paginated listings carry ~100 jobs; the SPA main list grows
+ *  via infinite scroll) would otherwise emit 30+ ads on one page — an AdSense
+ *  ad-density policy risk that can get the whole account throttled (which would
+ *  hurt the ~95%-of-revenue Auto Ads). Cap at 12: lists ≤36 cards are
+ *  unaffected (they place ≤12 ads anyway); longer lists stop interleaving past
+ *  card 36 (Auto Ads + the end-of-list multiplex still cover the tail). */
+export const JOBLIST_AD_MAX_PER_LIST = 12;
+
 /** True when an in-feed ad should be placed immediately after the card at this
- *  1-based position. Ad after card 3, 6, 9, … (every `JOBLIST_AD_EVERY_N`). */
+ *  1-based position. Ad after card 3, 6, 9, … (every `JOBLIST_AD_EVERY_N`), up
+ *  to `JOBLIST_AD_MAX_PER_LIST` ads per list (see cap rationale above). */
 export function shouldPlaceInfeedAd(position1Based: number): boolean {
- return position1Based > 0 && position1Based % JOBLIST_AD_EVERY_N === 0;
+ return (
+ position1Based > 0 &&
+ position1Based % JOBLIST_AD_EVERY_N === 0 &&
+ position1Based <= JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST
+ );
 }

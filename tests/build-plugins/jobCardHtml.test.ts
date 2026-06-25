@@ -345,4 +345,15 @@ describe('jobCardHtml — renderJobCardListHtml in-feed ads', () => {
     });
     expect(html).not.toContain('ft-infeed-ad');
   });
+
+  it('caps in-feed ads per list to avoid ad-density violations on long lists', () => {
+    // 50 cards: every-3 would place 16 ads (pos 3..48), but the cap is 12.
+    const many = Array.from({ length: 50 }, (_, i) => ({
+      job: { ...baseJob, title: `Job ${i}` },
+      href: `/j${i}/`,
+    }));
+    const html = renderJobCardListHtml(many, { locale: 'it' });
+    const adItems = (html.match(/<li class="ft-infeed-ad/g) || []).length;
+    expect(adItems).toBe(12);
+  });
 });
