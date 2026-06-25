@@ -1,16 +1,16 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-06-25T11:23:54.581Z",
-  "total": 10,
+  "generatedAt": "2026-06-25T22:17:15.966Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "updatedCount": 8,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 3245,
-  "avgDurationMs": 3245,
+  "durationMs": 3915,
+  "avgDurationMs": 3915,
   "durationHistory": [
-    3245
+    3915
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -138,39 +138,6 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-22T14:16:01.101Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Senior Legal Counsel (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/senior-legal-counsel-m-w-d/5500695c-d10c-49d9-98bc-aeead343350b",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-06-25",
-      "source": "company-website",
-      "slug": "senior-legal-counsel-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-0ee8ff80c375",
-      "sourceLang": "it",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-16T13:16:08.677Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -310,6 +277,41 @@
         "translation": 25,
         "completeness": 22
       }
+    }
+  ],
+  "removedJobs": [
+    {
+      "title": "Senior Legal Counsel (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/senior-legal-counsel-m-w-d/5500695c-d10c-49d9-98bc-aeead343350b",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "postedDate": "2026-06-16",
+      "source": "company-website",
+      "slug": "senior-legal-counsel-m-w-d-100-ems-chemie-domat-ems",
+      "crawledAt": "",
+      "id": "ems-chemie-0ee8ff80c375",
+      "sourceLang": "it",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-16T13:16:08.677Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 25,
+        "completeness": 22
+      }
     },
     {
       "title": "Anwendungstechniker Technische Fasern (m/w/d) 100%",
@@ -326,9 +328,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "category": "science",
-      "postedDate": "2026-06-25",
+      "postedDate": "2026-06-16",
       "source": "company-website",
-      "slug": "anwendungstechniker-technische-fasern-m-w-d-100-ems-chemie-domat-ems",
+      "slug": "applicazione-technics-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
       "id": "ems-chemie-e331ea3062a4",
       "sourceLang": "it",
@@ -345,7 +347,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
@@ -480,39 +481,6 @@
       }
     },
     {
-      "title": "Senior Legal Counsel (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/senior-legal-counsel-m-w-d/5500695c-d10c-49d9-98bc-aeead343350b",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-06-25",
-      "source": "company-website",
-      "slug": "senior-legal-counsel-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-0ee8ff80c375",
-      "sourceLang": "it",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-16T13:16:08.677Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Distribution Manager (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
@@ -636,39 +604,6 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-28T12:26:00.141Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Anwendungstechniker Technische Fasern (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern-m-w-d/e8c1c439-1378-4e96-8c13-8d612a941b43",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-06-25",
-      "source": "company-website",
-      "slug": "applicazione-technics-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-e331ea3062a4",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-27T12:30:49.737Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
