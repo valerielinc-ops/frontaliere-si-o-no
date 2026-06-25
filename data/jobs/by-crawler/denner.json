@@ -1003,7 +1003,12 @@
       "crawledAt": "2026-06-25T10:59:17.958Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-landquart"
+        "stv-filialleiter-in-denner-landquart",
+        "stv-branch-manager-in-denner-riehen",
+        "stv-branch-manager-in-denner-wadenswil",
+        "stv-branch-manager-in-denner-monchaltorf",
+        "stv-branch-manager-in-denner-wollerau",
+        "stv-branch-manager-in-denner-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1011,7 +1016,12 @@
           "stv-filialleiter-in-denner-landquart"
         ],
         "en": [
-          "stv-filialleiter-in-denner-landquart"
+          "stv-filialleiter-in-denner-landquart",
+          "stv-branch-manager-in-denner-riehen",
+          "stv-branch-manager-in-denner-wadenswil",
+          "stv-branch-manager-in-denner-monchaltorf",
+          "stv-branch-manager-in-denner-wollerau",
+          "stv-branch-manager-in-denner-schaffhausen"
         ],
         "fr": [
           "stv-filialleiter-in-denner-landquart"
@@ -1941,11 +1951,21 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-25T10:59:15.620Z",
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "venditore-denner-ag-langenthal-34cb20",
+        "seller-denner-ag-langenthal-34cb20",
+        "vendeur-denner-ag-langenthal-34cb20"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "venditore-denner-ag-langenthal-34cb20"
+        ],
+        "en": [
+          "seller-denner-ag-langenthal-34cb20"
+        ],
+        "fr": [
+          "vendeur-denner-ag-langenthal-34cb20"
         ]
       },
       "firstSeenAt": "2026-06-24T11:10:04.333Z",
@@ -2126,13 +2146,15 @@
         "venditore-nel-salario-orario-denner-basel",
         "verkaufer-in-im-stundenlohn-denner-basel",
         "seller-in-the-hourly-wage-denner-basel",
-        "vendeur-dans-le-salaire-horaire-denner-basel"
+        "vendeur-dans-le-salaire-horaire-denner-basel",
+        "venditore-nel-salario-orario-denner-ag-breitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-2",
           "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-basel"
+          "venditore-nel-salario-orario-denner-basel",
+          "venditore-nel-salario-orario-denner-ag-breitenbach"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-basel",
@@ -2713,18 +2735,34 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner-frauenfeld",
+          "venditore-denner-ag-frauenfeld",
+          "verkaufer-in-denner-2",
+          "venditore-con-salario-orario-denner-frauenfeld",
+          "salesperson-on-an-hourly-wage-denner-frauenfeld",
+          "verkaufer-in-denner-rubigen",
+          "vendeur-a-salaire-horaire-denner-frauenfeld"
         ],
         "en": [
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner-frauenfeld",
+          "seller-denner-ag-frauenfeld"
         ],
         "fr": [
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner-frauenfeld",
+          "vendeur-denner-ag-frauenfeld"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-frauenfeld"
+        "verkaufer-in-denner-frauenfeld",
+        "venditore-denner-ag-frauenfeld",
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld",
+        "verkaufer-in-denner-2",
+        "venditore-con-salario-orario-denner-frauenfeld",
+        "salesperson-on-an-hourly-wage-denner-frauenfeld",
+        "verkaufer-in-denner-rubigen",
+        "vendeur-a-salaire-horaire-denner-frauenfeld"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2808,7 +2846,11 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "verkaufer-in-im-stundenlohn-denner-gstaad"
+          "verkaufer-in-im-stundenlohn-denner-gstaad",
+          "verkaufer-in-im-stundenlohn-denner-dgsjiy",
+          "verkaufer-in-im-stundenlohn-denner-c24dro",
+          "verkaufer-in-im-stundenlohn-denner-ieg13f",
+          "verkaufer-in-im-stundenlohn-denner-sissach"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-gstaad"
@@ -2819,7 +2861,11 @@
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-gstaad"
+        "verkaufer-in-im-stundenlohn-denner-gstaad",
+        "verkaufer-in-im-stundenlohn-denner-dgsjiy",
+        "verkaufer-in-im-stundenlohn-denner-c24dro",
+        "verkaufer-in-im-stundenlohn-denner-ieg13f",
+        "verkaufer-in-im-stundenlohn-denner-sissach"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2903,7 +2949,10 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-2",
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-weinfelden",
+          "venditore-con-retribuzione-oraria-denner-weinfelden",
+          "venditore-nel-salario-orario-denner-weinfelden"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-glis"
@@ -2915,7 +2964,10 @@
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-glis"
+        "verkaufer-in-im-stundenlohn-denner-glis",
+        "verkaufer-in-im-stundenlohn-denner-weinfelden",
+        "venditore-con-retribuzione-oraria-denner-weinfelden",
+        "venditore-nel-salario-orario-denner-weinfelden"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

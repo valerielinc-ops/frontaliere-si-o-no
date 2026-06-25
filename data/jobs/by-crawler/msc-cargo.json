@@ -569,7 +569,8 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-23T22:50:36.003Z",
       "previousSlugs": [
-        "travelling-destination-manager-msc-geneva"
+        "travelling-destination-manager-msc-geneva",
+        "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -579,7 +580,8 @@
           "travelling-destination-manager-msc-geneva"
         ],
         "it": [
-          "travelling-destination-manager-msc-geneva"
+          "travelling-destination-manager-msc-geneva",
+          "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva"
         ]
       }
     },
@@ -717,7 +719,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-25T11:56:35.528Z"
+      "firstSeenAt": "2026-06-25T11:56:35.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva"
+      ]
     }
   ]
 }
