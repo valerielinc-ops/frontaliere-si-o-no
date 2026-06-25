@@ -3484,7 +3484,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
  && (
  fullLoadPending
- || (filteredJobs.length === 0 && (pendingFallbacks > 0 || !anyFallbackAttempted))
+ || (filteredJobs.length === 0 && (
+ pendingFallbacks > 0
+ || !anyFallbackAttempted
+ // Terminal cross-locale fallback (Tier 4) hasn't run yet. For a 0-result
+ // search the in-canton tiers are all empty, so this fetch WILL fire and may
+ // still bring results — hold the skeleton instead of flashing "0" in the gap
+ // between an earlier fallback settling and Tier 4 firing. Once it's attempted
+ // (ref set), a still-empty set falls through to the genuine empty-state.
+ || (Boolean(deferredSearchQuery.trim()) && !crossLocaleFetchAttempted.current)
+ ))
  );
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
