@@ -9,7 +9,7 @@
         "it": "esperto-di-business-aziendale-m-f-d-liestal-part-time-full-time-helvetia-versicherungen-liestal",
         "en": "business-customer-expert-m-f-d-liestal-part-time-full-time-helvetia-versicherungen-liestal",
         "de": "experte-unternehmenskundengeschaft-w-m-d-liestal-teilzeit-vollzeit-helvetia-liestal",
-        "fr": "expert-en-clients-entreprises-m-f-d-liestal-part-time-full-time-helvetia-versicherungen-liestal"
+        "fr": "experts-en-affaires-client-en-m-j-helvetia-versicherungen-liestal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -52,7 +52,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "experte-unternehmenskundengeschaft-w-m-d-liestal-teilzeit-vollzeit-helvetia-liestal",
-        "expert-en-clientele-entreprise-h-f-liestal-temps-partiel-plein-temps-helvetia-versicherungen-liestal"
+        "expert-en-clientele-entreprise-h-f-liestal-temps-partiel-plein-temps-helvetia-versicherungen-liestal",
+        "expert-en-clients-entreprises-m-f-d-liestal-part-time-full-time-helvetia-versicherungen-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,7 +64,8 @@
         ],
         "fr": [
           "experte-unternehmenskundengeschaft-w-m-d-liestal-teilzeit-vollzeit-helvetia-liestal",
-          "expert-en-clientele-entreprise-h-f-liestal-temps-partiel-plein-temps-helvetia-versicherungen-liestal"
+          "expert-en-clientele-entreprise-h-f-liestal-temps-partiel-plein-temps-helvetia-versicherungen-liestal",
+          "expert-en-clients-entreprises-m-f-d-liestal-part-time-full-time-helvetia-versicherungen-liestal"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.538Z",
@@ -2058,12 +2060,12 @@
     },
     {
       "id": "helvetia-ef326d2df273",
-      "slug": "senior-full-stack-software-engineer-kotlin-java-w-m-d-vollzeit-helvetia-dubendorf",
+      "slug": "ingegnere-di-software-a-pieno-stadio-kotlin-java-w-m-d-a-tempo-pieno-helvetia-versicherungen-dubendorf",
       "slugByLocale": {
-        "it": "senior-full-stack-software-engineer-kotlin-java-w-m-d-vollzeit-helvetia-dubendorf",
+        "it": "ingegnere-di-software-a-pieno-stadio-kotlin-java-w-m-d-a-tempo-pieno-helvetia-versicherungen-dubendorf",
         "en": "senior-full-stack-software-engineer-kotlin-java-w-m-d-vollzeit-helvetia-dubendorf",
         "de": "senior-full-stack-software-engineer-kotlin-java-w-m-d-vollzeit-helvetia-dubendorf",
-        "fr": "senior-full-stack-software-engineer-kotlin-java-w-m-d-vollzeit-helvetia-dubendorf"
+        "fr": "ingenieur-principal-en-logiciels-a-plein-temps-kotlin-java-w-m-d-temps-plein-helvetia-versicherungen-dubendorf"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -2116,7 +2118,18 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-full-stack-software-engineer-kotlin-java-w-m-d-vollzeit-helvetia-dubendorf"
+        ],
+        "fr": [
+          "senior-full-stack-software-engineer-kotlin-java-w-m-d-vollzeit-helvetia-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "senior-full-stack-software-engineer-kotlin-java-w-m-d-vollzeit-helvetia-dubendorf"
+      ]
     },
     {
       "id": "helvetia-2ed6e291813a",
@@ -2821,9 +2834,9 @@
     },
     {
       "id": "helvetia-beb8b805be11",
-      "slug": "account-manager-erv-regione-ovest-f-m-d-part-time-full-time-helvetia-versicherungen-basel",
+      "slug": "account-manager-erv-regione-ovest-w-m-d-tempo-parziale-a-tempo-pieno-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "account-manager-erv-regione-ovest-f-m-d-part-time-full-time-helvetia-versicherungen-basel",
+        "it": "account-manager-erv-regione-ovest-w-m-d-tempo-parziale-a-tempo-pieno-helvetia-versicherungen-basel",
         "en": "account-manager-erv-region-west-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "de": "account-manager-erv-region-west-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "fr": "gestionnaire-de-compte-vre-region-de-l-ouest-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
@@ -2868,11 +2881,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "account-manager-erv-region-west-w-m-d-teilzeit-vollzeit-helvetia-basel"
+        "account-manager-erv-region-west-w-m-d-teilzeit-vollzeit-helvetia-basel",
+        "account-manager-erv-regione-ovest-f-m-d-part-time-full-time-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-manager-erv-region-west-w-m-d-teilzeit-vollzeit-helvetia-basel"
+          "account-manager-erv-region-west-w-m-d-teilzeit-vollzeit-helvetia-basel",
+          "account-manager-erv-regione-ovest-f-m-d-part-time-full-time-helvetia-versicherungen-basel"
         ],
         "fr": [
           "account-manager-erv-region-west-w-m-d-teilzeit-vollzeit-helvetia-basel"
@@ -3050,9 +3065,9 @@
     },
     {
       "id": "helvetia-27280315fe7c",
-      "slug": "consulente-clienti-junior-f-m-d-berna-programma-di-eccellenza-vendite-helvetia-versicherungen-bern",
+      "slug": "consulente-cliente-junior-w-m-d-bern-programma-di-eccellenza-commerciale-helvetia-versicherungen-bern",
       "slugByLocale": {
-        "it": "consulente-clienti-junior-f-m-d-berna-programma-di-eccellenza-vendite-helvetia-versicherungen-bern",
+        "it": "consulente-cliente-junior-w-m-d-bern-programma-di-eccellenza-commerciale-helvetia-versicherungen-bern",
         "en": "junior-kundenberater-w-m-d-bern-sales-excellence-program-helvetia-bern",
         "de": "junior-kundenberater-w-m-d-bern-sales-excellence-program-helvetia-bern",
         "fr": "conseiller-client-junior-f-m-j-bern-programme-d-excellence-en-ventes-helvetia-versicherungen-bern"
@@ -3097,11 +3112,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-kundenberater-w-m-d-bern-sales-excellence-program-helvetia-bern"
+        "junior-kundenberater-w-m-d-bern-sales-excellence-program-helvetia-bern",
+        "consulente-clienti-junior-f-m-d-berna-programma-di-eccellenza-vendite-helvetia-versicherungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-kundenberater-w-m-d-bern-sales-excellence-program-helvetia-bern"
+          "junior-kundenberater-w-m-d-bern-sales-excellence-program-helvetia-bern",
+          "consulente-clienti-junior-f-m-d-berna-programma-di-eccellenza-vendite-helvetia-versicherungen-bern"
         ],
         "fr": [
           "junior-kundenberater-w-m-d-bern-sales-excellence-program-helvetia-bern"

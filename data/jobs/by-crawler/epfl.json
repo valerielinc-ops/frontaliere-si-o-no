@@ -84,7 +84,7 @@
         "it": "tecnico-chirurgia-del-topo-e-neuroscienze-epfl-lausanne",
         "en": "technician-mouse-surgery-neuroscience-epfl-lausanne",
         "de": "techniker-mauschirurgie-neurowissenschaften-epfl-lausanne",
-        "fr": "technician-mouse-surgery-neuroscience-epfl-lausanne"
+        "fr": "technicien-surgerie-et-neurosciences-mame-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -132,8 +132,8 @@
           "technicien-chirurgie-de-la-souris-et-neuroscience-epfl-lausanne",
           "technicien-chirurgie-du-souris-et-neurosciences-epfl-lausanne",
           "technicien-chirurgie-de-la-souris-et-neurosciences-epfl-lausanne",
-          "technicien-surgerie-et-neurosciences-mame-epfl-lausanne",
-          "technicien-chirurgie-de-la-souris-neurosciences-epfl-lausanne"
+          "technicien-chirurgie-de-la-souris-neurosciences-epfl-lausanne",
+          "technician-mouse-surgery-neuroscience-epfl-lausanne"
         ],
         "it": [
           "technician-mouse-surgery-neuroscience-epfl-lausanne",
@@ -150,9 +150,8 @@
         "technicien-chirurgie-de-la-souris-et-neuroscience-epfl-lausanne",
         "technicien-chirurgie-du-souris-et-neurosciences-epfl-lausanne",
         "technicien-chirurgie-de-la-souris-et-neurosciences-epfl-lausanne",
-        "technicien-surgerie-et-neurosciences-mame-epfl-lausanne",
-        "technician-mouse-surgery-neuroscience-epfl-lausanne",
         "technicien-chirurgie-de-la-souris-neurosciences-epfl-lausanne",
+        "technician-mouse-surgery-neuroscience-epfl-lausanne",
         "tecnico-chirurgia-del-mouse-neuroscience-epfl-lausanne",
         "tecnico-chirurgia-su-topi-e-neuroscienze-epfl-lausanne",
         "technico-chirurgia-del-tasto-e-neuroscienza-epfl-lausanne",
@@ -449,7 +448,7 @@
         "it": "ingegnere-di-ricerca-nelle-misurazioni-atmosferiche-in-ambienti-estremi-epfl-sion",
         "en": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
         "de": "forschungstechniker-fur-atmospharische-messungen-in-extremen-umgebungen-epfl-sion",
-        "fr": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion"
+        "fr": "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -495,7 +494,7 @@
         "fr": [
           "ingenieur-de-recherche-pour-les-mesures-atmospheriques-dans-les-environnements-extremes-epfl-sion",
           "ingenieur-de-recherche-en-mesures-atmospheriques-en-environnements-extremes-epfl-sion",
-          "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion"
+          "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion"
         ],
         "it": [
           "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
@@ -510,7 +509,6 @@
         "ingenieur-de-recherche-pour-les-mesures-atmospheriques-dans-les-environnements-extremes-epfl-sion",
         "ingenieur-de-recherche-en-mesures-atmospheriques-en-environnements-extremes-epfl-sion",
         "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
-        "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion",
         "ingeniero-di-ricerca-per-misurazioni-atmospheriche-in-ambienti-estremi-epfl-sion",
         "forschungsingenieur-in-atmospharischen-messungen-in-extremen-umgebungen-epfl-sion",
         "forschungsingenieur-fur-atmospharische-messungen-in-extremumgebungen-epfl-sion"
@@ -620,7 +618,7 @@
       "slugByLocale": {
         "it": "ingegnere-meccanico-epfl-sion",
         "en": "mechanical-engineer-epfl-sion",
-        "de": "mechanical-ingenieur-epfl-sion",
+        "de": "maschinenbauer-epfl-sion",
         "fr": "ingenieur-mecanique-epfl-sion"
       },
       "company": "EPFL",
@@ -668,7 +666,8 @@
           "maschinenbauingenieur-in-epfl-sion",
           "mechanischer-ingenieur-epfl-sion",
           "maschinenbauingenieur-epfl-sion",
-          "mechanical-engineer-epfl-sion"
+          "mechanical-engineer-epfl-sion",
+          "mechanical-ingenieur-epfl-sion"
         ],
         "it": [
           "mechanical-engineer-epfl-sion",
@@ -685,6 +684,7 @@
         "mechanischer-ingenieur-epfl-sion",
         "maschinenbauingenieur-epfl-sion",
         "mechanical-engineer-epfl-sion",
+        "mechanical-ingenieur-epfl-sion",
         "ingeniero-meccanico-epfl-sion",
         "mechanical-ingegnere-epfl-sion",
         "ingenieur-mecanicien-epfl-sion",
@@ -711,9 +711,9 @@
     },
     {
       "id": "epfl-324f3e4123f4",
-      "slug": "tecnico-epfl-lausanne",
+      "slug": "technican-epfl-lausanne",
       "slugByLocale": {
-        "it": "tecnico-epfl-lausanne",
+        "it": "technican-epfl-lausanne",
         "en": "technician-epfl-lausanne",
         "de": "techniker-epfl-lausanne",
         "fr": "technicien-epfl-lausanne"
@@ -764,7 +764,8 @@
           "technician-epfl-lausanne"
         ],
         "it": [
-          "technician-epfl-lausanne"
+          "technician-epfl-lausanne",
+          "tecnico-epfl-lausanne"
         ],
         "de": [
           "technician-epfl-lausanne",
@@ -775,6 +776,7 @@
       "previousSlugs": [
         "technicien-ne-de-laboratoire-epfl-lausanne",
         "technician-epfl-lausanne",
+        "tecnico-epfl-lausanne",
         "technik-epfl-lausanne",
         "labortechniker-in-epfl-lausanne",
         "tecnico-del-laboratorio-junior-epfl-lausanne",
@@ -2369,19 +2371,16 @@
           "assistente-amministrativo-60-80-epfl-sion"
         ],
         "en": [
-          "canevas-epfl-empty-epfl-sion",
           "administrative-assistant-sekretar-des-professors-60-80-epfl-sion"
         ],
         "de": [
           "canevas-epfl-leer-epfl-sion",
           "administrative-assistent-professor-s-secretary-60-80-epfl-sion",
-          "verwaltungsassistent-sekretar-des-professors-60-80-epfl-sion",
           "verwaltungsassistent-60-80-epfl-sion"
         ],
         "fr": [
           "canevas-epfl-vide-epfl-sion",
           "canevas-epfl-empty-epfl-sion",
-          "adjoint-administratif-secretaire-du-professeur-60-80-epfl-sion",
           "administrative-assistant-professor-s-secretary-60-80-epfl-sion"
         ]
       },
@@ -2392,12 +2391,9 @@
         "canevas-epfl-empty-epfl-sion",
         "canevas-epfl-leer-epfl-sion",
         "administrative-assistent-professor-s-secretary-60-80-epfl-sion",
-        "verwaltungsassistent-sekretar-des-professors-60-80-epfl-sion",
         "canevas-epfl-vide-epfl-sion",
-        "adjoint-administratif-secretaire-du-professeur-60-80-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
         "administrative-assistent-60-80-epfl-sion",
-        "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion",
         "assistente-amministrativo-60-80-epfl-sion",
         "administrative-assistant-sekretar-des-professors-60-80-epfl-sion",
         "verwaltungsassistent-60-80-epfl-sion"
