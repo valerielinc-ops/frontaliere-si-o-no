@@ -37,21 +37,38 @@ export const AD_SLOTS = {
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
  },
- /** Job listing: desktop in-feed native */
+ /** Job listing: desktop in-feed (responsive DISPLAY).
+  *
+  *  Switched 2026-06-25 from the FEED native unit (9770600968) to a responsive
+  *  DISPLAY unit. 30d AdSense data showed the FEED in-feed units fill only
+  *  ~43-45% (so the between-jobs ad collapsed >55% of the time — the "ad ogni 3
+  *  non si carica" report) at RPM €0.11-0.23. The DISPLAY units fill ~85-92% at
+  *  3-6× the RPM, so the ad now actually loads between listings.
+  *
+  *  Slot id REUSES FT_JOBDETAIL_SIDEBAR_DESKTOP_DISPLAY ('8164676143', 92% fill)
+  *  — a desktop display unit that renders only in the job-detail sidebar, never
+  *  on a job-LIST page, so no same-page cannibalization. Same console-only-unit
+  *  reuse pattern as JOBDETAIL_TOP_BANNER / FT_DRIVEBY_ATF_DISPLAY (AdSense
+  *  `adunits.create` returns 403). Owner upgrade for isolated reporting: create
+  *  a dedicated `FT_JOBLIST_INLIST_DESKTOP_DISPLAY` unit and swap the slot. */
  JOBLIST_INFEED_DESKTOP: {
- slot: '9770600968',
- format: 'fluid',
- layoutKey: '-f9+5v+4m-d8+7b',
- fullWidthResponsive: false,
- placeholderMinHeight: 220,
+ slot: '8164676143',
+ format: 'auto',
+ fullWidthResponsive: true,
+ placeholderMinHeight: 280,
  },
- /** Job listing: mobile in-feed native */
+ /** Job listing: mobile in-feed (responsive DISPLAY).
+  *  Switched 2026-06-25 from the FEED native unit (6979586981, ~45% fill, RPM
+  *  €0.11) to a responsive DISPLAY unit for the same fill/RPM reason as
+  *  JOBLIST_INFEED_DESKTOP above. Slot id REUSES JOBDETAIL_AUTH_GATE
+  *  ('3205029282', 85% fill) — a display unit shown only to signed-out users on
+  *  job-detail, never co-rendered with a job list. Owner upgrade: dedicated
+  *  `FT_JOBLIST_INLIST_MOBILE_DISPLAY` unit. */
  JOBLIST_INFEED_MOBILE: {
- slot: '6979586981',
- format: 'fluid',
- layoutKey: '-f9+5v+4m-d8+7b',
- fullWidthResponsive: false,
- placeholderMinHeight: 220,
+ slot: '3205029282',
+ format: 'auto',
+ fullWidthResponsive: true,
+ placeholderMinHeight: 280,
  },
  /** Job listing: end-of-list multiplex */
  JOBLIST_END_MULTIPLEX: {
@@ -199,4 +216,16 @@ export const AD_SLOTS = {
  *  shipping a literal `TBD-…` to AdSense violates publisher policy. */
 export function isPlaceholderAdSlot(slotId: string): boolean {
  return slotId.startsWith('TBD-');
+}
+
+/** In-feed ad cadence for EVERY job/employer listing surface — SPA (JobBoard)
+ *  and static build-plugins alike: place one in-feed ad after every Nth card.
+ *  Single source of truth so the two render paths never drift (CLAUDE.md rule
+ *  #6 — a cadence duplicated as a literal in ≥2 files would drift by-hand). */
+export const JOBLIST_AD_EVERY_N = 3;
+
+/** True when an in-feed ad should be placed immediately after the card at this
+ *  1-based position. Ad after card 3, 6, 9, … (every `JOBLIST_AD_EVERY_N`). */
+export function shouldPlaceInfeedAd(position1Based: number): boolean {
+ return position1Based > 0 && position1Based % JOBLIST_AD_EVERY_N === 0;
 }

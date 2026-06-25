@@ -462,7 +462,14 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  *     no-rIC path, so both static-shell ad/CMP fetch paths are load-gated (not
  *     timer-gated). AdSenseBanner.tsx keeps a flat 1.5s no-rIC timer because it
  *     runs in a post-hydration effect (already after LCP), so it needs no gate.
- *  3. On script load, pushes {} for every slot currently in the DOM.
+ *  3. On script load, pushes {} once for every `<ins>` currently in the DOM.
+ *     NOTE: `adsbygoogle.push({})` is NOT bound to a specific slot — each push
+ *     fills the next not-yet-statused `<ins>` in DOM order. So the push COUNT
+ *     must equal the number of `<ins>` (push-per-ins), never a filtered subset,
+ *     or trailing slots (e.g. the end-of-list multiplex) would be left
+ *     unprocessed. Off-device/hidden units are avoided upstream by emitting a
+ *     single responsive `<ins>` per in-feed point (see `infeedAdListItemHtml`),
+ *     not by skipping pushes here.
  */
 /**
  * Plain JS body for the AdSense lazy loader — written to dist/assets/adsense-loader.js
