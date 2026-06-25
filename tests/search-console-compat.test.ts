@@ -27,6 +27,27 @@ describe('Search Console 404 compatibility resolver', () => {
     }
   });
 
+  it('recovers a junk-led city orphan to the per-city job page, not the wrong canton', () => {
+    // The recovery map sends slugs whose only real signal is a city (e.g.
+    // "scientifica roche basel", "lavorare davos") to /cerca-lavoro-<canton>/<city>/
+    // in the city's REAL canton — never the misleading /cerca-lavoro-ticino/ the
+    // legacy URL carried. Data-driven so it survives regeneration.
+    const entries = Object.entries(
+      (searchClusterMapFile as { map: Record<string, string> }).map,
+    );
+    const cityPage = entries.find(([, v]) =>
+      /^\/cerca-lavoro-(?!svizzera\/)[a-z-]+\/[a-z-]+\/$/.test(v),
+    );
+    expect(cityPage, 'map should contain at least one per-city job-page target').toBeTruthy();
+    const [legacyPath, target] = cityPage!;
+    expect(target).not.toBe('/cerca-lavoro-ticino/');
+    expect(resolveSearchConsoleCompatTarget(legacyPath)).toEqual({
+      canonicalPath: target,
+      kind: 'search',
+      locale: 'it',
+    });
+  });
+
   it('maps malformed search URLs back to the localized job-board root', () => {
     expect(resolveSearchConsoleCompatTarget('/en/find-jobs-ticino/search-their')).toEqual({
       canonicalPath: '/en/find-jobs-ticino/',
