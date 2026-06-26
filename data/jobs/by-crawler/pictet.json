@@ -673,12 +673,12 @@
     },
     {
       "id": "pictet-d7950fa939fe",
-      "slug": "strategic-project-manager-pictet-geneva",
+      "slug": "responsabile-del-progetto-strategico-pictet-group-geneva",
       "slugByLocale": {
         "en": "strategic-project-manager-pictet-geneva",
-        "it": "strategic-project-manager-pictet-geneva",
-        "de": "strategic-project-manager-pictet-geneva",
-        "fr": "strategic-project-manager-pictet-geneva"
+        "it": "responsabile-del-progetto-strategico-pictet-group-geneva",
+        "de": "strategischer-projektmanager-pictet-group-geneva",
+        "fr": "gestionnaire-de-projet-strategique-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -734,7 +734,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-26T12:22:48.979Z"
+      "firstSeenAt": "2026-06-26T12:22:48.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-project-manager-pictet-geneva"
+        ],
+        "de": [
+          "strategic-project-manager-pictet-geneva"
+        ],
+        "fr": [
+          "strategic-project-manager-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-project-manager-pictet-geneva"
+      ]
     }
   ]
 }
