@@ -6765,6 +6765,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-sul-lavoro-basilea': {
+    title: 'Incidente sul lavoro mortale a Basilea | Frontaliere Ticino',
+    description: 'Un giovane operaio di 26 anni è morto cadendo da un\'impalcatura in un cantiere di Basilea, evidenziando l\'importanza della sicurezza sul lavoro in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, lavoro, mortale, basilea',
+    ogTitle: 'Incidente mortale a Basilea: sicurezza sul lavoro',
+    ogDescription: 'Un incidente sul lavoro in Svizzera evidenzia l\'importanza della prevenzione e delle norme di sicurezza, con un giovane morto cadendo da un\'impalcatura.',
+    canonicalPath: '/articoli-svizzera/incidente-sul-lavoro-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente sul lavoro mortale a Basilea",
+      "description": "Un giovane operaio di 26 anni è morto cadendo da un'impalcatura in un cantiere di Basilea, evidenziando l'importanza della sicurezza sul lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-sul-lavoro-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile con impalcature a Basilea, scena di lavoro in Svizzera"
+      },
+      "datePublished": "2026-06-26T14:37:00+00:00",
+      "dateModified": "2026-06-26T14:37:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incidente-sul-lavoro-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

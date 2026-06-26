@@ -1583,6 +1583,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'incidente-sul-lavoro-basilea',
+    category: 'pratico',
+    date: '2026-06-26T14:37:00.599Z',
+    image: '/images/blog/incidente-sul-lavoro-basilea.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
