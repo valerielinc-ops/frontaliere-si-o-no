@@ -493,6 +493,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-diesel-svizzera-oggi.title': 'Prix du diesel en Suisse : mise à jour d\'aujourd\' hui',
     'blog.article.prezzi-diesel-svizzera-oggi.excerpt': 'Découvrez les derniers prix du diesel en Suisse et comment ils varient dans les différentes régions',
     'blog.article.prezzi-diesel-svizzera-oggi.imageAlt': 'Pompe à carburant diesel dans une station-service suisse de jour',
+    'blog.article.ospedale-friburgo-posto-lavoro.title': 'Hôpital de Fribourg à la recherche d\'infirmières sous contrat de 12 mois',
+    'blog.article.ospedale-friburgo-posto-lavoro.excerpt': 'L\'hôpital de Fribourg recherche des infirmières sous contrat CDD de 12 mois à 60-100% d\'emploi',
+    'blog.article.ospedale-friburgo-posto-lavoro.imageAlt': 'Hôpital suisse avec du personnel soignant',
 };
 
 export default blogMetaChFr;

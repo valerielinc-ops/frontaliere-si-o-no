@@ -493,6 +493,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzi-diesel-svizzera-oggi.title': 'Dieselpreise in der Schweiz: Aktuelles heute',
     'blog.article.prezzi-diesel-svizzera-oggi.excerpt': 'Entdecken Sie die neuesten Dieselpreise in der Schweiz und wie sie sich in den verschiedenen Regionen unterscheiden',
     'blog.article.prezzi-diesel-svizzera-oggi.imageAlt': 'Dieselzapfsäule an einer Schweizer Tankstelle bei Tag',
+    'blog.article.ospedale-friburgo-posto-lavoro.title': 'Spital Freiburg sucht Krankenschwestern mit 12-monatigem Vertrag',
+    'blog.article.ospedale-friburgo-posto-lavoro.excerpt': 'Das Spital Freiburg sucht Pflegekräfte mit 12-monatigem CDD-Vertrag bei 60-100% Beschäftigung',
+    'blog.article.ospedale-friburgo-posto-lavoro.imageAlt': 'Schweizer Spital mit Gesundheitspersonal',
 };
 
 export default blogMetaChDe;
