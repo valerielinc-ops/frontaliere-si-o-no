@@ -68,27 +68,6 @@
         // the slug segment is identical across locales — only the prefix differs.
         var localeMatch = pathname.match(/^\/(en|de|fr)(?:\/|$)/);
         var locale = localeMatch ? localeMatch[1] : 'it';
-        // Legacy related-search CLUSTER orphan: the last segment is a search-action
-        // slug (ricerca-/search-/suche-/recherche-…) from the old per-canton slug
-        // format that was migrated to /cerca-lavoro-svizzera/ricerca-<role>-<city>/.
-        // The KNOWN ones already serve as 200 compat-bridge pages, but Google
-        // indexed more than our snapshot, so the long tail soft-404s here. We can't
-        // enumerate the unknown ones for a SPECIFIC target, so redirect to the
-        // locale's NATIONAL job board — always a live 200, never a 301→404 — before
-        // the job-canon dance (these are never real job slugs). Mirrors the Worker's
-        // recoverLegacySearchCluster; this branch covers the IT route (Worker-bypassed).
-        if (/^(?:ricerca|search|suche|recherche)-/.test(slug)) {
-          var nationalBoard = {
-            it: '/cerca-lavoro-svizzera/',
-            en: '/en/find-jobs-switzerland/',
-            de: '/de/jobs-in-schweiz/',
-            fr: '/fr/trouver-emploi-suisse/'
-          }[locale];
-          if (nationalBoard && pathname.replace(/\/+$/, '') + '/' !== nationalBoard) {
-            location.replace(nationalBoard + location.search + location.hash);
-            return;
-          }
-        }
         // The canton SECTION is encoded in the URL and its listing root is always a
         // 200 page. So EVERY job-detail 404 recovers: known slug → its exact
         // canonical page; unknown/expired slug (slug-form drift, never tracked) →
@@ -109,15 +88,38 @@
           if (!correctCp || slug === correctCp + '-' + cpm[1]) return null; // already canonical
           return sectionRoot.replace(/\/$/, '') + '/' + correctCp + '-' + cpm[1] + '/';
         }
+        // Legacy related-search CLUSTER orphan: the slug is a search-action term
+        // (ricerca-/search-/suche-/recherche-…) from the old per-canton slug format
+        // migrated to /cerca-lavoro-svizzera/ricerca-<role>-<city>/. The KNOWN ones
+        // already serve as 200 compat-bridge pages, but Google indexed more than our
+        // snapshot, so the long tail soft-404s. Unknown ones have no derivable
+        // SPECIFIC target → the locale's NATIONAL board (always a live 200, never a
+        // 301→404). Returns null for non-cluster slugs. Mirrors the Worker's
+        // recoverLegacySearchCluster; this branch ALSO covers the IT route (which
+        // bypasses the Worker). Called ONLY after the /job-canon map miss (below),
+        // so a real job slug that happens to start with `ricerca-` is recovered to
+        // its exact canonical first and never board-redirected.
+        function clusterBoardTarget() {
+          if (!/^(?:ricerca|search|suche|recherche)-/.test(slug)) return null;
+          var board = {
+            it: '/cerca-lavoro-svizzera/',
+            en: '/en/find-jobs-switzerland/',
+            de: '/de/jobs-in-schweiz/',
+            fr: '/fr/trouver-emploi-suisse/'
+          }[locale];
+          if (!board || pathname.replace(/\/+$/, '') + '/' === board) return null;
+          return board;
+        }
         var done = false;
         function go(target) {
           if (done) return; done = true; clearTimeout(timer);
           location.replace(target + location.search + location.hash);
         }
-        // companyHubTarget() intentionally omitted here: calling it before /job-canon
-        // resolves risks pre-swapping a real job slug that starts with a foreign prefix
-        // (e.g. "company-xyz-dev") to the wrong hub. The timer is a last-resort
-        // sectionRoot fallback only; companyHubTarget() runs in .then/.catch below,
+        // companyHubTarget()/clusterBoardTarget() intentionally omitted here: calling
+        // them before /job-canon resolves risks pre-swapping a real job slug that
+        // starts with a foreign prefix (e.g. "company-xyz-dev") or a search-action
+        // word (e.g. a real "ricerca-…" role) to the wrong hub/board. The timer is a
+        // last-resort sectionRoot fallback only; both run in .then/.catch below,
         // after the fetch has confirmed the slug is not in the canonical map.
         var timer = setTimeout(function() { go(sectionRoot); }, 1500);
         fetch('/job-canon/' + sk + '.json', { cache: 'force-cache' })
@@ -132,11 +134,12 @@
             var canon = prefix ? (prefix + '/' + slug + '/') : null;
             // Exact canonical page when the slug is known AND it differs from the
             // requested (orphaned) path; else the cross-locale company hub when the
-            // slug is a wrong-prefix hub; otherwise the canton listing.
+            // slug is a wrong-prefix hub; else the national board for a legacy
+            // search-cluster slug; otherwise the canton listing.
             if (canon && canon !== pathname.replace(/\/+$/, '') + '/') go(canon);
-            else go(companyHubTarget() || sectionRoot);
+            else go(companyHubTarget() || clusterBoardTarget() || sectionRoot);
           })
-          .catch(function() { go(companyHubTarget() || sectionRoot); });
+          .catch(function() { go(companyHubTarget() || clusterBoardTarget() || sectionRoot); });
       })();
     </script>
     <!-- Firebase/GA4 error tracking for 404 page (only fires if redirect didn't happen) -->
