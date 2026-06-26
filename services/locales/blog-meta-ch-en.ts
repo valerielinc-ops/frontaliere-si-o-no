@@ -487,6 +487,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.notifica-fine-attivita-g-spop-ticino.title': 'Activity end notification G: SPOP procedure in the Canton of Ticino',
     'blog.article.notifica-fine-attivita-g-spop-ticino.excerpt': 'Practical guide for the notification of the end of activity with G permit at SPOP (DI) of the Canton of Ticino. Procedure, implications, scenarios.',
     'blog.article.notifica-fine-attivita-g-spop-ticino.imageAlt': 'Administrative office in Bellinzona with official Ticino documents.',
+    'blog.article.ricerca-lavoro-lidl-locarno.title': 'Working at Lidl in Locarno: a research guide',
+    'blog.article.ricerca-lavoro-lidl-locarno.excerpt': 'How to orient yourself in the search for job positions at the Lidl branch in Locarno and understand the requirements of the Swiss labour market.',
+    'blog.article.ricerca-lavoro-lidl-locarno.imageAlt': 'Lidl Locarno, supermarket in Switzerland',
 };
 
 export default blogMetaChEn;

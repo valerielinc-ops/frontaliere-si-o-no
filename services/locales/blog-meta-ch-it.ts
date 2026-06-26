@@ -487,6 +487,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.notifica-fine-attivita-g-spop-ticino.title': 'Notifica fine attività G: procedura SPOP nel Cantone Ticino',
     'blog.article.notifica-fine-attivita-g-spop-ticino.excerpt': 'Guida pratica per la notifica di fine attività con permesso G presso SPOP (DI) del Cantone Ticino. Procedura, implicazioni, scenari.',
     'blog.article.notifica-fine-attivita-g-spop-ticino.imageAlt': 'Ufficio amministrativo a Bellinzona con documenti ufficiali del Cantone Ticino.',
+    'blog.article.ricerca-lavoro-lidl-locarno.title': 'Lavorare da Lidl a Locarno: guida alla ricerca',
+    'blog.article.ricerca-lavoro-lidl-locarno.excerpt': 'Come orientarsi nella ricerca di posizioni lavorative presso la filiale Lidl di Locarno e comprendere i requisiti richiesti nel mercato del lavoro svizzero.',
+    'blog.article.ricerca-lavoro-lidl-locarno.imageAlt': 'Lidl Locarno, supermercato in Svizzera',
 };
 
 export default blogMetaChIt;

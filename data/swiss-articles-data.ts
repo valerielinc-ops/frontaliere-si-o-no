@@ -1457,6 +1457,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ricerca-lavoro-lidl-locarno',
+    category: 'pratico',
+    date: '2026-06-26T01:00:02.701Z',
+    image: '/images/blog/ricerca-lavoro-lidl-locarno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

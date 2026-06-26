@@ -6219,6 +6219,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricerca-lavoro-lidl-locarno': {
+    title: 'Lavorare da Lidl a Locarno: guida alla ricerca',
+    description: 'Scopri come candidarti per lavorare presso Lidl a Locarno. Informazioni su requisiti, procedure di selezione e carriera nella grande distribuzione in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, lidl, locarno, alla',
+    ogTitle: 'Lavorare da Lidl a Locarno: guida e posizioni',
+    ogDescription: 'Informazioni pratiche sulla ricerca di lavoro presso Lidl a Locarno e requisiti per il settore retail in Svizzera.',
+    canonicalPath: '/articoli-svizzera/ricerca-lavoro-lidl-locarno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare da Lidl a Locarno: guida alla ricerca",
+      "description": "Scopri come candidarti per lavorare presso Lidl a Locarno. Informazioni su requisiti, procedure di selezione e carriera nella grande distribuzione in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ricerca-lavoro-lidl-locarno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lidl Locarno, supermercato in Svizzera"
+      },
+      "datePublished": "2026-06-26T01:00:02+00:00",
+      "dateModified": "2026-06-26T01:00:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ricerca-lavoro-lidl-locarno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -185,6 +185,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'chiasso-brogeda-tempi-attesa-odierni': { it: 'chiasso-brogeda-tempi-attesa-odierni', en: 'chiasso-brogeda-wait-times-today', de: 'chiasso-brogeda-wartezeiten-heute', fr: 'chiasso-brogeda-temps-attente-aujourdhui' },
  'prezzo-diesel-agrola-bellinzona-oggi': { it: 'prezzo-diesel-agrola-bellinzona-oggi', en: 'agrola-diesel-price-bellinzona-today', de: 'agrola-dieselpreis-bellinzona-heute', fr: 'prix-diesel-agrola-bellinzone-aujourdhui' },
  'notifica-fine-attivita-g-spop-ticino': { it: 'notifica-fine-attivita-g-spop-ticino', en: 'g-activity-termination-notice-ticino', de: 'g-taetigkeit-abmeldung-tessin', fr: 'notification-fin-activite-g-tessin' },
+ 'ricerca-lavoro-lidl-locarno': { it: 'ricerca-lavoro-lidl-locarno', en: 'find-jobs-lidl-locarno', de: 'jobsuche-lidl-locarno', fr: 'recherche-emploi-lidl-locarno' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
