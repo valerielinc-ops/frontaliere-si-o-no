@@ -189,6 +189,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'prezzi-diesel-svizzera-oggi': { it: 'prezzi-diesel-svizzera-oggi', en: 'switzerland-diesel-prices', de: 'diesel-preise-schweiz', fr: 'prix-diesel-suisse' },
  'ospedale-friburgo-posto-lavoro': { it: 'ospedale-friburgo-posto-lavoro', en: 'fribourg-hospital-job-nurse', de: 'freiburg-spital-arbeit-pflegefachmann', fr: 'hopital-fribourg-emploi-infirmiere' },
  'lohnausweis-frontalieri': { it: 'lohnausweis-frontalieri', en: 'lohnausweis-comprehensive-guide', de: 'lohnausweis-umfassende-anleitung', fr: 'lohnausweis-guide-complet' },
+ 'agenzie-interinali-ticino': { it: 'agenzie-interinali-ticino', en: 'lugano-temporary-agencies', de: 'zeitarbeit-lugano', fr: 'agences-interim-lugano' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

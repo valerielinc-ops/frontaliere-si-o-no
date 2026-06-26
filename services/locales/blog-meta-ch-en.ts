@@ -499,6 +499,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lohnausweis-frontalieri.title': 'Lohnausweis: complete guide for border workers in Switzerland',
     'blog.article.lohnausweis-frontalieri.excerpt': 'Everything you need to know about the Swiss salary certificate: what it is, how it is obtained and why it is important for border workers',
     'blog.article.lohnausweis-frontalieri.imageAlt': 'Swiss salary certificate with details on deductions and allowances',
+    'blog.article.agenzie-interinali-ticino.title': 'Temporary agencies in Lugano: how they work',
+    'blog.article.agenzie-interinali-ticino.excerpt': 'Find out how temporary agencies operate in Lugano and what changes for frontier workers',
+    'blog.article.agenzie-interinali-ticino.imageAlt': 'Temporary employment agency in Lugano',
 };
 
 export default blogMetaChEn;
