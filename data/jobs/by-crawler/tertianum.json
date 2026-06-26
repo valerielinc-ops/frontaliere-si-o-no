@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-60-100-tertianum-dotzigen",
         "it": "fachfrau-mann-gesundheit-cfc-60-100-tertianum-dotzigen",
-        "en": "fachfrau-mann-gesundheit-efz-60-100-tertianum-dotzigen",
-        "fr": "fachfrau-mann-gesundheit-efz-60-100-tertianum-dotzigen"
+        "en": "professional-health-efz-60-100-tertianum-dotzigen",
+        "fr": "sante-professionnelle-efz-60-100-tertianum-dotzigen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -54,6 +54,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-60-100-tertianum-dotzigen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-100-tertianum-dotzigen"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-60-100-tertianum-dotzigen"
         ]
       },
@@ -157,8 +163,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-tertianum-stadel",
         "it": "specialista-della-salute-tertianum-stadel",
-        "en": "fachfrau-mann-gesundheit-tertianum-stadel",
-        "fr": "fachfrau-mann-gesundheit-tertianum-stadel"
+        "en": "health-professional-tertianum-stadel",
+        "fr": "professionnels-de-la-sante-tertianum-stadel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -216,6 +222,12 @@
       "firstSeenAt": "2026-06-26T12:39:52.348Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-tertianum-stadel"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-tertianum-stadel"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-tertianum-stadel"
         ]
       },
@@ -1018,9 +1030,9 @@
     },
     {
       "id": "tertianum-0dfd515deddf",
-      "slug": "pflegefachfrau-mann-tertianum-kreuzlingen",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-kreuzlingen",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-kreuzlingen",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-kreuzlingen",
         "en": "nursing-professional-tertianum-kreuzlingen",
         "de": "pflegefachfrau-mann-tertianum-kreuzlingen",
         "fr": "professionnel-le-de-soins-infirmiers-tertianum-kreuzlingen"
@@ -1095,12 +1107,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-kreuzlingen",
-          "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-kreuzlingen"
+          "pflegefachfrau-mann-tertianum-kreuzlingen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-kreuzlingen",
-        "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-kreuzlingen"
+        "pflegefachfrau-mann-tertianum-kreuzlingen"
       ],
       "firstSeenAt": "2026-05-19T12:22:08.325Z",
       "salaryMin": 57500,
@@ -3541,9 +3553,9 @@
     },
     {
       "id": "tertianum-2753c3d04d03",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-lenzburg",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-50-100-tertianum-lenzburg",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-lenzburg",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-50-100-tertianum-lenzburg",
         "en": "dipl-nursing-professional-hf-fh-dnii-50-100-tertianum-lenzburg",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-lenzburg",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-50-100-tertianum-lenzburg"
@@ -3592,11 +3604,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-fh-dnii-50-100-tertianum-lenzburg"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-dnii-50-100-tertianum-lenzburg"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:14.488Z",
@@ -4002,9 +4014,9 @@
     },
     {
       "id": "tertianum-44431e8e31b2",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-tertianum-glattbrugg",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-glattbrugg",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-tertianum-glattbrugg",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-glattbrugg",
         "en": "diploma-in-nursing-professional-nurse-hf-fh-dnii-tertianum-glattbrugg",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-tertianum-glattbrugg",
         "fr": "diplome-e-en-soins-infirmiers-infirmier-e-professionnel-le-hf-fh-dnii-tertianum-glattbrugg"
@@ -4074,12 +4086,12 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-glattbrugg",
-        "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-glattbrugg"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-tertianum-glattbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-glattbrugg",
-          "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-glattbrugg"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-tertianum-glattbrugg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:09.159Z",
@@ -4098,9 +4110,9 @@
     },
     {
       "id": "tertianum-7507404c58e7",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-20-100-tertianum-schlieren",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-20-100-tertianum-schlieren",
         "en": "diploma-in-nursing-hf-fh-dnii-50-100-tertianum-schlieren",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-50-100-tertianum-schlieren"
@@ -4173,12 +4185,12 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-20-100-tertianum-schlieren",
-        "dipl-infermieristica-professionale-hf-fh-dnii-20-100-tertianum-schlieren"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-20-100-tertianum-schlieren",
-          "dipl-infermieristica-professionale-hf-fh-dnii-20-100-tertianum-schlieren"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:14.224Z",
@@ -4197,9 +4209,9 @@
     },
     {
       "id": "tertianum-3be2317eab11",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-zurich",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-zurich",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-zurich",
         "en": "diploma-in-nursing-professional-nurse-hf-fh-dnii-80-100-tertianum-zurich",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-zurich",
         "fr": "diplome-e-en-soins-infirmiers-infirmier-e-professionnel-le-hf-fh-dnii-80-100-tertianum-zurich"
@@ -4269,11 +4281,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:52.068Z",
@@ -7118,9 +7130,9 @@
     },
     {
       "id": "tertianum-4df92d290a8b",
-      "slug": "pflegefachfrau-mann-tertianum-stadel",
+      "slug": "infermieristica-professionale-tertianum-stadel",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-stadel",
+        "it": "infermieristica-professionale-tertianum-stadel",
         "en": "nurse-tertianum-stadel",
         "de": "pflegefachfrau-mann-tertianum-stadel",
         "fr": "infirmier-infirmiere-tertianum-stadel"
@@ -7191,11 +7203,11 @@
         ]
       },
       "previousSlugs": [
-        "infermieristica-professionale-tertianum-stadel"
+        "pflegefachfrau-mann-tertianum-stadel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermieristica-professionale-tertianum-stadel"
+          "pflegefachfrau-mann-tertianum-stadel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:22.671Z",
@@ -7479,9 +7491,9 @@
     },
     {
       "id": "tertianum-c424a4086796",
-      "slug": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-orpund",
+      "slug": "assistente-infermieristico-assistente-infermieristico-srk-60-100-tertianum-orpund",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-orpund",
+        "it": "assistente-infermieristico-assistente-infermieristico-srk-60-100-tertianum-orpund",
         "en": "care-assistant-srk-60-100-tertianum-orpund",
         "de": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-orpund",
         "fr": "assistant-en-soins-srk-60-100-tertianum-orpund"
@@ -7526,11 +7538,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistente-infermieristico-assistente-infermieristico-srk-60-100-tertianum-orpund"
+        "pflegehelferin-pflegehelfer-srk-60-100-tertianum-orpund"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-infermieristico-assistente-infermieristico-srk-60-100-tertianum-orpund"
+          "pflegehelferin-pflegehelfer-srk-60-100-tertianum-orpund"
         ]
       },
       "firstSeenAt": "2026-06-20T12:05:34.531Z",
@@ -8646,9 +8658,9 @@
     },
     {
       "id": "tertianum-941f1c351370",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-orpund",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-orpund",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-orpund",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-orpund",
         "en": "diploma-in-nursing-registered-nurse-hf-fh-dnii-80-100-tertianum-orpund",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-orpund",
         "fr": "diplome-e-en-soins-infirmiers-infirmier-e-diplome-e-hf-fh-dnii-80-100-tertianum-orpund"
@@ -8717,11 +8729,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-orpund"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-orpund"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-orpund"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-orpund"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:39.906Z",
@@ -8740,9 +8752,9 @@
     },
     {
       "id": "tertianum-b3f62f7c4cd7",
-      "slug": "pflegehelferin-pflegehelfer-srk-tertianum-weesen",
+      "slug": "assistente-infermieristico-assistente-infermieristico-srk-tertianum-weesen",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-tertianum-weesen",
+        "it": "assistente-infermieristico-assistente-infermieristico-srk-tertianum-weesen",
         "en": "care-assistant-srk-tertianum-weesen",
         "de": "pflegehelferin-pflegehelfer-srk-tertianum-weesen",
         "fr": "aide-soignant-srk-tertianum-weesen"
@@ -8791,11 +8803,11 @@
         ]
       },
       "previousSlugs": [
-        "assistente-infermieristico-assistente-infermieristico-srk-tertianum-weesen"
+        "pflegehelferin-pflegehelfer-srk-tertianum-weesen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-infermieristico-assistente-infermieristico-srk-tertianum-weesen"
+          "pflegehelferin-pflegehelfer-srk-tertianum-weesen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:15.962Z",
@@ -9536,9 +9548,9 @@
     },
     {
       "id": "tertianum-3d602fec48d4",
-      "slug": "pflegehelferin-pflegehelfer-srk-dauernachtwache-80-tertianum-horgen",
+      "slug": "assistente-infermieristico-assistente-infermieristico-srk-permanent-night-watch-80-tertianum-horgen",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-dauernachtwache-80-tertianum-horgen",
+        "it": "assistente-infermieristico-assistente-infermieristico-srk-permanent-night-watch-80-tertianum-horgen",
         "en": "care-helper-care-helper-srk-permanent-watch-80-tertianum-horgen",
         "de": "pflegehelferin-pflegehelfer-srk-dauernachtwache-80-tertianum-horgen",
         "fr": "pflegehelferin-pflegehelfer-srk-dauernachtwache-80-tertianum-horgen"
@@ -9583,11 +9595,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistente-infermieristico-assistente-infermieristico-srk-permanent-night-watch-80-tertianum-horgen"
+        "pflegehelferin-pflegehelfer-srk-dauernachtwache-80-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-infermieristico-assistente-infermieristico-srk-permanent-night-watch-80-tertianum-horgen"
+          "pflegehelferin-pflegehelfer-srk-dauernachtwache-80-tertianum-horgen"
         ]
       },
       "firstSeenAt": "2026-05-30T12:46:54.528Z",
@@ -9900,9 +9912,9 @@
     },
     {
       "id": "tertianum-b71306b21bf7",
-      "slug": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-olten",
+      "slug": "assistente-infermieristico-assistente-infermieristico-srk-60-100-tertianum-olten",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-olten",
+        "it": "assistente-infermieristico-assistente-infermieristico-srk-60-100-tertianum-olten",
         "en": "care-assistant-srk-care-assistant-60-100-tertianum-olten",
         "de": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-olten",
         "fr": "assistant-e-en-soins-assistant-e-en-soins-srk-60-100-tertianum-olten"
@@ -9966,11 +9978,11 @@
         ]
       },
       "previousSlugs": [
-        "assistente-infermieristico-assistente-infermieristico-srk-60-100-tertianum-olten"
+        "pflegehelferin-pflegehelfer-srk-60-100-tertianum-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-infermieristico-assistente-infermieristico-srk-60-100-tertianum-olten"
+          "pflegehelferin-pflegehelfer-srk-60-100-tertianum-olten"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:37.130Z",
@@ -9989,9 +10001,9 @@
     },
     {
       "id": "tertianum-2eef47844b90",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-gommiswald",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-gommiswald",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-gommiswald",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-gommiswald",
         "en": "diploma-in-geriatric-nursing-60-100-tertianum-gommiswald",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-gommiswald",
         "fr": "diplome-e-en-soins-infirmiers-geriatriques-60-100-tertianum-gommiswald"
@@ -10061,11 +10073,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-gommiswald"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-gommiswald"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-gommiswald"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-gommiswald"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:06.636Z",
@@ -10183,9 +10195,9 @@
     },
     {
       "id": "tertianum-c55a588556fc",
-      "slug": "pflegehelferin-pflegehelfer-srk-80-100-tertianum-gommiswald",
+      "slug": "assistente-per-infermieri-assistente-per-infermieri-srk-80-100-tertianum-gommiswald",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-80-100-tertianum-gommiswald",
+        "it": "assistente-per-infermieri-assistente-per-infermieri-srk-80-100-tertianum-gommiswald",
         "en": "care-assistant-srk-80-100-tertianum-gommiswald",
         "de": "pflegehelferin-pflegehelfer-srk-80-100-tertianum-gommiswald",
         "fr": "assistant-e-en-soins-srk-80-100-tertianum-gommiswald"
@@ -10255,12 +10267,12 @@
       },
       "previousSlugs": [
         "assistente-infermieristico-assistente-infermieristico-srk-80-100-tertianum-gommiswald",
-        "assistente-per-infermieri-assistente-per-infermieri-srk-80-100-tertianum-gommiswald"
+        "pflegehelferin-pflegehelfer-srk-80-100-tertianum-gommiswald"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-infermieristico-assistente-infermieristico-srk-80-100-tertianum-gommiswald",
-          "assistente-per-infermieri-assistente-per-infermieri-srk-80-100-tertianum-gommiswald"
+          "pflegehelferin-pflegehelfer-srk-80-100-tertianum-gommiswald"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:06.070Z",
@@ -11086,9 +11098,9 @@
     },
     {
       "id": "tertianum-cc4373438194",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-trimbach",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-trimbach",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-trimbach",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-trimbach",
         "en": "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-trimbach",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-trimbach",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-trimbach"
@@ -11159,11 +11171,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-trimbach"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-trimbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-trimbach"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-trimbach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:50.326Z",
@@ -11254,9 +11266,9 @@
     },
     {
       "id": "tertianum-92ffc95c02ec",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-olten",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-50-100-tertianum-olten",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-olten",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-50-100-tertianum-olten",
         "en": "diploma-in-nursing-care-hf-fh-dnii-50-100-tertianum-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-olten",
         "fr": "diplome-e-en-soins-infirmiers-soins-hf-fh-dnii-50-100-tertianum-olten"
@@ -11325,11 +11337,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-fh-dnii-50-100-tertianum-olten"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-dnii-50-100-tertianum-olten"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-olten"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:50.133Z",
@@ -11348,9 +11360,9 @@
     },
     {
       "id": "tertianum-fb1a3a1298c3",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-80-tertianum-zurich",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-60-80-tertianum-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-80-tertianum-zurich",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-60-80-tertianum-zurich",
         "en": "dipl-nursing-professional-hf-fh-dnii-60-80-tertianum-zurich",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-80-tertianum-zurich",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-60-80-tertianum-zurich"
@@ -11414,11 +11426,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-fh-dnii-60-80-tertianum-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-80-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-dnii-60-80-tertianum-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-80-tertianum-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:51.316Z",
@@ -11889,9 +11901,9 @@
     },
     {
       "id": "tertianum-3caff6b3779d",
-      "slug": "pflegehelferin-pflegehelfer-srk-80-100-tertianum-bern",
+      "slug": "assistente-per-infermieri-assistente-per-infermieri-srk-80-100-tertianum-bern",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-80-100-tertianum-bern",
+        "it": "assistente-per-infermieri-assistente-per-infermieri-srk-80-100-tertianum-bern",
         "en": "care-assistant-care-assistant-srk-80-100-tertianum-bern",
         "de": "pflegehelferin-pflegehelfer-srk-80-100-tertianum-bern",
         "fr": "assistant-e-en-soins-assistant-e-en-soins-srk-80-100-tertianum-bern"
@@ -11937,12 +11949,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistente-infermieristico-assistente-infermieristico-srk-80-100-tertianum-bern",
-        "assistente-per-infermieri-assistente-per-infermieri-srk-80-100-tertianum-bern"
+        "pflegehelferin-pflegehelfer-srk-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-infermieristico-assistente-infermieristico-srk-80-100-tertianum-bern",
-          "assistente-per-infermieri-assistente-per-infermieri-srk-80-100-tertianum-bern"
+          "pflegehelferin-pflegehelfer-srk-80-100-tertianum-bern"
         ]
       },
       "firstSeenAt": "2026-06-20T12:05:43.630Z",
@@ -12527,7 +12539,7 @@
       "slug": "tuttofare-casa-gastronomia-40-80-tertianum-stadel",
       "slugByLocale": {
         "it": "tuttofare-casa-gastronomia-40-80-tertianum-stadel",
-        "en": "allrounderin-allrounder-hauswirtschaft-gastronomie-40-80-tertianum-stadel",
+        "en": "allrounderin-allrounder-housekeeping-gastronomy-40-80-tertianum-stadel",
         "de": "allrounderin-allrounder-hauswirtschaft-gastronomie-40-80-tertianum-stadel",
         "fr": "polyvalent-menage-gastronomie-40-80-tertianum-stadel"
       },
@@ -12575,15 +12587,14 @@
         ]
       },
       "previousSlugs": [
-        "allrounderin-allrounder-hauswirtschaft-gastronomie-40-80-tertianum-stadel",
-        "allrounderin-allrounder-housekeeping-gastronomy-40-80-tertianum-stadel"
+        "allrounderin-allrounder-hauswirtschaft-gastronomie-40-80-tertianum-stadel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounderin-allrounder-hauswirtschaft-gastronomie-40-80-tertianum-stadel"
         ],
         "en": [
-          "allrounderin-allrounder-housekeeping-gastronomy-40-80-tertianum-stadel"
+          "allrounderin-allrounder-hauswirtschaft-gastronomie-40-80-tertianum-stadel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:20.970Z",
@@ -13557,7 +13568,7 @@
         "it": "apprendista-di-ristorazione-tertianum-horgen",
         "en": "apprentice-restaurationsangestellte-r-tertianum-horgen",
         "de": "lernende-r-restaurationsangestellte-r-tertianum-horgen",
-        "fr": "lernende-r-restaurationsangestellte-r-tertianum-horgen"
+        "fr": "apprentissage-restauration-tertianum-horgen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -13632,8 +13643,7 @@
       "previousSlugs": [
         "lernende-r-restaurationsangestellte-r-tertianum-horgen",
         "restaurant-apprentice-tertianum-horgen",
-        "lernende-r-restorationsangestellte-r-tertianum-horgen",
-        "apprentissage-restauration-tertianum-horgen"
+        "lernende-r-restorationsangestellte-r-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13646,7 +13656,7 @@
           "lernende-r-restorationsangestellte-r-tertianum-horgen"
         ],
         "fr": [
-          "apprentissage-restauration-tertianum-horgen"
+          "lernende-r-restaurationsangestellte-r-tertianum-horgen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:05.210Z",
@@ -14465,9 +14475,9 @@
     },
     {
       "id": "tertianum-81a798975b51",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-frauenfeld",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-frauenfeld",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-frauenfeld",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-frauenfeld",
         "en": "dipl-nursing-professional-hf-fh-dnii-80-100-tertianum-frauenfeld",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-frauenfeld",
         "fr": "dipl-infirmier-ere-hf-fh-dnii-80-100-tertianum-frauenfeld"
@@ -14516,11 +14526,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-frauenfeld"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-frauenfeld"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:55.224Z",
@@ -15273,9 +15283,9 @@
     },
     {
       "id": "tertianum-7fb7908cd02d",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-bern",
         "en": "dipl-nursing-professional-hf-fh-dnii-80-100-tertianum-bern",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern"
@@ -15352,14 +15362,14 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
-        "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-bern",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
-          "dipl-infermieristica-professionale-hf-fh-dnii-80-100-tertianum-bern"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:09.661Z",
@@ -16237,9 +16247,9 @@
     },
     {
       "id": "tertianum-fd9e81f8afdf",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-100-tertianum-bulach",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-fh-dnii-100-tertianum-bulach",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-100-tertianum-bulach",
+        "it": "dipl-infermiera-infermiera-specialista-hf-fh-dnii-100-tertianum-bulach",
         "en": "diploma-in-nursing-professional-nurse-hf-fh-dnii-100-tertianum-bulach",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-100-tertianum-bulach",
         "fr": "diplome-e-en-soins-infirmiers-infirmier-e-professionnel-le-hf-fh-dnii-100-tertianum-bulach"
@@ -16308,7 +16318,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-infermiera-infermiera-specialista-hf-fh-dnii-100-tertianum-bulach",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-100-tertianum-bulach",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-zizers",
         "dipl-nursing-professional-hf-fh-dnii-80-100-tertianum-zizers",
         "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-zizers",
@@ -16325,7 +16335,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-infermiera-specialista-hf-fh-dnii-100-tertianum-bulach"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-100-tertianum-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:13.110Z",
@@ -16638,9 +16648,9 @@
     },
     {
       "id": "tertianum-971e102fe600",
-      "slug": "pflegehelferin-pflegehelfer-srk-tertianum-meilen",
+      "slug": "assistente-infermieristico-assistente-infermieristico-srk-tertianum-meilen",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-tertianum-meilen",
+        "it": "assistente-infermieristico-assistente-infermieristico-srk-tertianum-meilen",
         "en": "care-assistant-srk-tertianum-meilen",
         "de": "pflegehelferin-pflegehelfer-srk-tertianum-meilen",
         "fr": "assistant-e-en-soins-srk-tertianum-meilen"
@@ -16709,11 +16719,11 @@
         ]
       },
       "previousSlugs": [
-        "assistente-infermieristico-assistente-infermieristico-srk-tertianum-meilen"
+        "pflegehelferin-pflegehelfer-srk-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-infermieristico-assistente-infermieristico-srk-tertianum-meilen"
+          "pflegehelferin-pflegehelfer-srk-tertianum-meilen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:51.899Z",
@@ -18070,9 +18080,9 @@
     },
     {
       "id": "tertianum-38d652a023d1",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
+      "slug": "dipl-infermieristica-professionale-infermieristica-tertianum-lenzburg",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
+        "it": "dipl-infermieristica-professionale-infermieristica-tertianum-lenzburg",
         "en": "diploma-in-nursing-nurse-tertianum-lenzburg",
         "de": "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
         "fr": "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg"
@@ -18145,7 +18155,7 @@
       },
       "previousSlugs": [
         "dipl-infermiera-nurse-professionale-tertianum-lenzburg",
-        "dipl-infermieristica-professionale-infermieristica-tertianum-lenzburg",
+        "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
         "dipl-specialista-in-allattamento-60-100-tertianum-winterthur",
         "dipl-nursing-specialist-60-100-tertianum-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-im-spatdienst-60-100-tertianum-winterthur",
@@ -18154,7 +18164,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-infermiera-nurse-professionale-tertianum-lenzburg",
-          "dipl-infermieristica-professionale-infermieristica-tertianum-lenzburg"
+          "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:44.364Z",

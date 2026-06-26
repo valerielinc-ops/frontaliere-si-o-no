@@ -41,9 +41,9 @@
       },
       "slugByLocale": {
         "it": "assistente-alle-vendite-m-f-d-volg-ennetburgen",
-        "en": "verkauferin-verkaufer-m-w-d-volg-ennetburgen",
+        "en": "seller-m-f-d-volg-ennetburgen",
         "de": "verkauferin-verkaufer-m-w-d-volg-ennetburgen",
-        "fr": "verkauferin-verkaufer-m-w-d-volg-ennetburgen"
+        "fr": "vendeur-m-f-d-volg-ennetburgen"
       },
       "crawledAt": "2026-06-26T12:37:18.091Z",
       "id": "volg-fenaco-3df034bb4535",
@@ -63,6 +63,12 @@
       "firstSeenAt": "2026-06-26T12:37:18.091Z",
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-m-w-d-volg-ennetburgen"
+        ],
+        "en": [
+          "verkauferin-verkaufer-m-w-d-volg-ennetburgen"
+        ],
+        "fr": [
           "verkauferin-verkaufer-m-w-d-volg-ennetburgen"
         ]
       },
@@ -317,9 +323,9 @@
       },
       "slugByLocale": {
         "it": "capo-squadra-trasporti-container-f-m-d-traveco-transporte-ag-nebikon",
-        "en": "teamleitung-transportmittel-gebinde-w-m-d-traveco-transporte-ag-nebikon",
+        "en": "team-management-means-of-transport-containers-f-m-d-traveco-transporte-ag-nebikon",
         "de": "teamleitung-transportmittel-gebinde-w-m-d-traveco-transporte-ag-nebikon",
-        "fr": "teamleitung-transportmittel-gebinde-w-m-d-traveco-transporte-ag-nebikon"
+        "fr": "gestion-d-equipe-moyens-de-transport-et-conteneurs-f-m-d-traveco-transporte-ag-nebikon"
       },
       "crawledAt": "2026-06-26T12:37:18.093Z",
       "id": "volg-fenaco-42af5508cbbc",
@@ -339,6 +345,12 @@
       "firstSeenAt": "2026-06-26T12:37:18.093Z",
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-transportmittel-gebinde-w-m-d-traveco-transporte-ag-nebikon"
+        ],
+        "en": [
+          "teamleitung-transportmittel-gebinde-w-m-d-traveco-transporte-ag-nebikon"
+        ],
+        "fr": [
           "teamleitung-transportmittel-gebinde-w-m-d-traveco-transporte-ag-nebikon"
         ]
       },
@@ -1525,7 +1537,7 @@
       },
       "slugByLocale": {
         "it": "professionista-del-commercio-al-dettaglio-f-m-d-landi-buchrain",
-        "en": "detailhandelsfachperson-w-m-d-landi-buchrain",
+        "en": "retail-trade-professional-f-m-d-landi-buchrain",
         "de": "detailhandelsfachperson-w-m-d-landi-buchrain",
         "fr": "professionnel-du-commerce-de-detail-f-m-d-landi-buchrain"
       },
@@ -1550,15 +1562,14 @@
           "detailhandelsfachperson-w-m-d-landi-buchrain"
         ],
         "en": [
-          "retail-trade-professional-f-m-d-landi-buchrain"
+          "detailhandelsfachperson-w-m-d-landi-buchrain"
         ],
         "fr": [
           "detailhandelsfachperson-w-m-d-landi-buchrain"
         ]
       },
       "previousSlugs": [
-        "detailhandelsfachperson-w-m-d-landi-buchrain",
-        "retail-trade-professional-f-m-d-landi-buchrain"
+        "detailhandelsfachperson-w-m-d-landi-buchrain"
       ]
     },
     {
@@ -1748,7 +1759,7 @@
       },
       "slugByLocale": {
         "it": "venditrice-venditore-landi-m-w-d-landi-moleson-sarine-sa-bulle",
-        "en": "vendeuse-vendeur-landi-f-h-d-landi-moleson-sarine-sa-bulle",
+        "en": "seller-seller-landi-e-h-d-landi-moleson-sarine-sa-bulle",
         "de": "verkaufer-verkaufer-landi-e-h-d-landi-moleson-sarine-sa-bulle",
         "fr": "vendeuse-vendeur-landi-f-h-d-landi-moleson-sarine-sa-bulle"
       },
@@ -1759,15 +1770,14 @@
           "vendeuse-vendeur-landi-f-h-d-landi-moleson-sarine-sa-bulle"
         ],
         "en": [
-          "seller-seller-landi-e-h-d-landi-moleson-sarine-sa-bulle"
+          "vendeuse-vendeur-landi-f-h-d-landi-moleson-sarine-sa-bulle"
         ],
         "de": [
           "vendeuse-vendeur-landi-f-h-d-landi-moleson-sarine-sa-bulle"
         ]
       },
       "previousSlugs": [
-        "vendeuse-vendeur-landi-f-h-d-landi-moleson-sarine-sa-bulle",
-        "seller-seller-landi-e-h-d-landi-moleson-sarine-sa-bulle"
+        "vendeuse-vendeur-landi-f-h-d-landi-moleson-sarine-sa-bulle"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3319,7 +3329,6 @@
         ],
         "en": [
           "sales-associate-volg-seuzach-70-m-f-d-fixed-until-july-2027-landi-weinland-genossenschaft-seuzach",
-          "mitarbeiter-verkauf-volg-seuzach-70-m-w-d-befristet-bis-juli-2027-landi-weinland-genossenschaft-seuzach",
           "sales-associate-volg-seuzach-70-m-w-d-befristet-bis-juli-2027-landi-weinland-genossenschaft-seuzach"
         ],
         "fr": [
@@ -3498,7 +3507,7 @@
     },
     {
       "title": "Collaboratrice / Collaborateur<BR />support clientèle et commercial (h/f/d)",
-      "slug": "collaboratrice-collaborateur-br-support-clientele-et-commercial-h-f-d-barto-ag-sursee",
+      "slug": "collaboratore-collaboratore-barto-ag-sursee",
       "url": "https://jobs.fenaco.com/postes-vacants/collaboratrice-collaborateur-br-support-clientele-et-commercial-h-f-d/bf954d1b-954b-48b3-87ab-ae27fac6c92b",
       "applyUrl": "https://jobs.fenaco.com/postes-vacants/collaboratrice-collaborateur-br-support-clientele-et-commercial-h-f-d/bf954d1b-954b-48b3-87ab-ae27fac6c92b",
       "company": "Barto AG",
@@ -3534,7 +3543,7 @@
         "fr": "## Vorteile - Formations initiales et continues Nous investissons dans le développement professionnel de nos collaborateurs et collaboratrices grâce à de nombreuses formations internes et au soutien à des formations à l'externe. Conditions intéressantes en matière de vacances Selon nos conditions relatives aux vacances, l'ensemble du personnel a droit à 5 semaines de vacances au minimum, ou 6 semaines à partir de 50 ans et 7 semaines dès 60 ans. Il est aussi possible d'acheter des jours de vacances supplémentaires. Congé parental Les mères perçoivent 100 % de leur salaire assuré durant les 18 semaines de congé maternité. L'autre parent bénéficie de 3 semaines de congé parental avec l'intégralité du salaire. Prestations d'assurance Nous assurons à nos collaborateurs et collaboratrices des prestations sociales et de prévoyance supérieures à la moyenne et offrons des conditions spéciales sur les assurances complémentaires de différentes caisses maladie pour toute la famille. Avantages et réductions Nos collaborateurs et collaboratrices bénéficient notamment de réductions sur les achats et le carburant, d'argent REKA à tarif préférentiel ainsi que d'abonnements mobiles à prix réduit pour eux et leur famille. Organisation flexible du travail Des tâches intéressantes et variées au sein d'une jeune entreprise aux hiérarchies horizontales, ainsi qu'une organisation du travail flexible : télétravail combiné à des interventions sur le site de Sursee (facilement accessible en transports publics)."
       },
       "slugByLocale": {
-        "it": "collaboratrice-collaborateur-br-support-clientele-et-commercial-h-f-d-barto-ag-sursee",
+        "it": "collaboratore-collaboratore-barto-ag-sursee",
         "en": "collaborator-collaborator-br-customer-and-business-support-h-e-d-barto-ag-sursee",
         "de": "collaborator-collaborator-br-kunden-und-business-support-h-e-d-barto-ag-sursee",
         "fr": "collaboratrice-collaborateur-br-support-clientele-et-commercial-h-f-d-barto-ag-sursee"
@@ -3557,11 +3566,11 @@
       "firstSeenAt": "2026-06-23T23:21:53.508Z",
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-collaboratore-barto-ag-sursee"
+          "collaboratrice-collaborateur-br-support-clientele-et-commercial-h-f-d-barto-ag-sursee"
         ]
       },
       "previousSlugs": [
-        "collaboratore-collaboratore-barto-ag-sursee"
+        "collaboratrice-collaborateur-br-support-clientele-et-commercial-h-f-d-barto-ag-sursee"
       ]
     },
     {
@@ -9317,7 +9326,7 @@
     },
     {
       "title": "Collaboratrice polyvalente/collaborateur polyvalent secteur Agro f/h/d",
-      "slug": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
+      "slug": "collaboratrice-polivalente-collaboratore-polivalente-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
       "url": "https://jobs.fenaco.com/postes-vacants/collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d/1124d50e-13f4-4848-9115-2efcb88347bb",
       "applyUrl": "https://jobs.fenaco.com/postes-vacants/collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d/1124d50e-13f4-4848-9115-2efcb88347bb",
       "company": "LANDI Rhône-Lavaux SA",
@@ -9353,7 +9362,7 @@
         "fr": "## Le Profil recherché - Formation initiale dans le domaine agricole - Positif, de contact facile, avec un sens du conseil marqué - Bonne condition physique - Esprit d'équipe, autonomie, résistance et sens de l'organisation - Personnel flexible et polyvalent - A l'aise avec les outils informatiques - Permis de consommer catégorie B obligatoire - Permis de cariste un atout - Maîtrise du français parlé et écrit Collaboratrice polyvalente/collaborateur polyvalent secteur Agro f/h/d — LANDI Rhône-Lavaux SA, Collombey-Muraz (Wallis). Pensum: 100%. Contrat: indéfini. Application via https://jobs.fenaco.com LANDI fait partie de la coopérative Fenaco, la plus grande coopérative agricole de Suisse. Nous exploitons des points de vente TopShop, des stations-service et des magasins spécialisés partout en Suisse. La coopérative Fenaco emploie plus de 11 000 personnes et est l'un des employeurs les plus importants des zones rurales. Nos magasins LANDI offrent une large gamme de produits agricoles, de fournitures de construction et de jardin, de nourriture et de carburants.\n• Nous offrons un environnement de travail dynamique avec contact client direct, des possibilités de formation complètes, des conditions d'emploi attrayantes dans le commerce de détail, au moins 5 semaines de vacances, réductions du personnel sur toute la gamme et une formation professionnelle pratique pour les apprenants."
       },
       "slugByLocale": {
-        "it": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
+        "it": "collaboratrice-polivalente-collaboratore-polivalente-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "en": "multi-skilled-employee-in-the-agro-sector-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "de": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "fr": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
@@ -9376,11 +9385,11 @@
       "firstSeenAt": "2026-06-24T12:26:58.075Z",
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-polivalente-collaboratore-polivalente-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
+          "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
         ]
       },
       "previousSlugs": [
-        "collaboratrice-polivalente-collaboratore-polivalente-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
+        "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
       ]
     },
     {
@@ -11525,7 +11534,7 @@
       },
       "slugByLocale": {
         "it": "gestione-del-progetto-sviluppo-del-mercato-e-vendita-f-inal-f-m-d-fenaco-zurich",
-        "en": "projektleitung-br-marktaufbau-sales-f-inal-w-m-d-fenaco-zurich",
+        "en": "project-management-br-market-development-sales-f-inal-f-m-d-fenaco-zollikofen",
         "de": "projektleitung-br-marktaufbau-sales-f-inal-w-m-d-fenaco-zurich",
         "fr": "projektleitung-br-marktaufbau-sales-f-inal-w-m-d-fenaco-zurich"
       },
@@ -11551,13 +11560,12 @@
           "projektleitung-br-marktaufbau-sales-f-inal-w-m-d-fenaco-zollikofen"
         ],
         "en": [
-          "project-management-br-market-development-sales-f-inal-f-m-d-fenaco-zollikofen"
+          "projektleitung-br-marktaufbau-sales-f-inal-w-m-d-fenaco-zurich"
         ]
       },
       "previousSlugs": [
         "projektleitung-br-marktaufbau-sales-f-inal-w-m-d-fenaco-zurich",
         "projektleitung-br-marktaufbau-sales-f-inal-w-m-d-fenaco-zollikofen",
-        "project-management-br-market-development-sales-f-inal-f-m-d-fenaco-zollikofen",
         "gestione-del-progetto-sviluppo-del-mercato-e-vendita-f-inal-f-m-d-fenaco-zollikofen"
       ]
     },
@@ -18625,7 +18633,7 @@
     },
     {
       "title": "Collaboratrice polyvalente/collaborateur polyvalent secteur Agro f/h/d",
-      "slug": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
+      "slug": "collaboratrice-polivalente-collaboratore-polivalente-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz-dbfe56",
       "url": "https://jobs.fenaco.com/postes-vacants/collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d/54fd4023-3068-44ec-8be3-968b9aa8d322",
       "applyUrl": "https://jobs.fenaco.com/postes-vacants/collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d/54fd4023-3068-44ec-8be3-968b9aa8d322",
       "company": "LANDI Rhône-Lavaux SA",
@@ -18661,7 +18669,7 @@
         "fr": "## Le Profil recherché - Formation initiale dans le domaine agricole - Positif, de contact facile, avec un sens du conseil marqué - Bonne condition physique - Esprit d'équipe, autonomie, résistance et sens de l'organisation - Personnel flexible et polyvalent - A l'aise avec les outils informatiques - Permis de consommer catégorie B obligatoire - Permis de cariste un atout - Maîtrise du français parlé et écrit Collaboratrice polyvalente/collaborateur polyvalent secteur Agro f/h/d — LANDI Rhône-Lavaux SA, Collombey-Muraz (Wallis). Pensum: 100%. Contrat: indéfini. Application via https://jobs.fenaco.com LANDI fait partie de la coopérative Fenaco, la plus grande coopérative agricole de Suisse. Nous exploitons des points de vente TopShop, des stations-service et des magasins spécialisés partout en Suisse. La coopérative Fenaco emploie plus de 11 000 personnes et est l'un des employeurs les plus importants des zones rurales. Nos magasins LANDI offrent une large gamme de produits agricoles, de fournitures de construction et de jardin, de nourriture et de carburants.\n• Nous offrons un environnement de travail dynamique avec contact client direct, des possibilités de formation complètes, des conditions d'emploi attrayantes dans le commerce de détail, au moins 5 semaines de vacances, réductions du personnel sur toute la gamme et une formation professionnelle pratique pour les apprenants."
       },
       "slugByLocale": {
-        "it": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
+        "it": "collaboratrice-polivalente-collaboratore-polivalente-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz-dbfe56",
         "en": "multi-skilled-employee-in-the-agro-sector-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "de": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "fr": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
@@ -18698,7 +18706,7 @@
         ],
         "it": [
           "collaboratore-multiuso-collaboratore-multiuso-agro-settore-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
-          "collaboratrice-polivalente-collaboratore-polivalente-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz-dbfe56"
+          "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
         ]
       },
       "previousSlugs": [
@@ -18710,7 +18718,7 @@
         "multivalent-collaborateur-landi-rhone-lavaux-sa-collombey-muraz",
         "collaboratrice-ix-collaborateur-ix-s-scpeur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "collaboratore-multiuso-collaboratore-multiuso-agro-settore-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
-        "collaboratrice-polivalente-collaboratore-polivalente-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz-dbfe56",
+        "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "impiegato-plurispecializzato-nel-settore-agroalimentare-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
       ]
     },
@@ -23786,14 +23794,20 @@
       },
       "slugByLocale": {
         "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-danikon",
-        "en": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
+        "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-danikon",
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
-        "fr": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon"
+        "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-danikon"
       },
       "crawledAt": "2026-06-26T12:37:18.111Z",
       "id": "volg-fenaco-069312b8fdac",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon"
+        ],
+        "en": [
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon"
+        ],
+        "fr": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon"
         ]
       },
@@ -28026,9 +28040,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-come-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
-        "en": "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
+        "en": "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen",
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
-        "fr": "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen"
+        "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen"
       },
       "crawledAt": "2026-06-26T12:37:18.114Z",
       "id": "volg-fenaco-38e51d03eada",
@@ -28042,14 +28056,12 @@
           "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
           "apprenticeship-as-retail-specialist-f-m-d-landi-aare-genossenschaft-konolfingen",
           "apprenticeship-as-a-retail-specialist-m-f-landi-aare-genossenschaft-konolfingen",
-          "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen",
           "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen-9668f8"
         ],
         "fr": [
           "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
           "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-f-h-d-landi-aare-genossenschaft-konolfingen",
           "apprentissage-en-tant-que-specialiste-de-la-grande-distribution-h-f-landi-aare-genossenschaft-konolfingen",
-          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen",
           "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen-9668f8"
         ]
       },
@@ -28059,11 +28071,9 @@
         "apprendistato-come-specialista-della-grande-distribuzione-m-f-landi-aare-genossenschaft-konolfingen",
         "apprenticeship-as-retail-specialist-f-m-d-landi-aare-genossenschaft-konolfingen",
         "apprenticeship-as-a-retail-specialist-m-f-landi-aare-genossenschaft-konolfingen",
-        "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen",
+        "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen-9668f8",
         "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-f-h-d-landi-aare-genossenschaft-konolfingen",
         "apprentissage-en-tant-que-specialiste-de-la-grande-distribution-h-f-landi-aare-genossenschaft-konolfingen",
-        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen",
-        "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen-9668f8",
         "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen-9668f8"
       ],
       "salaryMin": 57500,
@@ -28120,14 +28130,20 @@
       },
       "slugByLocale": {
         "it": "apprendistato-come-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
-        "en": "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
+        "en": "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen-9668f8",
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
-        "fr": "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen"
+        "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen-9668f8"
       },
       "crawledAt": "2026-06-26T12:37:18.114Z",
       "id": "volg-fenaco-25dc23044c19",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen"
+        ],
+        "en": [
+          "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen"
+        ],
+        "fr": [
           "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen"
         ]
       },
@@ -35862,9 +35878,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-danikon",
-        "en": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
+        "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-danikon-96017b",
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
-        "fr": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon"
+        "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-danikon-96017b"
       },
       "crawledAt": "2026-06-26T12:37:18.119Z",
       "id": "volg-fenaco-fba713a55b04",
@@ -35876,13 +35892,11 @@
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
           "apprenticeship-as-retail-specialist-efz-food-volg-danikon-96017b",
-          "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-danikon-96017b",
           "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-danikon"
         ],
         "fr": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
           "apprentissage-comme-specialiste-de-la-vente-au-detail-efz-alimentaire-volg-danikon-96017b",
-          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-danikon-96017b",
           "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-danikon"
         ]
       },
@@ -35890,13 +35904,11 @@
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
         "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bauma",
         "apprenticeship-as-retail-specialist-efz-food-volg-danikon-96017b",
-        "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-danikon-96017b",
-        "apprentissage-comme-specialiste-de-la-vente-au-detail-efz-alimentaire-volg-danikon-96017b",
-        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-danikon-96017b",
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-bauma",
-        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-danikon-g37zxl",
         "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-danikon",
-        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-danikon"
+        "apprentissage-comme-specialiste-de-la-vente-au-detail-efz-alimentaire-volg-danikon-96017b",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-danikon",
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-bauma",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-danikon-g37zxl"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

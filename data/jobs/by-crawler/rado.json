@@ -36,19 +36,26 @@
       },
       "slugByLocale": {
         "it": "spezialist-per-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat-7ubdwq",
-        "en": "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat-7ubdwq",
+        "en": "occupational-safety-specialist-renata-ag-ticino",
         "de": "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat-7ubdwq",
-        "fr": "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat-7ubdwq"
+        "fr": "specialiste-de-la-securite-au-travail-renata-ag-ticino"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat"
+        ],
+        "en": [
+          "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat-7ubdwq"
+        ],
+        "fr": [
+          "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat-7ubdwq"
         ]
       },
       "previousSlugs": [
-        "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat"
+        "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat",
+        "spezialist-fur-arbeitssicherheit-renata-ag-kreuzenstrasse-30-4452-itingen-bl-basel-landschaft-schweiz-firmenadresse-renat-7ubdwq"
       ],
       "salaryMin": 107000,
       "salaryMax": 187500,
@@ -104,14 +111,20 @@
       "slugByLocale": {
         "it": "avvocato-europeo-specializzato-in-brevetti-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039",
         "en": "european-patent-attorney-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039-7ubdu7",
-        "de": "european-patent-attorney-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039-7ubdu7",
-        "fr": "european-patent-attorney-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039-7ubdu7"
+        "de": "europaischer-patentanwalt-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039",
+        "fr": "conseil-europeen-des-brevets-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039"
       },
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
           "european-patent-attorney-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039",
+          "european-patent-attorney-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039-7ubdu7"
+        ],
+        "de": [
+          "european-patent-attorney-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039-7ubdu7"
+        ],
+        "fr": [
           "european-patent-attorney-icb-ingenieurs-conseils-en-brevets-sa-faubourg-de-l-039-7ubdu7"
         ]
       },
@@ -161,7 +174,7 @@
       "firstSeenAt": "2026-06-26T12:20:41.012Z",
       "slugByLocale": {
         "it": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
-        "en": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb",
+        "en": "senior-purchase-100-the-swatch-group-research-and-development-ltd-ticino",
         "de": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
         "fr": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb"
       },
@@ -196,7 +209,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "2074",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb"
+        ]
+      },
+      "previousSlugs": [
+        "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb"
+      ]
     },
     {
       "id": "company-7ubegg",

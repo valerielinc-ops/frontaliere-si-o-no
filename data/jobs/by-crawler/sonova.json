@@ -156,7 +156,7 @@
       "slug": "payroll-specialista-teilzeit-sonova-staefa",
       "slugByLocale": {
         "it": "payroll-specialista-teilzeit-sonova-staefa",
-        "en": "payroll-specialist-teilzeit-sonova-staefa-switzerland",
+        "en": "payroll-specialist-part-time-sonova-staefa-switzerland",
         "de": "payroll-specialist-teilzeit-sonova-ch",
         "fr": "payroll-specialiste-teilzeit-sonova-staefa"
       },
@@ -199,7 +199,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "payroll-specialist-teilzeit-sonova-ch",
-        "payroll-specialist-part-time-sonova-staefa-switzerland"
+        "payroll-specialist-teilzeit-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -207,7 +207,7 @@
         ],
         "en": [
           "payroll-specialist-teilzeit-sonova-ch",
-          "payroll-specialist-part-time-sonova-staefa-switzerland"
+          "payroll-specialist-teilzeit-sonova-staefa-switzerland"
         ],
         "fr": [
           "payroll-specialist-teilzeit-sonova-ch"
@@ -748,7 +748,7 @@
         "en": "data-scientist-m-f-d-sonova-ch",
         "it": "scienziato-dei-dati-m-f-d-sonova-staefa-switzerland",
         "de": "data-scientist-m-f-d-sonova-ch",
-        "fr": "data-scientist-m-f-d-sonova-ch"
+        "fr": "scientifique-des-donnees-m-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -805,6 +805,9 @@
       "firstSeenAt": "2026-06-26T12:29:25.851Z",
       "previousSlugsByLocale": {
         "it": [
+          "data-scientist-m-f-d-sonova-ch"
+        ],
+        "fr": [
           "data-scientist-m-f-d-sonova-ch"
         ]
       },

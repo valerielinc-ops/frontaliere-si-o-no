@@ -413,8 +413,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch",
         "it": "apprendistato-fachperson-gesundheit-cfc-2027-regionalspital-surselva-ilanz",
-        "en": "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch",
-        "fr": "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch"
+        "en": "apprenticeship-professional-health-efz-2027-regionalspital-surselva-ilanz",
+        "fr": "apprentissage-sante-professionnelle-efz-2027-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -460,6 +460,12 @@
       "department": "Pflege",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch"
+        ],
+        "en": [
+          "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch"
+        ],
+        "fr": [
           "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch"
         ]
       },
@@ -1060,8 +1066,8 @@
       "slugByLocale": {
         "de": "dipl-biomedizinische-r-analytiker-in-hf-50-100-rss-surselva-ch",
         "it": "analista-biomedico-diplomatico-hf-50-100-regionalspital-surselva-ilanz",
-        "en": "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz",
-        "fr": "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz"
+        "en": "dipl-biomedical-analyst-hf-50-100-regionalspital-surselva-ilanz",
+        "fr": "dipl-analyste-biomedical-hf-50-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -1112,6 +1118,12 @@
         "it": [
           "dipl-biomedizinische-r-analytiker-in-hf-50-100-rss-surselva-ch",
           "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz"
+        ],
+        "en": [
+          "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz"
+        ],
+        "fr": [
+          "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
@@ -1139,8 +1151,8 @@
       "slugByLocale": {
         "de": "chefarzt-arztin-innere-medizin-rss-surselva-ch",
         "it": "capo-medico-medicina-interna-regionalspital-surselva-ilanz",
-        "en": "chefarzt-arztin-innere-medizin-rss-surselva-ch",
-        "fr": "chefarzt-arztin-innere-medizin-rss-surselva-ch"
+        "en": "chief-physician-internal-medicine-regionalspital-surselva-ilanz",
+        "fr": "medecin-chef-en-medecine-interne-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -1200,6 +1212,12 @@
       "firstSeenAt": "2026-06-26T12:17:14.406Z",
       "previousSlugsByLocale": {
         "it": [
+          "chefarzt-arztin-innere-medizin-rss-surselva-ch"
+        ],
+        "en": [
+          "chefarzt-arztin-innere-medizin-rss-surselva-ch"
+        ],
+        "fr": [
           "chefarzt-arztin-innere-medizin-rss-surselva-ch"
         ]
       },
