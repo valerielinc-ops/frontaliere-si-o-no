@@ -538,6 +538,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.condanne-viareggio-svizzera.title': 'Endgültige Verurteilungen für das Eisenbahnmassaker von Viareggio',
     'blog.article.condanne-viareggio-svizzera.excerpt': 'Das italienische Kassationsgericht bestätigt die Strafen: fünf Jahre für Mauro Moretti, ehemaliger Direktor der italienischen Eisenbahn, im Fall der Tragödie von Viareggio im Jahr 2009.',
     'blog.article.condanne-viareggio-svizzera.imageAlt': 'Schweizer Landschaft mit See und Bergen, Nachrichtenszene.',
+    'blog.article.incendio-autostrada-piotta.title': 'Brand auf der A2 in Piotta: Tilt-Verkehr',
+    'blog.article.incendio-autostrada-piotta.excerpt': 'Brennendes Auto auf der A2 in Piotta, Verkehr wegen eines Unfalls im Gotthardtunnel blockiert, jetzt wieder geöffnet.',
+    'blog.article.incendio-autostrada-piotta.imageAlt': 'Auto in Flammen auf der A2 bei Piotta, Verkehrschaos',
 };
 
 export default blogMetaChDe;

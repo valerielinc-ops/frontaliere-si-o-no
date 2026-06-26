@@ -538,6 +538,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.condanne-viareggio-svizzera.title': 'Condamnations définitives pour le massacre ferroviaire de Viareggio',
     'blog.article.condanne-viareggio-svizzera.excerpt': 'La Cour de cassation italienne confirme les peines : cinq ans pour Mauro Moretti, ancien directeur de Ferrovie Italiane, dans le cas de la tragédie de Viareggio en 2009.',
     'blog.article.condanne-viareggio-svizzera.imageAlt': 'Paysage suisse avec lac et montagnes, scène d\'actualités.',
+    'blog.article.incendio-autostrada-piotta.title': 'Incendie sur l\'A2 à Piotta : trafic en descente',
+    'blog.article.incendio-autostrada-piotta.excerpt': 'Voiture en feu sur l\'A2 à Piotta, circulation bloquée à cause d\'un accident à l\'intérieur du tunnel du Gothard, maintenant rouvert.',
+    'blog.article.incendio-autostrada-piotta.imageAlt': 'Voiture en feu sur l\'A2 à Piotta, circulation bloquée',
 };
 
 export default blogMetaChFr;

@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2951,
+ "numberOfItems": 2952,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7597,7 +7597,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2948, "name": "Deutsche Bahn sospende il traffico ferroviario ...", "url": `${BASE_URL}/articoli-frontaliere/deutsche-bahn-stop-ferroviario-germania` },
           { "@type": "ListItem", "position": 2949, "name": "Incidente sul lavoro mortale a Basilea", "url": `${BASE_URL}/articoli-frontaliere/incidente-sul-lavoro-basilea` },
           { "@type": "ListItem", "position": 2950, "name": "Germania, ripresa del traffico ferroviario", "url": `${BASE_URL}/articoli-frontaliere/ferrovie-germania-ripresa-traffico` },
-          { "@type": "ListItem", "position": 2951, "name": "Condanne definitive per la strage ferroviaria d...", "url": `${BASE_URL}/articoli-frontaliere/condanne-viareggio-svizzera` }
+          { "@type": "ListItem", "position": 2951, "name": "Condanne definitive per la strage ferroviaria d...", "url": `${BASE_URL}/articoli-frontaliere/condanne-viareggio-svizzera` },
+          { "@type": "ListItem", "position": 2952, "name": "Incendio sull'A2 a Piotta: traffico in tilt", "url": `${BASE_URL}/articoli-frontaliere/incendio-autostrada-piotta` }
  ]
  },
  {
