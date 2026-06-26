@@ -492,11 +492,14 @@ function parseCsodJob(rawJob) {
   if (Array.isArray(rawJob.locations) && rawJob.locations.length > 0) {
     city = rawJob.locations[0].city || '';
   }
-  if (!city) {
-    const locationRaw = rawJob.location || rawJob.locationName || rawJob.city || rawJob.jobLocation || '';
-    city = parseCsodLocation(locationRaw) || 'Martigny';
-  }
-  if (!city) city = 'Martigny';
+ if (!city) {
+  const locationRaw = rawJob.location || rawJob.locationName || rawJob.city || rawJob.jobLocation || '';
+  city = parseCsodLocation(locationRaw);
+ }
+ if (!city) {
+  console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
+  return null;
+ }
 
   const canton = inferCanton(city);
 

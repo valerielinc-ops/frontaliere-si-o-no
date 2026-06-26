@@ -250,7 +250,7 @@ function resolveSwissCity(detail, listing) {
 
   // Fallback: parse whatever location text we have
   const city = parseWorkdayLocation(primaryLoc);
-  return city || 'Monthey';
+  return city;
 }
 
 /* ── Main fetch function ─────────────────────────────────── */

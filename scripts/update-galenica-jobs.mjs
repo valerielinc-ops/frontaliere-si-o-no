@@ -8,7 +8,7 @@
  *
  * This script:
  *   1. Fetches the full job listing from the static Solique data.json.
- *   2. Filters for Ticino (canton TI) positions, preferring Italian language.
+ *   2. Filters for Swiss positions, preferring Italian language.
  *   3. Deduplicates by job ID (same job appears in de/fr/it).
  *   4. Merges discovered jobs into data/jobs.json.
  *   5. Updates the adapter config with discovered seed URLs.
@@ -16,7 +16,7 @@
  *   7. Post-processes rows for canonical consistency.
  *   8. Validates locale coverage.
  *
- * Ticino subsidiaries: Sun Store, Amavita, Coop Vitality, UFD.
+ * Swiss subsidiaries: Sun Store, Amavita, Coop Vitality, UFD.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -46,7 +46,8 @@ import {
 mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults, SWISS_CANTONS } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -116,12 +117,12 @@ function detectCategory(title = '') {
 /* ── Description builders ──────────────────────────────────── */
 function buildDescriptionEn(title, firm, city, contact) {
   const addr = contact.street ? `, ${contact.street}` : '';
-  return `${title} at ${firm} (Galenica Group), located in ${city}${addr}, Canton Ticino, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.`;
+  return `${title} at ${firm} (Galenica Group), located in ${city}${addr}, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.`;
 }
 
 function buildDescriptionIt(title, firm, city, contact) {
   const addr = contact.street ? `, ${contact.street}` : '';
-  return `${title} presso ${firm} (Gruppo Galenica), con sede a ${city}${addr}, Canton Ticino, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.`;
+  return `${title} presso ${firm} (Gruppo Galenica), con sede a ${city}${addr}, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.`;
 }
 
 /* ── Build job detail URL ──────────────────────────────────── */
@@ -209,22 +210,24 @@ async function fetchGalenicaJobs() {
 
   console.log(`📋 Solique data.json returned ${allItems.length} total listings.`);
 
-  // Filter for Ticino jobs (canton TI)
-  const ticinoItems = allItems.filter(
-    (j) => j?.contact?.state === 'TI'
-  );
-  console.log(`📋 Ticino (TI) listings: ${ticinoItems.length} (across all languages).`);
+ // Filter for Swiss jobs across all cantons.
+ const swissItems = allItems.filter((j) => {
+  const state = String(j?.contact?.state || '').toUpperCase().trim();
+  if (SWISS_CANTONS[state]) return true;
+  return Boolean(inferAnyCanton(j?.contact?.city || ''));
+ });
+ console.log(`📋 Swiss listings: ${swissItems.length} (across all languages).`);
 
   // Group by job ID to deduplicate multi-language entries
   const byId = new Map();
-  for (const item of ticinoItems) {
+ for (const item of swissItems) {
     const id = String(item.id || '');
     if (!id) continue;
     if (!byId.has(id)) byId.set(id, []);
     byId.get(id).push(item);
   }
 
-  console.log(`📋 Unique Ticino job IDs: ${byId.size}`);
+  console.log(`📋 Unique Swiss job IDs: ${byId.size}`);
 
   const jobs = [];
 
@@ -247,7 +250,9 @@ async function fetchGalenicaJobs() {
 
     const firm = contact.firm || GALENICA_COMPANY_NAME;
     const city = contact.city || '';
-    const canton = contact.state || DEFAULT_CANTON;
+ const canton = SWISS_CANTONS[String(contact.state || '').toUpperCase()]
+  ? String(contact.state).toUpperCase()
+  : inferAnyCanton(city) || DEFAULT_CANTON;
     const jobUrl = buildJobUrl(preferred);
 
     const category = detectCategory(title);
@@ -263,7 +268,7 @@ async function fetchGalenicaJobs() {
 
     const descDe = buildDescriptionEn(titleDe, firm, city, contact)
       .replace('located in', 'gelegen in')
-      .replace('Canton Ticino, Switzerland', 'Kanton Tessin, Schweiz')
+      .replace('Switzerland', 'Schweiz')
       .replace('the leading Swiss healthcare group', 'die führende Schweizer Gesundheitsgruppe')
       .replace('the largest pharmacy network in the country', 'das grösste Apothekennetzwerk des Landes')
       .replace('This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.',
@@ -271,7 +276,7 @@ async function fetchGalenicaJobs() {
     const descFr = buildDescriptionEn(titleFr, firm, city, contact)
       .replace('at ', 'chez ')
       .replace('located in', 'situé à')
-      .replace('Canton Ticino, Switzerland', 'Canton du Tessin, Suisse')
+      .replace('Switzerland', 'Suisse')
       .replace('the leading Swiss healthcare group', 'le premier groupe de santé suisse')
       .replace('the largest pharmacy network in the country', 'le plus grand réseau de pharmacies du pays')
       .replace('This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.',
@@ -288,7 +293,7 @@ async function fetchGalenicaJobs() {
       company: `${firm} (Galenica)`,
       companyKey: GALENICA_KEY,
       url: jobUrl,
-      location: city || 'Ticino',
+ location: city || 'Svizzera',
       canton,
       country: 'CH',
       category,
@@ -334,7 +339,7 @@ async function fetchGalenicaJobs() {
     jobs.push(job);
   }
 
-  console.log(`📋 Total unique Galenica Ticino jobs discovered: ${jobs.length}`);
+  console.log(`📋 Total unique Galenica Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }
 
@@ -438,7 +443,7 @@ function updateAdapterConfig(seedUrls) {
     seedUrls,
     seedMetaByUrl,
     notes:
-      'Solique data.json crawler — static JSON endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality, UFD subsidiaries in Ticino.',
+      'Solique data.json crawler — static JSON endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality, UFD subsidiaries across Switzerland.',
     updatedAt: new Date().toISOString(),
   };
 
@@ -544,7 +549,7 @@ function validateLocales() {
     isTrustedDomain,
     untrustedDomainReason: 'url_not_galenica_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Galenica jobs found — the company may not have active Ticino openings.',
+    noJobsMessage: 'No Galenica jobs found — the company may not have active Swiss openings.',
   });
 }
 
@@ -563,7 +568,7 @@ async function main() {
   const discoveredJobs = await fetchGalenicaJobs();
 
   if (discoveredJobs.length === 0) {
-    console.log('ℹ️  No Ticino job listings found — skipping crawl.');
+    console.log('ℹ️  No Swiss job listings found — skipping crawl.');
     return;
   }
 

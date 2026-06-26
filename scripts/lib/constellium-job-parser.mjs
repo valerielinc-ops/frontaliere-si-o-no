@@ -289,7 +289,10 @@ export async function fetchAllConstelliumJobs() {
 
     const locationRaw = info.location || listing.locationsText || '';
     let city = parseWorkdayLocation(locationRaw);
-    if (!city) city = 'Sierre';
+    if (!city) {
+      console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
+      continue;
+    }
 
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';

@@ -59,9 +59,9 @@ const TALEO_LANG_MAP = { 1: 'en', 23: 'de', 34: 'fr', 6: 'it' };
 
 /** Postal codes for Valais cities */
 const VS_POSTAL_CODES = {
-  brig: '3900',
-  crans: '3963',
-  gstaad: '3780',
+ brig: '3900',
+ crans: '3963',
+ gstaad: '3780',
   martigny: '1920',
   naters: '3904',
   sion: '1950',
@@ -72,9 +72,16 @@ const VS_POSTAL_CODES = {
   zermatt: '3920',
   monthey: '1870',
   verbier: '1936',
-  'saas-fee': '3906',
-  leuk: '3952',
+ 'saas-fee': '3906',
+ leuk: '3952',
 };
+
+const SWISS_REGION_PREFIX_RE = /^(schweiz|suisse|svizzera|switzerland)\b/i;
+const SWISS_MACRO_REGION_LOCATION = [
+ { re: /\bostschweiz\b/i, location: 'Ostschweiz', canton: 'SG' },
+ { re: /\bplateau\b/i, location: 'Plateau suisse', canton: 'BE' },
+ { re: /\bsuisse\s+romande\b/i, location: 'Suisse romande', canton: 'VD' },
+];
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -128,7 +135,25 @@ function inferPostalCode(city = '') {
  * blank locations downstream).
  */
 function primaryCity(cityStr = '') {
-  return normalizeSpace(cityStr.split(',')[0]);
+ return normalizeSpace(cityStr.split(',')[0]);
+}
+
+function isSwissRegion(region = '') {
+ return SWISS_REGION_PREFIX_RE.test(normalizeSpace(region));
+}
+
+function fallbackLocationFromRegion(region = '') {
+ const clean = normalizeSpace(region);
+ for (const entry of SWISS_MACRO_REGION_LOCATION) {
+  if (entry.re.test(clean)) return entry.location;
+ }
+ const parts = clean.split(/\s+-\s+/).map((part) => normalizeSpace(part)).filter(Boolean);
+ return parts.length > 1 ? parts.slice(1).join(' - ') : '';
+}
+
+function fallbackCantonFromRegion(region = '') {
+ const clean = normalizeSpace(region);
+ return SWISS_MACRO_REGION_LOCATION.find((entry) => entry.re.test(clean))?.canton || '';
 }
 
 /**
@@ -140,7 +165,7 @@ function primaryCity(cityStr = '') {
  * downstream handles blank canton tags.
  */
 function inferCanton(city = '', region = '') {
-  const lower = normalize(`${city} ${region}`);
+ const lower = normalize(`${city} ${region}`);
   // Region-string canton heuristics — Taleo uses "Schweiz - {Canton}".
   if (lower.includes('valais') || lower.includes('wallis')) return 'VS';
   if (lower.includes('zurich') || lower.includes('zürich') || lower.includes('zuerich')) return 'ZH';
@@ -171,7 +196,19 @@ function inferCanton(city = '', region = '') {
   // Gstaad is in Berne (BE).
   if (lower.includes('gstaad')) return 'BE';
   // Try the shared inference function (returns a canton code or null).
-  return inferAnyCanton(city) || inferAnyCanton(region) || '';
+ return inferAnyCanton(city) || inferAnyCanton(region) || '';
+}
+
+function resolveSwissLocation(cityStr = '', region = '') {
+ const city = primaryCity(cityStr);
+ const canton = inferCanton(city, region) || fallbackCantonFromRegion(region);
+ if (city && canton) return { city, canton };
+ if (city && inferAnyCanton(city)) return { city, canton: inferAnyCanton(city) };
+ if (!isSwissRegion(region) && !canton) return null;
+ return {
+  city: city || fallbackLocationFromRegion(region) || 'Svizzera',
+  canton,
+ };
 }
 
 function extractRequestVerificationToken(html = '') {
@@ -402,8 +439,9 @@ function buildJobFromTaleo(taleoJob) {
   if (!title || title.length < 3) return null;
   if (!reqId) return null;
 
-  const city = primaryCity(cityStr);
-  const canton = inferCanton(city, region);
+  const resolvedLocation = resolveSwissLocation(cityStr, region);
+  if (!resolvedLocation) return null;
+  const { city, canton } = resolvedLocation;
   const descriptionText = normalizeDescriptionSpace(stripHtml(descriptionHtml));
   const publicUrl = buildJobUrl(reqId);
 
@@ -534,5 +572,9 @@ export async function fetchAllUbsJobs() {
 }
 
 export const __internals = {
-  extractRequestVerificationToken,
+ extractRequestVerificationToken,
+ buildJobFromTaleo,
+ inferCanton,
+ isSwissRegion,
+ resolveSwissLocation,
 };

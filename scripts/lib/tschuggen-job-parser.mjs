@@ -201,13 +201,13 @@ export function extractLocation(rawLocation = '') {
     .replace(/^\|?\s*/, '')
     .trim();
 
-  if (!loc) return 'Arosa';
+ if (!loc) return '';
 
   // Extract city (everything before the comma or the full string)
   const commaIdx = loc.indexOf(',');
   const city = commaIdx > 0 ? loc.substring(0, commaIdx).trim() : loc.trim();
 
-  return city || 'Arosa';
+ return city;
 }
 
 /**

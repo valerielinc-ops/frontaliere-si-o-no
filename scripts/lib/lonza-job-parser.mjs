@@ -186,16 +186,32 @@ function parseWorkdayLocation(locText = '') {
 }
 
 function inferCanton(location = '') {
-  const canton = inferAnyCanton(location);
-  if (canton) return canton;
+ const canton = inferAnyCanton(location);
+ if (canton) return canton;
   const loc = normalize(location);
   if (loc.includes('visp') || loc.includes('viège')) return 'VS';
   if (loc.includes('basel') || loc.includes('bâle')) return 'BS';
   if (loc.includes('stein')) return 'AG';
   if (loc.includes('bern') || loc.includes('berne')) return 'BE';
   if (loc.includes('zürich') || loc.includes('zurich')) return 'ZH';
-  if (loc.includes('genev') || loc.includes('genf')) return 'GE';
-  return '';
+ if (loc.includes('genev') || loc.includes('genf')) return 'GE';
+ return '';
+}
+
+function resolveWorkdayLocation(info = {}, listing = {}) {
+ const candidates = [
+  info.location,
+  listing.locationsText,
+  ...(Array.isArray(info.additionalLocations)
+   ? info.additionalLocations.map((loc) => loc?.descriptor || loc?.location || '')
+   : []),
+ ];
+ for (const raw of candidates) {
+  const city = parseWorkdayLocation(raw);
+  const canton = inferCanton(`${city} ${raw}`);
+  if (city && canton) return { city, canton };
+ }
+ return null;
 }
 
 /* ── Job classification ────────────────────────────────────── */
@@ -270,19 +286,12 @@ export async function fetchAllLonzaJobs() {
       continue;
     }
 
-    let locationRaw = info.location || listing.locationsText || '';
-    let city = parseWorkdayLocation(locationRaw);
-
-    if (!city && detail?.jobPostingInfo?.additionalLocations) {
-      for (const addLoc of detail.jobPostingInfo.additionalLocations) {
-        const desc = addLoc?.descriptor || '';
-        if (desc.toLowerCase().includes('switzerland') || desc.toLowerCase().includes('visp') || desc.toLowerCase().includes('basel') || desc.toLowerCase().includes('stein')) {
-          city = parseWorkdayLocation(desc);
-          break;
-        }
-      }
-    }
-    if (!city) city = 'Visp';
+ const resolvedLocation = resolveWorkdayLocation(info, listing);
+ if (!resolvedLocation) {
+  console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
+  continue;
+ }
+ const { city, canton } = resolvedLocation;
 
     // Skip foreign locations that slipped through Workday's country filter
     if (isLocationExplicitlyForeign(city)) {
@@ -290,8 +299,7 @@ export async function fetchAllLonzaJobs() {
       continue;
     }
 
-    const canton = inferCanton(city);
-    const descriptionHtml = info.jobDescription || '';
+ const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${LONZA_PUBLIC_BASE}${externalPath}`;
 
@@ -348,6 +356,12 @@ export async function fetchAllLonzaJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
-  console.log(`\n📋 Total unique Lonza jobs discovered: ${jobs.length}`);
-  return jobs;
+ console.log(`\n📋 Total unique Lonza jobs discovered: ${jobs.length}`);
+ return jobs;
 }
+
+export const __internals = {
+ parseWorkdayLocation,
+ inferCanton,
+ resolveWorkdayLocation,
+};
