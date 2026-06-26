@@ -520,6 +520,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rotary-club-lugano-presidenza.title': 'Wechsel des Vorsitzes im Rotary Club Lugano',
     'blog.article.rotary-club-lugano-presidenza.excerpt': 'Federico Umberto Mion folgt auf Ivo Foletti mit neuen Projekten, um den Dialog zwischen den Generationen und die Verbindung mit dem Territorium zu stärken.',
     'blog.article.rotary-club-lugano-presidenza.imageAlt': 'Rotary Club Treffen in Lugano mit Blick auf Villa Principe Leopoldo',
+    'blog.article.giro-tre-paesi-chiusure-traffico-2026.title': 'Drei-Länder-Rundfahrt 2026: Straßensperrungen im Engadin und Val Müstair',
+    'blog.article.giro-tre-paesi-chiusure-traffico-2026.excerpt': 'Am Sonntag, den 28. Juni 2026 wird der Umbrailpass geschlossen und auf den Hauptstraßen zwischen Val Müstair und Unterengadin sind Verlangsamungen geplant.',
+    'blog.article.giro-tre-paesi-chiusure-traffico-2026.imageAlt': 'Radfahrer und Straßensperrungsschilder auf einem Schweizer Pass während einer Veranstaltung.',
 };
 
 export default blogMetaChDe;
