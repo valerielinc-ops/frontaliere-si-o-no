@@ -511,6 +511,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fmi-economia-svizzera-resiliente.title': 'IMF: Swiss economy remains resilient',
     'blog.article.fmi-economia-svizzera-resiliente.excerpt': 'The International Monetary Fund confirms the strength of the Swiss economy, predicting moderate growth and low inflation.',
     'blog.article.fmi-economia-svizzera-resiliente.imageAlt': 'Swiss economic landscape with modern financial buildings',
+    'blog.article.scambio-dati-salariali-italia-legge.title': 'Exchange of salary data with Italy, the applicable law arrives',
+    'blog.article.scambio-dati-salariali-italia-legge.excerpt': 'New legislation for the exchange of salary information between Switzerland and Italy',
+    'blog.article.scambio-dati-salariali-italia-legge.imageAlt': 'Commuter crossing the Swiss-Italian border',
 };
 
 export default blogMetaChEn;

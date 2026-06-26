@@ -1529,6 +1529,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'scambio-dati-salariali-italia-legge',
+    category: 'fiscale',
+    date: '2026-06-26T07:28:40.922Z',
+    image: '/images/blog/scambio-dati-salariali-italia-legge.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
