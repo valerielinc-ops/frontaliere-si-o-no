@@ -8158,6 +8158,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assicurazione-malattia-neuchatel-giovani.title': 'Neuchâtel sickness fund: a guide for young adults aged 19-25',
     'blog.article.assicurazione-malattia-neuchatel-giovani.excerpt': 'Overview of sickness funds in Neuchâtel for young adults 19-25 years old. Details on requirements and procedures, practical info.',
     'blog.article.assicurazione-malattia-neuchatel-giovani.imageAlt': 'Young adult in Ticino with a Swiss urban background',
+    'blog.article.guess-stabio-merchandiser.title': 'Job opportunities as a Merchandiser at guess Europe Sagl in Stabio',
+    'blog.article.guess-stabio-merchandiser.excerpt': 'We are looking for Merchandisers to manage guess stores in Ticino. Learn about requirements and how to apply.',
+    'blog.article.guess-stabio-merchandiser.imageAlt': 'Guess merchandiser working at Stabio store, Ticino',
 };
 
 export default blogMetaEn;

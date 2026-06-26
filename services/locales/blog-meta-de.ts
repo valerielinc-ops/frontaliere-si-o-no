@@ -8157,6 +8157,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assicurazione-malattia-neuchatel-giovani.title': 'Krankenkasse Neuenburg: Leitfaden für junge Erwachsene 19-25 Jahre',
     'blog.article.assicurazione-malattia-neuchatel-giovani.excerpt': 'Übersicht Krankenkassen in Neuenburg für junge Erwachsene 19-25 Jahre. Details zu den Anforderungen und Verfahren, praktische Informationen.',
     'blog.article.assicurazione-malattia-neuchatel-giovani.imageAlt': 'Junger Erwachsener im Tessin mit Schweizer Stadt im Hintergrund',
+    'blog.article.guess-stabio-merchandiser.title': 'Karrierechancen als Merchandiser bei Guess Europe Sagl in Stabio',
+    'blog.article.guess-stabio-merchandiser.excerpt': 'Wir suchen Merchandiser, um die GUESS-Verkaufsstellen im Tessin zu verwalten. Entdecken Sie Anforderungen und wie Sie sich bewerben können.',
+    'blog.article.guess-stabio-merchandiser.imageAlt': 'Guess Merchandiser bei der Arbeit im Geschäft in Stabio, Tessin',
 };
 
 export default blogMetaDe;
