@@ -197,6 +197,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'telelavoro-frontaliere-quanti-giorni-2026': { it: 'telelavoro-frontaliere-quanti-giorni-2026', en: 'telework-frontier-worker-days-2026', de: 'telearbeit-grenzgaenger-tage-2026', fr: 'teletravail-frontaliers-jours-2026' },
  'rotary-club-lugano-presidenza': { it: 'rotary-club-lugano-presidenza', en: 'change-presidency-rotary-lugano', de: 'wechsel-voe-rotary-lugano', fr: 'changement-presidence-rotary-lugano' },
  'giro-tre-paesi-chiusure-traffico-2026': { it: 'giro-tre-paesi-chiusure-traffico-2026', en: 'giro-tre-paesi-road-closures-2026', de: 'giro-drei-laender-strassensperrungen-2026', fr: 'giro-trois-pays-fermetures-routes-2026' },
+ 'industria-farmaceutica-svizzera-dati': { it: 'industria-farmaceutica-svizzera-dati', en: 'swiss-pharma-industry-data', de: 'schweizer-pharma-industrie-daten', fr: 'industrie-pharmaceutique-suisse-donnees' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

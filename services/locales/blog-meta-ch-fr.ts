@@ -523,6 +523,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.title': 'Giro Tre Paesi 2026: strade Engadina-Val Müstair chiuse',
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.excerpt': 'Dimanche 28 juin 2026, le col de l\'Umbrail sera fermé et des ralentissements seront prévus sur les routes principales entre le Val Müstair et la Basse-Engadine.',
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.imageAlt': 'Cyclistes et panneaux de route fermée sur un col suisse pendant un événement.',
+    'blog.article.industria-farmaceutica-svizzera-dati.title': 'Pharmaceutique : données et enjeux de l\'économie suisse',
+    'blog.article.industria-farmaceutica-svizzera-dati.excerpt': 'Secteur clé pour l\'exportation et l\'emploi : 56 000 postes et 100 milliards d\'exportations en 2025.',
+    'blog.article.industria-farmaceutica-svizzera-dati.imageAlt': 'Laboratoire de recherche pharmaceutique en Suisse',
 };
 
 export default blogMetaChFr;

@@ -6687,6 +6687,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-industria-farmaceutica-svizzera-dati': {
+    title: 'Farmaceutica: dati e sfide dell\'economia svizzera',
+    description: 'Settore chiave per export e occupazione: 56mila posti e 100 miliardi di export nel 2025. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, farmaceutica, dati, sfide, dell',
+    ogTitle: 'Farmaceutica: dati e sfide dell\'economia svizzera',
+    ogDescription: 'Settore chiave per export e occupazione: 56mila posti e 100 miliardi di export nel 2025.',
+    canonicalPath: '/articoli-svizzera/industria-farmaceutica-svizzera-dati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmaceutica: dati e sfide dell'economia svizzera",
+      "description": "Settore chiave per export e occupazione: 56mila posti e 100 miliardi di export nel 2025. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/industria-farmaceutica-svizzera-dati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca farmaceutica in Svizzera"
+      },
+      "datePublished": "2026-06-26T11:57:18+00:00",
+      "dateModified": "2026-06-26T11:57:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/industria-farmaceutica-svizzera-dati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
