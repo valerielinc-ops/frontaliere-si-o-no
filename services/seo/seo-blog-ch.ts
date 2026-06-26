@@ -7038,6 +7038,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pandemia-indennizzi-imprese': {
+    title: 'Pandemia, la commissione propone indennizzi per imprese e autonomi',
+    description: 'Le nuove proposte di legge mirano a rafforzare il sostegno economico di imprese e autonomi durante future crisi sanitarie in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pandemia, commissione, propone, indennizzi',
+    ogTitle: 'Supporto alle imprese svizzere: indennizzi e norme',
+    ogDescription: 'Proposte legislative per rafforzare il sostegno economico di imprese e autonomi in Svizzera in futuro.',
+    canonicalPath: '/articoli-svizzera/pandemia-indennizzi-imprese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pandemia, la commissione propone indennizzi per imprese e autonomi",
+      "description": "Le nuove proposte di legge mirano a rafforzare il sostegno economico di imprese e autonomi durante future crisi sanitarie in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pandemia-indennizzi-imprese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprese svizzere e lavoratori indipendenti durante la pandemia"
+      },
+      "datePublished": "2026-06-26T18:34:08+00:00",
+      "dateModified": "2026-06-26T18:34:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pandemia-indennizzi-imprese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

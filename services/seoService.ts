@@ -4231,6 +4231,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-spaccio-rete-locali': { name: 'Pratico', path: '/articoli-svizzera/spaccio-rete-locali/', parent: 'blog' },
     'blog-incidente-lavoro-champery-gas-metallo': { name: 'cronaca svizzera', path: '/articoli-svizzera/incidente-lavoro-champery-gas-metallo/', parent: 'blog' },
     'blog-finanziamento-olimpiadi-invernali-2038': { name: 'Notizie svizzere', path: '/articoli-svizzera/finanziamento-olimpiadi-invernali-2038/', parent: 'blog' },
+    'blog-pandemia-indennizzi-imprese': { name: 'Sostegno economico', path: '/articoli-svizzera/pandemia-indennizzi-imprese/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
