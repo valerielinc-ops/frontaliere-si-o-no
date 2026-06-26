@@ -1646,6 +1646,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pandemia-indennizzi-imprese',
+    category: 'fiscale',
+    date: '2026-06-26T18:34:08.917Z',
+    image: '/images/blog/pandemia-indennizzi-imprese.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

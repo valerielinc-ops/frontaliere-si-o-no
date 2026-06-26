@@ -550,6 +550,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.finanziamento-olimpiadi-invernali-2038.title': 'Ok pour le financement des Jeux Olympiques d\'hiver 2038',
     'blog.article.finanziamento-olimpiadi-invernali-2038.excerpt': 'La contribution fédérale aux coûts des Jeux Olympiques d\'hiver 2038, limitée à 200 millions de francs, est jugée acceptable par la Commission des finances du National.',
     'blog.article.finanziamento-olimpiadi-invernali-2038.imageAlt': 'Paysage suisse avec installations olympiques et montagnes enneigées',
+    'blog.article.pandemia-indennizzi-imprese.title': 'Pandémie: indemnités pour entreprises et indépendants',
+    'blog.article.pandemia-indennizzi-imprese.excerpt': 'Les nouvelles mesures visent à assurer un soutien plus efficace aux entreprises et aux travailleurs indépendants dans les futures crises sanitaires, avec des indemnisations et des financements.',
+    'blog.article.pandemia-indennizzi-imprese.imageAlt': 'Entreprises suisses et travailleurs indépendants pendant la pandémie',
 };
 
 export default blogMetaChFr;

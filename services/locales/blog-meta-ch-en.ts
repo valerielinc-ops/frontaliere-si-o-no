@@ -550,6 +550,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.finanziamento-olimpiadi-invernali-2038.title': 'OK to fund the 2038 Winter Olympics',
     'blog.article.finanziamento-olimpiadi-invernali-2038.excerpt': 'The federal contribution to the costs for the 2038 Winter Olympics, limited to 200 million francs, is deemed acceptable by the National Finance Commission.',
     'blog.article.finanziamento-olimpiadi-invernali-2038.imageAlt': 'Swiss landscape with Olympic facilities and snowy mountains',
+    'blog.article.pandemia-indennizzi-imprese.title': 'Pandemic: Commission proposes compensation for businesses',
+    'blog.article.pandemia-indennizzi-imprese.excerpt': 'The new measures aim to ensure more effective support to businesses and the self-employed in future health crises, with compensation and funding.',
+    'blog.article.pandemia-indennizzi-imprese.imageAlt': 'Swiss businesses and self-employed workers during the pandemic',
 };
 
 export default blogMetaChEn;

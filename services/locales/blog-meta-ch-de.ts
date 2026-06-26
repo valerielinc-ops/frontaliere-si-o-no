@@ -550,6 +550,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.finanziamento-olimpiadi-invernali-2038.title': 'OK zur Finanzierung der Olympischen Winterspiele 2038',
     'blog.article.finanziamento-olimpiadi-invernali-2038.excerpt': 'Der auf 200 Millionen Franken begrenzte Kostenbeitrag des Bundes für die Olympischen Winterspiele 2038 wird von der Nationalen Finanzkommission als akzeptabel erachtet.',
     'blog.article.finanziamento-olimpiadi-invernali-2038.imageAlt': 'Schweizer Landschaft mit Olympischen Anlagen und verschneiten Bergen',
+    'blog.article.pandemia-indennizzi-imprese.title': 'Pandemie: Entschädigung für Unternehmen und Selbstständige',
+    'blog.article.pandemia-indennizzi-imprese.excerpt': 'Die neuen Maßnahmen zielen darauf ab, Unternehmen und Selbstständige in zukünftigen Gesundheitskrisen mit Entschädigungen und Finanzmitteln wirksamer zu unterstützen.',
+    'blog.article.pandemia-indennizzi-imprese.imageAlt': 'Schweizer Unternehmen und Selbständige während der Pandemie',
 };
 
 export default blogMetaChDe;
