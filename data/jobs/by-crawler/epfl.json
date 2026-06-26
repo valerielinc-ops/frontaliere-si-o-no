@@ -255,7 +255,7 @@
       "slugByLocale": {
         "it": "mechanical-ingegnere-epfl-sion",
         "en": "mechanical-engineer-epfl-sion",
-        "de": "mechanical-ingenieur-epfl-sion",
+        "de": "maschinenbauer-epfl-sion",
         "fr": "ingenieur-mecanique-epfl-sion"
       },
       "company": "EPFL",
@@ -302,9 +302,9 @@
         "de": [
           "maschinenbauingenieur-in-epfl-sion",
           "maschinenbauingenieur-epfl-sion",
-          "maschinenbauer-epfl-sion",
           "mechanischer-ingenieur-epfl-sion",
-          "mechanical-engineer-epfl-sion"
+          "mechanical-engineer-epfl-sion",
+          "mechanical-ingenieur-epfl-sion"
         ],
         "it": [
           "mechanical-engineer-epfl-sion",
@@ -319,9 +319,9 @@
       "previousSlugs": [
         "maschinenbauingenieur-in-epfl-sion",
         "maschinenbauingenieur-epfl-sion",
-        "maschinenbauer-epfl-sion",
         "mechanischer-ingenieur-epfl-sion",
         "mechanical-engineer-epfl-sion",
+        "mechanical-ingenieur-epfl-sion",
         "ingegnere-meccanico-epfl-sion",
         "ingeniero-meccanico-epfl-sion",
         "ingenieur-mecanicien-epfl-sion",
@@ -350,9 +350,9 @@
     },
     {
       "id": "epfl-324f3e4123f4",
-      "slug": "tecnico-epfl-lausanne",
+      "slug": "costruttore-epfl-lausanne",
       "slugByLocale": {
-        "it": "tecnico-epfl-lausanne",
+        "it": "costruttore-epfl-lausanne",
         "en": "technician-epfl-lausanne",
         "de": "techniker-epfl-lausanne",
         "fr": "technicien-epfl-lausanne"
@@ -404,8 +404,8 @@
         ],
         "it": [
           "technician-epfl-lausanne",
-          "costruttore-epfl-lausanne",
-          "technican-epfl-lausanne"
+          "technican-epfl-lausanne",
+          "tecnico-epfl-lausanne"
         ],
         "de": [
           "technician-epfl-lausanne",
@@ -416,8 +416,8 @@
       "previousSlugs": [
         "technicien-ne-de-laboratoire-epfl-lausanne",
         "technician-epfl-lausanne",
-        "costruttore-epfl-lausanne",
         "technican-epfl-lausanne",
+        "tecnico-epfl-lausanne",
         "technik-epfl-lausanne",
         "labortechniker-in-epfl-lausanne",
         "tecnico-del-laboratorio-junior-epfl-lausanne",
@@ -938,7 +938,7 @@
       "slugByLocale": {
         "it": "assistente-amministrativo-50-epfl-lausanne",
         "en": "administrative-assistant-epfl-lausanne-2",
-        "de": "administrative-assistent-50-epfl-lausanne",
+        "de": "verwaltungsassistent-50-epfl-lausanne",
         "fr": "administrative-assistant-epfl-lausanne"
       },
       "company": "EPFL",
@@ -988,7 +988,8 @@
         "administrative-assistent-epfl-lausanne",
         "assistente-amministrativo-epfl-lausanne-b9f8ec",
         "verwaltungsassistent-epfl-lausanne",
-        "administrative-assistant-epfl-lausanne-2"
+        "administrative-assistant-epfl-lausanne-2",
+        "administrative-assistent-50-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1001,7 +1002,8 @@
           "administrative-assistant-epfl-lausanne-2"
         ],
         "de": [
-          "administrative-assistant-epfl-lausanne-2"
+          "administrative-assistant-epfl-lausanne-2",
+          "administrative-assistent-50-epfl-lausanne"
         ],
         "fr": [
           "administrative-assistant-50-epfl-lausanne"
@@ -1668,8 +1670,8 @@
       "slugByLocale": {
         "it": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
         "en": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
-        "de": "post-doktorand-forschungsassistent-in-anpassungsoptik-fur-ultrafast-laser-materie-interaktion-epfl-neuchatel",
-        "fr": "fellow-de-recherche-post-doctoral-en-optique-adaptative-pour-l-interaction-laser-matiere-epfl-neuchatel"
+        "de": "postdoc-stipendiatin-fur-adaptive-optik-fur-ultraschnelle-laser-materie-interaktion-epfl-neuchatel",
+        "fr": "chercheur-postdoctoral-en-optique-adaptative-pour-l-interaction-laser-matiere-ultrarapide-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1723,11 +1725,12 @@
           "postdoktorand-in-fur-adaptive-optik-in-der-ultraschnellen-laser-materie-wechselwirkung-epfl-neuchatel",
           "postdoktorand-in-adaptiver-optik-fur-ultraschnelle-laser-materie-interaktion-epfl-neuchatel",
           "postdoktorand-in-adaptive-optics-fur-ultrashort-laser-materie-interaktion-epfl-neuchatel",
-          "postdoc-stipendiatin-fur-adaptive-optik-fur-ultraschnelle-laser-materie-interaktion-epfl-neuchatel"
+          "post-doktorand-forschungsassistent-in-anpassungsoptik-fur-ultrafast-laser-materie-interaktion-epfl-neuchatel"
         ],
         "fr": [
           "bourse-de-recherche-postdoctorale-en-optique-adaptative-pour-l-interaction-laser-matiere-ultrarapide-epfl-neuchatel",
-          "chercheur-postdoctoral-en-optique-adaptative-pour-l-interaction-laser-matiere-ultra-rapide-epfl-neuchatel"
+          "chercheur-postdoctoral-en-optique-adaptative-pour-l-interaction-laser-matiere-ultra-rapide-epfl-neuchatel",
+          "fellow-de-recherche-post-doctoral-en-optique-adaptative-pour-l-interaction-laser-matiere-epfl-neuchatel"
         ]
       },
       "previousSlugs": [
@@ -1739,9 +1742,10 @@
         "postdoktorand-in-fur-adaptive-optik-in-der-ultraschnellen-laser-materie-wechselwirkung-epfl-neuchatel",
         "postdoktorand-in-adaptiver-optik-fur-ultraschnelle-laser-materie-interaktion-epfl-neuchatel",
         "postdoktorand-in-adaptive-optics-fur-ultrashort-laser-materie-interaktion-epfl-neuchatel",
-        "postdoc-stipendiatin-fur-adaptive-optik-fur-ultraschnelle-laser-materie-interaktion-epfl-neuchatel",
+        "post-doktorand-forschungsassistent-in-anpassungsoptik-fur-ultrafast-laser-materie-interaktion-epfl-neuchatel",
         "bourse-de-recherche-postdoctorale-en-optique-adaptative-pour-l-interaction-laser-matiere-ultrarapide-epfl-neuchatel",
         "chercheur-postdoctoral-en-optique-adaptative-pour-l-interaction-laser-matiere-ultra-rapide-epfl-neuchatel",
+        "fellow-de-recherche-post-doctoral-en-optique-adaptative-pour-l-interaction-laser-matiere-epfl-neuchatel",
         "postdoctoral-ricerca-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction-epfl-neuchatel"
       ],
       "firstSeenAt": "2026-06-08T22:21:59.430Z",
@@ -2148,8 +2152,6 @@
         "canevas-epfl-vide-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
         "administrative-assistent-60-80-epfl-sion",
-        "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion",
-        "verwaltungsassistent-sekretar-des-professors-60-80-epfl-sion",
         "assistente-amministrativo-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.917Z",
@@ -2732,9 +2734,9 @@
     },
     {
       "id": "epfl-b0cd92a73585",
-      "slug": "postdoc-position-su-allineamento-ai-e-ai-sicura-disponibile-a-epfl-dlab-epfl-lausanne",
+      "slug": "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibili-su-epfl-dlab-epfl-lausanne-d02b8a",
       "slugByLocale": {
-        "it": "postdoc-position-su-allineamento-ai-e-ai-sicura-disponibile-a-epfl-dlab-epfl-lausanne",
+        "it": "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibili-su-epfl-dlab-epfl-lausanne-d02b8a",
         "en": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
         "de": "postdoc-position-zur-ai-ausrichtung-und-sichere-ki-bei-epfl-dlab-verfugbar-epfl-lausanne",
         "fr": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne"
@@ -2791,7 +2793,8 @@
           "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
           "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne",
           "posizione-post-dottorato-su-allineamento-dell-ia-e-ia-sicura-presso-epfl-dlab-epfl-lausanne",
-          "posizione-di-post-dottorato-su-allineamento-dell-ia-e-sicurezza-dell-ia-disponibile-presso-l-epfl-dlab-epfl-lausanne"
+          "posizione-di-post-dottorato-su-allineamento-dell-ia-e-sicurezza-dell-ia-disponibile-presso-l-epfl-dlab-epfl-lausanne",
+          "postdoc-position-su-allineamento-ai-e-ai-sicura-disponibile-a-epfl-dlab-epfl-lausanne"
         ],
         "de": [
           "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
@@ -2809,6 +2812,7 @@
         "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne",
         "posizione-post-dottorato-su-allineamento-dell-ia-e-ia-sicura-presso-epfl-dlab-epfl-lausanne",
         "posizione-di-post-dottorato-su-allineamento-dell-ia-e-sicurezza-dell-ia-disponibile-presso-l-epfl-dlab-epfl-lausanne",
+        "postdoc-position-su-allineamento-ai-e-ai-sicura-disponibile-a-epfl-dlab-epfl-lausanne",
         "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne",
         "postdoktorand-in-in-ai-bereich-alignment-und-sichere-ki-am-epfl-dlab-epfl-lausanne",
         "postdoc-stelle-zu-ki-ausrichtung-und-sicherer-ki-verfugbar-bei-epfl-dlab-epfl-lausanne",
@@ -3095,7 +3099,7 @@
         "it": "posizione-postdoc-presso-epfl-sulla-ricerca-di-frontier-sull-intelligenza-artificiale-epfl-lausanne",
         "en": "postdoc-position-at-epfl-on-frontier-artificial-intelligence-research-epfl-lausanne",
         "de": "postdoc-position-bei-epfl-zur-forschung-uber-die-kunstliche-intelligenz-an-der-frontier-epfl-lausanne",
-        "fr": "postdoc-position-at-epfl-on-frontier-artificial-intelligence-research-epfl-lausanne"
+        "fr": "position-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-aux-frontieres-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3142,8 +3146,7 @@
         "posizione-post-dottorato-presso-l-epfl-sulla-ricerca-all-avanguardia-in-intelligenza-artificiale-epfl-lausanne",
         "postdoc-stelle-an-der-epfl-in-spitzenforschung-zu-kunstlicher-intelligenz-epfl-lausanne",
         "poste-de-post-doctorat-a-l-epfl-sur-la-recherche-de-pointe-en-intelligence-artificielle-epfl-lausanne",
-        "poste-de-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-de-pointe-epfl-lausanne",
-        "position-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-aux-frontieres-epfl-lausanne"
+        "poste-de-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-de-pointe-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3157,7 +3160,7 @@
         "fr": [
           "poste-de-post-doctorat-a-l-epfl-sur-la-recherche-de-pointe-en-intelligence-artificielle-epfl-lausanne",
           "poste-de-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-de-pointe-epfl-lausanne",
-          "position-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-aux-frontieres-epfl-lausanne"
+          "postdoc-position-at-epfl-on-frontier-artificial-intelligence-research-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-15T22:56:18.950Z",
