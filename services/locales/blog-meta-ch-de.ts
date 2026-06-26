@@ -526,6 +526,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.industria-farmaceutica-svizzera-dati.title': 'Pharmazie: Daten und Herausforderungen der Schweizer Wirtschaft',
     'blog.article.industria-farmaceutica-svizzera-dati.excerpt': 'Schlüsselsektor für Export und Beschäftigung: 56.000 Arbeitsplätze und 100 Milliarden Exporte im Jahr 2025.',
     'blog.article.industria-farmaceutica-svizzera-dati.imageAlt': 'Pharmazeutisches Forschungslabor in der Schweiz',
+    'blog.article.deutsche-bahn-stop-ferroviario-germania.title': 'Deutsche Bahn stoppt Bahnverkehr in Deutschland',
+    'blog.article.deutsche-bahn-stop-ferroviario-germania.excerpt': 'Züge halten in allen deutschen Bahnhöfen nach einer schweren Störung des digitalen Funkkommunikationssystems. Techniker bei der Arbeit.',
+    'blog.article.deutsche-bahn-stop-ferroviario-germania.imageAlt': 'Leere Schweizer Bahngleise mit dunkler Anzeigetafel.',
 };
 
 export default blogMetaChDe;

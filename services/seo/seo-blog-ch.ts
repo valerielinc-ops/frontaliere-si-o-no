@@ -6726,6 +6726,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deutsche-bahn-stop-ferroviario-germania': {
+    title: 'Deutsche Bahn sospende il traffico ferroviario in Germania',
+    description: 'Blocco totale dei treni DB in Germania per un problema al sistema radio digitale. Tecnici al lavoro, disagi per i viaggiatori anche dalla Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, deutsche, bahn, sospende, traffico',
+    ogTitle: 'Deutsche Bahn: stop treni in Germania per guasto radio digitale',
+    ogDescription: 'Blocco ferroviario totale Deutsche Bahn: tutti i treni fermi in Germania per guasto radio.',
+    canonicalPath: '/articoli-svizzera/deutsche-bahn-stop-ferroviario-germania/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Deutsche Bahn sospende il traffico ferroviario in Germania",
+      "description": "Blocco totale dei treni DB in Germania per un problema al sistema radio digitale. Tecnici al lavoro, disagi per i viaggiatori anche dalla Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/deutsche-bahn-stop-ferroviario-germania.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Binari ferroviari svizzeri vuoti con tabellone digitale spento."
+      },
+      "datePublished": "2026-06-26T13:52:51+00:00",
+      "dateModified": "2026-06-26T13:52:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/deutsche-bahn-stop-ferroviario-germania/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
