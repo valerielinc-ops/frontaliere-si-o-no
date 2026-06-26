@@ -3093,9 +3093,9 @@
       "firstSeenAt": "2026-06-25T11:59:15.666Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal-d47c8f",
+        "en": "seller-denner-ag-langenthal",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-d47c8f"
+        "fr": "vendeur-denner-ag-langenthal-634638"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -3144,14 +3144,19 @@
       "previousSlugs": [
         "seller-denner-ag-langenthal",
         "vendeur-denner-ag-langenthal-634638",
-        "venditore-denner-ag-langenthal-634638"
+        "venditore-denner-ag-langenthal-634638",
+        "verkaufer-in-denner-ag-langenthal",
+        "seller-denner-ag-langenthal-d47c8f",
+        "vendeur-denner-ag-langenthal-d47c8f"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-langenthal"
+          "seller-denner-ag-langenthal",
+          "seller-denner-ag-langenthal-d47c8f"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-634638"
+          "vendeur-denner-ag-langenthal-634638",
+          "vendeur-denner-ag-langenthal-d47c8f"
         ]
       }
     },
@@ -4435,8 +4440,8 @@
       "firstSeenAt": "2026-06-25T11:59:15.666Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-wetzikon",
-        "en": "seller-denner-ag-wetzikon",
-        "fr": "vendeur-denner-ag-wetzikon",
+        "en": "seller-denner-ag-wetzikon-8e6f7a",
+        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
       "titleByLocale": {
@@ -4470,17 +4475,22 @@
           "verkaufer-in-denner-ag-wetzikon-douzkp"
         ],
         "en": [
-          "seller-denner-ag-wetzikon-8e6f7a"
+          "seller-denner-ag-wetzikon-8e6f7a",
+          "seller-denner-ag-wetzikon"
         ],
         "fr": [
-          "vendeur-denner-ag-wetzikon-8e6f7a"
+          "vendeur-denner-ag-wetzikon-8e6f7a",
+          "vendeur-denner-ag-wetzikon"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-wetzikon-douzkp",
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-wetzikon-8e6f7a",
-        "venditore-denner-ag-wetzikon-8e6f7a"
+        "venditore-denner-ag-wetzikon-8e6f7a",
+        "verkaufer-in-denner-ag-wetzikon",
+        "seller-denner-ag-wetzikon",
+        "vendeur-denner-ag-wetzikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13993,9 +14003,9 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "requirementsByLocale": {
         "it": [],
@@ -14037,7 +14047,8 @@
         "en": [
           "verkaufer-in-denner-ag-frauenfeld-m4pjdx",
           "verkaufer-in-denner-ag-frauenfeld",
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "de": [
           "verkaufer-in-denner-ag-frauenfeld-m4pjdx"
@@ -14045,7 +14056,8 @@
         "fr": [
           "verkaufer-in-denner-ag-frauenfeld-m4pjdx",
           "verkaufer-in-denner-ag-frauenfeld",
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ]
       },
       "previousSlugs": [
@@ -34587,6 +34599,7 @@
         "pizzaiolo-baden-pizzeria-ristorante-molino-baden-q9gttd",
         "chef-de-partie-baden-pizzeria-ristorante-molino-baden",
         "chef-de-partie-baden-pizzeria-ristorante-molino-baden-vj2ad6",
+        "user-safety-safe-pizzeria-ristorante-molino-baden",
         "capopartita-baden-pizzeria-ristorante-molino-baden"
       ],
       "salaryMin": 62000,
@@ -51762,7 +51775,8 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
+        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
