@@ -191,6 +191,23 @@ const COMPANY_PREFIX_RE = /^(?:azienda|company|unternehmen|entreprise)-(.+)$/;
 const COMPANY_HUB_RE =
   /^(\/(?:en|de|fr)\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+)\/([^/]+)\/?$/;
 
+// Generative fallback for legacy related-search CLUSTER orphans (last segment is
+// a search-action slug `ricerca-/search-/suche-/recherche-…`). These came from an
+// old per-canton slug format (`/cerca-lavoro-<canton>/ricerca-<role>-svizzera/`)
+// that was migrated to `/cerca-lavoro-svizzera/ricerca-<role>-<city>/`. The KNOWN
+// ones (from the GSC snapshot) are already recovered as 200 compat-bridge pages,
+// but Google indexed many more than our snapshot captured, so the long tail still
+// soft-404s. We cannot enumerate the unknown ones for a SPECIFIC target, so we
+// 301 them to the locale's NATIONAL job board — always a live 200 page, never a
+// 301→404 (a canton-section root would 404 on an odd/fake canton slug). The board
+// is the nationalized cluster's natural home and keeps the job-search intent.
+const SEARCH_CLUSTER_PREFIX_RE = /^(?:ricerca|search|suche|recherche)-/;
+const NATIONAL_BOARD_BY_LOCALE = {
+  en: '/en/find-jobs-switzerland/',
+  de: '/de/jobs-in-schweiz/',
+  fr: '/fr/trouver-emploi-suisse/',
+};
+
 const MAP_FETCH_TIMEOUT_MS = 2000;
 const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 
@@ -275,6 +292,35 @@ function recoverCrossLocaleCompanyPrefix(url, locale) {
   if (lastSeg === `${correct}-${rest}`) return null;
   const canonical = `${routePrefix}/${correct}-${rest}/`;
   const location = canonical + url.search + url.hash;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+  });
+}
+
+// Returns a within-locale 301 Response to the locale's national job board when
+// the requested path is a legacy related-search cluster orphan (last path segment
+// starts with a search-action prefix — see SEARCH_CLUSTER_PREFIX_RE), otherwise
+// null. Synchronous (no map/subrequest): the target is a fixed per-locale board.
+// The caller runs this ONLY after the canton-drift map miss and the company-prefix
+// miss, so a real job-detail slug (which lives in /job-canon) is never hijacked —
+// and real job slugs do not start with `ricerca-/search-/suche-/recherche-`. The
+// national board is always a live 200, so this never produces a 301→404.
+function recoverLegacySearchCluster(url, locale) {
+  const board = NATIONAL_BOARD_BY_LOCALE[locale];
+  if (!board) return null;
+  const m = url.pathname.match(JOB_DETAIL_RE);
+  if (!m) return null;
+  let lastSeg;
+  try {
+    lastSeg = decodeURIComponent(m[1]).toLowerCase();
+  } catch {
+    lastSeg = m[1].toLowerCase();
+  }
+  if (!SEARCH_CLUSTER_PREFIX_RE.test(lastSeg)) return null;
+  // Already on the national board (loop guard — the board path has no extra segment).
+  if (url.pathname.replace(/\/+$/, '') + '/' === board) return null;
+  const location = board + url.search + url.hash;
   return new Response(null, {
     status: 301,
     headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
@@ -500,6 +546,11 @@ export default {
       // to start with a prefix word is never hijacked.
       const companyRedirect = recoverCrossLocaleCompanyPrefix(url, match[1]);
       if (companyRedirect) return companyRedirect;
+      // Legacy related-search cluster orphan (slug-format migration left a long
+      // tail beyond our GSC snapshot) → 301 to the locale's national job board.
+      // Runs last so the specific canton-drift/company recoveries win first.
+      const clusterRedirect = recoverLegacySearchCluster(url, match[1]);
+      if (clusterRedirect) return clusterRedirect;
     }
 
     // Stamp Cache-Control on 404s too: see NOT_FOUND_CACHE_CONTROL. GitHub
