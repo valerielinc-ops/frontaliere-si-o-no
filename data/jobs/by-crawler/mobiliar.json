@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-c44bb5e9dd06",
-      "slug": "business-analyst-w-m-d-mobiliar-ch",
+      "slug": "business-analista-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "business-analyst-w-m-d-mobiliar-ch",
-        "it": "business-analyst-w-m-d-mobiliar-ch",
+        "it": "business-analista-w-m-d-die-mobiliar-bern",
         "en": "business-analyst-w-m-d-die-mobiliar-bern",
-        "fr": "business-analyst-w-m-d-mobiliar-ch"
+        "fr": "business-analyste-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -81,7 +81,18 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-26T11:58:09.624Z"
+      "firstSeenAt": "2026-06-26T11:58:09.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "business-analyst-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-8e909c18d0a5",

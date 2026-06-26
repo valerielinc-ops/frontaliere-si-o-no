@@ -228,10 +228,10 @@
       "id": "psgn-385650fe4ec0",
       "slug": "dipl-infermiera-hf-fh-arte-terapia-attivita-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "dipl-infermiera-hf-fh-arte-terapia-attivita-psychiatrie-st-gallen-wil-sg",
+        "it": "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
         "en": "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
         "de": "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psgn-wil-sg",
-        "fr": "dipl-infirmiere-hf-fh-art-therapy-activite-psychiatrie-st-gallen-wil-sg"
+        "fr": "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -276,16 +276,14 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psgn-wil-sg",
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-        "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+        "dipl-infirmiere-hf-fh-art-therapy-activite-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psgn-wil-sg"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
           "dipl-infirmiere-hf-fh-art-therapy-activite-psychiatrie-st-gallen-wil-sg"
         ]
       },
@@ -307,10 +305,10 @@
       "id": "psgn-07d4e48dcae2",
       "slug": "terapista-professionale-terapista-professionale-attivita-di-terapia-artistica-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "terapista-professionale-terapista-professionale-attivita-di-terapia-artistica-psychiatrie-st-gallen-wil-sg",
+        "it": "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
         "en": "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
         "de": "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psgn-wil-sg",
-        "fr": "ergotherapeute-ergotherapeute-activite-de-therapie-artistique-psychiatrie-st-gallen-wil-sg"
+        "fr": "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -355,16 +353,14 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psgn-wil-sg",
         "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-        "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+        "ergotherapeute-ergotherapeute-activite-de-therapie-artistique-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psgn-wil-sg",
-          "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-          "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg"
+          "ergotherapeutin-ergotherapeut-psgn-wil-sg"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psychiatrie-st-gallen-wil-sg",
           "ergotherapeute-ergotherapeute-activite-de-therapie-artistique-psychiatrie-st-gallen-wil-sg"
         ]
       },
@@ -612,10 +608,10 @@
     },
     {
       "id": "psgn-407e0ab046b7",
-      "slug": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
+      "slug": "assistente-psicologo-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
-        "it": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
+        "it": "assistente-psicologo-psychiatrie-st-gallen-wil-sg",
         "en": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
         "fr": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
       },
@@ -663,11 +659,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg"
+          "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg"
+        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

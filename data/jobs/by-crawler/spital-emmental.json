@@ -91,8 +91,7 @@
           "tirocinio-a-spital-emmental-burgdorf-langnau"
         ],
         "en": [
-          "dipl-caregiver-endoscopy-a-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
+          "dipl-caregiver-endoscopy-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
@@ -179,8 +178,7 @@
           "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-specialist-surgical-technique-a-spital-emmental-burgdorf",
-          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+          "dipl-specialist-surgical-technique-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
@@ -1737,8 +1735,7 @@
           "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-care-professional-care-pool-a-spital-emmental-burgdorf-langnau",
-          "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
+          "dipl-care-professional-care-pool-a-spital-emmental-burgdorf-langnau"
         ],
         "fr": [
           "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
@@ -2316,8 +2313,7 @@
           "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "professional-child-care-a-spital-emmental-burgdorf",
-          "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
+          "professional-child-care-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
@@ -2827,8 +2823,7 @@
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-nurse-a-spital-emmental-burgdorf-2fc0f7",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+          "dipl-nurse-a-spital-emmental-burgdorf-2fc0f7"
         ],
         "fr": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
@@ -3101,10 +3096,10 @@
       "id": "spital-emmental-cdc2447c8034",
       "slug": "dipl-infermiera-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-infermiera-a-spital-emmental-burgdorf",
+        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf"
+        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3154,15 +3149,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+        "dipl-infirmiere-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
           "dipl-infirmiere-a-spital-emmental-burgdorf"
         ]
       },
@@ -4265,10 +4258,10 @@
     },
     {
       "id": "spital-emmental-6e92bdebfe1d",
-      "slug": "hrm-generalist-in-hrm-spezialist-in-a-spital-emmental-burgdorf",
+      "slug": "generalista-hrm-specialista-hrm-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "hrm-generalist-in-hrm-spezialist-in-a-spital-emmental-burgdorf",
-        "it": "hrm-generalist-in-hrm-spezialist-in-a-spital-emmental-burgdorf",
+        "it": "generalista-hrm-specialista-hrm-a-spital-emmental-burgdorf",
         "en": "hrm-generalist-in-hrm-spezialist-in-a-spital-emmental-burgdorf",
         "fr": "hrm-generalist-in-hrm-spezialist-in-a-spital-emmental-burgdorf"
       },
@@ -4332,7 +4325,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:22:01.357Z"
+      "firstSeenAt": "2026-06-26T12:22:01.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hrm-generalist-in-hrm-spezialist-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "hrm-generalist-in-hrm-spezialist-in-a-spital-emmental-burgdorf"
+      ]
     }
   ]
 }

@@ -61,8 +61,7 @@
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
         ],
         "de": [
-          "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon",
-          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+          "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon"
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
@@ -1719,8 +1718,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern",
-          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
@@ -1964,8 +1962,7 @@
         ],
         "de": [
           "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
-          "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
-          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+          "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
@@ -2834,10 +2831,10 @@
     },
     {
       "id": "vaudoise-d5feba5a285f",
-      "slug": "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
+      "slug": "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
-        "it": "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
+        "it": "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
         "de": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
       },
@@ -2884,11 +2881,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
+          "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
+          "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
+        "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
+        "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

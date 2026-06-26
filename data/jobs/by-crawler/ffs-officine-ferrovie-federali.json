@@ -203,7 +203,7 @@
         "it": "supporto-tecnico-business-analyst-vendite-ffs-officine-ferrovie-federali-bern",
         "en": "technical-support-business-analyst-sales-ffs-officine-ferrovie-federali-bern",
         "de": "fachsupport-businessanalyst-verkauf-ffs-officine-ferrovie-federali-bern",
-        "fr": "support-specialise-ventes-d-analystes-metier-ffs-officine-ferrovie-federali-bern"
+        "fr": "fachsupport-businessanalyst-vente-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -280,10 +280,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fachsupport-businessanalyst-verkauf-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "support-specialise-ventes-d-analystes-metier-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "previousSlugs": [
-        "fachsupport-businessanalyst-verkauf-ffs-officine-ferrovie-federali-bern"
+        "fachsupport-businessanalyst-verkauf-ffs-officine-ferrovie-federali-bern",
+        "support-specialise-ventes-d-analystes-metier-ffs-officine-ferrovie-federali-bern"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -6804,8 +6808,7 @@
       "previousSlugsByLocale": {
         "it": [
           "capo-turno-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-          "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-          "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne"
+          "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-06-10T23:25:24.084Z",

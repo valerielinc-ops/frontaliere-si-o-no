@@ -156,7 +156,7 @@
       "slug": "payroll-specialista-teilzeit-sonova-staefa",
       "slugByLocale": {
         "it": "payroll-specialista-teilzeit-sonova-staefa",
-        "en": "payroll-specialist-part-time-sonova-staefa-switzerland",
+        "en": "payroll-specialist-teilzeit-sonova-staefa-switzerland",
         "de": "payroll-specialist-teilzeit-sonova-ch",
         "fr": "payroll-specialiste-teilzeit-sonova-staefa"
       },
@@ -199,7 +199,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "payroll-specialist-teilzeit-sonova-ch",
-        "payroll-specialist-teilzeit-sonova-staefa-switzerland"
+        "payroll-specialist-part-time-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -207,7 +207,7 @@
         ],
         "en": [
           "payroll-specialist-teilzeit-sonova-ch",
-          "payroll-specialist-teilzeit-sonova-staefa-switzerland"
+          "payroll-specialist-part-time-sonova-staefa-switzerland"
         ],
         "fr": [
           "payroll-specialist-teilzeit-sonova-ch"
@@ -744,10 +744,10 @@
     },
     {
       "id": "sonova-d6013fac87f6",
-      "slug": "data-scientist-m-f-d-sonova-ch",
+      "slug": "scienziato-dei-dati-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "data-scientist-m-f-d-sonova-ch",
-        "it": "data-scientist-m-f-d-sonova-ch",
+        "it": "scienziato-dei-dati-m-f-d-sonova-staefa-switzerland",
         "de": "data-scientist-m-f-d-sonova-ch",
         "fr": "data-scientist-m-f-d-sonova-ch"
       },
@@ -804,7 +804,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-26T12:29:25.851Z"
+      "firstSeenAt": "2026-06-26T12:29:25.851Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-m-f-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-9b2527a04562",

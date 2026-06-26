@@ -79,10 +79,10 @@
     },
     {
       "id": "ubs-be2e9a99d0b4",
-      "slug": "fx-mm-settlements-operations-ubs",
+      "slug": "operazioni-fx-mm-settlements-ubs-ticino",
       "slugByLocale": {
         "en": "fx-mm-settlements-operations-ubs",
-        "it": "fx-mm-settlements-operations-ubs",
+        "it": "operazioni-fx-mm-settlements-ubs-ticino",
         "de": "fx-mm-settlements-operations-ubs",
         "fr": "fx-mm-settlements-operations-ubs"
       },
@@ -149,19 +149,19 @@
       },
       "firstSeenAt": "2026-06-24T23:04:20.639Z",
       "previousSlugs": [
-        "fx-mm-settlements-operazioni-ubs-ticino",
+        "fx-mm-abrechnungen-ubs-ticino",
+        "fx-mm-settlements-operations-ubs",
+        "fx-mm-etablissements-ubs-ticino",
         "operations-fx-mm-sur-les-etablissements-ubs-ticino",
-        "operazioni-fx-mm-settlements-ubs-ticino"
+        "fx-mm-settlements-operazioni-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "fx-mm-abrechnungen-ubs-ticino",
-          "fx-mm-settlements-operations-ubs"
+          "fx-mm-abrechnungen-ubs-ticino"
         ],
         "fr": [
           "fx-mm-etablissements-ubs-ticino",
-          "operations-fx-mm-sur-les-etablissements-ubs-ticino",
-          "fx-mm-settlements-operations-ubs"
+          "operations-fx-mm-sur-les-etablissements-ubs-ticino"
         ],
         "it": [
           "fx-mm-settlements-operations-ubs"
@@ -170,11 +170,11 @@
     },
     {
       "id": "ubs-b99b0cf83afa",
-      "slug": "internship-in-regulatory-transaction-reporting-governance-team-ubs",
+      "slug": "tirocinio-nel-team-di-governance-della-reporting-delle-transazioni-regolatorie-ubs-ticino",
       "slugByLocale": {
         "en": "internship-in-regulatory-transaction-reporting-governance-team-ubs",
         "fr": "stage-dans-l-equipe-de-gouvernance-de-la-declaration-des-transactions-reglementaires-ubs-ticino",
-        "it": "internship-in-regulatory-transaction-reporting-governance-team-ubs",
+        "it": "tirocinio-nel-team-di-governance-della-reporting-delle-transazioni-regolatorie-ubs-ticino",
         "de": "internship-in-regulatory-transaction-reporting-governance-team-ubs"
       },
       "company": "UBS",
@@ -240,8 +240,8 @@
       },
       "firstSeenAt": "2026-06-24T23:04:20.637Z",
       "previousSlugs": [
-        "internship-in-regime-di-transazione-regolatoria-reporting-governance-team-ubs-ticino",
-        "tirocinio-nel-team-di-governance-della-reporting-delle-transazioni-regolatorie-ubs-ticino"
+        "internship-in-regulatory-transaction-reporting-governance-team-ubs",
+        "internship-in-regime-di-transazione-regolatoria-reporting-governance-team-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -251,10 +251,10 @@
     },
     {
       "id": "ubs-b8716a72ee7b",
-      "slug": "internship-in-banking-operations-ubs",
+      "slug": "tirocinio-nelle-operazioni-bancarie-ubs-ticino",
       "slugByLocale": {
         "en": "internship-in-banking-operations-ubs",
-        "it": "internship-in-banking-operations-ubs",
+        "it": "tirocinio-nelle-operazioni-bancarie-ubs-ticino",
         "de": "internship-in-banking-operations-ubs",
         "fr": "internship-in-banking-operations-ubs"
       },
@@ -321,13 +321,13 @@
       },
       "firstSeenAt": "2026-06-24T23:04:20.636Z",
       "previousSlugs": [
-        "stage-in-operazioni-bancarie-ubs-ticino",
-        "tirocinio-nelle-operazioni-bancarie-ubs-ticino"
+        "stage-en-operations-bancaires-ubs-ticino",
+        "internship-in-banking-operations-ubs",
+        "stage-in-operazioni-bancarie-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "stage-en-operations-bancaires-ubs-ticino",
-          "internship-in-banking-operations-ubs"
+          "stage-en-operations-bancaires-ubs-ticino"
         ],
         "it": [
           "internship-in-banking-operations-ubs"
@@ -336,10 +336,10 @@
     },
     {
       "id": "ubs-7f40c1f0d90a",
-      "slug": "global-banking-asia-tmt-ubs",
+      "slug": "attivita-bancaria-globale-asia-tmt-ubs-ticino",
       "slugByLocale": {
         "en": "global-banking-asia-tmt-ubs",
-        "it": "global-banking-asia-tmt-ubs",
+        "it": "attivita-bancaria-globale-asia-tmt-ubs-ticino",
         "de": "global-banking-asia-tmt-ubs",
         "fr": "global-banking-asia-tmt-ubs"
       },
@@ -412,23 +412,27 @@
         ],
         "de": [
           "global-banking-technologie-medien-und-telekommunikation-tmt-ubs-ticino"
+        ],
+        "it": [
+          "global-banking-asia-tmt-ubs"
         ]
       },
       "previousSlugs": [
+        "banque-mondiale-asie-tmt-ubs-ticino",
         "banque-mondiale-technologie-medias-et-telecommunications-tmt-ubs-ticino",
         "global-banking-technologie-medien-und-telekommunikation-tmt-ubs-ticino",
-        "attivita-bancaria-globale-asia-tmt-ubs-ticino",
+        "global-banking-asia-tmt-ubs",
         "global-banking-technology-media-and-telecommunications-tmt-ubs"
       ]
     },
     {
       "id": "ubs-ca787e3a6c3e",
-      "slug": "funds-specialist-ubs",
+      "slug": "funds-specialista-ubs-ticino",
       "slugByLocale": {
         "en": "funds-specialist-ubs",
-        "it": "funds-specialist-ubs",
-        "de": "funds-specialist-ubs",
-        "fr": "funds-specialist-ubs"
+        "it": "funds-specialista-ubs-ticino",
+        "de": "funds-spezialist-ubs-ticino",
+        "fr": "funds-specialiste-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -493,15 +497,13 @@
       },
       "firstSeenAt": "2026-06-24T12:29:41.903Z",
       "previousSlugs": [
-        "funds-specialista-ubs-ticino"
+        "funds-specialist-ubs"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "funds-spezialist-ubs-ticino",
           "funds-specialist-ubs"
         ],
         "fr": [
-          "funds-specialiste-ubs-ticino",
           "funds-specialist-ubs"
         ],
         "it": [
@@ -735,10 +737,10 @@
     },
     {
       "id": "ubs-7375e23b6ff3",
-      "slug": "data-scientist-ubs",
+      "slug": "scienziato-dei-dati-ubs-ticino",
       "slugByLocale": {
         "en": "data-scientist-ubs",
-        "it": "data-scientist-ubs",
+        "it": "scienziato-dei-dati-ubs-ticino",
         "de": "data-scientist-ubs",
         "fr": "data-scientist-ubs"
       },
@@ -805,13 +807,13 @@
       },
       "firstSeenAt": "2026-06-25T12:32:27.474Z",
       "previousSlugs": [
-        "ricerca-di-dati-ubs-ticino",
-        "scienziato-dei-dati-ubs-ticino"
+        "scientifique-des-donnees-ubs-ticino",
+        "data-scientist-ubs",
+        "ricerca-di-dati-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "scientifique-des-donnees-ubs-ticino",
-          "data-scientist-ubs"
+          "scientifique-des-donnees-ubs-ticino"
         ],
         "it": [
           "data-scientist-ubs"
@@ -1266,10 +1268,10 @@
     },
     {
       "id": "ubs-4a0c74ffbc77",
-      "slug": "compliance-officer-ubs",
+      "slug": "ufficiale-di-conformita-ubs-ticino",
       "slugByLocale": {
         "en": "compliance-officer-ubs",
-        "it": "compliance-officer-ubs",
+        "it": "ufficiale-di-conformita-ubs-ticino",
         "de": "compliance-officer-ubs",
         "fr": "compliance-officer-ubs"
       },
@@ -1336,17 +1338,17 @@
       },
       "firstSeenAt": "2026-06-25T12:32:27.464Z",
       "previousSlugs": [
-        "ufficiale-di-conformita-ubs-ticino",
+        "compliance-beauftragter-ubs-ticino",
+        "compliance-officer-ubs",
+        "specialiste-du-respect-des-dispositions-ubs-ticino",
         "responsabile-della-conformita-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "compliance-beauftragter-ubs-ticino",
-          "compliance-officer-ubs"
+          "compliance-beauftragter-ubs-ticino"
         ],
         "fr": [
-          "specialiste-du-respect-des-dispositions-ubs-ticino",
-          "compliance-officer-ubs"
+          "specialiste-du-respect-des-dispositions-ubs-ticino"
         ],
         "it": [
           "compliance-officer-ubs"
@@ -1435,10 +1437,10 @@
     },
     {
       "id": "ubs-ac0f500a46a1",
-      "slug": "client-relationship-manager-wholesale-client-coverage-ubs",
+      "slug": "client-relationship-manager-copertura-clienti-all-ingrosso-ubs-ticino",
       "slugByLocale": {
         "en": "client-relationship-manager-wholesale-client-coverage-ubs",
-        "it": "client-relationship-manager-wholesale-client-coverage-ubs",
+        "it": "client-relationship-manager-copertura-clienti-all-ingrosso-ubs-ticino",
         "de": "client-relationship-manager-wholesale-client-coverage-ubs",
         "fr": "client-relationship-manager-wholesale-client-coverage-ubs"
       },
@@ -1505,13 +1507,13 @@
       },
       "firstSeenAt": "2026-06-25T12:32:27.475Z",
       "previousSlugs": [
-        "client-relationship-manager-copertura-clienti-all-ingrosso-ubs-ticino",
+        "gestionnaire-des-relations-avec-la-clientele-couverture-de-la-clientele-de-gros-ubs-ticino",
+        "client-relationship-manager-wholesale-client-coverage-ubs",
         "responsabile-delle-relazioni-con-i-clienti-copertura-clienti-all-ingrosso-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-des-relations-avec-la-clientele-couverture-de-la-clientele-de-gros-ubs-ticino",
-          "client-relationship-manager-wholesale-client-coverage-ubs"
+          "gestionnaire-des-relations-avec-la-clientele-couverture-de-la-clientele-de-gros-ubs-ticino"
         ],
         "it": [
           "client-relationship-manager-wholesale-client-coverage-ubs"
@@ -1520,10 +1522,10 @@
     },
     {
       "id": "ubs-0f84a27fe313",
-      "slug": "operations-officer-ubs",
+      "slug": "agente-operativo-ubs-ticino",
       "slugByLocale": {
         "en": "operations-officer-ubs",
-        "it": "operations-officer-ubs",
+        "it": "agente-operativo-ubs-ticino",
         "de": "operations-officer-ubs",
         "fr": "operations-officer-ubs"
       },
@@ -1590,13 +1592,13 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.354Z",
       "previousSlugs": [
-        "agente-operativo-ubs-ticino",
+        "specialiste-des-operations-ubs-ticino",
+        "operations-officer-ubs",
         "agente-di-vigilanza-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "specialiste-des-operations-ubs-ticino",
-          "operations-officer-ubs"
+          "specialiste-des-operations-ubs-ticino"
         ],
         "it": [
           "operations-officer-ubs"
@@ -1605,10 +1607,10 @@
     },
     {
       "id": "ubs-7d8df6c6af1e",
-      "slug": "algo-model-validation-quantitative-internship-ubs",
+      "slug": "convalida-del-modello-dell-algo-internamento-quantitativo-ubs-ticino",
       "slugByLocale": {
         "en": "algo-model-validation-quantitative-internship-ubs",
-        "it": "algo-model-validation-quantitative-internship-ubs",
+        "it": "convalida-del-modello-dell-algo-internamento-quantitativo-ubs-ticino",
         "de": "algo-model-validation-quantitative-internship-ubs",
         "fr": "algo-model-validation-quantitative-internship-ubs"
       },
@@ -1675,16 +1677,17 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.352Z",
       "previousSlugs": [
+        "algo-model-validation-quantitatives-praktikum-ubs-ticino",
+        "algo-model-validation-quantitative-internship-ubs",
+        "validation-du-modele-algo-stage-quantitatif-ubs-ticino",
         "validazione-quantitativa-del-modello-algo-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "algo-model-validation-quantitatives-praktikum-ubs-ticino",
-          "algo-model-validation-quantitative-internship-ubs"
+          "algo-model-validation-quantitatives-praktikum-ubs-ticino"
         ],
         "fr": [
-          "validation-du-modele-algo-stage-quantitatif-ubs-ticino",
-          "algo-model-validation-quantitative-internship-ubs"
+          "validation-du-modele-algo-stage-quantitatif-ubs-ticino"
         ],
         "it": [
           "algo-model-validation-quantitative-internship-ubs"
@@ -1765,10 +1768,10 @@
     },
     {
       "id": "ubs-2b482c6da336",
-      "slug": "credit-risk-officer-hedge-funds-ubs",
+      "slug": "credit-risk-officer-fondi-di-copertura-ubs-ticino",
       "slugByLocale": {
         "en": "credit-risk-officer-hedge-funds-ubs",
-        "it": "credit-risk-officer-hedge-funds-ubs",
+        "it": "credit-risk-officer-fondi-di-copertura-ubs-ticino",
         "de": "credit-risk-officer-hedge-funds-ubs",
         "fr": "credit-risk-officer-hedge-funds-ubs"
       },
@@ -1835,14 +1838,14 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.336Z",
       "previousSlugs": [
-        "credit-risk-officer-fondi-di-copertura-ubs-ticino",
+        "agent-de-risque-de-credit-fonds-de-couverture-ubs-ticino",
+        "credit-risk-officer-hedge-funds-ubs",
         "credit-risk-officer-analyst-hedge-funds-ubs",
         "credit-risk-analyst-hedge-funds-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "agent-de-risque-de-credit-fonds-de-couverture-ubs-ticino",
-          "credit-risk-officer-hedge-funds-ubs"
+          "agent-de-risque-de-credit-fonds-de-couverture-ubs-ticino"
         ],
         "it": [
           "credit-risk-officer-hedge-funds-ubs"
@@ -2018,10 +2021,10 @@
     },
     {
       "id": "ubs-2874f41f4628",
-      "slug": "client-associate-ubs",
+      "slug": "cliente-associato-ubs-ticino",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs",
+        "it": "cliente-associato-ubs-ticino",
         "de": "client-associate-ubs",
         "fr": "client-associate-ubs"
       },
@@ -2088,6 +2091,9 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.344Z",
       "previousSlugs": [
+        "client-associate-ubs-2",
+        "client-associe-ubs-ticino-1e445c",
+        "client-associate-ubs",
         "cliente-associato-ubs-ticino-1e445c"
       ],
       "previousSlugsByLocale": {
@@ -2099,16 +2105,17 @@
           "client-associate-ubs-2"
         ],
         "it": [
-          "client-associate-ubs-2"
+          "client-associate-ubs-2",
+          "client-associate-ubs"
         ]
       }
     },
     {
       "id": "ubs-63a17249f7b2",
-      "slug": "senior-registered-client-associate-ubs",
+      "slug": "associato-senior-registrato-cliente-ubs-ticino",
       "slugByLocale": {
         "en": "senior-registered-client-associate-ubs",
-        "it": "senior-registered-client-associate-ubs",
+        "it": "associato-senior-registrato-cliente-ubs-ticino",
         "de": "senior-registered-client-associate-ubs",
         "fr": "senior-registered-client-associate-ubs"
       },
@@ -2177,15 +2184,22 @@
       "previousSlugsByLocale": {
         "fr": [
           "client-principal-inscrit-associe-ubs-ticino"
+        ],
+        "it": [
+          "senior-registered-client-associate-ubs"
         ]
-      }
+      },
+      "previousSlugs": [
+        "client-principal-inscrit-associe-ubs-ticino",
+        "senior-registered-client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-394afe100a49",
-      "slug": "client-associate-ubs-2",
+      "slug": "cliente-associato-ubs-ticino-c50ac3",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs-2",
+        "it": "cliente-associato-ubs-ticino-c50ac3",
         "de": "client-associate-ubs-2",
         "fr": "client-associate-ubs-2"
       },
@@ -2252,7 +2266,9 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.341Z",
       "previousSlugs": [
-        "cliente-associato-ubs-ticino-c50ac3"
+        "client-associate-ubs-3",
+        "client-associe-ubs-ticino-c50ac3",
+        "client-associate-ubs-2"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2263,7 +2279,8 @@
           "client-associate-ubs-3"
         ],
         "it": [
-          "client-associate-ubs-3"
+          "client-associate-ubs-3",
+          "client-associate-ubs-2"
         ]
       }
     },
@@ -2431,10 +2448,10 @@
     },
     {
       "id": "ubs-b2b64dd7c86e",
-      "slug": "client-service-associate-ubs",
+      "slug": "assistente-al-servizio-clienti-ubs-ticino",
       "slugByLocale": {
         "en": "client-service-associate-ubs",
-        "it": "client-service-associate-ubs",
+        "it": "assistente-al-servizio-clienti-ubs-ticino",
         "de": "client-service-associate-ubs",
         "fr": "client-service-associate-ubs"
       },
@@ -2499,7 +2516,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.667Z"
+      "firstSeenAt": "2026-06-26T12:20:14.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-service-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-service-associate-ubs"
+      ]
     },
     {
       "id": "ubs-3d18d9e55ac9",
@@ -2728,10 +2753,10 @@
     },
     {
       "id": "ubs-4c6895e523a3",
-      "slug": "client-associate-ubs-3",
+      "slug": "cliente-associato-ubs-ticino-2f0da3",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs-3",
+        "it": "cliente-associato-ubs-ticino-2f0da3",
         "de": "client-associate-ubs-3",
         "fr": "client-associate-ubs-3"
       },
@@ -2796,7 +2821,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.662Z"
+      "firstSeenAt": "2026-06-26T12:20:14.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-3"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-3"
+      ]
     },
     {
       "id": "ubs-174e9654e1ef",
@@ -2872,10 +2905,10 @@
     },
     {
       "id": "ubs-30e670bcff0b",
-      "slug": "service-associate-ubs",
+      "slug": "servizio-associato-ubs-ticino",
       "slugByLocale": {
         "en": "service-associate-ubs",
-        "it": "service-associate-ubs",
+        "it": "servizio-associato-ubs-ticino",
         "de": "service-associate-ubs",
         "fr": "service-associate-ubs"
       },
@@ -2942,12 +2975,12 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.337Z",
       "previousSlugs": [
-        "servizio-associato-ubs-ticino"
+        "associe-de-services-ubs-ticino",
+        "service-associate-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "associe-de-services-ubs-ticino",
-          "service-associate-ubs"
+          "associe-de-services-ubs-ticino"
         ],
         "it": [
           "service-associate-ubs"
@@ -2956,10 +2989,10 @@
     },
     {
       "id": "ubs-d6509aaa7d31",
-      "slug": "company-driver-ubs",
+      "slug": "driver-della-societa-ubs-ticino",
       "slugByLocale": {
         "en": "company-driver-ubs",
-        "it": "company-driver-ubs",
+        "it": "driver-della-societa-ubs-ticino",
         "de": "company-driver-ubs",
         "fr": "company-driver-ubs"
       },
@@ -3024,14 +3057,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.658Z"
+      "firstSeenAt": "2026-06-26T12:20:14.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "company-driver-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "company-driver-ubs"
+      ]
     },
     {
       "id": "ubs-77c175db43de",
-      "slug": "internship-in-income-processing-team-ubs",
+      "slug": "team-di-elaborazione-dei-redditi-ubs-ticino",
       "slugByLocale": {
         "en": "internship-in-income-processing-team-ubs",
-        "it": "internship-in-income-processing-team-ubs",
+        "it": "team-di-elaborazione-dei-redditi-ubs-ticino",
         "de": "internship-in-income-processing-team-ubs",
         "fr": "internship-in-income-processing-team-ubs"
       },
@@ -3096,7 +3137,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.657Z"
+      "firstSeenAt": "2026-06-26T12:20:14.657Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-income-processing-team-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-income-processing-team-ubs"
+      ]
     },
     {
       "id": "ubs-808887f0fe1c",
@@ -3396,10 +3445,10 @@
     },
     {
       "id": "ubs-450446db1730",
-      "slug": "global-markets-clearing-relationship-manager-ubs",
+      "slug": "global-markets-responsabile-delle-relazioni-di-compensazione-ubs-ticino",
       "slugByLocale": {
         "en": "global-markets-clearing-relationship-manager-ubs",
-        "it": "global-markets-clearing-relationship-manager-ubs",
+        "it": "global-markets-responsabile-delle-relazioni-di-compensazione-ubs-ticino",
         "de": "global-markets-clearing-relationship-manager-ubs",
         "fr": "global-markets-clearing-relationship-manager-ubs"
       },
@@ -3464,16 +3513,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.650Z"
+      "firstSeenAt": "2026-06-26T12:20:14.650Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-clearing-relationship-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-clearing-relationship-manager-ubs"
+      ]
     },
     {
       "id": "ubs-7ef9a69c719b",
-      "slug": "research-analyst-asia-equities-ubs",
+      "slug": "ricerca-analista-asia-equities-ubs-ticino",
       "slugByLocale": {
         "en": "research-analyst-asia-equities-ubs",
-        "it": "research-analyst-asia-equities-ubs",
+        "it": "ricerca-analista-asia-equities-ubs-ticino",
         "de": "research-analyst-asia-equities-ubs",
-        "fr": "research-analyst-asia-equities-ubs"
+        "fr": "recherche-analyste-asia-equities-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3536,7 +3593,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.649Z"
+      "firstSeenAt": "2026-06-26T12:20:14.649Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-analyst-asia-equities-ubs"
+        ],
+        "fr": [
+          "research-analyst-asia-equities-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "research-analyst-asia-equities-ubs"
+      ]
     },
     {
       "id": "ubs-e0088f6afaf4",
@@ -3612,10 +3680,10 @@
     },
     {
       "id": "ubs-e9a58bbaab14",
-      "slug": "global-wealth-management-marketing-strategist-apac-ubs",
+      "slug": "strategista-marketing-per-la-gestione-globale-del-patrimonio-apac-ubs-ticino",
       "slugByLocale": {
         "en": "global-wealth-management-marketing-strategist-apac-ubs",
-        "it": "global-wealth-management-marketing-strategist-apac-ubs",
+        "it": "strategista-marketing-per-la-gestione-globale-del-patrimonio-apac-ubs-ticino",
         "de": "global-wealth-management-marketing-strategist-apac-ubs",
         "fr": "global-wealth-management-marketing-strategist-apac-ubs"
       },
@@ -3680,15 +3748,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.646Z"
+      "firstSeenAt": "2026-06-26T12:20:14.646Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-wealth-management-marketing-strategist-apac-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-wealth-management-marketing-strategist-apac-ubs"
+      ]
     },
     {
       "id": "ubs-89bcc500e2c7",
-      "slug": "devops-engineer-ubs",
+      "slug": "devops-ingegnere-ubs-ticino",
       "slugByLocale": {
         "en": "devops-engineer-ubs",
-        "it": "devops-engineer-ubs",
-        "de": "devops-engineer-ubs",
+        "it": "devops-ingegnere-ubs-ticino",
+        "de": "devops-ingenieur-ubs-ticino",
         "fr": "devops-engineer-ubs"
       },
       "company": "UBS",
@@ -3752,7 +3828,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.644Z"
+      "firstSeenAt": "2026-06-26T12:20:14.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-ubs"
+        ],
+        "de": [
+          "devops-engineer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-ubs"
+      ]
     },
     {
       "id": "ubs-0e1d8617b340",
@@ -3828,10 +3915,10 @@
     },
     {
       "id": "ubs-5de6a67c1bef",
-      "slug": "internship-in-access-control-team-ubs",
+      "slug": "tirocinio-nel-team-di-controllo-degli-accessi-ubs-ticino",
       "slugByLocale": {
         "en": "internship-in-access-control-team-ubs",
-        "it": "internship-in-access-control-team-ubs",
+        "it": "tirocinio-nel-team-di-controllo-degli-accessi-ubs-ticino",
         "de": "internship-in-access-control-team-ubs",
         "fr": "internship-in-access-control-team-ubs"
       },
@@ -3896,7 +3983,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:20:14.642Z"
+      "firstSeenAt": "2026-06-26T12:20:14.642Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-access-control-team-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-access-control-team-ubs"
+      ]
     }
   ]
 }

@@ -1012,8 +1012,8 @@
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
         "it": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "en": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "fr": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung"
+        "en": "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "chef-d-equipe-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1072,12 +1072,12 @@
     },
     {
       "id": "epi-stiftung-91bd25053320",
-      "slug": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
+      "slug": "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
-        "it": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
+        "it": "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
         "en": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
-        "fr": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        "fr": "education-sociale-des-etudiants-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1132,16 +1132,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:13:49.101Z"
+      "firstSeenAt": "2026-06-26T11:13:49.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-b4c7daf48a3f",
-      "slug": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
+      "slug": "team-leader-team-leader-day-centre-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
-        "it": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
+        "it": "team-leader-team-leader-day-centre-schweizerische-epilepsie-stiftung-epi-zurich",
         "en": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
-        "fr": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        "fr": "chef-d-equipe-centre-de-jour-du-chef-d-equipe-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1196,7 +1207,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:13:49.079Z"
+      "firstSeenAt": "2026-06-26T11:13:49.079Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+      ]
     }
   ]
 }

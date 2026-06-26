@@ -4784,7 +4784,7 @@
         "it": "posizione-md-phd-m-w-universitat-zurich-zurich",
         "en": "md-phd-position-m-w-universitat-zurich-zurich",
         "de": "md-phd-position-m-w-uzh-zurich",
-        "fr": "md-phd-position-m-w-uzh-zurich"
+        "fr": "poste-md-phd-h-f-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4828,7 +4828,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "md-phd-position-m-w-uzh-zurich",
-        "poste-md-phd-h-f-universitat-zurich-zurich",
         "posizione-di-dottorato-in-idrologia-universitat-zurich-zurich",
         "phd-position-in-hydrology-uzh-zurich",
         "phd-position-in-der-hydrologie-universitat-zurich-zurich",
@@ -4839,7 +4838,6 @@
           "md-phd-position-m-w-uzh-zurich"
         ],
         "fr": [
-          "poste-md-phd-h-f-universitat-zurich-zurich",
           "md-phd-position-m-w-uzh-zurich"
         ]
       },
@@ -4993,8 +4991,7 @@
           "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
         ],
         "fr": [
-          "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich",
-          "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
+          "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.745Z",
@@ -9958,10 +9955,10 @@
       "id": "uzh-768408efecbd",
       "slug": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
+        "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "fr": "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10005,15 +10002,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "liaison-librarian-ub-naturwissenschaften-uzh-zurich"
         ],
         "fr": [
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
           "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
         ]
       },
@@ -10473,10 +10468,10 @@
     },
     {
       "id": "uzh-b255416eba8c",
-      "slug": "expert-in-international-mobility-uzh-zurich",
+      "slug": "mobilita-internazionale-esperta-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "expert-in-international-mobility-uzh-zurich",
-        "it": "expert-in-international-mobility-uzh-zurich",
+        "it": "mobilita-internazionale-esperta-universitat-zurich-zurich",
         "en": "expert-in-international-mobility-uzh-zurich",
         "fr": "expert-in-international-mobility-uzh-zurich"
       },
@@ -10534,7 +10529,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:22:57.741Z"
+      "firstSeenAt": "2026-06-26T12:22:57.741Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-in-international-mobility-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "expert-in-international-mobility-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-df5c42140596",
