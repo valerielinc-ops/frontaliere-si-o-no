@@ -707,7 +707,7 @@
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "AG"
   },
   "AG::it::magaziner-in-vendita-coop-baden-aargau-2fxrij": {
@@ -725,7 +725,7 @@
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.75,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "AG"
   },
   "AG::it::magaziner-in-vente-coop-baden-aargau-2fxrij": {
@@ -743,7 +743,7 @@
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "AG"
   },
   "AG::it::magaziner-in-verkauf-coop-baden-aargau": {
@@ -770,7 +770,7 @@
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 3,
+    "candidatesCount": 2,
     "canton": "AG"
   },
   "AG::it::nom-de-l-agent-dans-food-fresh-island-coop-genossenschaft-kaiseraugst-b94b7b": {
@@ -846,12 +846,12 @@
     "canton": "AG"
   },
   "AG::it::verkaufer-in-denner-ag-mohlin": {
-    "winnerJobIdentifier": "company-ynz3u9",
-    "winnerCanonical": "venditore-denner-ag-mohlin",
+    "winnerJobIdentifier": "company-7j5ksm",
+    "winnerCanonical": "venditore-a-denner-ag-frick",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::verkaufer-in-food-frische-insel-coop-genossenschaft-kaiseraugst": {
@@ -2628,11 +2628,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::en::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-xf6s8h",
-    "winnerCanonical": "seller-denner-ag-basel",
-    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "winnerJobIdentifier": "company-68m8tl",
+    "winnerCanonical": "seller-denner-ag-basel-15d39b",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -3582,11 +3582,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-xf6s8h",
-    "winnerCanonical": "vendeur-denner-ag-basel-7c0e0a",
-    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "winnerJobIdentifier": "company-68m8tl",
+    "winnerCanonical": "vendeur-denner-ag-basel",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -4159,10 +4159,10 @@
   },
   "BASILEA::it::fachverkaufer-in-blumen-kundendienst-migros-liestal-genossenschaft-migros-basel-liestal": {
     "winnerJobIdentifier": "company-bktjgk",
-    "winnerCanonical": "assistente-vendita-fiori-e-assistenza-clienti-migros-liestal-genossenschaft-migros-basel-liestal",
+    "winnerCanonical": "fachverkaufer-in-blumen-kundendienst-migros-liestal-genossenschaft-migros-basel-liestal-bktjgk",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.2857,
+    "score": 0.8889,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -7056,20 +7056,20 @@
     "canton": "BE"
   },
   "BE::en::verkaufer-in-denner-ag-interlaken": {
-    "winnerJobIdentifier": "company-hchfj3",
-    "winnerCanonical": "salesperson-denner-ag-interlaken",
-    "decidedAt": "2026-06-23T00:00:00.000Z",
+    "winnerJobIdentifier": "company-vz3gdz",
+    "winnerCanonical": "seller-denner-ag-interlaken-c59906",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4286,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::verkaufer-in-denner-ag-wilderswil": {
-    "winnerJobIdentifier": "company-iglubf",
-    "winnerCanonical": "seller-denner-ag-wilderswil",
-    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "winnerJobIdentifier": "company-8uju7p",
+    "winnerCanonical": "seller-denner-ag-wilderswil-2b22fa",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -8361,20 +8361,20 @@
     "canton": "BE"
   },
   "BE::fr::verkaufer-in-denner-ag-interlaken": {
-    "winnerJobIdentifier": "company-hchfj3",
+    "winnerJobIdentifier": "company-vz3gdz",
     "winnerCanonical": "vendeur-denner-ag-interlaken",
-    "decidedAt": "2026-06-23T00:00:00.000Z",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::verkaufer-in-denner-ag-wilderswil": {
-    "winnerJobIdentifier": "company-iglubf",
-    "winnerCanonical": "vendeur-denner-ag-wilderswil-834c79",
-    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "winnerJobIdentifier": "company-8uju7p",
+    "winnerCanonical": "vendeur-denner-ag-wilderswil",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -17416,10 +17416,10 @@
   },
   "GR::it::room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz": {
     "winnerJobIdentifier": "kulm-hotel-875c16e64568",
-    "winnerCanonical": "assistente-di-sala-zimmerdame-roomboy-m-p-g-kulm-hotel-st-moritz-pontresina",
+    "winnerCanonical": "partecipante-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.4118,
+    "score": 0.6923,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -25785,11 +25785,11 @@
     "canton": "SO"
   },
   "SO::en::drg-support-specialist-m-f-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-319cce49f3ac",
-    "winnerCanonical": "radiology-specialist-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "soh-solothurner-spitaeler-2afad8b529ea",
+    "winnerCanonical": "specialist-expert-in-nursing-m-f-d-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.6667,
+    "score": 0.5714,
     "candidatesCount": 1,
     "canton": "SO"
   },
@@ -29619,29 +29619,29 @@
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "stgag-91acfeacd3e4",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-06-17T00:00:00.000Z",
-    "lastSeenAt": "2026-06-17T00:00:00.000Z",
-    "score": 0.3571,
+    "winnerJobIdentifier": "stgag-d2a40f43ebd0",
+    "winnerCanonical": "medicina-interna-generale-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100": {
-    "winnerJobIdentifier": "stgag-91acfeacd3e4",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-06-17T00:00:00.000Z",
-    "lastSeenAt": "2026-06-17T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "stgag-d2a40f43ebd0",
+    "winnerCanonical": "medicina-interna-generale-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-f431a9": {
-    "winnerJobIdentifier": "stgag-91acfeacd3e4",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-06-17T00:00:00.000Z",
-    "lastSeenAt": "2026-06-17T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "stgag-d2a40f43ebd0",
+    "winnerCanonical": "medicina-interna-generale-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -36513,12 +36513,12 @@
     "canton": "VD"
   },
   "VD::de::praktikum-umwelt-datenanalyse-epfl-lausanne": {
-    "winnerJobIdentifier": "epfl-b2df1b1a26d8",
-    "winnerCanonical": "strategischer-berater-im-buro-des-vizeprasidenten-epfl-lausanne",
-    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "winnerJobIdentifier": "epfl-fd72946c6bda",
+    "winnerCanonical": "praktikum-umweltdatenanalyse-epfl-lausanne",
+    "decidedAt": "2026-06-17T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.1818,
-    "candidatesCount": 1,
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "VD"
   },
   "VD::de::praktikum-umweltdatenanalyse-epfl-lausanne": {
@@ -37117,10 +37117,10 @@
   },
   "VS::de::administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion": {
     "winnerJobIdentifier": "epfl-b82aa7eda835",
-    "winnerCanonical": "administrative-r-assistent-in-60-80-epfl-sion",
+    "winnerCanonical": "verwaltungsassistent-60-80-epfl-sion",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.3077,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -37135,10 +37135,10 @@
   },
   "VS::de::administrative-assistent-professor-s-secretary-60-80-epfl-sion": {
     "winnerJobIdentifier": "epfl-b82aa7eda835",
-    "winnerCanonical": "administrative-r-assistent-in-60-80-epfl-sion",
+    "winnerCanonical": "verwaltungsassistent-60-80-epfl-sion",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.5455,
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -37153,10 +37153,10 @@
   },
   "VS::de::canevas-epfl-leer-epfl-sion": {
     "winnerJobIdentifier": "epfl-b82aa7eda835",
-    "winnerCanonical": "administrative-r-assistent-in-60-80-epfl-sion",
+    "winnerCanonical": "verwaltungsassistent-60-80-epfl-sion",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.2,
+    "score": 0.2857,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -37342,10 +37342,10 @@
   },
   "VS::de::verwaltungsassistent-professorsekretar-60-80-epfl-sion": {
     "winnerJobIdentifier": "epfl-b82aa7eda835",
-    "winnerCanonical": "administrative-r-assistent-in-60-80-epfl-sion",
+    "winnerCanonical": "verwaltungsassistent-60-80-epfl-sion",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.4,
+    "score": 0.8333,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -46009,7 +46009,7 @@
   },
   "ZH::it::kochin-koch-m-w-d-coop-ristorante-zurich": {
     "winnerJobIdentifier": "company-i2wtec",
-    "winnerCanonical": "kochin-koch-m-w-d-coop-ristorante-zurich-i2wtec",
+    "winnerCanonical": "kochin-koch-m-w-d-coop-ristorante-zurich-03ffbu",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.8889,
@@ -46026,12 +46026,12 @@
     "canton": "ZH"
   },
   "ZH::it::kochin-koch-m-w-d-coop-ristorante-zurich-i2wtec": {
-    "winnerJobIdentifier": "company-i2wtec",
-    "winnerCanonical": "kochin-koch-m-w-d-coop-ristorante-zurich-03ffbu",
+    "winnerJobIdentifier": "company-flaizy",
+    "winnerCanonical": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-flaizy",
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::labortierpfleger-in-m-w-d-fachrichtung-isolatoren-eth-zurich-ch": {
@@ -46082,7 +46082,7 @@
   "ZH::it::lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon": {
     "winnerJobIdentifier": "volg-fenaco-069312b8fdac",
     "winnerCanonical": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-danikon",
-    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
@@ -46674,11 +46674,11 @@
     "canton": "ZH"
   },
   "ZH::it::regolatore-di-produzione-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-9176ac6cc966",
-    "winnerCanonical": "logista-a-produzione-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-    "decidedAt": "2026-06-26T00:00:00.000Z",
-    "lastSeenAt": "2026-06-26T00:00:00.000Z",
-    "score": 0.7143,
+    "winnerJobIdentifier": "hitachi-energy-de4b1da5d03b",
+    "winnerCanonical": "polymechaniker-in-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-06-16T00:00:00.000Z",
+    "lastSeenAt": "2026-06-18T00:00:00.000Z",
+    "score": 0.5333,
     "candidatesCount": 1,
     "canton": "ZH"
   },
