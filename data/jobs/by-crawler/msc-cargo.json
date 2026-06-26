@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "msc-cargo-8fd1f556af0a",
-      "slug": "brand-manager-brand-product-msc-geneva",
+      "slug": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
       "slugByLocale": {
         "en": "brand-manager-brand-product-msc-geneva",
-        "it": "brand-manager-brand-product-msc-geneva",
+        "it": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
+        "fr": "brand-manager-brand-product-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -17,7 +17,7 @@
       "title": "Brand Manager - Brand & Product",
       "titleByLocale": {
         "en": "Brand Manager - Brand & Product",
-        "it": "Brand Manager - Brand & Product",
+        "it": "Responsabile del marchio - Marchio e prodotto",
         "de": "Brand Manager - Brand & Product",
         "fr": "Gestionnaire de marques - Marque & Produit"
       },
@@ -66,8 +66,17 @@
       },
       "postalCode": "1204",
       "firstSeenAt": "2026-06-25T11:56:35.528Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "gestionnaire-de-marques-marque-produit-msc-group-geneva"
+        ],
+        "it": [
+          "brand-manager-brand-product-msc-geneva"
+        ]
+      },
       "previousSlugs": [
-        "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva"
+        "gestionnaire-de-marques-marque-produit-msc-group-geneva",
+        "brand-manager-brand-product-msc-geneva"
       ]
     },
     {
@@ -144,10 +153,10 @@
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
-      "slug": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
+      "slug": "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva",
       "slugByLocale": {
         "en": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
-        "it": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
+        "it": "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva",
         "de": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
         "fr": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
       },
@@ -157,7 +166,7 @@
       "title": "Digital Analytics Strategy, Testing and CRO Manager",
       "titleByLocale": {
         "en": "Digital Analytics Strategy, Testing and CRO Manager",
-        "it": "Strategia, test e CRO Manager di Digital Analytics",
+        "it": "Strategia, Testing e Responsabile CRO di Analisi Digitale",
         "de": "Digital Analytics Strategie, Testing und CRO Manager",
         "fr": "Digital Analytics Strategy, Testing et CRO Manager"
       },
@@ -207,15 +216,16 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-24T22:36:00.136Z",
       "previousSlugs": [
-        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva",
-        "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva"
+        "strategie-d-analyse-numerique-test-et-gestionnaire-cro-msc-group-geneva",
+        "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
+        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "strategie-d-analyse-numerique-test-et-gestionnaire-cro-msc-group-geneva"
         ],
         "it": [
-          "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva"
+          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
         ]
       }
     },
@@ -536,7 +546,7 @@
       "title": "Senior Project Manager - Infrastructure Investments (Caribbean)",
       "titleByLocale": {
         "en": "Senior Project Manager - Infrastructure Investments (Caribbean)",
-        "it": "Senior Project Manager - Infrastructure Investments (Caribbean)",
+        "it": "Senior Project Manager - Investimenti nelle Infrastrutture (Caraibi)",
         "de": "Senior Project Manager - Infrastrukturinvestitionen (Karibik)",
         "fr": "Gestionnaire principal de projet - Investissements en infrastructure (Caraïbes)"
       },
@@ -601,7 +611,7 @@
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
         "de": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
-        "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
+        "fr": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -609,7 +619,7 @@
       "title": "Casino Slots and Technical Operations Manager",
       "titleByLocale": {
         "en": "Casino Slots and Technical Operations Manager",
-        "it": "Casino Slots e Direttore Operazioni Tecniche",
+        "it": "Responsabile delle Slot Casino e delle Operazioni Tecniche",
         "de": "Casino Slots und Technical Operations Manager",
         "fr": "Casino Machines à sous et Gestionnaire des opérations techniques"
       },
@@ -682,7 +692,7 @@
       "title": "Digital Acquisition Manager",
       "titleByLocale": {
         "en": "Digital Acquisition Manager",
-        "it": "Gestione dell'acquisizione digitale",
+        "it": "Responsabile Acquisizioni Digitali",
         "de": "Digital Acquisition Manager",
         "fr": "Gestionnaire d'acquisitions numériques"
       },
@@ -819,12 +829,12 @@
     },
     {
       "id": "msc-cargo-ae2d4551edb1",
-      "slug": "spa-product-manager-msc-geneva",
+      "slug": "responsabile-prodotto-spa-msc-group-geneva",
       "slugByLocale": {
         "en": "spa-product-manager-msc-geneva",
-        "it": "spa-product-manager-msc-geneva",
-        "de": "spa-produktmanager-msc-group-geneva",
-        "fr": "gestionnaire-de-produits-spa-msc-group-geneva"
+        "it": "responsabile-prodotto-spa-msc-group-geneva",
+        "de": "spa-product-manager-msc-geneva",
+        "fr": "spa-product-manager-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -832,7 +842,7 @@
       "title": "SPA Product Manager",
       "titleByLocale": {
         "en": "SPA Product Manager",
-        "it": "SPA Product Manager",
+        "it": "Responsabile Prodotto SPA",
         "de": "SPA Produktmanager",
         "fr": "Gestionnaire de produits SPA"
       },
@@ -883,11 +893,11 @@
       "firstSeenAt": "2026-06-26T12:03:01.857Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-prodotto-spa-msc-group-geneva"
+          "spa-product-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "responsabile-prodotto-spa-msc-group-geneva"
+        "spa-product-manager-msc-geneva"
       ]
     },
     {

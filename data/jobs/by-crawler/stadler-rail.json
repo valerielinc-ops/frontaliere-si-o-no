@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "stadler-rail-783c45a85614",
-      "slug": "saldi-in-alluminio-in-stadler-rail-bussnang",
+      "slug": "saldatrice-in-alluminio-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "aluminiumschweisser-in-stadler-rail-ch",
-        "it": "saldi-in-alluminio-in-stadler-rail-bussnang",
-        "en": "aluminium-welders-in-stadler-rail-bussnang",
-        "fr": "soudeurs-en-aluminium-stadler-rail-bussnang"
+        "it": "saldatrice-in-alluminio-stadler-rail-bussnang",
+        "en": "aluminiumschweisser-in-stadler-rail-bussnang",
+        "fr": "aluminiumschweisser-in-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -17,7 +17,7 @@
       "title": "Aluminiumschweisser:in",
       "titleByLocale": {
         "de": "Aluminiumschweisser:in",
-        "it": "Saldi in alluminio: in",
+        "it": "Saldatrice in alluminio",
         "en": "Aluminium welders:in",
         "fr": "Soudeurs en aluminium:"
       },
@@ -55,20 +55,12 @@
       "previousSlugsByLocale": {
         "it": [
           "aluminiumschweisser-in-stadler-rail-ch",
-          "aluminiumschweisser-in-stadler-rail-bussnang",
-          "saldatrice-in-alluminio-stadler-rail-bussnang"
-        ],
-        "en": [
-          "aluminiumschweisser-in-stadler-rail-bussnang"
-        ],
-        "fr": [
           "aluminiumschweisser-in-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
         "aluminiumschweisser-in-stadler-rail-ch",
-        "aluminiumschweisser-in-stadler-rail-bussnang",
-        "saldatrice-in-alluminio-stadler-rail-bussnang"
+        "aluminiumschweisser-in-stadler-rail-bussnang"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -86,12 +78,12 @@
     },
     {
       "id": "stadler-rail-d2ebb1469740",
-      "slug": "automatico-in-tecnico-della-commissione-in-stadler-rail-st-margrethen",
+      "slug": "tecnico-di-automazione-tecnico-di-commissione-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "automatiker-in-inbetriebsetzungstechniker-in-stadler-rail-ch",
-        "it": "automatico-in-tecnico-della-commissione-in-stadler-rail-st-margrethen",
-        "en": "automatician-in-commissioning-technician-in-stadler-rail-st-margrethen",
-        "fr": "automatique-in-technicien-de-mise-en-service-in-stadler-rail-st-margrethen"
+        "it": "tecnico-di-automazione-tecnico-di-commissione-stadler-rail-st-margrethen",
+        "en": "automatiker-in-inbetriebsetzungstechniker-in-stadler-rail-ch",
+        "fr": "automatiker-in-inbetriebsetzungstechniker-in-stadler-rail-ch"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -99,7 +91,7 @@
       "title": "Automatiker:in / Inbetriebsetzungstechniker:in",
       "titleByLocale": {
         "de": "Automatiker:in / Inbetriebsetzungstechniker:in",
-        "it": "Automatico:in / tecnico della Commissione:in",
+        "it": "Tecnico di automazione / tecnico di commissione",
         "en": "Automatician:in / Commissioning technician:in",
         "fr": "Automatique:in / Technicien de mise en service:in"
       },
@@ -149,19 +141,11 @@
       "firstSeenAt": "2026-06-26T12:13:02.451Z",
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-inbetriebsetzungstechniker-in-stadler-rail-ch",
-          "tecnico-di-automazione-tecnico-di-commissione-stadler-rail-st-margrethen"
-        ],
-        "en": [
-          "automatiker-in-inbetriebsetzungstechniker-in-stadler-rail-ch"
-        ],
-        "fr": [
           "automatiker-in-inbetriebsetzungstechniker-in-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-inbetriebsetzungstechniker-in-stadler-rail-ch",
-        "tecnico-di-automazione-tecnico-di-commissione-stadler-rail-st-margrethen"
+        "automatiker-in-inbetriebsetzungstechniker-in-stadler-rail-ch"
       ]
     },
     {
@@ -310,7 +294,7 @@
       "slugByLocale": {
         "it": "capo-squadra-ingegneria-manutenzione-batterie-stadler-rail-frauenfeld",
         "en": "team-leader-battery-maintenance-engineering-stadler-rail-ch",
-        "de": "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld",
+        "de": "team-leader-battery-maintenance-engineering-stadler-rail-ch",
         "fr": "chef-d-equipe-genie-de-maintenance-des-batteries-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
@@ -353,14 +337,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+        "team-leader-battery-maintenance-engineering-stadler-rail-ch",
+        "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "team-leader-battery-maintenance-engineering-stadler-rail-ch"
         ],
         "de": [
-          "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+          "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:44.658Z",
@@ -2053,7 +2038,7 @@
         "it": "partner-commerciale-delle-risorse-umane-stadler-rail-bussnang",
         "en": "partner-comercial-de-recursos-humanos-stadler-rail-bussnang",
         "de": "hr-business-partner-stadler-rail-ch",
-        "fr": "partenaire-operationnel-rh-stadler-rail-bussnang"
+        "fr": "hr-business-partner-stadler-rail-ch"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -2096,7 +2081,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-business-partner-stadler-rail-ch",
-        "partenaire-d-affaires-rh-stadler-rail-bussnang"
+        "partenaire-d-affaires-rh-stadler-rail-bussnang",
+        "partenaire-operationnel-rh-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2104,7 +2090,7 @@
         ],
         "fr": [
           "partenaire-d-affaires-rh-stadler-rail-bussnang",
-          "hr-business-partner-stadler-rail-ch"
+          "partenaire-operationnel-rh-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:27.912Z",
@@ -5450,7 +5436,7 @@
         "it": "hr-business-partner-regione-mid-stadler-rail-bussnang",
         "en": "user-safety-safe-stadler-rail-bussnang",
         "de": "hr-business-partner-region-mid-stadler-rail-ch",
-        "fr": "partenaires-en-rh-region-mid-stadler-rail-bussnang"
+        "fr": "hr-business-partner-region-mid-stadler-rail-ch"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -5492,14 +5478,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-business-partner-region-mid-stadler-rail-ch"
+        "hr-business-partner-region-mid-stadler-rail-ch",
+        "partenaires-en-rh-region-mid-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-region-mid-stadler-rail-ch"
         ],
         "fr": [
-          "hr-business-partner-region-mid-stadler-rail-ch"
+          "partenaires-en-rh-region-mid-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
@@ -5959,7 +5946,7 @@
         "it": "consulente-logistico-interno-sap-stadler-rail-bussnang",
         "en": "sap-inhouse-consultant-logistics-stadler-rail-bussnang",
         "de": "sap-inhouse-consultant-logistik-stadler-rail-ch",
-        "fr": "sap-consultant-logistique-interne-stadler-rail-bussnang"
+        "fr": "sap-inhouse-consultant-logistik-stadler-rail-ch"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -6001,14 +5988,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-inhouse-consultant-logistik-stadler-rail-ch"
+        "sap-inhouse-consultant-logistik-stadler-rail-ch",
+        "sap-consultant-logistique-interne-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-inhouse-consultant-logistik-stadler-rail-ch"
         ],
         "fr": [
-          "sap-inhouse-consultant-logistik-stadler-rail-ch"
+          "sap-consultant-logistique-interne-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
@@ -6823,7 +6811,7 @@
       "slug": "lead-ingegnere-fahrgastinformationssysteme-e-netzwerktechnik-stadler-rail-frauenfeld",
       "slugByLocale": {
         "it": "lead-ingegnere-fahrgastinformationssysteme-e-netzwerktechnik-stadler-rail-frauenfeld",
-        "en": "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld",
+        "en": "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
         "de": "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
         "fr": "ingenieur-en-chef-des-systemes-d-information-des-passagers-et-de-la-technologie-de-reseau-stadler-rail-frauenfeld"
       },
@@ -6868,7 +6856,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
-        "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
+        "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld",
+        "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6876,7 +6865,7 @@
           "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
         ],
         "en": [
-          "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch"
+          "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:36.575Z",
@@ -10410,9 +10399,9 @@
     },
     {
       "id": "stadler-rail-26ae25ccea97",
-      "slug": "amministratore-di-sistema-plm-stadler-rail-bussnang",
+      "slug": "plm-system-administrator-stadler-rail-ch",
       "slugByLocale": {
-        "it": "amministratore-di-sistema-plm-stadler-rail-bussnang",
+        "it": "plm-system-administrator-stadler-rail-ch",
         "en": "plm-s-administr-stadler-rail-bussnang",
         "de": "plm-system-administrator-stadler-rail-ch",
         "fr": "administrateur-du-systeme-plm-stadler-rail-bussnang"
@@ -10457,11 +10446,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "plm-system-administrator-stadler-rail-ch"
+        "amministratore-di-sistema-plm-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "plm-system-administrator-stadler-rail-ch"
+          "amministratore-di-sistema-plm-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.715Z",
@@ -13222,7 +13211,7 @@
         "it": "assistente-amministrativo-stadler-rail-wallisellen",
         "en": "administrative-assistant-stadler-rail-ch",
         "de": "administrative-assistant-stadler-rail-ch",
-        "fr": "assistant-administratif-stadler-rail-wallisellen"
+        "fr": "administrative-assistant-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13265,7 +13254,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "administrative-assistant-stadler-rail-ch",
-        "administrative-assistant-stadler-rail-wallisellen"
+        "assistant-administratif-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13273,7 +13262,7 @@
         ],
         "fr": [
           "administrative-assistant-stadler-rail-ch",
-          "administrative-assistant-stadler-rail-wallisellen"
+          "assistant-administratif-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-25T12:13:52.087Z",
@@ -13441,7 +13430,7 @@
       "slug": "gestore-di-categoria-trazione-stadler-rail-frauenfeld",
       "slugByLocale": {
         "it": "gestore-di-categoria-trazione-stadler-rail-frauenfeld",
-        "en": "category-manager-traction-systems-stadler-rail-frauenfeld",
+        "en": "category-manager-traktionssysteme-stadler-rail-ch",
         "de": "category-manager-traktionssysteme-stadler-rail-ch",
         "fr": "gestionnaire-de-categorie-systemes-de-traction-stadler-rail-frauenfeld"
       },
@@ -13516,14 +13505,15 @@
         ]
       },
       "previousSlugs": [
-        "category-manager-traktionssysteme-stadler-rail-ch"
+        "category-manager-traktionssysteme-stadler-rail-ch",
+        "category-manager-traction-systems-stadler-rail-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "category-manager-traktionssysteme-stadler-rail-ch"
         ],
         "en": [
-          "category-manager-traktionssysteme-stadler-rail-ch"
+          "category-manager-traction-systems-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:55.597Z",
@@ -13752,12 +13742,12 @@
     },
     {
       "id": "stadler-rail-6b877321bdfb",
-      "slug": "elettricista-in-garanzia-stadler-rail-erlen",
+      "slug": "garanzia-e-rilavorazione-per-elettricisti-stadler-rail-erlen",
       "slugByLocale": {
         "de": "elektriker-in-garantie-nacharbeiten-stadler-rail-ch",
-        "it": "elettricista-in-garanzia-stadler-rail-erlen",
-        "en": "electrician-in-guarantee-rework-stadler-rail-erlen",
-        "fr": "electricien-en-garantie-et-retravail-stadler-rail-erlen"
+        "it": "garanzia-e-rilavorazione-per-elettricisti-stadler-rail-erlen",
+        "en": "elektriker-in-garantie-nacharbeiten-stadler-rail-ch",
+        "fr": "elektriker-in-garantie-nacharbeiten-stadler-rail-ch"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13765,7 +13755,7 @@
       "title": "Elektriker:in Garantie & Nacharbeiten",
       "titleByLocale": {
         "de": "Elektriker:in Garantie & Nacharbeiten",
-        "it": "Elettricista: in garanzia",
+        "it": "Garanzia e Rilavorazione per elettricisti",
         "en": "Electrician: in guarantee & rework",
         "fr": "Électricien: en garantie et retravail"
       },
@@ -13815,19 +13805,11 @@
       "firstSeenAt": "2026-06-26T12:11:17.298Z",
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-garantie-nacharbeiten-stadler-rail-ch",
-          "garanzia-e-rilavorazione-per-elettricisti-stadler-rail-erlen"
-        ],
-        "en": [
-          "elektriker-in-garantie-nacharbeiten-stadler-rail-ch"
-        ],
-        "fr": [
           "elektriker-in-garantie-nacharbeiten-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
-        "elektriker-in-garantie-nacharbeiten-stadler-rail-ch",
-        "garanzia-e-rilavorazione-per-elettricisti-stadler-rail-erlen"
+        "elektriker-in-garantie-nacharbeiten-stadler-rail-ch"
       ]
     },
     {
@@ -13836,8 +13818,8 @@
       "slugByLocale": {
         "de": "logistiker-in-stadler-rail-ch",
         "it": "impiegata-impiegato-in-logistica-stadler-rail-winterthur",
-        "en": "logistician-in-stadler-rail-winterthur",
-        "fr": "logisticien-in-stadler-rail-winterthur"
+        "en": "logistiker-in-stadler-rail-winterthur",
+        "fr": "logistiker-in-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13883,17 +13865,10 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-stadler-rail-ch"
-        ],
-        "en": [
-          "logistiker-in-stadler-rail-winterthur"
-        ],
-        "fr": [
-          "logistiker-in-stadler-rail-winterthur"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-stadler-rail-ch",
-        "logistiker-in-stadler-rail-winterthur"
+        "logistiker-in-stadler-rail-ch"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13911,12 +13886,12 @@
     },
     {
       "id": "stadler-rail-76dfae1d1a9d",
-      "slug": "professionista-adesivo-in-stadler-rail-bussnang",
+      "slug": "praticante-dell-adesivo-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "klebepraktiker-in-stadler-rail-ch",
-        "it": "professionista-adesivo-in-stadler-rail-bussnang",
-        "en": "adhesive-practitioner-in-stadler-rail-bussnang",
-        "fr": "pratique-adhesive-en-stadler-rail-bussnang"
+        "it": "praticante-dell-adesivo-stadler-rail-bussnang",
+        "en": "klebepraktiker-in-stadler-rail-ch",
+        "fr": "klebepraktiker-in-stadler-rail-ch"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13924,7 +13899,7 @@
       "title": "Klebepraktiker:in",
       "titleByLocale": {
         "de": "Klebepraktiker:in",
-        "it": "Professionista adesivo:in",
+        "it": "Praticante dell'adesivo",
         "en": "Adhesive practitioner:in",
         "fr": "Pratique adhésive: en"
       },
@@ -13974,29 +13949,21 @@
       "firstSeenAt": "2026-06-26T12:11:16.094Z",
       "previousSlugsByLocale": {
         "it": [
-          "klebepraktiker-in-stadler-rail-ch",
-          "praticante-dell-adesivo-stadler-rail-bussnang"
-        ],
-        "en": [
-          "klebepraktiker-in-stadler-rail-ch"
-        ],
-        "fr": [
           "klebepraktiker-in-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
-        "klebepraktiker-in-stadler-rail-ch",
-        "praticante-dell-adesivo-stadler-rail-bussnang"
+        "klebepraktiker-in-stadler-rail-ch"
       ]
     },
     {
       "id": "stadler-rail-aff09a77345d",
-      "slug": "acquirente-del-progetto-in-stadler-rail-wallisellen",
+      "slug": "acquirente-del-progetto-stadler-rail-wallisellen",
       "slugByLocale": {
         "de": "projekteinkaufer-in-stadler-rail-ch",
-        "it": "acquirente-del-progetto-in-stadler-rail-wallisellen",
-        "en": "project-buyer-in-stadler-rail-wallisellen",
-        "fr": "acheteur-du-projet-en-stadler-rail-wallisellen"
+        "it": "acquirente-del-progetto-stadler-rail-wallisellen",
+        "en": "projekteinkaufer-in-stadler-rail-wallisellen",
+        "fr": "projekteinkaufer-in-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14004,7 +13971,7 @@
       "title": "Projekteinkäufer:in",
       "titleByLocale": {
         "de": "Projekteinkäufer:in",
-        "it": "acquirente del progetto:in",
+        "it": "Acquirente del progetto",
         "en": "Project buyer:in",
         "fr": "Acheteur du projet:en"
       },
@@ -14042,20 +14009,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projekteinkaufer-in-stadler-rail-ch",
-          "projekteinkaufer-in-stadler-rail-wallisellen",
-          "acquirente-del-progetto-stadler-rail-wallisellen"
-        ],
-        "en": [
-          "projekteinkaufer-in-stadler-rail-wallisellen"
-        ],
-        "fr": [
           "projekteinkaufer-in-stadler-rail-wallisellen"
         ]
       },
       "previousSlugs": [
         "projekteinkaufer-in-stadler-rail-ch",
-        "projekteinkaufer-in-stadler-rail-wallisellen",
-        "acquirente-del-progetto-stadler-rail-wallisellen"
+        "projekteinkaufer-in-stadler-rail-wallisellen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
