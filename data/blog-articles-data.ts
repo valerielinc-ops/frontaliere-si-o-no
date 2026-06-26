@@ -25857,6 +25857,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'guess-stabio-merchandiser',
+ category: 'pratico',
+ date: '2026-06-26T04:44:28.662Z',
+ image: '/images/blog/guess-stabio-merchandiser.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

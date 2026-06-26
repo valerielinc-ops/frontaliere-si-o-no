@@ -8159,6 +8159,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assicurazione-malattia-neuchatel-giovani.title': 'Caisse maladie Neuchâtel : guide pour jeunes adultes 19-25 ans',
     'blog.article.assicurazione-malattia-neuchatel-giovani.excerpt': 'Aperçu des caisses-maladie à Neuchâtel pour jeunes adultes 19-25 ans. Détails sur les exigences et les procédures, informations pratiques.',
     'blog.article.assicurazione-malattia-neuchatel-giovani.imageAlt': 'Jeune adulte au Tessin avec une ville suisse en arrière-plan',
+    'blog.article.guess-stabio-merchandiser.title': 'Opportunités de travail en tant que Merchandiser chez Guess Europe Sagl à Stabio',
+    'blog.article.guess-stabio-merchandiser.excerpt': 'Nous recherchons des marchands pour gérer les points de vente Guess au Tessin. Découvrez les exigences et comment postuler.',
+    'blog.article.guess-stabio-merchandiser.imageAlt': 'Merchandiser Guess travaillant dans le magasin de Stabio, Tessin',
 };
 
 export default blogMetaFr;

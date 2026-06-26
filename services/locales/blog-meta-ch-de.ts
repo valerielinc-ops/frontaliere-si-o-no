@@ -502,6 +502,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.agenzie-interinali-ticino.title': 'Zeitarbeitsagenturen in Lugano: wie sie funktionieren',
     'blog.article.agenzie-interinali-ticino.excerpt': 'Erfahren Sie, wie Leiharbeitsfirmen in Lugano arbeiten und was sich für Grenzgänger ändert',
     'blog.article.agenzie-interinali-ticino.imageAlt': 'Zeitarbeitsvermittlung in Lugano',
+    'blog.article.ticinese-frontalieri.title': 'Neu für Grenzgänger im Tessin',
+    'blog.article.ticinese-frontalieri.excerpt': 'Aktuelles zu den Neuigkeiten rund um die Grenzgänger im Tessin',
+    'blog.article.ticinese-frontalieri.imageAlt': 'Lugano Stadtansicht mit Grenzgängern',
 };
 
 export default blogMetaChDe;

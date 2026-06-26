@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2937,
+ "numberOfItems": 2939,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7583,7 +7583,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2934, "name": "Prezzi del Diesel in Svizzera: aggiornamento od...", "url": `${BASE_URL}/articoli-frontaliere/prezzi-diesel-svizzera-oggi` },
           { "@type": "ListItem", "position": 2935, "name": "Ospedale di Friburgo cerca infermieri con contr...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-friburgo-posto-lavoro` },
           { "@type": "ListItem", "position": 2936, "name": "Lohnausweis: guida completa per frontalieri in ...", "url": `${BASE_URL}/articoli-frontaliere/lohnausweis-frontalieri` },
-          { "@type": "ListItem", "position": 2937, "name": "Agenzie interinali a Lugano: come funzionano", "url": `${BASE_URL}/articoli-frontaliere/agenzie-interinali-ticino` }
+          { "@type": "ListItem", "position": 2937, "name": "Agenzie interinali a Lugano: come funzionano", "url": `${BASE_URL}/articoli-frontaliere/agenzie-interinali-ticino` },
+          { "@type": "ListItem", "position": 2938, "name": "Opportunità di lavoro come Merchandiser presso ...", "url": `${BASE_URL}/articoli-frontaliere/guess-stabio-merchandiser` },
+          { "@type": "ListItem", "position": 2939, "name": "Novità per i frontalieri in Ticino", "url": `${BASE_URL}/articoli-frontaliere/ticinese-frontalieri` }
  ]
  },
  {

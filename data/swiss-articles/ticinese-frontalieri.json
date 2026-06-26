@@ -1,0 +1,40 @@
+{
+  "id": "ticinese-frontalieri",
+  "slug": "ticinese-frontalieri",
+  "publishedAt": "2026-06-26T04:50:23.763Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.007351960681849,
+    "confidence": 0.8,
+    "finalScore": 4.805881568545479,
+    "topK": [
+      {
+        "slug": "universita-ticino-frontalieri",
+        "cosine": 0.858193137240264
+      },
+      {
+        "slug": "abbonamento-newsletter-ticino",
+        "cosine": 0.8510137644863184
+      },
+      {
+        "slug": "cliche-politici-giovani-ticino",
+        "cosine": 0.8509372095810922
+      },
+      {
+        "slug": "arte-anima-ticino-frontalieri",
+        "cosine": 0.8451578064983322
+      },
+      {
+        "slug": "assicurazione-dentaria-obbligatoria-ticino-2026",
+        "cosine": 0.8443210033507824
+      }
+    ],
+    "score": 1.2014703921363699,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
