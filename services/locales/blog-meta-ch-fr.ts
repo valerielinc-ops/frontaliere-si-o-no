@@ -499,6 +499,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lohnausweis-frontalieri.title': 'Lohnausweis : guide complet pour les frontaliers en Suisse',
     'blog.article.lohnausweis-frontalieri.excerpt': 'Tout ce que vous devez savoir sur le certificat de salaire suisse : qu\'est-ce que c\'est, comment l\'obtenir et pourquoi est-ce important pour les frontaliers',
     'blog.article.lohnausweis-frontalieri.imageAlt': 'Attestation de salaire suisse avec détails sur les déductions et les allocations',
+    'blog.article.agenzie-interinali-ticino.title': 'Agences intérimaires à Lugano : comment fonctionnent-elles',
+    'blog.article.agenzie-interinali-ticino.excerpt': 'Découvrez comment fonctionnent les agences intérimaires à Lugano et ce qui change pour les travailleurs frontaliers',
+    'blog.article.agenzie-interinali-ticino.imageAlt': 'Agence de placement temporaire à Lugano',
 };
 
 export default blogMetaChFr;
