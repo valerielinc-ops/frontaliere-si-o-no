@@ -284,7 +284,8 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-kunsttherapeutische-tatigkeit-psgn-wil-sg",
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-        "dipl-infirmiere-hf-fh-art-therapy-activite-psychiatrie-st-gallen-wil-sg"
+        "dipl-infirmiere-hf-fh-art-therapy-activite-psychiatrie-st-gallen-wil-sg",
+        "dipl-infermiera-hf-fh-arte-terapia-attivita-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -360,7 +361,8 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-kunsttherapeutische-tatigkeit-psgn-wil-sg",
         "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-        "ergotherapeute-ergotherapeute-activite-de-therapie-artistique-psychiatrie-st-gallen-wil-sg"
+        "ergotherapeute-ergotherapeute-activite-de-therapie-artistique-psychiatrie-st-gallen-wil-sg",
+        "terapista-professionale-terapista-professionale-attivita-di-terapia-artistica-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -589,6 +591,7 @@
         "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
         "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg",
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
         "infermiere-laureato-in-hf-fh-servizio-notturno-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
@@ -614,10 +617,10 @@
     },
     {
       "id": "psgn-407e0ab046b7",
-      "slug": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
+      "slug": "assistente-psicologo-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
-        "it": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
+        "it": "assistente-psicologo-psychiatrie-st-gallen-wil-sg",
         "en": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
         "fr": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
       },
@@ -627,7 +630,7 @@
       "title": "Assistenzpsychologin / Assistenzpsychologe",
       "titleByLocale": {
         "de": "Assistenzpsychologin / Assistenzpsychologe",
-        "it": "Assistente psicologo / Assistente psicologo",
+        "it": "Assistente psicologo",
         "en": "Assistant psychologist / Assistant psychologist",
         "fr": "Assistant psychologue / Assistant psychologue"
       },
@@ -665,14 +668,14 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
-          "assistente-psicologo-psychiatrie-st-gallen-wil-sg"
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r",
-        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2",
-        "assistente-psicologo-psychiatrie-st-gallen-wil-sg"
+        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

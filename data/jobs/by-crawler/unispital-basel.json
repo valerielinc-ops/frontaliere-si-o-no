@@ -8383,12 +8383,12 @@
     },
     {
       "id": "unispital-basel-615f8fa3098e",
-      "slug": "coordinatore-op-coordinatore-op-universitatsspital-basel-basel",
+      "slug": "coordinatore-or-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "op-koordinatorin-op-koordinator-unispital-basel-ch",
-        "it": "coordinatore-op-coordinatore-op-universitatsspital-basel-basel",
-        "en": "op-coordinator-op-coordinator-universitatsspital-basel-basel",
-        "fr": "coordonnateur-du-po-coordonnateur-du-po-universitatsspital-basel-basel"
+        "it": "coordinatore-or-universitatsspital-basel-basel",
+        "en": "op-koordinatorin-op-koordinator-unispital-basel-ch",
+        "fr": "op-koordinatorin-op-koordinator-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8396,7 +8396,7 @@
       "title": "OP-Koordinatorin / OP-Koordinator",
       "titleByLocale": {
         "de": "OP-Koordinatorin / OP-Koordinator",
-        "it": "Coordinatore OP / Coordinatore OP",
+        "it": "Coordinatore OR",
         "en": "OP coordinator / OP coordinator",
         "fr": "Coordonnateur du PO / Coordonnateur du PO"
       },
@@ -8434,20 +8434,12 @@
       "previousSlugsByLocale": {
         "it": [
           "op-koordinatorin-op-koordinator-unispital-basel-ch",
-          "op-koordinatorin-op-koordinator-universitatsspital-basel-basel",
-          "coordinatore-or-universitatsspital-basel-basel"
-        ],
-        "en": [
-          "op-koordinatorin-op-koordinator-unispital-basel-ch"
-        ],
-        "fr": [
-          "op-koordinatorin-op-koordinator-unispital-basel-ch"
+          "op-koordinatorin-op-koordinator-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
         "op-koordinatorin-op-koordinator-unispital-basel-ch",
-        "op-koordinatorin-op-koordinator-universitatsspital-basel-basel",
-        "coordinatore-or-universitatsspital-basel-basel"
+        "op-koordinatorin-op-koordinator-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

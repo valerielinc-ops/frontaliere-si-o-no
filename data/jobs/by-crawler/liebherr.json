@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "liebherr-209ccd2bd2a9",
-      "slug": "servizi-dell-acquirente-h-f-x-liebherr-bulle",
+      "slug": "acquirente-servizi-m-f-x-getti-liebherr-bulle",
       "slugByLocale": {
         "fr": "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
-        "it": "servizi-dell-acquirente-h-f-x-liebherr-bulle",
-        "en": "buyer-amenities-h-f-x-cast-parts-liebherr-bulle",
-        "de": "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle"
+        "it": "acquirente-servizi-m-f-x-getti-liebherr-bulle",
+        "en": "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
+        "de": "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -17,7 +17,7 @@
       "title": "Acheteur commodités (h/f/x) Pièces moulées",
       "titleByLocale": {
         "fr": "Acheteur commodités (h/f/x) Pièces moulées",
-        "it": "Servizi dell'acquirente (h/f/x)",
+        "it": "Acquirente servizi (m/f/x) Getti",
         "en": "Buyer amenities (h/f/x) Cast parts",
         "de": "Ausstattung des Käufers (h/w/x) Gussteile"
       },
@@ -68,19 +68,11 @@
       "firstSeenAt": "2026-06-26T11:47:06.080Z",
       "previousSlugsByLocale": {
         "it": [
-          "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
-          "acquirente-servizi-m-f-x-getti-liebherr-bulle"
-        ],
-        "en": [
-          "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle"
-        ],
-        "de": [
           "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle"
         ]
       },
       "previousSlugs": [
-        "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
-        "acquirente-servizi-m-f-x-getti-liebherr-bulle"
+        "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle"
       ]
     },
     {
@@ -275,7 +267,7 @@
       "slugByLocale": {
         "it": "manutenzione-multiuso-giardino-h-f-x-liebherr-bulle",
         "en": "multi-purpose-maintenance-agent-gardener-m-f-x-liebherr-bulle",
-        "de": "mehrzweck-instandhaltung-gartner-h-f-x-liebherr-bulle",
+        "de": "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle",
         "fr": "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -318,7 +310,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle"
+        "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle",
+        "mehrzweck-instandhaltung-gartner-h-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -328,7 +321,7 @@
           "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle"
         ],
         "de": [
-          "agent-de-maintenance-polyvalent-jardinier-h-f-x-liebherr-bulle"
+          "mehrzweck-instandhaltung-gartner-h-f-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-19T22:10:13.188Z",
@@ -525,7 +518,7 @@
       "slugByLocale": {
         "it": "young-talent-motore-di-montaggio-m-f-x-liebherr-bulle",
         "en": "young-talent-assembly-engine-m-f-x-liebherr-bulle",
-        "de": "young-talent-montagemotor-m-w-x-liebherr-bulle",
+        "de": "young-talent-engine-assembly-m-f-x-liebherr-bulle",
         "fr": "young-talent-engine-assembly-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -582,6 +575,7 @@
         "young-talent-engine-assembly-m-f-x-liebherr-bulle",
         "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle",
         "user-safety-safe-liebherr-bulle-59c43e",
+        "young-talent-montagemotor-m-w-x-liebherr-bulle",
         "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle",
         "jeune-talent-assemblage-de-moteurs-m-f-x-liebherr-bulle"
       ],
@@ -595,7 +589,7 @@
           "user-safety-safe-liebherr-bulle-59c43e"
         ],
         "de": [
-          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+          "young-talent-montagemotor-m-w-x-liebherr-bulle"
         ],
         "fr": [
           "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle",
@@ -5282,7 +5276,7 @@
         "it": "assistente-esecutivo-m-f-x-liebherr-bulle",
         "en": "executive-assistant-m-f-x-liebherr-bulle",
         "de": "executive-assistent-m-f-x-liebherr-bulle",
-        "fr": "assistant-executif-m-f-x-liebherr-bulle"
+        "fr": "executive-assistant-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5324,14 +5318,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "executive-assistant-m-f-x-liebherr-bulle"
+        "executive-assistant-m-f-x-liebherr-bulle",
+        "assistant-executif-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "executive-assistant-m-f-x-liebherr-bulle"
         ],
         "fr": [
-          "executive-assistant-m-f-x-liebherr-bulle"
+          "assistant-executif-m-f-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-11T13:11:49.517Z",
@@ -5602,7 +5597,7 @@
         "it": "controllore-finanziario-m-f-x-temporaneo-liebherr-bulle",
         "en": "financial-controller-m-f-x-temporary-liebherr-bulle",
         "de": "finanzcontroller-m-f-x-vorubergehend-liebherr-bulle-da80fe",
-        "fr": "controleur-financier-m-f-x-liebherr-bulle"
+        "fr": "financial-controller-m-f-x-temporary-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5658,7 +5653,8 @@
       "previousSlugs": [
         "financial-controller-m-f-x-temporary-liebherr-bulle",
         "user-safety-safe-liebherr-bulle-da80fe",
-        "finanzkontrolleur-m-w-x-vorubergehend-liebherr-bulle"
+        "finanzkontrolleur-m-w-x-vorubergehend-liebherr-bulle",
+        "controleur-financier-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5672,7 +5668,7 @@
           "finanzkontrolleur-m-w-x-vorubergehend-liebherr-bulle"
         ],
         "fr": [
-          "financial-controller-m-f-x-temporary-liebherr-bulle"
+          "controleur-financier-m-f-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.381Z",
@@ -6286,7 +6282,7 @@
       "slug": "key-account-manager-area-rinnovabili-energia-eolica-m-w-d-liebherr-baden",
       "slugByLocale": {
         "it": "key-account-manager-area-rinnovabili-energia-eolica-m-w-d-liebherr-baden",
-        "en": "key-account-manager-renewable-energy-wind-energy-m-f-d-liebherr-baden",
+        "en": "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
         "de": "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
         "fr": "gestionnaire-de-comptes-cle-energie-renouvelable-energie-eolienne-m-w-d-liebherr-baden"
       },
@@ -6332,6 +6328,7 @@
       "previousSlugs": [
         "key-account-manager-energia-rinnovabile-energia-eolica-m-f-d-liebherr-baden",
         "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
+        "key-account-manager-renewable-energy-wind-energy-m-f-d-liebherr-baden",
         "praktikant-im-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
         "directeur-de-compte-principal-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
       ],
@@ -6341,7 +6338,7 @@
           "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
         ],
         "en": [
-          "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
+          "key-account-manager-renewable-energy-wind-energy-m-f-d-liebherr-baden"
         ],
         "de": [
           "praktikant-im-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
@@ -6900,7 +6897,7 @@
       "slugByLocale": {
         "it": "capo-squadra-subsystems-engineering-m-w-x-liebherr-bulle",
         "en": "team-leader-subsystems-engineering-m-w-x-liebherr-bulle",
-        "de": "teamleiter-subsystems-engineering-m-w-x-liebherr-bulle",
+        "de": "team-leader-subsystems-engineering-m-w-x-liebherr-bulle",
         "fr": "chef-d-equipe-genie-des-sous-systemes-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -6952,14 +6949,15 @@
         ]
       },
       "previousSlugs": [
-        "team-leader-subsystems-engineering-m-w-x-liebherr-bulle"
+        "team-leader-subsystems-engineering-m-w-x-liebherr-bulle",
+        "teamleiter-subsystems-engineering-m-w-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "team-leader-subsystems-engineering-m-w-x-liebherr-bulle"
         ],
         "de": [
-          "team-leader-subsystems-engineering-m-w-x-liebherr-bulle"
+          "teamleiter-subsystems-engineering-m-w-x-liebherr-bulle"
         ],
         "fr": [
           "team-leader-subsystems-engineering-m-w-x-liebherr-bulle"
@@ -7069,8 +7067,8 @@
       "slugByLocale": {
         "en": "commodity-buyer-h-f-x-castings-liebherr-bulle",
         "it": "commodity-buyer-h-f-x-castings-liebherr-bulle",
-        "de": "warenkaufer-h-w-x-gusserzeugnisse-liebherr-bulle",
-        "fr": "acheteur-de-marchandises-h-f-x-castings-liebherr-bulle"
+        "de": "commodity-buyer-h-f-x-castings-liebherr-bulle",
+        "fr": "commodity-buyer-h-f-x-castings-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -7078,7 +7076,7 @@
       "title": "Commodity Buyer (h/f/x) Castings",
       "titleByLocale": {
         "en": "Commodity Buyer (h/f/x) Castings",
-        "it": "Commodity Buyer (h/f/x) Castings",
+        "it": "Commodity Buyer (h/f/x) Fusioni",
         "de": "Warenkäufer (h/w/x) Gusserzeugnisse",
         "fr": "Acheteur de marchandises (h/f/x) Castings"
       },

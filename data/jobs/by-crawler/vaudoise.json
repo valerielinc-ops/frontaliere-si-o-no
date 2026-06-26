@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "capo-dell-agenzia-h-f-x-80-100-vaudoise-assurances-nyon",
         "en": "head-of-agency-h-f-x-80-100-vaudoise-assurances-nyon",
-        "de": "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon",
+        "de": "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
         "fr": "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -50,7 +50,8 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+        "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
+        "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -60,7 +61,7 @@
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
         ],
         "de": [
-          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+          "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon"
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
@@ -1659,9 +1660,9 @@
     },
     {
       "id": "vaudoise-95b6284d520e",
-      "slug": "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern",
+      "slug": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
       "slugByLocale": {
-        "it": "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern",
+        "it": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
         "en": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
         "de": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
         "fr": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
@@ -1705,11 +1706,11 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+        "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
@@ -1897,7 +1898,7 @@
       "slugByLocale": {
         "it": "perdita-di-testa-gruppo-di-guadagno-di-malattia-80-100-h-f-x-vaudoise-assurances-lausanne",
         "en": "head-group-head-loss-of-sickness-gain-80-100-h-f-x-vaudoise-assurances-lausanne",
-        "de": "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
+        "de": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
         "fr": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -1940,7 +1941,8 @@
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
         "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
-        "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne"
+        "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
+        "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1951,7 +1953,7 @@
         ],
         "de": [
           "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
-          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+          "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
@@ -2743,8 +2745,8 @@
       "slugByLocale": {
         "de": "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch",
         "it": "responsabile-ausbildung-insurance-training-m-w-d-80-100-vaudoise-assurances-lausanne",
-        "en": "head-of-education-insurance-training-m-f-d-80-100-vaudoise-assurances-lausanne",
-        "fr": "chef-de-l-education-formation-en-assurance-m-f-j-80-100-vaudoise-assurances-lausanne"
+        "en": "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch",
+        "fr": "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2789,12 +2791,6 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
-        ],
-        "en": [
-          "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
-        ],
-        "fr": [
-          "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
@@ -2818,12 +2814,12 @@
     },
     {
       "id": "vaudoise-d5feba5a285f",
-      "slug": "responsabile-servizio-clienti-e-abbonamento-h-f-x-80-100-vaudoise-assurances-lausanne",
+      "slug": "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
-        "it": "responsabile-servizio-clienti-e-abbonamento-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "customer-service-manager-and-subscription-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "de": "customer-service-manager-und-abonnement-h-f-x-80-100-vaudoise-assurances-lausanne"
+        "it": "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
+        "de": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2831,7 +2827,7 @@
       "title": "Gestionnaire Service Client et Souscription (h/f/x) - 80-100%",
       "titleByLocale": {
         "fr": "Gestionnaire Service Client et Souscription (h/f/x) - 80-100%",
-        "it": "Responsabile Servizio Clienti e Abbonamento (h/f/x) - 80-100%",
+        "it": "Servizio clienti e Responsabile Abbonamenti (m/f/x) - 80-100%",
         "en": "Customer Service Manager and Subscription (h/f/x) - 80-100%",
         "de": "Customer Service Manager und Abonnement (h/f/x) - 80-100%"
       },
@@ -2868,20 +2864,12 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
-          "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
-          "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne"
-        ],
-        "en": [
-          "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
-        ],
-        "de": [
-          "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
+          "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "previousSlugs": [
         "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
-        "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
-        "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne"
+        "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

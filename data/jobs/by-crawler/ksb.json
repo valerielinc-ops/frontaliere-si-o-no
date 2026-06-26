@@ -2273,7 +2273,7 @@
       "slug": "ergoterapista-in-terapia-della-mano-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "ergoterapista-in-terapia-della-mano-80-100-kantonsspital-baden-ksb-baden",
-        "en": "occupational-therapist-in-hand-therapy-80-100-kantonsspital-baden-ksb-baden",
+        "en": "ergotherapeut-in-handtherapie-80-100-ksb-ch",
         "de": "ergotherapeut-in-handtherapie-80-100-ksb-ch",
         "fr": "ergotherapeute-en-therapie-de-la-main-80-100-kantonsspital-baden-ksb-baden"
       },
@@ -2320,6 +2320,7 @@
         "ergotherapeut-in-handtherapie-80-100-ksb-ch",
         "ergotherapeut-in-handtherapy-80-100-kantonsspital-baden-ksb-baden",
         "ergotherapeut-in-handtherapie-80-100-kantonsspital-baden-ksb-baden",
+        "occupational-therapist-in-hand-therapy-80-100-kantonsspital-baden-ksb-baden",
         "ergotherapeut-en-therapie-manuelle-80-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
@@ -2329,7 +2330,7 @@
         ],
         "en": [
           "ergotherapeut-in-handtherapie-80-100-kantonsspital-baden-ksb-baden",
-          "ergotherapeut-in-handtherapie-80-100-ksb-ch"
+          "occupational-therapist-in-hand-therapy-80-100-kantonsspital-baden-ksb-baden"
         ],
         "fr": [
           "ergotherapeut-en-therapie-manuelle-80-100-kantonsspital-baden-ksb-baden"
@@ -3704,7 +3705,7 @@
       "slug": "dipl-infermiere-a-hf-fh-chirurgia-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "dipl-infermiere-a-hf-fh-chirurgia-kantonsspital-baden-ksb-baden",
-        "en": "dipl-nurse-mann-hf-fh-surgery-kantonsspital-baden-ksb-baden",
+        "en": "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksb-ch",
         "de": "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksb-ch",
         "fr": "infirmier-ere-dipl-hf-fh-chirurgie-kantonsspital-baden-ksb-baden"
       },
@@ -3779,14 +3780,15 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksb-ch"
+        "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksb-ch",
+        "dipl-nurse-mann-hf-fh-surgery-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksb-ch"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksb-ch"
+          "dipl-nurse-mann-hf-fh-surgery-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:55.841Z",
@@ -4315,7 +4317,7 @@
       "slug": "tecnico-a-di-sala-operatoria-dipl-hf-a-ore-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "tecnico-a-di-sala-operatoria-dipl-hf-a-ore-kantonsspital-baden-ksb-baden",
-        "en": "dipl-specialist-mann-operations-technology-hf-in-hourly-wage-kantonsspital-baden-ksb-baden",
+        "en": "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch",
         "de": "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch",
         "fr": "technicien-ne-en-salle-d-operation-diplome-e-hf-a-l-heure-kantonsspital-baden-ksb-baden"
       },
@@ -4386,14 +4388,15 @@
         ]
       },
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch"
+        "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch",
+        "dipl-specialist-mann-operations-technology-hf-in-hourly-wage-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch"
         ],
         "en": [
-          "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch"
+          "dipl-specialist-mann-operations-technology-hf-in-hourly-wage-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:54.911Z",
@@ -4586,9 +4589,9 @@
     },
     {
       "id": "ksb-70186c627244",
-      "slug": "cura-di-emergenza-post-laurea-100-kantonsspital-baden-ksb-baden",
+      "slug": "nachdiplomstudium-notfallpflege-100-ksb-ch",
       "slugByLocale": {
-        "it": "cura-di-emergenza-post-laurea-100-kantonsspital-baden-ksb-baden",
+        "it": "nachdiplomstudium-notfallpflege-100-ksb-ch",
         "en": "postgraduate-studies-emergency-care-100-kantonsspital-baden-ksb-baden",
         "de": "nachdiplomstudium-notfallpflege-100-ksb-ch",
         "fr": "etudes-superieures-soins-d-urgence-100-kantonsspital-baden-ksb-baden"
@@ -4633,11 +4636,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachdiplomstudium-notfallpflege-100-ksb-ch"
+        "cura-di-emergenza-post-laurea-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-notfallpflege-100-ksb-ch"
+          "cura-di-emergenza-post-laurea-100-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-05-28T13:13:48.921Z",
@@ -4809,7 +4812,7 @@
       "slug": "dipl-infermiere-a-privata-stazione-hf-fh-60-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "dipl-infermiere-a-privata-stazione-hf-fh-60-100-kantonsspital-baden-ksb-baden",
-        "en": "dipl-nursing-specialist-mann-private-station-hf-fh-60-100-kantonsspital-baden-ksb-baden",
+        "en": "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch",
         "de": "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch",
         "fr": "diplome-e-en-soins-infirmiers-en-station-privee-hf-fh-60-100-kantonsspital-baden-ksb-baden"
       },
@@ -4880,14 +4883,15 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch"
+        "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch",
+        "dipl-nursing-specialist-mann-private-station-hf-fh-60-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch"
+          "dipl-nursing-specialist-mann-private-station-hf-fh-60-100-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:44.788Z",
@@ -4909,7 +4913,7 @@
       "slug": "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden",
-        "en": "dipl-nurse-mann-hf-fh-cardiology-nephrology-infectiology-kantonsspital-baden-ksb-baden",
+        "en": "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
         "de": "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
         "fr": "dipl-carriere-femme-manne-hf-fh-cardiologie-nephrologie-infectiologie-kantonsspital-baden-ksb-baden"
       },
@@ -4954,7 +4958,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
-        "dipl-career-donna-mann-hf-fh-cardiologia-nephrology-infectiology-kantonsspital-baden-ksb-baden"
+        "dipl-career-donna-mann-hf-fh-cardiologia-nephrology-infectiology-kantonsspital-baden-ksb-baden",
+        "dipl-nurse-mann-hf-fh-cardiology-nephrology-infectiology-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4962,7 +4967,7 @@
           "dipl-career-donna-mann-hf-fh-cardiologia-nephrology-infectiology-kantonsspital-baden-ksb-baden"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch"
+          "dipl-nurse-mann-hf-fh-cardiology-nephrology-infectiology-kantonsspital-baden-ksb-baden"
         ],
         "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch"
@@ -5086,7 +5091,7 @@
         "it": "diplomato-a-della-cura-infermieristica-hf-fh-stroke-neurologia-100-kantonsspital-baden-ksb-baden",
         "en": "dipl-nursing-professional-hf-fh-stroke-neurology-100-kantonsspital-baden-ksb-baden",
         "de": "dipl-pflegefachfrau-mann-hf-fh-stroke-neurologie-100-ksb-ch",
-        "fr": "dipl-infirmiere-et-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden"
+        "fr": "dipl-pflegefachfrau-mann-hf-fh-stroke-neurologie-100-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -5139,7 +5144,8 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-stroke-neurologie-100-ksb-ch",
         "dipl-pflegefachfrau-mann-hf-fh-stroke-neurology-100-kantonsspital-baden-ksb-baden",
-        "dipl-infirmiere-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden"
+        "dipl-infirmiere-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden",
+        "dipl-infirmiere-et-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5150,7 +5156,7 @@
         ],
         "fr": [
           "dipl-infirmiere-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden",
-          "dipl-pflegefachfrau-mann-hf-fh-stroke-neurologie-100-ksb-ch"
+          "dipl-infirmiere-et-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:52.111Z",
@@ -5518,7 +5524,7 @@
       "slug": "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden",
-        "en": "professional-trainer-in-specialist-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden",
+        "en": "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch",
         "de": "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch",
         "fr": "professionnel-en-fachfrau-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden"
       },
@@ -5563,7 +5569,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch",
-        "berufsbildner-in-fachfrau-mann-operazionitechnik-hf-80-100-kantonsspital-baden-ksb-baden"
+        "berufsbildner-in-fachfrau-mann-operazionitechnik-hf-80-100-kantonsspital-baden-ksb-baden",
+        "professional-trainer-in-specialist-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5571,7 +5578,7 @@
           "berufsbildner-in-fachfrau-mann-operazionitechnik-hf-80-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
-          "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch"
+          "professional-trainer-in-specialist-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden"
         ],
         "fr": [
           "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch"
@@ -6839,12 +6846,12 @@
     },
     {
       "id": "ksb-f70e2ae74d28",
-      "slug": "mpa-segretario-medico-in-neurologia-60-100-temporaneo-kantonsspital-baden-ksb-baden-42-nichtarztliches-personal",
+      "slug": "mpa-segretario-medico-a-in-neurologia-60-100-a-tempo-determinato-kantonsspital-baden-ksb-baden-42-nichtarztliches",
       "slugByLocale": {
         "de": "mpa-arztsekretar-in-neurologie-60-100-befristet-ksb-ch",
-        "it": "mpa-segretario-medico-in-neurologia-60-100-temporaneo-kantonsspital-baden-ksb-baden-42-nichtarztliches-personal",
-        "en": "mpa-medical-secretary-in-neurology-60-100-temporary-kantonsspital-baden-ksb-baden-42-nichtarztliches-personal",
-        "fr": "mpa-secretaire-medical-en-neurologie-60-100-temporaire-kantonsspital-baden-ksb-baden-42-nichtarztliches-personal"
+        "it": "mpa-segretario-medico-a-in-neurologia-60-100-a-tempo-determinato-kantonsspital-baden-ksb-baden-42-nichtarztliches",
+        "en": "mpa-arztsekretar-in-neurologie-60-100-befristet-ksb-ch",
+        "fr": "mpa-arztsekretar-in-neurologie-60-100-befristet-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -6852,7 +6859,7 @@
       "title": "MPA / Arztsekretär_in Neurologie 60-100% (befristet)",
       "titleByLocale": {
         "de": "MPA / Arztsekretär_in Neurologie 60-100% (befristet)",
-        "it": "MPA / Segretario Medico in Neurologia 60-100% (temporaneo)",
+        "it": "MPA / segretario medico/a in neurologia 60-100% (a tempo determinato)",
         "en": "MPA / Medical Secretary in Neurology 60-100% (temporary)",
         "fr": "MPA / Secrétaire médical en neurologie 60-100% (temporaire)"
       },
@@ -6890,20 +6897,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-arztsekretar-in-neurologie-60-100-befristet-ksb-ch",
-          "mpa-arztsekretar-in-neurologie-60-100-befristet-kantonsspital-baden-ksb-baden-42-nichtarztliches-personal",
-          "mpa-segretario-medico-a-in-neurologia-60-100-a-tempo-determinato-kantonsspital-baden-ksb-baden-42-nichtarztliches"
-        ],
-        "en": [
-          "mpa-arztsekretar-in-neurologie-60-100-befristet-ksb-ch"
-        ],
-        "fr": [
-          "mpa-arztsekretar-in-neurologie-60-100-befristet-ksb-ch"
+          "mpa-arztsekretar-in-neurologie-60-100-befristet-kantonsspital-baden-ksb-baden-42-nichtarztliches-personal"
         ]
       },
       "previousSlugs": [
         "mpa-arztsekretar-in-neurologie-60-100-befristet-ksb-ch",
-        "mpa-arztsekretar-in-neurologie-60-100-befristet-kantonsspital-baden-ksb-baden-42-nichtarztliches-personal",
-        "mpa-segretario-medico-a-in-neurologia-60-100-a-tempo-determinato-kantonsspital-baden-ksb-baden-42-nichtarztliches"
+        "mpa-arztsekretar-in-neurologie-60-100-befristet-kantonsspital-baden-ksb-baden-42-nichtarztliches-personal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
