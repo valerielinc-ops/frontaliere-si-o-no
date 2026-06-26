@@ -556,6 +556,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carlo-iii-redditi-tasse-2026.title': 'Charles III Reveals Income and Taxes: Real Tax Transparency',
     'blog.article.carlo-iii-redditi-tasse-2026.excerpt': 'The British king has paid over £30 million in taxes since 2022, breaking the historic silence.',
     'blog.article.carlo-iii-redditi-tasse-2026.imageAlt': 'View of Lugano city with tax documents on a desk, symbolizing fiscal transparency',
+    'blog.article.volkswagen-tagli-lavoro-2024.title': 'Volkswagen announces 100,000 cuts and closure of 4 factories',
+    'blog.article.volkswagen-tagli-lavoro-2024.excerpt': 'The Volkswagen Group plans to cut 100,000 jobs and close four factories in Germany by 2030.',
+    'blog.article.volkswagen-tagli-lavoro-2024.imageAlt': 'Panoramic view of Lugano with industrial elements symbolizing economic and labor market changes',
 };
 
 export default blogMetaChEn;

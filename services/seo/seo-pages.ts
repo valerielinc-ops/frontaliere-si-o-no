@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2958,
+ "numberOfItems": 2959,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7604,7 +7604,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2955, "name": "Ok al finanziamento delle Olimpiadi invernali 2038", "url": `${BASE_URL}/articoli-frontaliere/finanziamento-olimpiadi-invernali-2038` },
           { "@type": "ListItem", "position": 2956, "name": "Pandemia, la commissione propone indennizzi per...", "url": `${BASE_URL}/articoli-frontaliere/pandemia-indennizzi-imprese` },
           { "@type": "ListItem", "position": 2957, "name": "Carlo III svela redditi e tasse: trasparenza fi...", "url": `${BASE_URL}/articoli-frontaliere/carlo-iii-redditi-tasse-2026` },
-          { "@type": "ListItem", "position": 2958, "name": "Uboldo: Estate 2026 Parte con “Ciao Lucio”", "url": `${BASE_URL}/articoli-frontaliere/uonboldo-tributo-lucio-dalla` }
+          { "@type": "ListItem", "position": 2958, "name": "Uboldo: Estate 2026 Parte con “Ciao Lucio”", "url": `${BASE_URL}/articoli-frontaliere/uonboldo-tributo-lucio-dalla` },
+          { "@type": "ListItem", "position": 2959, "name": "Volkswagen annuncia 100mila tagli e chiusura di...", "url": `${BASE_URL}/articoli-frontaliere/volkswagen-tagli-lavoro-2024` }
  ]
  },
  {

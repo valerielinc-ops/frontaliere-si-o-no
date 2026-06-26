@@ -556,6 +556,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carlo-iii-redditi-tasse-2026.title': 'Karl III. Enthüllt Einkommen und Steuern: Echte Steuertransparenz',
     'blog.article.carlo-iii-redditi-tasse-2026.excerpt': 'Der britische König hat seit 2022 über 30 Millionen Pfund Steuern gezahlt und damit das historische Schweigen gebrochen.',
     'blog.article.carlo-iii-redditi-tasse-2026.imageAlt': 'Blick auf die Stadt Lugano mit Steuerdokumenten auf einem Tisch, Symbol für Steuertransparenz',
+    'blog.article.volkswagen-tagli-lavoro-2024.title': 'Volkswagen kündigt 100.000 Einschnitte und Schließungen von 4 Werken an',
+    'blog.article.volkswagen-tagli-lavoro-2024.excerpt': 'Der Volkswagen Konzern plant den Abbau von 100.000 Arbeitsplätzen und die Schließung von vier Werken in Deutschland bis 2030.',
+    'blog.article.volkswagen-tagli-lavoro-2024.imageAlt': 'Panoramablick auf Lugano mit Industrieelementen, die wirtschaftliche und Arbeitsmarktveränderungen symbolisieren',
 };
 
 export default blogMetaChDe;

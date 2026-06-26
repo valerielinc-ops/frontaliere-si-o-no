@@ -4234,6 +4234,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pandemia-indennizzi-imprese': { name: 'Sostegno economico', path: '/articoli-svizzera/pandemia-indennizzi-imprese/', parent: 'blog' },
     'blog-carlo-iii-redditi-tasse-2026': { name: 'redditi e tasse', path: '/articoli-svizzera/carlo-iii-redditi-tasse-2026/', parent: 'blog' },
     'blog-uonboldo-tributo-lucio-dalla': { name: 'Eventi estivi Uboldo', path: '/articoli-frontaliere/uonboldo-tributo-lucio-dalla', parent: 'blog' },
+    'blog-volkswagen-tagli-lavoro-2024': { name: 'Volkswagen tagli lavoro', path: '/articoli-svizzera/volkswagen-tagli-lavoro-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
