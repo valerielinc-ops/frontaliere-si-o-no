@@ -1,18 +1,49 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-06-25T21:57:03.424Z",
-  "total": 10,
-  "newCount": 0,
+  "generatedAt": "2026-06-26T10:55:42.340Z",
+  "total": 11,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3513,
-  "avgDurationMs": 3513,
+  "durationMs": 3088,
+  "avgDurationMs": 3088,
   "durationHistory": [
-    3513
+    3088
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "UX Designer",
+      "slug": "ux-designer-board-international-chiasso-switzerland",
+      "url": "https://boardinternationalsa.applytojob.com/apply/42P29rSL79/UX-Designer",
+      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/42P29rSL79/UX-Designer",
+      "company": "Board International",
+      "companyKey": "board-international",
+      "companyDomain": "board.com",
+      "location": "Chiasso, Switzerland",
+      "addressLocality": "Chiasso, Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "board-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-26",
+      "employmentType": "full time",
+      "contractType": "full-time",
+      "validThrough": "2026-09-24",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sr. Account Manager",
@@ -32,10 +63,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-25",
+      "postedDate": "2026-06-26",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-06-25",
+      "validThrough": "2026-06-26",
       "id": "board-international-b7509e355f12",
       "salaryMin": 79500,
       "salaryMax": 135000,
