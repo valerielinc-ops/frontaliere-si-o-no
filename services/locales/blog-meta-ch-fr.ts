@@ -535,6 +535,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ferrovie-germania-ripresa-traffico.title': 'Allemagne, reprise du trafic ferroviaire',
     'blog.article.ferrovie-germania-ripresa-traffico.excerpt': 'Après une interruption d\'environ 90 minutes, le trafic ferroviaire en Allemagne a été complètement rétabli, grâce à un système d\'urgence.',
     'blog.article.ferrovie-germania-ripresa-traffico.imageAlt': 'Gare ferroviaire suisse avec trains en mouvement, scène photoréaliste.',
+    'blog.article.condanne-viareggio-svizzera.title': 'Condamnations définitives pour le massacre ferroviaire de Viareggio',
+    'blog.article.condanne-viareggio-svizzera.excerpt': 'La Cour de cassation italienne confirme les peines : cinq ans pour Mauro Moretti, ancien directeur de Ferrovie Italiane, dans le cas de la tragédie de Viareggio en 2009.',
+    'blog.article.condanne-viareggio-svizzera.imageAlt': 'Paysage suisse avec lac et montagnes, scène d\'actualités.',
 };
 
 export default blogMetaChFr;

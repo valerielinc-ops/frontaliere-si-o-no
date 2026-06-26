@@ -4226,6 +4226,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-deutsche-bahn-stop-ferroviario-germania': { name: 'DB stop ferroviario', path: '/articoli-svizzera/deutsche-bahn-stop-ferroviario-germania/', parent: 'blog' },
     'blog-incidente-sul-lavoro-basilea': { name: 'Pratico', path: '/articoli-svizzera/incidente-sul-lavoro-basilea/', parent: 'blog' },
     'blog-ferrovie-germania-ripresa-traffico': { name: 'Pratico', path: '/articoli-svizzera/ferrovie-germania-ripresa-traffico/', parent: 'blog' },
+    'blog-condanne-viareggio-svizzera': { name: 'fiscale', path: '/articoli-svizzera/condanne-viareggio-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

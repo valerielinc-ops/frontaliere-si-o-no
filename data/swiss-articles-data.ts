@@ -1601,6 +1601,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'condanne-viareggio-svizzera',
+    category: 'fiscale',
+    date: '2026-06-26T15:57:59.668Z',
+    image: '/images/blog/condanne-viareggio-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
