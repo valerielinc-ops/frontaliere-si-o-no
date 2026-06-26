@@ -553,6 +553,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pandemia-indennizzi-imprese.title': 'Pandemia, la commissione propone indennizzi per imprese e autonomi',
     'blog.article.pandemia-indennizzi-imprese.excerpt': 'Le nuove misure mirano a garantire supporto più efficace a imprese e lavoratori indipendenti in future crisi sanitarie, con indennizzi e finanziamenti.',
     'blog.article.pandemia-indennizzi-imprese.imageAlt': 'Imprese svizzere e lavoratori indipendenti durante la pandemia',
+    'blog.article.carlo-iii-redditi-tasse-2026.title': 'Carlo III svela redditi e tasse: trasparenza fiscale reale',
+    'blog.article.carlo-iii-redditi-tasse-2026.excerpt': 'Il re britannico ha pagato oltre 30 milioni di sterline di tasse dal 2022, rompendo il silenzio storico.',
+    'blog.article.carlo-iii-redditi-tasse-2026.imageAlt': 'Vista della città di Lugano con documenti fiscali sul tavolo, simbolo di trasparenza fiscale',
 };
 
 export default blogMetaChIt;

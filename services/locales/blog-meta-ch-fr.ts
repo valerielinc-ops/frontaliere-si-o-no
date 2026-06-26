@@ -553,6 +553,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pandemia-indennizzi-imprese.title': 'Pandémie: indemnités pour entreprises et indépendants',
     'blog.article.pandemia-indennizzi-imprese.excerpt': 'Les nouvelles mesures visent à assurer un soutien plus efficace aux entreprises et aux travailleurs indépendants dans les futures crises sanitaires, avec des indemnisations et des financements.',
     'blog.article.pandemia-indennizzi-imprese.imageAlt': 'Entreprises suisses et travailleurs indépendants pendant la pandémie',
+    'blog.article.carlo-iii-redditi-tasse-2026.title': 'Charles III dévoile revenus et impôts : transparence fiscale réelle',
+    'blog.article.carlo-iii-redditi-tasse-2026.excerpt': 'Le roi britannique a payé plus de 30 millions de livres d\'impôts depuis 2022, brisant le silence historique.',
+    'blog.article.carlo-iii-redditi-tasse-2026.imageAlt': 'Vue de la ville de Lugano avec des documents fiscaux sur un bureau, symbole de transparence fiscale',
 };
 
 export default blogMetaChFr;

@@ -553,6 +553,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pandemia-indennizzi-imprese.title': 'Pandemie: Entschädigung für Unternehmen und Selbstständige',
     'blog.article.pandemia-indennizzi-imprese.excerpt': 'Die neuen Maßnahmen zielen darauf ab, Unternehmen und Selbstständige in zukünftigen Gesundheitskrisen mit Entschädigungen und Finanzmitteln wirksamer zu unterstützen.',
     'blog.article.pandemia-indennizzi-imprese.imageAlt': 'Schweizer Unternehmen und Selbständige während der Pandemie',
+    'blog.article.carlo-iii-redditi-tasse-2026.title': 'Karl III. Enthüllt Einkommen und Steuern: Echte Steuertransparenz',
+    'blog.article.carlo-iii-redditi-tasse-2026.excerpt': 'Der britische König hat seit 2022 über 30 Millionen Pfund Steuern gezahlt und damit das historische Schweigen gebrochen.',
+    'blog.article.carlo-iii-redditi-tasse-2026.imageAlt': 'Blick auf die Stadt Lugano mit Steuerdokumenten auf einem Tisch, Symbol für Steuertransparenz',
 };
 
 export default blogMetaChDe;
