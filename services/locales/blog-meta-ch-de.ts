@@ -535,6 +535,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ferrovie-germania-ripresa-traffico.title': 'Deutschland, Wiederaufnahme des Eisenbahnverkehrs',
     'blog.article.ferrovie-germania-ripresa-traffico.excerpt': 'Nach einer Unterbrechung von ca. 90 Minuten wurde der Bahnverkehr in Deutschland dank eines Notfallsystems vollständig wiederhergestellt.',
     'blog.article.ferrovie-germania-ripresa-traffico.imageAlt': 'Schweizer Bahnhof mit Zügen in Bewegung, fotorealistische Szene.',
+    'blog.article.condanne-viareggio-svizzera.title': 'Endgültige Verurteilungen für das Eisenbahnmassaker von Viareggio',
+    'blog.article.condanne-viareggio-svizzera.excerpt': 'Das italienische Kassationsgericht bestätigt die Strafen: fünf Jahre für Mauro Moretti, ehemaliger Direktor der italienischen Eisenbahn, im Fall der Tragödie von Viareggio im Jahr 2009.',
+    'blog.article.condanne-viareggio-svizzera.imageAlt': 'Schweizer Landschaft mit See und Bergen, Nachrichtenszene.',
 };
 
 export default blogMetaChDe;

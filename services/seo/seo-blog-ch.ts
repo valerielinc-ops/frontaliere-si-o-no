@@ -6843,6 +6843,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-condanne-viareggio-svizzera': {
+    title: 'Condanne definitive per la strage ferroviaria di Viareggio',
+    description: 'La Cassazione italiana conferma le pene: cinque anni per Mauro Moretti, ex ad di Ferrovie, nel caso della tragedia di Viareggio del 2009. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, condanne, definitive, strage, ferroviaria',
+    ogTitle: 'Condanne Viareggio: sentenza definitiva sulla tragedia ferroviaria',
+    ogDescription: 'Sentenza definitiva in Italia per la tragedia ferroviaria di Viareggio del 2009, con Mauro Moretti condannato a cinque anni di carcere.',
+    canonicalPath: '/articoli-svizzera/condanne-viareggio-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Condanne definitive per la strage ferroviaria di Viareggio",
+      "description": "La Cassazione italiana conferma le pene: cinque anni per Mauro Moretti, ex ad di Ferrovie, nel caso della tragedia di Viareggio del 2009. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/condanne-viareggio-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio svizzero con lago e montagne, scena di notizie."
+      },
+      "datePublished": "2026-06-26T15:57:59+00:00",
+      "dateModified": "2026-06-26T15:57:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/condanne-viareggio-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

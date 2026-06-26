@@ -535,6 +535,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ferrovie-germania-ripresa-traffico.title': 'Germany, resumption of rail traffic',
     'blog.article.ferrovie-germania-ripresa-traffico.excerpt': 'After an interruption of about 90 minutes, rail traffic in Germany has been fully restored, thanks to an emergency system.',
     'blog.article.ferrovie-germania-ripresa-traffico.imageAlt': 'Swiss railway station with moving trains, photorealistic scene.',
+    'blog.article.condanne-viareggio-svizzera.title': 'Final sentences for the Viareggio railway massacre',
+    'blog.article.condanne-viareggio-svizzera.excerpt': 'The Italian Supreme Court confirms the penalties: five years for Mauro Moretti, former CEO of Ferrovie Italiane, in the case of the Viareggio tragedy of 2009.',
+    'blog.article.condanne-viareggio-svizzera.imageAlt': 'Swiss landscape with lake and mountains, news scene.',
 };
 
 export default blogMetaChEn;
