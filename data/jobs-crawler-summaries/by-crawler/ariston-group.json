@@ -1,49 +1,18 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-06-26T10:50:38.444Z",
+  "generatedAt": "2026-06-26T21:28:36.072Z",
   "total": 24,
-  "newCount": 1,
-  "updatedCount": 21,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 22,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 16890,
-  "avgDurationMs": 16890,
+  "durationMs": 12238,
+  "avgDurationMs": 12238,
   "durationHistory": [
-    16890
+    12238
   ],
-  "newJobs": [
-    {
-      "title": "SALES PROJECT",
-      "slug": "sales-project-ariston-group-singapore-sg-138538",
-      "url": "https://careers.aristongroup.com/job/SALES-PROJECT-Sing-138538/1403158733/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1403158733/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Singapore, SG, 138538",
-      "addressLocality": "Singapore, SG, 138538",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-11",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-10",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "SERVICETECHNIKER WÄRMEPUMPEN (M/W)",
@@ -763,6 +732,42 @@
       }
     },
     {
+      "title": "SALES PROJECT",
+      "slug": "sales-project-ariston-group-singapore-sg-138538",
+      "url": "https://careers.aristongroup.com/job/SALES-PROJECT-Sing-138538/1403158733/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1403158733/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Singapore, SG, 138538",
+      "addressLocality": "Singapore, SG, 138538",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-11",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-07-10",
+      "id": "ariston-group-081d7ee4af63",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "postalCode": "9000",
+      "firstSeenAt": "2026-06-26T10:50:38.441Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "SERVICETECHNIKER ÖL - ZÜRCHER OBERLAND (M/W)",
       "slug": "servicetechniker-ol-zurcher-oberland-m-w-ariston-group-winterthur-ch-8400",
       "url": "https://careers.aristongroup.com/job/Schlatt-b_-Winterthur-SERVICETECHNIKER-%C3%96L-Z%C3%9CRCHER-OBERLAND-%28MW%29-Wint-8400/1400816833/",
@@ -799,44 +804,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "MITARBEITER SERVICE CENTER 70-80% (M/W)",
-      "slug": "collaboratore-trice-service-center-70-80-m-w-d-ariston-group-winterthur-ch-8400",
-      "url": "https://careers.aristongroup.com/job/Schlatt-b_-Winterthur-MITARBEITER-SERVICE-CENTER-70-80-%28MW%29-Wint-8400/1393036033/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1393036033/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Winterthur, CH, 8400",
-      "addressLocality": "Winterthur, CH, 8400",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-25",
-      "id": "ariston-group-0132dd69c630",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "8400",
-      "firstSeenAt": "2026-05-27T22:08:55.366Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "TECNICO DI SERVIZIO ENERGIE RINNOVABILI",
