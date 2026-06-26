@@ -544,6 +544,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.spaccio-rete-locali.title': 'Drug dealing: a mix served to a dense network of clubs',
     'blog.article.spaccio-rete-locali.excerpt': 'CSR investigations have highlighted how drug dealing is managed through a complex network of premises in Switzerland, involving different points of the urban network.',
     'blog.article.spaccio-rete-locali.imageAlt': 'Locarno scene with local venues and urban traffic at night.',
+    'blog.article.incidente-lavoro-champery-gas-metallo.title': 'Accident at work in Champéry: one dead and one injured',
+    'blog.article.incidente-lavoro-champery-gas-metallo.excerpt': 'Serious accident in Champéry during metal casting operations: one man loses his life, another is seriously injured.',
+    'blog.article.incidente-lavoro-champery-gas-metallo.imageAlt': 'Worker involved in metal melting accident in Champéry, Swiss industrial work scene.',
 };
 
 export default blogMetaChEn;

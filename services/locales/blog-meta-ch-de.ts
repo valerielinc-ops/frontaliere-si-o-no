@@ -544,6 +544,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.spaccio-rete-locali.title': 'Drogenhandel: ein Mix für ein dichtes Netz',
     'blog.article.spaccio-rete-locali.excerpt': 'Die CSR-Untersuchungen haben gezeigt, dass der Drogenhandel über ein komplexes Netzwerk von Räumlichkeiten in der Schweiz gesteuert wird, an denen verschiedene Punkte des städtischen Netzwerks beteiligt sind.',
     'blog.article.spaccio-rete-locali.imageAlt': 'Locarno mit Lokalen und nächtlichem Stadtverkehr.',
+    'blog.article.incidente-lavoro-champery-gas-metallo.title': 'Arbeitsunfall in Champéry: Ein Toter und ein Verletzter',
+    'blog.article.incidente-lavoro-champery-gas-metallo.excerpt': 'Schwerer Unfall in Champéry beim Metallschmelzen: Ein Mann stirbt, ein anderer wird schwer verletzt.',
+    'blog.article.incidente-lavoro-champery-gas-metallo.imageAlt': 'Arbeitsszene eines Metallschmelzunfalls in Champéry, Schweizer Industriearbeit.',
 };
 
 export default blogMetaChDe;

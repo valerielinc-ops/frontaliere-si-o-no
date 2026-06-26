@@ -544,6 +544,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.spaccio-rete-locali.title': 'Trafic de drogue : un mélange servi à un réseau dense de locaux',
     'blog.article.spaccio-rete-locali.excerpt': 'Les enquêtes de RSE ont mis en évidence la façon dont le trafic de drogue est géré à travers un réseau complexe de locaux en Suisse, impliquant différents points du réseau urbain.',
     'blog.article.spaccio-rete-locali.imageAlt': 'Locarno avec locaux et trafic urbain la nuit.',
+    'blog.article.incidente-lavoro-champery-gas-metallo.title': 'Accident du travail à Champéry : un mort et un blessé',
+    'blog.article.incidente-lavoro-champery-gas-metallo.excerpt': 'Accident grave à Champéry lors d\'opérations de fusion du métal : un homme perd la vie, un autre est grièvement blessé.',
+    'blog.article.incidente-lavoro-champery-gas-metallo.imageAlt': 'Scène de travail industriel en Suisse, accident de fusion de métal à Champéry.',
 };
 
 export default blogMetaChFr;
