@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2943,
+ "numberOfItems": 2944,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7589,7 +7589,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2940, "name": "Pflegehilfe in Svizzera: guida pratica all'assi...", "url": `${BASE_URL}/articoli-frontaliere/pflegehilfe-svizzera` },
           { "@type": "ListItem", "position": 2941, "name": "FMI: l'economia svizzera resta resiliente", "url": `${BASE_URL}/articoli-frontaliere/fmi-economia-svizzera-resiliente` },
           { "@type": "ListItem", "position": 2942, "name": "Scambio di dati salariali con l'Italia, arriva ...", "url": `${BASE_URL}/articoli-frontaliere/scambio-dati-salariali-italia-legge` },
-          { "@type": "ListItem", "position": 2943, "name": "Telelavoro frontaliere: quanti giorni nel 2026", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontaliere-quanti-giorni-2026` }
+          { "@type": "ListItem", "position": 2943, "name": "Telelavoro frontaliere: quanti giorni nel 2026", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontaliere-quanti-giorni-2026` },
+          { "@type": "ListItem", "position": 2944, "name": "Cambio di presidenza al Rotary Club Lugano", "url": `${BASE_URL}/articoli-frontaliere/rotary-club-lugano-presidenza` }
  ]
  },
  {
