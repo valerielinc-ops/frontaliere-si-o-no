@@ -505,6 +505,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ticinese-frontalieri.title': 'News for border crossers in Ticino',
     'blog.article.ticinese-frontalieri.excerpt': 'Updates on news regarding border workers in Ticino',
     'blog.article.ticinese-frontalieri.imageAlt': 'Lugano cityscape with cross-border workers',
+    'blog.article.pflegehilfe-svizzera.title': 'Pflegehilfe in Switzerland: A Practical Guide to Care',
+    'blog.article.pflegehilfe-svizzera.excerpt': 'Find out how care for the elderly and those in need of care works in Switzerland',
+    'blog.article.pflegehilfe-svizzera.imageAlt': 'Home care for elderly in Switzerland',
 };
 
 export default blogMetaChEn;

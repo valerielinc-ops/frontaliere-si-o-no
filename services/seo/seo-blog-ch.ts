@@ -6453,6 +6453,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pflegehilfe-svizzera': {
+    title: 'Pflegehilfe in Svizzera: guida pratica all\'assistenza',
+    description: 'Guida pratica all\'assistenza domiciliare e istituzionale in Svizzera. Scopri come richiedere sostegno e quali sono i costi. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, pflegehilfe, pratica, assistenza, scopri',
+    ogTitle: 'Pflegehilfe Svizzera: assistenza agli anziani',
+    ogDescription: 'Scopri come funziona l\'assistenza agli anziani in Svizzera e come richiedere sostegno.',
+    canonicalPath: '/articoli-svizzera/pflegehilfe-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pflegehilfe in Svizzera: guida pratica all'assistenza",
+      "description": "Guida pratica all'assistenza domiciliare e istituzionale in Svizzera. Scopri come richiedere sostegno e quali sono i costi. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pflegehilfe-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Assistenza domiciliare per anziani in Svizzera"
+      },
+      "datePublished": "2026-06-26T05:43:19+00:00",
+      "dateModified": "2026-06-26T05:43:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pflegehilfe-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
