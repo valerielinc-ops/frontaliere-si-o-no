@@ -1466,6 +1466,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'prezzi-diesel-svizzera-oggi',
+    category: 'pratico',
+    date: '2026-06-26T01:54:44.984Z',
+    image: '/images/blog/prezzi-diesel-svizzera-oggi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

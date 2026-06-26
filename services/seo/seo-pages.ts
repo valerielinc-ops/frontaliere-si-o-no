@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2933,
+ "numberOfItems": 2934,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7579,7 +7579,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2930, "name": "Tempi di attesa alla frontiera di Chiasso-Broge...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-brogeda-tempi-attesa-odierni` },
           { "@type": "ListItem", "position": 2931, "name": "Prezzo diesel Agrola Bellinzona oggi: aggiornam...", "url": `${BASE_URL}/articoli-frontaliere/prezzo-diesel-agrola-bellinzona-oggi` },
           { "@type": "ListItem", "position": 2932, "name": "Notifica fine attività G: procedura SPOP nel Ca...", "url": `${BASE_URL}/articoli-frontaliere/notifica-fine-attivita-g-spop-ticino` },
-          { "@type": "ListItem", "position": 2933, "name": "Lavorare da Lidl a Locarno: guida alla ricerca", "url": `${BASE_URL}/articoli-frontaliere/ricerca-lavoro-lidl-locarno` }
+          { "@type": "ListItem", "position": 2933, "name": "Lavorare da Lidl a Locarno: guida alla ricerca", "url": `${BASE_URL}/articoli-frontaliere/ricerca-lavoro-lidl-locarno` },
+          { "@type": "ListItem", "position": 2934, "name": "Prezzi del Diesel in Svizzera: aggiornamento od...", "url": `${BASE_URL}/articoli-frontaliere/prezzi-diesel-svizzera-oggi` }
  ]
  },
  {

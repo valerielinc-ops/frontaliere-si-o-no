@@ -490,6 +490,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ricerca-lavoro-lidl-locarno.title': 'Lavorare da Lidl a Locarno: guida alla ricerca',
     'blog.article.ricerca-lavoro-lidl-locarno.excerpt': 'Come orientarsi nella ricerca di posizioni lavorative presso la filiale Lidl di Locarno e comprendere i requisiti richiesti nel mercato del lavoro svizzero.',
     'blog.article.ricerca-lavoro-lidl-locarno.imageAlt': 'Lidl Locarno, supermercato in Svizzera',
+    'blog.article.prezzi-diesel-svizzera-oggi.title': 'Prezzi del Diesel in Svizzera: aggiornamento odierno',
+    'blog.article.prezzi-diesel-svizzera-oggi.excerpt': 'Scopri gli ultimi prezzi del diesel in Svizzera e come variano nelle diverse regioni',
+    'blog.article.prezzi-diesel-svizzera-oggi.imageAlt': 'Pompa di carburante diesel in un distributore svizzero di giorno',
 };
 
 export default blogMetaChIt;
