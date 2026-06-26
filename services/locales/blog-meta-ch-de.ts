@@ -514,6 +514,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scambio-dati-salariali-italia-legge.title': 'Lohndatenaustausch mit Italien, das Durchsetzungsgesetz kommt',
     'blog.article.scambio-dati-salariali-italia-legge.excerpt': 'Neue Vorschriften für den Austausch von Lohninformationen zwischen der Schweiz und Italien',
     'blog.article.scambio-dati-salariali-italia-legge.imageAlt': 'Grenzgänger beim Überqueren der schweizerisch-italienischen Grenze',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.title': 'Grenzüberschreitende Telearbeit: Wie viele Tage im Jahr 2026',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.excerpt': 'Neue Regeln für die Telearbeit für Grenzgänger: maximal 25%, bilaterale Vereinbarung und steuerliche Auswirkungen',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.imageAlt': 'Eine Person, die remote mit einem Laptop arbeitet',
 };
 
 export default blogMetaChDe;

@@ -514,6 +514,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scambio-dati-salariali-italia-legge.title': 'Scambio di dati salariali con l\'Italia, arriva la legge d\'applicazione',
     'blog.article.scambio-dati-salariali-italia-legge.excerpt': 'Nuova normativa per lo scambio di informazioni salariali tra Svizzera e Italia',
     'blog.article.scambio-dati-salariali-italia-legge.imageAlt': 'Frontaliere che attraversa il confine svizzero-italiano',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.title': 'Telelavoro frontaliere: quanti giorni nel 2026',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.excerpt': 'Nuove regole sul telelavoro per i frontalieri: 25% massimo, accordo bilaterale e impatto fiscale',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.imageAlt': 'Una persona che lavora da remoto con un laptop',
 };
 
 export default blogMetaChIt;
