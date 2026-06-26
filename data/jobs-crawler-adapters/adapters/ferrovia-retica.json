@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/hr-berater-in-50-80_2026-2221/",
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2220/",
     "https://www.rhb.ch/it/job/bauleiter-in-kabelanlagen-80-100_2025-2004/",
@@ -16,10 +17,13 @@
     "https://www.rhb.ch/it/job/projektleiter-in-logistik-und-support-50-100_2026-2215/",
     "https://www.rhb.ch/it/job/handwerker-in-komponentenwechsel-50-100_2026-2214/",
     "https://www.rhb.ch/it/job/spezialist-in-kundeninformation-50-60_2026-2211/",
-    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-autoverlad-selfranga-50-100_2026-2213/",
-    "https://www.rhb.ch/it/job/spezialist-in-trassen-und-netzressourcenplanung-50-100_2026-2212/"
+    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-autoverlad-selfranga-50-100_2026-2213/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/hr-berater-in-50-80_2026-2221/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -55,12 +59,8 @@
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-autoverlad-selfranga-50-100_2026-2213/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/spezialist-in-trassen-und-netzressourcenplanung-50-100_2026-2212/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-06-25T22:19:38.005Z"
+  "updatedAt": "2026-06-26T11:19:14.423Z"
 }

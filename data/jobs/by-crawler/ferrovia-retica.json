@@ -1,7 +1,55 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-06-25T22:19:39.997Z",
+  "assembledAt": "2026-06-26T11:19:16.239Z",
   "jobs": [
+    {
+      "title": "HR Berater/in (50-80%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/hr-berater-in-50-80_2026-2221/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "PART_TIME",
+      "category": "technology",
+      "description": "Cerchi un ruolo HR con un impatto concreto? Con noi attrai talenti, accompagni i collaboratori lungo tutto il loro percorso e supporti collaboratori e responsabili in tutte le tematiche HR. Lavori in un team forte, utilizzi strumenti digitali e contribuisci allo sviluppo dei processi HR. Se pensi in modo interconnesso, ti assumi responsabilità e hai passione per il recruiting, sei la persona giusta.\n\nCosa puoi fare\n• Personalgewinnung von Mitarbeitenden\n\n• Personaladministration entlang des Employee Life Cycles\n\n• Beratung von Mitarbeitenden in sämtlichen HR-Belangen sowie teilweise von Führungskräften\n\n• Mitverantwortung für einzelne HR Systeme und/oder Mitarbeit bei kleineren Projekten je nach Pensum\n Ecco perché sei la persona giusta\n• Weiterbildung im Personalbereich, z.B. Personalfachfrau/-mann\n\n• Erfahrung in einer ähnlichen Funktion zwingend erforderlich\n\n• Leidenschaft für die Personalgewinnung\n\n• Digitales Mindset und Affinität für neue Tools\n\n• Vernetztes Denken sowie Motivation Dinge weiterzuentwickeln\n Cosa ti offriamo\n• Das tollste HR Team weit und breit\n\n• Digitale und weitgehend automatisierte Prozesse, die die Personaladministration auf ein Minimum reduzieren\n\n• Familiäre Unternehmenskultur\n\n• Desksharing und flexible Arbeitsmodelle",
+      "postedDate": "2026-06-26",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "hr-berater-in-50-80-ferrovia-retica-rhb-chur",
+      "slugByLocale": {
+        "it": "hr-berater-in-50-80-ferrovia-retica-rhb-chur",
+        "en": "hr-berater-in-50-80-ferrovia-retica-rhb-chur",
+        "de": "hr-berater-in-50-80-ferrovia-retica-rhb-chur",
+        "fr": "hr-berater-in-50-80-ferrovia-retica-rhb-chur"
+      },
+      "titleByLocale": {
+        "de": "HR Berater/in (50-80%)"
+      },
+      "percentage": "50-80%",
+      "crawledAt": "",
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-26T11:19:16.239Z"
+    },
     {
       "title": "Rangiermitarbeiter/in (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -139,7 +187,8 @@
       },
       "previousSlugs": [
         "gleismonteur-in-80-100-ferrovia-retica-rhb-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Bauleiter/in Kabelanlagen (80-100%)",
@@ -442,7 +491,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T11:22:07.557Z"
+      "firstSeenAt": "2026-06-24T11:22:07.557Z",
+      "needsRetranslation": true
     },
     {
       "title": "Spezialist/in Kundeninformation (50-60%)",
@@ -503,7 +553,8 @@
         "spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
         "financial-specialist-50-100-ferrovia-retica-rhb-chur",
         "specialiste-des-finances-50-100-ferrovia-retica-rhb-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Rangiermitarbeiter/in Autoverlad Selfranga (50-100%)",
@@ -566,133 +617,6 @@
       },
       "previousSlugs": [
         "personnel-de-direction-chez-autoverlad-selfranga-50-100-ferrovia-retica-rhb-klosters"
-      ]
-    },
-    {
-      "title": "Spezialist/in Trassen- und Netzressourcenplanung (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/spezialist-in-trassen-und-netzressourcenplanung-50-100_2026-2212/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "technology",
-      "description": "Pensi in modo sistemico, guidi con chiarezza e assumi responsabilità. In questa funzione dirigenziale all’interno del controllo operativo contribuisci attivamente allo sviluppo futuro della RhB. Guida un team di dirigenti della circolazione, applichi le tue competenze nel servizio operativo e garantisci sempre sicurezza, puntualità e un’informazione clienti affidabile.\n\nCosa puoi fare\n• Erstellung der unterjährigen Trassen- und Netzressourcenplanung\n\n• Optimierung der jährlichen Netzressourcen unter Berücksichtigung von Einschränkungen bei Kapazitäten und Verfügbarkeiten (z.B. Baustellen)\n\n• Verantwortung für die betriebliche Umsetzungsplanung von Charter- und historischen Fahrten auf dem Netz der RhB\n\n• Abstimmung mit Rollmaterial- und Personalplanung bei betrieblichen saisonalen Anpassungen\n\n• Kommunikation und Koordination mit operativen Stakeholdern im unterjährigen Planungshorizont\n Ecco perché sei la persona giusta\n• Erfahrung im operativen Betrieb, in der Planung oder in der kurzfristigen Ressourcenplanung, idealerweise im Umfeld der Bahnproduktion und Trassenplanung\n\n• Strukturierte, präzise und belastbare Arbeitsweise auch unter Zeitdruck\n\n• Sehr gute mündliche und schriftliche Kommunikationsfähigkeit für Abstimmungen, Entscheidungsgrundlagen und saubere Dokumentation\n\n• Motivation für vertiefte Einarbeitung ins Themenfeld der historischen Extrafahrten\n\n• Hohe Reaktionsfähigkeit, Verantwortungsbewusstsein und Sicherheit im Umgang mit Zielkonflikten\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB\n Ulteriori informazioni Dass du mit uns etwas bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.",
-      "postedDate": "2026-06-24",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "spezialist-in-trassen-und-netzressourcenplanung-50-100-ferrovia-retica-rhb-chur",
-      "slugByLocale": {
-        "it": "specialista-nella-pianificazione-delle-risorse-del-percorso-e-della-rete-50-100-ferrovia-retica-rhb-chur",
-        "en": "specialist-in-path-and-network-resource-planning-50-100-ferrovia-retica-rhb-chur",
-        "de": "spezialist-in-trassen-und-netzressourcenplanung-50-100-ferrovia-retica-rhb-chur",
-        "fr": "specialiste-de-la-planification-des-itineraires-et-des-reseaux-50-100-ferrovia-retica-rhb-chur"
-      },
-      "titleByLocale": {
-        "it": "Specialista Pianificazione Risorse di Tracciato e Rete (50-100%)",
-        "en": "Specialist in Track and Network Resource Planning (50-100%)",
-        "de": "Spezialist/in Trassen- und Netzressourcenplanung (50-100%)",
-        "fr": "Spécialiste de la planification des itinéraires et des réseaux (50-100%)"
-      },
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Descrizione Pensi incoming Position, guidi con Chiarezza e ass mii deconabilità. Instant volatile dirige SCS all,inno del Siti di costruzione) - Responsabilità per la pianificazione operativa di charter e viaggi storici sulla rete RhB - Coordinamento con il materiale rotabile e la pianificazione del personale durante gli aggiustamenti stagionali operativi - Comunicazione e coordinamento con gli operatori operativi nell'orizzonte di pianificazione dell'anno precedente 11:00.6 la persona giusta - Esperienza in gestione operativa, pianificazione o pianificazione delle risorse a breve termine, idealmente nel contesto della produzione ferroviaria e della pianificazione dei percorsi - Metodi di lavoro strutturati, precisi e resilienti anche sotto pressione temporale - Ottima orale e capacità di comunicazione scritte per il coordinamento, la base decisionale e la documentazione pulita - motivazione per una formazione approfondita nel campo dei viaggi extra storici - alta capacità di risposta, responsabilità e sicurezza nel trattare con conflitti di obiettivi Co ti libamo - 2. Classe Generale Abbonamento - Biglietti gratuiti e sconti sui viaggi in treno all'estero - Telefono cellulare a pagamento e abbonamento per uso aziendale e privato - Modelli part-time flessibili - Prestazioni sociali e fondo pensione attraenti con servizi molto buoni - Acquisto aggiuntivo di vacanze - possibilità di formazione interna ed esterna con supporto finanziario da parte del RhB Ulteriori-Bassazioni Il fatto che si desidera spostare qualcosa con noi è la motivazione più grande per noi. Se vuoi condividere la tua motivazione con noi, hai ancora la possibilità nel nostro strumento di applicazione.",
-        "en": "Descrizione Pensi in modo sistemico, guidi con Chiarzza e ass mii deconabilità. In questa funzione dirigenziale all,inno delcontrollo operativeo contribisci attivamente allo sviluppo futuro della RhB. Guida un team di dirigenti della circolazione, applichi le tueQuanze nel servizio operative e garantisci sempre sicurzza, puntualità e un,informazione clienti affidabile. Cosa puoi · - Creation of the underground path and network resource planning - Optimization of the annual network resources, taking into account limitations in capacity and availability (e.g. Construction sites) - Responsibility for operational implementation planning of charter and historical journeys on the RhB network - Coordination with rolling stock and personnel planning during operational seasonal adjustments - Communication and coordination with operational stakeholders in the under-year planning horizon Ecco perché sei la persona giusta - Experience in operational operation, planning or short-term resource planning, ideally in the context of railway production and path planning - Structured, precise and resilient working methods even under time pressure - Very good oral and written communication skills for coordination, decision-making basis and clean documentation - motivation for in-depth training in the field of historical extra journeys - high responsiveness, responsibility and security in dealing with conflict of goals Cosa ti offriamo - 2. Class General Subscription - Free tickets and discounts on train trips abroad - Paid mobile phone and subscription for business and private use - Flexible part-time models - Attractive social benefits and pension fund with very good services - Additional purchase of holidays - possibility for internal and external training with financial support from the RhB Ulteriori-Bassazioni The fact that you want to move something with us is the greatest motivation for us. If you want to share your motivation with us, you still have the possibility in our application tool.",
-        "de": "Descrizione Pensi in modo sistemico, guidi con chiarezza e assumi responsabilità. In questa funzione dirigenziale all’interno del controllo operativo contribuisci attivamente allo sviluppo futuro della RhB. Guida un team di dirigenti della circolazione, applichi le tue competenze nel servizio operativo e garantisci sempre sicurezza, puntualità e un’informazione clienti affidabile. Cosa puoi fare - Erstellung der unterjährigen Trassen- und Netzressourcenplanung - Optimierung der jährlichen Netzressourcen unter Berücksichtigung von Einschränkungen bei Kapazitäten und Verfügbarkeiten (z.B. Baustellen) - Verantwortung für die betriebliche Umsetzungsplanung von Charter- und historischen Fahrten auf dem Netz der RhB - Abstimmung mit Rollmaterial- und Personalplanung bei betrieblichen saisonalen Anpassungen - Kommunikation und Koordination mit operativen Stakeholdern im unterjährigen Planungshorizont Ecco perché sei la persona giusta - Erfahrung im operativen Betrieb, in der Planung oder in der kurzfristigen Ressourcenplanung, idealerweise im Umfeld der Bahnproduktion und Trassenplanung - Strukturierte, präzise und belastbare Arbeitsweise auch unter Zeitdruck - Sehr gute mündliche und schriftliche Kommunikationsfähigkeit für Abstimmungen, Entscheidungsgrundlagen und saubere Dokumentation - Motivation für vertiefte Einarbeitung ins Themenfeld der historischen Extrafahrten - Hohe Reaktionsfähigkeit, Verantwortungsbewusstsein und Sicherheit im Umgang mit Zielkonflikten Cosa ti offriamo - 2. Klasse Generalabonnement - Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland - Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung - Flexible Teilzeitmodelle - Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen - Zusätzlicher Kauf von Ferien - Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB Ulteriori informazioni Dass du mit uns etwas bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.",
-        "fr": "Descrizione Pensi in modo sistemico, guidi con Chiarza e ass mii deconabilità. Dans questa funzione annennziale all,inno delcontrollo opero contribisci attivamente allo sviluppo futuro della RhB. Guida un team di giei della circolazione, applichi le ►Quanze nel Servzio operoetro e assurza, puntualità e un,informazione clienti affidabile. Cosa puoi · - Création du chemin souterrain et de la planification des ressources du réseau - Optimisation des ressources annuelles du réseau, en tenant compte des limitations de capacité et de disponibilité (par exemple: Les travaux de construction) - Responsabilité de la planification de la mise en oeuvre opérationnelle des vols charters et des trajets historiques sur le réseau RHB - Coordination avec la planification du matériel roulant et du personnel pendant les ajustements saisonniers opérationnels - Communication et coordination avec les parties prenantes opérationnelles dans l'horizon de planification de l'année Ecco perché sei la persona giusta - Expérience en exploitation opérationnelle, planification ou planification des ressources à court terme, idéalement dans le contexte de la production ferroviaire et de la planification des chemins de fer - Méthodes de travail structurées, précises et résilientes même sous pression temporelle - Très bonne orale et de communication écrite pour la coordination, la base de décision et la documentation propre - motivation pour une formation approfondie dans le domaine des voyages supplémentaires historiques - haute réactivité, responsabilité et sécurité dans la gestion des conflits d'objectifs Cosa ti defriamo - 2. Classe Général Abonnement - Billets gratuits et rabais sur les voyages en train à l'étranger - Téléphone mobile payant et abonnement pour les affaires et les particuliers - Modèles flexibles à temps partiel - Prestations sociales et fonds de pension attrayants avec de très bons services - Achat supplémentaire de vacances - possibilité de formation interne et externe avec le soutien financier du RhB Ulteriori-Bassazioni Le fait que vous voulez déplacer quelque chose avec nous est la plus grande motivation pour nous. Si vous voulez partager votre motivation avec nous, vous avez encore la possibilité dans notre outil d'application."
-      },
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-24T11:22:07.557Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "spezialist-in-anlagebuchhaltung-50-100-rhaetische-bahn-chur",
-          "installatore-specializzato-meccanico-manutenzione-80-100-ferrovia-retica-rhb-chur",
-          "installateur-mecanicien-entretien-80-100-ferrovia-retica-rhb-chur",
-          "specialiste-de-la-planification-des-itineraires-et-des-reseaux-50-100-ferrovia-retica-rhb-chur",
-          "specialiste-des-finances-50-100-ferrovia-retica-rhb-chur",
-          "motion-control-software-ingegnere-m-f-d-mikron-group-agno",
-          "fullstack-software-sviluppatore-m-f-d-mikron-group-agno",
-          "full-stack-java-entwickler-expert-relewant-chiasso",
-          "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol",
-          "full-stack-java-entwickler-expert-relewant-chiasso-qkaen5",
-          "collaboratore-ressources-humaines-swiss-medical-network-lugano",
-          "projektleiter-in-bahndienst-80-100-ferrovia-retica-rhb-chur",
-          "hr-collaborator-swiss-medical-network-lugano",
-          "spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
-          "expert-en-developpement-java-full-stack-relewant-chiasso",
-          "collaboratore-personalwesen-swiss-medical-network-lugano-gca7b9",
-          "ingenieur-logiciel-de-controle-de-mouvement-m-f-d-mikron-group-agno",
-          "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
-          "full-stack-java-sviluppatore-expert-relewant-chiasso",
-          "collaboratore-hr-swiss-medical-network-lugano-gca7b9"
-        ],
-        "en": [
-          "full-stack-java-developer-expert-relewant-chiasso",
-          "motion-control-software-engineer-m-f-d-mikron",
-          "motion-control-software-engineer-m-f-d-mikron-group-agno",
-          "motion-control-software-engineer-m-f-d-mikron-group-agno-y9v6ol",
-          "full-stack-java-developer-expert-relewant-chiasso-qkaen5",
-          "product-manager-in-commuter-traffic-and-collective-agreements-80-100-ferrovia-retica-rhb-davos",
-          "specialist-in-accounting-50-100-ferrovia-retica-rhb-chur",
-          "project-manager-in-servizio-ferroviario-80-100-ferrovia-retica-rhb-chur",
-          "project-manager-in-railway-service-80-100-ferrovia-retica-rhb-chur",
-          "specialist-in-roll-material-deployment-planning-50-100-ferrovia-retica-rhb-chur",
-          "specialist-in-occupational-safety-50-100-ferrovia-retica-rhb-chur",
-          "financial-specialist-50-100-ferrovia-retica-rhb-chur",
-          "mechanical-engineer-loks-80-100-ferrovia-retica-rhb-chur",
-          "specialist-installer-mechanic-maintenance-80-100-ferrovia-retica-rhb-chur",
-          "specialist-in-path-and-network-resource-planning-50-100-ferrovia-retica-rhb-chur"
-        ],
-        "fr": [
-          "gestionnaire-de-projet-en-service-ferroviaire-80-100-ferrovia-retica-rhb-chur",
-          "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio",
-          "candidature-spontanee-site-de-mendrisio-sintetica-sa-mendrisio",
-          "gestionnaire-de-produits-dans-le-trafic-de-banlieue-et-les-conventions-collectives-80-100-ferrovia-retica-rhb-davos"
-        ],
-        "de": [
-          "hr-mitarbeiter-swiss-medical-network-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "full-stack-java-developer-expert-relewant-chiasso",
-        "motion-control-software-engineer-m-f-d-mikron",
-        "motion-control-software-engineer-m-f-d-mikron-group-agno",
-        "motion-control-software-engineer-m-f-d-mikron-group-agno-y9v6ol",
-        "full-stack-java-developer-expert-relewant-chiasso-qkaen5",
-        "product-manager-in-commuter-traffic-and-collective-agreements-80-100-ferrovia-retica-rhb-davos",
-        "specialist-in-accounting-50-100-ferrovia-retica-rhb-chur",
-        "project-manager-in-servizio-ferroviario-80-100-ferrovia-retica-rhb-chur",
-        "project-manager-in-railway-service-80-100-ferrovia-retica-rhb-chur",
-        "specialist-in-roll-material-deployment-planning-50-100-ferrovia-retica-rhb-chur",
-        "gestionnaire-de-projet-en-service-ferroviaire-80-100-ferrovia-retica-rhb-chur",
-        "hr-collaborator-swiss-medical-network-lugano-gca7b9",
-        "hr-collaborator-swiss-medical-network-lugano",
-        "spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
-        "expert-en-developpement-java-full-stack-relewant-chiasso",
-        "collaboratore-personalwesen-swiss-medical-network-lugano-gca7b9",
-        "ingenieur-logiciel-de-controle-de-mouvement-m-f-d-mikron-group-agno",
-        "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
-        "full-stack-java-sviluppatore-expert-relewant-chiasso",
-        "collaboratore-hr-swiss-medical-network-lugano-gca7b9"
       ]
     }
   ]
