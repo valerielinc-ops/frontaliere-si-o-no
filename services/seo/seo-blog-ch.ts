@@ -6609,6 +6609,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rotary-club-lugano-presidenza': {
+    title: 'Cambio di presidenza al Rotary Club Lugano | Frontaliere Ticino',
+    description: 'Il Rotary Club Lugano ha ufficializzato il cambio di presidenza con nuovi progetti per il territorio e le generazioni future. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, presidenza, rotary, club',
+    ogTitle: 'Cambio di presidenza al Rotary Club Lugano',
+    ogDescription: 'Il Rotary Club Lugano ha ufficializzato il nuovo presidente e i progetti per rafforzare il legame con il territorio e le giovani generazioni.',
+    canonicalPath: '/articoli-svizzera/rotary-club-lugano-presidenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio di presidenza al Rotary Club Lugano",
+      "description": "Il Rotary Club Lugano ha ufficializzato il cambio di presidenza con nuovi progetti per il territorio e le generazioni future. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rotary-club-lugano-presidenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riunione del Rotary Club a Lugano con vista sulla villa"
+      },
+      "datePublished": "2026-06-26T09:27:50+00:00",
+      "dateModified": "2026-06-26T09:27:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rotary-club-lugano-presidenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

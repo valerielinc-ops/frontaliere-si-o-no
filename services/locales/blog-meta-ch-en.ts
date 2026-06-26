@@ -517,6 +517,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.telelavoro-frontaliere-quanti-giorni-2026.title': 'Frontier teleworking: how many days in 2026',
     'blog.article.telelavoro-frontaliere-quanti-giorni-2026.excerpt': 'New rules on teleworking for frontier workers: 25% maximum, bilateral agreement and fiscal impact',
     'blog.article.telelavoro-frontaliere-quanti-giorni-2026.imageAlt': 'A person working remotely with a laptop',
+    'blog.article.rotary-club-lugano-presidenza.title': 'Change of presidency at Rotary Club Lugano',
+    'blog.article.rotary-club-lugano-presidenza.excerpt': 'Federico Umberto Mion takes over from Ivo Foletti, with new projects to strengthen the dialogue between generations and the bond with the territory.',
+    'blog.article.rotary-club-lugano-presidenza.imageAlt': 'Rotary Club meeting in Lugano at Villa Principe Leopoldo',
 };
 
 export default blogMetaChEn;
