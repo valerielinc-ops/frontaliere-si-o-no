@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "assistente-di-farmacia-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "pharmacy-assistant-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "apotheker-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "assistant-en-pharmacie-100-eoc-ente-ospedaliero-cantonale-lugano"
+        "en": "assistente-di-farmacia-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "assistente-di-farmacia-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "assistente-di-farmacia-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -296,15 +296,7 @@
       "previousSlugs": [
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
-        "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce",
-        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqfi",
-        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-4d6bce",
-        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqhe",
-        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-d46b9a",
-        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi",
-        "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero",
-        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero",
-        "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale"
+        "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -996,7 +988,11 @@
         "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
         "stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
         "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil172"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil172",
+        "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+        "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -1107,15 +1103,7 @@
         "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
         "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
-        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r"
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
       ]
     },
     {
@@ -7738,7 +7726,11 @@
         "phd-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
         "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
         "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio-uil1ys",
-        "candidat-medical-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "candidat-medical-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -12354,7 +12346,7 @@
         "it": "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "52-weeks-to-obtain-commercial-professional-maturity-100-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "52-wochen-um-kommerzielle-berufliche-reife-zu-erhalten-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "52-semaines-pour-obtenir-une-maturite-professionnelle-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano"
+        "fr": "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Praticante 52 settimane (per otenere la maturità professionale commerciale)",
@@ -12386,7 +12378,8 @@
           "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-permette-di-combinare-efficacemente-approccio-locale-e-vision-uilqhd"
         ],
         "fr": [
-          "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-permette-di-combinare-efficacemente-approccio-locale-e-vision-uilqhd"
+          "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-permette-di-combinare-efficacemente-approccio-locale-e-vision-uilqhd",
+          "52-semaines-pour-obtenir-une-maturite-professionnelle-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "sourceLang": "it",
@@ -12410,6 +12403,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-permette-di-combinare-efficacemente-approccio-locale-e-vision-uilqhd",
+        "52-semaines-pour-obtenir-une-maturite-professionnelle-commerciale-100-eoc-ente-ospedaliero-cantonale-lugano",
         "praticante-52-settimane-pro-ottenere-la-maturita-professionale-commerciale-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "praticante-52-settimane-per-otenere-la-maturita-professionale-commerciale-eoc-ente-ospedaliero-cantonale-bellinzona",
         "praticante-52-settimane-per-ottenere-la-maturita-professionale-commerciale-100-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -12791,7 +12785,7 @@
       "slugByLocale": {
         "it": "tecnici-in-analisi-biomediche-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "technicians-in-biomedical-analysis-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "techniker-in-der-biomedizinischen-analyse-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "tecnici-in-analisi-biomediche-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "techniciens-en-analyse-biomedicale-50-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -12820,7 +12814,9 @@
           "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu"
         ],
         "de": [
-          "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu"
+          "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu",
+          "techniker-in-der-biomedizinischen-analyse-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "tecnici-in-analisi-biomediche-50-100-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu"
@@ -12831,6 +12827,7 @@
       },
       "previousSlugs": [
         "tecnici-in-analisi-biomediche-50-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-uilouu",
+        "techniker-in-der-biomedizinischen-analyse-50-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "analista-biomedico-50-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "sourceLang": "it",
