@@ -523,6 +523,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.title': 'Drei-Länder-Rundfahrt 2026: Straßensperrungen im Engadin und Val Müstair',
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.excerpt': 'Am Sonntag, den 28. Juni 2026 wird der Umbrailpass geschlossen und auf den Hauptstraßen zwischen Val Müstair und Unterengadin sind Verlangsamungen geplant.',
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.imageAlt': 'Radfahrer und Straßensperrungsschilder auf einem Schweizer Pass während einer Veranstaltung.',
+    'blog.article.industria-farmaceutica-svizzera-dati.title': 'Pharmazie: Daten und Herausforderungen der Schweizer Wirtschaft',
+    'blog.article.industria-farmaceutica-svizzera-dati.excerpt': 'Schlüsselsektor für Export und Beschäftigung: 56.000 Arbeitsplätze und 100 Milliarden Exporte im Jahr 2025.',
+    'blog.article.industria-farmaceutica-svizzera-dati.imageAlt': 'Pharmazeutisches Forschungslabor in der Schweiz',
 };
 
 export default blogMetaChDe;

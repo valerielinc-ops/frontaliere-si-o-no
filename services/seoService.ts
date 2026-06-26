@@ -4222,6 +4222,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rotary-club-lugano-presidenza': { name: 'novita', path: '/articoli-svizzera/rotary-club-lugano-presidenza/', parent: 'blog' },
     'blog-busto-arsizio-orientation-days-aslam': { name: 'Formazione', path: '/articoli-frontaliere/busto-arsizio-orientation-days-aslam', parent: 'blog' },
     'blog-giro-tre-paesi-chiusure-traffico-2026': { name: 'Chiusure traffico 2026', path: '/articoli-svizzera/giro-tre-paesi-chiusure-traffico-2026/', parent: 'blog' },
+    'blog-industria-farmaceutica-svizzera-dati': { name: 'Farmaceutica', path: '/articoli-svizzera/industria-farmaceutica-svizzera-dati/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

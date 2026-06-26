@@ -523,6 +523,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.title': 'Giro dei Tre Paesi 2026: chiusure stradali in Engadina e Val Müstair',
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.excerpt': 'Domenica 28 giugno 2026 il Passo dell\'Umbrail sarà chiuso e rallentamenti previsti sulle principali vie tra Val Müstair e Bassa Engadina.',
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.imageAlt': 'Ciclisti e segnaletica di chiusura sul passo svizzero durante un evento.',
+    'blog.article.industria-farmaceutica-svizzera-dati.title': 'Farmaceutica: dati e sfide dell\'economia svizzera',
+    'blog.article.industria-farmaceutica-svizzera-dati.excerpt': 'Settore chiave per export e occupazione: 56mila posti e 100 miliardi di export nel 2025.',
+    'blog.article.industria-farmaceutica-svizzera-dati.imageAlt': 'Laboratorio di ricerca farmaceutica in Svizzera',
 };
 
 export default blogMetaChIt;

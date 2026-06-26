@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2946,
+ "numberOfItems": 2947,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7592,7 +7592,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2943, "name": "Telelavoro frontaliere: quanti giorni nel 2026", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontaliere-quanti-giorni-2026` },
           { "@type": "ListItem", "position": 2944, "name": "Cambio di presidenza al Rotary Club Lugano", "url": `${BASE_URL}/articoli-frontaliere/rotary-club-lugano-presidenza` },
           { "@type": "ListItem", "position": 2945, "name": "A Busto Arsizio partono gli Orientation Days di...", "url": `${BASE_URL}/articoli-frontaliere/busto-arsizio-orientation-days-aslam` },
-          { "@type": "ListItem", "position": 2946, "name": "Giro dei Tre Paesi 2026: chiusure stradali in E...", "url": `${BASE_URL}/articoli-frontaliere/giro-tre-paesi-chiusure-traffico-2026` }
+          { "@type": "ListItem", "position": 2946, "name": "Giro dei Tre Paesi 2026: chiusure stradali in E...", "url": `${BASE_URL}/articoli-frontaliere/giro-tre-paesi-chiusure-traffico-2026` },
+          { "@type": "ListItem", "position": 2947, "name": "Farmaceutica: dati e sfide dell'economia svizzera", "url": `${BASE_URL}/articoli-frontaliere/industria-farmaceutica-svizzera-dati` }
  ]
  },
  {

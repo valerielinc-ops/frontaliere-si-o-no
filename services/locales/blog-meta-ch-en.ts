@@ -523,6 +523,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.title': 'Tour of the Three Countries 2026: road closures in the Engadine and Val Müstair',
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.excerpt': 'On Sunday, June 28, 2026, the Umbrail Pass will be closed and there will be slowdowns on the main roads between Val Müstair and Lower Engadine.',
     'blog.article.giro-tre-paesi-chiusure-traffico-2026.imageAlt': 'Cyclists and road closure signs on a Swiss pass during an event.',
+    'blog.article.industria-farmaceutica-svizzera-dati.title': 'Pharmaceuticals: data and challenges of the Swiss economy',
+    'blog.article.industria-farmaceutica-svizzera-dati.excerpt': 'Key export and employment sector: 56,000 jobs and 100 billion exports in 2025.',
+    'blog.article.industria-farmaceutica-svizzera-dati.imageAlt': 'Pharmaceutical research laboratory in Switzerland',
 };
 
 export default blogMetaChEn;
