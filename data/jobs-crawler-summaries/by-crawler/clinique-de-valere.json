@@ -1,16 +1,16 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-06-25T22:04:51.410Z",
+  "generatedAt": "2026-06-26T11:07:22.550Z",
   "total": 3,
   "newCount": 1,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9507,
-  "avgDurationMs": 9507,
+  "durationMs": 9394,
+  "avgDurationMs": 9394,
   "durationHistory": [
-    9507
+    9394
   ],
   "newJobs": [
     {
@@ -27,7 +27,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133565744-receptionniste",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-25T22:04:46.320Z",
+      "crawledAt": "2026-06-26T11:07:17.354Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -40,8 +40,8 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-25",
-      "datePosted": "2026-06-25",
+      "postedDate": "2026-06-26",
+      "datePosted": "2026-06-26",
       "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133565349-receptionniste",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-25T22:04:47.284Z",
+      "crawledAt": "2026-06-26T11:07:18.296Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131591781-cdi-ergotherapeute",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-25T22:04:48.257Z",
+      "crawledAt": "2026-06-26T11:07:19.298Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000127440690-medecin-responsable-d-unite",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-25T22:04:49.194Z",
+      "crawledAt": "2026-06-26T11:07:20.294Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -167,47 +167,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-de-valere-3686b997380d",
-      "slug": "maestro-di-sport-in-attivita-fisica-adattata-clinique-de-valere-sion",
-      "company": "Clinique de Valère",
-      "companyKey": "clinique-de-valere",
-      "companyDomain": "swissmedical.net",
-      "title": "Maitre de sport en activité physique adaptée",
-      "needsRetranslation": false,
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133023945-maitre-de-sport-en-activite-physique-adaptee",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133023945-maitre-de-sport-en-activite-physique-adaptee",
-      "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-25T10:58:23.777Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "streetAddress": "Rue Pré-Fleuri 16, 1950 Sion",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-19",
-      "datePosted": "2026-06-19",
-      "firstSeenAt": "2026-06-19T12:18:02.719Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
