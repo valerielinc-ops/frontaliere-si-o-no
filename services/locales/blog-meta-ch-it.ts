@@ -496,6 +496,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ospedale-friburgo-posto-lavoro.title': 'Ospedale di Friburgo cerca infermieri con contratto di 12 mesi',
     'blog.article.ospedale-friburgo-posto-lavoro.excerpt': 'L\'ospedale di Friburgo cerca infermieri con contratto CDD di 12 mesi al 60-100% di impiego',
     'blog.article.ospedale-friburgo-posto-lavoro.imageAlt': 'Ospedale svizzero con personale sanitario',
+    'blog.article.lohnausweis-frontalieri.title': 'Lohnausweis: guida completa per frontalieri in Svizzera',
+    'blog.article.lohnausweis-frontalieri.excerpt': 'Tutto quello che devi sapere sul certificato di salario svizzero: cos\'è, come si ottiene e perché è importante per i frontalieri',
+    'blog.article.lohnausweis-frontalieri.imageAlt': 'Certificato di salario svizzero con dettagli sulle deduzioni e sugli assegni',
 };
 
 export default blogMetaChIt;

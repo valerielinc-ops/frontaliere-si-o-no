@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2935,
+ "numberOfItems": 2936,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7581,7 +7581,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2932, "name": "Notifica fine attività G: procedura SPOP nel Ca...", "url": `${BASE_URL}/articoli-frontaliere/notifica-fine-attivita-g-spop-ticino` },
           { "@type": "ListItem", "position": 2933, "name": "Lavorare da Lidl a Locarno: guida alla ricerca", "url": `${BASE_URL}/articoli-frontaliere/ricerca-lavoro-lidl-locarno` },
           { "@type": "ListItem", "position": 2934, "name": "Prezzi del Diesel in Svizzera: aggiornamento od...", "url": `${BASE_URL}/articoli-frontaliere/prezzi-diesel-svizzera-oggi` },
-          { "@type": "ListItem", "position": 2935, "name": "Ospedale di Friburgo cerca infermieri con contr...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-friburgo-posto-lavoro` }
+          { "@type": "ListItem", "position": 2935, "name": "Ospedale di Friburgo cerca infermieri con contr...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-friburgo-posto-lavoro` },
+          { "@type": "ListItem", "position": 2936, "name": "Lohnausweis: guida completa per frontalieri in ...", "url": `${BASE_URL}/articoli-frontaliere/lohnausweis-frontalieri` }
  ]
  },
  {
