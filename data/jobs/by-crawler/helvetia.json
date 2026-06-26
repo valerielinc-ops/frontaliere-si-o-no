@@ -1906,7 +1906,7 @@
       "slug": "group-governance-consulente-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
       "slugByLocale": {
         "it": "group-governance-consulente-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "en": "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+        "en": "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
         "de": "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
         "fr": "group-governance-conseiller-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
       },
@@ -1950,13 +1950,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
+        "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
+        "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "en": [
+          "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
           "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "fr": [
@@ -4033,7 +4035,7 @@
         "it": "gestione-delle-operazioni-e-del-traffico-senior-w-m-d-a-tempo-parziale-a-tempo-pieno-helvetia-versicherungen-dubendorf",
         "en": "senior-acquisition-transaction-management-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
         "de": "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "fr": "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
+        "fr": "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -4076,7 +4078,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "acquisizione-senior-transaction-management-f-m-d-part-time-fulltime-helvetia-versicherungen-dubendorf"
+        "acquisizione-senior-transaction-management-f-m-d-part-time-fulltime-helvetia-versicherungen-dubendorf",
+        "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4087,6 +4090,7 @@
           "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "fr": [
+          "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen",
           "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ]
       },
@@ -4329,7 +4333,7 @@
       "slug": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf",
       "slugByLocale": {
         "it": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf",
-        "en": "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
+        "en": "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
         "de": "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
         "fr": "customer-care-specialiste-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf"
       },
@@ -4373,13 +4377,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
+        "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "en": [
+          "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
           "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "fr": [
@@ -5966,7 +5972,7 @@
       "slug": "specialista-in-e-banking-m-p-d-helvetia-versicherungen-solothurn",
       "slugByLocale": {
         "it": "specialista-in-e-banking-m-p-d-helvetia-versicherungen-solothurn",
-        "en": "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn",
+        "en": "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
         "de": "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
         "fr": "specialiste-des-banques-electroniques-m-w-d-helvetia-versicherungen-solothurn"
       },
@@ -6012,6 +6018,7 @@
       "previousSlugs": [
         "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
         "e-banking-specializzato-m-f-d-helvetia-versicherungen-solothurn",
+        "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn",
         "banque-electronique-specialisee-m-f-d-helvetia-versicherungen-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -6020,6 +6027,7 @@
           "e-banking-specializzato-m-f-d-helvetia-versicherungen-solothurn"
         ],
         "en": [
+          "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn",
           "fachspezialist-e-banking-m-w-d-helvetia-solothurn"
         ],
         "fr": [
@@ -8191,25 +8199,26 @@
         "it": "collaboratore-trice-credit-operations-m-w-d-helvetia-versicherungen-solothurn",
         "en": "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
         "de": "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
-        "fr": "collaborateur-operations-de-credit-h-f-d-helvetia-versicherungen-solothurn"
+        "fr": "operations-de-credit-aux-employes-f-m-d-helvetia-versicherungen-solothurn"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
       "companyDomain": "helvetia.com",
       "title": "Mitarbeiter Credit Operations (w/m/d)",
       "titleByLocale": {
-        "it": "Collaboratore Credit Operations (m/f/d)",
+        "it": "Collaboratore/trice Credit Operations (w/m/d)",
         "en": "Employee Credit Operations (f/m/d)",
         "de": "Mitarbeiter Credit Operations (w/m/d)",
-        "fr": "Collaborateur Opérations de Crédit (h/f/d)"
+        "fr": "Opérations de crédit aux employés (f/m/d)"
       },
       "description": "Die Baloise Bank ist Teil von Helvetia Baloise Schweiz - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Wir bieten Lösungen, die Sicherheit bieten und gleichzeitig neue Wege eröffnen. Wir zeichnen uns aus durch eine einzigartige Kultur, bei welcher der Mensch im Mittelpunkt steht. Wir glauben an den Wert von Vertrauen, Respekt und Integrität\n\nAufgaben:\n• Du behältst die Übersicht über die Pendenzenverwaltung inklusive Kaufpreiszahlungen\n\n• Du regelst Käufe, Ablösungen sowie Rückzahlungen\n\n• Du tauschst dich regelmässig mit Grundbuchämtern, Notaren, Versicherungen und Drittbanken aus\n\n• Du übernimmst schrittweise die Freigabe von Kreditlimiten und der Schlusskontrolle\n\n• Du erledigst die Abwicklung für das Privat- und Unternehmenskundengeschäft, führst Qualitätskontrollen vor der Aussetzung der Kreditlimiten durch\n\nAnforderungen:\n• Du verfügst über ein ausgeprägtes analytisches Denkvermögen und kannst dank deiner raschen Auffassungsgabe und wissbegierigen Art schnell komplexe Zusammenhänge verstehen\n\n• Dank deiner strukturierten, pflichtbewussten und eigenverantwortlichen Arbeitsweise behältst du auch in hektischen Situationen den Überblick\n\n• Kaufmännische Grundausbildung bei einer Schweizer Bank\n\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Französisch\n\n• Berufserfahrung im Bereich Finanzieren\n\n• Teamfähige und initiative Persönlichkeit mit Durchsetzungsvermögen\n\n• Kenntnisse der Bankensoftware Avaloq sind von Vorteil\n\nDas Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
       "descriptionByLocale": {
-        "it": "Descrizione Baloise Bank fa parte di Helvetia Baloise Svizzera, un innovativo fornitore di servizi finanziari che collega in modo intelligente le banche e le assicurazioni. Offriamo soluzioni che offrono sicurezza e al tempo stesso aprono nuovi percorsi. Ci contraddistinguono per una cultura unica in cui le persone sono al centro.\n\nCrediamo nel valore della fiducia, del rispetto e dell'integrità Mansioni - Voi tenete traccia della gestione del saldo compresi i pagamenti dei prezzi di acquisto - Voi regolate acquisti, rimborsi e rimborsi - Voi regolarmente scambiate con uffici di catasto, notarili, compagnie di assicurazione e banche terze - Voi prendete gradualmente in consegna il rilascio dei limiti di credito e il controllo finale - Voi completate il regolamento per il settore clienti privati e aziendali, eseguire controlli di qualità prima di sospendere i limiti di credito da Dettagli- Avete una forte analisi\n\nPensare alla capacità e capire rapidamente relazioni complesse grazie alla vostra rapida comprensione e natura customistica - Grazie al vostro modo di lavorare strutturato, dubbioso e auto-responsabile, è possibile tenere traccia della situazione - Formazione commerciale di base presso una banca svizzera - Ottima abilità linguistiche orali e scritte in francese - Esperienza professionale nel campo della finanza - Capacità di squadra e iniziativa Personalità con poteri assertivi - Conoscenza del software bancario Avaloq è un vantaggio Co offamo Il team Helvetia è\n\ninsieme, se conta.\n\nSiamo persone su cui ci si può fidare. Ci sosteniamo e lavoriamo l'uno per l'altro. Siamo persone che si chiedono e si promuovono l'un l'altro. Sono entusiasti e si ispirano l'un l'altro.",
-        "en": "Descrizione Baloise Bank is part of Helvetia Baloise Switzerland, an innovative financial service provider that connects banking and insurance in a smart way. We offer solutions that offer security and at the same time open new paths. We are distinguished by a unique culture in which people are the focus.\n\nWe believe in the value of trust, respect and integrity Mansioni - You keep track of the balance management including purchase price payments - You regulate purchases, redemptions and repayments - You regularly exchange with land registry offices, notars, insurance companies and third-party banks - You gradually take over the release of credit limits and the final control - You complete the settlement for the private and corporate customer business, perform quality controls before suspending credit limits by Requisiti - You have a strong analytical\n\nThinking ability and can quickly understand complex relationships thanks to your rapid understanding and inquisitive nature - Thanks to your structured, dubious and self-responsible way of working, you can keep track of the situation - Basic commercial training at a Swiss bank - Very good oral and written language skills in French - Professional experience in the field of finance - Team-capable and initiative Personality with assertive powers - Knowledge of banking software Avaloq are an advantage Cosa offiamo The Helvetia team is\n\ntogether, if it matters.\n\nWe are people on whom one can rely. We support each other and work for each other. We are people who demand and promote each other. They are enthusiastic and inspire each other. This is how we shape the future together. &Los!",
-        "de": "Descrizione\nDie Baloise Bank ist Teil von Helvetia Baloise Schweiz - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Wir bieten Lösungen, die Sicherheit bieten und gleichzeitig neue Wege eröffnen. Wir zeichnen uns aus durch eine einzigartige Kultur, bei welcher der Mensch im Mittelpunkt steht. Wir glauben an den Wert von Vertrauen, Respekt und Integrität\n\nMansioni\n- Du behältst die Übersicht über die Pendenzenverwaltung inklusive Kaufpreiszahlungen\n- Du regelst Käufe, Ablösungen sowie Rückzahlungen\n- Du tauschst dich regelmässig mit Grundbuchämtern, Notaren, Versicherungen und Drittbanken aus\n- Du übernimmst schrittweise die Freigabe von Kreditlimiten und der Schlusskontrolle\n- Du erledigst die Abwicklung für das Privat- und Unternehmenskundengeschäft, führst Qualitätskontrollen vor der Aussetzung der Kreditlimiten durch\n\nRequisiti\n- Du verfügst über ein ausgeprägtes analytisches Denkvermögen und kannst dank deiner raschen Auffassungsgabe und wissbegierigen Art schnell komplexe Zusammenhänge verstehen\n- Dank deiner strukturierten, pflichtbewussten und eigenverantwortlichen Arbeitsweise behältst du auch in hektischen Situationen den Überblick\n- Kaufmännische Grundausbildung bei einer Schweizer Bank\n- Sehr gute mündliche und schriftliche Sprachkenntnisse in Französisch\n- Berufserfahrung im Bereich Finanzieren\n- Teamfähige und initiative Persönlichkeit mit Durchsetzungsvermögen\n- Kenntnisse der Bankensoftware Avaloq sind von Vorteil\n\nCosa offriamo\nDas Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
-        "fr": "Descrizione Baloise Bank fait partie d'Helvetia Baloise Suisse, un fournisseur de services financiers innovant qui relie les banques et les assurances de manière intelligente. Nous offrons des solutions qui offrent la sécurité et en même temps ouvrent de nouvelles voies. Nous sommes distingués par une culture unique dans laquelle les gens sont au centre des préoccupations.\n\nNous croyons en la valeur de la confiance, du respect et de l'intégrité Mansioni - Vous gardez le suivi de la gestion de la balance y compris les paiements de prix d'achat - Vous réglez les achats, les rachats et les remboursements - Vous échangez régulièrement avec les bureaux d'enregistrement foncier, les notaires, les compagnies d'assurance et les banques tierces - Vous prenez progressivement en charge la libération des limites de crédit et le contrôle final - Vous terminez le règlement pour les entreprises clientes privées et corporate, effectuez des contrôles de qualité avant de suspendre les limites de crédit par Requisiti - Vous avez une analyse forte\n\nCapacité de penser et de comprendre rapidement des relations complexes grâce à votre compréhension rapide et à votre nature inquisitive - Grâce à votre façon de travailler structurée, douteuse et auto-réponsible, vous pouvez suivre la situation - Formation commerciale de base dans une banque suisse - Très bonne maîtrise de la langue orale et écrite en français - Expérience professionnelle dans le domaine de la finance - Capacité d'équipe et d'initiative Personnalité avec des pouvoirs d'affirmation - Connaissance des logiciels bancaires Avaloq sont un avantage Cosa offiamo L'équipe d'Hlvetia est\n\nensemble, si ça compte.\n\nNous sommes des gens sur qui on peut compter. Nous nous soutenons et travaillons les uns pour les autres. Nous sommes des gens qui se demandent et se font la promotion. Ils sont enthousiastes et s'inspirent. C'est ainsi que nous façonnons l'avenir ensemble. &Los!"
+        "it": "Die Baloise Bank ist Teil von Helvetia Baloise Schweiz - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Wir bieten Lösungen, die Sicherheit bieten und gleichzeitig neue Wege eröffnen. Wir zeichnen uns aus durch eine einzigartige Kultur, bei welcher der Mensch im Mittelpunkt steht. Wir glauben an den Wert von Vertrauen, Respekt und Integrität Aufgaben:\n• Du behältst die Übersicht über die Pendenzenverwaltung inklusive Kaufpreiszahlungen\n• Du regelst Käufe, Ablösungen sowie Rückzahlungen\n• Du tauschst dich regelmässig mit Grundbuchämtern, Notaren, Versicherungen und Drittbanken aus\n• Du übernimmst schrittweise die Freigabe von Kreditlimiten und der Schlusskontrolle\n• Du erledigst die Abwicklung für das Privat- und Unternehmenskundengeschäft, führst Qualitätskontrollen vor der Aussetzung der Kreditlimiten durch Anforderungen:\n• Du verfügst über ein ausgeprägtes analytisches Denkvermögen und kannst dank deiner raschen Auffassungsgabe und wissbegierigen Art schnell komplexe Zusammenhänge verstehen\n• Dank deiner strukturierten, pflichtbewussten und eigenverantwortlichen Arbeitsweise behältst du auch in hektischen Situationen den Überblick\n• Kaufmännische Grundausbildung bei einer Schweizer Bank\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Französisch\n• Berufserfahrung im Bereich Finanzieren\n• Teamfähige und initiative Persönlichkeit mit Durchsetzungsvermögen\n• Kenntnisse der Bankensoftware Avaloq sind von Vorteil Das Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
+        "en": "Die Baloise Bank ist Teil von Helvetia Baloise Schweiz - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Wir bieten Lösungen, die Sicherheit bieten und gleichzeitig neue Wege eröffnen. Wir zeichnen uns aus durch eine einzigartige Kultur, bei welcher der Mensch im Mittelpunkt steht. Wir glauben an den Wert von Vertrauen, Respekt und Integrität Aufgaben:\n• Du behältst die Übersicht über die Pendenzenverwaltung inklusive Kaufpreiszahlungen\n• Du regelst Käufe, Ablösungen sowie Rückzahlungen\n• Du tauschst dich regelmässig mit Grundbuchämtern, Notaren, Versicherungen und Drittbanken aus\n• Du übernimmst schrittweise die Freigabe von Kreditlimiten und der Schlusskontrolle\n• Du erledigst die Abwicklung für das Privat- und Unternehmenskundengeschäft, führst Qualitätskontrollen vor der Aussetzung der Kreditlimiten durch Anforderungen:\n• Du verfügst über ein ausgeprägtes analytisches Denkvermögen und kannst dank deiner raschen Auffassungsgabe und wissbegierigen Art schnell komplexe Zusammenhänge verstehen\n• Dank deiner strukturierten, pflichtbewussten und eigenverantwortlichen Arbeitsweise behältst du auch in hektischen Situationen den Überblick\n• Kaufmännische Grundausbildung bei einer Schweizer Bank\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Französisch\n• Berufserfahrung im Bereich Finanzieren\n• Teamfähige und initiative Persönlichkeit mit Durchsetzungsvermögen\n• Kenntnisse der Bankensoftware Avaloq sind von Vorteil Das Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
+        "de": "Die Baloise Bank ist Teil von Helvetia Baloise Schweiz - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Wir bieten Lösungen, die Sicherheit bieten und gleichzeitig neue Wege eröffnen. Wir zeichnen uns aus durch eine einzigartige Kultur, bei welcher der Mensch im Mittelpunkt steht. Wir glauben an den Wert von Vertrauen, Respekt und Integrität Aufgaben:\n• Du behältst die Übersicht über die Pendenzenverwaltung inklusive Kaufpreiszahlungen\n• Du regelst Käufe, Ablösungen sowie Rückzahlungen\n• Du tauschst dich regelmässig mit Grundbuchämtern, Notaren, Versicherungen und Drittbanken aus\n• Du übernimmst schrittweise die Freigabe von Kreditlimiten und der Schlusskontrolle\n• Du erledigst die Abwicklung für das Privat- und Unternehmenskundengeschäft, führst Qualitätskontrollen vor der Aussetzung der Kreditlimiten durch Anforderungen:\n• Du verfügst über ein ausgeprägtes analytisches Denkvermögen und kannst dank deiner raschen Auffassungsgabe und wissbegierigen Art schnell komplexe Zusammenhänge verstehen\n• Dank deiner strukturierten, pflichtbewussten und eigenverantwortlichen Arbeitsweise behältst du auch in hektischen Situationen den Überblick\n• Kaufmännische Grundausbildung bei einer Schweizer Bank\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Französisch\n• Berufserfahrung im Bereich Finanzieren\n• Teamfähige und initiative Persönlichkeit mit Durchsetzungsvermögen\n• Kenntnisse der Bankensoftware Avaloq sind von Vorteil Das Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
+        "fr": "Die Baloise Bank ist Teil von Helvetia Baloise Schweiz - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Wir bieten Lösungen, die Sicherheit bieten und gleichzeitig neue Wege eröffnen. Wir zeichnen uns aus durch eine einzigartige Kultur, bei welcher der Mensch im Mittelpunkt steht. Wir glauben an den Wert von Vertrauen, Respekt und Integrität Aufgaben:\n• Du behältst die Übersicht über die Pendenzenverwaltung inklusive Kaufpreiszahlungen\n• Du regelst Käufe, Ablösungen sowie Rückzahlungen\n• Du tauschst dich regelmässig mit Grundbuchämtern, Notaren, Versicherungen und Drittbanken aus\n• Du übernimmst schrittweise die Freigabe von Kreditlimiten und der Schlusskontrolle\n• Du erledigst die Abwicklung für das Privat- und Unternehmenskundengeschäft, führst Qualitätskontrollen vor der Aussetzung der Kreditlimiten durch Anforderungen:\n• Du verfügst über ein ausgeprägtes analytisches Denkvermögen und kannst dank deiner raschen Auffassungsgabe und wissbegierigen Art schnell komplexe Zusammenhänge verstehen\n• Dank deiner strukturierten, pflichtbewussten und eigenverantwortlichen Arbeitsweise behältst du auch in hektischen Situationen den Überblick\n• Kaufmännische Grundausbildung bei einer Schweizer Bank\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Französisch\n• Berufserfahrung im Bereich Finanzieren\n• Teamfähige und initiative Persönlichkeit mit Durchsetzungsvermögen\n• Kenntnisse der Bankensoftware Avaloq sind von Vorteil Das Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!"
       },
+      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.helvetia.com/offene-stellen/mitarbeiter-credit-operations-w-m-d/02eb2e71-d72a-4d6f-9b00-6d24f1d725dc",
@@ -8233,16 +8242,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
-        "operations-de-credit-aux-employes-f-m-d-helvetia-versicherungen-solothurn"
+        "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn"
         ],
         "fr": [
-          "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
-          "operations-de-credit-aux-employes-f-m-d-helvetia-versicherungen-solothurn"
+          "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.391Z",
@@ -8266,25 +8273,26 @@
         "it": "young-insurance-professional-m-w-d-2026-agenzia-generale-thurgau-helvetia-versicherungen-frauenfeld",
         "en": "young-insurance-professional-w-m-d-2026-generalagentur-thurgau-helvetia-frauenfeld",
         "de": "young-insurance-professional-w-m-d-2026-generalagentur-thurgau-helvetia-frauenfeld",
-        "fr": "jeune-professionnel-en-assurance-h-f-d-2026-generalagentur-thurgau-helvetia-versicherungen-frauenfeld"
+        "fr": "jeunes-professionnels-de-l-assurance-f-m-d-2026-agence-generale-thurgau-helvetia-versicherungen-frauenfeld"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
       "companyDomain": "helvetia.com",
       "title": "Young Insurance Professional (w/m/d) 2026 - Generalagentur Thurgau",
       "titleByLocale": {
-        "it": "Giovane Professionista Assicurativo (w/m/d) 2026 - Generalagentur Thurgau",
+        "it": "Young Insurance Professional (w/m/d) 2026 - agenzia generale Thurgau",
         "en": "Young Insurance Professional (f/m/d) 2026 - General Agency Thurgau",
         "de": "Young Insurance Professional (w/m/d) 2026 - Generalagentur Thurgau",
-        "fr": "Jeune Professionnel en Assurance (h/f/d) 2026 - Generalagentur Thurgau"
+        "fr": "Jeunes professionnels de l'assurance (f/m/d) 2026 - Agence générale Thurgau"
       },
       "description": "Auf unseren Nachwuchs setzen wir besonderes Augenmerk und unterstützen beim Berufsstart, wo wir nur können. Wer für frischen Wind sorgen will und es dabei auch gerne mal mit dem Kopf durch die Wand probiert, dem bieten wir den optimalen Startschuss ins Berufsleben. Wir freuen uns auf deine Bewerbung.<br/><br/>Die Ausbildung zur/zum \"Young Insurance Professional\" bei Helvetia bedeutet, eigene Stärken zu entdecken und der persönlichen Leidenschaft nachzugehen. Bist du bereit, bei uns durchzustarten? Dann sende uns online deine Bewerbungsunterlagen: CV, Schul- und Arbeitszeugnisse - ein Motivationsschreiben benötigen wir nicht!\n\nAufgaben:\n• Du kommunizierst mit unseren internen und externen Kunden schriftlich, telefonisch und persönlich\n\n• Du übernimmst selbstständig unterschiedliche versicherungsspezifische Tätigkeiten, bspw. die Erstellung von Versicherungsofferten, Bearbeitung von Schadenfällen usw.\n\n• Du übernimmst selbstständig die Verantwortung über deine Entwicklung – das Ziel ist, dass du deine persönliche Leidenschaft entdeckst\n\n• Du wirst sowohl im operativen Tagesgeschäft wie auch bei der Unterstützung und Erarbeitung von diversen Projekten eingesetzt\n\n• Dauer: September 2026 bis August 2027\n\nAnforderungen:\n• Du verfügst über eine gymnasiale Maturität, eine Berufs- oder Fachmaturität oder eine abgeschlossene kaufmännische Lehre mit eidgenössischem Fähigkeitszeugnis (EFZ)\n\n• Deine schnelle Auffassungsgabe und dein logisches Denkvermögen zählen zu deinen Stärken\n\n• Du interessierst dich für Menschen und deren Umgang mit Risiken und Sicherheit\n\n• Du bringst die Offenheit mit, Neues zu entdecken und mit verschiedenen Menschen zusammenzuarbeiten\n\nDas Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
       "descriptionByLocale": {
-        "it": "Prestiamo particolare attenzione ai nostri giovani e li sosteniamo nell'iniziare la loro carriera dove possiamo solo prenderci cura di loro. Chi vuole prendersi cura del vento fresco e vuole mettere la testa attraverso il muro, offriamo il miglior inizio alla loro vita professionale. Attendiamo con ansia la vostra domanda. La formazione per il \"Young Insurance Professional\" a Helvetia significa scoprire i propri punti di forza e perseguire la loro passione personale. Sei pronto a iniziare da noi?\n\nInviaci i documenti della tua domanda online: CV, certificati scolastici e di lavoro - non abbiamo bisogno di una lettera di motivazione! Compiti: • Lei comunica con i nostri clienti interni ed esterni per iscritto, telefono e personale • Lei assume indipendentemente diverse attività assicurative specifiche, ad esempio la creazione di assicurati, la gestione dei sinistri ecc.\n\n• Ti prendi la responsabilità del tuo sviluppo indipendentemente. l'obiettivo è quello di scoprire la tua passione personale • Sei utilizzato nel business operativo quotidiano e nel supporto e sviluppo di vari progetti • Durata: da settembre 2026 ad agosto 2027 Requisiti: • Hai una maturità ginnastica, una maturità professionale o specializzata o un apprendistato commerciale completato con un Eidgenössisches Abilitätszeugung (EFZ) • La tua comprensione rapida e le tue capacità di pensiero logico sono tra i tuoi punti di forza • Sei interessato\n\nper le persone e la loro gestione dei rischi e della sicurezza • Condividi l'apertura a scoprire nuove cose e a lavorare con persone diverse Il team Helvetia è lì insieme quando si tratta di esso.\n\nSiamo persone su cui ci si può fidare. Ci sosteniamo e lavoriamo l'uno per l'altro. Siamo persone che si chiedono e si promuovono l'un l'altro. Sono entusiasti e si ispirano l'un l'altro.",
-        "en": "We pay special attention to our young people and support them in starting their careers where we can only take care of them. Those who want to take care of the fresh wind and like to put their heads through the wall, we offer the best start to their professional lives. We look forward to your application. The training for the \"Young Insurance Professional\" at Helvetia means discovering their own strengths and pursuing their personal passion. Are you ready to start with us?\n\nThen send us your application documents online: CV, school and work certificates - we do not need a letter of motivation! Tasks: • You communicate with our internal and external customers in writing, telephone and personal • You take on independently different insurance-specific activities, e.g. the creation of insurance policyholders, handling of claims etc.\n\n• You take responsibility for your development independently – the goal is to discover your personal passion • You are used in the daily operational business as well as in supporting and developing various projects • Duration: September 2026 to August 2027 Requirements: • You have a gymnasal maturity, a professional or specialist maturity or a completed commercial apprenticeship with an Eidgenössisches Abilitätszeugung (EFZ) • Your fast understanding and logical thinking skills are among your strengths • You are interested in\n\nfor people and their handling of risks and safety • You share the openness to discover new things and to work with different people The Helvetia team is there together when it comes to it.\n\nWe are people on whom one can rely. We support each other and work for each other. We are people who demand and promote each other. They are enthusiastic and inspire each other. This is how we shape the future together. &Los!",
-        "de": "Auf unseren Nachwuchs setzen wir besonderes Augenmerk und unterstützen beim Berufsstart, wo wir nur können. Wer für frischen Wind sorgen will und es dabei auch gerne mal mit dem Kopf durch die Wand probiert, dem bieten wir den optimalen Startschuss ins Berufsleben. Wir freuen uns auf deine Bewerbung.\n\nDie Ausbildung zur/zum \"Young Insurance Professional\" bei Helvetia bedeutet, eigene Stärken zu entdecken und der persönlichen Leidenschaft nachzugehen. Bist du bereit, bei uns durchzustarten? Dann sende uns online deine Bewerbungsunterlagen: CV, Schul- und Arbeitszeugnisse - ein Motivationsschreiben benötigen wir nicht!\n\nAufgaben:\n• Du kommunizierst mit unseren internen und externen Kunden schriftlich, telefonisch und persönlich\n\n• Du übernimmst selbstständig unterschiedliche versicherungsspezifische Tätigkeiten, bspw. die Erstellung von Versicherungsofferten, Bearbeitung von Schadenfällen usw.\n\n• Du übernimmst selbstständig die Verantwortung über deine Entwicklung – das Ziel ist, dass du deine persönliche Leidenschaft entdeckst\n\n• Du wirst sowohl im operativen Tagesgeschäft wie auch bei der Unterstützung und Erarbeitung von diversen Projekten eingesetzt\n\n• Dauer: September 2026 bis August 2027\n\nAnforderungen:\n• Du verfügst über eine gymnasiale Maturität, eine Berufs- oder Fachmaturität oder eine abgeschlossene kaufmännische Lehre mit eidgenössischem Fähigkeitszeugnis (EFZ)\n\n• Deine schnelle Auffassungsgabe und dein logisches Denkvermögen zählen zu deinen Stärken\n\n• Du interessierst dich für Menschen und deren Umgang mit Risiken und Sicherheit\n\n• Du bringst die Offenheit mit, Neues zu entdecken und mit verschiedenen Menschen zusammenzuarbeiten\n\nDas Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
-        "fr": "Nous portons une attention particulière à nos jeunes et les soutenons dans leur carrière où nous ne pouvons que nous occuper d'eux. Ceux qui veulent prendre soin du vent frais et aiment passer la tête à travers le mur, nous offrons le meilleur début de leur vie professionnelle. Nous attendons votre candidature. La formation du «Young Insurance Professional» chez Helvetia signifie découvrir leurs propres forces et poursuivre leur passion personnelle. Êtes-vous prêt à commencer par nous?\n\nEnvoyez-nous ensuite vos documents de candidature en ligne : CV, certificat d'études et certificat de travail - nous n'avons pas besoin d'une lettre de motivation! Tâches : • Vous communiquez avec nos clients internes et externes par écrit, par téléphone et par des personnes personnelles • Vous exercez des activités indépendantes spécifiques à l'assurance, par exemple la création de souscripteurs d'assurance, le traitement des sinistres, etc.\n\n• Vous êtes responsable de votre développement indépendamment – l'objectif est de découvrir votre passion personnelle • Vous êtes utilisé dans le secteur opérationnel quotidien ainsi que dans le soutien et le développement de divers projets • Durée : septembre 2026 à août 2027 Exigences : • Vous avez une maturité gymnasale, une maturité professionnelle ou spécialisée ou un apprentissage commercial complété avec un Eidgenössisches Abilitätszeugung (EFZ) • Votre compréhension rapide et vos compétences de pensée logiques sont parmi vos points forts • Vous êtes intéressé par\n\npour les gens et leur gestion des risques et de la sécurité • Vous partagez l'ouverture pour découvrir de nouvelles choses et travailler avec différentes personnes L'équipe d'Helvetia est là quand il s'agit d'elle.\n\nNous sommes des gens sur qui on peut compter. Nous nous soutenons et travaillons les uns pour les autres. Nous sommes des gens qui se demandent et se font la promotion. Ils sont enthousiastes et s'inspirent. C'est ainsi que nous façonnons l'avenir ensemble. &Los!"
+        "it": "Auf unseren Nachwuchs setzen wir besonderes Augenmerk und unterstützen beim Berufsstart, wo wir nur können. Wer für frischen Wind sorgen will und es dabei auch gerne mal mit dem Kopf durch die Wand probiert, dem bieten wir den optimalen Startschuss ins Berufsleben. Wir freuen uns auf deine Bewerbung.<br/><br/>Die Ausbildung zur/zum \"Young Insurance Professional\" bei Helvetia bedeutet, eigene Stärken zu entdecken und der persönlichen Leidenschaft nachzugehen. Bist du bereit, bei uns durchzustarten? Dann sende uns online deine Bewerbungsunterlagen: CV, Schul- und Arbeitszeugnisse - ein Motivationsschreiben benötigen wir nicht! Aufgaben:\n• Du kommunizierst mit unseren internen und externen Kunden schriftlich, telefonisch und persönlich\n• Du übernimmst selbstständig unterschiedliche versicherungsspezifische Tätigkeiten, bspw. die Erstellung von Versicherungsofferten, Bearbeitung von Schadenfällen usw.\n• Du übernimmst selbstständig die Verantwortung über deine Entwicklung – das Ziel ist, dass du deine persönliche Leidenschaft entdeckst\n• Du wirst sowohl im operativen Tagesgeschäft wie auch bei der Unterstützung und Erarbeitung von diversen Projekten eingesetzt\n• Dauer: September 2026 bis August 2027 Anforderungen:\n• Du verfügst über eine gymnasiale Maturität, eine Berufs- oder Fachmaturität oder eine abgeschlossene kaufmännische Lehre mit eidgenössischem Fähigkeitszeugnis (EFZ)\n• Deine schnelle Auffassungsgabe und dein logisches Denkvermögen zählen zu deinen Stärken\n• Du interessierst dich für Menschen und deren Umgang mit Risiken und Sicherheit\n• Du bringst die Offenheit mit, Neues zu entdecken und mit verschiedenen Menschen zusammenzuarbeiten Das Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
+        "en": "Auf unseren Nachwuchs setzen wir besonderes Augenmerk und unterstützen beim Berufsstart, wo wir nur können. Wer für frischen Wind sorgen will und es dabei auch gerne mal mit dem Kopf durch die Wand probiert, dem bieten wir den optimalen Startschuss ins Berufsleben. Wir freuen uns auf deine Bewerbung.<br/><br/>Die Ausbildung zur/zum \"Young Insurance Professional\" bei Helvetia bedeutet, eigene Stärken zu entdecken und der persönlichen Leidenschaft nachzugehen. Bist du bereit, bei uns durchzustarten? Dann sende uns online deine Bewerbungsunterlagen: CV, Schul- und Arbeitszeugnisse - ein Motivationsschreiben benötigen wir nicht! Aufgaben:\n• Du kommunizierst mit unseren internen und externen Kunden schriftlich, telefonisch und persönlich\n• Du übernimmst selbstständig unterschiedliche versicherungsspezifische Tätigkeiten, bspw. die Erstellung von Versicherungsofferten, Bearbeitung von Schadenfällen usw.\n• Du übernimmst selbstständig die Verantwortung über deine Entwicklung – das Ziel ist, dass du deine persönliche Leidenschaft entdeckst\n• Du wirst sowohl im operativen Tagesgeschäft wie auch bei der Unterstützung und Erarbeitung von diversen Projekten eingesetzt\n• Dauer: September 2026 bis August 2027 Anforderungen:\n• Du verfügst über eine gymnasiale Maturität, eine Berufs- oder Fachmaturität oder eine abgeschlossene kaufmännische Lehre mit eidgenössischem Fähigkeitszeugnis (EFZ)\n• Deine schnelle Auffassungsgabe und dein logisches Denkvermögen zählen zu deinen Stärken\n• Du interessierst dich für Menschen und deren Umgang mit Risiken und Sicherheit\n• Du bringst die Offenheit mit, Neues zu entdecken und mit verschiedenen Menschen zusammenzuarbeiten Das Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
+        "de": "Auf unseren Nachwuchs setzen wir besonderes Augenmerk und unterstützen beim Berufsstart, wo wir nur können. Wer für frischen Wind sorgen will und es dabei auch gerne mal mit dem Kopf durch die Wand probiert, dem bieten wir den optimalen Startschuss ins Berufsleben. Wir freuen uns auf deine Bewerbung.<br/><br/>Die Ausbildung zur/zum \"Young Insurance Professional\" bei Helvetia bedeutet, eigene Stärken zu entdecken und der persönlichen Leidenschaft nachzugehen. Bist du bereit, bei uns durchzustarten? Dann sende uns online deine Bewerbungsunterlagen: CV, Schul- und Arbeitszeugnisse - ein Motivationsschreiben benötigen wir nicht! Aufgaben:\n• Du kommunizierst mit unseren internen und externen Kunden schriftlich, telefonisch und persönlich\n• Du übernimmst selbstständig unterschiedliche versicherungsspezifische Tätigkeiten, bspw. die Erstellung von Versicherungsofferten, Bearbeitung von Schadenfällen usw.\n• Du übernimmst selbstständig die Verantwortung über deine Entwicklung – das Ziel ist, dass du deine persönliche Leidenschaft entdeckst\n• Du wirst sowohl im operativen Tagesgeschäft wie auch bei der Unterstützung und Erarbeitung von diversen Projekten eingesetzt\n• Dauer: September 2026 bis August 2027 Anforderungen:\n• Du verfügst über eine gymnasiale Maturität, eine Berufs- oder Fachmaturität oder eine abgeschlossene kaufmännische Lehre mit eidgenössischem Fähigkeitszeugnis (EFZ)\n• Deine schnelle Auffassungsgabe und dein logisches Denkvermögen zählen zu deinen Stärken\n• Du interessierst dich für Menschen und deren Umgang mit Risiken und Sicherheit\n• Du bringst die Offenheit mit, Neues zu entdecken und mit verschiedenen Menschen zusammenzuarbeiten Das Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!",
+        "fr": "Auf unseren Nachwuchs setzen wir besonderes Augenmerk und unterstützen beim Berufsstart, wo wir nur können. Wer für frischen Wind sorgen will und es dabei auch gerne mal mit dem Kopf durch die Wand probiert, dem bieten wir den optimalen Startschuss ins Berufsleben. Wir freuen uns auf deine Bewerbung.<br/><br/>Die Ausbildung zur/zum \"Young Insurance Professional\" bei Helvetia bedeutet, eigene Stärken zu entdecken und der persönlichen Leidenschaft nachzugehen. Bist du bereit, bei uns durchzustarten? Dann sende uns online deine Bewerbungsunterlagen: CV, Schul- und Arbeitszeugnisse - ein Motivationsschreiben benötigen wir nicht! Aufgaben:\n• Du kommunizierst mit unseren internen und externen Kunden schriftlich, telefonisch und persönlich\n• Du übernimmst selbstständig unterschiedliche versicherungsspezifische Tätigkeiten, bspw. die Erstellung von Versicherungsofferten, Bearbeitung von Schadenfällen usw.\n• Du übernimmst selbstständig die Verantwortung über deine Entwicklung – das Ziel ist, dass du deine persönliche Leidenschaft entdeckst\n• Du wirst sowohl im operativen Tagesgeschäft wie auch bei der Unterstützung und Erarbeitung von diversen Projekten eingesetzt\n• Dauer: September 2026 bis August 2027 Anforderungen:\n• Du verfügst über eine gymnasiale Maturität, eine Berufs- oder Fachmaturität oder eine abgeschlossene kaufmännische Lehre mit eidgenössischem Fähigkeitszeugnis (EFZ)\n• Deine schnelle Auffassungsgabe und dein logisches Denkvermögen zählen zu deinen Stärken\n• Du interessierst dich für Menschen und deren Umgang mit Risiken und Sicherheit\n• Du bringst die Offenheit mit, Neues zu entdecken und mit verschiedenen Menschen zusammenzuarbeiten Das Team Helvetia ist gemeinsam da, wenn es drauf ankommt. Wir sind Menschen, auf die man sich verlassen kann. Die einander unterstützen und sich füreinander einsetzen. Die einander fordern und fördern. Die begeistern und sich begeistern lassen. So gestalten wir gemeinsam die Zukunft. &Los!"
       },
+      "needsRetranslation": true,
       "location": "Frauenfeld",
       "canton": "TG",
       "url": "https://jobs.helvetia.com/offene-stellen/young-insurance-professional-w-m-d-2026-generalagentur-thurgau/0c1629d6-5b0f-4698-b0a8-e4793e500954",
@@ -8308,16 +8316,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "young-insurance-professional-w-m-d-2026-generalagentur-thurgau-helvetia-frauenfeld",
-        "jeunes-professionnels-de-l-assurance-f-m-d-2026-agence-generale-thurgau-helvetia-versicherungen-frauenfeld"
+        "young-insurance-professional-w-m-d-2026-generalagentur-thurgau-helvetia-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "young-insurance-professional-w-m-d-2026-generalagentur-thurgau-helvetia-frauenfeld"
         ],
         "fr": [
-          "young-insurance-professional-w-m-d-2026-generalagentur-thurgau-helvetia-frauenfeld",
-          "jeunes-professionnels-de-l-assurance-f-m-d-2026-agence-generale-thurgau-helvetia-versicherungen-frauenfeld"
+          "young-insurance-professional-w-m-d-2026-generalagentur-thurgau-helvetia-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.394Z",
@@ -8782,7 +8788,7 @@
         "en": "senior-consultant-asset-management-m-f-d-80-100-helvetia-basel-hauptsitz",
         "it": "senior-consultant-asset-management-m-f-d-80-100-helvetia-basel-hauptsitz",
         "de": "senior-consultant-asset-management-m-f-d-80-100-helvetia-basel-hauptsitz",
-        "fr": "consultant-principal-gestion-des-actifs-m-f-j-80-100-helvetia-versicherungen-basel-hauptsitz"
+        "fr": "senior-consultant-asset-management-m-f-d-80-100-helvetia-basel-hauptsitz"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8841,12 +8847,12 @@
     },
     {
       "id": "helvetia-bc79137f307c",
-      "slug": "consulente-del-cliente-f-m-d-regione-di-assicurazione-schwyz-part-time-fulltime-helvetia-versicherungen-schwyz",
+      "slug": "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz",
-        "it": "consulente-del-cliente-f-m-d-regione-di-assicurazione-schwyz-part-time-fulltime-helvetia-versicherungen-schwyz",
-        "en": "customer-consultant-f-m-d-insurance-region-schwyz-part-time-full-time-helvetia-versicherungen-schwyz",
-        "fr": "consultant-client-f-m-d-region-d-assurance-schwyz-temps-partiel-temps-plein-helvetia-versicherungen-schwyz"
+        "it": "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz",
+        "en": "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz",
+        "fr": "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8903,7 +8909,6 @@
       },
       "firstSeenAt": "2026-06-26T11:25:44.906Z",
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz",
         "consulente-assicurativo-m-f-d-a-tempo-pieno-tempo-parziale-helvetia-versicherungen-schwyz",
         "customer-consultant-f-m-d-insurance-schwyz-part-time-full-time-helvetia-versicherungen-schwyz",
         "kundenberater-w-m-d-versicherung-schwyz-teilzeit-vollzeit-helvetia-schwyz",
@@ -8913,18 +8918,7 @@
         "customer-consultant-f-m-d-insurance-kussnacht-schwyz-part-time-full-time-helvetia-versicherungen-schwyz",
         "kundenberater-w-m-d-versicherung-kussnacht-schwyz-teilzeit-vollzeit-helvetia-schwyz",
         "consultant-client-f-m-d-assurance-kussnacht-schwyz-temps-partiel-temps-plein-helvetia-versicherungen-schwyz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz"
-        ],
-        "en": [
-          "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz"
-        ],
-        "fr": [
-          "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz"
-        ]
-      }
+      ]
     },
     {
       "id": "helvetia-d9931d64adf8",

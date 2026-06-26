@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-26T15:24:30.495Z",
+    "label": "before",
+    "total": 17648,
+    "needsRetranslation": 5652,
+    "suppressed": 495,
+    "incomplete": 901,
+    "complete": 16747,
+    "missingByLocale": {
+      "it": 392,
+      "en": 276,
+      "de": 501,
+      "fr": 116
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 818
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Liebherr",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-26T15:29:50.088Z",
+    "label": "after",
+    "total": 17648,
+    "needsRetranslation": 2611,
+    "suppressed": 495,
+    "incomplete": 901,
+    "complete": 16747,
+    "missingByLocale": {
+      "it": 392,
+      "en": 276,
+      "de": 501,
+      "fr": 116
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 818
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Liebherr",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 3
+      }
+    ]
   }
 ]
