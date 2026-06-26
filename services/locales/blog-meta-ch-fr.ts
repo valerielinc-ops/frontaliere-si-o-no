@@ -502,6 +502,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.agenzie-interinali-ticino.title': 'Agences intérimaires à Lugano : comment fonctionnent-elles',
     'blog.article.agenzie-interinali-ticino.excerpt': 'Découvrez comment fonctionnent les agences intérimaires à Lugano et ce qui change pour les travailleurs frontaliers',
     'blog.article.agenzie-interinali-ticino.imageAlt': 'Agence de placement temporaire à Lugano',
+    'blog.article.ticinese-frontalieri.title': 'Nouveautés pour les frontaliers au Tessin',
+    'blog.article.ticinese-frontalieri.excerpt': 'Mises à jour sur les nouveautés concernant les frontaliers au Tessin',
+    'blog.article.ticinese-frontalieri.imageAlt': 'Paysage urbain de Lugano avec des travailleurs frontaliers',
 };
 
 export default blogMetaChFr;

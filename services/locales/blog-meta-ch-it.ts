@@ -502,6 +502,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.agenzie-interinali-ticino.title': 'Agenzie interinali a Lugano: come funzionano',
     'blog.article.agenzie-interinali-ticino.excerpt': 'Scopri come operano le agenzie interinali a Lugano e cosa cambia per i lavoratori frontalieri',
     'blog.article.agenzie-interinali-ticino.imageAlt': 'Agenzia interinale a Lugano',
+    'blog.article.ticinese-frontalieri.title': 'Novità per i frontalieri in Ticino',
+    'blog.article.ticinese-frontalieri.excerpt': 'Aggiornamenti sulle novità riguardanti i frontalieri in Ticino',
+    'blog.article.ticinese-frontalieri.imageAlt': 'Panorama di Lugano con lavoratori frontalieri',
 };
 
 export default blogMetaChIt;
