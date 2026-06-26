@@ -8163,6 +8163,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.busto-arsizio-orientation-days-aslam.title': 'In Busto Arsizio starten die Aslam Orientation Days für junge Migranten',
     'blog.article.busto-arsizio-orientation-days-aslam.excerpt': 'Auf dem MalpensaFiere in Busto Arsizio, dem ersten Termin des Bridge-Projekts, um 300 junge Migranten in 4 Jahren auszubilden und auf die Nachfrage nach qualifizierten Arbeitskräften zu reagieren.',
     'blog.article.busto-arsizio-orientation-days-aslam.imageAlt': 'Junge Migranten bei einer Schulungsveranstaltung in Busto Arsizio',
+    'blog.article.uonboldo-tributo-lucio-dalla.title': 'Uboldo: Sommer 2026 Teil mit „Hallo Lucio“',
+    'blog.article.uonboldo-tributo-lucio-dalla.excerpt': 'Am 27. Juni wird der Park Falcone e Borsellino in Uboldo eine Hommage an Lucio Dalla mit dem kostenlosen Konzert der Gruppe „Volpi senza Tana“ veranstalten und die Ausstellung „Aria d \'Estate“ eröffnen.',
+    'blog.article.uonboldo-tributo-lucio-dalla.imageAlt': 'Open-Air-Konzert im Park von Uboldo zu Ehren von Lucio Dalla',
 };
 
 export default blogMetaDe;

@@ -25875,6 +25875,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'uonboldo-tributo-lucio-dalla',
+ category: 'novita',
+ date: '2026-06-26T20:06:32.116Z',
+ image: '/images/blog/uonboldo-tributo-lucio-dalla.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
