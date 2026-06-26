@@ -490,6 +490,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ricerca-lavoro-lidl-locarno.title': 'Travailler de Lidl à Locarno : guide de recherche',
     'blog.article.ricerca-lavoro-lidl-locarno.excerpt': 'Comment s\'orienter dans la recherche d\'emploi à la succursale Lidl de Locarno et comprendre les exigences requises sur le marché du travail suisse.',
     'blog.article.ricerca-lavoro-lidl-locarno.imageAlt': 'Lidl Locarno, supermarché en Suisse',
+    'blog.article.prezzi-diesel-svizzera-oggi.title': 'Prix du diesel en Suisse : mise à jour d\'aujourd\' hui',
+    'blog.article.prezzi-diesel-svizzera-oggi.excerpt': 'Découvrez les derniers prix du diesel en Suisse et comment ils varient dans les différentes régions',
+    'blog.article.prezzi-diesel-svizzera-oggi.imageAlt': 'Pompe à carburant diesel dans une station-service suisse de jour',
 };
 
 export default blogMetaChFr;

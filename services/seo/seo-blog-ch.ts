@@ -6258,6 +6258,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-diesel-svizzera-oggi': {
+    title: 'Prezzi del Diesel in Svizzera: aggiornamento odierno',
+    description: 'Scopri gli ultimi prezzi del diesel in Svizzera e come variano nelle diverse regioni. Utilizza strumenti online per trovare i prezzi più convenienti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, diesel, aggiornamento, odierno',
+    ogTitle: 'Prezzi Diesel Svizzera: Ultimi Aggiornamenti',
+    ogDescription: 'Scopri gli ultimi prezzi del diesel in Svizzera e come variano nelle diverse regioni. Utilizza strumenti online per trovare i prezzi più convenienti.',
+    canonicalPath: '/articoli-svizzera/prezzi-diesel-svizzera-oggi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi del Diesel in Svizzera: aggiornamento odierno",
+      "description": "Scopri gli ultimi prezzi del diesel in Svizzera e come variano nelle diverse regioni. Utilizza strumenti online per trovare i prezzi più convenienti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prezzi-diesel-svizzera-oggi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di carburante diesel in un distributore svizzero di giorno"
+      },
+      "datePublished": "2026-06-26T01:54:44+00:00",
+      "dateModified": "2026-06-26T01:54:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-diesel-svizzera-oggi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
