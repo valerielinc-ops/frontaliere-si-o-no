@@ -514,6 +514,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scambio-dati-salariali-italia-legge.title': 'Exchange of salary data with Italy, the applicable law arrives',
     'blog.article.scambio-dati-salariali-italia-legge.excerpt': 'New legislation for the exchange of salary information between Switzerland and Italy',
     'blog.article.scambio-dati-salariali-italia-legge.imageAlt': 'Commuter crossing the Swiss-Italian border',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.title': 'Frontier teleworking: how many days in 2026',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.excerpt': 'New rules on teleworking for frontier workers: 25% maximum, bilateral agreement and fiscal impact',
+    'blog.article.telelavoro-frontaliere-quanti-giorni-2026.imageAlt': 'A person working remotely with a laptop',
 };
 
 export default blogMetaChEn;

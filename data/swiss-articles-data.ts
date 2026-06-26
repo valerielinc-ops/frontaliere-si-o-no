@@ -1538,6 +1538,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'telelavoro-frontaliere-quanti-giorni-2026',
+    category: 'fiscale',
+    date: '2026-06-26T08:25:41.141Z',
+    image: '/images/blog/telelavoro-frontaliere-quanti-giorni-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

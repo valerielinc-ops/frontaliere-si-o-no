@@ -4218,6 +4218,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pflegehilfe-svizzera': { name: 'Assistenza anziani', path: '/articoli-svizzera/pflegehilfe-svizzera/', parent: 'blog' },
     'blog-fmi-economia-svizzera-resiliente': { name: 'Economia Svizzera', path: '/articoli-svizzera/fmi-economia-svizzera-resiliente/', parent: 'blog' },
     'blog-scambio-dati-salariali-italia-legge': { name: 'Fiscalità frontalieri', path: '/articoli-svizzera/scambio-dati-salariali-italia-legge/', parent: 'blog' },
+    'blog-telelavoro-frontaliere-quanti-giorni-2026': { name: 'Telelavoro frontalieri', path: '/articoli-svizzera/telelavoro-frontaliere-quanti-giorni-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
