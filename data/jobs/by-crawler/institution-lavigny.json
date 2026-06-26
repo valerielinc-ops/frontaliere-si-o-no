@@ -812,11 +812,11 @@
     },
     {
       "id": "institution-lavigny-ca9209fe1041",
-      "slug": "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60",
+      "slug": "assistente-socio-educativo-educatore-specializzato-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60",
-        "it": "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60",
-        "en": "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60",
+        "it": "assistente-socio-educativo-educatore-specializzato-institution-de-lavigny-lavigny",
+        "en": "socio-educational-assistant-specialist-educator-institution-de-lavigny-lavigny",
         "de": "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60"
       },
       "company": "Institution de Lavigny",
@@ -873,7 +873,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:51:21.882Z"
+      "firstSeenAt": "2026-06-26T11:51:21.882Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60"
+        ],
+        "en": [
+          "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60"
+      ]
     },
     {
       "id": "institution-lavigny-f25b3714120e",

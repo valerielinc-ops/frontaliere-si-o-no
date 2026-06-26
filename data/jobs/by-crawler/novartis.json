@@ -4665,7 +4665,7 @@
         "en": "pricing-access-manager-novartis-ch",
         "it": "gestore-prezzi-e-accesso-novartis-rotkreuz-office",
         "de": "pricing-access-manager-novartis-ch",
-        "fr": "pricing-access-manager-novartis-ch"
+        "fr": "gestionnaire-de-prix-et-d-acces-novartis-rotkreuz-office"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4723,6 +4723,9 @@
       "firstSeenAt": "2026-06-26T11:51:14.174Z",
       "previousSlugsByLocale": {
         "it": [
+          "pricing-access-manager-novartis-ch"
+        ],
+        "fr": [
           "pricing-access-manager-novartis-ch"
         ]
       },

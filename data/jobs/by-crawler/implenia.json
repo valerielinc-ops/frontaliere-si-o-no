@@ -363,12 +363,12 @@
     },
     {
       "id": "implenia-84fab217db27",
-      "slug": "epc-proposal-manager-w-m-d-implenia-ch",
+      "slug": "responsabile-della-proposta-epc-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "epc-proposal-manager-w-m-d-implenia-ch",
-        "it": "epc-proposal-manager-w-m-d-implenia-ch",
+        "it": "responsabile-della-proposta-epc-f-m-d-implenia-glattpark-opfikon",
         "en": "epc-proposal-manager-w-m-d-implenia-ch",
-        "fr": "epc-proposal-manager-w-m-d-implenia-ch"
+        "fr": "gestionnaire-des-propositions-de-la-cbe-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -423,16 +423,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:55:31.742Z"
+      "firstSeenAt": "2026-06-26T11:55:31.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "epc-proposal-manager-w-m-d-implenia-ch"
+        ],
+        "fr": [
+          "epc-proposal-manager-w-m-d-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "epc-proposal-manager-w-m-d-implenia-ch"
+      ]
     },
     {
       "id": "implenia-faf7677588da",
-      "slug": "projektleiter-real-estate-development-80-100-implenia-glattpark-opfikon",
+      "slug": "project-manager-sviluppo-immobiliare-80-100-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "projektleiter-real-estate-development-80-100-implenia-ch",
-        "it": "projektleiter-real-estate-development-80-100-implenia-glattpark-opfikon",
+        "it": "project-manager-sviluppo-immobiliare-80-100-implenia-glattpark-opfikon",
         "en": "projektleiter-real-estate-development-80-100-implenia-ch",
-        "fr": "projektleiter-real-estate-development-80-100-implenia-ch"
+        "fr": "gestionnaire-de-projet-developpement-immobilier-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -477,11 +488,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-real-estate-development-80-100-implenia-ch",
+          "projektleiter-real-estate-development-80-100-implenia-glattpark-opfikon"
+        ],
+        "fr": [
           "projektleiter-real-estate-development-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-real-estate-development-80-100-implenia-ch"
+        "projektleiter-real-estate-development-80-100-implenia-ch",
+        "projektleiter-real-estate-development-80-100-implenia-glattpark-opfikon"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -1538,7 +1554,7 @@
         "de": "senior-manager-m-a-m-w-d-80-100-implenia-ch",
         "it": "senior-manager-m-a-m-w-d-80-100-implenia-ch",
         "en": "senior-manager-m-a-m-w-d-80-100-implenia-ch",
-        "fr": "senior-manager-m-a-m-w-d-80-100-implenia-ch"
+        "fr": "aine-gestionnaire-m-a-m-f-j-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1601,8 +1617,8 @@
       "slugByLocale": {
         "de": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch",
         "it": "polier-im-lehrgerust-e-bruckenbau-100-m-w-d-implenia-glattpark-opfikon",
-        "en": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch",
-        "fr": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
+        "en": "polisher-in-teaching-scaffolding-and-bridge-construction-100-f-m-implenia-glattpark-opfikon",
+        "fr": "polonais-dans-l-enseignement-de-l-echafaudage-et-la-construction-de-ponts-100-f-m-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1648,6 +1664,12 @@
       "previousSlugsByLocale": {
         "it": [
           "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
+        ],
+        "en": [
+          "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
+        ],
+        "fr": [
+          "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -1669,12 +1691,12 @@
     },
     {
       "id": "implenia-e3abbef746d2",
-      "slug": "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
+      "slug": "responsabile-costruzione-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-        "it": "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
-        "en": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-        "fr": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
+        "it": "responsabile-costruzione-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+        "en": "construction-manager-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+        "fr": "directeur-de-la-construction-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1719,11 +1741,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
+          "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
+        ],
+        "fr": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
+        "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
+        "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1741,12 +1771,12 @@
     },
     {
       "id": "implenia-842c33471f75",
-      "slug": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
+      "slug": "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
-        "it": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
-        "en": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
-        "fr": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
+        "it": "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
+        "en": "planning-manager-of-the-renovation-project-jelmoli-f-m-d-implenia-glattpark-opfikon",
+        "fr": "responsable-de-la-planification-du-projet-de-renovation-jelmoli-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1801,16 +1831,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:55:26.301Z"
+      "firstSeenAt": "2026-06-26T11:55:26.301Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
+        ],
+        "en": [
+          "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
+        ],
+        "fr": [
+          "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
+      ]
     },
     {
       "id": "implenia-3d88eb17bdcd",
-      "slug": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
+      "slug": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
       "slugByLocale": {
         "de": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-        "it": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-        "en": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-        "fr": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        "it": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+        "en": "rental-specialist-real-estate-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+        "fr": "location-de-biens-immobiliers-specialises-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1865,7 +1909,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:55:25.364Z"
+      "firstSeenAt": "2026-06-26T11:55:25.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        ],
+        "en": [
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        ],
+        "fr": [
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-92226629d4e9",
@@ -1937,8 +1995,8 @@
       "slugByLocale": {
         "de": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
         "it": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
-        "en": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
-        "fr": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
+        "en": "project-assistance-datacenter-80-100-w-m-d-implenia-glattpark-opfikon",
+        "fr": "centre-de-donnees-d-aide-au-projet-80-100-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1997,12 +2055,12 @@
     },
     {
       "id": "implenia-63806d318f4f",
-      "slug": "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
+      "slug": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "it": "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
-        "en": "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
-        "fr": "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
+        "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2047,11 +2105,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "polier-schadstoffsanierung-w-m-d-implenia-ch"
+          "polier-schadstoffsanierung-w-m-d-implenia-ch",
+          "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
-        "polier-schadstoffsanierung-w-m-d-implenia-ch"
+        "polier-schadstoffsanierung-w-m-d-implenia-ch",
+        "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2879,8 +2945,8 @@
       "slugByLocale": {
         "de": "leitung-kundenbuchhaltung-m-w-d-opfikon-bern-oder-winterthur-80-100-implenia-ch",
         "it": "leitung-kundenbuchhaltung-m-w-d-opfikon-bern-o-winterthur-80-100-implenia-thurgauerstrasse-101a-8152-opfikon",
-        "en": "leitung-kundenbuchhaltung-m-w-d-opfikon-bern-oder-winterthur-80-100-implenia-ch",
-        "fr": "leitung-kundenbuchhaltung-m-w-d-opfikon-bern-oder-winterthur-80-100-implenia-ch"
+        "en": "head-of-customer-accounting-m-f-d-opfikon-bern-or-winterthur-80-100-implenia-thurgauerstrasse-101a-8152-opfikon",
+        "fr": "responsable-de-la-comptabilite-client-m-f-d-opfikon-berne-ou-winterthur-80-100-implenia-thurgauerstrasse-101a-8152"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2925,6 +2991,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-kundenbuchhaltung-m-w-d-opfikon-bern-oder-winterthur-80-100-implenia-ch"
+        ],
+        "en": [
+          "leitung-kundenbuchhaltung-m-w-d-opfikon-bern-oder-winterthur-80-100-implenia-ch"
+        ],
+        "fr": [
           "leitung-kundenbuchhaltung-m-w-d-opfikon-bern-oder-winterthur-80-100-implenia-ch"
         ]
       },
@@ -3025,12 +3097,12 @@
     },
     {
       "id": "implenia-23486558f35e",
-      "slug": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
+      "slug": "fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "it": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "en": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "fr": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        "it": "fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
+        "en": "pension-fund-m-f-d-bern-40-60-implenia-glattpark-opfikon",
+        "fr": "caisse-de-retraite-m-f-j-berne-40-60-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3085,7 +3157,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:55:17.707Z"
+      "firstSeenAt": "2026-06-26T11:55:17.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
+      ]
     },
     {
       "id": "implenia-95ef097ca0d2",
@@ -3223,12 +3309,12 @@
     },
     {
       "id": "implenia-ffa974df4648",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch",
+      "slug": "gestione-della-proprieta-m-f-d-basilea-50-implenia-basel-wohnen-1",
       "slugByLocale": {
         "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch",
-        "it": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch",
-        "en": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+        "it": "gestione-della-proprieta-m-f-d-basilea-50-implenia-basel-wohnen-1",
+        "en": "property-management-m-f-d-basel-50-implenia-basel-wohnen-1",
+        "fr": "gestion-des-biens-m-f-d-bale-50-implenia-basel-wohnen-1"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3283,7 +3369,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:55:16.185Z"
+      "firstSeenAt": "2026-06-26T11:55:16.185Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+      ]
     },
     {
       "id": "implenia-1edd1dc8503f",
