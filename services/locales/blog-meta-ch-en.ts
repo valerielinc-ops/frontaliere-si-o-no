@@ -493,6 +493,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-diesel-svizzera-oggi.title': 'Diesel Prices in Switzerland: Update Today',
     'blog.article.prezzi-diesel-svizzera-oggi.excerpt': 'Check out the latest diesel prices in Switzerland and how they vary in different regions',
     'blog.article.prezzi-diesel-svizzera-oggi.imageAlt': 'Diesel fuel pump at a Swiss gas station during daytime',
+    'blog.article.ospedale-friburgo-posto-lavoro.title': 'Freiburg Hospital seeks nurses with 12-month contract',
+    'blog.article.ospedale-friburgo-posto-lavoro.excerpt': 'Freiburg hospital is looking for nurses with a 12-month CDD contract at 60-100% employment',
+    'blog.article.ospedale-friburgo-posto-lavoro.imageAlt': 'Swiss hospital with healthcare staff',
 };
 
 export default blogMetaChEn;

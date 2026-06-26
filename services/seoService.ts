@@ -4210,6 +4210,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-notifica-fine-attivita-g-spop-ticino': { name: 'Notifica fine attività G', path: '/articoli-svizzera/notifica-fine-attivita-g-spop-ticino/', parent: 'blog' },
     'blog-ricerca-lavoro-lidl-locarno': { name: 'Lavorare da Lidl', path: '/articoli-svizzera/ricerca-lavoro-lidl-locarno/', parent: 'blog' },
     'blog-prezzi-diesel-svizzera-oggi': { name: 'Prezzi Carburanti', path: '/articoli-svizzera/prezzi-diesel-svizzera-oggi/', parent: 'blog' },
+    'blog-ospedale-friburgo-posto-lavoro': { name: 'Lavoro Svizzera', path: '/articoli-svizzera/ospedale-friburgo-posto-lavoro/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
