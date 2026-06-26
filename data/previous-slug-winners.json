@@ -693,12 +693,12 @@
     "canton": "AG"
   },
   "AG::it::verkaufer-in-im-stundenlohn-denner": {
-    "winnerJobIdentifier": "denner-91bae124c945",
-    "winnerCanonical": "venditore-nel-salario-orario-denner-spreitenbach",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-06-22T00:00:00.000Z",
-    "score": 0.1,
-    "candidatesCount": 3,
+    "winnerJobIdentifier": "denner-76629a4676a2",
+    "winnerCanonical": "venditore-nel-salario-orario-denner-ag-spreitenbach",
+    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::zusteller-in-briefe-und-pakete-post": {
@@ -8388,12 +8388,12 @@
     "canton": "BE"
   },
   "BE::it::deine-aufgaben-hirslanden-search-134": {
-    "winnerJobIdentifier": "hirslanden-3766d153662f",
-    "winnerCanonical": "mansioni-richieste-hirslanden-klinik-search-aa422d",
-    "decidedAt": "2026-06-12T00:00:00.000Z",
+    "winnerJobIdentifier": "hirslanden-79dccdeec5e6",
+    "winnerCanonical": "mansioni-richieste-hirslanden-klinik-search-e2b42a",
+    "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2222,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::deine-aufgaben-hirslanden-search-139": {
@@ -8445,6 +8445,15 @@
     "winnerJobIdentifier": "hirslanden-e0eeab82f20b",
     "winnerCanonical": "mansioni-richieste-hirslanden-klinik-search-d4d4af",
     "decidedAt": "2026-06-12T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::deine-aufgaben-hirslanden-search-53": {
+    "winnerJobIdentifier": "hirslanden-a8f4ec02bcdd",
+    "winnerCanonical": "mansioni-richieste-hirslanden-klinik-search-7db5fa",
+    "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 2,
@@ -17055,12 +17064,12 @@
     "canton": "GR"
   },
   "GR::it::sachbearbeiter-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-13a3fad6731d",
-    "winnerCanonical": "sachbearbeiter-in-kantonale-verwaltung-graubunden-samedan",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "winnerJobIdentifier": "kanton-gr-db29cb6008d6",
+    "winnerCanonical": "sachbearbeiter-in-kantonale-verwaltung-graubunden-thusis",
+    "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2222,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::schnupperlehre-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis": {
@@ -17820,12 +17829,12 @@
     "canton": "LU"
   },
   "LU::de::deine-aufgaben-hirslanden-search": {
-    "winnerJobIdentifier": "hirslanden-31e5a5b1f22c",
-    "winnerCanonical": "sitzwache-a-60-vorwiegend-im-nachtdienst-hirslanden-luzern",
-    "decidedAt": "2026-06-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hirslanden-5fd0dd51d70a",
+    "winnerCanonical": "studium-zur-pflegefachfrau-zum-pflegefachmann-hf-hirslanden-luzern",
+    "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.0909,
-    "candidatesCount": 33,
+    "candidatesCount": 32,
     "canton": "LU"
   },
   "LU::de::employe-de-service-civil-comme-membre-de-l-equipe-informatique-projet-101160-luzerner-kantonsspital-luks-luzern": {
@@ -19569,7 +19578,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "unterassistent-in-2027-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
     "canton": "SG"
@@ -19587,7 +19596,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1875,
     "candidatesCount": 2,
     "canton": "SG"
@@ -19596,7 +19605,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 2,
     "canton": "SG"
@@ -19605,7 +19614,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1875,
     "candidatesCount": 2,
     "canton": "SG"
@@ -19614,7 +19623,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "unterassistent-in-2028-hoch-health-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -19623,7 +19632,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "unterassistent-in-2027-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -19632,7 +19641,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "unterassistent-in-2027-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -19641,7 +19650,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "unterassistent-in-2028-hoch-health-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 2,
     "canton": "SG"
@@ -19713,7 +19722,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
     "canton": "SG"
@@ -19722,7 +19731,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3125,
     "candidatesCount": 1,
     "canton": "SG"
@@ -19965,7 +19974,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
@@ -19992,7 +20001,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20001,7 +20010,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20010,7 +20019,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20019,7 +20028,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5455,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20028,7 +20037,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20037,7 +20046,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5833,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20046,7 +20055,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.8,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20055,17 +20064,17 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3": {
-    "winnerJobIdentifier": "hoch-health-b123a57c8f09",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-bettenmanagement-80-100-hoch-health-st-gallen",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
-    "score": 0.8182,
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20118,7 +20127,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20163,7 +20172,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20190,7 +20199,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20208,7 +20217,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "unterassistent-in-2028-hoch-health-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20217,7 +20226,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "unterassistent-in-2027-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20280,7 +20289,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20298,7 +20307,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "unterassistent-in-2028-hoch-health-st-gallen",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20307,7 +20316,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "unterassistent-in-2027-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20370,7 +20379,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "unterassistent-in-2028-hoch-health-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20379,7 +20388,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "unterassistent-in-2027-hoch-health-uznach",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20388,7 +20397,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20424,7 +20433,7 @@
     "winnerJobIdentifier": "hoch-health-cb9c477fc1ea",
     "winnerCanonical": "stationsleiter-in-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20433,7 +20442,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20442,7 +20451,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20451,7 +20460,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20460,7 +20469,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.625,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20469,7 +20478,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "unterassistent-in-2026-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20487,7 +20496,7 @@
     "winnerJobIdentifier": "hoch-health-a4043a5911e8",
     "winnerCanonical": "unterassistent-in-2027-hoch-health-wil",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.625,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20496,7 +20505,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "unterassistent-in-2028-hoch-health-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20505,7 +20514,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "unterassistent-in-2028-hoch-health-st-gallen",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20514,7 +20523,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "unterassistent-in-2027-hoch-health-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20523,7 +20532,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "unterassistent-in-2028-hoch-health-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20541,7 +20550,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20559,7 +20568,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1765,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20568,7 +20577,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20577,7 +20586,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1765,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20586,7 +20595,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20595,7 +20604,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20604,7 +20613,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20613,7 +20622,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7,
     "candidatesCount": 2,
     "canton": "SG"
@@ -20685,7 +20694,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "diploma-in-nursing-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20694,7 +20703,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "diploma-in-nursing-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.375,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20898,11 +20907,11 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or": {
-    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
-    "score": 0.4615,
+    "winnerJobIdentifier": "hoch-health-5a811b32e6d6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-springerpool-20-100-hoch-health-st-gallen-2",
+    "decidedAt": "2026-06-25T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
+    "score": 0.5714,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -20928,7 +20937,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "diploma-in-nursing-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20937,7 +20946,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20946,7 +20955,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20955,7 +20964,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5455,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20964,7 +20973,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20982,7 +20991,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.8,
     "candidatesCount": 1,
     "canton": "SG"
@@ -20991,7 +21000,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21054,7 +21063,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21117,7 +21126,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21135,7 +21144,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21144,7 +21153,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21243,7 +21252,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "diploma-in-nursing-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5385,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21252,7 +21261,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21369,7 +21378,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21378,7 +21387,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2727,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21387,7 +21396,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21423,7 +21432,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21432,7 +21441,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21441,7 +21450,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21450,7 +21459,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21459,7 +21468,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "professional-health-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21477,7 +21486,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21486,7 +21495,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21495,7 +21504,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21504,7 +21513,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21513,7 +21522,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21522,7 +21531,7 @@
     "winnerJobIdentifier": "hoch-health-7d4ee093b492",
     "winnerCanonical": "sub-assistant-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21549,7 +21558,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "assistant-junior-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21567,7 +21576,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3125,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21576,7 +21585,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21585,7 +21594,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21603,7 +21612,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21612,7 +21621,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "assistant-junior-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21630,7 +21639,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "assistant-junior-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21639,7 +21648,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7,
     "candidatesCount": 2,
     "canton": "SG"
@@ -21711,7 +21720,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "infirmier-e-diplome-e-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21720,7 +21729,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "infirmier-e-diplome-e-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.375,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21954,7 +21963,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "infirmier-e-diplome-e-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21963,7 +21972,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21972,7 +21981,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21981,7 +21990,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5455,
     "candidatesCount": 1,
     "canton": "SG"
@@ -21990,7 +21999,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22008,7 +22017,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.8,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22017,7 +22026,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22080,7 +22089,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22152,7 +22161,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22170,7 +22179,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22179,7 +22188,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "assistant-junior-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22278,7 +22287,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "infirmier-e-diplome-e-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22287,7 +22296,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "assistant-junior-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22341,7 +22350,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22350,7 +22359,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2727,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22359,7 +22368,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22395,7 +22404,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1875,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22404,7 +22413,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1333,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22413,7 +22422,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22422,7 +22431,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22431,7 +22440,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22449,7 +22458,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22458,7 +22467,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22467,7 +22476,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22476,7 +22485,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "assistant-junior-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22485,7 +22494,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22494,7 +22503,7 @@
     "winnerJobIdentifier": "hoch-health-7d4ee093b492",
     "winnerCanonical": "sous-assistant-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22521,7 +22530,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22530,7 +22539,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22557,7 +22566,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22566,7 +22575,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22575,7 +22584,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22584,7 +22593,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22593,7 +22602,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22620,7 +22629,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22629,7 +22638,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
     "canton": "SG"
@@ -22737,7 +22746,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22746,7 +22755,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.375,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22971,7 +22980,7 @@
     "winnerJobIdentifier": "hoch-health-901981926fcb",
     "winnerCanonical": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5385,
     "candidatesCount": 1,
     "canton": "SG"
@@ -22998,7 +23007,7 @@
     "winnerJobIdentifier": "hoch-health-901981926fcb",
     "winnerCanonical": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23016,7 +23025,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.7273,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23025,7 +23034,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.9,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23040,11 +23049,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen-lr7lrp": {
-    "winnerJobIdentifier": "hoch-health-3f19ebbdc10b",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-come-ausbildner-in-80-100-hoch-health-ostschweiz-st-gallen",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
     "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
-    "score": 0.6,
+    "score": 0.5385,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -23076,11 +23085,11 @@
     "canton": "SG"
   },
   "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5": {
-    "winnerJobIdentifier": "hoch-health-c63bf7efdbd8",
-    "winnerCanonical": "professionista-della-salute-80-100-hoch-health-ostschweiz-wil",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
     "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
-    "score": 0.4615,
+    "score": 0.9,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -23097,7 +23106,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
     "decidedAt": "2026-06-22T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23169,7 +23178,7 @@
     "winnerJobIdentifier": "hoch-health-63ca7e87379a",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23196,7 +23205,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23214,7 +23223,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23283,11 +23292,11 @@
     "canton": "SG"
   },
   "SG::it::infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-cc3f6d": {
-    "winnerJobIdentifier": "hoch-health-fac717bfe60e",
-    "winnerCanonical": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
     "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
-    "score": 0.9091,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -23304,7 +23313,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23313,7 +23322,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23448,7 +23457,7 @@
     "winnerJobIdentifier": "hoch-health-ae171e90e683",
     "winnerCanonical": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23466,7 +23475,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23475,7 +23484,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23538,7 +23547,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "SG"
@@ -23547,7 +23556,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23556,7 +23565,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23592,7 +23601,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23601,7 +23610,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23610,7 +23619,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23619,7 +23628,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23628,7 +23637,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23646,7 +23655,7 @@
     "winnerJobIdentifier": "hoch-health-6f9dbee3e8d6",
     "winnerCanonical": "sott-2026-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23655,7 +23664,7 @@
     "winnerJobIdentifier": "hoch-health-a31808a97453",
     "winnerCanonical": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
     "decidedAt": "2026-06-10T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23664,7 +23673,7 @@
     "winnerJobIdentifier": "hoch-health-a3cb9bde1811",
     "winnerCanonical": "assistente-junior-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 3,
     "canton": "SG"
@@ -23673,7 +23682,7 @@
     "winnerJobIdentifier": "hoch-health-9e5650f9e7c8",
     "winnerCanonical": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-15T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23682,7 +23691,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.1818,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23691,7 +23700,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23700,7 +23709,7 @@
     "winnerJobIdentifier": "hoch-health-a31e3739eba7",
     "winnerCanonical": "assistente-junior-2028-hoch-health-ostschweiz-st",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "SG"
@@ -23709,17 +23718,17 @@
     "winnerJobIdentifier": "hoch-health-7d4ee093b492",
     "winnerCanonical": "assistente-secondario-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-06-12T00:00:00.000Z",
-    "lastSeenAt": "2026-06-24T00:00:00.000Z",
+    "lastSeenAt": "2026-06-25T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::verkaufer-in-food-coop-city-st-gallen-sankt-gallen-2n04u9": {
-    "winnerJobIdentifier": "company-8a7egz",
-    "winnerCanonical": "verkaufer-in-food-to-go-coop-city-st-gallen-sankt-gallen-8a7egz",
+    "winnerJobIdentifier": "company-2n04u9",
+    "winnerCanonical": "assistente-alle-vendite-alimentari-coop-genossenschaft-st-gallen",
     "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-25T00:00:00.000Z",
-    "score": 0.6667,
+    "score": 0.2143,
     "candidatesCount": 1,
     "canton": "SG"
   },
