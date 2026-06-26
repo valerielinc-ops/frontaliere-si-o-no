@@ -508,6 +508,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pflegehilfe-svizzera.title': 'Pflegehilfe in der Schweiz: Praktischer Leitfaden zur Pflege',
     'blog.article.pflegehilfe-svizzera.excerpt': 'Erfahren Sie, wie die Alten- und Pflegebedürftigenhilfe in der Schweiz funktioniert',
     'blog.article.pflegehilfe-svizzera.imageAlt': 'Häusliche Pflege für Senioren in der Schweiz',
+    'blog.article.fmi-economia-svizzera-resiliente.title': 'IWF: Schweizer Wirtschaft bleibt belastbar',
+    'blog.article.fmi-economia-svizzera-resiliente.excerpt': 'Der Internationale Währungsfonds bestätigt die Solidität der Schweizer Wirtschaft und prognostiziert ein moderates Wachstum und eine moderate Inflation.',
+    'blog.article.fmi-economia-svizzera-resiliente.imageAlt': 'Schweizer Wirtschaftslandschaft mit modernen Finanzgebäuden',
 };
 
 export default blogMetaChDe;

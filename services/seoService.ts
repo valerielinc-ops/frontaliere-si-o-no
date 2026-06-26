@@ -4216,6 +4216,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-guess-stabio-merchandiser': { name: 'Lavoro Ticino', path: '/articoli-frontaliere/guess-stabio-merchandiser', parent: 'blog' },
     'blog-ticinese-frontalieri': { name: 'Frontalieri Ticino', path: '/articoli-svizzera/ticinese-frontalieri/', parent: 'blog' },
     'blog-pflegehilfe-svizzera': { name: 'Assistenza anziani', path: '/articoli-svizzera/pflegehilfe-svizzera/', parent: 'blog' },
+    'blog-fmi-economia-svizzera-resiliente': { name: 'Economia Svizzera', path: '/articoli-svizzera/fmi-economia-svizzera-resiliente/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

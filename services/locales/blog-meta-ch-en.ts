@@ -508,6 +508,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pflegehilfe-svizzera.title': 'Pflegehilfe in Switzerland: A Practical Guide to Care',
     'blog.article.pflegehilfe-svizzera.excerpt': 'Find out how care for the elderly and those in need of care works in Switzerland',
     'blog.article.pflegehilfe-svizzera.imageAlt': 'Home care for elderly in Switzerland',
+    'blog.article.fmi-economia-svizzera-resiliente.title': 'IMF: Swiss economy remains resilient',
+    'blog.article.fmi-economia-svizzera-resiliente.excerpt': 'The International Monetary Fund confirms the strength of the Swiss economy, predicting moderate growth and low inflation.',
+    'blog.article.fmi-economia-svizzera-resiliente.imageAlt': 'Swiss economic landscape with modern financial buildings',
 };
 
 export default blogMetaChEn;
