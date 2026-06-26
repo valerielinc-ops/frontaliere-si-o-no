@@ -499,6 +499,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lohnausweis-frontalieri.title': 'Lohnausweis: Vollständiger Leitfaden für Grenzgänger in der Schweiz',
     'blog.article.lohnausweis-frontalieri.excerpt': 'Alles, was Sie über den Schweizer Lohnausweis wissen müssen: Was er ist, wie man ihn bekommt und warum er für Grenzgänger wichtig ist',
     'blog.article.lohnausweis-frontalieri.imageAlt': 'Schweizer Lohnbescheinigung mit Details zu Abzügen und Zulagen',
+    'blog.article.agenzie-interinali-ticino.title': 'Zeitarbeitsagenturen in Lugano: wie sie funktionieren',
+    'blog.article.agenzie-interinali-ticino.excerpt': 'Erfahren Sie, wie Leiharbeitsfirmen in Lugano arbeiten und was sich für Grenzgänger ändert',
+    'blog.article.agenzie-interinali-ticino.imageAlt': 'Zeitarbeitsvermittlung in Lugano',
 };
 
 export default blogMetaChDe;
