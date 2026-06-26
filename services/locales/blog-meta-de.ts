@@ -8160,6 +8160,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guess-stabio-merchandiser.title': 'Karrierechancen als Merchandiser bei Guess Europe Sagl in Stabio',
     'blog.article.guess-stabio-merchandiser.excerpt': 'Wir suchen Merchandiser, um die GUESS-Verkaufsstellen im Tessin zu verwalten. Entdecken Sie Anforderungen und wie Sie sich bewerben können.',
     'blog.article.guess-stabio-merchandiser.imageAlt': 'Guess Merchandiser bei der Arbeit im Geschäft in Stabio, Tessin',
+    'blog.article.busto-arsizio-orientation-days-aslam.title': 'In Busto Arsizio starten die Aslam Orientation Days für junge Migranten',
+    'blog.article.busto-arsizio-orientation-days-aslam.excerpt': 'Auf dem MalpensaFiere in Busto Arsizio, dem ersten Termin des Bridge-Projekts, um 300 junge Migranten in 4 Jahren auszubilden und auf die Nachfrage nach qualifizierten Arbeitskräften zu reagieren.',
+    'blog.article.busto-arsizio-orientation-days-aslam.imageAlt': 'Junge Migranten bei einer Schulungsveranstaltung in Busto Arsizio',
 };
 
 export default blogMetaDe;

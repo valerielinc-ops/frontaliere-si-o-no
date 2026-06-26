@@ -44963,6 +44963,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-busto-arsizio-orientation-days-aslam': {
+    title: 'A Busto Arsizio partono gli Orientation Days di Aslam per i giovani migranti',
+    description: 'Partiti gli Orientation Days di Aslam a Busto Arsizio, con corsi gratuiti per giovani migranti, rispondendo alla domanda di manodopera qualificata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, busto, arsizio, partono, orientation',
+    ogTitle: 'Orientation Days di Aslam a Busto Arsizio',
+    ogDescription: 'Iniziativa di ASLAM per formare 300 giovani migranti in 4 anni, con corsi gratuiti e stage in azienda.',
+    canonicalPath: '/articoli-frontaliere/busto-arsizio-orientation-days-aslam',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Busto Arsizio partono gli Orientation Days di Aslam per i giovani migranti",
+      "description": "Partiti gli Orientation Days di Aslam a Busto Arsizio, con corsi gratuiti per giovani migranti, rispondendo alla domanda di manodopera qualificata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/busto-arsizio-orientation-days-aslam.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani migranti partecipano a un evento formativo a Busto Arsizio"
+      },
+      "datePublished": "2026-06-26T09:37:30+00:00",
+      "dateModified": "2026-06-26T09:37:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/busto-arsizio-orientation-days-aslam`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

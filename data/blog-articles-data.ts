@@ -25866,6 +25866,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'busto-arsizio-orientation-days-aslam',
+ category: 'pratico',
+ date: '2026-06-26T09:37:30.918Z',
+ image: '/images/blog/busto-arsizio-orientation-days-aslam.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

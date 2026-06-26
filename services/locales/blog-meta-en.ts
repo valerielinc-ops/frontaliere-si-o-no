@@ -8161,6 +8161,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guess-stabio-merchandiser.title': 'Job opportunities as a Merchandiser at guess Europe Sagl in Stabio',
     'blog.article.guess-stabio-merchandiser.excerpt': 'We are looking for Merchandisers to manage guess stores in Ticino. Learn about requirements and how to apply.',
     'blog.article.guess-stabio-merchandiser.imageAlt': 'Guess merchandiser working at Stabio store, Ticino',
+    'blog.article.busto-arsizio-orientation-days-aslam.title': 'Aslam Orientation Days for young migrants start in Busto Arsizio',
+    'blog.article.busto-arsizio-orientation-days-aslam.excerpt': 'At the Malpensa Fair in Busto Arsizio, the first event of the BRIDGE project to train 300 young migrants in 4 years, responding to the demand for skilled labour.',
+    'blog.article.busto-arsizio-orientation-days-aslam.imageAlt': 'Young migrants participating in a training event in Busto Arsizio',
 };
 
 export default blogMetaEn;
