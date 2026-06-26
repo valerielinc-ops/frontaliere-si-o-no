@@ -4224,6 +4224,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giro-tre-paesi-chiusure-traffico-2026': { name: 'Chiusure traffico 2026', path: '/articoli-svizzera/giro-tre-paesi-chiusure-traffico-2026/', parent: 'blog' },
     'blog-industria-farmaceutica-svizzera-dati': { name: 'Farmaceutica', path: '/articoli-svizzera/industria-farmaceutica-svizzera-dati/', parent: 'blog' },
     'blog-deutsche-bahn-stop-ferroviario-germania': { name: 'DB stop ferroviario', path: '/articoli-svizzera/deutsche-bahn-stop-ferroviario-germania/', parent: 'blog' },
+    'blog-incidente-sul-lavoro-basilea': { name: 'Pratico', path: '/articoli-svizzera/incidente-sul-lavoro-basilea/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

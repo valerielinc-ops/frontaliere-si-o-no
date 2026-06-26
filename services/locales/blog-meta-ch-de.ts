@@ -529,6 +529,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.deutsche-bahn-stop-ferroviario-germania.title': 'Deutsche Bahn stoppt Bahnverkehr in Deutschland',
     'blog.article.deutsche-bahn-stop-ferroviario-germania.excerpt': 'Züge halten in allen deutschen Bahnhöfen nach einer schweren Störung des digitalen Funkkommunikationssystems. Techniker bei der Arbeit.',
     'blog.article.deutsche-bahn-stop-ferroviario-germania.imageAlt': 'Leere Schweizer Bahngleise mit dunkler Anzeigetafel.',
+    'blog.article.incidente-sul-lavoro-basilea.title': 'Tödlicher Arbeitsunfall in Basel',
+    'blog.article.incidente-sul-lavoro-basilea.excerpt': 'Ein 26-jähriger Arbeiter starb, nachdem er auf einer Baustelle in Basel, Schweiz, von einem Gerüst gefallen war.',
+    'blog.article.incidente-sul-lavoro-basilea.imageAlt': 'Baustelle mit Gerüsten in Basel, Szene eines Schweizer Bauarbeitsplatzes',
 };
 
 export default blogMetaChDe;

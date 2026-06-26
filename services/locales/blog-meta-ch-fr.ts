@@ -529,6 +529,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.deutsche-bahn-stop-ferroviario-germania.title': 'Deutsche Bahn suspend le trafic ferroviaire en Allemagne',
     'blog.article.deutsche-bahn-stop-ferroviario-germania.excerpt': 'Trains à l\'arrêt dans toutes les gares allemandes après une grave perturbation du système numérique de communication radio. Techniciens au travail.',
     'blog.article.deutsche-bahn-stop-ferroviario-germania.imageAlt': 'Voies ferrées suisses vides avec panneau numérique éteint.',
+    'blog.article.incidente-sul-lavoro-basilea.title': 'Accident du travail mortel à Bâle',
+    'blog.article.incidente-sul-lavoro-basilea.excerpt': 'Un jeune ouvrier de 26 ans est mort après être tombé d\'un échafaudage sur un chantier de Bâle, en Suisse.',
+    'blog.article.incidente-sul-lavoro-basilea.imageAlt': 'Chantier de construction avec échafaudages à Bâle, scène de travail en Suisse',
 };
 
 export default blogMetaChFr;

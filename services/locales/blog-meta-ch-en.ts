@@ -529,6 +529,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.deutsche-bahn-stop-ferroviario-germania.title': 'Deutsche Bahn suspends rail traffic in Germany',
     'blog.article.deutsche-bahn-stop-ferroviario-germania.excerpt': 'Trains stopped at all German stations after a serious disruption of the digital system for radio communications. Technicians at work.',
     'blog.article.deutsche-bahn-stop-ferroviario-germania.imageAlt': 'Empty Swiss railway tracks with a blank digital board.',
+    'blog.article.incidente-sul-lavoro-basilea.title': 'Fatal Work Accident in Basel',
+    'blog.article.incidente-sul-lavoro-basilea.excerpt': 'A 26-year-old worker has died after falling from a scaffold at a construction site in Basel, Switzerland.',
+    'blog.article.incidente-sul-lavoro-basilea.imageAlt': 'Construction site with scaffolding in Basel, scene of Swiss labor environment',
 };
 
 export default blogMetaChEn;
