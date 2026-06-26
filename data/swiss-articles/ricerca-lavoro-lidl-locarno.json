@@ -1,0 +1,40 @@
+{
+  "id": "ricerca-lavoro-lidl-locarno",
+  "slug": "ricerca-lavoro-lidl-locarno",
+  "publishedAt": "2026-06-26T01:00:03.935Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 22.25193560557624,
+    "confidence": 0.8,
+    "finalScore": 17.80154848446099,
+    "topK": [
+      {
+        "slug": "locarno-zanzara-tigre-campagna-rilancia-2026",
+        "cosine": 0.8229144080759588
+      },
+      {
+        "slug": "moon-stars-resident-discount-locarno-card",
+        "cosine": 0.8213592825292496
+      },
+      {
+        "slug": "lidl-svizzera-ceo-elvetico",
+        "cosine": 0.8180475964197503
+      },
+      {
+        "slug": "sanita-locarnese-licenziamenti",
+        "cosine": 0.8147236898593468
+      },
+      {
+        "slug": "progetto-prossimita-locarno-2026",
+        "cosine": 0.8143194093922795
+      }
+    ],
+    "score": 17.80154848446099,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

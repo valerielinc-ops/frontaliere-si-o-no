@@ -487,6 +487,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.notifica-fine-attivita-g-spop-ticino.title': 'Notification de fin d\'activité G : procédure SPOP dans le canton du Tessin',
     'blog.article.notifica-fine-attivita-g-spop-ticino.excerpt': 'Guide pratique pour la notification de fin d\'activité avec permis G auprès de SPOP (DI) du canton du Tessin. Procédure, implications, scénarios.',
     'blog.article.notifica-fine-attivita-g-spop-ticino.imageAlt': 'Bureau administratif à Bellinzone avec documents officiels du canton du Tessin.',
+    'blog.article.ricerca-lavoro-lidl-locarno.title': 'Travailler de Lidl à Locarno : guide de recherche',
+    'blog.article.ricerca-lavoro-lidl-locarno.excerpt': 'Comment s\'orienter dans la recherche d\'emploi à la succursale Lidl de Locarno et comprendre les exigences requises sur le marché du travail suisse.',
+    'blog.article.ricerca-lavoro-lidl-locarno.imageAlt': 'Lidl Locarno, supermarché en Suisse',
 };
 
 export default blogMetaChFr;

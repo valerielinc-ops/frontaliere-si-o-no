@@ -487,6 +487,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.notifica-fine-attivita-g-spop-ticino.title': 'Benachrichtigung Ende Aktivität G: SPOP-Verfahren im Kanton Tessin',
     'blog.article.notifica-fine-attivita-g-spop-ticino.excerpt': 'Praktischer Leitfaden für die Meldung der Beendigung der Tätigkeit mit Genehmigung G bei SPOP (DI) des Kantons Tessin. Verfahren, Implikationen, Szenarien.',
     'blog.article.notifica-fine-attivita-g-spop-ticino.imageAlt': 'Verwaltungsbüro in Bellinzona mit offiziellen Dokumenten des Kantons Tessin.',
+    'blog.article.ricerca-lavoro-lidl-locarno.title': 'Arbeiten bei Lidl in Locarno: Forschungsleitfaden',
+    'blog.article.ricerca-lavoro-lidl-locarno.excerpt': 'Wie Sie sich bei der Stellensuche in der Lidl Niederlassung Locarno orientieren und die Anforderungen auf dem Schweizer Arbeitsmarkt verstehen.',
+    'blog.article.ricerca-lavoro-lidl-locarno.imageAlt': 'Lidl Locarno, Supermarkt in der Schweiz',
 };
 
 export default blogMetaChDe;
