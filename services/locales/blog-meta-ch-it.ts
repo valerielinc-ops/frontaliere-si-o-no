@@ -538,6 +538,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.condanne-viareggio-svizzera.title': 'Condanne definitive per la strage ferroviaria di Viareggio',
     'blog.article.condanne-viareggio-svizzera.excerpt': 'La Cassazione italiana conferma le pene: cinque anni per Mauro Moretti, ex ad di Ferrovie Italiane, nel caso della tragedia di Viareggio del 2009.',
     'blog.article.condanne-viareggio-svizzera.imageAlt': 'Paesaggio svizzero con lago e montagne, scena di notizie.',
+    'blog.article.incendio-autostrada-piotta.title': 'Incendio sull\'A2 a Piotta: traffico in tilt',
+    'blog.article.incendio-autostrada-piotta.excerpt': 'Auto in fiamme sull\'A2 a Piotta, traffico bloccato a causa di un incidente all’interno del tunnel del Gottardo, ora riaperto.',
+    'blog.article.incendio-autostrada-piotta.imageAlt': 'Auto in fiamme sull\'A2 a Piotta, traffico in tilt',
 };
 
 export default blogMetaChIt;

@@ -4227,6 +4227,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-sul-lavoro-basilea': { name: 'Pratico', path: '/articoli-svizzera/incidente-sul-lavoro-basilea/', parent: 'blog' },
     'blog-ferrovie-germania-ripresa-traffico': { name: 'Pratico', path: '/articoli-svizzera/ferrovie-germania-ripresa-traffico/', parent: 'blog' },
     'blog-condanne-viareggio-svizzera': { name: 'fiscale', path: '/articoli-svizzera/condanne-viareggio-svizzera/', parent: 'blog' },
+    'blog-incendio-autostrada-piotta': { name: 'pratico', path: '/articoli-svizzera/incendio-autostrada-piotta/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -538,6 +538,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.condanne-viareggio-svizzera.title': 'Final sentences for the Viareggio railway massacre',
     'blog.article.condanne-viareggio-svizzera.excerpt': 'The Italian Supreme Court confirms the penalties: five years for Mauro Moretti, former CEO of Ferrovie Italiane, in the case of the Viareggio tragedy of 2009.',
     'blog.article.condanne-viareggio-svizzera.imageAlt': 'Swiss landscape with lake and mountains, news scene.',
+    'blog.article.incendio-autostrada-piotta.title': 'Fire on the A2 in Piotta: traffic in tilt',
+    'blog.article.incendio-autostrada-piotta.excerpt': 'Car on fire on the A2 in Piotta, traffic blocked due to an accident inside the Gotthard tunnel, now reopened.',
+    'blog.article.incendio-autostrada-piotta.imageAlt': 'Car on fire on A2 at Piotta, traffic jam',
 };
 
 export default blogMetaChEn;
