@@ -134,6 +134,24 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::de::verkaufer-in-food-frische-insel-coop-genossenschaft-wurenlingen": {
+    "winnerJobIdentifier": "company-dtnq5b",
+    "winnerCanonical": "verkaufer-in-food-frische-insel-coop-wurenlingen-aargau-dtnq5b",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.7,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::de::verkaufer-in-food-frische-insel-coop-genossenschaft-wurenlingen-dtnq5b": {
+    "winnerJobIdentifier": "company-dtnq5b",
+    "winnerCanonical": "verkaufer-in-food-frische-insel-coop-wurenlingen-aargau-dtnq5b",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::en::allianz-bewerbermanagement": {
     "winnerJobIdentifier": "allianz-suisse-4217a32cd1d3",
     "winnerCanonical": "specialist-psychologist-for-psychotherapy-klinik-sonnenhalde-riehen",
@@ -242,12 +260,30 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::en::salesperson-food-freshness-island-coop-genossenschaft-wurenlingen-dtnq5b": {
+    "winnerJobIdentifier": "company-dtnq5b",
+    "winnerCanonical": "salesperson-food-freshness-island-coop-genossenschaft-wurenlingen",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::en::stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-w1h09l": {
     "winnerJobIdentifier": "company-w1h09l",
     "winnerCanonical": "deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim-w1h09l",
     "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::en::verkaufer-in-food-frische-insel-coop-genossenschaft-wurenlingen": {
+    "winnerJobIdentifier": "company-dtnq5b",
+    "winnerCanonical": "salesperson-food-freshness-island-coop-genossenschaft-wurenlingen",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.3636,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -410,6 +446,24 @@
     "decidedAt": "2026-06-25T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::fr::vendeur-food-ile-de-la-fraicheur-coop-genossenschaft-wurenlingen-dtnq5b": {
+    "winnerJobIdentifier": "company-dtnq5b",
+    "winnerCanonical": "vendeur-food-ile-de-la-fraicheur-coop-genossenschaft-wurenlingen",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::fr::verkaufer-in-food-frische-insel-coop-genossenschaft-wurenlingen": {
+    "winnerJobIdentifier": "company-dtnq5b",
+    "winnerCanonical": "vendeur-food-ile-de-la-fraicheur-coop-genossenschaft-wurenlingen",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.3077,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -734,6 +788,15 @@
     "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::it::verkaufer-in-food-frische-insel-coop-genossenschaft-wurenlingen": {
+    "winnerJobIdentifier": "company-dtnq5b",
+    "winnerCanonical": "venditore-food-isola-della-freschezza-coop-genossenschaft-wurenlingen",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
+    "lastSeenAt": "2026-06-26T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -46071,9 +46134,9 @@
     "canton": "ZH"
   },
   "ZH::it::seller-fresh-products-coop-genossenschaft-zurich-1dc0ee": {
-    "winnerJobIdentifier": "company-zh31qt",
-    "winnerCanonical": "venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen",
-    "decidedAt": "2026-06-18T00:00:00.000Z",
+    "winnerJobIdentifier": "company-itq4w3",
+    "winnerCanonical": "venditore-in-prodotti-freschi-coop-genossenschaft-pfaffikon",
+    "decidedAt": "2026-06-26T00:00:00.000Z",
     "lastSeenAt": "2026-06-26T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
