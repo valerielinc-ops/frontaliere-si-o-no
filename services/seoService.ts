@@ -4228,6 +4228,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ferrovie-germania-ripresa-traffico': { name: 'Pratico', path: '/articoli-svizzera/ferrovie-germania-ripresa-traffico/', parent: 'blog' },
     'blog-condanne-viareggio-svizzera': { name: 'fiscale', path: '/articoli-svizzera/condanne-viareggio-svizzera/', parent: 'blog' },
     'blog-incendio-autostrada-piotta': { name: 'pratico', path: '/articoli-svizzera/incendio-autostrada-piotta/', parent: 'blog' },
+    'blog-spaccio-rete-locali': { name: 'Pratico', path: '/articoli-svizzera/spaccio-rete-locali/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -541,6 +541,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incendio-autostrada-piotta.title': 'Incendie sur l\'A2 à Piotta : trafic en descente',
     'blog.article.incendio-autostrada-piotta.excerpt': 'Voiture en feu sur l\'A2 à Piotta, circulation bloquée à cause d\'un accident à l\'intérieur du tunnel du Gothard, maintenant rouvert.',
     'blog.article.incendio-autostrada-piotta.imageAlt': 'Voiture en feu sur l\'A2 à Piotta, circulation bloquée',
+    'blog.article.spaccio-rete-locali.title': 'Trafic de drogue : un mélange servi à un réseau dense de locaux',
+    'blog.article.spaccio-rete-locali.excerpt': 'Les enquêtes de RSE ont mis en évidence la façon dont le trafic de drogue est géré à travers un réseau complexe de locaux en Suisse, impliquant différents points du réseau urbain.',
+    'blog.article.spaccio-rete-locali.imageAlt': 'Locarno avec locaux et trafic urbain la nuit.',
 };
 
 export default blogMetaChFr;
