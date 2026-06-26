@@ -1,18 +1,50 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-06-25T21:58:31.440Z",
+  "generatedAt": "2026-06-26T10:57:55.761Z",
   "total": 8,
   "newCount": 1,
   "updatedCount": 6,
   "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 21408,
-  "avgDurationMs": 21408,
+  "durationMs": 19961,
+  "avgDurationMs": 19961,
   "durationHistory": [
-    21408
+    19961
   ],
   "newJobs": [
+    {
+      "title": "Anlagenführer Produktion (w/m/d)",
+      "slug": "anlagenfuhrer-produktion-w-m-d-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF289997E-anlagenfuehrer-produktion-w-m-d",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000134408164-anlagenfuhrer-produktion-w-m-d-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-26",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Lehrstelle Konstrukteur (w/m/div.) 2027- REF289880Q",
       "slug": "lehrstelle-konstrukteur-w-m-div-2027-ref289880q-bosch-st-niklaus",
@@ -35,16 +67,20 @@
       "sourceLang": "de",
       "postedDate": "2026-06-25",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-00dd713699a7",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "postalCode": "3924",
+      "firstSeenAt": "2026-06-25T21:58:31.438Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Lehrstelle Kauffrau / Kaufmann 2027 - REF289852B",
       "slug": "lehrstelle-kauffrau-kaufmann-2027-ref289852b-bosch-st-niklaus",
@@ -224,10 +260,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "PreMaster Human Resources (w/m/div.) REF286482A",
-      "slug": "premaster-human-resources-w-m-div-ref286482a-bosch-frauenfeld",
+      "slug": "premaster-risorse-umane-w-m-div-ref286482a-bosch-thermotechnik-ag-frauenfeld",
       "url": "https://jobs.bosch.com/en/job/REF286482A-premaster-human-resources-w-m-div-ref286482a",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000127129329-premaster-human-resources-w-m-div-ref286482a?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -253,44 +291,6 @@
       "currency": "CHF",
       "postalCode": "8500",
       "firstSeenAt": "2026-05-19T11:15:54.392Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Praktikum in der Prozessoptimierung (w/m/div.) REF286038O",
-      "slug": "internship-in-process-optimization-w-m-div-ref286038o-bosch-thermotechnik-ag-frauenfeld",
-      "url": "https://jobs.bosch.com/en/job/REF286038O-praktikum-in-der-prozessoptimierung-w-m-div-ref286038o",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000126259890-praktikum-in-der-prozessoptimierung-w-m-div-ref286038o?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-13",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-3a86f7697bb0",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-05-23T21:18:16.442Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
