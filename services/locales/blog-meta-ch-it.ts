@@ -532,6 +532,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incidente-sul-lavoro-basilea.title': 'Incidente sul lavoro mortale a Basilea',
     'blog.article.incidente-sul-lavoro-basilea.excerpt': 'Un giovane operaio di 26 anni è morto dopo essere caduto da un\'impalcatura in un cantiere di Basilea, in Svizzera.',
     'blog.article.incidente-sul-lavoro-basilea.imageAlt': 'Cantiere edile con impalcature a Basilea, scena di lavoro in Svizzera',
+    'blog.article.ferrovie-germania-ripresa-traffico.title': 'Germania, ripresa del traffico ferroviario',
+    'blog.article.ferrovie-germania-ripresa-traffico.excerpt': 'Dopo un\'interruzione di circa 90 minuti, il traffico ferroviario in Germania è stato completamente ripristinato, grazie a un sistema di emergenza.',
+    'blog.article.ferrovie-germania-ripresa-traffico.imageAlt': 'Stazione ferroviaria svizzera con treni in movimento, scena fotorealistica.',
 };
 
 export default blogMetaChIt;

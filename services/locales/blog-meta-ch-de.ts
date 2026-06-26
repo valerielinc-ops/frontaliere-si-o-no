@@ -532,6 +532,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incidente-sul-lavoro-basilea.title': 'Tödlicher Arbeitsunfall in Basel',
     'blog.article.incidente-sul-lavoro-basilea.excerpt': 'Ein 26-jähriger Arbeiter starb, nachdem er auf einer Baustelle in Basel, Schweiz, von einem Gerüst gefallen war.',
     'blog.article.incidente-sul-lavoro-basilea.imageAlt': 'Baustelle mit Gerüsten in Basel, Szene eines Schweizer Bauarbeitsplatzes',
+    'blog.article.ferrovie-germania-ripresa-traffico.title': 'Deutschland, Wiederaufnahme des Eisenbahnverkehrs',
+    'blog.article.ferrovie-germania-ripresa-traffico.excerpt': 'Nach einer Unterbrechung von ca. 90 Minuten wurde der Bahnverkehr in Deutschland dank eines Notfallsystems vollständig wiederhergestellt.',
+    'blog.article.ferrovie-germania-ripresa-traffico.imageAlt': 'Schweizer Bahnhof mit Zügen in Bewegung, fotorealistische Szene.',
 };
 
 export default blogMetaChDe;

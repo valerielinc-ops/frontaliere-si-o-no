@@ -1592,6 +1592,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ferrovie-germania-ripresa-traffico',
+    category: 'pratico',
+    date: '2026-06-26T15:16:24.810Z',
+    image: '/images/blog/ferrovie-germania-ripresa-traffico.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
