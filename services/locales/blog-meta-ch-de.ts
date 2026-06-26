@@ -547,6 +547,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incidente-lavoro-champery-gas-metallo.title': 'Arbeitsunfall in Champéry: Ein Toter und ein Verletzter',
     'blog.article.incidente-lavoro-champery-gas-metallo.excerpt': 'Schwerer Unfall in Champéry beim Metallschmelzen: Ein Mann stirbt, ein anderer wird schwer verletzt.',
     'blog.article.incidente-lavoro-champery-gas-metallo.imageAlt': 'Arbeitsszene eines Metallschmelzunfalls in Champéry, Schweizer Industriearbeit.',
+    'blog.article.finanziamento-olimpiadi-invernali-2038.title': 'OK zur Finanzierung der Olympischen Winterspiele 2038',
+    'blog.article.finanziamento-olimpiadi-invernali-2038.excerpt': 'Der auf 200 Millionen Franken begrenzte Kostenbeitrag des Bundes für die Olympischen Winterspiele 2038 wird von der Nationalen Finanzkommission als akzeptabel erachtet.',
+    'blog.article.finanziamento-olimpiadi-invernali-2038.imageAlt': 'Schweizer Landschaft mit Olympischen Anlagen und verschneiten Bergen',
 };
 
 export default blogMetaChDe;
