@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-06-26T12:10:33.464Z",
-  "total": 11,
+  "generatedAt": "2026-06-26T23:05:41.001Z",
+  "total": 10,
   "newCount": 0,
-  "updatedCount": 11,
-  "removedCount": 0,
+  "updatedCount": 10,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 10879,
-  "avgDurationMs": 10879,
+  "durationMs": 12420,
+  "avgDurationMs": 12420,
   "durationHistory": [
-    10879
+    12420
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -154,43 +154,6 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-17T13:39:16.562Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Elektroplaner (a)",
-      "slug": "elektroplaner-a-rittmeyer-ag-baar",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/elektroplaner-a/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Baar",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-26",
-      "employmentType": "other",
-      "contractType": "other",
-      "validThrough": "",
-      "id": "rittmeyer-ag-4b00db4b6441",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -422,6 +385,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Elektroplaner (a)",
+      "slug": "progettista-elettrico-a-rittmeyer-ag-baar",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/elektroplaner-a/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-16",
+      "employmentType": "other",
+      "contractType": "other",
+      "validThrough": "",
+      "id": "rittmeyer-ag-4b00db4b6441",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
