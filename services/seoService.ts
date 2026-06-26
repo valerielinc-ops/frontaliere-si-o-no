@@ -4220,6 +4220,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-scambio-dati-salariali-italia-legge': { name: 'Fiscalità frontalieri', path: '/articoli-svizzera/scambio-dati-salariali-italia-legge/', parent: 'blog' },
     'blog-telelavoro-frontaliere-quanti-giorni-2026': { name: 'Telelavoro frontalieri', path: '/articoli-svizzera/telelavoro-frontaliere-quanti-giorni-2026/', parent: 'blog' },
     'blog-rotary-club-lugano-presidenza': { name: 'novita', path: '/articoli-svizzera/rotary-club-lugano-presidenza/', parent: 'blog' },
+    'blog-busto-arsizio-orientation-days-aslam': { name: 'Formazione', path: '/articoli-frontaliere/busto-arsizio-orientation-days-aslam', parent: 'blog' },
  };
 
  const info = sectionNames[section];
