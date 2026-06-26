@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-07T04:49:45.378Z",
-    "label": "before",
-    "total": 10864,
-    "needsRetranslation": 2889,
-    "suppressed": 32,
-    "incomplete": 600,
-    "complete": 10264,
-    "missingByLocale": {
-      "it": 299,
-      "en": 240,
-      "de": 196,
-      "fr": 283
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 100
-      },
-      {
-        "company": "Roche",
-        "pending": 77
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 76
-      },
-      {
-        "company": "The Swatch Group (U.S.) Inc.",
-        "pending": 29
-      },
-      {
-        "company": "UBS",
-        "pending": 29
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 21
-      },
-      {
-        "company": "Richemont",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 15
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-07T06:04:50.241Z",
-    "label": "after",
-    "total": 10864,
-    "needsRetranslation": 2767,
-    "suppressed": 35,
-    "incomplete": 594,
-    "complete": 10270,
-    "missingByLocale": {
-      "it": 298,
-      "en": 237,
-      "de": 192,
-      "fr": 279
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 100
-      },
-      {
-        "company": "Roche",
-        "pending": 77
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 76
-      },
-      {
-        "company": "The Swatch Group (U.S.) Inc.",
-        "pending": 29
-      },
-      {
-        "company": "UBS",
-        "pending": 29
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 21
-      },
-      {
-        "company": "Richemont",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 15
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-07T06:08:39.813Z",
     "label": "before",
     "total": 10864,
@@ -11474,6 +11360,120 @@
       {
         "company": "CHRIST Uhren & Schmuck AG",
         "pending": 942
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-26T08:08:32.507Z",
+    "label": "before",
+    "total": 18094,
+    "needsRetranslation": 2664,
+    "suppressed": 545,
+    "incomplete": 966,
+    "complete": 17128,
+    "missingByLocale": {
+      "it": 425,
+      "en": 305,
+      "de": 538,
+      "fr": 124
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 886
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-26T09:42:01.551Z",
+    "label": "after",
+    "total": 18094,
+    "needsRetranslation": 2614,
+    "suppressed": 544,
+    "incomplete": 975,
+    "complete": 17119,
+    "missingByLocale": {
+      "it": 423,
+      "en": 286,
+      "de": 567,
+      "fr": 120
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 895
       },
       {
         "company": "Manor AG",

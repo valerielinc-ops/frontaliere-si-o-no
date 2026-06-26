@@ -1144,9 +1144,9 @@
       "slug": "venditore-denner-ag-langenthal",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal-d47c8f",
+        "en": "seller-denner-ag-langenthal",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-d47c8f"
+        "fr": "vendeur-denner-ag-langenthal-634638"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1205,17 +1205,21 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-langenthal",
-        "vendeur-denner-ag-langenthal-634638"
+        "vendeur-denner-ag-langenthal-634638",
+        "seller-denner-ag-langenthal-d47c8f",
+        "vendeur-denner-ag-langenthal-d47c8f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner"
         ],
         "en": [
-          "seller-denner-ag-langenthal"
+          "seller-denner-ag-langenthal",
+          "seller-denner-ag-langenthal-d47c8f"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-634638"
+          "vendeur-denner-ag-langenthal-634638",
+          "vendeur-denner-ag-langenthal-d47c8f"
         ]
       },
       "firstSeenAt": "2026-06-23T11:30:12.956Z",
@@ -1324,9 +1328,9 @@
       "slug": "venditore-denner-ag-frauenfeld",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1391,7 +1395,9 @@
         "seller-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-rubigen",
         "vendeur-a-salaire-horaire-denner-frauenfeld",
-        "vendeur-denner-ag-frauenfeld-008421"
+        "vendeur-denner-ag-frauenfeld-008421",
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1403,7 +1409,8 @@
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner",
           "salesperson-on-an-hourly-wage-denner-frauenfeld",
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "de": [
           "verkaufer-in-denner-frauenfeld",
@@ -1413,7 +1420,8 @@
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner",
           "vendeur-a-salaire-horaire-denner-frauenfeld",
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-23T11:30:12.156Z",
