@@ -469,7 +469,7 @@
       "slug": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
       "slugByLocale": {
         "it": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
-        "en": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
+        "en": "dipl-expert-emergency-care-nds-with-additional-function-vocational-training-m-f-d-spitalverbund-appenzell-ausserrhoden",
         "de": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
         "fr": "dipl-expert-emergency-care-nds-avec-fonction-supplementaire-formation-professionnelle-m-f-d-spitalverbund-appenzell"
       },
@@ -514,14 +514,6 @@
       "requirementsByLocale": {},
       "externalId": "4026609",
       "firstSeenAt": "2026-06-24T12:25:25.443Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "dipl-expert-emergency-care-nds-with-additional-function-vocational-training-m-f-d-spitalverbund-appenzell-ausserrhoden"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-expert-emergency-care-nds-with-additional-function-vocational-training-m-f-d-spitalverbund-appenzell-ausserrhoden"
-      ],
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -689,12 +681,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-25d1a75ebf6e",
-      "slug": "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-terapeuta-professionale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "dipl-terapeuta-professionale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-occupational-therapist-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-ergotherapeute-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -750,7 +742,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T23:33:38.932Z"
+      "firstSeenAt": "2026-06-25T23:33:38.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     }
   ]
 }

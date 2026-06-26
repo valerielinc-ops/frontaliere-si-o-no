@@ -22647,12 +22647,12 @@
     },
     {
       "id": "sulzer-0d0855f50bc6",
-      "slug": "administrative-assistant-sulzer-ch",
+      "slug": "assistente-amministrativo-sulzer-pasadena",
       "slugByLocale": {
         "en": "administrative-assistant-sulzer-ch",
-        "it": "administrative-assistant-sulzer-ch",
+        "it": "assistente-amministrativo-sulzer-pasadena",
         "de": "administrative-assistent-sulzer-pasadena",
-        "fr": "administrative-assistant-sulzer-pasadena"
+        "fr": "assistant-administratif-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22707,7 +22707,19 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-25T23:28:38.382Z"
+      "firstSeenAt": "2026-06-25T23:28:38.382Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-sulzer-ch"
+        ],
+        "fr": [
+          "administrative-assistant-sulzer-pasadena"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-sulzer-ch",
+        "administrative-assistant-sulzer-pasadena"
+      ]
     }
   ]
 }

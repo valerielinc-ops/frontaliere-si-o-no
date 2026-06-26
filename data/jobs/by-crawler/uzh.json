@@ -3964,7 +3964,6 @@
       "previousSlugs": [
         "wissenschaftliche-assistenz-uzh-zurich-2",
         "wissenschaftliche-assistenz-uzh-zurich",
-        "wissenschaftliche-assistenz-universitat-zurich-zurich",
         "assistenza-scientifica-universitat-zurich-zurich",
         "scientific-assistance-universitat-zurich-zurich",
         "assistance-scientifique-universitat-zurich-zurich"
@@ -4931,7 +4930,7 @@
         "it": "professore-aggiunto-in-chirurgia-per-la-malattia-del-polmone-funzionale-avanzata-universitat-zurich-zurich",
         "en": "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich",
         "de": "assistent-professorship-in-surgery-for-advanced-functional-lung-disease-universitat-zurich-zurich",
-        "fr": "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
+        "fr": "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4973,15 +4972,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich",
-        "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich"
+        "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
         ],
         "fr": [
-          "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich"
+          "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.745Z",
@@ -5127,7 +5125,6 @@
       "previousSlugs": [
         "stellenausschreibung-doktorand-in-uzh-zurich-2",
         "stellenausschreibung-doktorand-in-uzh-zurich",
-        "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
         "studente-di-dottorato-in-universitat-zurich-zurich",
         "job-advertisement-doctoral-student-in-universitat-zurich-zurich",
         "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich"
@@ -10369,8 +10366,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich",
-        "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich"
+        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10759,12 +10755,12 @@
     },
     {
       "id": "uzh-8aa3a068facb",
-      "slug": "it-systemadministration-support-fokus-microsoft-365-universitat-zurich-winterthurerstrasse-252",
+      "slug": "it-system-administration-support-focus-microsoft-365-universitat-zurich-winterthurerstrasse-252",
       "slugByLocale": {
         "de": "it-systemadministration-amp-support-fokus-microsoft-365-uzh-winterthurerstrasse-252",
-        "it": "it-systemadministration-support-fokus-microsoft-365-universitat-zurich-winterthurerstrasse-252",
+        "it": "it-system-administration-support-focus-microsoft-365-universitat-zurich-winterthurerstrasse-252",
         "en": "it-systemadministration-support-fokus-microsoft-365-universitat-zurich-winterthurerstrasse-252",
-        "fr": "it-systemadministration-support-fokus-microsoft-365-universitat-zurich-winterthurerstrasse-252"
+        "fr": "administration-et-support-du-systeme-informatique-focus-microsoft-365-universitat-zurich-winterthurerstrasse-252"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10809,11 +10805,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "it-systemadministration-amp-support-fokus-microsoft-365-uzh-winterthurerstrasse-252"
+          "it-systemadministration-amp-support-fokus-microsoft-365-uzh-winterthurerstrasse-252",
+          "it-systemadministration-support-fokus-microsoft-365-universitat-zurich-winterthurerstrasse-252"
+        ],
+        "fr": [
+          "it-systemadministration-support-fokus-microsoft-365-universitat-zurich-winterthurerstrasse-252"
         ]
       },
       "previousSlugs": [
-        "it-systemadministration-amp-support-fokus-microsoft-365-uzh-winterthurerstrasse-252"
+        "it-systemadministration-amp-support-fokus-microsoft-365-uzh-winterthurerstrasse-252",
+        "it-systemadministration-support-fokus-microsoft-365-universitat-zurich-winterthurerstrasse-252"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
