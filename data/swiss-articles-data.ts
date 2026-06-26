@@ -1655,6 +1655,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'carlo-iii-redditi-tasse-2026',
+    category: 'fiscale',
+    date: '2026-06-26T19:35:49.123Z',
+    image: '/images/blog/carlo-iii-redditi-tasse-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

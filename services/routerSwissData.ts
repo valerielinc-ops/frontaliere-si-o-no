@@ -207,6 +207,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'incidente-lavoro-champery-gas-metallo': { it: 'incidente-lavoro-champery-gas-metallo', en: 'work-accident-champery-metal-gas', de: 'arbeitsunfall-champery-metallgas', fr: 'accident-travail-champery-gaz-metal' },
  'finanziamento-olimpiadi-invernali-2038': { it: 'finanziamento-olimpiadi-invernali-2038', en: 'ok-olympic-winter-games-2038-funding', de: 'ok-finanzierung-winterspiele-2038', fr: 'ok-financement-jeux-olympiques-hiver-2038' },
  'pandemia-indennizzi-imprese': { it: 'pandemia-indennizzi-imprese', en: 'pandemic-compensation-swiss-businesses', de: 'pandemie-entschaedigung-schweizer-unternehmen', fr: 'indemnisations-pandemie-entreprises-suisses' },
+ 'carlo-iii-redditi-tasse-2026': { it: 'carlo-iii-redditi-tasse-2026', en: 'charles-iii-income-taxes-2026', de: 'charles-iii-einkommen-steuern-2026', fr: 'charles-iii-revenus-impots-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

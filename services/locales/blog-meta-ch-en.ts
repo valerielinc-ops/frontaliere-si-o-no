@@ -553,6 +553,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pandemia-indennizzi-imprese.title': 'Pandemic: Commission proposes compensation for businesses',
     'blog.article.pandemia-indennizzi-imprese.excerpt': 'The new measures aim to ensure more effective support to businesses and the self-employed in future health crises, with compensation and funding.',
     'blog.article.pandemia-indennizzi-imprese.imageAlt': 'Swiss businesses and self-employed workers during the pandemic',
+    'blog.article.carlo-iii-redditi-tasse-2026.title': 'Charles III Reveals Income and Taxes: Real Tax Transparency',
+    'blog.article.carlo-iii-redditi-tasse-2026.excerpt': 'The British king has paid over £30 million in taxes since 2022, breaking the historic silence.',
+    'blog.article.carlo-iii-redditi-tasse-2026.imageAlt': 'View of Lugano city with tax documents on a desk, symbolizing fiscal transparency',
 };
 
 export default blogMetaChEn;

@@ -4232,6 +4232,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-lavoro-champery-gas-metallo': { name: 'cronaca svizzera', path: '/articoli-svizzera/incidente-lavoro-champery-gas-metallo/', parent: 'blog' },
     'blog-finanziamento-olimpiadi-invernali-2038': { name: 'Notizie svizzere', path: '/articoli-svizzera/finanziamento-olimpiadi-invernali-2038/', parent: 'blog' },
     'blog-pandemia-indennizzi-imprese': { name: 'Sostegno economico', path: '/articoli-svizzera/pandemia-indennizzi-imprese/', parent: 'blog' },
+    'blog-carlo-iii-redditi-tasse-2026': { name: 'redditi e tasse', path: '/articoli-svizzera/carlo-iii-redditi-tasse-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
