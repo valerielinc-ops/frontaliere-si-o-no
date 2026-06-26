@@ -269,50 +269,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "hpc-manager-in-software-di-prova-sviluppatore-in-stadler-rail-st-margrethen",
-    "title": "HPC Manager:in / Test-Software-Entwickler:in",
-    "titleByLocale": {
-      "de": "HPC Manager:in / Test-Software-Entwickler:in",
-      "en": "HPC Manager:in / Test software developer:in",
-      "it": "HPC Manager:in / Software di prova sviluppatore:in",
-      "fr": "HPC Manager:in / développeur de logiciel de test:in"
-    },
-    "company": "Stadler Rail",
-    "companyKey": "stadler-rail",
-    "location": "St. Margrethen",
-    "addressLocality": "St. Margrethen",
-    "descriptionByLocale": {
-      "de": "PROFIL\n\n• Hochschulabschluss in Maschinenbau, Elektrotechnik, Mechatronik oder Informatik\n\n• Sehr gute Kenntnisse in Python (insbesondere für Datenanalyse)\n\n• Erfahrung mit imc FAMOS von Vorteil\n\n• Erfahrung in der Auswertung von Messdaten, idealerweise im Umfeld von akkreditierten Prüfstellen\n\n• Verständnis für Validierungs- und Verifizierungsprozesse\n\n• Kenntnisse in Versionsverwaltung (z. B. Git) und strukturierter Softwareentwicklung\n\n• Fähigkeit, sich selbstständig in Normen, Richtlinien und technische Spezifikationen einzuarbeiten\n\nAUFGABEN\n\n• Entwicklung, Pflege und Weiterentwicklung von Auswertesprogrammen für Messdaten innerhalb der Prüfstelle\n\n• Enge Zusammenarbeit mit Testingenieur:innen zur Definition von Auswertelogik, Prüfmethoden und Akzeptanzkriterien\n\n• Validierung und Verifikation der Auswerteprogramme\n\n• Sicherstellung einer nachvollziehbaren, sauberen Versionierung der Auswerteprogramme und Skripte\n\n• Berücksichtigung relevanter Normen und Richtlinien bei der Umsetzung von Auswerteverfahren",
-      "it": "PROFESSIONALE\n\n• Laurea in ingegneria meccanica, ingegneria elettrica, meccatronica o informatica\n\n• Ottima conoscenza di Python (specialmente per l'analisi dei dati)\n\n• Esperienza con imc FAMOS è vantaggioso\n\n• Esperienza nella valutazione dei dati di misura, idealmente nell'ambiente dei centri di test accreditati\n\n• Comprensione dei processi di convalida e verifica\n\n• Conoscenza della gestione delle versioni (ad esempio git) e sviluppo di software strutturato\n\n• Capacità di imparare indipendentemente su standard, linee guida e specifiche tecniche\n\nTASKS\n\n• Sviluppo, manutenzione e sviluppo di programmi di valutazione per i dati di misura all'interno del centro di test\n\n• Chiudere la collaborazione con ingegnere di prova: addetti alla definizione di logica di valutazione, metodi di prova e criteri di accettazione\n\n• Validazione e verifica dei programmi di valutazione\n\n• Garantire una versione tracciabile e pulita dei programmi di valutazione e degli script\n\n• Considerazione delle norme e degli orientamenti pertinenti nell'attuazione delle procedure di valutazione",
-      "en": "PROFILE\n\n• Graduate degree in mechanical engineering, electrical engineering, mechatronics or computer science\n\n• Very good knowledge of Python (especially for data analysis)\n\n• Experience with imc FAMOS is beneficial\n\n• Experience in the evaluation of measurement data, ideally in the environment of accredited test centres\n\n• Understanding validation and verification processes\n\n• Knowledge of version management (e.g. git) and structured software development\n\n• Ability to learn independently about standards, guidelines and technical specifications\n\nTASKS\n\n• Development, maintenance and further development of evaluation programs for measurement data within the test centre\n\n• Close cooperation with test engineer: insiders for the definition of evaluation logic, test methods and acceptance criteria\n\n• Validation and verification of evaluation programs\n\n• Ensuring a traceable, clean versioning of the evaluation programs and scripts\n\n• Consideration of relevant standards and guidelines in the implementation of evaluation procedures",
-      "fr": "PROFIL\n\n• Diplômé en génie mécanique, génie électrique, mécatronique ou informatique\n\n• Très bonne connaissance de Python (surtout pour l'analyse de données)\n\n• L'expérience avec les FAMOS immo est bénéfique\n\n• Expérience dans l'évaluation des données de mesure, idéalement dans l'environnement des centres d'essais agréés\n\n• Comprendre les processus de validation et de vérification\n\n• Connaissance de la gestion des versions (p. ex. git) et développement de logiciels structurés\n\n• Aptitude à apprendre de manière indépendante les normes, directives et spécifications techniques\n\nTÂCHES\n\n• Élaboration, maintenance et développement de programmes d'évaluation des données de mesure au sein du centre d'essais\n\n• Coopération étroite avec l'ingénieur d'essai : initiés pour la définition de la logique d'évaluation, des méthodes d'essai et des critères d'acceptation\n\n• Validation et vérification des programmes d'évaluation\n\n• Assurer une version claire et traçable des programmes et des scripts d'évaluation\n\n• Examen des normes et directives pertinentes pour la mise en œuvre des procédures d'évaluation"
-    },
-    "slugByLocale": {
-      "de": "hpc-manager-in-test-software-entwickler-in-stadler-rail-ch",
-      "it": "hpc-manager-in-software-di-prova-sviluppatore-in-stadler-rail-st-margrethen",
-      "en": "hpc-manager-in-test-software-entwickler-in-stadler-rail-ch",
-      "fr": "hpc-manager-in-developpeur-de-logiciel-de-test-in-stadler-rail-st-margrethen"
-    },
-    "sector": "Rail vehicle manufacturing",
-    "expiredAt": "2026-06-26T12:13:03.409Z",
-    "previousSlugs": [
-      "hpc-manager-in-test-software-entwickler-in-stadler-rail-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "hpc-manager-in-test-software-entwickler-in-stadler-rail-ch"
-      ],
-      "fr": [
-        "hpc-manager-in-test-software-entwickler-in-stadler-rail-ch"
-      ]
-    },
-    "postalCode": "9430",
-    "salaryMin": 79000,
-    "salaryMax": 120000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "meccaniche-di-assemblaggio-finale-del-team-leader-stadler-rail-bussnang",
     "title": "Teamleiter:in Endmontage Mechanik",
     "titleByLocale": {
