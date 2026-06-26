@@ -613,10 +613,10 @@
     },
     {
       "id": "stgag-d2a40f43ebd0",
-      "slug": "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen",
+      "slug": "medico-generale-senior-medicina-interna-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen",
-        "it": "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen",
+        "it": "medico-generale-senior-medicina-interna-spital-thurgau-stgag-munsterlingen",
         "en": "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen",
         "fr": "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen"
       },
@@ -674,7 +674,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:16:18.456Z"
+      "firstSeenAt": "2026-06-26T12:16:18.456Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen"
+      ]
     },
     {
       "id": "stgag-fca64badab49",

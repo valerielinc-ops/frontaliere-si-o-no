@@ -4669,10 +4669,10 @@
     },
     {
       "id": "novartis-885d38ac8709",
-      "slug": "pricing-access-manager-novartis-ch",
+      "slug": "gestore-prezzi-e-accesso-novartis-rotkreuz-office",
       "slugByLocale": {
         "en": "pricing-access-manager-novartis-ch",
-        "it": "pricing-access-manager-novartis-ch",
+        "it": "gestore-prezzi-e-accesso-novartis-rotkreuz-office",
         "de": "pricing-access-manager-novartis-ch",
         "fr": "pricing-access-manager-novartis-ch"
       },
@@ -4730,7 +4730,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-26T11:51:14.174Z"
+      "firstSeenAt": "2026-06-26T11:51:14.174Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pricing-access-manager-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pricing-access-manager-novartis-ch"
+      ]
     }
   ]
 }

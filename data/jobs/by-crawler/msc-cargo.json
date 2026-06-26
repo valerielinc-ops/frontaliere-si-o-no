@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "msc-cargo-8fd1f556af0a",
-      "slug": "brand-manager-brand-product-msc-geneva",
+      "slug": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
       "slugByLocale": {
         "en": "brand-manager-brand-product-msc-geneva",
-        "it": "brand-manager-brand-product-msc-geneva",
+        "it": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
         "fr": "brand-manager-brand-product-msc-geneva"
       },
@@ -70,10 +70,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "gestionnaire-de-marques-marque-produit-msc-group-geneva"
+        ],
+        "it": [
+          "brand-manager-brand-product-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva"
+        "gestionnaire-de-marques-marque-produit-msc-group-geneva",
+        "brand-manager-brand-product-msc-geneva"
       ]
     },
     {
@@ -150,10 +154,10 @@
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
-      "slug": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
+      "slug": "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva",
       "slugByLocale": {
         "en": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
-        "it": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
+        "it": "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva",
         "de": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
         "fr": "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
       },
@@ -214,11 +218,16 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-24T22:36:00.136Z",
       "previousSlugs": [
+        "strategie-d-analyse-numerique-test-et-gestionnaire-cro-msc-group-geneva",
+        "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
         "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "strategie-d-analyse-numerique-test-et-gestionnaire-cro-msc-group-geneva"
+        ],
+        "it": [
+          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
         ]
       }
     },
@@ -292,15 +301,10 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva",
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+          "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva"
         ],
         "fr": [
-          "travelling-fleet-superviseur-shore-excursions-msc-group-geneva",
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
-        ],
-        "it": [
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+          "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
         ]
       }
     },
@@ -833,10 +837,10 @@
     },
     {
       "id": "msc-cargo-ae2d4551edb1",
-      "slug": "spa-product-manager-msc-geneva",
+      "slug": "responsabile-prodotto-spa-msc-group-geneva",
       "slugByLocale": {
         "en": "spa-product-manager-msc-geneva",
-        "it": "spa-product-manager-msc-geneva",
+        "it": "responsabile-prodotto-spa-msc-group-geneva",
         "de": "spa-product-manager-msc-geneva",
         "fr": "spa-product-manager-msc-geneva"
       },
@@ -895,7 +899,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-26T12:03:01.857Z"
+      "firstSeenAt": "2026-06-26T12:03:01.857Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-product-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "spa-product-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-1a2c16e6e5dc",

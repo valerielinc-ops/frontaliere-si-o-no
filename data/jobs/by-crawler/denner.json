@@ -293,10 +293,10 @@
     },
     {
       "id": "denner-8fe1f33b5923",
-      "slug": "venditore-denner-huttwil",
+      "slug": "addetto-a-alle-vendite-denner-huttwil",
       "slugByLocale": {
-        "it": "venditore-denner-huttwil",
-        "en": "seller-denner-huttwil",
+        "it": "addetto-a-alle-vendite-denner-huttwil",
+        "en": "sales-assistant-denner-huttwil",
         "de": "verkaufer-in-denner-ag-huttwil",
         "fr": "vendeur-denner-huttwil"
       },
@@ -356,15 +356,19 @@
       "crawledAt": "2026-06-26T11:12:26.228Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-huttwil"
+        "verkaufer-in-denner-huttwil",
+        "venditore-denner-huttwil",
+        "seller-denner-huttwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-huttwil"
+          "verkaufer-in-denner-huttwil",
+          "venditore-denner-huttwil"
         ],
         "en": [
-          "verkaufer-in-denner-huttwil"
+          "verkaufer-in-denner-huttwil",
+          "seller-denner-huttwil"
         ],
         "fr": [
           "verkaufer-in-denner-huttwil"
@@ -1203,7 +1207,6 @@
         "venditore-denner-ag-langenthal-34cb20",
         "seller-denner-ag-langenthal-34cb20",
         "vendeur-denner-ag-langenthal-34cb20",
-        "verkaufer-in-denner",
         "venditore-denner-ag-chur-038a31",
         "seller-denner-ag-chur-038a31",
         "vendeur-denner-ag-chur-038a31"
@@ -2330,12 +2333,12 @@
     },
     {
       "id": "denner-2c433e98b780",
-      "slug": "verkaufer-in-denner-pratteln",
+      "slug": "venditore-denner-pratteln",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-pratteln",
+        "it": "venditore-denner-pratteln",
         "de": "verkaufer-in-denner-ag-pratteln",
-        "en": "verkaufer-in-denner-pratteln",
-        "fr": "verkaufer-in-denner-pratteln"
+        "en": "seller-denner-pratteln",
+        "fr": "vendeur-denner-pratteln"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2394,11 +2397,19 @@
       "crawledAt": "2026-06-26T11:12:21.625Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-pratteln"
+        ],
+        "en": [
+          "verkaufer-in-denner-pratteln"
+        ],
+        "fr": [
+          "verkaufer-in-denner-pratteln"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-pratteln"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2417,12 +2428,12 @@
     },
     {
       "id": "denner-a184f21dda4e",
-      "slug": "stv-filialleiter-in-denner-adliswil",
+      "slug": "stv-branch-manager-in-denner-adliswil",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-adliswil",
+        "it": "stv-branch-manager-in-denner-adliswil",
         "de": "stv-filialleiter-in-denner-ag-adliswil-4rogfo",
         "en": "stv-filialleiter-in-denner-adliswil",
-        "fr": "stv-filialleiter-in-denner-adliswil"
+        "fr": "directeur-de-succursale-stv-in-denner-adliswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2481,11 +2492,16 @@
       "crawledAt": "2026-06-26T11:12:21.621Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-adliswil"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-adliswil"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-adliswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2504,12 +2520,12 @@
     },
     {
       "id": "denner-491b0418c963",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-wadenswil",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-gestione-delle-branche-denner-wadenswil",
         "de": "assistent-in-filialleitung-denner-ag-wadenswil-ocrq9v",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-wadenswil",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2581,33 +2597,36 @@
       "country": "CH",
       "firstSeenAt": "2026-06-26T11:12:20.835Z",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-2",
-        "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-bellach",
         "assistente-nella-gestione-delle-branche-denner-bellach",
+        "assistent-in-filialleitung-denner",
         "assistant-in-branch-management-denner-bellach",
-        "assistant-dans-la-gestion-des-succursales-denner-bellach"
+        "assistant-dans-la-gestion-des-succursales-denner-bellach",
+        "assistent-in-filialleitung-denner-2",
+        "assistent-in-filialleitung-denner-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-nella-gestione-delle-branche-denner-bellach"
+          "assistente-nella-gestione-delle-branche-denner-bellach",
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
-          "assistant-in-branch-management-denner-bellach"
+          "assistant-in-branch-management-denner-bellach",
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
-          "assistant-dans-la-gestion-des-succursales-denner-bellach"
+          "assistant-dans-la-gestion-des-succursales-denner-bellach",
+          "assistent-in-filialleitung-denner"
         ]
       }
     },
     {
       "id": "denner-beea6c5dbbd2",
-      "slug": "stv-filialleiter-in-denner-wadenswil",
+      "slug": "stv-branch-manager-in-denner-wadenswil",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-wadenswil",
+        "it": "stv-branch-manager-in-denner-wadenswil",
         "de": "stv-filialleiter-in-denner-ag-wadenswil-idrc05",
         "en": "stv-filialleiter-in-denner-wadenswil",
-        "fr": "stv-filialleiter-in-denner-wadenswil"
+        "fr": "directeur-de-succursale-stv-in-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2666,11 +2685,16 @@
       "crawledAt": "2026-06-26T11:12:20.830Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-wadenswil"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-wadenswil"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-wadenswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2689,12 +2713,12 @@
     },
     {
       "id": "denner-47f9f05dd8a2",
-      "slug": "filialleiter-in-denner-wadenswil",
+      "slug": "responsabile-negozio-denner-wadenswil",
       "slugByLocale": {
-        "it": "filialleiter-in-denner-wadenswil",
+        "it": "responsabile-negozio-denner-wadenswil",
         "de": "filialleiter-in-denner-ag-wadenswil",
-        "en": "filialleiter-in-denner-wadenswil",
-        "fr": "filialleiter-in-denner-wadenswil"
+        "en": "store-manager-denner-wadenswil",
+        "fr": "gestionnaire-de-magasin-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2753,11 +2777,19 @@
       "crawledAt": "2026-06-26T11:12:20.826Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-denner"
+          "filialleiter-in-denner",
+          "filialleiter-in-denner-wadenswil"
+        ],
+        "en": [
+          "filialleiter-in-denner-wadenswil"
+        ],
+        "fr": [
+          "filialleiter-in-denner-wadenswil"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-denner",
+        "filialleiter-in-denner-wadenswil",
         "filialleiter-in-denner-ag-nurensdorf"
       ],
       "salaryMin": 83000,
@@ -2777,12 +2809,12 @@
     },
     {
       "id": "denner-d580a86775a3",
-      "slug": "filialleiter-in-in-ausbildung-denner-wollerau",
+      "slug": "responsabile-della-filiale-nella-formazione-denner-wollerau",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-wollerau",
+        "it": "responsabile-della-filiale-nella-formazione-denner-wollerau",
         "de": "filialleiter-in-ausbildung-denner-ag-wollerau-lfwc76",
-        "en": "filialleiter-in-in-ausbildung-denner-wollerau",
-        "fr": "filialleiter-in-in-ausbildung-denner-wollerau"
+        "en": "branch-manager-in-training-denner-wollerau",
+        "fr": "directeur-de-branche-en-formation-denner-wollerau"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2841,11 +2873,19 @@
       "crawledAt": "2026-06-26T11:12:20.017Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-wollerau"
+        ],
+        "en": [
+          "filialleiter-in-in-ausbildung-denner-wollerau"
+        ],
+        "fr": [
+          "filialleiter-in-in-ausbildung-denner-wollerau"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-wollerau",
         "stv-filialleiter-in-in-ausbildung-denner"
       ],
       "salaryMin": 79000,
@@ -2868,9 +2908,9 @@
       "slug": "filialleiter-in-in-ausbildung-denner",
       "slugByLocale": {
         "it": "responsabile-della-filiale-nella-formazione-denner-wadenswil",
-        "en": "filialleiter-in-in-ausbildung-denner-netstal",
+        "en": "branch-manager-in-training-denner-netstal",
         "de": "filialleiter-in-in-ausbildung-denner-netstal",
-        "fr": "filialleiter-in-in-ausbildung-denner-netstal"
+        "fr": "directeur-de-branche-en-formation-denner-netstal"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2930,11 +2970,17 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-in-ausbildung-denner-2"
+        ],
+        "en": [
+          "filialleiter-in-in-ausbildung-denner-netstal"
+        ],
+        "fr": [
+          "filialleiter-in-in-ausbildung-denner-netstal"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner-2",
-        "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-netstal",
         "filialleiter-in-in-ausbildung-denner-wadenswil",
         "responsabile-di-filiale-in-formazione-denner-wollerau",
         "responsabile-di-filiale-in-formazione-denner-burgdorf",
@@ -2962,12 +3008,12 @@
     },
     {
       "id": "denner-36fccfa6a6dd",
-      "slug": "stv-filialleiter-in-denner-wollerau",
+      "slug": "stv-branch-manager-in-denner-wollerau",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-wollerau",
+        "it": "stv-branch-manager-in-denner-wollerau",
         "de": "stv-filialleiter-in-denner-ag-wollerau-wwdtv1",
         "en": "stv-filialleiter-in-denner-wollerau",
-        "fr": "stv-filialleiter-in-denner-wollerau"
+        "fr": "directeur-de-succursale-stv-in-denner-wollerau"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -3026,11 +3072,16 @@
       "crawledAt": "2026-06-26T11:12:19.988Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-wollerau"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-wollerau"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-wollerau"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
