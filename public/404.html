@@ -68,6 +68,27 @@
         // the slug segment is identical across locales — only the prefix differs.
         var localeMatch = pathname.match(/^\/(en|de|fr)(?:\/|$)/);
         var locale = localeMatch ? localeMatch[1] : 'it';
+        // Legacy related-search CLUSTER orphan: the last segment is a search-action
+        // slug (ricerca-/search-/suche-/recherche-…) from the old per-canton slug
+        // format that was migrated to /cerca-lavoro-svizzera/ricerca-<role>-<city>/.
+        // The KNOWN ones already serve as 200 compat-bridge pages, but Google
+        // indexed more than our snapshot, so the long tail soft-404s here. We can't
+        // enumerate the unknown ones for a SPECIFIC target, so redirect to the
+        // locale's NATIONAL job board — always a live 200, never a 301→404 — before
+        // the job-canon dance (these are never real job slugs). Mirrors the Worker's
+        // recoverLegacySearchCluster; this branch covers the IT route (Worker-bypassed).
+        if (/^(?:ricerca|search|suche|recherche)-/.test(slug)) {
+          var nationalBoard = {
+            it: '/cerca-lavoro-svizzera/',
+            en: '/en/find-jobs-switzerland/',
+            de: '/de/jobs-in-schweiz/',
+            fr: '/fr/trouver-emploi-suisse/'
+          }[locale];
+          if (nationalBoard && pathname.replace(/\/+$/, '') + '/' !== nationalBoard) {
+            location.replace(nationalBoard + location.search + location.hash);
+            return;
+          }
+        }
         // The canton SECTION is encoded in the URL and its listing root is always a
         // 200 page. So EVERY job-detail 404 recovers: known slug → its exact
         // canonical page; unknown/expired slug (slug-form drift, never tracked) →
