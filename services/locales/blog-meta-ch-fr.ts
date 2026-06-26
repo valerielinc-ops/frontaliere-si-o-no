@@ -505,6 +505,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ticinese-frontalieri.title': 'Nouveautés pour les frontaliers au Tessin',
     'blog.article.ticinese-frontalieri.excerpt': 'Mises à jour sur les nouveautés concernant les frontaliers au Tessin',
     'blog.article.ticinese-frontalieri.imageAlt': 'Paysage urbain de Lugano avec des travailleurs frontaliers',
+    'blog.article.pflegehilfe-svizzera.title': 'Pflegehilfe en Suisse : guide pratique de l\'assistance',
+    'blog.article.pflegehilfe-svizzera.excerpt': 'Découvrez comment fonctionne la prise en charge des personnes âgées et des personnes ayant besoin de soins en Suisse',
+    'blog.article.pflegehilfe-svizzera.imageAlt': 'Soins à domicile pour personnes âgées en Suisse',
 };
 
 export default blogMetaChFr;

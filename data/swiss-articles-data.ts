@@ -1511,6 +1511,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pflegehilfe-svizzera',
+    category: 'pratico',
+    date: '2026-06-26T05:43:19.870Z',
+    image: '/images/blog/pflegehilfe-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

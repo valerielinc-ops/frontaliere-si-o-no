@@ -191,6 +191,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lohnausweis-frontalieri': { it: 'lohnausweis-frontalieri', en: 'lohnausweis-comprehensive-guide', de: 'lohnausweis-umfassende-anleitung', fr: 'lohnausweis-guide-complet' },
  'agenzie-interinali-ticino': { it: 'agenzie-interinali-ticino', en: 'lugano-temporary-agencies', de: 'zeitarbeit-lugano', fr: 'agences-interim-lugano' },
  'ticinese-frontalieri': { it: 'ticinese-frontalieri', en: 'ticino-cross-border-workers-news', de: 'ticino-grenzgaenger-neuigkeiten', fr: 'ticino-travailleurs-frontaliers-actualites' },
+ 'pflegehilfe-svizzera': { it: 'pflegehilfe-svizzera', en: 'care-assistance-switzerland', de: 'pflegehilfe-schweiz', fr: 'aide-soins-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
