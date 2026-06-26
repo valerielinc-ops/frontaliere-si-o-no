@@ -1084,7 +1084,19 @@
         }
       },
       "addressRegion": "BL",
-      "firstSeenAt": "2026-06-26T10:55:22.575Z"
+      "firstSeenAt": "2026-06-26T10:55:22.575Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulenza-clienti-in-baubedarf-shop-w-m-d-100-bms-building-materials-hagendorf",
+          "customer-consulting-in-baubedarf-shop-w-m-d-100-bms-building-materials-hagendorf",
+          "conseils-clients-en-baubedarf-shop-w-m-d-100-bms-building-materials-hagendorf"
+        ]
+      },
+      "previousSlugs": [
+        "consulenza-clienti-in-baubedarf-shop-w-m-d-100-bms-building-materials-hagendorf",
+        "customer-consulting-in-baubedarf-shop-w-m-d-100-bms-building-materials-hagendorf",
+        "conseils-clients-en-baubedarf-shop-w-m-d-100-bms-building-materials-hagendorf"
+      ]
     },
     {
       "id": "bms-building-3e8bdffda201",
@@ -1269,11 +1281,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch-2"
+          "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch-2",
+          "fachberatung-ausstellung-sanitar-e-platten-m-w-d-100-bms-building-materials-st-gallen"
         ]
       },
       "previousSlugs": [
-        "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch-2"
+        "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch-2",
+        "fachberatung-ausstellung-sanitar-e-platten-m-w-d-100-bms-building-materials-st-gallen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1771,11 +1785,13 @@
         ]
       },
       "previousSlugs": [
-        "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
+        "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
+        "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
+          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
+          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch-2"
         ],
         "en": [
           "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
@@ -2264,7 +2280,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-m-w-d-bms-building-materials-reinach",
+          "projektleiter-w-m-d-bms-building-materials-reinach",
+          "projektleiter-m-j-bms-building-materials-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-m-w-d-bms-building-materials-reinach",
+        "projektleiter-w-m-d-bms-building-materials-reinach",
+        "projektleiter-m-j-bms-building-materials-reinach"
+      ]
     },
     {
       "id": "bms-building-5dbd85e4ff8e",
@@ -2462,7 +2490,17 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberatung-shop-sanitar-mit-springerfunktion-w-m-d-100-bms-building-ch-2",
+          "kundenberatung-shop-sanitar-mit-springerfunktion-w-m-d-100-bms-building-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberatung-shop-sanitar-mit-springerfunktion-w-m-d-100-bms-building-ch-2",
+        "kundenberatung-shop-sanitar-mit-springerfunktion-w-m-d-100-bms-building-ch-3"
+      ]
     },
     {
       "id": "bms-building-1d192109743d",

@@ -140,7 +140,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T12:27:47.304Z"
+      "firstSeenAt": "2026-06-26T12:27:47.304Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "health-professional-efz-50-80-spitex-kempt-effretikon"
+        ],
+        "fr": [
+          "professionnels-de-la-sante-efz-50-80-spitex-kempt-effretikon"
+        ]
+      },
+      "previousSlugs": [
+        "health-professional-efz-50-80-spitex-kempt-effretikon",
+        "professionnels-de-la-sante-efz-50-80-spitex-kempt-effretikon"
+      ]
     },
     {
       "id": "spitex-ch-e8ff775750c7",
@@ -1621,11 +1633,21 @@
       "firstSeenAt": "2026-06-26T12:27:31.450Z",
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
+          "team-management-servizio-notturno-stazionario-e-ambulatorio-spitex-der-seegemeinden-weggis"
+        ],
+        "en": [
+          "team-management-night-service-stationary-ambulatory-spitex-der-seegemeinden-weggis"
+        ],
+        "fr": [
+          "gestion-d-equipe-service-de-nuit-stationnaire-ambulatoire-spitex-der-seegemeinden-weggis"
         ]
       },
       "previousSlugs": [
-        "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
+        "team-management-servizio-notturno-stazionario-e-ambulatorio-spitex-der-seegemeinden-weggis",
+        "team-management-night-service-stationary-ambulatory-spitex-der-seegemeinden-weggis",
+        "gestion-d-equipe-service-de-nuit-stationnaire-ambulatoire-spitex-der-seegemeinden-weggis"
       ]
     },
     {

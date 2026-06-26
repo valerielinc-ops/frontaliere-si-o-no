@@ -7372,7 +7372,8 @@
         "scrub-nurse-or-surgical-technologist-80-hirslanden-klinik-geneve",
         "instrumentalist-or-tso-nurse-at-80-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search",
-        "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-klinik-geneve"
+        "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-klinik-geneve",
+        "scrub-nurse-or-tso-at-80-hirslanden-klinik-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7382,7 +7383,8 @@
         "en": [
           "scrub-nurse-or-surgical-technologist-80-hirslanden-klinik-geneve",
           "instrumentalist-or-tso-nurse-at-80-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-34"
+          "taches-principales-hirslanden-search-34",
+          "scrub-nurse-or-tso-at-80-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -35590,7 +35592,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:43:20.283Z"
+      "firstSeenAt": "2026-06-26T11:43:20.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infermiere-a-diplomato-a-intermediate-care-imc-70-100-hirslanden-klinik-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "infermiere-a-diplomato-a-intermediate-care-imc-70-100-hirslanden-klinik-ticino"
+      ]
     },
     {
       "id": "hirslanden-fffc2d78f2d8",
@@ -35657,7 +35667,8 @@
       "firstSeenAt": "2026-06-26T11:30:41.202Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-a-60-80-hirslanden-bern"
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-a-60-80-hirslanden-bern",
+          "specialista-in-radiologia-hf-a-60-80-hirslanden-klinik-bern"
         ],
         "en": [
           "dipl-radiologiefachfrau-radiologiefachmann-hf-a-60-80-hirslanden-bern"
@@ -35667,7 +35678,8 @@
         ]
       },
       "previousSlugs": [
-        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-60-80-hirslanden-bern"
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-60-80-hirslanden-bern",
+        "specialista-in-radiologia-hf-a-60-80-hirslanden-klinik-bern"
       ]
     }
   ]

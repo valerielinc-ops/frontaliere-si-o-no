@@ -207,11 +207,15 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-24T22:36:00.136Z",
       "previousSlugs": [
-        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva",
+        "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "strategie-d-analyse-numerique-test-et-gestionnaire-cro-msc-group-geneva"
+        ],
+        "it": [
+          "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva"
         ]
       }
     },
@@ -876,7 +880,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-26T12:03:01.857Z"
+      "firstSeenAt": "2026-06-26T12:03:01.857Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-prodotto-spa-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-prodotto-spa-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-1a2c16e6e5dc",
