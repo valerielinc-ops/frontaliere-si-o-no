@@ -1154,14 +1154,22 @@
       "requirementsByLocale": {},
       "externalId": "96ce5674d176",
       "previousSlugs": [
-        "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
+        "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
+        "ufficiale-medico-capo-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
+        "chief-medical-officer-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
+        "chefarzt-80-100-klinikchemarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
+          "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
+          "ufficiale-medico-capo-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
         ],
         "en": [
-          "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
+          "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
+          "chief-medical-officer-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
+        ],
+        "de": [
+          "chefarzt-80-100-klinikchemarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-25T11:27:04.647Z",
@@ -1721,17 +1729,23 @@
       "requirementsByLocale": {},
       "externalId": "8563668bc0d5",
       "previousSlugs": [
-        "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
+        "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
+        "infermiera-e-esperto-in-anestesia-da-50-a-100-cdi-hopital-fribourgeois-hfr-fribourg",
+        "nurse-e-expert-in-anesthesia-care-50-to-100-cdi-hopital-fribourgeois-hfr-fribourg",
+        "nurse-e-experte-in-anasthesie-pflege-50-bis-100-cdi-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
+          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
+          "infermiera-e-esperto-in-anestesia-da-50-a-100-cdi-hopital-fribourgeois-hfr-fribourg"
         ],
         "en": [
-          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
+          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
+          "nurse-e-expert-in-anesthesia-care-50-to-100-cdi-hopital-fribourgeois-hfr-fribourg"
         ],
         "de": [
-          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois"
+          "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
+          "nurse-e-experte-in-anasthesie-pflege-50-bis-100-cdi-hopital-fribourgeois-hfr-fribourg"
         ]
       },
       "firstSeenAt": "2026-06-25T11:27:00.109Z",

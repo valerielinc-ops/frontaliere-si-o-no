@@ -4664,7 +4664,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "titolare-del-trattamento-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "titolare-del-trattamento-100-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-2d276fef4b2b",
@@ -4797,11 +4805,13 @@
         "site": "MARTIGNY"
       },
       "previousSlugs": [
-        "secretaire-medical-e-a-50-pour-le-secretariat-des-consultations-de-pneumologie-de-sion"
+        "secretaire-medical-e-a-50-pour-le-secretariat-des-consultations-de-pneumologie-de-sion",
+        "segretario-medico-e-50-per-la-segreteria-di-pneumonology-consultations-a-sion-hopital-du-valais-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medical-e-a-50-pour-le-secretariat-des-consultations-de-pneumologie-de-sion"
+          "secretaire-medical-e-a-50-pour-le-secretariat-des-consultations-de-pneumologie-de-sion",
+          "segretario-medico-e-50-per-la-segreteria-di-pneumonology-consultations-a-sion-hopital-du-valais-martigny"
         ],
         "de": [
           "secretaire-medical-e-a-50-pour-le-secretariat-des-consultations-de-pneumologie-de-sion"
@@ -5111,14 +5121,18 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "assistant-e-medical-e-a-90-pour-le-secretariat-de-consultations-chirurgie-generale-de-l"
+        "assistant-e-medical-e-a-90-pour-le-secretariat-de-consultations-chirurgie-generale-de-l",
+        "90-assistente-medico-per-la-segreteria-generale-di-chirurgia-dell-ospedale-sion-e-sierre-hopital-du-valais-sion",
+        "90-medical-assistant-for-the-general-surgery-secretariat-of-sion-and-sierre-hospital-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-a-90-pour-le-secretariat-de-consultations-chirurgie-generale-de-l"
+          "assistant-e-medical-e-a-90-pour-le-secretariat-de-consultations-chirurgie-generale-de-l",
+          "90-assistente-medico-per-la-segreteria-generale-di-chirurgia-dell-ospedale-sion-e-sierre-hopital-du-valais-sion"
         ],
         "en": [
-          "assistant-e-medical-e-a-90-pour-le-secretariat-de-consultations-chirurgie-generale-de-l"
+          "assistant-e-medical-e-a-90-pour-le-secretariat-de-consultations-chirurgie-generale-de-l",
+          "90-medical-assistant-for-the-general-surgery-secretariat-of-sion-and-sierre-hospital-hopital-du-valais-sion"
         ],
         "de": [
           "assistant-e-medical-e-a-90-pour-le-secretariat-de-consultations-chirurgie-generale-de-l"
