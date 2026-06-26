@@ -978,12 +978,12 @@
     },
     {
       "id": "ukbb-e9c4d5c6c111",
-      "slug": "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel",
+      "slug": "dipl-cura-professionale-hf-fh-80-psicosomatica-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel",
-        "it": "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel",
-        "en": "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel",
-        "fr": "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel"
+        "it": "dipl-cura-professionale-hf-fh-80-psicosomatica-universitats-kinderspital-beider-basel-basel",
+        "en": "dipl-care-professional-hf-fh-80-psychosomatics-universitats-kinderspital-beider-basel-basel",
+        "fr": "dipl-soins-professionnels-hf-fh-80-psychosomatique-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1029,11 +1029,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel"
+          "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel",
+          "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel"
+        "dipl-pflegefachperson-hf-fh-80-psychosomatik-ukbb-basel",
+        "dipl-pflegefachperson-hf-fh-80-psychosomatik-universitats-kinderspital-beider-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
