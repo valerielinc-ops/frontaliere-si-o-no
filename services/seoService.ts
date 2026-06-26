@@ -4217,6 +4217,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticinese-frontalieri': { name: 'Frontalieri Ticino', path: '/articoli-svizzera/ticinese-frontalieri/', parent: 'blog' },
     'blog-pflegehilfe-svizzera': { name: 'Assistenza anziani', path: '/articoli-svizzera/pflegehilfe-svizzera/', parent: 'blog' },
     'blog-fmi-economia-svizzera-resiliente': { name: 'Economia Svizzera', path: '/articoli-svizzera/fmi-economia-svizzera-resiliente/', parent: 'blog' },
+    'blog-scambio-dati-salariali-italia-legge': { name: 'Fiscalità frontalieri', path: '/articoli-svizzera/scambio-dati-salariali-italia-legge/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

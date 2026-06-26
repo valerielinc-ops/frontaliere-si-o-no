@@ -511,6 +511,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fmi-economia-svizzera-resiliente.title': 'FMI : l\'économie suisse reste résiliente',
     'blog.article.fmi-economia-svizzera-resiliente.excerpt': 'Le Fonds monétaire international confirme la solidité de l\'économie suisse, en anticipant une croissance modérée et une inflation contenue.',
     'blog.article.fmi-economia-svizzera-resiliente.imageAlt': 'Paysage économique suisse avec des bâtiments financiers modernes',
+    'blog.article.scambio-dati-salariali-italia-legge.title': 'Échange de données salariales avec l\'Italie, la loi d\'application arrive',
+    'blog.article.scambio-dati-salariali-italia-legge.excerpt': 'Nouvelle réglementation pour l\'échange d\'informations salariales entre la Suisse et l\'Italie',
+    'blog.article.scambio-dati-salariali-italia-legge.imageAlt': 'Frontaliers traversant la frontière italo-suisse',
 };
 
 export default blogMetaChFr;

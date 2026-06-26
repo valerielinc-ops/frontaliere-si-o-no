@@ -193,6 +193,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ticinese-frontalieri': { it: 'ticinese-frontalieri', en: 'ticino-cross-border-workers-news', de: 'ticino-grenzgaenger-neuigkeiten', fr: 'ticino-travailleurs-frontaliers-actualites' },
  'pflegehilfe-svizzera': { it: 'pflegehilfe-svizzera', en: 'care-assistance-switzerland', de: 'pflegehilfe-schweiz', fr: 'aide-soins-suisse' },
  'fmi-economia-svizzera-resiliente': { it: 'fmi-economia-svizzera-resiliente', en: 'imf-swiss-economy-resilient', de: 'iwf-schweizer-wirtschaft-resilient', fr: 'fmi-economie-suisse-resiliente' },
+ 'scambio-dati-salariali-italia-legge': { it: 'scambio-dati-salariali-italia-legge', en: 'swiss-italian-wage-data-exchange', de: 'lohn-daten-austausch-italien-schweiz', fr: 'echange-donnees-salariales-italie-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

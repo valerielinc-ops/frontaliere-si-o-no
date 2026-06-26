@@ -511,6 +511,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fmi-economia-svizzera-resiliente.title': 'IWF: Schweizer Wirtschaft bleibt belastbar',
     'blog.article.fmi-economia-svizzera-resiliente.excerpt': 'Der Internationale Währungsfonds bestätigt die Solidität der Schweizer Wirtschaft und prognostiziert ein moderates Wachstum und eine moderate Inflation.',
     'blog.article.fmi-economia-svizzera-resiliente.imageAlt': 'Schweizer Wirtschaftslandschaft mit modernen Finanzgebäuden',
+    'blog.article.scambio-dati-salariali-italia-legge.title': 'Lohndatenaustausch mit Italien, das Durchsetzungsgesetz kommt',
+    'blog.article.scambio-dati-salariali-italia-legge.excerpt': 'Neue Vorschriften für den Austausch von Lohninformationen zwischen der Schweiz und Italien',
+    'blog.article.scambio-dati-salariali-italia-legge.imageAlt': 'Grenzgänger beim Überqueren der schweizerisch-italienischen Grenze',
 };
 
 export default blogMetaChDe;
