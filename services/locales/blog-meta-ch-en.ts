@@ -532,6 +532,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incidente-sul-lavoro-basilea.title': 'Fatal Work Accident in Basel',
     'blog.article.incidente-sul-lavoro-basilea.excerpt': 'A 26-year-old worker has died after falling from a scaffold at a construction site in Basel, Switzerland.',
     'blog.article.incidente-sul-lavoro-basilea.imageAlt': 'Construction site with scaffolding in Basel, scene of Swiss labor environment',
+    'blog.article.ferrovie-germania-ripresa-traffico.title': 'Germany, resumption of rail traffic',
+    'blog.article.ferrovie-germania-ripresa-traffico.excerpt': 'After an interruption of about 90 minutes, rail traffic in Germany has been fully restored, thanks to an emergency system.',
+    'blog.article.ferrovie-germania-ripresa-traffico.imageAlt': 'Swiss railway station with moving trains, photorealistic scene.',
 };
 
 export default blogMetaChEn;

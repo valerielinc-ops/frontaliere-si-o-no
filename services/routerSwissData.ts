@@ -200,6 +200,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'industria-farmaceutica-svizzera-dati': { it: 'industria-farmaceutica-svizzera-dati', en: 'swiss-pharma-industry-data', de: 'schweizer-pharma-industrie-daten', fr: 'industrie-pharmaceutique-suisse-donnees' },
  'deutsche-bahn-stop-ferroviario-germania': { it: 'deutsche-bahn-stop-ferroviario-germania', en: 'deutsche-bahn-rail-traffic-halt-germany', de: 'deutsche-bahn-bahnverkehr-stopp-deutschland', fr: 'deutsche-bahn-suspension-trafic-ferroviaire' },
  'incidente-sul-lavoro-basilea': { it: 'incidente-sul-lavoro-basilea', en: 'work-accident-basel', de: 'arbeitsunfall-basel', fr: 'accident-travail-bale' },
+ 'ferrovie-germania-ripresa-traffico': { it: 'ferrovie-germania-ripresa-traffico', en: 'germany-rail-traffic-resumption', de: 'wiederaufnahme-zugverkehr-deutschland', fr: 'reprise-traffic-ferroviaire-allemagne' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2949,
+ "numberOfItems": 2950,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7595,7 +7595,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2946, "name": "Giro dei Tre Paesi 2026: chiusure stradali in E...", "url": `${BASE_URL}/articoli-frontaliere/giro-tre-paesi-chiusure-traffico-2026` },
           { "@type": "ListItem", "position": 2947, "name": "Farmaceutica: dati e sfide dell'economia svizzera", "url": `${BASE_URL}/articoli-frontaliere/industria-farmaceutica-svizzera-dati` },
           { "@type": "ListItem", "position": 2948, "name": "Deutsche Bahn sospende il traffico ferroviario ...", "url": `${BASE_URL}/articoli-frontaliere/deutsche-bahn-stop-ferroviario-germania` },
-          { "@type": "ListItem", "position": 2949, "name": "Incidente sul lavoro mortale a Basilea", "url": `${BASE_URL}/articoli-frontaliere/incidente-sul-lavoro-basilea` }
+          { "@type": "ListItem", "position": 2949, "name": "Incidente sul lavoro mortale a Basilea", "url": `${BASE_URL}/articoli-frontaliere/incidente-sul-lavoro-basilea` },
+          { "@type": "ListItem", "position": 2950, "name": "Germania, ripresa del traffico ferroviario", "url": `${BASE_URL}/articoli-frontaliere/ferrovie-germania-ripresa-traffico` }
  ]
  },
  {

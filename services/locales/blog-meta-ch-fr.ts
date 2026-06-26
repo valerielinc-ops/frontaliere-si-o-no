@@ -532,6 +532,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incidente-sul-lavoro-basilea.title': 'Accident du travail mortel à Bâle',
     'blog.article.incidente-sul-lavoro-basilea.excerpt': 'Un jeune ouvrier de 26 ans est mort après être tombé d\'un échafaudage sur un chantier de Bâle, en Suisse.',
     'blog.article.incidente-sul-lavoro-basilea.imageAlt': 'Chantier de construction avec échafaudages à Bâle, scène de travail en Suisse',
+    'blog.article.ferrovie-germania-ripresa-traffico.title': 'Allemagne, reprise du trafic ferroviaire',
+    'blog.article.ferrovie-germania-ripresa-traffico.excerpt': 'Après une interruption d\'environ 90 minutes, le trafic ferroviaire en Allemagne a été complètement rétabli, grâce à un système d\'urgence.',
+    'blog.article.ferrovie-germania-ripresa-traffico.imageAlt': 'Gare ferroviaire suisse avec trains en mouvement, scène photoréaliste.',
 };
 
 export default blogMetaChFr;
