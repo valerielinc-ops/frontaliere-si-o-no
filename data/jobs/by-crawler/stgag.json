@@ -615,8 +615,8 @@
       "slugByLocale": {
         "de": "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen",
         "it": "medico-generale-senior-medicina-interna-spital-thurgau-stgag-munsterlingen",
-        "en": "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen",
-        "fr": "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen"
+        "en": "senior-physician-general-internal-medicine-spital-thurgau-stgag-munsterlingen",
+        "fr": "medecin-principal-medecine-generale-interne-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -675,6 +675,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen"
+        ],
+        "en": [
+          "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen"
+        ],
+        "fr": [
+          "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
@@ -687,8 +693,8 @@
       "slugByLocale": {
         "de": "stellvertretende-r-stationsleiter-in-im-zentrum-fur-forensische-psychiatrie-stgag",
         "it": "stellvertretende-r-stationsleiter-in-im-zentrum-per-forensische-psychiatrie-spital-thurgau-stgag-munsterlingen",
-        "en": "stellvertretende-r-stationsleiter-in-im-zentrum-fur-forensische-psychiatrie-stgag",
-        "fr": "stellvertretende-r-stationsleiter-in-im-zentrum-fur-forensische-psychiatrie-stgag"
+        "en": "deputy-station-manager-at-the-center-for-forensic-psychiatry-spital-thurgau-stgag-munsterlingen-917e52",
+        "fr": "directeur-adjoint-au-centre-de-psychiatrie-legale-spital-thurgau-stgag-munsterlingen-917e52"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -733,6 +739,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretende-r-stationsleiter-in-im-zentrum-fur-forensische-psychiatrie-stgag"
+        ],
+        "en": [
+          "stellvertretende-r-stationsleiter-in-im-zentrum-fur-forensische-psychiatrie-stgag"
+        ],
+        "fr": [
           "stellvertretende-r-stationsleiter-in-im-zentrum-fur-forensische-psychiatrie-stgag"
         ]
       },

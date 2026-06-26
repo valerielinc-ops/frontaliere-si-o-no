@@ -70,8 +70,8 @@
       "slugByLocale": {
         "it": "collaboratore-spedizione-100-rapelli-stabio",
         "en": "employee-shipping-100-rapelli-orior-food-ag-stabio",
-        "de": "collaboratrice-collaboratore-spedizione-100-rapelli-stabio",
-        "fr": "collaboratrice-collaboratore-spedizione-100-rapelli-stabio"
+        "de": "mitarbeiter-mitarbeiter-versand-100-rapelli-orior-food-ag-stabio",
+        "fr": "collaborateur-collaborateur-shipping-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -113,6 +113,12 @@
           "collaboratrice-collaboratore-spedizione-100-rapelli-stabio"
         ],
         "en": [
+          "collaboratrice-collaboratore-spedizione-100-rapelli-stabio"
+        ],
+        "de": [
+          "collaboratrice-collaboratore-spedizione-100-rapelli-stabio"
+        ],
+        "fr": [
           "collaboratrice-collaboratore-spedizione-100-rapelli-stabio"
         ]
       },

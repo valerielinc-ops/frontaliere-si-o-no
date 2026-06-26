@@ -40,8 +40,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-taverne",
         "en": "plumbing-heating-systems-pemsa-taverne",
-        "de": "idraulico-impianti-riscaldamento-pemsa-taverne",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-taverne"
+        "de": "heizsysteme-pemsa-taverne",
+        "fr": "systemes-de-chauffage-pemsa-taverne"
       },
       "id": "pemsa-de27966aeeb1",
       "needsRetranslation": true,
@@ -100,8 +100,8 @@
       "slugByLocale": {
         "it": "installatore-impianti-sprinkler-pemsa-lugano",
         "en": "sprinkler-system-installer-pemsa-lugano",
-        "de": "installatore-impianti-sprinkler-pemsa-lugano",
-        "fr": "installatore-impianti-sprinkler-pemsa-lugano"
+        "de": "sprinkleranlage-pemsa-lugano",
+        "fr": "installation-de-l-arroseur-pemsa-lugano"
       },
       "id": "pemsa-3489e53331b3",
       "needsRetranslation": true,
@@ -160,8 +160,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-rivera",
         "en": "plumbing-sanitary-systems-pemsa-rivera",
-        "de": "idraulico-impianti-sanitari-pemsa-rivera",
-        "fr": "idraulico-impianti-sanitari-pemsa-rivera"
+        "de": "idraulico-sanitarpflanzen-pemsa-rivera",
+        "fr": "idraulico-plantes-sanitaires-pemsa-rivera"
       },
       "id": "pemsa-0f191b8d6747",
       "needsRetranslation": true,
@@ -220,8 +220,8 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-mendrisio",
         "en": "hydraulic-pemsa-mendrisio",
-        "de": "idraulico-pemsa-mendrisio",
-        "fr": "idraulico-pemsa-mendrisio"
+        "de": "hydraulik-pemsa-mendrisio",
+        "fr": "hydraulique-pemsa-mendrisio"
       },
       "id": "pemsa-53e4a4346696",
       "needsRetranslation": true,
@@ -280,8 +280,8 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-lugano",
         "en": "plumber-pemsa-lugano",
-        "de": "idraulico-pemsa-lugano",
-        "fr": "idraulico-pemsa-lugano"
+        "de": "idraulierung-pemsa-lugano",
+        "fr": "idraulement-pemsa-lugano"
       },
       "id": "pemsa-fdd9d73a63b0",
       "needsRetranslation": true,
@@ -2861,7 +2861,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -2880,14 +2880,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "mise-en-uvre-pemsa-torricella"
-        ]
-      },
-      "previousSlugs": [
-        "mise-en-uvre-pemsa-torricella"
-      ],
       "needsRetranslation": true
     },
     {

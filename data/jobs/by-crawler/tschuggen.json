@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "it": "floor-porter-lun-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-        "en": "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "en": "floor-porter-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
+        "fr": "porteur-de-plancher-m-f-d-saison-d-hiver-2026-2027-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -69,6 +69,12 @@
       "firstSeenAt": "2026-06-26T12:29:35.138Z",
       "previousSlugsByLocale": {
         "it": [
+          "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "en": [
+          "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "fr": [
           "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
@@ -328,7 +334,7 @@
         "it": "food-and-beverage-assistant-m-w-d-shopping-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
         "en": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
         "de": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
+        "fr": "assistant-pour-les-aliments-et-boissons-m-f-d-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -372,8 +378,7 @@
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugs": [
         "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
-        "assistant-pour-les-aliments-et-boissons-m-f-j-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz",
-        "assistant-pour-les-aliments-et-boissons-m-f-d-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
+        "assistant-pour-les-aliments-et-boissons-m-f-j-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -381,7 +386,7 @@
         ],
         "fr": [
           "assistant-pour-les-aliments-et-boissons-m-f-j-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz",
-          "assistant-pour-les-aliments-et-boissons-m-f-d-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
+          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
@@ -404,7 +409,7 @@
       "slug": "projektmanager-m-w-d-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "it": "projektmanager-m-w-d-tschuggen-collection-st-moritz",
-        "en": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
+        "en": "front-office-manager-m-f-d-in-permanent-employment-tschuggen-collection-st-moritz",
         "de": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "fr": "directeur-de-la-reception-m-w-d-en-unbefristeter-anstellung-tschuggen-collection-st-moritz"
       },
@@ -449,15 +454,14 @@
       "department": "Rooms Division",
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugs": [
-        "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
-        "front-office-manager-m-f-d-in-permanent-employment-tschuggen-collection-st-moritz"
+        "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
         ],
         "en": [
-          "front-office-manager-m-f-d-in-permanent-employment-tschuggen-collection-st-moritz"
+          "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
         ],
         "fr": [
           "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
@@ -483,7 +487,7 @@
       "slug": "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa",
       "slugByLocale": {
         "it": "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa",
-        "en": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "en": "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
         "de": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
         "fr": "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa"
       },
@@ -528,15 +532,14 @@
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
       "previousSlugs": [
-        "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa"
+        "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ],
         "en": [
-          "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa"
+          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ],
         "fr": [
           "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
@@ -692,9 +695,9 @@
       "slug": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -745,21 +748,17 @@
           "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch"
         ],
         "en": [
-          "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch",
         "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T23:42:44.909Z",

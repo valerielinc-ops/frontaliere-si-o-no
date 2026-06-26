@@ -817,7 +817,7 @@
       "slug": "aiuto-flessibile-tally-weijl-chur",
       "slugByLocale": {
         "it": "aiuto-flessibile-tally-weijl-chur",
-        "en": "flexible-aushilfe-tally-weijl-chur",
+        "en": "flexible-assistance-tally-weijl-chur",
         "de": "flexible-aushilfe-tally-weijl-chur",
         "fr": "auchifte-flexible-tally-weijl-chur"
       },
@@ -859,15 +859,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "flexible-aushilfe-tally-weijl-chur",
-        "flexible-assistance-tally-weijl-chur"
+        "flexible-aushilfe-tally-weijl-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-chur"
         ],
         "en": [
-          "flexible-assistance-tally-weijl-chur",
           "flexible-aushilfe-tally-weijl-chur"
         ],
         "fr": [
@@ -895,7 +893,7 @@
       "slug": "aiuto-flessibile-tally-weijl-baden",
       "slugByLocale": {
         "it": "aiuto-flessibile-tally-weijl-baden",
-        "en": "flexible-aushilfe-tally-weijl-baden",
+        "en": "flexible-assistance-tally-weijl-baden",
         "de": "flexible-aushilfe-tally-weijl-baden",
         "fr": "auchifte-flexible-tally-weijl-baden"
       },
@@ -937,15 +935,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "flexible-aushilfe-tally-weijl-baden",
-        "flexible-assistance-tally-weijl-baden"
+        "flexible-aushilfe-tally-weijl-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-baden"
         ],
         "en": [
-          "flexible-assistance-tally-weijl-baden",
           "flexible-aushilfe-tally-weijl-baden"
         ],
         "fr": [
@@ -1894,9 +1890,9 @@
     },
     {
       "id": "tally-weijl-6dfb4331c1aa",
-      "slug": "fitting-models-tally-weijl-basel",
+      "slug": "moduli-di-montaggio-tally-weijl-basel",
       "slugByLocale": {
-        "it": "fitting-models-tally-weijl-basel",
+        "it": "moduli-di-montaggio-tally-weijl-basel",
         "en": "fitting-models-tally-weijl-basel",
         "de": "passformmodell-tally-weijl-basel",
         "fr": "modele-d-essayage-tally-weijl-basel"
@@ -1970,13 +1966,12 @@
         ]
       },
       "previousSlugs": [
-        "moduli-di-montaggio-tally-weijl-basel",
+        "fitting-models-tally-weijl-basel",
         "fitting-modelle-tally-weijl-basel",
         "modeles-d-ajustement-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "moduli-di-montaggio-tally-weijl-basel",
           "fitting-models-tally-weijl-basel"
         ],
         "de": [
