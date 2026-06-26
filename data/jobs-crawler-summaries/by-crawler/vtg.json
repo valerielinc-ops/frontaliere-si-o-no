@@ -1,21 +1,22 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-06-26T12:28:43.098Z",
+  "generatedAt": "2026-06-26T23:04:28.827Z",
   "total": 37,
-  "newCount": 1,
-  "updatedCount": 9,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 27,
-  "durationMs": 49448,
-  "avgDurationMs": 49448,
+  "durationMs": 66681,
+  "avgDurationMs": 66681,
   "durationHistory": [
-    49448
+    66681
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-71gebl",
-      "slug": "fahrzeugexperte-in-swiss-armed-forces-vtg-schwabis-71gebl",
+      "slug": "esperto-di-veicoli-swiss-armed-forces-vtg-schwabis",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Fahrzeugexperte/-in",
       "location": "Schwäbis",
@@ -31,18 +32,24 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-06-26T12:28:41.768Z",
       "firstSeenAt": "2026-06-26T12:28:41.768Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 77,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "streetAddress": "",
+      "postalCode": "3001",
+      "addressLocality": "Schwäbis",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-1au6lp",
       "slug": "capo-troubleshooter-hornet-swiss-armed-forces-vtg-bern",
