@@ -1905,6 +1905,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // the slug), so we ALSO suppress at render: while this is true a search/company
  // view shows the loading skeleton instead of the provisional count + cards.
  const [fullLoadPending, setFullLoadPending] = useState(true);
+ // Flips true only once the terminal cross-locale (Tier 4) fallback has fully
+ // settled — i.e. AFTER its fetch + the (heavy, ~2s) parse/dedup of the en/de/fr
+ // indexes AND `setCrossLocaleJobs`. Set in the same batch as the results, so
+ // there is never a frame where it reads "settled" while the 0-result count is
+ // still stale. A 0-result search holds the skeleton until this is true instead
+ // of flashing "0 / no results" during the cross-locale processing window.
+ const [crossLocaleSettled, setCrossLocaleSettled] = useState(false);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
@@ -3249,6 +3256,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  reportCaughtError(err, 'jobBoard.loadJobs.crossLocale');
  } finally {
  setPendingFallbacks((n) => n - 1);
+ // Mark the terminal fallback settled (batched with setCrossLocaleJobs on the
+ // success path, so results + settled flip together — no stale-0 frame).
+ if (!cancelled) setCrossLocaleSettled(true);
  }
  })();
  return () => { cancelled = true; };
@@ -3484,12 +3494,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || (filteredJobs.length === 0 && (
  pendingFallbacks > 0
  || !anyFallbackAttempted
- // Terminal cross-locale fallback (Tier 4) hasn't run yet. For a 0-result
- // search the in-canton tiers are all empty, so this fetch WILL fire and may
- // still bring results — hold the skeleton instead of flashing "0" in the gap
- // between an earlier fallback settling and Tier 4 firing. Once it's attempted
- // (ref set), a still-empty set falls through to the genuine empty-state.
- || (Boolean(deferredSearchQuery.trim()) && !crossLocaleFetchAttempted.current)
+ // Terminal cross-locale fallback (Tier 4) hasn't fully SETTLED yet. For a
+ // 0-result search the in-canton tiers are all empty, so this fetch fires and
+ // may still bring results — hold the skeleton across its entire lifecycle
+ // (fetch + the heavy ~2s parse/dedup of the en/de/fr indexes), not just until
+ // it's attempted, so the count never flashes "0" mid-processing. `settled`
+ // flips true batched with the results, after which a still-empty set falls
+ // through to the genuine empty-state (so a truly empty query isn't stuck).
+ || (Boolean(deferredSearchQuery.trim()) && !crossLocaleSettled)
  ))
  );
 
