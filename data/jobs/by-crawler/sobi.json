@@ -941,12 +941,12 @@
     },
     {
       "id": "sobi-42e40c462bc1",
-      "slug": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
+      "slug": "indirect-sourcing-manager-termine-fisso-12-mesi-sobi-basel",
       "slugByLocale": {
         "en": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "it": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "de": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "fr": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        "it": "indirect-sourcing-manager-termine-fisso-12-mesi-sobi-basel",
+        "de": "indirekter-sourcing-manager-feste-laufzeit-12-monate-sobi-basel",
+        "fr": "gestionnaire-d-approvisionnement-indirect-duree-determinee-12-mois-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -1002,7 +1002,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-25T23:11:59.866Z"
+      "firstSeenAt": "2026-06-25T23:11:59.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ],
+        "de": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ],
+        "fr": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+      ]
     }
   ]
 }

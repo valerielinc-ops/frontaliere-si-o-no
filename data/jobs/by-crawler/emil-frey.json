@@ -2498,7 +2498,7 @@
       "slug": "rappresentante-del-servizio-al-cliente-100-zug-temporaneo-fino-a-ottobre-2026-emil-frey-baar",
       "slugByLocale": {
         "it": "rappresentante-del-servizio-al-cliente-100-zug-temporaneo-fino-a-ottobre-2026-emil-frey-baar",
-        "en": "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar",
+        "en": "customer-service-representative-100-train-temporary-until-october-2026-emil-frey-baar",
         "de": "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar",
         "fr": "representant-e-du-service-client-100-zug-temporaire-jusqu-en-octobre-2026-emil-frey-baar"
       },
@@ -2574,15 +2574,13 @@
         ]
       },
       "previousSlugs": [
-        "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar",
-        "customer-service-representative-100-train-temporary-until-october-2026-emil-frey-baar"
+        "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar"
         ],
         "en": [
-          "customer-service-representative-100-train-temporary-until-october-2026-emil-frey-baar",
           "customer-service-representative-100-zug-befristet-bis-oktober-2026-emil-frey-baar"
         ]
       },
@@ -2794,7 +2792,7 @@
       "slug": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
       "slugByLocale": {
         "it": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
-        "en": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
+        "en": "allrounder-in-vehicle-construction-emil-frey-safenwil",
         "de": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
         "fr": "allrounder-in-fahrzeugbau-emil-frey-safenwil"
       },
@@ -2870,14 +2868,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.357Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "allrounder-in-vehicle-construction-emil-frey-safenwil"
-        ]
-      },
-      "previousSlugs": [
-        "allrounder-in-vehicle-construction-emil-frey-safenwil"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2897,7 +2887,7 @@
       "slugByLocale": {
         "it": "bodybuilder-pittore-emil-frey-crissier",
         "en": "body-painter-emil-frey-crissier",
-        "de": "carrossier-peintre-emil-frey-crissier",
+        "de": "maler-emil-frey-crissier",
         "fr": "carrossier-peintre-emil-frey-crissier"
       },
       "company": "Emil Frey",
@@ -2962,15 +2952,13 @@
         ]
       },
       "previousSlugs": [
-        "carrossier-peintre-emil-frey-crissier",
-        "maler-emil-frey-crissier"
+        "carrossier-peintre-emil-frey-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrossier-peintre-emil-frey-crissier"
         ],
         "de": [
-          "maler-emil-frey-crissier",
           "carrossier-peintre-emil-frey-crissier"
         ]
       },
@@ -2995,7 +2983,7 @@
         "it": "hr-business-partner-in-emil-frey-ostermundigen",
         "en": "hr-business-partner-in-emil-frey-ostermundigen",
         "de": "hr-business-partner-in-emil-frey-ostermundigen",
-        "fr": "hr-business-partner-in-emil-frey-ostermundigen"
+        "fr": "partenaire-operationnel-des-rh-in-emil-frey-ostermundigen"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -3048,12 +3036,10 @@
         ]
       },
       "previousSlugs": [
-        "partenaire-operationnel-des-rh-in-emil-frey-ostermundigen",
         "partenaire-d-affaires-rh-in-emil-frey-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-operationnel-des-rh-in-emil-frey-ostermundigen",
           "partenaire-d-affaires-rh-in-emil-frey-ostermundigen"
         ]
       },
@@ -6616,12 +6602,12 @@
     },
     {
       "id": "emil-frey-7a9270f36b5b",
-      "slug": "automobildiagnostiker-in-emil-frey-altendorf",
+      "slug": "diagnostica-automobilistica-emil-frey-altendorf",
       "slugByLocale": {
         "de": "automobildiagnostiker-in-emil-frey-altendorf",
         "en": "automotive-diagnostician-diagnostician-emil-frey-altendorf",
         "fr": "diagnosticien-ici-automobile-emil-frey-altendorf",
-        "it": "automobildiagnostiker-in-emil-frey-altendorf"
+        "it": "diagnostica-automobilistica-emil-frey-altendorf"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6677,7 +6663,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T22:17:36.472Z"
+      "firstSeenAt": "2026-06-25T22:17:36.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automobildiagnostiker-in-emil-frey-altendorf"
+        ]
+      },
+      "previousSlugs": [
+        "automobildiagnostiker-in-emil-frey-altendorf"
+      ]
     },
     {
       "id": "emil-frey-decc2f7fb308",
@@ -6831,8 +6825,8 @@
       "slugByLocale": {
         "de": "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
         "it": "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
-        "en": "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
-        "fr": "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil"
+        "en": "automotive-mechatronics-specialist-efz-emil-frey-au-wadenswil",
+        "fr": "mecatronique-automobile-specialiste-efz-emil-frey-au-wadenswil"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6896,8 +6890,8 @@
       "slugByLocale": {
         "de": "automobil-fachmann-frau-efz-emil-frey-au-wadenswil",
         "it": "automobil-fachmann-frau-cfc-emil-frey-au-wadenswil",
-        "en": "automobil-fachmann-frau-efz-emil-frey-au-wadenswil",
-        "fr": "automobil-fachmann-frau-efz-emil-frey-au-wadenswil"
+        "en": "automotive-specialist-woman-efz-emil-frey-au-wadenswil",
+        "fr": "specialiste-automobile-femme-efz-emil-frey-au-wadenswil"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6943,6 +6937,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automobil-fachmann-frau-efz-emil-frey-au-wadenswil"
+        ],
+        "en": [
+          "automobil-fachmann-frau-efz-emil-frey-au-wadenswil"
+        ],
+        "fr": [
           "automobil-fachmann-frau-efz-emil-frey-au-wadenswil"
         ]
       },

@@ -793,7 +793,7 @@
       "slug": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "it": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
-        "en": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
+        "en": "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "de": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
         "fr": "gestion-du-projet-m-w-d-coopers-group-ag-aargau"
       },
@@ -854,7 +854,6 @@
       },
       "previousSlugs": [
         "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
-        "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "gestione-del-prodotto-m-w-d-coopers-group-ag-luzern",
         "quality-control-inspector-m-w-d-coopers-luzern",
         "gestion-du-projet-m-w-d-coopers-group-ag-luzern"
@@ -864,7 +863,6 @@
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "en": [
-          "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "fr": [
@@ -4250,12 +4248,12 @@
     },
     {
       "id": "coopers-9f02cd852e2c",
-      "slug": "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft",
+      "slug": "gestione-vendite-assistente-100-m-f-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
         "de": "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft",
-        "it": "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft",
-        "en": "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft",
-        "fr": "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft"
+        "it": "gestione-vendite-assistente-100-m-f-d-coopers-group-ag-basel-landschaft",
+        "en": "assistant-sales-management-100-m-f-d-coopers-group-ag-basel-landschaft",
+        "fr": "gestion-adjointe-des-ventes-100-m-f-d-coopers-group-ag-basel-landschaft"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4322,7 +4320,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-25T22:08:55.535Z"
+      "firstSeenAt": "2026-06-25T22:08:55.535Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft"
+        ],
+        "en": [
+          "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft"
+        ],
+        "fr": [
+          "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-vertriebsleitung-100-m-w-d-coopers-basel-landschaft"
+      ]
     },
     {
       "id": "coopers-d1faa6c6e713",

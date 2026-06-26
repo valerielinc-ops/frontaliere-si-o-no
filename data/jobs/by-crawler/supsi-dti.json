@@ -41,7 +41,7 @@
       },
       "slugByLocale": {
         "it": "assistente-per-il-corso-di-laurea-in-economia-aziendale-supsi-dti-manno",
-        "en": "assistant-for-the-degree-course-in-business-administration-supsi-dti-manno",
+        "en": "assistant-for-bachelor-of-business-economics-supsi-dti-manno",
         "de": "assistent-fur-bachelor-of-business-economics-supsi-dti-manno",
         "fr": "assistant-pour-le-baccalaureat-en-economie-des-affaires-supsi-dti-manno"
       },
@@ -68,11 +68,11 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "assistant-for-bachelor-of-business-economics-supsi-dti-manno"
+          "assistant-for-the-degree-course-in-business-administration-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "assistant-for-bachelor-of-business-economics-supsi-dti-manno"
+        "assistant-for-the-degree-course-in-business-administration-supsi-dti-manno"
       ]
     },
     {
@@ -138,8 +138,8 @@
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-phd-nel-settore-del-machine-learning-supsi-dti-lugano",
         "en": "postdoc-researcher-in-the-area-of-machine-learning-supsi-dti-lugano",
-        "de": "ricercatrice-ricercatore-con-phd-nel-settore-del-machine-learning-supsi-dti-lugano",
-        "fr": "ricercatrice-ricercatore-con-phd-nel-settore-del-machine-learning-supsi-dti-lugano"
+        "de": "forscher-forscher-mit-phd-in-machine-learning-industrie-supsi-dti-lugano",
+        "fr": "chercheur-chercheur-titulaire-d-un-doctorat-dans-l-industrie-de-l-apprentissage-automatique-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -245,15 +245,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "de": [
-          "forscher-forscher-mit-phd-in-machine-learning-industrie-supsi-dti-lugano"
-        ],
-        "fr": [
-          "chercheur-chercheur-titulaire-d-un-doctorat-dans-l-industrie-de-l-apprentissage-automatique-supsi-dti-lugano"
-        ]
-      }
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4u556",
@@ -301,9 +293,9 @@
       },
       "slugByLocale": {
         "it": "docente-di-matematica-supsi-dti-lugano",
-        "en": "docente-di-matematica-supsi-dti-lugano",
-        "de": "docente-di-matematica-supsi-dti-lugano",
-        "fr": "docente-di-matematica-supsi-dti-lugano"
+        "en": "math-teacher-supsi-dti-lugano",
+        "de": "mathematiklehrer-supsi-dti-lugano",
+        "fr": "professeur-de-mathematiques-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -361,17 +353,14 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "mathematics-lecturer-supsi-dti-lugano",
-          "math-teacher-supsi-dti-lugano"
+          "mathematics-lecturer-supsi-dti-lugano"
         ],
         "de": [
           "dozent-in-fur-mathematik-supsi-dti-lugano",
-          "mathelehrer-supsi-dti-lugano",
-          "mathematiklehrer-supsi-dti-lugano"
+          "mathelehrer-supsi-dti-lugano"
         ],
         "fr": [
-          "enseignant-e-de-mathematiques-supsi-dti-lugano",
-          "professeur-de-mathematiques-supsi-dti-lugano"
+          "enseignant-e-de-mathematiques-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
@@ -425,8 +414,8 @@
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-phd-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
         "en": "postdoc-researcher-in-the-area-of-intelligent-control-of-networked-systems-supsi-dti-lugano",
-        "de": "ricercatrice-ricercatore-con-phd-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
-        "fr": "ricercatrice-ricercatore-con-phd-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano"
+        "de": "forscher-forscher-mit-promotion-im-smart-control-bereich-fur-systeme-und-netzwerke-supsi-dti-lugano",
+        "fr": "chercheur-chercheur-titulaire-d-un-doctorat-dans-le-domaine-du-controle-intelligent-des-systemes-et-des-reseaux-supsi"
       },
       "requirementsByLocale": {
         "it": [
@@ -465,15 +454,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "de": [
-          "forscher-forscher-mit-promotion-im-smart-control-bereich-fur-systeme-und-netzwerke-supsi-dti-lugano"
-        ],
-        "fr": [
-          "chercheur-chercheur-titulaire-d-un-doctorat-dans-le-domaine-du-controle-intelligent-des-systemes-et-des-reseaux-supsi"
-        ]
-      }
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4s845",
@@ -534,8 +515,8 @@
       "slugByLocale": {
         "it": "professoressa-professore-associata-o-in-governance-della-sostenibilita-e-trasformazione-sistemica-supsi-dti-manno",
         "en": "associated-professorship-in-sustainability-governance-and-transformation-supsi-dti-manno",
-        "de": "professoressa-professore-associata-o-in-governance-della-sostenibilita-e-trasformazione-sistemica-supsi-dti-manno",
-        "fr": "professoressa-professore-associata-o-in-governance-della-sostenibilita-e-trasformazione-sistemica-supsi-dti-manno"
+        "de": "associate-professor-professor-oder-governance-von-nachhaltigkeit-und-systemischer-transformation-supsi-dti-manno",
+        "fr": "professeur-associe-professeur-gouvernance-de-la-durabilite-et-de-la-transformation-systemique-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -628,15 +609,7 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "de": [
-          "associate-professor-professor-oder-governance-von-nachhaltigkeit-und-systemischer-transformation-supsi-dti-manno"
-        ],
-        "fr": [
-          "professeur-associe-professeur-gouvernance-de-la-durabilite-et-de-la-transformation-systemique-supsi-dti-manno"
-        ]
-      }
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4s84t",
@@ -689,8 +662,8 @@
       "slugByLocale": {
         "it": "professoressa-professore-associata-o-in-ergoterapia-e-condizioni-croniche-supsi-dti-manno",
         "en": "associated-professorship-in-occupational-therapy-and-chronic-conditions-supsi-dti-manno",
-        "de": "professoressa-professore-associata-o-in-ergoterapia-e-condizioni-croniche-supsi-dti-manno",
-        "fr": "professoressa-professore-associata-o-in-ergoterapia-e-condizioni-croniche-supsi-dti-manno"
+        "de": "associate-professor-professor-in-ergotherapie-und-chronischen-erkrankungen-supsi-dti-manno",
+        "fr": "professeur-associe-professeur-en-ergotherapie-et-affections-chroniques-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -769,15 +742,7 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "de": [
-          "associate-professor-professor-in-ergotherapie-und-chronischen-erkrankungen-supsi-dti-manno"
-        ],
-        "fr": [
-          "professeur-associe-professeur-en-ergotherapie-et-affections-chroniques-supsi-dti-manno"
-        ]
-      }
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-lr4hby",
@@ -809,9 +774,9 @@
       "firstSeenAt": "2026-06-15T15:58:36.017Z",
       "slugByLocale": {
         "it": "assistente-per-il-corso-di-laurea-in-cure-infermieristiche-supsi-dti-manno",
-        "en": "assistente-per-il-corso-di-laurea-in-cure-infermieristiche-supsi-dti-manno",
-        "de": "assistente-per-il-corso-di-laurea-in-cure-infermieristiche-supsi-dti-manno",
-        "fr": "assistente-per-il-corso-di-laurea-in-cure-infermieristiche-supsi-dti-manno"
+        "en": "assistant-for-bachelor-of-science-in-nursing-supsi-dti-manno",
+        "de": "assistent-fur-bachelor-of-science-in-nursing-supsi-dti-manno",
+        "fr": "assistant-pour-le-baccalaureat-en-sciences-infirmieres-supsi-dti-manno"
       },
       "titleByLocale": {
         "it": "Assistente per il corso di laurea in Cure infermieristiche",
@@ -858,26 +823,23 @@
         "en": [
           "nursing-degree-course-assistant-supsi-dti-manno",
           "assistant-for-the-bachelor-s-degree-program-in-nursing-supsi-dti-manno",
-          "assistant-for-bachelor-of-science-in-nursing-supsi-dti-manno",
           "assistant-for-the-bachelor-s-degree-in-nursing-supsi-dti-manno"
         ],
         "de": [
           "hilfskraft-fur-das-studienfach-pflege-supsi-dti-manno",
           "assistent-in-fur-den-bachelor-studiengang-in-pflege-supsi-dti-manno",
-          "assistent-fur-den-bachelor-abschluss-in-pflege-supsi-dti-manno",
-          "assistent-fur-bachelor-of-science-in-nursing-supsi-dti-manno"
+          "assistent-fur-den-bachelor-abschluss-in-pflege-supsi-dti-manno"
         ],
         "fr": [
           "assistant-pour-le-cours-de-diplome-en-soins-infirmiers-supsi-dti-manno",
           "assistant-e-pour-le-programme-de-bachelor-en-soins-infirmiers-supsi-dti-manno",
-          "assistant-a-la-licence-en-soins-infirmiers-supsi-dti-manno",
-          "assistant-pour-le-baccalaureat-en-sciences-infirmieres-supsi-dti-manno"
+          "assistant-a-la-licence-en-soins-infirmiers-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "nursing-degree-course-assistant-supsi-dti-manno",
         "assistant-for-the-bachelor-s-degree-program-in-nursing-supsi-dti-manno",
-        "assistant-for-bachelor-of-science-in-nursing-supsi-dti-manno",
+        "assistant-for-the-bachelor-s-degree-in-nursing-supsi-dti-manno",
         "hilfskraft-fur-das-studienfach-pflege-supsi-dti-manno",
         "assistent-in-fur-den-bachelor-studiengang-in-pflege-supsi-dti-manno",
         "assistent-fur-den-bachelor-abschluss-in-pflege-supsi-dti-manno",
@@ -937,8 +899,8 @@
       "slugByLocale": {
         "it": "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano-grado-",
         "en": "scientific-collaborator-in-the-area-of-machine-learning-and-nlp-in-financial-industry-supsi-dti-lugano-grado-d",
-        "de": "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano-grado-",
-        "fr": "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano-grado-"
+        "de": "wissenschaftlicher-mitarbeiter-wissenschaftlicher-mitarbeiter-im-bereich-machine-learning-und-nlp-fur-den-finanzsektor",
+        "fr": "collaborateur-scientifique-collaborateur-scientifique-dans-le-domaine-de-l-apprentissage-automatique-et-du-nlp-pour-le"
       },
       "titleByLocale": {
         "it": "Collaboratrice scientifica / Collaboratore scientifico nell'area del Machine Learning e NLP per il settore finanziario",
@@ -1059,12 +1021,6 @@
       "previousSlugsByLocale": {
         "it": [
           "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano"
-        ],
-        "de": [
-          "wissenschaftlicher-mitarbeiter-wissenschaftlicher-mitarbeiter-im-bereich-machine-learning-und-nlp-fur-den-finanzsektor"
-        ],
-        "fr": [
-          "collaborateur-scientifique-collaborateur-scientifique-dans-le-domaine-de-l-apprentissage-automatique-et-du-nlp-pour-le"
         ]
       },
       "previousSlugs": [
@@ -1118,8 +1074,8 @@
       "slugByLocale": {
         "it": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
         "en": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
-        "de": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
-        "fr": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano"
+        "de": "wissenschaftliche-mitarbeiter-in-informatik-und-applied-data-science-supsi-dti-lugano",
+        "fr": "collaborateurs-scientifiques-en-informatique-et-en-sciences-appliquees-des-donnees-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "en": [],
@@ -1159,19 +1115,16 @@
           "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano-l4u552"
         ],
         "de": [
-          "wissenschaftliche-mitarbeiter-in-informatik-und-angewandter-datenwissenschaft-supsi-dti-lugano",
-          "wissenschaftliche-mitarbeiter-in-informatik-und-applied-data-science-supsi-dti-lugano"
+          "wissenschaftliche-mitarbeiter-in-informatik-und-angewandter-datenwissenschaft-supsi-dti-lugano"
         ],
         "fr": [
-          "collaborateurs-scientifiques-en-informatique-et-en-sciences-appliquees-des-donnees-supsi-dti-lugano",
           "collaborateur-scientifique-en-informatique-e-applied-data-science-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
         "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano-l4u552",
         "wissenschaftliche-mitarbeiter-in-informatik-und-angewandter-datenwissenschaft-supsi-dti-lugano",
-        "wissenschaftliche-mitarbeiter-in-informatik-und-applied-data-science-supsi-dti-lugano",
-        "collaborateurs-scientifiques-en-informatique-et-en-sciences-appliquees-des-donnees-supsi-dti-lugano",
+        "collaborateur-scientifique-en-informatique-e-applied-data-science-supsi-dti-lugano",
         "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano",
         "scienza-collaborativa-in-informatica-e-scienza-applicata-supsi-dti-lugano",
         "collaboratori-scientifici-in-informatica-e-informatica-applicata-supsi-dti-lugano"
@@ -1224,8 +1177,8 @@
       "slugByLocale": {
         "it": "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano-grado-d",
         "en": "scientific-collaborator-in-ai-enabled-precision-health-supsi-dti-lugano-grado-d",
-        "de": "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano",
-        "fr": "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano"
+        "de": "wissenschaftlicher-mitarbeiter-wissenschaftlicher-mitarbeiter-in-gesundheit-der-prazision-behindert-durch-ai-supsi-dti",
+        "fr": "collaborateur-scientifique-collaborateur-scientifique-en-sante-de-precision-abilite-par-l-ia-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -1265,10 +1218,10 @@
           "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano"
         ],
         "de": [
-          "wissenschaftlicher-mitarbeiter-wissenschaftlicher-mitarbeiter-in-gesundheit-der-prazision-behindert-durch-ai-supsi-dti"
+          "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano"
         ],
         "fr": [
-          "collaborateur-scientifique-collaborateur-scientifique-en-sante-de-precision-abilite-par-l-ia-supsi-dti-lugano"
+          "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
@@ -1325,8 +1278,8 @@
       "slugByLocale": {
         "it": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno",
         "en": "associate-professor-in-social-policy-and-care-supsi-dti-manno",
-        "de": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno",
-        "fr": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno"
+        "de": "professor-associate-professor-in-sozial-und-pflegepolitik-supsi-dti-manno",
+        "fr": "professeur-professeur-associe-en-politiques-sociales-et-de-soins-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -1393,15 +1346,7 @@
       "addressLocality": "manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "de": [
-          "professor-associate-professor-in-sozial-und-pflegepolitik-supsi-dti-manno"
-        ],
-        "fr": [
-          "professeur-professeur-associe-en-politiques-sociales-et-de-soins-supsi-dti-manno"
-        ]
-      }
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4u54g",
@@ -1455,8 +1400,8 @@
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all",
         "en": "postdoctoral-researcher-in-the-area-of-digital-electronics-microelectronics-and-bioelectronics-supsi-dti-lugano-in-base-all",
-        "de": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all",
-        "fr": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all"
+        "de": "forscher-forscher-mit-phd-im-bereich-digitale-elektronik-mikroelektronik-und-bioelektronik-supsi-dti-lugano",
+        "fr": "chercheur-chercheur-titulaire-d-un-doctorat-en-electronique-numerique-en-microelectronique-et-en-bioelectronique-supsi"
       },
       "requirementsByLocale": {
         "it": [
@@ -1535,12 +1480,6 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano"
-        ],
-        "de": [
-          "forscher-forscher-mit-phd-im-bereich-digitale-elektronik-mikroelektronik-und-bioelektronik-supsi-dti-lugano"
-        ],
-        "fr": [
-          "chercheur-chercheur-titulaire-d-un-doctorat-en-electronique-numerique-en-microelectronique-et-en-bioelectronique-supsi"
         ]
       },
       "previousSlugs": [
@@ -1595,8 +1534,8 @@
       "slugByLocale": {
         "it": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
         "en": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
-        "de": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
-        "fr": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano"
+        "de": "bachelor-in-ausbildung-master-mse-in-elektrotechnik-supsi-dti-lugano",
+        "fr": "licence-en-education-master-mse-en-genie-electrique-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -1659,14 +1598,12 @@
       "previousSlugsByLocale": {
         "de": [
           "master-mse-in-elektrotechnik-supsi-dti-lugano",
-          "assistant-bachelor-in-education-mse-master-in-elektrotechnik-supsi-dti-lugano",
-          "bachelor-in-ausbildung-master-mse-in-elektrotechnik-supsi-dti-lugano"
+          "assistant-bachelor-in-education-mse-master-in-elektrotechnik-supsi-dti-lugano"
         ],
         "fr": [
           "baccalaureat-en-education-master-mse-en-genie-electrique-supsi-dti-lugano",
           "master-mse-en-genie-electrique-supsi-dti-lugano",
-          "assistant-bachelor-en-education-mse-master-en-genie-electrique-supsi-dti-lugano",
-          "licence-en-education-master-mse-en-genie-electrique-supsi-dti-lugano"
+          "assistant-bachelor-en-education-mse-master-en-genie-electrique-supsi-dti-lugano"
         ],
         "en": [
           "assistant-bachelor-in-education-mse-master-in-electrical-engineering-supsi-dti-lugano-l4u54f"
@@ -1730,8 +1667,8 @@
       "slugByLocale": {
         "it": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
         "en": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
-        "de": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
-        "fr": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d"
+        "de": "bachelor-in-mse-ausbildung-in-maschinenbau-und-materialien-supsi-dti-lugano",
+        "fr": "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -1800,12 +1737,10 @@
           "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano"
         ],
         "de": [
-          "assistenzprofessoren-bachelor-in-padagogik-mse-master-in-maschinenbau-und-materialwesen-supsi-dti-lugano",
-          "bachelor-in-mse-ausbildung-in-maschinenbau-und-materialien-supsi-dti-lugano"
+          "assistenzprofessoren-bachelor-in-padagogik-mse-master-in-maschinenbau-und-materialwesen-supsi-dti-lugano"
         ],
         "fr": [
-          "professeurs-assistants-licence-en-education-mse-master-en-genie-mecanique-et-materiaux-supsi-dti-lugano",
-          "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
+          "professeurs-assistants-licence-en-education-mse-master-en-genie-mecanique-et-materiaux-supsi-dti-lugano"
         ],
         "en": [
           "assistant-professors-bachelor-in-education-mse-master-in-mechanical-engineering-and-materials-supsi-dti-lugano-l4u54e"
@@ -1862,8 +1797,8 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-microtecnica-e-micromeccanica-con-applicazioni-in-microfluidica-biomedicale-per-sistemi-avanzati-organ-on-chip-sups-l4u54c",
         "en": "phd-position-in-microtechnology-and-micromechanics-with-applications-in-biomedical-microfluidics-for-advanced-organ-on-chip-systems-supsi-dt",
-        "de": "dottoranda-dottorando-in-microtecnica-e-micromeccanica-con-applicazioni-in-microfluidica-biomedicale-per-sistemi-avanzati-organ-on-chip-sups",
-        "fr": "dottoranda-dottorando-in-microtecnica-e-micromeccanica-con-applicazioni-in-microfluidica-biomedicale-per-sistemi-avanzati-organ-on-chip-sups"
+        "de": "phd-phd-in-mikrotechnik-und-mikromechanik-mit-biomedizinischen-mikrofluidischen-anwendungen-fur-fortschrittliche-systeme",
+        "fr": "doctorat-doctorat-en-microtechnique-et-micromecanique-avec-applications-microfluidiques-biomedicales-pour-systemes"
       },
       "titleByLocale": {
         "it": "Dottoranda / Dottorando in Microtecnica e Micromeccanica con applicazioni in microfluidica biomedicale per sistemi avanzati Organ-on-Chip",
@@ -1954,11 +1889,9 @@
           "dottoranda-dottorando-in-microtecnica-e-micromeccanica-con-applicazioni-in-microfluidica-biomedicale-per-sistemi-avanzati-organ-on-chip-sups"
         ],
         "de": [
-          "phd-phd-in-mikrotechnik-und-mikromechanik-mit-biomedizinischen-mikrofluidischen-anwendungen-fur-fortschrittliche-systeme",
           "dottoranda-dottorando-in-microtecnica-e-micromeccanica-con-applicazioni-in-microfluidica-biomedicale-per-sistemi-avanzati-organ-on-chip-sups"
         ],
         "fr": [
-          "doctorat-doctorat-en-microtechnique-et-micromecanique-avec-applications-microfluidiques-biomedicales-pour-systemes",
           "dottoranda-dottorando-in-microtecnica-e-micromeccanica-con-applicazioni-in-microfluidica-biomedicale-per-sistemi-avanzati-organ-on-chip-sups"
         ]
       },
@@ -2021,9 +1954,9 @@
       "firstSeenAt": "2026-06-03T01:20:10.993Z",
       "slugByLocale": {
         "it": "assistente-con-master-in-geomorfologia-e-pericoli-naturali-supsi-dti-mendrisio",
-        "en": "assistente-con-master-in-geomorfologia-e-pericoli-naturali-supsi-dti-mendrisio",
-        "de": "assistente-con-master-in-geomorfologia-e-pericoli-naturali-supsi-dti-mendrisio",
-        "fr": "assistente-con-master-in-geomorfologia-e-pericoli-naturali-supsi-dti-mendrisio"
+        "en": "assistant-with-master-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio",
+        "de": "assistent-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
+        "fr": "assistant-avec-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente con Master in Geomorfologia e pericoli naturali",
@@ -2106,24 +2039,21 @@
       "previousSlugsByLocale": {
         "en": [
           "master-s-degree-in-geomorphology-and-natural-hazards-assistant-supsi-dti-mendrisio",
-          "assistant-with-master-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio",
           "assistant-with-master-s-degree-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio"
         ],
         "de": [
           "assistentin-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
           "assistent-mit-master-abschluss-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
-          "assistent-mit-masterabschluss-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
-          "assistent-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio"
+          "assistent-mit-masterabschluss-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio"
         ],
         "fr": [
           "assistant-avec-un-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio",
-          "assistant-titulaire-d-un-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio",
-          "assistant-avec-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio"
+          "assistant-titulaire-d-un-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
         "master-s-degree-in-geomorphology-and-natural-hazards-assistant-supsi-dti-mendrisio",
-        "assistant-with-master-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio",
+        "assistant-with-master-s-degree-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio",
         "assistentin-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
         "assistent-mit-master-abschluss-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
         "assistent-mit-masterabschluss-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
@@ -2169,7 +2099,7 @@
       "slugByLocale": {
         "it": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "en": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
-        "de": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
+        "de": "master-of-arts-in-interaktionsdesign-supsi-dti-mendrisio",
         "fr": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio"
       },
       "titleByLocale": {
@@ -2252,8 +2182,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "de": [
-          "assistent-mit-masterabschluss-fur-den-master-of-arts-in-interaction-design-supsi-dti-mendrisio-l4rl5a",
-          "master-of-arts-in-interaktionsdesign-supsi-dti-mendrisio"
+          "assistent-mit-masterabschluss-fur-den-master-of-arts-in-interaction-design-supsi-dti-mendrisio-l4rl5a"
         ],
         "fr": [
           "maitrise-es-arts-en-interaction-design-supsi-dti-mendrisio-l4rl5a",
@@ -2310,7 +2239,7 @@
         "it": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "en": "assistant-with-bachelor-s-degree-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "de": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
-        "fr": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio"
+        "fr": "assistant-au-baccalaureat-es-arts-en-design-d-interaction-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente con Bachelor in formazione Master of Arts in Interaction design",
@@ -2396,8 +2325,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "fr": [
-          "assistante-au-baccalaureat-es-arts-en-conception-d-interaction-supsi-dti-mendrisio",
-          "assistant-au-baccalaureat-es-arts-en-design-d-interaction-supsi-dti-mendrisio"
+          "assistante-au-baccalaureat-es-arts-en-conception-d-interaction-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
@@ -2438,9 +2366,9 @@
       "firstSeenAt": "2026-05-30T00:49:50.919Z",
       "slugByLocale": {
         "it": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
-        "en": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
-        "de": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
-        "fr": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d"
+        "en": "bachelor-of-science-in-engineering-mse-at-isteps-institute-supsi-dti-lugano",
+        "de": "bachelor-of-science-in-engineering-mse-am-isteps-institute-supsi-dti-lugano",
+        "fr": "baccalaureat-en-ingenierie-mse-a-l-institut-isteps-supsi-dti-lugano"
       },
       "titleByLocale": {
         "it": "Assistente Bachelor in formazione Master of Science in Engineering (MSE) presso l’istituto ISTePS",
@@ -2514,25 +2442,22 @@
         ],
         "en": [
           "master-of-science-in-engineering-mse-assistant-at-isteps-supsi-dti-lugano",
-          "bachelor-of-science-in-engineering-mse-at-isteps-institute-supsi-dti-lugano",
           "assistant-bachelor-in-education-master-of-science-in-engineering-mse-at-isteps-supsi-dti-lugano"
         ],
         "de": [
           "bachelor-of-science-in-engineering-mse-am-isteps-institut-supsi-dti-lugano",
           "assistant-bachelor-in-education-master-of-science-in-engineering-mse-am-isteps-supsi-dti-lugano",
-          "msc-in-engineering-mse-assistent-bei-isteps-supsi-dti-lugano",
-          "bachelor-of-science-in-engineering-mse-am-isteps-institute-supsi-dti-lugano"
+          "msc-in-engineering-mse-assistent-bei-isteps-supsi-dti-lugano"
         ],
         "fr": [
           "assistant-bachelor-en-education-master-of-science-en-ingenierie-mse-a-l-isteps-supsi-dti-lugano",
-          "assistant-master-of-science-in-engineering-mse-a-l-isteps-supsi-dti-lugano",
-          "baccalaureat-en-ingenierie-mse-a-l-institut-isteps-supsi-dti-lugano"
+          "assistant-master-of-science-in-engineering-mse-a-l-isteps-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
         "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano",
         "master-of-science-in-engineering-mse-assistant-at-isteps-supsi-dti-lugano",
-        "bachelor-of-science-in-engineering-mse-at-isteps-institute-supsi-dti-lugano",
+        "assistant-bachelor-in-education-master-of-science-in-engineering-mse-at-isteps-supsi-dti-lugano",
         "bachelor-of-science-in-engineering-mse-am-isteps-institut-supsi-dti-lugano",
         "assistant-bachelor-in-education-master-of-science-in-engineering-mse-am-isteps-supsi-dti-lugano",
         "msc-in-engineering-mse-assistent-bei-isteps-supsi-dti-lugano",
@@ -2578,8 +2503,8 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
         "en": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
-        "de": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
-        "fr": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
+        "de": "phd-phd-in-dynamik-von-fortschrittlichen-verbundwerkstoffen-fur-drohnen-supsi-dti-mendrisio",
+        "fr": "phd-phd-en-dynamisme-de-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "en": "PhD / PhD in Dynamism of advanced composite materials for drones",
@@ -2665,8 +2590,7 @@
           "dottoranda-dottorando-in-dinamica-der-zusammengesetzten-materialien-fur-drohnen-supsi-dti-mendrisio",
           "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
           "promotionsstelle-fur-dynamische-hochleistungsverbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
-          "doktorand-in-dynamik-fortschrittlicher-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
-          "phd-phd-in-dynamik-von-fortschrittlichen-verbundwerkstoffen-fur-drohnen-supsi-dti-mendrisio"
+          "doktorand-in-dynamik-fortschrittlicher-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio"
         ],
         "fr": [
           "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
@@ -2674,8 +2598,7 @@
           "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-l4rl4l",
           "doctorat-doctorat-en-dynamisme-de-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
           "doctorante-doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
-          "doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
-          "phd-phd-en-dynamisme-de-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio"
+          "doctorant-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
@@ -2752,8 +2675,8 @@
       "slugByLocale": {
         "it": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
         "en": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
-        "de": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
-        "fr": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d"
+        "de": "bachelor-in-education-master-mse-in-informatik-oder-data-science-supsi-dti-lugano",
+        "fr": "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano"
       },
       "titleByLocale": {
         "it": "Assistenti Bachelor in formazione Master MSE in Computer Science o Data Science",
@@ -2836,8 +2759,7 @@
         "de": [
           "bachelor-in-ausbildung-master-mse-in-informatik-oder-informatik-supsi-dti-lugano",
           "bachelor-assistenten-in-der-ausbildung-mse-masterabschluss-in-informatik-oder-data-science-supsi-dti-lugano",
-          "bachelor-assistent-in-master-mse-in-informatik-oder-datenwissenschaft-supsi-dti-lugano",
-          "bachelor-in-education-master-mse-in-informatik-oder-data-science-supsi-dti-lugano"
+          "bachelor-assistent-in-master-mse-in-informatik-oder-datenwissenschaft-supsi-dti-lugano"
         ],
         "en": [
           "bachelor-s-assistants-in-training-mse-master-s-degree-in-computer-science-or-data-science-supsi-dti-lugano-l4u549",
@@ -2846,8 +2768,7 @@
         ],
         "fr": [
           "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano",
-          "assistant-bachelor-en-master-mse-en-informatique-ou-en-science-des-donnees-supsi-dti-lugano",
-          "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano"
+          "assistant-bachelor-en-master-mse-en-informatique-ou-en-science-des-donnees-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
@@ -2898,7 +2819,7 @@
         "it": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
         "en": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
         "de": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
-        "fr": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d"
+        "fr": "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano"
       },
       "titleByLocale": {
         "it": "Assistenti Bachelor in formazione Master MSE in Data Science",
@@ -2998,8 +2919,7 @@
         "fr": [
           "assistants-de-licence-en-formation-mse-master-en-data-science-supsi-dti-lugano",
           "assistants-bachelor-pour-mse-en-data-science-supsi-dti-lugano",
-          "assistant-bachelor-en-data-science-master-mse-supsi-dti-lugano-l4u54a",
-          "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano"
+          "assistant-bachelor-en-data-science-master-mse-supsi-dti-lugano-l4u54a"
         ]
       }
     },
@@ -3244,8 +3164,8 @@
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-titolo-di-dottorato-postdoc-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-della-scienza-e-l4s841",
         "en": "postdoc-position-in-anthropology-sociology-of-health-and-illness-and-or-science-and-technology-studies-supsi-dti-manno",
-        "de": "ricercatrice-ricercatore-con-titolo-di-dottorato-postdoc-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-della-scienza-e-",
-        "fr": "ricercatrice-ricercatore-con-titolo-di-dottorato-postdoc-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-della-scienza-e-"
+        "de": "forscher-forscher-mit-dem-titel-phd-postdoc-in-anthropologie-soziologie-der-gesundheit-und-krankheit-und-oder-studien",
+        "fr": "chercheur-chercheur-titulaire-du-titre-de-phd-postdoc-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou"
       },
       "country": "CH",
       "sourceLang": "it",
@@ -3254,11 +3174,9 @@
           "ricercatrice-ricercatore-con-titolo-di-dottorato-postdoc-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-della-scienza-e-"
         ],
         "de": [
-          "forscher-forscher-mit-dem-titel-phd-postdoc-in-anthropologie-soziologie-der-gesundheit-und-krankheit-und-oder-studien",
           "ricercatrice-ricercatore-con-titolo-di-dottorato-postdoc-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-della-scienza-e-"
         ],
         "fr": [
-          "chercheur-chercheur-titulaire-du-titre-de-phd-postdoc-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou",
           "ricercatrice-ricercatore-con-titolo-di-dottorato-postdoc-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-della-scienza-e-"
         ]
       },
@@ -3370,8 +3288,8 @@
       "slugByLocale": {
         "it": "dottorato-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-sulla-scienza-e-la-tecnologia-supsi-dti-manno",
         "en": "phd-position-in-anthropology-sociology-of-health-and-illness-and-or-science-and-technology-studies-supsi-dti-manno",
-        "de": "dottorato-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-sulla-scienza-e-la-tecnologia-supsi-dti-manno",
-        "fr": "dottorato-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-sulla-scienza-e-la-tecnologia-supsi-dti-manno"
+        "de": "phd-in-anthropologie-soziologie-von-gesundheit-und-krankheit-und-oder-studien-uber-wissenschaft-und-technologie-supsi",
+        "fr": "doctorat-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou-etudes-en-science-et-technologie-supsi-dti-manno"
       },
       "country": "CH",
       "sourceLang": "it",
@@ -3392,15 +3310,7 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "de": [
-          "phd-in-anthropologie-soziologie-von-gesundheit-und-krankheit-und-oder-studien-uber-wissenschaft-und-technologie-supsi"
-        ],
-        "fr": [
-          "doctorat-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou-etudes-en-science-et-technologie-supsi-dti-manno"
-        ]
-      }
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4rl4m",
@@ -3487,9 +3397,9 @@
       },
       "slugByLocale": {
         "it": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
-        "en": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
-        "de": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
-        "fr": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio"
+        "en": "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
+        "de": "phd-phd-in-alpine-orogene-prozesse-supsi-dti-mendrisio",
+        "fr": "doctorat-en-processus-orogenes-alpins-supsi-dti-mendrisio"
       },
       "country": "CH",
       "sourceLang": "it",
@@ -3513,26 +3423,23 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
           "phd-student-in-alpine-orogenic-processes-supsi-dti-mendrisio"
         ],
         "de": [
           "doktorand-auf-dem-gebiet-der-alpinen-orogenetischen-prozesse-supsi-dti-mendrisio",
           "promotionskandidat-in-fur-alpine-orogenetische-prozesse-supsi-dti-mendrisio",
           "doktorand-in-alpinen-orogenen-prozessen-supsi-dti-mendrisio",
-          "phd-student-in-alpinen-orogeneseprozessen-supsi-dti-mendrisio",
-          "phd-phd-in-alpine-orogene-prozesse-supsi-dti-mendrisio"
+          "phd-student-in-alpinen-orogeneseprozessen-supsi-dti-mendrisio"
         ],
         "fr": [
           "dottorando-dottoranda-dans-les-processus-orogeniques-alpins-supsi-dti-mendrisio",
           "doctorat-doctorat-en-procedes-orogenes-alpins-supsi-dti-mendrisio",
           "doctorant-e-en-processus-orogeniques-alpins-supsi-dti-mendrisio",
-          "doctorant-en-processus-orogeniques-alpins-supsi-dti-mendrisio",
-          "doctorat-en-processus-orogenes-alpins-supsi-dti-mendrisio"
+          "doctorant-en-processus-orogeniques-alpins-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
-        "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
+        "phd-student-in-alpine-orogenic-processes-supsi-dti-mendrisio",
         "doktorand-auf-dem-gebiet-der-alpinen-orogenetischen-prozesse-supsi-dti-mendrisio",
         "promotionskandidat-in-fur-alpine-orogenetische-prozesse-supsi-dti-mendrisio",
         "doktorand-in-alpinen-orogenen-prozessen-supsi-dti-mendrisio",
@@ -3583,9 +3490,9 @@
       "firstSeenAt": "2026-05-18T13:18:46.785Z",
       "slugByLocale": {
         "it": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
-        "en": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
-        "de": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
-        "fr": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga"
+        "en": "bachelor-in-education-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniature-bioreactors-supsi-dti",
+        "de": "bachelor-in-education-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti",
+        "fr": "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur"
       },
       "titleByLocale": {
         "it": "Assistente Bachelor in formazione Master in ambito bioelettronica per lo sviluppo di bioreattori miniaturizzati Organ-on-Chip",
@@ -3681,18 +3588,15 @@
         "fr": [
           "baccalaureat-en-education-master-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur-puce",
           "assistant-bachelor-en-formation-master-en-bioelectronique-pour-le-developpement-de-bioreacteurs-miniaturises-organ-on",
-          "bachelor-en-formation-pour-master-en-bioelectronique-pour-le-developpement-de-bioreacteurs-miniaturises-organ-on-chip",
-          "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur"
+          "bachelor-en-formation-pour-master-en-bioelectronique-pour-le-developpement-de-bioreacteurs-miniaturises-organ-on-chip"
         ],
         "de": [
           "bachelor-in-bildung-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti-lugano",
           "assistant-bachelor-in-ausbildung-master-in-bioelektronik-zur-entwicklung-von-organ-on-chip-miniaturisierten-bioreaktoren",
-          "bachelor-in-ausbildung-fur-master-in-bioelektronik-zur-entwicklung-von-miniaturisierten-organ-on-chip-bioreaktoren-supsi",
-          "bachelor-in-education-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti"
+          "bachelor-in-ausbildung-fur-master-in-bioelektronik-zur-entwicklung-von-miniaturisierten-organ-on-chip-bioreaktoren-supsi"
         ],
         "en": [
           "bachelor-in-engineering-for-master-in-bioelectronics-for-the-development-of-miniaturized-organ-on-chip-bioreactors-supsi",
-          "bachelor-in-education-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniature-bioreactors-supsi-dti",
           "assistant-bachelor-in-training-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniaturized-bioreactors"
         ]
       },
@@ -3704,7 +3608,7 @@
         "assistant-bachelor-in-ausbildung-master-in-bioelektronik-zur-entwicklung-von-organ-on-chip-miniaturisierten-bioreaktoren",
         "bachelor-in-ausbildung-fur-master-in-bioelektronik-zur-entwicklung-von-miniaturisierten-organ-on-chip-bioreaktoren-supsi",
         "bachelor-in-engineering-for-master-in-bioelectronics-for-the-development-of-miniaturized-organ-on-chip-bioreactors-supsi",
-        "bachelor-in-education-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniature-bioreactors-supsi-dti"
+        "assistant-bachelor-in-training-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniaturized-bioreactors"
       ]
     }
   ]

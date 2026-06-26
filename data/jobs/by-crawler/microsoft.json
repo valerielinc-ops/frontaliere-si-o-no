@@ -153,12 +153,12 @@
     },
     {
       "id": "microsoft-200041079",
-      "slug": "strategic-account-executive-microsoft-zurich",
+      "slug": "amministratore-delegato-microsoft-zurich",
       "slugByLocale": {
         "en": "strategic-account-executive-microsoft-zurich",
-        "it": "strategic-account-executive-microsoft-zurich",
+        "it": "amministratore-delegato-microsoft-zurich",
         "de": "strategic-account-executive-microsoft-zurich",
-        "fr": "strategic-account-executive-microsoft-zurich"
+        "fr": "executif-du-compte-strategique-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -214,7 +214,18 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "firstSeenAt": "2026-06-25T22:50:30.778Z"
+      "firstSeenAt": "2026-06-25T22:50:30.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-account-executive-microsoft-zurich"
+        ],
+        "fr": [
+          "strategic-account-executive-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-account-executive-microsoft-zurich"
+      ]
     }
   ]
 }

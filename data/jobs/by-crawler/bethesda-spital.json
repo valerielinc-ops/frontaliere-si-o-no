@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-bethesda-spital",
         "it": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-bethesda-spital-basel",
-        "en": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-bethesda-spital-basel",
-        "fr": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-bethesda-spital-basel"
+        "en": "assistant-physician-clinic-rheumatology-and-pain-medicine-100-bethesda-spital-basel",
+        "fr": "medecin-adjoint-clinique-rheumatologie-et-medecine-de-la-douleur-100-bethesda-spital-basel"
       },
       "company": "Bethesda Spital",
       "companyKey": "bethesda-spital",
@@ -630,7 +630,7 @@
       "slug": "infermiera-hf-fh-70-100-bethesda-spital-basel",
       "slugByLocale": {
         "it": "infermiera-hf-fh-70-100-bethesda-spital-basel",
-        "en": "kmu-supporter-in-im-aussendienst-w-m-d-80-100",
+        "en": "dipl-nurse-hf-fh-70-100-bethesda-spital-basel",
         "de": "kmu-supporter-in-im-aussendienst-w-m-d-80-100",
         "fr": "infirmiere-diplomee-hf-fh-70-100-bethesda-spital-basel"
       },
@@ -675,7 +675,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "dipl-nurse-hf-fh-70-100-bethesda-spital-basel",
           "kmu-supporter-in-im-aussendienst-w-m-d-80-100"
         ],
         "it": [
@@ -686,7 +685,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-nurse-hf-fh-70-100-bethesda-spital-basel",
+        "kmu-supporter-in-im-aussendienst-w-m-d-80-100",
         "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
       ],
       "firstSeenAt": "2026-06-17T22:14:37.769Z",

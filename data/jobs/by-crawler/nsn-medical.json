@@ -744,8 +744,8 @@
       "slugByLocale": {
         "de": "praktikantin-praktikant-100-pflege-mit-hotellerie-tatigkeiten-nsn-medical-zurich",
         "it": "praktikantin-praktikant-100-pflege-mit-hotellerie-tatigkeiten-nsn-medical-zurich",
-        "en": "praktikantin-praktikant-100-pflege-mit-hotellerie-tatigkeiten-nsn-medical-zurich",
-        "fr": "praktikantin-praktikant-100-pflege-mit-hotellerie-tatigkeiten-nsn-medical-zurich"
+        "en": "intern-intern-100-care-with-hospitality-activities-nsn-medical-group-zurich",
+        "fr": "stagiaire-stagiaire-100-soins-avec-activites-d-accueil-nsn-medical-group-zurich"
       },
       "company": "NSN Medical Group",
       "companyKey": "nsn-medical",
@@ -808,8 +808,8 @@
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-pflegeassistent-in-oder-ags-50-100-nsn-medical-zurich",
         "it": "pflegehelfer-in-srk-pflegeassistent-in-o-ags-50-100-nsn-medical-group-zurich",
-        "en": "pflegehelfer-in-srk-pflegeassistent-in-oder-ags-50-100-nsn-medical-zurich",
-        "fr": "pflegehelfer-in-srk-pflegeassistent-in-oder-ags-50-100-nsn-medical-zurich"
+        "en": "nursing-assistant-nursing-assistant-or-ags-50-100-nsn-medical-group-zurich",
+        "fr": "assistante-infirmiere-assistante-infirmiere-ou-ags-50-100-nsn-medical-group-zurich"
       },
       "company": "NSN Medical Group",
       "companyKey": "nsn-medical",
@@ -854,6 +854,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelfer-in-srk-pflegeassistent-in-oder-ags-50-100-nsn-medical-zurich"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-pflegeassistent-in-oder-ags-50-100-nsn-medical-zurich"
+        ],
+        "fr": [
           "pflegehelfer-in-srk-pflegeassistent-in-oder-ags-50-100-nsn-medical-zurich"
         ]
       },
