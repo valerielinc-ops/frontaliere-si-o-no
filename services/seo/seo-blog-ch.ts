@@ -6960,6 +6960,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-lavoro-champery-gas-metallo': {
+    title: 'Incidente sul lavoro a Champéry: un morto e un ferito',
+    description: 'Grave incidente a Champéry durante operazioni di fusione con gas industriali: un morto e un ferito grave. Inchiesta in corso. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, lavoro, champéry, morto',
+    ogTitle: 'Incidente di fusione metallo a Champéry',
+    ogDescription: 'Incidente sul lavoro a Champéry, un morto e un ferito grave durante la fusione del metallo, aperta un\'inchiesta.',
+    canonicalPath: '/articoli-svizzera/incidente-lavoro-champery-gas-metallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente sul lavoro a Champéry: un morto e un ferito",
+      "description": "Grave incidente a Champéry durante operazioni di fusione con gas industriali: un morto e un ferito grave. Inchiesta in corso. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-lavoro-champery-gas-metallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operaio coinvolto in incidente di fusione metalli a Champéry, scena di lavoro industriale svizzera."
+      },
+      "datePublished": "2026-06-26T17:45:06+00:00",
+      "dateModified": "2026-06-26T17:45:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incidente-lavoro-champery-gas-metallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

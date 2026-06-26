@@ -544,6 +544,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.spaccio-rete-locali.title': 'Spaccio di droga: un mix servito a una fitta rete di locali',
     'blog.article.spaccio-rete-locali.excerpt': 'Le indagini di RSI hanno evidenziato come lo spaccio di droga venga gestito attraverso una rete complessa di locali in Svizzera, coinvolgendo diversi punti della rete urbana.',
     'blog.article.spaccio-rete-locali.imageAlt': 'Locarno con locali e traffico notturno, scena urbana svizzera.',
+    'blog.article.incidente-lavoro-champery-gas-metallo.title': 'Incidente sul lavoro a Champéry: un morto e un ferito',
+    'blog.article.incidente-lavoro-champery-gas-metallo.excerpt': 'Grave incidente a Champéry durante operazioni di fusione del metallo: un uomo perde la vita, un altro è ferito grave.',
+    'blog.article.incidente-lavoro-champery-gas-metallo.imageAlt': 'Operaio coinvolto in incidente di fusione metalli a Champéry, scena di lavoro industriale svizzera.',
 };
 
 export default blogMetaChIt;
