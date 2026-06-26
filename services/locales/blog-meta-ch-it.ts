@@ -556,6 +556,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carlo-iii-redditi-tasse-2026.title': 'Carlo III svela redditi e tasse: trasparenza fiscale reale',
     'blog.article.carlo-iii-redditi-tasse-2026.excerpt': 'Il re britannico ha pagato oltre 30 milioni di sterline di tasse dal 2022, rompendo il silenzio storico.',
     'blog.article.carlo-iii-redditi-tasse-2026.imageAlt': 'Vista della città di Lugano con documenti fiscali sul tavolo, simbolo di trasparenza fiscale',
+    'blog.article.volkswagen-tagli-lavoro-2024.title': 'Volkswagen annuncia 100mila tagli e chiusura di 4 fabbriche',
+    'blog.article.volkswagen-tagli-lavoro-2024.excerpt': 'Il gruppo Volkswagen prevede la riduzione di 100mila posti di lavoro e la chiusura di quattro stabilimenti in Germania entro il 2030.',
+    'blog.article.volkswagen-tagli-lavoro-2024.imageAlt': 'Vista panoramica di Lugano con elementi industriali che rappresentano cambiamenti economici e del mercato del lavoro',
 };
 
 export default blogMetaChIt;

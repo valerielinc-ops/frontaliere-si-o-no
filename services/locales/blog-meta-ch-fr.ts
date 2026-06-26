@@ -556,6 +556,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carlo-iii-redditi-tasse-2026.title': 'Charles III dévoile revenus et impôts : transparence fiscale réelle',
     'blog.article.carlo-iii-redditi-tasse-2026.excerpt': 'Le roi britannique a payé plus de 30 millions de livres d\'impôts depuis 2022, brisant le silence historique.',
     'blog.article.carlo-iii-redditi-tasse-2026.imageAlt': 'Vue de la ville de Lugano avec des documents fiscaux sur un bureau, symbole de transparence fiscale',
+    'blog.article.volkswagen-tagli-lavoro-2024.title': 'Volkswagen annonce 100 000 coupes et la fermeture de 4 usines',
+    'blog.article.volkswagen-tagli-lavoro-2024.excerpt': 'Le groupe Volkswagen prévoit la réduction de 100 000 emplois et la fermeture de quatre usines en Allemagne d\'ici 2030.',
+    'blog.article.volkswagen-tagli-lavoro-2024.imageAlt': 'Vue panoramique de Lugano avec des éléments industriels symbolisant les changements économiques et du marché du travail',
 };
 
 export default blogMetaChFr;
