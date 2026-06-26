@@ -4213,6 +4213,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ospedale-friburgo-posto-lavoro': { name: 'Lavoro Svizzera', path: '/articoli-svizzera/ospedale-friburgo-posto-lavoro/', parent: 'blog' },
     'blog-lohnausweis-frontalieri': { name: 'Lohnausweis frontalieri', path: '/articoli-svizzera/lohnausweis-frontalieri/', parent: 'blog' },
     'blog-agenzie-interinali-ticino': { name: 'Agenzie interinali Ticino', path: '/articoli-svizzera/agenzie-interinali-ticino/', parent: 'blog' },
+    'blog-guess-stabio-merchandiser': { name: 'Lavoro Ticino', path: '/articoli-frontaliere/guess-stabio-merchandiser', parent: 'blog' },
  };
 
  const info = sectionNames[section];
