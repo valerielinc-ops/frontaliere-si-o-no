@@ -1,92 +1,14 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-06-26T12:37:47.524Z",
+  "assembledAt": "2026-06-26T23:02:19.161Z",
   "jobs": [
-    {
-      "id": "spital-zollikerberg-6705c5708182",
-      "slug": "pool-di-infermieri-certificati-spital-zollikerberg-zollikerberg",
-      "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg",
-        "it": "pool-di-infermieri-certificati-spital-zollikerberg-zollikerberg",
-        "en": "dipl-nursing-professional-dipl-care-professional-pool-spital-zollikerberg-zollikerberg",
-        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-piscine-professionnelle-de-soins-spital-zollikerberg-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool",
-      "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool",
-        "it": "Pool di Infermieri Certificati",
-        "en": "Dipl. Nursing professional / Dipl. Care professional pool",
-        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Piscine professionnelle de soins"
-      },
-      "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Dipl. Infermieristica professionale / Dipl. Specialità di cura Piscina — Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Infermieristica professioni.\n\nSpital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Dipl. Nursing professional / Dipl. Care specialist Pool — Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nSpital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Dipl. Spécialiste des soins infirmiers / Dipl. Pool — Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b56dbace-4189-43ab-a884-f889a82d1b30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-26T12:37:45.609Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b56dbace-4189-43ab-a884-f889a82d1b30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg"
-      ]
-    },
     {
       "id": "spital-zollikerberg-cf6ec1b10245",
       "slug": "berufsbildner-in-per-dipl-fachfrau-dipl-fachmann-operationstechnik-o-con-wille-per-bb-weiterbildung-medizintechnische-bereiche-spital-zollikerberg",
       "slugByLocale": {
-        "de": "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb",
         "it": "berufsbildner-in-per-dipl-fachfrau-dipl-fachmann-operationstechnik-o-con-wille-per-bb-weiterbildung-medizintechnische-bereiche-spital-zollikerberg",
         "en": "vocational-trainer-in-for-dipl-specialist-dipl-professional-surgical-technology-or-with-will-for-bb-further-d94480",
+        "de": "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb",
         "fr": "entraineur-professionnel-pour-dipl-specialiste-dipl-technologie-chirurgicale-professionnelle-ou-avec-volonte-pour-d94480"
       },
       "company": "Spital Zollikerberg",
@@ -94,24 +16,25 @@
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche",
       "titleByLocale": {
-        "de": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche",
         "it": "Berufsbildner:in per Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (o con Wille per BB Weiterbildung) Medizintechnische Bereiche",
         "en": "Vocational trainer: in for Dipl. Specialist / Dipl. Professional surgical technology (or with will for BB further education) Medical engineering areas",
+        "de": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche",
         "fr": "Entraîneur professionnel: pour Dipl. Spécialiste / Dipl. Technologie chirurgicale professionnelle (ou avec volonté pour la formation complémentaire BB) Domaines du génie médical"
       },
       "description": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "de": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Formazione professionale: in per Dipl. Specialista / Dipl. Specialista in tecnologia chirurgica (o con volontà per l'istruzione continua BB) Aree di ingegneria medica — Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Vocational trainer: in for Dipl. Specialist / Dipl. Specialist in surgical technology (or with will for BB continuing education) Medical engineering areas — Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Entraîneur professionnel: pour Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale (ou avec volonté pour la formation continue BB) Secteurs du génie médical — Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
+        "it": "Formazione professionale: in per Dipl. Specialista / Dipl. Specialista in tecnologia chirurgica (o con volontà per l'istruzione continua BB) Aree di ingegneria medica — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Vocational trainer: in for Dipl. Specialist / Dipl. Specialist in surgical technology (or with will for BB continuing education) Medical engineering areas — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Entraîneur professionnel: pour Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale (ou avec volonté pour la formation continue BB) Secteurs du génie médical — Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
       },
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=1697d953-6d91-439b-8f30-e25070280c2c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T12:37:45.609Z",
+      "crawledAt": "2026-06-26T23:02:17.178Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -127,9 +50,10 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=1697d953-6d91-439b-8f30-e25070280c2c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb"
@@ -141,9 +65,7 @@
           "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb"
         ]
       },
-      "previousSlugs": [
-        "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb"
-      ],
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -155,16 +77,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      }
     },
     {
       "id": "spital-zollikerberg-5539d23bd3ed",
       "slug": "facharztin-facharzt-gynakologie-geburtshilfe-o-radiologie-per-la-senologische-sprechstunde-am-brustzentrum-arztbereich-spital-zollikerberg",
       "slugByLocale": {
-        "de": "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische",
         "it": "facharztin-facharzt-gynakologie-geburtshilfe-o-radiologie-per-la-senologische-sprechstunde-am-brustzentrum-arztbereich-spital-zollikerberg",
         "en": "specialist-specialist-gynecology-obstetrics-or-radiology-for-the-senological-consultation-hours-at-the-breast-50e114",
+        "de": "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische",
         "fr": "specialiste-specialiste-gynecologie-obstetrique-ou-radiologie-pour-les-heures-de-consultation-senologique-au-50e114"
       },
       "company": "Spital Zollikerberg",
@@ -172,24 +93,25 @@
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Fachärztin / Facharzt Gynäkologie & Geburtshilfe oder Radiologie für die senologische Sprechstunde am Brustzentrum Arztbereich",
       "titleByLocale": {
-        "de": "Fachärztin / Facharzt Gynäkologie & Geburtshilfe oder Radiologie für die senologische Sprechstunde am Brustzentrum Arztbereich",
-        "fr": "Spécialiste / Spécialiste Gynécologie & Obstétrique ou Radiologie pour les heures de consultation sénologique au Centre médical du Breast Center",
         "it": "Fachärztin / Facharzt Gynäkologie & Geburtshilfe o Radiologie per la senologische Sprechstunde am Brustzentrum Arztbereich",
-        "en": "Specialist / Specialist Gynecology & Obstetrics or Radiology for the senological consultation hours at the Breast Center Medical Center"
+        "en": "Specialist / Specialist Gynecology & Obstetrics or Radiology for the senological consultation hours at the Breast Center Medical Center",
+        "de": "Fachärztin / Facharzt Gynäkologie & Geburtshilfe oder Radiologie für die senologische Sprechstunde am Brustzentrum Arztbereich",
+        "fr": "Fachärztin / Facharzt Gynäkologie & Geburtshilfe oder Radiologie für die senologische Sprechstunde am Brustzentrum Arztbereich"
       },
       "description": "Fachärztin / Facharzt Gynäkologie & Geburtshilfe oder Radiologie für die senologische Sprechstunde am Brustzentrum Arztbereich — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "de": "Fachärztin / Facharzt Gynäkologie & Geburtshilfe oder Radiologie für die senologische Sprechstunde am Brustzentrum Arztbereich — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Specialist Gynecology & Obstetrics o Radiology per le ore di consultazione senologica presso l'Area Medica del Centro del seno – Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Specialist Gynecology & Obstetrics or Radiology for the senological consultation hours at the Breast Centre Medical Area – Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Spécialiste en gynécologie et en obstétrique ou en radiologie pour les heures de consultation sénologique au Centre du sein – Spital Zollikerberg, Zollikerberg (ZH).\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
+        "it": "Specialist Gynecology & Obstetrics o Radiology per le ore di consultazione senologica presso l'Area Medica del Centro del seno – Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Specialist Gynecology & Obstetrics or Radiology for the senological consultation hours at the Breast Centre Medical Area – Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Fachärztin / Facharzt Gynäkologie & Geburtshilfe oder Radiologie für die senologische Sprechstunde am Brustzentrum Arztbereich — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Spécialiste en gynécologie et en obstétrique ou en radiologie pour les heures de consultation sénologique au Centre du sein – Spital Zollikerberg, Zollikerberg (ZH). Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=88520d48-284d-4394-ad1f-cf420042bc9c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T12:37:45.609Z",
+      "crawledAt": "2026-06-26T23:02:17.178Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,122 +127,42 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=88520d48-284d-4394-ad1f-cf420042bc9c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische"
-        ],
-        "en": [
-          "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische"
-        ],
-        "fr": [
-          "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische"
-        ]
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische"
       ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
-    },
-    {
-      "id": "spital-zollikerberg-38c7dab421a3",
-      "slug": "gruppo-di-specialisti-sanitari-su-salario-orario-di-reperibilita-spital-zollikerberg-zollikerberg",
-      "slugByLocale": {
-        "de": "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
-        "it": "gruppo-di-specialisti-sanitari-su-salario-orario-di-reperibilita-spital-zollikerberg-zollikerberg",
-        "en": "professional-professional-health-pool-on-demand-spital-zollikerberg-zollikerberg",
-        "fr": "pool-de-sante-professionnelle-sur-demande-spital-zollikerberg-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Fachfrau / Fachmann Gesundheit Pool im Stundenlohn auf Abruf",
-      "titleByLocale": {
-        "de": "Fachfrau / Fachmann Gesundheit Pool im Stundenlohn auf Abruf",
-        "it": "Gruppo di specialisti sanitari su salario orario di reperibilità",
-        "en": "Professional / Professional Health Pool on demand",
-        "fr": "Pool de santé professionnelle sur demande"
-      },
-      "description": "Fachfrau / Fachmann Gesundheit Pool im Stundenlohn auf Abruf — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "de": "Fachfrau / Fachmann Gesundheit Pool im Stundenlohn auf Abruf — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Piscina sanitaria professionale a salario orario su richiesta – Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Infermieristica professioni.\n\nSpital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Professional Health Pool in hourly wage on demand – Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nSpital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Pool de santé professionnelle en salaire horaire sur demande – Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=77a26ab1-b50e-4746-86a8-0187e5da98d9,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-26T12:37:45.608Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=77a26ab1-b50e-4746-86a8-0187e5da98d9,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+          "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische"
         ],
         "en": [
-          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+          "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+          "facharztin-facharzt-gynakologie-geburtshilfe-oder-radiologie-fur-die-senologische"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
-      ]
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spital-zollikerberg-5ce92d646abe",
       "slug": "gruppo-di-specialisti-infermieristici-diplomati-su-salario-orario-reperibile-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
         "it": "gruppo-di-specialisti-infermieristici-diplomati-su-salario-orario-reperibile-spital-zollikerberg-zollikerberg",
         "en": "dipl-nursing-professional-dipl-nursing-professional-pool-on-demand-spital-zollikerberg-zollikerberg",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-pool-professionnel-de-soins-infirmiers-sur-demande-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
@@ -328,24 +170,25 @@
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool im Stundenlohn auf Abruf",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool im Stundenlohn auf Abruf",
         "it": "Gruppo di specialisti infermieristici diplomati su salario orario reperibile",
         "en": "Dipl. Nursing professional / Dipl. Nursing professional pool on demand",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool im Stundenlohn auf Abruf",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Pool professionnel de soins infirmiers sur demande"
       },
       "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool im Stundenlohn auf Abruf — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool im Stundenlohn auf Abruf — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica piscina professionale in salario orario su richiesta — Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Infermieristica professioni.\n\nSpital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Dipl. Nursing professional / Dipl. Nursing professional Pool in hourly wage on demand — Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nSpital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Pool professionnel de soins infirmiers en salaire horaire sur demande — Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
+        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica piscina professionale in salario orario su richiesta — Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Dipl. Nursing professional / Dipl. Nursing professional Pool in hourly wage on demand — Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool im Stundenlohn auf Abruf — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Pool professionnel de soins infirmiers en salaire horaire sur demande — Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
       },
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=2e8d950b-892d-4288-85d1-063c671c05b7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T12:37:45.608Z",
+      "crawledAt": "2026-06-26T23:02:17.177Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -361,22 +204,10 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=2e8d950b-892d-4288-85d1-063c671c05b7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
@@ -388,17 +219,181 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
         ]
       },
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-zollikerberg-6705c5708182",
+      "slug": "pool-di-infermieri-certificati-spital-zollikerberg-zollikerberg",
+      "slugByLocale": {
+        "it": "pool-di-infermieri-certificati-spital-zollikerberg-zollikerberg",
+        "en": "dipl-nursing-professional-dipl-care-professional-pool-spital-zollikerberg-zollikerberg",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-piscine-professionnelle-de-soins-spital-zollikerberg-zollikerberg"
+      },
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool",
+      "titleByLocale": {
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool",
+        "en": "Dipl. Nursing professional / Dipl. Care professional pool",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool",
+        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Piscine professionnelle de soins"
+      },
+      "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "descriptionByLocale": {
+        "it": "Dipl. Infermieristica professionale / Dipl. Specialità di cura Piscina — Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Dipl. Nursing professional / Dipl. Care specialist Pool — Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Dipl. Spécialiste des soins infirmiers / Dipl. Pool — Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b56dbace-4189-43ab-a884-f889a82d1b30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-26T23:02:17.177Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b56dbace-4189-43ab-a884-f889a82d1b30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
-      ]
+        "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-zollikerberg-38c7dab421a3",
+      "slug": "gruppo-di-specialisti-sanitari-su-salario-orario-di-reperibilita-spital-zollikerberg-zollikerberg",
+      "slugByLocale": {
+        "it": "gruppo-di-specialisti-sanitari-su-salario-orario-di-reperibilita-spital-zollikerberg-zollikerberg",
+        "en": "professional-professional-health-pool-on-demand-spital-zollikerberg-zollikerberg",
+        "de": "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
+        "fr": "pool-de-sante-professionnelle-sur-demande-spital-zollikerberg-zollikerberg"
+      },
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Fachfrau / Fachmann Gesundheit Pool im Stundenlohn auf Abruf",
+      "titleByLocale": {
+        "it": "Gruppo di specialisti sanitari su salario orario di reperibilità",
+        "en": "Professional / Professional Health Pool on demand",
+        "de": "Fachfrau / Fachmann Gesundheit Pool im Stundenlohn auf Abruf",
+        "fr": "Pool de santé professionnelle sur demande"
+      },
+      "description": "Fachfrau / Fachmann Gesundheit Pool im Stundenlohn auf Abruf — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "descriptionByLocale": {
+        "it": "Piscina sanitaria professionale a salario orario su richiesta – Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Professional Health Pool in hourly wage on demand – Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Fachfrau / Fachmann Gesundheit Pool im Stundenlohn auf Abruf — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Pool de santé professionnelle en salaire horaire sur demande – Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
+      },
+      "needsRetranslation": false,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=77a26ab1-b50e-4746-86a8-0187e5da98d9,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-26T23:02:17.176Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=77a26ab1-b50e-4746-86a8-0187e5da98d9,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spital-zollikerberg-3e06370fa7ce",
       "slug": "infermiera-certificata-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
         "it": "infermiera-certificata-spital-zollikerberg-zollikerberg",
         "en": "dipl-nursing-professional-dipl-nursing-professional-spital-zollikerberg-zollikerberg",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
@@ -406,24 +401,25 @@
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-        "it": "Infermiera Certificata",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
         "en": "Dipl. Nursing professional / Dipl. Nursing professional",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers"
       },
       "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale — Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Infermieristica professioni.\n\nSpital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Dipl. Nursing professional / Dipl. Nursing professional — Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nSpital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers — Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
+        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale — Spital Zollikerberg, Zollikerberg (ZH). Area: Infermieristica professioni. Spital Zollikerberg è un ospedale per la cura acuta con circa 1.100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale. Descrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
+        "en": "Dipl. Nursing professional / Dipl. Nursing professional — Spital Zollikerberg, Zollikerberg (ZH). Area: Nursing professions. Spital Zollikerberg is an acute care hospital with about 1,100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories. Full job description and application via the external applicant platform.",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers — Spital Zollikerberg, Zollikerberg (ZH). Domaine: professions infirmières. Spital Zollikerberg est un hôpital de soins actifs avec environ 1 100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales. Description de travail complète et demande via la plateforme externe des candidats."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d444de1a-3302-48be-aa5b-3a2514c838c5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T12:37:45.607Z",
+      "crawledAt": "2026-06-26T23:02:17.174Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -439,22 +435,10 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d444de1a-3302-48be-aa5b-3a2514c838c5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg"
@@ -466,9 +450,19 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg"
-      ]
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
