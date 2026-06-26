@@ -496,6 +496,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ospedale-friburgo-posto-lavoro.title': 'Freiburg Hospital seeks nurses with 12-month contract',
     'blog.article.ospedale-friburgo-posto-lavoro.excerpt': 'Freiburg hospital is looking for nurses with a 12-month CDD contract at 60-100% employment',
     'blog.article.ospedale-friburgo-posto-lavoro.imageAlt': 'Swiss hospital with healthcare staff',
+    'blog.article.lohnausweis-frontalieri.title': 'Lohnausweis: complete guide for border workers in Switzerland',
+    'blog.article.lohnausweis-frontalieri.excerpt': 'Everything you need to know about the Swiss salary certificate: what it is, how it is obtained and why it is important for border workers',
+    'blog.article.lohnausweis-frontalieri.imageAlt': 'Swiss salary certificate with details on deductions and allowances',
 };
 
 export default blogMetaChEn;

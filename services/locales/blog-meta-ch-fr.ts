@@ -496,6 +496,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ospedale-friburgo-posto-lavoro.title': 'Hôpital de Fribourg à la recherche d\'infirmières sous contrat de 12 mois',
     'blog.article.ospedale-friburgo-posto-lavoro.excerpt': 'L\'hôpital de Fribourg recherche des infirmières sous contrat CDD de 12 mois à 60-100% d\'emploi',
     'blog.article.ospedale-friburgo-posto-lavoro.imageAlt': 'Hôpital suisse avec du personnel soignant',
+    'blog.article.lohnausweis-frontalieri.title': 'Lohnausweis : guide complet pour les frontaliers en Suisse',
+    'blog.article.lohnausweis-frontalieri.excerpt': 'Tout ce que vous devez savoir sur le certificat de salaire suisse : qu\'est-ce que c\'est, comment l\'obtenir et pourquoi est-ce important pour les frontaliers',
+    'blog.article.lohnausweis-frontalieri.imageAlt': 'Attestation de salaire suisse avec détails sur les déductions et les allocations',
 };
 
 export default blogMetaChFr;

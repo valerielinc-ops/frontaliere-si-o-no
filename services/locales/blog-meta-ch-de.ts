@@ -496,6 +496,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ospedale-friburgo-posto-lavoro.title': 'Spital Freiburg sucht Krankenschwestern mit 12-monatigem Vertrag',
     'blog.article.ospedale-friburgo-posto-lavoro.excerpt': 'Das Spital Freiburg sucht Pflegekräfte mit 12-monatigem CDD-Vertrag bei 60-100% Beschäftigung',
     'blog.article.ospedale-friburgo-posto-lavoro.imageAlt': 'Schweizer Spital mit Gesundheitspersonal',
+    'blog.article.lohnausweis-frontalieri.title': 'Lohnausweis: Vollständiger Leitfaden für Grenzgänger in der Schweiz',
+    'blog.article.lohnausweis-frontalieri.excerpt': 'Alles, was Sie über den Schweizer Lohnausweis wissen müssen: Was er ist, wie man ihn bekommt und warum er für Grenzgänger wichtig ist',
+    'blog.article.lohnausweis-frontalieri.imageAlt': 'Schweizer Lohnbescheinigung mit Details zu Abzügen und Zulagen',
 };
 
 export default blogMetaChDe;

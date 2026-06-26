@@ -6336,6 +6336,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lohnausweis-frontalieri': {
+    title: 'Lohnausweis: guida completa per frontalieri in Svizzera',
+    description: 'Scopri tutto sul Lohnausweis: cos\'è, come si ottiene e perché è fondamentale per i frontalieri che lavorano in Svizzera. Guida pratica con informazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, lohnausweis, completa, tutto, quello',
+    ogTitle: 'Lohnausweis: guida completa per frontalieri in Svizzera',
+    ogDescription: 'Tutto quello che devi sapere sul Lohnausweis: guida pratica per frontalieri che lavorano in Svizzera',
+    canonicalPath: '/articoli-svizzera/lohnausweis-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lohnausweis: guida completa per frontalieri in Svizzera",
+      "description": "Scopri tutto sul Lohnausweis: cos'è, come si ottiene e perché è fondamentale per i frontalieri che lavorano in Svizzera. Guida pratica con informazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lohnausweis-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Certificato di salario svizzero con dettagli sulle deduzioni e sugli assegni"
+      },
+      "datePublished": "2026-06-26T03:32:39+00:00",
+      "dateModified": "2026-06-26T03:32:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lohnausweis-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
