@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-06-25T22:28:51.167Z",
+  "generatedAt": "2026-06-26T11:26:05.658Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 1071,
-  "avgDurationMs": 1071,
+  "unchangedCount": 5,
+  "durationMs": 1367,
+  "avgDurationMs": 1367,
   "durationHistory": [
-    1071
+    1367
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -186,6 +186,50 @@
         "richness": 25,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "title": "Trade Marketing & VM Director Wholesale",
+      "slug": "trade-marketing-vm-director-wholesale-guess-europe-sagl-bioggio-ticino-switzerland",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/ACECC0A61B/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/ACECC0A61B/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-25",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-37d91290ca3d",
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 5",
+      "postalCode": "6814",
+      "firstSeenAt": "2026-06-25T22:28:51.166Z",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
       }
     }
   ]
