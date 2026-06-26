@@ -541,6 +541,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incendio-autostrada-piotta.title': 'Fire on the A2 in Piotta: traffic in tilt',
     'blog.article.incendio-autostrada-piotta.excerpt': 'Car on fire on the A2 in Piotta, traffic blocked due to an accident inside the Gotthard tunnel, now reopened.',
     'blog.article.incendio-autostrada-piotta.imageAlt': 'Car on fire on A2 at Piotta, traffic jam',
+    'blog.article.spaccio-rete-locali.title': 'Drug dealing: a mix served to a dense network of clubs',
+    'blog.article.spaccio-rete-locali.excerpt': 'CSR investigations have highlighted how drug dealing is managed through a complex network of premises in Switzerland, involving different points of the urban network.',
+    'blog.article.spaccio-rete-locali.imageAlt': 'Locarno scene with local venues and urban traffic at night.',
 };
 
 export default blogMetaChEn;

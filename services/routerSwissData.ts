@@ -203,6 +203,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ferrovie-germania-ripresa-traffico': { it: 'ferrovie-germania-ripresa-traffico', en: 'germany-rail-traffic-resumption', de: 'wiederaufnahme-zugverkehr-deutschland', fr: 'reprise-traffic-ferroviaire-allemagne' },
  'condanne-viareggio-svizzera': { it: 'condanne-viareggio-svizzera', en: 'viareggio-train-disaster-convictions', de: 'viareggio-zugunglueck-verurteilungen', fr: 'viareggio-catastrophe-ferroviaire-condamnations' },
  'incendio-autostrada-piotta': { it: 'incendio-autostrada-piotta', en: 'fire-autostrada-piotta', de: 'brand-autostrada-piotta', fr: 'incendie-autostrada-piotta' },
+ 'spaccio-rete-locali': { it: 'spaccio-rete-locali', en: 'drug-dealing-local-network', de: 'drogenhandel-netzwerk-lokale', fr: 'resea-drogue-locaux' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

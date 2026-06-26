@@ -541,6 +541,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incendio-autostrada-piotta.title': 'Incendio sull\'A2 a Piotta: traffico in tilt',
     'blog.article.incendio-autostrada-piotta.excerpt': 'Auto in fiamme sull\'A2 a Piotta, traffico bloccato a causa di un incidente all’interno del tunnel del Gottardo, ora riaperto.',
     'blog.article.incendio-autostrada-piotta.imageAlt': 'Auto in fiamme sull\'A2 a Piotta, traffico in tilt',
+    'blog.article.spaccio-rete-locali.title': 'Spaccio di droga: un mix servito a una fitta rete di locali',
+    'blog.article.spaccio-rete-locali.excerpt': 'Le indagini di RSI hanno evidenziato come lo spaccio di droga venga gestito attraverso una rete complessa di locali in Svizzera, coinvolgendo diversi punti della rete urbana.',
+    'blog.article.spaccio-rete-locali.imageAlt': 'Locarno con locali e traffico notturno, scena urbana svizzera.',
 };
 
 export default blogMetaChIt;
