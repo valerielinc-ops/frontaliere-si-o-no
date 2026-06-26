@@ -4223,6 +4223,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-busto-arsizio-orientation-days-aslam': { name: 'Formazione', path: '/articoli-frontaliere/busto-arsizio-orientation-days-aslam', parent: 'blog' },
     'blog-giro-tre-paesi-chiusure-traffico-2026': { name: 'Chiusure traffico 2026', path: '/articoli-svizzera/giro-tre-paesi-chiusure-traffico-2026/', parent: 'blog' },
     'blog-industria-farmaceutica-svizzera-dati': { name: 'Farmaceutica', path: '/articoli-svizzera/industria-farmaceutica-svizzera-dati/', parent: 'blog' },
+    'blog-deutsche-bahn-stop-ferroviario-germania': { name: 'DB stop ferroviario', path: '/articoli-svizzera/deutsche-bahn-stop-ferroviario-germania/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

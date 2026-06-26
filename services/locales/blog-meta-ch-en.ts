@@ -526,6 +526,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.industria-farmaceutica-svizzera-dati.title': 'Pharmaceuticals: data and challenges of the Swiss economy',
     'blog.article.industria-farmaceutica-svizzera-dati.excerpt': 'Key export and employment sector: 56,000 jobs and 100 billion exports in 2025.',
     'blog.article.industria-farmaceutica-svizzera-dati.imageAlt': 'Pharmaceutical research laboratory in Switzerland',
+    'blog.article.deutsche-bahn-stop-ferroviario-germania.title': 'Deutsche Bahn suspends rail traffic in Germany',
+    'blog.article.deutsche-bahn-stop-ferroviario-germania.excerpt': 'Trains stopped at all German stations after a serious disruption of the digital system for radio communications. Technicians at work.',
+    'blog.article.deutsche-bahn-stop-ferroviario-germania.imageAlt': 'Empty Swiss railway tracks with a blank digital board.',
 };
 
 export default blogMetaChEn;

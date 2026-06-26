@@ -198,6 +198,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'rotary-club-lugano-presidenza': { it: 'rotary-club-lugano-presidenza', en: 'change-presidency-rotary-lugano', de: 'wechsel-voe-rotary-lugano', fr: 'changement-presidence-rotary-lugano' },
  'giro-tre-paesi-chiusure-traffico-2026': { it: 'giro-tre-paesi-chiusure-traffico-2026', en: 'giro-tre-paesi-road-closures-2026', de: 'giro-drei-laender-strassensperrungen-2026', fr: 'giro-trois-pays-fermetures-routes-2026' },
  'industria-farmaceutica-svizzera-dati': { it: 'industria-farmaceutica-svizzera-dati', en: 'swiss-pharma-industry-data', de: 'schweizer-pharma-industrie-daten', fr: 'industrie-pharmaceutique-suisse-donnees' },
+ 'deutsche-bahn-stop-ferroviario-germania': { it: 'deutsche-bahn-stop-ferroviario-germania', en: 'deutsche-bahn-rail-traffic-halt-germany', de: 'deutsche-bahn-bahnverkehr-stopp-deutschland', fr: 'deutsche-bahn-suspension-trafic-ferroviaire' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
