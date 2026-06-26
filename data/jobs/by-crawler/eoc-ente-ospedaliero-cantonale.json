@@ -286,17 +286,37 @@
         "en": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
-          "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce"
+          "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce",
+          "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero"
         ],
         "fr": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
-          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
+          "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale"
+        ],
+        "it": [
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqfi",
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqhe",
+          "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-d46b9a",
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi"
+        ],
+        "de": [
+          "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-4d6bce",
+          "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero"
         ]
       },
       "previousSlugs": [
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
-        "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce"
+        "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqfi",
+        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-4d6bce",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqhe",
+        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-d46b9a",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi",
+        "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero",
+        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero",
+        "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -1063,17 +1083,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6q",
-          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r",
-          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-          "fisioterapista-diplomato-a-eoc-novaggio-x29n6r",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-          "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
           "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
           "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
           "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -1082,7 +1091,18 @@
           "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
           "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
           "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63"
+          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
+          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
+          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
+          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ],
         "en": [
           "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -1099,7 +1119,18 @@
         "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
         "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
       ]
     },
     {
