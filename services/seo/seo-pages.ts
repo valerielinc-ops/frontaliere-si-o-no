@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2954,
+ "numberOfItems": 2955,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7600,7 +7600,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2951, "name": "Condanne definitive per la strage ferroviaria d...", "url": `${BASE_URL}/articoli-frontaliere/condanne-viareggio-svizzera` },
           { "@type": "ListItem", "position": 2952, "name": "Incendio sull'A2 a Piotta: traffico in tilt", "url": `${BASE_URL}/articoli-frontaliere/incendio-autostrada-piotta` },
           { "@type": "ListItem", "position": 2953, "name": "Spaccio di droga: un mix servito a una fitta re...", "url": `${BASE_URL}/articoli-frontaliere/spaccio-rete-locali` },
-          { "@type": "ListItem", "position": 2954, "name": "Incidente sul lavoro a Champéry: un morto e un ...", "url": `${BASE_URL}/articoli-frontaliere/incidente-lavoro-champery-gas-metallo` }
+          { "@type": "ListItem", "position": 2954, "name": "Incidente sul lavoro a Champéry: un morto e un ...", "url": `${BASE_URL}/articoli-frontaliere/incidente-lavoro-champery-gas-metallo` },
+          { "@type": "ListItem", "position": 2955, "name": "Ok al finanziamento delle Olimpiadi invernali 2038", "url": `${BASE_URL}/articoli-frontaliere/finanziamento-olimpiadi-invernali-2038` }
  ]
  },
  {

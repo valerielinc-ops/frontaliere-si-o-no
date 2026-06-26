@@ -1637,6 +1637,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'finanziamento-olimpiadi-invernali-2038',
+    category: 'novita',
+    date: '2026-06-26T18:08:49.273Z',
+    image: '/images/blog/finanziamento-olimpiadi-invernali-2038.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
