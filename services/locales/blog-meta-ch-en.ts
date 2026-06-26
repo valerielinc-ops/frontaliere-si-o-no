@@ -502,6 +502,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.agenzie-interinali-ticino.title': 'Temporary agencies in Lugano: how they work',
     'blog.article.agenzie-interinali-ticino.excerpt': 'Find out how temporary agencies operate in Lugano and what changes for frontier workers',
     'blog.article.agenzie-interinali-ticino.imageAlt': 'Temporary employment agency in Lugano',
+    'blog.article.ticinese-frontalieri.title': 'News for border crossers in Ticino',
+    'blog.article.ticinese-frontalieri.excerpt': 'Updates on news regarding border workers in Ticino',
+    'blog.article.ticinese-frontalieri.imageAlt': 'Lugano cityscape with cross-border workers',
 };
 
 export default blogMetaChEn;
