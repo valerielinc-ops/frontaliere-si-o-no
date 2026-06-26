@@ -1,16 +1,16 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-06-26T11:24:31.173Z",
-  "total": 8,
+  "generatedAt": "2026-06-26T21:50:53.461Z",
+  "total": 7,
   "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2937,
-  "avgDurationMs": 2937,
+  "durationMs": 2953,
+  "avgDurationMs": 2953,
   "durationHistory": [
-    2937
+    2953
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -180,39 +180,6 @@
       }
     },
     {
-      "title": "Mediamatiker/in Kommunikation & Events (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/mediamatiker-in-kommunikation-events-m-w-d/625adfbd-866b-4535-95d5-089a56861f95",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-06-26",
-      "source": "company-website",
-      "slug": "mediamatiker-in-kommunikation-events-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-10e59a5c5095",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-02T12:56:07.219Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Polymechaniker (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
@@ -279,7 +246,41 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Mediamatiker/in Kommunikation & Events (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/mediamatiker-in-kommunikation-events-m-w-d/625adfbd-866b-4535-95d5-089a56861f95",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "postedDate": "2026-06-16",
+      "source": "company-website",
+      "slug": "mediamatiker-in-kommunikation-events-m-w-d-100-ems-chemie-domat-ems",
+      "crawledAt": "",
+      "id": "ems-chemie-10e59a5c5095",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-02T12:56:07.219Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
@@ -438,39 +439,6 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-09T11:21:23.775Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Mediamatiker/in Kommunikation & Events (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/mediamatiker-in-kommunikation-events-m-w-d/625adfbd-866b-4535-95d5-089a56861f95",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-06-26",
-      "source": "company-website",
-      "slug": "mediamatiker-in-kommunikation-events-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-10e59a5c5095",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-02T12:56:07.219Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
