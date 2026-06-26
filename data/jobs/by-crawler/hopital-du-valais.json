@@ -250,7 +250,7 @@
       "slug": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp",
       "slugByLocale": {
         "it": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp",
-        "en": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
+        "en": "nurse-80-100-surgery-urology-5-west-hopital-du-valais-visp",
         "de": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
         "fr": "infirmiere-80-100-chirurgie-urologie-5-ouest-hopital-du-valais-visp"
       },
@@ -296,15 +296,13 @@
         "site": "VISP"
       },
       "previousSlugs": [
-        "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
-        "nurse-80-100-surgery-urology-5-west-hopital-du-valais-visp"
+        "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
         ],
         "en": [
-          "nurse-80-100-surgery-urology-5-west-hopital-du-valais-visp",
           "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
         ]
       },
@@ -560,9 +558,9 @@
     },
     {
       "id": "hopital-du-valais-144d634622a3",
-      "slug": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
+      "slug": "specialista-psicologo-ad-ambulatorium-80-100-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
+        "it": "specialista-psicologo-ad-ambulatorium-80-100-hopital-du-valais-brig",
         "en": "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig",
         "de": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
         "fr": "psychologue-specialiste-ambulatoire-80-100-hopital-du-valais-brig"
@@ -609,11 +607,10 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "specialista-psicologo-ad-ambulatorium-80-100-hopital-du-valais-brig"
+        "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-psicologo-ad-ambulatorium-80-100-hopital-du-valais-brig",
           "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig"
         ]
       },
@@ -638,7 +635,7 @@
       "slug": "assistente-sanitaria-50-100-psichiatria-geriatrica-hopital-du-valais-brig",
       "slugByLocale": {
         "it": "assistente-sanitaria-50-100-psichiatria-geriatrica-hopital-du-valais-brig",
-        "en": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
+        "en": "nursing-professional-50-100-psychogeriatry-hopital-du-valais-brig",
         "de": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
         "fr": "professionnels-des-soins-infirmiers-50-a-100-psychogerie-hopital-du-valais-brig"
       },
@@ -685,8 +682,7 @@
       },
       "previousSlugs": [
         "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
-        "care-professional-50-100-psychogeriatrics-hopital-du-valais-brig",
-        "nursing-professional-50-100-psychogeriatry-hopital-du-valais-brig"
+        "care-professional-50-100-psychogeriatrics-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -694,7 +690,6 @@
         ],
         "en": [
           "care-professional-50-100-psychogeriatrics-hopital-du-valais-brig",
-          "nursing-professional-50-100-psychogeriatry-hopital-du-valais-brig",
           "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig"
         ]
       },
@@ -1178,7 +1173,7 @@
       "slug": "terapista-in-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "it": "terapista-in-80-100-hopital-du-valais-brig",
-        "en": "ergotherapeut-in-80-100-hopital-du-valais-brig",
+        "en": "occupational-therapist-in-80-100-hopital-du-valais-brig",
         "de": "ergotherapeut-in-80-100-hopital-du-valais-brig",
         "fr": "ergotherapie-en-80-100-hopital-du-valais-brig"
       },
@@ -1225,7 +1220,6 @@
       },
       "previousSlugs": [
         "ergotherapeut-in-80-100-hopital-du-valais-brig",
-        "occupational-therapist-in-80-100-hopital-du-valais-brig",
         "assistente-psicologo-psychiatra-80-100-hopital-du-valais-brig",
         "psychologist-psychiatrist-assistant-80-100-hopital-du-valais-brig",
         "assistenzpsychologe-in-80-100-hopital-du-valais-brig",
@@ -1240,7 +1234,6 @@
           "ergotherapeut-in-80-100-hopital-du-valais-brig"
         ],
         "en": [
-          "occupational-therapist-in-80-100-hopital-du-valais-brig",
           "ergotherapeut-in-80-100-hopital-du-valais-brig"
         ],
         "fr": [
@@ -1499,9 +1492,9 @@
     },
     {
       "id": "hopital-du-valais-13ad2562e207",
-      "slug": "it-support-a-50-hopital-du-valais-sion",
+      "slug": "supporto-it-al-50-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "it-support-a-50-hopital-du-valais-sion",
+        "it": "supporto-it-al-50-hopital-du-valais-sion",
         "en": "it-support-a-50-hopital-du-valais-sion",
         "de": "it-unterstutzung-bei-50-hopital-du-valais-sion",
         "fr": "it-support-a-50-hopital-du-valais-sion"
@@ -1548,11 +1541,10 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "supporto-it-al-50-hopital-du-valais-sion"
+        "it-support-a-50-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "supporto-it-al-50-hopital-du-valais-sion",
           "it-support-a-50-hopital-du-valais-sion"
         ]
       },
@@ -1794,9 +1786,9 @@
     },
     {
       "id": "hopital-du-valais-c8e757d35e02",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-hopital-du-valais-sion",
         "de": "pharmazist-spezialist-fur-krankenhausapotheke-80-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
@@ -1845,7 +1837,6 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ],
         "de": [
@@ -1857,7 +1848,7 @@
       },
       "previousSlugs": [
         "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
         "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
         "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion",
         "apotheker-im-krankenhaus-apotheke-80-hopital-du-valais-sion",
@@ -1882,9 +1873,9 @@
     },
     {
       "id": "hopital-du-valais-47cdde9e836d",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-100-hopital-du-valais-sion",
         "de": "apotheker-in-der-krankenhausapotheke-80-100-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
@@ -1933,7 +1924,6 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
         ],
         "de": [
@@ -1942,7 +1932,7 @@
       },
       "previousSlugs": [
         "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
         "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
       ],
       "needsRetranslation": true,
@@ -3401,7 +3391,7 @@
       "slug": "infermiera-80-unita-di-cura-acuta-pzo-hopital-du-valais-brig",
       "slugByLocale": {
         "it": "infermiera-80-unita-di-cura-acuta-pzo-hopital-du-valais-brig",
-        "en": "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig",
+        "en": "nurse-80-acute-department-pzo-hopital-du-valais-brig",
         "de": "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig",
         "fr": "infirmiere-80-service-aigu-hopital-du-valais-brig"
       },
@@ -3447,15 +3437,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig",
-        "nurse-80-acute-department-pzo-hopital-du-valais-brig"
+        "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig"
         ],
         "en": [
-          "nurse-80-acute-department-pzo-hopital-du-valais-brig",
           "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig"
         ],
         "fr": [
@@ -4533,12 +4521,12 @@
     },
     {
       "id": "hopital-du-valais-1fb28f0f0562",
-      "slug": "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital",
+      "slug": "30-ostetrica-per-ginecologia-ostetrica-pole-martigny-policlinic-hopital-du-valais-martigny",
       "slugByLocale": {
         "fr": "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital",
-        "it": "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital",
-        "en": "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital",
-        "de": "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital"
+        "it": "30-ostetrica-per-ginecologia-ostetrica-pole-martigny-policlinic-hopital-du-valais-martigny",
+        "en": "30-midwife-for-the-obstetric-gynaecology-pole-martigny-policlinic-hopital-du-valais-martigny",
+        "de": "30-hebamme-fur-den-gynakologiepol-martigny-policlinic-hopital-du-valais-martigny"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4595,7 +4583,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-25T22:32:37.093Z"
+      "firstSeenAt": "2026-06-25T22:32:37.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital"
+        ],
+        "en": [
+          "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital"
+        ],
+        "de": [
+          "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital"
+        ]
+      },
+      "previousSlugs": [
+        "sage-femme-a-30-pour-le-pole-de-gynecologie-obstetrique-policlinique-de-martigny-hopital"
+      ]
     },
     {
       "id": "hopital-du-valais-b4edc8bb3f38",
@@ -4666,12 +4668,12 @@
     },
     {
       "id": "hopital-du-valais-2d276fef4b2b",
-      "slug": "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais",
+      "slug": "70-infermiera-per-il-servizio-di-emodialisi-per-l-ospedale-di-sion-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais",
-        "it": "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais",
-        "en": "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais",
-        "de": "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais"
+        "it": "70-infermiera-per-il-servizio-di-emodialisi-per-l-ospedale-di-sion-hopital-du-valais-sion",
+        "en": "70-nurse-for-haemodialysis-service-for-sion-hospital-hopital-du-valais-sion",
+        "de": "70-krankenschwester-fur-hamodialyse-service-fur-sion-hospital-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4728,7 +4730,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-25T22:32:36.312Z"
+      "firstSeenAt": "2026-06-25T22:32:36.312Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais"
+        ],
+        "en": [
+          "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais"
+        ],
+        "de": [
+          "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-70-pour-le-service-d-hemodialyse-pour-l-hopital-de-sion-hopital-du-valais"
+      ]
     },
     {
       "id": "hopital-du-valais-37c79e4c6e11",
@@ -4809,11 +4825,11 @@
     },
     {
       "id": "hopital-du-valais-72a944c5d139",
-      "slug": "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion",
+      "slug": "collaboratore-di-supporto-di-laboratorio-15-60-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion",
-        "en": "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion",
-        "de": "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion",
+        "it": "collaboratore-di-supporto-di-laboratorio-15-60-hopital-du-valais-sion",
+        "en": "collaborator-of-laboratory-support-15-60-hopital-du-valais-sion",
+        "de": "mitarbeiter-der-laborunterstutzung-15-60-hopital-du-valais-sion",
         "fr": "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -4871,7 +4887,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-25T22:32:35.542Z"
+      "firstSeenAt": "2026-06-25T22:32:35.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
+        ],
+        "en": [
+          "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
+        ],
+        "de": [
+          "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-1bab8bdd8c60",

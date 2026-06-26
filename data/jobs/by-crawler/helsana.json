@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "helsana-ee004d522639",
-      "slug": "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach",
+      "slug": "team-leader-facility-management-svizzera-tedesca-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
         "de": "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach",
-        "it": "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach",
-        "en": "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+        "it": "team-leader-facility-management-svizzera-tedesca-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "team-leader-facility-management-german-speaking-switzerland-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "fr": "chef-d-equipe-gestion-des-installations-suisse-alemanique-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T22:26:23.316Z"
+      "firstSeenAt": "2026-06-25T22:26:23.316Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-62d28e348fe3",
@@ -2004,9 +2018,9 @@
     },
     {
       "id": "helsana-8741069036c2",
-      "slug": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+      "slug": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
       "slugByLocale": {
-        "it": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+        "it": "assicurazione-medico-d-i-a-40-60-helsana-ticino",
         "en": "insurance-physician-d-i-a-40-60-helsana-ticino",
         "de": "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
         "fr": "medecin-d-assurance-d-i-a-40-60-helsana-ticino"
@@ -2051,11 +2065,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assicurazione-medico-d-i-a-40-60-helsana-ticino"
+        "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assicurazione-medico-d-i-a-40-60-helsana-ticino",
           "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
         ],
         "en": [
@@ -2691,7 +2704,7 @@
         "it": "regolatore-di-gruppo-a-80-100-helsana-dubendorf",
         "en": "group-controller-a-80-100-helsana-dubendorf",
         "de": "group-controller-a-80-100-helsana-dubendorf",
-        "fr": "group-controller-a-80-100-helsana-dubendorf"
+        "fr": "controleur-de-groupe-a-80-100-helsana-dubendorf"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2733,15 +2746,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-controller-a-80-100-helsana-dubendorf",
-        "controleur-de-groupe-a-80-100-helsana-dubendorf"
+        "group-controller-a-80-100-helsana-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-controller-a-80-100-helsana-dubendorf"
         ],
         "fr": [
-          "controleur-de-groupe-a-80-100-helsana-dubendorf",
           "group-controller-a-80-100-helsana-dubendorf"
         ]
       },

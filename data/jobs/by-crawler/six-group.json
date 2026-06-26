@@ -6735,12 +6735,12 @@
     },
     {
       "id": "six-group-4b5f9bd26fca",
-      "slug": "palace-bme-events-internship-afternoon-schedule-six-group-madrid",
+      "slug": "palazzo-bme-eventi-stage-parcheggio-del-pomeriggio-six-group-madrid",
       "slugByLocale": {
         "en": "palace-bme-events-internship-afternoon-schedule-six-group-madrid",
-        "it": "palace-bme-events-internship-afternoon-schedule-six-group-madrid",
-        "de": "palace-bme-events-internship-afternoon-schedule-six-group-madrid",
-        "fr": "palace-bme-events-internship-afternoon-schedule-six-group-madrid"
+        "it": "palazzo-bme-eventi-stage-parcheggio-del-pomeriggio-six-group-madrid",
+        "de": "palace-bme-events-praktikum-nachmittagszeitplan-six-group-madrid",
+        "fr": "palais-bme-evenements-stage-horaire-de-l-apres-midi-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6795,16 +6795,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T23:13:50.548Z"
+      "firstSeenAt": "2026-06-25T23:13:50.548Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "palace-bme-events-internship-afternoon-schedule-six-group-madrid"
+        ],
+        "de": [
+          "palace-bme-events-internship-afternoon-schedule-six-group-madrid"
+        ],
+        "fr": [
+          "palace-bme-events-internship-afternoon-schedule-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "palace-bme-events-internship-afternoon-schedule-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-786c81301bd0",
-      "slug": "marketing-internship-six-group-madrid-lealtad",
+      "slug": "stage-di-marketing-six-group-madrid-lealtad",
       "slugByLocale": {
         "en": "marketing-internship-six-group-madrid-lealtad",
-        "it": "marketing-internship-six-group-madrid-lealtad",
-        "de": "marketing-internship-six-group-madrid-lealtad",
-        "fr": "marketing-internship-six-group-madrid-lealtad"
+        "it": "stage-di-marketing-six-group-madrid-lealtad",
+        "de": "marketing-praktikum-six-group-madrid-lealtad",
+        "fr": "stages-de-marketing-six-group-madrid-lealtad"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6859,16 +6873,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T23:13:49.964Z"
+      "firstSeenAt": "2026-06-25T23:13:49.964Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-internship-six-group-madrid-lealtad"
+        ],
+        "de": [
+          "marketing-internship-six-group-madrid-lealtad"
+        ],
+        "fr": [
+          "marketing-internship-six-group-madrid-lealtad"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-internship-six-group-madrid-lealtad"
+      ]
     },
     {
       "id": "six-group-b7fa96633ab4",
-      "slug": "accounting-specialist-six-group-madrid",
+      "slug": "accounting-specialista-six-group-madrid",
       "slugByLocale": {
         "en": "accounting-specialist-six-group-madrid",
-        "it": "accounting-specialist-six-group-madrid",
-        "de": "accounting-specialist-six-group-madrid",
-        "fr": "accounting-specialist-six-group-madrid"
+        "it": "accounting-specialista-six-group-madrid",
+        "de": "accounting-spezialist-six-group-madrid",
+        "fr": "accounting-specialiste-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6923,7 +6951,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T23:13:49.347Z"
+      "firstSeenAt": "2026-06-25T23:13:49.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accounting-specialist-six-group-madrid"
+        ],
+        "de": [
+          "accounting-specialist-six-group-madrid"
+        ],
+        "fr": [
+          "accounting-specialist-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "accounting-specialist-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-fa7c6e444c88",

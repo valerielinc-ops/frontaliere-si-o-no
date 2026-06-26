@@ -3767,12 +3767,12 @@
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "account-manager-emmi-ch",
+      "slug": "gestione-account-emmi-luzern-luzern",
       "slugByLocale": {
-        "it": "account-manager-emmi-ch",
+        "it": "gestione-account-emmi-luzern-luzern",
         "en": "account-manager-emmi-luzern",
         "de": "account-manager-emmi-ch",
-        "fr": "account-manager-emmi-ch"
+        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -3830,16 +3830,13 @@
         ]
       },
       "previousSlugs": [
-        "gestione-account-emmi-luzern-luzern",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "account-manager-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-account-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ]
       },
@@ -4946,12 +4943,12 @@
     },
     {
       "id": "emmi-49d267d27fb0",
-      "slug": "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+      "slug": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-pulverproduktion-emmi-ch",
-        "it": "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
-        "en": "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
-        "fr": "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
+        "it": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
+        "en": "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
+        "fr": "operateur-en-poudre-emmi-dagmersellen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5008,11 +5005,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-pulverproduktion-emmi-ch"
+          "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+          "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
+        ],
+        "en": [
+          "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-pulverproduktion-emmi-ch"
+        "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

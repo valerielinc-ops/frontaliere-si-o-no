@@ -149,9 +149,6 @@
       "previousSlugsByLocale": {
         "fr": [
           "strategie-d-analyse-numerique-test-et-gestionnaire-cro-msc-group-geneva"
-        ],
-        "it": [
-          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
         ]
       }
     },
@@ -282,8 +279,7 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "direct-to-consumer-channels-analyst-msc-geneva",
-          "direct-to-consumer-channels-analyste-msc-group-geneva"
+          "direct-to-consumer-channels-analyst-msc-geneva"
         ],
         "it": [
           "direct-to-consumer-channels-analyst-msc-geneva"
@@ -579,8 +575,7 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "experience-development-delivery-manager-new-builds-msc-geneva",
-          "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
+          "experience-development-delivery-manager-new-builds-msc-geneva"
         ],
         "it": [
           "experience-development-delivery-manager-new-builds-msc-geneva"
@@ -608,7 +603,7 @@
         "en": "brand-manager-brand-product-msc-geneva",
         "it": "brand-manager-brand-product-msc-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -667,16 +662,7 @@
       "firstSeenAt": "2026-06-25T11:56:35.528Z",
       "previousSlugs": [
         "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-de-marques-marque-produit-msc-group-geneva",
-          "brand-manager-brand-product-msc-geneva"
-        ],
-        "it": [
-          "brand-manager-brand-product-msc-geneva"
-        ]
-      }
+      ]
     },
     {
       "id": "msc-cargo-6a5b336e6a54",
@@ -752,12 +738,12 @@
     },
     {
       "id": "msc-cargo-1850ab808b78",
-      "slug": "junior-architect-port-development-intern-msc-geneva",
+      "slug": "junior-architetto-port-development-tirocinante-msc-group-geneva",
       "slugByLocale": {
         "en": "junior-architect-port-development-intern-msc-geneva",
-        "it": "junior-architect-port-development-intern-msc-geneva",
+        "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architect-port-development-intern-msc-geneva"
+        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -813,7 +799,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-25T22:52:35.949Z"
+      "firstSeenAt": "2026-06-25T22:52:35.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-architect-port-development-intern-msc-geneva"
+        ],
+        "fr": [
+          "junior-architect-port-development-intern-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "junior-architect-port-development-intern-msc-geneva"
+      ]
     }
   ]
 }

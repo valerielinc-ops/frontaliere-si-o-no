@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "senior-underwriter-motorfahrzeug-flotten-und-privatkunden-w-m-d-mobiliar-ch",
         "it": "senior-underwriter-motorfahrzeug-flotten-e-privatkunden-m-w-d-die-mobiliar-zurich",
-        "en": "senior-underwriter-motorfahrzeug-flotten-und-privatkunden-w-m-d-mobiliar-ch",
-        "fr": "senior-underwriter-motorfahrzeug-flotten-und-privatkunden-w-m-d-mobiliar-ch"
+        "en": "senior-underwriter-motor-vehicle-fleets-and-private-customers-f-m-d-die-mobiliar-zurich",
+        "fr": "flottes-de-vehicules-automobiles-principaux-et-clients-prives-f-m-d-die-mobiliar-zurich"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -68,6 +68,12 @@
       "sfJobId": "1164973855",
       "previousSlugsByLocale": {
         "it": [
+          "senior-underwriter-motorfahrzeug-flotten-und-privatkunden-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "senior-underwriter-motorfahrzeug-flotten-und-privatkunden-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "senior-underwriter-motorfahrzeug-flotten-und-privatkunden-w-m-d-mobiliar-ch"
         ]
       },
@@ -355,12 +361,12 @@
     },
     {
       "id": "mobiliar-6d59637de5bb",
-      "slug": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
+      "slug": "assistenza-assistenza-di-emergenza-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
-        "it": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
-        "en": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
-        "fr": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        "it": "assistenza-assistenza-di-emergenza-f-m-d-die-mobiliar-bern",
+        "en": "consultant-assistance-emergency-assistance-f-m-d-die-mobiliar-bern",
+        "fr": "assistance-conseil-aide-d-urgence-f-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -429,7 +435,21 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-25T22:58:07.052Z"
+      "firstSeenAt": "2026-06-25T22:58:07.052Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-783132893334",
@@ -870,9 +890,9 @@
       "slug": "jurist-wohnen-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
+        "en": "projektmanagement-m-d-die-mobiliar-bern",
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
+        "fr": "juriste-wohnen-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -931,9 +951,7 @@
       "sfJobId": "1164779155",
       "previousSlugs": [
         "jurist-wohnen-w-m-d-mobiliar-ch",
-        "projektmanagement-m-d-die-mobiliar-bern-489f62",
-        "projektmanagement-m-d-die-mobiliar-bern",
-        "juriste-wohnen-m-j-die-mobiliar-bern"
+        "projektmanagement-m-d-die-mobiliar-bern-489f62"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -941,11 +959,9 @@
         ],
         "en": [
           "projektmanagement-m-d-die-mobiliar-bern-489f62",
-          "projektmanagement-m-d-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "juriste-wohnen-m-j-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },

@@ -3099,11 +3099,11 @@
     },
     {
       "id": "ardentis-638d453f26ff",
-      "slug": "assistant-e-dentaire-80-clinique-de-collombey-ardentis-collombey-muraz",
+      "slug": "assistente-dentale-80-collombey-clinic-ardentis-collombey-muraz",
       "slugByLocale": {
         "fr": "assistant-e-dentaire-80-clinique-de-collombey-ardentis-collombey-muraz",
-        "it": "assistant-e-dentaire-80-clinique-de-collombey-ardentis-collombey-muraz",
-        "en": "assistant-e-dentaire-80-clinique-de-collombey-ardentis-collombey-muraz",
+        "it": "assistente-dentale-80-collombey-clinic-ardentis-collombey-muraz",
+        "en": "dental-assistant-80-collombey-clinic-ardentis-collombey-muraz",
         "de": "assistant-e-dentaire-80-clinique-de-collombey-ardentis-collombey-muraz"
       },
       "company": "Ardentis",
@@ -3160,7 +3160,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T21:51:00.819Z"
+      "firstSeenAt": "2026-06-25T21:51:00.819Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-dentaire-80-clinique-de-collombey-ardentis-collombey-muraz"
+        ],
+        "en": [
+          "assistant-e-dentaire-80-clinique-de-collombey-ardentis-collombey-muraz"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-dentaire-80-clinique-de-collombey-ardentis-collombey-muraz"
+      ]
     }
   ]
 }

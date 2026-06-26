@@ -24,12 +24,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-laax-gr",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-laax-gr",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-laax-gr",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-laax-gr"
       },
       "sourceLang": "de",
       "department": "",
@@ -64,7 +64,21 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "postalCode": "7000",
-      "firstSeenAt": "2026-06-25T23:09:12.889Z"
+      "firstSeenAt": "2026-06-25T23:09:12.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74180-de_DE",
@@ -398,9 +412,9 @@
         "de": "Teilbetriebsleiter:in Pakete",
         "fr": "Gestionnaire partiel:dans les paquets"
       },
-      "slug": "pacchetti-parziali-di-operations-manager-die-schweizerische-post-harkingen",
+      "slug": "responsabile-parziale-in-pacchetti-die-schweizerische-post-harkingen",
       "slugByLocale": {
-        "it": "pacchetti-parziali-di-operations-manager-die-schweizerische-post-harkingen",
+        "it": "responsabile-parziale-in-pacchetti-die-schweizerische-post-harkingen",
         "en": "partial-manager-in-packages-die-schweizerische-post-harkingen",
         "de": "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen",
         "fr": "gestionnaire-partiel-dans-les-paquets-die-schweizerische-post-harkingen"
@@ -441,7 +455,8 @@
       "firstSeenAt": "2026-06-25T12:14:16.450Z",
       "previousSlugsByLocale": {
         "it": [
-          "teilbetriebsleiter-in-pakete-post"
+          "teilbetriebsleiter-in-pakete-post",
+          "pacchetti-parziali-di-operations-manager-die-schweizerische-post-harkingen"
         ],
         "en": [
           "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen"
@@ -452,6 +467,7 @@
       },
       "previousSlugs": [
         "teilbetriebsleiter-in-pakete-post",
+        "pacchetti-parziali-di-operations-manager-die-schweizerische-post-harkingen",
         "teilbetriebsleiter-in-pakete-die-schweizerische-post-harkingen"
       ]
     },
@@ -6652,9 +6668,9 @@
         "de": "Teamleiter Fahrpersonal",
         "fr": "Responsable d'équipe Personnel de conduite"
       },
-      "slug": "capo-squadra-staff-di-guida-carpostal-develier",
+      "slug": "team-leader-guida-personale-carpostal-develier",
       "slugByLocale": {
-        "it": "capo-squadra-staff-di-guida-carpostal-develier",
+        "it": "team-leader-guida-personale-carpostal-develier",
         "en": "team-leader-driving-personnel-carpostal-develier",
         "de": "teamleiter-fahrpersonal-carpostal-develier",
         "fr": "responsable-d-equipe-personnel-de-conduite-carpostal-develier"
@@ -6694,7 +6710,8 @@
       "firstSeenAt": "2026-06-25T12:14:16.450Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-equipe-personnel-de-conduite-post"
+          "responsable-d-equipe-personnel-de-conduite-post",
+          "capo-squadra-staff-di-guida-carpostal-develier"
         ],
         "en": [
           "responsable-d-equipe-personnel-de-conduite-post"
@@ -6704,7 +6721,8 @@
         ]
       },
       "previousSlugs": [
-        "responsable-d-equipe-personnel-de-conduite-post"
+        "responsable-d-equipe-personnel-de-conduite-post",
+        "capo-squadra-staff-di-guida-carpostal-develier"
       ]
     },
     {

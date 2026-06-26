@@ -4520,10 +4520,10 @@
     },
     {
       "id": "novartis-607549e341ac",
-      "slug": "commercial-portfolio-head-region-europe-novartis-ch",
+      "slug": "portfolio-commerciale-capo-regione-europa-novartis-basel-city",
       "slugByLocale": {
         "en": "commercial-portfolio-head-region-europe-novartis-ch",
-        "it": "commercial-portfolio-head-region-europe-novartis-ch",
+        "it": "portfolio-commerciale-capo-regione-europa-novartis-basel-city",
         "de": "commercial-portfolio-head-region-europe-novartis-ch",
         "fr": "commercial-portfolio-head-region-europe-novartis-ch"
       },
@@ -4580,7 +4580,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-25T22:59:45.824Z"
+      "firstSeenAt": "2026-06-25T22:59:45.824Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-portfolio-head-region-europe-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-portfolio-head-region-europe-novartis-ch"
+      ]
     }
   ]
 }

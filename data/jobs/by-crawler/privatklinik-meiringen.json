@@ -748,8 +748,8 @@
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80",
         "it": "assistenzpsychologin-assistenzpsychologe-o-stationspsychologin-stationspsychologe-80-100-privatklinik-meiringen",
-        "en": "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80",
-        "fr": "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80"
+        "en": "assistant-psychologist-or-station-psychologist-80-100-privatklinik-meiringen-meiringen",
+        "fr": "psychologue-adjoint-ou-psychologue-de-poste-80-100-privatklinik-meiringen-meiringen"
       },
       "company": "Privatklinik Meiringen",
       "companyKey": "privatklinik-meiringen",
@@ -797,6 +797,12 @@
       "department": "Psychologie",
       "previousSlugsByLocale": {
         "it": [
+          "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80"
+        ],
+        "fr": [
           "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80"
         ]
       },
