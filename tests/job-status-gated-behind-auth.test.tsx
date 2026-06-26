@@ -55,7 +55,7 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(screen.queryByText(/Scaduta il/i)).not.toBeInTheDocument();
 
   // The auth gate is still presented to drive sign-up.
-  expect(screen.getByRole('region', { name: /Continua per vedere/i })).toBeInTheDocument();
+  expect(screen.getByRole('region', { name: /come candidarti/i })).toBeInTheDocument();
 
   // The job title still renders (information scent), just not the dead-status.
   expect(
@@ -70,6 +70,6 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(screen.queryByText(/non è più disponibile/i)).not.toBeInTheDocument();
 
   // The auth gate is still presented.
-  expect(screen.getByRole('region', { name: /Continua per vedere/i })).toBeInTheDocument();
+  expect(screen.getByRole('region', { name: /come candidarti/i })).toBeInTheDocument();
  });
 });
