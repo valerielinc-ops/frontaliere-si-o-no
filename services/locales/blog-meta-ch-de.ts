@@ -616,6 +616,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritti-frontaliere-genitorialit.title': 'Mutterschafts- und Vaterschaftsrechte für Grenzgänger',
     'blog.article.diritti-frontaliere-genitorialit.excerpt': 'Ein Vergleich der Elternzeit für Grenzgänger in der Schweiz und in Italien.',
     'blog.article.diritti-frontaliere-genitorialit.imageAlt': 'Eltern mit Kindern in einem Park in Lugano, Schweiz, an einem sonnigen Tag.',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.title': 'Krankenversicherung für Grenzfamilien: Optionen und Deckung',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.excerpt': 'Überblick über die KVG-, EHIC- und Zusatzversicherungslösungen für Grenzgängerfamilien zwischen der Schweiz und Italien.',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.imageAlt': 'Grenzgängerfamilie in der Schweiz prüft Versicherungsunterlagen mit Blick auf Lugano.',
 };
 
 export default blogMetaChDe;

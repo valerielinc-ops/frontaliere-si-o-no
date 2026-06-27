@@ -4257,6 +4257,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-cambio-euro-franco-conviene-guide': { name: 'Cambio CHF/EUR', path: '/articoli-svizzera/frontaliere-cambio-euro-franco-conviene-guide/', parent: 'blog' },
     'blog-mutuo-acquisto-casa-frontaliere-italia': { name: 'Mutuo acquisto casa', path: '/articoli-svizzera/mutuo-acquisto-casa-frontaliere-italia/', parent: 'blog' },
     'blog-diritti-frontaliere-genitorialit': { name: 'Diritti Maternità e Paternità', path: '/articoli-svizzera/diritti-frontaliere-genitorialit/', parent: 'blog' },
+    'blog-assicurazione-malattia-famiglia-frontaliere': { name: 'Assicurazione famiglia frontaliere', path: '/articoli-svizzera/assicurazione-malattia-famiglia-frontaliere/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

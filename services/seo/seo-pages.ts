@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2981,
+ "numberOfItems": 2982,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7627,7 +7627,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2978, "name": "Dazio forfettario di 3 euro", "url": `${BASE_URL}/articoli-frontaliere/dazio-forfettario-e-commerce` },
           { "@type": "ListItem", "position": 2979, "name": "Frontaliere: quando conviene il cambio euro-fra...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cambio-euro-franco-conviene-guide` },
           { "@type": "ListItem", "position": 2980, "name": "Acquisto casa in Italia con mutuo da frontalier...", "url": `${BASE_URL}/articoli-frontaliere/mutuo-acquisto-casa-frontaliere-italia` },
-          { "@type": "ListItem", "position": 2981, "name": "Diritti di Maternità e Paternità per Frontalieri", "url": `${BASE_URL}/articoli-frontaliere/diritti-frontaliere-genitorialit` }
+          { "@type": "ListItem", "position": 2981, "name": "Diritti di Maternità e Paternità per Frontalieri", "url": `${BASE_URL}/articoli-frontaliere/diritti-frontaliere-genitorialit` },
+          { "@type": "ListItem", "position": 2982, "name": "Assicurazione malattia per famiglie frontaliere...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-malattia-famiglia-frontaliere` }
  ]
  },
  {
