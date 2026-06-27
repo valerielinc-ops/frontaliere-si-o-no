@@ -4266,6 +4266,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-terzo-pilastro-vantaggi': { name: 'Terzo Pilastro Frontalieri', path: '/articoli-svizzera/frontaliere-terzo-pilastro-vantaggi/', parent: 'blog' },
     'blog-frontaliere-spese-sanitarie-rimborsabili': { name: 'Spese sanitarie rimborsabili', path: '/articoli-svizzera/frontaliere-spese-sanitarie-rimborsabili/', parent: 'blog' },
     'blog-frontaliere-tassazione-2026-regole-accordo': { name: 'Tassazione frontalieri 2026', path: '/articoli-svizzera/frontaliere-tassazione-2026-regole-accordo/', parent: 'blog' },
+    'blog-frontaliere-lavoro-stagionale-ticino-regole': { name: 'Lavoro stagionale Ticino', path: '/articoli-svizzera/frontaliere-lavoro-stagionale-ticino-regole/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

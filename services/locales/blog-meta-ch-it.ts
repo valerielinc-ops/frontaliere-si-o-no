@@ -643,6 +643,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-tassazione-2026-regole-accordo.title': 'Frontaliere: tassazione 2026 dopo nuovo accordo fiscale',
     'blog.article.frontaliere-tassazione-2026-regole-accordo.excerpt': 'Dal 2024 l’Accordo frontalieri introduce regole distinte tra vecchi e nuovi frontalieri, franchigia e credito d’imposta. Ecco cosa cambia con le norme operative dal 2026.',
     'blog.article.frontaliere-tassazione-2026-regole-accordo.imageAlt': 'Vista su Lugano con frontalieri in transito e paesaggio svizzero.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.title': 'Frontaliere lavoro stagionale in Ticino: permessi, regole e fiscalità',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.excerpt': 'Guida pratica alle regole per lavoro stagionale in Ticino: permessi, tipologie di contratto, impatto fiscale per i frontalieri.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.imageAlt': 'Panorama di Lugano con lavoratori stagionali in primo piano.',
 };
 
 export default blogMetaChIt;

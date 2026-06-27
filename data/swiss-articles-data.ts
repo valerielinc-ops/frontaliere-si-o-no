@@ -1925,6 +1925,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontaliere-lavoro-stagionale-ticino-regole',
+    category: 'pratico',
+    date: '2026-06-27T22:02:24.696Z',
+    image: '/images/blog/frontaliere-lavoro-stagionale-ticino-regole.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
