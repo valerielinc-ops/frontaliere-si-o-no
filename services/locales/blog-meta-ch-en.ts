@@ -604,6 +604,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-cambio-chf-eur-consigli.title': 'Strategies for an advantageous CHF-EUR exchange rate',
     'blog.article.frontaliere-cambio-chf-eur-consigli.excerpt': 'Find out how to optimise the exchange rate between the Swiss franc and the euro for border workers.',
     'blog.article.frontaliere-cambio-chf-eur-consigli.imageAlt': 'A picturesque view of Lugano with the lake and the Alps in the background.',
+    'blog.article.dazio-forfettario-e-commerce.title': 'Flat-rate duty of €3',
+    'blog.article.dazio-forfettario-e-commerce.excerpt': 'The ADM circular no. 17/2026 provides the first operational indications on the new duty of 3 euros for e-commerce shipments',
+    'blog.article.dazio-forfettario-e-commerce.imageAlt': 'Forfeited tax of 3 euros on e-commerce sales',
 };
 
 export default blogMetaChEn;

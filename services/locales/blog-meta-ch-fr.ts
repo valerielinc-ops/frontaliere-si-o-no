@@ -604,6 +604,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-cambio-chf-eur-consigli.title': 'Stratégies pour un Changement CHF-EUR Avantageux',
     'blog.article.frontaliere-cambio-chf-eur-consigli.excerpt': 'Découvrez comment optimiser le taux de change entre le franc suisse et l\'euro pour les frontaliers.',
     'blog.article.frontaliere-cambio-chf-eur-consigli.imageAlt': 'Une vue pittoresque de Lugano avec le lac et les Alpes en arrière-plan.',
+    'blog.article.dazio-forfettario-e-commerce.title': 'Droit forfaitaire de 3 euros',
+    'blog.article.dazio-forfettario-e-commerce.excerpt': 'La circulaire ADM n ° 17/2026 fournit les premières indications opérationnelles sur le nouveau droit de 3 euros pour les envois e-commerce',
+    'blog.article.dazio-forfettario-e-commerce.imageAlt': 'Droit forfaitaire de 3 euros sur les ventes de commerce électronique',
 };
 
 export default blogMetaChFr;
