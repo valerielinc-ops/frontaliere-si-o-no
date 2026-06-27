@@ -646,6 +646,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.title': 'Frontaliere lavoro stagionale in Ticino: permessi, regole e fiscalità',
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.excerpt': 'Guida pratica alle regole per lavoro stagionale in Ticino: permessi, tipologie di contratto, impatto fiscale per i frontalieri.',
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.imageAlt': 'Panorama di Lugano con lavoratori stagionali in primo piano.',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.title': 'Abbonamenti e sconti trasporti pubblici per frontalieri Ticino-Lombardia',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.excerpt': 'Guida aggiornata agli abbonamenti e agevolazioni per frontalieri nel trasporto pubblico tra Ticino e Lombardia: treno, bus, offerte e procedure.',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.imageAlt': 'Treno svizzero in transito verso la Lombardia visto dal Ticino.',
 };
 
 export default blogMetaChIt;

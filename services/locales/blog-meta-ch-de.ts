@@ -646,6 +646,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.title': 'Grenzgänger Saisonarbeit im Tessin: Genehmigungen, Regeln und Steuern',
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.excerpt': 'Praktischer Leitfaden zu den Regeln für Saisonarbeit im Tessin: Genehmigungen, Vertragsarten, steuerliche Auswirkungen für Grenzgänger.',
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.imageAlt': 'Lugano-Panorama mit Saisonarbeitern im Vordergrund.',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.title': 'Ermäßigte ÖV-Abos für Tessin-Lombardei-Grenzgänger',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.excerpt': 'Aktualisierter Leitfaden für Abos und Vergünstigungen für Grenzgänger im öffentlichen Verkehr zwischen Tessin und der Lombardei: Zug, Bus, Angebote und Verfahren.',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.imageAlt': 'Schweizer Zug auf dem Weg nach Lombardei, von Tessin aus gesehen.',
 };
 
 export default blogMetaChDe;
