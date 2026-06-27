@@ -628,6 +628,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Mutuo casa in Svizzera per frontaliere: requisiti e banche',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.excerpt': 'Practical guide to the requirements and procedures for applying for a home mortgage in Switzerland as a border worker. Focus on banks and required documentation.',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.imageAlt': 'Swiss bank desk with mortgage documents and lake view.',
+    'blog.article.congedo-parentale-frontalieri.title': 'Parental leave for border workers: a guide to rights in Switzerland and Italy',
+    'blog.article.congedo-parentale-frontalieri.excerpt': 'Learn about maternity and paternity rights for border workers between Switzerland and Italy.',
+    'blog.article.congedo-parentale-frontalieri.imageAlt': 'Panoramic view of a town on the Swiss-Italian border.',
 };
 
 export default blogMetaChEn;

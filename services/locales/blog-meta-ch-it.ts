@@ -628,6 +628,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Come ottenere un mutuo casa in Svizzera da frontaliere: requisiti e banche',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.excerpt': 'Guida pratica ai requisiti e alle procedure per richiedere un mutuo casa in Svizzera da frontaliere. Focus su banche e documentazione richiesta.',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.imageAlt': 'Scrivania bancaria svizzera con documenti per mutuo e vista lago.',
+    'blog.article.congedo-parentale-frontalieri.title': 'Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia',
+    'blog.article.congedo-parentale-frontalieri.excerpt': 'Scopri i diritti di maternità e paternità per i frontalieri tra Svizzera e Italia.',
+    'blog.article.congedo-parentale-frontalieri.imageAlt': 'Vista panoramica di una città al confine tra Svizzera e Italia.',
 };
 
 export default blogMetaChIt;
