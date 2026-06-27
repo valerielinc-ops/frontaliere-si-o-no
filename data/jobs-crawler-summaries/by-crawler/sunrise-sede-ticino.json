@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-06-27T11:49:07.582Z",
+  "generatedAt": "2026-06-27T22:40:49.257Z",
   "total": 28,
   "newCount": 3,
   "updatedCount": 23,
   "removedCount": 5,
   "unchangedCount": 0,
-  "durationMs": 13246,
-  "avgDurationMs": 13246,
+  "durationMs": 17219,
+  "avgDurationMs": 17219,
   "durationHistory": [
-    13246
+    17219
   ],
   "newJobs": [
     {
@@ -881,7 +881,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-23T23:16:46.173Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -919,7 +919,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-11T13:38:57.481Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -956,6 +956,8 @@
       "salaryMax": 180000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-15T23:58:41.159Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
