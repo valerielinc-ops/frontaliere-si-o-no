@@ -4262,6 +4262,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-smart-working-regole': { name: 'Smart Working', path: '/articoli-svizzera/frontaliere-smart-working-regole/', parent: 'blog' },
     'blog-mutuo-frontaliere-casa-svizzera-procedure': { name: 'Mutuo frontalieri CH', path: '/articoli-svizzera/mutuo-frontaliere-casa-svizzera-procedure/', parent: 'blog' },
     'blog-congedo-parentale-frontalieri': { name: 'Diritti Genitoriali Frontalieri', path: '/articoli-svizzera/congedo-parentale-frontalieri/', parent: 'blog' },
+    'blog-frontaliere-assicurazione-auto-confronto': { name: 'Assicurazione auto frontalieri', path: '/articoli-svizzera/frontaliere-assicurazione-auto-confronto/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

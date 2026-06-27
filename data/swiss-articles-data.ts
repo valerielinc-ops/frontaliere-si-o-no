@@ -1889,6 +1889,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-assicurazione-auto-confronto',
+    category: 'pratico',
+    date: '2026-06-27T20:48:38.970Z',
+    image: '/images/blog/frontaliere-assicurazione-auto-confronto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

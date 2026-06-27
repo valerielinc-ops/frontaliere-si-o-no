@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2986,
+ "numberOfItems": 2987,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7632,7 +7632,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2983, "name": "Frontaliere bonus famiglia 2026: guida aggiorna...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-bonus-famiglia-2026` },
           { "@type": "ListItem", "position": 2984, "name": "Smart Working per i Frontalieri: Regole Aggiornate", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-smart-working-regole` },
           { "@type": "ListItem", "position": 2985, "name": "Come ottenere un mutuo casa in Svizzera da fron...", "url": `${BASE_URL}/articoli-frontaliere/mutuo-frontaliere-casa-svizzera-procedure` },
-          { "@type": "ListItem", "position": 2986, "name": "Congedo parentale per frontalieri: guida ai dir...", "url": `${BASE_URL}/articoli-frontaliere/congedo-parentale-frontalieri` }
+          { "@type": "ListItem", "position": 2986, "name": "Congedo parentale per frontalieri: guida ai dir...", "url": `${BASE_URL}/articoli-frontaliere/congedo-parentale-frontalieri` },
+          { "@type": "ListItem", "position": 2987, "name": "Assicurazione auto per frontalieri: Svizzera vs...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-assicurazione-auto-confronto` }
  ]
  },
  {

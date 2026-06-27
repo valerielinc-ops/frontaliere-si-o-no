@@ -233,6 +233,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-smart-working-regole': { it: 'frontaliere-smart-working-regole', en: 'cross-border-smart-working-rules', de: 'grenzgaenger-smart-working-regeln', fr: 'travail-a-distance-transfrontalier-regles' },
  'mutuo-frontaliere-casa-svizzera-procedure': { it: 'mutuo-frontaliere-casa-svizzera-procedure', en: 'mortgage-cross-border-workers-switzerland', de: 'hypothek-grenzgaenger-schweiz-ablauf', fr: 'pret-frontaliers-suisse-requis-procedure' },
  'congedo-parentale-frontalieri': { it: 'congedo-parentale-frontalieri', en: 'parental-leave-cross-border-workers', de: 'elternurlaub-grenzgaenger', fr: 'conge-parental-frontaliers' },
+ 'frontaliere-assicurazione-auto-confronto': { it: 'frontaliere-assicurazione-auto-confronto', en: 'cross-border-car-insurance-switzerland-italy', de: 'grenzgaenger-autoversicherung-schweiz-italien', fr: 'frontalier-assurance-auto-suisse-italie' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

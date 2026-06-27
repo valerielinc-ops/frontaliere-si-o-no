@@ -631,6 +631,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.congedo-parentale-frontalieri.title': 'Parental leave for border workers: a guide to rights in Switzerland and Italy',
     'blog.article.congedo-parentale-frontalieri.excerpt': 'Learn about maternity and paternity rights for border workers between Switzerland and Italy.',
     'blog.article.congedo-parentale-frontalieri.imageAlt': 'Panoramic view of a town on the Swiss-Italian border.',
+    'blog.article.frontaliere-assicurazione-auto-confronto.title': 'Car insurance for border workers: Switzerland vs Italy, practical comparison',
+    'blog.article.frontaliere-assicurazione-auto-confronto.excerpt': 'Detailed analysis of the differences between Swiss and Italian car insurance for border workers: costs, coverage, claims management, useful advice.',
+    'blog.article.frontaliere-assicurazione-auto-confronto.imageAlt': 'Cars with Swiss and Italian plates on a road near Lake Lugano.',
 };
 
 export default blogMetaChEn;
