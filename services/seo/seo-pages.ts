@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2972,
+ "numberOfItems": 2973,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7618,7 +7618,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2969, "name": "Morto l'ex presidente della BNS Hans Meyer", "url": `${BASE_URL}/articoli-frontaliere/morto-ex-presidente-bns-hans-meyer` },
           { "@type": "ListItem", "position": 2970, "name": "Secondo pilastro LPP per frontalieri: prelievo ...", "url": `${BASE_URL}/articoli-frontaliere/secondo-pilastro-prelievo-frontaliere` },
           { "@type": "ListItem", "position": 2971, "name": "Postino licenziato dopo 42 anni. Berna, alla fi...", "url": `${BASE_URL}/articoli-frontaliere/postino-licenziato-dopo-42-anni-berna-non-interviene` },
-          { "@type": "ListItem", "position": 2972, "name": "Famiglie e lavoro a Lugano: nuova mozione su as...", "url": `${BASE_URL}/articoli-frontaliere/famiglie-lavoro-lugano-piattaforma-asili` }
+          { "@type": "ListItem", "position": 2972, "name": "Famiglie e lavoro a Lugano: nuova mozione su as...", "url": `${BASE_URL}/articoli-frontaliere/famiglie-lavoro-lugano-piattaforma-asili` },
+          { "@type": "ListItem", "position": 2973, "name": "Frontaliere: documenti necessari per lavorare i...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-documenti-checklist-svizzera` }
  ]
  },
  {
