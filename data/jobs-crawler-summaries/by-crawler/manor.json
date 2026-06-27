@@ -1,42 +1,18 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-06-27T11:10:00.352Z",
+  "generatedAt": "2026-06-27T22:32:54.230Z",
   "total": 154,
   "newCount": 15,
   "updatedCount": 139,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 294336,
-  "avgDurationMs": 294336,
+  "durationMs": 273585,
+  "avgDurationMs": 273585,
   "durationHistory": [
-    294336
+    273585
   ],
   "newJobs": [
-    {
-      "title": "Mitarbeiter*in Logistik 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100/1353834655/",
-      "location": "Möhlin Mitarbeiterin Logistik 100",
-      "canton": "AG",
-      "country": "CH",
-      "category": "logistics",
-      "descriptionIt": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Möhlin Mitarbeiterin Logistik 100, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-06-27",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 16,
-        "completeness": 11
-      }
-    },
     {
       "title": "Assistant Product Manager 100%",
       "company": "Manor AG",
@@ -81,6 +57,30 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Logistik 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100/1353669255/",
+      "location": "Möhlin Mitarbeiterin Logistik 100",
+      "canton": "AG",
+      "country": "CH",
+      "category": "logistics",
+      "descriptionIt": "Deutsch\nNach Möglichkeit folgende Personen berücksichtigen:\nJustyna Kominek\nAlvaro Javier Pérez Siquier",
+      "postedDate": "2026-06-26",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100-2",
+      "sourceLang": "de",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 55,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
         "translation": 16,
         "completeness": 11
       }
@@ -448,6 +448,30 @@
       }
     },
     {
+      "title": "Mitarbeiter*in Logistik 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100/1353834655/",
+      "location": "Möhlin Mitarbeiterin Logistik 100",
+      "canton": "AG",
+      "country": "CH",
+      "category": "logistics",
+      "descriptionIt": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Möhlin Mitarbeiterin Logistik 100, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-06-27",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
+    {
       "title": "Assistant Product Manager 100%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -516,30 +540,6 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 14,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Mitarbeiter*in Logistik 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100/1353669255/",
-      "location": "Möhlin Mitarbeiterin Logistik 100",
-      "canton": "AG",
-      "country": "CH",
-      "category": "logistics",
-      "descriptionIt": "Deutsch\nNach Möglichkeit folgende Personen berücksichtigen:\nJustyna Kominek\nAlvaro Javier Pérez Siquier",
-      "postedDate": "2026-06-26",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100-2",
-      "sourceLang": "de",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 55,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 16,
         "completeness": 11
       }
     },
