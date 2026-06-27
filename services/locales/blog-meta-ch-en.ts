@@ -571,6 +571,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ai-ticinesi-quasi-6mila-franchi.title': 'Ticino and border workers, abysmal differences in payroll',
     'blog.article.ai-ticinesi-quasi-6mila-franchi.excerpt': 'The wage difference between Ticino and border workers: what emerges from the data.',
     'blog.article.ai-ticinesi-quasi-6mila-franchi.imageAlt': 'A person examining a payslip with a Swiss mountain background.',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.title': 'Research and technology: Switzerland\'s new challenges',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.excerpt': 'From artificial intelligence to data centers: how Switzerland addresses the digital transition between innovation, sustainability and sovereignty.',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.imageAlt': 'Technological research laboratory in Switzerland',
 };
 
 export default blogMetaChEn;

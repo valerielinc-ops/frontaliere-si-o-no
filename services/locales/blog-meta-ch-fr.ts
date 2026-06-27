@@ -571,6 +571,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ai-ticinesi-quasi-6mila-franchi.title': 'Tessinois et frontaliers, différences abyssales dans les salaires',
     'blog.article.ai-ticinesi-quasi-6mila-franchi.excerpt': 'L\'écart salarial entre Tessinois et frontaliers : ce qui ressort des données.',
     'blog.article.ai-ticinesi-quasi-6mila-franchi.imageAlt': 'Une personne examine un bulletin de salaire avec un fond de montagnes suisses.',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.title': 'Recherche et technologie : les nouveaux défis suisses',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.excerpt': 'De l\'intelligence artificielle aux datacenters : comment la Suisse aborde la transition numérique entre innovation, durabilité et souveraineté.',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.imageAlt': 'Laboratoire de recherche technologique en Suisse',
 };
 
 export default blogMetaChFr;

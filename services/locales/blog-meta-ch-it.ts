@@ -571,6 +571,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ai-ticinesi-quasi-6mila-franchi.title': 'Ticinesi e frontalieri, differenze abissali nelle buste paga',
     'blog.article.ai-ticinesi-quasi-6mila-franchi.excerpt': 'La differenza salariale tra ticinesi e frontalieri: cosa emerge dai dati.',
     'blog.article.ai-ticinesi-quasi-6mila-franchi.imageAlt': 'Una persona che esamina una busta paga con uno sfondo di montagne svizzere.',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.title': 'Ricerca e tecnologia: le nuove sfide svizzere',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.excerpt': 'Dall\'intelligenza artificiale ai data center: come la Svizzera affronta la transizione digitale tra innovazione, sostenibilità e sovranità.',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.imageAlt': 'Laboratorio di ricerca tecnologica in Svizzera',
 };
 
 export default blogMetaChIt;
