@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lindenhofgruppe",
-  "assembledAt": "2026-06-26T22:26:11.689Z",
+  "assembledAt": "2026-06-27T11:22:52.299Z",
   "jobs": [
     {
       "id": "lindenhofgruppe-1ec539181aee",
@@ -33,7 +33,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/unterassistenzarzt-aerztin-medizinische-klinik/ca79ce4a-c6b1-44b4-a339-5f7e0fa2d845",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.724Z",
+      "crawledAt": "2026-06-27T11:22:28.668Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-pflege/aae083da-17d7-407a-85a5-286afd988784",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.723Z",
+      "crawledAt": "2026-06-27T11:22:28.667Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-fachfrau-mann-operationstechnik-hf/bd79ef21-83e1-4b31-8712-c0e047446b6b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.722Z",
+      "crawledAt": "2026-06-27T11:22:28.666Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-intensivpflege-weiterbildungsstelle/904cecb3-163d-446e-9a66-f35d06fbaa52",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.722Z",
+      "crawledAt": "2026-06-27T11:22:28.666Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -310,16 +310,16 @@
       "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
+        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
+        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing specialist FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/ère diplômé/e HES/HF"
@@ -336,7 +336,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/694cd906-d05d-4f2c-ae63-840ec84dc3e0",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.721Z",
+      "crawledAt": "2026-06-27T11:22:28.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -356,6 +356,8 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
+        "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
+        "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
         "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
@@ -368,13 +370,16 @@
           "infermiere-laureato-fh-hf-lindenhofgruppe-bern"
         ],
         "en": [
+          "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ],
         "fr": [
+          "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.775Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -419,7 +424,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-operationstechnik/cb4be6b0-f503-4ea8-8352-351c6f904bda",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.721Z",
+      "crawledAt": "2026-06-27T11:22:28.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -497,7 +502,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-cand-med/90eea979-1118-4126-a17c-41ac745c05ae",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.720Z",
+      "crawledAt": "2026-06-27T11:22:28.664Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -573,7 +578,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/lagerungspfleger-in/088f1376-4ff4-4ae7-83f4-309eb3178143",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.719Z",
+      "crawledAt": "2026-06-27T11:22:28.663Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -654,7 +659,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-anaesthesie-weiterbildungsstelle/2f3965ca-5b14-4328-9d35-930d08d5d916",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.719Z",
+      "crawledAt": "2026-06-27T11:22:28.663Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -736,7 +741,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026/2d83700a-8e64-42c2-a318-1413d8d4ee44",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.718Z",
+      "crawledAt": "2026-06-27T11:22:28.662Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -814,7 +819,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/bachelor-of-science-in-pflege-zusatzmodul-b/ce745069-0f27-4caf-b4d6-8b9b9173c51a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.718Z",
+      "crawledAt": "2026-06-27T11:22:28.662Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -890,7 +895,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-patienten-hotellerie/ab8a9551-f216-4484-99e2-87cc305e9949",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.717Z",
+      "crawledAt": "2026-06-27T11:22:28.661Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -922,6 +927,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.767Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -966,7 +972,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-experte-expertin-anaesthesie-nds-hf/5adceb3d-3a8a-420e-9261-52ee6dbe40c9",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.717Z",
+      "crawledAt": "2026-06-27T11:22:28.661Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -998,6 +1004,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.771Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1042,7 +1049,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruehling-2027/807758b7-3a09-43dc-ae54-b9e6261a4d22",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.716Z",
+      "crawledAt": "2026-06-27T11:22:28.660Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1120,7 +1127,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-nds-hf/ded5d810-044f-4250-96dd-dd60ebfab8cd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.715Z",
+      "crawledAt": "2026-06-27T11:22:28.659Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1203,7 +1210,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-ueberwachungspflege/1e931b67-86f5-415c-b2d8-08390c7dde3e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.715Z",
+      "crawledAt": "2026-06-27T11:22:28.659Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1281,7 +1288,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-sekretariat-radiologie/c188de84-e812-4908-b7d2-dc8bd0e31f16",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.714Z",
+      "crawledAt": "2026-06-27T11:22:28.658Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1357,7 +1364,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fuer-unseren-pflegepool/dc899a89-9e26-4b1b-bd0c-a370fa8fa33f",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.713Z",
+      "crawledAt": "2026-06-27T11:22:28.657Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1435,7 +1442,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz/64b173d5-520a-49f3-885c-ff5f2ba4a7a7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.713Z",
+      "crawledAt": "2026-06-27T11:22:28.657Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1515,7 +1522,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/d212d6f5-f1ab-4cef-af8c-47f68fe26e03",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.712Z",
+      "crawledAt": "2026-06-27T11:22:28.656Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1554,6 +1561,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:34:55.517Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1598,7 +1606,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/chief-financial-officer-cfo/1a1aebb7-b542-4092-91d7-121abca6938c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.711Z",
+      "crawledAt": "2026-06-27T11:22:28.655Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1672,7 +1680,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/51fe5499-d33e-4e66-816c-8e13577e011a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.710Z",
+      "crawledAt": "2026-06-27T11:22:28.654Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1735,7 +1743,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
       "titleByLocale": {
         "it": "Dipl. Expertin/Experte Intensivpflege NDS HF o dipl. Pflegefachfrau/-mann con IMC-Kurs",
-        "en": "Dipl. Expert/Expert Intensive Care NDS HF or dipl. Nursing professional with IMC course",
+        "en": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "de": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "fr": "Dipl. Expert/Expert Soins intensifs NDS HF ou dipl. Professionnel infirmier avec cours IMC"
       },
@@ -1751,7 +1759,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs/d729996e-84a5-483b-a3d0-e98c11d281f3",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.708Z",
+      "crawledAt": "2026-06-27T11:22:28.651Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1828,7 +1836,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin/46c96a5c-a4b1-4f78-9ca3-8c19fb1dc1c1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.706Z",
+      "crawledAt": "2026-06-27T11:22:28.649Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1888,7 +1896,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1905,7 +1913,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/0f4376e0-3adb-4d5a-a234-70e94913025a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.705Z",
+      "crawledAt": "2026-06-27T11:22:28.648Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1992,7 +2000,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/koch-koechin-efz-in-ausbildung/502d4904-f78d-4644-ab66-a79f7cd5591b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.702Z",
+      "crawledAt": "2026-06-27T11:22:28.645Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2069,7 +2077,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie/8727df5a-af23-4ee7-848f-e2ccdbaedb98",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.700Z",
+      "crawledAt": "2026-06-27T11:22:28.643Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2146,7 +2154,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital/6e207f18-cc31-4a93-b690-c030b4f2b98c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.698Z",
+      "crawledAt": "2026-06-27T11:22:28.641Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2223,7 +2231,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/kauffrau-mann-efz-in-ausbildung/a840ff72-8e82-418b-b27f-37af9eb49b31",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.696Z",
+      "crawledAt": "2026-06-27T11:22:28.639Z",
       "addressLocality": "Muristalden",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2283,7 +2291,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2300,7 +2308,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/7a607ba4-bbff-491b-9d81-e7ca55e6107b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.694Z",
+      "crawledAt": "2026-06-27T11:22:28.637Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2368,7 +2376,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2385,7 +2393,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/e510ac1f-cdc1-42ac-ae56-d88c48b6f4e8",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.692Z",
+      "crawledAt": "2026-06-27T11:22:28.635Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2451,7 +2459,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2468,7 +2476,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/791ceed8-d154-4785-8cfe-19f032d5baf6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.690Z",
+      "crawledAt": "2026-06-27T11:22:28.633Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2504,6 +2512,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T23:10:13.885Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2548,7 +2557,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinische-dokumentarin-medizinischer-dokumentar/da2f27ad-b2cb-4bfc-900f-816e3224a336",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.688Z",
+      "crawledAt": "2026-06-27T11:22:28.631Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2607,7 +2616,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2624,7 +2633,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/17b5a6a9-54eb-410c-902d-3729d668ac6e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.686Z",
+      "crawledAt": "2026-06-27T11:22:28.630Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2660,6 +2669,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:57:35.236Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2687,7 +2697,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2704,7 +2714,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/193720a6-297c-46c6-9be6-893c8669c2b6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.683Z",
+      "crawledAt": "2026-06-27T11:22:28.628Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2740,6 +2750,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:10:49.710Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2784,7 +2795,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinische-r-codierer-in/3b081f53-43f0-44b7-a795-21f541e3ba3b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.681Z",
+      "crawledAt": "2026-06-27T11:22:28.626Z",
       "addressLocality": "Muristalden",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2862,7 +2873,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-zusatzfunktion-berufsbilder-in/eb3ddb94-7017-4ca4-a6c0-78ffc4ababe4",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.679Z",
+      "crawledAt": "2026-06-27T11:22:28.624Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2922,7 +2933,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2939,7 +2950,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/341e9372-91f2-4996-9213-08cf5a700c0b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.677Z",
+      "crawledAt": "2026-06-27T11:22:28.622Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2975,6 +2986,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:31:35.584Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2992,9 +3004,9 @@
       "id": "lindenhofgruppe-c83d6f61311e",
       "slug": "dipl-expertin-experte-anasthesie-intensiv-o-notfallpflege-nds-o-dipl-pflegefachfrau-mann-con-ndk-uberwachungspflege-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "de": "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau",
         "it": "dipl-expertin-experte-anasthesie-intensiv-o-notfallpflege-nds-o-dipl-pflegefachfrau-mann-con-ndk-uberwachungspflege-lindenhofgruppe-lindenhofspital",
         "en": "dipl-expert-anesthesia-intensive-care-or-emergency-care-nds-or-dipl-nursing-professional-with-ndk-surveillance-care",
+        "de": "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau",
         "fr": "dipl-anesthesie-experte-soins-intensifs-ou-d-urgence-pdn-ou-dipl-professionnel-infirmier-avec-des-soins-de-surveillance"
       },
       "company": "Lindenhofgruppe",
@@ -3002,24 +3014,24 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Expertin/Experte Anästhesie-, Intensiv- oder Notfallpflege (NDS) oder Dipl. Pflegefachfrau/-mann mit NDK Überwachungspflege",
       "titleByLocale": {
-        "de": "Dipl. Expertin/Experte Anästhesie-, Intensiv- oder Notfallpflege (NDS) oder Dipl. Pflegefachfrau/-mann mit NDK Überwachungspflege",
         "it": "Dipl. Expertin/Experte Anästhesie-, Intensiv- o Notfallpflege (NDS) o Dipl. Pflegefachfrau/-mann con NDK Überwachungspflege",
         "en": "Dipl. Expert anesthesia, intensive care or emergency care (NDS) or Dipl. Nursing professional with NDK surveillance care",
+        "de": "Dipl. Expertin/Experte Anästhesie-, Intensiv- oder Notfallpflege (NDS) oder Dipl. Pflegefachfrau/-mann mit NDK Überwachungspflege",
         "fr": "Dipl. Anesthésie experte, soins intensifs ou d'urgence (PDN) ou Dipl. Professionnel infirmier avec des soins de surveillance NDK"
       },
       "description": "Aufgaben:\n• Als Mitglied des Pools wirst du für flexible Einsätze auf verschiedenen Abteilungen im Lindenhofspital eingeplant.\n\n• Je nach deiner Qualifikation und Berufserfahrung unterstützt du die Pflegeteams in unterschiedlichen Bereichen.\n\n• Die Einsätze erfolgen insbesondere im Aufwachraum, in der Anästhesie, im Interventionszentrum, auf der Intensivstation sowie im Notfall.\n\n• Du arbeitest in einem abwechslungsreichen und interdisziplinären Umfeld und trägst zur hochwertigen Patientenversorgung bei.\n\nAnforderungen:\n• Du bist Dipl. Expertin/Experte Notfall-, Anästhesie- oder Intensivpflege oder Dipl. Pflegefachfrau/Pflegefachmann mit NDK Überwachungspflege.\n\n• Du bringst idealerweise mehrjährige Berufserfahrung in deinem Fachgebiet mit.\n\n• Du hast Freude an abwechslungsreichen Einsätzen in unterschiedlichen Fachbereichen und Abteilungen.\n\n• Das Wohlergehen der Patientinnen und Patienten steht für dich im Mittelpunkt, und du begegnest Menschen mit Respekt und Wertschätzung.\n\n• Du fühlst dich in wechselnden Situationen wohl, arbeitest eigenverantwortlich und qualitätsbewusst sowie gerne im Team.\n\n• Gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Als Mitglied des Pools wirst du für flexible Einsätze auf verschiedenen Abteilungen im Lindenhofspital eingeplant.\n\n• Je nach deiner Qualifikation und Berufserfahrung unterstützt du die Pflegeteams in unterschiedlichen Bereichen.\n\n• Die Einsätze erfolgen insbesondere im Aufwachraum, in der Anästhesie, im Interventionszentrum, auf der Intensivstation sowie im Notfall.\n\n• Du arbeitest in einem abwechslungsreichen und interdisziplinären Umfeld und trägst zur hochwertigen Patientenversorgung bei.\n\nAnforderungen:\n• Du bist Dipl. Expertin/Experte Notfall-, Anästhesie- oder Intensivpflege oder Dipl. Pflegefachfrau/Pflegefachmann mit NDK Überwachungspflege.\n\n• Du bringst idealerweise mehrjährige Berufserfahrung in deinem Fachgebiet mit.\n\n• Du hast Freude an abwechslungsreichen Einsätzen in unterschiedlichen Fachbereichen und Abteilungen.\n\n• Das Wohlergehen der Patientinnen und Patienten steht für dich im Mittelpunkt, und du begegnest Menschen mit Respekt und Wertschätzung.\n\n• Du fühlst dich in wechselnden Situationen wohl, arbeitest eigenverantwortlich und qualitätsbewusst sowie gerne im Team.\n\n• Gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "it": "Compiti:\n• Come membro della piscina, sarete in programma per incarichi flessibili presso vari dipartimenti dell'ospedale Lindenhof.\n\n• A seconda delle tue qualifiche e esperienza professionale, supporterai i team di assistenza in diverse aree.\n\n• Le missioni si svolgono in particolare nella sala di recupero, nell'anestesia, nel centro di intervento, nell'unità di cura intensiva e in emergenza.\n\n• Lavori in un ambiente vario e interdisciplinare e contribuisci alla cura del paziente di alta qualità.\n\nRequisiti\n• Lei è Dipl. Emergenza esperto, anestesia o terapia intensiva o Dipl. Infermieristica professionale con supervisione NDK.\n\n• Idealmente, si porterà diversi anni di esperienza professionale nel vostro campo.\n\n• Si godono varie assegnazioni in diverse aree e reparti specializzati.\n\n• Il benessere dei pazienti è l'attenzione per voi, e incontri persone con rispetto e apprezzamento.\n\n• Ti senti a tuo agio nel cambiare le situazioni, lavorare in modo indipendente e di qualità-cosciente così come in un team.\n\n• Buone competenze tedesche in parola e scrivere arrotondare il vostro profilo.\n\nOffriamo:\nVacanze e tempo libero\n• Mente. 26 vacanze\n\n• Possibilità di acquistare una vacanza\n\n• Bonus fedeltà: giorni liberi nel 5 ° e 7 ° anno di occupazione, dal 10 ° anno di occupazione ogni 5 anni\n\n• Al servizio notturno un tempo di credito del 30% (opzionale)\n Gestione della salute sul lavoro (BGM) - \"ZÄME GSUND\"\n• Misure per rafforzare la salute\n\n• Laboratori di Cadre e Team con focus sulla salute\n Lavoro e famiglia\n• KITA – orari di apertura orientati alle esigenze\n\n• 16 settimane di congedo di maternità con 100% paga continua, 15 giorni di congedo di paternità pagato\n Vantaggi e offerte\n• REKA controlli con 20% di sconto\n\n• Cibo scontato nel ristorante del personale\n\n• Parcheggio sconto / Abbonamenti PubliBike\n\n• Vari sconti sui dipendenti\n Precauzioni\n• Deduzione di metà coordinamento secondo BVG\n\n• Prosecuzione salariale Generosa in caso di malattia e infortunio (3 mesi di prosecuzione salariale da parte del datore di lavoro al 100%, poi indennità giornaliere al 90%)",
-        "en": "Tasks:\n• As a member of the pool, you will be scheduled for flexible assignments at various departments in the Lindenhof hospital.\n\n• Depending on your qualifications and professional experience, you will support the care teams in different areas.\n\n• The missions take place in particular in the recovery room, in the anesthesia, in the intervention center, in the intensive care unit and in an emergency.\n\n• You work in a varied and interdisciplinary environment and contribute to high-quality patient care.\n\nRequirements\n• You are Dipl. Expert Emergency, anesthesia or intensive care or Dipl. Nursing professional with NDK supervision care.\n\n• Ideally, you will bring several years of professional experience in your field.\n\n• You enjoy varied assignments in different specialist areas and departments.\n\n• The well-being of patients is the focus for you, and you meet people with respect and appreciation.\n\n• You feel comfortable in changing situations, work independently and quality-consciously as well as like in a team.\n\n• Good German skills in word and writing round off your profile.\n\nWe offer:\nHolidays and leisure\n• Mind. 26 holidays\n\n• Possibility to buy a holiday\n\n• Loyalty bonus: days off in the 5th and 7th year of employment, from 10th year of employment every 5 years\n\n• At night service a time credit of 30% (optional)\n Occupational Health Management (BGM) - \"ZÄME GSUND\"\n• Measures to strengthen health\n\n• Cadre and team workshops with focus on health\n Work and family\n• KITA – needs-oriented opening hours\n\n• 16 weeks of maternity leave with 100% continued pay, 15 days of paid paternity leave\n Advantages and offers\n• REKA checks with 20% discount\n\n• Discounted food in the staff restaurant\n\n• Discount parking / PubliBike subscriptions\n\n• Various employee discounts\n Precautions\n• Half coordination deduction according to BVG\n\n• Generous wage continuation in case of illness and accident (3 months of wage continuation by employer to 100%, then daily allowances to 90%)",
-        "fr": "Tâches :\n• En tant que membre de la piscine, vous serez programmé pour des missions flexibles dans différents départements de l'hôpital Lindenhof.\n\n• Selon vos qualifications et votre expérience professionnelle, vous accompagnerez les équipes de soins dans différents domaines.\n\n• Les missions ont lieu en particulier dans la salle de récupération, dans l'anesthésie, dans le centre d'intervention, dans l'unité de soins intensifs et en cas d'urgence.\n\n• Vous travaillez dans un environnement varié et interdisciplinaire et contribuez à des soins de qualité pour les patients.\n\nExigences\n• Vous êtes Dipl. Expert Urgence, anesthésie ou soins intensifs ou Dipl. Professionnel infirmier avec des soins de supervision NDK.\n\n• Idéalement, vous apporterez plusieurs années d'expérience professionnelle dans votre domaine.\n\n• Vous profitez d'affectations variées dans différents domaines et départements spécialisés.\n\n• Le bien-être des patients est au centre de vos préoccupations, et vous rencontrez les gens avec respect et reconnaissance.\n\n• Vous vous sentez à l'aise dans des situations changeantes, travaillez de façon indépendante et consciente de la qualité ainsi que dans une équipe.\n\n• De bonnes compétences en allemand en paroles et en écriture complètent votre profil.\n\nNous offrons:\nVacances et loisirs\n• Esprit. 26 jours fériés\n\n• Possibilité d'acheter des vacances\n\n• Prime de fidélité: jours de congé de la 5ème et 7ème année d'emploi, à partir de 10ème année d'emploi tous les 5 ans\n\n• Au service de nuit un crédit de temps de 30% (facultatif)\n Gestion de la santé au travail (BGM) - \"ZÄME GSUND\"\n• Mesures visant à renforcer la santé\n\n• Ateliers sur les cadres et les équipes axés sur la santé\n Travail et famille\n• KITA – heures d'ouverture axées sur les besoins\n\n• 16 semaines de congé de maternité avec 100% de salaire continu, 15 jours de congé de paternité payé\n Avantages et offres\n• Reka vérifie avec 20% de réduction\n\n• Restauration à prix réduit dans le restaurant du personnel\n\n• Parking à rabais / PubliBike abonnements\n\n• Divers rabais aux employés\n Précautions\n• Déduction pour demi-coordination selon BVG\n\n• Maintien d'un salaire généreux en cas de maladie et d'accident (3 mois de maintien d'un salaire par l'employeur à 100 %, puis indemnités journalières à 90 %)"
+        "it": "Compiti:\n• Come membro della piscina, sarete in programma per incarichi flessibili presso vari dipartimenti dell'ospedale Lindenhof.\n• A seconda delle tue qualifiche e esperienza professionale, supporterai i team di assistenza in diverse aree.\n• Le missioni si svolgono in particolare nella sala di recupero, nell'anestesia, nel centro di intervento, nell'unità di cura intensiva e in emergenza.\n• Lavori in un ambiente vario e interdisciplinare e contribuisci alla cura del paziente di alta qualità. Requisiti\n• Lei è Dipl. Emergenza esperto, anestesia o terapia intensiva o Dipl. Infermieristica professionale con supervisione NDK.\n• Idealmente, si porterà diversi anni di esperienza professionale nel vostro campo.\n• Si godono varie assegnazioni in diverse aree e reparti specializzati.\n• Il benessere dei pazienti è l'attenzione per voi, e incontri persone con rispetto e apprezzamento.\n• Ti senti a tuo agio nel cambiare le situazioni, lavorare in modo indipendente e di qualità-cosciente così come in un team.\n• Buone competenze tedesche in parola e scrivere arrotondare il vostro profilo. Offriamo: Vacanze e tempo libero\n• Mente. 26 vacanze\n• Possibilità di acquistare una vacanza\n• Bonus fedeltà: giorni liberi nel 5 ° e 7 ° anno di occupazione, dal 10 ° anno di occupazione ogni 5 anni\n• Al servizio notturno un tempo di credito del 30% (opzionale) Gestione della salute sul lavoro (BGM) - \"ZÄME GSUND\"\n• Misure per rafforzare la salute\n• Laboratori di Cadre e Team con focus sulla salute Lavoro e famiglia\n• KITA – orari di apertura orientati alle esigenze\n• 16 settimane di congedo di maternità con 100% paga continua, 15 giorni di congedo di paternità pagato Vantaggi e offerte\n• REKA controlli con 20% di sconto\n• Cibo scontato nel ristorante del personale\n• Parcheggio sconto / Abbonamenti PubliBike\n• Vari sconti sui dipendenti Precauzioni\n• Deduzione di metà coordinamento secondo BVG\n• Prosecuzione salariale Generosa in caso di malattia e infortunio (3 mesi di prosecuzione salariale da parte del datore di lavoro al 100%, poi indennità giornaliere al 90%)",
+        "en": "Tasks:\n• As a member of the pool, you will be scheduled for flexible assignments at various departments in the Lindenhof hospital.\n• Depending on your qualifications and professional experience, you will support the care teams in different areas.\n• The missions take place in particular in the recovery room, in the anesthesia, in the intervention center, in the intensive care unit and in an emergency.\n• You work in a varied and interdisciplinary environment and contribute to high-quality patient care. Requirements\n• You are Dipl. Expert Emergency, anesthesia or intensive care or Dipl. Nursing professional with NDK supervision care.\n• Ideally, you will bring several years of professional experience in your field.\n• You enjoy varied assignments in different specialist areas and departments.\n• The well-being of patients is the focus for you, and you meet people with respect and appreciation.\n• You feel comfortable in changing situations, work independently and quality-consciously as well as like in a team.\n• Good German skills in word and writing round off your profile. We offer: Holidays and leisure\n• Mind. 26 holidays\n• Possibility to buy a holiday\n• Loyalty bonus: days off in the 5th and 7th year of employment, from 10th year of employment every 5 years\n• At night service a time credit of 30% (optional) Occupational Health Management (BGM) - \"ZÄME GSUND\"\n• Measures to strengthen health\n• Cadre and team workshops with focus on health Work and family\n• KITA – needs-oriented opening hours\n• 16 weeks of maternity leave with 100% continued pay, 15 days of paid paternity leave Advantages and offers\n• REKA checks with 20% discount\n• Discounted food in the staff restaurant\n• Discount parking / PubliBike subscriptions\n• Various employee discounts Precautions\n• Half coordination deduction according to BVG\n• Generous wage continuation in case of illness and accident (3 months of wage continuation by employer to 100%, then daily allowances to 90%)",
+        "de": "Aufgaben:\n• Als Mitglied des Pools wirst du für flexible Einsätze auf verschiedenen Abteilungen im Lindenhofspital eingeplant.\n• Je nach deiner Qualifikation und Berufserfahrung unterstützt du die Pflegeteams in unterschiedlichen Bereichen.\n• Die Einsätze erfolgen insbesondere im Aufwachraum, in der Anästhesie, im Interventionszentrum, auf der Intensivstation sowie im Notfall.\n• Du arbeitest in einem abwechslungsreichen und interdisziplinären Umfeld und trägst zur hochwertigen Patientenversorgung bei. Anforderungen:\n• Du bist Dipl. Expertin/Experte Notfall-, Anästhesie- oder Intensivpflege oder Dipl. Pflegefachfrau/Pflegefachmann mit NDK Überwachungspflege.\n• Du bringst idealerweise mehrjährige Berufserfahrung in deinem Fachgebiet mit.\n• Du hast Freude an abwechslungsreichen Einsätzen in unterschiedlichen Fachbereichen und Abteilungen.\n• Das Wohlergehen der Patientinnen und Patienten steht für dich im Mittelpunkt, und du begegnest Menschen mit Respekt und Wertschätzung.\n• Du fühlst dich in wechselnden Situationen wohl, arbeitest eigenverantwortlich und qualitätsbewusst sowie gerne im Team.\n• Gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab. Wir bieten: Ferien und Freizeit\n• Mind. 26 Ferientage\n• Möglichkeit Ferienkauf\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional) Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n• Kader- und Teamworkshops mit Fokus Gesundheit Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n• Vergünstigte Verpflegung im Personalrestaurant\n• Vergünstigte Parkplätze / PubliBike-Abos\n• Vielfältige Mitarbeitendenrabatte Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "fr": "Tâches :\n• En tant que membre de la piscine, vous serez programmé pour des missions flexibles dans différents départements de l'hôpital Lindenhof.\n• Selon vos qualifications et votre expérience professionnelle, vous accompagnerez les équipes de soins dans différents domaines.\n• Les missions ont lieu en particulier dans la salle de récupération, dans l'anesthésie, dans le centre d'intervention, dans l'unité de soins intensifs et en cas d'urgence.\n• Vous travaillez dans un environnement varié et interdisciplinaire et contribuez à des soins de qualité pour les patients. Exigences\n• Vous êtes Dipl. Expert Urgence, anesthésie ou soins intensifs ou Dipl. Professionnel infirmier avec des soins de supervision NDK.\n• Idéalement, vous apporterez plusieurs années d'expérience professionnelle dans votre domaine.\n• Vous profitez d'affectations variées dans différents domaines et départements spécialisés.\n• Le bien-être des patients est au centre de vos préoccupations, et vous rencontrez les gens avec respect et reconnaissance.\n• Vous vous sentez à l'aise dans des situations changeantes, travaillez de façon indépendante et consciente de la qualité ainsi que dans une équipe.\n• De bonnes compétences en allemand en paroles et en écriture complètent votre profil. Nous offrons: Vacances et loisirs\n• Esprit. 26 jours fériés\n• Possibilité d'acheter des vacances\n• Prime de fidélité: jours de congé de la 5ème et 7ème année d'emploi, à partir de 10ème année d'emploi tous les 5 ans\n• Au service de nuit un crédit de temps de 30% (facultatif) Gestion de la santé au travail (BGM) - \"ZÄME GSUND\"\n• Mesures visant à renforcer la santé\n• Ateliers sur les cadres et les équipes axés sur la santé Travail et famille\n• KITA – heures d'ouverture axées sur les besoins\n• 16 semaines de congé de maternité avec 100% de salaire continu, 15 jours de congé de paternité payé Avantages et offres\n• Reka vérifie avec 20% de réduction\n• Restauration à prix réduit dans le restaurant du personnel\n• Parking à rabais / PubliBike abonnements\n• Divers rabais aux employés Précautions\n• Déduction pour demi-coordination selon BVG\n• Maintien d'un salaire généreux en cas de maladie et d'accident (3 mois de maintien d'un salaire par l'employeur à 100 %, puis indemnités journalières à 90 %)"
       },
       "location": "Lindenhofspital",
       "canton": "BE",
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau-mann-mit-ndk-ueberwachungspflege/8e984e8d-e5de-4879-a7d7-0d112da5f1f9",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:25:48.650Z",
+      "crawledAt": "2026-06-27T11:22:28.597Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3035,9 +3047,10 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://bewerben.lindenhofgruppe.ch/pflege-therapie-medizin-de-f2805.html?agid=20",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
@@ -3049,9 +3062,7 @@
           "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
         ]
       },
-      "previousSlugs": [
-        "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
-      ],
+      "firstSeenAt": "2026-06-26T22:25:48.650Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3063,8 +3074,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-26T22:25:48.650Z"
+      }
     }
   ]
 }
