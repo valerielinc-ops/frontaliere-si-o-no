@@ -568,6 +568,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.volkswagen-crisi-tagli-lavoro.title': 'Volkswagen, 100,000 redundancies and 4 factories at risk',
     'blog.article.volkswagen-crisi-tagli-lavoro.excerpt': 'Volkswagen\'s restructuring plan calls for up to 100,000 cuts by 2030. Analysis of the situation and impacts of the German giant.',
     'blog.article.volkswagen-crisi-tagli-lavoro.imageAlt': 'View of a modern office in Lugano with city skyline in the background',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.title': 'Ticino and border workers, abysmal differences in payroll',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.excerpt': 'The wage difference between Ticino and border workers: what emerges from the data.',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.imageAlt': 'A person examining a payslip with a Swiss mountain background.',
 };
 
 export default blogMetaChEn;

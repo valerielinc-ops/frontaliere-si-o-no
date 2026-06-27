@@ -212,6 +212,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'conto-bancario-frontalieri': { it: 'conto-bancario-frontalieri', en: 'opening-swiss-bank-account-as-cross-border-worker', de: 'schweizer-bankkonto-als-grenzgaenger-eroeffnen', fr: 'ouvrir-compte-bancaire-suisse-en-tant-que-frontalier' },
  'ristorni-fiscali-frontaliere': { it: 'ristorni-fiscali-frontaliere', en: 'fiscal-reimbursements-for-frontier-workers-how-they-work', de: 'steuer-ruckerstattungen-fur-grenzpendler-wie-sie-funktionieren', fr: 'remboursements-fiscaux-pour-travailleurs-frontaliers-comment-ils-fonctionnent' },
  'volkswagen-crisi-tagli-lavoro': { it: 'volkswagen-crisi-tagli-lavoro', en: 'volkswagen-job-cuts-crisis', de: 'volkswagen-stellenabbau-krise', fr: 'volkswagen-crise-suppressions-emplois' },
+ 'ai-ticinesi-quasi-6mila-franchi': { it: 'ai-ticinesi-quasi-6mila-franchi', en: 'ticino-salary-gap-frontalieri', de: 'tizino-gehalt-lucke-frontalieri', fr: 'ticino-ecart-salaire-frontalieri' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

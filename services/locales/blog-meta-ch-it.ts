@@ -568,6 +568,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.volkswagen-crisi-tagli-lavoro.title': 'Volkswagen, 100.000 esuberi e 4 fabbriche a rischio',
     'blog.article.volkswagen-crisi-tagli-lavoro.excerpt': 'Il piano di ristrutturazione di Volkswagen prevede fino a 100.000 tagli entro il 2030. Analisi della situazione e impatti del colosso tedesco.',
     'blog.article.volkswagen-crisi-tagli-lavoro.imageAlt': 'Vista di un ufficio moderno a Lugano con skyline cittadino sullo sfondo',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.title': 'Ticinesi e frontalieri, differenze abissali nelle buste paga',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.excerpt': 'La differenza salariale tra ticinesi e frontalieri: cosa emerge dai dati.',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.imageAlt': 'Una persona che esamina una busta paga con uno sfondo di montagne svizzere.',
 };
 
 export default blogMetaChIt;

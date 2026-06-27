@@ -568,6 +568,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.volkswagen-crisi-tagli-lavoro.title': 'Volkswagen, 100 000 licenciements et 4 usines à risque',
     'blog.article.volkswagen-crisi-tagli-lavoro.excerpt': 'Le plan de restructuration de Volkswagen prévoit jusqu\'à 100 000 coupes d\'ici 2030. Analyse de la situation et des impacts du géant allemand.',
     'blog.article.volkswagen-crisi-tagli-lavoro.imageAlt': 'Vue d\'un bureau moderne à Lugano avec la ligne d\'horizon de la ville en arrière-plan',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.title': 'Tessinois et frontaliers, différences abyssales dans les salaires',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.excerpt': 'L\'écart salarial entre Tessinois et frontaliers : ce qui ressort des données.',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.imageAlt': 'Une personne examine un bulletin de salaire avec un fond de montagnes suisses.',
 };
 
 export default blogMetaChFr;

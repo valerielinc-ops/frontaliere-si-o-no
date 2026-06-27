@@ -568,6 +568,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.volkswagen-crisi-tagli-lavoro.title': 'Volkswagen, 100.000 Entlassungen und 4 gefährdete Fabriken',
     'blog.article.volkswagen-crisi-tagli-lavoro.excerpt': 'Der Umstrukturierungsplan von Volkswagen sieht bis 2030 bis zu 100.000 Kürzungen vor. Situationsanalyse und Auswirkungen des deutschen Riesen.',
     'blog.article.volkswagen-crisi-tagli-lavoro.imageAlt': 'Blick auf ein modernes Büro in Lugano mit der Skyline der Stadt im Hintergrund',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.title': 'Tessiner und Grenzgänger: grosse Lohnunterschiede',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.excerpt': 'Der Lohnunterschied zwischen Tessiner und Grenzgängern: Das zeigen die Daten.',
+    'blog.article.ai-ticinesi-quasi-6mila-franchi.imageAlt': 'Eine Person untersucht einen Lohnzettel mit einem Schweizer Berghintergrund.',
 };
 
 export default blogMetaChDe;
