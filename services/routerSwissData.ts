@@ -229,6 +229,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'mutuo-acquisto-casa-frontaliere-italia': { it: 'mutuo-acquisto-casa-frontaliere-italia', en: 'mortgage-home-purchase-crossborder-italy', de: 'hypothek-hauskauf-grenzgaenger-italien', fr: 'pret-immobilier-frontaliers-achat-italie' },
  'diritti-frontaliere-genitorialit': { it: 'diritti-frontaliere-genitorialit', en: 'parental-rights-cross-border-workers', de: 'elternrechte-frontaliers', fr: 'droits-parentaux-frontaliers' },
  'assicurazione-malattia-famiglia-frontaliere': { it: 'assicurazione-malattia-famiglia-frontaliere', en: 'family-health-insurance-cross-border', de: 'krankenversicherung-familie-grenzgaenger', fr: 'assurance-maladie-famille-frontalier' },
+ 'frontaliere-bonus-famiglia-2026': { it: 'frontaliere-bonus-famiglia-2026', en: 'cross-border-family-bonus-2026', de: 'grenzgaenger-familienbonus-2026', fr: 'frontaliers-bonus-famille-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
