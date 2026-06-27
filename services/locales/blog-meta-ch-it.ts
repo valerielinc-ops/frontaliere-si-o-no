@@ -580,6 +580,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.morto-ex-presidente-bns-hans-meyer.title': 'Morto l\'ex presidente della BNS Hans Meyer',
     'blog.article.morto-ex-presidente-bns-hans-meyer.excerpt': 'L\'ex presidente della Banca nazionale svizzera (BNS) Hans Meyer è deceduto all\'età di 90 anni.',
     'blog.article.morto-ex-presidente-bns-hans-meyer.imageAlt': 'Foto dell\'ex presidente della BNS Hans Meyer',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.title': 'Secondo pilastro LPP per frontalieri: prelievo e tassazione',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.excerpt': 'Quando e come i frontalieri possono prelevare il secondo pilastro LPP. Tassazione in Svizzera e Italia, strategie di uscita.',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.imageAlt': 'Frontaliere consulta documenti del secondo pilastro LPP in un ufficio svizzero.',
 };
 
 export default blogMetaChIt;

@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2969,
+ "numberOfItems": 2970,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7615,7 +7615,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2966, "name": "Croce Rossa Varese: scambio internazionale con ...", "url": `${BASE_URL}/articoli-frontaliere/scambio-internazionale-croce-rossa-varese` },
           { "@type": "ListItem", "position": 2967, "name": "Ricerca e tecnologia: le nuove sfide svizzere", "url": `${BASE_URL}/articoli-frontaliere/innovazione-tecnologica-sfide-svizzera` },
           { "@type": "ListItem", "position": 2968, "name": "Tassazione frontalieri: chiarimenti sulla distanza", "url": `${BASE_URL}/articoli-frontaliere/tassazione-frontalieri-oltre-20km` },
-          { "@type": "ListItem", "position": 2969, "name": "Morto l'ex presidente della BNS Hans Meyer", "url": `${BASE_URL}/articoli-frontaliere/morto-ex-presidente-bns-hans-meyer` }
+          { "@type": "ListItem", "position": 2969, "name": "Morto l'ex presidente della BNS Hans Meyer", "url": `${BASE_URL}/articoli-frontaliere/morto-ex-presidente-bns-hans-meyer` },
+          { "@type": "ListItem", "position": 2970, "name": "Secondo pilastro LPP per frontalieri: prelievo ...", "url": `${BASE_URL}/articoli-frontaliere/secondo-pilastro-prelievo-frontaliere` }
  ]
  },
  {
