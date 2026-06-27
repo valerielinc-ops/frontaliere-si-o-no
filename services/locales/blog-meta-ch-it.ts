@@ -640,6 +640,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.title': 'Frontaliere: spese sanitarie rimborsabili in Italia e limiti',
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.excerpt': 'Quali spese sanitarie sostenute in Svizzera dai frontalieri sono rimborsabili in Italia, con le procedure e i limiti previsti.',
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.imageAlt': 'Documenti sanitari frontalieri tra Svizzera e Italia su una scrivania.',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.title': 'Frontaliere: tassazione 2026 dopo nuovo accordo fiscale',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.excerpt': 'Dal 2024 l’Accordo frontalieri introduce regole distinte tra vecchi e nuovi frontalieri, franchigia e credito d’imposta. Ecco cosa cambia con le norme operative dal 2026.',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.imageAlt': 'Vista su Lugano con frontalieri in transito e paesaggio svizzero.',
 };
 
 export default blogMetaChIt;
