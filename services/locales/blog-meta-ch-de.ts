@@ -571,6 +571,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ai-ticinesi-quasi-6mila-franchi.title': 'Tessiner und Grenzgänger: grosse Lohnunterschiede',
     'blog.article.ai-ticinesi-quasi-6mila-franchi.excerpt': 'Der Lohnunterschied zwischen Tessiner und Grenzgängern: Das zeigen die Daten.',
     'blog.article.ai-ticinesi-quasi-6mila-franchi.imageAlt': 'Eine Person untersucht einen Lohnzettel mit einem Schweizer Berghintergrund.',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.title': 'Forschung und Technologie: Die neuen Schweizer Herausforderungen',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.excerpt': 'Von künstlicher Intelligenz zu Rechenzentren: Wie die Schweiz den digitalen Übergang zwischen Innovation, Nachhaltigkeit und Souveränität meistert.',
+    'blog.article.innovazione-tecnologica-sfide-svizzera.imageAlt': 'Technologisches Forschungslabor in der Schweiz',
 };
 
 export default blogMetaChDe;

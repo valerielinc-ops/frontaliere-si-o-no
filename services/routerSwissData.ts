@@ -213,6 +213,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ristorni-fiscali-frontaliere': { it: 'ristorni-fiscali-frontaliere', en: 'fiscal-reimbursements-for-frontier-workers-how-they-work', de: 'steuer-ruckerstattungen-fur-grenzpendler-wie-sie-funktionieren', fr: 'remboursements-fiscaux-pour-travailleurs-frontaliers-comment-ils-fonctionnent' },
  'volkswagen-crisi-tagli-lavoro': { it: 'volkswagen-crisi-tagli-lavoro', en: 'volkswagen-job-cuts-crisis', de: 'volkswagen-stellenabbau-krise', fr: 'volkswagen-crise-suppressions-emplois' },
  'ai-ticinesi-quasi-6mila-franchi': { it: 'ai-ticinesi-quasi-6mila-franchi', en: 'ticino-salary-gap-frontalieri', de: 'tizino-gehalt-lucke-frontalieri', fr: 'ticino-ecart-salaire-frontalieri' },
+ 'innovazione-tecnologica-sfide-svizzera': { it: 'innovazione-tecnologica-sfide-svizzera', en: 'technological-innovation-challenges-switzerland', de: 'technologische-innovation-herausforderungen-schweiz', fr: 'innovation-technologique-defis-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
