@@ -8173,6 +8173,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.title': 'Distances, times and means of commuting in Varese: survey data',
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.excerpt': 'A survey on daily mobility in the province of Varese reveals that daily journeys are often over 20 kilometres, with average times between 15 and 30 minutes, and a strong centrality of the car.',
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.imageAlt': 'Representative image of the daily mobility survey in Varese',
+    'blog.article.scambio-internazionale-croce-rossa-varese.title': 'Varese Red Cross: international exchange with Germany',
+    'blog.article.scambio-internazionale-croce-rossa-varese.excerpt': 'From 24 to 28 June, the Red Cross of Varese hosts nine German volunteers for the \'The Light We Share\' project dedicated to cooperation.',
+    'blog.article.scambio-internazionale-croce-rossa-varese.imageAlt': 'Red Cross volunteers from Italy and Germany meeting in Varese',
 };
 
 export default blogMetaEn;

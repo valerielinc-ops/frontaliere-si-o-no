@@ -25902,6 +25902,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scambio-internazionale-croce-rossa-varese',
+ category: 'novita',
+ date: '2026-06-27T06:37:13.221Z',
+ image: '/images/blog/scambio-internazionale-croce-rossa-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

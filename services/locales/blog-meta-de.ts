@@ -8172,6 +8172,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.title': 'Entfernungen, Zeiten und Mittel des Pendelns in Varese: die Umfragedaten',
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.excerpt': 'Eine Umfrage zur täglichen Mobilität in der Provinz Varese zeigt, dass die tägliche Fortbewegung oft mehr als 20 Kilometer beträgt, mit durchschnittlichen Zeiten zwischen 15 und 30 Minuten und einer starken Zentralität des Autos.',
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.imageAlt': 'Repräsentatives Bild der Umfrage zur täglichen Mobilität in Varese',
+    'blog.article.scambio-internazionale-croce-rossa-varese.title': 'Rotes Kreuz Varese: internationaler Austausch mit Deutschland',
+    'blog.article.scambio-internazionale-croce-rossa-varese.excerpt': 'Vom 24. bis 28. Juni beherbergt das Rote Kreuz in Varese neun deutsche Freiwillige für das Projekt „The Light We Share“, das der Zusammenarbeit gewidmet ist.',
+    'blog.article.scambio-internazionale-croce-rossa-varese.imageAlt': 'Rotkreuz-Freiwillige aus Italien und Deutschland bei einem Treffen in Varese',
 };
 
 export default blogMetaDe;

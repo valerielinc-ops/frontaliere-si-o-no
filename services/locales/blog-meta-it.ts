@@ -8174,6 +8174,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.title': 'Distanze, tempi e mezzi del pendolarismo varesino: i dati del sondaggio',
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.excerpt': 'Un sondaggio sulla mobilità quotidiana in provincia di Varese rivela che gli spostamenti quotidiani sono spesso sopra i 20 chilometri, con tempi medi tra 15 e 30 minuti, e una forte centralità dell\'automobile.',
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.imageAlt': 'Immagine rappresentativa del sondaggio sulla mobilità quotidiana a Varese',
+    'blog.article.scambio-internazionale-croce-rossa-varese.title': 'Croce Rossa Varese: scambio internazionale con la Germania',
+    'blog.article.scambio-internazionale-croce-rossa-varese.excerpt': 'Dal 24 al 28 giugno, la Croce Rossa di Varese ospita nove volontari tedeschi per il progetto \'The Light We Share\' dedicato alla cooperazione.',
+    'blog.article.scambio-internazionale-croce-rossa-varese.imageAlt': 'Volontari della Croce Rossa Italiana e Tedesca a Varese',
 };
 
 export default blogMetaIt;

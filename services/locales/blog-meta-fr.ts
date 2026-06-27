@@ -8174,6 +8174,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.title': 'Distances, temps et moyens de trajet à Varèse : les données de l\'enquête',
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.excerpt': 'Une enquête sur la mobilité quotidienne dans la province de Varèse révèle que les déplacements quotidiens sont souvent supérieurs à 20 kilomètres, avec des temps moyens compris entre 15 et 30 minutes, et une forte centralité de la voiture.',
     'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.imageAlt': 'Image représentative de l\'enquête sur la mobilité quotidienne à Varese',
+    'blog.article.scambio-internazionale-croce-rossa-varese.title': 'Croix-Rouge varoise : échange international avec l\'Allemagne',
+    'blog.article.scambio-internazionale-croce-rossa-varese.excerpt': 'Du 24 au 28 juin, la Croix-Rouge de Varèse accueille neuf volontaires allemands pour le projet « The Light We Share » consacré à la coopération.',
+    'blog.article.scambio-internazionale-croce-rossa-varese.imageAlt': 'Volontaires de la Croix-Rouge italienne et allemande se rencontrant à Varèse',
 };
 
 export default blogMetaFr;
