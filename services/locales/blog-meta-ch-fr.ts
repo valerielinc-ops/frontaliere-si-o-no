@@ -655,6 +655,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ingresso-svizzera-frontalieri-2026.title': 'Entrée en Suisse 2026 : documents et contrôles pour les frontaliers',
     'blog.article.ingresso-svizzera-frontalieri-2026.excerpt': 'Guide mis à jour avec passeport, carte d\'identité, permis et contrôles douaniers pour les frontaliers à partir de 2026.',
     'blog.article.ingresso-svizzera-frontalieri-2026.imageAlt': 'Poste frontière suisse avec frontaliers et contrôle des documents.',
+    'blog.article.educatore-infanzia-ticino-guida.title': 'Travailler comme éducateur d\'enfants au Tessin : salaire et exigences',
+    'blog.article.educatore-infanzia-ticino-guida.excerpt': 'Découvrez comment devenir éducateur d\'enfants au Tessin : exigences de formation, salaire et opportunités d\'emploi.',
+    'blog.article.educatore-infanzia-ticino-guida.imageAlt': 'Vue des bâtiments scolaires modernes à Lugano, Suisse.',
 };
 
 export default blogMetaChFr;
