@@ -28,7 +28,7 @@
       "slugByLocale": {
         "it": "responsabile-del-negozio-al-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-ticino",
         "en": "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7ubdv2",
-        "de": "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7ubdv2",
+        "de": "filialleiter-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-ticino",
         "fr": "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7ubdv2"
       },
       "titleByLocale": {
@@ -70,7 +70,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1002",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "de": [
+          "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7ubdv2"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7ubdv2"
+      ]
     },
     {
       "id": "company-7ubegg",
