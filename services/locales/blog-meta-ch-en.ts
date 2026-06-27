@@ -589,6 +589,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.famiglie-lavoro-lugano-piattaforma-asili.title': 'Families and work in Lugano: new motion on kindergartens and services',
     'blog.article.famiglie-lavoro-lugano-piattaforma-asili.excerpt': 'A cross-party motion calls for regular surveys on after-school services and a unique platform for enrolling in kindergartens in Lugano.',
     'blog.article.famiglie-lavoro-lugano-piattaforma-asili.imageAlt': 'View of an administrative building in Lugano with parents and children in the foreground.',
+    'blog.article.frontaliere-documenti-checklist-svizzera.title': 'Frontier: documents needed to work in Switzerland',
+    'blog.article.frontaliere-documenti-checklist-svizzera.excerpt': 'Updated checklist of documents for border workers: contract, identity, G permit, bank account, AVS, health insurance.',
+    'blog.article.frontaliere-documenti-checklist-svizzera.imageAlt': 'Documents on a desk near the Swiss border, Lugano offices view.',
 };
 
 export default blogMetaChEn;

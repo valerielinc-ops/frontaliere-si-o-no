@@ -589,6 +589,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.famiglie-lavoro-lugano-piattaforma-asili.title': 'Familles et travail à Lugano : nouvelle motion sur les crèches et les services',
     'blog.article.famiglie-lavoro-lugano-piattaforma-asili.excerpt': 'Une motion interpartite demande des enquêtes régulières sur les services extrascolaires et une plateforme unique pour s\'inscrire aux crèches à Lugano.',
     'blog.article.famiglie-lavoro-lugano-piattaforma-asili.imageAlt': 'Vue d\'un bâtiment administratif à Lugano avec des parents et des enfants au premier plan.',
+    'blog.article.frontaliere-documenti-checklist-svizzera.title': 'Frontalier : documents nécessaires pour travailler en Suisse',
+    'blog.article.frontaliere-documenti-checklist-svizzera.excerpt': 'Liste de contrôle mise à jour des documents pour les frontaliers : contrat, identité, permis G, compte bancaire, AVS, assurance maladie.',
+    'blog.article.frontaliere-documenti-checklist-svizzera.imageAlt': 'Documents sur un bureau près de la frontière suisse, vue sur les bureaux de Lugano.',
 };
 
 export default blogMetaChFr;
