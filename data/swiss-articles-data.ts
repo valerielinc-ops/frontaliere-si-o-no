@@ -1790,6 +1790,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'frontalieri-cambio-euro-franco-strategie',
+    category: 'pratico',
+    date: '2026-06-27T17:08:04.807Z',
+    image: '/images/blog/frontalieri-cambio-euro-franco-strategie.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

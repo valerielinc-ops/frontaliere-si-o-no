@@ -7662,6 +7662,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-cambio-euro-franco-strategie': {
+    title: 'Frontaliere, cambio euro franco conviene: strategie pratiche 2024',
+    description: 'Scopri come e quando conviene cambiare CHF-EUR da frontaliere, piattaforme migliori e impatto sullo stipendio netto. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, euro, franco, conviene',
+    ogTitle: 'Cambio euro franco per frontalieri: strategie e piattaforme',
+    ogDescription: 'Guida pratica al cambio CHF-EUR per frontalieri: quando conviene e strumenti utili.',
+    canonicalPath: '/articoli-svizzera/frontalieri-cambio-euro-franco-strategie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere, cambio euro franco conviene: strategie pratiche 2024",
+      "description": "Scopri come e quando conviene cambiare CHF-EUR da frontaliere, piattaforme migliori e impatto sullo stipendio netto. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-cambio-euro-franco-strategie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banca svizzera con tabellone cambi CHF/EUR e persone in attesa."
+      },
+      "datePublished": "2026-06-27T17:08:04+00:00",
+      "dateModified": "2026-06-27T17:08:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-cambio-euro-franco-strategie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
