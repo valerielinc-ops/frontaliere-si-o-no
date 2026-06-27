@@ -625,6 +625,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-smart-working-regole.title': 'Smart Working for Frontier Workers: Updated Rules',
     'blog.article.frontaliere-smart-working-regole.excerpt': 'Learn about the current rules for remote work for border workers between Switzerland and Italy.',
     'blog.article.frontaliere-smart-working-regole.imageAlt': 'Scenic view of Lugano with the lake and a person working on a laptop.',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Mutuo casa in Svizzera per frontaliere: requisiti e banche',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.excerpt': 'Practical guide to the requirements and procedures for applying for a home mortgage in Switzerland as a border worker. Focus on banks and required documentation.',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.imageAlt': 'Swiss bank desk with mortgage documents and lake view.',
 };
 
 export default blogMetaChEn;
