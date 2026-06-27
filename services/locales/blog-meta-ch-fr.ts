@@ -601,6 +601,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-cambio-euro-franco-strategie.title': 'Change euro-franc favorable : stratégies 2024',
     'blog.article.frontalieri-cambio-euro-franco-strategie.excerpt': 'Guide pratique du taux de change CHF-EUR pour les frontaliers : le cas échéant, plateformes, impact sur le salaire et gestion du compte multidevises.',
     'blog.article.frontalieri-cambio-euro-franco-strategie.imageAlt': 'Banque suisse avec tableau des taux CHF/EUR et des personnes en attente.',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.title': 'Stratégies pour un Changement CHF-EUR Avantageux',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.excerpt': 'Découvrez comment optimiser le taux de change entre le franc suisse et l\'euro pour les frontaliers.',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.imageAlt': 'Une vue pittoresque de Lugano avec le lac et les Alpes en arrière-plan.',
 };
 
 export default blogMetaChFr;

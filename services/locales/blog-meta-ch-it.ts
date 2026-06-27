@@ -601,6 +601,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-cambio-euro-franco-strategie.title': 'Frontaliere, cambio euro franco conviene: strategie pratiche 2024',
     'blog.article.frontalieri-cambio-euro-franco-strategie.excerpt': 'Guida pratica al cambio CHF-EUR per frontalieri: quando conviene, piattaforme, impatto su stipendio e gestione del conto multi-valuta.',
     'blog.article.frontalieri-cambio-euro-franco-strategie.imageAlt': 'Banca svizzera con tabellone cambi CHF/EUR e persone in attesa.',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.title': 'Strategie per un Cambio CHF-EUR Vantaggioso',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.excerpt': 'Scopri come ottimizzare il cambio tra franco svizzero ed euro per i frontalieri.',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.imageAlt': 'Una veduta pittoresca di Lugano con il lago e le Alpi sullo sfondo.',
 };
 
 export default blogMetaChIt;

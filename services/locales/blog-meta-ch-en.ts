@@ -601,6 +601,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-cambio-euro-franco-strategie.title': 'Frontier, exchange euro franc is convenient: practical strategies 2024',
     'blog.article.frontalieri-cambio-euro-franco-strategie.excerpt': 'Practical guide to the CHF-EUR exchange rate for border workers: when appropriate, platforms, impact on salary and multi-currency account management.',
     'blog.article.frontalieri-cambio-euro-franco-strategie.imageAlt': 'Swiss bank with CHF/EUR exchange rate board and people waiting.',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.title': 'Strategies for an advantageous CHF-EUR exchange rate',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.excerpt': 'Find out how to optimise the exchange rate between the Swiss franc and the euro for border workers.',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.imageAlt': 'A picturesque view of Lugano with the lake and the Alps in the background.',
 };
 
 export default blogMetaChEn;

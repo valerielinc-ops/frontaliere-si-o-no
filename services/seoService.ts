@@ -4252,6 +4252,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-naspi-ex-frontalieri-guida': { name: 'NASpI Frontalieri', path: '/articoli-svizzera/naspi-ex-frontalieri-guida/', parent: 'blog' },
     'blog-pensione-frontalieri-errori-2026': { name: 'Pensione Frontalieri 2026 Errori Comuni.', path: '/articoli-svizzera/pensione-frontalieri-errori-2026/', parent: 'blog' },
     'blog-frontalieri-cambio-euro-franco-strategie': { name: 'Cambio CHF-EUR', path: '/articoli-svizzera/frontalieri-cambio-euro-franco-strategie/', parent: 'blog' },
+    'blog-frontaliere-cambio-chf-eur-consigli': { name: 'Cambio CHF-EUR per frontalieri', path: '/articoli-svizzera/frontaliere-cambio-chf-eur-consigli/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

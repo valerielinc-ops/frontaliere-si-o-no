@@ -601,6 +601,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-cambio-euro-franco-strategie.title': 'Grenzgänger, Euro-Franken-Wechsel zahlt sich aus: Praktische Strategien 2024',
     'blog.article.frontalieri-cambio-euro-franco-strategie.excerpt': 'Praktischer Leitfaden zum Wechselkurs CHF-EUR für Grenzgänger: Wann es sich lohnt, Plattformen, Auswirkungen auf das Gehalt und die Verwaltung des Mehrwährungskontos.',
     'blog.article.frontalieri-cambio-euro-franco-strategie.imageAlt': 'Schweizer Bank mit CHF/EUR-Kurstafel und wartenden Menschen.',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.title': 'Strategien für einen vorteilhaften Wechselkurs CHF-EUR',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.excerpt': 'Erfahren Sie, wie Sie den Wechselkurs zwischen Schweizer Franken und Euro für Grenzgänger optimieren können.',
+    'blog.article.frontaliere-cambio-chf-eur-consigli.imageAlt': 'Eine malerische Aussicht auf Lugano mit dem See und den Alpen im Hintergrund.',
 };
 
 export default blogMetaChDe;

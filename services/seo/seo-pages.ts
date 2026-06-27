@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2976,
+ "numberOfItems": 2977,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7622,7 +7622,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2973, "name": "Frontaliere: documenti necessari per lavorare i...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-documenti-checklist-svizzera` },
           { "@type": "ListItem", "position": 2974, "name": "Indennità di disoccupazione per frontalieri in ...", "url": `${BASE_URL}/articoli-frontaliere/naspi-ex-frontalieri-guida` },
           { "@type": "ListItem", "position": 2975, "name": "Pensione frontalieri: errori comuni da evitare ...", "url": `${BASE_URL}/articoli-frontaliere/pensione-frontalieri-errori-2026` },
-          { "@type": "ListItem", "position": 2976, "name": "Frontaliere, cambio euro franco conviene: strat...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-cambio-euro-franco-strategie` }
+          { "@type": "ListItem", "position": 2976, "name": "Frontaliere, cambio euro franco conviene: strat...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-cambio-euro-franco-strategie` },
+          { "@type": "ListItem", "position": 2977, "name": "Strategie per un Cambio CHF-EUR Vantaggioso", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cambio-chf-eur-consigli` }
  ]
  },
  {
