@@ -643,6 +643,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-tassazione-2026-regole-accordo.title': 'Frontier: 2026 taxation after new tax agreement',
     'blog.article.frontaliere-tassazione-2026-regole-accordo.excerpt': 'From 2024, the Borderers Agreement introduces separate rules between old and new borderers, exemption and tax credit. This is what changes with the operating rules from 2026.',
     'blog.article.frontaliere-tassazione-2026-regole-accordo.imageAlt': 'View of Lugano with cross-border commuters and Swiss landscape.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.title': 'Border seasonal work in Ticino: permits, rules and taxation',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.excerpt': 'Practical guide to the rules for seasonal work in Ticino: permits, types of contract, tax impact for border workers.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.imageAlt': 'Lugano panorama with seasonal workers in the foreground.',
 };
 
 export default blogMetaChEn;

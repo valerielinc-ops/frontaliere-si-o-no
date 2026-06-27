@@ -643,6 +643,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-tassazione-2026-regole-accordo.title': 'Frontalier : taxation 2026 après nouvel accord fiscal',
     'blog.article.frontaliere-tassazione-2026-regole-accordo.excerpt': 'Depuis 2024, l’Accord frontalier introduit des règles distinctes entre anciens et nouveaux frontaliers, franchise et crédit d’impôt. Voici ce qui change avec les règles d\'exploitation à partir de 2026.',
     'blog.article.frontaliere-tassazione-2026-regole-accordo.imageAlt': 'Vue sur Lugano avec frontaliers en transit et paysage suisse.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.title': 'Travailleurs frontaliers saisonniers au Tessin : permis, règles et fiscalité',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.excerpt': 'Guide pratique des règles pour le travail saisonnier au Tessin : permis, types de contrat, impact fiscal pour les frontaliers.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.imageAlt': 'Panorama de Lugano avec des saisonniers au premier plan.',
 };
 
 export default blogMetaChFr;

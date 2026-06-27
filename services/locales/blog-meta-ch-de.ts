@@ -643,6 +643,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-tassazione-2026-regole-accordo.title': 'Grenzgänger: Besteuerung 2026 nach neuem Steuerabkommen',
     'blog.article.frontaliere-tassazione-2026-regole-accordo.excerpt': 'Seit 2024 führt das Grenzabkommen unterschiedliche Regeln zwischen alten und neuen Grenzgängern, Franchise und Steuergutschrift ein. Das ändert sich mit den Betriebsvorschriften ab 2026.',
     'blog.article.frontaliere-tassazione-2026-regole-accordo.imageAlt': 'Blick auf Lugano mit Grenzgängern und Schweizer Landschaft.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.title': 'Grenzgänger Saisonarbeit im Tessin: Genehmigungen, Regeln und Steuern',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.excerpt': 'Praktischer Leitfaden zu den Regeln für Saisonarbeit im Tessin: Genehmigungen, Vertragsarten, steuerliche Auswirkungen für Grenzgänger.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-regole.imageAlt': 'Lugano-Panorama mit Saisonarbeitern im Vordergrund.',
 };
 
 export default blogMetaChDe;
