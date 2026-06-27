@@ -634,6 +634,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-assicurazione-auto-confronto.title': 'Assurance auto pour frontaliers : Suisse vs Italie, comparaison pratique',
     'blog.article.frontaliere-assicurazione-auto-confronto.excerpt': 'Analyse détaillée des différences entre les assurances automobiles suisses et italiennes pour les frontaliers : coûts, couvertures, gestion des sinistres, conseils utiles.',
     'blog.article.frontaliere-assicurazione-auto-confronto.imageAlt': 'Voitures avec plaques suisses et italiennes près du lac de Lugano.',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.title': 'Avantages et fonctionnalités du troisième pilier pour les frontaliers',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.excerpt': 'Découvrez comment le troisième pilier peut offrir des avantages fiscaux et garantir un avenir de retraite sûr aux frontaliers.',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.imageAlt': 'Vue d\'un bureau de retraite en Suisse avec des documents financiers sur une table.',
 };
 
 export default blogMetaChFr;

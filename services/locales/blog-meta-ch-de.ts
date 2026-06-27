@@ -634,6 +634,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-assicurazione-auto-confronto.title': 'Autoversicherung für Grenzgänger: Schweiz vs. Italien, Praxisvergleich',
     'blog.article.frontaliere-assicurazione-auto-confronto.excerpt': 'Detaillierte Analyse der Unterschiede zwischen schweizerischen und italienischen Autoversicherungen für Grenzgänger: Kosten, Deckung, Schadenmanagement, nützliche Tipps.',
     'blog.article.frontaliere-assicurazione-auto-confronto.imageAlt': 'Autos mit Schweizer und italienischen Nummernschildern auf einer Straße am Luganersee.',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.title': 'Vorteile und Funktionalität der dritten Säule für Grenzgänger',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.excerpt': 'Erfahren Sie, wie die dritte Säule Steuervorteile bietet und Grenzgängern eine sichere Rentenzukunft garantiert.',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.imageAlt': 'Ansicht eines Rentenbüros in der Schweiz mit Finanzunterlagen auf einem Tisch.',
 };
 
 export default blogMetaChDe;
