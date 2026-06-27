@@ -802,6 +802,7 @@
         "servizio-associato-ubs-ticino",
         "service-associate-ubs",
         "associe-de-services-ubs-ticino",
+        "client-associate-ubs",
         "klientenmitarbeiter-ubs-ticino"
       ],
       "previousSlugsByLocale": {
@@ -2613,7 +2614,7 @@
       "titleByLocale": {
         "en": "Client Associate",
         "it": "Cliente associato",
-        "de": "Kundenmitarbeiter",
+        "de": "Klientenmitarbeiter",
         "fr": "Client associé"
       },
       "description": "The Client Associate will act in an Executive Assistant (EA) capacity serving as the operational backbone of the team, ensuring seamless execution of administrative, client-facing, and marketing initiatives. This role requires a proactive and detail-oriented professional who embodies our core values – relentless optimization, growth, thoughtfulness, exceptional client experience, and entrepreneurial mindset – while supporting the team in delivering exceptional wealth management services.\n\nCoordinate and maintain the team’s master calendar, ensuring efficient time allocation for internal priorities and client meetings.\n• Anticipate scheduling conflicts and proactively resolve them.\n\nExpense & Budget Administration\n• Process and submit business expenses in accordance with compliance and corporate policies.\n• Track team budget allocations, identifying cost-saving opportunities without compromising quality.\n\nTravel Coordination\n• Plan, coordinate, and execute travel coordination for team members to meet with clients across the country.\nMarketing & Digital Presence\n• Maintain and update the team’s marketing materials to ensure accuracy and alignment with brand standards.\n• Oversee website and LinkedIn presence, posting timely updates and managing content calendars.\n\nEvents & Engagement\n• Plan, coordinate, and execute client appreciation events from concept to completion.\n• Manage our client gifting. Year-end holiday gifting, big life moments, and milestone birthdays.",
@@ -3030,9 +3031,9 @@
       "title": "Trade Surveillance Operations Analyst",
       "titleByLocale": {
         "en": "Trade Surveillance Operations Analyst",
-        "it": "Analista delle operazioni di sorveglianza commerciale",
-        "de": "Handelsüberwachungsoperationen",
-        "fr": "Analyste des opérations de surveillance commerciale"
+        "it": "Analista di Sorveglianza del Commercio",
+        "de": "Analyst für den Handel mit Wertpapieren",
+        "fr": "Analyste de surveillance du commerce"
       },
       "description": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
       "descriptionByLocale": {
@@ -3425,6 +3426,7 @@
       "previousSlugs": [
         "trade-surveillance-operations-analyst-ubs-2",
         "trade-surveillance-operations-analista-ubs-ticino",
+        "trade-surveillance-operations-analyst-ubs",
         "trade-surveillance-operations-analyst-ubs-3"
       ],
       "previousSlugsByLocale": {
@@ -3520,9 +3522,9 @@
       "slug": "trade-surveillance-operations-analyst-ubs-2",
       "slugByLocale": {
         "en": "trade-surveillance-operations-analyst-ubs",
-        "it": "trade-surveillance-operations-analyst-ubs-2",
-        "de": "trade-surveillance-operations-analyst-ubs-2",
-        "fr": "trade-surveillance-operations-analyst-ubs-2"
+        "it": "trade-surveillance-operations-analyst-ubs-3",
+        "de": "trade-surveillance-operations-analyst-ubs-3",
+        "fr": "trade-surveillance-operations-analyst-ubs-3"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3574,20 +3576,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "trade-surveillance-operations-analyst-ubs",
-          "trade-surveillance-operations-analyst-ubs-3"
-        ],
-        "de": [
-          "trade-surveillance-operations-analyst-ubs-3"
-        ],
-        "fr": [
-          "trade-surveillance-operations-analyst-ubs-3"
+          "trade-surveillance-operations-analyst-ubs"
         ]
       },
       "previousSlugs": [
         "trade-surveillance-operations-analyst-ubs",
-        "trade-surveillance-operations-analyst-ubs-3",
-        "trade-surveillance-operations-analista-ubs-ticino"
+        "trade-surveillance-operations-analista-ubs-ticino",
+        "trade-surveillance-operations-analyst-ubs-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3782,7 +3777,7 @@
       "slug": "servizio-associato-ubs-ticino",
       "slugByLocale": {
         "en": "service-associate-ubs",
-        "it": "servizio-associato-ubs-ticino",
+        "it": "cliente-associato-ubs-ticino",
         "de": "cliente-associato-ubs-ticino",
         "fr": "associe-de-services-ubs-ticino"
       },
@@ -3850,7 +3845,6 @@
       "previousSlugs": [
         "client-associe-ubs-ticino",
         "service-associate-ubs",
-        "cliente-associato-ubs-ticino",
         "client-associate-ubs",
         "cliente-associato-registrato-ubs-ticino",
         "registered-client-associate-ubs",
@@ -3860,15 +3854,16 @@
         "client-enregistre-associe-ubs-ticino-6c68dd",
         "associato-cliente-registrato-ubs-ticino-6c68dd",
         "cliente-associato-registrato-ubs-ticino-6c68dd",
-        "klientenmitarbeiter-ubs-ticino"
+        "klientenmitarbeiter-ubs-ticino",
+        "servizio-associato-ubs-ticino",
+        "associe-de-services-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "client-associe-ubs-ticino"
         ],
         "it": [
-          "service-associate-ubs",
-          "cliente-associato-ubs-ticino"
+          "service-associate-ubs"
         ]
       }
     },

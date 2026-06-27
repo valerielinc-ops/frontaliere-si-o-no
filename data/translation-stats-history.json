@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-27T13:49:29.016Z",
+    "label": "before",
+    "total": 17640,
+    "needsRetranslation": 4981,
+    "suppressed": 472,
+    "incomplete": 873,
+    "complete": 16767,
+    "missingByLocale": {
+      "it": 392,
+      "en": 274,
+      "de": 476,
+      "fr": 115
+    },
+    "topPending": [
+      {
+        "company": "BâleHotels",
+        "pending": 797
+      },
+      {
+        "company": "Manor AG",
+        "pending": 19
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-27T14:49:00.855Z",
+    "label": "after",
+    "total": 17640,
+    "needsRetranslation": 2463,
+    "suppressed": 472,
+    "incomplete": 873,
+    "complete": 16767,
+    "missingByLocale": {
+      "it": 392,
+      "en": 274,
+      "de": 476,
+      "fr": 115
+    },
+    "topPending": [
+      {
+        "company": "BâleHotels",
+        "pending": 797
+      },
+      {
+        "company": "Manor AG",
+        "pending": 19
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      }
+    ]
   }
 ]

@@ -1646,9 +1646,9 @@
     },
     {
       "id": "ikea-7a66eddf61cd",
-      "slug": "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
+      "slug": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
       "slugByLocale": {
-        "it": "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
+        "it": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "koch-kellnerin-ikea-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -1693,11 +1693,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
-        "collaborateur-trice-cuisine-ikea-40-ikea-ch"
+        "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
+        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
           "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
           "collaborateur-trice-cuisine-ikea-40-ikea-ch"
         ]
@@ -2291,6 +2292,9 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-teppich-und-dekorationsabteilung-20-40-ikea-ch",
         "mitarbeiter-in-verkauf-dekorationsabteilung-80-ikea-ch",
+        "vendita-per-dipendenti-dipartimento-tappeti-e-decorazioni-20-40-ikea-spreitenbach",
+        "employee-sales-carpet-and-decoration-department-20-40-ikea-spreitenbach",
+        "departement-des-ventes-des-employes-tapis-et-decoration-20-40-ikea-spreitenbach",
         "dipartimento-decorazioni-dipendenti-vendite-80-ikea-dietlikon"
       ],
       "previousSlugsByLocale": {
@@ -2319,7 +2323,7 @@
       "slugByLocale": {
         "it": "leader-dell-audit-interno-ikea-pratteln-bl-switzerland",
         "en": "internal-audit-leader-ikea-ch",
-        "de": "leiter-der-internen-revision-ikea-pratteln-bl-switzerland",
+        "de": "internal-audit-leader-ikea-ch",
         "fr": "chef-de-la-verification-interne-ikea-pratteln-bl-switzerland"
       },
       "company": "IKEA",
@@ -2362,13 +2366,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internal-audit-leader-ikea-ch"
+        "internal-audit-leader-ikea-ch",
+        "leiter-der-internen-revision-ikea-pratteln-bl-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "internal-audit-leader-ikea-ch"
         ],
         "de": [
+          "leiter-der-internen-revision-ikea-pratteln-bl-switzerland",
           "internal-audit-leader-ikea-ch"
         ],
         "fr": [
@@ -2473,7 +2479,7 @@
         "it": "soluzione-di-adempimento-unita-responsabile-100-ikea-itingen",
         "en": "unit-fulfilment-solution-responsible-100-ikea-ch",
         "de": "unit-fulfillment-losung-verantwortlich-100-ikea-itingen",
-        "fr": "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
+        "fr": "unit-fulfilment-solution-responsible-100-ikea-ch"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2515,7 +2521,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unit-fulfilment-solution-responsible-100-ikea-ch"
+        "unit-fulfilment-solution-responsible-100-ikea-ch",
+        "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2525,6 +2532,7 @@
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ],
         "fr": [
+          "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland",
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ]
       },
@@ -2618,12 +2626,12 @@
     },
     {
       "id": "ikea-60faeb1867e5",
-      "slug": "mitabeiter-in-merci-su-80-ikea-lyssach-bern-switzerland",
+      "slug": "mitabeiter-in-warenausgang-80-ikea-ch",
       "slugByLocale": {
         "de": "mitabeiter-in-warenausgang-80-ikea-ch",
-        "it": "mitabeiter-in-merci-su-80-ikea-lyssach-bern-switzerland",
-        "en": "mitabeiter-in-goodsout-80-ikea-lyssach-bern-switzerland",
-        "fr": "mitabeiter-dans-marchandises-hors-80-ikea-lyssach-bern-switzerland"
+        "it": "mitabeiter-in-warenausgang-80-ikea-ch",
+        "en": "mitabeiter-in-warenausgang-80-ikea-ch",
+        "fr": "mitabeiter-in-warenausgang-80-ikea-ch"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2678,21 +2686,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-27T10:55:51.684Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitabeiter-in-warenausgang-80-ikea-ch"
-        ],
-        "en": [
-          "mitabeiter-in-warenausgang-80-ikea-ch"
-        ],
-        "fr": [
-          "mitabeiter-in-warenausgang-80-ikea-ch"
-        ]
-      },
-      "previousSlugs": [
-        "mitabeiter-in-warenausgang-80-ikea-ch"
-      ]
+      "firstSeenAt": "2026-06-27T10:55:51.684Z"
     },
     {
       "id": "ikea-41626773a220",
@@ -2701,7 +2695,7 @@
         "de": "mitabeiter-in-picking-und-warenausgang-80-100-ikea-ch",
         "it": "mitabeiter-in-picking-e-warenausgang-80-100-ikea-dietlikon",
         "en": "mitabeiter-in-picking-und-warenausgang-80-100-ikea-ch",
-        "fr": "mitabeiter-dans-la-cueillette-et-la-sortie-des-marchandises-80-100-ikea-dietlikon-zurich-switzerland"
+        "fr": "mitabeiter-in-picking-und-warenausgang-80-100-ikea-ch"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2746,9 +2740,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitabeiter-in-picking-und-warenausgang-80-100-ikea-ch"
-        ],
-        "fr": [
           "mitabeiter-in-picking-und-warenausgang-80-100-ikea-ch"
         ]
       },
