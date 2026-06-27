@@ -595,6 +595,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naspi-ex-frontalieri-guida.title': 'Arbeitslosengeld für Grenzgänger in Italien',
     'blog.article.naspi-ex-frontalieri-guida.excerpt': 'Erfahren Sie, wie die NASpI für ehemalige italienische Grenzgänger funktioniert: Anforderungen, Berechnung und Antragsmodalitäten.',
     'blog.article.naspi-ex-frontalieri-guida.imageAlt': 'Blick auf die Grenze zwischen der Schweiz und Italien mit Bergen und einem See.',
+    'blog.article.pensione-frontalieri-errori-2026.title': 'Grenzgänger-Rente: Fehler 2026 vermeiden',
+    'blog.article.pensione-frontalieri-errori-2026.excerpt': 'Erfahren Sie, wie Sie im Jahr 2026 häufige Fehler bei der Verwaltung der Rente für Grenzgänger vermeiden können, mit Schwerpunkt auf AHV und NISF.',
+    'blog.article.pensione-frontalieri-errori-2026.imageAlt': 'Panoramablick auf eine Schweizer Stadt mit Bergen und einem See im Hintergrund.',
 };
 
 export default blogMetaChDe;

@@ -4250,6 +4250,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-famiglie-lavoro-lugano-piattaforma-asili': { name: 'Lavoro e famiglie', path: '/articoli-svizzera/famiglie-lavoro-lugano-piattaforma-asili/', parent: 'blog' },
     'blog-frontaliere-documenti-checklist-svizzera': { name: 'Documenti frontaliere', path: '/articoli-svizzera/frontaliere-documenti-checklist-svizzera/', parent: 'blog' },
     'blog-naspi-ex-frontalieri-guida': { name: 'NASpI Frontalieri', path: '/articoli-svizzera/naspi-ex-frontalieri-guida/', parent: 'blog' },
+    'blog-pensione-frontalieri-errori-2026': { name: 'Pensione Frontalieri 2026 Errori Comuni.', path: '/articoli-svizzera/pensione-frontalieri-errori-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
