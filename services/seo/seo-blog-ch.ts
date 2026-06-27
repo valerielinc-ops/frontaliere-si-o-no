@@ -8091,6 +8091,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-assicurazione-auto-confronto': {
+    title: 'Assicurazione auto per frontalieri: Svizzera vs Italia, confronto pratico',
+    description: 'Confronto dettagliato assicurazione auto svizzera e italiana per frontalieri: coperture, costi, sinistri, consigli pratici. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, auto, confronto, pratico',
+    ogTitle: 'Assicurazione auto per frontalieri: Svizzera vs Italia, confronto pratico',
+    ogDescription: 'Analisi differenze assicurazione auto Svizzera e Italia per frontalieri: coperture, costi, sinistri, consigli.',
+    canonicalPath: '/articoli-svizzera/frontaliere-assicurazione-auto-confronto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione auto per frontalieri: Svizzera vs Italia, confronto pratico",
+      "description": "Confronto dettagliato assicurazione auto svizzera e italiana per frontalieri: coperture, costi, sinistri, consigli pratici. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-assicurazione-auto-confronto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto con targhe svizzere e italiane su una strada vicino al Lago di Lugano."
+      },
+      "datePublished": "2026-06-27T20:48:38+00:00",
+      "dateModified": "2026-06-27T20:48:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-assicurazione-auto-confronto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

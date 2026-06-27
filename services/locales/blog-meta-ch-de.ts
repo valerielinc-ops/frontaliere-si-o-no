@@ -631,6 +631,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.congedo-parentale-frontalieri.title': 'Elternurlaub für Grenzgänger: Rechte in CH und IT',
     'blog.article.congedo-parentale-frontalieri.excerpt': 'Entdecken Sie die Mutterschafts- und Vaterschaftsrechte für Grenzgänger zwischen der Schweiz und Italien.',
     'blog.article.congedo-parentale-frontalieri.imageAlt': 'Panoramablick auf eine Stadt an der Schweizerisch-Italienischen Grenze.',
+    'blog.article.frontaliere-assicurazione-auto-confronto.title': 'Autoversicherung für Grenzgänger: Schweiz vs. Italien, Praxisvergleich',
+    'blog.article.frontaliere-assicurazione-auto-confronto.excerpt': 'Detaillierte Analyse der Unterschiede zwischen schweizerischen und italienischen Autoversicherungen für Grenzgänger: Kosten, Deckung, Schadenmanagement, nützliche Tipps.',
+    'blog.article.frontaliere-assicurazione-auto-confronto.imageAlt': 'Autos mit Schweizer und italienischen Nummernschildern auf einer Straße am Luganersee.',
 };
 
 export default blogMetaChDe;

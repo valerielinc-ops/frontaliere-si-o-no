@@ -631,6 +631,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.congedo-parentale-frontalieri.title': 'Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia',
     'blog.article.congedo-parentale-frontalieri.excerpt': 'Scopri i diritti di maternità e paternità per i frontalieri tra Svizzera e Italia.',
     'blog.article.congedo-parentale-frontalieri.imageAlt': 'Vista panoramica di una città al confine tra Svizzera e Italia.',
+    'blog.article.frontaliere-assicurazione-auto-confronto.title': 'Assicurazione auto per frontalieri: Svizzera vs Italia, confronto pratico',
+    'blog.article.frontaliere-assicurazione-auto-confronto.excerpt': 'Analisi dettagliata delle differenze tra assicurazioni auto svizzere e italiane per frontalieri: costi, coperture, gestione sinistri, consigli utili.',
+    'blog.article.frontaliere-assicurazione-auto-confronto.imageAlt': 'Auto con targhe svizzere e italiane su una strada vicino al Lago di Lugano.',
 };
 
 export default blogMetaChIt;
