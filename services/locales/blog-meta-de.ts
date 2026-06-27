@@ -8169,6 +8169,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cessione-cargotrailers-lonate-pozzolo.title': 'Cargotrailers: Das Unternehmen aus Lonate Pozzolo wird deutsch',
     'blog.article.cessione-cargotrailers-lonate-pozzolo.excerpt': 'Andrea Perotti, Partner von Cargotrailers, kommentiert den Verkauf des Unternehmens von Lonate Pozzolo an deutsche Spieler nach jahrelangen Herausforderungen mit der italienischen Bürokratie.',
     'blog.article.cessione-cargotrailers-lonate-pozzolo.imageAlt': 'Cargotrailers Hauptsitz in Lonate Pozzolo',
+    'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.title': 'Entfernungen, Zeiten und Mittel des Pendelns in Varese: die Umfragedaten',
+    'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.excerpt': 'Eine Umfrage zur täglichen Mobilität in der Provinz Varese zeigt, dass die tägliche Fortbewegung oft mehr als 20 Kilometer beträgt, mit durchschnittlichen Zeiten zwischen 15 und 30 Minuten und einer starken Zentralität des Autos.',
+    'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.imageAlt': 'Repräsentatives Bild der Umfrage zur täglichen Mobilität in Varese',
 };
 
 export default blogMetaDe;
