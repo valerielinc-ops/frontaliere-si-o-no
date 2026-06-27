@@ -1799,6 +1799,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-cambio-chf-eur-consigli',
+    category: 'pratico',
+    date: '2026-06-27T17:57:17.678Z',
+    image: '/images/blog/frontaliere-cambio-chf-eur-consigli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -223,6 +223,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'naspi-ex-frontalieri-guida': { it: 'naspi-ex-frontalieri-guida', en: 'naspi-unemployment-benefit-italy', de: 'arbeitslosengeld-grenzgaenger-italien', fr: 'allocation-chomage-frontaliers-italie' },
  'pensione-frontalieri-errori-2026': { it: 'pensione-frontalieri-errori-2026', en: 'cross-border-pension-errors-2026', de: 'grenzgaenger-rentenfehler-2026', fr: 'erreurs-pension-frontaliers-2026' },
  'frontalieri-cambio-euro-franco-strategie': { it: 'frontalieri-cambio-euro-franco-strategie', en: 'frontalier-currency-chf-eur-guide', de: 'grenzgaenger-chf-eur-wechsel-tipps', fr: 'frontalier-change-chf-eur-conseils' },
+ 'frontaliere-cambio-chf-eur-consigli': { it: 'frontaliere-cambio-chf-eur-consigli', en: 'cross-border-euro-franc-exchange', de: 'grenzgaenger-euro-franken-tausch', fr: 'frontaliers-change-euro-franc' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
