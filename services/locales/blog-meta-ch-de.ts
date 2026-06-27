@@ -604,6 +604,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-cambio-chf-eur-consigli.title': 'Strategien für einen vorteilhaften Wechselkurs CHF-EUR',
     'blog.article.frontaliere-cambio-chf-eur-consigli.excerpt': 'Erfahren Sie, wie Sie den Wechselkurs zwischen Schweizer Franken und Euro für Grenzgänger optimieren können.',
     'blog.article.frontaliere-cambio-chf-eur-consigli.imageAlt': 'Eine malerische Aussicht auf Lugano mit dem See und den Alpen im Hintergrund.',
+    'blog.article.dazio-forfettario-e-commerce.title': 'Pauschalzollsatz von 3 Euro',
+    'blog.article.dazio-forfettario-e-commerce.excerpt': 'Das ADM-Rundschreiben Nr. 17/2026 enthält die ersten operativen Hinweise zum neuen Zoll von 3 Euro für E-Commerce-Sendungen',
+    'blog.article.dazio-forfettario-e-commerce.imageAlt': 'Forfait-Tarif von 3 Euro auf E-Commerce-Verkäufen',
 };
 
 export default blogMetaChDe;

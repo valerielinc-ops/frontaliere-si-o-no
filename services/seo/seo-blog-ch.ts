@@ -7740,6 +7740,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dazio-forfettario-e-commerce': {
+    title: 'Dazio forfettario di 3 euro | Frontaliere Ticino',
+    description: 'La circolare ADM n. 17/2026 fornisce le prime indicazioni operative sul nuovo dazio di 3 euro per le spedizioni e-commerce. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazio, forfettario, euro, circolare',
+    ogTitle: 'Dazio forfettario di 3 euro sulle vendite e-commerce',
+    ogDescription: 'La circolare ADM n. 17/2026 fornisce le prime indicazioni operative sul nuovo dazio di 3 euro per le spedizioni e-commerce',
+    canonicalPath: '/articoli-svizzera/dazio-forfettario-e-commerce/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazio forfettario di 3 euro",
+      "description": "La circolare ADM n. 17/2026 fornisce le prime indicazioni operative sul nuovo dazio di 3 euro per le spedizioni e-commerce. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazio-forfettario-e-commerce.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dazio forfettario di 3 euro sulle vendite e-commerce"
+      },
+      "datePublished": "2026-06-27T18:10:46+00:00",
+      "dateModified": "2026-06-27T18:10:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazio-forfettario-e-commerce/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
