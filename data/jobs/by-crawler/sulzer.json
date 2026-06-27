@@ -22719,12 +22719,12 @@
     },
     {
       "id": "sulzer-2e55c6cb05ef",
-      "slug": "junior-sales-representative-sulzer-ch",
+      "slug": "rappresentante-delle-vendite-sulzer-winterthur",
       "slugByLocale": {
         "en": "junior-sales-representative-sulzer-ch",
-        "it": "junior-sales-representative-sulzer-ch",
+        "it": "rappresentante-delle-vendite-sulzer-winterthur",
         "de": "junior-sales-representative-sulzer-ch",
-        "fr": "junior-sales-representative-sulzer-ch"
+        "fr": "representant-des-ventes-juniors-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22779,7 +22779,18 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-26T23:06:37.900Z"
+      "firstSeenAt": "2026-06-26T23:06:37.900Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-sales-representative-sulzer-ch"
+        ],
+        "fr": [
+          "junior-sales-representative-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-sales-representative-sulzer-ch"
+      ]
     }
   ]
 }
