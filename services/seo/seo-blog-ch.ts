@@ -8286,6 +8286,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abbonamenti-sconti-frontalieri-trasporti': {
+    title: 'Abbonamenti e sconti trasporti pubblici per frontalieri Ticino-Lombardia',
+    description: 'Guida aggiornata agli abbonamenti e sconti per frontalieri sui trasporti pubblici tra Ticino e Lombardia: come funzionano e come ottenerli. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, sconti, trasporti, pubblici',
+    ogTitle: 'Sconti e abbonamenti trasporto pubblico frontalieri Ticino-Lombardia',
+    ogDescription: 'Scopri agevolazioni, abbonamenti e sconti per frontalieri su treno e bus tra Ticino e Lombardia.',
+    canonicalPath: '/articoli-svizzera/abbonamenti-sconti-frontalieri-trasporti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti e sconti trasporti pubblici per frontalieri Ticino-Lombardia",
+      "description": "Guida aggiornata agli abbonamenti e sconti per frontalieri sui trasporti pubblici tra Ticino e Lombardia: come funzionano e come ottenerli. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abbonamenti-sconti-frontalieri-trasporti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno svizzero in transito verso la Lombardia visto dal Ticino."
+      },
+      "datePublished": "2026-06-27T22:45:19+00:00",
+      "dateModified": "2026-06-27T22:45:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abbonamenti-sconti-frontalieri-trasporti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

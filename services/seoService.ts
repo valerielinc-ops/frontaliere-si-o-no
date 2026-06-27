@@ -4267,6 +4267,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-spese-sanitarie-rimborsabili': { name: 'Spese sanitarie rimborsabili', path: '/articoli-svizzera/frontaliere-spese-sanitarie-rimborsabili/', parent: 'blog' },
     'blog-frontaliere-tassazione-2026-regole-accordo': { name: 'Tassazione frontalieri 2026', path: '/articoli-svizzera/frontaliere-tassazione-2026-regole-accordo/', parent: 'blog' },
     'blog-frontaliere-lavoro-stagionale-ticino-regole': { name: 'Lavoro stagionale Ticino', path: '/articoli-svizzera/frontaliere-lavoro-stagionale-ticino-regole/', parent: 'blog' },
+    'blog-abbonamenti-sconti-frontalieri-trasporti': { name: 'Abbonamenti e sconti trasporto', path: '/articoli-svizzera/abbonamenti-sconti-frontalieri-trasporti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

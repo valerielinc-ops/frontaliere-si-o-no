@@ -238,6 +238,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-spese-sanitarie-rimborsabili': { it: 'frontaliere-spese-sanitarie-rimborsabili', en: 'cross-border-healthcare-expenses-italy', de: 'grenzgaenger-gesundheitskosten-italien', fr: 'frais-sanitaires-frontaliers-italie' },
  'frontaliere-tassazione-2026-regole-accordo': { it: 'frontaliere-tassazione-2026-regole-accordo', en: 'cross-border-taxation-2026-new-agreement', de: 'grenzgaenger-besteuerung-2026-neues-abkommen', fr: 'frontaliers-fiscalite-2026-nouvel-accord' },
  'frontaliere-lavoro-stagionale-ticino-regole': { it: 'frontaliere-lavoro-stagionale-ticino-regole', en: 'seasonal-cross-border-work-ticino', de: 'grenzgaenger-saisonarbeit-tessin', fr: 'frontalier-travail-saisonnier-tessin' },
+ 'abbonamenti-sconti-frontalieri-trasporti': { it: 'abbonamenti-sconti-frontalieri-trasporti', en: 'cross-border-commuters-transport-discounts', de: 'grenzgaenger-oev-abos-rabatte', fr: 'abonnements-reductions-frontaliers-transports' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -646,6 +646,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.title': 'Border seasonal work in Ticino: permits, rules and taxation',
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.excerpt': 'Practical guide to the rules for seasonal work in Ticino: permits, types of contract, tax impact for border workers.',
     'blog.article.frontaliere-lavoro-stagionale-ticino-regole.imageAlt': 'Lugano panorama with seasonal workers in the foreground.',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.title': 'Tickets and discounts for public transport for border crossers Ticino-Lombardy',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.excerpt': 'Updated guide to subscriptions and facilities for border crossers in public transport between Ticino and Lombardy: train, bus, offers and procedures.',
+    'blog.article.abbonamenti-sconti-frontalieri-trasporti.imageAlt': 'Swiss train heading to Lombardy seen from Ticino.',
 };
 
 export default blogMetaChEn;
