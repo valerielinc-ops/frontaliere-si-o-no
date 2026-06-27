@@ -4254,6 +4254,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-cambio-euro-franco-strategie': { name: 'Cambio CHF-EUR', path: '/articoli-svizzera/frontalieri-cambio-euro-franco-strategie/', parent: 'blog' },
     'blog-frontaliere-cambio-chf-eur-consigli': { name: 'Cambio CHF-EUR per frontalieri', path: '/articoli-svizzera/frontaliere-cambio-chf-eur-consigli/', parent: 'blog' },
     'blog-dazio-forfettario-e-commerce': { name: 'Dazio forfettario e-commerce', path: '/articoli-svizzera/dazio-forfettario-e-commerce/', parent: 'blog' },
+    'blog-frontaliere-cambio-euro-franco-conviene-guide': { name: 'Cambio CHF/EUR', path: '/articoli-svizzera/frontaliere-cambio-euro-franco-conviene-guide/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

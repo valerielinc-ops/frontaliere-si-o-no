@@ -607,6 +607,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazio-forfettario-e-commerce.title': 'Droit forfaitaire de 3 euros',
     'blog.article.dazio-forfettario-e-commerce.excerpt': 'La circulaire ADM n ° 17/2026 fournit les premières indications opérationnelles sur le nouveau droit de 3 euros pour les envois e-commerce',
     'blog.article.dazio-forfettario-e-commerce.imageAlt': 'Droit forfaitaire de 3 euros sur les ventes de commerce électronique',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.title': 'Frontalier : quand le change euro-franc suisse convient',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.excerpt': 'Stratégies pratiques pour maximiser le taux de change CHF-EUR, la gestion des salaires, les plates-formes et les comptes multi-devises.',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.imageAlt': 'Billets d\'euro et de franc suisse sur un comptoir bancaire à Lugano.',
 };
 
 export default blogMetaChFr;

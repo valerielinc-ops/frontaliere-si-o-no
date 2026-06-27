@@ -225,6 +225,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-cambio-euro-franco-strategie': { it: 'frontalieri-cambio-euro-franco-strategie', en: 'frontalier-currency-chf-eur-guide', de: 'grenzgaenger-chf-eur-wechsel-tipps', fr: 'frontalier-change-chf-eur-conseils' },
  'frontaliere-cambio-chf-eur-consigli': { it: 'frontaliere-cambio-chf-eur-consigli', en: 'cross-border-euro-franc-exchange', de: 'grenzgaenger-euro-franken-tausch', fr: 'frontaliers-change-euro-franc' },
  'dazio-forfettario-e-commerce': { it: 'dazio-forfettario-e-commerce', en: 'forfeited-tax-e-commerce', de: 'forfait-tarif-e-commerce', fr: 'droit-forfaitaire-commerce-electronique' },
+ 'frontaliere-cambio-euro-franco-conviene-guide': { it: 'frontaliere-cambio-euro-franco-conviene-guide', en: 'cross-border-eur-chf-exchange-guide', de: 'grenzgaenger-euro-franken-wechsel', fr: 'frontaliers-chf-eur-change-guide' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

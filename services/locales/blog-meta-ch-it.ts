@@ -607,6 +607,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazio-forfettario-e-commerce.title': 'Dazio forfettario di 3 euro',
     'blog.article.dazio-forfettario-e-commerce.excerpt': 'La circolare ADM n. 17/2026 fornisce le prime indicazioni operative sul nuovo dazio di 3 euro per le spedizioni e-commerce',
     'blog.article.dazio-forfettario-e-commerce.imageAlt': 'Dazio forfettario di 3 euro sulle vendite e-commerce',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.title': 'Frontaliere: quando conviene il cambio euro-franco svizzero',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.excerpt': 'Strategie pratiche per massimizzare il cambio CHF-EUR, gestione stipendio, piattaforme e conti multi-valuta.',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.imageAlt': 'Banconote euro e franco svizzero su un bancone bancario a Lugano.',
 };
 
 export default blogMetaChIt;

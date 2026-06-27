@@ -1817,6 +1817,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontaliere-cambio-euro-franco-conviene-guide',
+    category: 'pratico',
+    date: '2026-06-27T18:28:48.887Z',
+    image: '/images/blog/frontaliere-cambio-euro-franco-conviene-guide.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
