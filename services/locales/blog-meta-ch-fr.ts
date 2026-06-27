@@ -649,6 +649,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.title': 'Abbonamenti e sconti trasporti per frontalieri Ticino-Lombardia',
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.excerpt': 'Guide actualisé des abonnements et des facilités pour les frontaliers dans les transports publics entre le Tessin et la Lombardie : train, bus, offres et procédures.',
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.imageAlt': 'Train suisse en direction de la Lombardie vu depuis le Tessin.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.title': 'Guide du travail saisonnier pour les frontaliers au Tessin',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.excerpt': 'Découvrez les règles, les droits et les opportunités pour le travail saisonnier au Tessin.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.imageAlt': 'Vue panoramique du canton du Tessin avec montagnes et ciel clair.',
 };
 
 export default blogMetaChFr;

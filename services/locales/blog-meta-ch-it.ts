@@ -649,6 +649,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.title': 'Abbonamenti e sconti trasporti pubblici per frontalieri Ticino-Lombardia',
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.excerpt': 'Guida aggiornata agli abbonamenti e agevolazioni per frontalieri nel trasporto pubblico tra Ticino e Lombardia: treno, bus, offerte e procedure.',
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.imageAlt': 'Treno svizzero in transito verso la Lombardia visto dal Ticino.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.title': 'Guida al lavoro stagionale per frontalieri in Ticino',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.excerpt': 'Scopri regole, diritti e opportunità per il lavoro stagionale in Ticino.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.imageAlt': 'Panorama del Canton Ticino con montagne e cielo sereno.',
 };
 
 export default blogMetaChIt;
