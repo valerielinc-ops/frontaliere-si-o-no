@@ -720,9 +720,9 @@
       "slug": "client-associate-ubs",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs",
-        "de": "client-associate-ubs",
-        "fr": "client-associate-ubs"
+        "it": "cliente-associato-ubs-ticino",
+        "de": "cliente-associato-ubs-ticino",
+        "fr": "client-associe-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -730,23 +730,23 @@
       "title": "Client Associate",
       "titleByLocale": {
         "en": "Client Associate",
-        "it": "Client Associate",
+        "it": "Cliente associato",
         "de": "Client Associate",
-        "fr": "Client Associate"
+        "fr": "Client associé"
       },
       "description": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
       "descriptionByLocale": {
         "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
-        "it": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
-        "de": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
-        "fr": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities"
+        "it": "Sei davvero orientato al servizio? Sai come prendersi cura delle persone?\n\nStiamo cercando un cliente associato a:\n\n• Mantenere i sistemi di gestione aggiornati con le informazioni del cliente\n• Educare i clienti sui servizi e sulle capacità dell'account\n• Aiuto con la preparazione di rapporti e altri materiali per le riunioni dei clienti\n• Raccogliere la documentazione giusta per aprire nuovi account e richieste di assistenza\n• Pianificare gli eventi di marketing del team e mantenere i materiali di marketing\n• Fornire al team un calendario dettagliato delle attività",
+        "de": "Sind Sie wirklich serviceorientiert? Wissen Sie, wie man sich um Menschen kümmert?\n\nWir suchen einen Client Associate für:\n\n• Halten Sie Managementsysteme auf dem neuesten Stand mit Kundeninformationen\n• Informieren Sie Kunden über Kontodienste und -funktionen\n• Hilfe bei der Erstellung von Berichten und anderen Materialien für Kundentreffen\n• Sammeln Sie die richtige Dokumentation für die Eröffnung neuer Konten und Serviceanfragen\n• Planen Sie Team-Marketing-Events und pflegen Sie Marketingmaterialien\n• Geben Sie dem Team einen detaillierten Zeitplan der Aktivitäten",
+        "fr": "Êtes-vous vraiment orienté vers le service? Tu sais t'occuper des gens ?\n\nNous cherchons un client associé à:\n\n• Tenez les systèmes de gestion à jour avec l'information du client\n• Éduquer les clients sur les services et les capacités de compte\n• Aide à la préparation des rapports et autres documents destinés aux réunions des clients\n• Recueillir la documentation appropriée pour ouvrir de nouveaux comptes et demandes de services\n• Planifier des événements de marketing d'équipe et maintenir le matériel de marketing\n• Fournir à l'équipe un calendrier détaillé des activités"
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347420&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:47:27.058Z",
+      "crawledAt": "2026-06-26T23:01:42.436Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -772,7 +772,6 @@
         "categoryRaw": "Business management, administration and support",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -786,20 +785,6 @@
         }
       },
       "firstSeenAt": "2026-06-25T23:34:27.344Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "cliente-associato-ubs-ticino",
-          "client-associate-ubs-2"
-        ],
-        "fr": [
-          "client-associe-ubs-ticino",
-          "client-associe-ubs-ticino-1e445c",
-          "client-associate-ubs-2"
-        ],
-        "de": [
-          "client-associate-ubs-2"
-        ]
-      },
       "previousSlugs": [
         "client-associe-ubs-ticino-1e445c",
         "client-associate-ubs-2",
@@ -814,8 +799,22 @@
         "cliente-associato-registrato-ubs-ticino-6c68dd",
         "servizio-associato-ubs-ticino",
         "service-associate-ubs",
-        "associe-de-services-ubs-ticino"
-      ]
+        "associe-de-services-ubs-ticino",
+        "client-associate-ubs",
+        "klientenmitarbeiter-ubs-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "client-associe-ubs-ticino-1e445c",
+          "client-associate-ubs-2"
+        ],
+        "de": [
+          "client-associate-ubs-2"
+        ],
+        "it": [
+          "client-associate-ubs-2"
+        ]
+      }
     },
     {
       "id": "ubs-63a17249f7b2",
@@ -1567,23 +1566,23 @@
       "title": "Intern in GRESC Platforms Team",
       "titleByLocale": {
         "en": "Intern in GRESC Platforms Team",
-        "it": "Tirocinante in GRESC Platforms Team",
-        "de": "Praktikant in GRESC Platforms Team",
-        "fr": "Stagiaire in GRESC Platforms Team"
+        "it": "Stagista nel team GRESC Platforms",
+        "de": "Intern in GRESC-Plattformen Team",
+        "fr": "Stage dans l'équipe des plates-formes du GRESC"
       },
       "description": "Do you like analyzing contract documents and identify risks?\n• Are you organized with an eye for details?\n• Are you at your best when supporting others?\nWe are looking for someone like that at Group Real Estate Supply Chain Source to Contract Data Management Krakow team who will help us with:\n• review UBS sourcing requests and contract documents in accordance with global UBS policies and contracting standards\n• enter key contract risk metadata into internal contract management system\n• manage risk data for contract inventory\n• support UBS employees in technical and contractual aspects related to the sourcing requests, risk assessments and management process",
       "descriptionByLocale": {
         "en": "Do you like analyzing contract documents and identify risks?\n• Are you organized with an eye for details?\n• Are you at your best when supporting others?\nWe are looking for someone like that at Group Real Estate Supply Chain Source to Contract Data Management Krakow team who will help us with:\n• review UBS sourcing requests and contract documents in accordance with global UBS policies and contracting standards\n• enter key contract risk metadata into internal contract management system\n• manage risk data for contract inventory\n• support UBS employees in technical and contractual aspects related to the sourcing requests, risk assessments and management process",
-        "it": "Do you like analyzing contract documents and identify risks?\n• Are you organized with an eye for details?\n• Are you at your best when supporting others?\nWe are looking for someone like that at Group Real Estate Supply Chain Source to Contract Data Management Krakow team who will help us with:\n• review UBS sourcing requests and contract documents in accordance with global UBS policies and contracting standards\n• enter key contract risk metadata into internal contract management system\n• manage risk data for contract inventory\n• support UBS employees in technical and contractual aspects related to the sourcing requests, risk assessments and management process",
-        "de": "Do you like analyzing contract documents and identify risks?\n• Are you organized with an eye for details?\n• Are you at your best when supporting others?\nWe are looking for someone like that at Group Real Estate Supply Chain Source to Contract Data Management Krakow team who will help us with:\n• review UBS sourcing requests and contract documents in accordance with global UBS policies and contracting standards\n• enter key contract risk metadata into internal contract management system\n• manage risk data for contract inventory\n• support UBS employees in technical and contractual aspects related to the sourcing requests, risk assessments and management process",
-        "fr": "Do you like analyzing contract documents and identify risks?\n• Are you organized with an eye for details?\n• Are you at your best when supporting others?\nWe are looking for someone like that at Group Real Estate Supply Chain Source to Contract Data Management Krakow team who will help us with:\n• review UBS sourcing requests and contract documents in accordance with global UBS policies and contracting standards\n• enter key contract risk metadata into internal contract management system\n• manage risk data for contract inventory\n• support UBS employees in technical and contractual aspects related to the sourcing requests, risk assessments and management process"
+        "it": "Ti piace analizzare i documenti contrattuali e identificare i rischi? • Sei organizzato con un occhio per i dettagli? • Sei al meglio quando si supporta altri?\n\nStiamo cercando qualcuno del genere al Gruppo Real Estate Supply Chain Fonte al Contract Data Management Krakow team che ci aiuterà con: • rivedere le richieste di approvvigionamento UBS e documenti contrattuali in conformità con le politiche globali UBS e standard di contrattazione • inserire i principali metadati del rischio contrattuale nel sistema di gestione dei contratti interni • gestire i dati di rischio per l'inventario dei contratti • supportare i dipendenti UBS in aspetti tecnici e contrattuali relativi alle richieste di approvvigionamento, valutazioni dei rischi e processo di gestione",
+        "de": "Sie analysieren gern Vertragsdokumente und identifizieren Risiken? • Sind Sie mit einem Auge für Details organisiert? • Sind Sie bei der Unterstützung anderer am besten?\n\nWir suchen jemanden wie diese bei Group Real Estate Supply Chain Source to Contract Data Management Krakau Team, das uns dabei helfen wird: • UBS-Sourcing-Anfragen und Vertragsdokumente nach globalen UBS-Richtlinien und Vertragsstandards überprüfen • Schlüssel-Contract-Risiko-Metadaten in internes Contract Management-System eingeben • Risikodaten für Vertragsbestand verwalten • UBS-Mitarbeiter in technischen und vertraglichen Aspekten im Zusammenhang mit den Beschaffungsanfragen, Risikobewertungen und Managementprozessen unterstützen",
+        "fr": "Vous aimez analyser les documents contractuels et identifier les risques? • Vous êtes organisé avec un oeil pour les détails? • Vous êtes à votre meilleur quand vous soutenez les autres?\n\nNous recherchons une personne comme celle-ci au sein de l'équipe de gestion des données de Cracovie, Groupe de la chaîne d'approvisionnement immobilière, qui nous aidera à : • examiner les demandes d'approvisionnement et les documents contractuels d'UBS conformément aux politiques et aux normes contractuelles mondiales d'UBS • entrer les métadonnées clés des risques contractuels dans le système interne de gestion des contrats • gérer les données de risque pour l'inventaire des contrats • soutenir les employés d'UBS dans les aspects techniques et contractuels liés aux demandes d'approvisionnement, aux évaluations des risques et au processus de gestion"
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347586&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:47:27.044Z",
+      "crawledAt": "2026-06-26T23:01:42.421Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1617,7 +1616,6 @@
       "previousSlugs": [
         "intern-in-gresc-platforms-team-ubs"
       ],
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2594,7 +2592,7 @@
         "en": "client-associate-ubs",
         "it": "cliente-associato-ubs-ticino",
         "fr": "client-associe-ubs-ticino",
-        "de": "cliente-associato-ubs-ticino"
+        "de": "kundenmitarbeiter-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2602,23 +2600,23 @@
       "title": "Client Associate",
       "titleByLocale": {
         "en": "Client Associate",
-        "it": "Client Associate",
-        "de": "Client Associate",
-        "fr": "Client Associate"
+        "it": "Cliente associato",
+        "de": "Kundenmitarbeiter",
+        "fr": "Client associé"
       },
       "description": "The Client Associate will act in an Executive Assistant (EA) capacity serving as the operational backbone of the team, ensuring seamless execution of administrative, client-facing, and marketing initiatives. This role requires a proactive and detail-oriented professional who embodies our core values – relentless optimization, growth, thoughtfulness, exceptional client experience, and entrepreneurial mindset – while supporting the team in delivering exceptional wealth management services.\n\nCoordinate and maintain the team’s master calendar, ensuring efficient time allocation for internal priorities and client meetings.\n• Anticipate scheduling conflicts and proactively resolve them.\n\nExpense & Budget Administration\n• Process and submit business expenses in accordance with compliance and corporate policies.\n• Track team budget allocations, identifying cost-saving opportunities without compromising quality.\n\nTravel Coordination\n• Plan, coordinate, and execute travel coordination for team members to meet with clients across the country.\nMarketing & Digital Presence\n• Maintain and update the team’s marketing materials to ensure accuracy and alignment with brand standards.\n• Oversee website and LinkedIn presence, posting timely updates and managing content calendars.\n\nEvents & Engagement\n• Plan, coordinate, and execute client appreciation events from concept to completion.\n• Manage our client gifting. Year-end holiday gifting, big life moments, and milestone birthdays.",
       "descriptionByLocale": {
         "en": "The Client Associate will act in an Executive Assistant (EA) capacity serving as the operational backbone of the team, ensuring seamless execution of administrative, client-facing, and marketing initiatives. This role requires a proactive and detail-oriented professional who embodies our core values – relentless optimization, growth, thoughtfulness, exceptional client experience, and entrepreneurial mindset – while supporting the team in delivering exceptional wealth management services.\n\nCoordinate and maintain the team’s master calendar, ensuring efficient time allocation for internal priorities and client meetings.\n• Anticipate scheduling conflicts and proactively resolve them.\n\nExpense & Budget Administration\n• Process and submit business expenses in accordance with compliance and corporate policies.\n• Track team budget allocations, identifying cost-saving opportunities without compromising quality.\n\nTravel Coordination\n• Plan, coordinate, and execute travel coordination for team members to meet with clients across the country.\nMarketing & Digital Presence\n• Maintain and update the team’s marketing materials to ensure accuracy and alignment with brand standards.\n• Oversee website and LinkedIn presence, posting timely updates and managing content calendars.\n\nEvents & Engagement\n• Plan, coordinate, and execute client appreciation events from concept to completion.\n• Manage our client gifting. Year-end holiday gifting, big life moments, and milestone birthdays.",
-        "it": "The Client Associate will act in an Executive Assistant (EA) capacity serving as the operational backbone of the team, ensuring seamless execution of administrative, client-facing, and marketing initiatives. This role requires a proactive and detail-oriented professional who embodies our core values – relentless optimization, growth, thoughtfulness, exceptional client experience, and entrepreneurial mindset – while supporting the team in delivering exceptional wealth management services.\n\nCoordinate and maintain the team’s master calendar, ensuring efficient time allocation for internal priorities and client meetings.\n• Anticipate scheduling conflicts and proactively resolve them.\n\nExpense & Budget Administration\n• Process and submit business expenses in accordance with compliance and corporate policies.\n• Track team budget allocations, identifying cost-saving opportunities without compromising quality.\n\nTravel Coordination\n• Plan, coordinate, and execute travel coordination for team members to meet with clients across the country.\nMarketing & Digital Presence\n• Maintain and update the team’s marketing materials to ensure accuracy and alignment with brand standards.\n• Oversee website and LinkedIn presence, posting timely updates and managing content calendars.\n\nEvents & Engagement\n• Plan, coordinate, and execute client appreciation events from concept to completion.\n• Manage our client gifting. Year-end holiday gifting, big life moments, and milestone birthdays.",
-        "de": "The Client Associate will act in an Executive Assistant (EA) capacity serving as the operational backbone of the team, ensuring seamless execution of administrative, client-facing, and marketing initiatives. This role requires a proactive and detail-oriented professional who embodies our core values – relentless optimization, growth, thoughtfulness, exceptional client experience, and entrepreneurial mindset – while supporting the team in delivering exceptional wealth management services.\n\nCoordinate and maintain the team’s master calendar, ensuring efficient time allocation for internal priorities and client meetings.\n• Anticipate scheduling conflicts and proactively resolve them.\n\nExpense & Budget Administration\n• Process and submit business expenses in accordance with compliance and corporate policies.\n• Track team budget allocations, identifying cost-saving opportunities without compromising quality.\n\nTravel Coordination\n• Plan, coordinate, and execute travel coordination for team members to meet with clients across the country.\nMarketing & Digital Presence\n• Maintain and update the team’s marketing materials to ensure accuracy and alignment with brand standards.\n• Oversee website and LinkedIn presence, posting timely updates and managing content calendars.\n\nEvents & Engagement\n• Plan, coordinate, and execute client appreciation events from concept to completion.\n• Manage our client gifting. Year-end holiday gifting, big life moments, and milestone birthdays.",
-        "fr": "The Client Associate will act in an Executive Assistant (EA) capacity serving as the operational backbone of the team, ensuring seamless execution of administrative, client-facing, and marketing initiatives. This role requires a proactive and detail-oriented professional who embodies our core values – relentless optimization, growth, thoughtfulness, exceptional client experience, and entrepreneurial mindset – while supporting the team in delivering exceptional wealth management services.\n\nCoordinate and maintain the team’s master calendar, ensuring efficient time allocation for internal priorities and client meetings.\n• Anticipate scheduling conflicts and proactively resolve them.\n\nExpense & Budget Administration\n• Process and submit business expenses in accordance with compliance and corporate policies.\n• Track team budget allocations, identifying cost-saving opportunities without compromising quality.\n\nTravel Coordination\n• Plan, coordinate, and execute travel coordination for team members to meet with clients across the country.\nMarketing & Digital Presence\n• Maintain and update the team’s marketing materials to ensure accuracy and alignment with brand standards.\n• Oversee website and LinkedIn presence, posting timely updates and managing content calendars.\n\nEvents & Engagement\n• Plan, coordinate, and execute client appreciation events from concept to completion.\n• Manage our client gifting. Year-end holiday gifting, big life moments, and milestone birthdays."
+        "it": "Il Client Associate agirà in una capacità Executive Assistant (EA) che fungerà da spina dorsale operativa del team, garantendo un'esecuzione senza soluzione di continuità delle iniziative amministrative, di orientamento al cliente e di marketing. Questo ruolo richiede un professionista proattivo e orientato ai dettagli che incarna i nostri valori fondamentali. ottimizzazione, crescita, premura, esperienza clienti eccezionali, e mentalità imprenditoriale. mentre supporta il team nella fornitura di servizi di gestione della ricchezza eccezionali.\n\nCoordina e mantiene il calendario master del team, garantendo un'allocazione efficiente dei tempi per le priorità interne e le riunioni dei clienti. • Conflitti di programmazione anti-cipati e li risolve in modo proattivo. • Gestione expense & budget • Elaborazione e presentazione delle spese aziendali in conformità con le politiche aziendali. • Tracciare gli stanziamenti del team, individuare opportunità di risparmio di costi senza compromettere la qualità. • Coordinamento dei viaggi • Pianificare, coordinare ed eseguire il coordinamento dei viaggi per i membri del team per incontrare i clienti in tutto il paese.\n\nMarketing & Digital Presence • Mantenere e aggiornare i materiali di marketing del team per garantire l'accuratezza e l'allineamento con gli standard del marchio. • Sopravvivere il sito web e LinkedIn presenza, pubblicare aggiornamenti tempestivi e gestire i calendari dei contenuti. Eventi & Engagement • Pianificare, coordinare ed eseguire eventi di apprezzamento dei clienti dal concetto al completamento. • Gestire il nostro regalo dei clienti.",
+        "de": "Der Client Associate wird als operatives Rückgrat des Teams in einer Executive Assistant (EA)-Kapazität agieren und eine nahtlose Durchführung administrativer, kundenorientierter und Marketing-Initiativen gewährleisten. Diese Rolle erfordert einen proaktiven und detailorientierten Professional, der unsere Kernwerte verkörpert – unerbittliche Optimierung, Wachstum, Nachdenklichkeit, außergewöhnliche Kundenerfahrung und unternehmerische Denkweise – und das Team dabei unterstützt, außergewöhnliche Vermögensverwaltungsdienstleistungen zu erbringen.\n\nKoordination und Wartung des Teams, Masterkalender, die effiziente Zeitzuweisung für interne Prioritäten und Kundensitzungen. • Voraussichtliche Terminplanung und proaktive Lösung. Ausgaben & Budget Administration • Prozess und Vorlage von Geschäftskosten in Übereinstimmung mit Compliance und Unternehmenspolitik. • Verfolgen Sie Teambudgetzuweisungen, um Kosteneinsparungen zu ermitteln, ohne die Qualität zu beeinträchtigen. Reisekoordination • Planen, koordinieren und durchführen Sie Reisekoordination für Teammitglieder, um mit Kunden im ganzen Land zu treffen.\n\nMarketing & Digital Presence • Pflege und Aktualisierung des Teams, Marketing-Materialien, um Genauigkeit und Übereinstimmung mit Markenstandards zu gewährleisten. • Überwachen Sie die Website und LinkedIn-Präsenz, veröffentlichen Sie zeitnahe Updates und verwalten Sie die Inhalte Kalender. Events & Engagement • Planen, koordinieren und führen Sie Kundenbewertungsveranstaltungen von Konzept bis Abschluss. • Verwalten Sie unsere Kundenbegabung.",
+        "fr": "L'associé client agira en tant qu'adjoint exécutif (AE) servant de colonne vertébrale opérationnelle de l'équipe, assurant une exécution transparente des initiatives administratives, de marketing et de gestion du client. Ce rôle exige un professionnel proactif et axé sur les détails qui incarne nos valeurs fondamentales – optimisation sans relâche, croissance, réflexion, expérience client exceptionnelle et esprit d'entreprise – tout en aidant l'équipe à fournir des services exceptionnels de gestion de patrimoine.\n\nCoordonner et maintenir l'équipe, le calendrier directeur, en assurant une répartition efficace du temps pour les priorités internes et les réunions des clients. • Prévoir les conflits de programmation et les résoudre de façon proactive. Administration des dépenses et du budget • Traiter et soumettre les dépenses d'affaires conformément aux politiques de conformité et d'entreprise. • Suivre les allocations budgétaires de l'équipe, identifier les possibilités d'économie sans compromettre la qualité.\n\nMarketing & Présence numérique • Maintenez et mettez à jour l'équipe, les matériaux marketing pour assurer l'exactitude et l'alignement sur les normes de la marque. • Surveillez la présence du site Web et de LinkedIn, affichez des mises à jour en temps opportun et gérer les calendriers de contenu."
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347428&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:47:27.025Z",
+      "crawledAt": "2026-06-26T23:01:42.413Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2649,7 +2647,6 @@
           "client-associate-ubs"
         ],
         "de": [
-          "kundenmitarbeiter-ubs-ticino",
           "klientenmitarbeiter-ubs-ticino"
         ]
       },
@@ -2668,7 +2665,6 @@
         "service-associate-ubs",
         "associe-de-services-ubs-ticino"
       ],
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3020,23 +3016,23 @@
       "title": "Trade Surveillance Operations Analyst",
       "titleByLocale": {
         "en": "Trade Surveillance Operations Analyst",
-        "it": "Trade Surveillance Operations Analista",
-        "de": "Trade Surveillance Operations Analyst",
-        "fr": "Trade Surveillance Operations Analyste"
+        "it": "Analista delle operazioni di sorveglianza commerciale",
+        "de": "Handelsüberwachungsoperationen",
+        "fr": "Analyste des opérations de surveillance commerciale"
       },
       "description": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
       "descriptionByLocale": {
         "en": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "it": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "de": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "fr": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required."
+        "it": "Il tuo ruolo: Ti piacciono i mercati finanziari? Sei bravo a gestire e interpretare grandi set di dati? Sei analitico e divertente nell'investire le transazioni finanziarie, capire le strategie di trading e dare un senso all'attività di trading insolita? Sei in grado di pensare in modo indipendente ed esprimere le tue opinioni e idee con fiducia? Stiamo cercando un Analista di Sorveglianza del Commercio in un ruolo di contributore individuale con esperienza in quanto segue: • Performing automatico e manuale attività di vigilanza condotta di mercato in tutta la divisione Investment Bank e Wealth Management.\n\n• Analisi di casi di attività potenzialmente sospette segnalate dai nostri sistemi. • Coinvolgimento con gli stakeholder aziendali sul mercato, in particolare con le escalation legate alla condotta e altre questioni. • Guidare continui miglioramenti dei processi e contribuire a progetti strategici e iniziative di automazione/ottimizzazione. • Condurre una sorveglianza del commercio di barriere all'informazione per le imprese, i clienti e i dipendenti che si occupano di account personali (PAD) Controllare il flusso di informazioni materiali non pubbliche (MNPI) per rilevare potenziali violazioni della politica di barriera all'informazione dell'azienda, elenco ristretto e insider trading.\n\n• Questa descrizione del lavoro fornisce una revisione ad alto livello dei tipi di lavoro eseguiti. Altre mansioni connesse al lavoro possono essere assegnate, se necessario.",
+        "de": "Ihre Rolle: Sie mögen Finanzmärkte? Sie sind gut im Umgang mit großen Datensätzen? Sie analysieren und erforschen gerne Finanztransaktionen, verstehen Tradingstrategien und machen Sinn für die ungewöhnliche Handelsaktivität? Können Sie selbstständig denken und Ihre Meinungen und Ideen zuversichtlich ausdrücken? Wir suchen ein Trade Surveillance-Ansister in einer individuellen Rolle mit Erfahrung im Folgenden: • Die Durchführung automatisierter und manueller Marktüberwachungsaktivitäten in der Geschäftsbereich Investment Bank und Wealth Management.\n\n• Analyse von Fällen potenziell verdächtiger Aktivitäten, die von unseren Systemen gekennzeichnet sind. • Einbeziehung von Wirtschaftsakteuren in die Marktführungs- und andere Angelegenheiten. • Förderung kontinuierlicher Prozessverbesserungen und Beitrag zu strategischen Projekten und Automatisierungs-/Optimierungsinitiativen. • Durchführung von Überwachungsmaßnahmen im Bereich des Handels mit Informationsbarrieren für Firmen-, Kunden- und Personalkonten (PAD) Überwachung des Informationsflusses nichtöffentlicher Informationen (MNPI), um potenzielle Verstöße gegen die Informationsbarriererichtlinie, die eingeschränkte Liste und den Insiderhandel der Firma zu erkennen.\n\n• Diese Jobbeschreibung bietet eine hochrangige Überprüfung der Art der geleisteten Arbeit. Andere Aufgaben im Zusammenhang mit der Arbeit können bei Bedarf zugewiesen werden.",
+        "fr": "Votre rôle : Vous aimez les marchés financiers? Vous êtes doué pour gérer et interpréter de gros ensembles de données? Vous aimez analyser et étudier les transactions financières, comprendre les stratégies de trading et faire sens à l'activité commerciale inhabituelle? Vous êtes capable de penser de façon indépendante et d'exprimer vos opinions et idées avec confiance? Nous recherchons un analyste de surveillance commerciale dans un rôle de contributeur individuel avec l'expérience dans les domaines suivants : • Effectuer des activités de surveillance automatisées et manuelles de la conduite du marché dans l'ensemble de la division Investment Bank et Wealth Management.\n\n• Analyser les cas d'activités potentiellement suspectes signalées par nos systèmes. • Engager avec les acteurs du marché sur les escalades liées à la conduite du marché et d'autres questions. • Entamer des améliorations continues des processus et contribuer à des projets stratégiques et des initiatives d'automatisation/optimisation. • Mener une surveillance des obstacles au commerce de l'information pour les entreprises, les clients et les transactions de compte personnel des employés (PAD) Surveiller la circulation des informations non publiques matérielles (MNPI) afin de détecter les éventuelles violations de la politique de la société sur les obstacles à l'information, la liste restreinte et les transactions d'initiés.\n\n• Cette description de travail permet d'examiner de haut niveau les types de travail accompli. D'autres tâches liées à l'emploi peuvent être attribuées au besoin."
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347131&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:47:27.018Z",
+      "crawledAt": "2026-06-26T23:01:42.396Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3072,7 +3068,6 @@
         "trade-surveillance-operations-analyst-ubs-2",
         "trade-surveillance-operations-analista-ubs-ticino"
       ],
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3365,16 +3360,16 @@
       "description": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
       "descriptionByLocale": {
         "en": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "it": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "de": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "fr": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required."
+        "it": "Ti piacciono i mercati finanziari?\nSei bravo a gestire e interpretare grandi set di dati?\nSei analitico e godere di indagare le transazioni finanziarie, la comprensione delle strategie di trading e il senso dell'attività di trading insolita?\nSei in grado di pensare in modo indipendente ed esprimere le tue opinioni e idee con fiducia?\n\nStiamo cercando un analista di sorveglianza commerciale in un ruolo individuale contributore con esperienza nel seguente:\n\n• Eseguire attività di sorveglianza automatizzate e manuali del mercato in tutta la divisione Investment Bank e Wealth Management.\n• Analizzando casi di attività potenzialmente sospette segnalate dai nostri sistemi.\n• Impegnarsi con le parti interessate aziendali sulle escalation relative alla conduzione del mercato e altre questioni.\n• Guidare i continui miglioramenti dei processi e contribuire a progetti strategici e iniziative di automazione/ottimizzazione.\n\n• Monitorare il flusso di informazioni materiali non pubbliche (MNPI) per rilevare potenziali violazioni della Politica di Barriera dell'Informazione dell'azienda, elenco limitato e insider trading.\n\n• Questa descrizione del lavoro fornisce una recensione di alto livello dei tipi di lavoro eseguiti. Altri compiti connessi al lavoro possono essere assegnati come richiesto.",
+        "de": "Mögen Sie die Finanzmärkte?\nSind Sie gut im Umgang und Interpretieren großer Datensätze?\nSind Sie analytisch und untersuchen gerne Finanztransaktionen, verstehen Handelsstrategien und verstehen die ungewöhnlichen Handelsaktivitäten?\nSind Sie in der Lage, unabhängig zu denken und Ihre Meinungen und Ideen selbstbewusst auszudrücken?\n\nWir suchen einen Trade Surveillance Analyst in einer individuellen Mitwirkenden Rolle mit Erfahrung in den folgenden Bereichen:\n\n• Durchführen von automatisierten und manuellen Marktüberwachungsaktivitäten in der Investment Bank und Wealth Management Division.\n• Analyse von Fällen potenziell verdächtiger Aktivitäten, die von unseren Systemen gekennzeichnet werden.\n• Kontaktaufnahme mit Geschäftsbeteiligten zu marktverhaltensbezogenen Eskalationen und anderen Angelegenheiten.\n• Förderung kontinuierlicher Prozessverbesserungen und Beitrag zu strategischen Projekten und Automatisierungs-/Optimierungsinitiativen.\n\n• Durchführung von Überwachung des Handels mit Informationsbarrieren für Unternehmen, Kunden und Mitarbeiter (PAD) Überwachen Sie den Fluss wesentlicher nicht öffentlicher Informationen (MNPI), um mögliche Verstöße gegen die Richtlinie über Informationsbarrieren, die eingeschränkte Liste und den Insiderhandel des Unternehmens zu erkennen.\n\n• Diese Stellenbeschreibung bietet eine hochrangige Überprüfung der Art der geleisteten Arbeit. Andere aufgabenbezogene Aufgaben können bei Bedarf zugewiesen werden.",
+        "fr": "Vous aimez les marchés financiers ?\nÊtes-vous doué pour manipuler et interpréter de gros ensembles de données?\nÊtes-vous analytique et aimez-vous enquêter sur les transactions financières, comprendre les stratégies de négociation et donner un sens à l'activité commerciale inhabituelle?\nÊtes-vous capable de penser indépendamment et d'exprimer vos opinions et vos idées avec confiance?\n\nNous sommes à la recherche d'un analyste de la surveillance du commerce dans un rôle de contribution individuelle avec de l'expérience dans les domaines suivants:\n\n• Effectuer des activités de surveillance automatisées et manuelles du marché dans l'ensemble de la division Banque d'investissement et Gestion de patrimoine.\n• Analyser les cas d'activités potentiellement suspectes signalées par nos systèmes.\n• Collaborer avec les intervenants commerciaux sur les escalades liées à la conduite du marché et d'autres questions.\n• Favoriser l'amélioration continue des processus et contribuer aux projets stratégiques et aux initiatives d'automatisation/optimisation.\n\n• Effectuer une surveillance commerciale des obstacles à l'information pour les entreprises, les clients et les employés qui traitent des comptes personnels (DAP) Surveiller la circulation des renseignements non publics importants (IPPN) afin de détecter les infractions possibles à la Politique sur les obstacles à l'information, à la liste restreinte et au commerce d'initiés.\n\n• Cette description de travail fournit un examen de haut niveau des types de travail effectué. D'autres fonctions liées à l'emploi peuvent être attribuées au besoin."
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347134&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:47:27.012Z",
+      "crawledAt": "2026-06-26T23:01:42.391Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3400,7 +3395,6 @@
         "categoryRaw": "Compliance",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3417,6 +3411,7 @@
       "previousSlugs": [
         "trade-surveillance-operations-analyst-ubs-2",
         "trade-surveillance-operations-analista-ubs-ticino",
+        "trade-surveillance-operations-analyst-ubs",
         "trade-surveillance-operations-analyst-ubs-3"
       ],
       "previousSlugsByLocale": {
@@ -3512,9 +3507,9 @@
       "slug": "trade-surveillance-operations-analyst-ubs-2",
       "slugByLocale": {
         "en": "trade-surveillance-operations-analyst-ubs",
-        "it": "trade-surveillance-operations-analyst-ubs-2",
-        "de": "trade-surveillance-operations-analyst-ubs-2",
-        "fr": "trade-surveillance-operations-analyst-ubs-2"
+        "it": "trade-surveillance-operations-analyst-ubs-3",
+        "de": "trade-surveillance-operations-analyst-ubs-3",
+        "fr": "trade-surveillance-operations-analyst-ubs-3"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3522,23 +3517,23 @@
       "title": "Trade Surveillance Operations Analyst",
       "titleByLocale": {
         "en": "Trade Surveillance Operations Analyst",
-        "it": "Trade Surveillance Operations Analista",
-        "de": "Trade Surveillance Operations Analyst",
-        "fr": "Trade Surveillance Operations Analyste"
+        "it": "Analista delle Operazioni di Sorveglianza del Commercio",
+        "de": "Analyst für Handelsüberwachungsoperationen",
+        "fr": "Analyste des opérations de surveillance commerciale"
       },
       "description": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
       "descriptionByLocale": {
-        "en": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "it": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "de": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "fr": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required."
+        "en": "Ragionamento seguito\n\n1. Identificazione delle sezioni\n- Il testo inizia con una serie di domande introduttive e una frase che descrive il ruolo ricercato; queste sono state collocate nella sezione ## Descrizione.\n- Le attività operative elencate con i punti elenco sono state raggruppate nella sezione ## Mansioni.\n- Non sono presenti informazioni su requisiti, benefit o contatti specifici; l’unica informazione residua è la nota finale sul carattere descrittivo del documento, che è stata inserita nella sezione ## Contatto (l’unica sezione disponibile per contenuti aggiuntivi non classificabili altrove).\n\n2. Conversione dei punti elenco\n- I simboli “•” sono stati sostituiti con “-” per rispettare la sintassi markdown richiesta.\n- Ogni punto è stato mantenuto verbatim, senza alcuna riformulazione, anche quando conteneva più frasi (es. l’ultimo punto delle mansioni).\n\n3. Formattazione\n- Sono stati usati i titoli di livello 2 (`##`) per le sezioni.\n- Le domande introduttive sono state lasciate come righe separate (con due spazi alla fine per forzare l’interruzione di riga) per mantenere il contenuto originale intatto.\n- Non è stato aggiunto alcun testo, spiegazione o codice aggiuntivo al di fuori della struttura markdown.\n\n---\n\nDescrizione\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and make sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\nMansioni\n\n- Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n- Analyzing instances of potentially suspicious activities flagged by our systems.\n- Engaging with business stakeholders on the market conduct-related escalations and other matters.\n- Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n- Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\nContatto\n\nThis job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
+        "it": "Ragionamento seguito 1. Identificazione delle sezioni - Il testo inizia con una serie di domande introduttive e una frase che descrive il ruolo ricercato; queste sono state collocate nella sezione ## Descrizione. - Le attività operative elencate con i punti elenco sono state raggruppate nella sezione ## Mansioni. - Non sono presenti informazioni su requisiti, benefit o contatti specifici; l'unica informazione residua è la nota finale sul carattere descrittivo del documento, che è stata inserita nella sezione ## Contatto (l'unica sezione disponibile per contenuti aggiuntivi non classificabili altrove). 2. Conversione dei punti elenco - I simboli “•” sono stati sostituiti con “-” per rispettare la sintassi markdown richiesta. - Ogni punto è stato mantenuto testualmente, senza alcuna riformulazione, anche quando conteneva più frasi (es. l'ultimo punto delle mansioni). 3. Formattazione - Sono stati usati i titoli di livello 2 (`##`) per le sezioni. - Le domande introduttive sono state lasciate come righe separate (con due spazi alla fine per forzare l'interruzione di riga) per mantenere il contenuto originale intatto. - Non è stato aggiunto alcun testo, spiegazione o codice aggiuntivo al di fuori della struttura markdown. --- Descrizione Ti piacciono i mercati finanziari? Sei bravo a gestire e interpretare grandi set di dati? Sei analitico e ti piace indagare sulle transazioni finanziarie, comprendere le strategie di trading e dare un senso all'insolita attività di trading? Sei in grado di pensare in modo indipendente ed esprimere le tue opinioni e idee con sicurezza? Cerchiamo un analista di sorveglianza commerciale in un ruolo di collaboratore individuale con esperienza nei seguenti settori: Mansioni - Esecuzione di attività di sorveglianza della condotta di mercato automatizzate e manuali nella divisione Investment Bank e Wealth Management. - Analizzare i casi di attività potenzialmente sospette segnalate dai nostri sistemi. - Coinvolgere le parti interessate aziendali sulle escalation relative alla condotta del mercato e su altre questioni. - Promuovere miglioramenti continui dei processi e contribuire a progetti strategici e iniziative di automazione/ottimizzazione. - Condurre la sorveglianza sulle barriere commerciali delle informazioni per le transazioni sui conti personali di aziende, clienti e dipendenti (PAD). Monitorare il flusso di informazioni materiali non pubbliche (MNPI) per rilevare potenziali violazioni della politica sulle barriere informative dell'azienda, dell'elenco limitato e dell'insider trading. Contatto Questa descrizione del lavoro fornisce una revisione di alto livello delle tipologie di lavoro svolte. Altri compiti legati al lavoro possono essere assegnati secondo necessità.",
+        "de": "Abschnitt 1. Abschnittsidentifizierung – Der Test beginnt mit einer einleitenden Reihe von Themen und einem Rahmen, der den Grundstein für die Beschreibung legt; Dieser Status wird in der folgenden Staffel zusammengefasst: ## Beschreibung. - Die operative Aktivität wird durch die Punkte erhöht, die in der ## Mansioni-Sektion zusammengewürfelt werden. - Es liegen keine Informationen zu Ihren Anforderungen, Vorteilen oder spezifischen Kontakten vor; Die einzige verbleibende Information ist die letzte Notiz auf der Grundlage der Beschreibung des Dokuments, die in der ##-Contatto-Sektion eingefügt wurde (die einzige verfügbare Sektion für nicht klassifizierbare Zusatzinhalte). 2. Konvertieren Sie die Punkte des Elements – das Symbol „•“ wird mit „-“ angezeigt, um den gewünschten Preisnachlass zu erzielen. - Dies ist der Zustand, in dem er wörtlich verwaltet wird, ohne vorherige Neuformulierung, auch wenn der Inhalt höher ist (es ist der letzte Punkt der Villa). 3. Formatierung – Es werden jeweils 2 Titel („##“) für die einzelnen Abschnitte verwendet. - Der einleitende Inhalt wird sofort getrennt (mit gutem Gewissen, um die Unterbrechung in Riga zu verhindern), um den ursprünglichen Inhalt zu erhalten. - Dies ist nicht der Fall, da dies nicht der Fall ist. --- Beschreibung Mögen Sie Finanzmärkte? Sind Sie gut im Umgang und in der Interpretation großer Datenmengen? Sie sind analytisch und haben Spaß daran, Finanztransaktionen zu untersuchen, Handelsstrategien zu verstehen und ungewöhnliche Handelsaktivitäten zu verstehen? Können Sie selbstständig denken und Ihre Meinungen und Ideen selbstbewusst äußern? Wir suchen einen Handelsüberwachungsanalysten als Einzelmitarbeiter mit Erfahrung in den folgenden Bereichen: Mansioni – Durchführung automatisierter und manueller Marktverhaltensüberwachungsaktivitäten in der gesamten Investment Bank- und Wealth Management-Abteilung. - Analyse von Fällen potenziell verdächtiger Aktivitäten, die von unseren Systemen gemeldet werden. - Kontaktaufnahme mit Geschäftsinteressenten zu Eskalationen im Zusammenhang mit dem Marktverhalten und anderen Angelegenheiten. - Vorantreiben kontinuierlicher Prozessverbesserungen und Mitwirken an strategischen Projekten und Automatisierungs-/Optimierungsinitiativen. - Durchführung einer Überwachung des Handels mit Informationsbarrieren für den Privatkundenhandel (PAD) von Unternehmen, Kunden und Mitarbeitern. Überwachen Sie den Fluss wesentlicher nicht öffentlicher Informationen (MNPI), um potenzielle Verstöße gegen die Richtlinie zu Informationsbarrieren, Sperrlisten und Insiderhandel des Unternehmens zu erkennen. Contatto Diese Stellenbeschreibung bietet einen umfassenden Überblick über die Arten der ausgeführten Arbeiten. Bei Bedarf können weitere berufsbezogene Aufgaben übertragen werden.",
+        "fr": "Ragionamento suite 1. Identification de la section - Le test commence avec une série de domaines introductifs et une phrase qui décrit le ruolo ricercato ; cet état est colocalisé dans la section ## Description. - L'activité opérationnelle est élevée avec les points d'identité de l'État dans la section ## Mansioni. - Ne pas présenter d'informations sur les exigences, bénéficier de contacts spécifiques ; L'unique information résiduelle est la note finale sur le caractère descriptif du document, qui est insérée dans la section ## Contatto (l'unique section disponible pour le contenu ajouté non classifiable autre). 2. Conversion des points électroniques - Le symbole « • » est remplacé par « - » pour afficher la valeur de markdown sintassi. - Ogni punto è stato mantenuto verbatim, sans alcuna riformulazione, même quando conteneva più frasi (c'est-à-dire le dernier point des demeures). 3. Formatage - Nous utilisons les titres du niveau 2 (`##`) pour la section. - La demande d'introduction est un état lascié qui vient juste à part (avec un effort supplémentaire pour forcer l'interruption de riga) pour maintenir le contenu original en entier. - Il n'est pas ajouté à un test, à une publication ou à un code ajouté à l'extérieur de la structure markdown. --- Descrizione Vous aimez les marchés financiers ? Êtes-vous doué pour gérer et interpréter de grands ensembles de données ? Êtes-vous analytique et aimez-vous enquêter sur les transactions financières, comprendre les stratégies de trading et donner un sens aux activités de trading inhabituelles ? Êtes-vous capable de penser de manière indépendante et d’exprimer vos opinions et vos idées avec confiance ? Nous recherchons un analyste de surveillance commerciale dans un rôle de contributeur individuel avec une expérience dans les domaines suivants : Mansioni - Exécution d'activités automatisées et manuelles de surveillance des comportements sur le marché au sein de la division Banque d'investissement et gestion de patrimoine. - Analyser les cas d'activités potentiellement suspectes signalés par nos systèmes. - S'engager avec les parties prenantes de l'entreprise sur les escalades liées à la conduite du marché et sur d'autres questions. - Conduire des améliorations continues des processus et contribuer aux projets stratégiques et aux initiatives d'automatisation/optimisation. - Effectuer une surveillance commerciale des barrières d'information pour les transactions sur les comptes personnels de l'entreprise, des clients et des employés (PAD). Surveiller le flux d'informations importantes non publiques (MNPI) pour détecter les violations potentielles de la politique de barrière à l'information de l'entreprise, de la liste restreinte et des délits d'initiés. Contact Cette description de poste fournit un examen de haut niveau des types de travail effectués. D'autres tâches liées au poste peuvent être assignées selon les besoins."
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347132&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:47:27.011Z",
+      "crawledAt": "2026-06-26T23:01:42.390Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3566,22 +3561,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "trade-surveillance-operations-analyst-ubs",
-          "trade-surveillance-operations-analyst-ubs-3"
-        ],
-        "de": [
-          "trade-surveillance-operations-analyst-ubs-3"
-        ],
-        "fr": [
-          "trade-surveillance-operations-analyst-ubs-3"
+          "trade-surveillance-operations-analyst-ubs"
         ]
       },
       "previousSlugs": [
         "trade-surveillance-operations-analyst-ubs",
         "trade-surveillance-operations-analista-ubs-ticino",
-        "trade-surveillance-operations-analyst-ubs-3"
+        "trade-surveillance-operations-analyst-ubs-2"
       ],
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3762,12 +3749,12 @@
     },
     {
       "id": "ubs-30e670bcff0b",
-      "slug": "service-associate-ubs",
+      "slug": "servizio-associato-ubs-ticino",
       "slugByLocale": {
         "en": "service-associate-ubs",
-        "it": "service-associate-ubs",
-        "de": "service-associate-ubs",
-        "fr": "service-associate-ubs"
+        "it": "cliente-associato-ubs-ticino",
+        "de": "cliente-associato-ubs-ticino",
+        "fr": "associe-de-services-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3775,23 +3762,23 @@
       "title": "Service Associate",
       "titleByLocale": {
         "en": "Service Associate",
-        "it": "Service Associate",
+        "it": "Servizio associato",
         "de": "Service Associate",
-        "fr": "Service Associate"
+        "fr": "Associé de services"
       },
       "description": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
       "descriptionByLocale": {
         "en": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
-        "it": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
-        "de": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
-        "fr": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge"
+        "it": "Sei incredibilmente organizzato con un occhio per i dettagli? Sei un esperto multitasker?\n\nStiamo cercando un Service Associate a:\n\n• svolgere funzioni di cash management, elaborare titoli e corrispondenza, tenere record e svolgere attività di margine come membro del team Field Operations allineato al mercato\n• salutare e assistere clienti e visitatori del ramo, fornendo un servizio eccezionale\n• creare partnership forti, coltivare relazioni con consulenti finanziari assegnati e coordinare con la funzione operativa\n• mantenere la consapevolezza del rischio e le conoscenze normative",
+        "de": "Sind Sie unglaublich organisiert mit einem Auge für Details? Sind Sie ein erfahrener Multitasker?\n\nWir suchen einen Service Associate für:\n\n• Durchführung von Cash-Management-Funktionen, Verarbeitung von Wertpapieren und Korrespondenz, Führung von Aufzeichnungen und Durchführung von Margin-Aktivitäten als Mitglied des Field Operations-Teams, das auf den Markt ausgerichtet ist\n• Grüßen und unterstützen Sie Kunden und Besucher der Filiale und bieten außergewöhnlichen Service\n• Schaffung starker Partnerschaften, Pflege von Beziehungen zu zugewiesenen Finanzberatern und Koordinierung mit der operativen Funktion\n• Wahrung des Risikobewusstseins und des regulatorischen Wissens",
+        "fr": "Êtes-vous incroyablement organisé avec un œil pour le détail? Êtes-vous un multitâche qualifié ?\n\nNous sommes à la recherche d'un associé de service à:\n\n• Exécuter des fonctions de gestion de la trésorerie, traiter les titres et la correspondance, tenir des registres et exécuter des activités de marge en tant que membre de l'équipe des opérations hors Siège alignée sur le marché\n• accueillir et aider les clients et les visiteurs de la succursale, offrant un service exceptionnel\n• créer de solides partenariats, cultiver des relations avec les conseillers financiers désignés et coordonner avec la fonction opérationnelle\n• maintenir la sensibilisation aux risques et les connaissances réglementaires"
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347751&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:47:27.007Z",
+      "crawledAt": "2026-06-26T23:01:42.386Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3817,7 +3804,6 @@
         "categoryRaw": "Business management, administration and support, Management and Business Support, Operations",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3832,8 +3818,8 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.337Z",
       "previousSlugs": [
-        "servizio-associato-ubs-ticino",
         "client-associe-ubs-ticino",
+        "service-associate-ubs",
         "client-associate-ubs",
         "cliente-associato-registrato-ubs-ticino",
         "registered-client-associate-ubs",
@@ -3842,19 +3828,17 @@
         "registered-client-associate-ubs-3",
         "client-enregistre-associe-ubs-ticino-6c68dd",
         "associato-cliente-registrato-ubs-ticino-6c68dd",
-        "cliente-associato-registrato-ubs-ticino-6c68dd"
+        "cliente-associato-registrato-ubs-ticino-6c68dd",
+        "klientenmitarbeiter-ubs-ticino",
+        "servizio-associato-ubs-ticino",
+        "associe-de-services-ubs-ticino"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "cliente-associato-ubs-ticino"
-        ],
         "fr": [
-          "associe-de-services-ubs-ticino",
           "client-associe-ubs-ticino"
         ],
         "it": [
-          "service-associate-ubs",
-          "cliente-associato-ubs-ticino"
+          "service-associate-ubs"
         ]
       }
     },
