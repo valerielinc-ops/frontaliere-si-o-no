@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-06-26T21:32:59.008Z",
+  "generatedAt": "2026-06-27T10:09:27.948Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 3087,
-  "avgDurationMs": 3087,
+  "durationMs": 2492,
+  "avgDurationMs": 2492,
   "durationHistory": [
-    3087
+    2492
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,10 +32,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-26",
+      "postedDate": "2026-06-27",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-06-26",
+      "validThrough": "2026-06-27",
       "id": "board-international-b7509e355f12",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -410,13 +410,13 @@
       "contractType": "full-time",
       "validThrough": "2026-09-24",
       "id": "board-international-88f4e636005c",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
       "firstSeenAt": "2026-06-26T10:55:42.338Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
