@@ -1781,6 +1781,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pensione-frontalieri-errori-2026',
+    category: 'pensione',
+    date: '2026-06-27T16:26:16.294Z',
+    image: '/images/blog/pensione-frontalieri-errori-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -595,6 +595,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naspi-ex-frontalieri-guida.title': 'Indemnité de chômage pour frontaliers en Italie',
     'blog.article.naspi-ex-frontalieri-guida.excerpt': 'Découvrez comment fonctionne la NASpI pour les anciens frontaliers italiens : exigences, calcul et mode de demande.',
     'blog.article.naspi-ex-frontalieri-guida.imageAlt': 'Vue de la frontière entre la Suisse et l\'Italie avec des montagnes et un lac.',
+    'blog.article.pensione-frontalieri-errori-2026.title': 'Pension frontalière : erreurs communes à éviter en 2026',
+    'blog.article.pensione-frontalieri-errori-2026.excerpt': 'Découvrez comment éviter les erreurs courantes dans la gestion des retraites pour les frontaliers en 2026, en mettant l\'accent sur l\'AVS et l\'INPS.',
+    'blog.article.pensione-frontalieri-errori-2026.imageAlt': 'Vue panoramique d\'une ville suisse avec des montagnes et un lac en arrière-plan.',
 };
 
 export default blogMetaChFr;

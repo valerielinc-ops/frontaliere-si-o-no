@@ -595,6 +595,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naspi-ex-frontalieri-guida.title': 'Unemployment benefits for border workers in Italy',
     'blog.article.naspi-ex-frontalieri-guida.excerpt': 'Find out how the NASpI works for former Italian frontiersmen: requirements, calculation and how to apply.',
     'blog.article.naspi-ex-frontalieri-guida.imageAlt': 'View of the border between Switzerland and Italy with mountains and a lake.',
+    'blog.article.pensione-frontalieri-errori-2026.title': 'Border pensions: common mistakes to avoid in 2026',
+    'blog.article.pensione-frontalieri-errori-2026.excerpt': 'Learn how to avoid common mistakes in pension management for frontier workers in 2026, with a focus on AVS and INPS.',
+    'blog.article.pensione-frontalieri-errori-2026.imageAlt': 'Panoramic view of a Swiss town with mountains and a lake in the background.',
 };
 
 export default blogMetaChEn;

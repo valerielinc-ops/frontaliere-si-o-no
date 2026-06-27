@@ -7623,6 +7623,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensione-frontalieri-errori-2026': {
+    title: 'Pensione frontalieri: errori comuni da evitare nel 2026',
+    description: 'Scopri come evitare gli errori comuni nella gestione della pensione per i frontalieri tra Svizzera e Italia nel 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, errori, comuni, evitare',
+    ogTitle: 'Pensione frontalieri: errori da evitare 2026',
+    ogDescription: 'Guida agli errori più comuni nella gestione della pensione AVS e INPS per frontalieri nel 2026.',
+    canonicalPath: '/articoli-svizzera/pensione-frontalieri-errori-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione frontalieri: errori comuni da evitare nel 2026",
+      "description": "Scopri come evitare gli errori comuni nella gestione della pensione per i frontalieri tra Svizzera e Italia nel 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-frontalieri-errori-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di una città svizzera con montagne e lago sullo sfondo."
+      },
+      "datePublished": "2026-06-27T16:26:16+00:00",
+      "dateModified": "2026-06-27T16:26:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensione-frontalieri-errori-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

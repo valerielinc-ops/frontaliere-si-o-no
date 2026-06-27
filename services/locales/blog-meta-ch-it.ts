@@ -595,6 +595,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naspi-ex-frontalieri-guida.title': 'Indennità di disoccupazione per frontalieri in Italia',
     'blog.article.naspi-ex-frontalieri-guida.excerpt': 'Scopri come funziona la NASpI per gli ex-frontalieri italiani: requisiti, calcolo e modalità di richiesta.',
     'blog.article.naspi-ex-frontalieri-guida.imageAlt': 'Vista del confine tra Svizzera e Italia con montagne e lago.',
+    'blog.article.pensione-frontalieri-errori-2026.title': 'Pensione frontalieri: errori comuni da evitare nel 2026',
+    'blog.article.pensione-frontalieri-errori-2026.excerpt': 'Scopri come evitare errori comuni nella gestione della pensione per i frontalieri nel 2026, con focus su AVS e INPS.',
+    'blog.article.pensione-frontalieri-errori-2026.imageAlt': 'Vista panoramica di una città svizzera con montagne e lago sullo sfondo.',
 };
 
 export default blogMetaChIt;
