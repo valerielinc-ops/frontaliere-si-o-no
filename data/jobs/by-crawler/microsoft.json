@@ -67,10 +67,10 @@
     },
     {
       "id": "microsoft-200005606",
-      "slug": "applied-sciences-internship-microsoft-zurich",
+      "slug": "tirocinio-in-scienze-applicate-microsoft-zurich",
       "slugByLocale": {
         "en": "applied-sciences-internship-microsoft-zurich",
-        "it": "applied-sciences-internship-microsoft-zurich",
+        "it": "tirocinio-in-scienze-applicate-microsoft-zurich",
         "de": "applied-sciences-internship-microsoft-zurich",
         "fr": "applied-sciences-internship-microsoft-zurich"
       },
@@ -129,7 +129,15 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "firstSeenAt": "2026-06-27T11:45:37.003Z"
+      "firstSeenAt": "2026-06-27T11:45:37.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applied-sciences-internship-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "applied-sciences-internship-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200040836",
