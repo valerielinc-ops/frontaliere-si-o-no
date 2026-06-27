@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2992,
+ "numberOfItems": 2993,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7638,7 +7638,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2989, "name": "Frontaliere: spese sanitarie rimborsabili in It...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-spese-sanitarie-rimborsabili` },
           { "@type": "ListItem", "position": 2990, "name": "Frontaliere: tassazione 2026 dopo nuovo accordo...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-tassazione-2026-regole-accordo` },
           { "@type": "ListItem", "position": 2991, "name": "Frontaliere lavoro stagionale in Ticino: permes...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino-regole` },
-          { "@type": "ListItem", "position": 2992, "name": "Abbonamenti e sconti trasporti pubblici per fro...", "url": `${BASE_URL}/articoli-frontaliere/abbonamenti-sconti-frontalieri-trasporti` }
+          { "@type": "ListItem", "position": 2992, "name": "Abbonamenti e sconti trasporti pubblici per fro...", "url": `${BASE_URL}/articoli-frontaliere/abbonamenti-sconti-frontalieri-trasporti` },
+          { "@type": "ListItem", "position": 2993, "name": "Guida al lavoro stagionale per frontalieri in T...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino-info` }
  ]
  },
  {

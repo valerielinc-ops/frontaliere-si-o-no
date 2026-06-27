@@ -649,6 +649,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.title': 'Tickets and discounts for public transport for border crossers Ticino-Lombardy',
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.excerpt': 'Updated guide to subscriptions and facilities for border crossers in public transport between Ticino and Lombardy: train, bus, offers and procedures.',
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.imageAlt': 'Swiss train heading to Lombardy seen from Ticino.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.title': 'Guide to seasonal work for border workers in Ticino',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.excerpt': 'Discover rules, rights and opportunities for seasonal work in Ticino.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.imageAlt': 'Panoramic view of Canton Ticino with mountains and clear skies.',
 };
 
 export default blogMetaChEn;

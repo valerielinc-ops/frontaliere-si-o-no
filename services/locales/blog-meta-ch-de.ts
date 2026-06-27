@@ -649,6 +649,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.title': 'Ermäßigte ÖV-Abos für Tessin-Lombardei-Grenzgänger',
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.excerpt': 'Aktualisierter Leitfaden für Abos und Vergünstigungen für Grenzgänger im öffentlichen Verkehr zwischen Tessin und der Lombardei: Zug, Bus, Angebote und Verfahren.',
     'blog.article.abbonamenti-sconti-frontalieri-trasporti.imageAlt': 'Schweizer Zug auf dem Weg nach Lombardei, von Tessin aus gesehen.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.title': 'Leitfaden zur Saisonarbeit für Grenzgänger im Tessin',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.excerpt': 'Entdecken Sie Regeln, Rechte und Möglichkeiten für Saisonarbeit im Tessin.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino-info.imageAlt': 'Panoramablick auf den Kanton Tessin mit Bergen und klarem Himmel.',
 };
 
 export default blogMetaChDe;

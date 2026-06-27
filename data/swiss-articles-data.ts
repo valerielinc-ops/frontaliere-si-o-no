@@ -1943,6 +1943,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-lavoro-stagionale-ticino-info',
+    category: 'pratico',
+    date: '2026-06-27T23:03:20.365Z',
+    image: '/images/blog/frontaliere-lavoro-stagionale-ticino-info.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
