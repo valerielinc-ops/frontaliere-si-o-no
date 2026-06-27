@@ -1835,6 +1835,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'diritti-frontaliere-genitorialit',
+    category: 'pratico',
+    date: '2026-06-27T19:00:17.406Z',
+    image: '/images/blog/diritti-frontaliere-genitorialit.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

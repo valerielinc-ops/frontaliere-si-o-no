@@ -613,6 +613,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.title': 'Acquisto casa in Italia con mutuo da frontaliere: guida pratica',
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.excerpt': 'Comprare casa in Italia con stipendio svizzero: documenti, garanzie, banche specializzate e cosa serve sapere per il mutuo frontaliere.',
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.imageAlt': 'Vista di una cittadina di confine svizzera con case e una banca.',
+    'blog.article.diritti-frontaliere-genitorialit.title': 'Diritti di Maternità e Paternità per Frontalieri',
+    'blog.article.diritti-frontaliere-genitorialit.excerpt': 'Un confronto tra i congedi parentali per i frontalieri in Svizzera e in Italia.',
+    'blog.article.diritti-frontaliere-genitorialit.imageAlt': 'Genitori con bambini in un parco a Lugano, Svizzera, in una giornata di sole.',
 };
 
 export default blogMetaChIt;

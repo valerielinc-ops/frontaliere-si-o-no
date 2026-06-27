@@ -613,6 +613,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.title': 'Buying a house in Italy with a border mortgage: a practical guide',
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.excerpt': 'Buying a house in Italy with a Swiss salary: documents, guarantees, specialised banks and what you need to know for the border mortgage.',
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.imageAlt': 'View of a Swiss border town with houses and a bank.',
+    'blog.article.diritti-frontaliere-genitorialit.title': 'Maternity and Paternity Rights for Frontier Workers',
+    'blog.article.diritti-frontaliere-genitorialit.excerpt': 'A comparison of parental leave for border workers in Switzerland and Italy.',
+    'blog.article.diritti-frontaliere-genitorialit.imageAlt': 'Parents with children in a park in Lugano, Switzerland, on a sunny day.',
 };
 
 export default blogMetaChEn;

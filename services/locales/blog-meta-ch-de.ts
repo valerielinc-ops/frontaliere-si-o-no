@@ -613,6 +613,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.title': 'Hauskauf in Italien mit Grenzgängerdarlehen: praktischer Leitfaden',
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.excerpt': 'Haus in Italien mit Schweizer Gehalt kaufen: Dokumente, Garantien, spezialisierte Banken und was Sie für die Grenzgängerhypothek wissen müssen.',
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.imageAlt': 'Blick auf eine Schweizer Grenzstadt mit Häusern und einer Bank.',
+    'blog.article.diritti-frontaliere-genitorialit.title': 'Mutterschafts- und Vaterschaftsrechte für Grenzgänger',
+    'blog.article.diritti-frontaliere-genitorialit.excerpt': 'Ein Vergleich der Elternzeit für Grenzgänger in der Schweiz und in Italien.',
+    'blog.article.diritti-frontaliere-genitorialit.imageAlt': 'Eltern mit Kindern in einem Park in Lugano, Schweiz, an einem sonnigen Tag.',
 };
 
 export default blogMetaChDe;

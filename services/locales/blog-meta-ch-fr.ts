@@ -613,6 +613,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.title': 'Achat maison en Italie avec prêt frontalier : guide pratique',
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.excerpt': 'Acheter une maison en Italie avec un salaire suisse : documents, garanties, banques spécialisées et ce qu\'il faut savoir pour l\'hypothèque frontalière.',
     'blog.article.mutuo-acquisto-casa-frontaliere-italia.imageAlt': 'Vue d\'une ville frontalière suisse avec maisons et une banque.',
+    'blog.article.diritti-frontaliere-genitorialit.title': 'Droits de maternité et de paternité pour les frontaliers',
+    'blog.article.diritti-frontaliere-genitorialit.excerpt': 'Une comparaison entre les congés parentaux pour les frontaliers en Suisse et en Italie.',
+    'blog.article.diritti-frontaliere-genitorialit.imageAlt': 'Parents avec leurs enfants dans un parc à Lugano, Suisse, par une journée ensoleillée.',
 };
 
 export default blogMetaChFr;
