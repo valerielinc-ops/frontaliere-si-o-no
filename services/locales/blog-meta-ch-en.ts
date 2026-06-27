@@ -574,6 +574,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.innovazione-tecnologica-sfide-svizzera.title': 'Research and technology: Switzerland\'s new challenges',
     'blog.article.innovazione-tecnologica-sfide-svizzera.excerpt': 'From artificial intelligence to data centers: how Switzerland addresses the digital transition between innovation, sustainability and sovereignty.',
     'blog.article.innovazione-tecnologica-sfide-svizzera.imageAlt': 'Technological research laboratory in Switzerland',
+    'blog.article.tassazione-frontalieri-oltre-20km.title': 'Border taxation: distance clarifications',
+    'blog.article.tassazione-frontalieri-oltre-20km.excerpt': 'Analysis of tax legislation for frontier workers. Further information on residency and taxation criteria in force between Italy and Switzerland.',
+    'blog.article.tassazione-frontalieri-oltre-20km.imageAlt': 'Panoramic view of Lugano with modern offices',
 };
 
 export default blogMetaChEn;

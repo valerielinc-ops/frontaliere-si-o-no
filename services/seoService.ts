@@ -4243,6 +4243,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ai-ticinesi-quasi-6mila-franchi': { name: 'Fiscale', path: '/articoli-svizzera/ai-ticinesi-quasi-6mila-franchi/', parent: 'blog' },
     'blog-scambio-internazionale-croce-rossa-varese': { name: 'Croce Rossa Varese', path: '/articoli-frontaliere/scambio-internazionale-croce-rossa-varese', parent: 'blog' },
     'blog-innovazione-tecnologica-sfide-svizzera': { name: 'Innovazione svizzera', path: '/articoli-svizzera/innovazione-tecnologica-sfide-svizzera/', parent: 'blog' },
+    'blog-tassazione-frontalieri-oltre-20km': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/tassazione-frontalieri-oltre-20km/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

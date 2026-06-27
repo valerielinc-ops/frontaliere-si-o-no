@@ -574,6 +574,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.innovazione-tecnologica-sfide-svizzera.title': 'Forschung und Technologie: Die neuen Schweizer Herausforderungen',
     'blog.article.innovazione-tecnologica-sfide-svizzera.excerpt': 'Von künstlicher Intelligenz zu Rechenzentren: Wie die Schweiz den digitalen Übergang zwischen Innovation, Nachhaltigkeit und Souveränität meistert.',
     'blog.article.innovazione-tecnologica-sfide-svizzera.imageAlt': 'Technologisches Forschungslabor in der Schweiz',
+    'blog.article.tassazione-frontalieri-oltre-20km.title': 'Grenzgängerbesteuerung: Erläuterungen zur Distanz',
+    'blog.article.tassazione-frontalieri-oltre-20km.excerpt': 'Analyse der Steuergesetzgebung für Grenzgänger. Vertiefung des Wohnsitzes und der zwischen Italien und der Schweiz geltenden Steuerkriterien.',
+    'blog.article.tassazione-frontalieri-oltre-20km.imageAlt': 'Panoramablick auf Lugano mit modernen Büros',
 };
 
 export default blogMetaChDe;
