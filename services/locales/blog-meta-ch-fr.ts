@@ -640,6 +640,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.title': 'Frontalier : frais de santé remboursables en Italie et plafonds',
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.excerpt': 'Quelles dépenses de santé encourues en Suisse par les frontaliers sont remboursables en Italie, avec les procédures et les limites prévues.',
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.imageAlt': 'Documents de santé transfrontaliers suisse-italiens sur un bureau.',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.title': 'Frontalier : taxation 2026 après nouvel accord fiscal',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.excerpt': 'Depuis 2024, l’Accord frontalier introduit des règles distinctes entre anciens et nouveaux frontaliers, franchise et crédit d’impôt. Voici ce qui change avec les règles d\'exploitation à partir de 2026.',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.imageAlt': 'Vue sur Lugano avec frontaliers en transit et paysage suisse.',
 };
 
 export default blogMetaChFr;

@@ -640,6 +640,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.title': 'Frontier: reimbursable health expenses in Italy and limits',
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.excerpt': 'What health expenses incurred in Switzerland by border workers are reimbursable in Italy, with the procedures and limits provided for.',
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.imageAlt': 'Cross-border Swiss-Italian healthcare documents on a desk.',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.title': 'Frontier: 2026 taxation after new tax agreement',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.excerpt': 'From 2024, the Borderers Agreement introduces separate rules between old and new borderers, exemption and tax credit. This is what changes with the operating rules from 2026.',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.imageAlt': 'View of Lugano with cross-border commuters and Swiss landscape.',
 };
 
 export default blogMetaChEn;

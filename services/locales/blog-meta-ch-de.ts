@@ -640,6 +640,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.title': 'Grenzgänger: erstattungsfähige Gesundheitskosten in Italien und Grenzwerte',
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.excerpt': 'Welche Gesundheitskosten in der Schweiz von Grenzgängern getragen werden, ist in Italien mit den vorgesehenen Verfahren und Grenzen erstattungsfähig.',
     'blog.article.frontaliere-spese-sanitarie-rimborsabili.imageAlt': 'Grenzüberschreitende Schweizer-italienische Gesundheitsdokumente auf einem Schreibtisch.',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.title': 'Grenzgänger: Besteuerung 2026 nach neuem Steuerabkommen',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.excerpt': 'Seit 2024 führt das Grenzabkommen unterschiedliche Regeln zwischen alten und neuen Grenzgängern, Franchise und Steuergutschrift ein. Das ändert sich mit den Betriebsvorschriften ab 2026.',
+    'blog.article.frontaliere-tassazione-2026-regole-accordo.imageAlt': 'Blick auf Lugano mit Grenzgängern und Schweizer Landschaft.',
 };
 
 export default blogMetaChDe;

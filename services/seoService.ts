@@ -4265,6 +4265,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-assicurazione-auto-confronto': { name: 'Assicurazione auto frontalieri', path: '/articoli-svizzera/frontaliere-assicurazione-auto-confronto/', parent: 'blog' },
     'blog-frontaliere-terzo-pilastro-vantaggi': { name: 'Terzo Pilastro Frontalieri', path: '/articoli-svizzera/frontaliere-terzo-pilastro-vantaggi/', parent: 'blog' },
     'blog-frontaliere-spese-sanitarie-rimborsabili': { name: 'Spese sanitarie rimborsabili', path: '/articoli-svizzera/frontaliere-spese-sanitarie-rimborsabili/', parent: 'blog' },
+    'blog-frontaliere-tassazione-2026-regole-accordo': { name: 'Tassazione frontalieri 2026', path: '/articoli-svizzera/frontaliere-tassazione-2026-regole-accordo/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

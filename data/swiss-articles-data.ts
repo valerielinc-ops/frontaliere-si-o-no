@@ -1916,6 +1916,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-tassazione-2026-regole-accordo',
+    category: 'fiscale',
+    date: '2026-06-27T21:38:01.288Z',
+    image: '/images/blog/frontaliere-tassazione-2026-regole-accordo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
