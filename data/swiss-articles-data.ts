@@ -1682,6 +1682,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ristorni-fiscali-frontaliere',
+    category: 'fiscale',
+    date: '2026-06-27T02:35:19.033Z',
+    image: '/images/blog/ristorni-fiscali-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

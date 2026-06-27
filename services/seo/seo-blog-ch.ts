@@ -7194,6 +7194,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ristorni-fiscali-frontaliere': {
+    title: 'Ristorni fiscali frontaliere: come funzionano | Frontaliere Ticino',
+    description: 'Scopri il meccanismo completo dei ristorni fiscali per i frontalieri: chi li paga, quanto valgono e come si calcolano. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, fiscali, funzionano, scopri',
+    ogTitle: 'Ristorni fiscali per frontalieri: tutto quello che devi sapere',
+    ogDescription: 'Guida completa sui ristorni fiscali per frontalieri che lavorano in Svizzera e risiedono in Italia. Scopri come funzionano e come richiederli.',
+    canonicalPath: '/articoli-svizzera/ristorni-fiscali-frontaliere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni fiscali frontaliere: come funzionano",
+      "description": "Scopri il meccanismo completo dei ristorni fiscali per i frontalieri: chi li paga, quanto valgono e come si calcolano. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-fiscali-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul confine svizzero-italiano con tema fiscale"
+      },
+      "datePublished": "2026-06-27T02:35:19+00:00",
+      "dateModified": "2026-06-27T02:35:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ristorni-fiscali-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
