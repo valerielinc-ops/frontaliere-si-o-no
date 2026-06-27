@@ -215,6 +215,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ai-ticinesi-quasi-6mila-franchi': { it: 'ai-ticinesi-quasi-6mila-franchi', en: 'ticino-salary-gap-frontalieri', de: 'tizino-gehalt-lucke-frontalieri', fr: 'ticino-ecart-salaire-frontalieri' },
  'innovazione-tecnologica-sfide-svizzera': { it: 'innovazione-tecnologica-sfide-svizzera', en: 'technological-innovation-challenges-switzerland', de: 'technologische-innovation-herausforderungen-schweiz', fr: 'innovation-technologique-defis-suisse' },
  'tassazione-frontalieri-oltre-20km': { it: 'tassazione-frontalieri-oltre-20km', en: 'taxation-cross-border-workers-beyond-20km', de: 'besteuerung-grenzgaenger-ueber-20km', fr: 'imposition-frontaliers-au-dela-20km' },
+ 'morto-ex-presidente-bns-hans-meyer': { it: 'morto-ex-presidente-bns-hans-meyer', en: 'former-snb-president-hans-meyer-passes-away', de: 'ehemaliger-snb-praesident-hans-meyer-gestorben', fr: 'ancien-president-bns-hans-meyer-decede' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

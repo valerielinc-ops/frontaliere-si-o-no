@@ -577,6 +577,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassazione-frontalieri-oltre-20km.title': 'Tassazione frontalieri: chiarimenti sulla distanza',
     'blog.article.tassazione-frontalieri-oltre-20km.excerpt': 'Analisi sulla normativa fiscale per i lavoratori frontalieri. Approfondimento su residenza e criteri di tassazione vigenti tra Italia e Svizzera.',
     'blog.article.tassazione-frontalieri-oltre-20km.imageAlt': 'Vista panoramica di Lugano con uffici moderni',
+    'blog.article.morto-ex-presidente-bns-hans-meyer.title': 'Morto l\'ex presidente della BNS Hans Meyer',
+    'blog.article.morto-ex-presidente-bns-hans-meyer.excerpt': 'L\'ex presidente della Banca nazionale svizzera (BNS) Hans Meyer è deceduto all\'età di 90 anni.',
+    'blog.article.morto-ex-presidente-bns-hans-meyer.imageAlt': 'Foto dell\'ex presidente della BNS Hans Meyer',
 };
 
 export default blogMetaChIt;

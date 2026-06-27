@@ -1727,6 +1727,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'morto-ex-presidente-bns-hans-meyer',
+    category: 'novita',
+    date: '2026-06-27T10:34:14.508Z',
+    image: '/images/blog/morto-ex-presidente-bns-hans-meyer.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
