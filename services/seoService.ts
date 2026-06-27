@@ -4240,6 +4240,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cessione-cargotrailers-lonate-pozzolo': { name: 'Cessione Cargotrailers', path: '/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo', parent: 'blog' },
     'blog-volkswagen-crisi-tagli-lavoro': { name: 'Volkswagen crisi tagli', path: '/articoli-svizzera/volkswagen-crisi-tagli-lavoro/', parent: 'blog' },
     'blog-mobilita-quotidiana-varesino-dati-sondaggio': { name: 'Mobilità quotidiana', path: '/articoli-frontaliere/mobilita-quotidiana-varesino-dati-sondaggio', parent: 'blog' },
+    'blog-ai-ticinesi-quasi-6mila-franchi': { name: 'Fiscale', path: '/articoli-svizzera/ai-ticinesi-quasi-6mila-franchi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
