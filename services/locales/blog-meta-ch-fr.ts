@@ -565,6 +565,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ristorni-fiscali-frontaliere.title': 'Restaurants fiscaux frontaliers : comment ils fonctionnent',
     'blog.article.ristorni-fiscali-frontaliere.excerpt': 'Découvrez le mécanisme complet des ristournes fiscales pour les frontaliers : qui les paie, combien elles valent et comment elles sont calculées.',
     'blog.article.ristorni-fiscali-frontaliere.imageAlt': 'Vue sur la frontière italo-suisse avec un thème fiscal',
+    'blog.article.volkswagen-crisi-tagli-lavoro.title': 'Volkswagen, 100 000 licenciements et 4 usines à risque',
+    'blog.article.volkswagen-crisi-tagli-lavoro.excerpt': 'Le plan de restructuration de Volkswagen prévoit jusqu\'à 100 000 coupes d\'ici 2030. Analyse de la situation et des impacts du géant allemand.',
+    'blog.article.volkswagen-crisi-tagli-lavoro.imageAlt': 'Vue d\'un bureau moderne à Lugano avec la ligne d\'horizon de la ville en arrière-plan',
 };
 
 export default blogMetaChFr;

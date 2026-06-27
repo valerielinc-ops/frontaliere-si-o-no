@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2962,
+ "numberOfItems": 2963,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7608,7 +7608,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2959, "name": "Volkswagen annuncia 100mila tagli e chiusura di...", "url": `${BASE_URL}/articoli-frontaliere/volkswagen-tagli-lavoro-2024` },
           { "@type": "ListItem", "position": 2960, "name": "Aprire conto bancario svizzero da frontaliere", "url": `${BASE_URL}/articoli-frontaliere/conto-bancario-frontalieri` },
           { "@type": "ListItem", "position": 2961, "name": "Ristorni fiscali frontaliere: come funzionano", "url": `${BASE_URL}/articoli-frontaliere/ristorni-fiscali-frontaliere` },
-          { "@type": "ListItem", "position": 2962, "name": "Cargotrailers: l'azienda di Lonate Pozzolo dive...", "url": `${BASE_URL}/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo` }
+          { "@type": "ListItem", "position": 2962, "name": "Cargotrailers: l'azienda di Lonate Pozzolo dive...", "url": `${BASE_URL}/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo` },
+          { "@type": "ListItem", "position": 2963, "name": "Volkswagen, 100.000 esuberi e 4 fabbriche a ris...", "url": `${BASE_URL}/articoli-frontaliere/volkswagen-crisi-tagli-lavoro` }
  ]
  },
  {
