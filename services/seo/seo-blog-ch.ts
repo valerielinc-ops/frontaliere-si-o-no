@@ -8052,6 +8052,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congedo-parentale-frontalieri': {
+    title: 'Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia',
+    description: 'Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, congedo, parentale, diritti, scopri',
+    ogTitle: 'Diritti di Maternità e Paternità per Frontalieri',
+    ogDescription: 'Informazioni sui congedi parentali per frontalieri in Svizzera e Italia, con dettagli pratici e procedure.',
+    canonicalPath: '/articoli-svizzera/congedo-parentale-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia",
+      "description": "Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/congedo-parentale-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di una città al confine tra Svizzera e Italia."
+      },
+      "datePublished": "2026-06-27T20:24:22+00:00",
+      "dateModified": "2026-06-27T20:24:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/congedo-parentale-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

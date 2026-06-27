@@ -628,6 +628,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Mutuo in Svizzera per Frontalieri: Requisiti e Banche',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.excerpt': 'Praktischer Leitfaden zu den Anforderungen und Verfahren für die Beantragung eines Wohnungsbaudarlehens in der Schweiz als Grenzgänger. Konzentrieren Sie sich auf Banken und erforderliche Dokumentation.',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.imageAlt': 'Schweizer Bankschreibtisch mit Hypothekendokumenten und Seeblick.',
+    'blog.article.congedo-parentale-frontalieri.title': 'Elternurlaub für Grenzgänger: Rechte in CH und IT',
+    'blog.article.congedo-parentale-frontalieri.excerpt': 'Entdecken Sie die Mutterschafts- und Vaterschaftsrechte für Grenzgänger zwischen der Schweiz und Italien.',
+    'blog.article.congedo-parentale-frontalieri.imageAlt': 'Panoramablick auf eine Stadt an der Schweizerisch-Italienischen Grenze.',
 };
 
 export default blogMetaChDe;

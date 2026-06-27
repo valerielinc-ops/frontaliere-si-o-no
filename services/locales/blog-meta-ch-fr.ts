@@ -628,6 +628,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Mutuo in Svizzera per Frontalieri: Requisiti e banche',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.excerpt': 'Guide pratique des exigences et des procédures pour demander un prêt immobilier en Suisse en tant que frontalier. Focus sur les banques et la documentation requise.',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.imageAlt': 'Bureau bancaire suisse avec documents hypothécaires et vue sur le lac.',
+    'blog.article.congedo-parentale-frontalieri.title': 'Congé parental pour frontaliers : guide des droits en Suisse et en Italie',
+    'blog.article.congedo-parentale-frontalieri.excerpt': 'Découvrez les droits de maternité et de paternité pour les frontaliers entre la Suisse et l\'Italie.',
+    'blog.article.congedo-parentale-frontalieri.imageAlt': 'Vue panoramique d\'une ville à la frontière entre la Suisse et l\'Italie.',
 };
 
 export default blogMetaChFr;
