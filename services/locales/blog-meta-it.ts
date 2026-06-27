@@ -8171,6 +8171,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cessione-cargotrailers-lonate-pozzolo.title': 'Cargotrailers: l\'azienda di Lonate Pozzolo diventa tedesca',
     'blog.article.cessione-cargotrailers-lonate-pozzolo.excerpt': 'Andrea Perotti, socio di Cargotrailers, commenta la vendita dell\'azienda di Lonate Pozzolo a player tedeschi dopo anni di sfide con la burocrazia italiana.',
     'blog.article.cessione-cargotrailers-lonate-pozzolo.imageAlt': 'Sede Cargotrailers a Lonate Pozzolo',
+    'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.title': 'Distanze, tempi e mezzi del pendolarismo varesino: i dati del sondaggio',
+    'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.excerpt': 'Un sondaggio sulla mobilità quotidiana in provincia di Varese rivela che gli spostamenti quotidiani sono spesso sopra i 20 chilometri, con tempi medi tra 15 e 30 minuti, e una forte centralità dell\'automobile.',
+    'blog.article.mobilita-quotidiana-varesino-dati-sondaggio.imageAlt': 'Immagine rappresentativa del sondaggio sulla mobilità quotidiana a Varese',
 };
 
 export default blogMetaIt;
