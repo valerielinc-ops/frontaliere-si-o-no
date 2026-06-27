@@ -607,6 +607,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazio-forfettario-e-commerce.title': 'Pauschalzollsatz von 3 Euro',
     'blog.article.dazio-forfettario-e-commerce.excerpt': 'Das ADM-Rundschreiben Nr. 17/2026 enthält die ersten operativen Hinweise zum neuen Zoll von 3 Euro für E-Commerce-Sendungen',
     'blog.article.dazio-forfettario-e-commerce.imageAlt': 'Forfait-Tarif von 3 Euro auf E-Commerce-Verkäufen',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.title': 'Frontier: Wann lohnt sich der Wechselkurs zwischen Euro und Schweizer Franken?',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.excerpt': 'Praktische Strategien zur Maximierung des CHF-EUR-Wechselkurses, Gehaltsverwaltung, Plattformen und Multi-Währungs-Konten.',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.imageAlt': 'Euro- und Schweizer-Franken-Banknoten auf Bankschalter in Lugano.',
 };
 
 export default blogMetaChDe;

@@ -7779,6 +7779,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-cambio-euro-franco-conviene-guide': {
+    title: 'Frontaliere: quando conviene il cambio euro-franco svizzero',
+    description: 'Guida pratica al cambio CHF/EUR per frontalieri: come scegliere piattaforme, quando conviene cambiare, impatto sullo stipendio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, quando, conviene, cambio, euro-franco',
+    ogTitle: 'Frontaliere: strategie pratiche cambio euro-franco svizzero',
+    ogDescription: 'Guida completa per frontalieri sul cambio CHF/EUR: piattaforme, strategie, impatto sullo stipendio.',
+    canonicalPath: '/articoli-svizzera/frontaliere-cambio-euro-franco-conviene-guide/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere: quando conviene il cambio euro-franco svizzero",
+      "description": "Guida pratica al cambio CHF/EUR per frontalieri: come scegliere piattaforme, quando conviene cambiare, impatto sullo stipendio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-cambio-euro-franco-conviene-guide.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banconote euro e franco svizzero su un bancone bancario a Lugano."
+      },
+      "datePublished": "2026-06-27T18:28:48+00:00",
+      "dateModified": "2026-06-27T18:28:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-cambio-euro-franco-conviene-guide/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

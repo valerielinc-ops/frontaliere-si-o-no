@@ -607,6 +607,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazio-forfettario-e-commerce.title': 'Flat-rate duty of €3',
     'blog.article.dazio-forfettario-e-commerce.excerpt': 'The ADM circular no. 17/2026 provides the first operational indications on the new duty of 3 euros for e-commerce shipments',
     'blog.article.dazio-forfettario-e-commerce.imageAlt': 'Forfeited tax of 3 euros on e-commerce sales',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.title': 'Frontier: when the euro-Swiss franc exchange rate is appropriate',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.excerpt': 'Practical strategies to maximise CHF-EUR exchange, salary management, platforms and multi-currency accounts.',
+    'blog.article.frontaliere-cambio-euro-franco-conviene-guide.imageAlt': 'Euro and Swiss franc banknotes on a bank counter in Lugano.',
 };
 
 export default blogMetaChEn;
