@@ -138,15 +138,10 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "spa-produktmanager-msc-group-geneva",
-          "spa-product-manager-msc-geneva"
+          "spa-produktmanager-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-de-produits-spa-msc-group-geneva",
-          "spa-product-manager-msc-geneva"
-        ],
-        "it": [
-          "spa-product-manager-msc-geneva"
+          "gestionnaire-de-produits-spa-msc-group-geneva"
         ]
       }
     },
@@ -569,8 +564,7 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "experience-development-delivery-manager-new-builds-msc-geneva",
-          "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
+          "experience-development-delivery-manager-new-builds-msc-geneva"
         ],
         "it": [
           "experience-development-delivery-manager-new-builds-msc-geneva"
@@ -647,8 +641,7 @@
           "junior-architect-port-development-intern-msc-geneva"
         ],
         "de": [
-          "junior-architect-port-development-intern-msc-geneva",
-          "junior-architect-port-development-praktikant-msc-group-geneva"
+          "junior-architect-port-development-intern-msc-geneva"
         ],
         "fr": [
           "junior-architect-port-development-intern-msc-geneva"
@@ -808,10 +801,10 @@
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "gestione-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
+        "it": "gestione-delle-destinazioni-msc-group-geneva",
         "de": "travelling-destination-manager-msc-geneva",
         "fr": "travelling-destination-manager-msc-geneva"
       },
@@ -870,7 +863,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-27T11:26:28.237Z"
+      "firstSeenAt": "2026-06-27T11:26:28.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-destination-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-destination-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-57f045d85699",

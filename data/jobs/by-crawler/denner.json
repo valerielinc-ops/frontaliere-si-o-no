@@ -2147,12 +2147,12 @@
     },
     {
       "id": "denner-3f82bda20528",
-      "slug": "filialleiter-in-in-ausbildung-denner",
+      "slug": "responsabile-della-filiale-nella-formazione-denner-netstal",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner",
-        "en": "filialleiter-in-in-ausbildung-denner-netstal",
+        "it": "responsabile-della-filiale-nella-formazione-denner-netstal",
+        "en": "branch-manager-in-training-denner-netstal",
         "de": "filialleiter-in-in-ausbildung-denner-netstal",
-        "fr": "filialleiter-in-in-ausbildung-denner-netstal"
+        "fr": "directeur-de-branche-en-formation-denner-netstal"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2211,11 +2211,20 @@
       "crawledAt": "2026-06-27T10:25:16.349Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner-2"
+          "filialleiter-in-in-ausbildung-denner-2",
+          "filialleiter-in-in-ausbildung-denner"
+        ],
+        "en": [
+          "filialleiter-in-in-ausbildung-denner-netstal"
+        ],
+        "fr": [
+          "filialleiter-in-in-ausbildung-denner-netstal"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-in-ausbildung-denner-2"
+        "filialleiter-in-in-ausbildung-denner-2",
+        "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-netstal"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2332,7 +2341,7 @@
       "slugByLocale": {
         "it": "studente-denner-sa-la-chaux-de-fonds",
         "en": "student-student-denner-sa-la-chaux-de-fonds",
-        "de": "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
+        "de": "student-student-denner-la-chaux-de-fonds",
         "fr": "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
       },
       "company": "Denner",
@@ -2390,16 +2399,14 @@
       "crawledAt": "2026-06-27T10:25:12.716Z",
       "previousSlugs": [
         "etudiant-etudiante-denner",
-        "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
-        "student-student-denner-la-chaux-de-fonds"
+        "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
       ],
       "previousSlugsByLocale": {
         "it": [
           "etudiant-etudiante-denner"
         ],
         "de": [
-          "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
-          "student-student-denner-la-chaux-de-fonds"
+          "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
         ]
       },
       "firstSeenAt": "2026-06-26T21:47:48.860Z",
@@ -2516,12 +2523,12 @@
     },
     {
       "id": "denner-ddb64578118d",
-      "slug": "verkaufer-in-denner-urdorf",
+      "slug": "venditore-denner-urdorf",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-urdorf",
+        "it": "venditore-denner-urdorf",
         "de": "verkaufer-in-denner-ag-urdorf",
-        "en": "verkaufer-in-denner-urdorf",
-        "fr": "verkaufer-in-denner-urdorf"
+        "en": "seller-denner-urdorf",
+        "fr": "vendeur-denner-urdorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2580,11 +2587,19 @@
       "crawledAt": "2026-06-27T10:25:12.134Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-urdorf"
+        ],
+        "en": [
+          "verkaufer-in-denner-urdorf"
+        ],
+        "fr": [
+          "verkaufer-in-denner-urdorf"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-urdorf"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2800,12 +2815,12 @@
     },
     {
       "id": "denner-336b76915f20",
-      "slug": "verkaufer-in-denner-stans",
+      "slug": "venditore-denner-stans",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-stans",
+        "it": "venditore-denner-stans",
         "de": "verkaufer-in-denner-ag-stans",
-        "en": "verkaufer-in-denner-stans",
-        "fr": "verkaufer-in-denner-stans"
+        "en": "seller-denner-stans",
+        "fr": "vendeur-denner-stans"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2864,11 +2879,19 @@
       "crawledAt": "2026-06-27T10:25:09.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-stans"
+        ],
+        "en": [
+          "verkaufer-in-denner-stans"
+        ],
+        "fr": [
+          "verkaufer-in-denner-stans"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-stans"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -2887,12 +2910,12 @@
     },
     {
       "id": "denner-b74154b7d359",
-      "slug": "verkaufer-in-denner-luzern",
+      "slug": "venditore-denner-luzern",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-luzern",
+        "it": "venditore-denner-luzern",
         "de": "verkaufer-in-denner-ag-luzern",
-        "en": "verkaufer-in-denner-luzern",
-        "fr": "verkaufer-in-denner-luzern"
+        "en": "seller-denner-luzern",
+        "fr": "vendeur-denner-luzern"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2951,11 +2974,19 @@
       "crawledAt": "2026-06-27T10:25:09.018Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-luzern"
+        ],
+        "en": [
+          "verkaufer-in-denner-luzern"
+        ],
+        "fr": [
+          "verkaufer-in-denner-luzern"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-luzern"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,

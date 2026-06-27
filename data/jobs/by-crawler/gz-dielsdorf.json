@@ -648,9 +648,9 @@
       "slug": "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
         "it": "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "en": "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf",
+        "en": "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "de": "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf",
-        "fr": "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf"
+        "fr": "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -692,20 +692,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf",
-        "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf"
         ],
         "en": [
-          "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
           "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf"
         ],
         "fr": [
-          "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
           "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf"
         ]
       },
@@ -963,7 +959,7 @@
       "slug": "infermiere-a-diplomato-a-sss-specializzazione-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-sss-specializzazione-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
-        "en": "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
+        "en": "dipl-career-hf-focus-on-dementia-gesundheitszentrum-dielsdorf-dielsdorf",
         "de": "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
         "fr": "infirmier-ere-diplome-e-es-specialisation-demence-gesundheitszentrum-dielsdorf-dielsdorf"
       },
@@ -1007,15 +1003,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "dipl-career-hf-focus-on-dementia-gesundheitszentrum-dielsdorf-dielsdorf"
+        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
         ],
         "en": [
-          "dipl-career-hf-focus-on-dementia-gesundheitszentrum-dielsdorf-dielsdorf",
           "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
         ],
         "fr": [
@@ -1038,12 +1032,12 @@
     },
     {
       "id": "gz-dielsdorf-41e36283123f",
-      "slug": "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+      "slug": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
       "slugByLocale": {
         "de": "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
-        "it": "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-        "en": "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-        "fr": "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        "it": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "en": "spontaneous-application-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "fr": "demande-spontanee-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1088,11 +1082,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf"
+          "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ],
+        "en": [
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ],
+        "fr": [
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf"
+        "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+        "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
