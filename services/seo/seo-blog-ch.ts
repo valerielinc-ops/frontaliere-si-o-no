@@ -7389,6 +7389,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-morto-ex-presidente-bns-hans-meyer': {
+    title: 'Morto l\'ex presidente della BNS Hans Meyer | Frontaliere Ticino',
+    description: 'L\'ex presidente della Banca nazionale svizzera (BNS) Hans Meyer è deceduto all\'età di 90 anni. Ha guidato la BNS dal 1996 al 2000. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, morto, presidente, hans, meyer',
+    ogTitle: 'Morto l\'ex presidente della BNS Hans Meyer',
+    ogDescription: 'L\'ex presidente della Banca nazionale svizzera (BNS) Hans Meyer è deceduto all\'età di 90 anni.',
+    canonicalPath: '/articoli-svizzera/morto-ex-presidente-bns-hans-meyer/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Morto l'ex presidente della BNS Hans Meyer",
+      "description": "L'ex presidente della Banca nazionale svizzera (BNS) Hans Meyer è deceduto all'età di 90 anni. Ha guidato la BNS dal 1996 al 2000. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/morto-ex-presidente-bns-hans-meyer.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto dell'ex presidente della BNS Hans Meyer"
+      },
+      "datePublished": "2026-06-27T10:34:14+00:00",
+      "dateModified": "2026-06-27T10:34:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/morto-ex-presidente-bns-hans-meyer/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -577,6 +577,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassazione-frontalieri-oltre-20km.title': 'Border taxation: distance clarifications',
     'blog.article.tassazione-frontalieri-oltre-20km.excerpt': 'Analysis of tax legislation for frontier workers. Further information on residency and taxation criteria in force between Italy and Switzerland.',
     'blog.article.tassazione-frontalieri-oltre-20km.imageAlt': 'Panoramic view of Lugano with modern offices',
+    'blog.article.morto-ex-presidente-bns-hans-meyer.title': 'Former SNB president Hans Meyer has died',
+    'blog.article.morto-ex-presidente-bns-hans-meyer.excerpt': 'Former Swiss National Bank (SNB) President Hans Meyer has passed away at the age of 90.',
+    'blog.article.morto-ex-presidente-bns-hans-meyer.imageAlt': 'Picture of former SNB president Hans Meyer',
 };
 
 export default blogMetaChEn;
