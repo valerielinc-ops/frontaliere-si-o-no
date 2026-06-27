@@ -7857,6 +7857,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diritti-frontaliere-genitorialit': {
+    title: 'Diritti di Maternità e Paternità per Frontalieri',
+    description: 'Scopri i diritti di maternità e paternità per i frontalieri tra Svizzera e Italia, incluse le modalità di richiesta delle indennità. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritti, maternità, paternità, confronto',
+    ogTitle: 'Diritti di Maternità e Paternità per Frontalieri',
+    ogDescription: 'Confronto tra le normative di maternità e paternità per frontalieri in Svizzera e Italia.',
+    canonicalPath: '/articoli-svizzera/diritti-frontaliere-genitorialit/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritti di Maternità e Paternità per Frontalieri",
+      "description": "Scopri i diritti di maternità e paternità per i frontalieri tra Svizzera e Italia, incluse le modalità di richiesta delle indennità. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diritti-frontaliere-genitorialit.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Genitori con bambini in un parco a Lugano, Svizzera, in una giornata di sole."
+      },
+      "datePublished": "2026-06-27T19:00:17+00:00",
+      "dateModified": "2026-06-27T19:00:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diritti-frontaliere-genitorialit/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
