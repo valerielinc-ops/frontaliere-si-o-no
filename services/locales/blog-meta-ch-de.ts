@@ -559,6 +559,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.volkswagen-tagli-lavoro-2024.title': 'Volkswagen kündigt 100.000 Einschnitte und Schließungen von 4 Werken an',
     'blog.article.volkswagen-tagli-lavoro-2024.excerpt': 'Der Volkswagen Konzern plant den Abbau von 100.000 Arbeitsplätzen und die Schließung von vier Werken in Deutschland bis 2030.',
     'blog.article.volkswagen-tagli-lavoro-2024.imageAlt': 'Panoramablick auf Lugano mit Industrieelementen, die wirtschaftliche und Arbeitsmarktveränderungen symbolisieren',
+    'blog.article.conto-bancario-frontalieri.title': 'Schweizer Bankkonto als Grenzgänger eröffnen',
+    'blog.article.conto-bancario-frontalieri.excerpt': 'Praktischer Leitfaden für Grenzgänger: So eröffnen Sie ein Bankkonto in der Schweiz, Kosten, Anforderungen und Online-Dienste',
+    'blog.article.conto-bancario-frontalieri.imageAlt': 'Schweizer Bankfiliale in Lugano mit Grenzgängern wartend',
 };
 
 export default blogMetaChDe;
