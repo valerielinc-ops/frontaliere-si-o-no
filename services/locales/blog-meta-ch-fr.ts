@@ -583,6 +583,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-prelievo-frontaliere.title': 'Deuxième pilier LPP pour les frontaliers : prélèvement et taxation',
     'blog.article.secondo-pilastro-prelievo-frontaliere.excerpt': 'Quand et comment les frontaliers peuvent retirer le deuxième pilier LPP. Fiscalité en Suisse et en Italie, stratégies de sortie.',
     'blog.article.secondo-pilastro-prelievo-frontaliere.imageAlt': 'Frontalier consulte des documents LPP dans un bureau suisse.',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.title': 'Facteur licencié après 42 ans. Berne, à la fin, n\'intervient pas',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.excerpt': 'Un facteur vaudois a été licencié après 42 ans de service. Le Conseil fédéral n\'a pas voulu intervenir dans l\'affaire.',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.imageAlt': 'Un facteur suisse remet une lettre',
 };
 
 export default blogMetaChFr;

@@ -583,6 +583,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-prelievo-frontaliere.title': 'Secondo pilastro LPP per frontalieri: prelievo e tassazione',
     'blog.article.secondo-pilastro-prelievo-frontaliere.excerpt': 'Quando e come i frontalieri possono prelevare il secondo pilastro LPP. Tassazione in Svizzera e Italia, strategie di uscita.',
     'blog.article.secondo-pilastro-prelievo-frontaliere.imageAlt': 'Frontaliere consulta documenti del secondo pilastro LPP in un ufficio svizzero.',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.title': 'Postino licenziato dopo 42 anni. Berna, alla fine, non interviene',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.excerpt': 'Un postino vodese è stato licenziato dopo 42 anni di servizio. Il Consiglio federale non ha voluto intervenire nella vicenda.',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.imageAlt': 'Un postino svizzero consegna una lettera',
 };
 
 export default blogMetaChIt;
