@@ -586,6 +586,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.title': 'Postbote nach 42 Jahren entlassen. Bern greift am Ende nicht ein',
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.excerpt': 'Ein Waadtländer Postbote wurde nach 42 Dienstjahren entlassen. Der Bundesrat wollte sich nicht einmischen.',
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.imageAlt': 'Ein Schweizer Postbote liefert einen Brief aus',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.title': 'Familien und Arbeit in Lugano: Neue Motion zu Kindergärten und Dienstleistungen',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.excerpt': 'Eine parteiübergreifende Motion fordert regelmäßige Umfragen zu außerschulischen Dienstleistungen und eine einzigartige Plattform für die Einschreibung in Kindergärten in Lugano.',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.imageAlt': 'Blick auf ein Verwaltungsgebäude in Lugano mit Eltern und Kindern im Vordergrund.',
 };
 
 export default blogMetaChDe;
