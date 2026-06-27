@@ -562,6 +562,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.conto-bancario-frontalieri.title': 'Schweizer Bankkonto als Grenzgänger eröffnen',
     'blog.article.conto-bancario-frontalieri.excerpt': 'Praktischer Leitfaden für Grenzgänger: So eröffnen Sie ein Bankkonto in der Schweiz, Kosten, Anforderungen und Online-Dienste',
     'blog.article.conto-bancario-frontalieri.imageAlt': 'Schweizer Bankfiliale in Lugano mit Grenzgängern wartend',
+    'blog.article.ristorni-fiscali-frontaliere.title': 'Grenzüberschreitende Steuerrestaurants: wie sie funktionieren',
+    'blog.article.ristorni-fiscali-frontaliere.excerpt': 'Entdecken Sie den vollständigen Mechanismus der Steuererstattungen für Grenzgänger: Wer zahlt sie, wie viel sie wert sind und wie sie berechnet werden.',
+    'blog.article.ristorni-fiscali-frontaliere.imageAlt': 'Blick auf die schweizerisch-italienische Grenze mit Steuerthema',
 };
 
 export default blogMetaChDe;

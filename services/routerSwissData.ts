@@ -210,6 +210,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'carlo-iii-redditi-tasse-2026': { it: 'carlo-iii-redditi-tasse-2026', en: 'charles-iii-income-taxes-2026', de: 'charles-iii-einkommen-steuern-2026', fr: 'charles-iii-revenus-impots-2026' },
  'volkswagen-tagli-lavoro-2024': { it: 'volkswagen-tagli-lavoro-2024', en: 'volkswagen-job-cuts-2024', de: 'volkswagen-arbeitsplaetze-abbau-2024', fr: 'volkswagen-reductions-emplois-2024' },
  'conto-bancario-frontalieri': { it: 'conto-bancario-frontalieri', en: 'opening-swiss-bank-account-as-cross-border-worker', de: 'schweizer-bankkonto-als-grenzgaenger-eroeffnen', fr: 'ouvrir-compte-bancaire-suisse-en-tant-que-frontalier' },
+ 'ristorni-fiscali-frontaliere': { it: 'ristorni-fiscali-frontaliere', en: 'fiscal-reimbursements-for-frontier-workers-how-they-work', de: 'steuer-ruckerstattungen-fur-grenzpendler-wie-sie-funktionieren', fr: 'remboursements-fiscaux-pour-travailleurs-frontaliers-comment-ils-fonctionnent' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

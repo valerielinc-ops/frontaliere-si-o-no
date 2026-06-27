@@ -562,6 +562,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.conto-bancario-frontalieri.title': 'Aprire conto bancario svizzero da frontaliere',
     'blog.article.conto-bancario-frontalieri.excerpt': 'Guida pratica per frontalieri: come aprire un conto bancario in Svizzera, costi, requisiti e servizi online',
     'blog.article.conto-bancario-frontalieri.imageAlt': 'Filiale bancaria a Lugano con frontalieri in attesa',
+    'blog.article.ristorni-fiscali-frontaliere.title': 'Ristorni fiscali frontaliere: come funzionano',
+    'blog.article.ristorni-fiscali-frontaliere.excerpt': 'Scopri il meccanismo completo dei ristorni fiscali per i frontalieri: chi li paga, quanto valgono e come si calcolano.',
+    'blog.article.ristorni-fiscali-frontaliere.imageAlt': 'Vista sul confine svizzero-italiano con tema fiscale',
 };
 
 export default blogMetaChIt;

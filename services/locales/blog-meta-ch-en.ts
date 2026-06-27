@@ -562,6 +562,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.conto-bancario-frontalieri.title': 'Open Swiss bank account from frontier',
     'blog.article.conto-bancario-frontalieri.excerpt': 'Practical guide for border workers: how to open a bank account in Switzerland, costs, requirements and online services',
     'blog.article.conto-bancario-frontalieri.imageAlt': 'Swiss bank branch in Lugano with cross-border workers waiting',
+    'blog.article.ristorni-fiscali-frontaliere.title': 'Border tax refunds: how they work',
+    'blog.article.ristorni-fiscali-frontaliere.excerpt': 'Discover the complete mechanism of tax rebates for border workers: who pays them, how much they are worth and how they are calculated.',
+    'blog.article.ristorni-fiscali-frontaliere.imageAlt': 'View of the Swiss-Italian border with a tax theme',
 };
 
 export default blogMetaChEn;
