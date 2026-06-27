@@ -1,53 +1,18 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-06-26T21:23:23.971Z",
+  "generatedAt": "2026-06-27T09:56:50.468Z",
   "total": 56,
-  "newCount": 1,
-  "updatedCount": 11,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 44,
-  "durationMs": 62952,
-  "avgDurationMs": 62952,
+  "durationMs": 57199,
+  "avgDurationMs": 57199,
   "durationHistory": [
-    62952
+    57199
   ],
-  "newJobs": [
-    {
-      "id": "company-ldr0uv",
-      "slug": "production-shift-supervisore-80-100-abb-svizzera-sede-ticino-schaffhausen-ldr0uv",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Production Shift Supervisor (80–100%)",
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-19",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00006495EXTERNALENGLOBAL/Production-Shift-Supervisor--80-100--_JR00006495-1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Schaffhausen, Schaffhausen, Switzerland",
-        "canton": "SH"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-06-26T21:23:21.721Z",
-      "firstSeenAt": "2026-06-26T21:23:21.721Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "en",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 15,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-5aqya0",
@@ -129,6 +94,46 @@
         "richness": 18,
         "translation": 23,
         "completeness": 22
+      }
+    },
+    {
+      "id": "company-u1vjx6",
+      "slug": "global-head-of-quality-motion-traction-location-europe-abb-svizzera-sede-ticino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Global Head of Quality, Motion Traction (Location: Europe)",
+      "location": "Ticino",
+      "canton": "AG",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-27",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00026402EXTERNALENGLOBAL/Global-Head-of-Quality--Motion-Traction---Location--Europe",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Untersiggenthal, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-23T21:46:26.589Z",
+      "firstSeenAt": "2026-06-23T21:46:26.589Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -501,6 +506,46 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
+      "id": "company-ldr0uv",
+      "slug": "production-shift-supervisore-80-100-abb-svizzera-sede-ticino-schaffhausen-ldr0uv",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Production Shift Supervisor (80–100%)",
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00006495EXTERNALENGLOBAL/Production-Shift-Supervisor--80-100--_JR00006495-1",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Schaffhausen, Schaffhausen, Switzerland",
+        "canton": "SH"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-26T21:23:21.721Z",
+      "firstSeenAt": "2026-06-26T21:23:21.721Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8200",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "id": "company-9lusga",
       "slug": "senior-embedded-platform-ingegnere-80-100-abb-svizzera-sede-ticino-zurich-9lusga",
       "company": "ABB Svizzera (sede Ticino)",
@@ -784,48 +829,6 @@
         "richness": 20,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "company-u1vjx6",
-      "slug": "global-responsabile-quality-motion-traction-location-europe-abb-svizzera-sede-ticino-u1vjx6",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Global Head of Quality, Motion Traction (Location: Europe)",
-      "location": "Ticino",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-20",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00026402EXTERNALENGLOBAL/Global-Head-of-Quality--Motion-Traction---Location--Europe",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Untersiggenthal, Aargau, Switzerland",
-        "canton": "AG"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-06-23T21:46:26.589Z",
-      "firstSeenAt": "2026-06-23T21:46:26.589Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 178000,
-      "salaryMax": 313000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
       }
     },
     {
