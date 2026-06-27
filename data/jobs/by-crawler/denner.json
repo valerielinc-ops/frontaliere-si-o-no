@@ -7,9 +7,9 @@
       "slug": "venditore-denner-ag-frauenfeld",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld-008421",
+        "en": "seller-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld-008421"
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -74,9 +74,7 @@
         "seller-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-rubigen",
         "vendeur-a-salaire-horaire-denner-frauenfeld",
-        "vendeur-denner-ag-frauenfeld-008421",
-        "seller-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld"
+        "vendeur-denner-ag-frauenfeld-008421"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,8 +86,7 @@
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner",
           "salesperson-on-an-hourly-wage-denner-frauenfeld",
-          "seller-denner-ag-frauenfeld-008421",
-          "seller-denner-ag-frauenfeld"
+          "seller-denner-ag-frauenfeld-008421"
         ],
         "de": [
           "verkaufer-in-denner-frauenfeld",
@@ -99,8 +96,7 @@
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner",
           "vendeur-a-salaire-horaire-denner-frauenfeld",
-          "vendeur-denner-ag-frauenfeld-008421",
-          "vendeur-denner-ag-frauenfeld"
+          "vendeur-denner-ag-frauenfeld-008421"
         ]
       },
       "firstSeenAt": "2026-06-23T11:30:12.156Z",
@@ -2250,7 +2246,7 @@
         "it": "studente-denner-sa-la-chaux-de-fonds",
         "fr": "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
         "en": "student-student-denner-sa-la-chaux-de-fonds",
-        "de": "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
+        "de": "student-student-denner-la-chaux-de-fonds"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2309,16 +2305,13 @@
         "it": [
           "etudiant-etudiante-denner"
         ],
-        "en": [
-          "studente-denner-sa-la-chaux-de-fonds"
-        ],
         "de": [
-          "studente-denner-sa-la-chaux-de-fonds"
+          "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
         ]
       },
       "previousSlugs": [
         "etudiant-etudiante-denner",
-        "studente-denner-sa-la-chaux-de-fonds"
+        "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
       ],
       "salaryMin": 72000,
       "salaryMax": 110500,
@@ -2339,9 +2332,9 @@
       "id": "denner-a2f77db4a8cf",
       "slug": "vendeur-vendeuse-denner",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "vendeur-vendeuse-denner-sa-avenches",
+        "en": "seller-seller-denner-avenches",
+        "de": "verkaufer-verkaufer-denner-avenches",
         "fr": "vendeur-vendeuse-denner-avenches"
       },
       "company": "Denner",
@@ -2416,12 +2409,12 @@
     },
     {
       "id": "denner-df41fcefb219",
-      "slug": "stv-filialleiter-in-denner",
+      "slug": "stv-branch-manager-in-denner-luzern",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner",
+        "it": "stv-branch-manager-in-denner-luzern",
         "en": "stv-filialleiter-in-denner-luzern",
         "de": "stv-filialleiter-in-denner-luzern",
-        "fr": "stv-filialleiter-in-denner-luzern"
+        "fr": "directeur-de-succursale-stv-denner-luzern"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2480,11 +2473,17 @@
       "crawledAt": "2026-06-26T21:47:48.101Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner-2"
+          "stv-filialleiter-in-denner-2",
+          "stv-filialleiter-in-denner"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-luzern"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner-2"
+        "stv-filialleiter-in-denner-2",
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-luzern"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -2503,12 +2502,12 @@
     },
     {
       "id": "denner-dda0579ab205",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-luzern",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-2",
+        "it": "assistente-nella-gestione-delle-branche-denner-luzern",
+        "en": "assistant-in-branch-management-denner-luzern",
         "de": "assistent-in-filialleitung-denner-luzern",
-        "fr": "assistent-in-filialleitung-denner-2"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-luzern"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2567,11 +2566,19 @@
       "crawledAt": "2026-06-26T21:47:48.098Z",
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-filialleitung-denner-2",
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-2"
+        ],
+        "fr": [
           "assistent-in-filialleitung-denner-2"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-2"
+        "assistent-in-filialleitung-denner-2",
+        "assistent-in-filialleitung-denner"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,

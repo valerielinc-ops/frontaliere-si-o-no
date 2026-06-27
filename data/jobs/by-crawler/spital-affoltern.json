@@ -439,7 +439,7 @@
       "slug": "tirocinante-pre-stage-in-fisioterapia-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "it": "tirocinante-pre-stage-in-fisioterapia-spital-affoltern-ag-affoltern-am-albis",
-        "en": "praktikum-vorpraktikant-in-physiotherapie-spital-affoltern-affoltern-am-albis",
+        "en": "internship-pre-practical-in-physiotherapy-spital-affoltern-ag-affoltern-am-albis",
         "de": "praktikum-vorpraktikant-in-physiotherapie-spital-affoltern-affoltern-am-albis",
         "fr": "stage-pre-stage-en-physiotherapie-spital-affoltern-ag-affoltern-am-albis"
       },
@@ -483,15 +483,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-vorpraktikant-in-physiotherapie-spital-affoltern-affoltern-am-albis",
-        "internship-pre-practical-in-physiotherapy-spital-affoltern-ag-affoltern-am-albis"
+        "praktikum-vorpraktikant-in-physiotherapie-spital-affoltern-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-vorpraktikant-in-physiotherapie-spital-affoltern-affoltern-am-albis"
         ],
         "en": [
-          "internship-pre-practical-in-physiotherapy-spital-affoltern-ag-affoltern-am-albis",
           "praktikum-vorpraktikant-in-physiotherapie-spital-affoltern-affoltern-am-albis"
         ]
       },
@@ -645,12 +643,12 @@
     },
     {
       "id": "spital-affoltern-5ab24a9ab509",
-      "slug": "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am",
+      "slug": "personale-personale-amministrazione-paziente-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am",
-        "it": "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am",
-        "en": "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am",
-        "fr": "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am"
+        "it": "personale-personale-amministrazione-paziente-spital-affoltern-ag-affoltern-am-albis",
+        "en": "personnel-personnel-patient-administration-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "personnel-personnel-administration-des-patients-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -705,7 +703,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T22:59:31.790Z"
+      "firstSeenAt": "2026-06-26T22:59:31.790Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-patientenadministration-spital-affoltern-affoltern-am"
+      ]
     },
     {
       "id": "spital-affoltern-195694aa3834",
@@ -789,7 +801,7 @@
       "slug": "ergoterapista-ergoterapista-centro-di-psichiatria-e-psicoterapia-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "it": "ergoterapista-ergoterapista-centro-di-psichiatria-e-psicoterapia-spital-affoltern-ag-affoltern-am-albis",
-        "en": "ergotherapeutin-ergotherapeut-zentrum-fur-psychiatrie-und-psychotherapie-spital-affoltern",
+        "en": "occupational-therapist-occupational-therapist-center-for-psychiatry-and-psychotherapy-spital-affoltern-ag-affoltern-am",
         "de": "ergotherapeutin-ergotherapeut-zentrum-fur-psychiatrie-und-psychotherapie-spital-affoltern",
         "fr": "therapeute-en-ergotherapie-centre-de-psychiatrie-et-de-psychotherapie-spital-affoltern-ag-affoltern-am-albis"
       },
@@ -856,8 +868,7 @@
       },
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-zentrum-fur-psychiatrie-und-psychotherapie-spital-affoltern",
-        "ergotherapeutin-ergotherapeut-zentrum-per-psychiatrie-e-psychotherapie-spital-affoltern-ag-affoltern-am-albis",
-        "occupational-therapist-occupational-therapist-center-for-psychiatry-and-psychotherapy-spital-affoltern-ag-affoltern-am"
+        "ergotherapeutin-ergotherapeut-zentrum-per-psychiatrie-e-psychotherapie-spital-affoltern-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -865,7 +876,6 @@
           "ergotherapeutin-ergotherapeut-zentrum-per-psychiatrie-e-psychotherapie-spital-affoltern-ag-affoltern-am-albis"
         ],
         "en": [
-          "occupational-therapist-occupational-therapist-center-for-psychiatry-and-psychotherapy-spital-affoltern-ag-affoltern-am",
           "ergotherapeutin-ergotherapeut-zentrum-fur-psychiatrie-und-psychotherapie-spital-affoltern"
         ]
       },
@@ -1249,7 +1259,7 @@
       "slug": "fisioterapista-fisioterapista-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-spital-affoltern-ag-affoltern-am-albis",
-        "en": "physiotherapeutin-physiotherapeut-spital-affoltern-affoltern-am-albis",
+        "en": "physiotherapist-physiotherapist-spital-affoltern-ag-affoltern-am-albis",
         "de": "physiotherapeutin-physiotherapeut-spital-affoltern-affoltern-am-albis",
         "fr": "kinesitherapeute-spital-affoltern-ag-affoltern-am-albis"
       },
@@ -1293,15 +1303,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-spital-affoltern-affoltern-am-albis",
-        "physiotherapist-physiotherapist-spital-affoltern-ag-affoltern-am-albis"
+        "physiotherapeutin-physiotherapeut-spital-affoltern-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeutin-physiotherapeut-spital-affoltern-affoltern-am-albis"
         ],
         "en": [
-          "physiotherapist-physiotherapist-spital-affoltern-ag-affoltern-am-albis",
           "physiotherapeutin-physiotherapeut-spital-affoltern-affoltern-am-albis"
         ]
       },
@@ -1324,7 +1332,7 @@
       "slug": "ergoterapeuta-ergoterapeuta-geriatria-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "it": "ergoterapeuta-ergoterapeuta-geriatria-spital-affoltern-ag-affoltern-am-albis",
-        "en": "ergotherapeutin-ergotherapeut-altersmedizin-spital-affoltern-affoltern-am-albis",
+        "en": "occupational-therapist-occupational-therapist-age-medicine-spital-affoltern-ag-affoltern-am-albis",
         "de": "ergotherapeutin-ergotherapeut-altersmedizin-spital-affoltern-affoltern-am-albis",
         "fr": "ergotherapeute-ergotherapeute-en-geriatrie-spital-affoltern-ag-affoltern-am-albis"
       },
@@ -1368,15 +1376,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ergotherapeutin-ergotherapeut-altersmedizin-spital-affoltern-affoltern-am-albis",
-        "occupational-therapist-occupational-therapist-age-medicine-spital-affoltern-ag-affoltern-am-albis"
+        "ergotherapeutin-ergotherapeut-altersmedizin-spital-affoltern-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-altersmedizin-spital-affoltern-affoltern-am-albis"
         ],
         "en": [
-          "occupational-therapist-occupational-therapist-age-medicine-spital-affoltern-ag-affoltern-am-albis",
           "ergotherapeutin-ergotherapeut-altersmedizin-spital-affoltern-affoltern-am-albis"
         ]
       },
@@ -1399,7 +1405,7 @@
       "slug": "infermiere-qualificato-hf-fh-psichiatria-adulti-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "it": "infermiere-qualificato-hf-fh-psichiatria-adulti-spital-affoltern-ag-affoltern-am-albis",
-        "en": "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis",
+        "en": "dipl-care-professional-hf-fh-adult-psychiatry-spital-affoltern-ag-affoltern-am-albis",
         "de": "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis",
         "fr": "infirmier-ere-diplome-e-es-hes-en-psychiatrie-adulte-spital-affoltern-ag-affoltern-am-albis"
       },
@@ -1443,15 +1449,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis",
-        "dipl-care-professional-hf-fh-adult-psychiatry-spital-affoltern-ag-affoltern-am-albis"
+        "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis"
         ],
         "en": [
-          "dipl-care-professional-hf-fh-adult-psychiatry-spital-affoltern-ag-affoltern-am-albis",
           "dipl-pflegefachperson-hf-fh-erwachsenenpsychiatrie-spital-affoltern-affoltern-am-albis"
         ],
         "fr": [

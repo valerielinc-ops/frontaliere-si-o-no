@@ -6788,7 +6788,7 @@
         "it": "process-ingegnere-buhler-group-uzwil",
         "en": "process-engineer-buhler-group-uzwil",
         "de": "process-engineer-buehler-uzwil",
-        "fr": "process-engineer-buehler-uzwil"
+        "fr": "ingenieur-de-processus-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6830,15 +6830,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "process-engineer-buehler-uzwil",
-        "ingenieur-de-processus-buhler-group-uzwil"
+        "process-engineer-buehler-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "process-engineer-buehler-uzwil"
         ],
         "fr": [
-          "ingenieur-de-processus-buhler-group-uzwil",
           "process-engineer-buehler-uzwil"
         ]
       },
@@ -7020,7 +7018,7 @@
         "it": "automation-ingegnere-buhler-group-uzwil",
         "en": "automation-engineer-buhler-group-uzwil",
         "de": "automation-engineer-buehler-uzwil",
-        "fr": "automation-engineer-buehler-uzwil"
+        "fr": "ingenieur-d-automatisation-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7062,15 +7060,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automation-engineer-buehler-uzwil",
-        "ingenieur-d-automatisation-buhler-group-uzwil"
+        "automation-engineer-buehler-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automation-engineer-buehler-uzwil"
         ],
         "fr": [
-          "ingenieur-d-automatisation-buhler-group-uzwil",
           "automation-engineer-buehler-uzwil"
         ]
       },
@@ -11087,12 +11083,12 @@
     },
     {
       "id": "buehler-d239ee21d66f",
-      "slug": "softwareentwickler-m-w-d-maschinenbau-buhler-group-alzenau",
+      "slug": "sviluppatore-di-software-m-f-d-ingegneria-meccanica-buhler-group-alzenau",
       "slugByLocale": {
         "de": "softwareentwickler-m-w-d-maschinenbau-buehler-alzenau",
-        "it": "softwareentwickler-m-w-d-maschinenbau-buhler-group-alzenau",
-        "en": "softwareentwickler-m-w-d-maschinenbau-buhler-group-alzenau",
-        "fr": "softwareentwickler-m-w-d-maschinenbau-buhler-group-alzenau"
+        "it": "sviluppatore-di-software-m-f-d-ingegneria-meccanica-buhler-group-alzenau",
+        "en": "software-developer-m-f-d-mechanical-engineering-buhler-group-alzenau",
+        "fr": "developpeur-de-logiciels-m-f-d-genie-mecanique-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11137,11 +11133,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "softwareentwickler-m-w-d-maschinenbau-buehler-alzenau"
+          "softwareentwickler-m-w-d-maschinenbau-buehler-alzenau",
+          "softwareentwickler-m-w-d-maschinenbau-buhler-group-alzenau"
+        ],
+        "en": [
+          "softwareentwickler-m-w-d-maschinenbau-buhler-group-alzenau"
+        ],
+        "fr": [
+          "softwareentwickler-m-w-d-maschinenbau-buhler-group-alzenau"
         ]
       },
       "previousSlugs": [
-        "softwareentwickler-m-w-d-maschinenbau-buehler-alzenau"
+        "softwareentwickler-m-w-d-maschinenbau-buehler-alzenau",
+        "softwareentwickler-m-w-d-maschinenbau-buhler-group-alzenau"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,

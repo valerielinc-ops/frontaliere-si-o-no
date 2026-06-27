@@ -456,7 +456,7 @@
         "it": "tirocinante-infermieristico-reparti-di-degenza-80-100-m-f-d-spital-mannedorf-mannedorf",
         "en": "nursing-intern-wards-80-100-m-f-d-spital-mannedorf-mannedorf",
         "de": "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-mannedorf-mannedorf"
+        "fr": "stations-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -508,15 +508,14 @@
           "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-maennedorf-ch"
         ],
         "fr": [
-          "stations-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf",
           "stations-de-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf",
           "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
         "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-maennedorf-ch",
-        "stations-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf",
-        "stations-de-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf"
+        "stations-de-lits-pour-infirmieres-internes-80-100-m-f-j-spital-mannedorf-mannedorf",
+        "pflegepraktikantin-bettenstationen-80-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "firstSeenAt": "2026-05-26T14:55:56.498Z",
       "salaryMin": 62000,
@@ -1754,8 +1753,7 @@
           "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-maennedorf-ch"
         ],
         "fr": [
-          "specialiste-de-radiologie-hf-mtra-60-100-m-f-d-spital-mannedorf-mannedorf",
-          "dipl-radiologiefachfrau-hf-mtra-60-100-m-w-d-spital-mannedorf-mannedorf"
+          "specialiste-de-radiologie-hf-mtra-60-100-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
@@ -2259,9 +2257,9 @@
       "slug": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "it": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
-        "en": "dipl-specialist-in-intensive-medicine-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
+        "en": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
         "de": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
-        "fr": "dipl-specialiste-en-medecine-intensive-snd-80-90-m-m-j-spital-mannedorf-mannedorf"
+        "fr": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -2306,7 +2304,9 @@
       "pensumMax": 90,
       "pensum": "80 - 90%",
       "previousSlugs": [
-        "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch"
+        "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
+        "dipl-specialist-in-intensive-medicine-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-specialiste-en-medecine-intensive-snd-80-90-m-m-j-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2417,12 +2417,12 @@
     },
     {
       "id": "spital-maennedorf-1b99406b9852",
-      "slug": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
+      "slug": "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "it": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
+        "it": "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
         "en": "pflegeexpertin-60-100-m-w-d-spital-mannedorf-mannedorf",
         "de": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
-        "fr": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
+        "fr": "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -2467,16 +2467,13 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
-        "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf"
+        "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
           "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
         ],
         "fr": [
-          "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf",
           "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
         ]
       },
@@ -2499,10 +2496,10 @@
       "id": "spital-maennedorf-1c6289b5625a",
       "slug": "dipl-terapeuta-professionale-dipl-terapeuta-professionale-40-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "it": "dipl-terapeuta-professionale-dipl-terapeuta-professionale-40-m-f-d-spital-mannedorf-mannedorf",
+        "it": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
         "en": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
         "de": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
-        "fr": "dipl-ergotherapeute-dipl-ergotherapeute-40-m-f-d-spital-mannedorf-mannedorf"
+        "fr": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -2549,16 +2546,14 @@
       "previousSlugs": [
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-spital-maennedorf-ch",
-        "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
+        "dipl-ergotherapeute-dipl-ergotherapeute-40-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-spital-maennedorf-ch",
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
+          "dipl-ergotherapeut-dipl-ergotherapeutin-40-spital-maennedorf-ch"
         ],
         "fr": [
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
           "dipl-ergotherapeute-dipl-ergotherapeute-40-m-f-d-spital-mannedorf-mannedorf"
         ]
       },
@@ -3121,12 +3116,12 @@
     },
     {
       "id": "spital-maennedorf-bb3073c53ec8",
-      "slug": "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf",
+      "slug": "fatturazione-del-paziente-del-personale-90-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-maennedorf-ch",
-        "it": "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf",
-        "en": "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf"
+        "it": "fatturazione-del-paziente-del-personale-90-m-f-d-spital-mannedorf-mannedorf",
+        "en": "personnel-patient-billing-90-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "personnel-patient-facture-90-m-f-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3174,11 +3169,19 @@
       "pensum": "90%",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-maennedorf-ch"
+          "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-maennedorf-ch",
+          "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "en": [
+          "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-maennedorf-ch"
+        "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-maennedorf-ch",
+        "sachbearbeiter-patientenabrechnung-90-m-w-d-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

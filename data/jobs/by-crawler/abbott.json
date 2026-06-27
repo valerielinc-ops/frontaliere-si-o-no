@@ -1345,7 +1345,7 @@
         "it": "direttore-commercial-excellence-emea-structural-heart-abbott-basel",
         "en": "director-commercial-excellence-emea-structural-heart-abbott-ch",
         "de": "direktor-commercial-excellence-emea-structural-heart-abbott-basel",
-        "fr": "director-commercial-excellence-emea-structural-heart-abbott-ch"
+        "fr": "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1387,8 +1387,7 @@
       "requirementsByLocale": {},
       "jobReqId": "31146965",
       "previousSlugs": [
-        "director-commercial-excellence-emea-structural-heart-abbott-ch",
-        "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel"
+        "director-commercial-excellence-emea-structural-heart-abbott-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1398,7 +1397,6 @@
           "director-commercial-excellence-emea-structural-heart-abbott-ch"
         ],
         "fr": [
-          "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel",
           "director-commercial-excellence-emea-structural-heart-abbott-ch"
         ]
       },
@@ -1571,12 +1569,12 @@
     },
     {
       "id": "abbott-f7f92af67616",
-      "slug": "medical-educator-romandie-abbott-ch",
+      "slug": "insegnante-medico-romandie-abbott-remote",
       "slugByLocale": {
         "fr": "medical-educator-romandie-abbott-ch",
-        "it": "medical-educator-romandie-abbott-ch",
+        "it": "insegnante-medico-romandie-abbott-remote",
         "en": "medical-educator-romandie-abbott-ch",
-        "de": "medical-educator-romandie-abbott-ch"
+        "de": "medizinische-lehrerin-romandie-abbott-remote"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1632,7 +1630,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-26T21:22:35.803Z"
+      "firstSeenAt": "2026-06-26T21:22:35.803Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-educator-romandie-abbott-ch"
+        ],
+        "de": [
+          "medical-educator-romandie-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-educator-romandie-abbott-ch"
+      ]
     }
   ]
 }

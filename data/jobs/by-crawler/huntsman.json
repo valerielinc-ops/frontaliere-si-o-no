@@ -165,8 +165,7 @@
           "pilot-anlagenbediener-huntsman-corporation-monthey"
         ],
         "fr": [
-          "operateur-pilote-huntsman-corporation-monthey",
-          "operateur-pilote-huntsman-ch"
+          "operateur-pilote-huntsman-corporation-monthey"
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:44.868Z",
@@ -264,12 +263,12 @@
     },
     {
       "id": "huntsman-219a81c7a979",
-      "slug": "electricien-ou-automaticien-metrologie-huntsman-ch",
+      "slug": "elettricista-o-automatico-metrologia-huntsman-corporation-monthey",
       "slugByLocale": {
         "fr": "electricien-ou-automaticien-metrologie-huntsman-ch",
-        "it": "electricien-ou-automaticien-metrologie-huntsman-ch",
-        "en": "electricien-ou-automaticien-metrologie-huntsman-ch",
-        "de": "electricien-ou-automaticien-metrologie-huntsman-ch"
+        "it": "elettricista-o-automatico-metrologia-huntsman-corporation-monthey",
+        "en": "electrician-or-automatician-metrology-huntsman-corporation-monthey",
+        "de": "elektriker-oder-automatiker-metrologie-huntsman-corporation-monthey"
       },
       "company": "Huntsman Corporation",
       "companyKey": "huntsman",
@@ -325,7 +324,21 @@
       },
       "postalCode": "1870",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-26T22:07:54.096Z"
+      "firstSeenAt": "2026-06-26T22:07:54.096Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electricien-ou-automaticien-metrologie-huntsman-ch"
+        ],
+        "en": [
+          "electricien-ou-automaticien-metrologie-huntsman-ch"
+        ],
+        "de": [
+          "electricien-ou-automaticien-metrologie-huntsman-ch"
+        ]
+      },
+      "previousSlugs": [
+        "electricien-ou-automaticien-metrologie-huntsman-ch"
+      ]
     }
   ]
 }

@@ -1817,8 +1817,8 @@
       "slugByLocale": {
         "de": "hr-mitarbeiter-in-40-senevita-reinach-bl",
         "it": "risorse-umane-collaboratore-trice-40-senevita-reinach-bl",
-        "en": "hr-mitarbeiter-in-40-senevita-reinach-bl",
-        "fr": "hr-mitarbeiter-in-40-senevita-reinach-bl"
+        "en": "hr-employees-40-senevita-reinach-bl",
+        "fr": "ressources-humaines-mitarbeiter-in-40-senevita-reinach-bl"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1864,6 +1864,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hr-mitarbeiter-in-40-senevita-reinach-bl"
+        ],
+        "en": [
+          "hr-mitarbeiter-in-40-senevita-reinach-bl"
+        ],
+        "fr": [
           "hr-mitarbeiter-in-40-senevita-reinach-bl"
         ]
       },

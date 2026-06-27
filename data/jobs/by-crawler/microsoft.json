@@ -165,7 +165,7 @@
         "en": "services-account-executive-microsoft-zurich",
         "it": "services-account-executive-microsoft-zurich",
         "de": "services-account-executive-microsoft-zurich",
-        "fr": "services-account-executive-microsoft-zurich"
+        "fr": "executif-du-compte-des-services-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -225,9 +225,9 @@
     },
     {
       "id": "microsoft-200041079",
-      "slug": "amministratore-delegato-microsoft-zurich",
+      "slug": "esecutivo-del-conto-strategico-microsoft-zurich",
       "slugByLocale": {
-        "it": "amministratore-delegato-microsoft-zurich",
+        "it": "esecutivo-del-conto-strategico-microsoft-zurich",
         "en": "strategic-account-executive-microsoft-zurich",
         "de": "strategic-account-executive-microsoft-zurich",
         "fr": "executif-du-compte-strategique-microsoft-zurich"
@@ -271,11 +271,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-account-executive-microsoft-zurich"
+        "strategic-account-executive-microsoft-zurich",
+        "amministratore-delegato-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-account-executive-microsoft-zurich"
+          "strategic-account-executive-microsoft-zurich",
+          "amministratore-delegato-microsoft-zurich"
         ],
         "fr": [
           "strategic-account-executive-microsoft-zurich"

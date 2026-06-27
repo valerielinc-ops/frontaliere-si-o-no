@@ -2586,8 +2586,8 @@
       "slugByLocale": {
         "en": "international-customer-supply-chain-specialist-nestle-ch",
         "it": "international-customer-supply-chain-specialist-nestle-ch",
-        "de": "international-customer-supply-chain-specialist-nestle-ch",
-        "fr": "international-customer-supply-chain-specialist-nestle-ch"
+        "de": "international-customer-lieferkette-spezialist-nestle-la-tour-de-peilz-ch",
+        "fr": "international-customer-chaine-d-approvisionnement-specialiste-nestle-la-tour-de-peilz-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -2651,7 +2651,7 @@
         "en": "global-procurement-manager-nestle-ch",
         "it": "global-procurement-manager-nestle-ch",
         "de": "global-procurement-manager-nestle-ch",
-        "fr": "global-procurement-manager-nestle-ch"
+        "fr": "gestionnaire-des-achats-mondiaux-nestle-la-tour-de-peilz-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -2922,12 +2922,12 @@
     },
     {
       "id": "nestle-1396565233",
-      "slug": "communications-manager-content-editorial-nestle-ch",
+      "slug": "responsabile-comunicazione-contenuto-editoriale-nestle-vevey-ch",
       "slugByLocale": {
         "en": "communications-manager-content-editorial-nestle-ch",
-        "it": "communications-manager-content-editorial-nestle-ch",
-        "de": "communications-manager-content-editorial-nestle-ch",
-        "fr": "communications-manager-content-editorial-nestle-ch"
+        "it": "responsabile-comunicazione-contenuto-editoriale-nestle-vevey-ch",
+        "de": "kommunikationsmanager-content-editorial-nestle-vevey-ch",
+        "fr": "gestionnaire-des-communications-contenu-et-redaction-nestle-vevey-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -2982,7 +2982,21 @@
       },
       "postalCode": "1800",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-26T22:31:46.849Z"
+      "firstSeenAt": "2026-06-26T22:31:46.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "communications-manager-content-editorial-nestle-ch"
+        ],
+        "de": [
+          "communications-manager-content-editorial-nestle-ch"
+        ],
+        "fr": [
+          "communications-manager-content-editorial-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "communications-manager-content-editorial-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1388867533",

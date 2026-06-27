@@ -793,7 +793,7 @@
       "slug": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "it": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
-        "en": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
+        "en": "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "de": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
         "fr": "gestion-du-projet-m-w-d-coopers-group-ag-aargau"
       },
@@ -854,7 +854,6 @@
       },
       "previousSlugs": [
         "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
-        "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "gestione-del-prodotto-m-w-d-coopers-group-ag-luzern",
         "quality-control-inspector-m-w-d-coopers-luzern",
         "gestion-du-projet-m-w-d-coopers-group-ag-luzern"
@@ -864,7 +863,6 @@
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "en": [
-          "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "fr": [
@@ -4415,12 +4413,12 @@
     },
     {
       "id": "coopers-327bd90a001f",
-      "slug": "hr-assistent-in-m-w-d-coopers-zug",
+      "slug": "risorse-umane-assistent-in-m-w-d-coopers-group-ag-zug",
       "slugByLocale": {
         "de": "hr-assistent-in-m-w-d-coopers-zug",
-        "it": "hr-assistent-in-m-w-d-coopers-zug",
-        "en": "hr-assistent-in-m-w-d-coopers-zug",
-        "fr": "hr-assistent-in-m-w-d-coopers-zug"
+        "it": "risorse-umane-assistent-in-m-w-d-coopers-group-ag-zug",
+        "en": "hr-assistant-in-m-f-d-coopers-group-ag-zug",
+        "fr": "ressources-humaines-assistent-in-m-w-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4487,7 +4485,21 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-06-26T21:44:46.218Z"
+      "firstSeenAt": "2026-06-26T21:44:46.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-assistent-in-m-w-d-coopers-zug"
+        ],
+        "en": [
+          "hr-assistent-in-m-w-d-coopers-zug"
+        ],
+        "fr": [
+          "hr-assistent-in-m-w-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "hr-assistent-in-m-w-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-8b893be498d6",
