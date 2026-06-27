@@ -610,6 +610,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.title': 'Frontier: Wann lohnt sich der Wechselkurs zwischen Euro und Schweizer Franken?',
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.excerpt': 'Praktische Strategien zur Maximierung des CHF-EUR-Wechselkurses, Gehaltsverwaltung, Plattformen und Multi-Währungs-Konten.',
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.imageAlt': 'Euro- und Schweizer-Franken-Banknoten auf Bankschalter in Lugano.',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.title': 'Hauskauf in Italien mit Grenzgängerdarlehen: praktischer Leitfaden',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.excerpt': 'Haus in Italien mit Schweizer Gehalt kaufen: Dokumente, Garantien, spezialisierte Banken und was Sie für die Grenzgängerhypothek wissen müssen.',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.imageAlt': 'Blick auf eine Schweizer Grenzstadt mit Häusern und einer Bank.',
 };
 
 export default blogMetaChDe;

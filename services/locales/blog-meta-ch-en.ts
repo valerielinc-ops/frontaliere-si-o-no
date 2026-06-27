@@ -610,6 +610,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.title': 'Frontier: when the euro-Swiss franc exchange rate is appropriate',
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.excerpt': 'Practical strategies to maximise CHF-EUR exchange, salary management, platforms and multi-currency accounts.',
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.imageAlt': 'Euro and Swiss franc banknotes on a bank counter in Lugano.',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.title': 'Buying a house in Italy with a border mortgage: a practical guide',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.excerpt': 'Buying a house in Italy with a Swiss salary: documents, guarantees, specialised banks and what you need to know for the border mortgage.',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.imageAlt': 'View of a Swiss border town with houses and a bank.',
 };
 
 export default blogMetaChEn;

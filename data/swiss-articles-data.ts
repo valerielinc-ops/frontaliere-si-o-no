@@ -1826,6 +1826,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mutuo-acquisto-casa-frontaliere-italia',
+    category: 'pratico',
+    date: '2026-06-27T18:45:01.396Z',
+    image: '/images/blog/mutuo-acquisto-casa-frontaliere-italia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

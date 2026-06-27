@@ -4255,6 +4255,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-cambio-chf-eur-consigli': { name: 'Cambio CHF-EUR per frontalieri', path: '/articoli-svizzera/frontaliere-cambio-chf-eur-consigli/', parent: 'blog' },
     'blog-dazio-forfettario-e-commerce': { name: 'Dazio forfettario e-commerce', path: '/articoli-svizzera/dazio-forfettario-e-commerce/', parent: 'blog' },
     'blog-frontaliere-cambio-euro-franco-conviene-guide': { name: 'Cambio CHF/EUR', path: '/articoli-svizzera/frontaliere-cambio-euro-franco-conviene-guide/', parent: 'blog' },
+    'blog-mutuo-acquisto-casa-frontaliere-italia': { name: 'Mutuo acquisto casa', path: '/articoli-svizzera/mutuo-acquisto-casa-frontaliere-italia/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
