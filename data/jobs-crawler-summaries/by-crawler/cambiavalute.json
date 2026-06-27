@@ -1,22 +1,58 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-06-27T10:12:16.878Z",
+  "generatedAt": "2026-06-27T21:23:42.550Z",
   "total": 2,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 2,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 163141,
-  "avgDurationMs": 163141,
+  "durationMs": 167641,
+  "avgDurationMs": 167641,
   "durationHistory": [
-    163141
+    167641
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "company-fooban",
+      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
+      "company": "CambiaValute.ch",
+      "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
+      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-27",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-06-27T21:23:41.664Z",
+      "firstSeenAt": "2026-06-27T21:23:41.664Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "company-a24znt",
-      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
+      "slug": "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-ticino",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
       "location": "Ticino",
@@ -47,94 +83,9 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "company-fooban",
-      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
-      "company": "CambiaValute.ch",
-      "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
-      "location": "Ticino",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-06-16T22:30:41.431Z",
-      "firstSeenAt": "2026-06-16T22:30:41.431Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "Via Pessina 6",
-      "postalCode": "6900",
-      "addressLocality": "Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-viaqie",
-      "slug": "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi-viaqie",
-      "company": "CambiaValute.ch",
-      "title": "Legal & Compliance Officer",
-      "location": "2026 CambiaValute",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-13",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-06-13T21:36:17.199Z",
-      "firstSeenAt": "2026-06-13T21:36:17.199Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pessina 6",
-      "postalCode": "6900",
-      "addressLocality": "2026 CambiaValute",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
         "richness": 21,
         "translation": 25,
         "completeness": 25
