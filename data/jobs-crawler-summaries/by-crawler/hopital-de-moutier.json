@@ -1,18 +1,19 @@
 {
   "key": "hopital-de-moutier",
   "label": "Hôpital de Moutier",
-  "generatedAt": "2026-06-26T22:07:20.499Z",
+  "generatedAt": "2026-06-27T10:42:50.396Z",
   "total": 4,
-  "newCount": 2,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9151,
-  "avgDurationMs": 9151,
+  "durationMs": 8901,
+  "avgDurationMs": 8901,
   "durationHistory": [
-    9151
+    8901
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hopital-de-moutier-b0342d52503c",
       "slug": "assistant-e-s-medicale-s-d-f-hopital-de-moutier",
@@ -20,14 +21,14 @@
       "companyKey": "hopital-de-moutier",
       "companyDomain": "swissmedical.net",
       "title": "Assistant(e)(s) médicale(s) D/F",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Moutier",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134470465-assistant-e-s-medicale-s-d-f",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134470465-assistant-e-s-medicale-s-d-f",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T22:07:15.790Z",
+      "crawledAt": "2026-06-27T10:42:45.636Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "featured": false,
       "postedDate": "2026-06-26",
       "datePosted": "2026-06-26",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-06-26T22:07:15.790Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -57,14 +59,14 @@
       "companyKey": "hopital-de-moutier",
       "companyDomain": "swissmedical.net",
       "title": "Medizinische Praxisassistentinnen (MPA) w/m/d",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Moutier",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134475529-medizinische-praxisassistentinnen-mpa-w-m-d",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134475529-medizinische-praxisassistentinnen-mpa-w-m-d",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:07:16.714Z",
+      "crawledAt": "2026-06-27T10:42:46.622Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -79,16 +81,15 @@
       "featured": false,
       "postedDate": "2026-06-26",
       "datePosted": "2026-06-26",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-06-26T22:07:16.714Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hopital-de-moutier-fb679ece4447",
       "slug": "medecin-generaliste-f-et-ou-d-hopital-de-moutier",
@@ -103,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132824080-medecin-generaliste-f-et-ou-d",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T22:07:17.714Z",
+      "crawledAt": "2026-06-27T10:42:47.559Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -141,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000125778829-allgemeinmediziner-in-viva-und-walk-in-clinic",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-26T22:07:18.655Z",
+      "crawledAt": "2026-06-27T10:42:48.470Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
