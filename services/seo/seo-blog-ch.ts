@@ -8364,6 +8364,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ingresso-svizzera-frontalieri-2026': {
+    title: 'Ingresso in Svizzera 2026: documenti e controlli per frontalieri',
+    description: 'Guida a documenti, permessi e controlli doganali per frontalieri dal 2026. Focus su passaporto, CI, permesso G e regole nazionali. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ingresso, documenti, controlli, aggiornata',
+    ogTitle: 'Documenti e permessi per frontalieri in Svizzera 2026',
+    ogDescription: 'Tutte le regole su documenti, permesso G e controlli doganali per frontalieri dal 2026.',
+    canonicalPath: '/articoli-svizzera/ingresso-svizzera-frontalieri-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ingresso in Svizzera 2026: documenti e controlli per frontalieri",
+      "description": "Guida a documenti, permessi e controlli doganali per frontalieri dal 2026. Focus su passaporto, CI, permesso G e regole nazionali. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ingresso-svizzera-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di frontiera svizzero con frontalieri e controllo documenti."
+      },
+      "datePublished": "2026-06-27T23:32:44+00:00",
+      "dateModified": "2026-06-27T23:32:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ingresso-svizzera-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
