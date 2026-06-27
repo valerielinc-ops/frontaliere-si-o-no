@@ -619,6 +619,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assicurazione-malattia-famiglia-frontaliere.title': 'Krankenversicherung für Grenzfamilien: Optionen und Deckung',
     'blog.article.assicurazione-malattia-famiglia-frontaliere.excerpt': 'Überblick über die KVG-, EHIC- und Zusatzversicherungslösungen für Grenzgängerfamilien zwischen der Schweiz und Italien.',
     'blog.article.assicurazione-malattia-famiglia-frontaliere.imageAlt': 'Grenzgängerfamilie in der Schweiz prüft Versicherungsunterlagen mit Blick auf Lugano.',
+    'blog.article.frontaliere-bonus-famiglia-2026.title': 'Familienbonus 2026: Aktualisierter und praktischer Leitfaden',
+    'blog.article.frontaliere-bonus-famiglia-2026.excerpt': 'Alle dauerhaften Vergünstigungen für Familien von Grenzgängern: Familienzulagen, Nestboni und mögliche Abzüge. Aktueller Status und was zu erwarten ist.',
+    'blog.article.frontaliere-bonus-famiglia-2026.imageAlt': 'Schweizer Familie am Luganer Seeufer mit Stadt und Bergen.',
 };
 
 export default blogMetaChDe;

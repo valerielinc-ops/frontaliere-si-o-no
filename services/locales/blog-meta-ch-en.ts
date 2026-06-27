@@ -619,6 +619,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazione-malattia-famiglia-frontaliere.title': 'Sickness insurance for border families: options and coverage',
     'blog.article.assicurazione-malattia-famiglia-frontaliere.excerpt': 'Overview of LAMal, EHIC and supplementary insurance solutions for families of border workers between Switzerland and Italy.',
     'blog.article.assicurazione-malattia-famiglia-frontaliere.imageAlt': 'Cross-border family in Switzerland reviews insurance documents with Lugano view.',
+    'blog.article.frontaliere-bonus-famiglia-2026.title': 'Family bonus frontiers 2026: up-to-date and practical guide',
+    'blog.article.frontaliere-bonus-famiglia-2026.excerpt': 'All the permanent benefits for families of frontier workers: family allowances, nest bonus and possible deductions. Current status and what to expect.',
+    'blog.article.frontaliere-bonus-famiglia-2026.imageAlt': 'Swiss family on Lugano lakefront with city and mountains.',
 };
 
 export default blogMetaChEn;

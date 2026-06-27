@@ -619,6 +619,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazione-malattia-famiglia-frontaliere.title': 'Assurance-maladie pour les familles frontalières : options et couverture',
     'blog.article.assicurazione-malattia-famiglia-frontaliere.excerpt': 'Aperçu des solutions d\'assurance LAMal, EHIC et complémentaires pour les familles de frontaliers entre la Suisse et l\'Italie.',
     'blog.article.assicurazione-malattia-famiglia-frontaliere.imageAlt': 'Famille frontalière en Suisse consulte des documents d\'assurance avec vue sur Lugano.',
+    'blog.article.frontaliere-bonus-famiglia-2026.title': 'Frontalier bonus famille 2026 : guide actualisé et pratique',
+    'blog.article.frontaliere-bonus-famiglia-2026.excerpt': 'Toutes les facilités stables pour les familles de frontaliers : allocations familiales, bonus nid et déductions possibles. État actuel et à quoi s\'attendre.',
+    'blog.article.frontaliere-bonus-famiglia-2026.imageAlt': 'Famille suisse sur le lac de Lugano, ville et montagnes.',
 };
 
 export default blogMetaChFr;
