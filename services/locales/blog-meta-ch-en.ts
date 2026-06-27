@@ -634,6 +634,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-assicurazione-auto-confronto.title': 'Car insurance for border workers: Switzerland vs Italy, practical comparison',
     'blog.article.frontaliere-assicurazione-auto-confronto.excerpt': 'Detailed analysis of the differences between Swiss and Italian car insurance for border workers: costs, coverage, claims management, useful advice.',
     'blog.article.frontaliere-assicurazione-auto-confronto.imageAlt': 'Cars with Swiss and Italian plates on a road near Lake Lugano.',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.title': 'Advantages and features of the Third Pillar for border workers',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.excerpt': 'Find out how the Third Pillar can offer tax advantages and ensure a secure pension future for frontier workers.',
+    'blog.article.frontaliere-terzo-pilastro-vantaggi.imageAlt': 'View of a pension office in Switzerland with financial documents on a table.',
 };
 
 export default blogMetaChEn;

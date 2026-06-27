@@ -8130,6 +8130,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-terzo-pilastro-vantaggi': {
+    title: 'Vantaggi e funzionalità del Terzo Pilastro per i frontalieri',
+    description: 'Scopri i vantaggi fiscali e funzionali del Terzo Pilastro per i frontalieri in Svizzera, con dettagli su deducibilità e risparmio pensionistico. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vantaggi, funzionalità, terzo, pilastro',
+    ogTitle: 'Vantaggi Terzo Pilastro per Frontalieri',
+    ogDescription: 'Esplora come il Terzo Pilastro può offrire vantaggi fiscali ai frontalieri in Svizzera.',
+    canonicalPath: '/articoli-svizzera/frontaliere-terzo-pilastro-vantaggi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vantaggi e funzionalità del Terzo Pilastro per i frontalieri",
+      "description": "Scopri i vantaggi fiscali e funzionali del Terzo Pilastro per i frontalieri in Svizzera, con dettagli su deducibilità e risparmio pensionistico. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-terzo-pilastro-vantaggi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un ufficio pensionistico in Svizzera con documenti finanziari su un tavolo."
+      },
+      "datePublished": "2026-06-27T20:59:20+00:00",
+      "dateModified": "2026-06-27T20:59:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-terzo-pilastro-vantaggi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
