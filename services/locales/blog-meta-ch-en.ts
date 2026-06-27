@@ -598,6 +598,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pensione-frontalieri-errori-2026.title': 'Border pensions: common mistakes to avoid in 2026',
     'blog.article.pensione-frontalieri-errori-2026.excerpt': 'Learn how to avoid common mistakes in pension management for frontier workers in 2026, with a focus on AVS and INPS.',
     'blog.article.pensione-frontalieri-errori-2026.imageAlt': 'Panoramic view of a Swiss town with mountains and a lake in the background.',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.title': 'Frontier, exchange euro franc is convenient: practical strategies 2024',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.excerpt': 'Practical guide to the CHF-EUR exchange rate for border workers: when appropriate, platforms, impact on salary and multi-currency account management.',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.imageAlt': 'Swiss bank with CHF/EUR exchange rate board and people waiting.',
 };
 
 export default blogMetaChEn;

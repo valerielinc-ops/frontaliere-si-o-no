@@ -598,6 +598,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pensione-frontalieri-errori-2026.title': 'Grenzgänger-Rente: Fehler 2026 vermeiden',
     'blog.article.pensione-frontalieri-errori-2026.excerpt': 'Erfahren Sie, wie Sie im Jahr 2026 häufige Fehler bei der Verwaltung der Rente für Grenzgänger vermeiden können, mit Schwerpunkt auf AHV und NISF.',
     'blog.article.pensione-frontalieri-errori-2026.imageAlt': 'Panoramablick auf eine Schweizer Stadt mit Bergen und einem See im Hintergrund.',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.title': 'Grenzgänger, Euro-Franken-Wechsel zahlt sich aus: Praktische Strategien 2024',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.excerpt': 'Praktischer Leitfaden zum Wechselkurs CHF-EUR für Grenzgänger: Wann es sich lohnt, Plattformen, Auswirkungen auf das Gehalt und die Verwaltung des Mehrwährungskontos.',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.imageAlt': 'Schweizer Bank mit CHF/EUR-Kurstafel und wartenden Menschen.',
 };
 
 export default blogMetaChDe;

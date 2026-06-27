@@ -598,6 +598,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pensione-frontalieri-errori-2026.title': 'Pension frontalière : erreurs communes à éviter en 2026',
     'blog.article.pensione-frontalieri-errori-2026.excerpt': 'Découvrez comment éviter les erreurs courantes dans la gestion des retraites pour les frontaliers en 2026, en mettant l\'accent sur l\'AVS et l\'INPS.',
     'blog.article.pensione-frontalieri-errori-2026.imageAlt': 'Vue panoramique d\'une ville suisse avec des montagnes et un lac en arrière-plan.',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.title': 'Change euro-franc favorable : stratégies 2024',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.excerpt': 'Guide pratique du taux de change CHF-EUR pour les frontaliers : le cas échéant, plateformes, impact sur le salaire et gestion du compte multidevises.',
+    'blog.article.frontalieri-cambio-euro-franco-strategie.imageAlt': 'Banque suisse avec tableau des taux CHF/EUR et des personnes en attente.',
 };
 
 export default blogMetaChFr;
