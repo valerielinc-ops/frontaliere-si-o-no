@@ -41,7 +41,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-taverne",
         "en": "plumbing-heating-systems-pemsa-taverne",
         "de": "hydraulische-arbeit-pemsa-taverne",
-        "fr": "systemes-de-chauffage-pemsa-taverne"
+        "fr": "idraulico-impianti-riscaldamento-pemsa-taverne"
       },
       "id": "pemsa-de27966aeeb1",
       "salaryMin": 49500,
@@ -66,11 +66,15 @@
         ],
         "de": [
           "heizsysteme-pemsa-taverne"
+        ],
+        "fr": [
+          "systemes-de-chauffage-pemsa-taverne"
         ]
       },
       "previousSlugs": [
         "heating-systems-pemsa-taverne",
-        "heizsysteme-pemsa-taverne"
+        "heizsysteme-pemsa-taverne",
+        "systemes-de-chauffage-pemsa-taverne"
       ]
     },
     {
@@ -2753,7 +2757,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "mise-en-uvre-pemsa-torricella"
+        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -2772,6 +2776,14 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "mise-en-uvre-pemsa-torricella"
+        ]
+      },
+      "previousSlugs": [
+        "mise-en-uvre-pemsa-torricella"
+      ],
       "needsRetranslation": true
     },
     {
