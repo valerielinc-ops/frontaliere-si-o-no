@@ -8191,7 +8191,7 @@
         "it": "collaboratore-trice-credit-operations-m-w-d-helvetia-versicherungen-solothurn",
         "en": "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
         "de": "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
-        "fr": "operations-de-credit-aux-employes-f-m-d-helvetia-versicherungen-solothurn"
+        "fr": "collaborateur-operations-de-credit-h-f-d-helvetia-versicherungen-solothurn"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8234,7 +8234,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
-        "collaborateur-operations-de-credit-h-f-d-helvetia-versicherungen-solothurn"
+        "operations-de-credit-aux-employes-f-m-d-helvetia-versicherungen-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8242,7 +8242,7 @@
         ],
         "fr": [
           "mitarbeiter-credit-operations-w-m-d-helvetia-solothurn",
-          "collaborateur-operations-de-credit-h-f-d-helvetia-versicherungen-solothurn"
+          "operations-de-credit-aux-employes-f-m-d-helvetia-versicherungen-solothurn"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.391Z",
@@ -8492,9 +8492,9 @@
     },
     {
       "id": "helvetia-1d6d9a4f225c",
-      "slug": "studente-di-lavoro-f-m-d-project-steering-delivery-in-asset-management-helvetia-versicherungen-basel",
+      "slug": "studente-di-lavoro-w-m-d-progetto-di-orientamento-e-consegna-nella-gestione-delle-risorse-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "studente-di-lavoro-f-m-d-project-steering-delivery-in-asset-management-helvetia-versicherungen-basel",
+        "it": "studente-di-lavoro-w-m-d-progetto-di-orientamento-e-consegna-nella-gestione-delle-risorse-helvetia-versicherungen-basel",
         "en": "werkstudent-w-m-d-project-steering-amp-delivery-im-asset-management-helvetia-basel",
         "de": "werkstudent-w-m-d-project-steering-amp-delivery-im-asset-management-helvetia-basel",
         "fr": "etudiante-active-f-m-d-direction-et-execution-du-projet-en-gestion-d-actifs-helvetia-versicherungen-basel"
@@ -8539,11 +8539,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-w-m-d-project-steering-amp-delivery-im-asset-management-helvetia-basel"
+        "werkstudent-w-m-d-project-steering-amp-delivery-im-asset-management-helvetia-basel",
+        "studente-di-lavoro-f-m-d-project-steering-delivery-in-asset-management-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-w-m-d-project-steering-amp-delivery-im-asset-management-helvetia-basel"
+          "werkstudent-w-m-d-project-steering-amp-delivery-im-asset-management-helvetia-basel",
+          "studente-di-lavoro-f-m-d-project-steering-delivery-in-asset-management-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.351Z",

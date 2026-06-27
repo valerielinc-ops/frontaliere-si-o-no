@@ -18,9 +18,9 @@
       "postedDate": "2026-06-26",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "specialista-in-regolamenti-esaminatore-50-100-ferrovia-retica-rhb-chur",
+      "slug": "specialista-a-regolamento-esperto-d-esame-50-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
-        "it": "specialista-in-regolamenti-esaminatore-50-100-ferrovia-retica-rhb-chur",
+        "it": "specialista-a-regolamento-esperto-d-esame-50-100-ferrovia-retica-rhb-chur",
         "en": "specialist-in-regulations-examination-expert-50-100-ferrovia-retica-rhb-chur",
         "de": "spezialist-in-vorschriften-prufungsexperte-50-100-ferrovia-retica-rhb-chur",
         "fr": "specialiste-des-reglements-et-des-examens-50-100-ferrovia-retica-rhb-chur"
@@ -58,7 +58,8 @@
       "firstSeenAt": "2026-06-26T21:55:45.514Z",
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-vorschriften-prufungsexperte-50-100-ferrovia-retica-rhb-chur"
+          "spezialist-in-vorschriften-prufungsexperte-50-100-ferrovia-retica-rhb-chur",
+          "specialista-in-regolamenti-esaminatore-50-100-ferrovia-retica-rhb-chur"
         ],
         "en": [
           "spezialist-in-vorschriften-prufungsexperte-50-100-ferrovia-retica-rhb-chur"
@@ -69,6 +70,7 @@
       },
       "previousSlugs": [
         "spezialist-in-vorschriften-prufungsexperte-50-100-ferrovia-retica-rhb-chur",
+        "specialista-in-regolamenti-esaminatore-50-100-ferrovia-retica-rhb-chur",
         "spezialist-in-anlagebuchhaltung-50-100-rhaetische-bahn-chur",
         "spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
         "financial-specialist-50-100-ferrovia-retica-rhb-chur",
@@ -96,7 +98,7 @@
         "it": "consulente-hr-50-80-ferrovia-retica-rhb-chur",
         "en": "hr-consultant-50-80-ferrovia-retica-rhb-chur",
         "de": "hr-berater-in-50-80-ferrovia-retica-rhb-chur",
-        "fr": "consultant-en-ressources-humaines-50-80-ferrovia-retica-rhb-chur"
+        "fr": "consultant-rh-50-80-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
         "it": "Consulente HR (50-80%)",
@@ -128,7 +130,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T11:19:16.239Z"
+      "firstSeenAt": "2026-06-26T11:19:16.239Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "consultant-en-ressources-humaines-50-80-ferrovia-retica-rhb-chur"
+        ]
+      },
+      "previousSlugs": [
+        "consultant-en-ressources-humaines-50-80-ferrovia-retica-rhb-chur"
+      ]
     },
     {
       "title": "Rangiermitarbeiter/in (50-100%)",
