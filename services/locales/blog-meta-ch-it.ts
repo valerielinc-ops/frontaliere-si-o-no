@@ -610,6 +610,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.title': 'Frontaliere: quando conviene il cambio euro-franco svizzero',
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.excerpt': 'Strategie pratiche per massimizzare il cambio CHF-EUR, gestione stipendio, piattaforme e conti multi-valuta.',
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.imageAlt': 'Banconote euro e franco svizzero su un bancone bancario a Lugano.',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.title': 'Acquisto casa in Italia con mutuo da frontaliere: guida pratica',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.excerpt': 'Comprare casa in Italia con stipendio svizzero: documenti, garanzie, banche specializzate e cosa serve sapere per il mutuo frontaliere.',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.imageAlt': 'Vista di una cittadina di confine svizzera con case e una banca.',
 };
 
 export default blogMetaChIt;

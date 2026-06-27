@@ -610,6 +610,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.title': 'Frontalier : quand le change euro-franc suisse convient',
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.excerpt': 'Stratégies pratiques pour maximiser le taux de change CHF-EUR, la gestion des salaires, les plates-formes et les comptes multi-devises.',
     'blog.article.frontaliere-cambio-euro-franco-conviene-guide.imageAlt': 'Billets d\'euro et de franc suisse sur un comptoir bancaire à Lugano.',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.title': 'Achat maison en Italie avec prêt frontalier : guide pratique',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.excerpt': 'Acheter une maison en Italie avec un salaire suisse : documents, garanties, banques spécialisées et ce qu\'il faut savoir pour l\'hypothèque frontalière.',
+    'blog.article.mutuo-acquisto-casa-frontaliere-italia.imageAlt': 'Vue d\'une ville frontalière suisse avec maisons et une banque.',
 };
 
 export default blogMetaChFr;

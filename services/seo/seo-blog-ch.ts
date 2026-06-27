@@ -7818,6 +7818,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mutuo-acquisto-casa-frontaliere-italia': {
+    title: 'Acquisto casa in Italia con mutuo da frontaliere: guida pratica',
+    description: 'Comprare casa in Italia con stipendio svizzero: guida a mutuo frontaliere, documenti, garanzie richieste e banche specializzate. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, acquisto, casa, mutuo, pratica',
+    ogTitle: 'Guida al mutuo frontaliere per casa in Italia',
+    ogDescription: 'Scopri come ottenere un mutuo in Italia lavorando in Svizzera: documenti, banche e garanzie.',
+    canonicalPath: '/articoli-svizzera/mutuo-acquisto-casa-frontaliere-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acquisto casa in Italia con mutuo da frontaliere: guida pratica",
+      "description": "Comprare casa in Italia con stipendio svizzero: guida a mutuo frontaliere, documenti, garanzie richieste e banche specializzate. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mutuo-acquisto-casa-frontaliere-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di una cittadina di confine svizzera con case e una banca."
+      },
+      "datePublished": "2026-06-27T18:45:01+00:00",
+      "dateModified": "2026-06-27T18:45:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mutuo-acquisto-casa-frontaliere-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
