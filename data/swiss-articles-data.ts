@@ -1736,6 +1736,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'secondo-pilastro-prelievo-frontaliere',
+    category: 'pensione',
+    date: '2026-06-27T11:54:04.957Z',
+    image: '/images/blog/secondo-pilastro-prelievo-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

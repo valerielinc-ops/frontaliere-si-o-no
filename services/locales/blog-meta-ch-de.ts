@@ -580,6 +580,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.morto-ex-presidente-bns-hans-meyer.title': 'Ehemaliger SNB-Präsident Hans Meyer verstorben',
     'blog.article.morto-ex-presidente-bns-hans-meyer.excerpt': 'Der ehemalige Präsident der Schweizerischen Nationalbank (SNB) Hans Meyer ist im Alter von 90 Jahren verstorben.',
     'blog.article.morto-ex-presidente-bns-hans-meyer.imageAlt': 'Bild des ehemaligen SNB-Präsidenten Hans Meyer',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.title': 'Zweite Säule BVG für Grenzgänger: Bezug und Besteuerung',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.excerpt': 'Wann und wie Grenzgänger die zweite Säule BVG beziehen können. Besteuerung in der Schweiz und Italien, Ausstiegsstrategien.',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.imageAlt': 'Grenzgänger prüft BVG-Dokumente in einem Schweizer Büro.',
 };
 
 export default blogMetaChDe;

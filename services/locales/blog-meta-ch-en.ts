@@ -580,6 +580,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.morto-ex-presidente-bns-hans-meyer.title': 'Former SNB president Hans Meyer has died',
     'blog.article.morto-ex-presidente-bns-hans-meyer.excerpt': 'Former Swiss National Bank (SNB) President Hans Meyer has passed away at the age of 90.',
     'blog.article.morto-ex-presidente-bns-hans-meyer.imageAlt': 'Picture of former SNB president Hans Meyer',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.title': 'Second LPP pillar for border workers: collection and taxation',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.excerpt': 'When and how border guards can pick up the second LPP pillar. Taxation in Switzerland and Italy, exit strategies.',
+    'blog.article.secondo-pilastro-prelievo-frontaliere.imageAlt': 'Cross-border worker reviews LPP pension documents in a Swiss office.',
 };
 
 export default blogMetaChEn;
