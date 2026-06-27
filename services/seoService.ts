@@ -4238,6 +4238,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-conto-bancario-frontalieri': { name: 'Conto bancario frontalieri', path: '/articoli-svizzera/conto-bancario-frontalieri/', parent: 'blog' },
     'blog-ristorni-fiscali-frontaliere': { name: 'Fiscale frontalieri', path: '/articoli-svizzera/ristorni-fiscali-frontaliere/', parent: 'blog' },
     'blog-cessione-cargotrailers-lonate-pozzolo': { name: 'Cessione Cargotrailers', path: '/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo', parent: 'blog' },
+    'blog-volkswagen-crisi-tagli-lavoro': { name: 'Volkswagen crisi tagli', path: '/articoli-svizzera/volkswagen-crisi-tagli-lavoro/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

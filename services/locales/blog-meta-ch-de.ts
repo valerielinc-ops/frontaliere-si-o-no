@@ -565,6 +565,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ristorni-fiscali-frontaliere.title': 'Grenzüberschreitende Steuerrestaurants: wie sie funktionieren',
     'blog.article.ristorni-fiscali-frontaliere.excerpt': 'Entdecken Sie den vollständigen Mechanismus der Steuererstattungen für Grenzgänger: Wer zahlt sie, wie viel sie wert sind und wie sie berechnet werden.',
     'blog.article.ristorni-fiscali-frontaliere.imageAlt': 'Blick auf die schweizerisch-italienische Grenze mit Steuerthema',
+    'blog.article.volkswagen-crisi-tagli-lavoro.title': 'Volkswagen, 100.000 Entlassungen und 4 gefährdete Fabriken',
+    'blog.article.volkswagen-crisi-tagli-lavoro.excerpt': 'Der Umstrukturierungsplan von Volkswagen sieht bis 2030 bis zu 100.000 Kürzungen vor. Situationsanalyse und Auswirkungen des deutschen Riesen.',
+    'blog.article.volkswagen-crisi-tagli-lavoro.imageAlt': 'Blick auf ein modernes Büro in Lugano mit der Skyline der Stadt im Hintergrund',
 };
 
 export default blogMetaChDe;

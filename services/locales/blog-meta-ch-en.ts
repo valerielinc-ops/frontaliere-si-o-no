@@ -565,6 +565,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ristorni-fiscali-frontaliere.title': 'Border tax refunds: how they work',
     'blog.article.ristorni-fiscali-frontaliere.excerpt': 'Discover the complete mechanism of tax rebates for border workers: who pays them, how much they are worth and how they are calculated.',
     'blog.article.ristorni-fiscali-frontaliere.imageAlt': 'View of the Swiss-Italian border with a tax theme',
+    'blog.article.volkswagen-crisi-tagli-lavoro.title': 'Volkswagen, 100,000 redundancies and 4 factories at risk',
+    'blog.article.volkswagen-crisi-tagli-lavoro.excerpt': 'Volkswagen\'s restructuring plan calls for up to 100,000 cuts by 2030. Analysis of the situation and impacts of the German giant.',
+    'blog.article.volkswagen-crisi-tagli-lavoro.imageAlt': 'View of a modern office in Lugano with city skyline in the background',
 };
 
 export default blogMetaChEn;

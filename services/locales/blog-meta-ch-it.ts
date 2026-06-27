@@ -565,6 +565,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ristorni-fiscali-frontaliere.title': 'Ristorni fiscali frontaliere: come funzionano',
     'blog.article.ristorni-fiscali-frontaliere.excerpt': 'Scopri il meccanismo completo dei ristorni fiscali per i frontalieri: chi li paga, quanto valgono e come si calcolano.',
     'blog.article.ristorni-fiscali-frontaliere.imageAlt': 'Vista sul confine svizzero-italiano con tema fiscale',
+    'blog.article.volkswagen-crisi-tagli-lavoro.title': 'Volkswagen, 100.000 esuberi e 4 fabbriche a rischio',
+    'blog.article.volkswagen-crisi-tagli-lavoro.excerpt': 'Il piano di ristrutturazione di Volkswagen prevede fino a 100.000 tagli entro il 2030. Analisi della situazione e impatti del colosso tedesco.',
+    'blog.article.volkswagen-crisi-tagli-lavoro.imageAlt': 'Vista di un ufficio moderno a Lugano con skyline cittadino sullo sfondo',
 };
 
 export default blogMetaChIt;
