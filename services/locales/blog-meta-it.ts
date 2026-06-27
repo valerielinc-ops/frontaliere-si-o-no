@@ -8168,6 +8168,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.uonboldo-tributo-lucio-dalla.title': 'Uboldo: Estate 2026 Parte con “Ciao Lucio”',
     'blog.article.uonboldo-tributo-lucio-dalla.excerpt': 'Il 27 giugno il Parco Falcone e Borsellino di Uboldo ospiterà un tributo a Lucio Dalla con il concerto gratuito del gruppo “Volpi senza Tana”, aprendo la rassegna “Aria d’Estate”.',
     'blog.article.uonboldo-tributo-lucio-dalla.imageAlt': 'Concerto all\'aperto nel parco di Uboldo dedicato a Lucio Dalla',
+    'blog.article.cessione-cargotrailers-lonate-pozzolo.title': 'Cargotrailers: l\'azienda di Lonate Pozzolo diventa tedesca',
+    'blog.article.cessione-cargotrailers-lonate-pozzolo.excerpt': 'Andrea Perotti, socio di Cargotrailers, commenta la vendita dell\'azienda di Lonate Pozzolo a player tedeschi dopo anni di sfide con la burocrazia italiana.',
+    'blog.article.cessione-cargotrailers-lonate-pozzolo.imageAlt': 'Sede Cargotrailers a Lonate Pozzolo',
 };
 
 export default blogMetaIt;

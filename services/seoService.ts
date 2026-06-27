@@ -4237,6 +4237,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-volkswagen-tagli-lavoro-2024': { name: 'Volkswagen tagli lavoro', path: '/articoli-svizzera/volkswagen-tagli-lavoro-2024/', parent: 'blog' },
     'blog-conto-bancario-frontalieri': { name: 'Conto bancario frontalieri', path: '/articoli-svizzera/conto-bancario-frontalieri/', parent: 'blog' },
     'blog-ristorni-fiscali-frontaliere': { name: 'Fiscale frontalieri', path: '/articoli-svizzera/ristorni-fiscali-frontaliere/', parent: 'blog' },
+    'blog-cessione-cargotrailers-lonate-pozzolo': { name: 'Cessione Cargotrailers', path: '/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

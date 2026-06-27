@@ -25884,6 +25884,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cessione-cargotrailers-lonate-pozzolo',
+ category: 'novita',
+ date: '2026-06-27T05:55:06.908Z',
+ image: '/images/blog/cessione-cargotrailers-lonate-pozzolo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
