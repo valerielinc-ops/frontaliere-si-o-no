@@ -1,18 +1,50 @@
 {
   "key": "axa-svizzera",
   "label": "AXA Svizzera",
-  "generatedAt": "2026-06-27T10:02:49.486Z",
+  "generatedAt": "2026-06-27T21:14:19.313Z",
   "total": 85,
-  "newCount": 0,
-  "updatedCount": 85,
+  "newCount": 1,
+  "updatedCount": 84,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 41501,
-  "avgDurationMs": 41501,
+  "durationMs": 41086,
+  "avgDurationMs": 41086,
   "durationHistory": [
-    41501
+    41086
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Consulente Assicurativo",
+      "slug": "consulente-assicurativo-axa-manno-htams0",
+      "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "applyUrl": "https://jobs.axa.ch/apply/ats/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "companyDomain": "axa.ch",
+      "location": "Manno",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "assicurazioni",
+      "sector": "assicurazioni",
+      "source": "axa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-27",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "workload": "50-100%",
+      "validThrough": "",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Head of Claims Krankenzusatzversicherung (VVG) Gesundheitsvorsorge (all genders)",
