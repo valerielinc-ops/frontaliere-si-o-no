@@ -241,6 +241,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'abbonamenti-sconti-frontalieri-trasporti': { it: 'abbonamenti-sconti-frontalieri-trasporti', en: 'cross-border-commuters-transport-discounts', de: 'grenzgaenger-oev-abos-rabatte', fr: 'abonnements-reductions-frontaliers-transports' },
  'frontaliere-lavoro-stagionale-ticino-info': { it: 'frontaliere-lavoro-stagionale-ticino-info', en: 'cross-border-seasonal-work-ticino-info', de: 'grenzganger-saisonarbeit-tessin-info', fr: 'travail-saisonnier-frontaliers-tessin' },
  'ingresso-svizzera-frontalieri-2026': { it: 'ingresso-svizzera-frontalieri-2026', en: 'swiss-entry-cross-border-workers-documents-2026', de: 'einreise-schweiz-grenzgaenger-dokumente-2026', fr: 'entree-suisse-frontaliers-documents-douane-2026' },
+ 'educatore-infanzia-ticino-guida': { it: 'educatore-infanzia-ticino-guida', en: 'childhood-educator-ticino-guide', de: 'kinderbetreuer-tessin-leitfaden', fr: 'educateur-enfance-tessin-guide' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

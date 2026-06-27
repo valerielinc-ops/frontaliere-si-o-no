@@ -4270,6 +4270,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-abbonamenti-sconti-frontalieri-trasporti': { name: 'Abbonamenti e sconti trasporto', path: '/articoli-svizzera/abbonamenti-sconti-frontalieri-trasporti/', parent: 'blog' },
     'blog-frontaliere-lavoro-stagionale-ticino-info': { name: 'Lavoro stagionale Ticino', path: '/articoli-svizzera/frontaliere-lavoro-stagionale-ticino-info/', parent: 'blog' },
     'blog-ingresso-svizzera-frontalieri-2026': { name: 'Documenti e dogana 2026', path: '/articoli-svizzera/ingresso-svizzera-frontalieri-2026/', parent: 'blog' },
+    'blog-educatore-infanzia-ticino-guida': { name: 'Lavorare in Ticino', path: '/articoli-svizzera/educatore-infanzia-ticino-guida/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

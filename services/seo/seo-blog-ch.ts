@@ -8403,6 +8403,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-educatore-infanzia-ticino-guida': {
+    title: 'Lavorare come Educatore dell\'Infanzia in Ticino: Stipendio e Requisiti',
+    description: 'Guida completa per diventare educatore dell\'infanzia in Ticino: stipendio, requisiti e opportunità. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, educatore, dell, infanzia',
+    ogTitle: 'Lavorare come Educatore dell\'Infanzia in Ticino',
+    ogDescription: 'Esplora come lavorare come educatore dell\'infanzia in Ticino con stipendi competitivi e requisiti chiari.',
+    canonicalPath: '/articoli-svizzera/educatore-infanzia-ticino-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come Educatore dell'Infanzia in Ticino: Stipendio e Requisiti",
+      "description": "Guida completa per diventare educatore dell'infanzia in Ticino: stipendio, requisiti e opportunità. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/educatore-infanzia-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di edifici scolastici moderni a Lugano, Svizzera."
+      },
+      "datePublished": "2026-06-27T23:45:41+00:00",
+      "dateModified": "2026-06-27T23:45:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/educatore-infanzia-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

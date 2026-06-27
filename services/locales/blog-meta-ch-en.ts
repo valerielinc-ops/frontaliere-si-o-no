@@ -655,6 +655,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ingresso-svizzera-frontalieri-2026.title': 'Entry into Switzerland 2026: documents and controls for border guards',
     'blog.article.ingresso-svizzera-frontalieri-2026.excerpt': 'Updated guide to passport, identity card, permit and customs controls for border guards from 2026.',
     'blog.article.ingresso-svizzera-frontalieri-2026.imageAlt': 'Swiss border checkpoint with cross-border workers and document checks.',
+    'blog.article.educatore-infanzia-ticino-guida.title': 'Working as a Childhood Educator in Ticino: Salary and Requirements',
+    'blog.article.educatore-infanzia-ticino-guida.excerpt': 'Learn how to become a child educator in Ticino: training requirements, salary and job opportunities.',
+    'blog.article.educatore-infanzia-ticino-guida.imageAlt': 'View of modern school buildings in Lugano, Switzerland.',
 };
 
 export default blogMetaChEn;
