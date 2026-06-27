@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-06-27T10:38:42.134Z",
+  "assembledAt": "2026-06-27T21:49:58.663Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.508Z",
+      "crawledAt": "2026-06-27T21:49:56.182Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -102,6 +102,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -147,7 +148,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.507Z",
+      "crawledAt": "2026-06-27T21:49:56.181Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -198,6 +199,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.482Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -243,7 +245,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.506Z",
+      "crawledAt": "2026-06-27T21:49:56.180Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -300,6 +302,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -345,7 +348,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.506Z",
+      "crawledAt": "2026-06-27T21:49:56.179Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -396,102 +399,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-c634b3960b3a",
-      "slug": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
-        "en": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-        "de": "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos",
-        "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Pflegefachperson (w/m/d)",
-      "titleByLocale": {
-        "it": "Assistente sanitario (m/f/d)",
-        "en": "Nurse (f/m/d)",
-        "de": "Pflegefachperson (w/m/d)",
-        "fr": "Aide-soignant (m/f/d)"
-      },
-      "description": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
-      "descriptionByLocale": {
-        "it": "Descrizione Vuoi vivere l'assistenza che fa la differenza? Nella nostra clinica di riabilitazione, accompagnerai pazienti e pazienti nel loro percorso di ritorno alla vita quotidiana, con un mix di medicina di riabilitazione e assistenza acuta. ## Compiti - Assistenza integrale: Lavorerai in modo medico, sociale, emotivo e funzionale - Agire in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento - Promuovere l'autonomia: Accompagnerai i pazienti nel ritorno alla vita quotidiana e rafforzerai la loro fiducia nelle loro capacità - Vivere l'assistenza acuta: Compiti vari con casi interessanti dall'ospedale acuto - Partecipare: Porti idee e modelli attivamente i processi - a livello di squadra ##\n• Requisiti - Diploma di Assistente sanitario HF/FH o equivalente - Passione per l'assistenza acuta e di riabilitazione - Lavoro autonomo e responsabile - Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare ##\n• Cosa offriamo - Più tempo per l'assistenza relazionale: La piscina di accompagnamento e la farmacia alleggeriscono le attività di routine - Equilibrio tra lavoro e vita: Poche ore straordinarie, turni pianificabili, pochi o nessun turno di notte - Cultura familiare: Collaborazione a livello di squadra, assistenza nella direzione - Energia anche dopo il servizio: Più focus sulla relazione che sulla fatica fisica - Goditi la salute: Cucina mediterranea a piccoli prezzi",
-        "en": "Description Do you want to live nursing that makes a difference? In our rehabilitation clinic, you will accompany patients on their way back to everyday life – with a mix of rehabilitation medicine and acute care. ## Tasks - Comprehensive care: You will work medically, socially, emotionally, and functionally - Interdisciplinary action: Physio, Ergo, Sport, Psychology, Doctors, Social Service and others – all together for the success of treatment - Promote independence: You will accompany the patients back to everyday life and strengthen their trust in their abilities - Live acute care: Diverse tasks with exciting cases from the acute hospital - Participate: You bring ideas and actively shape processes – on an equal footing in the team ##\n• Requirements - Diploma as a Nursing Assistant HF/FH or equivalent - Enjoyment of acute and rehabilitation nursing - Independent, responsible working - Interest in quality, development, and interdisciplinary collaboration ##\n• What we offer - More time for relationship care: The companion pool and pharmacy relieve routine tasks - Work-life balance: Few overtime hours, schedulable shifts, few or no night shifts - Family culture: Collaboration on an equal footing, nursing in the management - Energy even after service: More focus on relationship than on physical strain - Enjoy health: Mediterranean cuisine at small prices",
-        "de": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
-        "fr": "Description Vous souhaitez vivre l'infirmier qui fait la différence? Dans notre clinique de réadaptation, vous accompagnez les patients dans leur retour à la vie quotidienne – avec un mélange de médecine de réadaptation et de soins urgents. ## Tâches - Soins complets: Vous travaillez médicalement, socialement, émotionnellement et fonctionnellement - Action interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres – tous ensemble pour le succès du traitement - Promouvoir l'autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne et renforcez leur confiance en leurs capacités - Vivre les soins urgents: Tâches variées avec des cas intéressants de l'hôpital urgent - Participer: Vous apportez des idées et façonnez activement les processus – à l'égalité dans l'équipe ##\n• Exigences - Diplôme d'aide-soignant HF/FH ou équivalent - Plaisir des soins urgents et de réadaptation - Travail autonome et responsable - Intérêt pour la qualité, le développement et la collaboration interdisciplinaire ## Ce que nous offrons - Plus de temps pour les soins relationnels: La piscine d'accompagnement et la pharmacie soulage les tâches de routine - Équilibre travail-vie: Peu d'heures supplémentaires, des quarts planifiables, peu ou pas de quarts de nuit - Culture familiale: Collaboration à l'égalité, soins dans la direction - Énergie même après le service: Plus de focus sur la relation que sur la fatigue physique - Profitez de la santé: Cuisine méditerranéenne à petits prix"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.505Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-17",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/610/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma di Assistente sanitario HF/FH o equivalente",
-          "Passione per l'assistenza acuta e di riabilitazione",
-          "Lavoro autonomo e responsabile",
-          "Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare"
-        ],
-        "en": [
-          "Diploma as a Nursing Assistant HF/FH or equivalent",
-          "Enjoyment of acute and rehabilitation nursing",
-          "Independent, responsible working",
-          "Interest in quality, development, and interdisciplinary collaboration"
-        ],
-        "fr": [
-          "Diplôme d'aide-soignant HF/FH ou équivalent",
-          "Plaisir des soins urgents et de réadaptation",
-          "Travail autonome et responsable",
-          "Intérêt pour la qualité, le développement et la collaboration interdisciplinaire"
-        ]
-      },
-      "department": "Pflege",
-      "streetAddress": "Promenade 117",
-      "contactPerson": "Anic Gloor",
-      "contactPhone": "081 417 30 39",
-      "previousSlugsByLocale": {
-        "de": [
-          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "it": [
-          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-      ],
-      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -537,7 +445,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.504Z",
+      "crawledAt": "2026-06-27T21:49:56.178Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -591,6 +499,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -606,79 +515,88 @@
       "addressRegion": "GR"
     },
     {
-      "id": "hochgebirgsklinik-davos-3b31e0624bf7",
-      "slug": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
+      "id": "hochgebirgsklinik-davos-c634b3960b3a",
+      "slug": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "it": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
-        "en": "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
-        "de": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
-        "fr": "physiotherapie-m-p-p-70-80-hochgebirgsklinik-davos-davos"
+        "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
+        "en": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+        "de": "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos",
+        "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
       "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Physiotherapeut (m/w/d) 60%",
+      "title": "Pflegefachperson (w/m/d)",
       "titleByLocale": {
-        "it": "Fisioterapia (m/w/d) 70-80 %",
-        "en": "Physiotherapist (m/f/d) 60%",
-        "de": "Physiotherapeut (m/w/d) 60%",
-        "fr": "Physiothérapie (m/p/p) 70-80 %"
+        "it": "Assistente sanitario (m/f/d)",
+        "en": "Pflegefachperson (w/m/d)",
+        "de": "Pflegefachperson (w/m/d)",
+        "fr": "Aide-soignant (m/f/d)"
       },
-      "description": "Wir suchen für unser innovatives Reha-Team einen Physiotherapeuten (m/w/d) 60% Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen (u. a. Kinderkrippe und Mitarbeiterunterkunft) sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte steht Ihnen Herrn Robert Kröher, Leiter Physiotherapie, unter der Telefonnummer +41 81 417 42 04, gerne zur Verfügung. | Aufgaben:\n• Angenehmes Arbeitsklima\n• Akutbehandlung von stationären Patienten aller Fachrichtungen\n• Einzel- und Gruppentherapien von stationären und ambulanten Patienten\n• Termin- und Therapieplanung\n• Arbeit im interdisziplinären Team (Physikalische Therapie)\n• Regelmässiger fachlicher Austausch | Anforderungen:\n• Abgeschlossene Ausbildung als Physiotherapeut/-in mit SRK-Anerkennung\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Teamgeist, Eigenverantwortung und Einsatzbereitschaft\n• Organisationsgeschick und Kommunikationsvermögen\n• Gute Deutschkenntnisse in Wort und Schrift",
+      "description": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
       "descriptionByLocale": {
-        "it": "Stiamo cercando un fisioterapista (m/w/d) 70-80% Dietro la nostra storia di successo è il team Hochgebirgsklinik con più di 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik vi offre condizioni di lavoro contemporanee (compreso il crèche di un bambino e l'alloggio dei dipendenti) e una posizione ideale per attività ricreative versatili nella regione turistica Grigio. Per ulteriori informazioni, rivolgersi al sig. Robert Kröher, responsabile della fisioterapia al numero +41 81 417 42 04. Compiti:\n• Piacevole clima di lavoro\n• Trattamento acuto di pazienti stazionari di tutte le discipline\n• Terapie individuali e di gruppo di pazienti stazionari e ambulatoriali\n• pianificazione dell'appuntamento e della terapia\n• Lavoro nel team interdisciplinare (terapia fisica)\n• Regolare scambio professionale | Requisiti:\n• Allenamento completo come fisioterapista con riconoscimento SRK\n• Personalità impegnata con un modo di lavoro indipendente e affidabile\n• Alta competenza sociale e pensiero orientato al cliente e al servizio\n• Spirito di squadra, responsabilità e impegno\n• Capacità organizzative e competenze di comunicazione\n• Buona conoscenza del tedesco nella parola e nella scrittura",
-        "en": "We are looking for a physiotherapist (m/w/d) 70-80% Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers you contemporary conditions of employment (including a child’s crèche and employee accommodation) as well as an ideal location for versatile leisure activities in the holiday region Graubünden. For additional information, please contact Mr. Robert Kröher, Head of Physiotherapy at +41 81 417 42 04. Tasks:\n• Pleasant working climate\n• Acute treatment of stationary patients of all disciplines\n• Individual and group therapies of stationary and outpatient patients\n• appointment and therapy planning\n• Work in the interdisciplinary team (physical therapy)\n• Regular professional exchange | Requirements:\n• Complete training as a physiotherapist with SRK recognition\n• Engaged personality with an independent and reliable way of working\n• High social competence and customer and service-oriented thinking\n• Team spirit, self-responsibility and commitment\n• Organisational skills and communication skills\n• Good knowledge of German in word and writing",
-        "de": "Wir suchen für unser innovatives Reha-Team einen Physiotherapeuten (m/w/d) 60% Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen (u. a. Kinderkrippe und Mitarbeiterunterkunft) sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte steht Ihnen Herrn Robert Kröher, Leiter Physiotherapie, unter der Telefonnummer +41 81 417 42 04, gerne zur Verfügung. | Aufgaben:\n• Angenehmes Arbeitsklima\n• Akutbehandlung von stationären Patienten aller Fachrichtungen\n• Einzel- und Gruppentherapien von stationären und ambulanten Patienten\n• Termin- und Therapieplanung\n• Arbeit im interdisziplinären Team (Physikalische Therapie)\n• Regelmässiger fachlicher Austausch | Anforderungen:\n• Abgeschlossene Ausbildung als Physiotherapeut/-in mit SRK-Anerkennung\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Teamgeist, Eigenverantwortung und Einsatzbereitschaft\n• Organisationsgeschick und Kommunikationsvermögen\n• Gute Deutschkenntnisse in Wort und Schrift",
-        "fr": "Nous sommes à la recherche d'un physiothérapeute (m/w/d) 70-80% Derrière notre réussite se trouve l'équipe Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik vous offre des conditions d'emploi contemporaines (y compris une crèche enfantine et un hébergement pour employés) ainsi qu'un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Pour plus d'informations, veuillez contacter M. Robert Kröher, responsable de la physiothérapie au +41 81 417 42 04. Tâches :\n• Un climat de travail agréable\n• Traitement aigu des patients stationnaires de toutes disciplines\n• Thérapies individuelles et collectives de patients en établissement ou en consultation externe\n• rendez-vous et planification thérapeutique\n• Travail dans l'équipe interdisciplinaire (thérapie physique)\n• Échange professionnel régulier.\n• Formation complète en physiothérapeute avec reconnaissance SRK\n• Personnalité engagée avec une manière de travailler indépendante et fiable\n• Haute compétence sociale et pensée axée sur le client et le service\n• Esprit d'équipe, responsabilité et engagement\n• Compétences organisationnelles et compétences en communication\n• Bonne connaissance de l'allemand en paroles et en écriture"
+        "it": "Descrizione Vuoi vivere l'assistenza che fa la differenza? Nella nostra clinica di riabilitazione, accompagnerai pazienti e pazienti nel loro percorso di ritorno alla vita quotidiana, con un mix di medicina di riabilitazione e assistenza acuta. ## Compiti - Assistenza integrale: Lavorerai in modo medico, sociale, emotivo e funzionale - Agire in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento - Promuovere l'autonomia: Accompagnerai i pazienti nel ritorno alla vita quotidiana e rafforzerai la loro fiducia nelle loro capacità - Vivere l'assistenza acuta: Compiti vari con casi interessanti dall'ospedale acuto - Partecipare: Porti idee e modelli attivamente i processi - a livello di squadra ##\n• Requisiti - Diploma di Assistente sanitario HF/FH o equivalente - Passione per l'assistenza acuta e di riabilitazione - Lavoro autonomo e responsabile - Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare ##\n• Cosa offriamo - Più tempo per l'assistenza relazionale: La piscina di accompagnamento e la farmacia alleggeriscono le attività di routine - Equilibrio tra lavoro e vita: Poche ore straordinarie, turni pianificabili, pochi o nessun turno di notte - Cultura familiare: Collaborazione a livello di squadra, assistenza nella direzione - Energia anche dopo il servizio: Più focus sulla relazione che sulla fatica fisica - Goditi la salute: Cucina mediterranea a piccoli prezzi",
+        "en": "Description Do you want to live nursing that makes a difference? In our rehabilitation clinic, you will accompany patients on their way back to everyday life – with a mix of rehabilitation medicine and acute care. ## Tasks - Comprehensive care: You will work medically, socially, emotionally, and functionally - Interdisciplinary action: Physio, Ergo, Sport, Psychology, Doctors, Social Service and others – all together for the success of treatment - Promote independence: You will accompany the patients back to everyday life and strengthen their trust in their abilities - Live acute care: Diverse tasks with exciting cases from the acute hospital - Participate: You bring ideas and actively shape processes – on an equal footing in the team ##\n• Requirements - Diploma as a Nursing Assistant HF/FH or equivalent - Enjoyment of acute and rehabilitation nursing - Independent, responsible working - Interest in quality, development, and interdisciplinary collaboration ##\n• What we offer - More time for relationship care: The companion pool and pharmacy relieve routine tasks - Work-life balance: Few overtime hours, schedulable shifts, few or no night shifts - Family culture: Collaboration on an equal footing, nursing in the management - Energy even after service: More focus on relationship than on physical strain - Enjoy health: Mediterranean cuisine at small prices",
+        "de": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
+        "fr": "Description Vous souhaitez vivre l'infirmier qui fait la différence? Dans notre clinique de réadaptation, vous accompagnez les patients dans leur retour à la vie quotidienne – avec un mélange de médecine de réadaptation et de soins urgents. ## Tâches - Soins complets: Vous travaillez médicalement, socialement, émotionnellement et fonctionnellement - Action interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres – tous ensemble pour le succès du traitement - Promouvoir l'autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne et renforcez leur confiance en leurs capacités - Vivre les soins urgents: Tâches variées avec des cas intéressants de l'hôpital urgent - Participer: Vous apportez des idées et façonnez activement les processus – à l'égalité dans l'équipe ##\n• Exigences - Diplôme d'aide-soignant HF/FH ou équivalent - Plaisir des soins urgents et de réadaptation - Travail autonome et responsable - Intérêt pour la qualité, le développement et la collaboration interdisciplinaire ## Ce que nous offrons - Plus de temps pour les soins relationnels: La piscine d'accompagnement et la pharmacie soulage les tâches de routine - Équilibre travail-vie: Peu d'heures supplémentaires, des quarts planifiables, peu ou pas de quarts de nuit - Culture familiale: Collaboration à l'égalité, soins dans la direction - Énergie même après le service: Plus de focus sur la relation que sur la fatigue physique - Profitez de la santé: Cuisine méditerranéenne à petits prix"
       },
       "location": "Davos",
       "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ3&showApplicationForm=false",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.503Z",
+      "crawledAt": "2026-06-27T21:49:56.178Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Terapia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/647/Application/CheckLogin/1?lang=ger",
+      "postedDate": "2025-11-17",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/610/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Therapie",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
-      "previousSlugs": [
-        "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
-        "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
-        "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
-        "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
-        "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
+      "requirementsByLocale": {
         "it": [
-          "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
-          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch"
+          "Diploma di Assistente sanitario HF/FH o equivalente",
+          "Passione per l'assistenza acuta e di riabilitazione",
+          "Lavoro autonomo e responsabile",
+          "Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare"
         ],
         "en": [
-          "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch"
+          "Diploma as a Nursing Assistant HF/FH or equivalent",
+          "Enjoyment of acute and rehabilitation nursing",
+          "Independent, responsible working",
+          "Interest in quality, development, and interdisciplinary collaboration"
         ],
         "fr": [
-          "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch"
+          "Diplôme d'aide-soignant HF/FH ou équivalent",
+          "Plaisir des soins urgents et de réadaptation",
+          "Travail autonome et responsable",
+          "Intérêt pour la qualité, le développement et la collaboration interdisciplinaire"
         ]
       },
-      "firstSeenAt": "2026-05-27T12:42:17.137Z",
+      "department": "Pflege",
+      "streetAddress": "Promenade 117",
+      "contactPerson": "Anic Gloor",
+      "contactPhone": "081 417 30 39",
+      "previousSlugsByLocale": {
+        "de": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
+        ],
+        "it": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
+      ],
+      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -724,7 +642,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.503Z",
+      "crawledAt": "2026-06-27T21:49:56.177Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -762,6 +680,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:45:59.207Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -771,6 +690,97 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-3b31e0624bf7",
+      "slug": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
+        "en": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
+        "de": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
+        "fr": "physiotherapie-m-p-p-70-80-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Physiotherapeut (m/w/d) 60%",
+      "titleByLocale": {
+        "it": "Fisioterapia (m/w/d) 70-80 %",
+        "en": "Physiotherapeut (m/w/d) 60%",
+        "de": "Physiotherapeut (m/w/d) 60%",
+        "fr": "Physiothérapie (m/p/p) 70-80 %"
+      },
+      "description": "Wir suchen für unser innovatives Reha-Team einen Physiotherapeuten (m/w/d) 60% Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen (u. a. Kinderkrippe und Mitarbeiterunterkunft) sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte steht Ihnen Herrn Robert Kröher, Leiter Physiotherapie, unter der Telefonnummer +41 81 417 42 04, gerne zur Verfügung. | Aufgaben:\n• Angenehmes Arbeitsklima\n• Akutbehandlung von stationären Patienten aller Fachrichtungen\n• Einzel- und Gruppentherapien von stationären und ambulanten Patienten\n• Termin- und Therapieplanung\n• Arbeit im interdisziplinären Team (Physikalische Therapie)\n• Regelmässiger fachlicher Austausch | Anforderungen:\n• Abgeschlossene Ausbildung als Physiotherapeut/-in mit SRK-Anerkennung\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Teamgeist, Eigenverantwortung und Einsatzbereitschaft\n• Organisationsgeschick und Kommunikationsvermögen\n• Gute Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un fisioterapista (m/w/d) 70-80% Dietro la nostra storia di successo è il team Hochgebirgsklinik con più di 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik vi offre condizioni di lavoro contemporanee (compreso il crèche di un bambino e l'alloggio dei dipendenti) e una posizione ideale per attività ricreative versatili nella regione turistica Grigio. Per ulteriori informazioni, rivolgersi al sig. Robert Kröher, responsabile della fisioterapia al numero +41 81 417 42 04. Compiti:\n• Piacevole clima di lavoro\n• Trattamento acuto di pazienti stazionari di tutte le discipline\n• Terapie individuali e di gruppo di pazienti stazionari e ambulatoriali\n• pianificazione dell'appuntamento e della terapia\n• Lavoro nel team interdisciplinare (terapia fisica)\n• Regolare scambio professionale | Requisiti:\n• Allenamento completo come fisioterapista con riconoscimento SRK\n• Personalità impegnata con un modo di lavoro indipendente e affidabile\n• Alta competenza sociale e pensiero orientato al cliente e al servizio\n• Spirito di squadra, responsabilità e impegno\n• Capacità organizzative e competenze di comunicazione\n• Buona conoscenza del tedesco nella parola e nella scrittura",
+        "en": "We are looking for a physiotherapist (m/w/d) 70-80% Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers you contemporary conditions of employment (including a child’s crèche and employee accommodation) as well as an ideal location for versatile leisure activities in the holiday region Graubünden. For additional information, please contact Mr. Robert Kröher, Head of Physiotherapy at +41 81 417 42 04. Tasks:\n• Pleasant working climate\n• Acute treatment of stationary patients of all disciplines\n• Individual and group therapies of stationary and outpatient patients\n• appointment and therapy planning\n• Work in the interdisciplinary team (physical therapy)\n• Regular professional exchange | Requirements:\n• Complete training as a physiotherapist with SRK recognition\n• Engaged personality with an independent and reliable way of working\n• High social competence and customer and service-oriented thinking\n• Team spirit, self-responsibility and commitment\n• Organisational skills and communication skills\n• Good knowledge of German in word and writing",
+        "de": "Wir suchen für unser innovatives Reha-Team einen Physiotherapeuten (m/w/d) 60% Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen (u. a. Kinderkrippe und Mitarbeiterunterkunft) sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte steht Ihnen Herrn Robert Kröher, Leiter Physiotherapie, unter der Telefonnummer +41 81 417 42 04, gerne zur Verfügung. | Aufgaben:\n• Angenehmes Arbeitsklima\n• Akutbehandlung von stationären Patienten aller Fachrichtungen\n• Einzel- und Gruppentherapien von stationären und ambulanten Patienten\n• Termin- und Therapieplanung\n• Arbeit im interdisziplinären Team (Physikalische Therapie)\n• Regelmässiger fachlicher Austausch | Anforderungen:\n• Abgeschlossene Ausbildung als Physiotherapeut/-in mit SRK-Anerkennung\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Teamgeist, Eigenverantwortung und Einsatzbereitschaft\n• Organisationsgeschick und Kommunikationsvermögen\n• Gute Deutschkenntnisse in Wort und Schrift",
+        "fr": "Nous sommes à la recherche d'un physiothérapeute (m/w/d) 70-80% Derrière notre réussite se trouve l'équipe Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik vous offre des conditions d'emploi contemporaines (y compris une crèche enfantine et un hébergement pour employés) ainsi qu'un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Pour plus d'informations, veuillez contacter M. Robert Kröher, responsable de la physiothérapie au +41 81 417 42 04. Tâches :\n• Un climat de travail agréable\n• Traitement aigu des patients stationnaires de toutes disciplines\n• Thérapies individuelles et collectives de patients en établissement ou en consultation externe\n• rendez-vous et planification thérapeutique\n• Travail dans l'équipe interdisciplinaire (thérapie physique)\n• Échange professionnel régulier.\n• Formation complète en physiothérapeute avec reconnaissance SRK\n• Personnalité engagée avec une manière de travailler indépendante et fiable\n• Haute compétence sociale et pensée axée sur le client et le service\n• Esprit d'équipe, responsabilité et engagement\n• Compétences organisationnelles et compétences en communication\n• Bonne connaissance de l'allemand en paroles et en écriture"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ3&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-27T21:49:56.176Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Terapia",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/647/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Therapie",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
+        "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
+        "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
+        "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+        "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
+        "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
+          "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
+          "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-27T12:42:17.137Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -807,7 +817,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.502Z",
+      "crawledAt": "2026-06-27T21:49:56.176Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -886,6 +896,92 @@
       "addressRegion": "GR"
     },
     {
+      "id": "hochgebirgsklinik-davos-21ad22215625",
+      "slug": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
+      "slugByLocale": {
+        "it": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
+        "en": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "de": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "fr": "psychologue-parent-enfant-et-jeune-station-m-f-j-80-100-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
+      "titleByLocale": {
+        "it": "Psicologo genitori-figlio e stazione giovanile (m/f/d) 80 - 100 %",
+        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
+        "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
+        "fr": "Psychologue parent-enfant et jeune station (m/f/j) 80 - 100 %"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
+      "descriptionByLocale": {
+        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Per ulteriori informazioni potete contattare il Dott. Raschid Gharbo, responsabile del reparto di psicosomatica, +41 81 417 30 83, sarà lieto di aiutarvi. Mansioni - Pianificazione e realizzazione autonoma di diagnosi psichiatriche e psicologiche infantili e dell'adolescenza nonché di psicoterapie individuali - Pianificazione e gestione di terapie di gruppo tematiche - Realizzazione di gruppi psicoeducativi e formazione per pazienti e familiari - Istruzioni per procedure di rilassamento - Documentazione corretta e responsabile e redazione di rapporti secondo le linee guida della clinica - Collaborazione interdisciplinare attiva\n• Requisiti - Master in psicologia - Esperienza in neuropsicologia - Conoscenza di test diagnostici ambulatoriali - Formazione in psicoterapia riconosciuta a livello federale completata o iniziata - Piacere e interesse per il lavoro orientato al paziente - Elevate abilità sociali e modo di lavorare indipendente e affidabile - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra - Buone capacità di utilizzo del PC",
+        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. For additional information, please contact Dr. Raschid Gharbo, Head of Psychosomatics, +41 81 417 30 83 is happy to help. Mansioni - Independent planning and implementation of child and adolescent psychiatric and psychological diagnostics as well as individual psychotherapies - Planning and management of topic-specific group therapies - Implementation of psychoeducational groups and training for patients and their relatives - Instruction in relaxation procedures - Correct and responsible documentation and creation of reports according to the clinic's guidelines - Active interdisciplinary collaboration\n• Requisiti - Master's degree in psychology - Experience in neuropsychology - Knowledge of outpatient test diagnostics - Completed or begun federally recognized psychotherapy training - Enjoyment and interest in patient-oriented work - High social skills and independent and reliable way of working - Resilience, sense of responsibility, flexibility and ability to work in a team - Good PC user skills",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
+        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Pour plus d'informations, veuillez contacter le Dr Raschid Gharbo, responsable du département psychosomatique, +41 81 417 30 83, qui se fera un plaisir de vous aider. Mansioni - Planification et mise en œuvre indépendantes de diagnostics psychiatriques et psychologiques pour enfants et adolescents ainsi que de psychothérapies individuelles - Planification et gestion de thérapies de groupe thématiques - Mise en place de groupes psychoéducatifs et formation pour les patients et leurs proches - Instruction sur les procédures de relaxation - Documentation correcte et responsable et création de rapports selon les directives de la clinique - Collaboration interdisciplinaire active\n• Requisiti - Master en psychologie - Expérience en neuropsychologie - Connaissance des diagnostics de tests ambulatoires - Terminé ou commencé au niveau fédéral formation en psychothérapie - Appréciation et intérêt pour le travail axé sur le patient - Compétences sociales élevées et mode de travail indépendant et fiable - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe - Bonnes compétences d'utilisation de PC"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ5&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-27T21:49:56.175Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Psicologia",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/649/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Psychologie",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "psychologist-parent-child-and-youth-unit-m-f-d-80-100-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "psychologist-parent-child-and-youth-unit-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T13:35:51.730Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
       "id": "hochgebirgsklinik-davos-fa2e5df5cc6d",
       "slug": "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
@@ -916,7 +1012,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.499Z",
+      "crawledAt": "2026-06-27T21:49:56.172Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -969,94 +1065,11 @@
       "addressRegion": "GR"
     },
     {
-      "id": "hochgebirgsklinik-davos-21ad22215625",
-      "slug": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
-      "slugByLocale": {
-        "it": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
-        "en": "psychologist-parent-child-and-youth-unit-m-f-d-80-100-hochgebirgsklinik-davos-davos",
-        "de": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "psychologue-parent-enfant-et-jeune-station-m-f-j-80-100-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
-      "titleByLocale": {
-        "it": "Psicologo genitori-figlio e stazione giovanile (m/f/d) 80 - 100 %",
-        "en": "Psychologist parent-child and youth unit (m/f/d) 80 - 100%",
-        "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
-        "fr": "Psychologue parent-enfant et jeune station (m/f/j) 80 - 100 %"
-      },
-      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
-      "descriptionByLocale": {
-        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Per ulteriori informazioni potete contattare il Dott. Raschid Gharbo, responsabile del reparto di psicosomatica, +41 81 417 30 83, sarà lieto di aiutarvi. Mansioni - Pianificazione e realizzazione autonoma di diagnosi psichiatriche e psicologiche infantili e dell'adolescenza nonché di psicoterapie individuali - Pianificazione e gestione di terapie di gruppo tematiche - Realizzazione di gruppi psicoeducativi e formazione per pazienti e familiari - Istruzioni per procedure di rilassamento - Documentazione corretta e responsabile e redazione di rapporti secondo le linee guida della clinica - Collaborazione interdisciplinare attiva\n• Requisiti - Master in psicologia - Esperienza in neuropsicologia - Conoscenza di test diagnostici ambulatoriali - Formazione in psicoterapia riconosciuta a livello federale completata o iniziata - Piacere e interesse per il lavoro orientato al paziente - Elevate abilità sociali e modo di lavorare indipendente e affidabile - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra - Buone capacità di utilizzo del PC",
-        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. For additional information, please contact Dr. Raschid Gharbo, Head of Psychosomatics, +41 81 417 30 83 is happy to help. Mansioni - Independent planning and implementation of child and adolescent psychiatric and psychological diagnostics as well as individual psychotherapies - Planning and management of topic-specific group therapies - Implementation of psychoeducational groups and training for patients and their relatives - Instruction in relaxation procedures - Correct and responsible documentation and creation of reports according to the clinic's guidelines - Active interdisciplinary collaboration\n• Requisiti - Master's degree in psychology - Experience in neuropsychology - Knowledge of outpatient test diagnostics - Completed or begun federally recognized psychotherapy training - Enjoyment and interest in patient-oriented work - High social skills and independent and reliable way of working - Resilience, sense of responsibility, flexibility and ability to work in a team - Good PC user skills",
-        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
-        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Pour plus d'informations, veuillez contacter le Dr Raschid Gharbo, responsable du département psychosomatique, +41 81 417 30 83, qui se fera un plaisir de vous aider. Mansioni - Planification et mise en œuvre indépendantes de diagnostics psychiatriques et psychologiques pour enfants et adolescents ainsi que de psychothérapies individuelles - Planification et gestion de thérapies de groupe thématiques - Mise en place de groupes psychoéducatifs et formation pour les patients et leurs proches - Instruction sur les procédures de relaxation - Documentation correcte et responsable et création de rapports selon les directives de la clinique - Collaboration interdisciplinaire active\n• Requisiti - Master en psychologie - Expérience en neuropsychologie - Connaissance des diagnostics de tests ambulatoires - Terminé ou commencé au niveau fédéral formation en psychothérapie - Appréciation et intérêt pour le travail axé sur le patient - Compétences sociales élevées et mode de travail indépendant et fiable - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe - Bonnes compétences d'utilisation de PC"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ5&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.499Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Psicologia",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/649/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Psychologie",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
-      "previousSlugs": [
-        "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T13:35:51.730Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "hochgebirgsklinik-davos-d446aeb8d2aa",
       "slug": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "it": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
-        "en": "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos",
+        "en": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
         "de": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
         "fr": "therapeute-de-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
       },
@@ -1066,7 +1079,7 @@
       "title": "Spa Therapeut (m/w) 50 - 60%",
       "titleByLocale": {
         "it": "Terapista Spa (m/f) 50 - 60%",
-        "en": "Spa Therapist (m/f) 50 - 60 %",
+        "en": "Spa Therapeut (m/w) 50 - 60%",
         "de": "Spa Therapeut (m/w) 50 - 60%",
         "fr": "Thérapeute de spa (m/f) 50 - 60 %"
       },
@@ -1082,7 +1095,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.498Z",
+      "crawledAt": "2026-06-27T21:49:56.171Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1106,13 +1119,15 @@
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
       "previousSlugs": [
-        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
+        "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
         ],
         "en": [
+          "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos",
           "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
         ],
         "fr": [
@@ -1120,6 +1135,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T22:57:32.542Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1165,7 +1181,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.497Z",
+      "crawledAt": "2026-06-27T21:49:56.170Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1248,7 +1264,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.496Z",
+      "crawledAt": "2026-06-27T21:49:56.169Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1331,7 +1347,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.495Z",
+      "crawledAt": "2026-06-27T21:49:56.168Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1414,7 +1430,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.494Z",
+      "crawledAt": "2026-06-27T21:49:56.167Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1452,6 +1468,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T11:51:46.132Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1497,7 +1514,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T10:38:40.484Z",
+      "crawledAt": "2026-06-27T21:49:56.157Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
