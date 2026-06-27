@@ -637,6 +637,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-terzo-pilastro-vantaggi.title': 'Advantages and features of the Third Pillar for border workers',
     'blog.article.frontaliere-terzo-pilastro-vantaggi.excerpt': 'Find out how the Third Pillar can offer tax advantages and ensure a secure pension future for frontier workers.',
     'blog.article.frontaliere-terzo-pilastro-vantaggi.imageAlt': 'View of a pension office in Switzerland with financial documents on a table.',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.title': 'Frontier: reimbursable health expenses in Italy and limits',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.excerpt': 'What health expenses incurred in Switzerland by border workers are reimbursable in Italy, with the procedures and limits provided for.',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.imageAlt': 'Cross-border Swiss-Italian healthcare documents on a desk.',
 };
 
 export default blogMetaChEn;

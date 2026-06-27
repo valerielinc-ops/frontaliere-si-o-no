@@ -637,6 +637,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-terzo-pilastro-vantaggi.title': 'Vorteile und Funktionalität der dritten Säule für Grenzgänger',
     'blog.article.frontaliere-terzo-pilastro-vantaggi.excerpt': 'Erfahren Sie, wie die dritte Säule Steuervorteile bietet und Grenzgängern eine sichere Rentenzukunft garantiert.',
     'blog.article.frontaliere-terzo-pilastro-vantaggi.imageAlt': 'Ansicht eines Rentenbüros in der Schweiz mit Finanzunterlagen auf einem Tisch.',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.title': 'Grenzgänger: erstattungsfähige Gesundheitskosten in Italien und Grenzwerte',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.excerpt': 'Welche Gesundheitskosten in der Schweiz von Grenzgängern getragen werden, ist in Italien mit den vorgesehenen Verfahren und Grenzen erstattungsfähig.',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.imageAlt': 'Grenzüberschreitende Schweizer-italienische Gesundheitsdokumente auf einem Schreibtisch.',
 };
 
 export default blogMetaChDe;

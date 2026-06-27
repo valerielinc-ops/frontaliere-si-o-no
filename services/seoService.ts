@@ -4264,6 +4264,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-congedo-parentale-frontalieri': { name: 'Diritti Genitoriali Frontalieri', path: '/articoli-svizzera/congedo-parentale-frontalieri/', parent: 'blog' },
     'blog-frontaliere-assicurazione-auto-confronto': { name: 'Assicurazione auto frontalieri', path: '/articoli-svizzera/frontaliere-assicurazione-auto-confronto/', parent: 'blog' },
     'blog-frontaliere-terzo-pilastro-vantaggi': { name: 'Terzo Pilastro Frontalieri', path: '/articoli-svizzera/frontaliere-terzo-pilastro-vantaggi/', parent: 'blog' },
+    'blog-frontaliere-spese-sanitarie-rimborsabili': { name: 'Spese sanitarie rimborsabili', path: '/articoli-svizzera/frontaliere-spese-sanitarie-rimborsabili/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

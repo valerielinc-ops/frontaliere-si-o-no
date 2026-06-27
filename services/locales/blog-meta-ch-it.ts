@@ -637,6 +637,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-terzo-pilastro-vantaggi.title': 'Vantaggi e funzionalità del Terzo Pilastro per i frontalieri',
     'blog.article.frontaliere-terzo-pilastro-vantaggi.excerpt': 'Scopri come il Terzo Pilastro può offrire vantaggi fiscali e garantire un futuro pensionistico sicuro ai frontalieri.',
     'blog.article.frontaliere-terzo-pilastro-vantaggi.imageAlt': 'Vista di un ufficio pensionistico in Svizzera con documenti finanziari su un tavolo.',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.title': 'Frontaliere: spese sanitarie rimborsabili in Italia e limiti',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.excerpt': 'Quali spese sanitarie sostenute in Svizzera dai frontalieri sono rimborsabili in Italia, con le procedure e i limiti previsti.',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.imageAlt': 'Documenti sanitari frontalieri tra Svizzera e Italia su una scrivania.',
 };
 
 export default blogMetaChIt;

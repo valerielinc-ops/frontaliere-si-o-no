@@ -235,6 +235,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'congedo-parentale-frontalieri': { it: 'congedo-parentale-frontalieri', en: 'parental-leave-cross-border-workers', de: 'elternurlaub-grenzgaenger', fr: 'conge-parental-frontaliers' },
  'frontaliere-assicurazione-auto-confronto': { it: 'frontaliere-assicurazione-auto-confronto', en: 'cross-border-car-insurance-switzerland-italy', de: 'grenzgaenger-autoversicherung-schweiz-italien', fr: 'frontalier-assurance-auto-suisse-italie' },
  'frontaliere-terzo-pilastro-vantaggi': { it: 'frontaliere-terzo-pilastro-vantaggi', en: 'third-pillar-benefits-functions', de: 'vorteile-und-funktionen-dritte-saeule', fr: 'avantages-fonctionnalites-troisieme-pilier' },
+ 'frontaliere-spese-sanitarie-rimborsabili': { it: 'frontaliere-spese-sanitarie-rimborsabili', en: 'cross-border-healthcare-expenses-italy', de: 'grenzgaenger-gesundheitskosten-italien', fr: 'frais-sanitaires-frontaliers-italie' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
