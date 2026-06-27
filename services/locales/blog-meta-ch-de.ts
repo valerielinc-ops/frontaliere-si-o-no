@@ -625,6 +625,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-smart-working-regole.title': 'Smart Working für Grenzgänger: Aktualisierte Regeln',
     'blog.article.frontaliere-smart-working-regole.excerpt': 'Entdecken Sie die aktuellen Regeln für das Remote-Arbeiten für Grenzgänger zwischen der Schweiz und Italien.',
     'blog.article.frontaliere-smart-working-regole.imageAlt': 'Malerische Aussicht auf Lugano mit dem See und einer Person, die am Laptop arbeitet.',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Mutuo in Svizzera per Frontalieri: Requisiti e Banche',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.excerpt': 'Praktischer Leitfaden zu den Anforderungen und Verfahren für die Beantragung eines Wohnungsbaudarlehens in der Schweiz als Grenzgänger. Konzentrieren Sie sich auf Banken und erforderliche Dokumentation.',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.imageAlt': 'Schweizer Bankschreibtisch mit Hypothekendokumenten und Seeblick.',
 };
 
 export default blogMetaChDe;

@@ -1871,6 +1871,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mutuo-frontaliere-casa-svizzera-procedure',
+    category: 'pratico',
+    date: '2026-06-27T20:11:59.901Z',
+    image: '/images/blog/mutuo-frontaliere-casa-svizzera-procedure.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

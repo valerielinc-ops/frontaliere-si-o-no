@@ -625,6 +625,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-smart-working-regole.title': 'Smart Working pour les frontaliers : règles mises à jour',
     'blog.article.frontaliere-smart-working-regole.excerpt': 'Découvrez les règles actuelles pour le travail à distance pour les frontaliers entre la Suisse et l\'Italie.',
     'blog.article.frontaliere-smart-working-regole.imageAlt': 'Vue pittoresque de Lugano avec le lac et une personne travaillant sur un ordinateur portable.',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Mutuo in Svizzera per Frontalieri: Requisiti e banche',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.excerpt': 'Guide pratique des exigences et des procédures pour demander un prêt immobilier en Suisse en tant que frontalier. Focus sur les banques et la documentation requise.',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.imageAlt': 'Bureau bancaire suisse avec documents hypothécaires et vue sur le lac.',
 };
 
 export default blogMetaChFr;
