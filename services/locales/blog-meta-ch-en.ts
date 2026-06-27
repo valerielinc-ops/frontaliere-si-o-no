@@ -652,6 +652,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.title': 'Guide to seasonal work for border workers in Ticino',
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.excerpt': 'Discover rules, rights and opportunities for seasonal work in Ticino.',
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.imageAlt': 'Panoramic view of Canton Ticino with mountains and clear skies.',
+    'blog.article.ingresso-svizzera-frontalieri-2026.title': 'Entry into Switzerland 2026: documents and controls for border guards',
+    'blog.article.ingresso-svizzera-frontalieri-2026.excerpt': 'Updated guide to passport, identity card, permit and customs controls for border guards from 2026.',
+    'blog.article.ingresso-svizzera-frontalieri-2026.imageAlt': 'Swiss border checkpoint with cross-border workers and document checks.',
 };
 
 export default blogMetaChEn;

@@ -652,6 +652,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.title': 'Guide du travail saisonnier pour les frontaliers au Tessin',
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.excerpt': 'Découvrez les règles, les droits et les opportunités pour le travail saisonnier au Tessin.',
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.imageAlt': 'Vue panoramique du canton du Tessin avec montagnes et ciel clair.',
+    'blog.article.ingresso-svizzera-frontalieri-2026.title': 'Entrée en Suisse 2026 : documents et contrôles pour les frontaliers',
+    'blog.article.ingresso-svizzera-frontalieri-2026.excerpt': 'Guide mis à jour avec passeport, carte d\'identité, permis et contrôles douaniers pour les frontaliers à partir de 2026.',
+    'blog.article.ingresso-svizzera-frontalieri-2026.imageAlt': 'Poste frontière suisse avec frontaliers et contrôle des documents.',
 };
 
 export default blogMetaChFr;

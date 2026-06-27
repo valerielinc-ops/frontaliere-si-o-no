@@ -652,6 +652,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.title': 'Guida al lavoro stagionale per frontalieri in Ticino',
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.excerpt': 'Scopri regole, diritti e opportunità per il lavoro stagionale in Ticino.',
     'blog.article.frontaliere-lavoro-stagionale-ticino-info.imageAlt': 'Panorama del Canton Ticino con montagne e cielo sereno.',
+    'blog.article.ingresso-svizzera-frontalieri-2026.title': 'Ingresso in Svizzera 2026: documenti e controlli per frontalieri',
+    'blog.article.ingresso-svizzera-frontalieri-2026.excerpt': 'Guida aggiornata a passaporto, carta d\'identità, permesso e controlli doganali per frontalieri dal 2026.',
+    'blog.article.ingresso-svizzera-frontalieri-2026.imageAlt': 'Valico di frontiera svizzero con frontalieri e controllo documenti.',
 };
 
 export default blogMetaChIt;
