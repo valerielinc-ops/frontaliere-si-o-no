@@ -7467,6 +7467,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-postino-licenziato-dopo-42-anni-berna-non-interviene': {
+    title: 'Postino licenziato dopo 42 anni. Berna, alla fine, non interviene',
+    description: 'Un postino vodese licenziato dopo 42 anni. Il Consiglio federale svizzero non ha voluto intervenire nella vicenda, lasciando la Posta autonoma nelle sue',
+    keywords: 'frontalieri, ticino, svizzera, italia, postino, licenziato, dopo, anni',
+    ogTitle: 'Postino licenziato dopo 42 anni in Svizzera',
+    ogDescription: 'La Posta svizzera licenzia un postino dopo 42 anni di servizio. Il Consiglio federale non interviene.',
+    canonicalPath: '/articoli-svizzera/postino-licenziato-dopo-42-anni-berna-non-interviene/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Postino licenziato dopo 42 anni. Berna, alla fine, non interviene",
+      "description": "Un postino vodese licenziato dopo 42 anni. Il Consiglio federale svizzero non ha voluto intervenire nella vicenda, lasciando la Posta autonoma nelle sue",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/postino-licenziato-dopo-42-anni-berna-non-interviene.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un postino svizzero consegna una lettera"
+      },
+      "datePublished": "2026-06-27T13:22:15+00:00",
+      "dateModified": "2026-06-27T13:22:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/postino-licenziato-dopo-42-anni-berna-non-interviene/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

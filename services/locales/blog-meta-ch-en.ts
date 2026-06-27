@@ -583,6 +583,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-prelievo-frontaliere.title': 'Second LPP pillar for border workers: collection and taxation',
     'blog.article.secondo-pilastro-prelievo-frontaliere.excerpt': 'When and how border guards can pick up the second LPP pillar. Taxation in Switzerland and Italy, exit strategies.',
     'blog.article.secondo-pilastro-prelievo-frontaliere.imageAlt': 'Cross-border worker reviews LPP pension documents in a Swiss office.',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.title': 'Postman fired after 42 years. Bern, in the end, does not intervene',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.excerpt': 'A Vodese postman has been fired after 42 years of service. The Federal Council did not want to intervene in the matter.',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.imageAlt': 'A Swiss postal worker delivers a letter',
 };
 
 export default blogMetaChEn;

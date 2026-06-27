@@ -1745,6 +1745,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'postino-licenziato-dopo-42-anni-berna-non-interviene',
+    category: 'fiscale',
+    date: '2026-06-27T13:22:15.297Z',
+    image: '/images/blog/postino-licenziato-dopo-42-anni-berna-non-interviene.webp',
+    hasCalculator: false,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

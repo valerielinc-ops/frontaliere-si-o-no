@@ -4246,6 +4246,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassazione-frontalieri-oltre-20km': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/tassazione-frontalieri-oltre-20km/', parent: 'blog' },
     'blog-morto-ex-presidente-bns-hans-meyer': { name: 'BNS', path: '/articoli-svizzera/morto-ex-presidente-bns-hans-meyer/', parent: 'blog' },
     'blog-secondo-pilastro-prelievo-frontaliere': { name: 'Secondo pilastro LPP', path: '/articoli-svizzera/secondo-pilastro-prelievo-frontaliere/', parent: 'blog' },
+    'blog-postino-licenziato-dopo-42-anni-berna-non-interviene': { name: 'Postino licenziato Svizzera', path: '/articoli-svizzera/postino-licenziato-dopo-42-anni-berna-non-interviene/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -583,6 +583,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-prelievo-frontaliere.title': 'Zweite Säule BVG für Grenzgänger: Bezug und Besteuerung',
     'blog.article.secondo-pilastro-prelievo-frontaliere.excerpt': 'Wann und wie Grenzgänger die zweite Säule BVG beziehen können. Besteuerung in der Schweiz und Italien, Ausstiegsstrategien.',
     'blog.article.secondo-pilastro-prelievo-frontaliere.imageAlt': 'Grenzgänger prüft BVG-Dokumente in einem Schweizer Büro.',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.title': 'Postbote nach 42 Jahren entlassen. Bern greift am Ende nicht ein',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.excerpt': 'Ein Waadtländer Postbote wurde nach 42 Dienstjahren entlassen. Der Bundesrat wollte sich nicht einmischen.',
+    'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.imageAlt': 'Ein Schweizer Postbote liefert einen Brief aus',
 };
 
 export default blogMetaChDe;
