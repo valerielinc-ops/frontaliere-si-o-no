@@ -449,7 +449,7 @@
         "it": "professoressa-professore-associata-o-in-governance-della-sostenibilita-e-trasformazione-sistemica-supsi-dti-manno",
         "en": "associated-professorship-in-sustainability-governance-and-transformation-supsi-dti-manno",
         "de": "associate-professor-professor-oder-governance-von-nachhaltigkeit-und-systemischer-transformation-supsi-dti-manno",
-        "fr": "professeur-associe-professeur-gouvernance-de-la-durabilite-et-de-la-transformation-systemique-supsi-dti-manno"
+        "fr": "professoressa-professore-associata-o-in-governance-della-sostenibilita-e-trasformazione-sistemica-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -504,7 +504,12 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "fr": [
+          "professeur-associe-professeur-gouvernance-de-la-durabilite-et-de-la-transformation-systemique-supsi-dti-manno"
+        ]
+      }
     },
     {
       "id": "company-l4s84t",
@@ -906,7 +911,7 @@
         "it": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
         "en": "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano-l4u552",
         "de": "wissenschaftliche-mitarbeiter-in-informatik-und-applied-data-science-supsi-dti-lugano",
-        "fr": "collaborateurs-scientifiques-en-informatique-et-en-sciences-appliquees-des-donnees-supsi-dti-lugano"
+        "fr": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "en": [],
@@ -946,7 +951,8 @@
           "wissenschaftliche-mitarbeiter-in-informatik-und-angewandter-datenwissenschaft-supsi-dti-lugano"
         ],
         "fr": [
-          "collaborateur-scientifique-en-informatique-e-applied-data-science-supsi-dti-lugano"
+          "collaborateur-scientifique-en-informatique-e-applied-data-science-supsi-dti-lugano",
+          "collaborateurs-scientifiques-en-informatique-et-en-sciences-appliquees-des-donnees-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
@@ -2839,7 +2845,7 @@
       },
       "slugByLocale": {
         "it": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
-        "en": "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
+        "en": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
         "de": "phd-phd-in-alpine-orogene-prozesse-supsi-dti-mendrisio",
         "fr": "doctorat-en-processus-orogenes-alpins-supsi-dti-mendrisio"
       },
@@ -2865,6 +2871,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
+          "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
           "phd-student-in-alpine-orogenic-processes-supsi-dti-mendrisio"
         ],
         "de": [
@@ -2881,7 +2888,7 @@
         ]
       },
       "previousSlugs": [
-        "phd-student-in-alpine-orogenic-processes-supsi-dti-mendrisio",
+        "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
         "doktorand-auf-dem-gebiet-der-alpinen-orogenetischen-prozesse-supsi-dti-mendrisio",
         "promotionskandidat-in-fur-alpine-orogenetische-prozesse-supsi-dti-mendrisio",
         "doktorand-in-alpinen-orogenen-prozessen-supsi-dti-mendrisio",
