@@ -8167,6 +8167,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.uonboldo-tributo-lucio-dalla.title': 'Uboldo: Summer 2026 Departs with "Hi Lucio"',
     'blog.article.uonboldo-tributo-lucio-dalla.excerpt': 'On June 27, Falcone e Borsellino Park in Uboldo will host a tribute to Lucio Dalla with the free concert of the group "Volpi senza Tana", opening the "Summer Air" exhibition.',
     'blog.article.uonboldo-tributo-lucio-dalla.imageAlt': 'Outdoor concert in Uboldo park dedicated to Lucio Dalla',
+    'blog.article.cessione-cargotrailers-lonate-pozzolo.title': 'Cargotrailers: Lonate Pozzolo\'s company becomes German',
+    'blog.article.cessione-cargotrailers-lonate-pozzolo.excerpt': 'Andrea Perotti, partner of Cargotrailers, comments on the sale of the Lonate Pozzolo company to German players after years of challenges with the Italian bureaucracy.',
+    'blog.article.cessione-cargotrailers-lonate-pozzolo.imageAlt': 'Cargotrailers headquarters in Lonate Pozzolo',
 };
 
 export default blogMetaEn;

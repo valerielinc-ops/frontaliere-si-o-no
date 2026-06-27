@@ -45041,6 +45041,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cessione-cargotrailers-lonate-pozzolo': {
+    title: 'Cargotrailers: l\'azienda di Lonate Pozzolo diventa tedesca',
+    description: 'Andrea Perotti racconta la cessione di Cargotrailers a player tedeschi. Analisi sulle difficoltà burocratiche per le imprese in Italia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cargotrailers, azienda, lonate, pozzolo',
+    ogTitle: 'Cargotrailers: l\'azienda di Lonate Pozzolo diventa tedesca',
+    ogDescription: 'Andrea Perotti racconta la cessione di Cargotrailers a player tedeschi. Analisi sulle difficoltà burocratiche per le imprese in Italia.',
+    canonicalPath: '/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cargotrailers: l'azienda di Lonate Pozzolo diventa tedesca",
+      "description": "Andrea Perotti racconta la cessione di Cargotrailers a player tedeschi. Analisi sulle difficoltà burocratiche per le imprese in Italia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cessione-cargotrailers-lonate-pozzolo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede Cargotrailers a Lonate Pozzolo"
+      },
+      "datePublished": "2026-06-27T05:55:06+00:00",
+      "dateModified": "2026-06-27T05:55:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
