@@ -622,6 +622,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-bonus-famiglia-2026.title': 'Family bonus frontiers 2026: up-to-date and practical guide',
     'blog.article.frontaliere-bonus-famiglia-2026.excerpt': 'All the permanent benefits for families of frontier workers: family allowances, nest bonus and possible deductions. Current status and what to expect.',
     'blog.article.frontaliere-bonus-famiglia-2026.imageAlt': 'Swiss family on Lugano lakefront with city and mountains.',
+    'blog.article.frontaliere-smart-working-regole.title': 'Smart Working for Frontier Workers: Updated Rules',
+    'blog.article.frontaliere-smart-working-regole.excerpt': 'Learn about the current rules for remote work for border workers between Switzerland and Italy.',
+    'blog.article.frontaliere-smart-working-regole.imageAlt': 'Scenic view of Lugano with the lake and a person working on a laptop.',
 };
 
 export default blogMetaChEn;

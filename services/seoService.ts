@@ -4259,6 +4259,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-diritti-frontaliere-genitorialit': { name: 'Diritti Maternità e Paternità', path: '/articoli-svizzera/diritti-frontaliere-genitorialit/', parent: 'blog' },
     'blog-assicurazione-malattia-famiglia-frontaliere': { name: 'Assicurazione famiglia frontaliere', path: '/articoli-svizzera/assicurazione-malattia-famiglia-frontaliere/', parent: 'blog' },
     'blog-frontaliere-bonus-famiglia-2026': { name: 'Bonus famiglia 2026', path: '/articoli-svizzera/frontaliere-bonus-famiglia-2026/', parent: 'blog' },
+    'blog-frontaliere-smart-working-regole': { name: 'Smart Working', path: '/articoli-svizzera/frontaliere-smart-working-regole/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
