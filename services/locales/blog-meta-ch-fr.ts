@@ -616,6 +616,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritti-frontaliere-genitorialit.title': 'Droits de maternité et de paternité pour les frontaliers',
     'blog.article.diritti-frontaliere-genitorialit.excerpt': 'Une comparaison entre les congés parentaux pour les frontaliers en Suisse et en Italie.',
     'blog.article.diritti-frontaliere-genitorialit.imageAlt': 'Parents avec leurs enfants dans un parc à Lugano, Suisse, par une journée ensoleillée.',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.title': 'Assurance-maladie pour les familles frontalières : options et couverture',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.excerpt': 'Aperçu des solutions d\'assurance LAMal, EHIC et complémentaires pour les familles de frontaliers entre la Suisse et l\'Italie.',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.imageAlt': 'Famille frontalière en Suisse consulte des documents d\'assurance avec vue sur Lugano.',
 };
 
 export default blogMetaChFr;

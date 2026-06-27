@@ -616,6 +616,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritti-frontaliere-genitorialit.title': 'Maternity and Paternity Rights for Frontier Workers',
     'blog.article.diritti-frontaliere-genitorialit.excerpt': 'A comparison of parental leave for border workers in Switzerland and Italy.',
     'blog.article.diritti-frontaliere-genitorialit.imageAlt': 'Parents with children in a park in Lugano, Switzerland, on a sunny day.',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.title': 'Sickness insurance for border families: options and coverage',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.excerpt': 'Overview of LAMal, EHIC and supplementary insurance solutions for families of border workers between Switzerland and Italy.',
+    'blog.article.assicurazione-malattia-famiglia-frontaliere.imageAlt': 'Cross-border family in Switzerland reviews insurance documents with Lugano view.',
 };
 
 export default blogMetaChEn;
