@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "ingegnere-meccanico-epfl-sion",
         "en": "mechanical-engineer-epfl-sion",
-        "de": "maschinenbauer-epfl-sion",
+        "de": "maschinenbauingenieur-epfl-sion",
         "fr": "ingenieur-mecanique-epfl-sion"
       },
       "company": "EPFL",
@@ -55,9 +55,9 @@
         "de": [
           "maschinenbauingenieur-in-epfl-sion",
           "mechanischer-ingenieur-epfl-sion",
-          "maschinenbauingenieur-epfl-sion",
           "mechanical-ingenieur-epfl-sion",
-          "mechanical-engineer-epfl-sion"
+          "mechanical-engineer-epfl-sion",
+          "maschinenbauer-epfl-sion"
         ],
         "it": [
           "mechanical-engineer-epfl-sion",
@@ -72,9 +72,9 @@
       "previousSlugs": [
         "maschinenbauingenieur-in-epfl-sion",
         "mechanischer-ingenieur-epfl-sion",
-        "maschinenbauingenieur-epfl-sion",
         "mechanical-ingenieur-epfl-sion",
         "mechanical-engineer-epfl-sion",
+        "maschinenbauer-epfl-sion",
         "ingeniero-meccanico-epfl-sion",
         "mechanical-ingegnere-epfl-sion",
         "ingenieur-mecanicien-epfl-sion",
@@ -785,7 +785,7 @@
       "slugByLocale": {
         "it": "posizione-di-dottorato-gestione-della-linea-forestale-delle-alpi-svizzere-epfl-sion",
         "en": "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
-        "de": "doktorat-waldbaumlinienmanagement-in-den-schweizer-alpen-epfl-sion",
+        "de": "doktorandenstelle-waldgrenzmanagement-in-den-schweizer-alpen-epfl-sion",
         "fr": "poste-de-doctorat-gestion-forestiere-dans-les-alpes-suisses-epfl-sion"
       },
       "company": "EPFL",
@@ -848,7 +848,7 @@
           "phd-position-waldrandmanagement-in-den-schweizer-alpen-epfl-sion",
           "promotionsstelle-waldbaummanagement-in-den-schweizer-alpen-epfl-sion",
           "phd-position-waldgrenzmanagement-in-den-schweizer-alpen-epfl-sion",
-          "doktorandenstelle-waldgrenzmanagement-in-den-schweizer-alpen-epfl-sion"
+          "doktorat-waldbaumlinienmanagement-in-den-schweizer-alpen-epfl-sion"
         ]
       },
       "previousSlugs": [
@@ -864,7 +864,7 @@
         "phd-position-waldrandmanagement-in-den-schweizer-alpen-epfl-sion",
         "promotionsstelle-waldbaummanagement-in-den-schweizer-alpen-epfl-sion",
         "phd-position-waldgrenzmanagement-in-den-schweizer-alpen-epfl-sion",
-        "doktorandenstelle-waldgrenzmanagement-in-den-schweizer-alpen-epfl-sion"
+        "doktorat-waldbaumlinienmanagement-in-den-schweizer-alpen-epfl-sion"
       ],
       "firstSeenAt": "2026-05-21T11:51:18.217Z",
       "needsRetranslation": true,
@@ -1946,9 +1946,6 @@
         "canevas-epfl-vide-epfl-sion",
         "adjoint-administratif-secretaire-du-professeur-60-80-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
-        "assistente-amministrativo-60-80-epfl-sion",
-        "administrative-assistant-sekretar-des-professors-60-80-epfl-sion",
-        "verwaltungsassistent-60-80-epfl-sion",
         "assistente-amministrativo-segretaria-del-professore-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.360Z",
@@ -3189,8 +3186,8 @@
       "slugByLocale": {
         "it": "consulente-strategico-dell-ufficio-del-vicepresidente-epfl-lausanne",
         "en": "canevas-epfl-empty-epfl-lausanne",
-        "de": "strategischer-berater-im-buro-des-vizeprasidenten-epfl-lausanne",
-        "fr": "canevas-epfl-empty-epfl-lausanne"
+        "de": "strategieberater-in-im-buro-des-vizeprasidenten-epfl-lausanne",
+        "fr": "conseiller-strategique-aupres-du-bureau-de-la-vice-presidence-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3236,7 +3233,8 @@
         "fr": [
           "cadre-epfl-epfl-lausanne",
           "canevas-epfl-vide-epfl-lausanne",
-          "conseiller-strategique-aupres-du-bureau-du-vice-president-epfl-lausanne"
+          "conseiller-strategique-aupres-du-bureau-du-vice-president-epfl-lausanne",
+          "canevas-epfl-empty-epfl-lausanne"
         ],
         "it": [
           "canevas-epfl-empty-epfl-lausanne",
@@ -3248,7 +3246,8 @@
           "praktikum-umwelt-datenanalyse-epfl-lausanne",
           "strategischer-rahmen-epfl-epfl-lausanne",
           "canevas-epfl-leer-epfl-lausanne",
-          "praktikum-umweltdatenanalyse-epfl-lausanne"
+          "praktikum-umweltdatenanalyse-epfl-lausanne",
+          "strategischer-berater-im-buro-des-vizeprasidenten-epfl-lausanne"
         ]
       },
       "previousSlugs": [
@@ -3263,6 +3262,7 @@
         "strategischer-rahmen-epfl-epfl-lausanne",
         "canevas-epfl-leer-epfl-lausanne",
         "praktikum-umweltdatenanalyse-epfl-lausanne",
+        "strategischer-berater-im-buro-des-vizeprasidenten-epfl-lausanne",
         "stage-en-analyse-de-donnees-environnementales-epfl-lausanne-bc087f",
         "internship-environmental-data-analysis-epfl-lausanne",
         "stage-analyse-des-donnees-environnementales-epfl-lausanne",
@@ -3532,7 +3532,7 @@
         "it": "agente-di-collegamento-dell-industria-epfl-lausanne",
         "en": "industry-liaison-officer-epfl-lausanne",
         "de": "industriebeauftragter-epfl-lausanne",
-        "fr": "agent-de-liaison-avec-l-industrie-epfl-lausanne"
+        "fr": "responsable-des-relations-avec-l-industrie-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3582,7 +3582,8 @@
           "industrieverbindungsofficer-epfl-lausanne"
         ],
         "fr": [
-          "officier-de-liaison-industrielle-epfl-lausanne"
+          "officier-de-liaison-industrielle-epfl-lausanne",
+          "agent-de-liaison-avec-l-industrie-epfl-lausanne"
         ],
         "en": [
           "industrial-liaison-officer-epfl-lausanne"
@@ -3592,6 +3593,7 @@
         "industry-liaison-officer-epfl-lausanne",
         "industrieverbindungsofficer-epfl-lausanne",
         "officier-de-liaison-industrielle-epfl-lausanne",
+        "agent-de-liaison-avec-l-industrie-epfl-lausanne",
         "industrial-liaison-officer-epfl-lausanne"
       ],
       "needsRetranslation": true,
@@ -3935,7 +3937,7 @@
         "it": "responsabile-di-laboratorio-epfl-lausanne",
         "en": "laboratory-manager-epfl-lausanne",
         "de": "laborleiter-epfl-lausanne",
-        "fr": "directeur-de-laboratoire-epfl-lausanne"
+        "fr": "responsable-de-laboratoire-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3979,8 +3981,8 @@
       "externalId": "1164927455",
       "previousSlugsByLocale": {
         "fr": [
-          "responsable-de-laboratoire-epfl-lausanne",
-          "laboratory-manager-epfl-lausanne"
+          "laboratory-manager-epfl-lausanne",
+          "directeur-de-laboratoire-epfl-lausanne"
         ],
         "it": [
           "laboratory-manager-epfl-lausanne"
@@ -3990,8 +3992,8 @@
         ]
       },
       "previousSlugs": [
-        "responsable-de-laboratoire-epfl-lausanne",
-        "laboratory-manager-epfl-lausanne"
+        "laboratory-manager-epfl-lausanne",
+        "directeur-de-laboratoire-epfl-lausanne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T12:46:58.964Z",
@@ -4173,7 +4175,7 @@
         "it": "posizione-di-ricercatore-post-dottorato-presso-epfl-ai-per-la-scienza-salute-biologia-epfl-lausanne",
         "en": "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne",
         "de": "postdoktorandenstelle-an-der-epfl-ki-fur-die-wissenschaft-gesundheit-biologie-epfl-lausanne",
-        "fr": "poste-de-chercheur-postdoctoral-a-l-epfl-ai-for-science-sante-biologie-epfl-lausanne"
+        "fr": "post-doctorant-a-l-epfl-ia-pour-la-science-sante-biologie-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4218,7 +4220,8 @@
       "previousSlugsByLocale": {
         "fr": [
           "poste-de-chercheur-postdoctoral-a-l-epfl-ia-pour-la-science-sante-biologie-epfl-lausanne",
-          "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne"
+          "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne",
+          "poste-de-chercheur-postdoctoral-a-l-epfl-ai-for-science-sante-biologie-epfl-lausanne"
         ],
         "it": [
           "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne",
@@ -4231,6 +4234,7 @@
       "previousSlugs": [
         "poste-de-chercheur-postdoctoral-a-l-epfl-ia-pour-la-science-sante-biologie-epfl-lausanne",
         "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne",
+        "poste-de-chercheur-postdoctoral-a-l-epfl-ai-for-science-sante-biologie-epfl-lausanne",
         "posizione-del-ricercatore-post-dottorato-in-epfl-ai-for-science-health-biology-epfl-lausanne"
       ],
       "needsRetranslation": true,
@@ -4667,8 +4671,8 @@
       "slugByLocale": {
         "it": "postdoc-posizione-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
         "en": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
-        "de": "postdoc-position-in-quantitativen-finanzen-bei-der-epfl-epfl-lausanne",
-        "fr": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
+        "de": "postdoc-stelle-in-quantitativer-finanzwissenschaft-an-der-epfl-epfl-lausanne",
+        "fr": "poste-de-postdoctorant-en-finance-quantitative-a-l-epfl-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4715,6 +4719,7 @@
         "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne",
         "posizione-di-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
         "postdoktoranden-stelle-in-quantitative-finance-an-der-epfl-epfl-lausanne",
+        "postdoc-position-in-quantitativen-finanzen-bei-der-epfl-epfl-lausanne",
         "poste-postdoctoral-en-finance-quantitative-a-l-epfl-epfl-lausanne",
         "poste-de-postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne",
         "postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne"
@@ -4727,12 +4732,14 @@
         ],
         "de": [
           "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
-          "postdoktoranden-stelle-in-quantitative-finance-an-der-epfl-epfl-lausanne"
+          "postdoktoranden-stelle-in-quantitative-finance-an-der-epfl-epfl-lausanne",
+          "postdoc-position-in-quantitativen-finanzen-bei-der-epfl-epfl-lausanne"
         ],
         "fr": [
           "poste-postdoctoral-en-finance-quantitative-a-l-epfl-epfl-lausanne",
           "poste-de-postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne",
-          "postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne"
+          "postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne",
+          "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-21T22:21:55.407Z",

@@ -22888,7 +22888,7 @@
         "en": "senior-fp-a-controller-sulzer-ch",
         "it": "senior-fp-a-controller-sulzer-ch",
         "de": "senior-fp-a-controller-sulzer-ch",
-        "fr": "senior-fp-a-controller-sulzer-pune"
+        "fr": "controleur-principal-de-la-f-a-sulzer-pune"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22943,7 +22943,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-27T11:47:05.722Z"
+      "firstSeenAt": "2026-06-27T11:47:05.722Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-fp-a-controller-sulzer-pune"
+        ]
+      },
+      "previousSlugs": [
+        "senior-fp-a-controller-sulzer-pune"
+      ]
     },
     {
       "id": "sulzer-3a2f18d53330",
