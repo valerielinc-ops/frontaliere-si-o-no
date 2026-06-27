@@ -4047,7 +4047,6 @@
         "postdoc-in-digitaler-demographie-unibe-bern",
         "postdoc-in-digitaler-demographie-universitat-bern-bern",
         "postdoc-in-digital-demography-unibe-bern",
-        "postdoc-in-digital-demography-universitat-bern-bern",
         "postdoc-nella-demografia-digitale-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
@@ -4081,7 +4080,7 @@
         "it": "assistente-del-professor-tenure-track-per-metodi-psicologici-e-intelligenza-artificiale-ai-universitat-bern-bern",
         "en": "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai",
         "de": "assistent-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai-universitat-bern-bern",
-        "fr": "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai"
+        "fr": "professeur-adjoint-track-d-occupation-pour-les-methodes-psychologiques-et-l-intelligence-artificielle-ia-universitat"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4124,8 +4123,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai",
-        "professeur-adjoint-track-d-occupation-pour-les-methodes-psychologiques-et-l-intelligence-artificielle-ai-universitat",
-        "professeur-adjoint-track-d-occupation-pour-les-methodes-psychologiques-et-l-intelligence-artificielle-ia-universitat"
+        "professeur-adjoint-track-d-occupation-pour-les-methodes-psychologiques-et-l-intelligence-artificielle-ai-universitat"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4133,7 +4131,6 @@
         ],
         "fr": [
           "professeur-adjoint-track-d-occupation-pour-les-methodes-psychologiques-et-l-intelligence-artificielle-ai-universitat",
-          "professeur-adjoint-track-d-occupation-pour-les-methodes-psychologiques-et-l-intelligence-artificielle-ia-universitat",
           "assistant-professor-tenure-track-for-psychological-methods-and-artificial-intelligence-ai"
         ]
       },
@@ -4539,7 +4536,7 @@
         "it": "application-manager-studitracker-service-manager-iii-universitat-bern-bern",
         "en": "application-manager-studitracker-service-manager-iii-universitat-bern-bern",
         "de": "applikationsverantwortliche-r-studitracker-servicemanager-in-iii-unibe-bern",
-        "fr": "applikationsverantwortliche-r-studitracker-servicemanager-in-iii-unibe-bern"
+        "fr": "gestionnaire-d-applications-studitracker-gestionnaire-de-services-iii-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4581,8 +4578,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applikationsverantwortliche-r-studitracker-servicemanager-in-iii-unibe-bern",
-        "gestionnaire-d-applications-studitracker-gestionnaire-de-services-iii-universitat-bern-bern"
+        "applikationsverantwortliche-r-studitracker-servicemanager-in-iii-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4592,7 +4588,6 @@
           "applikationsverantwortliche-r-studitracker-servicemanager-in-iii-unibe-bern"
         ],
         "fr": [
-          "gestionnaire-d-applications-studitracker-gestionnaire-de-services-iii-universitat-bern-bern",
           "applikationsverantwortliche-r-studitracker-servicemanager-in-iii-unibe-bern"
         ]
       },
@@ -4835,7 +4830,7 @@
         "de": "service-manager-in-v-unibe-bern",
         "it": "service-manager-in-v-unibe-bern",
         "en": "service-manager-in-v-universitat-bern-bern",
-        "fr": "service-manager-in-v-unibe-bern"
+        "fr": "gestionnaire-de-services-en-v-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4898,8 +4893,8 @@
       "slugByLocale": {
         "de": "student-in-als-forschungsassistenz-20-unibe-bern",
         "it": "student-in-come-forschungsassistenz-20-universitat-bern",
-        "en": "student-in-als-forschungsassistenz-20-universitat-bern-bern",
-        "fr": "student-in-als-forschungsassistenz-20-universitat-bern-bern"
+        "en": "student-as-research-assistant-20-universitat-bern-bern",
+        "fr": "etudiant-assistant-de-recherche-20-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4945,10 +4940,17 @@
       "previousSlugsByLocale": {
         "it": [
           "student-in-als-forschungsassistenz-20-unibe-bern"
+        ],
+        "en": [
+          "student-in-als-forschungsassistenz-20-universitat-bern-bern"
+        ],
+        "fr": [
+          "student-in-als-forschungsassistenz-20-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "student-in-als-forschungsassistenz-20-unibe-bern"
+        "student-in-als-forschungsassistenz-20-unibe-bern",
+        "student-in-als-forschungsassistenz-20-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
