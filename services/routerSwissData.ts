@@ -220,6 +220,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'postino-licenziato-dopo-42-anni-berna-non-interviene': { it: 'postino-licenziato-dopo-42-anni-berna-non-interviene', en: 'swiss-postman-fired-after-42-years-berna-does-not-intervene', de: 'schweizer-postbote-nach-42-jahren-entlassen-bern-greift-nicht-ein', fr: 'facteur-suisse-licencie-apres-42-ans-berne-n-intervient-pas' },
  'famiglie-lavoro-lugano-piattaforma-asili': { it: 'famiglie-lavoro-lugano-piattaforma-asili', en: 'families-work-lugano-nursery-platform', de: 'familien-arbeit-lugano-kita-plattform', fr: 'familles-travail-lugano-plateforme-creche' },
  'frontaliere-documenti-checklist-svizzera': { it: 'frontaliere-documenti-checklist-svizzera', en: 'cross-border-worker-documents-switzerland', de: 'grenzgaenger-dokumente-schweiz-arbeit', fr: 'frontaliers-documents-travail-suisse' },
+ 'naspi-ex-frontalieri-guida': { it: 'naspi-ex-frontalieri-guida', en: 'naspi-unemployment-benefit-italy', de: 'arbeitslosengeld-grenzgaenger-italien', fr: 'allocation-chomage-frontaliers-italie' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -592,6 +592,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-documenti-checklist-svizzera.title': 'Frontier: documents needed to work in Switzerland',
     'blog.article.frontaliere-documenti-checklist-svizzera.excerpt': 'Updated checklist of documents for border workers: contract, identity, G permit, bank account, AVS, health insurance.',
     'blog.article.frontaliere-documenti-checklist-svizzera.imageAlt': 'Documents on a desk near the Swiss border, Lugano offices view.',
+    'blog.article.naspi-ex-frontalieri-guida.title': 'Unemployment benefits for border workers in Italy',
+    'blog.article.naspi-ex-frontalieri-guida.excerpt': 'Find out how the NASpI works for former Italian frontiersmen: requirements, calculation and how to apply.',
+    'blog.article.naspi-ex-frontalieri-guida.imageAlt': 'View of the border between Switzerland and Italy with mountains and a lake.',
 };
 
 export default blogMetaChEn;

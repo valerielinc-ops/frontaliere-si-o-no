@@ -7584,6 +7584,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naspi-ex-frontalieri-guida': {
+    title: 'Indennità di disoccupazione per frontalieri in Italia',
+    description: 'Guida alla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e come fare domanda. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, disoccupazione, scopri, funziona',
+    ogTitle: 'Indennità disoccupazione frontalieri Italia',
+    ogDescription: 'Informazioni complete sulla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e procedura.',
+    canonicalPath: '/articoli-svizzera/naspi-ex-frontalieri-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità di disoccupazione per frontalieri in Italia",
+      "description": "Guida alla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e come fare domanda. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naspi-ex-frontalieri-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del confine tra Svizzera e Italia con montagne e lago."
+      },
+      "datePublished": "2026-06-27T16:00:45+00:00",
+      "dateModified": "2026-06-27T16:00:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naspi-ex-frontalieri-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

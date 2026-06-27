@@ -4249,6 +4249,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-postino-licenziato-dopo-42-anni-berna-non-interviene': { name: 'Postino licenziato Svizzera', path: '/articoli-svizzera/postino-licenziato-dopo-42-anni-berna-non-interviene/', parent: 'blog' },
     'blog-famiglie-lavoro-lugano-piattaforma-asili': { name: 'Lavoro e famiglie', path: '/articoli-svizzera/famiglie-lavoro-lugano-piattaforma-asili/', parent: 'blog' },
     'blog-frontaliere-documenti-checklist-svizzera': { name: 'Documenti frontaliere', path: '/articoli-svizzera/frontaliere-documenti-checklist-svizzera/', parent: 'blog' },
+    'blog-naspi-ex-frontalieri-guida': { name: 'NASpI Frontalieri', path: '/articoli-svizzera/naspi-ex-frontalieri-guida/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
