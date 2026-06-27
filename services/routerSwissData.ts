@@ -218,6 +218,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'morto-ex-presidente-bns-hans-meyer': { it: 'morto-ex-presidente-bns-hans-meyer', en: 'former-snb-president-hans-meyer-passes-away', de: 'ehemaliger-snb-praesident-hans-meyer-gestorben', fr: 'ancien-president-bns-hans-meyer-decede' },
  'secondo-pilastro-prelievo-frontaliere': { it: 'secondo-pilastro-prelievo-frontaliere', en: 'second-pillar-lpp-cross-border-withdrawal', de: 'zweite-saeule-bvg-grenzgaenger-bezug', fr: 'deuxieme-pilier-lpp-frontalier-prelevement' },
  'postino-licenziato-dopo-42-anni-berna-non-interviene': { it: 'postino-licenziato-dopo-42-anni-berna-non-interviene', en: 'swiss-postman-fired-after-42-years-berna-does-not-intervene', de: 'schweizer-postbote-nach-42-jahren-entlassen-bern-greift-nicht-ein', fr: 'facteur-suisse-licencie-apres-42-ans-berne-n-intervient-pas' },
+ 'famiglie-lavoro-lugano-piattaforma-asili': { it: 'famiglie-lavoro-lugano-piattaforma-asili', en: 'families-work-lugano-nursery-platform', de: 'familien-arbeit-lugano-kita-plattform', fr: 'familles-travail-lugano-plateforme-creche' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

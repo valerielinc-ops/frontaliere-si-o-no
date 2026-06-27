@@ -7506,6 +7506,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-famiglie-lavoro-lugano-piattaforma-asili': {
+    title: 'Famiglie e lavoro a Lugano: nuova mozione su asili e servizi',
+    description: 'Mozione a Lugano chiede sondaggi regolari sui servizi per famiglie e piattaforma unica per iscrizioni agli asili nido. Focus su domanda e offerta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, famiglie, lavoro, lugano, nuova',
+    ogTitle: 'Lugano: mozione per piattaforma unica asili e sondaggi regolari',
+    ogDescription: 'A Lugano proposta una piattaforma unica per gli asili nido e sondaggi regolari sui servizi per le famiglie.',
+    canonicalPath: '/articoli-svizzera/famiglie-lavoro-lugano-piattaforma-asili/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Famiglie e lavoro a Lugano: nuova mozione su asili e servizi",
+      "description": "Mozione a Lugano chiede sondaggi regolari sui servizi per famiglie e piattaforma unica per iscrizioni agli asili nido. Focus su domanda e offerta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/famiglie-lavoro-lugano-piattaforma-asili.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista su un edificio amministrativo a Lugano, genitori e bambini in primo piano."
+      },
+      "datePublished": "2026-06-27T14:59:47+00:00",
+      "dateModified": "2026-06-27T14:59:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/famiglie-lavoro-lugano-piattaforma-asili/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

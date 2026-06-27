@@ -586,6 +586,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.title': 'Facteur licencié après 42 ans. Berne, à la fin, n\'intervient pas',
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.excerpt': 'Un facteur vaudois a été licencié après 42 ans de service. Le Conseil fédéral n\'a pas voulu intervenir dans l\'affaire.',
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.imageAlt': 'Un facteur suisse remet une lettre',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.title': 'Familles et travail à Lugano : nouvelle motion sur les crèches et les services',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.excerpt': 'Une motion interpartite demande des enquêtes régulières sur les services extrascolaires et une plateforme unique pour s\'inscrire aux crèches à Lugano.',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.imageAlt': 'Vue d\'un bâtiment administratif à Lugano avec des parents et des enfants au premier plan.',
 };
 
 export default blogMetaChFr;

@@ -586,6 +586,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.title': 'Postino licenziato dopo 42 anni. Berna, alla fine, non interviene',
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.excerpt': 'Un postino vodese è stato licenziato dopo 42 anni di servizio. Il Consiglio federale non ha voluto intervenire nella vicenda.',
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.imageAlt': 'Un postino svizzero consegna una lettera',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.title': 'Famiglie e lavoro a Lugano: nuova mozione su asili e servizi',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.excerpt': 'Una mozione interpartitica chiede sondaggi regolari sui servizi extrascolastici e una piattaforma unica per iscriversi agli asili nido a Lugano.',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.imageAlt': 'Vista su un edificio amministrativo a Lugano, genitori e bambini in primo piano.',
 };
 
 export default blogMetaChIt;

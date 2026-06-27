@@ -586,6 +586,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.title': 'Postman fired after 42 years. Bern, in the end, does not intervene',
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.excerpt': 'A Vodese postman has been fired after 42 years of service. The Federal Council did not want to intervene in the matter.',
     'blog.article.postino-licenziato-dopo-42-anni-berna-non-interviene.imageAlt': 'A Swiss postal worker delivers a letter',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.title': 'Families and work in Lugano: new motion on kindergartens and services',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.excerpt': 'A cross-party motion calls for regular surveys on after-school services and a unique platform for enrolling in kindergartens in Lugano.',
+    'blog.article.famiglie-lavoro-lugano-piattaforma-asili.imageAlt': 'View of an administrative building in Lugano with parents and children in the foreground.',
 };
 
 export default blogMetaChEn;
