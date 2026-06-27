@@ -637,6 +637,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-terzo-pilastro-vantaggi.title': 'Avantages et fonctionnalités du troisième pilier pour les frontaliers',
     'blog.article.frontaliere-terzo-pilastro-vantaggi.excerpt': 'Découvrez comment le troisième pilier peut offrir des avantages fiscaux et garantir un avenir de retraite sûr aux frontaliers.',
     'blog.article.frontaliere-terzo-pilastro-vantaggi.imageAlt': 'Vue d\'un bureau de retraite en Suisse avec des documents financiers sur une table.',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.title': 'Frontalier : frais de santé remboursables en Italie et plafonds',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.excerpt': 'Quelles dépenses de santé encourues en Suisse par les frontaliers sont remboursables en Italie, avec les procédures et les limites prévues.',
+    'blog.article.frontaliere-spese-sanitarie-rimborsabili.imageAlt': 'Documents de santé transfrontaliers suisse-italiens sur un bureau.',
 };
 
 export default blogMetaChFr;
