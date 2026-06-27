@@ -559,6 +559,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.volkswagen-tagli-lavoro-2024.title': 'Volkswagen announces 100,000 cuts and closure of 4 factories',
     'blog.article.volkswagen-tagli-lavoro-2024.excerpt': 'The Volkswagen Group plans to cut 100,000 jobs and close four factories in Germany by 2030.',
     'blog.article.volkswagen-tagli-lavoro-2024.imageAlt': 'Panoramic view of Lugano with industrial elements symbolizing economic and labor market changes',
+    'blog.article.conto-bancario-frontalieri.title': 'Open Swiss bank account from frontier',
+    'blog.article.conto-bancario-frontalieri.excerpt': 'Practical guide for border workers: how to open a bank account in Switzerland, costs, requirements and online services',
+    'blog.article.conto-bancario-frontalieri.imageAlt': 'Swiss bank branch in Lugano with cross-border workers waiting',
 };
 
 export default blogMetaChEn;

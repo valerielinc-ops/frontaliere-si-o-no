@@ -559,6 +559,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.volkswagen-tagli-lavoro-2024.title': 'Volkswagen annuncia 100mila tagli e chiusura di 4 fabbriche',
     'blog.article.volkswagen-tagli-lavoro-2024.excerpt': 'Il gruppo Volkswagen prevede la riduzione di 100mila posti di lavoro e la chiusura di quattro stabilimenti in Germania entro il 2030.',
     'blog.article.volkswagen-tagli-lavoro-2024.imageAlt': 'Vista panoramica di Lugano con elementi industriali che rappresentano cambiamenti economici e del mercato del lavoro',
+    'blog.article.conto-bancario-frontalieri.title': 'Aprire conto bancario svizzero da frontaliere',
+    'blog.article.conto-bancario-frontalieri.excerpt': 'Guida pratica per frontalieri: come aprire un conto bancario in Svizzera, costi, requisiti e servizi online',
+    'blog.article.conto-bancario-frontalieri.imageAlt': 'Filiale bancaria a Lugano con frontalieri in attesa',
 };
 
 export default blogMetaChIt;

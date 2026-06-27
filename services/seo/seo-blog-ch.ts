@@ -7155,6 +7155,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-conto-bancario-frontalieri': {
+    title: 'Aprire conto bancario svizzero da frontaliere | Frontaliere Ticino',
+    description: 'Guida pratica per frontalieri su come aprire un conto bancario in Svizzera. Requisiti, costi e servizi online delle banche svizzere. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, conto, bancario, svizzero',
+    ogTitle: 'Aprire conto bancario svizzero da frontaliere',
+    ogDescription: 'Scopri come aprire un conto bancario in Svizzera come frontaliere. Requisiti, costi e servizi online delle principali banche svizzere.',
+    canonicalPath: '/articoli-svizzera/conto-bancario-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire conto bancario svizzero da frontaliere",
+      "description": "Guida pratica per frontalieri su come aprire un conto bancario in Svizzera. Requisiti, costi e servizi online delle banche svizzere. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/conto-bancario-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Filiale bancaria a Lugano con frontalieri in attesa"
+      },
+      "datePublished": "2026-06-27T00:15:23+00:00",
+      "dateModified": "2026-06-27T00:15:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/conto-bancario-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
