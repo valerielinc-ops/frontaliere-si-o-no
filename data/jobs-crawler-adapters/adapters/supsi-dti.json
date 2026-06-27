@@ -13,9 +13,8 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-06-26T12:23:18.781Z",
+  "updatedAt": "2026-06-27T11:51:57.133Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando26_1008",
     "https://www.supsi.ch/bando26_5030",
     "https://www.supsi.ch/bando26_5026",
     "https://www.supsi.ch/bando26_1010",
@@ -44,14 +43,6 @@
     "https://www.supsi.ch/bando26_4001"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando26_1008": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "expiresAt": "2026-06-26"
-    },
     "https://www.supsi.ch/bando26_5030": {
       "location": "Lugano",
       "canton": "TI",
