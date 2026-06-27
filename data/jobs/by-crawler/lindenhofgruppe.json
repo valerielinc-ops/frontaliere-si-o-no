@@ -310,9 +310,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -356,8 +356,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
-        "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
-        "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
         "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
@@ -370,11 +368,9 @@
           "infermiere-laureato-fh-hf-lindenhofgruppe-bern"
         ],
         "en": [
-          "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
@@ -2998,8 +2994,8 @@
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau",
         "it": "dipl-expertin-experte-anasthesie-intensiv-o-notfallpflege-nds-o-dipl-pflegefachfrau-mann-con-ndk-uberwachungspflege-lindenhofgruppe-lindenhofspital",
-        "en": "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau",
-        "fr": "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
+        "en": "dipl-expert-anesthesia-intensive-care-or-emergency-care-nds-or-dipl-nursing-professional-with-ndk-surveillance-care",
+        "fr": "dipl-anesthesie-experte-soins-intensifs-ou-d-urgence-pdn-ou-dipl-professionnel-infirmier-avec-des-soins-de-surveillance"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3044,6 +3040,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
+        ],
+        "fr": [
           "dipl-expertin-experte-anasthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau"
         ]
       },

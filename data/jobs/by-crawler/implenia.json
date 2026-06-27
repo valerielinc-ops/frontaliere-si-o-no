@@ -369,9 +369,9 @@
     },
     {
       "id": "implenia-3d88eb17bdcd",
-      "slug": "locatore-immobiliare-m-f-d-san-gallo-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+      "slug": "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
       "slugByLocale": {
-        "it": "locatore-immobiliare-m-f-d-san-gallo-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+        "it": "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
         "en": "rental-specialist-real-estate-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
         "de": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
         "fr": "location-de-biens-immobiliers-specialises-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
@@ -416,11 +416,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+        "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
+        "locatore-immobiliare-m-f-d-san-gallo-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
+          "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
+          "locatore-immobiliare-m-f-d-san-gallo-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
         ],
         "en": [
           "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
@@ -869,12 +871,12 @@
     },
     {
       "id": "implenia-41afb0f1832c",
-      "slug": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "de": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "it": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "en": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "fr": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        "it": "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
+        "en": "senior-calculator-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "fr": "calculatrice-principale-de-construction-de-bois-m-f-j-80-100-implenia-rumlang"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -929,7 +931,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T22:16:00.076Z"
+      "firstSeenAt": "2026-06-26T22:16:00.076Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
+          "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-14f7cf90437c",
@@ -3136,8 +3152,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch",
         "it": "installatore-trice-elettrico-a-elektroservicemonteur-cfc-m-w-d-100-implenia-glattpark-opfikon",
-        "en": "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch",
-        "fr": "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch"
+        "en": "electrical-installer-electrical-service-installer-efz-f-m-d-100-implenia-glattpark-opfikon",
+        "fr": "installation-electrique-installation-de-service-electrique-efz-f-m-d-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3183,6 +3199,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch"
+        ],
+        "en": [
+          "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-elektroservicemonteur-efz-w-m-d-100-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -3204,12 +3226,12 @@
     },
     {
       "id": "implenia-04e1ff38d9dc",
-      "slug": "cost-manager-datacenter-w-md-implenia-ch",
+      "slug": "datacenter-f-md-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "cost-manager-datacenter-w-md-implenia-ch",
-        "it": "cost-manager-datacenter-w-md-implenia-ch",
+        "it": "datacenter-f-md-implenia-glattpark-opfikon",
         "en": "cost-manager-datacenter-w-md-implenia-ch",
-        "fr": "cost-manager-datacenter-w-md-implenia-ch"
+        "fr": "gestionnaire-de-couts-datacenter-f-md-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3264,7 +3286,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T22:15:53.961Z"
+      "firstSeenAt": "2026-06-26T22:15:53.961Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cost-manager-datacenter-w-md-implenia-ch"
+        ],
+        "fr": [
+          "cost-manager-datacenter-w-md-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cost-manager-datacenter-w-md-implenia-ch"
+      ]
     },
     {
       "id": "implenia-fb11291b0c44",
@@ -3414,12 +3447,12 @@
     },
     {
       "id": "implenia-5f74215b8c1e",
-      "slug": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon",
+      "slug": "technician-project-manager-building-digitalization-m-f-d-80-100-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
-        "it": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon",
+        "it": "technician-project-manager-building-digitalization-m-f-d-80-100-implenia-glattpark-opfikon",
         "en": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
-        "fr": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
+        "fr": "technicien-gestionnaire-de-projet-digitalisation-des-batiments-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3464,11 +3497,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
+          "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon"
+        ],
+        "fr": [
           "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
+        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
+        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3932,7 +3970,7 @@
         "de": "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
         "it": "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
         "en": "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
-        "fr": "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch"
+        "fr": "consultant-en-gestion-m-f-d-winterthur-60-100-implenia-winterthur-roter-turm"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3991,12 +4029,12 @@
     },
     {
       "id": "implenia-bede1cec8d87",
-      "slug": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch",
+      "slug": "direttore-tecnico-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-zurich-masch",
       "slugByLocale": {
         "de": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
-        "it": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch",
-        "en": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
-        "fr": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        "it": "direttore-tecnico-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-zurich-masch",
+        "en": "technical-director-commercial-real-estate-m-f-d-basel-80-100-implenia-zurich-masch",
+        "fr": "directeur-technique-immobilier-commercial-m-f-d-bale-80-100-implenia-zurich-masch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4041,11 +4079,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch"
+        ],
+        "en": [
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        ],
+        "fr": [
           "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
+        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -4063,12 +4109,12 @@
     },
     {
       "id": "implenia-df802621fa29",
-      "slug": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch",
+      "slug": "contabilita-del-processo-del-personale-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
       "slugByLocale": {
         "de": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch",
-        "it": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch",
-        "en": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch",
-        "fr": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+        "it": "contabilita-del-processo-del-personale-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "en": "personnel-process-accounting-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "fr": "comptabilite-des-processus-de-personnel-m-f-j-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4123,16 +4169,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T22:15:48.527Z"
+      "firstSeenAt": "2026-06-26T22:15:48.527Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-3e012d993f5a",
-      "slug": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
+      "slug": "senior-amministratore-immobiliare-commerciale-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
       "slugByLocale": {
         "de": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-        "it": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-        "en": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-        "fr": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+        "it": "senior-amministratore-immobiliare-commerciale-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
+        "en": "senior-managor-of-commercial-real-estate-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
+        "fr": "aine-managor-de-biens-immobiliers-commerciaux-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4187,7 +4247,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-26T22:15:48.034Z"
+      "firstSeenAt": "2026-06-26T22:15:48.034Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+        ],
+        "en": [
+          "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+        ],
+        "fr": [
+          "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
+      ]
     },
     {
       "id": "implenia-bbd3211955e2",

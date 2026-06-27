@@ -24,12 +24,12 @@
         "en": "Delivery:in packages",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-magenwil",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-magenwil",
+        "en": "delivery-in-packages-die-schweizerische-post-magenwil",
         "de": "zusteller-in-pakete-die-schweizerische-post-magenwil",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-magenwil"
       },
       "sourceLang": "de",
       "department": "",
@@ -64,7 +64,21 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "postalCode": "5000",
-      "firstSeenAt": "2026-06-26T22:47:17.321Z"
+      "firstSeenAt": "2026-06-26T22:47:17.321Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Immobilienbewirtschafterin/73567-de_DE",
