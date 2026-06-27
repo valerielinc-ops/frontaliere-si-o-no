@@ -622,6 +622,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-bonus-famiglia-2026.title': 'Frontalier bonus famille 2026 : guide actualisé et pratique',
     'blog.article.frontaliere-bonus-famiglia-2026.excerpt': 'Toutes les facilités stables pour les familles de frontaliers : allocations familiales, bonus nid et déductions possibles. État actuel et à quoi s\'attendre.',
     'blog.article.frontaliere-bonus-famiglia-2026.imageAlt': 'Famille suisse sur le lac de Lugano, ville et montagnes.',
+    'blog.article.frontaliere-smart-working-regole.title': 'Smart Working pour les frontaliers : règles mises à jour',
+    'blog.article.frontaliere-smart-working-regole.excerpt': 'Découvrez les règles actuelles pour le travail à distance pour les frontaliers entre la Suisse et l\'Italie.',
+    'blog.article.frontaliere-smart-working-regole.imageAlt': 'Vue pittoresque de Lugano avec le lac et une personne travaillant sur un ordinateur portable.',
 };
 
 export default blogMetaChFr;

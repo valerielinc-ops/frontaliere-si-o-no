@@ -7974,6 +7974,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-smart-working-regole': {
+    title: 'Smart Working per i Frontalieri: Regole Aggiornate',
+    description: 'Esamina le ultime regole per lo smart working transfrontaliero, inclusi limiti, fiscalità e procedure. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, smart, working, regole, aggiornate',
+    ogTitle: 'Smart Working per i Frontalieri: Regole Aggiornate',
+    ogDescription: 'Scopri gli aggiornamenti sulle normative dello smart working per i frontalieri, incluse le implicazioni fiscali.',
+    canonicalPath: '/articoli-svizzera/frontaliere-smart-working-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Smart Working per i Frontalieri: Regole Aggiornate",
+      "description": "Esamina le ultime regole per lo smart working transfrontaliero, inclusi limiti, fiscalità e procedure. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-smart-working-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con vista sul lago e persona al computer."
+      },
+      "datePublished": "2026-06-27T19:54:13+00:00",
+      "dateModified": "2026-06-27T19:54:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-smart-working-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

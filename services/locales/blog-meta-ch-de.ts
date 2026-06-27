@@ -622,6 +622,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-bonus-famiglia-2026.title': 'Familienbonus 2026: Aktualisierter und praktischer Leitfaden',
     'blog.article.frontaliere-bonus-famiglia-2026.excerpt': 'Alle dauerhaften Vergünstigungen für Familien von Grenzgängern: Familienzulagen, Nestboni und mögliche Abzüge. Aktueller Status und was zu erwarten ist.',
     'blog.article.frontaliere-bonus-famiglia-2026.imageAlt': 'Schweizer Familie am Luganer Seeufer mit Stadt und Bergen.',
+    'blog.article.frontaliere-smart-working-regole.title': 'Smart Working für Grenzgänger: Aktualisierte Regeln',
+    'blog.article.frontaliere-smart-working-regole.excerpt': 'Entdecken Sie die aktuellen Regeln für das Remote-Arbeiten für Grenzgänger zwischen der Schweiz und Italien.',
+    'blog.article.frontaliere-smart-working-regole.imageAlt': 'Malerische Aussicht auf Lugano mit dem See und einer Person, die am Laptop arbeitet.',
 };
 
 export default blogMetaChDe;
