@@ -592,6 +592,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-documenti-checklist-svizzera.title': 'Frontaliere: documenti necessari per lavorare in Svizzera',
     'blog.article.frontaliere-documenti-checklist-svizzera.excerpt': 'Checklist aggiornata dei documenti per frontalieri: contratto, identità, permesso G, conto bancario, AVS, assicurazione sanitaria.',
     'blog.article.frontaliere-documenti-checklist-svizzera.imageAlt': 'Documenti su una scrivania vicino al confine svizzero, vista uffici Lugano.',
+    'blog.article.naspi-ex-frontalieri-guida.title': 'Indennità di disoccupazione per frontalieri in Italia',
+    'blog.article.naspi-ex-frontalieri-guida.excerpt': 'Scopri come funziona la NASpI per gli ex-frontalieri italiani: requisiti, calcolo e modalità di richiesta.',
+    'blog.article.naspi-ex-frontalieri-guida.imageAlt': 'Vista del confine tra Svizzera e Italia con montagne e lago.',
 };
 
 export default blogMetaChIt;

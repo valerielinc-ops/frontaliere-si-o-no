@@ -592,6 +592,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-documenti-checklist-svizzera.title': 'Frontend: Dokumente, die Sie benötigen, um in der Schweiz zu arbeiten',
     'blog.article.frontaliere-documenti-checklist-svizzera.excerpt': 'Aktualisierte Checkliste der Dokumente für Grenzgänger: Vertrag, Identität, Bewilligung G, Bankkonto, AHV, Krankenversicherung.',
     'blog.article.frontaliere-documenti-checklist-svizzera.imageAlt': 'Dokumente auf einem Schreibtisch nahe der Schweizer Grenze, Blick auf Büros in Lugano.',
+    'blog.article.naspi-ex-frontalieri-guida.title': 'Arbeitslosengeld für Grenzgänger in Italien',
+    'blog.article.naspi-ex-frontalieri-guida.excerpt': 'Erfahren Sie, wie die NASpI für ehemalige italienische Grenzgänger funktioniert: Anforderungen, Berechnung und Antragsmodalitäten.',
+    'blog.article.naspi-ex-frontalieri-guida.imageAlt': 'Blick auf die Grenze zwischen der Schweiz und Italien mit Bergen und einem See.',
 };
 
 export default blogMetaChDe;
