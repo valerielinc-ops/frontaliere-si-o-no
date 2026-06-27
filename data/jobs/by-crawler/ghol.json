@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-06-26T21:58:01.190Z",
+  "assembledAt": "2026-06-27T10:38:54.140Z",
   "jobs": [
     {
       "id": "ghol-fe34aa66233b",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/bpjuF3PTM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.877Z",
+      "crawledAt": "2026-06-27T10:38:51.582Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza positiva in un ambiente ospedaliero",
@@ -157,7 +158,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.876Z",
+      "crawledAt": "2026-06-27T10:38:51.581Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -255,7 +257,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.875Z",
+      "crawledAt": "2026-06-27T10:38:51.580Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -357,7 +360,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.874Z",
+      "crawledAt": "2026-06-27T10:38:51.579Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -432,7 +435,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.874Z",
+      "crawledAt": "2026-06-27T10:38:51.579Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -460,81 +464,6 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.706Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-814a2a6c3683",
-      "slug": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Assistant technique en stérilisation",
-      "titleByLocale": {
-        "it": "Assistente tecnico in Sterilizzazione",
-        "en": "Technical Assistant in Sterilization",
-        "de": "Technischer Assistent der Sterilisation",
-        "fr": "Assistant technique en stérilisation"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\n Descriptif du poste :\n Dans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\n Votre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\n Vos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\n Profil requis :\n Vous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\n Vous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\n Niveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\n Avantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per la parte occidentale del Lago di Ginevra con le sue strutture a Nyon, Rolle e Saint-Cergue. Cerchiamo un professionista rigoroso e impegnato che si unisca al nostro reparto centrale di sterilizzazione e contribuisca, quotidianamente, alla sicurezza dei pazienti e al buon funzionamento della sala operatoria. Descrizione del lavoro: Nel tuo ruolo, entrerai a far parte di un team impegnato quotidianamente nel ricondizionamento dei dispositivi medici utilizzati in sala operatoria e nei reparti di cura. Lavorerai a stretto contatto con le équipe della sala operatoria, coprendo diverse specialità chirurgiche, tra cui ortopedia, traumatologia, chirurgia viscerale, ostetricia, urologia e ORL. Il tuo ruolo consiste in particolare nel:\n• Garantire le diverse fasi del processo di ricondizionamento dei dispositivi medici, nel rispetto delle procedure vigenti.\n• Utilizzare il sistema di tracciabilità per garantire un tracciamento affidabile e sicuro degli strumenti chirurgici.\n• Contribuire al buon funzionamento quotidiano del reparto e alla fluidità del circuito tra sala operatoria e sterilizzazione.\n• Effettuare i controlli usuali, la manutenzione ordinaria e segnalare anomalie relative alle apparecchiature.\n• Partecipare al miglioramento continuo, alla qualità e alla sicurezza delle pratiche professionali. Le tue missioni si svolgono nel rispetto degli standard di sterilizzazione, delle buone pratiche di ricondizionamento dei dispositivi medici e delle direttive istituzionali vigenti. Profilo richiesto: Ti vengono riconosciuti rigore, precisione e senso di responsabilità. Applichi le procedure in modo affidabile e comprendi l'importanza della tracciabilità nella sicurezza del paziente. Ti piace il lavoro di squadra, sai comunicare in modo costruttivo e ti senti a tuo agio in un ambiente tecnico esigente, direttamente collegato alla sala operatoria.\n• Una comprovata esperienza in una funzione equivalente è un vantaggio.\n• Ci si aspetta dimestichezza con gli strumenti informatici.\n• Sarà apprezzata la conoscenza del sistema Kenus o di un software di tracciabilità equivalente. Livello di formazione:\n• È richiesta una formazione convalidata come assistente tecnico in sterilizzazione livello 1, il livello 2 sarebbe un vantaggio\n• Oppure un CFC come tecnologo di dispositivi medici Vantaggi:\n• Una posizione permanente al 100%, all'interno di un team impegnato, collaborativo e orientato alla qualità.\n• Un ambiente di lavoro tecnico e strutturato strettamente legato alla sala operatoria.\n• Solo ore diurne.\n• Accesso al programma di formazione continua della Sala Operatoria e del Centro di Sterilizzazione, nonché al catalogo di formazione continua del Dipartimento di Assistenza GHOL.\n• Benefit riservati ai dipendenti GHOL, in particolare in relazione al Piano Mobilità",
-        "en": "GHOL is the reference hospital for western Lake Geneva with its structures in Nyon, Rolle and Saint-Cergue. We are looking for a rigorous and committed professional to join our central sterilization department and contribute, on a daily basis, to patient safety and the smooth running of the operating room. Job description: In your role, you will join a team involved daily in the reprocessing of medical devices used in the operating room and in care units. You work closely with the operating room teams, covering several surgical specialties, including orthopedics, traumatology, visceral surgery, obstetrics, urology and ENT. Your role consists in particular of:\n• Ensuring the different stages of the medical device reprocessing process, in compliance with current procedures.\n• Use the traceability system to guarantee reliable and secure tracking of surgical instruments.\n• Contribute to the smooth daily running of the department and the fluidity of the circuit between the operating room and sterilization.\n• Carry out usual checks, routine maintenance and report equipment-related anomalies.\n• Participate in the continuous improvement, quality and security of professional practices. Your missions take place in compliance with sterilization standards, good practices for reprocessing medical devices and institutional directives in force. Required profile: You are recognized for your rigor, precision and sense of responsibility. You apply procedures reliably and understand the importance of traceability in patient safety. You enjoy teamwork, know how to communicate constructively and are comfortable in a demanding technical environment, directly linked to the operating room.\n• Proven experience in an equivalent function is an asset.\n• Comfort with computer tools is expected.\n• Proficiency in the Kenus system, or equivalent traceability software, would be appreciated. Level of training:\n• Validated training as a Technical Assistant in Sterilization level 1 is required, level 2 would be an asset\n• Or a CFC as a medical device technologist Advantages:\n• A 100% permanent position, within a committed, collaborative and quality-oriented team.\n• A technical, structured work environment closely linked to the operating room.\n• Daytime hours only.\n• Access to the continuing training program of the Operating Room and Sterilization Center, as well as to the continuing training catalog of the GHOL Care Department.\n• Benefits reserved for GHOL employees, particularly in connection with the Mobility Plan",
-        "de": "GHOL ist das Referenzkrankenhaus für den westlichen Genfersee mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Wir suchen eine ehrgeizige und engagierte Fachkraft, die unsere Zentralsterilisationsabteilung verstärkt und täglich zur Patientensicherheit und zum reibungslosen Betrieb des Operationssaals beiträgt. Stellenbeschreibung: In Ihrer Rolle werden Sie Teil eines Teams, das sich täglich mit der Aufbereitung von Medizinprodukten befasst, die im Operationssaal und auf Pflegestationen verwendet werden. Sie arbeiten eng mit den Operationsteams zusammen und decken mehrere chirurgische Fachgebiete ab, darunter Orthopädie, Traumatologie, Viszeralchirurgie, Geburtshilfe, Urologie und HNO. Ihre Aufgabe besteht insbesondere darin:\n• Die verschiedenen Phasen des Aufbereitungsprozesses für Medizinprodukte unter Einhaltung der geltenden Verfahren sicherzustellen.\n• Nutzen Sie das Traceability-System, um eine zuverlässige und sichere Nachverfolgung chirurgischer Instrumente zu gewährleisten.\n• Tragen Sie zum reibungslosen Tagesablauf der Abteilung und zur reibungslosen Verbindung zwischen Operationssaal und Sterilisation bei.\n• Führen Sie übliche Kontrollen und routinemäßige Wartungsarbeiten durch und melden Sie gerätebezogene Anomalien.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung, Qualität und Sicherheit professioneller Praktiken. Ihre Einsätze erfolgen unter Einhaltung der Sterilisationsstandards, bewährten Praktiken für die Wiederaufbereitung von Medizinprodukten und den geltenden institutionellen Richtlinien. Erforderliches Profil: Sie zeichnen sich durch Genauigkeit, Präzision und Verantwortungsbewusstsein aus. Sie wenden Verfahren zuverlässig an und verstehen die Bedeutung der Rückverfolgbarkeit für die Patientensicherheit. Sie haben Spaß an Teamarbeit, wissen konstruktiv zu kommunizieren und fühlen sich in einem anspruchsvollen technischen Umfeld mit direkter Anbindung an den Operationssaal wohl.\n• Nachgewiesene Erfahrung in einer gleichwertigen Funktion ist von Vorteil.\n• Der Umgang mit Computerwerkzeugen wird erwartet.\n• Kenntnisse im Kenus-System oder einer gleichwertigen Rückverfolgbarkeitssoftware sind wünschenswert. Ausbildungsniveau:\n• Eine validierte Ausbildung zum Technischen Assistenten für Sterilisation Stufe 1 ist erforderlich, Stufe 2 wäre von Vorteil.\n• Oder ein CFC als Medizingerätetechnologe. Vorteile:\n• Eine 100 % unbefristete Stelle in einem engagierten, kollaborativen und qualitätsorientierten Team.\n• Eine technische, strukturierte Arbeitsumgebung, die eng mit dem Operationssaal verbunden ist.\n• Nur tagsüber.\n• Zugang zum Weiterbildungsprogramm des OP- und Sterilisationszentrums sowie zum Weiterbildungskatalog der GHOL Care Department.\n• Vorteile, die GHOL-Mitarbeitern vorbehalten sind, insbesondere im Zusammenhang mit dem Mobilitätsplan",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire. Descriptif du poste : Dans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL. Votre rôle consiste notamment à :\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles. Vos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur. Profil requis : Vous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient. Vous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n• Une aisance avec les outils informatiques est attendue.\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée. Niveau de formation :\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n• Ou un CFC de technologue en dispositifs médicaux Avantages :\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n• Des horaires de jour uniquement.\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://app.beehire.com/invite/AWZGWt1g8",
-      "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.872Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-06-15T14:27:39.540Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -593,7 +522,8 @@
       "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.872Z",
+      "crawledAt": "2026-06-27T10:38:51.578Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -618,6 +548,156 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-814a2a6c3683",
+      "slug": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Assistant technique en stérilisation",
+      "titleByLocale": {
+        "it": "Assistente tecnico in Sterilizzazione",
+        "en": "Technical Assistant in Sterilization",
+        "de": "Technischer Assistent der Sterilisation",
+        "fr": "Assistant technique en stérilisation"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\n Descriptif du poste :\n Dans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\n Votre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\n Vos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\n Profil requis :\n Vous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\n Vous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\n Niveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\n Avantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per la parte occidentale del Lago di Ginevra con le sue strutture a Nyon, Rolle e Saint-Cergue. Cerchiamo un professionista rigoroso e impegnato che si unisca al nostro reparto centrale di sterilizzazione e contribuisca, quotidianamente, alla sicurezza dei pazienti e al buon funzionamento della sala operatoria. Descrizione del lavoro: Nel tuo ruolo, entrerai a far parte di un team impegnato quotidianamente nel ricondizionamento dei dispositivi medici utilizzati in sala operatoria e nei reparti di cura. Lavorerai a stretto contatto con le équipe della sala operatoria, coprendo diverse specialità chirurgiche, tra cui ortopedia, traumatologia, chirurgia viscerale, ostetricia, urologia e ORL. Il tuo ruolo consiste in particolare nel:\n• Garantire le diverse fasi del processo di ricondizionamento dei dispositivi medici, nel rispetto delle procedure vigenti.\n• Utilizzare il sistema di tracciabilità per garantire un tracciamento affidabile e sicuro degli strumenti chirurgici.\n• Contribuire al buon funzionamento quotidiano del reparto e alla fluidità del circuito tra sala operatoria e sterilizzazione.\n• Effettuare i controlli usuali, la manutenzione ordinaria e segnalare anomalie relative alle apparecchiature.\n• Partecipare al miglioramento continuo, alla qualità e alla sicurezza delle pratiche professionali. Le tue missioni si svolgono nel rispetto degli standard di sterilizzazione, delle buone pratiche di ricondizionamento dei dispositivi medici e delle direttive istituzionali vigenti. Profilo richiesto: Ti vengono riconosciuti rigore, precisione e senso di responsabilità. Applichi le procedure in modo affidabile e comprendi l'importanza della tracciabilità nella sicurezza del paziente. Ti piace il lavoro di squadra, sai comunicare in modo costruttivo e ti senti a tuo agio in un ambiente tecnico esigente, direttamente collegato alla sala operatoria.\n• Una comprovata esperienza in una funzione equivalente è un vantaggio.\n• Ci si aspetta dimestichezza con gli strumenti informatici.\n• Sarà apprezzata la conoscenza del sistema Kenus o di un software di tracciabilità equivalente. Livello di formazione:\n• È richiesta una formazione convalidata come assistente tecnico in sterilizzazione livello 1, il livello 2 sarebbe un vantaggio\n• Oppure un CFC come tecnologo di dispositivi medici Vantaggi:\n• Una posizione permanente al 100%, all'interno di un team impegnato, collaborativo e orientato alla qualità.\n• Un ambiente di lavoro tecnico e strutturato strettamente legato alla sala operatoria.\n• Solo ore diurne.\n• Accesso al programma di formazione continua della Sala Operatoria e del Centro di Sterilizzazione, nonché al catalogo di formazione continua del Dipartimento di Assistenza GHOL.\n• Benefit riservati ai dipendenti GHOL, in particolare in relazione al Piano Mobilità",
+        "en": "GHOL is the reference hospital for western Lake Geneva with its structures in Nyon, Rolle and Saint-Cergue. We are looking for a rigorous and committed professional to join our central sterilization department and contribute, on a daily basis, to patient safety and the smooth running of the operating room. Job description: In your role, you will join a team involved daily in the reprocessing of medical devices used in the operating room and in care units. You work closely with the operating room teams, covering several surgical specialties, including orthopedics, traumatology, visceral surgery, obstetrics, urology and ENT. Your role consists in particular of:\n• Ensuring the different stages of the medical device reprocessing process, in compliance with current procedures.\n• Use the traceability system to guarantee reliable and secure tracking of surgical instruments.\n• Contribute to the smooth daily running of the department and the fluidity of the circuit between the operating room and sterilization.\n• Carry out usual checks, routine maintenance and report equipment-related anomalies.\n• Participate in the continuous improvement, quality and security of professional practices. Your missions take place in compliance with sterilization standards, good practices for reprocessing medical devices and institutional directives in force. Required profile: You are recognized for your rigor, precision and sense of responsibility. You apply procedures reliably and understand the importance of traceability in patient safety. You enjoy teamwork, know how to communicate constructively and are comfortable in a demanding technical environment, directly linked to the operating room.\n• Proven experience in an equivalent function is an asset.\n• Comfort with computer tools is expected.\n• Proficiency in the Kenus system, or equivalent traceability software, would be appreciated. Level of training:\n• Validated training as a Technical Assistant in Sterilization level 1 is required, level 2 would be an asset\n• Or a CFC as a medical device technologist Advantages:\n• A 100% permanent position, within a committed, collaborative and quality-oriented team.\n• A technical, structured work environment closely linked to the operating room.\n• Daytime hours only.\n• Access to the continuing training program of the Operating Room and Sterilization Center, as well as to the continuing training catalog of the GHOL Care Department.\n• Benefits reserved for GHOL employees, particularly in connection with the Mobility Plan",
+        "de": "GHOL ist das Referenzkrankenhaus für den westlichen Genfersee mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Wir suchen eine ehrgeizige und engagierte Fachkraft, die unsere Zentralsterilisationsabteilung verstärkt und täglich zur Patientensicherheit und zum reibungslosen Betrieb des Operationssaals beiträgt. Stellenbeschreibung: In Ihrer Rolle werden Sie Teil eines Teams, das sich täglich mit der Aufbereitung von Medizinprodukten befasst, die im Operationssaal und auf Pflegestationen verwendet werden. Sie arbeiten eng mit den Operationsteams zusammen und decken mehrere chirurgische Fachgebiete ab, darunter Orthopädie, Traumatologie, Viszeralchirurgie, Geburtshilfe, Urologie und HNO. Ihre Aufgabe besteht insbesondere darin:\n• Die verschiedenen Phasen des Aufbereitungsprozesses für Medizinprodukte unter Einhaltung der geltenden Verfahren sicherzustellen.\n• Nutzen Sie das Traceability-System, um eine zuverlässige und sichere Nachverfolgung chirurgischer Instrumente zu gewährleisten.\n• Tragen Sie zum reibungslosen Tagesablauf der Abteilung und zur reibungslosen Verbindung zwischen Operationssaal und Sterilisation bei.\n• Führen Sie übliche Kontrollen und routinemäßige Wartungsarbeiten durch und melden Sie gerätebezogene Anomalien.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung, Qualität und Sicherheit professioneller Praktiken. Ihre Einsätze erfolgen unter Einhaltung der Sterilisationsstandards, bewährten Praktiken für die Wiederaufbereitung von Medizinprodukten und den geltenden institutionellen Richtlinien. Erforderliches Profil: Sie zeichnen sich durch Genauigkeit, Präzision und Verantwortungsbewusstsein aus. Sie wenden Verfahren zuverlässig an und verstehen die Bedeutung der Rückverfolgbarkeit für die Patientensicherheit. Sie haben Spaß an Teamarbeit, wissen konstruktiv zu kommunizieren und fühlen sich in einem anspruchsvollen technischen Umfeld mit direkter Anbindung an den Operationssaal wohl.\n• Nachgewiesene Erfahrung in einer gleichwertigen Funktion ist von Vorteil.\n• Der Umgang mit Computerwerkzeugen wird erwartet.\n• Kenntnisse im Kenus-System oder einer gleichwertigen Rückverfolgbarkeitssoftware sind wünschenswert. Ausbildungsniveau:\n• Eine validierte Ausbildung zum Technischen Assistenten für Sterilisation Stufe 1 ist erforderlich, Stufe 2 wäre von Vorteil.\n• Oder ein CFC als Medizingerätetechnologe. Vorteile:\n• Eine 100 % unbefristete Stelle in einem engagierten, kollaborativen und qualitätsorientierten Team.\n• Eine technische, strukturierte Arbeitsumgebung, die eng mit dem Operationssaal verbunden ist.\n• Nur tagsüber.\n• Zugang zum Weiterbildungsprogramm des OP- und Sterilisationszentrums sowie zum Weiterbildungskatalog der GHOL Care Department.\n• Vorteile, die GHOL-Mitarbeitern vorbehalten sind, insbesondere im Zusammenhang mit dem Mobilitätsplan",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire. Descriptif du poste : Dans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL. Votre rôle consiste notamment à :\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles. Vos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur. Profil requis : Vous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient. Vous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n• Une aisance avec les outils informatiques est attendue.\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée. Niveau de formation :\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n• Ou un CFC de technologue en dispositifs médicaux Avantages :\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n• Des horaires de jour uniquement.\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "url": "https://app.beehire.com/invite/AWZGWt1g8",
+      "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-27T10:38:51.577Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-06-15T14:27:39.540Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-a7161495996c",
+      "slug": "assistente-di-farmacia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "assistente-di-farmacia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "pharmacy-assistant-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Assistant·e en pharmacie",
+      "titleByLocale": {
+        "it": "Assistente di farmacia",
+        "en": "Pharmacy Assistant",
+        "de": "Apothekenassistent",
+        "fr": "Assistant·e en pharmacie"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n\n• Assurer la gestion et le contrôle des médicaments de la pharmacie centrale.\n\n• Assurer la commande informatisée, la réception, la livraison et le rangement des médicaments pour les pharmacies d’unités de soins.\n\n• Veiller au contrôle des stocks, à l’aménagement et au respect des bonnes pratiques de stockage au sein des pharmacies d’unités de soins.\n\n• Gérer, en collaboration avec les unités, les flux de stupéfiants, d’antidotes et de médicaments hors listes.\n\n• Effectuer le suivi des médicaments coûteux.\n\n• Répondre aux questions d’assistance pharmaceutique concernant l’obtention, l’équivalence, la conservation ou toute information générale en lien avec les médicaments.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience souhaitée de 2 ans dans une fonction similaire\n\n• Expérience en milieu hospitalier serait un atout\n\n• Maitrise des outils informatiques\n\n• Capacité à collaborer avec divers professionnels·lles (services de soins, comptabilité, …)\n\n• Rigueur et capacité à travailler en autonomie\n\n• Sens de l'innovation, ouverture aux changements.\n Niveau de formation :\n\n• CFC d’assistant·e en pharmacie ou formation jugée équivalente\n Avantages :\n\n• Organisation du service permettant un large degré d’autonomie de l’activité\n\n• S’intégrer dans une petite équipe dynamique et sympathique\n\n• Avoir accès au catalogue de formation interne du GHOL\n\n• Horaires attractifs (08h00-17h00)\n\n• Pas d’horaire de travail le WE",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per la parte occidentale del Lago di Ginevra con le sue strutture a Nyon e Rolle. Domani ti invitiamo a continuare il tuo sviluppo professionale lasciandoti coinvolgere nelle tue nuove missioni e partecipando allo sviluppo di GHOL. Descrizione del lavoro: nel tuo nuovo ruolo, le tue missioni hanno un impatto sulla qualità dell'assistenza ai pazienti. Il tuo ruolo consisterà in particolare nel:\n• Garantire la gestione e il controllo dei medicinali nella farmacia centrale.\n• Garantire l'ordinazione, la ricezione, la consegna e la conservazione computerizzata dei farmaci per le farmacie delle unità di cura.\n• Garantire il controllo delle scorte, la disposizione e il rispetto delle buone pratiche di conservazione all'interno delle farmacie delle unità di cura.\n• Gestire, in collaborazione con le unità, il flusso di stupefacenti, antidoti e farmaci fuori lista.\n• Tieni traccia dei farmaci costosi.\n• Rispondere a domande di assistenza farmaceutica riguardanti l'ottenimento, l'equivalenza, la conservazione o qualsiasi informazione generale relativa ai farmaci. Profilo richiesto: Siamo convinti del tuo rapido successo nelle tue future funzioni grazie a:\n• Esperienza desiderata di 2 anni in una funzione simile\n• L'esperienza in un ambiente ospedaliero sarebbe un vantaggio\n• Padronanza degli strumenti IT\n• Capacità di collaborare con vari professionisti (servizi di assistenza, contabilità, ecc.)\n• Rigore e capacità di lavorare in modo indipendente\n• Senso di innovazione, apertura al cambiamento. Livello di formazione:\n• Assistente di farmacia CFC o formazione considerata equivalente Vantaggi:\n• Organizzazione del servizio che consente un ampio grado di autonomia dell'attività\n• Integrazione in un team piccolo, dinamico e amichevole\n• Avere accesso al catalogo di formazione interno GHOL\n• Orari interessanti (8:00 - 17:00)\n• Nessun orario di lavoro nei fine settimana",
+        "en": "GHOL is the reference hospital for western Lake Geneva with its structures in Nyon and Rolle. Tomorrow, we invite you to continue your professional development by getting involved in your new missions and participating in the development of GHOL. Job description: In your new role, your missions have an impact on the quality of patient care. Your role will consist in particular of,\n• Ensuring the management and control of medicines in the central pharmacy.\n• Ensure computerized ordering, reception, delivery and storage of medications for care unit pharmacies.\n• Ensure stock control, layout and compliance with good storage practices within care unit pharmacies.\n• Manage, in collaboration with the units, the flow of narcotics, antidotes and off-list medications.\n• Track expensive medications.\n• Answer pharmaceutical assistance questions regarding obtaining, equivalence, storage or any general information related to medications. Required profile: We are convinced of your rapid success in your future functions thanks to your:\n• Desired experience of 2 years in a similar function\n• Experience in a hospital environment would be an asset\n• Mastery of IT tools\n• Ability to collaborate with various professionals (care services, accounting, etc.)\n• Rigor and ability to work independently\n• Sense of innovation, openness to change. Level of training:\n• CFC pharmacy assistant or training considered equivalent Advantages:\n• Organization of the service allowing a large degree of autonomy of the activity\n• Integrate into a small, dynamic and friendly team\n• Have access to the GHOL internal training catalog\n• Attractive hours (8:00 a.m. - 5:00 p.m.)\n• No working hours on weekends",
+        "de": "GHOL ist mit seinen Strukturen in Nyon und Rolle das Referenzkrankenhaus für den westlichen Genfersee. Morgen laden wir Sie ein, Ihre berufliche Weiterentwicklung fortzusetzen, indem Sie sich an Ihren neuen Missionen beteiligen und an der Entwicklung von GHOL teilnehmen. Stellenbeschreibung: In Ihrer neuen Rolle haben Ihre Aufgaben einen Einfluss auf die Qualität der Patientenversorgung. Zu Ihren Aufgaben gehören insbesondere:\n• Sicherstellen der Arzneimittelverwaltung und -kontrolle in der Zentralapotheke.\n• Gewährleistung einer computergestützten Bestellung, Annahme, Lieferung und Lagerung von Medikamenten für Stationsapotheken.\n• Sicherstellung der Bestandskontrolle, Anordnung und Einhaltung guter Lagerpraktiken in Apotheken auf Pflegestationen.\n• Verwalten Sie in Zusammenarbeit mit den Einheiten den Fluss von Betäubungsmitteln, Gegenmitteln und nicht gelisteten Medikamenten.\n• Verfolgen Sie teure Medikamente.\n• Beantworten Sie Fragen zur pharmazeutischen Unterstützung in Bezug auf Beschaffung, Gleichwertigkeit, Lagerung oder allgemeine Informationen im Zusammenhang mit Medikamenten. Erforderliches Profil: Wir sind von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen überzeugt, dank Ihrer:\n• Gewünschte Erfahrung von 2 Jahren in einer ähnlichen Funktion\n• Erfahrung im Krankenhausumfeld wäre von Vorteil\n• Beherrschung von IT-Tools\n• Fähigkeit zur Zusammenarbeit mit verschiedenen Fachkräften (Pflegedienste, Buchhaltung usw.)\n• Genauigkeit und Fähigkeit zum selbstständigen Arbeiten\n• Sinn für Innovation, Offenheit für Veränderungen. Ausbildungsstand:\n• CFC-Apothekenassistent oder als gleichwertig angesehene Ausbildung Vorteile:\n• Organisation des Dienstes, die ein hohes Maß an Autonomie der Tätigkeit ermöglicht\n• Integration in ein kleines, dynamisches und freundliches Team\n• Zugang zum internen Schulungskatalog von GHOL haben\n• Attraktive Arbeitszeiten (8:00 - 17:00 Uhr)\n• Keine Arbeitszeiten am Wochenende",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL. Descriptif du poste : Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n• Assurer la gestion et le contrôle des médicaments de la pharmacie centrale.\n• Assurer la commande informatisée, la réception, la livraison et le rangement des médicaments pour les pharmacies d’unités de soins.\n• Veiller au contrôle des stocks, à l’aménagement et au respect des bonnes pratiques de stockage au sein des pharmacies d’unités de soins.\n• Gérer, en collaboration avec les unités, les flux de stupéfiants, d’antidotes et de médicaments hors listes.\n• Effectuer le suivi des médicaments coûteux.\n• Répondre aux questions d’assistance pharmaceutique concernant l’obtention, l’équivalence, la conservation ou toute information générale en lien avec les médicaments. Profil requis : Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n• Expérience souhaitée de 2 ans dans une fonction similaire\n• Expérience en milieu hospitalier serait un atout\n• Maitrise des outils informatiques\n• Capacité à collaborer avec divers professionnels·lles (services de soins, comptabilité, …)\n• Rigueur et capacité à travailler en autonomie\n• Sens de l'innovation, ouverture aux changements. Niveau de formation :\n• CFC d’assistant·e en pharmacie ou formation jugée équivalente Avantages :\n• Organisation du service permettant un large degré d’autonomie de l’activité\n• S’intégrer dans une petite équipe dynamique et sympathique\n• Avoir accès au catalogue de formation interne du GHOL\n• Horaires attractifs (08h00-17h00)\n• Pas d’horaire de travail le WE"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "url": "https://app.beehire.com/invite/ue0iaht7b",
+      "applyUrl": "https://app.beehire.com/invite/ue0iaht7b",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-27T10:38:51.576Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-06-19T12:36:15.329Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -667,7 +747,7 @@
       "applyUrl": "https://app.beehire.com/invite/etyOQWpII",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.871Z",
+      "crawledAt": "2026-06-27T10:38:51.576Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
@@ -742,7 +822,8 @@
       "applyUrl": "https://app.beehire.com/invite/-lccfnCIk",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.870Z",
+      "crawledAt": "2026-06-27T10:38:51.575Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "secretaire-medical-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -758,81 +839,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T14:17:55.716Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-a7161495996c",
-      "slug": "assistente-di-farmacia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assistente-di-farmacia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "pharmacy-assistant-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Assistant·e en pharmacie",
-      "titleByLocale": {
-        "it": "Assistente di farmacia",
-        "en": "Pharmacy Assistant",
-        "de": "Apothekenassistent",
-        "fr": "Assistant·e en pharmacie"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n\n• Assurer la gestion et le contrôle des médicaments de la pharmacie centrale.\n\n• Assurer la commande informatisée, la réception, la livraison et le rangement des médicaments pour les pharmacies d’unités de soins.\n\n• Veiller au contrôle des stocks, à l’aménagement et au respect des bonnes pratiques de stockage au sein des pharmacies d’unités de soins.\n\n• Gérer, en collaboration avec les unités, les flux de stupéfiants, d’antidotes et de médicaments hors listes.\n\n• Effectuer le suivi des médicaments coûteux.\n\n• Répondre aux questions d’assistance pharmaceutique concernant l’obtention, l’équivalence, la conservation ou toute information générale en lien avec les médicaments.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience souhaitée de 2 ans dans une fonction similaire\n\n• Expérience en milieu hospitalier serait un atout\n\n• Maitrise des outils informatiques\n\n• Capacité à collaborer avec divers professionnels·lles (services de soins, comptabilité, …)\n\n• Rigueur et capacité à travailler en autonomie\n\n• Sens de l'innovation, ouverture aux changements.\n Niveau de formation :\n\n• CFC d’assistant·e en pharmacie ou formation jugée équivalente\n Avantages :\n\n• Organisation du service permettant un large degré d’autonomie de l’activité\n\n• S’intégrer dans une petite équipe dynamique et sympathique\n\n• Avoir accès au catalogue de formation interne du GHOL\n\n• Horaires attractifs (08h00-17h00)\n\n• Pas d’horaire de travail le WE",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per la parte occidentale del Lago di Ginevra con le sue strutture a Nyon e Rolle. Domani ti invitiamo a continuare il tuo sviluppo professionale lasciandoti coinvolgere nelle tue nuove missioni e partecipando allo sviluppo di GHOL. Descrizione del lavoro: nel tuo nuovo ruolo, le tue missioni hanno un impatto sulla qualità dell'assistenza ai pazienti. Il tuo ruolo consisterà in particolare nel:\n• Garantire la gestione e il controllo dei medicinali nella farmacia centrale.\n• Garantire l'ordinazione, la ricezione, la consegna e la conservazione computerizzata dei farmaci per le farmacie delle unità di cura.\n• Garantire il controllo delle scorte, la disposizione e il rispetto delle buone pratiche di conservazione all'interno delle farmacie delle unità di cura.\n• Gestire, in collaborazione con le unità, il flusso di stupefacenti, antidoti e farmaci fuori lista.\n• Tieni traccia dei farmaci costosi.\n• Rispondere a domande di assistenza farmaceutica riguardanti l'ottenimento, l'equivalenza, la conservazione o qualsiasi informazione generale relativa ai farmaci. Profilo richiesto: Siamo convinti del tuo rapido successo nelle tue future funzioni grazie a:\n• Esperienza desiderata di 2 anni in una funzione simile\n• L'esperienza in un ambiente ospedaliero sarebbe un vantaggio\n• Padronanza degli strumenti IT\n• Capacità di collaborare con vari professionisti (servizi di assistenza, contabilità, ecc.)\n• Rigore e capacità di lavorare in modo indipendente\n• Senso di innovazione, apertura al cambiamento. Livello di formazione:\n• Assistente di farmacia CFC o formazione considerata equivalente Vantaggi:\n• Organizzazione del servizio che consente un ampio grado di autonomia dell'attività\n• Integrazione in un team piccolo, dinamico e amichevole\n• Avere accesso al catalogo di formazione interno GHOL\n• Orari interessanti (8:00 - 17:00)\n• Nessun orario di lavoro nei fine settimana",
-        "en": "GHOL is the reference hospital for western Lake Geneva with its structures in Nyon and Rolle. Tomorrow, we invite you to continue your professional development by getting involved in your new missions and participating in the development of GHOL. Job description: In your new role, your missions have an impact on the quality of patient care. Your role will consist in particular of,\n• Ensuring the management and control of medicines in the central pharmacy.\n• Ensure computerized ordering, reception, delivery and storage of medications for care unit pharmacies.\n• Ensure stock control, layout and compliance with good storage practices within care unit pharmacies.\n• Manage, in collaboration with the units, the flow of narcotics, antidotes and off-list medications.\n• Track expensive medications.\n• Answer pharmaceutical assistance questions regarding obtaining, equivalence, storage or any general information related to medications. Required profile: We are convinced of your rapid success in your future functions thanks to your:\n• Desired experience of 2 years in a similar function\n• Experience in a hospital environment would be an asset\n• Mastery of IT tools\n• Ability to collaborate with various professionals (care services, accounting, etc.)\n• Rigor and ability to work independently\n• Sense of innovation, openness to change. Level of training:\n• CFC pharmacy assistant or training considered equivalent Advantages:\n• Organization of the service allowing a large degree of autonomy of the activity\n• Integrate into a small, dynamic and friendly team\n• Have access to the GHOL internal training catalog\n• Attractive hours (8:00 a.m. - 5:00 p.m.)\n• No working hours on weekends",
-        "de": "GHOL ist mit seinen Strukturen in Nyon und Rolle das Referenzkrankenhaus für den westlichen Genfersee. Morgen laden wir Sie ein, Ihre berufliche Weiterentwicklung fortzusetzen, indem Sie sich an Ihren neuen Missionen beteiligen und an der Entwicklung von GHOL teilnehmen. Stellenbeschreibung: In Ihrer neuen Rolle haben Ihre Aufgaben einen Einfluss auf die Qualität der Patientenversorgung. Zu Ihren Aufgaben gehören insbesondere:\n• Sicherstellen der Arzneimittelverwaltung und -kontrolle in der Zentralapotheke.\n• Gewährleistung einer computergestützten Bestellung, Annahme, Lieferung und Lagerung von Medikamenten für Stationsapotheken.\n• Sicherstellung der Bestandskontrolle, Anordnung und Einhaltung guter Lagerpraktiken in Apotheken auf Pflegestationen.\n• Verwalten Sie in Zusammenarbeit mit den Einheiten den Fluss von Betäubungsmitteln, Gegenmitteln und nicht gelisteten Medikamenten.\n• Verfolgen Sie teure Medikamente.\n• Beantworten Sie Fragen zur pharmazeutischen Unterstützung in Bezug auf Beschaffung, Gleichwertigkeit, Lagerung oder allgemeine Informationen im Zusammenhang mit Medikamenten. Erforderliches Profil: Wir sind von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen überzeugt, dank Ihrer:\n• Gewünschte Erfahrung von 2 Jahren in einer ähnlichen Funktion\n• Erfahrung im Krankenhausumfeld wäre von Vorteil\n• Beherrschung von IT-Tools\n• Fähigkeit zur Zusammenarbeit mit verschiedenen Fachkräften (Pflegedienste, Buchhaltung usw.)\n• Genauigkeit und Fähigkeit zum selbstständigen Arbeiten\n• Sinn für Innovation, Offenheit für Veränderungen. Ausbildungsstand:\n• CFC-Apothekenassistent oder als gleichwertig angesehene Ausbildung Vorteile:\n• Organisation des Dienstes, die ein hohes Maß an Autonomie der Tätigkeit ermöglicht\n• Integration in ein kleines, dynamisches und freundliches Team\n• Zugang zum internen Schulungskatalog von GHOL haben\n• Attraktive Arbeitszeiten (8:00 - 17:00 Uhr)\n• Keine Arbeitszeiten am Wochenende",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL. Descriptif du poste : Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à,\n• Assurer la gestion et le contrôle des médicaments de la pharmacie centrale.\n• Assurer la commande informatisée, la réception, la livraison et le rangement des médicaments pour les pharmacies d’unités de soins.\n• Veiller au contrôle des stocks, à l’aménagement et au respect des bonnes pratiques de stockage au sein des pharmacies d’unités de soins.\n• Gérer, en collaboration avec les unités, les flux de stupéfiants, d’antidotes et de médicaments hors listes.\n• Effectuer le suivi des médicaments coûteux.\n• Répondre aux questions d’assistance pharmaceutique concernant l’obtention, l’équivalence, la conservation ou toute information générale en lien avec les médicaments. Profil requis : Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n• Expérience souhaitée de 2 ans dans une fonction similaire\n• Expérience en milieu hospitalier serait un atout\n• Maitrise des outils informatiques\n• Capacité à collaborer avec divers professionnels·lles (services de soins, comptabilité, …)\n• Rigueur et capacité à travailler en autonomie\n• Sens de l'innovation, ouverture aux changements. Niveau de formation :\n• CFC d’assistant·e en pharmacie ou formation jugée équivalente Avantages :\n• Organisation du service permettant un large degré d’autonomie de l’activité\n• S’intégrer dans une petite équipe dynamique et sympathique\n• Avoir accès au catalogue de formation interne du GHOL\n• Horaires attractifs (08h00-17h00)\n• Pas d’horaire de travail le WE"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-19",
-      "url": "https://app.beehire.com/invite/ue0iaht7b",
-      "applyUrl": "https://app.beehire.com/invite/ue0iaht7b",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.870Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-06-19T12:36:15.329Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -891,7 +897,7 @@
       "applyUrl": "https://app.beehire.com/invite/B-qFH1Hv4Y",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-26T21:57:58.869Z",
+      "crawledAt": "2026-06-27T10:38:51.574Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest"
