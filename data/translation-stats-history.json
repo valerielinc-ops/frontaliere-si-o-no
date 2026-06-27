@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-08T04:54:57.658Z",
-    "label": "before",
-    "total": 10854,
-    "needsRetranslation": 2885,
-    "suppressed": 36,
-    "incomplete": 509,
-    "complete": 10345,
-    "missingByLocale": {
-      "it": 303,
-      "en": 239,
-      "de": 199,
-      "fr": 291
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 100
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 76
-      },
-      {
-        "company": "The Swatch Group (U.S.) Inc.",
-        "pending": 29
-      },
-      {
-        "company": "Roche",
-        "pending": 25
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      },
-      {
-        "company": "Richemont",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 15
-      },
-      {
-        "company": "Sulzer",
-        "pending": 14
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-08T06:09:36.179Z",
-    "label": "after",
-    "total": 10854,
-    "needsRetranslation": 2753,
-    "suppressed": 40,
-    "incomplete": 497,
-    "complete": 10357,
-    "missingByLocale": {
-      "it": 298,
-      "en": 233,
-      "de": 191,
-      "fr": 284
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 98
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 76
-      },
-      {
-        "company": "The Swatch Group (U.S.) Inc.",
-        "pending": 29
-      },
-      {
-        "company": "Roche",
-        "pending": 25
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 22
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      },
-      {
-        "company": "Richemont",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 17
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 15
-      },
-      {
-        "company": "Sulzer",
-        "pending": 14
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-08T06:15:08.075Z",
     "label": "before",
     "total": 10854,
@@ -11482,6 +11368,120 @@
       {
         "company": "Sunrise Communications AG",
         "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Implenia",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-27T07:52:18.499Z",
+    "label": "before",
+    "total": 17823,
+    "needsRetranslation": 2511,
+    "suppressed": 495,
+    "incomplete": 939,
+    "complete": 16884,
+    "missingByLocale": {
+      "it": 431,
+      "en": 309,
+      "de": 501,
+      "fr": 129
+    },
+    "topPending": [
+      {
+        "company": "BâleHotels",
+        "pending": 859
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-27T09:22:40.772Z",
+    "label": "after",
+    "total": 17823,
+    "needsRetranslation": 2459,
+    "suppressed": 495,
+    "incomplete": 940,
+    "complete": 16883,
+    "missingByLocale": {
+      "it": 432,
+      "en": 279,
+      "de": 521,
+      "fr": 115
+    },
+    "topPending": [
+      {
+        "company": "BâleHotels",
+        "pending": 863
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 17
       },
       {
         "company": "CSD ENGINEERS",

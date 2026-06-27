@@ -3372,7 +3372,8 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
         "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
-        "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn",
+        "ergoterapista-ergoterapista-u-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6483,6 +6484,7 @@
         "projektleiter-m-w-d-solothurner-spitaler-soh-dornach",
         "projektleiter-m-w-solothurner-spitaler-soh-dornach",
         "projektleiter-m-m-solothurner-spitaler-soh-dornach",
+        "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
         "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
         "orthopedics-polyclinic-mpa-m-f-d-solothurner-spitaler-soh-solothurn",
         "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn"
@@ -6593,6 +6595,7 @@
         "consulente-senior-w-m-d-solothurner-spitaler-soh-olten",
         "senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten",
+        "consulente-senior-w-m-d-solothurner-spitaler-soh-olten-b83972",
         "laurea-specialistica-hf-intensive-care-f-m-d-solothurner-spitaler-soh-olten"
       ],
       "firstSeenAt": "2026-05-22T13:01:59.304Z",
@@ -6684,6 +6687,9 @@
         "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-1cedfd",
         "general-practitioner-male-female-solothurner-spitaler-soh-solothurn",
         "medecin-generaliste-homme-femme-solothurner-spitaler-soh-solothurn",
+        "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
+        "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
+        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn",
         "hausarztin-hausarzt-w-m-d-soh-ch"
       ],
       "firstSeenAt": "2026-05-21T13:19:26.031Z",
@@ -8137,7 +8143,8 @@
         "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
         "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn",
         "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn",
+        "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8335,7 +8342,8 @@
         "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
         "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn",
         "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn",
+        "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11536,7 +11544,7 @@
       "slug": "consulente-senior-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "consulente-senior-m-d-solothurner-spitaler-soh-olten",
-        "en": "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
+        "en": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "de": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "fr": "conseiller-principal-m-d-solothurner-spitaler-soh-olten"
       },
@@ -11585,8 +11593,9 @@
         "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "expert-en-soins-anesthesiques-h-f-solothurner-spitaler-soh-olten",
-        "esperto-esperta-in-anestesia-w-m-d-solothurner-spitaler-soh-dornach",
+        "expert-nurse-anesthesia-male-female-solothurner-spitaler-soh-olten",
         "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
+        "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-olten",
         "esperta-o-di-anestesia-uomo-donna-solothurner-spitaler-soh-olten",
@@ -11607,11 +11616,12 @@
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
           "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
           "expert-en-soins-anesthesiques-h-f-solothurner-spitaler-soh-olten",
+          "expert-nurse-anesthesia-male-female-solothurner-spitaler-soh-olten",
           "esperto-esperta-in-anestesia-w-m-d-solothurner-spitaler-soh-dornach"
         ],
         "en": [
           "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
-          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
+          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
@@ -11807,9 +11817,10 @@
         "consulente-senior-m-d-solothurner-spitaler-soh-dornach",
         "senior-consultant-m-d-solothurner-spitaler-soh-dornach",
         "consultant-principal-m-j-solothurner-spitaler-soh-dornach",
-        "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "expert-en-soins-anesthesiques-h-f-solothurner-spitaler-soh-olten",
-        "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten"
+        "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
+        "expert-nurse-anesthesia-male-female-solothurner-spitaler-soh-olten"
       ],
       "firstSeenAt": "2026-05-22T13:01:59.304Z",
       "salaryMin": 68500,
@@ -12095,6 +12106,7 @@
         "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-soh-ch",
         "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
+        "projektleiter-m-d-solothurner-spitaler-soh-olten",
         "soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-21T13:19:26.030Z",
@@ -12383,16 +12395,16 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Urologie (w/m/d)",
       "titleByLocale": {
         "it": "Dipl. Infermiera / infermiera urologia (f/m/d)",
-        "en": "Dipl. Nurse / nurse urology (f/m/d)",
+        "en": "Dipl. Nursing professional urology (f/m/d)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Urologie (w/m/d)",
-        "fr": "Dipl. Infirmière/infirmière urologie (f/m/d)"
+        "fr": "Dipl. Urologie professionnelle des soins infirmiers (f/m/d)"
       },
       "description": "Aufgaben\n• Assistenz bei urologischen Untersuchungen in der Sprechstunde\n• Instrumentierung und Assistenz bei urologischen Operationen\n• Mitgestaltung einer aktiven und positiven Teamkultur sowie Offenheit gegenüber interdisziplinären Anliegen\n• Abdeckung der Dienste von 07:00 bis 19:00 Uhr sowie von Montag bis Freitag\n\nProfil\n• Dipl. Pflegefachfrau oder Pflegefachmann HF/FH, DN II, AKP (bei ausländischem Diplom mit SRK-Anerkennung)\n• Berufserfahrung im urologischen OP ist von Vorteil, aber kein Muss\n• Aufgestellt, motiviert, empathisch und belastbar – mit einem natürlichen Gespür für Technik\n• Offenheit gegenüber Veränderungen und Freude an einem dynamischen, lebhaften Arbeitsumfeld\n• Ausgeprägte Teamfähigkeit und die Bereitschaft zur engen interdisziplinären Zusammenarbeit\n\n• Bereich: Pflege\n• Standort: Kantonsspital Olten\n• Abteilung: Ambulatorium Urologie\n• Pensum: 80% - 100%",
       "descriptionByLocale": {
-        "it": "Compiti\n• Assistenza in esami urologici alle ore di ufficio\n• Strumentazione e assistenza nelle operazioni urologiche\n• Co-creazione di una cultura attiva e positiva del team, nonché apertura alle preoccupazioni interdisciplinari\n• Copertura dei servizi dalle 07:00 alle 19:00 e dal lunedì al venerdì Profilo\n• Dipl. Specialista infermieristico HF/FH, DN II, AKP (per diploma straniero con riconoscimento SRC)\n• Esperienza professionale nella chirurgia urologica è benefica, ma non un must\n• Impostare, motivare, empatico e resiliente – con un senso naturale della tecnologia\n• Apertura al cambiamento e al godimento di un ambiente di lavoro dinamico e vivace\n• Forte lavoro di squadra e disponibilità per una stretta cooperazione interdisciplinare\n• Area: Cura\n• Posizione: Ospedale cantonale Olten\n• Dipartimento di Urologia Ambulatorium\n• Pensum: 80% - 100%",
-        "en": "Tasks\n• Assistance in urological examinations at the office hours\n• Instrumentation and assistance in urological operations\n• Co-creation of an active and positive team culture as well as openness to interdisciplinary concerns\n• Coverage of services from 07:00 to 19:00 and from Monday to Friday Profile\n• Dipl. Nursing specialist HF/FH, DN II, AKP (for foreign diploma with SRC recognition)\n• Professional experience in urological surgery is beneficial, but not a must\n• Set up, motivated, empathetic and resilient – with a natural sense of technology\n• Openness to change and enjoyment of a dynamic, lively working environment\n• Strong teamwork and willingness for close interdisciplinary cooperation\n• Area: Care\n• Location: Cantonal Hospital Olten\n• Department of Urology Ambulatorium\n• Pensum: 80% - 100%",
-        "de": "Aufgaben Aufgaben\n• Assistenz bei urologischen Untersuchungen in der Sprechstunde\n• Instrumentierung und Assistenz bei urologischen Operationen\n• Mitgestaltung einer aktiven und positiven Teamkultur sowie Offenheit gegenüber interdisziplinären Anliegen\n• Abdeckung der Dienste von 07:00 bis 19:00 Uhr sowie von Montag bis Freitag Profil Profil\n• Dipl. Pflegefachfrau oder Pflegefachmann HF/FH, DN II, AKP (bei ausländischem Diplom mit SRK-Anerkennung)\n• Berufserfahrung im urologischen OP ist von Vorteil, aber kein Muss\n• Aufgestellt, motiviert, empathisch und belastbar – mit einem natürlichen Gespür für Technik\n• Offenheit gegenüber Veränderungen und Freude an einem dynamischen, lebhaften Arbeitsumfeld\n• Ausgeprägte Teamfähigkeit und die Bereitschaft zur engen interdisziplinären Zusammenarbeit Kontakt Bei Fragen zur Stelle (Referenz 3363): Frau J. Filippone Stationsleiterin Tel: +41 (0)62 311 42 89 Das Kantonsspital Olten (KSO) garantiert die erweiterte medizinische Grundversorgung der Region Olten-Gösgen und Thal-Gäu. Rund 1'300 Mitarbeiterinnen und Mitarbeiter sorgen rund um die Uhr für die medizinische Betreuung und das Wohlergehen der Patientinnen und Patienten. Ergänzend zur Grundversorgung besitzt das KSO die Schwerpunktangebote Akutgeriatrie, Wirbelsäulenchirurgie und Urologie. Aufgaben\n• Assistenz bei urologischen Untersuchungen in der Sprechstunde\n• Instrumentierung und Assistenz bei urologischen Operationen\n• Mitgestaltung einer aktiven und positiven Teamkultur sowie Offenheit gegenüber interdisziplinären Anliegen\n• Abdeckung der Dienste von 07:00 bis 19:00 Uhr sowie von Montag bis Freitag Profil\n• Dipl. Pflegefachfrau oder Pflegefachmann HF/FH, DN II, AKP (bei ausländischem Diplom mit SRK-Anerkennung)\n• Berufserfahrung im urologischen OP ist von Vorteil, aber kein Muss\n• Aufgestellt, motiviert, empathisch und belastbar – mit einem natürlichen Gespür für Technik\n• Offenheit gegenüber Veränderungen und Freude an einem dynamischen, lebhaften Arbeitsumfeld\n• Ausgeprägte Teamfähigkeit und die Bereitschaft zur engen interdisziplinären Zusammenarbeit",
-        "fr": "Tâche\n• Assistance aux examens urologiques aux heures de bureau\n• Instrumentation et assistance dans les opérations urologiques\n• Co-création d'une culture d'équipe active et positive et ouverture aux préoccupations interdisciplinaires\n• Couverture des services de 07:00 à 19:00 et du lundi au vendredi Profil\n• Dipl. Spécialiste des soins infirmiers HF/FH, DN II, AKP (pour un diplôme étranger reconnu par le SRC)\n• Expérience professionnelle en chirurgie urologique est bénéfique, mais pas un must\n• Mise en place, motivation, empathie et résilience – avec un sens naturel de la technologie\n• Ouverture au changement et au plaisir d'un environnement de travail dynamique et animé\n• Travail d'équipe et volonté de coopération interdisciplinaire étroite\n• Domaine: Soins\n• Lieu: Hôpital cantonal Olten\n• Département d'Urologie Ambulateur\n• Pensum: 80% - 100%"
+        "it": "Compiti • Assistenza nelle indagini urologiche nella sessione di consultazione • Strumentazione e assistenza nelle operazioni urologiche • Co-design di una cultura attiva e positiva del team e apertura alle preoccupazioni interdisciplinare • Copertura dei servizi dalle 07:00 alle 19:00 e dal lunedì al venerdì profilo • Dipl.\n\nSpecialista di assistenza o specialista di assistenza HF/FH, DN II, AKP (con un diploma straniero con riconoscimento SRK) • L'esperienza professionale nella chirurgia urologica è vantaggiosa, ma non è necessaria • Stand-up, motivato, empatetico e resiliente. con un senso naturale della tecnologia • Apertura ai cambiamenti e allegria in un ambiente di lavoro dinamico e vivace • Estesa collaborazione e disponibilità a lavorare strettamente interdisciplinare • Area: Cura • Luogo: Kantonsspital Olten • Dipartimento: Urologia ambulatoria • Pensum: 80% - 100%",
+        "en": "Tasks • Assistance in urological investigations in the consultation session • Instrumentation and assistance in urological operations • Co-design of an active and positive team culture and openness to interdisciplinary concerns • Coverage of services from 07:00 to 19:00 and from Monday to Friday profile • Dipl.\n\nCare specialist or nursing specialist HF/FH, DN II, AKP (with a foreign diploma with SRK recognition) • Professional experience in the urological surgery is advantageous, but no need • Stand-up, motivated, empathetic and resilient – with a natural sense of technology • Openness to changes and joy in a dynamic, lively working environment • Extensive teamwork and willingness to work closely interdisciplinary • Area: Care • Location: Kantonssspital Olten • Department: Ambulatory Urology • Pensum: 80% - 100%",
+        "de": "Aufgaben\n• Assistenz bei urologischen Untersuchungen in der Sprechstunde\n• Instrumentierung und Assistenz bei urologischen Operationen\n• Mitgestaltung einer aktiven und positiven Teamkultur sowie Offenheit gegenüber interdisziplinären Anliegen\n• Abdeckung der Dienste von 07:00 bis 19:00 Uhr sowie von Montag bis Freitag\n\nProfil\n• Dipl. Pflegefachfrau oder Pflegefachmann HF/FH, DN II, AKP (bei ausländischem Diplom mit SRK-Anerkennung)\n• Berufserfahrung im urologischen OP ist von Vorteil, aber kein Muss\n• Aufgestellt, motiviert, empathisch und belastbar – mit einem natürlichen Gespür für Technik\n• Offenheit gegenüber Veränderungen und Freude an einem dynamischen, lebhaften Arbeitsumfeld\n• Ausgeprägte Teamfähigkeit und die Bereitschaft zur engen interdisziplinären Zusammenarbeit\n\n• Bereich: Pflege\n• Standort: Kantonsspital Olten\n• Abteilung: Ambulatorium Urologie\n• Pensum: 80% - 100%",
+        "fr": "Tâches • Assistance aux investigations urologiques lors de la séance de consultation • Instrumentation et assistance dans les opérations urologiques • Co-conception d'une culture active et positive de l'équipe et ouverture aux préoccupations interdisciplinaires • Couverture des services de 07:00 à 19:00 et du lundi au vendredi • Profil Dipl.\n\nSpécialiste des soins ou spécialiste des soins infirmiers HF/FH, DN II, AKP (avec un diplôme étranger reconnu SRK) • Expérience professionnelle dans la chirurgie urologique est avantageux, mais pas besoin • Stand-up, motivé, empathétique et résilient – avec un sens naturel de la technologie • Ouverture aux changements et la joie dans un environnement de travail dynamique et animé • Travail d'équipe et volonté de travailler étroitement interdisciplinaire • Domaine: Soins • Emplacement: Kantonssspital Olten • Département: Urologie ambulatoire • Pensum: 80% - 100%"
       },
       "location": "Olten",
       "canton": "SO",
@@ -12452,9 +12464,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "solothurner-spitaeler-c1ab6700f354",

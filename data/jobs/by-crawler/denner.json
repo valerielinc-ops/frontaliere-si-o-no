@@ -7,9 +7,9 @@
       "slug": "venditore-denner-ag-frauenfeld",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -74,7 +74,9 @@
         "seller-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-rubigen",
         "vendeur-a-salaire-horaire-denner-frauenfeld",
-        "vendeur-denner-ag-frauenfeld-008421"
+        "vendeur-denner-ag-frauenfeld-008421",
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -86,7 +88,8 @@
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner",
           "salesperson-on-an-hourly-wage-denner-frauenfeld",
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "de": [
           "verkaufer-in-denner-frauenfeld",
@@ -96,7 +99,8 @@
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner",
           "vendeur-a-salaire-horaire-denner-frauenfeld",
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-23T11:30:12.156Z",
@@ -2246,7 +2250,7 @@
         "it": "studente-denner-sa-la-chaux-de-fonds",
         "fr": "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
         "en": "student-student-denner-sa-la-chaux-de-fonds",
-        "de": "student-student-denner-la-chaux-de-fonds"
+        "de": "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2306,12 +2310,14 @@
           "etudiant-etudiante-denner"
         ],
         "de": [
-          "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
+          "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
+          "student-student-denner-la-chaux-de-fonds"
         ]
       },
       "previousSlugs": [
         "etudiant-etudiante-denner",
-        "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
+        "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
+        "student-student-denner-la-chaux-de-fonds"
       ],
       "salaryMin": 72000,
       "salaryMax": 110500,

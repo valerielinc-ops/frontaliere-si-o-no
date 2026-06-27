@@ -40,7 +40,7 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-taverne",
         "en": "plumbing-heating-systems-pemsa-taverne",
-        "de": "hydraulische-arbeit-pemsa-taverne",
+        "de": "heizsysteme-pemsa-taverne",
         "fr": "systemes-de-chauffage-pemsa-taverne"
       },
       "id": "pemsa-de27966aeeb1",
@@ -61,12 +61,12 @@
       "postalCode": "6807",
       "firstSeenAt": "2026-06-26T12:19:20.763Z",
       "previousSlugsByLocale": {
-        "de": [
-          "heizsysteme-pemsa-taverne"
+        "en": [
+          "heating-systems-pemsa-taverne"
         ]
       },
       "previousSlugs": [
-        "heizsysteme-pemsa-taverne"
+        "heating-systems-pemsa-taverne"
       ]
     },
     {
@@ -107,8 +107,8 @@
       "slugByLocale": {
         "it": "installatore-impianti-sprinkler-pemsa-lugano",
         "en": "sprinkler-system-installer-pemsa-lugano",
-        "de": "installationsanlage-sprinkler-pemsa-lugano",
-        "fr": "installation-d-installation-d-arrosage-pemsa-lugano"
+        "de": "sprinkleranlage-pemsa-lugano",
+        "fr": "installation-de-l-arroseur-pemsa-lugano"
       },
       "id": "pemsa-3489e53331b3",
       "salaryMin": 49500,
@@ -128,16 +128,12 @@
       "postalCode": "6807",
       "firstSeenAt": "2026-06-26T12:19:20.763Z",
       "previousSlugsByLocale": {
-        "de": [
-          "sprinkleranlage-pemsa-lugano"
-        ],
-        "fr": [
-          "installation-de-l-arroseur-pemsa-lugano"
+        "en": [
+          "sprinkler-installation-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "sprinkleranlage-pemsa-lugano",
-        "installation-de-l-arroseur-pemsa-lugano"
+        "sprinkler-installation-pemsa-lugano"
       ]
     },
     {
@@ -178,8 +174,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-rivera",
         "en": "plumbing-sanitary-systems-pemsa-rivera",
-        "de": "hydraulische-gesundheitsmittel-pemsa-rivera",
-        "fr": "hydraulique-sanitaires-pemsa-rivera"
+        "de": "idraulico-sanitarpflanzen-pemsa-rivera",
+        "fr": "idraulico-plantes-sanitaires-pemsa-rivera"
       },
       "id": "pemsa-0f191b8d6747",
       "salaryMin": 49500,
@@ -199,16 +195,12 @@
       "postalCode": "6807",
       "firstSeenAt": "2026-06-26T12:19:20.763Z",
       "previousSlugsByLocale": {
-        "de": [
-          "idraulico-sanitarpflanzen-pemsa-rivera"
-        ],
-        "fr": [
-          "idraulico-plantes-sanitaires-pemsa-rivera"
+        "en": [
+          "idraulico-sanitary-plants-pemsa-rivera"
         ]
       },
       "previousSlugs": [
-        "idraulico-sanitarpflanzen-pemsa-rivera",
-        "idraulico-plantes-sanitaires-pemsa-rivera"
+        "idraulico-sanitary-plants-pemsa-rivera"
       ]
     },
     {
@@ -249,7 +241,7 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-mendrisio",
         "en": "hydraulic-pemsa-mendrisio",
-        "de": "hydraulisch-pemsa-mendrisio",
+        "de": "hydraulik-pemsa-mendrisio",
         "fr": "hydraulique-pemsa-mendrisio"
       },
       "id": "pemsa-53e4a4346696",
@@ -268,15 +260,7 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-06-26T12:19:20.763Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "hydraulik-pemsa-mendrisio"
-        ]
-      },
-      "previousSlugs": [
-        "hydraulik-pemsa-mendrisio"
-      ]
+      "firstSeenAt": "2026-06-26T12:19:20.763Z"
     },
     {
       "title": "IDRAULICO",
@@ -316,8 +300,8 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-lugano",
         "en": "plumber-pemsa-lugano",
-        "de": "hydraulische-pemsa-lugano",
-        "fr": "hydraulique-pemsa-lugano"
+        "de": "idraulierung-pemsa-lugano",
+        "fr": "idraulement-pemsa-lugano"
       },
       "id": "pemsa-fdd9d73a63b0",
       "salaryMin": 49500,
@@ -337,16 +321,12 @@
       "postalCode": "6807",
       "firstSeenAt": "2026-06-26T12:19:20.763Z",
       "previousSlugsByLocale": {
-        "de": [
-          "idraulierung-pemsa-lugano"
-        ],
-        "fr": [
-          "idraulement-pemsa-lugano"
+        "en": [
+          "idraulation-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "idraulierung-pemsa-lugano",
-        "idraulement-pemsa-lugano"
+        "idraulation-pemsa-lugano"
       ]
     },
     {

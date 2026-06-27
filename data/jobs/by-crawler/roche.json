@@ -23221,6 +23221,7 @@
       "previousSlugs": [
         "roche-ch",
         "roche-ch-6",
+        "roche-basel",
         "locale-registrati-locali-roche-basel",
         "klassisch-eingehalten-roche-basel"
       ],
@@ -36033,6 +36034,7 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
+        "regulatory-operation-intern-roche-ch-2",
         "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel",
         "regulatory-operation-praktikant-roche-basel"
@@ -41478,11 +41480,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medical-director-cvm-roche-ch",
+          "medical-direttore-cvm-roche-basel"
+        ],
+        "de": [
+          "medical-direktor-cvm-roche-basel"
+        ],
+        "fr": [
           "medical-director-cvm-roche-ch"
         ]
       },
       "previousSlugs": [
-        "medical-director-cvm-roche-ch"
+        "medical-director-cvm-roche-ch",
+        "medical-direttore-cvm-roche-basel-hfwos4",
+        "medical-direttore-cvm-roche-basel-hfwosr",
+        "medical-director-cvm-roche-ch-2",
+        "medical-direttore-cvm-roche-basel",
+        "medical-direktor-cvm-roche-basel"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -56969,7 +56983,8 @@
         "it-business-analyste-pharma-medicines-techops-roche-pune",
         "it-business-analista-pharma-r-d-roche-basel",
         "analista-it-business-r-s-farmaceutico-roche-basel-vne1td",
-        "it-business-analyst-pharma-r-d-roche-ch-2-vne1td"
+        "it-business-analyst-pharma-r-d-roche-ch-2-vne1td",
+        "analista-it-business-r-s-farmaceutico-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -78585,6 +78600,8 @@
         "solution-architect-techops-qualitat-lab-execution-connectivity-roche-basel",
         "solution-architect-techops-quality-lab-execution-connectivity-roche-ch",
         "solution-senior-architect-techops-qualite-roche-basel",
+        "senior-solution-architetto-techops-quality-roche-basel",
+        "senior-solution-architect-techops-qualitat-roche-basel",
         "solution-architetto-techops-quality-lab-execution-connectivity-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -94209,9 +94226,9 @@
       "slug": "ai-full-stack-engineer-roche-ch",
       "slugByLocale": {
         "en": "ai-full-stack-engineer-roche-ch",
-        "it": "ai-full-stack-engineer-roche-ch",
-        "de": "ai-full-stack-engineer-roche-ch",
-        "fr": "ai-full-stack-engineer-roche-ch"
+        "it": "ai-solutions-engineer-fusioni-e-acquisizioni-roche-basel",
+        "de": "ai-solutions-ingenieur-mergers-acquisitions-roche-basel",
+        "fr": "ai-solutions-ingenieur-mergers-acquisitions-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94266,7 +94283,14 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-26T22:44:25.365Z"
+      "firstSeenAt": "2026-06-26T22:44:25.365Z",
+      "previousSlugs": [
+        "ai-solutions-engineer-mergers-acquisitions-roche-ch",
+        "ai-full-stack-ingegnere-roche-indianapolis",
+        "ai-full-stack-engineer-roche-ch",
+        "ai-full-stack-ingenieur-roche-indianapolis",
+        "ai-solutions-ingegnere-mergers-acquisitions-roche-basel"
+      ]
     },
     {
       "id": "roche-26d686d11405",
