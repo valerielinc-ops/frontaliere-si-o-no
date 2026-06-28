@@ -661,6 +661,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-alla-fonte-ticino-calcolatore.title': 'Imposte alla fonte in Ticino: calcolatore, aliquote e scaglioni 2026',
     'blog.article.imposte-alla-fonte-ticino-calcolatore.excerpt': 'Guida al calcolo delle imposte alla fonte in Ticino: aliquote, scaglioni, simulatore e scenari 2026 per lavoratori frontalieri.',
     'blog.article.imposte-alla-fonte-ticino-calcolatore.imageAlt': 'Vista su Lugano con lago e montagne, tema imposte in Ticino',
+    'blog.article.pensione-frontaliere-avs-inps-2026.title': 'Pensione frontalieri 2026: coordinamento AVS/INPS e simulazione pratica',
+    'blog.article.pensione-frontaliere-avs-inps-2026.excerpt': 'Scopri come il coordinamento AVS/INPS dal 2024 impatterà sui frontalieri nel 2026 e come effettuare una simulazione pratica della tua pensione.',
+    'blog.article.pensione-frontaliere-avs-inps-2026.imageAlt': 'Coppia di pensionati in riva al lago di Lugano',
 };
 
 export default blogMetaChIt;

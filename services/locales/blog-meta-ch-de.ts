@@ -661,6 +661,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-alla-fonte-ticino-calcolatore.title': 'Quellensteuern im Tessin: Rechner, Sätze und Staffeln 2026',
     'blog.article.imposte-alla-fonte-ticino-calcolatore.excerpt': 'Leitfaden zur Berechnung der Quellensteuern im Tessin: Sätze, Stufen, Simulator und Szenarien 2026 für Grenzgänger.',
     'blog.article.imposte-alla-fonte-ticino-calcolatore.imageAlt': 'Blick auf Lugano mit See und Bergen, Thema Steuern im Tessin',
+    'blog.article.pensione-frontaliere-avs-inps-2026.title': 'Rente Grenzgänger 2026: AHV/INPS-Koordination und Praxissimulation',
+    'blog.article.pensione-frontaliere-avs-inps-2026.excerpt': 'Erfahren Sie, wie sich die AHV/INPS-Koordination ab 2024 auf die Grenzgänger im Jahr 2026 auswirken wird und wie Sie eine praktische Simulation Ihrer Rente durchführen können.',
+    'blog.article.pensione-frontaliere-avs-inps-2026.imageAlt': 'Rentnerpaar genießt den Blick auf den Luganersee',
 };
 
 export default blogMetaChDe;
