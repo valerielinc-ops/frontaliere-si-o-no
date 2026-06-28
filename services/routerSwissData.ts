@@ -245,6 +245,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'imposte-alla-fonte-ticino-calcolatore': { it: 'imposte-alla-fonte-ticino-calcolatore', en: 'withholding-tax-ticino-calculator', de: 'quellensteuer-tessin-rechner', fr: 'impot-source-tessin-calculateur' },
  'pensione-frontaliere-avs-inps-2026': { it: 'pensione-frontaliere-avs-inps-2026', en: 'frontier-worker-pension-avs-inps-2026', de: 'grenzarbeiter-rente-avs-inps-2026', fr: 'pension-travailleur-frontalier-avs-inps-2026' },
  'richiesta-permesso-g-step': { it: 'richiesta-permesso-g-step', en: 'g-permit-application-step-by-step', de: 'g-bewilligung-beantragen-schritt-fuer-schritt', fr: 'demande-permis-g-etape-par-etape' },
+ 'imposte-alla-fonte-ticino': { it: 'imposte-alla-fonte-ticino', en: 'ticino-withholding-tax-calculator', de: 'quellensteuer-ticino-rechner', fr: 'impot-a-la-source-ticino-calculateur' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

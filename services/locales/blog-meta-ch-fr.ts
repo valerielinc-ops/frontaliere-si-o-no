@@ -667,6 +667,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step.title': 'Demande de permis G étape par étape : procédure complète 2026',
     'blog.article.richiesta-permesso-g-step.excerpt': 'Guide pratique de la demande de permis G : documents, délais et coûts pour les frontaliers en Suisse en 2026',
     'blog.article.richiesta-permesso-g-step.imageAlt': 'Personne remplissant un formulaire dans un bureau cantonal suisse avec vue sur Lugano',
+    'blog.article.imposte-alla-fonte-ticino.title': 'Comment calculer l\'impôt à la source au Tessin : guide complet',
+    'blog.article.imposte-alla-fonte-ticino.excerpt': 'Découvrez comment calculer l\'impôt à la source au Tessin avec des taux et des échelons mis à jour. Utilisez notre simulateur pour des exemples réels.',
+    'blog.article.imposte-alla-fonte-ticino.imageAlt': 'Personne travaillant sur un ordinateur portable avec un formulaire d\'impôt suisse ouvert dans un café à Lugano',
 };
 
 export default blogMetaChFr;

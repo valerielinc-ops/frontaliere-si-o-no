@@ -667,6 +667,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step.title': 'Richiesta permesso G step by step: procedura completa 2026',
     'blog.article.richiesta-permesso-g-step.excerpt': 'Guida pratica alla richiesta del permesso G: documenti, tempi e costi per frontalieri in Svizzera nel 2026',
     'blog.article.richiesta-permesso-g-step.imageAlt': 'Persona che compila un modulo presso un ufficio cantonale svizzero con vista su Lugano',
+    'blog.article.imposte-alla-fonte-ticino.title': 'Come calcolare l\'imposta alla fonte in Ticino: guida completa',
+    'blog.article.imposte-alla-fonte-ticino.excerpt': 'Scopri come calcolare l\'imposta alla fonte in Ticino con aliquote e scaglioni aggiornati. Utilizza il nostro simulatore per esempi reali.',
+    'blog.article.imposte-alla-fonte-ticino.imageAlt': 'Persona che lavora su un laptop con un modulo di imposta svizzero aperto in un caffè di Lugano',
 };
 
 export default blogMetaChIt;

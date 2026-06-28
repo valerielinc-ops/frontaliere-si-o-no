@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2998,
+ "numberOfItems": 2999,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7644,7 +7644,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2995, "name": "Lavorare come Educatore dell'Infanzia in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-guida` },
           { "@type": "ListItem", "position": 2996, "name": "Imposte alla fonte in Ticino: calcolatore, aliq...", "url": `${BASE_URL}/articoli-frontaliere/imposte-alla-fonte-ticino-calcolatore` },
           { "@type": "ListItem", "position": 2997, "name": "Pensione frontalieri 2026: coordinamento AVS/IN...", "url": `${BASE_URL}/articoli-frontaliere/pensione-frontaliere-avs-inps-2026` },
-          { "@type": "ListItem", "position": 2998, "name": "Richiesta permesso G step by step: procedura co...", "url": `${BASE_URL}/articoli-frontaliere/richiesta-permesso-g-step` }
+          { "@type": "ListItem", "position": 2998, "name": "Richiesta permesso G step by step: procedura co...", "url": `${BASE_URL}/articoli-frontaliere/richiesta-permesso-g-step` },
+          { "@type": "ListItem", "position": 2999, "name": "Come calcolare l'imposta alla fonte in Ticino: ...", "url": `${BASE_URL}/articoli-frontaliere/imposte-alla-fonte-ticino` }
  ]
  },
  {
