@@ -2024,6 +2024,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'g-bewilligung-antrag-2026-step',
+    category: 'pratico',
+    date: '2026-06-28T06:55:28.051Z',
+    image: '/images/blog/g-bewilligung-antrag-2026-step.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

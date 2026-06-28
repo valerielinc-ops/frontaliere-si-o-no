@@ -676,6 +676,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.quellensteuer-tarife-svizzera-2026.title': 'Quellensteuer Suisse : tarifs 2026 et calcul pour tous les cantons',
     'blog.article.quellensteuer-tarife-svizzera-2026.excerpt': 'Quellensteuer Suisse 2026 : tarifs, bonifications, seuils NOV 120k CHF pour le Tessin, les Grisons, le Valais, Berne. Guide de calcul et des principales bonifications.',
     'blog.article.quellensteuer-tarife-svizzera-2026.imageAlt': 'Bureau fiscal suisse moderne avec documents et calculatrices, Tessin.',
+    'blog.article.g-bewilligung-antrag-2026-step.title': 'G-Bewilligung Antrag 2026 : guide complet, coûts et renouvellement',
+    'blog.article.g-bewilligung-antrag-2026-step.excerpt': 'Procédure détaillée pour le permis G à partir de 2026 : documents, Migrationsamt, coût 65 CHF, validité 5 ans et renouvellement.',
+    'blog.article.g-bewilligung-antrag-2026-step.imageAlt': 'Guichet d\'un office de migration suisse avec documents officiels.',
 };
 
 export default blogMetaChFr;
