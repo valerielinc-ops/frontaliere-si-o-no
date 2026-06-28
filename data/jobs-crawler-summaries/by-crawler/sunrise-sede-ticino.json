@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-06-27T22:40:49.257Z",
+  "generatedAt": "2026-06-28T12:13:38.073Z",
   "total": 28,
   "newCount": 3,
   "updatedCount": 23,
   "removedCount": 5,
   "unchangedCount": 0,
-  "durationMs": 17219,
-  "avgDurationMs": 17219,
+  "durationMs": 13413,
+  "avgDurationMs": 13413,
   "durationHistory": [
-    17219
+    13413
   ],
   "newJobs": [
     {
@@ -172,6 +172,8 @@
       "salaryMax": 206500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-17T23:34:39.586Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -209,7 +211,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-17T23:34:39.586Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -400,6 +402,8 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-11T13:38:57.481Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -583,6 +587,8 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-12T13:07:04.034Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -619,6 +625,8 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-11T13:38:57.481Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -880,8 +888,9 @@
       "salaryMax": 121500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-23T23:16:46.173Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2696,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -918,8 +927,9 @@
       "salaryMax": 127000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-11T13:38:57.481Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1390,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
