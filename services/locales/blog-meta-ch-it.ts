@@ -685,6 +685,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tagli-helvetia-baloise-svizzera-2028.title': 'Helvetia-Baloise: tagli fino a 1200 posti in Svizzera entro il 2028',
     'blog.article.tagli-helvetia-baloise-svizzera-2028.excerpt': 'La fusione Helvetia-Baloise comporterà la soppressione di 1\'000-1\'200 impieghi in Svizzera entro il 2028, secondo il CEO Martin Jara.',
     'blog.article.tagli-helvetia-baloise-svizzera-2028.imageAlt': 'Vista sul distretto finanziario di Zurigo, simbolo dell\'economia svizzera.',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.title': 'Lavorare come educatore dell\'infanzia in Ticino: stipendio e requisiti (2024)',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.excerpt': 'Per lavorare come educatore dell\'infanzia in Ticino serve il diploma SSS; stipendio tra CHF 73.000 e 97.000. LIS e altri enti assumono.',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.imageAlt': 'Educatore dell\'infanzia al lavoro in un asilo in Ticino.',
 };
 
 export default blogMetaChIt;

@@ -4281,6 +4281,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-canicola-sud-nord-alpi': { name: 'clima e frontiera in Ticino', path: '/articoli-frontaliere/canicola-sud-nord-alpi', parent: 'blog' },
     'blog-cambio-commando-volontari-lugano': { name: 'Civica Lugano', path: '/articoli-svizzera/cambio-commando-volontari-lugano/', parent: 'blog' },
     'blog-tagli-helvetia-baloise-svizzera-2028': { name: 'Tagli Helvetia-Baloise', path: '/articoli-svizzera/tagli-helvetia-baloise-svizzera-2028/', parent: 'blog' },
+    'blog-educatore-infanzia-ticino-stipendio-2024': { name: 'Educatore infanzia Ticino', path: '/articoli-svizzera/educatore-infanzia-ticino-stipendio-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

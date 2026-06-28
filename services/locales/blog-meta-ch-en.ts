@@ -685,6 +685,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tagli-helvetia-baloise-svizzera-2028.title': 'Helvetia-Baloise: cuts up to 1200 seats in Switzerland by 2028',
     'blog.article.tagli-helvetia-baloise-svizzera-2028.excerpt': 'The Helvetia-Baloise merger will result in the elimination of 1,000-1,200 jobs in Switzerland by 2028, according to CEO Martin Jara.',
     'blog.article.tagli-helvetia-baloise-svizzera-2028.imageAlt': 'View of Zurich\'s financial district, symbolizing the Swiss economy.',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.title': 'Working as a child educator in Ticino: salary and requirements (2024)',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.excerpt': 'To work as a child educator in Ticino you need the SSS diploma; salary between CHF 73,000 and 97,000. LIS and other entities hire.',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.imageAlt': 'Childhood educator working in a nursery in Ticino.',
 };
 
 export default blogMetaChEn;

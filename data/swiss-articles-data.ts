@@ -2051,6 +2051,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'educatore-infanzia-ticino-stipendio-2024',
+    category: 'pratico',
+    date: '2026-06-28T17:12:52.790Z',
+    image: '/images/blog/educatore-infanzia-ticino-stipendio-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
