@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nestle",
-  "assembledAt": "2026-06-27T11:13:06.727Z",
+  "assembledAt": "2026-06-28T11:52:21.543Z",
   "jobs": [
     {
       "id": "nestle-1398219033",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Laborant:in CFC Chemie",
         "en": "Laborant:in EFZ Chemie",
-        "de": "Laborant: in EFZ Chemie",
+        "de": "Laborant:in EFZ Chemie",
         "fr": "Travailleur:dans EFZ Chemie"
       },
       "description": "Laborant:in EFZ Chemie — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -33,7 +33,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-EFZ-Chemie/1398219033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:13:04.182Z",
+      "crawledAt": "2026-06-28T11:52:18.559Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -107,7 +107,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Automatikerin-Automationsfachmann-frau/1283886901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:13:01.859Z",
+      "crawledAt": "2026-06-28T11:52:17.659Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -181,7 +181,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-ing%C3%A9nieur-am%C3%A9lioration-continue-production-%28HFD%29/1368984133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:13:00.941Z",
+      "crawledAt": "2026-06-28T11:52:16.613Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -229,7 +229,7 @@
       "titleByLocale": {
         "it": "Prodotti speciali Anlagenführer/-in",
         "en": "Anlagenführer/-in Special Products",
-        "de": "Anlagenführer/-in Spezialprodukte",
+        "de": "Anlagenführer/-in Special Products",
         "fr": "Anlagenführer/-dans Produits spéciaux"
       },
       "description": "Anlagenführer/-in Special Products — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -244,7 +244,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products/1407549433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:59.946Z",
+      "crawledAt": "2026-06-28T11:52:15.625Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -274,6 +274,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T22:51:58.233Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -320,7 +321,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Senior-Key-Account-Manager/1391905133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:59.229Z",
+      "crawledAt": "2026-06-28T11:52:14.609Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -367,7 +368,7 @@
       "title": "Tierarztberater/in / Vet Advisor",
       "titleByLocale": {
         "it": "Tierarztberater/in / Vet Consulente",
-        "en": "Veterinary Advisor/Vet Advisor",
+        "en": "Tierarztberater/in / Vet Advisor",
         "de": "Tierarztberater/in / Vet Berater",
         "fr": "Tierarztberater/in / Vet Conseiller"
       },
@@ -383,7 +384,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Tierarztberaterin-Vet-Advisor/1392313033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T11:12:57.936Z",
+      "crawledAt": "2026-06-28T11:52:13.657Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -443,7 +444,7 @@
         "it": "Stagiaire Pré-HES - Tecnologia alimentare (gioventù)",
         "en": "Stagiaire Pré-HES - Food Technology (Youth)",
         "de": "Stagiaire Pré-HES - Lebensmitteltechnologie (Jugend)",
-        "fr": "Stagiaire Pré-HES - Technologie alimentaire (Jeunesse)"
+        "fr": "Stagiaire Pré-HES - Food Technology (Youth)"
       },
       "description": "Stagiaire Pré-HES - Food Technology (Youth) — Nestlé, La Tour-de-Peilz, CH.\n\nKey details:\n• Location: La Tour-de-Peilz, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
@@ -457,7 +458,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:56.937Z",
+      "crawledAt": "2026-06-28T11:52:12.686Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -534,7 +535,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Key-Account-Manager-Horeca-&-Premium-Vending/1402331033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:56.215Z",
+      "crawledAt": "2026-06-28T11:52:11.760Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -550,6 +551,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-18T12:51:45.610Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -596,7 +598,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Systems-Biology-and-Microbiome-Data-Science-Intern/1405586333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:55.456Z",
+      "crawledAt": "2026-06-28T11:52:10.769Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -673,7 +675,7 @@
       "url": "https://jobdetails.nestle.com/job/Z%C3%BCrich-Coffee-Specialist/1403654933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T11:12:54.730Z",
+      "crawledAt": "2026-06-28T11:52:09.877Z",
       "addressLocality": "Zürich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -747,7 +749,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Simulation-Intern/1406411033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:53.987Z",
+      "crawledAt": "2026-06-28T11:52:08.959Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -793,80 +795,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1389579533",
-      "slug": "senior-coffee-specialista-nestle-zug-ch",
-      "slugByLocale": {
-        "it": "senior-coffee-specialista-nestle-zug-ch",
-        "en": "senior-coffee-specialist-nestle-ch",
-        "de": "senior-coffee-specialist-nestle-ch",
-        "fr": "senior-coffee-specialiste-nestle-zug-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Senior Coffee Specialist",
-      "titleByLocale": {
-        "it": "Senior Coffee Specialista",
-        "en": "Senior Coffee Specialist",
-        "de": "Senior Coffee Spezialist",
-        "fr": "Senior Coffee Spécialiste"
-      },
-      "description": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus.\n\nStellenübersicht\n\nStandort: Zug\n\nUnternehmen: Nespresso Schweizer Markt\nBeschäftigungsgrad: 80%\nVertragsart: Unbefristeter Vertrag\n\nStartdatum: 01.06.2026 oder nach Vereinbarung\n\nWas wir bei Nespresso bieten\n\nViele Möglichkeiten für die berufliche und persönliche Entwicklung\n\nDynamisches internationales Arbeitsumfeld\n\nAttraktive zusätzliche Vorteile\n\nDie Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten\n\nDie Stelle im Überblick\n\nAls Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist.\n\nEin Tag im Leben eines:einer Senior Coffee Specialist\n\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten\n\nDas macht Sie erfolgreich\n\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus\n\nNespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt.\n\nBei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm",
-      "descriptionByLocale": {
-        "it": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Zug Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: 80% Vertragsart: Unbefristeter Vertrag Startdatum: 01.06.2026 oder nach Vereinbarung Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Stelle im Überblick Als Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist. Ein Tag im Leben eines:einer Senior Coffee Specialist\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten Das macht Sie erfolgreich\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm",
-        "en": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Zug Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: 80% Vertragsart: Unbefristeter Vertrag Startdatum: 01.06.2026 oder nach Vereinbarung Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Stelle im Überblick Als Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist. Ein Tag im Leben eines:einer Senior Coffee Specialist\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten Das macht Sie erfolgreich\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm",
-        "de": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Zug Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: 80% Vertragsart: Unbefristeter Vertrag Startdatum: 01.06.2026 oder nach Vereinbarung Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Stelle im Überblick Als Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist. Ein Tag im Leben eines:einer Senior Coffee Specialist\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten Das macht Sie erfolgreich\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm",
-        "fr": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Zug Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: 80% Vertragsart: Unbefristeter Vertrag Startdatum: 01.06.2026 oder nach Vereinbarung Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Stelle im Überblick Als Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist. Ein Tag im Leben eines:einer Senior Coffee Specialist\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten Das macht Sie erfolgreich\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm"
-      },
-      "location": "Zug, CH",
-      "canton": "ZG",
-      "url": "https://jobdetails.nestle.com/job/Zug-Senior-Coffee-Specialist/1389579533/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-27T11:12:53.171Z",
-      "addressLocality": "Zug, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-01",
-      "applyUrl": "https://jobdetails.nestle.com/job/Zug-Senior-Coffee-Specialist/1389579533/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-coffee-specialist-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-coffee-specialist-nestle-ch"
-        ],
-        "fr": [
-          "senior-coffee-specialist-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:53.474Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6300",
-      "addressRegion": "ZG"
-    },
-    {
       "id": "nestle-1383917033",
       "slug": "stagiaire-cost-control-h-f-d-nestle-ch",
       "slugByLocale": {
@@ -897,7 +825,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-cost-control-%28HFD%29/1383917033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:52.320Z",
+      "crawledAt": "2026-06-28T11:52:08.039Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -945,7 +873,7 @@
       "titleByLocale": {
         "it": "Anlagenführer: in Produktion 100%",
         "en": "Anlagenführer:in Produktion 100%",
-        "de": "Anlagenführer: in Produktion 100%",
+        "de": "Anlagenführer:in Produktion 100%",
         "fr": "Anlagenführer: en Produktion 100%"
       },
       "description": "Anlagenführer:in Produktion 100% — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -960,7 +888,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:51.564Z",
+      "crawledAt": "2026-06-28T11:52:07.063Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1023,7 +951,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:50.680Z",
+      "crawledAt": "2026-06-28T11:52:06.097Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1100,7 +1028,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Production-&-MRP-Planner/1390417333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:49.953Z",
+      "crawledAt": "2026-06-28T11:52:05.183Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1177,7 +1105,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Instandhaltungsplaner-In-%28AMM-Planner%29-100/1405023033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:49.241Z",
+      "crawledAt": "2026-06-28T11:52:04.264Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1248,7 +1176,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Statistics-and-Data-Science-Specialist/1404979633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:48.258Z",
+      "crawledAt": "2026-06-28T11:52:03.357Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1325,7 +1253,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Packaging-Materials-Specialist/1391913333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:47.427Z",
+      "crawledAt": "2026-06-28T11:52:02.416Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1387,7 +1315,7 @@
       "titleByLocale": {
         "it": "Operatore dell'impianto di riempimento",
         "en": "Anlagenführer/in Abfüllung",
-        "de": "Anlagenführer/Abfüllung",
+        "de": "Anlagenführer/in Abfüllung",
         "fr": "Anlagenführer/en Abfüllung"
       },
       "description": "Anlagenführer/in Abfüllung — Nestlé, Basel, CH.\n\nKey details:\n• Location: Basel, CH, BS canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -1402,7 +1330,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Anlagenf%C3%BChrerin-Abf%C3%BCllung/1293376401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:46.452Z",
+      "crawledAt": "2026-06-28T11:52:01.510Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1459,7 +1387,7 @@
         "it": "Stagiaire Pré-HEG - Ressources Humaines (Giovani)",
         "en": "Stagiaire Pré-HEG - Ressources Humaines (Youth)",
         "de": "Stagiaire Pré-HEG - Ressourcen Humaines (Jugendlich)",
-        "fr": "Stagiaire Pré-HEG - Ressources Humaines (Jeunesse)"
+        "fr": "Stagiaire Pré-HEG - Ressources Humaines (Youth)"
       },
       "description": "Stagiaire Pré-HEG - Ressources Humaines (Youth) — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
@@ -1473,7 +1401,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Stagiaire-Pr%C3%A9-HEG-Ressources-Humaines-%28Youth%29/1160597701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:45.578Z",
+      "crawledAt": "2026-06-28T11:52:00.585Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1547,7 +1475,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:44.791Z",
+      "crawledAt": "2026-06-28T11:51:59.646Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1623,7 +1551,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:43.950Z",
+      "crawledAt": "2026-06-28T11:51:58.720Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1699,7 +1627,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Anlagenf%C3%BChrerin/1374185733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T11:12:43.182Z",
+      "crawledAt": "2026-06-28T11:51:57.791Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1750,83 +1678,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1380259733",
-      "slug": "portavoce-aziendale-senior-nestle-vevey-ch",
-      "slugByLocale": {
-        "it": "portavoce-aziendale-senior-nestle-vevey-ch",
-        "en": "senior-corporate-spokesperson-nestle-ch",
-        "de": "senior-corporate-sprecher-nestle-vevey-ch",
-        "fr": "porte-parole-principal-nestle-vevey-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Senior Corporate Spokesperson",
-      "titleByLocale": {
-        "it": "Portavoce aziendale senior",
-        "en": "Senior Corporate Spokesperson",
-        "de": "Senior Corporate Sprecher",
-        "fr": "Porte-parole principal"
-      },
-      "description": "Senior Corporate Spokesperson — Nestlé, Vevey, CH.\n\nKey details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "Senior Corporate Spokesperson — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Senior Corporate Spokesperson — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Senior Corporate Spokesperson — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Senior Corporate Spokesperson — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
-      },
-      "location": "Vevey, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:42.374Z",
-      "addressLocality": "Vevey, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-01",
-      "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-corporate-spokesperson-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-corporate-spokesperson-nestle-ch"
-        ],
-        "de": [
-          "senior-corporate-spokesperson-nestle-ch"
-        ],
-        "fr": [
-          "senior-corporate-spokesperson-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:42.431Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1800",
-      "addressRegion": "VD"
-    },
-    {
       "id": "nestle-1376955433",
       "slug": "associate-r-d-specialista-flavors-nestle-lausanne-ch",
       "slugByLocale": {
@@ -1857,7 +1708,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:41.303Z",
+      "crawledAt": "2026-06-28T11:51:56.912Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1934,7 +1785,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:40.564Z",
+      "crawledAt": "2026-06-28T11:51:56.023Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2011,7 +1862,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:39.750Z",
+      "crawledAt": "2026-06-28T11:51:55.102Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2091,7 +1942,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sr-Specialist-Scientific-Data-Engineering/1271255101/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:38.873Z",
+      "crawledAt": "2026-06-28T11:51:54.182Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2153,7 +2004,7 @@
       "titleByLocale": {
         "it": "Laborant: in Mikrobiologie",
         "en": "Laborant:in Mikrobiologie",
-        "de": "Laborant: in Mikrobiologie",
+        "de": "Laborant:in Mikrobiologie",
         "fr": "Travailleur:en Mikrobiologie"
       },
       "description": "Laborant:in Mikrobiologie — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -2168,7 +2019,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-Mikrobiologie/1399460633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:38.151Z",
+      "crawledAt": "2026-06-28T11:51:53.287Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2231,7 +2082,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T11:12:37.315Z",
+      "crawledAt": "2026-06-28T11:51:52.378Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2309,7 +2160,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-27T11:12:36.575Z",
+      "crawledAt": "2026-06-28T11:51:51.444Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2384,7 +2235,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Automation-Robotique/1394983833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:35.860Z",
+      "crawledAt": "2026-06-28T11:51:50.531Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2414,6 +2265,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:47.255Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2460,7 +2312,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Macronutrient-Physiology/1392977733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:34.824Z",
+      "crawledAt": "2026-06-28T11:51:49.610Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2507,80 +2359,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1398542833",
-      "slug": "piombo-di-sicurezza-globale-e-eur-nestle-la-tour-de-peilz-ch",
-      "slugByLocale": {
-        "it": "piombo-di-sicurezza-globale-e-eur-nestle-la-tour-de-peilz-ch",
-        "en": "global-eur-safety-lead-nestle-ch",
-        "de": "global-eur-safety-lead-nestle-ch",
-        "fr": "leader-mondial-eur-pour-la-securite-nestle-la-tour-de-peilz-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Global & EUR Safety Lead",
-      "titleByLocale": {
-        "it": "Piombo di sicurezza globale e EUR",
-        "en": "Global & EUR Safety Lead",
-        "de": "Global & EUR Safety Lead",
-        "fr": "Leader mondial & EUR pour la sécurité"
-      },
-      "description": "Location: La Tour-de-Peilz, Switzerland\nWork model: Full-Time Act. Rate 100%\nContract type / duration: Permanent contract\n\nTogether, we make breakfast better.\n\nAs a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way.\n\nHow you’ll make an impact as a Global & EUR Safety Lead\n\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations.\n\nWhat will make you successful\n\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes.\n\nAt CPW, collaboration and purpose drive everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office based roles)\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nReady to help make breakfast better for millions around the world?\n\nApply now and help people start the",
-      "descriptionByLocale": {
-        "it": "Location: La Tour-de-Peilz, Switzerland Work model: Full-Time Act. Rate 100% Contract type / duration: Permanent contract Together, we make breakfast better. As a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way. How you’ll make an impact as a Global & EUR Safety Lead\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations. What will make you successful\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes. At CPW, collaboration and purpose drive everything we do. Our benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office based roles)\n• Paid holidays beyond legal requirements\n• Learning and development opportunities to grow your career\n• Performance based bonus\n• Healthcare contribution and access to the Employee Assistance Program\n• Strong employer contribution to your pension plan\n• Generous parental leave and comprehensive family support solutions\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to help make breakfast better for millions around the world? Apply now and help people start the",
-        "en": "Location: La Tour-de-Peilz, Switzerland Work model: Full-Time Act. Rate 100% Contract type / duration: Permanent contract Together, we make breakfast better. As a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way. How you’ll make an impact as a Global & EUR Safety Lead\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations. What will make you successful\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes. At CPW, collaboration and purpose drive everything we do. Our benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office based roles)\n• Paid holidays beyond legal requirements\n• Learning and development opportunities to grow your career\n• Performance based bonus\n• Healthcare contribution and access to the Employee Assistance Program\n• Strong employer contribution to your pension plan\n• Generous parental leave and comprehensive family support solutions\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to help make breakfast better for millions around the world? Apply now and help people start the",
-        "de": "Location: La Tour-de-Peilz, Switzerland Work model: Full-Time Act. Rate 100% Contract type / duration: Permanent contract Together, we make breakfast better. As a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way. How you’ll make an impact as a Global & EUR Safety Lead\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations. What will make you successful\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes. At CPW, collaboration and purpose drive everything we do. Our benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office based roles)\n• Paid holidays beyond legal requirements\n• Learning and development opportunities to grow your career\n• Performance based bonus\n• Healthcare contribution and access to the Employee Assistance Program\n• Strong employer contribution to your pension plan\n• Generous parental leave and comprehensive family support solutions\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to help make breakfast better for millions around the world? Apply now and help people start the",
-        "fr": "Location: La Tour-de-Peilz, Switzerland Work model: Full-Time Act. Rate 100% Contract type / duration: Permanent contract Together, we make breakfast better. As a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way. How you’ll make an impact as a Global & EUR Safety Lead\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations. What will make you successful\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes. At CPW, collaboration and purpose drive everything we do. Our benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office based roles)\n• Paid holidays beyond legal requirements\n• Learning and development opportunities to grow your career\n• Performance based bonus\n• Healthcare contribution and access to the Employee Assistance Program\n• Strong employer contribution to your pension plan\n• Generous parental leave and comprehensive family support solutions\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to help make breakfast better for millions around the world? Apply now and help people start the"
-      },
-      "location": "La Tour-de-Peilz, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-&-EUR-Safety-Lead/1398542833/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:34.091Z",
-      "addressLocality": "La Tour-de-Peilz, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-&-EUR-Safety-Lead/1398542833/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-eur-safety-lead-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "global-eur-safety-lead-nestle-ch"
-        ],
-        "fr": [
-          "global-eur-safety-lead-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-29T13:25:18.065Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
       "id": "nestle-1390299833",
       "slug": "global-procurement-manager-nestle-ch",
       "slugByLocale": {
@@ -2611,7 +2389,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-Procurement-Manager/1390299833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:33.250Z",
+      "crawledAt": "2026-06-28T11:51:48.711Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2627,6 +2405,81 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-26T22:31:49.717Z",
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1398542833",
+      "slug": "piombo-di-sicurezza-globale-e-eur-nestle-la-tour-de-peilz-ch",
+      "slugByLocale": {
+        "it": "piombo-di-sicurezza-globale-e-eur-nestle-la-tour-de-peilz-ch",
+        "en": "global-eur-safety-lead-nestle-ch",
+        "de": "global-eur-safety-lead-nestle-ch",
+        "fr": "leader-mondial-eur-pour-la-securite-nestle-la-tour-de-peilz-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Global & EUR Safety Lead",
+      "titleByLocale": {
+        "it": "Piombo di sicurezza globale e EUR",
+        "en": "Global & EUR Safety Lead",
+        "de": "Global & EUR Safety Lead",
+        "fr": "Leader mondial & EUR pour la sécurité"
+      },
+      "description": "Location: La Tour-de-Peilz, Switzerland\nWork model: Full-Time Act. Rate 100%\nContract type / duration: Permanent contract\n\nTogether, we make breakfast better.\n\nAs a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way.\n\nHow you’ll make an impact as a Global & EUR Safety Lead\n\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations.\n\nWhat will make you successful\n\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes.\n\nAt CPW, collaboration and purpose drive everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office based roles)\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nReady to help make breakfast better for millions around the world?\n\nApply now and help people start the",
+      "descriptionByLocale": {
+        "it": "Location: La Tour-de-Peilz, Switzerland Work model: Full-Time Act. Rate 100% Contract type / duration: Permanent contract Together, we make breakfast better. As a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way. How you’ll make an impact as a Global & EUR Safety Lead\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations. What will make you successful\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes. At CPW, collaboration and purpose drive everything we do. Our benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office based roles)\n• Paid holidays beyond legal requirements\n• Learning and development opportunities to grow your career\n• Performance based bonus\n• Healthcare contribution and access to the Employee Assistance Program\n• Strong employer contribution to your pension plan\n• Generous parental leave and comprehensive family support solutions\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to help make breakfast better for millions around the world? Apply now and help people start the",
+        "en": "Location: La Tour-de-Peilz, Switzerland Work model: Full-Time Act. Rate 100% Contract type / duration: Permanent contract Together, we make breakfast better. As a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way. How you’ll make an impact as a Global & EUR Safety Lead\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations. What will make you successful\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes. At CPW, collaboration and purpose drive everything we do. Our benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office based roles)\n• Paid holidays beyond legal requirements\n• Learning and development opportunities to grow your career\n• Performance based bonus\n• Healthcare contribution and access to the Employee Assistance Program\n• Strong employer contribution to your pension plan\n• Generous parental leave and comprehensive family support solutions\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to help make breakfast better for millions around the world? Apply now and help people start the",
+        "de": "Location: La Tour-de-Peilz, Switzerland Work model: Full-Time Act. Rate 100% Contract type / duration: Permanent contract Together, we make breakfast better. As a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way. How you’ll make an impact as a Global & EUR Safety Lead\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations. What will make you successful\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes. At CPW, collaboration and purpose drive everything we do. Our benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office based roles)\n• Paid holidays beyond legal requirements\n• Learning and development opportunities to grow your career\n• Performance based bonus\n• Healthcare contribution and access to the Employee Assistance Program\n• Strong employer contribution to your pension plan\n• Generous parental leave and comprehensive family support solutions\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to help make breakfast better for millions around the world? Apply now and help people start the",
+        "fr": "Location: La Tour-de-Peilz, Switzerland Work model: Full-Time Act. Rate 100% Contract type / duration: Permanent contract Together, we make breakfast better. As a Global & EUR Safety Lead at CPW, your mission is to lead and strengthen our Safety, Health and Environment strategy across our factories. You will make a difference by working closely with local SHE teams, factory leadership, and internal and external stakeholders. This is your opportunity to make breakfast better and help people start their day in the best possible way. How you’ll make an impact as a Global & EUR Safety Lead\n• Embed safety as a core leadership value by strengthening accountability and ensuring SHE is fully integrated into daily decision-making and operational routines.\n• Drive SHE cultural transformation at shopfloor level by elevating frontline leadership behaviours through targeted coaching, and impactful communication.\n• Deploy global SHE standards across CPW factories, ensuring consistency while enabling local ownership and high-performing safety cultures.\n• Strengthen risk management and resilience by driving robust audit frameworks and proactive prevention plans to reduce operational risks.\n• Build sustainable capability by developing factory leaders and SHE professionals, reinforcing expertise, mindset and long-term compliance.\n• Accelerate continuous improvement by identifying, sharing and scaling best practices and innovative solutions across sites.\n• Influence business performance by partnering cross-functionally to elevate SHE outcomes and support safe, sustainable operations. What will make you successful\n• Bringing proven experience in SHE within complex industrial environments, with a strong track record in driving safety culture transformation; hands-on leadership experience at shopfloor level is a strong advantage.\n• Strong expertise in SHE management systems, auditing and risk management, complemented by recognized safety certifications (e.g., NEBOSH, ISO Lead Auditor or equivalent).\n• Highly effective stakeholder influencer, able to engage, challenge and align leaders across functions, geographies and levels of the organization.\n• Clear and impactful communicator, fluent in English (French is a plus), capable of connecting with audiences from shopfloor teams to senior leadership.\n• Role model of CPW values, demonstrating collaboration, commitment, courage and capability in driving business and people outcomes. At CPW, collaboration and purpose drive everything we do. Our benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office based roles)\n• Paid holidays beyond legal requirements\n• Learning and development opportunities to grow your career\n• Performance based bonus\n• Healthcare contribution and access to the Employee Assistance Program\n• Strong employer contribution to your pension plan\n• Generous parental leave and comprehensive family support solutions\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to help make breakfast better for millions around the world? Apply now and help people start the"
+      },
+      "location": "La Tour-de-Peilz, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-&-EUR-Safety-Lead/1398542833/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-28T11:51:47.797Z",
+      "addressLocality": "La Tour-de-Peilz, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-&-EUR-Safety-Lead/1398542833/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "global-eur-safety-lead-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-eur-safety-lead-nestle-ch"
+        ],
+        "fr": [
+          "global-eur-safety-lead-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-29T13:25:18.065Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2673,7 +2526,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-International-Customer-Supply-Chain-Specialist/1408861833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:32.494Z",
+      "crawledAt": "2026-06-28T11:51:46.879Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2688,15 +2541,15 @@
       "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-International-Customer-Supply-Chain-Specialist/1408861833/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-26T22:31:50.471Z",
+      "previousSlugs": [
+        "international-customer-supply-chain-specialist-nestle-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "international-customer-supply-chain-specialist-nestle-ch"
         ]
       },
-      "previousSlugs": [
-        "international-customer-supply-chain-specialist-nestle-ch"
-      ],
+      "firstSeenAt": "2026-06-26T22:31:50.471Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2710,6 +2563,308 @@
         }
       },
       "postalCode": "1003",
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1389579533",
+      "slug": "senior-coffee-specialista-nestle-zug-ch",
+      "slugByLocale": {
+        "it": "senior-coffee-specialista-nestle-zug-ch",
+        "en": "senior-coffee-specialist-nestle-ch",
+        "de": "senior-coffee-specialist-nestle-ch",
+        "fr": "senior-coffee-specialiste-nestle-zug-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Senior Coffee Specialist",
+      "titleByLocale": {
+        "it": "Senior Coffee Specialista",
+        "en": "Senior Coffee Specialist",
+        "de": "Senior Coffee Spezialist",
+        "fr": "Senior Coffee Spécialiste"
+      },
+      "description": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus.\n\nStellenübersicht\n\nStandort: Zug\n\nUnternehmen: Nespresso Schweizer Markt\nBeschäftigungsgrad: 80%\nVertragsart: Unbefristeter Vertrag\n\nStartdatum: 01.06.2026 oder nach Vereinbarung\n\nWas wir bei Nespresso bieten\n\nViele Möglichkeiten für die berufliche und persönliche Entwicklung\n\nDynamisches internationales Arbeitsumfeld\n\nAttraktive zusätzliche Vorteile\n\nDie Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten\n\nDie Stelle im Überblick\n\nAls Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist.\n\nEin Tag im Leben eines:einer Senior Coffee Specialist\n\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten\n\nDas macht Sie erfolgreich\n\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus\n\nNespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt.\n\nBei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm",
+      "descriptionByLocale": {
+        "it": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Zug Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: 80% Vertragsart: Unbefristeter Vertrag Startdatum: 01.06.2026 oder nach Vereinbarung Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Stelle im Überblick Als Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist. Ein Tag im Leben eines:einer Senior Coffee Specialist\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten Das macht Sie erfolgreich\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm",
+        "en": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Zug Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: 80% Vertragsart: Unbefristeter Vertrag Startdatum: 01.06.2026 oder nach Vereinbarung Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Stelle im Überblick Als Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist. Ein Tag im Leben eines:einer Senior Coffee Specialist\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten Das macht Sie erfolgreich\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm",
+        "de": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Zug Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: 80% Vertragsart: Unbefristeter Vertrag Startdatum: 01.06.2026 oder nach Vereinbarung Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Stelle im Überblick Als Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist. Ein Tag im Leben eines:einer Senior Coffee Specialist\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten Das macht Sie erfolgreich\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm",
+        "fr": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Zug Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: 80% Vertragsart: Unbefristeter Vertrag Startdatum: 01.06.2026 oder nach Vereinbarung Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Stelle im Überblick Als Senior Coffee Specialist unterstützt du den Boutique Manager im täglichen Betrieb und trägst dazu bei, dass unsere Boutique reibungslos funktioniert. Du kombinierst kundenorientiertes Arbeiten, gutes Produktwissen und organisatorisches Geschick – und übernimmst Verantwortung, wenn der Boutique Manager abwesend ist. Ein Tag im Leben eines:einer Senior Coffee Specialist\n• Sicherstellen eines herzlichen Empfangs und eines angenehmen Erlebnisses für unsere Gäste\n• Beratung unserer Kundschaft, Durchführung von Kaffeedegustationen und aktiver Verkauf unserer Produkte\n• Bearbeitung von Kundenanliegen bei Abwesenheit des Boutique Managers\n• Vertretung des Boutique Managers und Übernahme definierter Verantwortlichkeiten\n• Umsetzung geplanter Aktionen und enge Zusammenarbeit mit dem Boutique Manager bei operativen Aufgaben\n• Implementierung der nationalen und internationalen Nespresso‑Guidelines in Abstimmung mit dem Boutique Manager\n• Gewährleistung der Einhaltung aller relevanten internen Prozesse und Standards, z. B. Technical Support oder Quality Safety Health\n• Nachverfolgung der wichtigsten Leistungskennzahlen\n• Pflege der Kontakte zu internen und externen Partnern und Lieferanten Das macht Sie erfolgreich\n• Mehrjährige Berufserfahrung im Detailhandel mit nachweisbaren Verkaufserfolgen\n• Erfahrung in einer fachlichen Führungsfunktion in einer Boutique oder vergleichbare Erfahrung\n• Abgeschlossene Aus‑ oder Weiterbildungen im Detailhandel oder in verwandten Bereichen von Vorteil\n• Ausgeprägte Serviceorientierung und ein starkes Hospitality‑Mindset\n• Erfahrung im Umgang mit Kaffee oder anderen Genussmitteln von Vorteil\n• Bereitschaft, sich kontinuierlich weiterzuentwickeln und zusätzliche Verantwortung zu übernehmen\n• Flexible:r, gut organisierte:r Teamplayer:in mit hoher Detailgenauigkeit\n• Verhandlungssichere Deutschkenntnisse sowie gute Englischkenntnisse; weitere Landessprachen sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovativ und haben den Mut, in einer schnelllebigen, digitalen und vernetzten Umgebung Neues auszuprobieren, zu lernen und zu expandieren. Mit einer vielfältigen Belegschaft, die sich aus über 90 Nationalitäten aus 58 Ländern zusammensetzt, können Sie Teil einer innovativen Kultur sein, in der sich hilfsbereite Menschen gegenseitig unterstützen. Eine Kultur, in der alle erm"
+      },
+      "location": "Zug, CH",
+      "canton": "ZG",
+      "url": "https://jobdetails.nestle.com/job/Zug-Senior-Coffee-Specialist/1389579533/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T11:51:45.972Z",
+      "addressLocality": "Zug, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-01",
+      "applyUrl": "https://jobdetails.nestle.com/job/Zug-Senior-Coffee-Specialist/1389579533/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-coffee-specialist-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-coffee-specialist-nestle-ch"
+        ],
+        "fr": [
+          "senior-coffee-specialist-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:53.474Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6300",
+      "addressRegion": "ZG"
+    },
+    {
+      "id": "nestle-1369989533",
+      "slug": "operateur-logistique-f-m-d-nestle-romont-ch",
+      "slugByLocale": {
+        "it": "operateur-logistique-f-m-d-nestle-romont-ch",
+        "en": "operateur-logistique-h-f-d-nestle-ch",
+        "de": "operateur-logistique-h-f-d-nestle-ch",
+        "fr": "operateur-trice-logistique-4-8-h-f-d-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Opérateur.trice logistique 4*8 (H/F/D)",
+      "titleByLocale": {
+        "it": "Opérateur.trice logistique 4*8 (f/m/d)",
+        "en": "Opérateur logistique (H/F/D)",
+        "de": "Opérateur logistique (H/F/D)",
+        "fr": "Opérateur.trice logistique 4*8 (H/F/D)"
+      },
+      "description": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir.",
+      "descriptionByLocale": {
+        "it": "Opérateur logistique (H/F/D) — Nestlé, Romont, CH. Key details:\n• Location: Romont, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "en": "Opérateur logistique (H/F/D) — Nestlé, Romont, CH. Key details:\n• Location: Romont, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Opérateur logistique (H/F/D) — Nestlé, Romont, CH. Key details:\n• Location: Romont, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir."
+      },
+      "location": "Romont, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-logistique-48-%28HFD%29/1369989533/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-28T11:51:45.065Z",
+      "addressLocality": "Romont, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-01",
+      "applyUrl": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-logistique-48-%28HFD%29/1369989533/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "operateur-logistique-h-f-d-nestle-ch",
+        "operateur-trice-logistique-4-8-h-f-d-nestle-ch",
+        "operateur-logistique-h-f-d-nestle-romont-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-logistique-h-f-d-nestle-ch",
+          "operateur-trice-logistique-4-8-h-f-d-nestle-ch"
+        ],
+        "fr": [
+          "operateur-logistique-h-f-d-nestle-romont-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-25T13:33:39.027Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1380259733",
+      "slug": "portavoce-aziendale-senior-nestle-vevey-ch",
+      "slugByLocale": {
+        "it": "portavoce-aziendale-senior-nestle-vevey-ch",
+        "en": "senior-corporate-spokesperson-nestle-ch",
+        "de": "senior-corporate-sprecher-nestle-vevey-ch",
+        "fr": "porte-parole-principal-nestle-vevey-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Senior Corporate Spokesperson",
+      "titleByLocale": {
+        "it": "Portavoce aziendale senior",
+        "en": "Senior Corporate Spokesperson",
+        "de": "Senior Corporate Sprecher",
+        "fr": "Porte-parole principal"
+      },
+      "description": "Senior Corporate Spokesperson — Nestlé, Vevey, CH.\n\nKey details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "Senior Corporate Spokesperson — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "en": "Senior Corporate Spokesperson — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Senior Corporate Spokesperson — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Senior Corporate Spokesperson — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+      },
+      "location": "Vevey, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-28T11:51:44.154Z",
+      "addressLocality": "Vevey, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-01",
+      "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-corporate-spokesperson-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-corporate-spokesperson-nestle-ch"
+        ],
+        "de": [
+          "senior-corporate-spokesperson-nestle-ch"
+        ],
+        "fr": [
+          "senior-corporate-spokesperson-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:42.431Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1800",
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1402820033",
+      "slug": "talenti-nestep-nell-analisi-del-marketing-nestle-vevey-ch",
+      "slugByLocale": {
+        "it": "talenti-nestep-nell-analisi-del-marketing-nestle-vevey-ch",
+        "en": "nestep-talent-in-marketing-analytics-nestle-ch",
+        "de": "nestep-talent-in-marketing-analytics-nestle-ch",
+        "fr": "nestep-talent-dans-l-analyse-marketing-nestle-vevey-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "NeStep Talent in Marketing Analytics",
+      "titleByLocale": {
+        "it": "Talenti NeStep nell'analisi del marketing",
+        "en": "NeStep Talent in Marketing Analytics",
+        "de": "NeStep Talent in Marketing Analytics",
+        "fr": "NeStep Talent dans l'analyse marketing"
+      },
+      "description": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH.\n\nKey details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH. Dettagli chiave:\n• Ubicazione: Vevey, CH, Canton VD, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale di carriera Nestlé Questa lista fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto del team, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
+        "en": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH Wichtigste Angaben:\n• Standort: Vevey, CH, VD Kanton, Schweiz\n• Arbeitgeber: Nestlé – das weltweit größte Lebensmittel- und Getränkeunternehmen\n• Bewerben Sie sich auf: Nestlé Karriereportal Diese Auflistung ist Teil des offiziellen Schweizer Karriere-Feeds von Nestlé. Überprüfen Sie die Rollenanforderungen, den Teamkontext, Vertragsdetails und Anwendungsanweisungen direkt auf der Nestlé-Jobseite, bevor Sie sich bewerben. Die Position wird in diesem Datensatz nur gehalten, während das offizielle Karriereportal die Anforderung aktiv hält.",
+        "fr": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH. Principaux détails:\n• Lieu: Vevey, CH, VD canton, Suisse\n• Employeur: Nestlé — la plus grande entreprise mondiale d'alimentation et de boissons\n• Postuler sur: Portail des carrières de Nestlé Cette liste fait partie du fil officiel des carrières suisses de Nestlé. Examiner les exigences relatives au rôle, le contexte de l'équipe, les détails du contrat et les instructions de demande directement sur la page de travail de Nestlé avant de postuler. La position est maintenue dans cet ensemble de données seulement tandis que le portail officiel des carrières maintient la demande active."
+      },
+      "location": "Vevey, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-in-Marketing-Analytics/1402820033/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-28T11:51:43.245Z",
+      "addressLocality": "Vevey, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-in-Marketing-Analytics/1402820033/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "nestep-talent-in-marketing-analytics-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "nestep-talent-in-marketing-analytics-nestle-ch"
+        ],
+        "fr": [
+          "nestep-talent-in-marketing-analytics-nestle-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-25T11:43:15.249Z",
+      "needsRetranslation": true,
+      "salaryMin": 61500,
+      "salaryMax": 109000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1800",
       "addressRegion": "VD"
     },
     {
@@ -2743,7 +2898,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-in-Sustainability-Communications/1406571733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:31.726Z",
+      "crawledAt": "2026-06-28T11:51:42.341Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2789,79 +2944,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1402820033",
-      "slug": "talenti-nestep-nell-analisi-del-marketing-nestle-vevey-ch",
-      "slugByLocale": {
-        "it": "talenti-nestep-nell-analisi-del-marketing-nestle-vevey-ch",
-        "en": "nestep-talent-in-marketing-analytics-nestle-ch",
-        "de": "nestep-talent-in-marketing-analytics-nestle-ch",
-        "fr": "nestep-talent-dans-l-analyse-marketing-nestle-vevey-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "NeStep Talent in Marketing Analytics",
-      "titleByLocale": {
-        "it": "Talenti NeStep nell'analisi del marketing",
-        "en": "NeStep Talent in Marketing Analytics",
-        "de": "NeStep Talent in Marketing Analytics",
-        "fr": "NeStep Talent dans l'analyse marketing"
-      },
-      "description": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH.\n\nKey details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH. Dettagli chiave:\n• Ubicazione: Vevey, CH, Canton VD, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale di carriera Nestlé Questa lista fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto del team, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
-        "en": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH Wichtigste Angaben:\n• Standort: Vevey, CH, VD Kanton, Schweiz\n• Arbeitgeber: Nestlé – das weltweit größte Lebensmittel- und Getränkeunternehmen\n• Bewerben Sie sich auf: Nestlé Karriereportal Diese Auflistung ist Teil des offiziellen Schweizer Karriere-Feeds von Nestlé. Überprüfen Sie die Rollenanforderungen, den Teamkontext, Vertragsdetails und Anwendungsanweisungen direkt auf der Nestlé-Jobseite, bevor Sie sich bewerben. Die Position wird in diesem Datensatz nur gehalten, während das offizielle Karriereportal die Anforderung aktiv hält.",
-        "fr": "NeStep Talent in Marketing Analytics — Nestlé, Vevey, CH. Principaux détails:\n• Lieu: Vevey, CH, VD canton, Suisse\n• Employeur: Nestlé — la plus grande entreprise mondiale d'alimentation et de boissons\n• Postuler sur: Portail des carrières de Nestlé Cette liste fait partie du fil officiel des carrières suisses de Nestlé. Examiner les exigences relatives au rôle, le contexte de l'équipe, les détails du contrat et les instructions de demande directement sur la page de travail de Nestlé avant de postuler. La position est maintenue dans cet ensemble de données seulement tandis que le portail officiel des carrières maintient la demande active."
-      },
-      "location": "Vevey, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-in-Marketing-Analytics/1402820033/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:31.007Z",
-      "addressLocality": "Vevey, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-in-Marketing-Analytics/1402820033/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "nestep-talent-in-marketing-analytics-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "nestep-talent-in-marketing-analytics-nestle-ch"
-        ],
-        "fr": [
-          "nestep-talent-in-marketing-analytics-nestle-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-25T11:43:15.249Z",
-      "salaryMin": 61500,
-      "salaryMax": 109000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 61500,
-          "maxValue": 109000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1800",
-      "addressRegion": "VD"
-    },
-    {
       "id": "nestle-1377885033",
       "slug": "stagiaire-ingenieur-digital-manufacturing-h-f-d-nestle-ch",
       "slugByLocale": {
@@ -2892,7 +2974,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-ing%C3%A9nieur-Digital-Manufacturing-%28HFD%29/1377885033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:30.228Z",
+      "crawledAt": "2026-06-28T11:51:41.408Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2908,6 +2990,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-25T13:33:19.806Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2954,7 +3037,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Facilities-Maintenance-Specialist-%28FH%29/1402809433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:29.459Z",
+      "crawledAt": "2026-06-28T11:51:40.495Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3028,7 +3111,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Product-Development-Intern/1407555933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:28.756Z",
+      "crawledAt": "2026-06-28T11:51:39.586Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3104,7 +3187,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Communications-Manager-Content-&-Editorial/1396565233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:27.940Z",
+      "crawledAt": "2026-06-28T11:51:38.682Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3180,7 +3263,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien_ne-de-maintenance-en-journ%C3%A9e-%28HFD%29/1388867533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:27.179Z",
+      "crawledAt": "2026-06-28T11:51:37.781Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3243,7 +3326,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Smart-Sensors-Specialist/1398041633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:26.370Z",
+      "crawledAt": "2026-06-28T11:51:36.864Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3320,7 +3403,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien_ne-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:25.528Z",
+      "crawledAt": "2026-06-28T11:51:35.956Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3382,7 +3465,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Senior-Technician-in-Lipids-Analytics/1408503233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:24.741Z",
+      "crawledAt": "2026-06-28T11:51:35.051Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3458,7 +3541,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Electrical-&-Automation-Technician/1388469333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:23.889Z",
+      "crawledAt": "2026-06-28T11:51:34.142Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3529,7 +3612,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:23.084Z",
+      "crawledAt": "2026-06-28T11:51:33.164Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3600,7 +3683,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Senior-R&D-Specialist-New-System-Components/1378828933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:22.241Z",
+      "crawledAt": "2026-06-28T11:51:32.260Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3676,7 +3759,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Packaging-Sciences-Intern/1406364133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:21.408Z",
+      "crawledAt": "2026-06-28T11:51:31.352Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3757,7 +3840,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:20.681Z",
+      "crawledAt": "2026-06-28T11:51:30.414Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3794,6 +3877,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:23.920Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3840,7 +3924,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-Packaging-Material-Characterization/1368496533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:19.953Z",
+      "crawledAt": "2026-06-28T11:51:29.506Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3917,7 +4001,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-InstandhalterIn-Mechanik/1407536233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:19.161Z",
+      "crawledAt": "2026-06-28T11:51:28.596Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3943,6 +4027,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T22:51:12.427Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3957,82 +4042,6 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE"
-    },
-    {
-      "id": "nestle-1369989533",
-      "slug": "operateur-logistique-f-m-d-nestle-romont-ch",
-      "slugByLocale": {
-        "it": "operateur-logistique-f-m-d-nestle-romont-ch",
-        "en": "operateur-logistique-h-f-d-nestle-ch",
-        "de": "operateur-logistique-h-f-d-nestle-ch",
-        "fr": "operateur-trice-logistique-4-8-h-f-d-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Opérateur.trice logistique 4*8 (H/F/D)",
-      "titleByLocale": {
-        "it": "Opérateur.trice logistique 4*8 (f/m/d)",
-        "en": "Opérateur logistique (H/F/D)",
-        "de": "Opérateur logistique (H/F/D)",
-        "fr": "Opérateur.trice logistique 4*8 (H/F/D)"
-      },
-      "description": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir.",
-      "descriptionByLocale": {
-        "it": "Opérateur logistique (H/F/D) — Nestlé, Romont, CH. Key details:\n• Location: Romont, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Opérateur logistique (H/F/D) — Nestlé, Romont, CH. Key details:\n• Location: Romont, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Opérateur logistique (H/F/D) — Nestlé, Romont, CH. Key details:\n• Location: Romont, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir."
-      },
-      "location": "Romont, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-logistique-48-%28HFD%29/1369989533/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-27T11:12:18.437Z",
-      "addressLocality": "Romont, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-01",
-      "applyUrl": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-logistique-48-%28HFD%29/1369989533/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "operateur-logistique-h-f-d-nestle-ch",
-        "operateur-trice-logistique-4-8-h-f-d-nestle-ch",
-        "operateur-logistique-h-f-d-nestle-romont-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "operateur-logistique-h-f-d-nestle-ch",
-          "operateur-trice-logistique-4-8-h-f-d-nestle-ch"
-        ],
-        "fr": [
-          "operateur-logistique-h-f-d-nestle-romont-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-25T13:33:39.027Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
     },
     {
       "id": "nestle-1383951133",
@@ -4065,7 +4074,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Ing%C3%A9nieur_e-Digital-&-Performance/1383951133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:17.673Z",
+      "crawledAt": "2026-06-28T11:51:27.691Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4136,7 +4145,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-SHE-%28HFD%29/1245919801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T11:12:16.885Z",
+      "crawledAt": "2026-06-28T11:51:26.761Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4171,6 +4180,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:44.479Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
