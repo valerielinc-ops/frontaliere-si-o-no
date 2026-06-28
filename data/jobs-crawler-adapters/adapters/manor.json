@@ -61,7 +61,6 @@
     "https://positions.manor.ch/job/Hinwil-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-30/1356285555/",
     "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-40/1354726855/",
     "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Visual-Merchandising-60-80/1354823355/",
-    "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Visual-Merchandising-60/1354822955/",
     "https://positions.manor.ch/job/Sierre-Assistante-visual-merchandiser-manager-100/1354557255/",
     "https://positions.manor.ch/job/Biel-Collaborateurtrice-supermarch%C3%A9-%28boulangerie%29-0/1354528355/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28BijouterieMontres%29-30/1354328055/",
@@ -104,7 +103,6 @@
     "https://positions.manor.ch/job/Winterthur-Kassiererin-Non-Food-20/1355719455/",
     "https://positions.manor.ch/job/Zug-Mitarbeiterin-Visual-Merchandising-80/1355819255/",
     "https://positions.manor.ch/job/Sion-Collaborateurtrice-cuisine-Etudiant-20/1355807355/",
-    "https://positions.manor.ch/job/Vevey-Visual-Merchandising-Manager-100/1355986855/",
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-100/1355990755/",
     "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100/1353669255/",
     "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Messieurs%29-Etudiante-20/1353669855/",
@@ -152,7 +150,6 @@
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-Dames%29-50-du-31_08_2026-au-12_09_2026/1351453555/",
     "https://positions.manor.ch/job/Morges-Collaborateurtric-caisse-%28Supermarch%C3%A9%29-40/1355950455/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Parfumerie%29-100-de-suite/1351221755/",
-    "https://positions.manor.ch/job/Morges-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-60-80/1354103155/",
     "https://positions.manor.ch/job/Winterthur-Mitarbeiterin-Verkauf-Damenabteilung-20/1350841955/",
     "https://positions.manor.ch/job/Hinwil-Floor-Manager-Home-Fashion-Beauty-100/1347483355/",
     "https://positions.manor.ch/job/Winterthur-Mitarbeiterin-Warenbewirtschaftung-Spielwaren-20/1350841455/",
@@ -161,10 +158,13 @@
     "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Spielwaren-40/1348947955/",
     "https://positions.manor.ch/job/Chur-Floor-Managerin-100/1325040855/",
     "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Verkauf-Herrenkonfektion-60/1356546255/",
-    "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100/1353834655/"
+    "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100/1353834655/",
+    "https://positions.manor.ch/job/Vevey-Visual-Merchandising-Manager-100/1355986855/",
+    "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Visual-Merchandising-60/1354822955/",
+    "https://positions.manor.ch/job/Morges-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-60-80/1354103155/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-06-28T11:47:06.124Z",
+  "updatedAt": "2026-06-28T22:09:22.651Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Langenthal-Assistant-Backoffice-Manager-80/1356129455/": {
       "company": "Manor AG",
@@ -378,10 +378,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Visual-Merchandising-60/1354822955/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Sierre-Assistante-visual-merchandiser-manager-100/1354557255/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -547,10 +543,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Sion-Collaborateurtrice-cuisine-Etudiant-20/1355807355/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Vevey-Visual-Merchandising-Manager-100/1355986855/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -742,10 +734,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Morges-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-60-80/1354103155/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Winterthur-Mitarbeiterin-Verkauf-Damenabteilung-20/1350841955/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -779,6 +767,18 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100/1353834655/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Vevey-Visual-Merchandising-Manager-100/1355986855/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Visual-Merchandising-60/1354822955/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Morges-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-60-80/1354103155/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
