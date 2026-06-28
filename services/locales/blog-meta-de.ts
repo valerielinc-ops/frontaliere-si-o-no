@@ -8175,6 +8175,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scambio-internazionale-croce-rossa-varese.title': 'Rotes Kreuz Varese: internationaler Austausch mit Deutschland',
     'blog.article.scambio-internazionale-croce-rossa-varese.excerpt': 'Vom 24. bis 28. Juni beherbergt das Rote Kreuz in Varese neun deutsche Freiwillige für das Projekt „The Light We Share“, das der Zusammenarbeit gewidmet ist.',
     'blog.article.scambio-internazionale-croce-rossa-varese.imageAlt': 'Rotkreuz-Freiwillige aus Italien und Deutschland bei einem Treffen in Varese',
+    'blog.article.canicola-sud-nord-alpi.title': 'Hitzewallungen an den Abflüssen nördlich der Alpen. Im Süden braucht es noch Geduld',
+    'blog.article.canicola-sud-nord-alpi.excerpt': 'Letzter Tag mit extremer Hitze nördlich der Alpen in der Schweiz. Im Süden hingegen sind die Temperaturen bis Mitte nächster Woche noch hoch.',
+    'blog.article.canicola-sud-nord-alpi.imageAlt': 'Tessin-Landschaft mit See und Bergen bei Sonnenschein',
 };
 
 export default blogMetaDe;

@@ -1,0 +1,19 @@
+{
+  "id": "canicola-sud-nord-alpi",
+  "slug": "canicola-sud-nord-alpi",
+  "publishedAt": "2026-06-28T16:00:46.266Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 143.0385264,
+    "confidence": 1,
+    "finalScore": 143.0385264,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 143.0385264,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

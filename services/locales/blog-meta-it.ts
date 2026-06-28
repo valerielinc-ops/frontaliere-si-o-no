@@ -8177,6 +8177,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scambio-internazionale-croce-rossa-varese.title': 'Croce Rossa Varese: scambio internazionale con la Germania',
     'blog.article.scambio-internazionale-croce-rossa-varese.excerpt': 'Dal 24 al 28 giugno, la Croce Rossa di Varese ospita nove volontari tedeschi per il progetto \'The Light We Share\' dedicato alla cooperazione.',
     'blog.article.scambio-internazionale-croce-rossa-varese.imageAlt': 'Volontari della Croce Rossa Italiana e Tedesca a Varese',
+    'blog.article.canicola-sud-nord-alpi.title': 'Canicola agli sgoccioli a nord delle Alpi. A sud serve ancora pazienza',
+    'blog.article.canicola-sud-nord-alpi.excerpt': 'Ultima giornata di caldo estremo al nord delle Alpi, in Svizzera. A sud, invece, temperature ancora elevate fino alla metà della prossima settimana.',
+    'blog.article.canicola-sud-nord-alpi.imageAlt': 'Paesaggio del Ticino con lago e montagne sotto il sole',
 };
 
 export default blogMetaIt;

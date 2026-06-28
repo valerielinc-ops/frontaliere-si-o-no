@@ -25911,6 +25911,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'canicola-sud-nord-alpi',
+ category: 'novita',
+ date: '2026-06-28T16:00:44.634Z',
+ image: '/images/blog/canicola-sud-nord-alpi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

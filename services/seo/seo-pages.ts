@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3002,
+ "numberOfItems": 3003,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7648,7 +7648,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2999, "name": "Come calcolare l'imposta alla fonte in Ticino: ...", "url": `${BASE_URL}/articoli-frontaliere/imposte-alla-fonte-ticino` },
           { "@type": "ListItem", "position": 3000, "name": "Aufenthaltsbewilligung B e Quellensteuer 2026: ...", "url": `${BASE_URL}/articoli-frontaliere/aufenthaltsbewilligung-b-quellensteuer` },
           { "@type": "ListItem", "position": 3001, "name": "Quellensteuer Svizzera: tariffe 2026 e calcolo ...", "url": `${BASE_URL}/articoli-frontaliere/quellensteuer-tarife-svizzera-2026` },
-          { "@type": "ListItem", "position": 3002, "name": "G-Bewilligung Antrag 2026: guida completa, cost...", "url": `${BASE_URL}/articoli-frontaliere/g-bewilligung-antrag-2026-step` }
+          { "@type": "ListItem", "position": 3002, "name": "G-Bewilligung Antrag 2026: guida completa, cost...", "url": `${BASE_URL}/articoli-frontaliere/g-bewilligung-antrag-2026-step` },
+          { "@type": "ListItem", "position": 3003, "name": "Canicola agli sgoccioli a nord delle Alpi. A su...", "url": `${BASE_URL}/articoli-frontaliere/canicola-sud-nord-alpi` }
  ]
  },
  {
