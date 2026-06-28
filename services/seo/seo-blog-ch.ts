@@ -8520,6 +8520,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-richiesta-permesso-g-step': {
+    title: 'Richiesta permesso G step by step: procedura completa 2026',
+    description: 'Scopri la procedura completa per la richiesta del permesso G per frontalieri in Svizzera: documenti necessari, tempi di attesa e costi associati nel 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiesta, permesso, step, procedura',
+    ogTitle: 'Richiesta permesso G step by step: guida completa 2026',
+    ogDescription: 'Guida pratica alla richiesta del permesso G per frontalieri in Svizzera: documenti, tempi e costi per il 2026.',
+    canonicalPath: '/articoli-svizzera/richiesta-permesso-g-step/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiesta permesso G step by step: procedura completa 2026",
+      "description": "Scopri la procedura completa per la richiesta del permesso G per frontalieri in Svizzera: documenti necessari, tempi di attesa e costi associati nel 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiesta-permesso-g-step.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che compila un modulo presso un ufficio cantonale svizzero con vista su Lugano"
+      },
+      "datePublished": "2026-06-28T01:46:16+00:00",
+      "dateModified": "2026-06-28T01:46:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/richiesta-permesso-g-step/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

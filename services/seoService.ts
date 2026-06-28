@@ -4273,6 +4273,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-educatore-infanzia-ticino-guida': { name: 'Lavorare in Ticino', path: '/articoli-svizzera/educatore-infanzia-ticino-guida/', parent: 'blog' },
     'blog-imposte-alla-fonte-ticino-calcolatore': { name: 'Imposte alla fonte Ticino', path: '/articoli-svizzera/imposte-alla-fonte-ticino-calcolatore/', parent: 'blog' },
     'blog-pensione-frontaliere-avs-inps-2026': { name: 'Pensione frontalieri', path: '/articoli-svizzera/pensione-frontaliere-avs-inps-2026/', parent: 'blog' },
+    'blog-richiesta-permesso-g-step': { name: 'Permesso G Frontalieri', path: '/articoli-svizzera/richiesta-permesso-g-step/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

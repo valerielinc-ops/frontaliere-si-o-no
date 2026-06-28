@@ -664,6 +664,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pensione-frontaliere-avs-inps-2026.title': 'Rente Grenzgänger 2026: AHV/INPS-Koordination und Praxissimulation',
     'blog.article.pensione-frontaliere-avs-inps-2026.excerpt': 'Erfahren Sie, wie sich die AHV/INPS-Koordination ab 2024 auf die Grenzgänger im Jahr 2026 auswirken wird und wie Sie eine praktische Simulation Ihrer Rente durchführen können.',
     'blog.article.pensione-frontaliere-avs-inps-2026.imageAlt': 'Rentnerpaar genießt den Blick auf den Luganersee',
+    'blog.article.richiesta-permesso-g-step.title': 'Genehmigungsantrag G Schritt für Schritt: vollständiges Verfahren 2026',
+    'blog.article.richiesta-permesso-g-step.excerpt': 'Praktischer Leitfaden zur Beantragung der Bewilligung G: Dokumente, Zeiten und Kosten für Grenzgänger in der Schweiz im Jahr 2026',
+    'blog.article.richiesta-permesso-g-step.imageAlt': 'Person füllt ein Formular an einem Schweizer kantonalen Amt mit Blick auf Lugano aus',
 };
 
 export default blogMetaChDe;
