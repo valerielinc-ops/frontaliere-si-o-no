@@ -1,6 +1,6 @@
 {
   "crawlerKey": "microsoft",
-  "assembledAt": "2026-06-27T22:23:35.181Z",
+  "assembledAt": "2026-06-28T11:48:46.452Z",
   "jobs": [
     {
       "id": "microsoft-200040836",
@@ -33,7 +33,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556887764",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:23:32.752Z",
+      "crawledAt": "2026-06-28T11:48:44.070Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556913974",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:23:32.749Z",
+      "crawledAt": "2026-06-28T11:48:44.069Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       "companyDomain": "microsoft.com",
       "title": "Strategic Account Executive",
       "titleByLocale": {
-        "it": "Esecutivo del conto strategico",
+        "it": "Strategic Account Executive",
         "en": "Strategic Account Executive",
         "de": "Strategischer Account Executive",
         "fr": "Exécutif du compte stratégique"
@@ -173,7 +173,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556911652",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:23:32.747Z",
+      "crawledAt": "2026-06-28T11:48:44.067Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -203,6 +203,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:50:30.778Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -249,7 +250,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556625311",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:23:32.744Z",
+      "crawledAt": "2026-06-28T11:48:44.064Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
