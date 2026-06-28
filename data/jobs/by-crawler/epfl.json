@@ -1942,9 +1942,6 @@
         "canevas-epfl-vide-epfl-sion",
         "adjoint-administratif-secretaire-du-professeur-60-80-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
-        "assistente-amministrativo-60-80-epfl-sion",
-        "administrative-assistant-sekretar-des-professors-60-80-epfl-sion",
-        "verwaltungsassistent-60-80-epfl-sion",
         "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.360Z",
@@ -4671,9 +4668,9 @@
     },
     {
       "id": "epfl-716a543b67c0",
-      "slug": "postdoc-posizione-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
+      "slug": "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoc-posizione-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
+        "it": "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne",
         "en": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
         "de": "postdoc-stelle-in-quantitativer-finanzwissenschaft-an-der-epfl-epfl-lausanne",
         "fr": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
@@ -4727,8 +4724,8 @@
         ],
         "it": [
           "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
-          "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne",
-          "posizione-di-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne"
+          "posizione-di-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
+          "postdoc-posizione-in-finanza-quantitativa-presso-epfl-epfl-lausanne"
         ],
         "de": [
           "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
@@ -4740,10 +4737,10 @@
         "poste-postdoctoral-en-finance-quantitative-a-l-epfl-epfl-lausanne",
         "poste-de-postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne",
         "postdoctorat-en-finance-quantitative-a-l-epfl-epfl-lausanne",
-        "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
         "poste-de-postdoctorant-en-finance-quantitative-a-l-epfl-epfl-lausanne",
-        "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne",
+        "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
         "posizione-di-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
+        "postdoc-posizione-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
         "postdoktoranden-stelle-in-quantitative-finance-an-der-epfl-epfl-lausanne",
         "postdoc-position-in-quantitativen-finanzen-bei-der-epfl-epfl-lausanne"
       ],
@@ -4994,7 +4991,7 @@
       "slugByLocale": {
         "it": "ricercatore-post-dottorato-ingegnere-di-ricerca-epfl-lausanne",
         "en": "postdoctoral-researcher-research-engineer-epfl-lausanne",
-        "de": "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne",
+        "de": "postdoktorand-forschungsingenieur-epfl-lausanne",
         "fr": "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne"
       },
       "company": "EPFL",
@@ -5050,7 +5047,7 @@
           "postdoctoral-researcher-research-engineer-epfl-lausanne",
           "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
           "postdoktorand-in-forschungsingenieur-in-epfl-lausanne",
-          "postdoktorand-forschungsingenieur-epfl-lausanne"
+          "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne"
         ]
       },
       "previousSlugs": [
@@ -5059,7 +5056,7 @@
         "postdoctoral-researcher-research-engineer-epfl-lausanne",
         "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
         "postdoktorand-in-forschungsingenieur-in-epfl-lausanne",
-        "postdoktorand-forschungsingenieur-epfl-lausanne"
+        "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.746Z",
       "salaryMin": 60500,
@@ -5158,11 +5155,11 @@
     },
     {
       "id": "epfl-530ac2ddd9a7",
-      "slug": "responsabile-del-progetto-scienza-politica-epfl-lausanne",
+      "slug": "responsabile-di-progetto-science-policy-epfl-lausanne",
       "slugByLocale": {
-        "it": "responsabile-del-progetto-scienza-politica-epfl-lausanne",
+        "it": "responsabile-di-progetto-science-policy-epfl-lausanne",
         "en": "project-manager-science-policy-epfl-lausanne",
-        "de": "projektleiterin-wissenschaft-politik-epfl-lausanne",
+        "de": "projektmanager-wissenschaft-polizik-epfl-lausanne",
         "fr": "gestionnaire-de-projet-science-politique-epfl-lausanne"
       },
       "company": "EPFL",
@@ -5210,14 +5207,18 @@
           "project-manager-science-policy-epfl-lausanne"
         ],
         "it": [
-          "project-manager-science-policy-epfl-lausanne"
+          "project-manager-science-policy-epfl-lausanne",
+          "responsabile-del-progetto-scienza-politica-epfl-lausanne"
         ],
         "de": [
-          "project-manager-science-policy-epfl-lausanne"
+          "project-manager-science-policy-epfl-lausanne",
+          "projektleiterin-wissenschaft-politik-epfl-lausanne"
         ]
       },
       "previousSlugs": [
-        "project-manager-science-policy-epfl-lausanne"
+        "project-manager-science-policy-epfl-lausanne",
+        "responsabile-del-progetto-scienza-politica-epfl-lausanne",
+        "projektleiterin-wissenschaft-politik-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-23T11:45:54.390Z",
       "salaryMin": 83500,

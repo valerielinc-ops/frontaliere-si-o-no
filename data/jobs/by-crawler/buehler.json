@@ -10547,9 +10547,9 @@
     },
     {
       "id": "buehler-26a2d7df1402",
-      "slug": "product-manager-chocolate-portfolio-buehler-uzwil",
+      "slug": "gestione-prodotti-portafoglio-cioccolato-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "product-manager-chocolate-portfolio-buehler-uzwil",
+        "it": "gestione-prodotti-portafoglio-cioccolato-buhler-group-uzwil",
         "en": "product-manager-chocolate-portfolio-buehler-uzwil",
         "de": "produktmanager-schokoladenportfolio-buhler-group-uzwil",
         "fr": "gestionnaire-de-produits-portefeuille-chocolat-buhler-group-uzwil"
@@ -10605,7 +10605,15 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-chocolate-portfolio-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-chocolate-portfolio-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-816c1f69e68a",
