@@ -670,6 +670,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-alla-fonte-ticino.title': 'Comment calculer l\'impôt à la source au Tessin : guide complet',
     'blog.article.imposte-alla-fonte-ticino.excerpt': 'Découvrez comment calculer l\'impôt à la source au Tessin avec des taux et des échelons mis à jour. Utilisez notre simulateur pour des exemples réels.',
     'blog.article.imposte-alla-fonte-ticino.imageAlt': 'Personne travaillant sur un ordinateur portable avec un formulaire d\'impôt suisse ouvert dans un café à Lugano',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.title': 'Aufenthaltsbewilligung B et Quellensteuer 2026 : tout ce que vous devez savoir',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.excerpt': 'Découvrez les nouveautés en matière de fiscalité pour les détenteurs de la B-Bewilligung en Suisse en 2026',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.imageAlt': 'Vue de Lugano avec documents fiscaux et calculatrices',
 };
 
 export default blogMetaChFr;

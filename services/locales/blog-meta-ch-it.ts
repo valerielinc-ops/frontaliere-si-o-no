@@ -670,6 +670,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-alla-fonte-ticino.title': 'Come calcolare l\'imposta alla fonte in Ticino: guida completa',
     'blog.article.imposte-alla-fonte-ticino.excerpt': 'Scopri come calcolare l\'imposta alla fonte in Ticino con aliquote e scaglioni aggiornati. Utilizza il nostro simulatore per esempi reali.',
     'blog.article.imposte-alla-fonte-ticino.imageAlt': 'Persona che lavora su un laptop con un modulo di imposta svizzero aperto in un caffè di Lugano',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.title': 'Aufenthaltsbewilligung B e Quellensteuer 2026: tutto quello che devi sapere',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.excerpt': 'Scopri le novità sulla tassazione per chi ha la B-Bewilligung in Svizzera nel 2026',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.imageAlt': 'Panorama di Lugano con documenti fiscali e calcolatori',
 };
 
 export default blogMetaChIt;

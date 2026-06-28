@@ -2006,6 +2006,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'aufenthaltsbewilligung-b-quellensteuer',
+    category: 'fiscale',
+    date: '2026-06-28T04:49:35.892Z',
+    image: '/images/blog/aufenthaltsbewilligung-b-quellensteuer.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

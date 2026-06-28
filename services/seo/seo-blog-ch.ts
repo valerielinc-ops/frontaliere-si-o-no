@@ -8598,6 +8598,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aufenthaltsbewilligung-b-quellensteuer': {
+    title: 'Aufenthaltsbewilligung B e Quellensteuer 2026: tutto quello che devi sapere',
+    description: 'Scopri le novità sulla tassazione per chi ha la B-Bewilligung in Svizzera nel 2026. Informazioni su aliquote, cantoni e strumenti di calcolo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, aufenthaltsbewilligung, quellensteuer, tutto, quello',
+    ogTitle: 'Aufenthaltsbewilligung B e Quellensteuer 2026',
+    ogDescription: 'Guida completa alla tassazione per titolari di B-Bewilligung in Svizzera nel 2026',
+    canonicalPath: '/articoli-svizzera/aufenthaltsbewilligung-b-quellensteuer/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aufenthaltsbewilligung B e Quellensteuer 2026: tutto quello che devi sapere",
+      "description": "Scopri le novità sulla tassazione per chi ha la B-Bewilligung in Svizzera nel 2026. Informazioni su aliquote, cantoni e strumenti di calcolo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aufenthaltsbewilligung-b-quellensteuer.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con documenti fiscali e calcolatori"
+      },
+      "datePublished": "2026-06-28T04:49:35+00:00",
+      "dateModified": "2026-06-28T04:49:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aufenthaltsbewilligung-b-quellensteuer/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
