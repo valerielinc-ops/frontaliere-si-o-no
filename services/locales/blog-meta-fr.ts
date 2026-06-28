@@ -8177,6 +8177,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scambio-internazionale-croce-rossa-varese.title': 'Croix-Rouge varoise : échange international avec l\'Allemagne',
     'blog.article.scambio-internazionale-croce-rossa-varese.excerpt': 'Du 24 au 28 juin, la Croix-Rouge de Varèse accueille neuf volontaires allemands pour le projet « The Light We Share » consacré à la coopération.',
     'blog.article.scambio-internazionale-croce-rossa-varese.imageAlt': 'Volontaires de la Croix-Rouge italienne et allemande se rencontrant à Varèse',
+    'blog.article.canicola-sud-nord-alpi.title': 'Canicule aux égouts au nord des Alpes. Au sud, il faut encore de la patience',
+    'blog.article.canicola-sud-nord-alpi.excerpt': 'Dernière journée de chaleur extrême au nord des Alpes, en Suisse. Au sud, en revanche, les températures restent élevées jusqu\'au milieu de la semaine prochaine.',
+    'blog.article.canicola-sud-nord-alpi.imageAlt': 'Paysage du Tessin avec lac et montagnes sous le soleil',
 };
 
 export default blogMetaFr;

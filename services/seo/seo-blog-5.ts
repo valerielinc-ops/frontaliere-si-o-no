@@ -45158,6 +45158,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canicola-sud-nord-alpi': {
+    title: 'Canicola agli sgoccioli a nord delle Alpi. A sud serve ancora pazienza',
+    description: 'Previsioni meteo: calo delle temperature al nord, caldo protratto al sud fino a metà settimana. Implicazioni per frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, agli, sgoccioli, nord',
+    ogTitle: 'Fine del caldo estremo al nord, ancora caldo al sud',
+    ogDescription: 'Previsioni meteorologiche in Ticino: temperature in calo al nord, ancora caldo nel sud fino a metà settimana.',
+    canonicalPath: '/articoli-frontaliere/canicola-sud-nord-alpi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola agli sgoccioli a nord delle Alpi. A sud serve ancora pazienza",
+      "description": "Previsioni meteo: calo delle temperature al nord, caldo protratto al sud fino a metà settimana. Implicazioni per frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-sud-nord-alpi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del Ticino con lago e montagne sotto il sole"
+      },
+      "datePublished": "2026-06-28T16:00:44+00:00",
+      "dateModified": "2026-06-28T16:00:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/canicola-sud-nord-alpi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

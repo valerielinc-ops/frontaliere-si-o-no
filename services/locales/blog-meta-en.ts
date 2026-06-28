@@ -8176,6 +8176,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scambio-internazionale-croce-rossa-varese.title': 'Varese Red Cross: international exchange with Germany',
     'blog.article.scambio-internazionale-croce-rossa-varese.excerpt': 'From 24 to 28 June, the Red Cross of Varese hosts nine German volunteers for the \'The Light We Share\' project dedicated to cooperation.',
     'blog.article.scambio-internazionale-croce-rossa-varese.imageAlt': 'Red Cross volunteers from Italy and Germany meeting in Varese',
+    'blog.article.canicola-sud-nord-alpi.title': 'Canicola in the drains north of the Alps. The south still needs patience',
+    'blog.article.canicola-sud-nord-alpi.excerpt': 'Last day of extreme heat in the northern Alps, Switzerland. In the south, on the other hand, temperatures are still high until the middle of next week.',
+    'blog.article.canicola-sud-nord-alpi.imageAlt': 'Ticino landscape with lake and mountains under the sun',
 };
 
 export default blogMetaEn;
