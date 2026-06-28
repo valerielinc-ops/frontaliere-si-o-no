@@ -4275,6 +4275,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensione-frontaliere-avs-inps-2026': { name: 'Pensione frontalieri', path: '/articoli-svizzera/pensione-frontaliere-avs-inps-2026/', parent: 'blog' },
     'blog-richiesta-permesso-g-step': { name: 'Permesso G Frontalieri', path: '/articoli-svizzera/richiesta-permesso-g-step/', parent: 'blog' },
     'blog-imposte-alla-fonte-ticino': { name: 'Imposta alla fonte Ticino', path: '/articoli-svizzera/imposte-alla-fonte-ticino/', parent: 'blog' },
+    'blog-aufenthaltsbewilligung-b-quellensteuer': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/aufenthaltsbewilligung-b-quellensteuer/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

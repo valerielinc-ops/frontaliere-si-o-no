@@ -670,6 +670,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-alla-fonte-ticino.title': 'How to calculate the tax at source in Ticino: complete guide',
     'blog.article.imposte-alla-fonte-ticino.excerpt': 'Learn how to calculate tax at source in Ticino with updated rates and brackets. Use our simulator for real examples.',
     'blog.article.imposte-alla-fonte-ticino.imageAlt': 'Person working on a laptop with a Swiss tax form open in a Lugano café',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.title': 'Aufenthaltsbewilligung B and Quellensteuer 2026: everything you need to know',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.excerpt': 'Find out what\'s new on taxation for B-Bewilligung holders in Switzerland in 2026',
+    'blog.article.aufenthaltsbewilligung-b-quellensteuer.imageAlt': 'Lugano view with tax documents and calculators',
 };
 
 export default blogMetaChEn;
