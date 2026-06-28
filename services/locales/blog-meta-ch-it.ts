@@ -658,6 +658,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-guida.title': 'Lavorare come Educatore dell\'Infanzia in Ticino: Stipendio e Requisiti',
     'blog.article.educatore-infanzia-ticino-guida.excerpt': 'Scopri come diventare educatore dell\'infanzia in Ticino: requisiti formativi, stipendio e opportunità di lavoro.',
     'blog.article.educatore-infanzia-ticino-guida.imageAlt': 'Vista di edifici scolastici moderni a Lugano, Svizzera.',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.title': 'Imposte alla fonte in Ticino: calcolatore, aliquote e scaglioni 2026',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.excerpt': 'Guida al calcolo delle imposte alla fonte in Ticino: aliquote, scaglioni, simulatore e scenari 2026 per lavoratori frontalieri.',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.imageAlt': 'Vista su Lugano con lago e montagne, tema imposte in Ticino',
 };
 
 export default blogMetaChIt;
