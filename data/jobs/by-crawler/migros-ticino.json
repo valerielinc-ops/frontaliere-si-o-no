@@ -5681,9 +5681,9 @@
       "firstSeenAt": "2026-06-26T12:06:26.298Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -5747,14 +5747,18 @@
         "verkaufer-in-denner-ag-ruti-zh",
         "vendeur-denner-ag-ruti-zh-45abe1",
         "venditore-denner-ag-ruti-zh-45abe1",
-        "seller-denner-ag-mohlin-0713a1"
+        "seller-denner-ag-mohlin-0713a1",
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ],
         "it": [
           "venditore-denner-ag-langenthal-oggkv1",
@@ -10099,9 +10103,9 @@
       "firstSeenAt": "2026-06-25T11:59:15.666Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal-d47c8f",
+        "en": "seller-denner-ag-langenthal",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-d47c8f"
+        "fr": "vendeur-denner-ag-langenthal-634638"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -10165,14 +10169,18 @@
         "salesperson-denner-ag-mohlin",
         "vendeur-vendeuse-denner-ag-mohlin",
         "venditore-denner-ag-langenthal-oggkv1",
-        "venditore-denner-ag-sulgen"
+        "venditore-denner-ag-sulgen",
+        "seller-denner-ag-langenthal-d47c8f",
+        "vendeur-denner-ag-langenthal-d47c8f"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-langenthal"
+          "seller-denner-ag-langenthal",
+          "seller-denner-ag-langenthal-d47c8f"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-634638"
+          "vendeur-denner-ag-langenthal-634638",
+          "vendeur-denner-ag-langenthal-d47c8f"
         ],
         "it": [
           "verkaufer-in-denner-ag-wattwil",
@@ -11496,8 +11504,8 @@
       "firstSeenAt": "2026-06-25T11:59:15.666Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-wetzikon",
-        "en": "seller-denner-ag-wetzikon",
-        "fr": "vendeur-denner-ag-wetzikon",
+        "en": "seller-denner-ag-wetzikon-8e6f7a",
+        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
       "titleByLocale": {
@@ -11531,10 +11539,12 @@
           "verkaufer-in-denner-ag-wetzikon-douzkp"
         ],
         "en": [
-          "seller-denner-ag-wetzikon-8e6f7a"
+          "seller-denner-ag-wetzikon-8e6f7a",
+          "seller-denner-ag-wetzikon"
         ],
         "fr": [
-          "vendeur-denner-ag-wetzikon-8e6f7a"
+          "vendeur-denner-ag-wetzikon-8e6f7a",
+          "vendeur-denner-ag-wetzikon"
         ],
         "it": [
           "venditore-denner-ag-urdorf"
@@ -11558,7 +11568,9 @@
         "vendeur-denner-ag-zurich-1ed56c",
         "venditore-denner-ag-zurich",
         "venditore-denner-ag-langenthal-hutbop",
-        "seller-denner-ag-langenthal-d47c8f"
+        "seller-denner-ag-langenthal-d47c8f",
+        "seller-denner-ag-wetzikon",
+        "vendeur-denner-ag-wetzikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
