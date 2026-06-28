@@ -658,6 +658,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-guida.title': 'Als Kindererzieherin im Tessin arbeiten: Gehalt und Voraussetzungen',
     'blog.article.educatore-infanzia-ticino-guida.excerpt': 'Erfahren Sie, wie Sie im Tessin Kindererzieher werden: Bildungsvoraussetzungen, Gehalt und Beschäftigungsmöglichkeiten.',
     'blog.article.educatore-infanzia-ticino-guida.imageAlt': 'Ansicht moderner Schulgebäude in Lugano, Schweiz.',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.title': 'Quellensteuern im Tessin: Rechner, Sätze und Staffeln 2026',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.excerpt': 'Leitfaden zur Berechnung der Quellensteuern im Tessin: Sätze, Stufen, Simulator und Szenarien 2026 für Grenzgänger.',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.imageAlt': 'Blick auf Lugano mit See und Bergen, Thema Steuern im Tessin',
 };
 
 export default blogMetaChDe;

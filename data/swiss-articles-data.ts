@@ -1970,6 +1970,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposte-alla-fonte-ticino-calcolatore',
+    category: 'fiscale',
+    date: '2026-06-28T00:08:24.543Z',
+    image: '/images/blog/imposte-alla-fonte-ticino-calcolatore.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

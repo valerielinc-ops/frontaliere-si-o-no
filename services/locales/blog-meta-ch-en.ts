@@ -658,6 +658,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-guida.title': 'Working as a Childhood Educator in Ticino: Salary and Requirements',
     'blog.article.educatore-infanzia-ticino-guida.excerpt': 'Learn how to become a child educator in Ticino: training requirements, salary and job opportunities.',
     'blog.article.educatore-infanzia-ticino-guida.imageAlt': 'View of modern school buildings in Lugano, Switzerland.',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.title': 'Taxes at source in Ticino: calculator, rates and brackets 2026',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.excerpt': 'Guide to calculating taxes at source in Ticino: rates, brackets, simulator and 2026 scenarios for frontier workers.',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.imageAlt': 'View of Lugano with lake and mountains, Ticino tax theme',
 };
 
 export default blogMetaChEn;

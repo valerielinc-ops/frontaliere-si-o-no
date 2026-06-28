@@ -658,6 +658,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-guida.title': 'Travailler comme éducateur d\'enfants au Tessin : salaire et exigences',
     'blog.article.educatore-infanzia-ticino-guida.excerpt': 'Découvrez comment devenir éducateur d\'enfants au Tessin : exigences de formation, salaire et opportunités d\'emploi.',
     'blog.article.educatore-infanzia-ticino-guida.imageAlt': 'Vue des bâtiments scolaires modernes à Lugano, Suisse.',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.title': 'Impôts à la source au Tessin : calculateur, taux et tranches 2026',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.excerpt': 'Guide pour le calcul des impôts à la source au Tessin : taux, échelon, simulateur et scénarios 2026 pour les travailleurs frontaliers.',
+    'blog.article.imposte-alla-fonte-ticino-calcolatore.imageAlt': 'Vue de Lugano avec lac et montagnes, thème fiscal au Tessin',
 };
 
 export default blogMetaChFr;

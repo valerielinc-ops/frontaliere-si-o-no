@@ -8442,6 +8442,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-alla-fonte-ticino-calcolatore': {
+    title: 'Imposte alla fonte in Ticino: calcolatore, aliquote e scaglioni 2026',
+    description: 'Come calcolare le imposte alla fonte in Ticino nel 2026: aliquote, scaglioni, simulatore online e scenari pratici per frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, alla, fonte, calcolatore',
+    ogTitle: 'Imposte alla fonte Ticino calcolatore: aliquote e guida 2026',
+    ogDescription: 'Scopri come calcolare le imposte alla fonte in Ticino nel 2026 con il simulatore e le aliquote aggiornate.',
+    canonicalPath: '/articoli-svizzera/imposte-alla-fonte-ticino-calcolatore/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte alla fonte in Ticino: calcolatore, aliquote e scaglioni 2026",
+      "description": "Come calcolare le imposte alla fonte in Ticino nel 2026: aliquote, scaglioni, simulatore online e scenari pratici per frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-alla-fonte-ticino-calcolatore.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista su Lugano con lago e montagne, tema imposte in Ticino"
+      },
+      "datePublished": "2026-06-28T00:08:24+00:00",
+      "dateModified": "2026-06-28T00:08:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-alla-fonte-ticino-calcolatore/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
