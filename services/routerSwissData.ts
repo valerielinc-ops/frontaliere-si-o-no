@@ -247,6 +247,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'richiesta-permesso-g-step': { it: 'richiesta-permesso-g-step', en: 'g-permit-application-step-by-step', de: 'g-bewilligung-beantragen-schritt-fuer-schritt', fr: 'demande-permis-g-etape-par-etape' },
  'imposte-alla-fonte-ticino': { it: 'imposte-alla-fonte-ticino', en: 'ticino-withholding-tax-calculator', de: 'quellensteuer-ticino-rechner', fr: 'impot-a-la-source-ticino-calculateur' },
  'aufenthaltsbewilligung-b-quellensteuer': { it: 'aufenthaltsbewilligung-b-quellensteuer', en: 'residence-permit-b-withholding-tax-2026', de: 'aufenthaltsbewilligung-b-quellensteuer-2026', fr: 'autorisation-de-sejour-b-impot-a-la-source-2026' },
+ 'quellensteuer-tarife-svizzera-2026': { it: 'quellensteuer-tarife-svizzera-2026', en: 'quellensteuer-switzerland-rates-2026', de: 'quellensteuer-tarife-schweiz-2026', fr: 'quellensteuer-tarifs-suisse-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

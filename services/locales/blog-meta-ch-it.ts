@@ -673,6 +673,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aufenthaltsbewilligung-b-quellensteuer.title': 'Aufenthaltsbewilligung B e Quellensteuer 2026: tutto quello che devi sapere',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer.excerpt': 'Scopri le novità sulla tassazione per chi ha la B-Bewilligung in Svizzera nel 2026',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer.imageAlt': 'Panorama di Lugano con documenti fiscali e calcolatori',
+    'blog.article.quellensteuer-tarife-svizzera-2026.title': 'Quellensteuer Svizzera: tariffe 2026 e calcolo per tutti i cantoni',
+    'blog.article.quellensteuer-tarife-svizzera-2026.excerpt': 'Quellensteuer Svizzera 2026: tariffe, abbuoni, soglie NOV 120k CHF per Ticino, Grigioni, Vallese, Berna. Guida al calcolo e ai principali abbuoni.',
+    'blog.article.quellensteuer-tarife-svizzera-2026.imageAlt': 'Ufficio fiscale svizzero moderno con documenti e calcolatrici, Ticino.',
 };
 
 export default blogMetaChIt;
