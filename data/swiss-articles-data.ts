@@ -1997,6 +1997,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposte-alla-fonte-ticino',
+    category: 'fiscale',
+    date: '2026-06-28T02:45:24.350Z',
+    image: '/images/blog/imposte-alla-fonte-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

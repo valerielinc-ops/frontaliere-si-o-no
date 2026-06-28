@@ -667,6 +667,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step.title': 'Genehmigungsantrag G Schritt für Schritt: vollständiges Verfahren 2026',
     'blog.article.richiesta-permesso-g-step.excerpt': 'Praktischer Leitfaden zur Beantragung der Bewilligung G: Dokumente, Zeiten und Kosten für Grenzgänger in der Schweiz im Jahr 2026',
     'blog.article.richiesta-permesso-g-step.imageAlt': 'Person füllt ein Formular an einem Schweizer kantonalen Amt mit Blick auf Lugano aus',
+    'blog.article.imposte-alla-fonte-ticino.title': 'So berechnen Sie die Quellensteuer im Tessin: Kompletter Leitfaden',
+    'blog.article.imposte-alla-fonte-ticino.excerpt': 'Erfahren Sie, wie Sie die Quellensteuer im Tessin mit aktualisierten Sätzen und Stufen berechnen. Nutzen Sie unseren Simulator für reale Beispiele.',
+    'blog.article.imposte-alla-fonte-ticino.imageAlt': 'Person arbeitet an einem Laptop mit offenem Schweizer Steuerformular in einem Café in Lugano',
 };
 
 export default blogMetaChDe;

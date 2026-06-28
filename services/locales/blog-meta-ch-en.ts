@@ -667,6 +667,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step.title': 'Permit request G step by step: complete procedure 2026',
     'blog.article.richiesta-permesso-g-step.excerpt': 'Practical guide to applying for the G permit: documents, time and costs for border workers in Switzerland in 2026',
     'blog.article.richiesta-permesso-g-step.imageAlt': 'Person filling out a form at a Swiss cantonal office with a view of Lugano',
+    'blog.article.imposte-alla-fonte-ticino.title': 'How to calculate the tax at source in Ticino: complete guide',
+    'blog.article.imposte-alla-fonte-ticino.excerpt': 'Learn how to calculate tax at source in Ticino with updated rates and brackets. Use our simulator for real examples.',
+    'blog.article.imposte-alla-fonte-ticino.imageAlt': 'Person working on a laptop with a Swiss tax form open in a Lugano café',
 };
 
 export default blogMetaChEn;
