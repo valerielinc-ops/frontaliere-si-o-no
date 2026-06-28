@@ -8481,6 +8481,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensione-frontaliere-avs-inps-2026': {
+    title: 'Pensione frontalieri 2026: coordinamento AVS/INPS e simulazione pratica',
+    description: 'Scopri come il coordinamento AVS/INPS impatterà sui frontalieri nel 2026 e come effettuare una simulazione pratica della tua pensione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, coordinamento, inps, simulazione',
+    ogTitle: 'Pensione frontalieri 2026: coordinamento AVS/INPS',
+    ogDescription: 'Informazioni dettagliate sul coordinamento AVS/INPS e strumenti per la simulazione della pensione per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/pensione-frontaliere-avs-inps-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione frontalieri 2026: coordinamento AVS/INPS e simulazione pratica",
+      "description": "Scopri come il coordinamento AVS/INPS impatterà sui frontalieri nel 2026 e come effettuare una simulazione pratica della tua pensione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-frontaliere-avs-inps-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coppia di pensionati in riva al lago di Lugano"
+      },
+      "datePublished": "2026-06-28T00:51:59+00:00",
+      "dateModified": "2026-06-28T00:51:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensione-frontaliere-avs-inps-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4272,6 +4272,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ingresso-svizzera-frontalieri-2026': { name: 'Documenti e dogana 2026', path: '/articoli-svizzera/ingresso-svizzera-frontalieri-2026/', parent: 'blog' },
     'blog-educatore-infanzia-ticino-guida': { name: 'Lavorare in Ticino', path: '/articoli-svizzera/educatore-infanzia-ticino-guida/', parent: 'blog' },
     'blog-imposte-alla-fonte-ticino-calcolatore': { name: 'Imposte alla fonte Ticino', path: '/articoli-svizzera/imposte-alla-fonte-ticino-calcolatore/', parent: 'blog' },
+    'blog-pensione-frontaliere-avs-inps-2026': { name: 'Pensione frontalieri', path: '/articoli-svizzera/pensione-frontaliere-avs-inps-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

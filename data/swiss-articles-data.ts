@@ -1979,6 +1979,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'pensione-frontaliere-avs-inps-2026',
+    category: 'pensione',
+    date: '2026-06-28T00:51:59.776Z',
+    image: '/images/blog/pensione-frontaliere-avs-inps-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

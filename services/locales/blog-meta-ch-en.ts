@@ -661,6 +661,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-alla-fonte-ticino-calcolatore.title': 'Taxes at source in Ticino: calculator, rates and brackets 2026',
     'blog.article.imposte-alla-fonte-ticino-calcolatore.excerpt': 'Guide to calculating taxes at source in Ticino: rates, brackets, simulator and 2026 scenarios for frontier workers.',
     'blog.article.imposte-alla-fonte-ticino-calcolatore.imageAlt': 'View of Lugano with lake and mountains, Ticino tax theme',
+    'blog.article.pensione-frontaliere-avs-inps-2026.title': 'Border pensions 2026: AVS/INPS coordination and practical simulation',
+    'blog.article.pensione-frontaliere-avs-inps-2026.excerpt': 'Find out how the AVS/INPS coordination from 2024 will impact border workers in 2026 and how to carry out a practical simulation of your pension.',
+    'blog.article.pensione-frontaliere-avs-inps-2026.imageAlt': 'Retired couple enjoying Lake Lugano view',
 };
 
 export default blogMetaChEn;
