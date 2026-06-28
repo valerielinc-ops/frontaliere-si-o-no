@@ -1,13 +1,13 @@
 {
   "crawlerKey": "ubs",
-  "assembledAt": "2026-06-28T12:16:30.589Z",
+  "assembledAt": "2026-06-28T22:49:47.899Z",
   "jobs": [
     {
       "id": "ubs-4393d943d7fa",
-      "slug": "cliente-associato-ubs-ticino-438583",
+      "slug": "client-associate-ubs",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino-438583",
+        "it": "client-associate-ubs",
         "de": "client-associate-ubs",
         "fr": "client-associate-ubs"
       },
@@ -17,7 +17,7 @@
       "title": "Client Associate",
       "titleByLocale": {
         "en": "Client Associate",
-        "it": "Cliente associato",
+        "it": "Client Associate",
         "de": "Client Associate",
         "fr": "Client Associate"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347679&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.172Z",
+      "crawledAt": "2026-06-28T22:49:45.526Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,23 +73,23 @@
         }
       },
       "firstSeenAt": "2026-06-28T12:16:28.172Z",
+      "previousSlugs": [
+        "cliente-associato-ubs-ticino-438583"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "client-associate-ubs"
         ]
-      },
-      "previousSlugs": [
-        "client-associate-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-802593e8fbf3",
-      "slug": "legal-tirocinante-ubs-ticino",
+      "slug": "legal-intern-ubs",
       "slugByLocale": {
         "en": "legal-intern-ubs",
-        "it": "legal-tirocinante-ubs-ticino",
-        "de": "legal-praktikant-ubs-ticino",
-        "fr": "legal-stagiaire-ubs-ticino"
+        "it": "legal-intern-ubs",
+        "de": "legal-intern-ubs",
+        "fr": "legal-intern-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -113,7 +113,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345910&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.170Z",
+      "crawledAt": "2026-06-28T22:49:45.525Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -153,20 +153,22 @@
         }
       },
       "firstSeenAt": "2026-06-28T12:16:28.170Z",
+      "previousSlugs": [
+        "legal-tirocinante-ubs-ticino"
+      ],
       "previousSlugsByLocale": {
-        "it": [
-          "legal-intern-ubs"
-        ],
         "de": [
+          "legal-praktikant-ubs-ticino",
           "legal-intern-ubs"
         ],
         "fr": [
+          "legal-stagiaire-ubs-ticino",
+          "legal-intern-ubs"
+        ],
+        "it": [
           "legal-intern-ubs"
         ]
-      },
-      "previousSlugs": [
-        "legal-intern-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-e71061bbe0d4",
@@ -175,7 +177,7 @@
         "en": "gwm-finance-intern-ubs",
         "it": "gwm-finanza-tirocinante-ubs-ticino",
         "de": "gwm-finanzen-praktikant-ubs-ticino",
-        "fr": "gwm-finance-stagiaire-ubs-ticino"
+        "fr": "gwm-finanza-tirocinante-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -199,7 +201,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343851&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.169Z",
+      "crawledAt": "2026-06-28T22:49:45.523Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,6 +230,9 @@
       "previousSlugsByLocale": {
         "it": [
           "gwm-finance-intern-ubs"
+        ],
+        "fr": [
+          "gwm-finance-stagiaire-ubs-ticino"
         ]
       },
       "previousSlugs": [
@@ -279,7 +284,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346445&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.168Z",
+      "crawledAt": "2026-06-28T22:49:45.522Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -351,7 +356,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342324&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.166Z",
+      "crawledAt": "2026-06-28T22:49:45.520Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -416,7 +421,7 @@
       "titleByLocale": {
         "en": "Global Markets - Electronic Trading Risk Management",
         "fr": "Global Markets - Electronic Trading Risk Management",
-        "it": "Mercati globali - Gestione elettronica del rischio di trading",
+        "it": "Global Markets - Electronic Trading Risk Management",
         "de": "Global Markets - Electronic Trading Risk Management"
       },
       "description": "Your role\nWe’re looking for an ETRM (Electronic Trading Risk Management) professional to oversee electronic trading risk controls across China market.\n• establish and maintain end-to-end trading risk controls, including control design, control coverage and ongoing effectiveness\n• manage trading limits, including approvals and calibrations\n• perform post-trade monitoring and analytics, covering trade surveillance, reporting and client behavior analysis\n• provide independent oversight through governance, change approval and regulatory / exchange engagement\n• work with APAC teams to ensure consistent risk framework and control coverage across markets",
@@ -431,7 +436,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=337635&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.165Z",
+      "crawledAt": "2026-06-28T22:49:45.519Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -512,7 +517,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=335152&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:16:28.165Z",
+      "crawledAt": "2026-06-28T22:49:45.519Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -593,7 +598,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339008&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.163Z",
+      "crawledAt": "2026-06-28T22:49:45.517Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -665,7 +670,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342554&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.162Z",
+      "crawledAt": "2026-06-28T22:49:45.516Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -711,12 +716,12 @@
     },
     {
       "id": "ubs-2874f41f4628",
-      "slug": "client-associate-ubs",
+      "slug": "client-associate-ubs-2",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino",
-        "de": "cliente-associato-ubs-ticino",
-        "fr": "client-associe-ubs-ticino"
+        "it": "client-associate-ubs-2",
+        "de": "client-associate-ubs-2",
+        "fr": "client-associate-ubs-2"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -724,23 +729,23 @@
       "title": "Client Associate",
       "titleByLocale": {
         "en": "Client Associate",
-        "it": "Cliente associato",
+        "it": "Client Associate",
         "de": "Client Associate",
-        "fr": "Client associé"
+        "fr": "Client Associate"
       },
       "description": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
       "descriptionByLocale": {
         "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
-        "it": "Sei davvero orientato al servizio? Sai come prendersi cura delle persone?\n\nStiamo cercando un cliente associato a:\n\n• Mantenere i sistemi di gestione aggiornati con le informazioni del cliente\n• Educare i clienti sui servizi e sulle capacità dell'account\n• Aiuto con la preparazione di rapporti e altri materiali per le riunioni dei clienti\n• Raccogliere la documentazione giusta per aprire nuovi account e richieste di assistenza\n• Pianificare gli eventi di marketing del team e mantenere i materiali di marketing\n• Fornire al team un calendario dettagliato delle attività",
-        "de": "Sind Sie wirklich serviceorientiert? Wissen Sie, wie man sich um Menschen kümmert?\n\nWir suchen einen Client Associate für:\n\n• Halten Sie Managementsysteme auf dem neuesten Stand mit Kundeninformationen\n• Informieren Sie Kunden über Kontodienste und -funktionen\n• Hilfe bei der Erstellung von Berichten und anderen Materialien für Kundentreffen\n• Sammeln Sie die richtige Dokumentation für die Eröffnung neuer Konten und Serviceanfragen\n• Planen Sie Team-Marketing-Events und pflegen Sie Marketingmaterialien\n• Geben Sie dem Team einen detaillierten Zeitplan der Aktivitäten",
-        "fr": "Êtes-vous vraiment orienté vers le service? Tu sais t'occuper des gens ?\n\nNous cherchons un client associé à:\n\n• Tenez les systèmes de gestion à jour avec l'information du client\n• Éduquer les clients sur les services et les capacités de compte\n• Aide à la préparation des rapports et autres documents destinés aux réunions des clients\n• Recueillir la documentation appropriée pour ouvrir de nouveaux comptes et demandes de services\n• Planifier des événements de marketing d'équipe et maintenir le matériel de marketing\n• Fournir à l'équipe un calendrier détaillé des activités"
+        "it": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
+        "de": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
+        "fr": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities"
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347420&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:48:18.851Z",
+      "crawledAt": "2026-06-28T22:49:45.515Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -766,6 +771,7 @@
         "categoryRaw": "Business management, administration and support",
         "jobType": ""
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -781,9 +787,11 @@
       "firstSeenAt": "2026-06-25T23:34:27.344Z",
       "previousSlugsByLocale": {
         "it": [
+          "cliente-associato-ubs-ticino",
           "client-associate-ubs-2"
         ],
         "fr": [
+          "client-associe-ubs-ticino",
           "client-associe-ubs-ticino-1e445c",
           "client-associate-ubs-2"
         ],
@@ -792,7 +800,6 @@
         ]
       },
       "previousSlugs": [
-        "client-associate-ubs-2",
         "client-associe-ubs-ticino-1e445c",
         "cliente-associato-ubs-ticino-1e445c",
         "cliente-associato-registrato-ubs-ticino",
@@ -812,10 +819,10 @@
     },
     {
       "id": "ubs-63a17249f7b2",
-      "slug": "associato-cliente-registrato-senior-ubs-ticino",
+      "slug": "senior-registered-client-associate-ubs",
       "slugByLocale": {
         "en": "senior-registered-client-associate-ubs",
-        "it": "associato-cliente-registrato-senior-ubs-ticino",
+        "it": "senior-registered-client-associate-ubs",
         "de": "senior-registered-client-associate-ubs",
         "fr": "senior-registered-client-associate-ubs"
       },
@@ -825,7 +832,7 @@
       "title": "Senior Registered Client Associate",
       "titleByLocale": {
         "en": "Senior Registered Client Associate",
-        "it": "Associato cliente registrato senior",
+        "it": "Senior Registered Client Associate",
         "de": "Senior Registered Client Associate",
         "fr": "Senior Registered Client Associate"
       },
@@ -841,7 +848,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341923&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.159Z",
+      "crawledAt": "2026-06-28T22:49:45.513Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -881,6 +888,11 @@
         }
       },
       "firstSeenAt": "2026-06-25T23:34:27.343Z",
+      "previousSlugs": [
+        "associato-cliente-registrato-senior-ubs-ticino",
+        "client-principal-inscrit-associe-ubs-ticino",
+        "associato-senior-registrato-cliente-ubs-ticino"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "client-principal-inscrit-associe-ubs-ticino"
@@ -888,19 +900,14 @@
         "it": [
           "senior-registered-client-associate-ubs"
         ]
-      },
-      "previousSlugs": [
-        "client-principal-inscrit-associe-ubs-ticino",
-        "senior-registered-client-associate-ubs",
-        "associato-senior-registrato-cliente-ubs-ticino"
-      ]
+      }
     },
     {
       "id": "ubs-394afe100a49",
-      "slug": "cliente-associato-ubs-ticino-c50ac3",
+      "slug": "client-associate-ubs-3",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino-c50ac3",
+        "it": "client-associate-ubs-3",
         "de": "client-associate-ubs-3",
         "fr": "client-associate-ubs-3"
       },
@@ -910,7 +917,7 @@
       "title": "Client Associate",
       "titleByLocale": {
         "en": "Client Associate",
-        "it": "Cliente associato",
+        "it": "Client Associate",
         "de": "Client Associate",
         "fr": "Client Associate"
       },
@@ -926,7 +933,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341798&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.158Z",
+      "crawledAt": "2026-06-28T22:49:45.512Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -967,8 +974,8 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.341Z",
       "previousSlugs": [
+        "cliente-associato-ubs-ticino-c50ac3",
         "client-associate-ubs-2",
-        "client-associate-ubs-3",
         "client-associe-ubs-ticino-c50ac3"
       ],
       "previousSlugsByLocale": {
@@ -1016,7 +1023,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347740&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.157Z",
+      "crawledAt": "2026-06-28T22:49:45.510Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1096,7 +1103,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345358&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.155Z",
+      "crawledAt": "2026-06-28T22:49:45.509Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1147,10 +1154,10 @@
     },
     {
       "id": "ubs-ac0f500a46a1",
-      "slug": "client-relationship-manager-copertura-clienti-all-ingrosso-ubs-ticino",
+      "slug": "client-relationship-manager-wholesale-client-coverage-ubs",
       "slugByLocale": {
         "en": "client-relationship-manager-wholesale-client-coverage-ubs",
-        "it": "client-relationship-manager-copertura-clienti-all-ingrosso-ubs-ticino",
+        "it": "client-relationship-manager-wholesale-client-coverage-ubs",
         "de": "client-relationship-manager-wholesale-client-coverage-ubs",
         "fr": "client-relationship-manager-wholesale-client-coverage-ubs"
       },
@@ -1160,7 +1167,7 @@
       "title": "Client Relationship Manager - Wholesale Client Coverage",
       "titleByLocale": {
         "en": "Client Relationship Manager - Wholesale Client Coverage",
-        "it": "Client Relationship Manager - Copertura clienti all'ingrosso",
+        "it": "Client Relationship Manager - Wholesale Client Coverage",
         "de": "Client Relationship Manager - Wholesale Client Coverage",
         "fr": "Client Relationship Manager - Wholesale Client Coverage"
       },
@@ -1176,7 +1183,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347006&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.154Z",
+      "crawledAt": "2026-06-28T22:49:45.507Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1217,8 +1224,8 @@
       },
       "firstSeenAt": "2026-06-25T12:32:27.475Z",
       "previousSlugs": [
+        "client-relationship-manager-copertura-clienti-all-ingrosso-ubs-ticino",
         "gestionnaire-des-relations-avec-la-clientele-couverture-de-la-clientele-de-gros-ubs-ticino",
-        "client-relationship-manager-wholesale-client-coverage-ubs",
         "responsabile-delle-relazioni-con-i-clienti-copertura-clienti-all-ingrosso-ubs-ticino"
       ],
       "previousSlugsByLocale": {
@@ -1232,10 +1239,10 @@
     },
     {
       "id": "ubs-7375e23b6ff3",
-      "slug": "ricerca-di-dati-ubs-ticino",
+      "slug": "data-scientist-ubs",
       "slugByLocale": {
         "en": "data-scientist-ubs",
-        "it": "ricerca-di-dati-ubs-ticino",
+        "it": "data-scientist-ubs",
         "de": "data-scientist-ubs",
         "fr": "data-scientist-ubs"
       },
@@ -1245,7 +1252,7 @@
       "title": "Data Scientist",
       "titleByLocale": {
         "en": "Data Scientist",
-        "it": "Ricerca di dati",
+        "it": "Data Scientist",
         "de": "Data Scientist",
         "fr": "Data Scientist"
       },
@@ -1261,7 +1268,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=337521&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.152Z",
+      "crawledAt": "2026-06-28T22:49:45.505Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1302,8 +1309,8 @@
       },
       "firstSeenAt": "2026-06-25T12:32:27.474Z",
       "previousSlugs": [
+        "ricerca-di-dati-ubs-ticino",
         "scientifique-des-donnees-ubs-ticino",
-        "data-scientist-ubs",
         "scienziato-dei-dati-ubs-ticino"
       ],
       "previousSlugsByLocale": {
@@ -1346,7 +1353,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347584&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.151Z",
+      "crawledAt": "2026-06-28T22:49:45.504Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1427,7 +1434,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345071&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.149Z",
+      "crawledAt": "2026-06-28T22:49:45.503Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1502,7 +1509,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347586&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.148Z",
+      "crawledAt": "2026-06-28T22:49:45.501Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1582,7 +1589,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347590&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.146Z",
+      "crawledAt": "2026-06-28T22:49:45.500Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1654,7 +1661,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345072&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.145Z",
+      "crawledAt": "2026-06-28T22:49:45.498Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1700,10 +1707,10 @@
     },
     {
       "id": "ubs-2b482c6da336",
-      "slug": "responsabile-del-rischio-di-credito-hedge-funds-ubs-ticino",
+      "slug": "credit-risk-officer-hedge-funds-ubs",
       "slugByLocale": {
         "en": "credit-risk-officer-hedge-funds-ubs",
-        "it": "responsabile-del-rischio-di-credito-hedge-funds-ubs-ticino",
+        "it": "credit-risk-officer-hedge-funds-ubs",
         "de": "credit-risk-officer-hedge-funds-ubs",
         "fr": "credit-risk-officer-hedge-funds-ubs"
       },
@@ -1714,7 +1721,7 @@
       "titleByLocale": {
         "en": "Credit Risk Officer - Hedge Funds",
         "de": "Credit Risk Officer - Hedge Funds",
-        "it": "Responsabile del Rischio di Credito - Hedge Funds",
+        "it": "Credit Risk Officer - Hedge Funds",
         "fr": "Credit Risk Officer - Hedge Funds"
       },
       "description": "Are you naturally curious and ambitious? Do you have sharp analytical skills and a background in counterparty credit risk in hedge funds?\n\nWe’re looking for a Credit Risk Officer like you who can:\n\n• evaluate counterparty credit risk based on an understanding of the hedge fund and family office risk management techniques, trading strategies, and infrastructure, as well as a number of other quantitative and qualitative measures of credit worthiness. This will include client due diligence visits for onsite evaluations.\n• hold delegated personal authority (within established risk-based limits) to approve new positions or to make recommendations to higher authority levels within Credit. The candidate will be expected to interact with the business units in relation to transactions to ensure the risk fit UBS's ultimate appetite in the sector.\n• evaluate transactional risks associated with OTC derivatives, securities financing, exchange traded derivatives, banking products and structured transactions\n• prepare, as well as review and approve, written counterparty annual reviews/transactional credit proposals drawing conclusions relating to credit assessment, risk appetite, exposure drivers and business prospects\n• lead trading documentation negotiation including ISDA/CSA, Prime Brokerage and Repo Agreements\n• ensure all regulatory requests, audit items and operational risk issues are dealt with in a disciplined, timely and efficient manner\n• perform ad hoc credit risk analysis and participate in portfolio reviews to identify risk developments or concentrations",
@@ -1729,7 +1736,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347750&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.144Z",
+      "crawledAt": "2026-06-28T22:49:45.497Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1770,8 +1777,8 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.336Z",
       "previousSlugs": [
+        "responsabile-del-rischio-di-credito-hedge-funds-ubs-ticino",
         "agent-de-risque-de-credit-fonds-de-couverture-ubs-ticino",
-        "credit-risk-officer-hedge-funds-ubs",
         "credit-risk-officer-fondi-di-copertura-ubs-ticino",
         "credit-risk-officer-analyst-hedge-funds-ubs",
         "credit-risk-analyst-hedge-funds-ubs"
@@ -1787,10 +1794,10 @@
     },
     {
       "id": "ubs-0f84a27fe313",
-      "slug": "ufficiale-operativo-ubs-ticino",
+      "slug": "operations-officer-ubs",
       "slugByLocale": {
         "en": "operations-officer-ubs",
-        "it": "ufficiale-operativo-ubs-ticino",
+        "it": "operations-officer-ubs",
         "de": "operations-officer-ubs",
         "fr": "operations-officer-ubs"
       },
@@ -1800,7 +1807,7 @@
       "title": "Operations Officer",
       "titleByLocale": {
         "en": "Operations Officer",
-        "it": "Ufficiale Operativo",
+        "it": "Operations Officer",
         "de": "Operations Officer",
         "fr": "Operations Officer"
       },
@@ -1816,7 +1823,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342788&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.142Z",
+      "crawledAt": "2026-06-28T22:49:45.495Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1857,8 +1864,8 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.354Z",
       "previousSlugs": [
+        "ufficiale-operativo-ubs-ticino",
         "specialiste-des-operations-ubs-ticino",
-        "operations-officer-ubs",
         "agente-operativo-ubs-ticino",
         "agente-di-vigilanza-ubs-ticino",
         "ufficiale-di-conformita-ubs-ticino",
@@ -1875,10 +1882,10 @@
     },
     {
       "id": "ubs-7d8df6c6af1e",
-      "slug": "tirocinio-quantitativo-in-validazione-dei-modelli-algoritmici-ubs-ticino",
+      "slug": "algo-model-validation-quantitative-internship-ubs",
       "slugByLocale": {
         "en": "algo-model-validation-quantitative-internship-ubs",
-        "it": "tirocinio-quantitativo-in-validazione-dei-modelli-algoritmici-ubs-ticino",
+        "it": "algo-model-validation-quantitative-internship-ubs",
         "de": "algo-model-validation-quantitative-internship-ubs",
         "fr": "algo-model-validation-quantitative-internship-ubs"
       },
@@ -1888,7 +1895,7 @@
       "title": "Algo Model Validation Quantitative Internship",
       "titleByLocale": {
         "en": "Algo Model Validation Quantitative Internship",
-        "it": "Tirocinio Quantitativo in Validazione dei Modelli Algoritmici",
+        "it": "Algo Model Validation Quantitative Internship",
         "de": "Algo Model Validation Quantitative Internship",
         "fr": "Algo Model Validation Quantitative Internship"
       },
@@ -1904,7 +1911,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346906&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.141Z",
+      "crawledAt": "2026-06-28T22:49:45.494Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1945,8 +1952,8 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.352Z",
       "previousSlugs": [
+        "tirocinio-quantitativo-in-validazione-dei-modelli-algoritmici-ubs-ticino",
         "algo-model-validation-quantitatives-praktikum-ubs-ticino",
-        "algo-model-validation-quantitative-internship-ubs",
         "validation-du-modele-algo-stage-quantitatif-ubs-ticino",
         "validazione-del-modello-dell-algo-internamento-quantitativo-ubs-ticino",
         "convalida-del-modello-dell-algo-internamento-quantitativo-ubs-ticino",
@@ -1995,7 +2002,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343030&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.139Z",
+      "crawledAt": "2026-06-28T22:49:45.493Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2072,7 +2079,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347855&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.138Z",
+      "crawledAt": "2026-06-28T22:49:45.491Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2128,7 +2135,7 @@
       "title": "Client Associate",
       "titleByLocale": {
         "en": "Client Associate",
-        "it": "Cliente Associato",
+        "it": "Client Associate",
         "de": "Client Associate",
         "fr": "Client Associate"
       },
@@ -2144,7 +2151,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347428&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.137Z",
+      "crawledAt": "2026-06-28T22:49:45.490Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2210,102 +2217,11 @@
       "firstSeenAt": "2026-06-26T23:01:42.413Z"
     },
     {
-      "id": "ubs-0b8a643e8f5d",
-      "slug": "amministratore-del-team-ubs-ticino",
-      "slugByLocale": {
-        "en": "team-administrator-ubs",
-        "it": "amministratore-del-team-ubs-ticino",
-        "de": "team-administrator-ubs",
-        "fr": "team-administrator-ubs"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Team Administrator",
-      "titleByLocale": {
-        "en": "Team Administrator",
-        "it": "Amministratore del Team",
-        "de": "Team Administrator",
-        "fr": "Team Administrator"
-      },
-      "description": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability.",
-      "descriptionByLocale": {
-        "en": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability.",
-        "it": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability.",
-        "de": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability.",
-        "fr": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability."
-      },
-      "location": "Ticino",
-      "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347228&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.135Z",
-      "addressLocality": "Ticino",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347228&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "_ubsMeta": {
-        "reqId": "347228",
-        "department": "Global Wealth Management",
-        "region": "United States - Massachusetts",
-        "cities": "",
-        "categoryRaw": "Business management, administration and support",
-        "jobType": ""
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-26T23:01:42.416Z",
-      "previousSlugs": [
-        "teamadministrator-ubs-ticino",
-        "team-administrator-ubs",
-        "administrateur-d-equipe-ubs-ticino",
-        "administrateur-de-l-equipe-ubs-ticino",
-        "amministratore-di-squadra-ubs-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "teamadministrator-ubs-ticino"
-        ],
-        "fr": [
-          "administrateur-d-equipe-ubs-ticino",
-          "administrateur-de-l-equipe-ubs-ticino"
-        ],
-        "it": [
-          "team-administrator-ubs"
-        ]
-      }
-    },
-    {
       "id": "ubs-00dda23c7fcf",
-      "slug": "cliente-associato-ubs-ticino-359e94",
+      "slug": "client-associate-ubs-4",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino-359e94",
+        "it": "client-associate-ubs-4",
         "de": "client-associate-ubs-4",
         "fr": "client-associate-ubs-4"
       },
@@ -2315,7 +2231,7 @@
       "title": "Client Associate",
       "titleByLocale": {
         "en": "Client Associate",
-        "it": "Cliente Associato",
+        "it": "Client Associate",
         "de": "Client Associate",
         "fr": "Client Associate"
       },
@@ -2331,7 +2247,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347852&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.134Z",
+      "crawledAt": "2026-06-28T22:49:45.488Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2372,9 +2288,9 @@
       },
       "firstSeenAt": "2026-06-26T23:01:42.403Z",
       "previousSlugs": [
+        "cliente-associato-ubs-ticino-359e94",
         "client-associate-ubs-3",
-        "client-associe-ubs-ticino-359e94",
-        "client-associate-ubs-4"
+        "client-associe-ubs-ticino-359e94"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2405,7 +2321,7 @@
       "title": "Administrative Officer",
       "titleByLocale": {
         "en": "Administrative Officer",
-        "it": "Funzionario Amministrativo",
+        "it": "Administrative Officer",
         "de": "Administrative Officer",
         "fr": "Administrative Officer"
       },
@@ -2421,7 +2337,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343494&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.132Z",
+      "crawledAt": "2026-06-28T22:49:45.487Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2481,10 +2397,10 @@
     },
     {
       "id": "ubs-9be40b86293a",
-      "slug": "associato-senior-registrato-cliente-ubs-ticino",
+      "slug": "senior-registered-client-associate-ubs-2",
       "slugByLocale": {
         "en": "senior-registered-client-associate-ubs",
-        "it": "associato-senior-registrato-cliente-ubs-ticino",
+        "it": "senior-registered-client-associate-ubs-2",
         "de": "senior-registered-client-associate-ubs-2",
         "fr": "senior-registered-client-associate-ubs-2"
       },
@@ -2494,7 +2410,7 @@
       "title": "Senior Registered Client Associate",
       "titleByLocale": {
         "en": "Senior Registered Client Associate",
-        "it": "Associato Senior Registrato Cliente",
+        "it": "Senior Registered Client Associate",
         "de": "Senior Registered Client Associate",
         "fr": "Senior Registered Client Associate"
       },
@@ -2510,7 +2426,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347847&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.131Z",
+      "crawledAt": "2026-06-28T22:49:45.485Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2550,6 +2466,11 @@
         }
       },
       "firstSeenAt": "2026-06-26T23:01:42.402Z",
+      "previousSlugs": [
+        "associato-senior-registrato-cliente-ubs-ticino",
+        "client-principal-inscrit-associe-ubs-ticino-f78b2a",
+        "associato-senior-registrato-cliente-ubs-ticino-f78b2a"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "client-principal-inscrit-associe-ubs-ticino-f78b2a"
@@ -2557,12 +2478,7 @@
         "it": [
           "senior-registered-client-associate-ubs-2"
         ]
-      },
-      "previousSlugs": [
-        "client-principal-inscrit-associe-ubs-ticino-f78b2a",
-        "senior-registered-client-associate-ubs-2",
-        "associato-senior-registrato-cliente-ubs-ticino-f78b2a"
-      ]
+      }
     },
     {
       "id": "ubs-5de6a67c1bef",
@@ -2579,7 +2495,7 @@
       "title": "Internship in Access Control Team",
       "titleByLocale": {
         "en": "Internship in Access Control Team",
-        "it": "Tirocinio nel Team di Controllo degli Accessi",
+        "it": "Internship in Access Control Team",
         "de": "Internship in Access Control Team",
         "fr": "Internship in Access Control Team"
       },
@@ -2595,7 +2511,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347771&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.129Z",
+      "crawledAt": "2026-06-28T22:49:45.484Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2650,10 +2566,10 @@
     },
     {
       "id": "ubs-450446db1730",
-      "slug": "global-markets-responsabile-delle-relazioni-di-compensazione-ubs-ticino",
+      "slug": "global-markets-clearing-relationship-manager-ubs",
       "slugByLocale": {
         "en": "global-markets-clearing-relationship-manager-ubs",
-        "it": "global-markets-responsabile-delle-relazioni-di-compensazione-ubs-ticino",
+        "it": "global-markets-clearing-relationship-manager-ubs",
         "de": "global-markets-clearing-relationship-manager-ubs",
         "fr": "global-markets-clearing-relationship-manager-ubs"
       },
@@ -2663,7 +2579,7 @@
       "title": "Global Markets - Clearing Relationship Manager",
       "titleByLocale": {
         "en": "Global Markets - Clearing Relationship Manager",
-        "it": "Global Markets - Responsabile delle Relazioni di Compensazione",
+        "it": "Global Markets - Clearing Relationship Manager",
         "de": "Global Markets - Clearing Relationship Manager",
         "fr": "Global Markets - Clearing Relationship Manager"
       },
@@ -2679,7 +2595,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344697&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.128Z",
+      "crawledAt": "2026-06-28T22:49:45.482Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2719,6 +2635,10 @@
         }
       },
       "firstSeenAt": "2026-06-26T12:20:14.650Z",
+      "previousSlugs": [
+        "global-markets-responsabile-delle-relazioni-di-compensazione-ubs-ticino",
+        "marches-mondiaux-gestionnaire-de-relations-de-compensation-ubs-ticino"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "marches-mondiaux-gestionnaire-de-relations-de-compensation-ubs-ticino"
@@ -2726,11 +2646,7 @@
         "it": [
           "global-markets-clearing-relationship-manager-ubs"
         ]
-      },
-      "previousSlugs": [
-        "marches-mondiaux-gestionnaire-de-relations-de-compensation-ubs-ticino",
-        "global-markets-clearing-relationship-manager-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-33d53e6639a3",
@@ -2747,23 +2663,23 @@
       "title": "Trade Surveillance Operations Analyst",
       "titleByLocale": {
         "en": "Trade Surveillance Operations Analyst",
-        "it": "Analisi delle operazioni di sorveglianza commerciale",
-        "de": "Handelsüberwachungsoperationen",
-        "fr": "Analyste des opérations de surveillance commerciale"
+        "it": "Trade Surveillance Operations Analista",
+        "de": "Trade Surveillance Operations Analyst",
+        "fr": "Trade Surveillance Operations Analyste"
       },
       "description": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
       "descriptionByLocale": {
         "en": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "it": "Il tuo ruolo: Ti piacciono i mercati finanziari? Sei bravo a gestire e interpretare grandi set di dati? Sei analitico e divertente nell'investire le transazioni finanziarie, capire le strategie di trading e dare un senso all'attività di trading insolita? Sei in grado di pensare in modo indipendente ed esprimere le tue opinioni e idee con fiducia? Stiamo cercando un Analista di Sorveglianza del Commercio in un ruolo di contributore individuale con esperienza in quanto segue: • Performing automatico e manuale attività di vigilanza condotta di mercato in tutta la divisione Investment Bank e Wealth Management.\n\n• Analisi di casi di attività potenzialmente sospette segnalate dai nostri sistemi. • Coinvolgimento con gli stakeholder aziendali sul mercato, in particolare con le escalation legate alla condotta e altre questioni. • Guidare continui miglioramenti dei processi e contribuire a progetti strategici e iniziative di automazione/ottimizzazione. • Condurre una sorveglianza del commercio di barriere all'informazione per le imprese, i clienti e i dipendenti che si occupano di account personali (PAD) Controllare il flusso di informazioni materiali non pubbliche (MNPI) per rilevare potenziali violazioni della politica di barriera all'informazione dell'azienda, elenco ristretto e insider trading.\n\n• Questa descrizione del lavoro fornisce una revisione ad alto livello dei tipi di lavoro eseguiti. Altre mansioni connesse al lavoro possono essere assegnate, se necessario.",
-        "de": "Ihre Rolle: Sie mögen Finanzmärkte? Sie sind gut im Umgang mit großen Datensätzen? Sie analysieren und erforschen gerne Finanztransaktionen, verstehen Tradingstrategien und machen Sinn für die ungewöhnliche Handelsaktivität? Können Sie selbstständig denken und Ihre Meinungen und Ideen zuversichtlich ausdrücken? Wir suchen ein Trade Surveillance-Ansister in einer individuellen Rolle mit Erfahrung im Folgenden: • Die Durchführung automatisierter und manueller Marktüberwachungsaktivitäten in der Geschäftsbereich Investment Bank und Wealth Management.\n\n• Analyse von Fällen potenziell verdächtiger Aktivitäten, die von unseren Systemen gekennzeichnet sind. • Einbeziehung von Wirtschaftsakteuren in die Marktführungs- und andere Angelegenheiten. • Förderung kontinuierlicher Prozessverbesserungen und Beitrag zu strategischen Projekten und Automatisierungs-/Optimierungsinitiativen. • Durchführung von Überwachungsmaßnahmen im Bereich des Handels mit Informationsbarrieren für Firmen-, Kunden- und Personalkonten (PAD) Überwachung des Informationsflusses nichtöffentlicher Informationen (MNPI), um potenzielle Verstöße gegen die Informationsbarriererichtlinie, die eingeschränkte Liste und den Insiderhandel der Firma zu erkennen.\n\n• Diese Jobbeschreibung bietet eine hochrangige Überprüfung der Art der geleisteten Arbeit. Andere Aufgaben im Zusammenhang mit der Arbeit können bei Bedarf zugewiesen werden.",
-        "fr": "Votre rôle : Vous aimez les marchés financiers? Vous êtes doué pour gérer et interpréter de gros ensembles de données? Vous aimez analyser et étudier les transactions financières, comprendre les stratégies de trading et faire sens à l'activité commerciale inhabituelle? Vous êtes capable de penser de façon indépendante et d'exprimer vos opinions et idées avec confiance? Nous recherchons un analyste de surveillance commerciale dans un rôle de contributeur individuel avec l'expérience dans les domaines suivants : • Effectuer des activités de surveillance automatisées et manuelles de la conduite du marché dans l'ensemble de la division Investment Bank et Wealth Management.\n\n• Analyser les cas d'activités potentiellement suspectes signalées par nos systèmes. • Engager avec les acteurs du marché sur les escalades liées à la conduite du marché et d'autres questions. • Entamer des améliorations continues des processus et contribuer à des projets stratégiques et des initiatives d'automatisation/optimisation. • Mener une surveillance des obstacles au commerce de l'information pour les entreprises, les clients et les transactions de compte personnel des employés (PAD) Surveiller la circulation des informations non publiques matérielles (MNPI) afin de détecter les éventuelles violations de la politique de la société sur les obstacles à l'information, la liste restreinte et les transactions d'initiés.\n\n• Cette description de travail permet d'examiner de haut niveau les types de travail accompli. D'autres tâches liées à l'emploi peuvent être attribuées au besoin."
+        "it": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
+        "de": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
+        "fr": "Your role :\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required."
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347131&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:48:18.825Z",
+      "crawledAt": "2026-06-28T22:49:45.481Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2799,6 +2715,7 @@
         "trade-surveillance-operations-analyst-ubs-2",
         "trade-surveillance-operations-analista-ubs-ticino"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2815,10 +2732,10 @@
     },
     {
       "id": "ubs-b2b64dd7c86e",
-      "slug": "assistente-al-servizio-clienti-ubs-ticino",
+      "slug": "client-service-associate-ubs",
       "slugByLocale": {
         "en": "client-service-associate-ubs",
-        "it": "assistente-al-servizio-clienti-ubs-ticino",
+        "it": "client-service-associate-ubs",
         "de": "client-service-associate-ubs",
         "fr": "client-service-associate-ubs"
       },
@@ -2828,7 +2745,7 @@
       "title": "Client Service Associate",
       "titleByLocale": {
         "en": "Client Service Associate",
-        "it": "Assistente al Servizio Clienti",
+        "it": "Client Service Associate",
         "de": "Client Service Associate",
         "fr": "Client Service Associate"
       },
@@ -2844,7 +2761,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347782&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.125Z",
+      "crawledAt": "2026-06-28T22:49:45.479Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2885,8 +2802,8 @@
       },
       "firstSeenAt": "2026-06-26T12:20:14.667Z",
       "previousSlugs": [
+        "assistente-al-servizio-clienti-ubs-ticino",
         "kundendienstmitarbeiter-ubs-ticino",
-        "client-service-associate-ubs",
         "service-a-la-clientele-ubs-ticino",
         "servizio-clienti-associato-ubs-ticino"
       ],
@@ -2933,7 +2850,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345457&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T12:16:28.124Z",
+      "crawledAt": "2026-06-28T22:49:45.478Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3005,7 +2922,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347352&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.124Z",
+      "crawledAt": "2026-06-28T22:49:45.478Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3081,7 +2998,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344328&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.123Z",
+      "crawledAt": "2026-06-28T22:49:45.476Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3158,7 +3075,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341931&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.121Z",
+      "crawledAt": "2026-06-28T22:49:45.475Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3214,7 +3131,7 @@
       "title": "Global Wealth Management Marketing Strategist, APAC",
       "titleByLocale": {
         "en": "Global Wealth Management Marketing Strategist, APAC",
-        "it": "Strategista Marketing per la Gestione Globale del Patrimonio, APAC",
+        "it": "Global Wealth Management Marketing Strategist, APAC",
         "de": "Global Wealth Management Marketing Strategist, APAC",
         "fr": "Global Wealth Management Marketing Strategist, APAC"
       },
@@ -3230,7 +3147,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341306&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.120Z",
+      "crawledAt": "2026-06-28T22:49:45.473Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3285,10 +3202,10 @@
     },
     {
       "id": "ubs-4c6895e523a3",
-      "slug": "cliente-associato-ubs-ticino-2f0da3",
+      "slug": "client-associate-ubs-5",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino-2f0da3",
+        "it": "client-associate-ubs-5",
         "de": "client-associate-ubs-5",
         "fr": "client-associate-ubs-5"
       },
@@ -3298,7 +3215,7 @@
       "title": "Client Associate",
       "titleByLocale": {
         "en": "Client Associate",
-        "it": "Cliente Associato",
+        "it": "Client Associate",
         "de": "Client Associate",
         "fr": "Client Associate"
       },
@@ -3314,7 +3231,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347753&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.118Z",
+      "crawledAt": "2026-06-28T22:49:45.472Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3355,10 +3272,10 @@
       },
       "firstSeenAt": "2026-06-26T12:20:14.662Z",
       "previousSlugs": [
+        "cliente-associato-ubs-ticino-2f0da3",
         "client-associate-ubs-4",
         "client-associate-ubs-3",
-        "client-associe-ubs-ticino-2f0da3",
-        "client-associate-ubs-5"
+        "client-associe-ubs-ticino-2f0da3"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -3379,10 +3296,10 @@
     },
     {
       "id": "ubs-174e9654e1ef",
-      "slug": "project-manager-gruppo-risorse-digitali-ubs-ticino",
+      "slug": "project-manager-group-digital-assets-ubs",
       "slugByLocale": {
         "en": "project-manager-group-digital-assets-ubs",
-        "it": "project-manager-gruppo-risorse-digitali-ubs-ticino",
+        "it": "project-manager-group-digital-assets-ubs",
         "de": "project-manager-group-digital-assets-ubs",
         "fr": "project-manager-group-digital-assets-ubs"
       },
@@ -3392,7 +3309,7 @@
       "title": "Project Manager Group Digital Assets",
       "titleByLocale": {
         "en": "Project Manager Group Digital Assets",
-        "it": "Project Manager Gruppo Risorse Digitali",
+        "it": "Project Manager Group Digital Assets",
         "de": "Project Manager Group Digital Assets",
         "fr": "Project Manager Group Digital Assets"
       },
@@ -3408,7 +3325,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345221&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.117Z",
+      "crawledAt": "2026-06-28T22:49:45.470Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3448,6 +3365,12 @@
         }
       },
       "firstSeenAt": "2026-06-26T12:20:14.661Z",
+      "previousSlugs": [
+        "project-manager-gruppo-risorse-digitali-ubs-ticino",
+        "projektmanager-gruppe-digital-assets-ubs-ticino",
+        "gestionnaire-de-projet-groupe-des-actifs-numeriques-ubs-ticino",
+        "gestionnaire-de-projet-groupe-d-actifs-numeriques-ubs-ticino"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "projektmanager-gruppe-digital-assets-ubs-ticino"
@@ -3459,22 +3382,16 @@
         "it": [
           "project-manager-group-digital-assets-ubs"
         ]
-      },
-      "previousSlugs": [
-        "projektmanager-gruppe-digital-assets-ubs-ticino",
-        "gestionnaire-de-projet-groupe-des-actifs-numeriques-ubs-ticino",
-        "gestionnaire-de-projet-groupe-d-actifs-numeriques-ubs-ticino",
-        "project-manager-group-digital-assets-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-30e670bcff0b",
-      "slug": "servizio-associato-ubs-ticino",
+      "slug": "service-associate-ubs",
       "slugByLocale": {
         "en": "service-associate-ubs",
-        "it": "servizio-associato-ubs-ticino",
-        "de": "cliente-associato-ubs-ticino",
-        "fr": "associe-de-services-ubs-ticino"
+        "it": "service-associate-ubs",
+        "de": "service-associate-ubs",
+        "fr": "service-associate-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3482,23 +3399,23 @@
       "title": "Service Associate",
       "titleByLocale": {
         "en": "Service Associate",
-        "it": "Servizio associato",
+        "it": "Service Associate",
         "de": "Service Associate",
-        "fr": "Associé de services"
+        "fr": "Service Associate"
       },
       "description": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
       "descriptionByLocale": {
         "en": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
-        "it": "Sei incredibilmente organizzato con un occhio per i dettagli? Sei un esperto multitasker?\n\nStiamo cercando un Service Associate a:\n\n• svolgere funzioni di cash management, elaborare titoli e corrispondenza, tenere record e svolgere attività di margine come membro del team Field Operations allineato al mercato\n• salutare e assistere clienti e visitatori del ramo, fornendo un servizio eccezionale\n• creare partnership forti, coltivare relazioni con consulenti finanziari assegnati e coordinare con la funzione operativa\n• mantenere la consapevolezza del rischio e le conoscenze normative",
-        "de": "Sind Sie unglaublich organisiert mit einem Auge für Details? Sind Sie ein erfahrener Multitasker?\n\nWir suchen einen Service Associate für:\n\n• Durchführung von Cash-Management-Funktionen, Verarbeitung von Wertpapieren und Korrespondenz, Führung von Aufzeichnungen und Durchführung von Margin-Aktivitäten als Mitglied des Field Operations-Teams, das auf den Markt ausgerichtet ist\n• Grüßen und unterstützen Sie Kunden und Besucher der Filiale und bieten außergewöhnlichen Service\n• Schaffung starker Partnerschaften, Pflege von Beziehungen zu zugewiesenen Finanzberatern und Koordinierung mit der operativen Funktion\n• Wahrung des Risikobewusstseins und des regulatorischen Wissens",
-        "fr": "Êtes-vous incroyablement organisé avec un œil pour le détail? Êtes-vous un multitâche qualifié ?\n\nNous sommes à la recherche d'un associé de service à:\n\n• Exécuter des fonctions de gestion de la trésorerie, traiter les titres et la correspondance, tenir des registres et exécuter des activités de marge en tant que membre de l'équipe des opérations hors Siège alignée sur le marché\n• accueillir et aider les clients et les visiteurs de la succursale, offrant un service exceptionnel\n• créer de solides partenariats, cultiver des relations avec les conseillers financiers désignés et coordonner avec la fonction opérationnelle\n• maintenir la sensibilisation aux risques et les connaissances réglementaires"
+        "it": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
+        "de": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
+        "fr": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker?\n\nWe’re looking for a Service Associate to:\n\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge"
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347751&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:48:18.816Z",
+      "crawledAt": "2026-06-28T22:49:45.469Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3524,6 +3441,7 @@
         "categoryRaw": "Business management, administration and support, Management and Business Support, Operations",
         "jobType": ""
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3538,9 +3456,8 @@
       },
       "firstSeenAt": "2026-06-25T23:34:27.337Z",
       "previousSlugs": [
+        "servizio-associato-ubs-ticino",
         "client-associe-ubs-ticino",
-        "service-associate-ubs",
-        "cliente-associato-ubs-ticino",
         "client-associate-ubs",
         "cliente-associato-registrato-ubs-ticino",
         "registered-client-associate-ubs",
@@ -3554,7 +3471,11 @@
         "kundenmitarbeiter-ubs-ticino"
       ],
       "previousSlugsByLocale": {
+        "de": [
+          "cliente-associato-ubs-ticino"
+        ],
         "fr": [
+          "associe-de-services-ubs-ticino",
           "client-associe-ubs-ticino"
         ],
         "it": [
@@ -3585,16 +3506,16 @@
       "description": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
       "descriptionByLocale": {
         "en": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "it": "Ti piacciono i mercati finanziari?\nSei bravo a gestire e interpretare grandi set di dati?\nSei analitico e godere di indagare le transazioni finanziarie, la comprensione delle strategie di trading e il senso dell'attività di trading insolita?\nSei in grado di pensare in modo indipendente ed esprimere le tue opinioni e idee con fiducia?\n\nStiamo cercando un analista di sorveglianza commerciale in un ruolo individuale contributore con esperienza nel seguente:\n\n• Eseguire attività di sorveglianza automatizzate e manuali del mercato in tutta la divisione Investment Bank e Wealth Management.\n• Analizzando casi di attività potenzialmente sospette segnalate dai nostri sistemi.\n• Impegnarsi con le parti interessate aziendali sulle escalation relative alla conduzione del mercato e altre questioni.\n• Guidare i continui miglioramenti dei processi e contribuire a progetti strategici e iniziative di automazione/ottimizzazione.\n\n• Monitorare il flusso di informazioni materiali non pubbliche (MNPI) per rilevare potenziali violazioni della Politica di Barriera dell'Informazione dell'azienda, elenco limitato e insider trading.\n\n• Questa descrizione del lavoro fornisce una recensione di alto livello dei tipi di lavoro eseguiti. Altri compiti connessi al lavoro possono essere assegnati come richiesto.",
-        "de": "Mögen Sie die Finanzmärkte?\nSind Sie gut im Umgang und Interpretieren großer Datensätze?\nSind Sie analytisch und untersuchen gerne Finanztransaktionen, verstehen Handelsstrategien und verstehen die ungewöhnlichen Handelsaktivitäten?\nSind Sie in der Lage, unabhängig zu denken und Ihre Meinungen und Ideen selbstbewusst auszudrücken?\n\nWir suchen einen Trade Surveillance Analyst in einer individuellen Mitwirkenden Rolle mit Erfahrung in den folgenden Bereichen:\n\n• Durchführen von automatisierten und manuellen Marktüberwachungsaktivitäten in der Investment Bank und Wealth Management Division.\n• Analyse von Fällen potenziell verdächtiger Aktivitäten, die von unseren Systemen gekennzeichnet werden.\n• Kontaktaufnahme mit Geschäftsbeteiligten zu marktverhaltensbezogenen Eskalationen und anderen Angelegenheiten.\n• Förderung kontinuierlicher Prozessverbesserungen und Beitrag zu strategischen Projekten und Automatisierungs-/Optimierungsinitiativen.\n\n• Durchführung von Überwachung des Handels mit Informationsbarrieren für Unternehmen, Kunden und Mitarbeiter (PAD) Überwachen Sie den Fluss wesentlicher nicht öffentlicher Informationen (MNPI), um mögliche Verstöße gegen die Richtlinie über Informationsbarrieren, die eingeschränkte Liste und den Insiderhandel des Unternehmens zu erkennen.\n\n• Diese Stellenbeschreibung bietet eine hochrangige Überprüfung der Art der geleisteten Arbeit. Andere aufgabenbezogene Aufgaben können bei Bedarf zugewiesen werden.",
-        "fr": "Vous aimez les marchés financiers ?\nÊtes-vous doué pour manipuler et interpréter de gros ensembles de données?\nÊtes-vous analytique et aimez-vous enquêter sur les transactions financières, comprendre les stratégies de négociation et donner un sens à l'activité commerciale inhabituelle?\nÊtes-vous capable de penser indépendamment et d'exprimer vos opinions et vos idées avec confiance?\n\nNous sommes à la recherche d'un analyste de la surveillance du commerce dans un rôle de contribution individuelle avec de l'expérience dans les domaines suivants:\n\n• Effectuer des activités de surveillance automatisées et manuelles du marché dans l'ensemble de la division Banque d'investissement et Gestion de patrimoine.\n• Analyser les cas d'activités potentiellement suspectes signalées par nos systèmes.\n• Collaborer avec les intervenants commerciaux sur les escalades liées à la conduite du marché et d'autres questions.\n• Favoriser l'amélioration continue des processus et contribuer aux projets stratégiques et aux initiatives d'automatisation/optimisation.\n\n• Effectuer une surveillance commerciale des obstacles à l'information pour les entreprises, les clients et les employés qui traitent des comptes personnels (DAP) Surveiller la circulation des renseignements non publics importants (IPPN) afin de détecter les infractions possibles à la Politique sur les obstacles à l'information, à la liste restreinte et au commerce d'initiés.\n\n• Cette description de travail fournit un examen de haut niveau des types de travail effectué. D'autres fonctions liées à l'emploi peuvent être attribuées au besoin."
+        "it": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
+        "de": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
+        "fr": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required."
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347134&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:48:18.815Z",
+      "crawledAt": "2026-06-28T22:49:45.468Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3620,6 +3541,7 @@
         "categoryRaw": "Compliance",
         "jobType": ""
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3665,23 +3587,23 @@
       "title": "Trade Surveillance Operations Analyst",
       "titleByLocale": {
         "en": "Trade Surveillance Operations Analyst",
-        "it": "Analista delle Operazioni di Sorveglianza del Commercio",
-        "de": "Analyst für Handelsüberwachungsoperationen",
-        "fr": "Analyste des opérations de surveillance commerciale"
+        "it": "Trade Surveillance Operations Analista",
+        "de": "Trade Surveillance Operations Analyst",
+        "fr": "Trade Surveillance Operations Analyste"
       },
       "description": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
       "descriptionByLocale": {
-        "en": "Ragionamento seguito\n\n1. Identificazione delle sezioni\n- Il testo inizia con una serie di domande introduttive e una frase che descrive il ruolo ricercato; queste sono state collocate nella sezione ## Descrizione.\n- Le attività operative elencate con i punti elenco sono state raggruppate nella sezione ## Mansioni.\n- Non sono presenti informazioni su requisiti, benefit o contatti specifici; l’unica informazione residua è la nota finale sul carattere descrittivo del documento, che è stata inserita nella sezione ## Contatto (l’unica sezione disponibile per contenuti aggiuntivi non classificabili altrove).\n\n2. Conversione dei punti elenco\n- I simboli “•” sono stati sostituiti con “-” per rispettare la sintassi markdown richiesta.\n- Ogni punto è stato mantenuto verbatim, senza alcuna riformulazione, anche quando conteneva più frasi (es. l’ultimo punto delle mansioni).\n\n3. Formattazione\n- Sono stati usati i titoli di livello 2 (`##`) per le sezioni.\n- Le domande introduttive sono state lasciate come righe separate (con due spazi alla fine per forzare l’interruzione di riga) per mantenere il contenuto originale intatto.\n- Non è stato aggiunto alcun testo, spiegazione o codice aggiuntivo al di fuori della struttura markdown.\n\n---\n\nDescrizione\n\nDo you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and make sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\nMansioni\n\n- Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n- Analyzing instances of potentially suspicious activities flagged by our systems.\n- Engaging with business stakeholders on the market conduct-related escalations and other matters.\n- Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n- Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\nContatto\n\nThis job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
-        "it": "Ragionamento seguito 1. Identificazione delle sezioni - Il testo inizia con una serie di domande introduttive e una frase che descrive il ruolo ricercato; queste sono state collocate nella sezione ## Descrizione. - Le attività operative elencate con i punti elenco sono state raggruppate nella sezione ## Mansioni. - Non sono presenti informazioni su requisiti, benefit o contatti specifici; l'unica informazione residua è la nota finale sul carattere descrittivo del documento, che è stata inserita nella sezione ## Contatto (l'unica sezione disponibile per contenuti aggiuntivi non classificabili altrove). 2. Conversione dei punti elenco - I simboli “•” sono stati sostituiti con “-” per rispettare la sintassi markdown richiesta. - Ogni punto è stato mantenuto testualmente, senza alcuna riformulazione, anche quando conteneva più frasi (es. l'ultimo punto delle mansioni). 3. Formattazione - Sono stati usati i titoli di livello 2 (`##`) per le sezioni. - Le domande introduttive sono state lasciate come righe separate (con due spazi alla fine per forzare l'interruzione di riga) per mantenere il contenuto originale intatto. - Non è stato aggiunto alcun testo, spiegazione o codice aggiuntivo al di fuori della struttura markdown. --- Descrizione Ti piacciono i mercati finanziari? Sei bravo a gestire e interpretare grandi set di dati? Sei analitico e ti piace indagare sulle transazioni finanziarie, comprendere le strategie di trading e dare un senso all'insolita attività di trading? Sei in grado di pensare in modo indipendente ed esprimere le tue opinioni e idee con sicurezza? Cerchiamo un analista di sorveglianza commerciale in un ruolo di collaboratore individuale con esperienza nei seguenti settori: Mansioni - Esecuzione di attività di sorveglianza della condotta di mercato automatizzate e manuali nella divisione Investment Bank e Wealth Management. - Analizzare i casi di attività potenzialmente sospette segnalate dai nostri sistemi. - Coinvolgere le parti interessate aziendali sulle escalation relative alla condotta del mercato e su altre questioni. - Promuovere miglioramenti continui dei processi e contribuire a progetti strategici e iniziative di automazione/ottimizzazione. - Condurre la sorveglianza sulle barriere commerciali delle informazioni per le transazioni sui conti personali di aziende, clienti e dipendenti (PAD). Monitorare il flusso di informazioni materiali non pubbliche (MNPI) per rilevare potenziali violazioni della politica sulle barriere informative dell'azienda, dell'elenco limitato e dell'insider trading. Contatto Questa descrizione del lavoro fornisce una revisione di alto livello delle tipologie di lavoro svolte. Altri compiti legati al lavoro possono essere assegnati secondo necessità.",
-        "de": "Abschnitt 1. Abschnittsidentifizierung – Der Test beginnt mit einer einleitenden Reihe von Themen und einem Rahmen, der den Grundstein für die Beschreibung legt; Dieser Status wird in der folgenden Staffel zusammengefasst: ## Beschreibung. - Die operative Aktivität wird durch die Punkte erhöht, die in der ## Mansioni-Sektion zusammengewürfelt werden. - Es liegen keine Informationen zu Ihren Anforderungen, Vorteilen oder spezifischen Kontakten vor; Die einzige verbleibende Information ist die letzte Notiz auf der Grundlage der Beschreibung des Dokuments, die in der ##-Contatto-Sektion eingefügt wurde (die einzige verfügbare Sektion für nicht klassifizierbare Zusatzinhalte). 2. Konvertieren Sie die Punkte des Elements – das Symbol „•“ wird mit „-“ angezeigt, um den gewünschten Preisnachlass zu erzielen. - Dies ist der Zustand, in dem er wörtlich verwaltet wird, ohne vorherige Neuformulierung, auch wenn der Inhalt höher ist (es ist der letzte Punkt der Villa). 3. Formatierung – Es werden jeweils 2 Titel („##“) für die einzelnen Abschnitte verwendet. - Der einleitende Inhalt wird sofort getrennt (mit gutem Gewissen, um die Unterbrechung in Riga zu verhindern), um den ursprünglichen Inhalt zu erhalten. - Dies ist nicht der Fall, da dies nicht der Fall ist. --- Beschreibung Mögen Sie Finanzmärkte? Sind Sie gut im Umgang und in der Interpretation großer Datenmengen? Sie sind analytisch und haben Spaß daran, Finanztransaktionen zu untersuchen, Handelsstrategien zu verstehen und ungewöhnliche Handelsaktivitäten zu verstehen? Können Sie selbstständig denken und Ihre Meinungen und Ideen selbstbewusst äußern? Wir suchen einen Handelsüberwachungsanalysten als Einzelmitarbeiter mit Erfahrung in den folgenden Bereichen: Mansioni – Durchführung automatisierter und manueller Marktverhaltensüberwachungsaktivitäten in der gesamten Investment Bank- und Wealth Management-Abteilung. - Analyse von Fällen potenziell verdächtiger Aktivitäten, die von unseren Systemen gemeldet werden. - Kontaktaufnahme mit Geschäftsinteressenten zu Eskalationen im Zusammenhang mit dem Marktverhalten und anderen Angelegenheiten. - Vorantreiben kontinuierlicher Prozessverbesserungen und Mitwirken an strategischen Projekten und Automatisierungs-/Optimierungsinitiativen. - Durchführung einer Überwachung des Handels mit Informationsbarrieren für den Privatkundenhandel (PAD) von Unternehmen, Kunden und Mitarbeitern. Überwachen Sie den Fluss wesentlicher nicht öffentlicher Informationen (MNPI), um potenzielle Verstöße gegen die Richtlinie zu Informationsbarrieren, Sperrlisten und Insiderhandel des Unternehmens zu erkennen. Contatto Diese Stellenbeschreibung bietet einen umfassenden Überblick über die Arten der ausgeführten Arbeiten. Bei Bedarf können weitere berufsbezogene Aufgaben übertragen werden.",
-        "fr": "Ragionamento suite 1. Identification de la section - Le test commence avec une série de domaines introductifs et une phrase qui décrit le ruolo ricercato ; cet état est colocalisé dans la section ## Description. - L'activité opérationnelle est élevée avec les points d'identité de l'État dans la section ## Mansioni. - Ne pas présenter d'informations sur les exigences, bénéficier de contacts spécifiques ; L'unique information résiduelle est la note finale sur le caractère descriptif du document, qui est insérée dans la section ## Contatto (l'unique section disponible pour le contenu ajouté non classifiable autre). 2. Conversion des points électroniques - Le symbole « • » est remplacé par « - » pour afficher la valeur de markdown sintassi. - Ogni punto è stato mantenuto verbatim, sans alcuna riformulazione, même quando conteneva più frasi (c'est-à-dire le dernier point des demeures). 3. Formatage - Nous utilisons les titres du niveau 2 (`##`) pour la section. - La demande d'introduction est un état lascié qui vient juste à part (avec un effort supplémentaire pour forcer l'interruption de riga) pour maintenir le contenu original en entier. - Il n'est pas ajouté à un test, à une publication ou à un code ajouté à l'extérieur de la structure markdown. --- Descrizione Vous aimez les marchés financiers ? Êtes-vous doué pour gérer et interpréter de grands ensembles de données ? Êtes-vous analytique et aimez-vous enquêter sur les transactions financières, comprendre les stratégies de trading et donner un sens aux activités de trading inhabituelles ? Êtes-vous capable de penser de manière indépendante et d’exprimer vos opinions et vos idées avec confiance ? Nous recherchons un analyste de surveillance commerciale dans un rôle de contributeur individuel avec une expérience dans les domaines suivants : Mansioni - Exécution d'activités automatisées et manuelles de surveillance des comportements sur le marché au sein de la division Banque d'investissement et gestion de patrimoine. - Analyser les cas d'activités potentiellement suspectes signalés par nos systèmes. - S'engager avec les parties prenantes de l'entreprise sur les escalades liées à la conduite du marché et sur d'autres questions. - Conduire des améliorations continues des processus et contribuer aux projets stratégiques et aux initiatives d'automatisation/optimisation. - Effectuer une surveillance commerciale des barrières d'information pour les transactions sur les comptes personnels de l'entreprise, des clients et des employés (PAD). Surveiller le flux d'informations importantes non publiques (MNPI) pour détecter les violations potentielles de la politique de barrière à l'information de l'entreprise, de la liste restreinte et des délits d'initiés. Contact Cette description de poste fournit un examen de haut niveau des types de travail effectués. D'autres tâches liées au poste peuvent être assignées selon les besoins."
+        "en": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
+        "it": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
+        "de": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required.",
+        "fr": "Do you like financial markets?\nAre you good at handling and interpreting large data sets?\nAre you analytical and enjoy investigating financial transactions, understanding trading strategies and making sense of the unusual trading activity?\nAre you able to think independently and express your opinions and ideas confidently?\n\nWe are looking for a Trade Surveillance Analyst in an individual contributor role with experience in the following:\n\n• Performing automated and manual market conduct surveillance activities across Investment Bank and Wealth Management division.\n• Analyzing instances of potentially suspicious activities flagged by our systems.\n• Engaging with business stakeholders on the market conduct-related escalations and other matters.\n• Driving continuous process improvements and contributing to strategic projects and automation/optimization initiatives.\n\n• Conducting information barrier trade surveillance for firm, customer, and employee personal account dealing (PAD) Monitor the flow of material nonpublic information (MNPI) to detect potential breaches of the firm's Information Barrier Policy, restricted list, and insider trading.\n\n• This job description provides a high-level review of the types of work performed. Other job-related duties may be assigned as required."
       },
       "location": "Ticino",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347132&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:48:18.814Z",
+      "crawledAt": "2026-06-28T22:49:45.466Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3724,6 +3646,7 @@
         "trade-surveillance-operations-analyst-ubs-3",
         "trade-surveillance-operations-analista-ubs-ticino"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3740,12 +3663,12 @@
     },
     {
       "id": "ubs-7ef9a69c719b",
-      "slug": "ricerca-analista-asia-equities-ubs-ticino",
+      "slug": "research-analyst-asia-equities-ubs",
       "slugByLocale": {
         "en": "research-analyst-asia-equities-ubs",
-        "it": "ricerca-analista-asia-equities-ubs-ticino",
+        "it": "research-analyst-asia-equities-ubs",
         "de": "research-analyst-asia-equities-ubs",
-        "fr": "recherche-analyste-asia-equities-ubs-ticino"
+        "fr": "research-analyst-asia-equities-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3769,7 +3692,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345356&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.111Z",
+      "crawledAt": "2026-06-28T22:49:45.465Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3810,10 +3733,11 @@
       },
       "firstSeenAt": "2026-06-26T12:20:14.649Z",
       "previousSlugs": [
-        "research-analyst-asia-equities-ubs"
+        "ricerca-analista-asia-equities-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "recherche-analyste-asia-equities-ubs-ticino",
           "research-analyst-asia-equities-ubs"
         ],
         "it": [
@@ -3823,11 +3747,11 @@
     },
     {
       "id": "ubs-89bcc500e2c7",
-      "slug": "devops-ingegnere-ubs-ticino",
+      "slug": "devops-engineer-ubs",
       "slugByLocale": {
         "en": "devops-engineer-ubs",
-        "it": "devops-ingegnere-ubs-ticino",
-        "de": "devops-ingenieur-ubs-ticino",
+        "it": "devops-engineer-ubs",
+        "de": "devops-engineer-ubs",
         "fr": "devops-engineer-ubs"
       },
       "company": "UBS",
@@ -3852,7 +3776,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=329570&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.110Z",
+      "crawledAt": "2026-06-28T22:49:45.463Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3893,10 +3817,11 @@
       },
       "firstSeenAt": "2026-06-26T12:20:14.644Z",
       "previousSlugs": [
-        "devops-engineer-ubs"
+        "devops-ingegnere-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
+          "devops-ingenieur-ubs-ticino",
           "devops-engineer-ubs"
         ],
         "it": [
@@ -3906,10 +3831,10 @@
     },
     {
       "id": "ubs-d6509aaa7d31",
-      "slug": "autista-di-compagnia-ubs-ticino",
+      "slug": "company-driver-ubs",
       "slugByLocale": {
         "en": "company-driver-ubs",
-        "it": "autista-di-compagnia-ubs-ticino",
+        "it": "company-driver-ubs",
         "de": "company-driver-ubs",
         "fr": "company-driver-ubs"
       },
@@ -3919,7 +3844,7 @@
       "title": "Company Driver",
       "titleByLocale": {
         "en": "Company Driver",
-        "it": "Autista di compagnia",
+        "it": "Company Driver",
         "de": "Company Driver",
         "fr": "Company Driver"
       },
@@ -3935,7 +3860,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347382&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.109Z",
+      "crawledAt": "2026-06-28T22:49:45.462Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3976,8 +3901,8 @@
       },
       "firstSeenAt": "2026-06-26T12:20:14.658Z",
       "previousSlugs": [
+        "autista-di-compagnia-ubs-ticino",
         "firmenfahrer-ubs-ticino",
-        "company-driver-ubs",
         "conducteur-d-entreprise-ubs-ticino",
         "driver-per-la-societa-ubs-ticino",
         "driver-della-societa-ubs-ticino"
@@ -4026,7 +3951,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346839&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.107Z",
+      "crawledAt": "2026-06-28T22:49:45.460Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -4074,10 +3999,10 @@
     },
     {
       "id": "ubs-353a8a2338f6",
-      "slug": "responsabile-clienti-clienti-private-client-singapore-ubs-ticino",
+      "slug": "client-account-manager-private-client-singapore-ubs",
       "slugByLocale": {
         "en": "client-account-manager-private-client-singapore-ubs",
-        "it": "responsabile-clienti-clienti-private-client-singapore-ubs-ticino",
+        "it": "client-account-manager-private-client-singapore-ubs",
         "de": "client-account-manager-private-client-singapore-ubs",
         "fr": "client-account-manager-private-client-singapore-ubs"
       },
@@ -4087,7 +4012,7 @@
       "title": "Client Account Manager, Private Client Singapore",
       "titleByLocale": {
         "en": "Client Account Manager, Private Client Singapore",
-        "it": "Responsabile Clienti Clienti, Private Client Singapore",
+        "it": "Client Account Manager, Private Client Singapore",
         "de": "Client Account Manager, Private Client Singapore",
         "fr": "Client Account Manager, Private Client Singapore"
       },
@@ -4103,7 +4028,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344226&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:16:28.106Z",
+      "crawledAt": "2026-06-28T22:49:45.459Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -4143,6 +4068,11 @@
         }
       },
       "firstSeenAt": "2026-06-27T11:47:27.004Z",
+      "previousSlugs": [
+        "responsabile-clienti-clienti-private-client-singapore-ubs-ticino",
+        "client-account-manager-privatkunde-singapur-ubs-ticino",
+        "gestionnaire-de-compte-client-client-prive-singapour-ubs-ticino"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "client-account-manager-privatkunde-singapur-ubs-ticino"
@@ -4153,70 +4083,66 @@
         "it": [
           "client-account-manager-private-client-singapore-ubs"
         ]
-      },
-      "previousSlugs": [
-        "client-account-manager-privatkunde-singapur-ubs-ticino",
-        "gestionnaire-de-compte-client-client-prive-singapour-ubs-ticino",
-        "client-account-manager-private-client-singapore-ubs"
-      ]
+      }
     },
     {
-      "id": "ubs-4a0c74ffbc77",
-      "slug": "ufficiale-di-conformita-ubs-ticino",
+      "id": "ubs-0b8a643e8f5d",
+      "slug": "team-administrator-ubs",
       "slugByLocale": {
-        "en": "compliance-officer-ubs",
-        "it": "ufficiale-di-conformita-ubs-ticino",
-        "de": "compliance-beauftragter-ubs-ticino",
-        "fr": "specialiste-du-respect-des-dispositions-ubs-ticino"
+        "en": "team-administrator-ubs",
+        "it": "team-administrator-ubs",
+        "de": "team-administrator-ubs",
+        "fr": "team-administrator-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
       "companyDomain": "ubs.com",
-      "title": "Compliance Officer",
+      "title": "Team Administrator",
       "titleByLocale": {
-        "en": "Compliance Officer",
-        "fr": "Spécialiste du respect des dispositions",
-        "it": "Ufficiale di conformità",
-        "de": "Compliance-Beauftragter"
+        "en": "Team Administrator",
+        "it": "Team Administrator",
+        "de": "Team Administrator",
+        "fr": "Team Administrator"
       },
-      "description": "Are you curious about how a global bank manages compliance, operational risk, and regulatory obligations? Do you enjoy working with data, processes, and controls while learning how risk frameworks support business decisions? Are you interested in developing a strong foundation in risk and governance?\n\nWe’re looking for a Junior Talent Program (JTP) Intern to:\n\nSupport compliance & operational risk control (C&ORC) activities across GCORC teams.\n\nAssist in maintaining and documenting risk, control, and governance frameworks in line with internal policies and regulatory standards.\n\nHelp with data analysis, reporting, and monitoring activities related to non‑financial risk.\n\nContribute to the preparation of materials, dashboards, and documentation used to support risk management and oversight.",
+      "description": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability.",
       "descriptionByLocale": {
-        "en": "Are you curious about how a global bank manages compliance, operational risk, and regulatory obligations? Do you enjoy working with data, processes, and controls while learning how risk frameworks support business decisions? Are you interested in developing a strong foundation in risk and governance?\n\nWe’re looking for a Junior Talent Program (JTP) Intern to:\n\nSupport compliance & operational risk control (C&ORC) activities across GCORC teams.\n\nAssist in maintaining and documenting risk, control, and governance frameworks in line with internal policies and regulatory standards.\n\nHelp with data analysis, reporting, and monitoring activities related to non‑financial risk.\n\nContribute to the preparation of materials, dashboards, and documentation used to support risk management and oversight.",
-        "it": "Siete curiosi di sapere come una banca globale gestisce gli obblighi di conformità, di rischio operativo e di regolamentazione? Ti piace lavorare con dati, processi e controlli mentre impari come i framework di rischio supportano le decisioni aziendali? Sei interessato a sviluppare una solida base di rischio e di governance?\n\nStiamo cercando un Junior Talent Program (JTP) Intern a:\n\nSupporta le attività di compliance e controllo dei rischi operativi (C&ORC) nei team GCORC.\n\nAssistere a mantenere e documentare i quadri di rischio, controllo e governance in linea con le politiche interne e gli standard normativi.\n\nAiuta con le attività di analisi, reporting e monitoraggio dei dati relative al rischio non finanziario.\n\nContribuisci alla preparazione di materiali, dashboard e documentazione utilizzata per supportare la gestione del rischio e la supervisione.",
-        "de": "Sind Sie neugierig, wie eine globale Bank Compliance, operationelle Risiken und regulatorische Verpflichtungen verwaltet? Arbeiten Sie gerne mit Daten, Prozessen und Kontrollen, während Sie lernen, wie Risikorahmen Geschäftsentscheidungen unterstützen? Sind Sie daran interessiert, eine starke Grundlage für Risiko und Governance zu schaffen?\n\nWir suchen einen Junior Talent Program (JTP) Intern für:\n\nUnterstützung von Compliance & Operational Risk Control (C&ORC) Aktivitäten in allen GCORC-Teams.\n\nUnterstützung bei der Pflege und Dokumentation von Risiko-, Kontroll- und Governance-Rahmenbedingungen im Einklang mit internen Richtlinien und Regulierungsstandards.\n\nUnterstützung bei Datenanalyse-, Berichts- und Überwachungsaktivitäten im Zusammenhang mit nichtfinanziellen Risiken.\n\nBeitrag zur Erstellung von Materialien, Dashboards und Dokumentationen, die zur Unterstützung des Risikomanagements und der Aufsicht verwendet werden.",
-        "fr": "Êtes-vous curieux de savoir comment une banque mondiale gère les obligations en matière de conformité, de risque opérationnel et de réglementation? Vous aimez travailler avec les données, les processus et les contrôles tout en apprenant comment les cadres de risque appuient les décisions des entreprises? Êtes-vous intéressé à développer une base solide en matière de risques et de gouvernance?\n\nNous sommes à la recherche d'un stagiaire du Programme des jeunes talents (PEI) pour :\n\nAppuyer les activités de conformité et de contrôle des risques opérationnels (C&ORC) dans l'ensemble des équipes du CCGC.\n\nAider à maintenir et documenter les cadres de risque, de contrôle et de gouvernance conformément aux politiques internes et aux normes réglementaires.\n\nAider à l'analyse des données, aux rapports et aux activités de surveillance liées aux risques non financiers.\n\nContribuer à la préparation des documents, des tableaux de bord et de la documentation utilisés pour appuyer la gestion et la surveillance des risques."
+        "en": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability.",
+        "it": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability.",
+        "de": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability.",
+        "fr": "The Team Administrator will lead operational, client service, and administrative functions for a high-performing financial advisor team serving ultra-high-net-worth clients. This individual serves as the operational backbone of the team—ensuring exceptional execution, leading risk and compliance initiatives, and a seamless client experience. The ideal candidate is a seasoned and decisive operations professional with deep knowledge of wealth management processes, strong leadership capabilities, an ability to navigate firm processes efficiently, and who can drive innovation with a technology-forward mindset.\n\nKey Responsibilities:\n\n• Client Service & Relationship Support: Deliver white-glove service for clients, partnering closely with the financial advisors to anticipate client needs and act discretion and responsiveness.\n\n• Account Administration & Transactions: Oversee and execute a range of important administrative tasks including account openings, account maintenance, and transfers across multiple account types and entities, wires, disbursements, journals, and cash movements with precision and appropriate controls. Ensure timely and accurate processing of all client account paperwork\n\n• Team Leadership & Development: Manage and develop operations and client service team members including setting priorities, workflow standards, and performance expectations for the operations team. Build a high accountability culture focused on excellence, efficiency, and client satisfaction and lead by example in a dynamic, high-expectation, in-office team environment\n\n• Technology, Systems & Innovation: Serve as the team’s operations technology lead, with strong knowledge of platforms, systems, and workflows. Be the team champion for implementing firm-approved tools, platforms, and AI-driven solutions to drive efficiency, reduce risk, and enhance client experience\n\nIt is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law should be subject to criminal penalties and civil liability."
       },
       "location": "Ticino",
       "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343459&PageType=jobdetails",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347228&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-27T22:48:18.838Z",
+      "crawledAt": "2026-06-28T22:49:45.458Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "",
-      "category": "Legale",
+      "category": "Amministrazione",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-25",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343459&PageType=jobdetails",
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347228&PageType=jobdetails",
       "requirements": [],
       "requirementsByLocale": {
         "en": []
       },
       "_ubsMeta": {
-        "reqId": "343459",
-        "department": "Group Functions",
-        "region": "India",
+        "reqId": "347228",
+        "department": "Global Wealth Management",
+        "region": "United States - Massachusetts",
         "cities": "",
-        "categoryRaw": "Compliance",
+        "categoryRaw": "Business management, administration and support",
         "jobType": ""
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4229,26 +4155,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-25T12:32:27.464Z",
+      "firstSeenAt": "2026-06-26T23:01:42.416Z",
       "previousSlugs": [
-        "operations-officer-ubs",
-        "compliance-officer-ubs",
-        "agente-operativo-ubs-ticino",
-        "responsabile-della-conformita-ubs-ticino",
-        "ufficiale-operativo-ubs-ticino",
-        "agente-di-vigilanza-ubs-ticino"
+        "amministratore-del-team-ubs-ticino",
+        "teamadministrator-ubs-ticino",
+        "administrateur-d-equipe-ubs-ticino",
+        "administrateur-de-l-equipe-ubs-ticino",
+        "amministratore-di-squadra-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "operations-officer-ubs"
+          "teamadministrator-ubs-ticino"
         ],
         "fr": [
-          "operations-officer-ubs"
+          "administrateur-d-equipe-ubs-ticino",
+          "administrateur-de-l-equipe-ubs-ticino"
         ],
         "it": [
-          "operations-officer-ubs",
-          "compliance-officer-ubs",
-          "agente-operativo-ubs-ticino"
+          "team-administrator-ubs"
         ]
       }
     }
