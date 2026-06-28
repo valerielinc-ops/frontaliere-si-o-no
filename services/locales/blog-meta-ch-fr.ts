@@ -664,6 +664,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pensione-frontaliere-avs-inps-2026.title': 'Pension frontalière 2026 : coordination AVS/INPS et simulation pratique',
     'blog.article.pensione-frontaliere-avs-inps-2026.excerpt': 'Découvrez comment la coordination AVS/INPS dès 2024 impactera les frontaliers en 2026 et comment réaliser une simulation pratique de votre retraite.',
     'blog.article.pensione-frontaliere-avs-inps-2026.imageAlt': 'Couple de retraités profitant de la vue sur le lac de Lugano',
+    'blog.article.richiesta-permesso-g-step.title': 'Demande de permis G étape par étape : procédure complète 2026',
+    'blog.article.richiesta-permesso-g-step.excerpt': 'Guide pratique de la demande de permis G : documents, délais et coûts pour les frontaliers en Suisse en 2026',
+    'blog.article.richiesta-permesso-g-step.imageAlt': 'Personne remplissant un formulaire dans un bureau cantonal suisse avec vue sur Lugano',
 };
 
 export default blogMetaChFr;

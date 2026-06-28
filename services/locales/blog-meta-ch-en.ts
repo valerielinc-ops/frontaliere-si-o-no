@@ -664,6 +664,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pensione-frontaliere-avs-inps-2026.title': 'Border pensions 2026: AVS/INPS coordination and practical simulation',
     'blog.article.pensione-frontaliere-avs-inps-2026.excerpt': 'Find out how the AVS/INPS coordination from 2024 will impact border workers in 2026 and how to carry out a practical simulation of your pension.',
     'blog.article.pensione-frontaliere-avs-inps-2026.imageAlt': 'Retired couple enjoying Lake Lugano view',
+    'blog.article.richiesta-permesso-g-step.title': 'Permit request G step by step: complete procedure 2026',
+    'blog.article.richiesta-permesso-g-step.excerpt': 'Practical guide to applying for the G permit: documents, time and costs for border workers in Switzerland in 2026',
+    'blog.article.richiesta-permesso-g-step.imageAlt': 'Person filling out a form at a Swiss cantonal office with a view of Lugano',
 };
 
 export default blogMetaChEn;

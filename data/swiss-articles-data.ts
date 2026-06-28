@@ -1988,6 +1988,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'richiesta-permesso-g-step',
+    category: 'pratico',
+    date: '2026-06-28T01:46:16.713Z',
+    image: '/images/blog/richiesta-permesso-g-step.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
