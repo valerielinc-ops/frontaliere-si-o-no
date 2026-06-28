@@ -4280,6 +4280,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-g-bewilligung-antrag-2026-step': { name: 'Domanda permesso G', path: '/articoli-svizzera/g-bewilligung-antrag-2026-step/', parent: 'blog' },
     'blog-canicola-sud-nord-alpi': { name: 'clima e frontiera in Ticino', path: '/articoli-frontaliere/canicola-sud-nord-alpi', parent: 'blog' },
     'blog-cambio-commando-volontari-lugano': { name: 'Civica Lugano', path: '/articoli-svizzera/cambio-commando-volontari-lugano/', parent: 'blog' },
+    'blog-tagli-helvetia-baloise-svizzera-2028': { name: 'Tagli Helvetia-Baloise', path: '/articoli-svizzera/tagli-helvetia-baloise-svizzera-2028/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8754,6 +8754,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tagli-helvetia-baloise-svizzera-2028': {
+    title: 'Helvetia-Baloise: tagli fino a 1200 posti in Svizzera entro il 2028',
+    description: 'Fusione Helvetia-Baloise: previsti tra 1\'000 e 1\'200 tagli di posti in Svizzera entro il 2028. Impatto, procedure e strumenti utili. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, helvetia-baloise, tagli, fino, 1200',
+    ogTitle: 'Helvetia-Baloise: 1200 tagli in Svizzera entro 2028',
+    ogDescription: 'Fusione Helvetia-Baloise: fino a 1\'200 posti di lavoro tagliati in Svizzera entro il 2028. Cosa cambia e come agire.',
+    canonicalPath: '/articoli-svizzera/tagli-helvetia-baloise-svizzera-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Helvetia-Baloise: tagli fino a 1200 posti in Svizzera entro il 2028",
+      "description": "Fusione Helvetia-Baloise: previsti tra 1'000 e 1'200 tagli di posti in Svizzera entro il 2028. Impatto, procedure e strumenti utili. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tagli-helvetia-baloise-svizzera-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul distretto finanziario di Zurigo, simbolo dell'economia svizzera."
+      },
+      "datePublished": "2026-06-28T16:40:35+00:00",
+      "dateModified": "2026-06-28T16:40:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tagli-helvetia-baloise-svizzera-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

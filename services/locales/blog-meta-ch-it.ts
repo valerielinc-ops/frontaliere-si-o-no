@@ -682,6 +682,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cambio-commando-volontari-lugano.title': 'Cambio di comando ai Volontari Luganesi',
     'blog.article.cambio-commando-volontari-lugano.excerpt': 'Sergio Romaneschi ha guidato il corpo per 13 anni. Il nuovo comandante è Paolo Baiardi. Cerimonia a Palazzo Civico.',
     'blog.article.cambio-commando-volontari-lugano.imageAlt': 'Cerimonia di passaggio di comando del Corpo Volontari Luganesi a Palazzo Civico',
+    'blog.article.tagli-helvetia-baloise-svizzera-2028.title': 'Helvetia-Baloise: tagli fino a 1200 posti in Svizzera entro il 2028',
+    'blog.article.tagli-helvetia-baloise-svizzera-2028.excerpt': 'La fusione Helvetia-Baloise comporterà la soppressione di 1\'000-1\'200 impieghi in Svizzera entro il 2028, secondo il CEO Martin Jara.',
+    'blog.article.tagli-helvetia-baloise-svizzera-2028.imageAlt': 'Vista sul distretto finanziario di Zurigo, simbolo dell\'economia svizzera.',
 };
 
 export default blogMetaChIt;
