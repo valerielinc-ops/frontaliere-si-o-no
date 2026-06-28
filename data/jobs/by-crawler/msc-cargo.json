@@ -71,22 +71,18 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "direct-to-consumer-channels-analyste-msc-group-geneva",
-          "direct-to-consumer-channels-analyst-msc-geneva"
-        ],
-        "it": [
-          "direct-to-consumer-channels-analyst-msc-geneva"
+          "direct-to-consumer-channels-analyste-msc-group-geneva"
         ]
       }
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "gestione-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
-        "de": "travelling-destination-manager-msc-geneva",
-        "fr": "travelling-destination-manager-msc-geneva"
+        "it": "gestione-delle-destinazioni-msc-group-geneva",
+        "de": "reisezielmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-destination-itinerante-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -144,15 +140,13 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-27T11:26:28.237Z",
       "previousSlugs": [
-        "gestione-delle-destinazioni-msc-group-geneva"
+        "travelling-destination-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "reisezielmanager-msc-group-geneva",
           "travelling-destination-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-destination-itinerante-msc-group-geneva",
           "travelling-destination-manager-msc-geneva"
         ],
         "it": [
@@ -448,12 +442,12 @@
     },
     {
       "id": "msc-cargo-1850ab808b78",
-      "slug": "junior-architect-port-development-intern-msc-geneva",
+      "slug": "junior-architetto-port-development-tirocinante-msc-group-geneva",
       "slugByLocale": {
         "en": "junior-architect-port-development-intern-msc-geneva",
-        "it": "junior-architect-port-development-intern-msc-geneva",
+        "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architect-port-development-intern-msc-geneva"
+        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -511,15 +505,14 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-25T22:52:35.949Z",
       "previousSlugs": [
-        "junior-architetto-port-development-tirocinante-msc-group-geneva"
+        "junior-architect-port-development-praktikant-msc-group-geneva",
+        "junior-architect-port-development-intern-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "junior-architect-port-development-praktikant-msc-group-geneva",
-          "junior-architect-port-development-intern-msc-geneva"
+          "junior-architect-port-development-praktikant-msc-group-geneva"
         ],
         "fr": [
-          "junior-architecte-port-development-stagiaire-msc-group-geneva",
           "junior-architect-port-development-intern-msc-geneva"
         ],
         "it": [
@@ -533,8 +526,8 @@
       "slugByLocale": {
         "en": "spa-product-manager-msc-geneva",
         "it": "spa-product-manager-msc-geneva",
-        "de": "spa-product-manager-msc-geneva",
-        "fr": "spa-product-manager-msc-geneva"
+        "de": "spa-produktmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-produits-spa-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -927,9 +920,6 @@
       "previousSlugsByLocale": {
         "it": [
           "casino-slots-and-technical-operations-manager-msc-geneva"
-        ],
-        "de": [
-          "casino-slots-und-technical-operations-manager-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-06-26T12:03:04.466Z",
