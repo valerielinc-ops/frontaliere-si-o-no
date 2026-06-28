@@ -685,6 +685,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tagli-helvetia-baloise-svizzera-2028.title': 'Helvetia-Baloise : coupes jusqu\'à 1200 postes en Suisse d\'ici 2028',
     'blog.article.tagli-helvetia-baloise-svizzera-2028.excerpt': 'La fusion Helvetia-Baloise entraînera la suppression de 1\'000 à 1\'200 emplois en Suisse d\'ici 2028, selon le PDG Martin Jara.',
     'blog.article.tagli-helvetia-baloise-svizzera-2028.imageAlt': 'Vue du quartier financier de Zurich, symbole de l\'économie suisse.',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.title': 'Travailler comme éducateur d\'enfants au Tessin : salaire et exigences (2024)',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.excerpt': 'Pour travailler comme éducateur d\'enfants au Tessin, vous avez besoin du diplôme SSS ; salaire compris entre CHF 73 000 et 97 000. lis et d\'autres entités embauchent.',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.imageAlt': 'Éducateur de la petite enfance dans une crèche au Tessin.',
 };
 
 export default blogMetaChFr;

@@ -685,6 +685,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tagli-helvetia-baloise-svizzera-2028.title': 'Helvetia-Baloise: Abbau von bis zu 1200 Stellen in der Schweiz bis 2028',
     'blog.article.tagli-helvetia-baloise-svizzera-2028.excerpt': 'Die Fusion Helvetia-Baloise wird laut CEO Martin Jara bis 2028 1\'000-1\'200 Stellen in der Schweiz abbauen.',
     'blog.article.tagli-helvetia-baloise-svizzera-2028.imageAlt': 'Blick auf das Zürcher Finanzviertel, Symbol der Schweizer Wirtschaft.',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.title': 'Als Kindergärtnerin im Tessin arbeiten: Gehalt und Voraussetzungen (2024)',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.excerpt': 'Um als Kindererzieherin im Tessin zu arbeiten, benötigen Sie das HF-Diplom; Gehalt zwischen CHF 73 \'000 und 97\' 000. Lis und andere Körperschaften übernehmen.',
+    'blog.article.educatore-infanzia-ticino-stipendio-2024.imageAlt': 'Kindererzieherin arbeitet in einer Kita im Tessin.',
 };
 
 export default blogMetaChDe;
