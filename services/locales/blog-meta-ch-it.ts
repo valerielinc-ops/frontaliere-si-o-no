@@ -679,6 +679,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-2026-step.title': 'G-Bewilligung Antrag 2026: guida completa, costi e rinnovo',
     'blog.article.g-bewilligung-antrag-2026-step.excerpt': 'Procedura dettagliata per il permesso G dal 2026: documenti, Migrationsamt, costo 65 CHF, validità 5 anni e rinnovo.',
     'blog.article.g-bewilligung-antrag-2026-step.imageAlt': 'Sportello di un ufficio migrazione svizzero con documenti ufficiali.',
+    'blog.article.cambio-commando-volontari-lugano.title': 'Cambio di comando ai Volontari Luganesi',
+    'blog.article.cambio-commando-volontari-lugano.excerpt': 'Sergio Romaneschi ha guidato il corpo per 13 anni. Il nuovo comandante è Paolo Baiardi. Cerimonia a Palazzo Civico.',
+    'blog.article.cambio-commando-volontari-lugano.imageAlt': 'Cerimonia di passaggio di comando del Corpo Volontari Luganesi a Palazzo Civico',
 };
 
 export default blogMetaChIt;

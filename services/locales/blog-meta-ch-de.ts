@@ -679,6 +679,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-2026-step.title': 'G-Bewilligung Antrag 2026: Vollständiger Leitfaden, Kosten & Verlängerung',
     'blog.article.g-bewilligung-antrag-2026-step.excerpt': 'Ausführliches Verfahren für die G-Genehmigung ab 2026: Dokumente, Migrationsamt, Kosten 65 CHF, Gültigkeit 5 Jahre und Verlängerung.',
     'blog.article.g-bewilligung-antrag-2026-step.imageAlt': 'Schalter eines Schweizer Migrationsamts mit offiziellen Dokumenten.',
+    'blog.article.cambio-commando-volontari-lugano.title': 'Kommandowechsel bei den Luganer Freiwilligen',
+    'blog.article.cambio-commando-volontari-lugano.excerpt': 'Sergio Romaneschi leitete den Körper 13 Jahre lang. Der neue Kommandant ist Paolo Baiardi. Zeremonie im Palazzo Civico.',
+    'blog.article.cambio-commando-volontari-lugano.imageAlt': 'Offizielle Übergabefeier der Lugano Freiwilligen im Rathaus',
 };
 
 export default blogMetaChDe;
