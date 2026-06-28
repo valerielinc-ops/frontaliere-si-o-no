@@ -355,7 +355,7 @@
       "slug": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
       "slugByLocale": {
         "it": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
-        "en": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
+        "en": "nurse-hf-psychiatry-40-80-spitex-region-olten-olten",
         "de": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
         "fr": "infirmiere-hf-psychiatrie-40-80-spitex-region-olten-olten"
       },
@@ -400,15 +400,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "nurse-hf-psychiatry-40-80-spitex-region-olten-olten"
+        "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
         ],
         "en": [
-          "nurse-hf-psychiatry-40-80-spitex-region-olten-olten",
           "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
         ]
       },
@@ -431,7 +429,7 @@
       "slug": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
       "slugByLocale": {
         "it": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
-        "en": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
+        "en": "dipl-nursing-specialist-hf-psychiatry-dipl-nursing-specialist-hf-psychiatry-spitex-rebeno-ag-zollikofen",
         "de": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-psychiatrie-dipl-specialiste-des-soins-infirmiers-hf-psychiatrie-spitex-rebeno"
       },
@@ -477,7 +475,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
-        "dipl-nursing-specialist-hf-psychiatry-dipl-nursing-specialist-hf-psychiatry-spitex-rebeno-ag-zollikofen",
         "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
       ],
       "previousSlugsByLocale": {
@@ -485,7 +482,6 @@
           "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
         ],
         "en": [
-          "dipl-nursing-specialist-hf-psychiatry-dipl-nursing-specialist-hf-psychiatry-spitex-rebeno-ag-zollikofen",
           "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
         ],
         "fr": [
@@ -1178,7 +1174,7 @@
       "slug": "infermieristico-laureato-in-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln",
       "slugByLocale": {
         "it": "infermieristico-laureato-in-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "en": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
+        "en": "dipl-nurse-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "de": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
         "fr": "infirmiere-diplomee-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       },
@@ -1224,14 +1220,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-60-80-spitex-ch-pratteln",
-        "dipl-nurse-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln"
+        "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-60-80-spitex-ch-pratteln"
         ],
         "en": [
-          "dipl-nurse-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln",
           "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
         ],
         "fr": [
@@ -1543,12 +1538,12 @@
     },
     {
       "id": "spitex-ch-f3a93ba50a10",
-      "slug": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
+      "slug": "team-management-servizio-notturno-stazionario-e-ambulatorio-spitex-der-seegemeinden-weggis",
       "slugByLocale": {
         "de": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "it": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "en": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "fr": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        "it": "team-management-servizio-notturno-stazionario-e-ambulatorio-spitex-der-seegemeinden-weggis",
+        "en": "team-management-night-service-stationary-ambulatory-spitex-der-seegemeinden-weggis",
+        "fr": "gestion-d-equipe-service-de-nuit-stationnaire-ambulatoire-spitex-der-seegemeinden-weggis"
       },
       "company": "Spitex der Seegemeinden",
       "companyKey": "spitex-ch",
@@ -1604,16 +1599,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-27T22:54:48.093Z"
+      "firstSeenAt": "2026-06-27T22:54:48.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "en": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "fr": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+      ]
     },
     {
       "id": "spitex-ch-743759829338",
-      "slug": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
+      "slug": "dipl-infermieristica-professionale-hf-servizio-notturno-fisso-e-ambulante-spitex-der-seegemeinden-weggis",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "it": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "en": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "fr": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        "it": "dipl-infermieristica-professionale-hf-servizio-notturno-fisso-e-ambulante-spitex-der-seegemeinden-weggis",
+        "en": "dipl-nursing-professional-hf-stationary-night-service-outpatient-spitex-der-seegemeinden-weggis",
+        "fr": "dipl-soins-infirmiers-professionnels-hf-service-de-nuit-stationnaire-et-ambulatoire-spitex-der-seegemeinden-weggis"
       },
       "company": "Spitex der Seegemeinden",
       "companyKey": "spitex-ch",
@@ -1669,7 +1678,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-27T22:54:47.706Z"
+      "firstSeenAt": "2026-06-27T22:54:47.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+      ]
     },
     {
       "id": "spitex-ch-98364ed82cd6",
@@ -1677,8 +1700,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
         "it": "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh",
-        "en": "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh",
-        "fr": "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+        "en": "health-specialist-efz-50-80-for-the-wetzikon-base-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "specialiste-de-la-sante-efz-50-80-pour-la-base-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1746,12 +1769,12 @@
     },
     {
       "id": "spitex-ch-731a186d1005",
-      "slug": "pflegeexpertin-60-80-spitex-ch-wetzikon-zh",
+      "slug": "esperto-di-cura-60-80-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
         "de": "pflegeexpertin-60-80-spitex-ch-wetzikon-zh",
         "en": "pflegeexpertin-60-80-spitex-bachtel-ag-wetzikon-zh",
-        "it": "pflegeexpertin-60-80-spitex-ch-wetzikon-zh",
-        "fr": "pflegeexpertin-60-80-spitex-ch-wetzikon-zh"
+        "it": "esperto-di-cura-60-80-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "expert-en-soins-60-80-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1807,7 +1830,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-27T22:54:46.657Z"
+      "firstSeenAt": "2026-06-27T22:54:46.657Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-60-80-spitex-ch-wetzikon-zh"
+        ],
+        "fr": [
+          "pflegeexpertin-60-80-spitex-ch-wetzikon-zh"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-60-80-spitex-ch-wetzikon-zh"
+      ]
     },
     {
       "id": "spitex-ch-3dd635a8501b",
