@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-06-27T22:28:14.268Z",
+  "generatedAt": "2026-06-28T11:41:09.681Z",
   "total": 57,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 48,
-  "durationMs": 151080,
-  "avgDurationMs": 151080,
+  "durationMs": 137022,
+  "avgDurationMs": 137022,
   "durationHistory": [
-    151080
+    137022
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -348,82 +348,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Idraulico",
-      "slug": "idraulico-pemsa-agno",
-      "url": "https://www.pemsa.ch/it/job/idraulico-2678630/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-2678630/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Agno",
-      "addressLocality": "Agno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-12",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-27",
-      "id": "pemsa-16b250da59a5",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-12T12:47:46.667Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Idraulico installatore impianti riscaldamento",
-      "slug": "idraulico-installatore-impianti-riscaldamento-pemsa-mendrisio",
-      "url": "https://www.pemsa.ch/it/job/idraulico-installatore-impianti-riscaldamento-2674929/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-installatore-impianti-riscaldamento-2674929/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-15",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-27",
-      "id": "pemsa-c8ce44764384",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-15T11:40:31.010Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "IDRAULICO impianti riscaldamento",
