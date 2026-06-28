@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinica-holistica-engiadina",
-  "assembledAt": "2026-06-28T10:39:41.625Z",
+  "assembledAt": "2026-06-28T21:22:38.308Z",
   "jobs": [
     {
       "id": "clinica-holistica-engiadina-9a7d57a47dbc",
@@ -47,7 +47,8 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als-oberpsychologin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T10:39:38.862Z",
+      "crawledAt": "2026-06-28T21:22:35.723Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als"
@@ -116,7 +117,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T10:39:36.755Z",
+      "crawledAt": "2026-06-28T21:22:33.655Z",
       "needsRetranslation": false,
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -186,7 +187,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hr-assistentin-40-60",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T10:39:34.179Z",
+      "crawledAt": "2026-06-28T21:22:31.223Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "hr-assistent-in-40-60-clinica-holistica-engiadina-susch",
@@ -263,7 +264,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-hotellerie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T10:39:31.932Z",
+      "crawledAt": "2026-06-28T21:22:29.062Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "leiter-in-hotellerie-clinica-holistica-engiadina-susch"
@@ -338,7 +339,8 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T10:39:29.587Z",
+      "crawledAt": "2026-06-28T21:22:26.853Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "previousSlugs": [
         "hilfskoch-kuchenhilfe-m-w-d-clinica-holistica-engiadina-susch"
@@ -407,7 +409,8 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T10:39:27.801Z",
+      "crawledAt": "2026-06-28T21:22:24.970Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "previousSlugs": [
         "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin"
@@ -476,7 +479,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/jungkoch-jungkoechin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T10:39:25.578Z",
+      "crawledAt": "2026-06-28T21:22:22.708Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "jungkoch-jungkochin-clinica-holistica-engiadina-susch"
