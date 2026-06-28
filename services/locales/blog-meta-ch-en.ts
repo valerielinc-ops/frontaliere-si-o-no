@@ -676,6 +676,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.quellensteuer-tarife-svizzera-2026.title': 'Quellensteuer Switzerland: rates 2026 and calculation for all cantons',
     'blog.article.quellensteuer-tarife-svizzera-2026.excerpt': 'Quellensteuer Switzerland 2026: rates, rebates, thresholds NOV 120k CHF for Ticino, Graubünden, Valais, Bern. Calculation guide and main allowances.',
     'blog.article.quellensteuer-tarife-svizzera-2026.imageAlt': 'Modern Swiss tax office with documents and calculators, Ticino.',
+    'blog.article.g-bewilligung-antrag-2026-step.title': 'G-Bewilligung Antrag 2026: Complete Guide, Costs and Renewal',
+    'blog.article.g-bewilligung-antrag-2026-step.excerpt': 'Detailed procedure for permit G from 2026: documents, Migrationsamt, cost 65 CHF, validity 5 years and renewal.',
+    'blog.article.g-bewilligung-antrag-2026-step.imageAlt': 'Swiss migration office desk with official documents.',
 };
 
 export default blogMetaChEn;

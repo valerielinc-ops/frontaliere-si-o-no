@@ -8676,6 +8676,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-g-bewilligung-antrag-2026-step': {
+    title: 'G-Bewilligung Antrag 2026: guida completa, costi e rinnovo',
+    description: 'Guida pratica al permesso G 2026: come presentare domanda, costi 65 CHF, documenti, validità 5 anni e rinnovo presso Migrationsamt. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, g-bewilligung, antrag, completa, costi',
+    ogTitle: 'G-Bewilligung Antrag 2026: costi, rinnovo, documenti',
+    ogDescription: 'Procedura domanda permesso G 2026: costo 65 CHF, validità 5 anni, rinnovo e documenti presso Migrationsamt.',
+    canonicalPath: '/articoli-svizzera/g-bewilligung-antrag-2026-step/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "G-Bewilligung Antrag 2026: guida completa, costi e rinnovo",
+      "description": "Guida pratica al permesso G 2026: come presentare domanda, costi 65 CHF, documenti, validità 5 anni e rinnovo presso Migrationsamt. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/g-bewilligung-antrag-2026-step.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sportello di un ufficio migrazione svizzero con documenti ufficiali."
+      },
+      "datePublished": "2026-06-28T06:55:28+00:00",
+      "dateModified": "2026-06-28T06:55:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/g-bewilligung-antrag-2026-step/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

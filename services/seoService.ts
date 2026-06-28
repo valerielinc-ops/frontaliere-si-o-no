@@ -4277,6 +4277,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-imposte-alla-fonte-ticino': { name: 'Imposta alla fonte Ticino', path: '/articoli-svizzera/imposte-alla-fonte-ticino/', parent: 'blog' },
     'blog-aufenthaltsbewilligung-b-quellensteuer': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/aufenthaltsbewilligung-b-quellensteuer/', parent: 'blog' },
     'blog-quellensteuer-tarife-svizzera-2026': { name: 'Quellensteuer tariffe 2026', path: '/articoli-svizzera/quellensteuer-tarife-svizzera-2026/', parent: 'blog' },
+    'blog-g-bewilligung-antrag-2026-step': { name: 'Domanda permesso G', path: '/articoli-svizzera/g-bewilligung-antrag-2026-step/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
