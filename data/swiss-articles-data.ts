@@ -2015,6 +2015,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'quellensteuer-tarife-svizzera-2026',
+    category: 'fiscale',
+    date: '2026-06-28T05:42:30.465Z',
+    image: '/images/blog/quellensteuer-tarife-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

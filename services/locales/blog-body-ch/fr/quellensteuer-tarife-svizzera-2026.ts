@@ -1,0 +1,8 @@
+const bodyQuellensteuerTarifeSvizzera2026: Record<string, string> = {
+    'blog.article.quellensteuer-tarife-svizzera-2026.body1': '[object Object]',
+    'blog.article.quellensteuer-tarife-svizzera-2026.body2': '...\n\n## Outils utiles pour protéger votre net\nPour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).',
+    'blog.article.quellensteuer-tarife-svizzera-2026.body3': '...\n\nVérifiez les [échéances fiscales](nav:calendar) : déclarations, ristournes — toutes les dates dans un calendrier interactif.',
+    'blog.article.quellensteuer-tarife-svizzera-2026.faq': '[{"q":"Comment les tarifs Quellensteuer sont-ils appliqués dans les différents cantons ?","a":"Les tarifs de Quellensteuer varient entre le Tessin, les Grisons, le Valais et Berne. Chaque canton applique ses propres taux et bonifications selon la réglementation locale, consultables auprès des services fiscaux cantonaux. Le calcul tient compte du revenu, de la situation familiale et des bonifications prévues."},{"q":"Quand est-il nécessaire de déposer la déclaration fiscale ordinaire ?","a":"La déclaration d\'impôt ordinaire est requise lorsque le revenu annuel dépasse le seuil NOV de CHF 120 000. En dessous de ce seuil, on reste dans le régime de l\'impôt à la source et la déclaration ordinaire n\'est pas obligatoire."},{"q":"Quels outils puis-je utiliser pour calculer la Quellensteuer ?","a":"Pour calculer la Quellensteuer, vous pouvez utiliser le calculateur de salaire en ligne, consulter les tableaux officiels des tarifs cantonaux et vous adresser aux services fiscaux pour obtenir des informations détaillées sur les déductions et les bonifications."}]',
+};
+
+export default bodyQuellensteuerTarifeSvizzera2026;

@@ -4276,6 +4276,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-richiesta-permesso-g-step': { name: 'Permesso G Frontalieri', path: '/articoli-svizzera/richiesta-permesso-g-step/', parent: 'blog' },
     'blog-imposte-alla-fonte-ticino': { name: 'Imposta alla fonte Ticino', path: '/articoli-svizzera/imposte-alla-fonte-ticino/', parent: 'blog' },
     'blog-aufenthaltsbewilligung-b-quellensteuer': { name: 'Tassazione frontalieri', path: '/articoli-svizzera/aufenthaltsbewilligung-b-quellensteuer/', parent: 'blog' },
+    'blog-quellensteuer-tarife-svizzera-2026': { name: 'Quellensteuer tariffe 2026', path: '/articoli-svizzera/quellensteuer-tarife-svizzera-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

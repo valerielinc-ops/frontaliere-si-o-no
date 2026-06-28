@@ -673,6 +673,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aufenthaltsbewilligung-b-quellensteuer.title': 'Aufenthaltsbewilligung B und Quellensteuer 2026: Alles, was Sie wissen müssen',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer.excerpt': 'Entdecken Sie die Neuheiten zur Besteuerung für Inhaber der B-Bewilligung in der Schweiz im Jahr 2026',
     'blog.article.aufenthaltsbewilligung-b-quellensteuer.imageAlt': 'Blick auf Lugano mit Steuerdokumenten und Taschenrechnern',
+    'blog.article.quellensteuer-tarife-svizzera-2026.title': 'Quellensteuer Schweiz: Tarife 2026 und Berechnung für alle Kantone',
+    'blog.article.quellensteuer-tarife-svizzera-2026.excerpt': 'Quellensteuer Schweiz 2026: Tarife, Gutscheine, Schwellen NOV 120k CHF für Tessin, Graubünden, Wallis, Bern. Leitfaden für die Berechnung und die wichtigsten Rabatte.',
+    'blog.article.quellensteuer-tarife-svizzera-2026.imageAlt': 'Modernes Schweizer Steueramt mit Dokumenten und Rechnern, Tessin.',
 };
 
 export default blogMetaChDe;
