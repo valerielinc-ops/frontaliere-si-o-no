@@ -679,6 +679,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-2026-step.title': 'G-Bewilligung Antrag 2026: Complete Guide, Costs and Renewal',
     'blog.article.g-bewilligung-antrag-2026-step.excerpt': 'Detailed procedure for permit G from 2026: documents, Migrationsamt, cost 65 CHF, validity 5 years and renewal.',
     'blog.article.g-bewilligung-antrag-2026-step.imageAlt': 'Swiss migration office desk with official documents.',
+    'blog.article.cambio-commando-volontari-lugano.title': 'Change of command to Lugano Volunteers',
+    'blog.article.cambio-commando-volontari-lugano.excerpt': 'Sergio Romaneschi guided the body for 13 years. The new commander is Paolo Baiardi. Ceremony at the Civic Palace.',
+    'blog.article.cambio-commando-volontari-lugano.imageAlt': 'Official handover ceremony of Lugano Volunteers at City Hall',
 };
 
 export default blogMetaChEn;

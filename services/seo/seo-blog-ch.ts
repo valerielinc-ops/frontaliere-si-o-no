@@ -8715,6 +8715,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-commando-volontari-lugano': {
+    title: 'Cambio di comando ai Volontari Luganesi | Frontaliere Ticino',
+    description: 'Cerimonia a Lugano con il passaggio di consegne tra Romaneschi e Baiardi, evento storico con implicazioni civiche e sociali. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, comando, volontari, luganesi',
+    ogTitle: 'Cambio di comando ai Volontari Luganesi',
+    ogDescription: 'Cerimonia ufficiale a Lugano con il passaggio di consegne tra Romaneschi e Baiardi, simbolo di continuità e rinnovamento civico.',
+    canonicalPath: '/articoli-svizzera/cambio-commando-volontari-lugano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio di comando ai Volontari Luganesi",
+      "description": "Cerimonia a Lugano con il passaggio di consegne tra Romaneschi e Baiardi, evento storico con implicazioni civiche e sociali. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambio-commando-volontari-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia di passaggio di comando del Corpo Volontari Luganesi a Palazzo Civico"
+      },
+      "datePublished": "2026-06-28T16:16:46+00:00",
+      "dateModified": "2026-06-28T16:16:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cambio-commando-volontari-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

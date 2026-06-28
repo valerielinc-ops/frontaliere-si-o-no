@@ -4279,6 +4279,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-quellensteuer-tarife-svizzera-2026': { name: 'Quellensteuer tariffe 2026', path: '/articoli-svizzera/quellensteuer-tarife-svizzera-2026/', parent: 'blog' },
     'blog-g-bewilligung-antrag-2026-step': { name: 'Domanda permesso G', path: '/articoli-svizzera/g-bewilligung-antrag-2026-step/', parent: 'blog' },
     'blog-canicola-sud-nord-alpi': { name: 'clima e frontiera in Ticino', path: '/articoli-frontaliere/canicola-sud-nord-alpi', parent: 'blog' },
+    'blog-cambio-commando-volontari-lugano': { name: 'Civica Lugano', path: '/articoli-svizzera/cambio-commando-volontari-lugano/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
