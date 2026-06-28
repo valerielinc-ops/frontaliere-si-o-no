@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-emmental-1b156c55e018",
-      "slug": "praktikant-in-a-spital-emmental-burgdorf",
+      "slug": "interno-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "praktikant-in-a-spital-emmental-burgdorf",
-        "it": "praktikant-in-a-spital-emmental-burgdorf",
-        "en": "praktikant-in-a-spital-emmental-burgdorf",
-        "fr": "praktikant-in-a-spital-emmental-burgdorf"
+        "it": "interno-a-spital-emmental-burgdorf-langnau",
+        "en": "intern-in-a-spital-emmental-burgdorf-langnau",
+        "fr": "stagiaire-en-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -70,7 +70,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-27T22:31:44.364Z"
+      "firstSeenAt": "2026-06-27T22:31:44.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "praktikant-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "praktikant-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-b6e4ce3d666d",
@@ -78,8 +92,8 @@
       "slugByLocale": {
         "de": "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental",
         "it": "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf",
-        "en": "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf",
-        "fr": "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf"
+        "en": "training-place-for-dipl-care-professional-hf-for-cross-entry-a-spital-emmental-burgdorf-langnau",
+        "fr": "lieu-de-formation-pour-le-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1458,7 +1472,7 @@
       "slug": "pool-di-infermieri-qualificati-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "it": "pool-di-infermieri-qualificati-a-spital-emmental-burgdorf-langnau",
-        "en": "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
+        "en": "dipl-care-professional-care-pool-a-spital-emmental-burgdorf-langnau",
         "de": "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
         "fr": "infirmier-diplome-piscine-de-soins-infirmiers-a-spital-emmental-burgdorf-langnau"
       },
@@ -1509,7 +1523,6 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
-        "dipl-care-professional-care-pool-a-spital-emmental-burgdorf-langnau",
         "diplomata-infermiera-a-pool-di-assistenza-a-spital-emmental-burgdorf-langnau",
         "diplome-e-infirmier-ere-pool-a-spital-emmental-burgdorf-langnau"
       ],
@@ -1518,7 +1531,6 @@
           "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-care-professional-care-pool-a-spital-emmental-burgdorf-langnau",
           "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
         ],
         "fr": [
@@ -2038,7 +2050,7 @@
       "slug": "cura-professionale-dei-bambini-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "cura-professionale-dei-bambini-a-spital-emmental-burgdorf",
-        "en": "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
+        "en": "professional-child-care-a-spital-emmental-burgdorf",
         "de": "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
         "fr": "services-professionnels-de-garde-d-enfants-a-spital-emmental-burgdorf"
       },
@@ -2088,15 +2100,13 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
-        "professional-child-care-a-spital-emmental-burgdorf"
+        "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "professional-child-care-a-spital-emmental-burgdorf",
           "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
         ],
         "fr": [
@@ -2548,7 +2558,7 @@
       "slug": "infermiera-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "infermiera-a-spital-emmental-burgdorf",
-        "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+        "en": "dipl-nurse-a-spital-emmental-burgdorf-2fc0f7",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
         "fr": "infirmiere-diplomee-a-spital-emmental-burgdorf"
       },
@@ -2598,15 +2608,13 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-nurse-a-spital-emmental-burgdorf-2fc0f7"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-nurse-a-spital-emmental-burgdorf-2fc0f7",
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "fr": [
@@ -2880,10 +2888,10 @@
       "id": "spital-emmental-cdc2447c8034",
       "slug": "dipl-infermiera-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-infermiera-a-spital-emmental-burgdorf",
+        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf"
+        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2932,15 +2940,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+        "dipl-infirmiere-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
           "dipl-infirmiere-a-spital-emmental-burgdorf"
         ]
       },

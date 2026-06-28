@@ -1825,7 +1825,7 @@
       "slugByLocale": {
         "it": "infermiere-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
         "en": "nurse-f-m-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
-        "de": "infirmier-f-h-en-ctr-ehc-vd-gilly",
+        "de": "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
         "fr": "infirmier-f-h-en-ctr-ehc-vd-gilly"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -1868,15 +1868,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-f-h-en-ctr-ehc-vd-gilly",
-        "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly"
+        "infirmier-f-h-en-ctr-ehc-vd-gilly"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-f-h-en-ctr-ehc-vd-gilly"
         ],
         "de": [
-          "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
           "infirmier-f-h-en-ctr-ehc-vd-gilly"
         ]
       },
