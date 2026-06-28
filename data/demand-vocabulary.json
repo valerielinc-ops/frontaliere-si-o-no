@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T23:04:40.190Z",
+  "generatedAt": "2026-06-28T22:55:21.199Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -7,18 +7,25 @@
   },
   "stableKeywords": [
     {
+      "kw": "case anziani ticino offerte di lavoro",
+      "normalizedKeyword": "case anziani ticino offerte di lavoro",
+      "weight": 0.336,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "frontalieri",
+      "normalizedKeyword": "frontalieri",
+      "weight": 0.304,
+      "source": "gsc+fingerprint",
+      "cluster": "generic"
+    },
+    {
       "kw": "2026",
       "normalizedKeyword": "2026",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "novita"
-    },
-    {
-      "kw": "allarmanti",
-      "normalizedKeyword": "allarmanti",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
     },
     {
       "kw": "animeranno",
@@ -56,8 +63,15 @@
       "cluster": "generic"
     },
     {
-      "kw": "detentori",
-      "normalizedKeyword": "detentori",
+      "kw": "cercato",
+      "normalizedKeyword": "cercato",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
+      "kw": "consegnando",
+      "normalizedKeyword": "consegnando",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -84,8 +98,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "mortali",
-      "normalizedKeyword": "mortali",
+      "kw": "licenziato",
+      "normalizedKeyword": "licenziato",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -98,22 +112,15 @@
       "cluster": "generic"
     },
     {
-      "kw": "patente",
-      "normalizedKeyword": "patente",
+      "kw": "pacchi",
+      "normalizedKeyword": "pacchi",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
     },
     {
-      "kw": "pesca",
-      "normalizedKeyword": "pesca",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
-      "kw": "riprendera",
-      "normalizedKeyword": "riprendera",
+      "kw": "postino",
+      "normalizedKeyword": "postino",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -147,18 +154,11 @@
       "cluster": "generic"
     },
     {
-      "kw": "turistica",
-      "normalizedKeyword": "turistica",
+      "kw": "vevey",
+      "normalizedKeyword": "vevey",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
-    },
-    {
-      "kw": "case anziani ticino offerte di lavoro",
-      "normalizedKeyword": "case anziani ticino offerte di lavoro",
-      "weight": 0.291,
-      "source": "gsc",
-      "cluster": "lavoro"
     },
     {
       "kw": "offerte di lavoro ticino",
@@ -184,14 +184,14 @@
     {
       "kw": "offerte di lavoro casa di riposo svizzera",
       "normalizedKeyword": "offerte di lavoro casa di riposo svizzera",
-      "weight": 0.15,
+      "weight": 0.184,
       "source": "gsc",
       "cluster": "lavoro"
     },
     {
       "kw": "offerte lavoro casa di riposo svizzera",
       "normalizedKeyword": "offerte lavoro casa di riposo svizzera",
-      "weight": 0.15,
+      "weight": 0.183,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -203,9 +203,16 @@
       "cluster": "mobilita"
     },
     {
+      "kw": "nursing jobs",
+      "normalizedKeyword": "nursing jobs",
+      "weight": 0.11,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "case anziani lugano posti di lavoro",
       "normalizedKeyword": "case anziani lugano posti di lavoro",
-      "weight": 0.093,
+      "weight": 0.106,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -217,23 +224,9 @@
       "cluster": "generic"
     },
     {
-      "kw": "nursing jobs",
-      "normalizedKeyword": "nursing jobs",
-      "weight": 0.087,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "eoc offerte di lavoro assistente di cura",
       "normalizedKeyword": "eoc offerte di lavoro assistente di cura",
       "weight": 0.083,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "offerte lavoro assistente di cura ticino",
-      "normalizedKeyword": "offerte lavoro assistente di cura ticino",
-      "weight": 0.078,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -266,6 +259,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "offerte di lavoro casa anziani ticino",
+      "normalizedKeyword": "offerte di lavoro casa anziani ticino",
+      "weight": 0.062,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "lavoro poschiavo",
       "normalizedKeyword": "lavoro poschiavo",
       "weight": 0.061,
@@ -289,6 +289,13 @@
     {
       "kw": "fabbriche in svizzera che assumono",
       "normalizedKeyword": "fabbriche in svizzera che assumono",
+      "weight": 0.06,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "i am searching for caregiver jobs in ticino for elderly support.",
+      "normalizedKeyword": "i am searching for caregiver jobs in ticino for elderly support.",
       "weight": 0.06,
       "source": "gsc",
       "cluster": "lavoro"
@@ -350,13 +357,6 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "i am searching for caregiver jobs in ticino for elderly support.",
-      "normalizedKeyword": "i am searching for caregiver jobs in ticino for elderly support.",
-      "weight": 0.054,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "posti vacanti ticino",
       "normalizedKeyword": "posti vacanti ticino",
       "weight": 0.054,
@@ -385,9 +385,16 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte di lavoro casa anziani ticino",
-      "normalizedKeyword": "offerte di lavoro casa anziani ticino",
+      "kw": "casa anziani paradiso offerta lavoro",
+      "normalizedKeyword": "casa anziani paradiso offerta lavoro",
       "weight": 0.049,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+      "normalizedKeyword": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+      "weight": 0.048,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -420,15 +427,15 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
-      "normalizedKeyword": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
-      "weight": 0.046,
+      "kw": "offerte di lavoro locarno",
+      "normalizedKeyword": "offerte di lavoro locarno",
+      "weight": 0.045,
       "source": "gsc",
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte di lavoro locarno",
-      "normalizedKeyword": "offerte di lavoro locarno",
+      "kw": "offerte lavoro casa anziani ticino",
+      "normalizedKeyword": "offerte lavoro casa anziani ticino",
       "weight": 0.045,
       "source": "gsc",
       "cluster": "lavoro"
@@ -490,8 +497,8 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "casa anziani paradiso offerta lavoro",
-      "normalizedKeyword": "casa anziani paradiso offerta lavoro",
+      "kw": "casa anziani comunale bellinzona offerte di lavoro",
+      "normalizedKeyword": "casa anziani comunale bellinzona offerte di lavoro",
       "weight": 0.038,
       "source": "gsc",
       "cluster": "lavoro"
@@ -539,13 +546,6 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte lavoro casa anziani ticino",
-      "normalizedKeyword": "offerte lavoro casa anziani ticino",
-      "weight": 0.036,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "annunci lavoro ticino",
       "normalizedKeyword": "annunci lavoro ticino",
       "weight": 0.035,
@@ -588,6 +588,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "casa anziani chiasso lavoro",
+      "normalizedKeyword": "casa anziani chiasso lavoro",
+      "weight": 0.031,
+      "source": "gsc",
+      "cluster": "mobilita"
+    },
+    {
       "kw": "lavoro locarno",
       "normalizedKeyword": "lavoro locarno",
       "weight": 0.031,
@@ -609,8 +616,8 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "casa anziani comunale bellinzona offerte di lavoro",
-      "normalizedKeyword": "casa anziani comunale bellinzona offerte di lavoro",
+      "kw": "casa anziani mendrisio lavoro",
+      "normalizedKeyword": "casa anziani mendrisio lavoro",
       "weight": 0.03,
       "source": "gsc",
       "cluster": "lavoro"
@@ -637,13 +644,6 @@
       "cluster": "generic"
     },
     {
-      "kw": "casa anziani chiasso lavoro",
-      "normalizedKeyword": "casa anziani chiasso lavoro",
-      "weight": 0.029,
-      "source": "gsc",
-      "cluster": "mobilita"
-    },
-    {
       "kw": "offerte di lavoro bellinzona",
       "normalizedKeyword": "offerte di lavoro bellinzona",
       "weight": 0.029,
@@ -651,8 +651,8 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "casa anziani mendrisio lavoro",
-      "normalizedKeyword": "casa anziani mendrisio lavoro",
+      "kw": "case di riposo ticino lavora con noi",
+      "normalizedKeyword": "case di riposo ticino lavora con noi",
       "weight": 0.027,
       "source": "gsc",
       "cluster": "lavoro"
@@ -698,13 +698,6 @@
       "weight": 0.026,
       "source": "gsc",
       "cluster": "mobilita"
-    },
-    {
-      "kw": "case di riposo ticino lavora con noi",
-      "normalizedKeyword": "case di riposo ticino lavora con noi",
-      "weight": 0.025,
-      "source": "gsc",
-      "cluster": "lavoro"
     },
     {
       "kw": "cerco lavoro svizzera",
@@ -1218,6 +1211,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "offerte di lavoro educatrice svizzera italiana",
+      "normalizedKeyword": "offerte di lavoro educatrice svizzera italiana",
+      "weight": 0.014,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "offerte di lavoro presso ente ospedaliero cantonale (eoc)",
       "normalizedKeyword": "offerte di lavoro presso ente ospedaliero cantonale (eoc)",
       "weight": 0.014,
@@ -1400,6 +1400,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "educatore sociale offerte lavoro ticino",
+      "normalizedKeyword": "educatore sociale offerte lavoro ticino",
+      "weight": 0.012,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "fondazione la fonte offerte lavoro",
       "normalizedKeyword": "fondazione la fonte offerte lavoro",
       "weight": 0.012,
@@ -1517,13 +1524,6 @@
       "weight": 0.011,
       "source": "gsc",
       "cluster": "generic"
-    },
-    {
-      "kw": "educatore sociale offerte lavoro ticino",
-      "normalizedKeyword": "educatore sociale offerte lavoro ticino",
-      "weight": 0.011,
-      "source": "gsc",
-      "cluster": "lavoro"
     },
     {
       "kw": "emploi groupe mutuel",
@@ -1771,6 +1771,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "offerte di lavoro casa di riposo per anziani",
+      "normalizedKeyword": "offerte di lavoro casa di riposo per anziani",
+      "weight": 0.01,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "offerte di lavoro eoc",
       "normalizedKeyword": "offerte di lavoro eoc",
       "weight": 0.01,
@@ -1823,7 +1830,7 @@
   "sources": {
     "gscOrphans": {
       "ok": true,
-      "kw_count": 728
+      "kw_count": 735
     },
     "googleSuggest": {
       "ok": true,
