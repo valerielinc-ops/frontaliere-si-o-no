@@ -3719,7 +3719,7 @@
       "slugByLocale": {
         "it": "100-assistente-chirurgico-specialista-hopital-du-valais-sion",
         "en": "100-assistant-surgical-specialist-hopital-du-valais-sion",
-        "de": "stellvertretender-facharzt-fur-chirurgie-100-hopital-du-valais-sion",
+        "de": "arztliche-assistenzarztin-100-chirurgie-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-chirurgie-a-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -3765,7 +3765,7 @@
       },
       "previousSlugs": [
         "medecin-adjoint-e-specialiste-en-chirurgie-a-100-hopital-du-valais-sion",
-        "arztliche-assistenzarztin-100-chirurgie-hopital-du-valais-sion"
+        "stellvertretender-facharzt-fur-chirurgie-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3776,7 +3776,7 @@
         ],
         "de": [
           "medecin-adjoint-e-specialiste-en-chirurgie-a-100-hopital-du-valais-sion",
-          "arztliche-assistenzarztin-100-chirurgie-hopital-du-valais-sion"
+          "stellvertretender-facharzt-fur-chirurgie-100-hopital-du-valais-sion"
         ]
       },
       "needsRetranslation": true,
@@ -4605,11 +4605,11 @@
     },
     {
       "id": "hopital-du-valais-b4edc8bb3f38",
-      "slug": "application-owner-100-hopital-du-valais-sion",
+      "slug": "applicazione-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "application-owner-100-hopital-du-valais-sion",
+        "it": "applicazione-100-hopital-du-valais-sion",
         "en": "application-owner-100-hopital-du-valais-sion",
-        "de": "application-owner-100-hopital-du-valais-sion",
+        "de": "anwendung-100-hopital-du-valais-sion",
         "fr": "application-owner-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -4654,11 +4654,16 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "titolare-del-trattamento-100-hopital-du-valais-sion"
+        "titolare-del-trattamento-100-hopital-du-valais-sion",
+        "application-owner-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "titolare-del-trattamento-100-hopital-du-valais-sion"
+          "titolare-del-trattamento-100-hopital-du-valais-sion",
+          "application-owner-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "application-owner-100-hopital-du-valais-sion"
         ]
       },
       "firstSeenAt": "2026-06-25T11:22:27.719Z",
@@ -4842,7 +4847,7 @@
       "slugByLocale": {
         "it": "collaboratore-di-supporto-del-laboratorio-15-60-hopital-du-valais-sion",
         "en": "collaborator-of-laboratory-support-15-60-hopital-du-valais-sion",
-        "de": "mitarbeiter-der-laborunterstutzung-15-60-hopital-du-valais-sion",
+        "de": "koordinator-fur-laborunterstutzung-15-60-hopital-du-valais-sion",
         "fr": "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -4895,12 +4900,14 @@
           "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
         ],
         "de": [
-          "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
+          "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion",
+          "mitarbeiter-der-laborunterstutzung-15-60-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "collaboratore-di-supporto-di-laboratorio-15-60-hopital-du-valais-sion",
-        "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion"
+        "collaborateur-rice-du-soutien-laboratoires-15-60-hopital-du-valais-sion",
+        "mitarbeiter-der-laborunterstutzung-15-60-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-06-25T22:32:35.542Z",
       "salaryMin": 60500,
