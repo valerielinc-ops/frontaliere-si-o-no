@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kzu",
-  "assembledAt": "2026-06-28T11:40:45.387Z",
+  "assembledAt": "2026-06-28T22:02:50.763Z",
   "jobs": [
     {
       "id": "kzu-35975853535f",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2029/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:43.362Z",
+      "crawledAt": "2026-06-28T22:02:48.536Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2043/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:42.498Z",
+      "crawledAt": "2026-06-28T22:02:47.706Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -157,9 +157,9 @@
       "slug": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
       "slugByLocale": {
         "it": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "en": "dipl-care-specialist-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
+        "en": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach",
         "de": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach",
-        "fr": "dipl-specialiste-des-soins-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
+        "fr": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
       },
       "company": "KZU Kompetenzzentrum Pflege und Gesundheit",
       "companyKey": "kzu",
@@ -184,7 +184,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2067/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:41.638Z",
+      "crawledAt": "2026-06-28T22:02:46.880Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -202,16 +202,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
+        "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach",
+        "dipl-care-specialist-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
+        "dipl-specialiste-des-soins-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
         ],
         "en": [
+          "dipl-care-specialist-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
           "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
         ],
         "fr": [
+          "dipl-specialiste-des-soins-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
           "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
         ]
       },
@@ -261,7 +265,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2068/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:40.771Z",
+      "crawledAt": "2026-06-28T22:02:45.880Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +342,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2030/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:39.993Z",
+      "crawledAt": "2026-06-28T22:02:44.904Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -387,7 +391,7 @@
       "slug": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "en": "dipl-nursing-professional-hf-40-60-spitex-angle-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
+        "en": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach",
         "de": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach",
         "fr": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach"
       },
@@ -414,7 +418,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2075/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:39.239Z",
+      "crawledAt": "2026-06-28T22:02:44.051Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -432,13 +436,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach"
+        "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach",
+        "dipl-nursing-professional-hf-40-60-spitex-angle-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach"
         ],
         "en": [
+          "dipl-nursing-professional-hf-40-60-spitex-angle-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
           "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach"
         ]
       },
@@ -488,7 +494,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2011/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:38.497Z",
+      "crawledAt": "2026-06-28T22:02:43.187Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -567,7 +573,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/1949/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:37.613Z",
+      "crawledAt": "2026-06-28T22:02:42.355Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -640,7 +646,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2054/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T11:40:36.733Z",
+      "crawledAt": "2026-06-28T22:02:41.321Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
