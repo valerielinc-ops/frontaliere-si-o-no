@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3004,
+ "numberOfItems": 3005,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7650,7 +7650,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3001, "name": "Quellensteuer Svizzera: tariffe 2026 e calcolo ...", "url": `${BASE_URL}/articoli-frontaliere/quellensteuer-tarife-svizzera-2026` },
           { "@type": "ListItem", "position": 3002, "name": "G-Bewilligung Antrag 2026: guida completa, cost...", "url": `${BASE_URL}/articoli-frontaliere/g-bewilligung-antrag-2026-step` },
           { "@type": "ListItem", "position": 3003, "name": "Canicola agli sgoccioli a nord delle Alpi. A su...", "url": `${BASE_URL}/articoli-frontaliere/canicola-sud-nord-alpi` },
-          { "@type": "ListItem", "position": 3004, "name": "Cambio di comando ai Volontari Luganesi", "url": `${BASE_URL}/articoli-frontaliere/cambio-commando-volontari-lugano` }
+          { "@type": "ListItem", "position": 3004, "name": "Cambio di comando ai Volontari Luganesi", "url": `${BASE_URL}/articoli-frontaliere/cambio-commando-volontari-lugano` },
+          { "@type": "ListItem", "position": 3005, "name": "Helvetia-Baloise: tagli fino a 1200 posti in Sv...", "url": `${BASE_URL}/articoli-frontaliere/tagli-helvetia-baloise-svizzera-2028` }
  ]
  },
  {

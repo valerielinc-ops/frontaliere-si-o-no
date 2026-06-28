@@ -682,6 +682,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cambio-commando-volontari-lugano.title': 'Change of command to Lugano Volunteers',
     'blog.article.cambio-commando-volontari-lugano.excerpt': 'Sergio Romaneschi guided the body for 13 years. The new commander is Paolo Baiardi. Ceremony at the Civic Palace.',
     'blog.article.cambio-commando-volontari-lugano.imageAlt': 'Official handover ceremony of Lugano Volunteers at City Hall',
+    'blog.article.tagli-helvetia-baloise-svizzera-2028.title': 'Helvetia-Baloise: cuts up to 1200 seats in Switzerland by 2028',
+    'blog.article.tagli-helvetia-baloise-svizzera-2028.excerpt': 'The Helvetia-Baloise merger will result in the elimination of 1,000-1,200 jobs in Switzerland by 2028, according to CEO Martin Jara.',
+    'blog.article.tagli-helvetia-baloise-svizzera-2028.imageAlt': 'View of Zurich\'s financial district, symbolizing the Swiss economy.',
 };
 
 export default blogMetaChEn;
