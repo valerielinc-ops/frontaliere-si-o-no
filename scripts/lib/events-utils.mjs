@@ -56,16 +56,6 @@ export const EVENTS_DIGEST_SLUGS = {
   week: { it: 'questa-settimana', en: 'this-week', de: 'diese-woche', fr: 'cette-semaine' },
 };
 
-/** Canonical path of a per-comune events page in `locale` (trailing slash). */
-export function eventsComunePath(locale, comune) {
-  return `${EVENTS_BASE_PATH[locale]}/${slugifyComune(comune)}/`;
-}
-
-/** Canonical path of a digest landing page (`kind` = 'weekend' | 'week') in `locale`. */
-export function eventsDigestPath(locale, kind) {
-  return `${EVENTS_BASE_PATH[locale]}/${EVENTS_DIGEST_SLUGS[kind][locale]}/`;
-}
-
 // ── Ticino agenda regions → representative comune ────────────
 // tio.ch tags every event with a tourism region adjective ("Luganese",
 // "Locarnese", …). When no exact comune name is found in the venue/title we

@@ -97,6 +97,30 @@ describe('events digest article generator', () => {
     expect(src).toContain('"datePublished": "2026-06-29T19:07:39+02:00"');
   });
 
+  it('bumpDateModified clamps up to datePublished, never regressing earlier (same-day refresh)', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-dm-clamp-'));
+    mkdirSync(path.join(root, 'services', 'seo'), { recursive: true });
+    const file = path.join(root, 'services', 'seo', 'seo-blog-5.ts');
+    writeFileSync(
+      file,
+      [
+        "  'blog-eventi-weekend-ticino': {",
+        '    structuredData: {',
+        '      "datePublished": "2026-06-29T19:07:39+02:00",',
+        '      "dateModified": "2026-06-29T19:07:39+02:00",',
+        '    },',
+        '  },',
+        '',
+      ].join('\n'),
+    );
+    // The daily refresh hands a fixed-midnight stamp that, on the publish day,
+    // precedes the publish time — it must clamp up, not invert the freshness signal.
+    expect(bumpDateModified('eventi-weekend-ticino', '2026-06-29T00:00:00+02:00', root)).toBe(true);
+    const src = readFileSync(file, 'utf-8');
+    expect(src).toContain('"dateModified": "2026-06-29T19:07:39+02:00"');
+    expect(src).not.toContain('"dateModified": "2026-06-29T00:00:00+02:00"');
+  });
+
   it('bumpSitemapLastmod rewrites only the target url block lastmod', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'digest-sm-'));
     mkdirSync(path.join(root, 'public'), { recursive: true });

@@ -104,12 +104,21 @@ export function bumpDateModified(id, isoDateTime, repoRoot = REPO_ROOT) {
   const src = readFileSync(file, 'utf-8');
   const startIdx = src.indexOf(`'blog-${id}':`);
   if (startIdx < 0) return false;
-  const dmRe = /"dateModified":\s*"[^"]*"/;
-  // Replace the FIRST dateModified after the entry start (each entry has one).
+  // Scope the rewrite to THIS entry's block (stop at the next top-level entry
+  // key) so a future nested object can never make us touch a sibling's date.
   const after = src.slice(startIdx);
-  if (!dmRe.test(after)) return false;
-  const replaced = after.replace(dmRe, `"dateModified": "${isoDateTime}"`);
-  writeFileSync(file, src.slice(0, startIdx) + replaced);
+  const nextKey = after.slice(1).search(/\n {2}'[^']+':\s*\{/);
+  const blockEnd = nextKey < 0 ? after.length : nextKey + 1;
+  const block = after.slice(0, blockEnd);
+  const dmRe = /"dateModified":\s*"[^"]*"/;
+  if (!dmRe.test(block)) return false;
+  // dateModified must never precede datePublished: on the publish day the fixed
+  // midnight stamp falls before the publish time → incoherent freshness signal
+  // in the indexed NewsArticle JSON-LD. Clamp up to datePublished when earlier.
+  const pub = block.match(/"datePublished":\s*"([^"]*)"/);
+  const effective = pub && Date.parse(pub[1]) > Date.parse(isoDateTime) ? pub[1] : isoDateTime;
+  const replaced = block.replace(dmRe, `"dateModified": "${effective}"`);
+  writeFileSync(file, src.slice(0, startIdx) + replaced + after.slice(blockEnd));
   return true;
 }
 
@@ -160,11 +169,16 @@ async function main() {
   // content change.
   console.log('♻️  refreshing body files (article already registered)…');
   refreshBodyFiles(data);
-  bumpUpdatedAt(data.id, todayIso);
+  if (!bumpUpdatedAt(data.id, todayIso)) console.warn('⚠️  updatedAt not bumped (entry not matched).');
   // Keep the freshness signals in sync with the refreshed body (the JSON-LD
   // dateModified and the sitemap lastmod), without re-registering or churning RSS.
-  bumpDateModified(data.id, `${todayIso}T00:00:00+02:00`);
-  bumpSitemapLastmod(data.slugs.it, todayIso);
+  // A silent no-match would freeze the freshness signal, so surface it.
+  if (!bumpDateModified(data.id, `${todayIso}T00:00:00+02:00`)) {
+    console.warn('⚠️  dateModified not bumped (entry/regex not matched) — freshness signal may be stale.');
+  }
+  if (!bumpSitemapLastmod(data.slugs.it, todayIso)) {
+    console.warn('⚠️  sitemap-blog lastmod not bumped (url block not matched) — freshness signal may be stale.');
+  }
   console.log('✅ refreshed.');
 }
 
