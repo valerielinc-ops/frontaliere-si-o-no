@@ -8186,6 +8186,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bancomat-processo-varesenews-2023.title': 'Utilisation illicite de distributeurs : procès à Varèse',
     'blog.article.bancomat-processo-varesenews-2023.excerpt': 'Une femme accusée d\'utilisation abusive du distributeur de billets d\'un voisin : procès ouvert le 29 juin avec des achats inférieurs à 300 euros.',
     'blog.article.bancomat-processo-varesenews-2023.imageAlt': 'Vue urbaine de Mendrisio avec des boutiques locales et des passants.',
+    'blog.article.eventi-weekend-ticino.title': 'Événements du week-end au Tessin : que faire samedi & dimanche',
+    'blog.article.eventi-weekend-ticino.excerpt': 'Événements au Tessin chaque week-end : concerts, expositions, fêtes et marchés, commune par commune. Mis à jour chaque jour.',
+    'blog.article.eventi-weekend-ticino.imageAlt': 'Événements du week-end au Tessin',
 };
 
 export default blogMetaFr;

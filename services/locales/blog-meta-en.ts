@@ -8185,6 +8185,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bancomat-processo-varesenews-2023.title': 'Illicit use of ATMs: trial in Varese and implications',
     'blog.article.bancomat-processo-varesenews-2023.excerpt': 'A woman accused of improper use of a neighbor\'s ATM: trial started on June 29 with purchases of less than 300 euros.',
     'blog.article.bancomat-processo-varesenews-2023.imageAlt': 'Urban view of Mendrisio with local shops and pedestrians.',
+    'blog.article.eventi-weekend-ticino.title': 'Weekend events in Ticino: what to do Saturday & Sunday',
+    'blog.article.eventi-weekend-ticino.excerpt': 'Events in Ticino every weekend: concerts, exhibitions, festivals and markets, municipality by municipality. Refreshed daily.',
+    'blog.article.eventi-weekend-ticino.imageAlt': 'Weekend events in Ticino',
 };
 
 export default blogMetaEn;

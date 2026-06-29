@@ -37,6 +37,25 @@ export const EVENT_SOURCES = {
   },
 };
 
+// ── Localized URL path config (single source of truth, §6) ───
+// The events SSG pages live under a LOCALIZED base segment per locale (en/de/fr
+// translate "events/ticino"). The build plugin AND any script that deep-links to
+// these pages (the FB poster, the weekend-digest article generator) MUST use
+// these exact values — duplicating them is what made the digest article emit
+// /en/eventi/ticino/… (404) instead of /en/events/ticino/… (PR #3088 review).
+export const EVENTS_BASE_PATH = {
+  it: '/eventi/ticino',
+  en: '/en/events/ticino',
+  de: '/de/veranstaltungen/tessin',
+  fr: '/fr/evenements/tessin',
+};
+
+/** Localized slug of the two digest landing pages, per locale. */
+export const EVENTS_DIGEST_SLUGS = {
+  weekend: { it: 'questo-weekend', en: 'this-weekend', de: 'dieses-wochenende', fr: 'ce-week-end' },
+  week: { it: 'questa-settimana', en: 'this-week', de: 'diese-woche', fr: 'cette-semaine' },
+};
+
 // ── Ticino agenda regions → representative comune ────────────
 // tio.ch tags every event with a tourism region adjective ("Luganese",
 // "Locarnese", …). When no exact comune name is found in the venue/title we
