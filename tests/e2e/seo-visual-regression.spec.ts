@@ -52,7 +52,16 @@ const CASES: VisualCase[] = [
     url: '/calcola-stipendio/',
     readySelector: '[data-testid="results-advantage-banner"]',
   },
-  { name: 'currency-comparator', url: '/comparatori/cambio-valuta/' },
+  // `/comparatori/cambio-valuta/` is a legacy-redirect URL: its STATIC HTML is a
+  // thin "Pagina spostata" bridge tombstone, and the SPA only swaps in the real
+  // CurrencyExchange comparator after hydration (router maps the legacy slug to
+  // confronti/exchange). Without a readySelector the capture raced that swap —
+  // baseline generation froze the pre-hydration tombstone, which then diffed
+  // 100% against every fully-hydrated live render (validate-live recurring fail).
+  // `#exchange-amount` is the comparator's amount input: it exists ONLY in the
+  // hydrated comparator (never in the tombstone nor the static SEO shell), so
+  // gating on it forces a deterministic full-comparator capture on both sides.
+  { name: 'currency-comparator', url: '/comparatori/cambio-valuta/', readySelector: '#exchange-amount' },
 ];
 
 // Selectors for non-deterministic widgets that auto-rotate or depend on
