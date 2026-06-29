@@ -52,8 +52,10 @@ Determina tier dai file toccati. Reviewer regola depth+probing in base a tier. T
 |---|---|---|
 | **high** | `tests/**`, `.github/workflows/**`, `build-plugins/**`, e gli script **funnel-critical**: crawler/parser/adapter, `backfill-*`, `migrate-*`, `assemble-*`, sitemap/canonical/slug/redirect/structured-data — tutto `scripts/**` ECCETTO i non-funnel sotto | Bug nel test/CI/build/emitter = falso senso sicurezza che si propaga su ogni merge. Probe regex/assertion/exit-code/idempotency. Lista 3 cose NON verificate prima dell'output (`## Adversarial check`). |
 | **normal** | tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/` (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`, `*-report` — verificano, non mutano l'indice) | Single-pass standard. No adversarial step obbligatorio. |
+| **minimal** | PR data/docs-only (ZERO code reviewable) | Percorso corto ≤6 turni (sonnet): solo completeness-contract del body, niente REVIEW.md/cross-file/adversarial. Posta `## LGTM`. |
+| **incremental** / **incremental-high** | Re-review (esiste già una review Claude su un commit precedente) con delta-code non-funnel (→ `incremental`, sonnet) o funnel-critical (→ `incremental-high`, opus). | **Token-lever**: i commit fino a `INCREMENTAL_BASE` erano già reviewati → review SOLO il delta dei file PR (`compare $INCREMENTAL_BASE...$HEAD`), non l'intero contributo. Read/grep dei file pieni consentito per il contesto. `incremental-high` mantiene il probing opus + `## Adversarial check` sul delta; `incremental` è single-pass sonnet. Prima review / delta vuoto / contributo invariato → NON incrementale (rispettivamente high|normal full, oppure skip via fingerprint-guard). |
 
-High-tier non implica più 🔴 — implica più probing. Filtro scopo identico.
+High-tier non implica più 🔴 — implica più probing. Filtro scopo identico. Il delta-scope incrementale riduce i token, NON la severity: un 🔴 nel delta resta 🔴.
 
 ### CODE vs DATA nel diff
 
