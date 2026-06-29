@@ -3826,7 +3826,14 @@ function seedCrawlerSlicesFromDataJobs(root, companyKeys) {
       writeJson(path.join(sliceDir, `${key}.json`), { jobs });
     }
   } catch (err) {
-    console.warn(`⚠️ Slice seed skipped: ${err?.message || err}`);
+    // A failed seed (corrupt data/jobs.json, writeJson failing mid-loop) leaves
+    // the per-crawler slice files stale → silently reintroduces the pre-#3070
+    // stale-read bug (collapsed/wrong-lang job pages) with no CI signal. The
+    // early returns above are legitimate "nothing to seed" no-ops; reaching this
+    // catch is a real failure, so surface it loudly and rethrow rather than
+    // proceeding stale.
+    console.error(`❌ Slice seed failed (per-crawler slices may be stale): ${err?.message || err}`);
+    throw err;
   }
 }
 
