@@ -95,7 +95,9 @@ function isIndividualJobPage(path) {
 
 function hasNoindex(html) {
   // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
-  return /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html);
+  // Attribute-order-independent (two lookaheads): a future template emitting
+  // content before name on the robots meta must not slip past this gate (#3060).
+  return /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
 }
 
 function main() {
