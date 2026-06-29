@@ -15,6 +15,7 @@ import { parseMikronJobs } from '@/scripts/lib/mikron-job-parser.mjs';
 import {
   normalizeSmnApiPosting,
   extractSmnApiDescription,
+  extractSmnPostingId,
   smnPostingsApiUrl,
 } from '@/scripts/lib/swiss-medical-network-job-parser.mjs';
 
@@ -92,6 +93,19 @@ describe('Swiss Medical Network — SmartRecruiters API normalization', () => {
   it('leaves canton blank (never Ticino) when unresolved', () => {
     const p = normalizeSmnApiPosting({ id: '3', name: 'X', location: { city: 'Bellelay', country: 'ch' } });
     expect(p.canton).toBe('');
+  });
+
+  it('derives PART_TIME / FULL_TIME from the API employment type', () => {
+    const pt = normalizeSmnApiPosting({ id: '4', name: 'X', location: { city: 'Bern', region: 'BE', country: 'ch' }, typeOfEmployment: { id: 'part-time', label: 'Part-time' } });
+    const ft = normalizeSmnApiPosting({ id: '5', name: 'Y', location: { city: 'Bern', region: 'BE', country: 'ch' }, typeOfEmployment: { id: 'permanent', label: 'Full-time' } });
+    expect(pt.employmentType).toBe('PART_TIME');
+    expect(ft.employmentType).toBe('FULL_TIME');
+  });
+
+  it('extracts the posting id used to de-dup against dedicated clinic crawlers', () => {
+    expect(extractSmnPostingId('https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134713627-some-slug')).toBe('744000134713627');
+    expect(extractSmnPostingId('https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134713627')).toBe('744000134713627');
+    expect(extractSmnPostingId('https://example.com/x')).toBe('');
   });
 
   it('joins jobAd sections into a description', () => {

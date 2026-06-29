@@ -21,7 +21,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
-import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, SMN_POSTINGS_API, slugify, normalizeSpace } from './lib/swiss-medical-network-job-parser.mjs';
+import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace } from './lib/swiss-medical-network-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
@@ -87,6 +87,33 @@ async function fetchJson(url) {
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
 }
 
+/**
+ * Posting ids already owned by a DEDICATED SMN clinic crawler (genolier,
+ * montchoisi, valère, beaulieu, ste-anne, bethanien, obach, siloah, moutier, …).
+ * They read the same SmartRecruiters tenant with a clinic filter, so the CH-wide
+ * umbrella must skip those postings to avoid duplicate / canonical-churn pages
+ * (the dedicated crawler keeps its stable per-clinic slug). Future dedicated SMN
+ * crawlers are covered automatically — any non-umbrella slice with a
+ * SwissMedicalNetwork1 URL claims its posting ids.
+ */
+function loadDedicatedClinicPostingIds() {
+  const ids = new Set();
+  const dir = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
+  let files = [];
+  try { files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')); } catch { return ids; }
+  for (const f of files) {
+    if (f === `${COMPANY_KEY}.json`) continue; // skip the umbrella's own slice
+    let data;
+    try { data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8')); } catch { continue; }
+    const jobs = data?.jobs || (Array.isArray(data) ? data : []);
+    for (const j of jobs) {
+      const id = extractSmnPostingId(j?.url);
+      if (id) ids.add(id);
+    }
+  }
+  return ids;
+}
+
 /** Fetch every SmartRecruiters posting (paginated), CH-wide. */
 async function fetchAllApiPostings() {
   const LIMIT = 100;
@@ -150,7 +177,7 @@ function buildJobFromApi(posting, detailDescription = '', applyUrl = '', posting
     category: detectCategory(posting.title),
     datePosted: new Date().toISOString().split('T')[0],
     source: 'swiss-medical-smartrecruiters-crawler',
-    employmentType: 'FULL_TIME',
+    employmentType: posting.employmentType || 'FULL_TIME',
     experienceLevel: detectExperienceLevel(posting.title),
     sector: 'Sanità / Healthcare',
     _targetScope: { canton, location: city },
@@ -212,11 +239,19 @@ async function main() {
   const rawPostings = await fetchAllApiPostings();
   if (!rawPostings.length) { console.log('\n⚠️ Could not fetch Swiss Medical Network postings from the SmartRecruiters API.'); return; }
 
-  // Keep only Swiss postings (the tenant is CH-only, but guard anyway).
-  const postings = rawPostings
+  // Keep only Swiss postings (the tenant is CH-only, but guard anyway —
+  // accept both the ISO code 'ch' and a spelled-out country name).
+  const isSwissCountry = (c = '') => !c || /^(ch|switzerland|suisse|schweiz|svizzera)/.test(c);
+  const swissPostings = rawPostings
     .map(normalizeSmnApiPosting)
-    .filter((p) => p.id && p.title && (!p.country || p.country === 'ch'));
-  console.log(`  📋 Swiss postings: ${postings.length} / ${rawPostings.length}`);
+    .filter((p) => p.id && p.title && isSwissCountry(p.country));
+
+  // Drop postings already owned by a dedicated SMN clinic crawler (same
+  // SmartRecruiters tenant) to prevent duplicate / canonical-churn job pages.
+  const dedicatedIds = loadDedicatedClinicPostingIds();
+  const postings = swissPostings.filter((p) => !dedicatedIds.has(p.id));
+  const skippedDedicated = swissPostings.length - postings.length;
+  console.log(`  📋 Swiss postings: ${postings.length} / ${rawPostings.length} (skipped ${skippedDedicated} owned by dedicated clinic crawlers)`);
 
   // Fetch each posting's detail (description + canonical public URL).
   const discoveredJobs = [];

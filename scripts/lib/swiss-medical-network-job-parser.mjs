@@ -36,6 +36,12 @@ export function smnPostingDetailApiUrl(id = '') {
   return `${SMN_POSTINGS_API}/${encodeURIComponent(id)}`;
 }
 
+/** Extract the numeric SmartRecruiters posting id from a SwissMedicalNetwork1 URL. */
+export function extractSmnPostingId(url = '') {
+  const m = String(url || '').match(/smartrecruiters\.com\/SwissMedicalNetwork1\/(\d+)/i);
+  return m ? m[1] : '';
+}
+
 /**
  * Normalize a SmartRecruiters postings-list entry to {id, title, city, region,
  * canton, postalCode, country}. The canton is inferred from the API region
@@ -48,6 +54,8 @@ export function normalizeSmnApiPosting(posting = {}) {
   // region is often a 2-letter canton code ("BE"); normalizeAnyCantonCode
   // resolves both codes and names, then fall back to city-name inference.
   const canton = normalizeAnyCantonCode(region) || inferAnyCanton(region) || inferAnyCanton(city) || '';
+  const empLabel = `${posting.typeOfEmployment?.id || ''} ${posting.typeOfEmployment?.label || ''}`.toLowerCase();
+  const employmentType = /part[\s-]?time|teilzeit|temps\s*partiel|tempo\s*parziale/.test(empLabel) ? 'PART_TIME' : 'FULL_TIME';
   return {
     id: String(posting.id || ''),
     title: normalizeSpace(posting.name || ''),
@@ -56,6 +64,7 @@ export function normalizeSmnApiPosting(posting = {}) {
     canton,
     postalCode: normalizeSpace(loc.postalCode || ''),
     country: String(loc.country || '').toLowerCase(),
+    employmentType,
   };
 }
 
