@@ -1844,9 +1844,6 @@
         "canevas-epfl-vide-epfl-sion",
         "adjoint-administratif-secretaire-du-professeur-60-80-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
-        "assistente-amministrativo-60-80-epfl-sion",
-        "administrative-assistant-sekretar-des-professors-60-80-epfl-sion",
-        "verwaltungsassistent-60-80-epfl-sion",
         "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.360Z",
@@ -3855,9 +3852,9 @@
     },
     {
       "id": "epfl-c06abb5305e5",
-      "slug": "ii-resp-10-epfl-lausanne",
+      "slug": "direttore-di-laboratorio-epfl-lausanne",
       "slugByLocale": {
-        "it": "ii-resp-10-epfl-lausanne",
+        "it": "direttore-di-laboratorio-epfl-lausanne",
         "en": "laboratory-manager-epfl-lausanne",
         "de": "laborleiter-epfl-lausanne",
         "fr": "directeur-de-laboratoire-epfl-lausanne"
@@ -3909,7 +3906,8 @@
         ],
         "it": [
           "laboratory-manager-epfl-lausanne",
-          "responsabile-di-laboratorio-epfl-lausanne"
+          "responsabile-di-laboratorio-epfl-lausanne",
+          "ii-resp-10-epfl-lausanne"
         ],
         "de": [
           "laboratory-manager-epfl-lausanne"
@@ -3918,7 +3916,8 @@
       "previousSlugs": [
         "responsable-de-laboratoire-epfl-lausanne",
         "laboratory-manager-epfl-lausanne",
-        "responsabile-di-laboratorio-epfl-lausanne"
+        "responsabile-di-laboratorio-epfl-lausanne",
+        "ii-resp-10-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-17T12:46:58.964Z",
       "salaryMin": 83500,
@@ -4335,9 +4334,9 @@
     },
     {
       "id": "epfl-2779f76ab4b1",
-      "slug": "formatore-trice-presso-la-biblioteca-dell-epfl-formazioni-specialistiche-80-epfl-lausanne",
+      "slug": "insegnante-presso-la-biblioteca-epfl-specialista-di-formazione-810-epfl-lausanne",
       "slugByLocale": {
-        "it": "formatore-trice-presso-la-biblioteca-dell-epfl-formazioni-specialistiche-80-epfl-lausanne",
+        "it": "insegnante-presso-la-biblioteca-epfl-specialista-di-formazione-810-epfl-lausanne",
         "en": "trainer-at-epfl-library-training-specialist-80-epfl-lausanne",
         "de": "lehrer-an-der-epfl-bibliothek-ausbildungsfachkraft-810-epfl-lausanne",
         "fr": "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne"
@@ -4393,7 +4392,8 @@
           "formatore-presso-la-biblioteca-epfl-specialista-della-formazione-epfl-lausanne",
           "allenatore-presso-epfl-library-specialista-di-formazione-80-epfl-lausanne",
           "formatore-presso-la-biblioteca-epfl-specialista-di-formazione-80-epfl-lausanne",
-          "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-80-epfl-lausanne"
+          "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-80-epfl-lausanne",
+          "formatore-trice-presso-la-biblioteca-dell-epfl-formazioni-specialistiche-80-epfl-lausanne"
         ],
         "de": [
           "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne",
@@ -4410,6 +4410,7 @@
         "allenatore-presso-epfl-library-specialista-di-formazione-80-epfl-lausanne",
         "formatore-presso-la-biblioteca-epfl-specialista-di-formazione-80-epfl-lausanne",
         "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-80-epfl-lausanne",
+        "formatore-trice-presso-la-biblioteca-dell-epfl-formazioni-specialistiche-80-epfl-lausanne",
         "ausbilder-in-der-epfl-bibliothek-ausbildungsspezialist-epfl-lausanne",
         "trainerin-bei-epfl-library-training-specialist-80-epfl-lausanne",
         "ausbilder-in-der-epfl-bibliothek-ausbildungsspezialist-80-epfl-lausanne"
@@ -4590,9 +4591,9 @@
     },
     {
       "id": "epfl-716a543b67c0",
-      "slug": "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne",
+      "slug": "posizione-del-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
       "slugByLocale": {
-        "it": "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne",
+        "it": "posizione-del-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
         "en": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
         "de": "postdoc-stelle-in-quantitativer-finanzwissenschaft-an-der-epfl-epfl-lausanne",
         "fr": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
@@ -4641,6 +4642,7 @@
         "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
         "posizione-di-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
         "postdoc-posizione-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
+        "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne",
         "postdoktoranden-stelle-in-quantitative-finance-an-der-epfl-epfl-lausanne",
         "postdoc-position-in-quantitativen-finanzen-bei-der-epfl-epfl-lausanne",
         "poste-postdoctoral-en-finance-quantitative-a-l-epfl-epfl-lausanne",
@@ -4652,7 +4654,8 @@
         "it": [
           "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
           "posizione-di-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
-          "postdoc-posizione-in-finanza-quantitativa-presso-epfl-epfl-lausanne"
+          "postdoc-posizione-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
+          "posizione-post-dottorato-in-quantitative-finance-presso-l-epfl-epfl-lausanne"
         ],
         "de": [
           "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
@@ -4913,7 +4916,7 @@
       "slugByLocale": {
         "it": "ricercatore-post-dottorato-ingegnere-di-ricerca-epfl-lausanne",
         "en": "postdoctoral-researcher-research-engineer-epfl-lausanne",
-        "de": "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne",
+        "de": "postdoktorand-forschungsingenieur-epfl-lausanne",
         "fr": "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne"
       },
       "company": "EPFL",
@@ -4969,7 +4972,7 @@
           "postdoctoral-researcher-research-engineer-epfl-lausanne",
           "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
           "postdoktorand-in-forschungsingenieur-in-epfl-lausanne",
-          "postdoktorand-forschungsingenieur-epfl-lausanne"
+          "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne"
         ]
       },
       "previousSlugs": [
@@ -4978,7 +4981,7 @@
         "postdoctoral-researcher-research-engineer-epfl-lausanne",
         "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
         "postdoktorand-in-forschungsingenieur-in-epfl-lausanne",
-        "postdoktorand-forschungsingenieur-epfl-lausanne"
+        "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.746Z",
       "salaryMin": 60500,
@@ -5077,9 +5080,9 @@
     },
     {
       "id": "epfl-530ac2ddd9a7",
-      "slug": "responsabile-di-progetto-science-policy-epfl-lausanne",
+      "slug": "responsabile-del-progetto-scienza-politica-epfl-lausanne",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-science-policy-epfl-lausanne",
+        "it": "responsabile-del-progetto-scienza-politica-epfl-lausanne",
         "en": "project-manager-science-policy-epfl-lausanne",
         "de": "projektmanager-wissenschaft-polizik-epfl-lausanne",
         "fr": "gestionnaire-de-projet-science-politique-epfl-lausanne"
@@ -5130,7 +5133,7 @@
         ],
         "it": [
           "project-manager-science-policy-epfl-lausanne",
-          "responsabile-del-progetto-scienza-politica-epfl-lausanne"
+          "responsabile-di-progetto-science-policy-epfl-lausanne"
         ],
         "de": [
           "project-manager-science-policy-epfl-lausanne",
@@ -5139,7 +5142,7 @@
       },
       "previousSlugs": [
         "project-manager-science-policy-epfl-lausanne",
-        "responsabile-del-progetto-scienza-politica-epfl-lausanne",
+        "responsabile-di-progetto-science-policy-epfl-lausanne",
         "projektleiterin-wissenschaft-politik-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-23T11:45:54.390Z",
@@ -5164,7 +5167,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-politica-commerciale-epfl-lausanne",
         "en": "project-manager-science-public-policy-epfl-lausanne",
-        "de": "projektleiter-science-public-policy-epfl-lausanne",
+        "de": "projektleiter-wissenschaft-offentliche-politik-epfl-lausanne",
         "fr": "responsable-de-projet-science-politiques-publiques-epfl-lausanne"
       },
       "company": "EPFL",
@@ -5208,7 +5211,8 @@
       "contractType": "Administratif",
       "externalId": "1164968355",
       "previousSlugs": [
-        "responsable-de-projet-science-politiques-publiques-epfl-lausanne"
+        "responsable-de-projet-science-politiques-publiques-epfl-lausanne",
+        "projektleiter-science-public-policy-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5218,7 +5222,8 @@
           "responsable-de-projet-science-politiques-publiques-epfl-lausanne"
         ],
         "de": [
-          "responsable-de-projet-science-politiques-publiques-epfl-lausanne"
+          "responsable-de-projet-science-politiques-publiques-epfl-lausanne",
+          "projektleiter-science-public-policy-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-23T11:45:53.781Z",
@@ -5322,7 +5327,7 @@
       "slugByLocale": {
         "it": "responsabile-dell-unita-informatica-per-l-istruzione-e-responsabile-del-progetto-di-migrazione-accademica-dell-erp-epfl",
         "en": "head-of-computer-unit-for-education-head-of-the-erp-academic-migration-project-epfl-lausanne",
-        "de": "head-of-computer-unit-for-education-leiter-des-erp-academic-migration-project-epfl-lausanne",
+        "de": "leiter-der-computerabteilung-fur-bildung-und-leiter-des-projekts-akademische-nachahmung-epfl-lausanne",
         "fr": "chef-fe-d-unite-informatique-pour-l-education-responsable-du-projet-de-migration-erp"
       },
       "company": "EPFL",
@@ -5366,7 +5371,8 @@
       "contractType": "Informatique",
       "externalId": "1164966355",
       "previousSlugs": [
-        "chef-fe-d-unite-informatique-pour-l-education-responsable-du-projet-de-migration-erp"
+        "chef-fe-d-unite-informatique-pour-l-education-responsable-du-projet-de-migration-erp",
+        "head-of-computer-unit-for-education-leiter-des-erp-academic-migration-project-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5376,7 +5382,8 @@
           "chef-fe-d-unite-informatique-pour-l-education-responsable-du-projet-de-migration-erp"
         ],
         "de": [
-          "chef-fe-d-unite-informatique-pour-l-education-responsable-du-projet-de-migration-erp"
+          "chef-fe-d-unite-informatique-pour-l-education-responsable-du-projet-de-migration-erp",
+          "head-of-computer-unit-for-education-leiter-des-erp-academic-migration-project-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-23T11:45:53.155Z",
