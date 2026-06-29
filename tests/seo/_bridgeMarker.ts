@@ -25,9 +25,10 @@ export const isBridgePageHtml = (html: string): boolean =>
 
 // A page carrying `<meta name="robots" content="noindex…">`. Quote-flexible
 // (dist-shrink may strip attribute quotes): `name=robots content=noindex` is
-// DOM-equivalent to `name="robots" content="noindex"`.
+// DOM-equivalent to `name="robots" content="noindex"`. Attribute-order-independent
+// (two lookaheads, #3060): content-before-name must not slip past dist-samplers.
 export const isNoindexHtml = (html: string): boolean =>
-  /<meta\s+name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html);
+  /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
 
 // A page that "real indexable content page" dist-samplers MUST skip: either a
 // thin canonical-bridge stub (bridge.css, above) OR a full-content but noindex
