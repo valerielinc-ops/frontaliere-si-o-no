@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3019,
+ "numberOfItems": 3022,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7665,7 +7665,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3016, "name": "Grigioni non riprendono il modello basilese per...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-modello-basilese-traffico` },
           { "@type": "ListItem", "position": 3017, "name": "Grenzgänger in Svizzera: cosa cambia con l’acco...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-steuern-2026` },
           { "@type": "ListItem", "position": 3018, "name": "grenzgänger schweiz steuern 2026: regole fiscal...", "url": `${BASE_URL}/articoli-frontaliere/grenzgaenger-steuern-nuovo-accordo-2026` },
-          { "@type": "ListItem", "position": 3019, "name": "Eventi del weekend in Ticino: cosa fare sabato ...", "url": `${BASE_URL}/articoli-frontaliere/eventi-weekend-ticino` }
+          { "@type": "ListItem", "position": 3019, "name": "Stipendi frontalieri e privacy: dati svelati ne...", "url": `${BASE_URL}/articoli-frontaliere/dati-stipendi-frontalieri-privacy-2024` },
+          { "@type": "ListItem", "position": 3020, "name": "Calcolo tasse frontalieri oltre 20 km: regole e...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-tasse-frontalieri-oltre-20km` },
+          { "@type": "ListItem", "position": 3021, "name": "Lavorare in Lidl Svizzera: opportunità e proced...", "url": `${BASE_URL}/articoli-frontaliere/lidl-svizzera-lavora-con-noi` },
+          { "@type": "ListItem", "position": 3022, "name": "Eventi del weekend in Ticino: cosa fare sabato ...", "url": `${BASE_URL}/articoli-frontaliere/eventi-weekend-ticino` }
  ]
  },
  {

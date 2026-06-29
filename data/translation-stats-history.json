@@ -11398,5 +11398,119 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-29T18:58:43.544Z",
+    "label": "before",
+    "total": 17960,
+    "needsRetranslation": 6879,
+    "suppressed": 472,
+    "incomplete": 992,
+    "complete": 16968,
+    "missingByLocale": {
+      "it": 516,
+      "en": 362,
+      "de": 509,
+      "fr": 219
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 789
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 26
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 14
+      },
+      {
+        "company": "Manor AG",
+        "pending": 12
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 12
+      },
+      {
+        "company": "Culturefood & CFD",
+        "pending": 12
+      },
+      {
+        "company": "Roche",
+        "pending": 11
+      },
+      {
+        "company": "Spitex Regio Arth-Goldau",
+        "pending": 8
+      },
+      {
+        "company": "Skyguide",
+        "pending": 6
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-29T19:05:06.676Z",
+    "label": "after",
+    "total": 17960,
+    "needsRetranslation": 2471,
+    "suppressed": 472,
+    "incomplete": 989,
+    "complete": 16971,
+    "missingByLocale": {
+      "it": 513,
+      "en": 359,
+      "de": 509,
+      "fr": 216
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 789
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 26
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 14
+      },
+      {
+        "company": "Manor AG",
+        "pending": 12
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 12
+      },
+      {
+        "company": "Roche",
+        "pending": 11
+      },
+      {
+        "company": "Culturefood & CFD",
+        "pending": 11
+      },
+      {
+        "company": "Spitex Regio Arth-Goldau",
+        "pending": 8
+      },
+      {
+        "company": "Skyguide",
+        "pending": 6
+      }
+    ]
   }
 ]

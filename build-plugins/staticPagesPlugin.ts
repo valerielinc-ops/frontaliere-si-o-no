@@ -20,7 +20,6 @@ import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSe
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
-import { buildMetodologiaSeo } from '../services/seo/seo-metodologia';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
 import {
@@ -1057,7 +1056,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  // Collect this section's IT canonical paths.
  const sectionItPaths: string[] = [];
- const cpRx = /canonicalPath:\s*'([^']+)'/g;
+ const cpRx = /canonicalPath:\s*["']([^"']+)["']/g;
  let cpM: RegExpExecArray | null;
  while ((cpM = cpRx.exec(seoSrc)) !== null) {
  const p = cpM[1].replace(/\/+$/, '') || '/';
@@ -1070,7 +1069,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // ogPagesPlugin uses to build its locale paths.
  try {
  const routerSrc = fs.readFileSync(np.resolve(rootDir, sec.slugData), 'utf-8');
- const bsRx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+ const bsRx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
  const itSlugToLocales: Record<string, Record<string, string>> = {};
  let bm: RegExpExecArray | null;
  while ((bm = bsRx.exec(routerSrc)) !== null) {
@@ -1614,7 +1613,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  try {
  const routerBlogDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+ const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
  let match: RegExpExecArray | null;
  while ((match = rx.exec(routerBlogDataSrc)) !== null) {
  blogArticleIdByLocale.it[match[2]] = match[1];
@@ -1864,8 +1863,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (Indent floor stays 1: requiring >=2 spaces silently dropped EVERY entry in
  // seo-pages.ts / seo-landing.ts — ~200 curated pages on fallback meta, GSC CTR
  // ~0.2% — see #1897. Keep entryStartRx's `^\s{1,8}` form.)
- const entryStartRx = /^\s{1,8}(?:'([^']+)'|([a-zA-Z_]\w*)):\s*\{/gm;
- const hasCanonicalPath = (b: string): boolean => /canonicalPath:\s*'[^']+'/.test(b);
+    // Il KEY top-level è quote-agnostic (`["']`): tollera un formatter/quote-switch
+    // che renda double-quoted le chiavi di entry. Questo over-matcha anche le chiavi
+    // JSON-LD double-quoted di `structuredData` (245→936 candidati grezzi), MA il
+    // filtro a valle le scarta — `esm.index < claimedUntil` (annidate in un'entry
+    // già reclamata) + `hasCanonicalPath` (i blocchi JSON-LD non hanno `canonicalPath:`).
+    // Provato a parità: set finale 163 (seo-pages) / 25 (seo-landing), identico alla
+    // forma single-quote. Non ripristinare a `'…'`.
+ const entryStartRx = /^\s{1,8}(?:["']([^"']+)["']|([a-zA-Z_]\w*)):\s*\{/gm;
+ const hasCanonicalPath = (b: string): boolean => /canonicalPath:\s*["'][^"']+["']/.test(b);
  const entryBlocks: string[] = [];
  let esm: RegExpExecArray | null;
  let claimedUntil = -1;
@@ -1881,13 +1887,22 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  // Parse each entry from its balanced object block.
  for (const block of entryBlocks) {
- const cp = block.match(/canonicalPath:\s*'([^']+)'/)?.[1];
+ const cp = block.match(/canonicalPath:\s*["']([^"']+)["']/)?.[1];
  if (!cp) continue;
 
- // Match title/desc allowing escaped quotes inside single-quoted strings
+ // Match title/desc allowing escaped quotes inside the string. Tries
+ // single-quoted first (dominant style) then double-quoted: seo-pages.ts mixes
+ // both (e.g. the metodologia + author entries use `description: "…"`), and a
+ // single-quote-only regex silently dropped those → empty
+ // `<meta name="description">` on the static page (issue #2996).
  const matchStr = (key: string): string => {
- const rx = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
- return block.match(rx)?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
+    // Quote-agnostic (già su main via #3082): prova il valore single-quoted poi il
+    // double-quoted; ogni ramo usa il PROPRIO apice come delimitatore (`[^q\\]|\\.`)
+    // → tollera virgolette interne dell'altro tipo ed escape.
+    const rxSingle = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
+    const rxDouble = new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`);
+    const m = block.match(rxSingle) || block.match(rxDouble);
+    return m?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
  };
 
  const title = matchStr('title');
@@ -2044,25 +2059,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ogD: `Traffico dogana ${label}: tempi di attesa, orari e consigli pratici per frontalieri al valico.`,
  });
  }
- }
- }
-
- // ─ /metodologia/ — rich SEO meta (issue #2996) ─
- // The editorial-methodology page's copy lives in services/seo/seo-metodologia.ts
- // (a builder, not the inline `canonicalPath:`/`desc:` shape the parser scans),
- // so it never entered seoMap and the static HTML fell back to an empty/thin
- // description that GSC flagged "Description too short". Inject it explicitly so
- // the pre-rendered <meta name="description"> matches the runtime SPA copy.
- {
- const metodologiaSeo = buildMetodologiaSeo('it');
- if (!seoMap.has(seoKey('/metodologia/'))) {
- seoMap.set(seoKey('/metodologia/'), {
- title: metodologiaSeo.title,
- desc: metodologiaSeo.description,
- ogT: metodologiaSeo.title,
- ogD: metodologiaSeo.description,
- sd: JSON.stringify(metodologiaSeo.jsonLd),
- });
  }
  }
 

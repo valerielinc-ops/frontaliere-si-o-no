@@ -9,7 +9,7 @@
  * (and any future change) cannot silently re-key existing jobs.
  */
 import { describe, it, expect } from 'vitest';
-import { mergeUrlKey, assembleUrlKey, identityUrlKey, lowerStripTrailingSlash } from '../scripts/lib/job-url-key.mjs';
+import { mergeUrlKey, assembleUrlKey, identityUrlKey, lowerStripTrailingSlash, workdayReqFromLeaf } from '../scripts/lib/job-url-key.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 import { buildStableJobIdentity } from '../scripts/lib/job-identity.mjs';
 
@@ -44,20 +44,28 @@ describe('mergeUrlKey (crawl-time merge key — was extractStableJobId)', () => 
 });
 
 describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', () => {
-  // Workday puts the renamable title text BEFORE the stable `_<req>` suffix.
-  // The generic NUM/HEX rules miss `R11696` (R+5 digits, not ≥6-with-boundary;
-  // not ≥10 hex) so the whole URL — title included — became the key, and a
-  // vendor title rename fragmented the merge → old slug orphaned (no
-  // previousSlug captured → noindex soft-landing). Observed: Swiss Life R11696.
+  // Workday URLs are `…/job/<Location>/<Title>_<req>`; the title is freely
+  // re-slugged by the vendor, so the requisition (everything after the first
+  // underscore in the leaf) is the only rename-stable token. Keying on the whole
+  // title-bearing leaf fragmented the merge on a title rename → old slug orphaned
+  // (no previousSlug captured → noindex soft-landing). Observed: Swiss Life R11696.
   const SWISS_LIFE = 'https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-en-immobilier--f-h-d-----Agence-gnrale-Sion-Valais-romand--Rgion-Sion---Sierre-_R11696';
-  it('extracts the requisition id (R\\d+) and survives a title rename', () => {
+  it('extracts the requisition id and survives a title rename', () => {
     const renamed = 'https://swisslife.wd3.myworkdayjobs.com/de-DE/Swiss_Life_Career_Site/job/Sion/Immobilienberater--w-m-d-_R11696';
     expect(mergeUrlKey(SWISS_LIFE)).toBe('req:r11696');
     expect(mergeUrlKey(SWISS_LIFE)).toBe(mergeUrlKey(renamed));
   });
-  it('handles JR / SJR requisition forms', () => {
+  it('extracts every vendor requisition format (after-first-underscore)', () => {
+    // R / JR / SJR
     expect(mergeUrlKey('https://novartis.wd3.myworkdayjobs.com/en/job/Basel/Some-Title_JR123456')).toBe('req:jr123456');
     expect(mergeUrlKey('https://x.wd5.myworkdayjobs.com/job/Loc/Title_SJR98765')).toBe('req:sjr98765');
+    // pure-numeric req (Abbott) — previously `num:`, now uniformly `req:`
+    expect(mergeUrlKey('https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/CH/Cloud-Architect_31138417')).toBe('req:31138417');
+    // dash-prefixed forms the old regex missed (REQ-, R-, J-)
+    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Solution-Consultant_REQ-16005')).toBe('req:req-16005');
+    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Apprendistato-afc_R-0002527')).toBe('req:r-0002527');
+    // internal-underscore req (R26_173)
+    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Operateur_R26_173')).toBe('req:r26_173');
   });
   it('keeps the -N re-posting suffix distinct (two postings of the same req)', () => {
     expect(mergeUrlKey('https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696-1')).toBe('req:r11696-1');
@@ -68,6 +76,20 @@ describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', (
     // A non-Workday leaf that happens to end in `_r12345` must stay url:-keyed.
     expect(mergeUrlKey('https://acme.com/careers/title_r12345')).toBe('url:https://acme.com/careers/title_r12345');
     expect(mergeUrlKey('https://example.com/jobs/123456/old')).toBe('num:123456');
+  });
+});
+
+describe('workdayReqFromLeaf', () => {
+  it('returns the after-first-underscore token when it carries a digit', () => {
+    expect(workdayReqFromLeaf('Cloud-Architect_31138417')).toBe('31138417');
+    expect(workdayReqFromLeaf('Conseiller-en-immobilier-_R11696')).toBe('r11696');
+    expect(workdayReqFromLeaf('Operateur_R26_173')).toBe('r26_173');
+  });
+  it('returns empty for a leaf with no underscore, nothing after it, or no digit', () => {
+    expect(workdayReqFromLeaf('plain-title')).toBe('');
+    expect(workdayReqFromLeaf('title_')).toBe('');
+    expect(workdayReqFromLeaf('title_draft')).toBe('');
+    expect(workdayReqFromLeaf('')).toBe('');
   });
 });
 

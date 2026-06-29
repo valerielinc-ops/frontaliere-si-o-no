@@ -68,7 +68,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:30.233Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -209,7 +208,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.492Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -910,7 +908,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:24.465Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1057,7 +1054,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:19.266Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1136,7 +1132,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:18.705Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1207,7 +1202,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:16.948Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1280,7 +1274,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:18.107Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1351,7 +1344,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.541Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1422,7 +1414,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:19.845Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "baseSalary": {
@@ -1493,7 +1484,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:20.425Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "baseSalary": {
@@ -1564,7 +1554,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:15.805Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1707,7 +1696,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:21.015Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1918,7 +1906,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:15.210Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1981,7 +1968,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-10T07:52:13.484Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2124,7 +2110,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:14.640Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2477,7 +2462,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:08.272Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2548,7 +2532,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:07.695Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2835,7 +2818,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:04.800Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3408,7 +3390,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.640Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3483,7 +3464,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3551,7 +3531,15 @@
         ]
       },
       "previousSlugs": [
-        "mechaniker-in-stadler-rail-ch"
+        "mechaniker-in-stadler-rail-ch",
+        "completamento-meccanico-stadler-rail-bussnang",
+        "mechanic-in-completion-stadler-rail-bussnang",
+        "mechaniker-in-fertigstellung-stadler-rail-ch",
+        "mecanicien-en-cours-d-achevement-stadler-rail-bussnang",
+        "rielaborazione-del-cliente-meccanico-stadler-rail-bussnang",
+        "mechanic-customer-rework-stadler-rail-bussnang",
+        "mechaniker-in-kundennacharbeiten-stadler-rail-ch",
+        "refonte-du-client-mecanicien-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3559,7 +3547,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:55.613Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3635,7 +3622,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:57.895Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -3922,7 +3908,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:51.564Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4067,7 +4052,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4287,7 +4271,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:39:34.568Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4440,7 +4423,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:31:39.510Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4799,7 +4781,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:36.575Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4870,7 +4851,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:37.139Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4941,7 +4921,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:37.699Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5082,7 +5061,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.234Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5256,7 +5234,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:31.968Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -5426,7 +5403,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.817Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -5595,7 +5571,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:29.648Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5694,7 +5669,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.909Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5790,7 +5764,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:29.058Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5883,7 +5856,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:28.485Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6119,7 +6091,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:24.438Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6221,7 +6192,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:25.622Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -6318,7 +6288,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:25.019Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6414,7 +6383,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:23.841Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6567,7 +6535,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:26:48.378Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6669,7 +6636,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:22.094Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -6740,7 +6706,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:21.519Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7048,7 +7013,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.644Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7148,7 +7112,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:17.494Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7252,7 +7215,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.071Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -7352,7 +7314,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:14.628Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7449,7 +7410,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:16.346Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7547,7 +7507,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:16.910Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7640,7 +7599,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.904Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7736,7 +7694,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:14.059Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7914,7 +7871,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.325Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7989,7 +7945,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:11.738Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8160,7 +8115,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.034Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8262,7 +8216,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.595Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -8483,7 +8436,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.715Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8558,7 +8510,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.142Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8654,7 +8605,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:05.971Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8754,7 +8704,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:09.447Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8825,7 +8774,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8899,7 +8847,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T13:01:52.676Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8973,7 +8920,6 @@
         ]
       },
       "firstSeenAt": "2026-06-20T11:55:32.127Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -9120,7 +9066,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:03.680Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -9410,7 +9355,6 @@
         ]
       },
       "firstSeenAt": "2026-06-21T22:49:03.910Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -9770,7 +9714,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:01.951Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10133,7 +10076,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-23T23:11:28.052Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10207,7 +10149,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:26:35.066Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -10384,7 +10325,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:58.477Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -10722,7 +10662,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:56.736Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10824,7 +10763,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:57.895Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10918,7 +10856,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:57.316Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11018,7 +10955,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:56.168Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -11097,7 +11033,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T23:15:14.392Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11168,7 +11103,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T12:13:52.564Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -11189,7 +11123,7 @@
         "it": "assistente-amministrativo-stadler-rail-wallisellen",
         "en": "administrative-assistant-stadler-rail-ch",
         "de": "administrative-assistant-stadler-rail-ch",
-        "fr": "administrative-assistant-stadler-rail-wallisellen"
+        "fr": "assistant-administratif-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -11232,7 +11166,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "administrative-assistant-stadler-rail-ch",
-        "assistant-administratif-stadler-rail-wallisellen"
+        "administrative-assistant-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11240,11 +11174,10 @@
         ],
         "fr": [
           "administrative-assistant-stadler-rail-ch",
-          "assistant-administratif-stadler-rail-wallisellen"
+          "administrative-assistant-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-25T12:13:52.087Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -11315,7 +11248,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:54.433Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11567,7 +11499,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:55.597Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11638,7 +11569,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:53.270Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12162,7 +12092,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:48.695Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12303,7 +12232,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:49.842Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12376,7 +12304,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:47.552Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -12673,7 +12600,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:43.492Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12736,11 +12662,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-logistik-stadler-rail-ch"
+        "teamleiter-in-logistik-stadler-rail-ch",
+        "team-leader-logistica-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-logistik-stadler-rail-ch"
+          "teamleiter-in-logistik-stadler-rail-ch",
+          "team-leader-logistica-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:45.818Z",
@@ -12818,7 +12746,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:44.658Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -13386,7 +13313,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:38.341Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -13463,7 +13389,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:41.768Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -13539,7 +13464,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:42.335Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -13575,9 +13499,9 @@
       "description": "PROFILE\n\n• Bachelor's degree in Telecommunications, Electronics, Computer Science, or a related engineering discipline, with a strong focus on wired networking technologies (Layer 2 and Layer 3).\n\n• Solid expertise in network troubleshooting, communication systems, and modern networking principles, practices, and technologies.\n\n• Hands-on experience with virtualization platforms (e.g., VMware), firewalls, network management systems, and network configuration and administration.\n\n• Knowledge of wireless networking technologies (Wi-Fi, LTE, and 5G); experience in radio design and planning is considered a strong advantage.\n\n• Experience with network automation tools and scripting languages, such as Ansible and Python, to improve operational efficiency and scalability.\n\n• Fluent in English; German language skills are an advantage.\n\nTASKS\n\n• Shape and evolve the network reference architecture for Stadler’s CBTC and Interlocking solutions, ensuring secure, reliable, and scalable communication infrastructures.\n\n• Drive innovation and architectural improvements across wired and wireless networking, virtualization, network automation, and cybersecurity domains.\n\n• Lead and support system integration, testing, and validation activities to ensure compliance with operational and performance requirements.\n\n• Collaborate with project teams worldwide to tailor and implement reference architectures for customer-specific deployments.\n\n• Act as a technical expert for network-related troubleshooting and operational support.\n\n• Contribute to supplier assessment, technology evaluation, and strategic vendor selection activities.",
       "descriptionByLocale": {
         "en": "PROFILE\n\n• Bachelor's degree in Telecommunications, Electronics, Computer Science, or a related engineering discipline, with a strong focus on wired networking technologies (Layer 2 and Layer 3).\n\n• Solid expertise in network troubleshooting, communication systems, and modern networking principles, practices, and technologies.\n\n• Hands-on experience with virtualization platforms (e.g., VMware), firewalls, network management systems, and network configuration and administration.\n\n• Knowledge of wireless networking technologies (Wi-Fi, LTE, and 5G); experience in radio design and planning is considered a strong advantage.\n\n• Experience with network automation tools and scripting languages, such as Ansible and Python, to improve operational efficiency and scalability.\n\n• Fluent in English; German language skills are an advantage.\n\nTASKS\n\n• Shape and evolve the network reference architecture for Stadler’s CBTC and Interlocking solutions, ensuring secure, reliable, and scalable communication infrastructures.\n\n• Drive innovation and architectural improvements across wired and wireless networking, virtualization, network automation, and cybersecurity domains.\n\n• Lead and support system integration, testing, and validation activities to ensure compliance with operational and performance requirements.\n\n• Collaborate with project teams worldwide to tailor and implement reference architectures for customer-specific deployments.\n\n• Act as a technical expert for network-related troubleshooting and operational support.\n\n• Contribute to supplier assessment, technology evaluation, and strategic vendor selection activities.",
-        "it": "PROFILE\n\n• Bachelor's degree in Telecommunications, Electronics, Computer Science, or a related engineering discipline, with a strong focus on wired networking technologies (Layer 2 and Layer 3).\n\n• Solid expertise in network troubleshooting, communication systems, and modern networking principles, practices, and technologies.\n\n• Hands-on experience with virtualization platforms (e.g., VMware), firewalls, network management systems, and network configuration and administration.\n\n• Knowledge of wireless networking technologies (Wi-Fi, LTE, and 5G); experience in radio design and planning is considered a strong advantage.\n\n• Experience with network automation tools and scripting languages, such as Ansible and Python, to improve operational efficiency and scalability.\n\n• Fluent in English; German language skills are an advantage.\n\nTASKS\n\n• Shape and evolve the network reference architecture for Stadler’s CBTC and Interlocking solutions, ensuring secure, reliable, and scalable communication infrastructures.\n\n• Drive innovation and architectural improvements across wired and wireless networking, virtualization, network automation, and cybersecurity domains.\n\n• Lead and support system integration, testing, and validation activities to ensure compliance with operational and performance requirements.\n\n• Collaborate with project teams worldwide to tailor and implement reference architectures for customer-specific deployments.\n\n• Act as a technical expert for network-related troubleshooting and operational support.\n\n• Contribute to supplier assessment, technology evaluation, and strategic vendor selection activities.",
-        "de": "PROFILE\n\n• Bachelor's degree in Telecommunications, Electronics, Computer Science, or a related engineering discipline, with a strong focus on wired networking technologies (Layer 2 and Layer 3).\n\n• Solid expertise in network troubleshooting, communication systems, and modern networking principles, practices, and technologies.\n\n• Hands-on experience with virtualization platforms (e.g., VMware), firewalls, network management systems, and network configuration and administration.\n\n• Knowledge of wireless networking technologies (Wi-Fi, LTE, and 5G); experience in radio design and planning is considered a strong advantage.\n\n• Experience with network automation tools and scripting languages, such as Ansible and Python, to improve operational efficiency and scalability.\n\n• Fluent in English; German language skills are an advantage.\n\nTASKS\n\n• Shape and evolve the network reference architecture for Stadler’s CBTC and Interlocking solutions, ensuring secure, reliable, and scalable communication infrastructures.\n\n• Drive innovation and architectural improvements across wired and wireless networking, virtualization, network automation, and cybersecurity domains.\n\n• Lead and support system integration, testing, and validation activities to ensure compliance with operational and performance requirements.\n\n• Collaborate with project teams worldwide to tailor and implement reference architectures for customer-specific deployments.\n\n• Act as a technical expert for network-related troubleshooting and operational support.\n\n• Contribute to supplier assessment, technology evaluation, and strategic vendor selection activities.",
-        "fr": "PROFILE\n\n• Bachelor's degree in Telecommunications, Electronics, Computer Science, or a related engineering discipline, with a strong focus on wired networking technologies (Layer 2 and Layer 3).\n\n• Solid expertise in network troubleshooting, communication systems, and modern networking principles, practices, and technologies.\n\n• Hands-on experience with virtualization platforms (e.g., VMware), firewalls, network management systems, and network configuration and administration.\n\n• Knowledge of wireless networking technologies (Wi-Fi, LTE, and 5G); experience in radio design and planning is considered a strong advantage.\n\n• Experience with network automation tools and scripting languages, such as Ansible and Python, to improve operational efficiency and scalability.\n\n• Fluent in English; German language skills are an advantage.\n\nTASKS\n\n• Shape and evolve the network reference architecture for Stadler’s CBTC and Interlocking solutions, ensuring secure, reliable, and scalable communication infrastructures.\n\n• Drive innovation and architectural improvements across wired and wireless networking, virtualization, network automation, and cybersecurity domains.\n\n• Lead and support system integration, testing, and validation activities to ensure compliance with operational and performance requirements.\n\n• Collaborate with project teams worldwide to tailor and implement reference architectures for customer-specific deployments.\n\n• Act as a technical expert for network-related troubleshooting and operational support.\n\n• Contribute to supplier assessment, technology evaluation, and strategic vendor selection activities."
+        "it": "PROFESSIONALE\n\n• Corso di laurea in Telecomunicazioni, Elettronica, Informatica, o una disciplina di ingegneria correlata, con una forte attenzione alle tecnologie di rete via cavo (Layer 2 e Layer 3).\n\n• Competenze solide nella risoluzione dei problemi di rete, sistemi di comunicazione e moderni principi di networking, pratiche e tecnologie.\n\n• Esperienza pratica con piattaforme di virtualizzazione (ad esempio VMware), firewall, sistemi di gestione della rete e configurazione e amministrazione di rete.\n\n• Conoscenza delle tecnologie di rete wireless (Wi-Fi, LTE e 5G); l'esperienza nella progettazione e nella pianificazione radio è considerata un forte vantaggio.\n\n• Esperienza con strumenti di automazione della rete e linguaggi di scripting, come Ansible e Python, per migliorare l'efficienza operativa e la scalabilità.\n\n• Fluente in inglese; le competenze linguistiche tedesche sono un vantaggio.\n\nTASKS\n\n• Formare ed evolvere l’architettura di riferimento della rete per le soluzioni CBTC e Interlocking di Stadler, garantendo infrastrutture di comunicazione sicure, affidabili e scalabili.\n\n• Guida l'innovazione e i miglioramenti architettonici in rete cablata e wireless, la virtualizzazione, l'automazione della rete e i domini di sicurezza informatica.\n\n• Guida e supporta le attività di integrazione, test e validazione del sistema per garantire il rispetto dei requisiti operativi e di performance.\n\n• Collabora con team di progetto in tutto il mondo per personalizzare e implementare architetture di riferimento per le implementazioni specifiche del cliente.\n\n• Agire come esperto tecnico per la risoluzione dei problemi legati alla rete e il supporto operativo.\n\n• Contribuisci alle attività di valutazione dei fornitori, valutazione della tecnologia e selezione strategica dei fornitori.",
+        "de": "PROFIL\n\n• Bachelor-Abschluss in Telekommunikation, Elektronik, Informatik oder einer verwandten Ingenieurdisziplin, mit einem starken Fokus auf kabelgebundenen Netzwerktechnologien (Schicht 2 und Schicht 3).\n\n• Fundierte Expertise in den Bereichen Netzwerk-Fehlerbehebung, Kommunikationssysteme und moderne Netzwerkprinzipien, -praktiken und -technologien.\n\n• Praktische Erfahrung mit Virtualisierungsplattformen (z. B. VMware), Firewalls, Netzwerkmanagementsystemen sowie Netzwerkkonfiguration und -verwaltung.\n\n• Kenntnisse über drahtlose Netzwerktechnologien (Wi-Fi, LTE und 5G); Erfahrung in der Funkgestaltung und -planung wird als großer Vorteil angesehen.\n\n• Erfahrung mit Netzwerkautomatisierungstools und Skriptsprachen wie Ansible und Python zur Verbesserung der Betriebseffizienz und Skalierbarkeit.\n\n• Englisch fließend; Deutschkenntnisse sind von Vorteil.\n\nAUFGABEN\n\n• Gestalten und entwickeln Sie die Netzwerkreferenzarchitektur für die CBTC- und Interlocking-Lösungen von Stadler und gewährleisten Sie sichere, zuverlässige und skalierbare Kommunikationsinfrastrukturen.\n\n• Förderung von Innovationen und architektonischen Verbesserungen in den Bereichen kabelgebundene und drahtlose Netzwerke, Virtualisierung, Netzwerkautomatisierung und Cybersicherheit.\n\n• Leitung und Unterstützung von Systemintegrations-, Test- und Validierungsaktivitäten, um die Einhaltung der Betriebs- und Leistungsanforderungen sicherzustellen.\n\n• Arbeiten Sie mit Projektteams weltweit zusammen, um Referenzarchitekturen für kundenspezifische Implementierungen anzupassen und zu implementieren.\n\n• Handeln Sie als technischer Experte für netzwerkbezogene Fehlersuche und operative Unterstützung.\n\n• Beitrag zur Lieferantenbewertung, Technologiebewertung und strategischen Lieferantenauswahlaktivitäten.",
+        "fr": "PROFIL\n\n• Baccalauréat en télécommunications, en électronique, en informatique ou dans une discipline connexe en génie, l'accent étant mis sur les technologies de réseautage filaire (Layer 2 et Layer 3).\n\n• Une solide expertise dans le dépannage des réseaux, les systèmes de communication et les principes, pratiques et technologies modernes du réseautage.\n\n• Expérience pratique avec les plateformes de virtualisation (p. ex. VMware), les pare-feu, les systèmes de gestion de réseau, la configuration et l'administration du réseau.\n\n• Connaissance des technologies de réseautage sans fil (Wi-Fi, LTE et 5G); l'expérience de la conception et de la planification radio est considérée comme un avantage important.\n\n• Expérience avec les outils d'automatisation de réseau et les langages de script, comme Ansible et Python, pour améliorer l'efficacité opérationnelle et l'évolutivité.\n\n• Les compétences linguistiques sont un avantage.\n\nTÂCHES\n\n• Formez et développez l'architecture de référence du réseau pour les solutions Stadler, CBTC et Interlocking, garantissant des infrastructures de communication sûres, fiables et évolutives.\n\n• Favoriser l'innovation et les améliorations architecturales dans les domaines du réseau câblé et sans fil, de la virtualisation, de l'automatisation des réseaux et de la cybersécurité.\n\n• Diriger et soutenir les activités d'intégration, d'essai et de validation des systèmes afin d'assurer la conformité aux exigences opérationnelles et de rendement.\n\n• Collaborer avec des équipes de projet dans le monde entier pour adapter et mettre en œuvre des architectures de référence pour des déploiements spécifiques au client.\n\n• Agir en tant qu'expert technique pour le dépannage du réseau et le soutien opérationnel.\n\n• Contribuer à l'évaluation des fournisseurs, à l'évaluation technologique et aux activités stratégiques de sélection des fournisseurs."
       },
       "location": "Wallisellen",
       "canton": "ZH",
@@ -13603,7 +13527,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13651,9 +13574,9 @@
       "description": "PROFILE\n\n• Degree in Economics, Business Administration or a comparable field\n\n• Initial practical in customer service, back office operations, logistics, or supply chain management\n\n• Structured, hands-on, and solution-oriented mindset with strong organizational skills and attention to detail\n\n• High level of reliability, flexibility, and a proactive, customer-focused attitude\n\n• Solid user knowledge of MS Office applications, particularly Excel (e.g., data handling, basic analysis, and reporting)\n\n• Fluency in German and English, both written and spoken, enabling effective communication with internal and external stakeholders\n\n• Strong team spirit and collaboration within an international and multicultural environment\n\nTASKS\n\n• Manage and coordinate day-to-day after-sales operations, including spare parts and repair activities, ensuring efficient and timely processing\n\n• Create, enter, and continuously monitor sales and repair orders in the system, ensuring data accuracy and completeness\n\n• Track order status throughout the entire lifecycle, proactively managing priorities, deadlines, and urgent requests to meet customer expectations\n\n• Act as a key support interface for customer inquiries, providing prompt, reliable, and solution-oriented assistance in close collaboration with internal stakeholders\n\n• Prepare and maintain regular operational reports, analyze key performance indicators (KPIs), and support performance tracking and continuous improvement initiatives",
       "descriptionByLocale": {
         "en": "PROFILE\n\n• Degree in Economics, Business Administration or a comparable field\n\n• Initial practical in customer service, back office operations, logistics, or supply chain management\n\n• Structured, hands-on, and solution-oriented mindset with strong organizational skills and attention to detail\n\n• High level of reliability, flexibility, and a proactive, customer-focused attitude\n\n• Solid user knowledge of MS Office applications, particularly Excel (e.g., data handling, basic analysis, and reporting)\n\n• Fluency in German and English, both written and spoken, enabling effective communication with internal and external stakeholders\n\n• Strong team spirit and collaboration within an international and multicultural environment\n\nTASKS\n\n• Manage and coordinate day-to-day after-sales operations, including spare parts and repair activities, ensuring efficient and timely processing\n\n• Create, enter, and continuously monitor sales and repair orders in the system, ensuring data accuracy and completeness\n\n• Track order status throughout the entire lifecycle, proactively managing priorities, deadlines, and urgent requests to meet customer expectations\n\n• Act as a key support interface for customer inquiries, providing prompt, reliable, and solution-oriented assistance in close collaboration with internal stakeholders\n\n• Prepare and maintain regular operational reports, analyze key performance indicators (KPIs), and support performance tracking and continuous improvement initiatives",
-        "it": "PROFILE\n\n• Degree in Economics, Business Administration or a comparable field\n\n• Initial practical in customer service, back office operations, logistics, or supply chain management\n\n• Structured, hands-on, and solution-oriented mindset with strong organizational skills and attention to detail\n\n• High level of reliability, flexibility, and a proactive, customer-focused attitude\n\n• Solid user knowledge of MS Office applications, particularly Excel (e.g., data handling, basic analysis, and reporting)\n\n• Fluency in German and English, both written and spoken, enabling effective communication with internal and external stakeholders\n\n• Strong team spirit and collaboration within an international and multicultural environment\n\nTASKS\n\n• Manage and coordinate day-to-day after-sales operations, including spare parts and repair activities, ensuring efficient and timely processing\n\n• Create, enter, and continuously monitor sales and repair orders in the system, ensuring data accuracy and completeness\n\n• Track order status throughout the entire lifecycle, proactively managing priorities, deadlines, and urgent requests to meet customer expectations\n\n• Act as a key support interface for customer inquiries, providing prompt, reliable, and solution-oriented assistance in close collaboration with internal stakeholders\n\n• Prepare and maintain regular operational reports, analyze key performance indicators (KPIs), and support performance tracking and continuous improvement initiatives",
-        "de": "PROFILE\n\n• Degree in Economics, Business Administration or a comparable field\n\n• Initial practical in customer service, back office operations, logistics, or supply chain management\n\n• Structured, hands-on, and solution-oriented mindset with strong organizational skills and attention to detail\n\n• High level of reliability, flexibility, and a proactive, customer-focused attitude\n\n• Solid user knowledge of MS Office applications, particularly Excel (e.g., data handling, basic analysis, and reporting)\n\n• Fluency in German and English, both written and spoken, enabling effective communication with internal and external stakeholders\n\n• Strong team spirit and collaboration within an international and multicultural environment\n\nTASKS\n\n• Manage and coordinate day-to-day after-sales operations, including spare parts and repair activities, ensuring efficient and timely processing\n\n• Create, enter, and continuously monitor sales and repair orders in the system, ensuring data accuracy and completeness\n\n• Track order status throughout the entire lifecycle, proactively managing priorities, deadlines, and urgent requests to meet customer expectations\n\n• Act as a key support interface for customer inquiries, providing prompt, reliable, and solution-oriented assistance in close collaboration with internal stakeholders\n\n• Prepare and maintain regular operational reports, analyze key performance indicators (KPIs), and support performance tracking and continuous improvement initiatives",
-        "fr": "PROFILE\n\n• Degree in Economics, Business Administration or a comparable field\n\n• Initial practical in customer service, back office operations, logistics, or supply chain management\n\n• Structured, hands-on, and solution-oriented mindset with strong organizational skills and attention to detail\n\n• High level of reliability, flexibility, and a proactive, customer-focused attitude\n\n• Solid user knowledge of MS Office applications, particularly Excel (e.g., data handling, basic analysis, and reporting)\n\n• Fluency in German and English, both written and spoken, enabling effective communication with internal and external stakeholders\n\n• Strong team spirit and collaboration within an international and multicultural environment\n\nTASKS\n\n• Manage and coordinate day-to-day after-sales operations, including spare parts and repair activities, ensuring efficient and timely processing\n\n• Create, enter, and continuously monitor sales and repair orders in the system, ensuring data accuracy and completeness\n\n• Track order status throughout the entire lifecycle, proactively managing priorities, deadlines, and urgent requests to meet customer expectations\n\n• Act as a key support interface for customer inquiries, providing prompt, reliable, and solution-oriented assistance in close collaboration with internal stakeholders\n\n• Prepare and maintain regular operational reports, analyze key performance indicators (KPIs), and support performance tracking and continuous improvement initiatives"
+        "it": "PROFESSIONALE\n\n• Laurea in Economia, Business Administration o un campo comparabile\n\n• Pratica iniziale nel servizio clienti, operazioni di back office, logistica o gestione della supply chain\n\n• Mindset strutturato, pratico e orientato alla soluzione con forti capacità organizzative e attenzione ai dettagli\n\n• Alto livello di affidabilità, flessibilità e un atteggiamento proattivo, orientato al cliente\n\n• Conoscenza utente solida delle applicazioni MS Office, in particolare Excel (ad esempio, gestione dei dati, analisi di base e reporting)\n\n• Fluency in tedesco e inglese, sia scritto che parlato, che consente una comunicazione efficace con gli stakeholder interni ed esterni\n\n• Forte spirito di squadra e collaborazione in un ambiente internazionale e multiculturale\n\nTASKS\n\n• Gestire e coordinare le operazioni post-vendita giornaliere, comprese le parti di ricambio e le attività di riparazione, garantendo un'elaborazione efficiente e tempestiva\n\n• Creare, inserire e monitorare continuamente gli ordini di vendita e riparazione nel sistema, garantendo precisione e completezza dei dati\n\n• Tracciare lo stato dell'ordine in tutto il ciclo di vita, gestire in modo proattivo le priorità, le scadenze e le richieste urgenti per soddisfare le aspettative dei clienti\n\n• Agire come interfaccia di supporto chiave per le richieste dei clienti, fornendo assistenza rapida, affidabile e orientata alla soluzione in stretta collaborazione con gli stakeholder interni\n\n• Preparare e mantenere rapporti operativi regolari, analizzare gli indicatori di performance chiave (KPI), e supportare il monitoraggio delle prestazioni e iniziative di miglioramento continuo",
+        "de": "PROFIL\n\n• Abschluss in Wirtschaft, Betriebswirtschaft oder einem vergleichbaren Bereich\n\n• Anfängliche Praxis im Kundenservice, Back Office Operations, Logistik oder Supply Chain Management\n\n• Strukturierte, praktische und lösungsorientierte Denkweise mit starken organisatorischen Fähigkeiten und Liebe zum Detail\n\n• Hohe Zuverlässigkeit, Flexibilität und eine proaktive, kundenorientierte Einstellung\n\n• Solide Benutzerkenntnisse von MS Office-Anwendungen, insbesondere Excel (z. B. Datenverarbeitung, Grundlagenanalyse und Reporting)\n\n• fließend in Deutsch und Englisch, sowohl schriftlich als auch gesprochen, ermöglicht eine effektive Kommunikation mit internen und externen Stakeholdern\n\n• Starker Teamgeist und Zusammenarbeit in einem internationalen und multikulturellen Umfeld\n\nAUFGABEN\n\n• Verwalten und koordinieren Sie den täglichen After-Sales-Betrieb, einschließlich Ersatzteile und Reparaturaktivitäten, um eine effiziente und zeitnahe Verarbeitung zu gewährleisten\n\n• Erstellen, Eingeben und kontinuierliche Überwachung von Verkaufs- und Reparaturaufträgen im System, um die Genauigkeit und Vollständigkeit der Daten zu gewährleisten\n\n• Verfolgen Sie den Auftragsstatus während des gesamten Lebenszyklus und verwalten Sie proaktiv Prioritäten, Fristen und dringende Anfragen, um die Erwartungen der Kunden zu erfüllen\n\n• Als zentrale Support-Schnittstelle für Kundenanfragen fungieren und in enger Zusammenarbeit mit internen Stakeholdern eine schnelle, zuverlässige und lösungsorientierte Unterstützung bieten\n\n• Erstellen und pflegen Sie regelmäßige Betriebsberichte, analysieren Sie Key Performance Indicators (KPIs) und unterstützen Sie Performance Tracking und kontinuierliche Verbesserungsinitiativen",
+        "fr": "PROFIL\n\n• Diplôme en économie, administration des affaires ou domaine comparable\n\n• Pratique initiale dans le service à la clientèle, les opérations back office, la logistique ou la gestion de la chaîne d'approvisionnement\n\n• Un état d'esprit structuré, pratique et axé sur la solution avec de solides compétences organisationnelles et une attention aux détails\n\n• Niveau élevé de fiabilité, flexibilité et attitude proactive et axée sur le client\n\n• Connaissance utilisateur solide des applications MS Office, en particulier Excel (p. ex., traitement des données, analyse de base et rapports)\n\n• Connaissance de l'allemand et de l'anglais, à la fois écrite et parlée, permettant une communication efficace avec les parties prenantes internes et externes\n\n• Solide esprit d'équipe et collaboration dans un environnement international et multiculturel\n\nTÂCHES\n\n• Gérer et coordonner les opérations quotidiennes après-vente, y compris les pièces de rechange et les activités de réparation, en veillant à ce que le traitement soit efficace et rapide\n\n• Créer, entrer et surveiller en permanence les commandes de vente et de réparation dans le système, en assurant l'exactitude et l'exhaustivité des données\n\n• Suivre l'état de la commande tout au long du cycle de vie, gérer proactivement les priorités, les échéances et les demandes urgentes pour répondre aux attentes des clients\n\n• Agir en tant qu'interface de soutien clé pour les demandes de renseignements des clients, fournir une assistance rapide, fiable et orientée vers la solution en étroite collaboration avec les intervenants internes\n\n• Préparer et tenir à jour des rapports opérationnels réguliers, analyser les indicateurs de rendement clés et appuyer les initiatives de suivi du rendement et d'amélioration continue"
       },
       "location": "Wallisellen",
       "canton": "ZH",
@@ -13679,7 +13602,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13713,9 +13635,9 @@
       "slug": "servizio-clienti-coordinatore-stadler-rail-wallisellen-4c631c",
       "slugByLocale": {
         "de": "customer-service-coordinator-stadler-rail-ch",
-        "it": "servizio-clienti-coordinatore-stadler-rail-wallisellen-4c631c",
+        "it": "customer-service-coordinator-stadler-rail-ch-2",
         "en": "customer-service-coordinator-stadler-rail-ch-2",
-        "fr": "service-client-coordinateur-stadler-rail-wallisellen-4c631c"
+        "fr": "customer-service-coordinator-stadler-rail-ch-2"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13730,9 +13652,9 @@
       "description": "PROFIL\n\n• abgeschlossenes Studium in Betriebswirtschaft, Wirtschaftswissenschaften oder vergleichbare Ausbildung mit entsprechender Arbeitserfahrung\n\n• Erste praktische Erfahrung in den Bereichen Customer Service, Backoffice, Logistik oder Supply Chain Management\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit ausgeprägtem Organisationstalent und hoher Detailgenauigkeit\n\n• Zuverlässigkeit, Flexibilität sowie eine proaktive und kundenorientierte Denkweise\n\n• Gute Anwenderkenntnisse in MS Office, insbesondere Excel (z.   B. Datenaufbereitung, einfache Analysen und Reporting)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift für die sichere Kommunikation mit internen und externen Stakeholdern\n\n• Ausgeprägte Teamfähigkeit und Freude an der Zusammenarbeit in einem internationalen und multikulturellen Umfeld\n\nAUFGABEN\n\n• Steuerung und Koordination der täglichen After-Sales-Prozesse (Ersatzteile und Reparaturen) sowie Sicherstellung einer effizienten und termingerechten Abwicklung\n\n• Erfassung, Pflege und Überwachung von Reparaturaufträgen im System unter Gewährleistung einer hohen Datenqualität\n\n• Nachverfolgung der Aufträge über den gesamten Lebenszyklus hinweg sowie aktives Priorisieren von Terminen und dringenden Anforderungen zur Sicherstellung der Kundenzufriedenheit\n\n• Zentrale Ansprechperson für Kundenanfragen mit der Gewährleistung einer schnellen, lösungsorientierten und zuverlässigen Bearbeitung in enger Zusammenarbeit mit internen Schnittstellen\n\n• Erstellung und Analyse regelmässiger Reports sowie Überwachung relevanter KPIs zur Unterstützung von Performance-Management und kontinuierlicher Verbesserung",
       "descriptionByLocale": {
         "de": "PROFIL\n\n• abgeschlossenes Studium in Betriebswirtschaft, Wirtschaftswissenschaften oder vergleichbare Ausbildung mit entsprechender Arbeitserfahrung\n\n• Erste praktische Erfahrung in den Bereichen Customer Service, Backoffice, Logistik oder Supply Chain Management\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit ausgeprägtem Organisationstalent und hoher Detailgenauigkeit\n\n• Zuverlässigkeit, Flexibilität sowie eine proaktive und kundenorientierte Denkweise\n\n• Gute Anwenderkenntnisse in MS Office, insbesondere Excel (z.   B. Datenaufbereitung, einfache Analysen und Reporting)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift für die sichere Kommunikation mit internen und externen Stakeholdern\n\n• Ausgeprägte Teamfähigkeit und Freude an der Zusammenarbeit in einem internationalen und multikulturellen Umfeld\n\nAUFGABEN\n\n• Steuerung und Koordination der täglichen After-Sales-Prozesse (Ersatzteile und Reparaturen) sowie Sicherstellung einer effizienten und termingerechten Abwicklung\n\n• Erfassung, Pflege und Überwachung von Reparaturaufträgen im System unter Gewährleistung einer hohen Datenqualität\n\n• Nachverfolgung der Aufträge über den gesamten Lebenszyklus hinweg sowie aktives Priorisieren von Terminen und dringenden Anforderungen zur Sicherstellung der Kundenzufriedenheit\n\n• Zentrale Ansprechperson für Kundenanfragen mit der Gewährleistung einer schnellen, lösungsorientierten und zuverlässigen Bearbeitung in enger Zusammenarbeit mit internen Schnittstellen\n\n• Erstellung und Analyse regelmässiger Reports sowie Überwachung relevanter KPIs zur Unterstützung von Performance-Management und kontinuierlicher Verbesserung",
-        "it": "PROFIL\n\n• abgeschlossenes Studium in Betriebswirtschaft, Wirtschaftswissenschaften oder vergleichbare Ausbildung mit entsprechender Arbeitserfahrung\n\n• Erste praktische Erfahrung in den Bereichen Customer Service, Backoffice, Logistik oder Supply Chain Management\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit ausgeprägtem Organisationstalent und hoher Detailgenauigkeit\n\n• Zuverlässigkeit, Flexibilität sowie eine proaktive und kundenorientierte Denkweise\n\n• Gute Anwenderkenntnisse in MS Office, insbesondere Excel (z.   B. Datenaufbereitung, einfache Analysen und Reporting)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift für die sichere Kommunikation mit internen und externen Stakeholdern\n\n• Ausgeprägte Teamfähigkeit und Freude an der Zusammenarbeit in einem internationalen und multikulturellen Umfeld\n\nAUFGABEN\n\n• Steuerung und Koordination der täglichen After-Sales-Prozesse (Ersatzteile und Reparaturen) sowie Sicherstellung einer effizienten und termingerechten Abwicklung\n\n• Erfassung, Pflege und Überwachung von Reparaturaufträgen im System unter Gewährleistung einer hohen Datenqualität\n\n• Nachverfolgung der Aufträge über den gesamten Lebenszyklus hinweg sowie aktives Priorisieren von Terminen und dringenden Anforderungen zur Sicherstellung der Kundenzufriedenheit\n\n• Zentrale Ansprechperson für Kundenanfragen mit der Gewährleistung einer schnellen, lösungsorientierten und zuverlässigen Bearbeitung in enger Zusammenarbeit mit internen Schnittstellen\n\n• Erstellung und Analyse regelmässiger Reports sowie Überwachung relevanter KPIs zur Unterstützung von Performance-Management und kontinuierlicher Verbesserung",
-        "en": "PROFIL\n\n• abgeschlossenes Studium in Betriebswirtschaft, Wirtschaftswissenschaften oder vergleichbare Ausbildung mit entsprechender Arbeitserfahrung\n\n• Erste praktische Erfahrung in den Bereichen Customer Service, Backoffice, Logistik oder Supply Chain Management\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit ausgeprägtem Organisationstalent und hoher Detailgenauigkeit\n\n• Zuverlässigkeit, Flexibilität sowie eine proaktive und kundenorientierte Denkweise\n\n• Gute Anwenderkenntnisse in MS Office, insbesondere Excel (z.   B. Datenaufbereitung, einfache Analysen und Reporting)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift für die sichere Kommunikation mit internen und externen Stakeholdern\n\n• Ausgeprägte Teamfähigkeit und Freude an der Zusammenarbeit in einem internationalen und multikulturellen Umfeld\n\nAUFGABEN\n\n• Steuerung und Koordination der täglichen After-Sales-Prozesse (Ersatzteile und Reparaturen) sowie Sicherstellung einer effizienten und termingerechten Abwicklung\n\n• Erfassung, Pflege und Überwachung von Reparaturaufträgen im System unter Gewährleistung einer hohen Datenqualität\n\n• Nachverfolgung der Aufträge über den gesamten Lebenszyklus hinweg sowie aktives Priorisieren von Terminen und dringenden Anforderungen zur Sicherstellung der Kundenzufriedenheit\n\n• Zentrale Ansprechperson für Kundenanfragen mit der Gewährleistung einer schnellen, lösungsorientierten und zuverlässigen Bearbeitung in enger Zusammenarbeit mit internen Schnittstellen\n\n• Erstellung und Analyse regelmässiger Reports sowie Überwachung relevanter KPIs zur Unterstützung von Performance-Management und kontinuierlicher Verbesserung",
-        "fr": "PROFIL\n\n• abgeschlossenes Studium in Betriebswirtschaft, Wirtschaftswissenschaften oder vergleichbare Ausbildung mit entsprechender Arbeitserfahrung\n\n• Erste praktische Erfahrung in den Bereichen Customer Service, Backoffice, Logistik oder Supply Chain Management\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit ausgeprägtem Organisationstalent und hoher Detailgenauigkeit\n\n• Zuverlässigkeit, Flexibilität sowie eine proaktive und kundenorientierte Denkweise\n\n• Gute Anwenderkenntnisse in MS Office, insbesondere Excel (z.   B. Datenaufbereitung, einfache Analysen und Reporting)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift für die sichere Kommunikation mit internen und externen Stakeholdern\n\n• Ausgeprägte Teamfähigkeit und Freude an der Zusammenarbeit in einem internationalen und multikulturellen Umfeld\n\nAUFGABEN\n\n• Steuerung und Koordination der täglichen After-Sales-Prozesse (Ersatzteile und Reparaturen) sowie Sicherstellung einer effizienten und termingerechten Abwicklung\n\n• Erfassung, Pflege und Überwachung von Reparaturaufträgen im System unter Gewährleistung einer hohen Datenqualität\n\n• Nachverfolgung der Aufträge über den gesamten Lebenszyklus hinweg sowie aktives Priorisieren von Terminen und dringenden Anforderungen zur Sicherstellung der Kundenzufriedenheit\n\n• Zentrale Ansprechperson für Kundenanfragen mit der Gewährleistung einer schnellen, lösungsorientierten und zuverlässigen Bearbeitung in enger Zusammenarbeit mit internen Schnittstellen\n\n• Erstellung und Analyse regelmässiger Reports sowie Überwachung relevanter KPIs zur Unterstützung von Performance-Management und kontinuierlicher Verbesserung"
+        "it": "PROFESSIONALE\n\n• Studi completi in amministrazione aziendale, economia o formazione comparabile con esperienza lavorativa corrispondente\n\n• Prima esperienza pratica nei settori del servizio clienti, back office, logistica o gestione della supply chain\n\n• Metodo di lavoro strutturato e orientato alla soluzione con spiccato talento organizzativo e alto livello di dettaglio\n\n• Affidabilità, flessibilità e mentalità proattiva e orientata al cliente\n\n• Buona conoscenza dell'utente in MS Office, in particolare Excel (ad esempio preparazione dei dati, semplice analisi e reporting)\n\n• Molto buone competenze in tedesco e inglese in parola e scrittura per una comunicazione sicura con gli stakeholder interni ed esterni\n\n• Forte lavoro di squadra e divertimento di lavorare insieme in un ambiente internazionale e multiculturale\n\nTASKS\n\n• Controllo e coordinamento dei processi di post-vendita giornalieri (parti di ricambio e riparazioni) oltre a garantire una lavorazione efficiente e tempestiva\n\n• Registrazione, manutenzione e monitoraggio degli ordini di riparazione nel sistema, garantendo alta qualità dei dati\n\n• Tracciare gli ordini in tutto il ciclo di vita e priorità attivamente scadenze e requisiti urgenti per garantire la soddisfazione del cliente\n\n• Persona di contatto centrale per le richieste dei clienti con la garanzia di una lavorazione veloce, orientata alla soluzione e affidabile in stretta collaborazione con le interfacce interne\n\n• Creare e analizzare rapporti regolari e monitorare i KPI rilevanti per supportare la gestione delle prestazioni e il miglioramento continuo",
+        "en": "PROFILE\n\n• Completed studies in business administration, economics or comparable training with corresponding work experience\n\n• First practical experience in the areas of customer service, back office, logistics or supply chain management\n\n• Structured and solution-oriented working method with distinct organizational talent and high level of detail\n\n• Reliability, flexibility and a proactive and customer-oriented mindset\n\n• Good user knowledge in MS Office, especially Excel (e.g. data preparation, simple analysis and reporting)\n\n• Very good German and English skills in word and writing for secure communication with internal and external stakeholders\n\n• Strong teamwork and enjoyment of working together in an international and multicultural environment\n\nTASKS\n\n• Control and coordination of daily after-sales processes (spare parts and repairs) as well as ensuring efficient and timely processing\n\n• Recording, maintenance and monitoring of repair orders in the system, ensuring high data quality\n\n• Track orders throughout the lifecycle and actively prioritize deadlines and urgent requirements to ensure customer satisfaction\n\n• Central contact person for customer inquiries with the guarantee of fast, solution-oriented and reliable processing in close cooperation with internal interfaces\n\n• Create and analyze regular reports and monitor relevant KPIs to support performance management and continuous improvement",
+        "fr": "PROFIL\n\n• Études terminées en administration des entreprises, économie ou formation comparable avec expérience professionnelle correspondante\n\n• Première expérience pratique dans les domaines du service à la clientèle, du back office, de la logistique ou de la gestion de la chaîne d'approvisionnement\n\n• Méthode de travail structurée et axée sur la solution, avec un talent organisationnel distinct et un haut niveau de détail\n\n• Fiabilité, flexibilité et état d'esprit proactif et axé sur le client\n\n• Bonnes connaissances des utilisateurs dans MS Office, en particulier Excel (p. ex. préparation des données, analyse simple et établissement de rapports)\n\n• Très bonnes compétences en allemand et en anglais en paroles et en écriture pour une communication sécurisée avec les parties prenantes internes et externes\n\n• Travail d'équipe et plaisir de travailler ensemble dans un environnement international et multiculturel\n\nTÂCHES\n\n• Contrôle et coordination des opérations quotidiennes après-vente (pièces détachées et réparations) et traitement efficace et rapide\n\n• Enregistrement, maintenance et surveillance des commandes de réparation dans le système, assurant une qualité de données élevée\n\n• Suivre les commandes tout au long du cycle de vie et prioriser activement les échéances et les exigences urgentes pour assurer la satisfaction du client\n\n• Personne de contact centrale pour les demandes de clients avec la garantie d'un traitement rapide, orienté vers la solution et fiable en étroite collaboration avec les interfaces internes\n\n• Créer et analyser des rapports réguliers et surveiller les ICR pertinents pour appuyer la gestion du rendement et l'amélioration continue"
       },
       "location": "Wallisellen",
       "canton": "ZH",
@@ -13758,7 +13680,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13773,15 +13694,12 @@
       },
       "firstSeenAt": "2026-06-29T14:38:58.101Z",
       "previousSlugsByLocale": {
-        "it": [
-          "customer-service-coordinator-stadler-rail-ch-2"
-        ],
         "fr": [
-          "customer-service-coordinator-stadler-rail-ch-2"
+          "service-client-coordinateur-stadler-rail-wallisellen-4c631c"
         ]
       },
       "previousSlugs": [
-        "customer-service-coordinator-stadler-rail-ch-2"
+        "service-client-coordinateur-stadler-rail-wallisellen-4c631c"
       ]
     },
     {
@@ -13841,7 +13759,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:37.178Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -13986,7 +13903,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.596Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -14065,7 +13981,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.016Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -14208,7 +14123,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:34.259Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -14425,7 +14339,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:33.124Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {

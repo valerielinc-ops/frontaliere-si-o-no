@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "unterassistenten-innere-medizin-kantonsspital-uri-altdorf",
         "en": "assistant-internal-medicine-kantonsspital-uri-altdorf",
-        "de": "unter-assistants-innere-medizin-kantonsspital-uri-altdorf",
+        "de": "unterassistenten-innere-medizin-kantonsspital-uri-altdorf",
         "fr": "sous-assistants-en-medecine-interne-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Unterassistenten Innere Medizin",
         "en": "Assistant Internal Medicine",
-        "de": "Unter assistants Innere Medizin",
+        "de": "Unterassin Innere Medizin",
         "fr": "Sous-assistants en médecine interne"
       },
       "description": "Unterassistenten Innere Medizin — Kantonsspital Uri",
@@ -49,11 +49,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sub-assistente-medicina-interna-kantonsspital-uri-altdorf"
+        "sub-assistente-medicina-interna-kantonsspital-uri-altdorf",
+        "unter-assistants-innere-medizin-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sub-assistente-medicina-interna-kantonsspital-uri-altdorf"
+        ],
+        "de": [
+          "unter-assistants-innere-medizin-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:30.465Z",
@@ -1217,9 +1221,9 @@
     },
     {
       "id": "kantonsspital-uri-a3c27deafd60",
-      "slug": "dipl-pflegefachpersonen-hf-fh-w-m-d-60-100-kantonsspital-uri-altdorf",
+      "slug": "infermieri-hf-fh-f-m-d-60-100-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "it": "dipl-pflegefachpersonen-hf-fh-w-m-d-60-100-kantonsspital-uri-altdorf",
+        "it": "infermieri-hf-fh-f-m-d-60-100-kantonsspital-uri-altdorf",
         "en": "registered-nurse-hf-fh-f-m-d-60-100-kantonsspital-uri-altdorf",
         "de": "dipl-pflegefachpersonen-hf-fh-w-m-d-60-100-kantonsspital-uri-altdorf",
         "fr": "infirmier-ere-diplome-e-es-hes-f-h-d-60-100-kantonsspital-uri-altdorf"
@@ -1229,7 +1233,7 @@
       "companyDomain": "ksuri.ch",
       "title": "Dipl. Pflegefachpersonen HF / FH (w/m/d) 60-100%",
       "titleByLocale": {
-        "it": "Dipl. Infermieri HF / FH (f/m/d) 60-100 %",
+        "it": "Infermieri HF / FH (f/m/d) 60-100 %",
         "en": "Registered Nurse HF / FH (f/m/d) 60-100%",
         "de": "Dipl. Pflegefachpersonen HF / FH (w/m/d) 60-100%",
         "fr": "Infirmier/ère diplômé(e) ES / HES (f/h/d) 60-100%"
@@ -1283,11 +1287,11 @@
         ]
       },
       "previousSlugs": [
-        "infermieri-hf-fh-f-m-d-60-100-kantonsspital-uri-altdorf"
+        "dipl-pflegefachpersonen-hf-fh-w-m-d-60-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermieri-hf-fh-f-m-d-60-100-kantonsspital-uri-altdorf"
+          "dipl-pflegefachpersonen-hf-fh-w-m-d-60-100-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:22.305Z",
