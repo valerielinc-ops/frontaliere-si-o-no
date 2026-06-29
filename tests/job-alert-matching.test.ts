@@ -212,6 +212,49 @@ describe('jobAlertMatching — job-specific scope (per-job / per-employer alert)
   });
 });
 
+describe('jobAlertMatching — behaviour + source-job soft signals (#2993)', () => {
+  const scoreEx = (
+    j: ReturnType<typeof job>,
+    alert: Record<string, unknown>,
+    sub: Record<string, unknown> | null,
+    extras: Record<string, unknown>,
+  ) => scoreJobForAlert(j, buildAlertProfile(alert, sub, extras));
+
+  it('ranks a same-city job higher via browsing-derived locations', () => {
+    const j = job({ title: 'Infermiere', description: 'Cerchiamo un infermiere a Lugano.' });
+    const base = scoreEx(j, { keywords: ['infermiere'] }, null, {});
+    const boosted = scoreEx(j, { keywords: ['infermiere'] }, null, { behaviorLocations: ['Lugano'] });
+    expect(boosted).toBeGreaterThan(base);
+  });
+
+  it('folds the one-tap source job geography into ranking (sourceJobLocations)', () => {
+    const j = job({ title: 'Infermiere', description: 'Posto a Lugano per infermiere.' });
+    const base = scoreEx(j, { keywords: ['infermiere'] }, null, {});
+    const boosted = scoreEx(j, { keywords: ['infermiere'] }, null, { sourceJobLocations: ['Lugano', 'TI'] });
+    expect(boosted).toBeGreaterThan(base);
+  });
+
+  it('behaviour locations stay SOFT — never hard-drop a keyword match outside them', () => {
+    // Job in Bellinzona; browsing history is all Lugano. Still surfaces (soft only).
+    const j = job({ location: 'Bellinzona', addressLocality: 'Bellinzona', description: 'infermiere a Bellinzona', title: 'Infermiere' });
+    expect(scoreEx(j, { keywords: ['infermiere'] }, null, { behaviorLocations: ['Lugano'] })).toBeGreaterThan(0);
+  });
+
+  it('behaviour tokens act as soft intent for a keyword-less alert', () => {
+    const j = job({ title: 'Infermiere', description: 'reparto di cardiologia' });
+    // No keywords, no profile — without intent the keyword-less branch excludes it.
+    expect(scoreEx(j, {}, null, {})).toBe(0);
+    // A search query in browsing history supplies the intent token.
+    expect(scoreEx(j, {}, null, { behaviorTokens: ['infermiere'] })).toBeGreaterThan(0);
+  });
+
+  it('is backward-compatible: omitting extras matches the 2-arg call', () => {
+    const j = job();
+    expect(scoreJobForAlert(j, buildAlertProfile({ keywords: ['engineer'] }, null)))
+      .toBe(scoreJobForAlert(j, buildAlertProfile({ keywords: ['engineer'] }, null, {})));
+  });
+});
+
 describe('jobAlertMatching — robustness', () => {
   it('handles null job / profile without throwing', () => {
     expect(scoreJobForAlert(null as never, buildAlertProfile({}, null))).toBe(0);
