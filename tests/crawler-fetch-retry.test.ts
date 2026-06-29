@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { fetchJson, fetchHtml } from '../scripts/lib/crawler-template.mjs';
+import { fetchJson, fetchHtml, fetchHtmlWithCookies } from '../scripts/lib/crawler-template.mjs';
 
 function jsonResponse(status: number, body: unknown) {
   return {
@@ -85,6 +85,68 @@ describe('crawler fetch retry/backoff', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     await expect(fetchJson('https://example.test/api', { retries: 0, retryBaseMs: 0 })).rejects.toThrow(/HTTP 503/);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+function redirectResponse(status: number, location: string, setCookies: string[] = []) {
+  return {
+    ok: false,
+    status,
+    headers: {
+      get: (name: string) => (name.toLowerCase() === 'location' ? location : null),
+      getSetCookie: () => setCookies,
+    },
+    arrayBuffer: async () => new ArrayBuffer(0),
+    text: async () => '',
+  } as unknown as Response;
+}
+
+function htmlResponseWithHeaders(status: number, body: string) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    headers: { get: () => null, getSetCookie: () => [] },
+    text: async () => body,
+  } as unknown as Response;
+}
+
+describe('fetchHtmlWithCookies cookie-challenge handling', () => {
+  it('persists the challenge cookie across a redirect chain and returns the final page', async () => {
+    // Reproduces the Airlock "AL_CHK" cookie-check that fronts www.ruag.ch:
+    //   307 (sets cookie, → /cookie-check) → 307 (→ back) → 200 (real page).
+    const seen: Array<{ url: string; cookie: string | undefined; redirect: string | undefined }> = [];
+    const fetchMock = vi.fn(async (url: string, init: RequestInit & { redirect?: string }) => {
+      const cookie = (init.headers as Record<string, string> | undefined)?.Cookie;
+      seen.push({ url, cookie, redirect: init.redirect });
+      if (seen.length === 1) {
+        return redirectResponse(307, '/cookie-check?l=%2Fjobs', ['AL_CHK-S=token123; Path=/; Secure; HttpOnly']);
+      }
+      if (seen.length === 2) {
+        return redirectResponse(307, '/jobs');
+      }
+      return htmlResponseWithHeaders(200, '<html>jobs</html>');
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const html = await fetchHtmlWithCookies('https://www.example.test/jobs', { retryBaseMs: 0 });
+    expect(html).toBe('<html>jobs</html>');
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    // First hop carries no cookie; later hops resend the absorbed challenge cookie.
+    expect(seen[0].cookie).toBeUndefined();
+    expect(seen[1].cookie).toContain('AL_CHK-S=token123');
+    expect(seen[2].cookie).toContain('AL_CHK-S=token123');
+    // Redirects are followed manually so cookies can be re-attached per hop.
+    expect(seen.every((s) => s.redirect === 'manual')).toBe(true);
+  });
+
+  it('throws on a hard 4xx without looping forever', async () => {
+    const fetchMock = vi.fn(async () => htmlResponseWithHeaders(404, ''));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(
+      fetchHtmlWithCookies('https://www.example.test/jobs', { retries: 0, retryBaseMs: 0 }),
+    ).rejects.toThrow(/HTTP 404/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });
