@@ -5,8 +5,8 @@
  * Source: https://jobs.srgssr.ch/
  *
  * The SRG SSR career portal is a server-side rendered page with no public
- * JSON API.  The crawler fetches the HTML listing page (filtered by
- * canton Wallis, id 1137442) and parses job card links.  For each job it
+ * JSON API.  The crawler fetches the national HTML listing page (no canton
+ * facet) and parses job card links.  For each job it
  * fetches the detail page and extracts the embedded JSON-LD JobPosting
  * schema, which contains title, description, qualifications, location,
  * employment type, posting date, etc.
@@ -31,11 +31,13 @@ export const SRG_SSR_COMPANY_DOMAIN = 'srgssr.ch';
 const CAREER_BASE = 'https://jobs.srgssr.ch';
 
 /**
- * Canton filter IDs used by the career portal's server-side form.
- * filter_40 = Kanton select.  1137442 = Wallis.
+ * National listing — NO canton facet. SRG SSR is the national public
+ * broadcaster (SRF Zürich/Basel, RTS Genève/Lausanne, RSI Lugano/Comano,
+ * RTR Chur, SWI + HQ Bern, Biel/Bienne); the previous `filter_40=1137442`
+ * (Wallis) facet returned ~0 jobs. Each job's real canton is inferred
+ * per-record from its JSON-LD `jobLocation.address`.
  */
-const WALLIS_FILTER_ID = '1137442';
-const LISTING_URL = `${CAREER_BASE}/?lang=de&filter_40=${WALLIS_FILTER_ID}`;
+const LISTING_URL = `${CAREER_BASE}/?lang=de`;
 
 /** Organisation code → human-readable sub-entity label. */
 const ORG_LABELS = {
@@ -314,22 +316,22 @@ function extractRequirements(jsonLd) {
 /* ── Main fetch function ───────────────────────────────────── */
 
 /**
- * Fetch all SRG SSR Valais jobs from the career portal.
+ * Fetch all SRG SSR jobs (national, all cantons) from the career portal.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllSrgSsrJobs() {
-  console.log(`🔍 Fetching SRG SSR jobs (Wallis filter)`);
+  console.log(`🔍 Fetching SRG SSR jobs (national, all cantons)`);
   console.log(`   Source: ${LISTING_URL}\n`);
 
-  // Step 1: Fetch the Wallis-filtered listing page
+  // Step 1: Fetch the national listing page (all cantons)
   const listingHtml = await fetchPage(LISTING_URL);
   const listings = parseListingHtml(listingHtml);
 
   if (listings.length === 0) {
-    console.warn('⚠️  No Wallis job listings found on the career page.');
+    console.warn('⚠️  No job listings found on the career page.');
     return [];
   }
 
@@ -354,8 +356,8 @@ export async function fetchAllSrgSsrJobs() {
       const addressLocality = normalizeSpace(jlAddress.addressLocality || '');
       const infoLineParts = (listing.infoLine || '').split(',').map(s => s.trim());
       const locationFromInfo = infoLineParts.length > 1 ? infoLineParts.slice(1).join(', ') : '';
-      const location = addressLocality || locationFromInfo || 'Valais';
-      const canton = inferAnyCanton(location) || 'VS';
+      const location = addressLocality || locationFromInfo || '';
+      const canton = inferAnyCanton(location) || '';
       const postalCode = String(jlAddress.postalCode || '').trim() || '';
       const streetAddress = normalizeSpace(jlAddress.streetAddress || '');
 

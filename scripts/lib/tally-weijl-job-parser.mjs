@@ -312,8 +312,10 @@ export async function fetchAllTallyWeijlJobs() {
     const title = normalizeSpace(listing.title);
     if (!title || title.length < 3) continue;
 
-    const city = normalizeSpace(listing.city) || 'Sion';
-    const canton = inferAnyCanton(city) || inferAnyCanton(listing.state || '') || 'VS';
+    // No Sion/Valais default — Tally Weijl is Basel-based with stores nationwide;
+    // leave blank when unresolved so the hardening derives the location/canton.
+    const city = normalizeSpace(listing.city) || '';
+    const canton = inferAnyCanton(city) || inferAnyCanton(listing.state || '') || '';
     const publicUrl = listing.url;
 
     // Fetch detail page for description
