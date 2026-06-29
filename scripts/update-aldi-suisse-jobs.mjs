@@ -2,13 +2,15 @@
 /**
  * Dedicated ALDI Suisse crawler runner.
  *
- * ALDI uses SAP SuccessFactors as their ATS. Their careers portal is at
- * jobs.aldi.ch. The homepage contains direct job links at /job/{numericId}.
- * Each detail page is SSR HTML with full job descriptions.
+ * ALDI uses SAP SuccessFactors as their ATS, surfaced through a TYPO3 careers
+ * portal at jobs.aldi.ch. The portal no longer server-renders `/job/{id}`
+ * links — the job list is loaded client-side from the JSON REST endpoint
+ * (`/rest/jobs/search`), and each detail page keeps the job-specific body in
+ * `<div class="description">`.
  *
  * This crawler:
- *   1. Fetches the ALDI homepage and /it page for job detail URLs
- *   2. Fetches each detail page and parses title/description/location
+ *   1. Fetches the ALDI REST job-search API for job rows (url/city/zip/...)
+ *   2. Fetches each detail page and parses the description/requirements body
  *   3. Merges parsed jobs into data/jobs.json
  *   4. Runs localization + validation
  */
@@ -42,7 +44,12 @@ import {
   normalizeKey,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
-import { inferEmploymentType } from './lib/aldi-suisse-job-parser.mjs';
+import {
+  inferEmploymentType,
+  parseAldiSearchResults,
+  parseAldiDetailPage,
+  ALDI_SEARCH_API,
+} from './lib/aldi-suisse-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -58,11 +65,6 @@ const ALDI_KEY = 'aldi-suisse';
 const ALDI_COMPANY_NAME = 'ALDI SUISSE';
 const HQ = getCompanyDefaults(ALDI_KEY);
 const ALDI_HOST = 'www.jobs.aldi.ch';
-const ALDI_BASE = 'https://www.jobs.aldi.ch';
-const ALDI_LISTING_URLS = [
-  'https://www.jobs.aldi.ch/',
-  'https://www.jobs.aldi.ch/it',
-];
 
 /** Ticino city → postal code map for ALDI store locations */
 const TICINO_PLZ = {
@@ -86,21 +88,6 @@ function slugify(value = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-')
     .slice(0, 180);
-}
-
-function stripHtml(html = '') {
-  return String(html || '')
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/\s+/g, ' ')
-    .trim();
 }
 
 /* -- Matchers ---------------------------------------------------------- */
@@ -144,61 +131,50 @@ function mergeCompanyJobs(parsedJobs) {
   return clean;
 }
 
-/* -- Discovery --------------------------------------------------------- */
-async function fetchAldiJobUrls() {
-  const allUrls = new Set();
+/* -- Discovery (REST API) --------------------------------------------- */
+async function fetchAldiListings() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  console.log(`\ud83d\udd0d Fetching ALDI Suisse jobs: ${ALDI_SEARCH_API}`);
 
-  for (const listUrl of ALDI_LISTING_URLS) {
-    console.log(`\ud83d\udd0d Fetching ALDI Suisse page: ${listUrl}`);
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    const res = await fetch(ALDI_SEARCH_API, {
+      signal: controller.signal,
+      headers: { Accept: 'application/json', 'User-Agent': UA },
+      redirect: 'follow',
+    });
+    clearTimeout(timer);
 
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-      const res = await fetch(listUrl, {
-        signal: controller.signal,
-        headers: { Accept: 'text/html', 'User-Agent': UA },
-      });
-      clearTimeout(timer);
-
-      if (!res.ok) { console.warn(`\u26a0\ufe0f ALDI page returned ${res.status} for ${listUrl}`); continue; }
-
-      const html = await res.text();
-
-      const jobIdPattern = /href="(\/job\/\d+)"/gi;
-      let match;
-      while ((match = jobIdPattern.exec(html)) !== null) {
-        allUrls.add(`${ALDI_BASE}${match[1]}`);
-      }
-
-      const fullJobPattern = /href="(https?:\/\/[^"]*jobs\.aldi\.ch\/job\/\d+)"/gi;
-      while ((match = fullJobPattern.exec(html)) !== null) {
-        allUrls.add(match[1]);
-      }
-    } catch (err) {
-      console.warn(`\u26a0\ufe0f Failed to fetch ALDI page ${listUrl}: ${err.message}`);
+    if (!res.ok) {
+      console.warn(`\u26a0\ufe0f ALDI search API returned ${res.status}`);
+      return [];
     }
-  }
 
-  console.log(`\u2705 Discovered ${allUrls.size} ALDI Suisse job URLs`);
-  return [...allUrls];
+    const json = await res.json();
+    const listings = parseAldiSearchResults(json);
+    console.log(`\u2705 Discovered ${listings.length} ALDI Suisse jobs`);
+    return listings;
+  } catch (err) {
+    console.warn(`\u26a0\ufe0f Failed to fetch ALDI search API: ${err.message}`);
+    return [];
+  }
 }
 
 /* -- Detail page fetching & parsing ------------------------------------ */
-async function fetchAndParseDetailPages(urls) {
+async function fetchAndParseDetailPages(listings) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const concurrency = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 3;
   const jobs = [];
 
-  for (let i = 0; i < urls.length; i += concurrency) {
-    const batch = urls.slice(i, i + concurrency);
+  for (let i = 0; i < listings.length; i += concurrency) {
+    const batch = listings.slice(i, i + concurrency);
     const results = await Promise.allSettled(
-      batch.map(async (url) => {
+      batch.map(async (listing) => {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), timeoutMs);
         try {
-          const res = await fetch(url, {
+          const res = await fetch(listing.url, {
             signal: controller.signal,
             headers: { Accept: 'text/html', 'User-Agent': UA },
             redirect: 'follow',
@@ -206,7 +182,7 @@ async function fetchAndParseDetailPages(urls) {
           clearTimeout(timer);
           if (!res.ok) return null;
           const html = await res.text();
-          return { url, html };
+          return { listing, html };
         } catch {
           clearTimeout(timer);
           return null;
@@ -216,40 +192,24 @@ async function fetchAndParseDetailPages(urls) {
 
     for (const r of results) {
       if (r.status !== 'fulfilled' || !r.value) continue;
-      const { url, html } = r.value;
+      const { listing, html } = r.value;
 
-      const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-      const rawTitle = h1Match ? stripHtml(h1Match[1]) : '';
-      if (!rawTitle || rawTitle.length < 5) continue;
+      const parsed = parseAldiDetailPage(html) || {};
+      const rawTitle = listing.title || parsed.title || '';
+      if (!rawTitle || rawTitle.length < 3) continue;
 
-      let location = '';
-      const locMatch = html.match(/(?:Standort|Sede|Location)\s*:?\s*([^<\n,]+)/i)
-        || html.match(/addressLocality['"]\s*:\s*['"]([^'"]+)/i);
-      if (locMatch) location = locMatch[1].trim();
+      // REST row holds the canonical structured fields; the detail page only
+      // supplies the prose body + bullet requirements.
+      let description = parsed.body || '';
+      if (description.length > 8000) description = description.slice(0, 8000);
+      const requirements = Array.isArray(parsed.requirements) ? parsed.requirements : [];
+      const location = listing.city || parsed.location || '';
+      const workPct = String(listing.workload || parsed.percentage || '').replace(/\s+/g, '');
 
-      let workPct = '';
-      const pctMatch = rawTitle.match(/(\d+\s*(?:-\s*\d+)?\s*%)/);
-      if (pctMatch) workPct = pctMatch[1].replace(/\s+/g, '');
-
-      let description = '';
-      const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-        || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-      if (mainMatch) {
-        description = stripHtml(mainMatch[1]);
-        if (description.length > 8000) description = description.slice(0, 8000);
-      }
-
-      const requirements = [];
-      const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
-      let liMatch;
-      const mainHtml = mainMatch ? mainMatch[1] : html;
-      while ((liMatch = liRe.exec(mainHtml)) !== null) {
-        const text = stripHtml(liMatch[1]);
-        if (text.length > 10 && text.length < 300) requirements.push(text);
-      }
-
-      const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
+      const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${rawTitle}-aldi-suisse`);
+      const canton = inferAnyCanton(location) || HQ.canton;
+      const postalCode = listing.zip || TICINO_PLZ[location.toLowerCase()] || HQ.postalCode || '';
 
       jobs.push({
         id: `aldi-suisse-${urlHash}`,
@@ -265,12 +225,12 @@ async function fetchAndParseDetailPages(urls) {
         requirements: requirements.slice(0, 20),
         requirementsByLocale: { it: requirements.slice(0, 20) },
         location,
-        postalCode: TICINO_PLZ[location.toLowerCase()] || '6928',
-        canton: inferAnyCanton(location) || HQ.canton,
-        addressLocality: location || 'Manno',
-        addressRegion: inferAnyCanton(location) || HQ.addressRegion,
+        postalCode,
+        canton,
+        addressLocality: location || HQ.city,
+        addressRegion: canton,
         addressCountry: 'CH',
-        streetAddress: 'Centro Monda 8',
+        streetAddress: listing.address || 'Centro Monda 8',
         employmentType: inferEmploymentType(rawTitle, description, workPct || ''),
         category: 'retail',
         contract: 'full-time',
@@ -278,9 +238,9 @@ async function fetchAndParseDetailPages(urls) {
         currency: 'CHF',
         featured: false,
         postedDate: new Date().toISOString().slice(0, 10),
-        url,
+        url: listing.url,
         source: 'ALDI Suisse Dedicated Parser',
-        sourceLang: detectLang(description || rawTitle, 'it'),
+        sourceLang: detectLang(description || rawTitle, 'de'),
         crawledAt: new Date().toISOString(),
       });
     }
@@ -299,14 +259,14 @@ async function main() {
 
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(ALDI_KEY, DATA_JOBS).filter(isAldiJob))
 
-  const detailUrls = await fetchAldiJobUrls();
-  if (detailUrls.length === 0) {
-    console.log('\u2139\ufe0f No ALDI Suisse job URLs discovered. Exiting OK.');
+  const listings = await fetchAldiListings();
+  if (listings.length === 0) {
+    console.log('\u2139\ufe0f No ALDI Suisse jobs discovered. Exiting OK.');
     return;
   }
 
-  console.log(`\ud83d\udd0d Fetching ${detailUrls.length} detail pages...`);
-  const parsedJobs = await fetchAndParseDetailPages(detailUrls);
+  console.log(`\ud83d\udd0d Fetching ${listings.length} detail pages...`);
+  const parsedJobs = await fetchAndParseDetailPages(listings);
   console.log(`\ud83e\udde9 Parsed ${parsedJobs.length} ALDI Suisse jobs from detail pages.`);
 
   if (parsedJobs.length === 0) {
