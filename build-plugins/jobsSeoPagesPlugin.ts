@@ -2200,6 +2200,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: 'unternehmen',
  fr: 'entreprise',
  };
+ // `/cerca-lavoro-ticino/azienda-{slug}/` (and per-locale equivalents) is the
+ // RESERVED company-hub namespace. The cathedral SEO gate
+ // (tests/seo/cathedral-sector-hubs.test.ts) requires every entry there to be a
+ // real company hub that self-canonicalizes to TI (or the Swiss aggregator) —
+ // never a foreign-canton canonical. A cross-canton job bridge whose slug merely
+ // *starts with* `azienda-`/`company-`/… (e.g. a Vaud job once titled "Azienda di
+ // consulenza…") must therefore NOT be mirrored into that namespace: it would
+ // carry the job's live non-TI canonical and turn the gate red on every deploy
+ // (issue #2976 recurring). The legacy-TI mirrors below skip such slugs; the job
+ // stays fully covered under its own canton-aware section and previousSlug bridge.
+ const isCompanyHubNamespaceSlug = (slug: string, loc: 'it' | 'en' | 'de' | 'fr'): boolean =>
+   slug.startsWith(`${companyRoutePrefix[loc]}-`);
  const slugifyCompanyBuild = (value: string): string =>
  String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
@@ -3397,7 +3409,7 @@ ${staticAnalyticsHtml}
  // Slug is `job.slug` (master/IT slug) because pre-cathedral
  // `all-known-job-slugs.json` keyed every locale path to the master
  // slug under the TI section.
- if (jobCanton !== 'TI') {
+ if (jobCanton !== 'TI' && !isCompanyHubNamespaceSlug(job.slug, locale)) {
  const __tCrossCantonLegacy = startTimer();
  const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const legacyTIKey = legacyTIRel.replace(/\/+$/, '');
@@ -11849,7 +11861,7 @@ ${staticAnalyticsHtml}
  // real content. Parallel to the active job's cross-canton legacy TI
  // bridge at ~line 2840 (PR #159), extended here to cover every
  // per-locale previousSlug too.
- if (jobCantonForBridge !== 'TI') {
+ if (jobCantonForBridge !== 'TI' && !isCompanyHubNamespaceSlug(oldSlug, locale)) {
  const legacyTIRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const legacyTIKey = legacyTIRelPath.replace(/\/+$/, '');
  // The legacy TI section is canton-blind: every non-TI job collapses
