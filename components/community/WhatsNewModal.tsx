@@ -33,6 +33,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
  {
+ version: '3.55.0',
+ date: '2026-06-29',
+ titleKey: 'whatsNew.v3550.title',
+ items: [
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3550.fastLoading.title',
+ descKey: 'whatsNew.v3550.fastLoading.desc',
+ link: { tab: 'job-board' },
+ },
+ ],
+ },
+ {
  version: '3.54.0',
  date: '2026-06-22',
  titleKey: 'whatsNew.v3540.title',
