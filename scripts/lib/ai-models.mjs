@@ -1880,7 +1880,7 @@ export function printRunSummary() {
   const s = getStats();
   const lines = [
     `\n📊 AI Model Run Summary`,
-    `   Calls: ${s.calls} | Successes: ${s.successes} | Retries: ${s.retries} | Fallbacks: ${s.fallbacks}`,
+    `   Calls: ${s.calls} | Successes: ${s.successes} | Retries: ${s.retries} | Fallbacks: ${s.fallbacks} | Cache hits: ${s.cacheHits}`,
     `   Exhausted: ${s.exhausted} models [${s.exhaustedModels.join(', ') || 'none'}]`,
     `   Provider cooldowns: ${s.providerCooldowns}`,
   ];
