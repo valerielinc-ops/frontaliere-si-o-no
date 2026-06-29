@@ -1,5 +1,107 @@
 [
   {
+    "slug": "elettricista-aziendale-automatico-a-emmi-ostermundigen",
+    "title": "Betriebselektriker:in / Automatiker:in",
+    "titleByLocale": {
+      "it": "Elettricista aziendale / Automatico/a",
+      "en": "PlantElectrician / Automation Technician",
+      "de": "Betriebselektriker:in / Automatiker:in",
+      "fr": "Électricien d'exploitation/automaticien"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Ostermundigen, Bern",
+    "addressLocality": "Ostermundigen",
+    "descriptionByLocale": {
+      "it": "Mansioni - Sei responsabile della risoluzione dei problemi elettrici sui nostri impianti di produzione. - Gestisci i diversi sistemi di controllo in loco e li espandi dove necessario. - Costituisci l'interfaccia con il nostro IT e fornisci supporto con lavori di manutenzione o aggiornamenti. - Siete coinvolti attivamente quando dobbiamo effettuare revisioni o adeguamenti ai nostri impianti e prendere in carico la parte elettrica. - Quando vengono installate nuove linee di produzione, eseguite i lavori di installazione elettrica e l'integrazione di soluzioni di automazione. - Sostieni la formazione dei nostri apprendisti nel campo dell'automazione.\n• Requisiti - Hai completato la formazione tecnica di base, idealmente come ingegnere dell'automazione o elettricista. - Hai già esperienza nell'ambiente elettrico e/o di automazione industriale. - Ti piace lavorare in un ambiente dinamico dove non esistono due giorni lavorativi uguali. - Idealmente, hai già il permesso NIV-13 o sei disposto a farlo. - Sei pronto per assumere il servizio di guardia. - Hai una conoscenza approfondita del tedesco.",
+      "en": "Mansioni - You are responsible for electrical troubleshooting on our production facilities. - You manage the different control systems at the location and expand them where necessary. - You form the interface to our IT and provide support with maintenance work or updates. - You are actively involved when we have to carry out revisions or adjustments to our systems and take over the electrical part. - When new production lines are installed, you carry out the electrical installation work and the integration of automation solutions. - You support the training of our apprentices in automation.\n• Requisiti - You have completed basic technical training, ideally as an automation engineer or electrician. - You already have experience in the industrial electrical and/or automation environment. - You enjoy working in a dynamic environment where no two working days are the same. - Ideally, you already have the NIV-13 permit or are willing to do so. - You are ready to take on on-call duty. - You have solid knowledge of German.",
+      "de": "• Du bist verantwortlich für die elektriksche Störungsbehebung an unseren Produktionsanlagen.\n• Du betreust die unterschiedlichen Leitsysteme am Standort und erweiterst diese wo nötig.\n• Du bildest die Schnittstelle zu unserer IT und unterstützt bei Wartungsarbeiten oder Updates.\n• Du bist aktiv involviert, wenn wir an unseren Anlagen Revisionen oder Anpassungen durchführen müssen und übernimmst hier den elektrischen Part.\n• Bei Neuinstallationen von Produktionslinien führst du die elektrischen Installationsarbeiten sowie die Integration von Automationslösungen aus.\n• Du unterstützt bei der Ausbildung unserer Lernenden Automatiker.\n• Du verfügst über eine abgeschlossene technische Grundausbildung, idealerweise als Automatiker:in oder Elektriker:in.\n• Du bringst bereits Erfahrung im industriellen Elektro- und/oder Automationsumfeld mit.\n• Dir bereitet es Freude, in einem dynamischen Umfeld zu arbeiten, wo kein Arbeitstag wie der vorherige ist.\n• Idealerweise verfügst du bereits über die NIV-13-Bewilligung oder bringst die Bereitschaft mit, diese noch zu machen.\n• Du bist bereit, Pikettdienst zu übernehmen.\n• Du verfügst über solide Deutschkenntnisse.",
+      "fr": "Mansioni - Vous êtes responsable du dépannage électrique sur nos installations de production. - Vous gérez les différents systèmes de contrôle sur place et les développez si nécessaire. - Vous constituez l'interface avec notre informatique et assurez votre support pour les travaux de maintenance ou de mises à jour. - Vous participez activement lorsque nous devons effectuer des révisions ou des ajustements sur nos systèmes et prendre en charge la partie électrique. - Lors de l'installation de nouvelles lignes de production, vous réalisez les travaux d'installation électrique et l'intégration de solutions d'automatisation. - Vous accompagnez la formation de nos apprentis en automatisme.\n• Requisiti - Vous avez suivi une formation technique de base, idéalement en tant qu'automaticien ou électricien. - Vous avez déjà une expérience dans le milieu de l'électricité industrielle et/ou de l'automatisme. - Vous aimez travailler dans un environnement dynamique où aucune journée de travail ne se ressemble. - Idéalement, vous possédez déjà le permis NIV-13 ou êtes prêt à l'obtenir. - Vous êtes prêt à effectuer des astreintes. - Vous avez de solides connaissances en allemand."
+    },
+    "slugByLocale": {
+      "it": "elettricista-aziendale-automatico-a-emmi-ostermundigen",
+      "en": "plantelectrician-automation-technician-emmi-ostermundigen",
+      "de": "betriebselektriker-in-automatiker-in-emmi-ch",
+      "fr": "electricien-d-exploitation-automaticien-emmi-ostermundigen"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-06-29T13:01:17.349Z",
+    "previousSlugs": [
+      "betriebselektriker-in-automatiker-in-emmi-ch",
+      "betriebselektriker-in-automatiker-in-emmi-ch-2"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "betriebselektriker-in-automatiker-in-emmi-ch",
+        "betriebselektriker-in-automatiker-in-emmi-ch-2"
+      ]
+    },
+    "postalCode": "3072",
+    "streetAddress": "Milchstrasse 9",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
+    "title": "Anlagenführer:in Pulverproduktion",
+    "titleByLocale": {
+      "it": "Operatore vegetale: nella produzione di polvere",
+      "en": "Plant operator:in powder production",
+      "de": "Anlagenführer:in Pulverproduktion",
+      "fr": "Opérateur:en poudre"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Dagmersellen, Luzern",
+    "addressLocality": "Dagmersellen",
+    "descriptionByLocale": {
+      "it": "• Siete responsabili del funzionamento e del monitoraggio dei nostri moderni impianti di produzione (evaporatori, torri spray, rulli).\n• Nel rispetto dei nostri requisiti di igiene e qualità, si producono latte e varie polveri speciali e concentrati.\n• Documenti tutti i processi produttivi e esegui analisi di laboratorio più piccole.\n• Inoltre, sei responsabile per il lavoro di pulizia nella zona di essiccazione.\n• Hai completato una formazione di base nel settore alimentare o tecnico e ti piace imparare cose nuove rapidamente.\n• Esperienza professionale come gestore di impianti sarebbe vantaggioso.\n• Porti anche buone competenze tedesche di base e un alto grado di consapevolezza dell'igiene.\n• Fisicamente sei in forma, non hai problemi a lavorare in modo indipendente e comunicare apertamente.\n• Sei flessibile e apprezzi i vantaggi del funzionamento a turni ininterrotto.",
+      "en": "• You are responsible for the operation and monitoring of our modern production facilities (evaporators, spray towers, rollers).\n• In compliance with our hygiene and quality requirements, you produce milk and various specialty powders as well as concentrates.\n• You document all production processes and perform smaller laboratory analyses.\n• In addition, you are responsible for cleaning work in the drying area.\n• You have completed a basic training in the food or technical field and like to learn new things quickly.\n• Professional experience as a plant manager would be beneficial.\n• You also bring good basic German skills and a high degree of hygiene awareness.\n• Physically you are fit, you have no problem working independently and communicate openly.\n• You are flexible and appreciate the benefits of uninterrupted shift operation.",
+      "de": "• Du bist verantwortlich für die Bedienung und Überwachung unserer modernen Produktionsanlagen (Eindampfer, Sprühtürme, Walzen).\n• Unter Einhaltung unserer Hygiene- und Qualitätsvorgaben produzierst du Milch- und diverse Spezialpulver sowie Konzentrate.\n• Du dokumentierst sämtliche Produktionsabläufe und führst dabei kleinere Laboranalysen durch.\n• Zusätzlich bist du zuständig für Reinigungsarbeiten im Trocknungsbereich.\n• Du hast eine Grundausbildung im Lebensmittel- oder Technischen Bereich gemacht und lernst gerne und schnell Neues dazu.\n• Berufserfahrung als Anlagenführer wäre von Vorteil.\n• Gute Deutsch-Grundkenntnisse und ein hohes Mass an Hygienebewusstsein bringst du ebenfalls mit.\n• Körperlich bist du fit, du hast kein Problem selbständig zu arbeiten und kommunizierst offen.\n• Du bist flexibel und schätzt die Vorteile des ununterbrochenen Schichtbetriebes.",
+      "fr": "• Vous êtes responsable du fonctionnement et de la surveillance de nos installations de production modernes (évaporateurs, tours de pulvérisation, rouleaux).\n• Conformément à nos exigences d'hygiène et de qualité, vous produisez du lait et diverses poudres de spécialité ainsi que des concentrés.\n• Vous documentez tous les processus de production et effectuez des analyses de laboratoire plus petites.\n• En outre, vous êtes responsable du nettoyage dans la zone de séchage.\n• Vous avez suivi une formation de base dans le domaine alimentaire ou technique et aimez apprendre de nouvelles choses rapidement.\n• Une expérience professionnelle en tant que gestionnaire d'usine serait bénéfique.\n• Vous apportez également de bonnes compétences de base allemandes et un haut degré de sensibilisation à l'hygiène.\n• Physiquement, vous êtes en forme, vous n'avez aucun problème à travailler indépendamment et à communiquer ouvertement.\n• Vous êtes flexible et appréciez les avantages d'une opération de quart ininterrompue."
+    },
+    "slugByLocale": {
+      "it": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
+      "en": "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
+      "de": "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+      "fr": "operateur-en-poudre-emmi-dagmersellen-luzern"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-06-29T13:01:17.349Z",
+    "previousSlugs": [
+      "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+      "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+      "anlagenfuhrer-in-trocknung-emmi-ch",
+      "operatore-a-di-impianto-essiccazione-emmi-dagmersellen-luzern",
+      "plant-operator-drying-emmi-dagmersellen-luzern",
+      "operateur-trice-d-installation-sechage-emmi-dagmersellen-luzern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+        "anlagenfuhrer-in-trocknung-emmi-ch",
+        "operatore-a-di-impianto-essiccazione-emmi-dagmersellen-luzern"
+      ],
+      "en": [
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+        "plant-operator-drying-emmi-dagmersellen-luzern"
+      ],
+      "fr": [
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+        "operateur-trice-d-installation-sechage-emmi-dagmersellen-luzern"
+      ]
+    },
+    "postalCode": "6252",
+    "streetAddress": "Stationsstrasse 21",
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "sistema-di-vendita-gestione-dei-processi-emmi-luzern",
     "title": "Sales System & Process Manager",
     "titleByLocale": {

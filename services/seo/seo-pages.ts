@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3012,
+ "numberOfItems": 3016,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7658,7 +7658,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3009, "name": "Detrazioni fiscali per frontalieri in Italia: q...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-detrazioni-fiscali-italia-2026` },
           { "@type": "ListItem", "position": 3010, "name": "La pensione complementare per frontalieri: come...", "url": `${BASE_URL}/articoli-frontaliere/pensione-complementare-terzo-pilastro-frontalieri` },
           { "@type": "ListItem", "position": 3011, "name": "Frontalieri in difficoltà: -20mila euro all'ann...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-frontalieri-poveri` },
-          { "@type": "ListItem", "position": 3012, "name": "Grono entra in Repower Moesano", "url": `${BASE_URL}/articoli-frontaliere/grono-entra-repower-moesano` }
+          { "@type": "ListItem", "position": 3012, "name": "Grono entra in Repower Moesano", "url": `${BASE_URL}/articoli-frontaliere/grono-entra-repower-moesano` },
+          { "@type": "ListItem", "position": 3013, "name": "Si tuffa in piscina ma non riemerge, bimba rian...", "url": `${BASE_URL}/articoli-frontaliere/piscina-niederuzwil-rianimata` },
+          { "@type": "ListItem", "position": 3014, "name": "Intesa Sanpaolo lancia Opas su Monte dei Paschi...", "url": `${BASE_URL}/articoli-frontaliere/intesa-mps-opas-azioni-contanti` },
+          { "@type": "ListItem", "position": 3015, "name": "Aziende svizzere aumentano quota di energia verde", "url": `${BASE_URL}/articoli-frontaliere/energia-verde-svizzera` },
+          { "@type": "ListItem", "position": 3016, "name": "Grigioni non riprendono il modello basilese per...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-modello-basilese-traffico` }
  ]
  },
  {

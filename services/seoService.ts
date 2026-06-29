@@ -4288,6 +4288,10 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensione-complementare-terzo-pilastro-frontalieri': { name: 'Pensione complementare per frontalieri', path: '/articoli-svizzera/pensione-complementare-terzo-pilastro-frontalieri/', parent: 'blog' },
     'blog-nuovi-frontalieri-poveri': { name: 'Fiscalità frontalieri', path: '/articoli-svizzera/nuovi-frontalieri-poveri/', parent: 'blog' },
     'blog-grono-entra-repower-moesano': { name: 'Grono e Repower Moesano', path: '/articoli-svizzera/grono-entra-repower-moesano/', parent: 'blog' },
+    'blog-piscina-niederuzwil-rianimata': { name: 'pratico', path: '/articoli-svizzera/piscina-niederuzwil-rianimata/', parent: 'blog' },
+    'blog-intesa-mps-opas-azioni-contanti': { name: 'Intesa Sanpaolo Opas Mps', path: '/articoli-frontaliere/intesa-mps-opas-azioni-contanti', parent: 'blog' },
+    'blog-energia-verde-svizzera': { name: 'energia-verde', path: '/articoli-svizzera/energia-verde-svizzera/', parent: 'blog' },
+    'blog-grigioni-modello-basilese-traffico': { name: 'Traffico Grigioni', path: '/articoli-svizzera/grigioni-modello-basilese-traffico/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
