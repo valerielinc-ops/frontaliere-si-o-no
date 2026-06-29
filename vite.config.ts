@@ -465,6 +465,26 @@ export default defineConfig(({ mode }) => {
  },
  rollupOptions: {
  output: {
+ // Keep CROSS-CHUNK EXPORT NAMES stable across builds (root-cause fix for the
+ // version-skew TypeError class, e.g. "ls(...).then is not a function" on
+ // articles). With stable filenames (below) but the Rollup default
+ // `minifyInternalExports: true`, internal-only exports are minified to single
+ // letters (`export { lt as m }`) REASSIGNED every build by pure minifier
+ // ordering. A client holding a previously-cached importer chunk
+ // (`import { m as ls }`) then binds the OLD letter to whatever the FRESH
+ // dependency chunk now exports under `m` → the symbol is the wrong value →
+ // TypeError at call time. This is the cross-chunk-binding twin of the
+ // blog-body FILENAME keying fix below ("a cached slug2.js could mean a
+ // different locale after a reorder"). `false` emits the real semantic export
+ // name (`export { loadArticleBody }` ↔ `import { loadArticleBody as ls }`), so
+ // the binding stays correct no matter how the minifier re-letters locals.
+ // Cost: marginally larger chunks (export identifiers no longer shortened) —
+ // acceptable vs. white-screen crashes during the ~600s post-deploy skew window.
+ // REVERT TRIGGER: build:ci OOMs only on the SSG walk, not on this Rollup output
+ // option, so this is low-risk; but the bundle-size delta is not measured
+ // pre-merge (full local build OOMs). If the next deploy's build fails or the
+ // CDN bundle size regresses materially, revert this single line.
+ minifyInternalExports: false,
  // STABLE filenames (no content-hash) for EVERY JS chunk and CSS sheet.
  //
  // History: the entry was stabilized first (index-entry.js, #1615 — Vite chunk
