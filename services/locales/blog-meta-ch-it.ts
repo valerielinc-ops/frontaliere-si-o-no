@@ -718,6 +718,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger in Svizzera: cosa cambia con l’accordo fiscale 2024',
     'blog.article.frontaliere-steuern-2026.excerpt': 'Dal 1° gennaio 2024, nuove regole fiscali per i frontalieri tra Italia e Svizzera, con franchigia aumentata e nuove procedure di tassazione.',
     'blog.article.frontaliere-steuern-2026.imageAlt': 'Frontalieri svizzeri in un paesaggio di montagna con uffici e città sullo sfondo',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.title': 'grenzgänger schweiz steuern 2026: regole fiscali e confronto pratico',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.excerpt': 'Il nuovo Accordo Frontalieri dal 1° gennaio 2024 disciplina la tassazione: vecchi frontalieri, nuovi regimi, Italia-Steuer e esempi pratici.',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.imageAlt': 'Panorama di Lugano con frontalieri in movimento, tema fiscale.',
 };
 
 export default blogMetaChIt;

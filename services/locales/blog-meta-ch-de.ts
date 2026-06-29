@@ -718,6 +718,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger in der Schweiz: Was ändert sich mit dem Steuerabkommen 2024',
     'blog.article.frontaliere-steuern-2026.excerpt': 'Ab dem 1. Januar 2024 neue Steuervorschriften für Grenzgänger zwischen Italien und der Schweiz mit erhöhter Selbstbeteiligung und neuen Besteuerungsverfahren.',
     'blog.article.frontaliere-steuern-2026.imageAlt': 'Schweizer Grenzgänger bei der Arbeit vor Berglandschaft',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.title': 'grenzgänger schweiz steuern 2026: Steuerregeln und Praxisvergleich',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.excerpt': 'Das neue Frontalieri-Abkommen regelt seit dem 1. Januar 2024 die Besteuerung: alte Grenzgänger, neue Regelungen, Italien-Steuerer und Praxisbeispiele.',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.imageAlt': 'Lugano-Panorama mit Grenzgängern, Steuer-Thema.',
 };
 
 export default blogMetaChDe;
