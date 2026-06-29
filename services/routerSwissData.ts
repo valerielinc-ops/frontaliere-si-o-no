@@ -261,6 +261,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'piscina-niederuzwil-rianimata': { it: 'piscina-niederuzwil-rianimata', en: 'dive-pool-niederuzwil-resuscitated', de: 'sprung-pool-niederuzwil-wiederbelebt', fr: 'plongee-piscine-niederuzwil-resuscitee' },
  'energia-verde-svizzera': { it: 'energia-verde-svizzera', en: 'swiss-companies-green-energy', de: 'schweizer-firmen-erneuerbare-energie', fr: 'entreprises-suisses-energie-verte' },
  'grigioni-modello-basilese-traffico': { it: 'grigioni-modello-basilese-traffico', en: 'grisons-basel-model-traffic', de: 'graubuenden-basler-modell-verkehr', fr: 'grisons-modele-bale-trafic' },
+ 'frontaliere-steuern-2026': { it: 'frontaliere-steuern-2026', en: 'cross-border-taxes-2026', de: 'grenzgaenger-steuern-2026', fr: 'frontaliers-impots-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

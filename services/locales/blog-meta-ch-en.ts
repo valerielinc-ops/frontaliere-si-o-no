@@ -715,6 +715,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-modello-basilese-traffico.title': 'Graubünden does not use the Basel model to manage traffic',
     'blog.article.grigioni-modello-basilese-traffico.excerpt': 'The Grison government is sceptical about adopting the Birsfelden model of sanctions to divert holiday and tourist traffic.',
     'blog.article.grigioni-modello-basilese-traffico.imageAlt': 'Busy road in Grisons',
+    'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger in Switzerland: what changes with the 2024 tax agreement',
+    'blog.article.frontaliere-steuern-2026.excerpt': 'From 1 January 2024, new tax rules for border workers between Italy and Switzerland, with increased deductibles and new taxation procedures.',
+    'blog.article.frontaliere-steuern-2026.imageAlt': 'Swiss cross-border workers at work with mountain landscape in background',
 };
 
 export default blogMetaChEn;

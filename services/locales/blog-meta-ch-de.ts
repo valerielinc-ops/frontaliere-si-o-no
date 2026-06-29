@@ -715,6 +715,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-modello-basilese-traffico.title': 'Graubünden greift bei der Verkehrssteuerung nicht auf das Basler Modell zurück',
     'blog.article.grigioni-modello-basilese-traffico.excerpt': 'Die Bündner Regierung ist skeptisch gegenüber der Einführung des Birsfeldener Sanktionsmodells, um den Urlaubs- und Tourismusverkehr abzulenken.',
     'blog.article.grigioni-modello-basilese-traffico.imageAlt': 'Verkehrsreiche Straße in Graubünden',
+    'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger in der Schweiz: Was ändert sich mit dem Steuerabkommen 2024',
+    'blog.article.frontaliere-steuern-2026.excerpt': 'Ab dem 1. Januar 2024 neue Steuervorschriften für Grenzgänger zwischen Italien und der Schweiz mit erhöhter Selbstbeteiligung und neuen Besteuerungsverfahren.',
+    'blog.article.frontaliere-steuern-2026.imageAlt': 'Schweizer Grenzgänger bei der Arbeit vor Berglandschaft',
 };
 
 export default blogMetaChDe;
