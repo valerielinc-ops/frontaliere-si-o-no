@@ -56,8 +56,14 @@ jobs:
       - name: Assemble events dataset
         run: node scripts/assemble-events-dataset.mjs --stats
 
-      - name: Gate — events dataset must keep the suite green
-        run: npx vitest run tests/events-pipeline.test.ts
+      - name: Refresh weekend-digest article body (evergreen, body-only)
+        # Rewrites the 4 blog-body files of the stable `eventi-weekend-ticino`
+        # article with the current weekend's events (no re-registration, no RSS
+        # churn). Soft-fail: a refresh hiccup must never block the events commit.
+        run: node scripts/generate-events-digest-article.mjs || echo "::warning::digest article refresh skipped"
+
+      - name: Gate — events dataset + refreshed body must keep the suite green
+        run: npx vitest run tests/events-pipeline.test.ts tests/blog-body-typescript-syntax.test.ts
 
       - name: Commit dataset (rebase-retry pattern)
         env:
@@ -67,13 +73,18 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/events.json data/events/by-source/tio-agenda.json
+          git add data/events.json data/events/by-source/tio-agenda.json \
+            services/locales/blog-body/it/eventi-weekend-ticino.ts \
+            services/locales/blog-body/en/eventi-weekend-ticino.ts \
+            services/locales/blog-body/de/eventi-weekend-ticino.ts \
+            services/locales/blog-body/fr/eventi-weekend-ticino.ts \
+            data/blog-articles-data.ts services/seo/seo-blog-5.ts public/sitemap-blog.xml
           if git diff --cached --quiet; then
             echo "No events diff, skipping commit"
             exit 0
           fi
 
-          git commit -m "📅 Refresh Ticino events agenda (tio.ch)"
+          git commit -m "📅 Refresh Ticino events agenda + weekend-digest article (tio.ch)"
 
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then

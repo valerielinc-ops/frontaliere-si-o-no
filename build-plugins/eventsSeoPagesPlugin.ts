@@ -41,6 +41,8 @@ import {
   groupByComune,
   slugifyComune,
   EVENT_SOURCES,
+  EVENTS_BASE_PATH,
+  EVENTS_DIGEST_SLUGS,
   weekendWindow,
   weekWindow,
   overlapsWindow,
@@ -71,12 +73,9 @@ const SITEMAP_NAME = 'sitemap-eventi.xml';
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const SITE_IMAGE = `${BASE_URL}/og-image.png`;
 
-const BASE_PATH: Record<Locale, string> = {
-  it: '/eventi/ticino',
-  en: '/en/events/ticino',
-  de: '/de/veranstaltungen/tessin',
-  fr: '/fr/evenements/tessin',
-};
+// Localized base segment per locale — shared with the FB poster and the
+// weekend-digest article generator (AGENTS.md §6, one source of truth).
+const BASE_PATH: Record<Locale, string> = EVENTS_BASE_PATH;
 
 const LOCALE_OG: Record<Locale, string> = {
   it: 'it_IT',
@@ -781,7 +780,7 @@ interface DigestDef {
 export const DIGESTS: DigestDef[] = [
   {
     key: 'weekend',
-    slug: { it: 'questo-weekend', en: 'this-weekend', de: 'dieses-wochenende', fr: 'ce-week-end' },
+    slug: EVENTS_DIGEST_SLUGS.weekend,
     filter: (events, { todayIso }) => {
       const { start, end } = weekendWindow(todayIso);
       return events.filter((e) => overlapsWindow(e, start, end));
@@ -823,7 +822,7 @@ export const DIGESTS: DigestDef[] = [
   },
   {
     key: 'week',
-    slug: { it: 'questa-settimana', en: 'this-week', de: 'diese-woche', fr: 'cette-semaine' },
+    slug: EVENTS_DIGEST_SLUGS.week,
     filter: (events, { todayIso }) => {
       const { start, end } = weekWindow(todayIso);
       return events.filter((e) => overlapsWindow(e, start, end));

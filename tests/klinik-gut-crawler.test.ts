@@ -6,73 +6,90 @@ import {
   PUBLIC_CAREER_URL,
   isKlinikGutJob,
   isTrustedDomain,
-  parseKlinikGutListing,
-  parseKlinikGutDetail,
+  parseKlinikGutOpenings,
 } from '../scripts/lib/klinik-gut-job-parser.mjs';
 
-// Trimmed real markup from https://www.klinik-gut.ch/de/jobs-karriere (2026-06).
-// Each opening is an `rz-infobox__item`; the final "Offene Stellen" card links
-// to the access-denied aggregator (`/de/offene-stellen`) and must be dropped.
-const LISTING_HTML = `
-<section class="paragraph paragraph--type--infobox-container rz-infobox__container">
-  <ul class="rz-infobox__list list-unstyled">
-    <li class="rz-infobox__item">
-      <section class="rz-infobox__content">
-        <div class="infobox__informations">
-          <h3>Wahlstudienjahr / Praktisches Jahr</h3>
-          <div class="infobox__text"><p>Dein Einstieg in die Orthopädie und Chirurgie an unseren Standorten in St.&nbsp;Moritz und Fläsch.</p></div>
-          <a href="https://www.klinik-gut.ch/de/wahlstudienjahr-praktisches-jahr" class="infobox__more btn btn-primary">Mehr Informationen</a>
-        </div>
-      </section>
-    </li>
-    <li class="rz-infobox__item">
-      <section class="rz-infobox__content">
-        <div class="infobox__informations">
-          <h3>Dipl. Pflegefachperson HF</h3>
-          <div class="infobox__text"><p>Weil Pflege Verantwortung ist. Dein Studium zur Dipl. Pflegefachfrau HF bei uns in Chur.</p></div>
-          <a href="https://www.klinik-gut.ch/de/dipl-pflegefachperson-hf" class="infobox__more btn btn-primary">Mehr Informationen</a>
-        </div>
-      </section>
-    </li>
-    <li class="rz-infobox__item">
-      <section class="rz-infobox__content">
-        <div class="infobox__informations">
-          <h3>Offene Stellen</h3>
-          <div class="infobox__text"><p>Finde die Position, die zu dir passt.</p></div>
-          <a href="https://www.klinik-gut.ch/de/offene-stellen" class="infobox__more btn btn-primary">Mehr Informationen</a>
-        </div>
-      </section>
-    </li>
-  </ul>
-</section>
-`;
-
-const DETAIL_HTML = `
-<main id="rz-main">
-  <div class="region region--content">
-    <article class="node node--type-page node--view-mode-full">
-      <div class="node__content container">
-        <h1>Dein Einstieg in die Orthopädie und Chirurgie.</h1>
-        <p>Im Rahmen des Wahlstudienjahres bieten wir dir an unseren Klinikstandorten in St. Moritz und Fläsch die Möglichkeit, dein Wissen zu vertiefen. Als Unterassistenzärztin oder Unterassistenzarzt bist du ein aktiver Teil unseres Teams.</p>
-        <p>Wir freuen uns auf deine Bewerbung an hr@klinik-gut.ch mit Motivationsschreiben und Lebenslauf.</p>
-        <article class="node node--type-team-member node--view-mode-teaser">
-          <h2>Zuständige Personen</h2>
-          <p>Noemi Bossi — Leitung HR</p>
-        </article>
-      </div>
-    </article>
+// Trimmed real markup from https://www.klinik-gut.ch/de/offene-stellen (2026-06).
+// Openings migrated from per-page `rz-infobox__item` cards (#2966) to inline
+// Bootstrap accordion items grouped under per-site `btn btn-primary` headings.
+// The numeric `drz-accordion-id-{NNNN}` is the stable Drupal node id; the body
+// lives inline in each `accordion-body` (no detail page to fetch).
+const OPENINGS_HTML = `
+<div class="view-content">
+  <div class="col-12 field__item rz-paragraph-type-text">
+    <h2><a class="btn btn-primary" href="https://www.klinik-gut.ch/de/standorte/klinik-gut-st-moritz" data-entity-type="node" title="Klinik Gut St. Moritz">Klinik Gut Standort St. Moritz&nbsp;</a></h2>
   </div>
-</main>
+  <div class="col-12 field__item rz-paragraph-type-accordion_container">
+    <section class="paragraph paragraph--type--accordion-container">
+      <div class="accordion field__items" id="drz-accordion-">
+        <div class="field__item accordion-item" id="drz-accordion-custom-id__diplpflegefachfraumannhffh">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-target="#drz-accordion-id-2110" aria-expanded="true">Dipl. Pflegefachfrau/mann HF oder FH 60-100%</button>
+          </h2>
+          <div id="drz-accordion-id-2110" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <section class="paragraph paragraph--type--accordion-item">
+                <p><strong>Neuer Job im Oberengadin?</strong></p>
+                <p>Für unser Pflegeteam am <strong>Klinikstandort St. Moritz</strong> suchen wir per sofort eine motivierte Persönlichkeit.</p>
+                <p>Dein Wirkungsfeld bei uns</p>
+                <ul><li>Individuelle Pflege und zielgerichtete Steuerung des Pflegeprozesses.</li><li>Qualität leben nach unseren Pflegerichtlinien und Standards.</li><li>Du gibst dein Wissen gerne weiter und unterstützt die Ausbildung.</li></ul>
+                <p>Damit überzeugst du uns als Dipl. Pflegefachfrau/-mann HF/FH mit Berufserfahrung, Servicegedanke und einer zuverlässigen, eigenverantwortlichen Arbeitsweise.</p>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="field__item accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-target="#drz-accordion-id-3196">Med. Praxisassistent/in 60 – 80% - Wintersaison 2026/27</button>
+          </h2>
+          <div id="drz-accordion-id-3196" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <section class="paragraph paragraph--type--accordion-item">
+                <p>Für unsere Praxis in St. Moritz suchen wir für die Wintersaison eine medizinische Praxisassistentin oder einen medizinischen Praxisassistenten.</p>
+                <ul><li>Empfang und Betreuung unserer nationalen und internationalen Kundschaft.</li><li>Assistenz bei Untersuchungen und administrative Aufgaben am Empfang.</li></ul>
+                <p>Du bringst eine abgeschlossene Ausbildung als MPA EFZ und Freude am Patientenkontakt mit. Wir freuen uns auf deine Bewerbung per E-Mail.</p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="col-12 field__item rz-paragraph-type-text">
+    <h2><a class="btn btn-primary" href="https://www.klinik-gut.ch/de/standorte/klinik-gut-flaesch" data-entity-type="node" title="Klinik Gut Fläsch">Klinik Gut Standort Fläsch&nbsp;</a></h2>
+  </div>
+  <div class="col-12 field__item rz-paragraph-type-accordion_container">
+    <section class="paragraph paragraph--type--accordion-container">
+      <div class="accordion field__items" id="drz-accordion-">
+        <div class="field__item accordion-item" id="drz-accordion-custom-id__arzt">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-target="#drz-accordion-id-1575">Assistenzärztin / Assistenzarzt 100%</button>
+          </h2>
+          <div id="drz-accordion-id-1575" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <section class="paragraph paragraph--type--accordion-item">
+                <p>Für unseren Klinikstandort Fläsch suchen wir eine Assistenzärztin oder einen Assistenzarzt der Orthopädie und Traumatologie.</p>
+                <ul><li>Stationäre und ambulante Betreuung unserer Patientinnen und Patienten.</li><li>Mitarbeit im Operationssaal und in der Sprechstunde.</li></ul>
+                <p>Du verfügst über ein abgeschlossenes Medizinstudium und Interesse an der Orthopädie. Wir bieten ein strukturiertes Weiterbildungsprogramm.</p>
+                <div class="rz-paragraph-type-document"><span class="file file--mime-application-pdf"><a href="/sites/default/files/file/info.pdf">Info.pdf</a></span> <span>(288 KB)</span></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
 `;
 
 describe('Klinik Gut crawler parser', () => {
-  it('exports valid constants pointing at the accessible landing', () => {
+  it('exports valid constants pointing at the now-accessible openings page', () => {
     expect(KLINIK_GUT_KEY).toBe('klinik-gut');
     expect(KLINIK_GUT_COMPANY_NAME).toBe('Klinik Gut AG');
     expect(KLINIK_GUT_COMPANY_DOMAIN).toBe('klinik-gut.ch');
-    // Must NOT use the access-denied `/de/offene-stellen` aggregator (#1872).
-    expect(PUBLIC_CAREER_URL).toBe('https://www.klinik-gut.ch/de/jobs-karriere');
-    expect(PUBLIC_CAREER_URL).not.toContain('offene-stellen');
+    // The 403 wall on `/de/offene-stellen` (#1872) was lifted; it now inlines
+    // every opening as an accordion and is the canonical source (#2966).
+    expect(PUBLIC_CAREER_URL).toBe('https://www.klinik-gut.ch/de/offene-stellen');
   });
 
   describe('isKlinikGutJob', () => {
@@ -80,7 +97,7 @@ describe('Klinik Gut crawler parser', () => {
       expect(isKlinikGutJob({ companyKey: 'klinik-gut' })).toBe(true);
     });
     it('matches by URL', () => {
-      expect(isKlinikGutJob({ url: 'https://www.klinik-gut.ch/de/praktika' })).toBe(true);
+      expect(isKlinikGutJob({ url: 'https://www.klinik-gut.ch/de/offene-stellen' })).toBe(true);
     });
     it('rejects unrelated', () => {
       expect(isKlinikGutJob(null)).toBe(false);
@@ -90,7 +107,7 @@ describe('Klinik Gut crawler parser', () => {
 
   describe('isTrustedDomain', () => {
     it('trusts klinik-gut.ch and subdomains', () => {
-      expect(isTrustedDomain('https://www.klinik-gut.ch/de/praktika')).toBe(true);
+      expect(isTrustedDomain('https://www.klinik-gut.ch/de/offene-stellen')).toBe(true);
       expect(isTrustedDomain('https://klinik-gut.ch/x')).toBe(true);
     });
     it('rejects other domains', () => {
@@ -99,105 +116,79 @@ describe('Klinik Gut crawler parser', () => {
     });
   });
 
-  describe('parseKlinikGutListing', () => {
-    it('extracts real openings and drops the restricted aggregator card', () => {
-      const rows = parseKlinikGutListing(LISTING_HTML);
-      // 3 cards in fixture, but the "/de/offene-stellen" CTA is filtered out.
-      expect(rows.length).toBe(2);
-      expect(rows.map((r) => r.id)).toEqual([
-        'wahlstudienjahr-praktisches-jahr',
-        'dipl-pflegefachperson-hf',
+  describe('parseKlinikGutOpenings', () => {
+    it('extracts every accordion opening', () => {
+      const rows = parseKlinikGutOpenings(OPENINGS_HTML);
+      expect(rows.length).toBe(3);
+      expect(rows.map((r) => r.num)).toEqual(['2110', '3196', '1575']);
+      expect(rows.map((r) => r.title)).toEqual([
+        'Dipl. Pflegefachfrau/mann HF oder FH 60-100%',
+        'Med. Praxisassistent/in 60 – 80% - Wintersaison 2026/27',
+        'Assistenzärztin / Assistenzarzt 100%',
       ]);
-      expect(rows.map((r) => r.detailUrl)).not.toContain(
-        'https://www.klinik-gut.ch/de/offene-stellen',
-      );
     });
 
-    it('drops a card linking off-domain to a social profile (#2680 Instagram)', () => {
-      const html = `<ul>
-    <li class="rz-infobox__item">
-      <h3>Social Media</h3>
-      <div class="infobox__text">Folgen Sie uns auf Instagram</div>
-      <a href="https://www.instagram.com/klinikgut/" class="infobox__more btn btn-primary">Mehr Informationen</a>
-    </li>
-    <li class="rz-infobox__item">
-      <h3>Dipl. Pflegefachperson HF</h3>
-      <div class="infobox__text">Pflege in St. Moritz</div>
-      <a href="https://www.klinik-gut.ch/de/dipl-pflegefachperson-hf" class="infobox__more btn btn-primary">Mehr Informationen</a>
-    </li>
-  </ul>`;
-      const rows = parseKlinikGutListing(html);
-      // The Instagram "Social Media" card is filtered; only the real opening remains.
-      expect(rows.map((r) => r.id)).toEqual(['dipl-pflegefachperson-hf']);
-      expect(rows.every((r) => r.detailUrl.includes('klinik-gut.ch'))).toBe(true);
-    });
-
-    it('uses the stable path slug as canonical id', () => {
-      const rows = parseKlinikGutListing(LISTING_HTML);
-      expect(rows[0].id).toBe('wahlstudienjahr-praktisches-jahr');
+    it('builds a stable per-opening fragment deep-link as the canonical url', () => {
+      const rows = parseKlinikGutOpenings(OPENINGS_HTML);
+      expect(rows[0].id).toBe('drz-accordion-id-2110');
       expect(rows[0].detailUrl).toBe(
-        'https://www.klinik-gut.ch/de/wahlstudienjahr-praktisches-jahr',
+        'https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110',
       );
+      // Distinct fragments keep the N positions unique (mergeUrlKey preserves it).
+      expect(new Set(rows.map((r) => r.detailUrl)).size).toBe(rows.length);
     });
 
-    it('captures the teaser text and decodes entities', () => {
-      const rows = parseKlinikGutListing(LISTING_HTML);
-      expect(rows[0].teaser).toContain('Orthopädie');
-      expect(rows[0].teaser).not.toContain('&nbsp;');
+    it('extracts the full inline posting body (no thin content)', () => {
+      const rows = parseKlinikGutOpenings(OPENINGS_HTML);
+      const first = rows[0];
+      expect(first.body).toContain('Oberengadin');
+      expect(first.body).toContain('Individuelle Pflege');
+      // Inline body must be real content, well above the 50-word thin floor.
+      expect(first.body.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);
     });
 
-    it('keeps the HQ default when a card names two group sites', () => {
-      // Card 1 names BOTH St. Moritz and Fläsch → ambiguous → HQ default.
-      const rows = parseKlinikGutListing(LISTING_HTML);
+    it('does not leak the next opening or per-site heading into a body', () => {
+      const rows = parseKlinikGutOpenings(OPENINGS_HTML);
+      // First St. Moritz item must not absorb the second item's title/body…
+      expect(rows[0].body).not.toContain('Med. Praxisassistent');
+      expect(rows[0].body).not.toContain('Praxis in St. Moritz');
+      // …nor the next group's heading text.
+      expect(rows[1].body).not.toContain('Klinik Gut Standort Fläsch');
+    });
+
+    it('trims a trailing PDF/document artifact from the body', () => {
+      const rows = parseKlinikGutOpenings(OPENINGS_HTML);
+      const arzt = rows.find((r) => r.num === '1575')!;
+      expect(arzt.body).not.toContain('Info.pdf');
+      expect(arzt.body).not.toMatch(/Datei\s*$/);
+    });
+
+    it('scopes each opening to the nearest preceding per-site heading', () => {
+      const rows = parseKlinikGutOpenings(OPENINGS_HTML);
+      // Both St. Moritz items.
       expect(rows[0].location.city).toBe('St. Moritz');
       expect(rows[0].location.canton).toBe('GR');
-    });
-
-    it('upgrades location when a card names exactly one site', () => {
-      // Card 2 names only Chur (GR).
-      const rows = parseKlinikGutListing(LISTING_HTML);
-      expect(rows[1].location.city).toBe('Chur');
-      expect(rows[1].location.canton).toBe('GR');
+      expect(rows[1].location.city).toBe('St. Moritz');
+      // Item under the Fläsch heading.
+      expect(rows[2].location.city).toBe('Fläsch');
+      expect(rows[2].location.canton).toBe('GR');
     });
 
     it('returns empty on empty/invalid HTML', () => {
-      expect(parseKlinikGutListing('')).toEqual([]);
-      expect(parseKlinikGutListing(null)).toEqual([]);
+      expect(parseKlinikGutOpenings('')).toEqual([]);
+      expect(parseKlinikGutOpenings(null)).toEqual([]);
     });
 
-    it('still parses rows when Drupal appends a modifier class', () => {
-      // e.g. `class="rz-infobox__item rz-infobox__item--featured"`; the item
-      // regex must match the class token, not a quote-strict `class="X"`.
-      const html = LISTING_HTML.replace(
-        /class="rz-infobox__item"/g,
-        'class="rz-infobox__item rz-infobox__item--featured"',
+    it('still parses openings when Drupal appends a modifier class to the button', () => {
+      // e.g. `class="accordion-button collapsed is-open"`; the regex must match
+      // the `accordion-button` token, not a quote-strict `class="X"`.
+      const html = OPENINGS_HTML.replace(
+        /class="accordion-button collapsed"/g,
+        'class="accordion-button collapsed is-open"',
       );
-      const rows = parseKlinikGutListing(html);
-      expect(rows.length).toBe(2);
-      expect(rows.map((r) => r.id)).toEqual([
-        'wahlstudienjahr-praktisches-jahr',
-        'dipl-pflegefachperson-hf',
-      ]);
-    });
-  });
-
-  describe('parseKlinikGutDetail', () => {
-    it('extracts the posting body from the node--type-page content', () => {
-      const { body } = parseKlinikGutDetail(DETAIL_HTML);
-      expect(body).toContain('Wahlstudienjahres');
-      expect(body).toContain('Unterassistenzärztin');
-      expect(body.split(/\s+/).length).toBeGreaterThan(30);
-    });
-
-    it('trims the trailing "Zuständige Personen" contact card', () => {
-      const { body } = parseKlinikGutDetail(DETAIL_HTML);
-      expect(body).not.toContain('Zuständige Personen');
-      expect(body).not.toContain('Noemi Bossi');
-    });
-
-    it('returns an empty body on empty/invalid HTML', () => {
-      expect(parseKlinikGutDetail('').body).toBe('');
-      expect(parseKlinikGutDetail(null).body).toBe('');
+      const rows = parseKlinikGutOpenings(html);
+      expect(rows.length).toBe(3);
+      expect(rows.map((r) => r.num)).toEqual(['2110', '3196', '1575']);
     });
   });
 });
