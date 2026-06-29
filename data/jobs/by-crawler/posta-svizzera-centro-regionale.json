@@ -399,6 +399,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-14",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
         "zusteller-in-lettere-e-pacchi-die-schweizerische-post-adliswil"
       ]
     },
@@ -1513,13 +1514,13 @@
       "country": "CH",
       "description": "Stehst du gerne früh auf und geniesst es, selbstständig auf der Strasse unterwegs zu sein? Dann bist du bei uns genau richtig!",
       "descriptionByLocale": {
-        "it": "Stehst du gerne früh auf und geniesst es, selbstständig auf der Strasse unterwegs zu sein? Dann bist du bei uns genau richtig!",
+        "it": "Ti piace alzarti presto e goderti la strada da solo? Allora sei nel posto giusto!",
         "en": "Do you like to get up early and enjoy being on the road on your own? Then you are exactly right with us!",
         "de": "Stehst du gerne früh auf und geniesst es, selbstständig auf der Strasse unterwegs zu sein? Dann bist du bei uns genau richtig!",
         "fr": "Vous aimez vous lever tôt et profiter de la route sur votre propre? Alors vous avez exactement raison avec nous!"
       },
       "titleByLocale": {
-        "it": "Zusteller:in Pakete",
+        "it": "Spedizioniere/a",
         "en": "Delivery:in packages",
         "de": "Zusteller:in Pakete",
         "fr": "Livraison:en paquets"
@@ -1573,10 +1574,9 @@
       "addressCountry": "CH",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-22T15:16:16.205Z",
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 126,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 126
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73599-de_DE",
@@ -5996,13 +5996,13 @@
       "country": "CH",
       "description": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
       "descriptionByLocale": {
-        "it": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
+        "it": "Descrizione - Hai un innato senso dell'organizzazione, apprezzi la varietà e vorresti scoprire diversi campi?",
         "en": "Descrizione - Do you have an innate sense of organization, you appreciate variety and you would like to discover different fields?",
         "de": "Descrizione - Haben Sie ein angeborenes Gefühl der Organisation, schätzen Sie Vielfalt und möchten verschiedene Felder entdecken?",
-        "fr": "## Descrizione - Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
+        "fr": "## Descrizione\n- Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
-        "it": "Apprentissage d'employé-e de commerce CFC, Services et administration - Berne (francophone)",
+        "it": "Apprendistato di impiegato/a di commercio AFC, Servizi e amministrazione - Berna (francese)",
         "en": "Business Employee Learning SWC, Services and Administration - Bern (French speaking)",
         "de": "Business Employee Learning SWC, Dienstleistungen und Verwaltung - Bern (französisch sprechend)",
         "fr": "Apprentissage d'employé-e de commerce CFC, Services et administration - Berne (francophone)"
@@ -6064,10 +6064,9 @@
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-berne-francophone-post",
         "apprendistato-commerciale-efz-servizi-e-amministrazione-berna-francofono-la-poste-suisse-bienne"
       ],
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 117,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 117
     },
     {
       "url": "https://job.post.ch/default/job/Conseill%C3%A8reConseiller-client%C3%A8le-PME/73679-fr_FR",
@@ -6160,13 +6159,13 @@
       "country": "CH",
       "description": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
       "descriptionByLocale": {
-        "it": "Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?",
+        "it": "Descrizione - Hai un innato senso dell'organizzazione, apprezzi la varietà e vorresti scoprire diversi campi?",
         "en": "Descrizione - Do you have an innate sense of organization, you appreciate variety and you would like to discover different fields?",
         "de": "Descrizione - Haben Sie ein angeborenes Gefühl der Organisation, schätzen Sie Vielfalt und möchten verschiedene Felder entdecken?",
-        "fr": "## Descrizione - Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
+        "fr": "## Descrizione\n- Tu possèdes un sens inné de l’organisation, tu apprécies la variété et tu souhaiterais découvrir différents domaines?"
       },
       "titleByLocale": {
-        "it": "Apprentissage d'employé-e de commerce CFC, Services et administration - Jura",
+        "it": "Apprendistato di impiegato/a di commercio AFC, Servizi e amministrazione - Giura",
         "en": "Business Employee Learning SWC, Services and Administration - Jura",
         "de": "Business Employee Lernen SWC, Dienstleistungen und Verwaltung - Jura",
         "fr": "Apprentissage d'employé-e de commerce CFC, Services et administration - Jura"
@@ -6227,10 +6226,9 @@
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post",
         "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-jura-la-poste-suisse-porrentruy"
       ],
-      "retranslationAttempts": 7,
+      "retranslationAttempts": 8,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 117,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 117
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC-Distribution-Neuch%C3%A2tel/73238-fr_FR",

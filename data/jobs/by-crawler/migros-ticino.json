@@ -163,9 +163,9 @@
       "firstSeenAt": "2026-06-28T22:18:11.292Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-langenthal",
-        "en": "seller-denner-ag-langenthal-d47c8f",
+        "en": "seller-denner-ag-langenthal",
         "de": "verkaufer-in-denner-ag-langenthal",
-        "fr": "vendeur-denner-ag-langenthal-d47c8f"
+        "fr": "vendeur-denner-ag-langenthal-634638"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -228,14 +228,18 @@
         "venditore-denner-ag-zurich",
         "venditore-denner-ag-langenthal-hutbop",
         "verkaufer-in-denner-ag-wattwil",
-        "vendeur-denner-ag-wattwil"
+        "vendeur-denner-ag-wattwil",
+        "seller-denner-ag-langenthal-d47c8f",
+        "vendeur-denner-ag-langenthal-d47c8f"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-langenthal"
+          "seller-denner-ag-langenthal",
+          "seller-denner-ag-langenthal-d47c8f"
         ],
         "fr": [
-          "vendeur-denner-ag-langenthal-634638"
+          "vendeur-denner-ag-langenthal-634638",
+          "vendeur-denner-ag-langenthal-d47c8f"
         ],
         "it": [
           "venditore-denner-ag-urdorf"
