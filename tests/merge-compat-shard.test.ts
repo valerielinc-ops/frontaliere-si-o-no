@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -26,6 +26,20 @@ function runDriver(base: string[], ours: string[], theirs: string[]): { paths: s
   execFileSync('node', [DRIVER, o, a, b]);
   const raw = readFileSync(a, 'utf8');
   return { paths: JSON.parse(raw).paths, raw };
+}
+
+// Run the driver with raw file contents (to exercise corrupt/empty inputs) and
+// return its exit status without throwing. `status` is null when the process
+// exits 0; non-zero means the driver failed closed (surfaced a conflict).
+function runDriverRaw(baseRaw: string, oursRaw: string, theirsRaw: string): { status: number | null; ours: string } {
+  const o = path.join(dir, 'base.json');
+  const a = path.join(dir, 'ours.json');
+  const b = path.join(dir, 'theirs.json');
+  writeFileSync(o, baseRaw);
+  writeFileSync(a, oursRaw);
+  writeFileSync(b, theirsRaw);
+  const res = spawnSync('node', [DRIVER, o, a, b], { encoding: 'utf8' });
+  return { status: res.status, ours: readFileSync(a, 'utf8') };
 }
 
 describe('merge-compat-shard git merge driver', () => {
@@ -65,14 +79,33 @@ describe('merge-compat-shard git merge driver', () => {
     expect(r2.paths).toEqual(['/keep']);
   });
 
-  it('treats a missing/empty/corrupt input as an empty path set', () => {
-    const a = path.join(dir, 'ours.json');
-    const b = path.join(dir, 'theirs.json');
-    const o = path.join(dir, 'base.json');
-    writeFileSync(o, '');
-    writeFileSync(a, 'not json at all');
-    writeFileSync(b, shard(['/only']));
-    execFileSync('node', [DRIVER, o, a, b]);
-    expect(JSON.parse(readFileSync(a, 'utf8')).paths).toEqual(['/only']);
+  it('fails closed on a corrupt/mid-write side instead of silently truncating', () => {
+    // A corrupt side used to degrade to `[]` and the merge wrote whatever
+    // survived, exiting 0 → a clean auto-merge that skips the resolver's floor
+    // guard + resolvability prune. The driver must now surface a conflict.
+    const { status, ours } = runDriverRaw('', 'not json at all', shard(['/only']));
+    expect(status).not.toBe(0);
+    // it must NOT overwrite the shard with a truncated result
+    expect(ours).toBe('not json at all');
+  });
+
+  it('fails closed when a contributing side is empty while the ancestor has paths', () => {
+    // ours emptied the shard (parse-degraded read or true wipe) while base+theirs
+    // still hold the paths → the deletion step would collapse the whole shard.
+    // Surface a conflict so resolve-404-compat-conflict.mjs (with the total floor
+    // guard) decides, rather than auto-resolving to an empty shard.
+    const big = Array.from({ length: 50 }, (_, i) => `/p/${i}`);
+    const { status, ours } = runDriverRaw(shard(big), shard([]), shard(big));
+    expect(status).not.toBe(0);
+    expect(ours).toBe(shard([])); // not rewritten to the collapsed set
+    // symmetric: theirs empty
+    expect(runDriverRaw(shard(big), shard(big), shard([])).status).not.toBe(0);
+  });
+
+  it('still auto-merges a brand-new shard (add/add with no merge base)', () => {
+    // No false positive: an empty base (no ancestor blob) with two non-empty
+    // sides is a normal add/add → union them, do not fail closed.
+    const { paths } = runDriver([], ['/a'], ['/b']);
+    expect(paths).toEqual(['/a', '/b']);
   });
 });
