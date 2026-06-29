@@ -50,6 +50,7 @@ import {
 } from '@/services/personalizationScoring';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
+import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
 import popularityData from '@/data/job-popularity.json';
@@ -5515,11 +5516,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="space-y-6 min-h-[80vh]">
  {listingHero}
  <div className="h-14 rounded-2xl bg-surface-raised animate-pulse" />
- <div className="space-y-3">
- {Array.from({ length: 10 }).map((_, i) => (
- <div key={i} className="h-24 sm:h-[120px] rounded-xl bg-surface-raised animate-pulse" />
- ))}
- </div>
+ {/* Animated, accessible loader (#2968): rotating reassurance + shimmer
+ cards sized to the real JobCard so results reconcile in place (CLS). */}
+ <JobBoardResultsLoader cards={8} />
  </div>
  );
  }
@@ -8321,15 +8320,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </>
  )}
 
- {/* Loading list skeleton while results resolve (empty-while-fetching OR a
- provisional first-page count) — mirrors the loaded card layout so the
- count + cards reconcile in place (no CLS) instead of flashing. */}
+ {/* Animated loader while results resolve (empty-while-fetching OR a
+ provisional first-page count) — rotating reassurance + shimmer cards
+ sized to the loaded layout so the count + cards reconcile in place (no
+ CLS) and the user never sees a bare "0 risultati" mid-fetch (#2968). */}
  {resultsResolving && (
- <div className="space-y-3" aria-hidden="true">
- {Array.from({ length: 6 }).map((_, i) => (
- <div key={`results-skel-${i}`} className="h-24 sm:h-[120px] rounded-xl bg-surface-raised animate-pulse" />
- ))}
- </div>
+ <JobBoardResultsLoader cards={6} />
  )}
 
  {filteredJobs.length === 0 && !resultsResolving && (
