@@ -222,4 +222,49 @@ describe('run() weekend digest', () => {
     expect(res.payloads.every((p: { url: string }) => p.url !== WEEKEND_DIGEST_URL)).toBe(true);
     expect(res.posted).toBe(2);
   });
+
+  // Regression for the twice-a-day cron: the afternoon digest-day run must NOT
+  // fall through to per-event posting once the roundup is already ledgered.
+  it('once the roundup is ledgered, the digest day stays silent (no per-event reposts)', async () => {
+    const root = digestRepo();
+    writeFileSync(
+      path.join(root, 'data', 'fb-posted-events.json'),
+      JSON.stringify({ posted: [{ id: 'weekend-digest-2027-01-02' }] }),
+    );
+    let feedPosts = 0;
+    const res = await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
+      repoRoot: root,
+      todayIso: '2027-01-01', // Friday, digest already posted this morning
+      fetchImpl: (url: string) => {
+        if (String(url).includes('/feed')) feedPosts += 1;
+        return Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x' }) });
+      },
+      log: () => {},
+      warn: () => {},
+    });
+    expect(res.posted).toBe(0);
+    expect(res.payloads).toHaveLength(0);
+    expect(feedPosts).toBe(0); // crucially: did NOT re-post the weekend events individually
+  });
+
+  it('on the digest day with no weekend events, falls back to per-event posts', async () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'fb-events-noweekend-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    writeFileSync(
+      path.join(root, 'data', 'events.json'),
+      JSON.stringify({ schemaVersion: 1, events: [{ ...EVENT, id: 'tio-agenda:m', startDate: '2027-02-13', comune: 'Lugano' }] }),
+    );
+    writeFileSync(path.join(root, 'data', 'fb-place-ids.json'), JSON.stringify({ schemaVersion: 1, places: {} }));
+    const res = await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
+      repoRoot: root,
+      todayIso: '2027-01-01', // Friday, but the weekend window (Jan 2-3) has no events
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x' }) }),
+      log: () => {},
+      warn: () => {},
+    });
+    expect(res.payloads.every((p: { url: string }) => p.url !== WEEKEND_DIGEST_URL)).toBe(true);
+    expect(res.posted).toBe(1);
+  });
 });

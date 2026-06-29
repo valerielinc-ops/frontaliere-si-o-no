@@ -42,6 +42,7 @@ import {
   slugifyComune,
   EVENT_SOURCES,
   weekendWindow,
+  weekWindow,
   overlapsWindow,
 } from '../scripts/lib/events-utils.mjs';
 
@@ -824,10 +825,8 @@ export const DIGESTS: DigestDef[] = [
     key: 'week',
     slug: { it: 'questa-settimana', en: 'this-week', de: 'diese-woche', fr: 'cette-semaine' },
     filter: (events, { todayIso }) => {
-      const end = new Date(`${todayIso}T00:00:00Z`);
-      end.setUTCDate(end.getUTCDate() + 7);
-      const endIso = end.toISOString().slice(0, 10);
-      return events.filter((e) => overlapsWindow(e, todayIso, endIso));
+      const { start, end } = weekWindow(todayIso);
+      return events.filter((e) => overlapsWindow(e, start, end));
     },
     copy: {
       it: {

@@ -200,7 +200,20 @@ export async function run(opts = {}) {
   const rawDow = env.FB_EVENTS_DIGEST_DOW;
   const digestDow = rawDow == null || rawDow === '' ? 5 : Number(rawDow);
   const isDigestDay = Number.isInteger(digestDow) && new Date(`${todayIso}T00:00:00Z`).getUTCDay() === digestDow;
+  const weekendStart = weekendWindow(todayIso).start;
+  const digestAlreadyPosted = postedSet.has(`weekend-digest-${weekendStart}`);
   const digestPayload = isDigestDay ? selectWeekendDigest(dataset.events, todayIso, postedSet) : null;
+
+  // The schedule cron fires twice a day: once the weekend roundup is posted and
+  // ledgered, a later digest-day run MUST stay silent — NOT fall through to
+  // per-event posting, which would re-post the same weekend events the roundup
+  // already covers (the very flooding this digest avoids). Only a digest day with
+  // NO weekend events at all falls back to per-event posts (so a quiet Friday
+  // isn't mute).
+  if (isDigestDay && digestAlreadyPosted) {
+    log('ℹ️', `weekend digest already posted (weekend-digest-${weekendStart}) — staying silent`);
+    return { ok: true, posted: 0, dryRun, payloads: [] };
+  }
 
   const placeIds = loadPlaceIds(repoRoot);
   let payloads;
