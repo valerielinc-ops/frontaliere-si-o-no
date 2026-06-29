@@ -1813,6 +1813,42 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
 ));
 JobCard.displayName = 'JobCard';
 
+/**
+ * JobBoardRailShell — wraps a cerca-lavoro listing/editorial page view in the
+ * same monetisation chrome the job-detail view already carries (#2948): a
+ * desktop top leaderboard + the 3-column full-height side-rail grid (180px rails
+ * @xl widening to 300px @xlw, half-page creatives only at xlw). Below xl it
+ * collapses to a single column, so mobile/tablet layout is byte-identical to
+ * before. Module-level (never defined inside render) so the persistent GPT rail
+ * slots are not remounted as the visitor navigates between board views.
+ *
+ * The center column keeps its own `space-y-6` rhythm (the wrapped branch root),
+ * so existing listing/editorial spacing is unchanged; the shell only adds the
+ * banner above and the rail gutters beside it.
+ */
+const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactNode }> = ({ isDesktopLg, children }) => (
+ <div className="space-y-6">
+ {isDesktopLg && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
+ minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
+ />
+ )}
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ </aside>
+ <div className="min-w-0">{children}</div>
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
+ </aside>
+ </div>
+ </div>
+);
+JobBoardRailShell.displayName = 'JobBoardRailShell';
+
 const JobBoard: React.FC<JobBoardProps> = ({
  onPostJob,
  initialJobSlug,
@@ -5497,6 +5533,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialJobTodayLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -5591,11 +5628,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialOfficialGazetteLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -5710,11 +5749,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialNursesHubLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -5818,12 +5859,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialCareVariantLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialCareVariantLanding.parentHubHref);
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -5916,11 +5959,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialLocationLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -6029,12 +6074,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialLocationTypeLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialLocationTypeLanding.parentLocationHref);
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -6126,12 +6173,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialLocationSectorLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialLocationSectorLanding.parentLocationHref);
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -6223,11 +6272,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialSectorRegionLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -6320,6 +6371,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
@@ -7647,6 +7699,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  {searchSlugFilter && (
  <div className="rounded-xl border border-accent-border bg-accent-subtle p-3 text-sm text-accent flex items-center justify-between gap-3">
@@ -8344,6 +8397,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  </div>
+ </JobBoardRailShell>
  );
 };
 
