@@ -143,6 +143,16 @@ for (const target of TARGETS) {
     });
 
     test(`browser navigation completes within 25 s (${target.path})`, async ({ page }) => {
+      // Collect uncaught exceptions surfaced to the page. A cross-chunk
+      // version-skew TypeError (stable filenames + re-lettered minified exports
+      // after a deploy, e.g. "ls(...).then is not a function" on articles)
+      // throws here and crashes the SPA into the ErrorBoundary. We assert both:
+      // no skew pageerror AND the ErrorBoundary fallback is not rendered.
+      const pageErrors: { text: string; stack: string }[] = [];
+      page.on('pageerror', (err) =>
+        pageErrors.push({ text: `${err.name}: ${err.message}`, stack: err.stack || '' }),
+      );
+
       // First confirm the URL is live; if 404 and tolerated, skip rather than fail.
       const headResponse = await page.request.get(url, { maxRedirects: 5, timeout: 15_000 });
       if (headResponse.status() === 404 && target.tolerate404) {
@@ -177,6 +187,31 @@ for (const target of TARGETS) {
         navDuration,
         `navigation to ${url} took ${navDuration} ms — investigate`,
       ).toBeLessThan(20_000);
+
+      // The SPA must not have crashed into the ErrorBoundary fallback. Its
+      // details panel carries data-testid="error-boundary-details" (see
+      // components/shared/ErrorBoundary.tsx). Present → a render/effect threw.
+      const errorBoundary = page.locator('[data-testid="error-boundary-details"]');
+      expect(
+        await errorBoundary.count(),
+        `${url} rendered the ErrorBoundary fallback — the page crashed on load. ` +
+          `Uncaught: ${pageErrors.map((e) => e.text).join(' | ') || '(none captured)'}`,
+      ).toBe(0);
+
+      // Defence in depth: no version-skew TypeError signature among uncaught
+      // exceptions ORIGINATING FROM OUR BUNDLE (the stack references /assets/ —
+      // excludes third-party ad/analytics scripts that can throw similar shapes).
+      const skew = pageErrors.filter(
+        (e) =>
+          /TypeError:.*(is not a function|is not a constructor|is not iterable)/.test(e.text) &&
+          /\/assets\//.test(e.stack),
+      );
+      expect(
+        skew,
+        `${url} threw a cross-chunk version-skew TypeError from our bundle: ${skew
+          .map((e) => e.text)
+          .join(' | ')}`,
+      ).toEqual([]);
     });
   });
 }
