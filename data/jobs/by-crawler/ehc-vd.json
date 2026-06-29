@@ -1825,7 +1825,7 @@
       "slugByLocale": {
         "it": "infermiere-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
         "en": "nurse-f-m-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
-        "de": "infirmier-f-h-en-ctr-ehc-vd-gilly",
+        "de": "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
         "fr": "infirmier-f-h-en-ctr-ehc-vd-gilly"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -1868,15 +1868,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-f-h-en-ctr-ehc-vd-gilly",
-        "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly"
+        "infirmier-f-h-en-ctr-ehc-vd-gilly"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-f-h-en-ctr-ehc-vd-gilly"
         ],
         "de": [
-          "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly"
+          "infirmier-f-h-en-ctr-ehc-vd-gilly"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.951Z",
@@ -4136,8 +4135,8 @@
       "slugByLocale": {
         "fr": "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges",
         "it": "fisioterapista-o-ergoterapista-capo-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges",
-        "de": "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges"
+        "en": "physiotherapy-or-occupational-therapist-head-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "physiotherapie-oder-ergotherapeut-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4196,6 +4195,12 @@
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges"
         ]
       },
       "previousSlugs": [
@@ -4208,8 +4213,8 @@
       "slugByLocale": {
         "fr": "agent-de-proprete-f-h-ehc-vd-morges",
         "it": "addetto-alle-pulizie-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "en": "agent-de-proprete-f-h-ehc-vd-aubonne",
-        "de": "agent-de-proprete-f-h-ehc-vd-aubonne"
+        "en": "cleaning-agent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4267,6 +4272,12 @@
       "firstSeenAt": "2026-06-29T13:30:48.723Z",
       "previousSlugsByLocale": {
         "it": [
+          "agent-de-proprete-f-h-ehc-vd-aubonne"
+        ],
+        "en": [
+          "agent-de-proprete-f-h-ehc-vd-aubonne"
+        ],
+        "de": [
           "agent-de-proprete-f-h-ehc-vd-aubonne"
         ]
       },

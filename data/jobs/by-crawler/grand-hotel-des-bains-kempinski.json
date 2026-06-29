@@ -41,8 +41,8 @@
       "slugByLocale": {
         "it": "addetto-area-pubblica-lavoro-notturno-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "public-area-attendant-night-work-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "de": "public-area-attendant-night-work-f-m-d-347699",
-        "fr": "public-area-attendant-night-work-f-m-d-347699"
+        "de": "offentlicher-betreuer-nachtarbeit-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "fr": "presence-dans-la-zone-publique-travail-de-nuit-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-06-29T13:20:35.666Z",
       "id": "grand-hotel-des-bains-kempinski-c2b39a22272d",
@@ -64,6 +64,12 @@
       "firstSeenAt": "2026-06-29T13:20:35.666Z",
       "previousSlugsByLocale": {
         "it": [
+          "public-area-attendant-night-work-f-m-d-347699"
+        ],
+        "de": [
+          "public-area-attendant-night-work-f-m-d-347699"
+        ],
+        "fr": [
           "public-area-attendant-night-work-f-m-d-347699"
         ]
       },
@@ -334,7 +340,7 @@
         "it": "fioraio-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "florist-f-m-d-454356",
         "de": "florist-f-m-d-454356",
-        "fr": "florist-f-m-d-454356"
+        "fr": "fleuriste-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-06-29T13:20:35.672Z",
       "id": "grand-hotel-des-bains-kempinski-0d48596e0883",
@@ -342,6 +348,9 @@
         "it": [
           "florist-f-m-d-454356",
           "florist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        ],
+        "fr": [
+          "florist-f-m-d-454356"
         ]
       },
       "previousSlugs": [
@@ -724,7 +733,7 @@
         "it": "laundry-attendant-seamstress-w-m-d-534444",
         "en": "laundry-attendant-seamstress-w-m-d-534444",
         "de": "laundry-attendant-seamstress-w-m-d-534444",
-        "fr": "laundry-attendant-seamstress-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "fr": "service-de-blanchisserie-soutien-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-06-29T13:20:35.674Z",
       "id": "grand-hotel-des-bains-kempinski-b523a0cd6007",
@@ -743,7 +752,15 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-06-29T13:20:35.674Z"
+      "firstSeenAt": "2026-06-29T13:20:35.674Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "laundry-attendant-seamstress-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "laundry-attendant-seamstress-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      ]
     },
     {
       "title": "Staff House Cleaner (f/m/d)",
@@ -784,8 +801,8 @@
       "slugByLocale": {
         "it": "addetto-alle-pulizie-della-casa-del-personale-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "staff-house-cleaner-f-m-d-534446",
-        "de": "staff-house-cleaner-f-m-d-534446",
-        "fr": "staff-house-cleaner-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "de": "personal-reiniger-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "fr": "nettoyeur-de-la-maison-du-personnel-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-06-29T13:20:35.675Z",
       "id": "grand-hotel-des-bains-kempinski-730dd5cf2312",
@@ -808,10 +825,17 @@
       "previousSlugsByLocale": {
         "it": [
           "staff-house-cleaner-f-m-d-534446"
+        ],
+        "de": [
+          "staff-house-cleaner-f-m-d-534446"
+        ],
+        "fr": [
+          "staff-house-cleaner-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
-        "staff-house-cleaner-f-m-d-534446"
+        "staff-house-cleaner-f-m-d-534446",
+        "staff-house-cleaner-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       ]
     }
   ]

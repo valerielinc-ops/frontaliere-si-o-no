@@ -85,8 +85,8 @@
       "slugByLocale": {
         "fr": "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve",
         "it": "responsabile-del-blocco-operatorio-e-delle-cure-100-clinique-de-la-plaine-geneve",
-        "en": "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve",
-        "de": "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve"
+        "en": "head-of-the-operative-and-care-unit-100-clinique-de-la-plaine-geneve",
+        "de": "leiter-der-operations-und-pflegeabteilung-100-clinique-de-la-plaine-geneve"
       },
       "company": "Clinique de la Plaine",
       "companyKey": "clinique-de-la-plaine",
@@ -144,6 +144,12 @@
       "firstSeenAt": "2026-06-29T12:49:26.145Z",
       "previousSlugsByLocale": {
         "it": [
+          "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve"
+        ],
+        "en": [
+          "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve"
+        ],
+        "de": [
           "responsable-du-bloc-operatoire-et-des-soins-100-clinique-de-la-plaine-geneve"
         ]
       },

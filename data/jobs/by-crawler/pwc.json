@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+        "en": "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+        "fr": "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich"
       },
       "id": "pwc-2960bacdbee1",
       "salaryMin": 73500,
@@ -61,6 +61,12 @@
       "firstSeenAt": "2026-06-29T13:41:36.881Z",
       "previousSlugsByLocale": {
         "it": [
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+        ],
+        "en": [
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+        ],
+        "fr": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
         ]
       },
@@ -1390,7 +1396,7 @@
         "it": "associate-career-entry-tax-consulting-80-100-pwc-switzerland-luzern",
         "en": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
         "de": "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
-        "fr": "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern"
+        "fr": "associate-conseil-en-fiscalite-pour-l-entree-dans-la-carriere-80-100-pwc-switzerland-luzern"
       },
       "id": "pwc-7f6ee3851b03",
       "salaryMin": 69500,
@@ -1420,7 +1426,8 @@
       "previousSlugsByLocale": {
         "fr": [
           "associe-debut-de-carriere-en-conseil-fiscal-80-100-pwc-switzerland-zug",
-          "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern"
         ],
         "de": [
           "associate-berufseinstieg-steuerberatung-80-100-pwc-switzerland-zug"
@@ -4590,7 +4597,7 @@
         "it": "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-bern",
         "en": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
         "de": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
-        "fr": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern"
+        "fr": "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern"
       },
       "id": "pwc-fdcc133e3c78",
       "salaryMin": 68500,
@@ -4612,12 +4619,11 @@
         "career-start-in-audit-pension-specialist-september-2026-pwc-switzerland-luzern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "career-start-in-audit-precautionary-specialist-in-september-2026-pwc-switzerland-luzern",
-        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
         "debut-de-carriere-en-audit-specialiste-des-retraites-septembre-2026-pwc-switzerland-luzern",
-        "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern",
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
         "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern",
         "inizio-carriera-in-audit-specialista-pensionistico-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-bern",
@@ -4634,11 +4640,11 @@
         ],
         "fr": [
           "debut-de-carriere-en-audit-specialiste-des-retraites-septembre-2026-pwc-switzerland-luzern",
-          "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern",
           "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
           "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern"
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern"
         ],
         "de": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
@@ -4690,7 +4696,7 @@
         "it": "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-basel",
         "en": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel",
         "de": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
-        "fr": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel"
+        "fr": "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-basel"
       },
       "id": "pwc-fdcc133e3c78",
       "salaryMin": 62000,
@@ -4718,8 +4724,8 @@
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern",
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
         "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
-        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern",
         "inizio-carriera-in-audit-specialista-pensionistico-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-bern",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-luzern",
@@ -4742,7 +4748,8 @@
           "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern"
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel"
         ],
         "de": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
@@ -6678,13 +6685,12 @@
         "it": "direttore-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
         "en": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
         "de": "direktor-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "fr": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
+        "fr": "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
       },
       "previousSlugs": [
         "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
         "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
-        "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+        "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich"
       ],
       "salaryMin": 100500,
       "salaryMax": 136500,
@@ -6715,7 +6721,7 @@
         "fr": [
           "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
           "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-          "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+          "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z"
@@ -7358,7 +7364,7 @@
         "it": "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-zurich",
         "en": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "de": "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
-        "fr": "senior-auditor-treasury-and-commodity-trading-pwc-zurich"
+        "fr": "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-zurich"
       },
       "id": "pwc-a850de8307a2",
       "salaryMin": 101500,
@@ -7391,7 +7397,8 @@
         "fr": [
           "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-geneve",
           "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-basel",
-          "senior-auditor-treasury-and-commodity-trading-pwc-basel"
+          "senior-auditor-treasury-and-commodity-trading-pwc-basel",
+          "senior-auditor-treasury-and-commodity-trading-pwc-zurich"
         ],
         "it": [
           "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
@@ -7549,7 +7556,7 @@
         "it": "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
         "en": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
         "de": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
-        "fr": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich"
+        "fr": "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich"
       },
       "id": "pwc-a72cc4506abb",
       "salaryMin": 73500,
@@ -7570,11 +7577,10 @@
       "previousSlugs": [
         "audit-career-start-in-financial-services-autumn-2026-pwc-switzerland-st-gallen",
         "audit-career-start-in-financial-services-fall-2026-pwc-switzerland-st-gallen",
-        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
         "audit-career-start-in-financial-services-autumn-2026-pwc-switzerland-zurich",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
         "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-st-gallen",
-        "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich",
+        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
         "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
@@ -7592,8 +7598,8 @@
         ],
         "fr": [
           "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-st-gallen",
-          "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich",
-          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
+          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
+          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich"
         ],
         "de": [
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe"
@@ -7877,7 +7883,7 @@
         "it": "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
         "en": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
         "de": "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
-        "fr": "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich"
+        "fr": "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich"
       },
       "id": "pwc-82014fee6d7e",
       "salaryMin": 113000,
@@ -7896,14 +7902,16 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugs": [
-        "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-geneve",
+        "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-geneve",
         "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-zurich",
         "manager-senior-manager-cybertechnologie-und-transformation-pwc-switzerland-geneve",
-        "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich",
+        "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
+        "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve",
         "manager-senior-manager-cybertechnologie-et-transformation-pwc-switzerland-geneve",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve-b0p3fj",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-zurich",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve",
+        "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-geneve",
         "manager-senior-manager-tecnologia-cibernetica-e-trasformazione-pwc-switzerland-geneve",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich-b0p3fj",
         "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-zurich"
@@ -7917,7 +7925,6 @@
         ],
         "fr": [
           "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve",
-          "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich",
           "manager-senior-manager-cybertechnologie-et-transformation-pwc-switzerland-geneve"
         ],
         "en": [

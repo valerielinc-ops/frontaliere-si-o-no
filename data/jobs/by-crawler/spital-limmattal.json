@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-33e5fd96a7c4",
-      "slug": "praktikant-in-bettenstation-spital-limmattal-ch",
+      "slug": "interno-in-stazione-a-letto-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "praktikant-in-bettenstation-spital-limmattal-ch",
-        "it": "praktikant-in-bettenstation-spital-limmattal-ch",
-        "en": "praktikant-in-bettenstation-spital-limmattal-ch",
-        "fr": "praktikant-in-bettenstation-spital-limmattal-ch"
+        "it": "interno-in-stazione-a-letto-spital-limmattal-schlieren",
+        "en": "intern-in-bed-station-spital-limmattal-schlieren",
+        "fr": "stagiaire-dans-la-station-lit-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:55:30.575Z"
+      "firstSeenAt": "2026-06-29T13:55:30.575Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-bettenstation-spital-limmattal-ch"
+        ],
+        "en": [
+          "praktikant-in-bettenstation-spital-limmattal-ch"
+        ],
+        "fr": [
+          "praktikant-in-bettenstation-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-bettenstation-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-4a397d8588a9",
@@ -1649,7 +1663,7 @@
       "slug": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
-        "en": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+        "en": "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
         "de": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
         "fr": "chef-de-la-hand-therapy-ergotherapie-spital-limmattal-schlieren"
       },
@@ -1694,8 +1708,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
-        "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
-        "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren"
+        "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1703,7 +1716,7 @@
         ],
         "en": [
           "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
-          "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren"
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
         ],
         "fr": [
           "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
@@ -2684,7 +2697,7 @@
       "slug": "dipl-expertin-o-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "dipl-expertin-o-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
-        "en": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
+        "en": "dipl-expert-or-expert-intensive-care-nds-hf-spital-limmattal-schlieren",
         "de": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
         "fr": "dipl-expert-ou-expert-en-soins-intensifs-nds-hf-spital-limmattal-schlieren"
       },
@@ -2728,11 +2741,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expert-or-expert-intensive-care-nds-hf-spital-limmattal-schlieren"
+        "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "dipl-expert-or-expert-intensive-care-nds-hf-spital-limmattal-schlieren"
+          "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
@@ -2992,7 +3005,7 @@
       "slug": "dipl-expertin-o-experte-nds-hf-notfallpflege-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "dipl-expertin-o-experte-nds-hf-notfallpflege-spital-limmattal-schlieren",
-        "en": "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
+        "en": "dipl-expert-or-expert-nds-hf-emergency-care-spital-limmattal-schlieren",
         "de": "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
         "fr": "dipl-expert-ou-expert-nds-hf-soins-d-urgence-spital-limmattal-schlieren"
       },
@@ -3036,11 +3049,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expert-or-expert-nds-hf-emergency-care-spital-limmattal-schlieren"
+        "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "dipl-expert-or-expert-nds-hf-emergency-care-spital-limmattal-schlieren"
+          "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
@@ -3463,7 +3476,7 @@
       "slug": "infermiere-qualificato-per-il-reparto-di-emergenza-hf-fh-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "infermiere-qualificato-per-il-reparto-di-emergenza-hf-fh-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+        "en": "dipl-care-specialist-hf-fh-emergency-department-spital-limmattal-schlieren",
         "de": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
         "fr": "dipl-specialiste-des-soins-hf-fh-service-d-urgence-spital-limmattal-schlieren"
       },
@@ -3509,7 +3522,6 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
         "dipl-specialista-di-cura-hf-fh-pronto-soccorso-spital-limmattal-schlieren",
-        "dipl-care-specialist-hf-fh-emergency-department-spital-limmattal-schlieren",
         "dipl-assistenza-specialistica-hf-fh-stazione-di-emergenza-spital-limmattal-schlieren",
         "dipl-station-d-urgence-hf-fh-spital-limmattal-schlieren"
       ],
@@ -3519,7 +3531,7 @@
           "dipl-specialista-di-cura-hf-fh-pronto-soccorso-spital-limmattal-schlieren"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-emergency-department-spital-limmattal-schlieren"
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
@@ -4105,7 +4117,7 @@
         "it": "hf-posto-di-studio-3-j-u00e4hrige-istruzione-studenti-r-med-tecnica-radiologia-spital-limmattal-schlieren",
         "en": "hf-study-place-3-j-u00e4hrige-education-students-r-med-technical-radiology-spital-limmattal-schlieren",
         "de": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l",
-        "fr": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l"
+        "fr": "hf-place-d-etude-3-j-u00e4hrige-education-etudiants-r-med-radiologie-technique-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -4148,7 +4160,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital",
-        "hf-place-d-etude-3-j-u00e4hrige-education-etudiants-r-med-radiologie-technique-spital-limmattal-schlieren",
+        "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l",
         "hf-studienplatz-3-j-u00e4hige-ausbildung-studenti-r-med-technische-radiologie-spital-limmattal-schlieren",
         "hf-studienplatz-3-j-u00e4hige-ausbildung-students-r-med-technische-radiologie-spital-limmattal-schlieren"
       ],
@@ -4160,7 +4172,7 @@
           "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital"
         ],
         "fr": [
-          "hf-place-d-etude-3-j-u00e4hrige-education-etudiants-r-med-radiologie-technique-spital-limmattal-schlieren"
+          "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l"
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:28.478Z",

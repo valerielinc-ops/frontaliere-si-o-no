@@ -8,7 +8,7 @@
       "slugByLocale": {
         "fr": "secretaire-receptionniste-a-50-fondation-domus-ch",
         "it": "segretario-ricevitore-al-50-fondation-domus-ardon",
-        "en": "secretaire-receptionniste-a-50-fondation-domus-ch",
+        "en": "secretary-receptionist-50-fondation-domus-ardon",
         "de": "secretaire-receptionniste-a-50-fondation-domus-ch"
       },
       "company": "Fondation Domus",
@@ -68,6 +68,9 @@
       "previousSlugsByLocale": {
         "it": [
           "secretaire-receptionniste-a-50-fondation-domus-ch"
+        ],
+        "en": [
+          "secretaire-receptionniste-a-50-fondation-domus-ch"
         ]
       },
       "previousSlugs": [
@@ -80,8 +83,8 @@
       "slugByLocale": {
         "fr": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
         "it": "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon",
-        "en": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-        "de": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+        "en": "human-resources-officer-member-of-management-80-fondation-domus-ardon",
+        "de": "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -139,6 +142,12 @@
       "firstSeenAt": "2026-06-29T13:10:09.198Z",
       "previousSlugsByLocale": {
         "it": [
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+        ],
+        "en": [
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+        ],
+        "de": [
           "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
         ]
       },

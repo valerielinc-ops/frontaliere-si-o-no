@@ -4597,12 +4597,12 @@
     },
     {
       "id": "novartis-35087a2101fc",
-      "slug": "equipment-operator-m-f-d-novartis-ch",
+      "slug": "equipment-operatore-m-f-d-novartis-muttenz-with-canteen",
       "slugByLocale": {
         "de": "equipment-operator-m-f-d-novartis-ch",
-        "it": "equipment-operator-m-f-d-novartis-ch",
+        "it": "equipment-operatore-m-f-d-novartis-muttenz-with-canteen",
         "en": "equipment-operator-m-f-d-novartis-ch",
-        "fr": "equipment-operator-m-f-d-novartis-ch"
+        "fr": "equipment-operateur-m-f-d-novartis-muttenz-with-canteen"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4657,16 +4657,27 @@
         }
       },
       "addressRegion": "BL",
-      "firstSeenAt": "2026-06-29T14:05:52.973Z"
+      "firstSeenAt": "2026-06-29T14:05:52.973Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "equipment-operator-m-f-d-novartis-ch"
+        ],
+        "fr": [
+          "equipment-operator-m-f-d-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "equipment-operator-m-f-d-novartis-ch"
+      ]
     },
     {
       "id": "novartis-133e86b26b1b",
-      "slug": "equipment-operator-m-w-d-novartis-ch",
+      "slug": "equipment-operatore-m-w-d-novartis-muttenz-with-canteen",
       "slugByLocale": {
         "de": "equipment-operator-m-w-d-novartis-ch",
-        "it": "equipment-operator-m-w-d-novartis-ch",
+        "it": "equipment-operatore-m-w-d-novartis-muttenz-with-canteen",
         "en": "equipment-operator-m-w-d-novartis-ch",
-        "fr": "equipment-operator-m-w-d-novartis-ch"
+        "fr": "equipment-operateur-m-w-d-novartis-muttenz-with-canteen"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -4721,7 +4732,18 @@
         }
       },
       "addressRegion": "BL",
-      "firstSeenAt": "2026-06-29T14:05:52.152Z"
+      "firstSeenAt": "2026-06-29T14:05:52.152Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "equipment-operator-m-w-d-novartis-ch"
+        ],
+        "fr": [
+          "equipment-operator-m-w-d-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "equipment-operator-m-w-d-novartis-ch"
+      ]
     },
     {
       "id": "novartis-2840ccdc5e07",

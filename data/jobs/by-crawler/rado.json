@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-7ubeic",
-      "slug": "media-specialista-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic",
+      "slug": "media-specialista-the-swatch-group-ltd-ticino",
       "company": "The Swatch Group Ltd",
       "title": "Media Specialist",
       "location": "Ticino",
@@ -40,9 +40,9 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "media-specialista-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic",
-        "en": "media-specialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic",
-        "de": "media-spezialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic",
+        "it": "media-specialista-the-swatch-group-ltd-ticino",
+        "en": "media-specialist-the-swatch-group-ltd-ticino",
+        "de": "media-spezialist-the-swatch-group-ltd-ticino",
         "fr": "media-specialiste-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic"
       },
       "requirementsByLocale": {
@@ -58,11 +58,21 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "media-specialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr"
+          "media-specialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr",
+          "media-specialista-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic"
+        ],
+        "en": [
+          "media-specialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic"
+        ],
+        "de": [
+          "media-spezialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic"
         ]
       },
       "previousSlugs": [
-        "media-specialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr"
+        "media-specialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr",
+        "media-specialista-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic",
+        "media-specialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic",
+        "media-spezialist-the-swatch-group-ltd-rue-nicolas-g-hayek-strasse-2502-biel-bienne-bern-suisse-adr-7ubeic"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
