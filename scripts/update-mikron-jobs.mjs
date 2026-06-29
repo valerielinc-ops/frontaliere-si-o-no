@@ -231,7 +231,7 @@ async function mergeJobs(discoveredJobs) {
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
   writeJsonAtomic(PUBLIC_JOBS, final);
   console.log(`\n📦 Merge: ➕${added} 🔄${updated} 🗑️${removed} 📊${final.length}`);
-  return { added, updated, removed, total: final.length, merged };
+  return { added, updated, removed, total: final.length };
 }
 
 async function main() {
@@ -259,11 +259,10 @@ async function main() {
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 
-  const { merged } = await mergeJobs(discoveredJobs);
-  // Seed the slice with the freshly-merged jobs BEFORE localization, so the
-  // shared base crawler (and the final read) operate on the fresh data instead
-  // of the STALE committed slice (slice-only-mode stale read).
-  writeJobsCrawlerSlice(COMPANY_KEY, merged.filter(isMikronJob));
+  await mergeJobs(discoveredJobs);
+  // The base crawler seeds the per-crawler slice from the fresh data/jobs.json
+  // before localizing (see runDedicatedBaseCrawler), avoiding the stale-slice
+  // collapse in slice-only mode.
   console.log('\n🌐 Running base crawler for AI localization...');
   await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, localizeExistingOnly: true, extraEnv: { JOBS_CRAWLER_MAX_JOB_LINKS: '100000', JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000' } });
 

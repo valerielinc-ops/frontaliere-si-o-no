@@ -212,7 +212,7 @@ async function mergeJobs(discoveredJobs) {
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
   writeJsonAtomic(PUBLIC_JOBS, final);
   console.log(`\n📦 Merge: ➕${added} 🔄${updated} 🗑️${removed} 📊${final.length}`);
-  return { added, updated, removed, total: final.length, merged };
+  return { added, updated, removed, total: final.length };
 }
 
 function updateAdapterConfig() {
@@ -277,12 +277,10 @@ async function main() {
   if (discoveredJobs.length === 0) { console.log('\n⚠️ No Swiss Medical Network jobs found.'); return; }
 
   updateAdapterConfig();
-  const { merged } = await mergeJobs(discoveredJobs);
-  // Seed the crawler slice with the freshly-merged jobs BEFORE localization.
-  // The shared base crawler localizes from the slice on disk; without this it
-  // would read the STALE committed slice (the pre-expansion Ticino subset) and
-  // overwrite the fresh dataset back down to it (slice-only-mode stale read).
-  writeJobsCrawlerSlice(COMPANY_KEY, merged.filter(isSwissMedicalJob));
+  await mergeJobs(discoveredJobs);
+  // The base crawler seeds the per-crawler slice from the fresh data/jobs.json
+  // before localizing (see runDedicatedBaseCrawler), so the stale committed
+  // slice no longer collapses the freshly-expanded crawl.
   console.log('\n🌐 Running base crawler for AI localization...');
   await runBaseCrawler();
 

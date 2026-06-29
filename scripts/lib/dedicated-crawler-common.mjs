@@ -3785,7 +3785,48 @@ export async function runDedicatedBaseCrawler({
     env.JOBS_CRAWLER_LOCALIZE_EXISTING_ONLY = '1';
   }
 
+  // Seed each scoped crawler's slice from the freshly-merged data/jobs.json
+  // BEFORE the shared crawler runs. In slice-only CI mode the shared crawler
+  // reads each crawler's jobs back via its committed slice, which is still the
+  // PREVIOUS run's snapshot — so without this it would localize+rewrite the
+  // stale subset and collapse a freshly-expanded crawl (e.g. UBS merged 44 →
+  // localized 4). Centralised here so every dedicated runner (interroll,
+  // lafonte, … and the standard template) is covered without per-script seeds.
+  seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys);
+
   await runSharedCrawlerInProcess({ root, env });
+}
+
+/**
+ * Raw-seed the per-crawler slice files from the merged data/jobs.json for the
+ * given company keys. Raw write only — the quality/normalization gates run in
+ * the per-crawler `writeJobsCrawlerSlice` final write (and the assemble-time
+ * net), so this stays a thin, cycle-free helper (no import of
+ * assemble-jobs-dataset, which itself imports this module).
+ */
+function seedCrawlerSlicesFromDataJobs(root, companyKeys) {
+  try {
+    const keySet = new Set((companyKeys || []).map((k) => String(k).toLowerCase()));
+    if (keySet.size === 0) return;
+    const dataJobsPath = path.join(root, 'data', 'jobs.json');
+    if (!fs.existsSync(dataJobsPath)) return;
+    const all = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+    if (!Array.isArray(all)) return;
+    const sliceDir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(sliceDir, { recursive: true });
+    const byKey = new Map();
+    for (const job of all) {
+      const key = String(job?.companyKey || '').toLowerCase();
+      if (!keySet.has(key)) continue;
+      if (!byKey.has(key)) byKey.set(key, []);
+      byKey.get(key).push(job);
+    }
+    for (const [key, jobs] of byKey) {
+      writeJson(path.join(sliceDir, `${key}.json`), { jobs });
+    }
+  } catch (err) {
+    console.warn(`⚠️ Slice seed skipped: ${err?.message || err}`);
+  }
 }
 
 /**
