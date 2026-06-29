@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-06-29T14:24:13.699Z",
+  "assembledAt": "2026-06-29T23:15:21.515Z",
   "jobs": [
     {
       "id": "company-71gebl",
@@ -76,7 +76,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qf6gqz",
@@ -393,7 +394,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qxa6ru",
@@ -1517,7 +1519,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-vvystb",
@@ -1781,7 +1784,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "slugByLocale": {
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern"
       },
@@ -1817,7 +1820,6 @@
       },
       "previousSlugs": [
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
-        "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona",
         "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
       ],
@@ -1863,7 +1865,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "slugByLocale": {
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern",
         "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
         "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk"
       },
@@ -1901,7 +1903,6 @@
       },
       "previousSlugs": [
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern",
-        "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern",
         "your-profession-should-offer-more-become-a-professional-assistant-swiss-armed-forces-vtg-bern",
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bellinzona",
         "votre-profession-devrait-offrir-plus-devenez-assistant-professionnel-swiss-armed-forces-vtg-bern"
@@ -2460,7 +2461,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2887,7 +2889,7 @@
     },
     {
       "id": "company-q6f59r",
-      "slug": "projektleiter-m-w-d-swiss-armed-forces-vtg-bern",
+      "slug": "projektleiter-m-w-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Militärisches Kaderspersonal (m/w)",
       "location": "Bern",
@@ -2934,7 +2936,8 @@
         "it": [
           "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern",
           "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
-          "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona"
+          "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona",
+          "projektleiter-m-w-d-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bellinzona",
@@ -2945,6 +2948,7 @@
         "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern",
         "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
         "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona",
+        "projektleiter-m-w-d-swiss-armed-forces-vtg-bern",
         "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bellinzona",
         "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bern"
       ],
