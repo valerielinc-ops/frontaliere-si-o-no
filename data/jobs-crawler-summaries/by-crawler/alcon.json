@@ -1,18 +1,55 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-06-29T12:26:39.823Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-06-29T21:33:23.669Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3775,
-  "avgDurationMs": 3775,
+  "durationMs": 4597,
+  "avgDurationMs": 4597,
   "durationHistory": [
-    3775
+    4597
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "alcon-b66acee3cbdc",
+      "slug": "associate-inter-company-order-invoice-flow-alcon-ch",
+      "company": "Alcon",
+      "companyKey": "alcon",
+      "companyDomain": "alcon.com",
+      "title": "Associate, Inter Company Order & Invoice Flow",
+      "needsRetranslation": true,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
+      "source": "Alcon Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-29T21:33:20.599Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Medtech / Cura della vista",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
+      "jobReqId": "R-2026-47978",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "alcon-fc81da600f64",
@@ -27,7 +64,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Territory-Sales-Manager--m-w-d----Medical-Devices--Ophthalmology--Switzerland-_R-2026-47026-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T12:26:37.700Z",
+      "crawledAt": "2026-06-29T21:33:21.366Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
