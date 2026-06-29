@@ -28,15 +28,17 @@
  *   CF_ZONE_ID, CF_ZONE_NAME (defaults to frontaliereticino.ch).
  */
 
-import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
+import { readCompatPaths, writeCompatPaths, COMPAT_SHARD_DIR } from './lib/compat-paths-store.mjs';
 import { fetchErrorPaths, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const COMPAT_PATH = path.join(ROOT, 'data', 'seo-404-compat-paths.json');
+// Sharded accumulator (issue #2988): logical {paths} spread across
+// COMPAT_SHARD_DIR/part-*.json. Use the store helpers, never a single file.
+const COMPAT_PATH = COMPAT_SHARD_DIR;
 
 // Only the apex serves reconcilable content pages. www/t/cdn subdomains have
 // their own concerns (redirects, analytics proxy, asset host) and must not leak
@@ -67,14 +69,6 @@ function parseArgs(argv) {
     else if (key === 'min-count') opts.minCount = Number(val);
   }
   return opts;
-}
-
-function readJsonSafe(file, fallback) {
-  try {
-    return JSON.parse(fs.readFileSync(file, 'utf8'));
-  } catch {
-    return fallback;
-  }
 }
 
 /** Keep only content paths the reconciler could plausibly map. */
@@ -134,7 +128,7 @@ async function main() {
       `(${skipped} asset/infra, ${lowCount} below min-count=${opts.minCount} skipped).`,
   );
 
-  const compat = readJsonSafe(COMPAT_PATH, { paths: [] });
+  const compat = readCompatPaths(ROOT);
   const compatSet = new Set(Array.isArray(compat.paths) ? compat.paths : []);
   const before = compatSet.size;
   for (const p of candidates) compatSet.add(p);
@@ -160,16 +154,16 @@ async function main() {
     lastUpdated: new Date().toISOString().slice(0, 10),
   };
 
-  // Floor-guard (shared helper): the compat file is a ~390k-path accumulator;
+  // Floor-guard (shared helper): the compat accumulator is a ~390k-path set;
   // a degraded empty read must never overwrite it. Adding paths only grows the
   // set, so this fires only if the on-disk read silently collapsed.
-  const prevCount = readJsonSafe(COMPAT_PATH, { paths: [] }).paths?.length ?? 0;
+  const prevCount = readCompatPaths(ROOT).paths?.length ?? 0;
   assertCompatFloor(prevCount, updated.paths.length, {
     floor: COMPAT_PATHS_SANITY_FLOOR,
     label: COMPAT_PATH,
   });
 
-  fs.writeFileSync(COMPAT_PATH, JSON.stringify(updated, null, 2) + '\n');
+  writeCompatPaths(updated, ROOT);
   console.log(`✅ Wrote ${COMPAT_PATH} (${updated.paths.length} total paths, +${added}).`);
   console.log('   Run prune-404-compat-paths.ts next to drop non-resolving paths before commit.');
 }

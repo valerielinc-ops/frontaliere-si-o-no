@@ -1,22 +1,25 @@
 /**
- * Prune non-resolving entries from data/seo-404-compat-paths.json.
+ * Prune non-resolving entries from the sharded data/seo-404-compat store
+ * (data/seo-404-compat/part-*.json, see scripts/lib/compat-paths-store.mjs;
+ * split from the old single seo-404-compat-paths.json in issue #2988).
  *
  * Invariant (tests/search-console-compat.test.ts "covers the committed live
- * 404 export paths"): EVERY path in the file must resolve to a non-null target
+ * 404 export paths"): EVERY path in the store must resolve to a non-null target
  * via resolveSearchConsoleCompatTarget. Automated data-refresh workflows
  * (sync-gsc-orphans, discover-404s) append raw GSC orphan / 404-sweep paths
  * directly to main; any path the resolver can't map → committed-snapshot test
  * red → main red → drain frozen (observed 2026-06-02: bot commit froze the
  * autonomous loop ~83min, no PR accountable).
  *
- * Run this BEFORE committing the file in those workflows: it drops the
+ * Run this BEFORE committing the store in those workflows: it drops the
  * non-resolving paths so the commit is always test-clean (main stays green) and
  * the resolving paths still ship. Idempotent; exits 0 even with nothing to do.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
-import path from 'node:path';
+import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 
-const FILE = path.resolve(process.cwd(), 'data', 'seo-404-compat-paths.json');
+// Sharded accumulator (issue #2988): the logical {paths} set lives across
+// data/seo-404-compat/part-*.json. Read/write only via the store helpers.
+const ROOT = process.cwd();
 
 // Strict (fail-closed) mode. The graceful default below self-skips (exit 0)
 // when the resolver/dataset isn't available, which is correct for general
@@ -46,7 +49,7 @@ async function main(): Promise<void> {
     const msg = `[prune-404-compat] resolver unavailable (import failed)`;
     if (STRICT) {
       console.error(
-        `${msg} — STRICT mode: refusing to leave data/seo-404-compat-paths.json unvalidated. ${
+        `${msg} — STRICT mode: refusing to leave the data/seo-404-compat store unvalidated. ${
           (err as Error)?.message ?? ''
         }`,
       );
@@ -57,17 +60,9 @@ async function main(): Promise<void> {
     return;
   }
 
-  let raw: string;
-  try {
-    raw = readFileSync(FILE, 'utf-8');
-  } catch {
-    console.log('[prune-404-compat] file not found — nothing to do.');
-    return;
-  }
-
-  const data = JSON.parse(raw) as { paths?: unknown; [k: string]: unknown };
+  const data = readCompatPaths(ROOT) as { paths?: unknown; [k: string]: unknown };
   if (!Array.isArray(data.paths)) {
-    console.log('[prune-404-compat] no `paths` array — nothing to do.');
+    console.log('[prune-404-compat] no `paths` — nothing to do.');
     return;
   }
 
@@ -88,8 +83,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  data.paths = kept;
-  writeFileSync(FILE, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
+  writeCompatPaths({ ...data, paths: kept }, ROOT);
   console.log(
     `[prune-404-compat] pruned ${removed} non-resolving/duplicate path(s) ` +
       `(${before.length} → ${kept.length}). Sample dropped: ${dropped.slice(0, 5).join(', ') || '(dups only)'}`,

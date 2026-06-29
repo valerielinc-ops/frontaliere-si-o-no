@@ -2327,16 +2327,18 @@ ASSICURAZIONI:
 // This compact brief keeps ONLY the facts the consensus fact-checker
 // HARD-BLOCKS on (`llmFactCheck` / VERIFIED_DOMAIN_FACTS, used in full there):
 // imposta alla fonte location, accordo dates, franchigia/transitional,
-// convenzione date, the load-bearing CH/IT aliquote, the valid-institution
-// acronyms, and the LAMal definition. The generator now sees these exact
-// values, so it can't diverge into a `critical` on the topics where free models
-// actually go wrong — while keeping the prompt small. Softer facts (frontalieri
-// headcount, valichi geography) are intentionally dropped: not in the
-// unconditional-block criteria, and every line eats prompt headroom.
+// convenzione date, the load-bearing CH/IT aliquote with granular per-bracket
+// rates (AD cap, LAINF, LPP per-band — without these, a model writing salary/
+// contribution text may invent wrong figures the checker flags as critical:aliquote),
+// the valid-institution acronyms, and the LAMal definition. The generator now
+// sees these exact values, so it can't diverge into a `critical` on the topics
+// where free models actually go wrong — while keeping the prompt small. Softer
+// facts (frontalieri headcount, valichi geography) are intentionally dropped:
+// not in the unconditional-block criteria, and every line eats prompt headroom.
 //
 // Measured (runtime estimateRequestTokens, the same heuristic the model-skip
 // guard at ai-models.mjs uses) on the ASSEMBLED first-attempt evergreen prompt
-// with this brief: estTokens=7200 — ~800 under the 8000 cap, so the 8000-bracket
+// with this brief: estTokens=7215 — ~785 under the 8000 cap, so the 8000-bracket
 // models are back in the pool. Regeneration attempts append fact-check feedback
 // (pre-existing behaviour shared by all sections); this brief keeps that path
 // strictly smaller than the #3009 full-sheet version.
@@ -2345,7 +2347,7 @@ const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checke
 - Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
 - Vecchi frontalieri (già tali prima del 17/7/2023): esenzione €7'500, regime transitorio 2024–2033. Nuovi frontalieri: franchigia €10'000.
 - Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 DICEMBRE 1976. La Svizzera NON è membro UE/SEE.
-- Aliquote/contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1%, LPP dai 25 anni. IRPEF italiana: 23% fino €28'000, 35% €28'001–50'000, 43% oltre €50'000.
+- Aliquote/contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1% (cap CHF 148'200), LAINF 0.7–1.5%, LPP 7–18% per fascia età (dal 25 anni). IRPEF italiana: 23% fino €28'000, 35% €28'001–50'000, 43% oltre €50'000.
 - Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, UFSP/BAG, SUVA, INPS, Agenzia delle Entrate, MEF.
 - LAMal = assicurazione malattia (NON "tassa sulla salute"); frontalieri G hanno diritto d'opzione; franchige adulti CHF 300–2500.`;
 
@@ -2941,7 +2943,7 @@ async function fetchPageContent(url) {
   // FOR convergence instead of against it: the model rewrites from the exact
   // values the fact-checker validates against. No gate is lowered. The brief is
   // deliberately compact (EVERGREEN_FACTS_BRIEF) so the assembled first-attempt
-  // prompt measures estTokens=7200, under the 8000-token model input cap — see
+  // prompt measures estTokens=7215, under the 8000-token model input cap — see
   // the constant's note for the measurement.
   if (url.startsWith('evergreen://')) {
     const keyword = process.env._EVERGREEN_KEYWORD || decodeURIComponent(url.replace('evergreen://', ''));

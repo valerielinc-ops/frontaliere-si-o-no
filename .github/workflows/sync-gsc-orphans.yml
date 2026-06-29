@@ -120,7 +120,7 @@ jobs:
             data/gsc-orphan-queries.json \
             data/url-inspection-results.json \
             data/all-known-job-slugs.json \
-            data/seo-404-compat-paths.json
+            data/seo-404-compat
         env:
           SKIP_AI_TRANSLATION: '1'
 
@@ -128,7 +128,7 @@ jobs:
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
         run: |
           # Check if tracking or compat data changed (new soft-landing pages needed)
-          TRACKING_CHANGES=$(git diff HEAD~1 --name-only -- data/all-known-job-slugs.json data/seo-404-compat-paths.json | wc -l)
+          TRACKING_CHANGES=$(git diff HEAD~1 --name-only -- data/all-known-job-slugs.json data/seo-404-compat | wc -l)
           CRAWLER_CHANGES=$(git diff HEAD~1 --name-only -- data/jobs/by-crawler/ | wc -l)
           ORPHAN_CHANGES=$(git diff HEAD~1 --name-only -- data/orphan-enriched-data.json | wc -l)
 

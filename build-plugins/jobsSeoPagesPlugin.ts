@@ -17,6 +17,7 @@ import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
+import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
@@ -138,6 +139,7 @@ import {
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import {
  buildCityHubMeta as buildCtrCityHubMeta,
+ buildCantonHubMeta,
  buildEmployerHubMeta,
  buildRoleHubMeta,
 } from '../services/seo/meta-descriptions';
@@ -8949,6 +8951,16 @@ ${staticAnalyticsHtml}
      // end — see line 276 of that script).
      if (!meetsThreshold) markCantonNoindex(entry.key);
      const labels = buildCantonLocaleLabels(entry.locale, display);
+     // The visible `lede` stays short (header tagline); the SEO meta + JSON-LD
+     // description use a 140-160 char canton+count-aware snippet so GSC no
+     // longer flags "Description too short" (issue #2996). The thin
+     // `labels.lede` ("...per il cantone X.") was ~50 chars.
+     const cantonMetaDescription = buildCantonHubMeta({
+       locale: entry.locale,
+       cantonDisplay: display,
+       count: cantonCount,
+       isAggregate: entry.key === AGGREGATE_KEY,
+     });
      // P4 — CTA points to the canton-filtered job board (entry.section is
      // already the canton-aware locale URL segment, e.g. `cerca-lavoro-zurigo`
      // or `find-jobs-zurich`). For the AGGREGATE_KEY this resolves to the
@@ -9557,7 +9569,7 @@ ${staticAnalyticsHtml}
            '@context': 'https://schema.org',
            '@type': 'CollectionPage',
            name: labels.title,
-           description: labels.lede,
+           description: cantonMetaDescription,
            url: canonicalUrl,
            inLanguage: entry.locale,
            isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
@@ -9602,7 +9614,7 @@ ${staticAnalyticsHtml}
      const html = buildSeoPageHtml({
        canonicalUrl,
        title: labels.title,
-       description: labels.lede,
+       description: cantonMetaDescription,
        locale: entry.locale,
        bodyHtml,
        distDir,
@@ -9820,7 +9832,7 @@ ${staticAnalyticsHtml}
  // instead of thin "Pagina archiviata" pages from legacyRedirectsPlugin.
  // The compat file is a manual GSC export; the orphan pipeline now subsumes it.
  // Handles all locales: IT (/cerca-lavoro-ticino/), DE (/de/jobs-im-tessin/), FR (/fr/trouver-emploi-tessin/)
- const compatPathsFile = np.resolve(rootDir, 'data/seo-404-compat-paths.json');
+ // Sharded accumulator (issue #2988): union via the store helper.
  // Slugs whose compat-merge OVERWROTE a pre-existing (different-canton) locale
  // path. For these the surviving sibling-locale entries still point at the
  // OTHER canton's live pages, so the soft-landing emit below MUST force zero
@@ -9829,8 +9841,7 @@ ${staticAnalyticsHtml}
  // scope so the emit loop (same closure, reads `tracking` directly) can read it.
  const cantonDriftCompatSlugs = new Set<string>();
  try {
- const compatData = JSON.parse(fs.readFileSync(compatPathsFile, 'utf-8'));
- const compatPaths: string[] = Array.isArray(compatData?.paths) ? compatData.paths : [];
+ const compatPaths: string[] = readCompatPaths(rootDir).paths;
  let compatAdded = 0;
  const COMPAT_JOB_PATTERNS: { re: RegExp; locale: string; prefix: string }[] = [
  { re: /\/cerca-lavoro-ticino\/([^/]+)\/?$/, locale: 'it', prefix: '/cerca-lavoro-ticino/' },

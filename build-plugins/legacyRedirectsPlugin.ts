@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
+import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { resolveCantonSection, resolveJobCanton, type CantonLocale } from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { loadJobsJson } from './shared/loadJobsJson';
@@ -90,6 +91,10 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/comparatori/banche/': '/compara-servizi/confronta-banche/',
  '/comparatori/operatori-mobili/': '/compara-servizi/confronta-operatori-mobili/',
  '/comparatori/mappa-comuni/': '/guida-frontaliere/mappa-confine/',
+ // Never-valid /comparatori/ sub-paths leaked into internal links (issue #2996):
+ // LAMal-vs-CMI is a blog article; LAMal-vs-SSN is the health-insurance comparator.
+ '/comparatori/lamal-vs-cmi/': '/articoli-frontaliere/lamal-vs-cmi-frontaliere/',
+ '/comparatori/confronta-lamal-ssn/': '/compara-servizi/confronta-casse-malati/',
  // Blog articles with changed slugs (old → new canonical)
  // A.4 — NASpI duplicate consolidation (cannibalization fix).
  // Older slug /naspi-disoccupazione-frontalieri/ redirects to the
@@ -359,16 +364,21 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  return '\n' + hreflangLinksHtml(entries);
  };
 
+ // Auto-redirect users to the canonical target (issue #2996, owner decision):
+ // a 0-second meta-refresh lands the visitor on the live page without a manual
+ // click, and — combined with the canonical link + noindex already on the page —
+ // is treated as a 301-equivalent by crawlers. Same pattern already used by
+ // cantonOrphanRedirectsPlugin and cfHot404BridgePlugin (cluster redirects).
  const buildCompatHtml = (from: string, to: string, kind: string) => buildCanonicalBridgePage({
  canonicalUrl: `${BASE_URL}${to}`,
  pathLabel: to,
  title: 'Pagina archiviata | Frontaliere Ticino',
  description: `URL legacy o non piu disponibile collegata a ${to}.`,
- body: `Questa URL ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : 'dell annuncio'} non e piu la versione corretta. Abbiamo mantenuto una pagina compatibile per evitare un errore e aiutare Google a consolidare la canonical.`,
+ body: `Questa URL ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : 'dell annuncio'} non e piu la versione corretta. Ti stiamo portando alla pagina corretta; se non vieni reindirizzato, aprila qui sotto.`,
  ctaLabel: 'Apri la pagina corretta',
  noindex: true,
  hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
- });
+ }).replace('</head>', ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n </head>`);
 
  for (const [fromRaw, toRaw] of Object.entries(redirects)) {
  const from = withSlash(fromRaw);
@@ -397,15 +407,20 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  pathLabel: to,
  title: 'Pagina spostata',
  description: 'Questa URL legacy ha una pagina canonica aggiornata su Frontaliere Ticino.',
- body: 'Questa URL legacy punta a una pagina aggiornata. Apri la destinazione canonica qui sotto.',
+ body: 'Questa URL legacy punta a una pagina aggiornata. Ti stiamo portando alla destinazione corretta; se non vieni reindirizzato, aprila qui sotto.',
  ctaLabel: 'Apri la pagina corretta',
  noindex: true,
  hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
- }).replace('</head>', `<script type="application/ld+json">${redirectLd}</script>\n </head>`);
+ // Auto-redirect users to the canonical (issue #2996, owner decision): a
+ // 0-second meta-refresh is a 301-equivalent for crawlers (with the canonical
+ // link + noindex) and an instant redirect for users — no dead-end click.
+ // Same pattern as cantonOrphanRedirectsPlugin / cfHot404BridgePlugin.
+ }).replace('</head>', ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n <script type="application/ld+json">${redirectLd}</script>\n </head>`);
 
  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
- // Also write flat .html to avoid GitHub Pages 301 redirect
- // Flat files must NOT contain location.replace (Google classifies as redirect)
+ // Also write a flat .html twin so GitHub Pages serves it for the extension-less
+ // URL too. The SPA auth-action script is stripped from the flat file, but the
+ // meta-refresh above is intentionally KEPT so the flat twin redirects as well.
  const flatPath = from.replace(/\/+$/, '');
  if (flatPath) {
  const flatFile = path.join(distDir, flatPath.slice(1) + '.html');
@@ -416,7 +431,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  count++;
  }
 
- const compatPathsPath = path.resolve(rootDir, 'data/seo-404-compat-paths.json');
+ // Sharded accumulator (issue #2988): read the union via the store helper.
  // Job URL patterns handled exclusively by jobsSeoPagesPlugin (active + bridge + soft-landing + self-healing).
  // Writing thin compat pages for job paths is harmful: if jobsSeoPagesPlugin's flush fails,
  // the thin compat page survives and Google indexes it instead of enriched content.
@@ -441,9 +456,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  })();
  const isJobPath = (p: string): boolean => JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
  let skippedJobPaths = 0;
- if (fs.existsSync(compatPathsPath)) {
- const compatPathsRaw = JSON.parse(fs.readFileSync(compatPathsPath, 'utf-8'));
- const compatPaths = Array.isArray(compatPathsRaw?.paths) ? compatPathsRaw.paths : [];
+ {
+ const compatPaths = readCompatPaths(rootDir).paths;
  for (const compatPathRaw of compatPaths) {
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
  if (!resolution) continue;
