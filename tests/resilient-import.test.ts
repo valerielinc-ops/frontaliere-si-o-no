@@ -148,7 +148,17 @@ describe('recoverFromStaleChunk', () => {
     expect(scheduled).toBe(true);
     expect((globalThis as any).caches.delete).toHaveBeenCalledTimes(2);
     expect(reload).toHaveBeenCalledTimes(1);
-    expect(sessionStorage.getItem('_serviceChunkReload')).toBe('1');
+    // Shares the `_swReloadCount` ceiling with the index.html bootstrap recovery.
+    expect(sessionStorage.getItem('_swReloadCount')).toBe('1');
+  });
+
+  it('honours a reload already triggered by the index.html bootstrap recovery', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    // index.html's resource/import/skew handlers set this same counter.
+    sessionStorage.setItem('_swReloadCount', '1');
+    const scheduled = await recoverFromStaleChunk('after-bootstrap-reload');
+    expect(scheduled).toBe(false);
+    expect(reload).not.toHaveBeenCalled();
   });
 
   it('is guarded to a single reload per session', async () => {

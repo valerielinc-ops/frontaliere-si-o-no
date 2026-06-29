@@ -72,18 +72,25 @@ export function isVersionSkewError(err: unknown): boolean {
   );
 }
 
-// Shared across all callers so a stale deploy triggers at most one reload per
-// session, no matter which service chunk was the first to fail. The
-// `index.html` bootstrap recovery uses its own `_swReloadCount` for the same
-// purpose; both ceilings are honoured so a session reloads at most once total.
+// Per-session reload guard for resilientImport's own import() recovery path.
 const RELOAD_KEY = '_serviceChunkReload';
+
+// Session-wide reload ceiling SHARED with the `index.html` bootstrap recovery
+// (resource-error, dynamic-import, and version-skew handlers all gate on this
+// counter). recoverFromStaleChunk reads+increments the SAME key so the
+// ErrorBoundary skew path and the global window-error skew path can never each
+// fire their own reload — the session reloads at most once across BOTH skew
+// surfaces (the value `>= 1` blocks further reloads, matching index.html).
+const BOOTSTRAP_RELOAD_KEY = '_swReloadCount';
 
 /**
  * Clear all CacheStorage entries and reload the page ONCE per session so the
  * browser refetches a CONSISTENT set of stable-named chunks (post-propagation,
- * the skew is gone). Shared by resilientImport's import() recovery and the
- * ErrorBoundary version-skew recovery. No-op outside the browser. Returns true
- * if a reload was scheduled, false if the per-session guard blocked it.
+ * the skew is gone). Called by the ErrorBoundary version-skew recovery; shares
+ * the `_swReloadCount` ceiling with the index.html bootstrap recovery so the two
+ * skew surfaces (React-caught + global window error) reload at most once total.
+ * No-op outside the browser. Returns true if a reload was scheduled, false if
+ * the per-session guard blocked it.
  */
 export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   if (typeof window === 'undefined') return false;
@@ -91,15 +98,15 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     return false;
   }
-  let guarded = false;
+  let reloadCount = 0;
   try {
-    guarded = !!sessionStorage.getItem(RELOAD_KEY);
+    reloadCount = parseInt(sessionStorage.getItem(BOOTSTRAP_RELOAD_KEY) || '0', 10) || 0;
   } catch {
     /* private mode — proceed without the guard */
   }
-  if (guarded) return false;
+  if (reloadCount >= 1) return false;
   try {
-    sessionStorage.setItem(RELOAD_KEY, '1');
+    sessionStorage.setItem(BOOTSTRAP_RELOAD_KEY, String(reloadCount + 1));
   } catch {
     /* private mode — guard unavailable, still attempt one reload below */
   }
