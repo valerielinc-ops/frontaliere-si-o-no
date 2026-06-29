@@ -763,6 +763,17 @@ export async function runStandardCrawlerPipeline(config) {
     }
   }
 
+  // ─── Step 4c: Seed the per-crawler slice with the fresh merge ──
+  // The localization step (Step 5) and the slug-stability passes read the
+  // crawler's jobs back via the per-crawler slice. In slice-only CI mode the
+  // slice on disk is still the PREVIOUS run's committed snapshot, so without
+  // re-seeding it here the localization would operate on the stale slice and
+  // write it back — collapsing a freshly-expanded crawl down to its old subset
+  // (observed: UBS merged 44 but localized/wrote only the 4 stale rows). Seed
+  // it now with `clean` (the just-merged company jobs) so every downstream
+  // read sees the fresh dataset.
+  writeJobsCrawlerSlice(companyKey, clean);
+
   // ─── Step 5: AI Localization ────────────────────────────────
   // Translates titles + descriptions to all 4 locales via AI.
   // Uses translation cache (SHA256-based) for ~90% hit rate on re-runs.
