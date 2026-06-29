@@ -60,6 +60,7 @@ const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
 import { borderCrossings as centralizedBorderCrossings, type BorderCrossing } from '../../data/borderCrossings';
 import borderWaitCurrent from '../../data/border-wait-current.json';
 import { MUNICIPALITIES as BORDER_MUNICIPALITIES } from '@/data/municipalities';
+import { slugifyCrossingName } from '../../services/borderCrossingSlug';
 
 type WaitSnapshot = {
  perCrossing?: Record<string, {
@@ -83,18 +84,6 @@ const CURRENT_BORDER_WAIT = borderWaitCurrent as WaitSnapshot;
 // (CORS '*', ~5min CDN cache), no deploy required.
 const LIVE_BORDER_WAIT_URL =
   'https://raw.githubusercontent.com/valerielinc-ops/frontaliere-si-o-no/main/data/border-wait-current.json';
-
-/** Derive the URL slug for a border crossing from its display name. */
-function slugifyCrossingName(name: string): string {
-  return name
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\([^)]*\)/g, '')
-    .replace(/[^a-zA-Z0-9]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-    .toLowerCase();
-}
 
 function slugifyPath(value: string): string {
  return value
