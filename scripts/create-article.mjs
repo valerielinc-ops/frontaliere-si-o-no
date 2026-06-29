@@ -2324,18 +2324,23 @@ ASSICURAZIONI:
 // Phi-4 → HTTP 413 tokens_limit_reached), shrinking the free-tier pool and
 // re-triggering "tutti i modelli esauriti" defers.
 //
-// This compact brief (~230 tokens) keeps ONLY the facts the free models
-// actually keep getting wrong (the recurring consensus criticals: imposta alla
-// fonte location, accordo dates, franchigia/transitional, convenzione date),
-// restoring the prompt safely under the 8000-token cap. The fact-checker still
-// uses the FULL sheet (VERIFIED_DOMAIN_FACTS at :2346) — generator and checker
-// stay aligned on these load-bearing values.
-const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi):
+// This compact brief (~300 tokens) keeps ONLY the facts the consensus
+// fact-checker HARD-BLOCKS on (`llmFactCheck` / VERIFIED_DOMAIN_FACTS, used in
+// full there): imposta alla fonte location, accordo dates, franchigia/
+// transitional, convenzione date, the load-bearing CH/IT aliquote, and the
+// valid-institution acronyms. The generator now sees these exact values, so it
+// can't diverge into a `critical` on the topics where free models actually go
+// wrong — while the prompt stays under the 8000-token cap. Softer facts (e.g.
+// frontalieri headcount, valichi geography) are intentionally dropped: they are
+// not in the unconditional-block criteria, and every extra line eats the thin
+// headroom over the base ~7575-token generation prompt.
+const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi da questi valori):
 - Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi"). L'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730).
 - Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
 - Vecchi frontalieri (già tali prima del 17/7/2023): esenzione €7'500, regime transitorio 2024–2033. Nuovi frontalieri: franchigia €10'000.
-- Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 DICEMBRE 1976.
-- ~79'000 frontalieri in Ticino (USTAT 2024). Valichi reali: Brogeda/Chiasso, Gaggiolo/Stabio, Ponte Tresa. La Svizzera NON è membro UE/SEE.`;
+- Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 DICEMBRE 1976. La Svizzera NON è membro UE/SEE.
+- Aliquote/contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1%, LPP dai 25 anni. IRPEF italiana: 23% fino €28'000, 35% €28'001–50'000, 43% oltre €50'000.
+- Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, UFSP/BAG, SUVA, INPS, Agenzia delle Entrate, MEF.`;
 
 /**
  * PRIMARY BLOCKING — Multi-model consensus fact verification.
