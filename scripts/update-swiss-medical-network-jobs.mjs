@@ -278,6 +278,9 @@ async function main() {
 
   updateAdapterConfig();
   await mergeJobs(discoveredJobs);
+  // The base crawler seeds the per-crawler slice from the fresh data/jobs.json
+  // before localizing (see runDedicatedBaseCrawler), so the stale committed
+  // slice no longer collapses the freshly-expanded crawl.
   console.log('\n🌐 Running base crawler for AI localization...');
   await runBaseCrawler();
 
