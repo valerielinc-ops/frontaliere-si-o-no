@@ -65,15 +65,35 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: node scripts/ci/is-followup-fix-pr.mjs
 
-      - name: Setup Headroom compression proxy
+      # No-op pre-gate (zero-Claude, deterministico). Una larga fetta di PR mergiate
+      # non ha NULLA da triagiare: `## Non implementato` legge «Nessuno» e il reviewer
+      # ha lasciato un `## LGTM` pulito senza 🟡/❓. Per quelle, la run Claude (sonnet,
+      # ~20 turni) è sprecata sulla quota Max OAuth condivisa. Questo step la salta.
+      # Il filtro funnel-critico (giudizio semantico) resta a Claude — qui si decide
+      # solo «c'è ALMENO UN candidato plausibile?». PROCEED-SAFE: nel dubbio emette
+      # true → Claude gira. Vedi scripts/ci/followup-has-candidates.mjs + FOLLOWUP.md.
+      - name: No-op candidate pre-gate
+        id: candidates
         if: steps.gchild.outputs.is_followup_fix != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number || github.event.inputs.pr_number }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/followup-has-candidates.mjs
+
+      - name: Setup Headroom compression proxy
+        if: steps.gchild.outputs.is_followup_fix != 'true' && steps.candidates.outputs.has_candidates != 'false'
         uses: ./.github/actions/setup-headroom
 
       - name: Run Claude follow-up triage
         id: followup
         # Skip quando la PR è essa stessa un fix-di-follow-up (rompe il self-feed
-        # nipote + risparmia la run Claude sulla quota Max condivisa).
-        if: steps.gchild.outputs.is_followup_fix != 'true'
+        # nipote) OPPURE quando il no-op pre-gate non trova candidati plausibili
+        # (`has_candidates=false`) — entrambi risparmiano la run Claude sulla quota
+        # Max condivisa. `!= 'false'` (non `== 'true'`): se lo step candidates è
+        # skipped (gchild ha già scartato) l'output è vuoto, ma in quel ramo il
+        # grandchild gate ha già messo l'if a false, quindi nessun doppio-run.
+        if: steps.gchild.outputs.is_followup_fix != 'true' && steps.candidates.outputs.has_candidates != 'false'
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
