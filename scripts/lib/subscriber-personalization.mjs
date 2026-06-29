@@ -79,17 +79,25 @@ function fromUsageMap(map) {
  * @param {DeriveInput} input
  * @returns {Record<string, string>|null} patch, or null when nothing to fill.
  */
-export function derivePersonalizationPatch({ subscriber, personalization, alerts = [] } = {}) {
+export function derivePersonalizationPatch({ subscriber, personalization, alerts = [], clicked = null } = {}) {
   const sub = subscriber || {};
   const p = personalization || {};
   const viewedJobs = Array.isArray(p.viewedJobs) ? p.viewedJobs : [];
   const searches = Array.isArray(p.searches) ? p.searches : [];
   const filterUsage = p.filterUsage && typeof p.filterUsage === 'object' ? p.filterUsage : {};
   const alertList = Array.isArray(alerts) ? alerts : [];
+  // A click on a job in an email is the STRONGEST intent signal we hold — the
+  // user actively chose that job out of the inbox — so it outranks a passive
+  // on-site filter (×3) or view (×2). Resolved from the ESP-recorded
+  // `last_clicked_url` by the caller; see send-job-alerts.mjs clickedJobMeta.
+  const clk = clicked || {};
+  const clickedLocations = Array.isArray(clk.locations) ? clk.locations : [];
+  const CLICK_WEIGHT = 5;
 
-  // ── Location: filter usage (strongest — an explicit filter action) > viewed
-  //    job cities > explicit alert locations / cantons.
+  // ── Location: clicked job (strongest) > filter usage (explicit filter
+  //    action) > viewed job cities > explicit alert locations / cantons.
   const locationEntries = [
+    ...clickedLocations.map((l) => ({ value: l, weight: CLICK_WEIGHT })),
     ...fromUsageMap(filterUsage.location).map((e) => ({ ...e, weight: e.weight * 3 })),
     ...viewedJobs.map((v) => ({ value: v?.location, weight: 2 })),
     ...alertList.flatMap((a) => [
@@ -107,8 +115,11 @@ export function derivePersonalizationPatch({ subscriber, personalization, alerts
   ];
   const sector = topWeighted(sectorEntries);
 
-  // ── Company: most-viewed employer.
-  const company = topWeighted(viewedJobs.map((v) => ({ value: v?.company, weight: 1 })));
+  // ── Company: clicked employer (strongest) > most-viewed employer.
+  const company = topWeighted([
+    { value: clk.company, weight: CLICK_WEIGHT },
+    ...viewedJobs.map((v) => ({ value: v?.company, weight: 1 })),
+  ]);
 
   // ── Search query: most recent search, else newest viewed-job title-ish, else
   //    alert keywords / source title.
