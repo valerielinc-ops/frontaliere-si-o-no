@@ -4204,7 +4204,7 @@
         "it": "hr-business-partner-regione-mid-stadler-rail-bussnang",
         "en": "user-safety-safe-stadler-rail-bussnang",
         "de": "hr-business-partner-region-mid-stadler-rail-ch",
-        "fr": "hr-business-partner-region-mid-stadler-rail-ch"
+        "fr": "partenaires-en-rh-region-mid-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -4246,15 +4246,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-business-partner-region-mid-stadler-rail-ch",
-        "partenaires-en-rh-region-mid-stadler-rail-bussnang"
+        "hr-business-partner-region-mid-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-region-mid-stadler-rail-ch"
         ],
         "fr": [
-          "partenaires-en-rh-region-mid-stadler-rail-bussnang"
+          "hr-business-partner-region-mid-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
@@ -4784,7 +4783,7 @@
         "it": "consulente-logistico-interno-sap-stadler-rail-bussnang",
         "en": "sap-inhouse-consultant-logistics-stadler-rail-bussnang",
         "de": "sap-inhouse-consultant-logistik-stadler-rail-ch",
-        "fr": "sap-inhouse-consultant-logistik-stadler-rail-ch"
+        "fr": "sap-consultant-logistique-interne-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -4826,15 +4825,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-inhouse-consultant-logistik-stadler-rail-ch",
-        "sap-consultant-logistique-interne-stadler-rail-bussnang"
+        "sap-inhouse-consultant-logistik-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-inhouse-consultant-logistik-stadler-rail-ch"
         ],
         "fr": [
-          "sap-consultant-logistique-interne-stadler-rail-bussnang"
+          "sap-inhouse-consultant-logistik-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
@@ -5579,7 +5577,7 @@
       "slug": "lead-ingegnere-fahrgastinformationssysteme-e-netzwerktechnik-stadler-rail-frauenfeld",
       "slugByLocale": {
         "it": "lead-ingegnere-fahrgastinformationssysteme-e-netzwerktechnik-stadler-rail-frauenfeld",
-        "en": "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
+        "en": "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld",
         "de": "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
         "fr": "ingenieur-en-chef-des-systemes-d-information-des-passagers-et-de-la-technologie-de-reseau-stadler-rail-frauenfeld"
       },
@@ -5624,8 +5622,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
-        "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld",
-        "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld"
+        "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5633,7 +5630,7 @@
           "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
         ],
         "en": [
-          "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld"
+          "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:36.575Z",
@@ -9237,9 +9234,9 @@
     },
     {
       "id": "stadler-rail-26ae25ccea97",
-      "slug": "plm-system-administrator-stadler-rail-ch",
+      "slug": "amministratore-di-sistema-plm-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "plm-system-administrator-stadler-rail-ch",
+        "it": "amministratore-di-sistema-plm-stadler-rail-bussnang",
         "en": "plm-s-administr-stadler-rail-bussnang",
         "de": "plm-system-administrator-stadler-rail-ch",
         "fr": "administrateur-du-systeme-plm-stadler-rail-bussnang"
@@ -9284,11 +9281,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "amministratore-di-sistema-plm-stadler-rail-bussnang"
+        "plm-system-administrator-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amministratore-di-sistema-plm-stadler-rail-bussnang"
+          "plm-system-administrator-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.715Z",
@@ -11979,7 +11976,7 @@
         "it": "assistente-amministrativo-stadler-rail-wallisellen",
         "en": "administrative-assistant-stadler-rail-ch",
         "de": "administrative-assistant-stadler-rail-ch",
-        "fr": "administrative-assistant-stadler-rail-wallisellen"
+        "fr": "assistant-administratif-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12022,7 +12019,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "administrative-assistant-stadler-rail-ch",
-        "assistant-administratif-stadler-rail-wallisellen"
+        "administrative-assistant-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12030,7 +12027,7 @@
         ],
         "fr": [
           "administrative-assistant-stadler-rail-ch",
-          "assistant-administratif-stadler-rail-wallisellen"
+          "administrative-assistant-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-25T12:13:52.087Z",
@@ -12268,7 +12265,7 @@
       "slug": "gestore-di-categoria-trazione-stadler-rail-frauenfeld",
       "slugByLocale": {
         "it": "gestore-di-categoria-trazione-stadler-rail-frauenfeld",
-        "en": "category-manager-traktionssysteme-stadler-rail-ch",
+        "en": "category-manager-traction-systems-stadler-rail-frauenfeld",
         "de": "category-manager-traktionssysteme-stadler-rail-ch",
         "fr": "gestionnaire-de-categorie-systemes-de-traction-stadler-rail-frauenfeld"
       },
@@ -12343,15 +12340,14 @@
         ]
       },
       "previousSlugs": [
-        "category-manager-traktionssysteme-stadler-rail-ch",
-        "category-manager-traction-systems-stadler-rail-frauenfeld"
+        "category-manager-traktionssysteme-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "category-manager-traktionssysteme-stadler-rail-ch"
         ],
         "en": [
-          "category-manager-traction-systems-stadler-rail-frauenfeld"
+          "category-manager-traktionssysteme-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:55.597Z",
@@ -13625,7 +13621,7 @@
       "slugByLocale": {
         "it": "capo-squadra-ingegneria-manutenzione-batterie-stadler-rail-frauenfeld",
         "en": "team-leader-battery-maintenance-engineering-stadler-rail-ch",
-        "de": "team-leader-battery-maintenance-engineering-stadler-rail-ch",
+        "de": "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld",
         "fr": "chef-d-equipe-genie-de-maintenance-des-batteries-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
@@ -13668,15 +13664,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-leader-battery-maintenance-engineering-stadler-rail-ch",
-        "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld"
+        "team-leader-battery-maintenance-engineering-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "team-leader-battery-maintenance-engineering-stadler-rail-ch"
         ],
         "de": [
-          "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld"
+          "team-leader-battery-maintenance-engineering-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:44.658Z",

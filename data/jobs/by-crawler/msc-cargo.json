@@ -79,7 +79,7 @@
         "en": "brand-manager-brand-product-msc-geneva",
         "it": "brand-manager-brand-product-msc-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -144,7 +144,7 @@
         "en": "digital-platforms-manager-msc-geneva",
         "it": "responsabile-piattaforme-digitali-msc-group-geneva",
         "de": "responsabile-piattaforme-digitali-msc-group-geneva",
-        "fr": "responsabile-piattaforme-digitali-msc-group-geneva"
+        "fr": "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -276,12 +276,7 @@
       "firstSeenAt": "2026-06-27T11:26:37.666Z",
       "previousSlugs": [
         "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
-        ]
-      }
+      ]
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
@@ -352,15 +347,10 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva",
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+          "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva"
         ],
         "fr": [
-          "travelling-fleet-superviseur-shore-excursions-msc-group-geneva",
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
-        ],
-        "it": [
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+          "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
         ]
       }
     },
@@ -511,12 +501,12 @@
     },
     {
       "id": "msc-cargo-1850ab808b78",
-      "slug": "junior-architect-port-development-intern-msc-geneva",
+      "slug": "junior-architetto-port-development-tirocinante-msc-group-geneva",
       "slugByLocale": {
         "en": "junior-architect-port-development-intern-msc-geneva",
-        "it": "junior-architect-port-development-intern-msc-geneva",
+        "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architect-port-development-intern-msc-geneva"
+        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -574,12 +564,11 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-25T22:52:35.949Z",
       "previousSlugs": [
-        "junior-architetto-port-development-tirocinante-msc-group-geneva",
+        "junior-architect-port-development-intern-msc-geneva",
         "junior-architect-port-development-praktikant-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "junior-architecte-port-development-stagiaire-msc-group-geneva",
           "junior-architect-port-development-intern-msc-geneva"
         ],
         "de": [
@@ -597,7 +586,7 @@
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
         "de": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
-        "fr": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -646,13 +635,11 @@
         ],
         "de": [
           "casino-slots-und-technical-operations-manager-msc-group-geneva"
-        ],
-        "fr": [
-          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "casino-slots-and-technical-operations-manager-msc-geneva"
+        "casino-slots-and-technical-operations-manager-msc-geneva",
+        "casino-slots-und-technical-operations-manager-msc-group-geneva"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
