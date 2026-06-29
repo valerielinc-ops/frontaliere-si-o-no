@@ -1,9 +1,9 @@
 /**
  * PEMSA — WordPress career page parser
  *
- * Listing: https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/?_canton=125
- *   WordPress with WP Grid Builder. Pre-filtered for canton=Ticino (125).
- *   Job links in format: https://www.pemsa.ch/it/job/{slug}-{id}/
+ * Listing: https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/
+ *   WordPress with WP Grid Builder. National listing (all cantons, no canton
+ *   facet). Job links in format: https://www.pemsa.ch/it/job/{slug}-{id}/
  *
  * Detail: https://www.pemsa.ch/it/job/{slug}-{id}/
  *   JSON-LD JobPosting with title, description, datePosted, validThrough,
@@ -13,9 +13,9 @@
  * electrical, HVAC, and industrial trades. HQ in Geneva, branch in Ticino.
  */
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 
-const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/?_canton=125';
+const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -223,14 +223,15 @@ export async function parsePemsaDetailPage(url, timeoutMs = 15000) {
 }
 
 /**
- * Check if a PEMSA job is Ticino-relevant.
+ * Check if a PEMSA job is in a Swiss target canton (all 26).
+ * (Name kept for API stability; scope is now CH-wide, not Ticino-only.)
  */
 export function isPemsaTicinoRelevant(job = {}) {
-  const region = normalizeSpace(job.region || '').toUpperCase();
-  if (region === 'TI') return true;
-
-  const city = normalizeSpace(job.city || '').toLowerCase();
-  if (!city) return true; // Pre-filtered by canton=125
+  const region = normalizeSpace(job.region || '');
+  const city = normalizeSpace(job.city || '');
+  // inferAnyCanton resolves both canton codes ("GE") and city names ("Genève").
+  if (inferAnyCanton(region) || inferAnyCanton(city)) return true;
+  if (!city && !region) return true; // PEMSA is a Swiss-only agency — keep location-less rows
   return isTargetSwissLocation(city);
 }
 
@@ -240,7 +241,7 @@ export function isPemsaTicinoRelevant(job = {}) {
  */
 export function buildPemsaLocalizedContent(job = {}) {
   const title = normalizeSpace(job.title);
-  const city = normalizeSpace(job.city) || 'Ticino';
+  const city = normalizeSpace(job.city) || 'Svizzera';
   const desc = job.description || '';
   const sectionCount = job.descriptionSectionCount || 0;
   const sourceLength = job.descriptionSourceLength || 0;

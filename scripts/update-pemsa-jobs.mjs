@@ -2,8 +2,8 @@
 /**
  * PEMSA — Dedicated Crawler
  *
- * Crawls https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/?_canton=125
- * 1. Fetches listing page (pre-filtered for Ticino) → extracts job URLs
+ * Crawls https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/
+ * 1. Fetches national listing page (all cantons) → extracts job URLs
  * 2. Fetches each detail page → extracts JSON-LD JobPosting
  * 3. Merges into data/jobs.json
  * 4. Updates adapter config
@@ -42,6 +42,7 @@ import {
   buildPemsaLocalizedContent,
 } from './lib/pemsa-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -57,7 +58,7 @@ const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'PEMSA';
 const COMPANY_HOST = 'www.pemsa.ch';
 const COMPANY_DOMAIN = 'pemsa.ch';
-const CAREERS_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/?_canton=125';
+const CAREERS_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
@@ -134,7 +135,11 @@ function parseDate(dateStr = '') {
 }
 
 function buildPemsaJob(detail, url) {
-  const city = detail.city || 'Ticino';
+  const city = detail.city || '';
+  // PEMSA is a national agency (HQ Geneva + Ticino branch); the JSON-LD region
+  // field is usually empty, so derive the canton per-job from the city. Only
+  // fall back to the HQ default when nothing resolves.
+  const canton = inferAnyCanton(city) || inferAnyCanton(detail.region || '') || DEFAULT_CANTON;
   const localized = buildPemsaLocalizedContent(detail);
 
   return {
@@ -147,9 +152,9 @@ function buildPemsaJob(detail, url) {
     companyDomain: COMPANY_DOMAIN,
     location: city,
     addressLocality: city,
-    addressRegion: detail.region || 'TI',
+    addressRegion: detail.region || canton,
     addressCountry: detail.country || 'CH',
-    canton: DEFAULT_CANTON,
+    canton,
     country: 'CH',
     category: inferCategory(detail.title),
     sector: 'Edilizia e tecnica',
@@ -213,7 +218,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: DEFAULT_CANTON,
+      canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };
@@ -226,7 +231,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated PEMSA crawler. Listing page pre-filtered for Ticino (canton=125). Detail pages have JSON-LD JobPosting with full location data. Construction/trades staffing agency.',
+    notes: 'Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -255,7 +260,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  console.log('🔍 Fetching PEMSA Ticino job listings...');
+  console.log('🔍 Fetching PEMSA job listings (all cantons)...');
   const jobUrls = await parsePemsaListingPage(TIMEOUT_MS);
   console.log(`📋 Found ${jobUrls.length} job URLs on listing page`);
 
@@ -283,10 +288,10 @@ async function main() {
     if (jobs.length + skipped < jobUrls.length) await sleep(DETAIL_DELAY_MS);
   }
 
-  console.log(`\n📍 Ticino-relevant: ${jobs.length} / ${jobUrls.length}`);
+  console.log(`\n📍 Swiss-relevant: ${jobs.length} / ${jobUrls.length}`);
 
   if (jobs.length === 0) {
-    console.log('⚠️ No Ticino-relevant jobs found — skipping.');
+    console.log('⚠️ No Swiss-relevant jobs found — skipping.');
     return;
   }
 
