@@ -15,6 +15,7 @@ import { type JobPageLocale, JOB_PAGE_LOCALES } from '../services/seo/job-board-
 import {
   buildListingHubMeta,
   buildCityHubMeta,
+  buildCantonHubMeta,
   buildRoleHubMeta,
   buildEmployerHubMeta,
   buildRecencyHubMeta,
@@ -127,6 +128,65 @@ describe('buildCityHubMeta — per-city hub', () => {
     for (const locale of LOCALES) {
       const m = buildCityHubMeta({ locale, cityDisplay: 'Lugano', count: 50 });
       expect(m).toMatch(CTA_KEYWORDS[locale]);
+    }
+  });
+});
+
+// Per-canton hub (issue #2996 — canton landings shipped a ~50-char thin lede
+// flagged "Description too short" by GSC). Includes the longest localized
+// canton names + the Switzerland-wide aggregator.
+const CANTONS = [
+  'Argovia', 'Zurigo', 'Aargau', 'Zürich', 'Graubünden', 'Vallese',
+  'Appenzell Ausserrhoden', 'Appenzell Rhodes-Extérieures', 'San Gallo', 'Saint-Gall',
+] as const;
+const AGGREGATES: Record<JobPageLocale, string> = {
+  it: 'Svizzera', en: 'Switzerland', de: 'Schweiz', fr: 'Suisse',
+};
+
+describe('buildCantonHubMeta — per-canton hub', () => {
+  it('stays within 140-160 chars across all locales, cantons, counts', () => {
+    for (const locale of LOCALES) {
+      for (const canton of CANTONS) {
+        for (const count of SAMPLE_COUNTS) {
+          const meta = buildCantonHubMeta({ locale, cantonDisplay: canton, count });
+          expect(
+            isValidMetaLength(meta),
+            `${locale}/${canton} count=${count}: len=${visibleLength(meta)} "${meta}"`,
+          ).toBe(true);
+        }
+      }
+    }
+  });
+
+  it('aggregator stays within 140-160 and does not duplicate the country name', () => {
+    for (const locale of LOCALES) {
+      const country = AGGREGATES[locale];
+      for (const count of SAMPLE_COUNTS) {
+        const meta = buildCantonHubMeta({ locale, cantonDisplay: country, count, isAggregate: true });
+        expect(
+          isValidMetaLength(meta),
+          `${locale} aggregate count=${count}: len=${visibleLength(meta)} "${meta}"`,
+        ).toBe(true);
+        // ", <country>" region suffix must be suppressed for the aggregator.
+        expect(meta, `${locale} aggregate dup`).not.toMatch(new RegExp(`${country},\\s*${country}`));
+      }
+    }
+  });
+
+  it('mentions the canton name', () => {
+    for (const canton of ['Argovia', 'Zurigo'] as const) {
+      for (const locale of LOCALES) {
+        const m = buildCantonHubMeta({ locale, cantonDisplay: canton, count: 50 });
+        expect(m).toContain(canton);
+      }
+    }
+  });
+
+  it('contains CTA verb and live count when count > 0', () => {
+    for (const locale of LOCALES) {
+      const m = buildCantonHubMeta({ locale, cantonDisplay: 'Zurigo', count: 137 });
+      expect(m, `${locale} CTA`).toMatch(CTA_KEYWORDS[locale]);
+      expect(m, `${locale} count`).toContain('137');
     }
   });
 });

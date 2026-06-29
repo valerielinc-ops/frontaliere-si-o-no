@@ -75,6 +75,17 @@ function finalize(desc: string, qualifier: string): string {
   return out;
 }
 
+/**
+ * Public wrapper over the internal pad-to-min / trim-to-max pipeline so other
+ * SEO emitters (e.g. the thin canton sub-hubs in
+ * `build-plugins/seoHubsPlugin.ts`) can produce 140-160 char descriptions
+ * without duplicating the length logic. `base` is the keyword-rich sentence;
+ * `qualifier` is a short clause appended only when `base` falls below 140.
+ */
+export function finalizeMeta(base: string, qualifier: string): string {
+  return finalize(base, qualifier);
+}
+
 // ────────────────────────────────────────────────────────────────
 // Listing hub (home)
 // ────────────────────────────────────────────────────────────────
@@ -166,6 +177,70 @@ export function buildCityHubMeta({ locale, cityDisplay, count, cantonDisplay }: 
       base = n > 0
         ? `Parcourez ${n} offres d'emploi à ${city}, ${region.fr} mises à jour aujourd'hui : santé, banques, bureaux, commerce. Postulez gratuitement en ligne.`
         : `Parcourez les offres d'emploi à ${city}, ${region.fr} mises à jour chaque jour : santé, banques, bureaux, commerce. Postulez gratuitement.`;
+      qualifier = 'Sans inscription.';
+      break;
+  }
+  return finalize(base, qualifier);
+}
+
+// ────────────────────────────────────────────────────────────────
+// Per-canton hub (cathedral canton landing /cerca-lavoro-<canton>/)
+// ────────────────────────────────────────────────────────────────
+
+interface CantonHubArgs {
+  locale: JobPageLocale;
+  /** Already-localized canton (or country) display name, e.g. "Argovia". */
+  cantonDisplay: string;
+  count: number;
+  /**
+   * True for the Switzerland-wide aggregator (`/cerca-lavoro-svizzera/`),
+   * where `cantonDisplay` is the country name. Drops the ", Switzerland"
+   * region suffix so the snippet doesn't read "Switzerland, Switzerland".
+   */
+  isAggregate?: boolean;
+}
+
+/**
+ * 140-160 char meta description for the per-canton job-board landing pages
+ * emitted by jobsSeoPagesPlugin. These previously shipped a ~50-char thin
+ * lede ("Pagina indice del job board per il cantone X.") that GSC flagged as
+ * "Description too short" (issue #2996). Mirrors {@link buildCityHubMeta}:
+ * keyword + canton + live count + concrete CTA, validated by `finalize`.
+ */
+export function buildCantonHubMeta({ locale, cantonDisplay, count, isAggregate }: CantonHubArgs): string {
+  const n = safeCount(count);
+  const place = cantonDisplay;
+  // Region suffix: cantons get ", <country>"; the aggregator already names
+  // the country, so it stays bare.
+  const region = isAggregate
+    ? { en: place, de: place, fr: place }
+    : { en: `${place}, Switzerland`, de: `${place}, Schweiz`, fr: `${place}, Suisse` };
+  let base: string;
+  let qualifier: string;
+  switch (locale) {
+    case 'it':
+      base = n > 0
+        ? `Cerca lavoro in ${place}: ${n} offerte aggiornate ogni giorno per frontalieri e residenti. Candidati gratis online ad annunci di aziende svizzere.`
+        : `Cerca lavoro in ${place}: offerte aggiornate ogni giorno per frontalieri e residenti. Candidati gratis online ad annunci verificati di aziende svizzere.`;
+      qualifier = 'Senza registrazione.';
+      break;
+    case 'en':
+      base = n > 0
+        ? `Find ${n} jobs in ${region.en} updated daily: healthcare, banking, offices, retail, engineering. Apply online for free in 2 minutes.`
+        : `Find jobs in ${region.en} updated daily: healthcare, banking, offices, retail, engineering. Apply online for free in 2 minutes.`;
+      qualifier = 'No signup required.';
+      break;
+    case 'de':
+      base = n > 0
+        ? `${n} Stellenangebote in ${region.de}, täglich aktualisiert: Pflege, Banken, Büros, Handel, Technik. Kostenlos online bewerben in 2 Minuten.`
+        : `Stellenangebote in ${region.de}, täglich aktualisiert: Pflege, Banken, Büros, Handel, Technik. Kostenlos online bewerben in 2 Minuten.`;
+      qualifier = 'Ohne Anmeldung.';
+      break;
+    case 'fr':
+    default:
+      base = n > 0
+        ? `${n} offres d'emploi en ${region.fr} mises à jour chaque jour : santé, banques, bureaux, commerce, technique. Postulez gratuitement en ligne.`
+        : `Offres d'emploi en ${region.fr} mises à jour chaque jour : santé, banques, bureaux, commerce, technique. Postulez gratuitement en ligne.`;
       qualifier = 'Sans inscription.';
       break;
   }
