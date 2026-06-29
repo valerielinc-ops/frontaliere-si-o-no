@@ -2,6 +2,7 @@ import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Analytics, decodeReactError } from '../../services/analytics';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import { t } from '../../services/i18n';
+import { isVersionSkewError, recoverFromStaleChunk } from '../../services/resilientImport';
 
 interface Props {
  children: ReactNode;
@@ -127,6 +128,28 @@ export class ErrorBoundary extends Component<Props, State> {
  sessionRedirect: snapSessionRedirect,
  });
  // Fall through to show error UI — user can manually refresh
+ }
+
+ // Cross-chunk version skew (stable filenames + re-lettered minified exports
+ // after a deploy): a successfully-loaded but mismatched chunk throws a
+ // TypeError at call time (e.g. "ls(...).then is not a function"). React
+ // catches it here, NOT resilientImport's import() wrapper. Self-heal with the
+ // same cache-clear + one-reload-per-session recovery: post-propagation the
+ // browser refetches a consistent chunk set and the error is gone. The guard
+ // caps it at one reload, so a genuine bug with the same message reloads once
+ // then falls through to the error UI below.
+ if (!isChunkError && isVersionSkewError(error)) {
+ Analytics.trackAppError('chunk_load', {
+ message: `[ErrorBoundary:${crashedComponent}] version_skew ${error.name}: ${msg.slice(0, 120)}`,
+ stack: error.stack?.slice(0, 500) || '',
+ pagePath: snapUrl,
+ fatal: true,
+ referrer: snapReferrer,
+ sessionRedirect: snapSessionRedirect,
+ });
+ // Fire-and-forget: schedules at most one reload. If the guard blocks it,
+ // the error UI below stays visible with a manual refresh button.
+ void recoverFromStaleChunk(`version_skew:${msg.slice(0, 80)}`);
  }
 
  const fp = ErrorBoundary.fingerprint(error);
