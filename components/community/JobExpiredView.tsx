@@ -20,7 +20,7 @@ import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
-import { AD_SLOTS } from '@/services/adsenseSlots';
+import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { buildPath } from '@/services/router';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -444,7 +444,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="space-y-2">
  <h2 className="text-base font-semibold font-display text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
  <div className="space-y-2">
- {relatedJobs.slice(0, 6).map((rj) => {
+ {relatedJobs.slice(0, 6).flatMap((rj, rjIdx, rjArr) => {
  const rjSlug = rj.slug;
  const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug;
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
@@ -452,7 +452,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const rjSalary = formatRelatedSalary(rj);
  const rjContract = formatContractLabel(rj.contract, locale);
  const rjPosted = formatDaysAgo(rj.postedDate ?? rj.crawledAt, locale);
- return (
+ const card = (
  <article
  key={rjSlug}
  className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
@@ -494,6 +494,19 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </a>
  </article>
  );
+ // One in-feed ad after every Nth related card (shared `shouldPlaceInfeedAd`
+ // cadence), never after the last — same logic as the main job list. The
+ // `space-y-2` stack lets a full-width ad block slot cleanly between cards.
+ if (rjIdx + 1 < rjArr.length && shouldPlaceInfeedAd(rjIdx + 1)) {
+ const adCfg = isDesktopLg ? AD_SLOTS.JOBLIST_INFEED_DESKTOP : AD_SLOTS.JOBLIST_INFEED_MOBILE;
+ return [
+ card,
+ <div key={`rel-infeed-${rjSlug}`} className="my-3 min-h-[280px]">
+ <AdSenseBanner adSlot={adCfg.slot} adFormat={adCfg.format} fullWidthResponsive={adCfg.fullWidthResponsive} />
+ </div>,
+ ];
+ }
+ return [card];
  })}
  </div>
  </div>
