@@ -236,7 +236,14 @@ jobs:
         env:
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
-        run: git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${REPO}.git"
+        # Stessa classe del bug di pr-autorebase: `actions/checkout` persiste
+        # `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
+        # che sovrascrive lo `x-access-token:<PAT>` del remote set-url → il `git push
+        # origin` si autenticherebbe come github-actions[bot] (action_required, no
+        # re-review). Azzerare l'extraheader prima del set-url forza l'uso del PAT.
+        run: |
+          git config --unset-all "http.https://github.com/.extraheader" || true
+          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${REPO}.git"
 
       # SHA di partenza (post-merge origin/main, pre-Claude): il classify finale lo
       # confronta con la HEAD remota dopo Claude per capire se il round ha davvero
@@ -274,8 +281,11 @@ jobs:
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
-          # Le review/PR autonome sono di claude[bot] / github-actions[bot].
-          allowed_bots: 'github-actions[bot], claude[bot]'
+          # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
+          # frontaliere-automation[bot] (App): le PR aggiornate via App token
+          # triggerano con actor = l'App → senza whitelist la action aborta
+          # "non-human actor: frontaliere-automation" (exit 1). Mai `*`.
+          allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
           # 30->45 (misurato 06-12): 25 fail vs 20 success in 7gg, TUTTI
           # error_max_turns al cap 30 (run 27390252111/27375482475/27373263097)
           # = peggior failure-rate del loop; ogni fail brucia ~8-14min di run

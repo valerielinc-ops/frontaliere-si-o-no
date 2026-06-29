@@ -137,7 +137,11 @@ jobs:
           git checkout -b "$BRANCH"
           git add tests/shard-weights.json
           git commit -m "chore(tests): refresh shard-weights.json from CI run ${TIMING_RUN_ID}"
-          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
+          # `-c http.https://github.com/.extraheader=` azzera l'header GITHUB_TOKEN
+          # persistito da actions/checkout, che altrimenti sovrascrive il token in
+          # URL → il push autenticherebbe come github-actions[bot] e i check della
+          # chore-PR finirebbero in `action_required` (approvazione manuale).
+          git -c http.https://github.com/.extraheader= push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
           gh pr create \
             --base main \
             --head "$BRANCH" \
