@@ -12,21 +12,10 @@ const week = DIGESTS.find((d) => d.key === 'week')!;
 type Ev = { id: string; startDate: string; endDate?: string };
 const ev = (id: string, startDate: string, endDate?: string): Ev => ({ id, startDate, endDate });
 
-// Build a weekend set as the plugin does: the upcoming Sat+Sun in the next 8 days.
-function weekendSet(todayIso: string): Set<string> {
-  const today = new Date(`${todayIso}T00:00:00Z`);
-  const out = new Set<string>();
-  for (let i = 0; i < 8; i += 1) {
-    const d = new Date(today.getTime() + i * 86400000);
-    const dow = d.getUTCDay();
-    if (dow === 6 || dow === 0) out.add(d.toISOString().slice(0, 10));
-  }
-  return out;
-}
 
 describe('weekend digest filter', () => {
   // 2026-07-01 is a Wednesday → upcoming weekend is Sat 2026-07-04 + Sun 2026-07-05.
-  const ctx = { todayIso: '2026-07-01', weekendDays: weekendSet('2026-07-01') };
+  const ctx = { todayIso: '2026-07-01' };
 
   it('includes events on Saturday or Sunday only', () => {
     const events = [
@@ -51,7 +40,7 @@ describe('weekend digest filter', () => {
   // single contiguous weekend (not min..max of an 8-day scan that also grabs the
   // NEXT Saturday → spanning the whole week under a "sab e dom" title).
   it('on a Saturday build, excludes next-week weekday events', () => {
-    const sat = { todayIso: '2026-07-04', weekendDays: weekendSet('2026-07-04') }; // Saturday
+    const sat = { todayIso: '2026-07-04' }; // Saturday
     const events = [
       ev('sat', '2026-07-04'),
       ev('sun', '2026-07-05'),
@@ -65,7 +54,7 @@ describe('weekend digest filter', () => {
   });
 
   it('on a Sunday build, includes only that Sunday (Saturday already past)', () => {
-    const sun = { todayIso: '2026-07-05', weekendDays: weekendSet('2026-07-05') }; // Sunday
+    const sun = { todayIso: '2026-07-05' }; // Sunday
     const events = [
       ev('satPast', '2026-07-04'),
       ev('sun', '2026-07-05'),
@@ -79,7 +68,7 @@ describe('weekend digest filter', () => {
 });
 
 describe('this-week digest filter', () => {
-  const ctx = { todayIso: '2026-07-01', weekendDays: weekendSet('2026-07-01') };
+  const ctx = { todayIso: '2026-07-01' };
   it('includes events within the next 7 days and excludes later ones', () => {
     const events = [
       ev('today', '2026-07-01'),

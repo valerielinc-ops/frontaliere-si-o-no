@@ -766,7 +766,7 @@ function renderComunePage(params: {
 interface DigestDef {
   key: string;
   slug: Record<Locale, string>;
-  filter: (events: SiteEvent[], ctx: { todayIso: string; weekendDays: Set<string> }) => SiteEvent[];
+  filter: (events: SiteEvent[], ctx: { todayIso: string }) => SiteEvent[];
   copy: Record<Locale, { title: string; h1: string; lede: string; desc: string; faqQ: string; faqA: string }>;
 }
 
@@ -1001,7 +1001,11 @@ function renderDigestPage(params: {
     description: dc.desc,
     canonicalUrl,
     hreflangHtml: buildDigestAlternates(def.slug),
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    // A digest is only worth indexing when it actually lists events: the static
+    // chrome (lede + methodology + FAQ) alone always clears MIN_INDEXABLE_WORDS,
+    // so an EMPTY window must be gated on events.length, not the body word count
+    // (else a "no events this weekend" page gets indexed + sitemapped).
+    robots: events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml: body,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -1109,27 +1113,26 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         pagesWritten += 1;
       };
 
-      const digestCtx = { todayIso: dateStamp, weekendDays };
-      // Only sitemap a digest whose page is indexable — a rare empty window can
-      // render below MIN_INDEXABLE_WORDS (→ noindex,follow); listing a noindex
-      // URL in the sitemap triggers GSC "submitted URL marked noindex".
-      const indexableDigests = new Set<string>();
+      // The digest filter is locale-independent (it only reads the date), so
+      // compute each window's events ONCE. A digest is indexed + sitemapped ONLY
+      // when it actually lists events — an empty window renders noindex,follow
+      // and is left out of the sitemap (gated on events.length, since the static
+      // chrome alone always clears MIN_INDEXABLE_WORDS). Shared across locales,
+      // so all 4 hreflang alternates stay consistent (no noindex straddle).
+      const digestEvents = new Map(DIGESTS.map((d) => [d.key, d.filter(all, { todayIso: dateStamp })]));
       for (const locale of LOCALES) {
         emit(renderHubPage({ locale, events: all, byComune, dateStamp, weekendDays, distDir }));
         for (const comune of comuni) {
           emit(renderComunePage({ locale, comune, events: byComune.get(comune)!, dateStamp, weekendDays, distDir }));
         }
-        // Time-window digests (weekend / this week). Emitted even when empty (the
-        // page degrades to a "no events" notice + comune links) so the URL is
-        // stable for FB linking; sitemap inclusion is gated on indexability.
+        // Emitted even when empty (the page degrades to a "no events" notice +
+        // comune links) so the URL is stable for FB linking, but noindex.
         for (const def of DIGESTS) {
-          const rendered = renderDigestPage({ def, locale, events: def.filter(all, digestCtx), dateStamp, distDir });
-          if (rendered.wordCount >= MIN_INDEXABLE_WORDS) indexableDigests.add(def.key);
-          emit(rendered);
+          emit(renderDigestPage({ def, locale, events: digestEvents.get(def.key)!, dateStamp, distDir }));
         }
       }
 
-      const sitemapDigests = DIGESTS.filter((d) => indexableDigests.has(d.key));
+      const sitemapDigests = DIGESTS.filter((d) => (digestEvents.get(d.key)?.length ?? 0) > 0);
       const sitemapXml = buildSitemap(comuni, dateStamp, sitemapDigests);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
