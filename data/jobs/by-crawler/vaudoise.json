@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-06-29T11:57:29.748Z",
+  "assembledAt": "2026-06-29T14:29:20.976Z",
   "jobs": [
     {
       "id": "vaudoise-9670a5945437",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=274501323&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:03.602Z",
+      "crawledAt": "2026-06-29T14:29:18.192Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -64,15 +64,15 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:22.605Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       },
@@ -110,7 +110,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=274501338&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:03.345Z",
+      "crawledAt": "2026-06-29T14:29:17.845Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -189,7 +189,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=274501358&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:03.087Z",
+      "crawledAt": "2026-06-29T14:29:17.493Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,7 +271,7 @@
       "url": "https://vaudoise.softgarden.io/job/64517448/Mitarbeiter-in-Schaden-m-w-d-60-100-?jobDbPVId=274601658&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:48:02.778Z",
+      "crawledAt": "2026-06-29T14:29:17.123Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -348,7 +348,7 @@
       "url": "https://vaudoise.softgarden.io/job/65149268/Ing%C3%A9nieur-Ing%C3%A9nieure-Workplace-IT-h-f-x-80-100-?jobDbPVId=275647721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:02.521Z",
+      "crawledAt": "2026-06-29T14:29:16.770Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -425,7 +425,7 @@
       "url": "https://vaudoise.softgarden.io/job/65154483/Ing%C3%A9nieur-ing%C3%A9nieure-Devops,-entre-80-et-100-?jobDbPVId=275647626&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:02.268Z",
+      "crawledAt": "2026-06-29T14:29:16.415Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -504,7 +504,7 @@
       "url": "https://vaudoise.softgarden.io/job/63296089/Chef-de-groupe-sp%C3%A9cialis%C3%A9-en-gestion-contrats-Cheffe-de-groupe-sp%C3%A9cialis%C3%A9e-en-gestion-contrats-h-f-x-100-?jobDbPVId=275833096&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:02.010Z",
+      "crawledAt": "2026-06-29T14:29:16.058Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -581,7 +581,7 @@
       "url": "https://vaudoise.softgarden.io/job/63349219/Generalagent-in-Berner-Oberland-m-w-d-100-?jobDbPVId=275078778&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:48:01.668Z",
+      "crawledAt": "2026-06-29T14:29:15.713Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -639,7 +639,7 @@
       "title": "Business Analyst RH (h/f/x) - 80-100%",
       "titleByLocale": {
         "it": "Business Analista RH (h/f/x) - 80-100%",
-        "en": "Business Analyst HR (h/f/x) - 80-100%",
+        "en": "Business Analyst RH (h/f/x) - 80-100%",
         "de": "Business Analyst HR (h/f/x) - 80-100%",
         "fr": "Business Analyste RH (h/f/x) - 80-100%"
       },
@@ -655,7 +655,7 @@
       "url": "https://vaudoise.softgarden.io/job/63990868/Business-Analyst-RH-h-f-x-80-100-?jobDbPVId=275309201&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T12:14:36.411Z",
+      "crawledAt": "2026-06-29T14:29:15.395Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -680,6 +680,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.094Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -726,7 +727,7 @@
       "url": "https://vaudoise.softgarden.io/job/62654354/Responsable-Formation-%E2%80%93-Insurance-Training-h-f-x-80-100-?jobDbPVId=275639876&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:01.164Z",
+      "crawledAt": "2026-06-29T14:29:15.051Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -803,7 +804,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=275273571&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:00.898Z",
+      "crawledAt": "2026-06-29T14:29:14.683Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -868,7 +869,7 @@
       "title": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
       "titleByLocale": {
         "it": "Product Manager/in previdenza (m/w/d) - 80-100%",
-        "en": "Product Manager Provision (m/f/d) - 80-100 %",
+        "en": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
         "de": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
         "fr": "Gestionnaire de produits/en Vorsorge (m/p/j) - 80-100%"
       },
@@ -884,7 +885,7 @@
       "url": "https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge-m-w-d-80-100-?jobDbPVId=275371581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:35.654Z",
+      "crawledAt": "2026-06-29T14:29:14.323Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -914,6 +915,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.413Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -960,7 +962,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060783/Sachbearbeiter-in-Inkasso-m-w-d-80-100-?jobDbPVId=275486456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:35.404Z",
+      "crawledAt": "2026-06-29T14:29:14.006Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -977,6 +979,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:18.134Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1023,7 +1026,7 @@
       "url": "https://vaudoise.softgarden.io/job/65240161/Charg%C3%A9-Charg%C3%A9e-de-relation-client%C3%A8le-h-f-x-100-?jobDbPVId=275510721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:48:00.090Z",
+      "crawledAt": "2026-06-29T14:29:13.665Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1100,7 +1103,7 @@
       "url": "https://vaudoise.softgarden.io/job/64674339/Expert-Technique-Microsoft-365-h-f-x-80-100-?jobDbPVId=275648436&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:59.833Z",
+      "crawledAt": "2026-06-29T14:29:13.333Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1174,7 +1177,7 @@
       "url": "https://vaudoise.softgarden.io/job/65279086/Product-Owner-Microsoft-365-Copilot-h-f-x-80-100-?jobDbPVId=275669596&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T12:14:34.615Z",
+      "crawledAt": "2026-06-29T14:29:12.956Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1191,6 +1194,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "firstSeenAt": "2026-06-12T13:15:13.965Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1237,7 +1241,7 @@
       "url": "https://vaudoise.softgarden.io/job/63905289/Quality-FinOps-Manager-h-f-x-80-100-?jobDbPVId=275739581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T12:14:34.367Z",
+      "crawledAt": "2026-06-29T14:29:12.621Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1265,6 +1269,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1282,9 +1287,9 @@
     },
     {
       "id": "vaudoise-95b6284d520e",
-      "slug": "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern",
+      "slug": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
       "slugByLocale": {
-        "it": "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern",
+        "it": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
         "en": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
         "de": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
         "fr": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
@@ -1294,7 +1299,7 @@
       "companyDomain": "vaudoise.ch",
       "title": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
       "titleByLocale": {
-        "it": "Esperto interno (m/f/d) - 80-100 %",
+        "it": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
         "en": "Interne/r Autoexperte (m/w/d) - 80-100 %",
         "de": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
         "fr": "Interne/r Autoexperte (m/m/j) - 80-100 %"
@@ -1311,7 +1316,7 @@
       "url": "https://vaudoise.softgarden.io/job/64702594/Interne-r-Autoexperte-in-m-w-d-80-100-?jobDbPVId=275739726&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:34.117Z",
+      "crawledAt": "2026-06-29T14:29:12.276Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1328,14 +1333,16 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+        "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern",
           "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1382,7 +1389,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=276097271&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:58.727Z",
+      "crawledAt": "2026-06-29T14:29:11.947Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1459,7 +1466,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=276369111&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:58.424Z",
+      "crawledAt": "2026-06-29T14:29:11.628Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1520,7 +1527,7 @@
       "slugByLocale": {
         "it": "perdita-di-testa-gruppo-di-guadagno-di-malattia-80-100-h-f-x-vaudoise-assurances-lausanne",
         "en": "head-group-head-loss-of-sickness-gain-80-100-h-f-x-vaudoise-assurances-lausanne",
-        "de": "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
+        "de": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
         "fr": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -1530,7 +1537,7 @@
       "titleByLocale": {
         "it": "Perdita di testa/gruppo di guadagno di malattia - 80%-100% (h/f/x)",
         "en": "Head / Group Head Loss of sickness gain - 80%-100% (h/f/x)",
-        "de": "Leiter / Gruppenleiter Verlust des Krankheitsgewinns - 80% - 100% (h / f / x)",
+        "de": "Chef / Cheffe de groupe Perte de gain maladie - 80%-100% (h/f/x)",
         "fr": "Chef / Cheffe de groupe Perte de gain maladie - 80%-100% (h/f/x)"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Au sein du Département Assurances de personnes, et afin de renforcer le service Perte de gain maladie (PGM), nous recherchons un/e Chef de groupe Perte de gain maladie entre 80 et 100% , basé à Lausanne. Le rôle comporte d’une part la conduite d’une équipe de gestionnaires spécialisés et d’autre part de la gestion de dossiers de sinistres. Les missions qui vous attendent :\n• Apporter votre soutien et vos conseils techniques à vos collaborateurs dans les dossiers\n• Organiser et coordonner le travail de votre groupe : tenue de séances d’équipe, bilatérales, organisation des plans de remplacements, etc.\n• Participer activement aux séances hebdomadaires des cadres du service et collaborer étroitement avec la cheffe de service ainsi que les autres chefs de groupe\n• Former vos collaborateurs (10 personnes) et veiller à la bonne application des règles de gestion\n• Planifier, organiser et contrôler le traitement des cas de prestations de votre équipe et participer activement à l'amélioration et à la simplification des processus de traitement\n• Traiter de manière autonome et proactive une partie des cas de sinistres de votre propre portefeuille de client (à partir de l’ouverture et en étroite collaboration avec les médecins-conseils et nos Care Managers)\n• Entretenir des contacts réguliers avec les partenaires, les assurés, les employeurs et les prestataires de soins Votre profil :\n• Brevet fédéral en assurances ou titre jugé équivalent\n• Expérience confirmée dans le domaine des prestations PGM\n• Leader expérimenté(e), reconnu(e) pour votre capacité à mobiliser les équipes, à instaurer une atmosphère de travail positive et à favoriser le développement des collaborateurs, tout en prenant des décisions efficaces dans des environnements exigeants\n• De langue maternelle française, une très bonne maîtrise de l’italien constitue un atout\n• A l’aise avec les outils informatiques usuels (MS Office) Si vous êtes également un leader investi, organisé, force de proposition et faites preuve d’une forte orientation client et disposez d’un caractère positif, vous êtes alors probablement la personne que nous recherchons ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
@@ -1545,7 +1552,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=276369151&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T12:14:33.364Z",
+      "crawledAt": "2026-06-29T14:29:11.319Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1563,7 +1570,8 @@
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
         "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
-        "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne"
+        "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
+        "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1574,10 +1582,12 @@
         ],
         "de": [
           "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
+          "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
           "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1624,7 +1634,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=276369181&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:47:57.921Z",
+      "crawledAt": "2026-06-29T14:29:10.989Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1701,7 +1711,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=276446426&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:32.864Z",
+      "crawledAt": "2026-06-29T14:29:10.676Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1732,6 +1742,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1778,7 +1789,7 @@
       "url": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=276446476&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:57.371Z",
+      "crawledAt": "2026-06-29T14:29:10.338Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1855,7 +1866,7 @@
       "url": "https://vaudoise.softgarden.io/job/65328776/Junior-Portfolio-Manager-h-f-x-80-100-%09?jobDbPVId=276496586&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T12:14:32.363Z",
+      "crawledAt": "2026-06-29T14:29:10.001Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1882,6 +1893,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:12:08.402Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1928,7 +1940,7 @@
       "url": "https://vaudoise.softgarden.io/job/65519536/Costumer-Service-Mitarbeiter-in-m-w-d-%E2%80%93-100-?jobDbPVId=276707446&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:32.110Z",
+      "crawledAt": "2026-06-29T14:29:09.663Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1959,6 +1971,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:54:48.849Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2005,7 +2018,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=276977356&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:56.612Z",
+      "crawledAt": "2026-06-29T14:29:09.314Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2082,7 +2095,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=276977446&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:31.608Z",
+      "crawledAt": "2026-06-29T14:29:09.002Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -2113,6 +2126,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.678Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2159,7 +2173,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=276977456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:47:56.098Z",
+      "crawledAt": "2026-06-29T14:29:08.652Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2222,7 +2236,7 @@
       "title": "Key Account Manager/in Tierversicherungen (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Key Account Manager/in Assicurazioni per Animali (m/w/d) 80-100%",
-        "en": "Key Account Manager in Animal Insurance (m/f/d) 80-100 %",
+        "en": "Key Account Manager/in Tierversicherungen (m/w/d) 80-100%",
         "de": "Key Account Manager/in Tierversicherungen (m/w/d) 80-100%",
         "fr": "Key Account Manager/in Assurance Animaux (m/w/d) 80-100%"
       },
@@ -2238,7 +2252,7 @@
       "url": "https://vaudoise.softgarden.io/job/63569294/Key-Account-Manager-in-Tierversicherungen-m-w-d-80-100-?jobDbPVId=276977486&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:31.096Z",
+      "crawledAt": "2026-06-29T14:29:08.250Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2266,6 +2280,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:26.801Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2312,7 +2327,7 @@
       "url": "https://vaudoise.softgarden.io/job/64317263/%C3%9Cbersetzungspraktikant-in-Universit%C3%A4t-oder-Fachhochschule-m-w-x-%E2%80%93-100-?jobDbPVId=276977546&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:30.847Z",
+      "crawledAt": "2026-06-29T14:29:07.834Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2345,6 +2360,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2391,7 +2407,7 @@
       "url": "https://vaudoise.softgarden.io/job/65588916/Leiter-in-Ausbildung-%E2%80%93-Insurance-Training-m-w-d-80-100-?jobDbPVId=277043411&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:14:30.594Z",
+      "crawledAt": "2026-06-29T14:29:07.472Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2422,6 +2438,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T12:20:02.997Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2468,7 +2485,7 @@
       "url": "https://vaudoise.softgarden.io/job/65607556/Gestionnaire-Service-Client-et-Souscription-h-f-x-80-100-?jobDbPVId=277128006&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:55.056Z",
+      "crawledAt": "2026-06-29T14:29:06.864Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2524,7 +2541,7 @@
       "slugByLocale": {
         "it": "capo-dell-agenzia-h-f-x-80-100-vaudoise-assurances-nyon",
         "en": "head-of-agency-h-f-x-80-100-vaudoise-assurances-nyon",
-        "de": "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon",
+        "de": "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
         "fr": "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -2534,7 +2551,7 @@
       "titleByLocale": {
         "it": "Capo dell'Agenzia (h/f/x) - 80-100%",
         "en": "Head of Agency (h/f/x) - 80-100%",
-        "de": "Leiter der Agentur (h/f/x) - 80-100%",
+        "de": "Chef / Cheffe d'agence (h/f/x) - 80-100%",
         "fr": "Chef / Cheffe d'agence (h/f/x) - 80-100%"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de soutenir le développement réjouissant de notre agence générale La Côte, nous recherchons, pour une entrée en fonction au 1er janvier 2027, un Chef ou une Cheffe d’agence rapportant directement à l'agent général, ayant pour mission de conduire une équipe de conseillers de l’agence de Nyon et de développer les affaires de la région Nyonnaise. Les missions qui vous attendent :\n• Former, accompagner et suivre régulièrement les conseillers au service externe\n• Participer à la stratégie de l’agence\n• Prendre en charge un portefeuille clients et contribuer à son développement ; déceler les besoins de la clientèle et leur soumettre des solutions adaptées et différenciées\n• Proposer des améliorations de processus en lien avec l'évolution des outils\n• Connaître les tendances de son marché ; s'informer régulièrement de leur évolution\n• Participer et contribuer à la vie économique et sociale de son périmètre ; se créer des opportunités de contact, développer des réseaux d'indicateurs et d'apporteurs d'affaires et les influencer activement Votre profil :\n• Certificat Intermédiaire d’assurance AFA obligatoire, diplôme IAF, brevet fédéral ou titre équivalent\n• Expérience de plusieurs années réussie dans le conseil en assurances et le management d’une équipe de vente\n• Leader orienté humain et culture de la performance\n• Fort esprit entrepreneurial\n• Compétences financières et analytiques Bien intégré dans le milieu économique et social de la région, vous aimez le contact et développez des relations. Vous êtes également doté d'un leadership naturel et savez prendre des décisions. Organisé, investi et d'un caractère positif, vous êtes force de propositions et prenez volontiers des initiatives. Votre orientation client ainsi que votre aptitude à soutenir vos collègues et à travailler en équipe vous apportent une réelle valeur ajoutée. De plus, vous êtes ouvert à former des jeunes. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
@@ -2549,7 +2566,7 @@
       "url": "https://vaudoise.softgarden.io/job/64916376/Chef-Cheffe-d-agence-h-f-x-80-100-?jobDbPVId=277246401&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T12:14:30.087Z",
+      "crawledAt": "2026-06-29T14:29:06.481Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2566,7 +2583,8 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+        "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
+        "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2576,10 +2594,12 @@
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
         ],
         "de": [
+          "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon",
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2626,7 +2646,7 @@
       "url": "https://vaudoise.softgarden.io/job/63764914/Chef-Cheffe-de-service-Souscription-Choses-h-f-x-80-100-?jobDbPVId=277246426&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:54.549Z",
+      "crawledAt": "2026-06-29T14:29:06.094Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2703,7 +2723,7 @@
       "url": "https://vaudoise.softgarden.io/job/63770144/D%C3%A9veloppeur-d%C3%A9veloppeuse-Power-Platform-et-.NET-h-f-x-80-100-?jobDbPVId=277266936&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:54.296Z",
+      "crawledAt": "2026-06-29T14:29:05.690Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2780,7 +2800,7 @@
       "url": "https://vaudoise.softgarden.io/job/64946996/Ing%C3%A9nieur-ing%C3%A9nieure-Devops-h-f-x-80-%C3%A0-100-?jobDbPVId=277296641&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:47:54.026Z",
+      "crawledAt": "2026-06-29T14:29:05.318Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2807,6 +2827,7 @@
         "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch"
       ],
       "firstSeenAt": "2026-05-28T00:47:16.925Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2821,6 +2842,72 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD"
+    },
+    {
+      "id": "vaudoise-1cc6971da4aa",
+      "slug": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
+      "slugByLocale": {
+        "fr": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
+        "it": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
+        "en": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
+        "de": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Réalisateur·trice Publicitaire & Collaborateur·trice Événementiel·le (h/f/x) – 100%",
+      "titleByLocale": {
+        "fr": "Réalisateur·trice Publicitaire & Collaborateur·trice Événementiel·le (h/f/x) – 100%",
+        "it": "Réalisateur·trice Publicitaire & Collaborateur·trice Événementiel·le (h/f/x) – 100%",
+        "en": "Réalisateur·trice Publicitaire & Collaborateur·trice Événementiel·le (h/f/x) – 100%",
+        "de": "Réalisateur·trice Publicitaire & Collaborateur·trice Événementiel·le (h/f/x) – 100%"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Rattaché·e à notre Centre Logistique Événementiel, le / la Réalisateur·trice publicitaire est responsable de la mise en œuvre et du déploiement des supports visuels et de la signalétique de la Vaudoise sur l’ensemble du territoire suisse. Garant·e de la qualité et de la cohérence de notre image de marque, il / elle coordonne les réalisations publicitaires, assure le suivi des productions et contribue à l’organisation logistique de nos événements, en étroite collaboration avec les différents partenaires internes et externes. Réalisation publicitaire (50%) Gestion de la marque et de la signalétique\n• Assurer la mise en œuvre et le suivi de la communication visuelle des agences sur l’ensemble de la Suisse\n• Garantir la conformité des vitrines, de la signalétique, des véhicules et des supports de communication avec l’identité de marque Vaudoise\n• Coordonner les fournisseurs et prestataires en collaboration avec les achats\n• Assurer le suivi des réalisations et le reporting associé\n• Maintenir à jour les outils et plateformes internes de communication Production et gestion opérationnelle\n• Piloter les projets de production, d’impression et de déploiement des supports visuels\n• Superviser l’application de la charte graphique et l’adaptation des supports aux besoins de communication\n• Gérer les stocks, les commandes et les livraisons des supports publicitaires\n• Participer à la coordination des interventions sur site\n• Apporter un soutien visuel aux équipes lors d’actions de communication et d’événements Événements et logistique (50%) Organisation et support événementiel\n• Assurer la préparation, le transport, l’installation et le démontage du matériel lors des événements organisés par la Vaudoise en Suisse\n• Garantir la bonne gestion logistique des stands, supports publicitaires et équipements\n• Contribuer à la qualité des événements en proposant des solutions pratiques et créatives\n• Réaliser le suivi administratif des événements (reporting, documentation, photos)\n• Préparer et expédier le matériel nécessaire aux différentes manifestations Amélioration continue et présence terrain\n• Participer à l'optimisation des processus et des méthodes de travail\n• Alterner efficacement entre activités administratives et interventions terrain\n• Faire preuve de flexibilité lors des événements, y compris en soirée et le week-end\n• Assurer un reporting régulier à la hiérarchie\n• Effectuer des déplacements fréquents dans toute la Suisse Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)",
+      "descriptionByLocale": {
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Rattaché·e à notre Centre Logistique Événementiel, le / la Réalisateur·trice publicitaire est responsable de la mise en œuvre et du déploiement des supports visuels et de la signalétique de la Vaudoise sur l’ensemble du territoire suisse. Garant·e de la qualité et de la cohérence de notre image de marque, il / elle coordonne les réalisations publicitaires, assure le suivi des productions et contribue à l’organisation logistique de nos événements, en étroite collaboration avec les différents partenaires internes et externes. Réalisation publicitaire (50%) Gestion de la marque et de la signalétique\n• Assurer la mise en œuvre et le suivi de la communication visuelle des agences sur l’ensemble de la Suisse\n• Garantir la conformité des vitrines, de la signalétique, des véhicules et des supports de communication avec l’identité de marque Vaudoise\n• Coordonner les fournisseurs et prestataires en collaboration avec les achats\n• Assurer le suivi des réalisations et le reporting associé\n• Maintenir à jour les outils et plateformes internes de communication Production et gestion opérationnelle\n• Piloter les projets de production, d’impression et de déploiement des supports visuels\n• Superviser l’application de la charte graphique et l’adaptation des supports aux besoins de communication\n• Gérer les stocks, les commandes et les livraisons des supports publicitaires\n• Participer à la coordination des interventions sur site\n• Apporter un soutien visuel aux équipes lors d’actions de communication et d’événements Événements et logistique (50%) Organisation et support événementiel\n• Assurer la préparation, le transport, l’installation et le démontage du matériel lors des événements organisés par la Vaudoise en Suisse\n• Garantir la bonne gestion logistique des stands, supports publicitaires et équipements\n• Contribuer à la qualité des événements en proposant des solutions pratiques et créatives\n• Réaliser le suivi administratif des événements (reporting, documentation, photos)\n• Préparer et expédier le matériel nécessaire aux différentes manifestations Amélioration continue et présence terrain\n• Participer à l'optimisation des processus et des méthodes de travail\n• Alterner efficacement entre activités administratives et interventions terrain\n• Faire preuve de flexibilité lors des événements, y compris en soirée et le week-end\n• Assurer un reporting régulier à la hiérarchie\n• Effectuer des déplacements fréquents dans toute la Suisse Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)",
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Rattaché·e à notre Centre Logistique Événementiel, le / la Réalisateur·trice publicitaire est responsable de la mise en œuvre et du déploiement des supports visuels et de la signalétique de la Vaudoise sur l’ensemble du territoire suisse. Garant·e de la qualité et de la cohérence de notre image de marque, il / elle coordonne les réalisations publicitaires, assure le suivi des productions et contribue à l’organisation logistique de nos événements, en étroite collaboration avec les différents partenaires internes et externes. Réalisation publicitaire (50%) Gestion de la marque et de la signalétique\n• Assurer la mise en œuvre et le suivi de la communication visuelle des agences sur l’ensemble de la Suisse\n• Garantir la conformité des vitrines, de la signalétique, des véhicules et des supports de communication avec l’identité de marque Vaudoise\n• Coordonner les fournisseurs et prestataires en collaboration avec les achats\n• Assurer le suivi des réalisations et le reporting associé\n• Maintenir à jour les outils et plateformes internes de communication Production et gestion opérationnelle\n• Piloter les projets de production, d’impression et de déploiement des supports visuels\n• Superviser l’application de la charte graphique et l’adaptation des supports aux besoins de communication\n• Gérer les stocks, les commandes et les livraisons des supports publicitaires\n• Participer à la coordination des interventions sur site\n• Apporter un soutien visuel aux équipes lors d’actions de communication et d’événements Événements et logistique (50%) Organisation et support événementiel\n• Assurer la préparation, le transport, l’installation et le démontage du matériel lors des événements organisés par la Vaudoise en Suisse\n• Garantir la bonne gestion logistique des stands, supports publicitaires et équipements\n• Contribuer à la qualité des événements en proposant des solutions pratiques et créatives\n• Réaliser le suivi administratif des événements (reporting, documentation, photos)\n• Préparer et expédier le matériel nécessaire aux différentes manifestations Amélioration continue et présence terrain\n• Participer à l'optimisation des processus et des méthodes de travail\n• Alterner efficacement entre activités administratives et interventions terrain\n• Faire preuve de flexibilité lors des événements, y compris en soirée et le week-end\n• Assurer un reporting régulier à la hiérarchie\n• Effectuer des déplacements fréquents dans toute la Suisse Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Rattaché·e à notre Centre Logistique Événementiel, le / la Réalisateur·trice publicitaire est responsable de la mise en œuvre et du déploiement des supports visuels et de la signalétique de la Vaudoise sur l’ensemble du territoire suisse. Garant·e de la qualité et de la cohérence de notre image de marque, il / elle coordonne les réalisations publicitaires, assure le suivi des productions et contribue à l’organisation logistique de nos événements, en étroite collaboration avec les différents partenaires internes et externes. Réalisation publicitaire (50%) Gestion de la marque et de la signalétique\n• Assurer la mise en œuvre et le suivi de la communication visuelle des agences sur l’ensemble de la Suisse\n• Garantir la conformité des vitrines, de la signalétique, des véhicules et des supports de communication avec l’identité de marque Vaudoise\n• Coordonner les fournisseurs et prestataires en collaboration avec les achats\n• Assurer le suivi des réalisations et le reporting associé\n• Maintenir à jour les outils et plateformes internes de communication Production et gestion opérationnelle\n• Piloter les projets de production, d’impression et de déploiement des supports visuels\n• Superviser l’application de la charte graphique et l’adaptation des supports aux besoins de communication\n• Gérer les stocks, les commandes et les livraisons des supports publicitaires\n• Participer à la coordination des interventions sur site\n• Apporter un soutien visuel aux équipes lors d’actions de communication et d’événements Événements et logistique (50%) Organisation et support événementiel\n• Assurer la préparation, le transport, l’installation et le démontage du matériel lors des événements organisés par la Vaudoise en Suisse\n• Garantir la bonne gestion logistique des stands, supports publicitaires et équipements\n• Contribuer à la qualité des événements en proposant des solutions pratiques et créatives\n• Réaliser le suivi administratif des événements (reporting, documentation, photos)\n• Préparer et expédier le matériel nécessaire aux différentes manifestations Amélioration continue et présence terrain\n• Participer à l'optimisation des processus et des méthodes de travail\n• Alterner efficacement entre activités administratives et interventions terrain\n• Faire preuve de flexibilité lors des événements, y compris en soirée et le week-end\n• Assurer un reporting régulier à la hiérarchie\n• Effectuer des déplacements fréquents dans toute la Suisse Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Rattaché·e à notre Centre Logistique Événementiel, le / la Réalisateur·trice publicitaire est responsable de la mise en œuvre et du déploiement des supports visuels et de la signalétique de la Vaudoise sur l’ensemble du territoire suisse. Garant·e de la qualité et de la cohérence de notre image de marque, il / elle coordonne les réalisations publicitaires, assure le suivi des productions et contribue à l’organisation logistique de nos événements, en étroite collaboration avec les différents partenaires internes et externes. Réalisation publicitaire (50%) Gestion de la marque et de la signalétique\n• Assurer la mise en œuvre et le suivi de la communication visuelle des agences sur l’ensemble de la Suisse\n• Garantir la conformité des vitrines, de la signalétique, des véhicules et des supports de communication avec l’identité de marque Vaudoise\n• Coordonner les fournisseurs et prestataires en collaboration avec les achats\n• Assurer le suivi des réalisations et le reporting associé\n• Maintenir à jour les outils et plateformes internes de communication Production et gestion opérationnelle\n• Piloter les projets de production, d’impression et de déploiement des supports visuels\n• Superviser l’application de la charte graphique et l’adaptation des supports aux besoins de communication\n• Gérer les stocks, les commandes et les livraisons des supports publicitaires\n• Participer à la coordination des interventions sur site\n• Apporter un soutien visuel aux équipes lors d’actions de communication et d’événements Événements et logistique (50%) Organisation et support événementiel\n• Assurer la préparation, le transport, l’installation et le démontage du matériel lors des événements organisés par la Vaudoise en Suisse\n• Garantir la bonne gestion logistique des stands, supports publicitaires et équipements\n• Contribuer à la qualité des événements en proposant des solutions pratiques et créatives\n• Réaliser le suivi administratif des événements (reporting, documentation, photos)\n• Préparer et expédier le matériel nécessaire aux différentes manifestations Amélioration continue et présence terrain\n• Participer à l'optimisation des processus et des méthodes de travail\n• Alterner efficacement entre activités administratives et interventions terrain\n• Faire preuve de flexibilité lors des événements, y compris en soirée et le week-end\n• Assurer un reporting régulier à la hiérarchie\n• Effectuer des déplacements fréquents dans toute la Suisse Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/65675871/R%C3%A9alisateur%C2%B7trice-Publicitaire-Collaborateur%C2%B7trice-%C3%89v%C3%A9nementiel%C2%B7le-h-f-x-%E2%80%93-100-?jobDbPVId=277362716&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-29T14:29:04.890Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "29/06/26",
+      "applyUrl": "https://vaudoise.softgarden.io/job/65675871/R%C3%A9alisateur%C2%B7trice-Publicitaire-Collaborateur%C2%B7trice-%C3%89v%C3%A9nementiel%C2%B7le-h-f-x-%E2%80%93-100-?jobDbPVId=277362716&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobCategory": "Marketing, media, RP e comunicazione",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-06-29T14:29:04.890Z"
     }
   ]
 }
