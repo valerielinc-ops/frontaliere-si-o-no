@@ -8186,6 +8186,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bancomat-processo-varesenews-2023.title': 'Utilizzo illecito di bancomat: processo a Varese e implicazioni',
     'blog.article.bancomat-processo-varesenews-2023.excerpt': 'Una donna accusata di utilizzo indebito del bancomat di un vicino: processo avviato il 29 giugno con acquisti inferiori a 300 euro.',
     'blog.article.bancomat-processo-varesenews-2023.imageAlt': 'Vista urbana di Mendrisio con negozi locali e passanti.',
+    'blog.article.eventi-weekend-ticino.title': 'Eventi del weekend in Ticino: cosa fare sabato e domenica',
+    'blog.article.eventi-weekend-ticino.excerpt': 'Eventi in Ticino ogni weekend: concerti, mostre, feste e mercati, comune per comune. Agenda aggiornata ogni giorno.',
+    'blog.article.eventi-weekend-ticino.imageAlt': 'Eventi del weekend in Ticino',
 };
 
 export default blogMetaIt;

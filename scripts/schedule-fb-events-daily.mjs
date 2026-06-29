@@ -155,7 +155,16 @@ export function selectWeekendDigest(events, todayIso, postedSet) {
   if (postedSet && postedSet.has(id)) return null;
   const weekend = weekendEvents(events, todayIso);
   if (weekend.length === 0) return null;
-  return { id, url: WEEKEND_DIGEST_URL, message: buildWeekendDigestCaption(weekend, todayIso), placeId: null };
+  return {
+    id,
+    url: WEEKEND_DIGEST_URL,
+    message: buildWeekendDigestCaption(weekend, todayIso),
+    placeId: null,
+    // Mark the events the roundup covers so they are ledgered too — the Sat/Sun
+    // per-event poster then skips them instead of re-posting what the digest
+    // already covered (keeps the "no flooding" guarantee across the weekend).
+    coveredIds: weekend.map((e) => e?.id).filter(Boolean),
+  };
 }
 
 /**
@@ -196,10 +205,19 @@ export async function run(opts = {}) {
   // On the weekly digest day (Friday by default; FB_EVENTS_DIGEST_DOW overrides,
   // 0=Sun…6=Sat, set <0 to disable) post ONE weekend roundup linking to the
   // /questo-weekend/ landing instead of individual per-event posts — covers the
-  // weekend in a single post without flooding the Page.
+  // weekend in a single post without flooding the Page. The cron fires mid-day
+  // UTC (08:50/16:50), which is still Friday in both UTC and Europe/Zurich, so
+  // the UTC-based getUTCDay() never straddles the day boundary.
   const rawDow = env.FB_EVENTS_DIGEST_DOW;
-  const digestDow = rawDow == null || rawDow === '' ? 5 : Number(rawDow);
-  const isDigestDay = Number.isInteger(digestDow) && new Date(`${todayIso}T00:00:00Z`).getUTCDay() === digestDow;
+  let digestDow = 5;
+  if (rawDow != null && rawDow !== '') {
+    digestDow = Number(rawDow);
+    if (!Number.isInteger(digestDow)) {
+      warn('⚠️', `FB_EVENTS_DIGEST_DOW='${rawDow}' is not an integer 0-6 — weekend digest disabled this run`);
+    }
+  }
+  const isDigestDay =
+    Number.isInteger(digestDow) && digestDow >= 0 && digestDow <= 6 && new Date(`${todayIso}T00:00:00Z`).getUTCDay() === digestDow;
   const weekendStart = weekendWindow(todayIso).start;
   const digestAlreadyPosted = postedSet.has(`weekend-digest-${weekendStart}`);
   const digestPayload = isDigestDay ? selectWeekendDigest(dataset.events, todayIso, postedSet) : null;
@@ -289,8 +307,15 @@ export async function run(opts = {}) {
 
     if (res?.ok && data?.id) {
       posted += 1;
-      appendLedger(ledgerPath, [{ id: p.id, url: p.url, postId: data.id, postedAt: new Date().toISOString() }]);
-      log('✅', `posted ${p.id} → ${data.id}`);
+      const now = new Date().toISOString();
+      const entries = [{ id: p.id, url: p.url, postId: data.id, postedAt: now }];
+      // A weekend roundup also ledgers the events it covers, so the Sat/Sun
+      // per-event poster won't re-post them individually.
+      for (const coveredId of p.coveredIds || []) {
+        if (coveredId !== p.id) entries.push({ id: coveredId, viaDigest: p.id, postedAt: now });
+      }
+      appendLedger(ledgerPath, entries);
+      log('✅', `posted ${p.id} → ${data.id}${p.coveredIds?.length ? ` (covers ${p.coveredIds.length} events)` : ''}`);
     } else {
       warn('⚠️', `FB API error for ${p.id}: ${JSON.stringify(data).slice(0, 200)}`);
     }

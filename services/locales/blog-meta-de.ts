@@ -8184,6 +8184,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bancomat-processo-varesenews-2023.title': 'Illegale Nutzung von Geldautomaten: Prozess in Varese und Implikationen',
     'blog.article.bancomat-processo-varesenews-2023.excerpt': 'Eine Frau wird beschuldigt, den Geldautomaten eines Nachbarn missbraucht zu haben: Der Prozess wurde am 29. Juni mit Einkäufen unter 300 Euro eingeleitet.',
     'blog.article.bancomat-processo-varesenews-2023.imageAlt': 'Stadtansicht von Mendrisio mit lokalen Geschäften und Passanten.',
+    'blog.article.eventi-weekend-ticino.title': 'Veranstaltungen am Wochenende im Tessin: was tun Sa & So',
+    'blog.article.eventi-weekend-ticino.excerpt': 'Veranstaltungen im Tessin an jedem Wochenende: Konzerte, Ausstellungen, Feste und Märkte, Gemeinde für Gemeinde. Täglich aktualisiert.',
+    'blog.article.eventi-weekend-ticino.imageAlt': 'Veranstaltungen am Wochenende im Tessin',
 };
 
 export default blogMetaDe;

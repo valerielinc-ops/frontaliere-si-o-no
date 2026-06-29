@@ -209,6 +209,24 @@ describe('run() weekend digest', () => {
     expect(ledger.posted.map((e: { id: string }) => e.id)).toContain('weekend-digest-2027-01-02');
   });
 
+  it('the weekend roundup also ledgers the events it covers', async () => {
+    const root = digestRepo();
+    await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK' },
+      repoRoot: root,
+      todayIso: '2027-01-01', // Friday
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost1' }) }),
+      log: () => {},
+      warn: () => {},
+    });
+    const ledger = JSON.parse(readFileSync(path.join(root, 'data', 'fb-posted-events.json'), 'utf-8'));
+    const ids = ledger.posted.map((e: { id: string }) => e.id);
+    expect(ids).toContain('weekend-digest-2027-01-02');
+    // the two weekend events the roundup covers are ledgered → Sat/Sun won't re-post them
+    expect(ids).toContain('tio-agenda:wk');
+    expect(ids).toContain('tio-agenda:wk2');
+  });
+
   it('on a non-digest day posts individual events, not the digest', async () => {
     const root = digestRepo();
     const res = await run({
