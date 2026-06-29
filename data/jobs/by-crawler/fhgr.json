@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-06-29T13:00:19.201Z",
+  "assembledAt": "2026-06-29T22:17:40.274Z",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:00:16.822Z",
+      "crawledAt": "2026-06-29T22:17:37.932Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -81,16 +81,19 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch"
+          "bauingenieur-in-fhgr-ch",
+          "bauingenieur-in-fachhochschule-graubunden-chur"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch"
+          "bauingenieur-in-fhgr-ch",
+          "ingegnere-civile-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
