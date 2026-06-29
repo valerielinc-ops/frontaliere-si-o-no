@@ -2888,12 +2888,28 @@ async function fetchPageContent(url) {
     console.error(`📊 Articolo statistica BFS: trimestre ${quarter}`);
     return await buildStatsBfsPromptContent(quarter);
   }
-  // Handle evergreen topics — no URL to fetch, use keyword angle as content
+  // Handle evergreen topics — no URL to fetch, use keyword angle as content.
+  //
+  // Evergreen articles have NO real news source, so the synthetic prompt below
+  // IS the article's only "SOURCE CONTENT". Historically it told the model to
+  // "use only verified, stable facts" WITHOUT supplying any — so free-tier
+  // models filled the gap from training data and routinely hallucinated the
+  // stable cross-border facts (imposta alla fonte location, accordo dates,
+  // franchigia, 20km threshold, transitional period). The fact-checker, which
+  // DOES carry VERIFIED_DOMAIN_FACTS as ground truth, then blocked every such
+  // article on consensus criticals → the frontaliere evergreen path produced
+  // ~0 articles/run for days (issue #2947: frontaliere cadence collapsed while
+  // svizzera — mostly real-news, already source-grounded — kept producing).
+  //
+  // Fix: feed the SAME VERIFIED_DOMAIN_FACTS sheet into the generation prompt.
+  // REGOLA #1 ("ogni fatto DEVE essere presente nel SOURCE CONTENT") then works
+  // FOR convergence instead of against it: the model rewrites from the exact
+  // values the fact-checker validates against. No gate is lowered.
   if (url.startsWith('evergreen://')) {
     const keyword = process.env._EVERGREEN_KEYWORD || decodeURIComponent(url.replace('evergreen://', ''));
     const angle = process.env._EVERGREEN_ANGLE || '';
     console.error(`📚 Articolo evergreen: "${keyword}"`);
-    return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Usa solo fatti verificati e stabili sul dominio frontalieri Ticino-Italia. Se servono esempi, presentali come scenari ipotetici, senza nomi, aziende, città o importi specifici inventati.`;
+    return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Usa solo fatti verificati e stabili sul dominio frontalieri Ticino-Italia. Se servono esempi, presentali come scenari ipotetici, senza nomi, aziende, città o importi specifici inventati.\n\n${VERIFIED_DOMAIN_FACTS}\n\n⚠️ I FATTI VERIFICATI qui sopra sono la TUA SOURCE CONTENT autorevole: date, aliquote, franchigie, istituzioni e numeri DEVONO corrispondere ESATTAMENTE a quei valori (lo stesso foglio è usato dal fact-checker, che blocca l'articolo se divergi). Per dettagli NON coperti dal foglio, attieniti a nozioni stabili e generali del dominio; se un dato specifico non è certo, ometti o usa formulazioni qualitative invece di inventare cifre/date precise.`;
   }
   console.error(`📰 Fetching: ${url}`);
   try {
