@@ -4905,6 +4905,66 @@ export function registerJobSlug(job, registry) {
   };
 }
 
+/**
+ * Backfill missing per-locale slugs into an EXISTING registry entry.
+ *
+ * `registerJobSlug` is immutable per-ENTRY (first write wins) and only captures
+ * the locales a job carried when it was FIRST seen. A job first registered
+ * before its AI localization finished therefore has only its source-locale slug
+ * pinned (real-world: Swiss Life Workday `_R11696`, registered 2026-04-11 with
+ * `slugByLocale.en` only). The later-translated locales are then NEVER added to
+ * the registry, so they are re-derived from the (non-deterministic) AI title on
+ * every crawl → per-locale slug churn → the old per-locale URL is stranded with
+ * no redirect (it falls through to the noindex soft-landing).
+ *
+ * This makes the registry immutable per-LOCALE instead of per-entry: it ADDS a
+ * locale the first time a REAL translation for it exists and never overwrites an
+ * already-pinned locale (`canonicalSlug` and existing locales stay immutable).
+ * The same source-copy guard as `registryPinnedLocaleSlug` is applied — a
+ * non-source locale whose slug merely copies the source-locale slug is NOT a
+ * real translation yet, so pinning it would lock a copy in permanently; it is
+ * skipped and stays free to settle once a genuine translation arrives.
+ *
+ * Mutates `registered.slugByLocale` in place (a live reference into the loaded
+ * registry; the caller persists it via `saveSlugRegistry`). Returns the number
+ * of locales added.
+ *
+ * @param {object|null} registered  registry entry (from getRegisteredSlug)
+ * @param {object} job              current job carrying real per-locale slugs
+ * @param {string|null} srcLang     job source language
+ * @returns {number}
+ */
+export function backfillRegistryLocaleSlugs(registered, job, srcLang) {
+  if (!registered || !job || !job.slugByLocale || typeof job.slugByLocale !== 'object') return 0;
+  if (!registered.slugByLocale || typeof registered.slugByLocale !== 'object') {
+    registered.slugByLocale = {};
+  }
+  const src = srcLang || null;
+  const srcSlug = src ? normalizeSpace(String(job.slugByLocale[src] || '')) : '';
+  let added = 0;
+  for (const locale of LOCALES) {
+    // Keep the immutable source-locale slot and any locale already pinned with a
+    // REAL translation. A slot that merely COPIES the source slug is NOT a real
+    // pin (registryPinnedLocaleSlug returns null for it) and was therefore never
+    // served as canonical — so it must NOT mask the source-copy sub-class:
+    // overwrite it once a genuine translation exists (nothing is lost). Early
+    // entries (KSBL-style) whose later locales were byte-copies of the source
+    // would otherwise stay un-pinned forever.
+    if (registered.slugByLocale[locale]) {
+      if (locale === src) continue;
+      if (registryPinnedLocaleSlug(registered, locale, src)) continue;
+    }
+    const cur = normalizeSpace(String(job.slugByLocale[locale] || ''));
+    if (!cur) continue;
+    // Don't write a non-source locale that merely copies the source slug — still
+    // no real translation yet (mirrors registryPinnedLocaleSlug's source-copy guard).
+    if (src && locale !== src && srcSlug && cur === srcSlug) continue;
+    registered.slugByLocale[locale] = cur;
+    added += 1;
+  }
+  return added;
+}
+
 // ── Slug generation ──────────────────────────────────────────
 
 export function ensureJobSlug(job) {
@@ -6176,6 +6236,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   let registryHits = 0;
   let registryNewEntries = 0;
   let registryDemotions = 0;
+  let registryBackfills = 0;
   const usedSlugs = new Set();
   for (const job of deduped) {
     const registered = getRegisteredSlug(job, slugRegistry);
@@ -6220,6 +6281,12 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       if (enforceMaster) {
         job.slug = registered.canonicalSlug;
       }
+      // Backfill any locale the registry is still missing a REAL translation
+      // for. Early entries (registered before AI localization finished) hold
+      // only the source-locale slug, so the other locales never get pinned and
+      // churn every crawl → old per-locale URL stranded. Persisting the current
+      // real translation makes the registry immutable per-locale going forward.
+      registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
       const lost = captureLostSlugs(job, prevSlugByLocale, prevSlug);
       if (lost.length > 0) registryDemotions += lost.length;
       usedSlugs.add(job.slug);
@@ -6241,8 +6308,8 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;
   }
   saveSlugRegistry(slugRegistry);
-  if (registryHits > 0 || registryNewEntries > 0 || registryDemotions > 0) {
-    console.log(`🔒 Slug registry: ${registryHits} locked from registry (${registryDemotions} drift slugs demoted to previousSlugs), ${registryNewEntries} new entries added (${Object.keys(slugRegistry).length} total)`);
+  if (registryHits > 0 || registryNewEntries > 0 || registryDemotions > 0 || registryBackfills > 0) {
+    console.log(`🔒 Slug registry: ${registryHits} locked from registry (${registryDemotions} drift slugs demoted to previousSlugs), ${registryNewEntries} new entries added, ${registryBackfills} locale slugs backfilled (${Object.keys(slugRegistry).length} total)`);
   }
 
   return {
