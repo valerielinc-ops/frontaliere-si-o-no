@@ -45197,6 +45197,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-intesa-mps-opas-azioni-contanti': {
+    title: 'Intesa Sanpaolo lancia Opas su Monte dei Paschi con offerta azioni e contanti',
+    description: 'Intesa Sanpaolo ha depositato il documento Opas su Monte dei Paschi: 1,6 azioni Intesa più 1 euro per azione Mps conferita. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, intesa, sanpaolo, lancia, opas',
+    ogTitle: 'Intesa Sanpaolo lancia Opas su Monte dei Paschi con offerta in azioni e denaro',
+    ogDescription: 'Intesa Sanpaolo ha formalizzato l\'offerta pubblica su Mps con corrispettivo in azioni e contanti, depositando il documento presso Consob.',
+    canonicalPath: '/articoli-frontaliere/intesa-mps-opas-azioni-contanti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intesa Sanpaolo lancia Opas su Monte dei Paschi con offerta azioni e contanti",
+      "description": "Intesa Sanpaolo ha depositato il documento Opas su Monte dei Paschi: 1,6 azioni Intesa più 1 euro per azione Mps conferita. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/intesa-mps-opas-azioni-contanti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il centro finanziario sullo sfondo, giornata soleggiata"
+      },
+      "datePublished": "2026-06-29T14:24:57+00:00",
+      "dateModified": "2026-06-29T14:24:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/intesa-mps-opas-azioni-contanti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
