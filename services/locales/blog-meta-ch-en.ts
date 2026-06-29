@@ -730,6 +730,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lidl-svizzera-lavora-con-noi.title': 'Working at Lidl Switzerland: up-to-date opportunities and procedures',
     'blog.article.lidl-svizzera-lavora-con-noi.excerpt': 'Lidl offers job opportunities throughout Switzerland. Learn how to apply, what positions are available, and what procedures to follow.',
     'blog.article.lidl-svizzera-lavora-con-noi.imageAlt': 'Modern supermarket entrance in Switzerland, Alps in the background.',
+    'blog.article.concorsi-pubblici-ticino-guida-nazionale.title': 'Public competitions in Ticino: updated national guide',
+    'blog.article.concorsi-pubblici-ticino-guida-nazionale.excerpt': 'Overview of public competitions in Lugano and Ticino: where to find them, bodies involved, methods of participation and practical process.',
+    'blog.article.concorsi-pubblici-ticino-guida-nazionale.imageAlt': 'Lugano city hall and square during a public competition.',
 };
 
 export default blogMetaChEn;

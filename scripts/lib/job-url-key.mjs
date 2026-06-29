@@ -157,15 +157,20 @@ export function lowerStripTrailingSlash(url) {
  * leaving 1 job-detail file for N distinct postings (observed: lwphr/cseb/refline/
  * flury/caritas/spital-limmattal, ~55 jobs). The three rules below fix the whole
  * class while preserving every key whose id already lives in the leaf:
- *   W. Workday host (`*.myworkdayjobs.com`) → the requisition id, i.e. the leaf
- *      suffix after the FIRST underscore (`Title_R11696` → `r11696`). Workday puts
- *      the renamable title text BEFORE the `_<req>` separator, and the generic
- *      rules miss most req formats (`R11696` is `R`+5 digits — below `\b\d{6,}\b`;
- *      `REQ-16005` is non-numeric+5 digits → whole-URL fallback). Without this a
- *      Workday title rename fragments the merge and orphans the old slug (no
- *      previousSlug captured → soft-landing; observed: Swiss Life `_R11696`). See
- *      workdayReqFromLeaf for the format-agnostic extraction; host-gated so no
- *      other crawler's key changes, re-posting suffixes (`-N`/`_N`) KEPT.
+ *   W. Workday host (`*.myworkdayjobs.com`) → `req:<full-host>:<req>`, where <req>
+ *      is the leaf suffix after the FIRST underscore (`Title_R11696` → `r11696`).
+ *      Workday puts the renamable title text BEFORE the `_<req>` separator, and the
+ *      generic rules miss most req formats (`R11696` is `R`+5 digits — below
+ *      `\b\d{6,}\b`; `REQ-16005` is non-numeric+5 digits → whole-URL fallback).
+ *      Without this a Workday title rename fragments the merge and orphans the old
+ *      slug (no previousSlug captured → soft-landing; observed: Swiss Life `_R11696`).
+ *      The FULL host is prefixed because every Workday tenant shares the
+ *      `myworkdayjobs.com` registrable domain, so a bare requisition (`R11696`)
+ *      would collide across distinct employers in a multi-tenant match set —
+ *      mirrors extractJobIdentityFromUrl's full-host identity (one consistent
+ *      Workday key). See workdayReqFromLeaf for the format-agnostic extraction;
+ *      host-gated so no other crawler's key changes, re-posting suffixes
+ *      (`-N`/`_N`) KEPT.
  *   A. generic-index / document-file leaf + numeric/hex legacy token → per-job
  *      query id if present (`…/index.html?id=NNN`), else full URL (the only token
  *      is a shared folder/company id or a `%20`+year artifact).
@@ -186,9 +191,18 @@ export function mergeUrlKey(url) {
 
   // Rule W — Workday requisition id (host-gated). The stable per-job token is the
   // leaf suffix after the first underscore (title text precedes it, freely renamed).
+  // Prefix the FULL host: all Workday tenants share the `myworkdayjobs.com`
+  // registrable domain, so a bare requisition (`R11696`) would collide across
+  // distinct employers in a multi-tenant match set. Mirrors extractJobIdentityFromUrl's
+  // full-host identity (dedicated-crawler-common.mjs) for one consistent Workday key.
+  // Free re-key: the merge key is recomputed live every crawl (never persisted), so
+  // both the existing job and the fresh crawl rederive the host-prefixed form → match.
   if (WORKDAY_HOST_RE.test(u)) {
     const req = workdayReqFromLeaf(leaf);
-    if (req) return `req:${req}`;
+    if (req) {
+      const host = u.match(/^https?:\/\/([^/]+)/)?.[1] || '';
+      return `req:${host}:${req}`;
+    }
   }
 
   // Rule A — generic-page / document-file leaf whose only PATH token is a shared

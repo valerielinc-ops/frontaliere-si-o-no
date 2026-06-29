@@ -2228,7 +2228,7 @@ const MODEL_MAX_OUTPUT_TOKENS = {
  * @param {object} opts — Merged options
  * @param {object} provider — { endpoint, apiKey, providerName, trackAs, extraHeaders }
  */
-async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, extraHeaders, _suppressExhaustionMark = false }) {
+async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, extraHeaders, dispatcher, _suppressExhaustionMark = false }) {
   if (!apiKey) throw new Error(`${providerName} API key not set`);
   const modelForTracking = trackAs || apiModel;
   const displayModel = providerName === 'GitHub' ? apiModel : `${providerName}/${apiModel}`;
@@ -2290,6 +2290,10 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         },
         body: JSON.stringify(body),
         signal: AbortSignal.timeout(opts.timeout),
+        // Local CPU inference buffers the whole completion before sending
+        // headers; without a dispatcher raising undici's 300s headersTimeout,
+        // a slow local model dies as `fetch failed` long before the AbortSignal.
+        ...(dispatcher ? { dispatcher } : {}),
       });
 
       const raw = await res.text().catch(() => '');
@@ -2659,15 +2663,45 @@ function _callZai(model, messages, opts) {
  * Uses a generous timeout floor because CPU inference is slow. The served model
  * name comes from LOCAL_LLM_MODEL (getApiModelId already resolves it).
  */
-function _callLocal(model, messages, opts) {
+// Cached undici dispatcher for the local provider. Node's global fetch defaults
+// `headersTimeout`/`bodyTimeout` to 300s; non-streaming CPU inference buffers the
+// whole completion before sending response headers, so a slow local model (e.g.
+// qwen2.5:7b on a CPU runner) trips that 300s limit and surfaces as
+// `TypeError: fetch failed` — long before our AbortSignal.timeout fires. Raising
+// both undici timeouts to the real local budget lets a full generation complete.
+// Keyed by timeout so a changed LOCAL_LLM_TIMEOUT_MS rebuilds the agent. `null`
+// memoizes "undici unavailable" → degrade to global fetch defaults (remote-only env).
+let _localDispatcher; // undefined = not built; null = unavailable
+let _localDispatcherTimeout = 0;
+async function _getLocalDispatcher(timeoutMs) {
+  if (_localDispatcher !== undefined && _localDispatcherTimeout === timeoutMs) {
+    return _localDispatcher || undefined;
+  }
+  try {
+    const { Agent } = await import('undici');
+    _localDispatcher = new Agent({
+      headersTimeout: timeoutMs,
+      bodyTimeout: timeoutMs,
+      connectTimeout: 10_000,
+    });
+  } catch {
+    _localDispatcher = null; // undici not importable — global fetch defaults apply
+  }
+  _localDispatcherTimeout = timeoutMs;
+  return _localDispatcher || undefined;
+}
+
+async function _callLocal(model, messages, opts) {
   const apiModel = getApiModelId(model); // = getLocalLlmModelId()
   // Raise the timeout floor for slow CPU inference (caller's timeout may be ~60s).
-  const localOpts = { ...opts, timeout: Math.max(opts.timeout || 0, getLocalLlmTimeoutMs()) };
-  return _callOpenAICompatible(apiModel, messages, localOpts, {
+  const timeout = Math.max(opts.timeout || 0, getLocalLlmTimeoutMs());
+  const dispatcher = await _getLocalDispatcher(timeout);
+  return _callOpenAICompatible(apiModel, messages, { ...opts, timeout }, {
     endpoint: getLocalLlmUrl(),
     apiKey: getLocalLlmApiKey(),
     providerName: 'Local',
     trackAs: model,
+    dispatcher,
   });
 }
 

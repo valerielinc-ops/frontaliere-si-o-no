@@ -7668,7 +7668,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3019, "name": "Stipendi frontalieri e privacy: dati svelati ne...", "url": `${BASE_URL}/articoli-frontaliere/dati-stipendi-frontalieri-privacy-2024` },
           { "@type": "ListItem", "position": 3020, "name": "Calcolo tasse frontalieri oltre 20 km: regole e...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-tasse-frontalieri-oltre-20km` },
           { "@type": "ListItem", "position": 3021, "name": "Lavorare in Lidl Svizzera: opportunità e proced...", "url": `${BASE_URL}/articoli-frontaliere/lidl-svizzera-lavora-con-noi` },
-          { "@type": "ListItem", "position": 3022, "name": "Eventi del weekend in Ticino: cosa fare sabato ...", "url": `${BASE_URL}/articoli-frontaliere/eventi-weekend-ticino` }
+          { "@type": "ListItem", "position": 3022, "name": "Eventi del weekend in Ticino: cosa fare sabato ...", "url": `${BASE_URL}/articoli-frontaliere/eventi-weekend-ticino` },
+          { "@type": "ListItem", "position": 3023, "name": "Concorsi pubblici in Ticino: guida nazionale ag...", "url": `${BASE_URL}/articoli-frontaliere/concorsi-pubblici-ticino-guida-nazionale` }
  ]
  },
  {

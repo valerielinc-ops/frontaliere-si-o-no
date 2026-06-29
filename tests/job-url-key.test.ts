@@ -52,25 +52,36 @@ describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', (
   const SWISS_LIFE = 'https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-en-immobilier--f-h-d-----Agence-gnrale-Sion-Valais-romand--Rgion-Sion---Sierre-_R11696';
   it('extracts the requisition id and survives a title rename', () => {
     const renamed = 'https://swisslife.wd3.myworkdayjobs.com/de-DE/Swiss_Life_Career_Site/job/Sion/Immobilienberater--w-m-d-_R11696';
-    expect(mergeUrlKey(SWISS_LIFE)).toBe('req:r11696');
+    expect(mergeUrlKey(SWISS_LIFE)).toBe('req:swisslife.wd3.myworkdayjobs.com:r11696');
     expect(mergeUrlKey(SWISS_LIFE)).toBe(mergeUrlKey(renamed));
   });
-  it('extracts every vendor requisition format (after-first-underscore)', () => {
-    // R / JR / SJR
-    expect(mergeUrlKey('https://novartis.wd3.myworkdayjobs.com/en/job/Basel/Some-Title_JR123456')).toBe('req:jr123456');
-    expect(mergeUrlKey('https://x.wd5.myworkdayjobs.com/job/Loc/Title_SJR98765')).toBe('req:sjr98765');
+  it('extracts every vendor requisition format (after-first-underscore), host-prefixed', () => {
+    // R / JR / SJR — the FULL host prefixes the req so two tenants sharing a
+    // requisition id never collide (mirrors extractJobIdentityFromUrl full-host).
+    expect(mergeUrlKey('https://novartis.wd3.myworkdayjobs.com/en/job/Basel/Some-Title_JR123456')).toBe('req:novartis.wd3.myworkdayjobs.com:jr123456');
+    expect(mergeUrlKey('https://x.wd5.myworkdayjobs.com/job/Loc/Title_SJR98765')).toBe('req:x.wd5.myworkdayjobs.com:sjr98765');
     // pure-numeric req (Abbott) — previously `num:`, now uniformly `req:`
-    expect(mergeUrlKey('https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/CH/Cloud-Architect_31138417')).toBe('req:31138417');
+    expect(mergeUrlKey('https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/CH/Cloud-Architect_31138417')).toBe('req:abbott.wd5.myworkdayjobs.com:31138417');
     // dash-prefixed forms the old regex missed (REQ-, R-, J-)
-    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Solution-Consultant_REQ-16005')).toBe('req:req-16005');
-    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Apprendistato-afc_R-0002527')).toBe('req:r-0002527');
+    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Solution-Consultant_REQ-16005')).toBe('req:x.wd3.myworkdayjobs.com:req-16005');
+    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Apprendistato-afc_R-0002527')).toBe('req:x.wd3.myworkdayjobs.com:r-0002527');
     // internal-underscore req (R26_173)
-    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Operateur_R26_173')).toBe('req:r26_173');
+    expect(mergeUrlKey('https://x.wd3.myworkdayjobs.com/job/L/Operateur_R26_173')).toBe('req:x.wd3.myworkdayjobs.com:r26_173');
   });
   it('keeps the -N re-posting suffix distinct (two postings of the same req)', () => {
-    expect(mergeUrlKey('https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696-1')).toBe('req:r11696-1');
+    expect(mergeUrlKey('https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696-1')).toBe('req:swisslife.wd3.myworkdayjobs.com:r11696-1');
     expect(mergeUrlKey('https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696'))
       .not.toBe(mergeUrlKey('https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696-1'));
+  });
+  it('different Workday tenants sharing a requisition id key distinctly (cross-tenant safety)', () => {
+    // Two distinct employers both happen to use requisition `R11696`. The full-host
+    // prefix keeps their merge keys separate so a hypothetical multi-tenant match
+    // set never collapses them onto one job.
+    const swisslife = 'https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696';
+    const other = 'https://acme.wd3.myworkdayjobs.com/job/Zug/Other-Title_R11696';
+    expect(mergeUrlKey(swisslife)).toBe('req:swisslife.wd3.myworkdayjobs.com:r11696');
+    expect(mergeUrlKey(other)).toBe('req:acme.wd3.myworkdayjobs.com:r11696');
+    expect(mergeUrlKey(swisslife)).not.toBe(mergeUrlKey(other));
   });
   it('does NOT change keys for non-Workday hosts (host-gated, no re-key)', () => {
     // A non-Workday leaf that happens to end in `_r12345` must stay url:-keyed.

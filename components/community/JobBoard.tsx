@@ -50,6 +50,7 @@ import {
 } from '@/services/personalizationScoring';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
+import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
 import popularityData from '@/data/job-popularity.json';
@@ -2347,15 +2348,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // first-page asset is recency-ordered/TI-dominant — painting it for, say,
  // /cerca-lavoro-zurigo/ would flash mostly-TI cards before the scoped set.
  //
- // Also skipped for any FILTERED view (active search / company / location): the
- // slim first-page is a recency-ordered generic payload, so filtering it yields
- // a misleading provisional count + fallback banner (e.g. "1 offerta", then "0",
- // then the real "34") before the authoritative shard lands. Holding the
+ // Also skipped for any FILTERED view (active search / company / location) or
+ // EDITORIAL LANDING (e.g. /cerca-lavoro-ticino/ultimi-3-giorni/, today landing): the
+ // slim first-page is a recency-ordered generic payload, so filtering it (or rendering
+ // it under an editorial subset) yields a misleading provisional count + fallback
+ // banner (e.g. "1 offerta", then "0", then the real "34") before the authoritative
+ // shard lands. (editorialLandingDescriptor is declared below via useMemo; this effect
+ // closure reads it after render, so it is bound.) Holding the
  // jobsLoading skeleton (hero + skeleton cards, same LCP element) until the full
  // load is cleaner and avoids that flash; the unfiltered listing keeps the paint.
  const firstPaintEligible =
  !seededJob &&
- !searchQuery.trim() && !companySlugFilter && !locationSlugFilter &&
+ !searchQuery.trim() && !companySlugFilter && !locationSlugFilter && !editorialLandingDescriptor &&
  (targetCanton === AGGREGATE_CANTON_CODE || targetCanton === 'TI');
  if (firstPaintEligible) {
  const firstPage = await loadFirstPageSlim();
@@ -5515,11 +5519,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="space-y-6 min-h-[80vh]">
  {listingHero}
  <div className="h-14 rounded-2xl bg-surface-raised animate-pulse" />
- <div className="space-y-3">
- {Array.from({ length: 10 }).map((_, i) => (
- <div key={i} className="h-24 sm:h-[120px] rounded-xl bg-surface-raised animate-pulse" />
- ))}
- </div>
+ {/* Animated, accessible loader (#2968): rotating reassurance + shimmer
+ cards sized to the real JobCard so results reconcile in place (CLS). */}
+ <JobBoardResultsLoader cards={8} />
  </div>
  );
  }
@@ -8321,15 +8323,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </>
  )}
 
- {/* Loading list skeleton while results resolve (empty-while-fetching OR a
- provisional first-page count) — mirrors the loaded card layout so the
- count + cards reconcile in place (no CLS) instead of flashing. */}
+ {/* Animated loader while results resolve (empty-while-fetching OR a
+ provisional first-page count) — rotating reassurance + shimmer cards
+ sized to the loaded layout so the count + cards reconcile in place (no
+ CLS) and the user never sees a bare "0 risultati" mid-fetch (#2968). */}
  {resultsResolving && (
- <div className="space-y-3" aria-hidden="true">
- {Array.from({ length: 6 }).map((_, i) => (
- <div key={`results-skel-${i}`} className="h-24 sm:h-[120px] rounded-xl bg-surface-raised animate-pulse" />
- ))}
- </div>
+ <JobBoardResultsLoader cards={6} />
  )}
 
  {filteredJobs.length === 0 && !resultsResolving && (
