@@ -8183,6 +8183,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.intesa-mps-opas-azioni-contanti.title': 'Intesa Sanpaolo lancia Opas su Monte dei Paschi con offerta azioni e contanti',
     'blog.article.intesa-mps-opas-azioni-contanti.excerpt': 'Intesa Sanpaolo ha depositato il documento per l\'offerta pubblica su Mps: 1,6 azioni Intesa più 1 euro per azione Mps conferita',
     'blog.article.intesa-mps-opas-azioni-contanti.imageAlt': 'Vista panoramica di Lugano con il centro finanziario sullo sfondo, giornata soleggiata',
+    'blog.article.bancomat-processo-varesenews-2023.title': 'Utilizzo illecito di bancomat: processo a Varese e implicazioni',
+    'blog.article.bancomat-processo-varesenews-2023.excerpt': 'Una donna accusata di utilizzo indebito del bancomat di un vicino: processo avviato il 29 giugno con acquisti inferiori a 300 euro.',
+    'blog.article.bancomat-processo-varesenews-2023.imageAlt': 'Vista urbana di Mendrisio con negozi locali e passanti.',
 };
 
 export default blogMetaIt;
