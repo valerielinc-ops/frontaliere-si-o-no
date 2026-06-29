@@ -22,3 +22,14 @@ data/thin-page-promotions.jsonl    merge=union
 # driver is defined with `git config merge.json-first-seen.driver` in the
 # workflow step that rebases this file (see .github/workflows/deploy.yml).
 data/url-first-seen.json           merge=json-first-seen
+
+# data/seo-404-compat/part-*.json are the shards of the seo-404 compat store
+# (issue #2988 split the >100MB monolith into 16 sorted JSON shards). Each shard
+# is `{ "paths": [sorted strings] }`. Many producers rewrite them concurrently;
+# writeCompatPaths sorts, so git's default line merge keeps both rewritten
+# versions → ~2x duplicate, unsorted shards (the store dedups on read, but the
+# on-disk bloat is real). `merge=union` would only add more duplicates. The
+# custom `compat-shard` driver does a 3-way SET merge → deduped + sorted by
+# construction. Driver wired via `git config merge.compat-shard.driver` in
+# scripts/lib/git-push-with-retry.sh and scripts/lib/git-commit-data.sh.
+data/seo-404-compat/part-*.json merge=compat-shard
