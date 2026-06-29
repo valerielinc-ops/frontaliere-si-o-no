@@ -71,7 +71,8 @@ describe('resilientImport', () => {
     await expect(resilientImport(factory)).rejects.toThrow();
     expect(factory).toHaveBeenCalledTimes(2); // initial + one retry
     expect(reload).toHaveBeenCalledTimes(1);
-    expect(sessionStorage.getItem('_serviceChunkReload')).toBe('1');
+    // Uses the shared _swReloadCount key — same ceiling as recoverFromStaleChunk + index.html.
+    expect(sessionStorage.getItem('_swReloadCount')).toBe('1');
 
     // A subsequent failure must NOT reload again (guard holds across callers).
     reload.mockClear();
