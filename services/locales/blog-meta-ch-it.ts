@@ -691,6 +691,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-lavoro.title': 'Lavorare come educatore dell\'infanzia in Ticino',
     'blog.article.educatore-infanzia-ticino-lavoro.excerpt': 'Guida pratica sui requisiti, il diploma SSS richiesto e le procedure per intraprendere la carriera di educatore dell\'infanzia nel Cantone Ticino.',
     'blog.article.educatore-infanzia-ticino-lavoro.imageAlt': 'Educatore dell\'infanzia in un asilo in Ticino',
+    'blog.article.lavorare-educatore-infanzia-ticino.title': 'Lavorare come educatore dell\'infanzia in Ticino: requisiti',
+    'blog.article.lavorare-educatore-infanzia-ticino.excerpt': 'Guida completa per educatori: diploma SSS, stipendi tra 73.000 e 97.000 CHF e procedure per il riconoscimento dei titoli esteri.',
+    'blog.article.lavorare-educatore-infanzia-ticino.imageAlt': 'Asilo nido moderno in Ticino con spazi educativi luminosi',
 };
 
 export default blogMetaChIt;
