@@ -13,6 +13,14 @@
 # unit-tested helper scripts/lib/pr-body-closes-check.mjs (tests/pr-body-closes-check.test.ts);
 # keep the two in sync if the rule changes.
 #
+# It ALSO catches `Closes #N` where #N is a multi-item follow-up AGGREGATE
+# ("N items deferred", N>=2). GitHub-native `Closes` fires on MERGE and bypasses
+# the reconcile multi-item-auto-close veto (FOLLOWUP.md), so a partial fix (the
+# fixer does 1 item/run) marks residual work COMPLETED while items stay due (real
+# recurrence: #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
+# The aggregate test mirrors isAggregate() in scripts/ci/check-issue-already-resolved.mjs
+# (single source). Needs `issues: read` to fetch the closed issue's title/labels.
+#
 # Footprint: this used to fan out 4 jobs (body-contract + sibling-check +
 # cls-ad-slot-check + client-lookbehind-check) per PR push. They are now steps
 # of a SINGLE `contract` job, sharing one checkout, to minimise the per-PR
@@ -31,6 +39,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  issues: read # issues.get per il check Closes-su-aggregata-multi-item
 
 concurrency:
   group: pr-body-contract-${{ github.event.pull_request.number }}
@@ -84,8 +93,43 @@ jobs:
               if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
             });
 
+            // --- 3) Closes #N targeting a multi-item follow-up aggregate ------------
+            // `Closes #N` is GitHub-native and fires on MERGE, BYPASSING the
+            // reconcile multi-item-auto-close veto (FOLLOWUP.md — that veto lives in
+            // the daily cron, not in the merge-close path). Closing a 5-item aggregate
+            // because ONE item was fixed (the fixer circuit-breaker does 1 item/run)
+            // marks residual work COMPLETED while items stay due (real recurrence:
+            // #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
+            // isAggregate mirror — single source: scripts/ci/check-issue-already-resolved.mjs.
+            const isAggregateTitleBody = (t, b) => {
+              const m = `${t}\n${b}`.match(/(\d+)\s+items?\s+deferred/i);
+              return !!(m && Number(m[1]) >= 2);
+            };
+            // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
+            const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s+#(\d+)\b/gi;
+            const closingNums = [...new Set([...body.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
+
             const { owner, repo } = context.repo;
             const issue_number = context.payload.pull_request.number;
+
+            // Fetch each closed issue; flag the multi-item follow-up aggregates.
+            // Proceed-safe: any API error → skip that ref (never block on infra).
+            const aggregateCloseViolations = [];
+            for (const num of closingNums) {
+              try {
+                const { data: iss } = await github.rest.issues.get({
+                  owner, repo, issue_number: Number(num),
+                });
+                if (iss.pull_request) continue; // a PR ref, not a tracking issue
+                const labels = (iss.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
+                if (!labels.includes('follow-up')) continue;
+                if (isAggregateTitleBody(iss.title || '', iss.body || '')) {
+                  aggregateCloseViolations.push({ num, title: iss.title || '' });
+                }
+              } catch (e) {
+                core.info(`aggregate-close check: skip #${num} (${e.status || e.message})`);
+              }
+            }
 
             // Find a prior sticky comment to update (avoid comment spam on edits).
             const comments = await github.paginate(github.rest.issues.listComments, {
@@ -102,11 +146,11 @@ jobs:
             };
 
             // --- All-clear ----------------------------------------------------------
-            if (missing.length === 0 && closesViolations.length === 0) {
+            if (missing.length === 0 && closesViolations.length === 0 && aggregateCloseViolations.length === 0) {
               if (prior) {
                 await github.rest.issues.updateComment({
                   owner, repo, comment_id: prior.id,
-                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti, nessun \`Closes\` multi-issue su una riga.`,
+                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti, nessun \`Closes\` multi-issue su una riga, nessun \`Closes\` su follow-up aggregata.`,
                 });
               }
               core.info('PR body contract satisfied.');
@@ -136,6 +180,20 @@ jobs:
                 `Fix: una keyword per issue, una per riga:\n\`\`\`\nCloses #${closesViolations[0].nums[0]}\nCloses #${closesViolations[0].nums[1]}\n\`\`\``,
               );
               fails.push(`multi-issue Closes line(s): ${closesViolations.map((v) => `L${v.line}`).join(', ')}`);
+            }
+            if (aggregateCloseViolations.length) {
+              const lines = aggregateCloseViolations
+                .map((v) => `- \`Closes #${v.num}\` → #${v.num} è una follow-up **aggregata multi-item** ("${v.title.slice(0, 80)}")`)
+                .join('\n');
+              parts.push(
+                `🔴 **Closes su follow-up aggregata multi-item** — \`Closes #N\` è GitHub-native e chiude #N al MERGE, ` +
+                `bypassando il veto multi-item-auto-close di \`FOLLOWUP.md\` (che vive nel cron \`reconcile\`, non nel path Closes-on-merge). ` +
+                `Il fixer lavora 1 item/run (circuit-breaker): un fix parziale NON deve chiudere l'aggregata, gli altri item restano dovuti ` +
+                `(recidiva #3050 → #3036: item 5/5 fixato ma l'issue 5-item chiusa COMPLETED).\n\n${lines}\n\n` +
+                `Fix: togli la keyword di chiusura e usa un **progress-ref** senza \`Closes/Fixes/Resolves\` ` +
+                `(es. \`Addresses item N di #${aggregateCloseViolations[0].num}\`). Chiudi l'aggregata SOLO quando TUTTI gli item sono fatti, elencandoli in \`## Implementato\`.`,
+              );
+              fails.push(`Closes on multi-item aggregate: #${aggregateCloseViolations.map((v) => v.num).join(', #')}`);
             }
             parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`);
 
