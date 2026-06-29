@@ -196,3 +196,55 @@ export function groupByComune(events) {
   }
   return map;
 }
+
+// ── Date windows (shared by the SSG digest plugin, the FB digest poster and the
+//    weekly digest article generator — single source of truth, no drift, §6) ──
+
+/**
+ * True when an event's [startDate, endDate] span overlaps the inclusive
+ * [startIso, endIso] window. Multi-day events count for every day they touch.
+ */
+export function overlapsWindow(event, startIso, endIso) {
+  const s = event?.startDate;
+  if (typeof s !== 'string') return false;
+  const end = event.endDate || event.startDate;
+  return s <= endIso && end >= startIso;
+}
+
+/**
+ * The current/upcoming weekend as a SINGLE contiguous [start, end] window,
+ * clipped to `todayIso` (never includes a past Saturday).
+ * - Mon–Fri → upcoming Saturday + Sunday.
+ * - Saturday → today + tomorrow (Sun).
+ * - Sunday → today only (the weekend's Saturday already past).
+ * Must NOT use min/max of an 8-day weekend scan (on Sat/Sun that picks up the
+ * FOLLOWING Saturday → a non-contiguous span covering the whole week).
+ */
+export function weekendWindow(todayIso) {
+  const day = todayIso || isoDay(new Date());
+  const today = new Date(`${day}T00:00:00Z`);
+  const dow = today.getUTCDay(); // 0=Sun … 6=Sat
+  const sat =
+    dow === 6
+      ? today
+      : dow === 0
+        ? new Date(today.getTime() - 86400000)
+        : new Date(today.getTime() + (6 - dow) * 86400000);
+  const sun = new Date(sat.getTime() + 86400000);
+  const startMs = Math.max(sat.getTime(), today.getTime()); // never include a past Saturday
+  return { start: new Date(startMs).toISOString().slice(0, 10), end: sun.toISOString().slice(0, 10) };
+}
+
+/** Inclusive [todayIso, todayIso + days) window for the "this week" digest. */
+export function weekWindow(todayIso, days = 7) {
+  const start = todayIso || isoDay(new Date());
+  const end = new Date(`${start}T00:00:00Z`);
+  end.setUTCDate(end.getUTCDate() + days);
+  return { start, end: end.toISOString().slice(0, 10) };
+}
+
+/** Upcoming events overlapping the current/upcoming weekend, date-sorted. */
+export function weekendEvents(events, todayIso) {
+  const { start, end } = weekendWindow(todayIso);
+  return upcomingEvents(events, todayIso).filter((e) => overlapsWindow(e, start, end));
+}
