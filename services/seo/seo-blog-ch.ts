@@ -9339,6 +9339,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lidl-svizzera-lavora-con-noi': {
+    title: 'Lavorare in Lidl Svizzera: opportunità e procedure aggiornate',
+    description: 'Scopri come lavorare in Lidl Svizzera: posizioni aperte, candidatura online e procedure per trovare lavoro nei punti vendita e nella logistica. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, lidl, opportunità, procedure',
+    ogTitle: 'Lavoro Lidl Svizzera: opportunità e candidatura aggiornata',
+    ogDescription: 'Lidl offre lavoro in tutta la Svizzera: posizioni, candidatura online e procedure aggiornate.',
+    canonicalPath: '/articoli-svizzera/lidl-svizzera-lavora-con-noi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare in Lidl Svizzera: opportunità e procedure aggiornate",
+      "description": "Scopri come lavorare in Lidl Svizzera: posizioni aperte, candidatura online e procedure per trovare lavoro nei punti vendita e nella logistica. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lidl-svizzera-lavora-con-noi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingresso di un supermercato moderno in Svizzera, con le Alpi sullo sfondo."
+      },
+      "datePublished": "2026-06-29T20:05:24+00:00",
+      "dateModified": "2026-06-29T20:05:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lidl-svizzera-lavora-con-noi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -727,6 +727,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.title': 'Calcolo tasse frontalieri oltre 20 km: regole e simulazioni',
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.excerpt': 'Dal 2024 i frontalieri oltre 20 km dal confine subiscono novità fiscali: niente agevolazioni, impatto IRPEF, credito d’imposta e simulazioni.',
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.imageAlt': 'Vista su Lugano e le Alpi, contesto tipico dei frontalieri.',
+    'blog.article.lidl-svizzera-lavora-con-noi.title': 'Lavorare in Lidl Svizzera: opportunità e procedure aggiornate',
+    'blog.article.lidl-svizzera-lavora-con-noi.excerpt': 'Lidl offre opportunità lavorative in tutta la Svizzera. Scopri come candidarti, quali posizioni sono disponibili e quali procedure seguire.',
+    'blog.article.lidl-svizzera-lavora-con-noi.imageAlt': 'Ingresso di un supermercato moderno in Svizzera, con le Alpi sullo sfondo.',
 };
 
 export default blogMetaChIt;
