@@ -9066,6 +9066,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-piscina-niederuzwil-rianimata': {
+    title: 'Si tuffa in piscina ma non riemerge, bimba rianimata',
+    description: 'Una bambina di 5 anni è stata rianimata dopo un tuffo in piscina a Niederuzwil. Analisi delle misure di sicurezza e procedure di emergenza. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tuffa, piscina, riemerge, bimba',
+    ogTitle: 'Incidente in piscina a Niederuzwil: come intervenire e prevenire',
+    ogDescription: 'Una bambina di 5 anni è stata rianimata dopo un tuffo in piscina a Niederuzwil. Scopri le misure di sicurezza e le procedure di emergenza.',
+    canonicalPath: '/articoli-svizzera/piscina-niederuzwil-rianimata/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Si tuffa in piscina ma non riemerge, bimba rianimata",
+      "description": "Una bambina di 5 anni è stata rianimata dopo un tuffo in piscina a Niederuzwil. Analisi delle misure di sicurezza e procedure di emergenza. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/piscina-niederuzwil-rianimata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piscina pubblica di Niederuzwil con bambini e personale di salvataggio"
+      },
+      "datePublished": "2026-06-29T13:33:52+00:00",
+      "dateModified": "2026-06-29T13:33:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/piscina-niederuzwil-rianimata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

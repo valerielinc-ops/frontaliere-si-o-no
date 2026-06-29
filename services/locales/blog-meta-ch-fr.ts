@@ -706,6 +706,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grono-entra-repower-moesano.title': 'Grono entre dans Repower Moesano',
     'blog.article.grono-entra-repower-moesano.excerpt': 'La municipalité de Grono fait partie de l\'actionnariat de Repower Moesano SA',
     'blog.article.grono-entra-repower-moesano.imageAlt': 'Vue de Grono',
+    'blog.article.piscina-niederuzwil-rianimata.title': 'Elle plonge dans la piscine mais ne refait pas surface, petite fille réanimée',
+    'blog.article.piscina-niederuzwil-rianimata.excerpt': 'Une fillette de 5 ans a été réanimée après avoir disparu sous l\'eau dans la piscine de Niederuzwil, grâce à l\'intervention rapide des baigneurs et du personnel.',
+    'blog.article.piscina-niederuzwil-rianimata.imageAlt': 'Piscine publique à Niederuzwil avec enfants et personnel de secours',
 };
 
 export default blogMetaChFr;
