@@ -57,6 +57,16 @@
           sessionStorage.redirect = location.href.replace('://www.frontaliereticino.ch', '://frontaliereticino.ch');
           location.replace('/');
         }
+        // Legacy listing-pagination URL: /(en|de|fr)?/<section>-<canton>/<filter>/page-N/
+        // (filter = the per-locale "all jobs" word). The retired pagination format
+        // hard-404s; the canton section root is a live 200. Handle it BEFORE the
+        // job-detail jobRe (which matches only a single trailing segment, so a
+        // multi-segment pagination path would otherwise fall to spaRedirect → the
+        // HOMEPAGE). MIRRORS the Worker's LEGACY_PAGINATION_RE (covers IT, which
+        // bypasses the Worker; en/de/fr get a real 301 there instead of this soft one).
+        var pagRe = /^((?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+)\/(?:tutte|tutti|alle|tous|toutes|all)\/page-\d+\/?$/;
+        var pag = pathname.match(pagRe);
+        if (pag) { location.replace(pag[1] + '/' + location.search + location.hash); return; }
         // Job-detail path: /(en|de|fr)?/<jobsection>/<slug>/ — candidate for canton-drift recovery.
         var jobRe = /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^\/]+)\/?$/;
         var m = pathname.match(jobRe);
