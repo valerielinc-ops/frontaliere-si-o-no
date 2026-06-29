@@ -256,3 +256,63 @@ export function validateCoopDescription(markdown = '', sourceHtmlLength = 0) {
 
   return { ok: warnings.length === 0, warnings };
 }
+
+// ─────────────────────────────────────────────────────────────
+// Translation cache entry shape
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Build the lightweight cache record persisted to
+ * `data/jobs/by-crawler/coop-ticino-locale-cache.json` for a single Coop job.
+ *
+ * Why redirect history MUST be preserved (404-risk, issue #2962):
+ * Coop is the only crawler with a translation cache, and its slugs churn
+ * heavily because the slice often re-translates from scratch when validation
+ * fails. When the slice is missing from `data/jobs.json`, this cache is the
+ * sole source the next run re-injects jobs from
+ * (`injectCachedCoopTranslations`). A job restored WITHOUT its
+ * `previousSlugs` / `previousSlugsByLocale` loses its slug-redirect history,
+ * so `jobsSeoPagesPlugin` can no longer emit the bridge pages that keep
+ * previously-indexed (and sitemap-referenced) old URLs served — they turn
+ * into silent GitHub Pages 404s instead of self-healing. Carrying the two
+ * redirect-history fields through the cache round-trip keeps the served set
+ * aligned with the sitemap across cache re-injection.
+ *
+ * Pure (no IO, no `Date.now()`): the caller stamps `cachedAt` so this stays
+ * deterministic and unit-testable. Redirect-history fields are emitted only
+ * when non-empty to avoid churning the committed cache file with empty
+ * `[]` / `{}` placeholders.
+ *
+ * @param {Record<string, any>} job
+ * @returns {Record<string, any>}
+ */
+export function buildCoopTranslationCacheEntry(job = {}) {
+  const hasPrevSlugs = Array.isArray(job.previousSlugs) && job.previousSlugs.length > 0;
+  const hasPrevSlugsByLocale =
+    job.previousSlugsByLocale &&
+    typeof job.previousSlugsByLocale === 'object' &&
+    Object.keys(job.previousSlugsByLocale).length > 0;
+  return {
+    url: job.url,
+    slug: job.slug,
+    title: job.title,
+    company: job.company,
+    companyKey: job.companyKey,
+    location: job.location,
+    canton: job.canton,
+    description: job.description,
+    requirements: job.requirements || [],
+    titleByLocale: job.titleByLocale || {},
+    descriptionByLocale: job.descriptionByLocale || {},
+    requirementsByLocale: job.requirementsByLocale || {},
+    slugByLocale: job.slugByLocale || {},
+    // Redirect history — keep old URLs served via bridge pages after a cache
+    // round-trip (issue #2962). Omitted when empty to avoid cache-file churn.
+    ...(hasPrevSlugs ? { previousSlugs: job.previousSlugs } : {}),
+    ...(hasPrevSlugsByLocale ? { previousSlugsByLocale: job.previousSlugsByLocale } : {}),
+    postedDate: job.postedDate,
+    crawledAt: job.crawledAt,
+    source: job.source,
+    sourceLang: job.sourceLang,
+  };
+}
