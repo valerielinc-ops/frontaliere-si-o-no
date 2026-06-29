@@ -2314,6 +2314,29 @@ ASSICURAZIONI:
 - LAMAL non è "tassa sulla salute" — è assicurazione malattia
 `;
 
+// ── Compact verified-facts brief for the GENERATION prompt (evergreen) ──
+// PR #3009 injected the FULL VERIFIED_DOMAIN_FACTS sheet (~607 tokens) into the
+// evergreen generation source content to align generator and fact-checker on
+// the same ground truth. That fixed the consensus-block (fact-check now PASSes)
+// but inflated the generation prompt from ~7800 to ~8300 tokens, tipping it
+// over the 8000-token input cap of several otherwise-available models
+// (gpt-4.1-mini/nano, Llama-3.3-70B, Meta-Llama-3.1-405B, Cohere-command-a,
+// Phi-4 → HTTP 413 tokens_limit_reached), shrinking the free-tier pool and
+// re-triggering "tutti i modelli esauriti" defers.
+//
+// This compact brief (~230 tokens) keeps ONLY the facts the free models
+// actually keep getting wrong (the recurring consensus criticals: imposta alla
+// fonte location, accordo dates, franchigia/transitional, convenzione date),
+// restoring the prompt safely under the 8000-token cap. The fact-checker still
+// uses the FULL sheet (VERIFIED_DOMAIN_FACTS at :2346) — generator and checker
+// stay aligned on these load-bearing values.
+const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi):
+- Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi"). L'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730).
+- Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
+- Vecchi frontalieri (già tali prima del 17/7/2023): esenzione €7'500, regime transitorio 2024–2033. Nuovi frontalieri: franchigia €10'000.
+- Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 DICEMBRE 1976.
+- ~79'000 frontalieri in Ticino (USTAT 2024). Valichi reali: Brogeda/Chiasso, Gaggiolo/Stabio, Ponte Tresa. La Svizzera NON è membro UE/SEE.`;
+
 /**
  * PRIMARY BLOCKING — Multi-model consensus fact verification.
  *
@@ -2901,15 +2924,17 @@ async function fetchPageContent(url) {
   // ~0 articles/run for days (issue #2947: frontaliere cadence collapsed while
   // svizzera — mostly real-news, already source-grounded — kept producing).
   //
-  // Fix: feed the SAME VERIFIED_DOMAIN_FACTS sheet into the generation prompt.
+  // Fix: feed a COMPACT verified-facts brief into the generation prompt.
   // REGOLA #1 ("ogni fatto DEVE essere presente nel SOURCE CONTENT") then works
   // FOR convergence instead of against it: the model rewrites from the exact
-  // values the fact-checker validates against. No gate is lowered.
+  // values the fact-checker validates against. No gate is lowered. The brief is
+  // deliberately compact (EVERGREEN_FACTS_BRIEF, ~230 tokens) so the prompt
+  // stays under the 8000-token model input cap — see the constant's note.
   if (url.startsWith('evergreen://')) {
     const keyword = process.env._EVERGREEN_KEYWORD || decodeURIComponent(url.replace('evergreen://', ''));
     const angle = process.env._EVERGREEN_ANGLE || '';
     console.error(`📚 Articolo evergreen: "${keyword}"`);
-    return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Usa solo fatti verificati e stabili sul dominio frontalieri Ticino-Italia. Se servono esempi, presentali come scenari ipotetici, senza nomi, aziende, città o importi specifici inventati.\n\n${VERIFIED_DOMAIN_FACTS}\n\n⚠️ I FATTI VERIFICATI qui sopra sono la TUA SOURCE CONTENT autorevole: date, aliquote, franchigie, istituzioni e numeri DEVONO corrispondere ESATTAMENTE a quei valori (lo stesso foglio è usato dal fact-checker, che blocca l'articolo se divergi). Per dettagli NON coperti dal foglio, attieniti a nozioni stabili e generali del dominio; se un dato specifico non è certo, ometti o usa formulazioni qualitative invece di inventare cifre/date precise.`;
+    return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Usa solo fatti verificati e stabili sul dominio frontalieri Ticino-Italia. Se servono esempi, presentali come scenari ipotetici, senza nomi, aziende, città o importi specifici inventati.\n\n${EVERGREEN_FACTS_BRIEF}\n\n⚠️ I FATTI VERIFICATI qui sopra DEVONO corrispondere ESATTAMENTE (lo stesso ground truth è usato dal fact-checker, che blocca l'articolo se diverghi). Per dettagli NON coperti, attieniti a nozioni stabili e generali del dominio; se un dato specifico non è certo, ometti o usa formulazioni qualitative invece di inventare cifre/date precise.`;
   }
   console.error(`📰 Fetching: ${url}`);
   try {
