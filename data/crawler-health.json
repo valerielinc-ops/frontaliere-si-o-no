@@ -3085,9 +3085,9 @@
     "lombardi-group": {
       "lastSuccessfulRunAt": "2026-06-25T22:55:20.363Z",
       "lastNonZeroJobs": 7,
-      "consecutiveEmptyRuns": 3,
-      "lastFailureReason": "3 consecutive runs returned 0 jobs",
-      "status": "broken",
+      "consecutiveEmptyRuns": 0,
+      "lastFailureReason": null,
+      "status": "healthy",
       "_lastObservedAt": "2026-06-29T11:36:03.923Z",
       "_lastObservedJobs": 0,
       "_lastObservedFreshnessAt": "2026-06-28T22:10:33.265Z",
