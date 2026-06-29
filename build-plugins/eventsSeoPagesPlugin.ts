@@ -579,6 +579,8 @@ function renderHubPage(params: {
       ${renderMetric(copy.statCategories, String(distinctCategories(events)))}
     </dl>
 
+    ${renderDigestNav(locale)}
+
     <section class="mt-8">
       <h2 class="text-2xl font-bold text-heading">${esc(copy.upcoming)}</h2>
       <div class="mt-4">${renderEventList(upcoming, locale)}</div>
@@ -756,12 +758,278 @@ function renderComunePage(params: {
   return { urlPath: canonicalPath, html, wordCount };
 }
 
-function buildSitemap(comuni: string[], dateStamp: string): string {
+// ── Time-window digests (weekend / this week) ───────────────────────────────
+// Lightweight "what's on" roundup pages, refreshed daily with the crawler. They
+// satisfy the issue's "eventi nel weekend" digest ask as fully-controlled SEO
+// surfaces (no blog-monolith dependency) and feed the same Event JSON-LD.
+
+interface DigestDef {
+  key: string;
+  slug: Record<Locale, string>;
+  filter: (events: SiteEvent[], ctx: { todayIso: string }) => SiteEvent[];
+  copy: Record<Locale, { title: string; h1: string; lede: string; desc: string; faqQ: string; faqA: string }>;
+}
+
+function overlapsWindow(e: SiteEvent, startIso: string, endIso: string): boolean {
+  const s = e.startDate;
+  const end = e.endDate || e.startDate;
+  return s <= endIso && end >= startIso;
+}
+
+/**
+ * The current/upcoming weekend as a SINGLE contiguous [start, end] window,
+ * clipped to today. Must NOT use min/max of `weekendSet()` (which scans 8 days
+ * and on a Sat/Sun build also picks up the FOLLOWING Saturday → a non-contiguous
+ * set whose min..max spans the whole week, listing weekday events under a
+ * "sabato e domenica" title on an indexed page).
+ *   - Mon–Fri → upcoming Saturday + Sunday.
+ *   - Saturday → today + tomorrow (Sun).
+ *   - Sunday   → today only (the weekend's Saturday is already past).
+ */
+function weekendWindow(todayIso: string): { start: string; end: string } {
+  const today = new Date(`${todayIso}T00:00:00Z`);
+  const dow = today.getUTCDay(); // 0=Sun … 6=Sat
+  const sat =
+    dow === 6 ? today : dow === 0 ? new Date(today.getTime() - 86400000) : new Date(today.getTime() + (6 - dow) * 86400000);
+  const sun = new Date(sat.getTime() + 86400000);
+  const startMs = Math.max(sat.getTime(), today.getTime()); // never include a past Saturday
+  return { start: new Date(startMs).toISOString().slice(0, 10), end: sun.toISOString().slice(0, 10) };
+}
+
+export const DIGESTS: DigestDef[] = [
+  {
+    key: 'weekend',
+    slug: { it: 'questo-weekend', en: 'this-weekend', de: 'dieses-wochenende', fr: 'ce-week-end' },
+    filter: (events, { todayIso }) => {
+      const { start, end } = weekendWindow(todayIso);
+      return events.filter((e) => overlapsWindow(e, start, end));
+    },
+    copy: {
+      it: {
+        title: 'Cosa fare questo weekend in Ticino: eventi sabato e domenica',
+        h1: 'Eventi questo weekend in Ticino',
+        lede: 'Concerti, mostre, feste e appuntamenti di sabato e domenica in tutto il Ticino, aggiornati ogni giorno.',
+        desc: 'Cosa fare questo weekend in Ticino: tutti gli eventi di sabato e domenica (concerti, mostre, feste) con data, orario, luogo e comune.',
+        faqQ: 'Quali eventi ci sono questo weekend in Ticino?',
+        faqA: 'Questa pagina raccoglie gli eventi di sabato e domenica in tutto il Ticino, aggiornati ogni giorno dalle agende ufficiali. Filtra per comune dalle schede collegate.',
+      },
+      en: {
+        title: 'What to do this weekend in Ticino: Saturday & Sunday events',
+        h1: 'Events this weekend in Ticino',
+        lede: 'Concerts, exhibitions, festivals and happenings across Ticino this Saturday and Sunday, refreshed daily.',
+        desc: 'What to do this weekend in Ticino: every Saturday and Sunday event (concerts, exhibitions, festivals) with date, time, venue and municipality.',
+        faqQ: 'What events are on this weekend in Ticino?',
+        faqA: 'This page gathers Saturday and Sunday events across Ticino, refreshed daily from the official agendas. Filter by municipality via the linked profiles.',
+      },
+      de: {
+        title: 'Was am Wochenende im Tessin los ist: Veranstaltungen Sa & So',
+        h1: 'Veranstaltungen am Wochenende im Tessin',
+        lede: 'Konzerte, Ausstellungen, Feste und Anlässe am Samstag und Sonntag im ganzen Tessin, täglich aktualisiert.',
+        desc: 'Was am Wochenende im Tessin los ist: alle Anlässe von Samstag und Sonntag (Konzerte, Ausstellungen, Feste) mit Datum, Zeit, Ort und Gemeinde.',
+        faqQ: 'Welche Veranstaltungen gibt es am Wochenende im Tessin?',
+        faqA: 'Diese Seite sammelt die Anlässe von Samstag und Sonntag im Tessin, täglich aus den offiziellen Agenden aktualisiert. Nach Gemeinde über die verlinkten Profile filtern.',
+      },
+      fr: {
+        title: 'Que faire ce week-end au Tessin: événements samedi & dimanche',
+        h1: 'Événements ce week-end au Tessin',
+        lede: 'Concerts, expositions, fêtes et rendez-vous du samedi et dimanche dans tout le Tessin, mis à jour chaque jour.',
+        desc: 'Que faire ce week-end au Tessin: tous les événements du samedi et dimanche (concerts, expositions, fêtes) avec date, horaire, lieu et commune.',
+        faqQ: 'Quels événements ont lieu ce week-end au Tessin?',
+        faqA: 'Cette page rassemble les événements du samedi et dimanche au Tessin, mis à jour chaque jour depuis les agendas officiels. Filtrez par commune via les fiches liées.',
+      },
+    },
+  },
+  {
+    key: 'week',
+    slug: { it: 'questa-settimana', en: 'this-week', de: 'diese-woche', fr: 'cette-semaine' },
+    filter: (events, { todayIso }) => {
+      const end = new Date(`${todayIso}T00:00:00Z`);
+      end.setUTCDate(end.getUTCDate() + 7);
+      const endIso = end.toISOString().slice(0, 10);
+      return events.filter((e) => overlapsWindow(e, todayIso, endIso));
+    },
+    copy: {
+      it: {
+        title: 'Eventi questa settimana in Ticino: agenda dei prossimi 7 giorni',
+        h1: 'Eventi questa settimana in Ticino',
+        lede: 'Tutti gli appuntamenti dei prossimi 7 giorni in Ticino: concerti, mostre, feste e incontri, aggiornati ogni giorno.',
+        desc: 'Eventi questa settimana in Ticino: agenda dei prossimi 7 giorni con concerti, mostre, feste e appuntamenti per comune.',
+        faqQ: 'Quali eventi ci sono questa settimana in Ticino?',
+        faqA: 'Questa pagina elenca gli eventi dei prossimi 7 giorni in tutto il Ticino, aggiornati ogni giorno dalle agende ufficiali.',
+      },
+      en: {
+        title: 'Events this week in Ticino: the next 7 days agenda',
+        h1: 'Events this week in Ticino',
+        lede: 'Everything on over the next 7 days in Ticino: concerts, exhibitions, festivals and meet-ups, refreshed daily.',
+        desc: 'Events this week in Ticino: the next 7 days agenda with concerts, exhibitions, festivals and happenings by municipality.',
+        faqQ: 'What events are on this week in Ticino?',
+        faqA: 'This page lists events over the next 7 days across Ticino, refreshed daily from the official agendas.',
+      },
+      de: {
+        title: 'Veranstaltungen diese Woche im Tessin: Agenda der nächsten 7 Tage',
+        h1: 'Veranstaltungen diese Woche im Tessin',
+        lede: 'Alle Anlässe der nächsten 7 Tage im Tessin: Konzerte, Ausstellungen, Feste und Treffen, täglich aktualisiert.',
+        desc: 'Veranstaltungen diese Woche im Tessin: Agenda der nächsten 7 Tage mit Konzerten, Ausstellungen, Festen und Anlässen nach Gemeinde.',
+        faqQ: 'Welche Veranstaltungen gibt es diese Woche im Tessin?',
+        faqA: 'Diese Seite listet die Anlässe der nächsten 7 Tage im Tessin, täglich aus den offiziellen Agenden aktualisiert.',
+      },
+      fr: {
+        title: 'Événements cette semaine au Tessin: agenda des 7 prochains jours',
+        h1: 'Événements cette semaine au Tessin',
+        lede: 'Tous les rendez-vous des 7 prochains jours au Tessin: concerts, expositions, fêtes et rencontres, mis à jour chaque jour.',
+        desc: 'Événements cette semaine au Tessin: agenda des 7 prochains jours avec concerts, expositions, fêtes et rendez-vous par commune.',
+        faqQ: 'Quels événements ont lieu cette semaine au Tessin?',
+        faqA: 'Cette page liste les événements des 7 prochains jours au Tessin, mis à jour chaque jour depuis les agendas officiels.',
+      },
+    },
+  },
+];
+
+function pathForDigest(locale: Locale, slug: Record<Locale, string>): string {
+  return `${BASE_PATH[locale]}/${slug[locale]}/`;
+}
+
+function buildDigestAlternates(slug: Record<Locale, string>): string {
+  return LOCALES.map((locale) => ` <link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathForDigest(locale, slug)}">`)
+    .concat(` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathForDigest('it', slug)}">`)
+    .join('\n');
+}
+
+/** Hub nav linking the digest pages — keeps them BFS-reachable (hub → digest). */
+function renderDigestNav(locale: Locale): string {
+  const links = DIGESTS.map(
+    (d) =>
+      `<a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${pathForDigest(locale, d.slug)}">${esc(d.copy[locale].h1)}</a>`,
+  ).join('');
+  return `<section class="mt-6 grid gap-3 sm:grid-cols-2">${links}</section>`;
+}
+
+function renderDigestPage(params: {
+  def: DigestDef;
+  locale: Locale;
+  events: SiteEvent[];
+  dateStamp: string;
+  distDir: string;
+}): { urlPath: string; html: string; wordCount: number } {
+  const { def, locale, events, dateStamp, distDir } = params;
+  const copy = COPY[locale];
+  const dc = def.copy[locale];
+  const canonicalPath = pathForDigest(locale, def.slug);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const list = events.slice(0, 60);
+  const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
+
+  const comuneGrid = [...byComune.entries()]
+    .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+    .map(
+      ([comune, l]) =>
+        `<a class="rounded-md border border-edge bg-surface p-4 hover:border-accent-border" href="${pathFor(locale, comune)}"><span class="block text-sm font-semibold text-heading">${esc(comune)}</span><span class="mt-1 block text-xs text-muted">${l.length} ${esc(copy.eventsWord)}</span></a>`,
+    )
+    .join('');
+
+  const body = `<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+    <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
+      <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${pathFor(locale)}">${esc(copy.hubLabel)}</a>
+      <span class="mx-2">/</span>
+      <span>${esc(dc.h1)}</span>
+    </nav>
+
+    <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
+      <h1 class="max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(dc.h1)}</h1>
+      <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(dc.lede)}</p>
+      <p class="mt-3 text-sm text-muted">${esc(copy.updated)}: <time datetime="${dateStamp}">${dateStamp}</time> · ${esc(copy.source)}: <a class="text-link hover:text-link-hover" href="${esc(SOURCE.homepage)}" rel="nofollow noopener" target="_blank">${esc(SOURCE.label)}</a></p>
+    </header>
+
+    <dl class="mt-5 grid gap-3 sm:grid-cols-3">
+      ${renderMetric(copy.statEvents, String(events.length))}
+      ${renderMetric(copy.statComuni, String(byComune.size))}
+      ${renderMetric(copy.statCategories, String(distinctCategories(events)))}
+    </dl>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold text-heading">${esc(dc.h1)}</h2>
+      <div class="mt-4">${renderEventList(list, locale)}</div>
+    </section>
+
+    ${
+      comuneGrid
+        ? `<section class="mt-8 rounded-md border border-edge bg-surface p-5"><h2 class="text-2xl font-bold text-heading">${esc(copy.byComune)}</h2><div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">${comuneGrid}</div></section>`
+        : ''
+    }
+
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
+      <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale)}">${esc(copy.allEvents)} →</a>
+    </section>
+
+    ${renderCrosslinks(locale)}
+
+    ${renderFaq([{ q: dc.faqQ, a: dc.faqA }], copy.faqTitle)}
+
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
+      <h2 class="text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
+      <p class="mt-3 max-w-3xl text-sm leading-6 text-body">${esc(copy.methodology)}</p>
+    </section>
+  </div>`;
+
+  const itemListLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: dc.title,
+    itemListElement: list.map((event, i) => ({ '@type': 'ListItem', position: i + 1, item: eventLd(event, locale) })),
+  });
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale)}` },
+      { '@type': 'ListItem', position: 3, name: dc.h1, item: canonicalUrl },
+    ],
+  });
+  const faqLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [{ '@type': 'Question', name: dc.faqQ, acceptedAnswer: { '@type': 'Answer', text: dc.faqA } }],
+  });
+
+  const wordCount = countHtmlBodyWords(body);
+  const html = buildSeoPageHtml({
+    locale,
+    title: dc.title,
+    description: dc.desc,
+    canonicalUrl,
+    hreflangHtml: buildDigestAlternates(def.slug),
+    // A digest is only worth indexing when it actually lists events: the static
+    // chrome (lede + methodology + FAQ) alone always clears MIN_INDEXABLE_WORDS,
+    // so an EMPTY window must be gated on events.length, not the body word count
+    // (else a "no events this weekend" page gets indexed + sitemapped).
+    robots: events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    ogLocale: LOCALE_OG[locale],
+    bodyHtml: body,
+    jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
+    hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
+    distDir,
+  });
+  return { urlPath: canonicalPath, html, wordCount };
+}
+
+function buildSitemap(comuni: string[], dateStamp: string, digests: DigestDef[]): string {
   const entries: string[] = [];
   // Hub
   entries.push(sitemapUrl(undefined, dateStamp, '0.7'));
+  // Time-window digests (only the indexable ones)
+  for (const d of digests) entries.push(digestSitemapUrl(d.slug, dateStamp));
   for (const comune of comuni) entries.push(sitemapUrl(comune, dateStamp, '0.5'));
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`;
+}
+
+function digestSitemapUrl(slug: Record<Locale, string>, dateStamp: string): string {
+  const alternates = LOCALES.map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathForDigest(locale, slug)}" />`)
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathForDigest('it', slug)}" />`)
+    .join('\n');
+  return `  <url>\n    <loc>${BASE_URL}${pathForDigest('it', slug)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`;
 }
 
 function sitemapUrl(comune: string | undefined, dateStamp: string, priority: string): string {
@@ -845,14 +1113,27 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         pagesWritten += 1;
       };
 
+      // The digest filter is locale-independent (it only reads the date), so
+      // compute each window's events ONCE. A digest is indexed + sitemapped ONLY
+      // when it actually lists events — an empty window renders noindex,follow
+      // and is left out of the sitemap (gated on events.length, since the static
+      // chrome alone always clears MIN_INDEXABLE_WORDS). Shared across locales,
+      // so all 4 hreflang alternates stay consistent (no noindex straddle).
+      const digestEvents = new Map(DIGESTS.map((d) => [d.key, d.filter(all, { todayIso: dateStamp })]));
       for (const locale of LOCALES) {
         emit(renderHubPage({ locale, events: all, byComune, dateStamp, weekendDays, distDir }));
         for (const comune of comuni) {
           emit(renderComunePage({ locale, comune, events: byComune.get(comune)!, dateStamp, weekendDays, distDir }));
         }
+        // Emitted even when empty (the page degrades to a "no events" notice +
+        // comune links) so the URL is stable for FB linking, but noindex.
+        for (const def of DIGESTS) {
+          emit(renderDigestPage({ def, locale, events: digestEvents.get(def.key)!, dateStamp, distDir }));
+        }
       }
 
-      const sitemapXml = buildSitemap(comuni, dateStamp);
+      const sitemapDigests = DIGESTS.filter((d) => (digestEvents.get(d.key)?.length ?? 0) > 0);
+      const sitemapXml = buildSitemap(comuni, dateStamp, sitemapDigests);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
 
