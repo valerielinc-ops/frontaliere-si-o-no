@@ -1381,8 +1381,8 @@
       "slugByLocale": {
         "de": "qualitats-und-prozessmanager-a-klinik-lengg-zurich",
         "it": "qualitats-e-prozessmanager-a-klinik-lengg-zurich",
-        "en": "qualitats-und-prozessmanager-a-klinik-lengg-zurich",
-        "fr": "qualitats-und-prozessmanager-a-klinik-lengg-zurich"
+        "en": "quality-and-process-manager-a-klinik-lengg-zurich",
+        "fr": "gestionnaire-de-la-qualite-et-des-processus-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1427,6 +1427,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "qualitats-und-prozessmanager-a-klinik-lengg-zurich"
+        ],
+        "en": [
+          "qualitats-und-prozessmanager-a-klinik-lengg-zurich"
+        ],
+        "fr": [
           "qualitats-und-prozessmanager-a-klinik-lengg-zurich"
         ]
       },

@@ -275,9 +275,9 @@
       },
       "slugByLocale": {
         "it": "subacqueo-esperto-pemsa-lausanne",
-        "en": "subacqueo-esperto-pemsa-lausanne",
-        "de": "subacqueo-esperto-pemsa-lausanne",
-        "fr": "subacqueo-esperto-pemsa-lausanne"
+        "en": "diver-expert-pemsa-lausanne",
+        "de": "taucherexperte-pemsa-lausanne",
+        "fr": "expert-plongeur-pemsa-lausanne"
       },
       "id": "pemsa-480c2a82ac8f",
       "salaryMin": 60500,
@@ -537,7 +537,7 @@
         "it": "caposquadra-muratura-m-f-pemsa-tavannes",
         "en": "caposquadra-muratura-m-f-pemsa-tavannes",
         "de": "caposquadra-muratura-m-f-pemsa-tavannes",
-        "fr": "caposquadra-muratura-m-f-pemsa-tavannes"
+        "fr": "siege-mur-m-f-pemsa-tavannes"
       },
       "id": "pemsa-ac0652767ae9",
       "salaryMin": 68500,
@@ -3494,7 +3494,7 @@
       "slugByLocale": {
         "it": "meccanico-di-macchine-da-cantiere-e-parco-macchine-m-f-d-pemsa-geneve",
         "en": "meccanico-di-macchine-da-cantiere-e-parco-macchine-m-f-d-pemsa-geneve",
-        "de": "meccanico-di-macchine-da-cantiere-e-parco-macchine-m-f-d-pemsa-geneve",
+        "de": "baumaschinen-und-maschinen-m-f-d-pemsa-geneve",
         "fr": "meccanico-di-macchine-da-cantiere-e-parco-macchine-m-f-d-pemsa-geneve"
       },
       "id": "pemsa-1a4e7d64115f",
@@ -6959,10 +6959,6 @@
       "postalCode": "1201",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "riparazioni-lavori-di-elettricita-fai-da-te-pemsa-geneve",
-          "riparazione-il-consumo-di-elettricita-e-a-carico-tuo-pemsa-geneve"
-        ],
         "en": [
           "riparazioni-lavori-di-elettricita-fai-da-te-pemsa-geneve"
         ],
@@ -6971,8 +6967,7 @@
         ]
       },
       "previousSlugs": [
-        "riparazioni-lavori-di-elettricita-fai-da-te-pemsa-geneve",
-        "riparazione-il-consumo-di-elettricita-e-a-carico-tuo-pemsa-geneve"
+        "riparazioni-lavori-di-elettricita-fai-da-te-pemsa-geneve"
       ]
     },
     {
@@ -8505,17 +8500,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "imbianchino-stuccatore-efz-eba-m-f-d-pemsa-basel",
-          "imbianchino-stuccatore-cfc-afp-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "imbianchino-stuccatore-efz-eba-m-f-d-pemsa-basel",
-        "imbianchino-stuccatore-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
       "title": "Isolatore / sigillatore di tetti piani (m/f/d)",
@@ -8633,10 +8618,6 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "macellaio-specialista-della-carne-efz-m-f-d-amp-8211-regione-basilea-pemsa-basel",
-          "macellaio-specialista-della-carne-cfc-m-f-d-regione-basilea-pemsa-basel"
-        ],
         "en": [
           "macellaio-specialista-della-carne-efz-m-f-d-amp-8211-regione-basilea-pemsa-basel"
         ],
@@ -8645,8 +8626,7 @@
         ]
       },
       "previousSlugs": [
-        "macellaio-specialista-della-carne-efz-m-f-d-amp-8211-regione-basilea-pemsa-basel",
-        "macellaio-specialista-della-carne-cfc-m-f-d-regione-basilea-pemsa-basel"
+        "macellaio-specialista-della-carne-efz-m-f-d-amp-8211-regione-basilea-pemsa-basel"
       ]
     },
     {
@@ -9070,17 +9050,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "giardiniere-paesaggista-efz-eba-m-f-d-pemsa-basel",
-          "giardiniere-paesaggista-cfc-afp-m-f-d-pemsa-basel"
-        ],
         "en": [
           "giardiniere-paesaggista-efz-eba-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "giardiniere-paesaggista-efz-eba-m-f-d-pemsa-basel",
-        "giardiniere-paesaggista-cfc-afp-m-f-d-pemsa-basel"
+        "giardiniere-paesaggista-efz-eba-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -9139,17 +9114,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "carpentiere-efz-eba-m-f-d-pemsa-basel",
-          "carpentiere-cfc-afp-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "carpentiere-efz-eba-m-f-d-pemsa-basel",
-        "carpentiere-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
       "title": "Posatore di parquet EFZ / EBA (m/f/d)",
@@ -9209,17 +9174,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
-          "posatore-di-parquet-cfc-afp-m-f-d-pemsa-basel"
-        ],
         "en": [
           "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel",
-        "posatore-di-parquet-cfc-afp-m-f-d-pemsa-basel"
+        "posatore-di-parquet-efz-eba-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -9278,17 +9238,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "imbianchino-efz-eba-m-f-d-pemsa-basel",
-          "imbianchino-cfc-afp-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "imbianchino-efz-eba-m-f-d-pemsa-basel",
-        "imbianchino-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
       "title": "Elettricista EFZ / EBA (m/f/d)",
@@ -9346,17 +9296,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "elettricista-efz-eba-m-f-d-pemsa-basel",
-          "elettricista-cfc-afp-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "elettricista-efz-eba-m-f-d-pemsa-basel",
-        "elettricista-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
       "title": "Intonacatore EFZ / EBA (m/f/d)",
@@ -9414,17 +9354,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "intonacatore-efz-eba-m-f-d-pemsa-basel",
-          "intonacatore-cfc-afp-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "intonacatore-efz-eba-m-f-d-pemsa-basel",
-        "intonacatore-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
       "title": "Operaio metalmeccanico EFZ / EBA (m/f/d)",
@@ -9484,17 +9414,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "operaio-metalmeccanico-efz-eba-m-f-d-pemsa-basel",
-          "operaio-metalmeccanico-cfc-afp-m-f-d-pemsa-basel"
-        ],
         "en": [
           "operaio-metalmeccanico-efz-eba-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "operaio-metalmeccanico-efz-eba-m-f-d-pemsa-basel",
-        "operaio-metalmeccanico-cfc-afp-m-f-d-pemsa-basel"
+        "operaio-metalmeccanico-efz-eba-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -9553,17 +9478,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "idraulico-efz-eba-m-f-d-pemsa-basel",
-          "idraulico-afc-eba-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "idraulico-efz-eba-m-f-d-pemsa-basel",
-        "idraulico-afc-eba-m-f-d-pemsa-basel"
-      ]
+      "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
       "title": "Tettore EFZ / EBA (m/f/d)",
@@ -9623,17 +9538,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "tettore-efz-eba-m-f-d-pemsa-basel",
-          "tettore-cfc-afp-m-f-d-pemsa-basel"
-        ],
         "en": [
           "tettore-efz-eba-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "tettore-efz-eba-m-f-d-pemsa-basel",
-        "tettore-cfc-afp-m-f-d-pemsa-basel"
+        "tettore-efz-eba-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -9692,17 +9602,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "piastrellista-efz-eba-m-f-d-pemsa-basel",
-          "piastrellista-cfc-afp-m-f-d-pemsa-basel"
-        ]
-      },
-      "previousSlugs": [
-        "piastrellista-efz-eba-m-f-d-pemsa-basel",
-        "piastrellista-cfc-afp-m-f-d-pemsa-basel"
-      ]
+      "firstSeenAt": "2026-06-29T12:00:35.324Z"
     },
     {
       "title": "Montatore di riscaldamento EFZ / EBA (m/f/d)",
@@ -9762,17 +9662,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "montatore-di-riscaldamento-efz-eba-m-f-d-pemsa-basel",
-          "montatore-di-riscaldamento-cfc-afp-m-f-d-pemsa-basel"
-        ],
         "en": [
           "montatore-di-riscaldamento-efz-eba-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "montatore-di-riscaldamento-efz-eba-m-f-d-pemsa-basel",
-        "montatore-di-riscaldamento-cfc-afp-m-f-d-pemsa-basel"
+        "montatore-di-riscaldamento-efz-eba-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -9833,17 +9728,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "elettricista-di-montaggio-efz-m-f-d-pemsa-basel",
-          "elettricista-di-montaggio-cfc-m-f-d-pemsa-basel"
-        ],
         "en": [
           "elettricista-di-montaggio-efz-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "elettricista-di-montaggio-efz-m-f-d-pemsa-basel",
-        "elettricista-di-montaggio-cfc-m-f-d-pemsa-basel"
+        "elettricista-di-montaggio-efz-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -9904,17 +9794,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "montatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel",
-          "montatore-di-tende-e-tapparelle-cfc-afp-m-f-d-pemsa-basel"
-        ],
         "fr": [
           "montatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "montatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel",
-        "montatore-di-tende-e-tapparelle-cfc-afp-m-f-d-pemsa-basel"
+        "montatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -10033,17 +9918,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "costruttore-stradale-efz-m-f-d-pemsa-basel",
-          "costruttore-stradale-cfc-m-f-d-pemsa-basel"
-        ],
         "en": [
           "costruttore-stradale-efz-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "costruttore-stradale-efz-m-f-d-pemsa-basel",
-        "costruttore-stradale-cfc-m-f-d-pemsa-basel"
+        "costruttore-stradale-efz-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -10104,17 +9984,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "progettista-elettrico-efz-m-f-d-amp-8211-100-pemsa-basel",
-          "progettista-elettrico-cfc-m-f-d-100-pemsa-basel"
-        ],
         "en": [
           "progettista-elettrico-efz-m-f-d-amp-8211-100-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "progettista-elettrico-efz-m-f-d-amp-8211-100-pemsa-basel",
-        "progettista-elettrico-cfc-m-f-d-100-pemsa-basel"
+        "progettista-elettrico-efz-m-f-d-amp-8211-100-pemsa-basel"
       ]
     },
     {
@@ -11256,7 +11131,7 @@
       },
       "slugByLocale": {
         "it": "macchinista-m3-pala-gommata-o-cingolata-pemsa-fribourg",
-        "en": "macchinista-m3-pala-gommata-o-cingolata-pemsa-fribourg",
+        "en": "m3-sniper-rubber-or-cyngled-pemsa-fribourg",
         "de": "macchinista-m3-pala-gommata-o-cingolata-pemsa-fribourg",
         "fr": "macchinista-m3-pala-gommata-o-cingolata-pemsa-fribourg"
       },
@@ -11335,10 +11210,6 @@
       "postalCode": "1700",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugsByLocale": {
-        "it": [
-          "facadier-pemsa-fribourg",
-          "facciata-pemsa-fribourg"
-        ],
         "en": [
           "facadier-pemsa-fribourg"
         ],
@@ -11347,8 +11218,7 @@
         ]
       },
       "previousSlugs": [
-        "facadier-pemsa-fribourg",
-        "facciata-pemsa-fribourg"
+        "facadier-pemsa-fribourg"
       ]
     },
     {

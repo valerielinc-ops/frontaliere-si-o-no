@@ -98,8 +98,8 @@
       "slugByLocale": {
         "fr": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi",
         "it": "tecnico-a-in-radiologia-medica-100-clinique-de-montchoisi-lausanne",
-        "en": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi",
-        "de": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi"
+        "en": "medical-radiology-technician-100-clinique-de-montchoisi-lausanne",
+        "de": "medizinische-radiologie-techniker-100-clinique-de-montchoisi-lausanne"
       },
       "company": "Clinique de Montchoisi",
       "companyKey": "clinique-de-montchoisi",
@@ -158,6 +158,12 @@
       "firstSeenAt": "2026-06-29T13:22:30.107Z",
       "previousSlugsByLocale": {
         "it": [
+          "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi"
+        ],
+        "en": [
+          "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi"
+        ],
+        "de": [
           "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi"
         ]
       },

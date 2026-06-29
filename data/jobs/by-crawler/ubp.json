@@ -2746,7 +2746,7 @@
       "slugByLocale": {
         "en": "internship-wm-data-analyst-zurich-6-months-ubp-ch",
         "it": "internship-wm-data-analyst-zurich-6-months-ubp-ch",
-        "de": "internship-wm-data-analyst-zurich-6-months-ubp-ch",
+        "de": "praktikum-wm-data-analyst-zurich-6-monate-union-bancaire-privee-zurich-switzerland",
         "fr": "internship-wm-data-analyst-zurich-6-months-ubp-ch"
       },
       "company": "Union Bancaire Privée",
@@ -2889,7 +2889,7 @@
         "en": "interim-talent-manager-ubp-ch",
         "it": "interim-talent-manager-ubp-ch",
         "de": "interim-talent-manager-ubp-ch",
-        "fr": "interim-talent-manager-ubp-ch"
+        "fr": "gestionnaire-interimaire-des-talents-union-bancaire-privee-london-united-kingdom"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -2948,10 +2948,10 @@
     },
     {
       "id": "ubp-080bcec0d514",
-      "slug": "multi-skilled-maintenance-technician-ubp-ch",
+      "slug": "tecnico-di-manutenzione-multi-skilled-union-bancaire-privee-london-united-kingdom",
       "slugByLocale": {
         "en": "multi-skilled-maintenance-technician-ubp-ch",
-        "it": "multi-skilled-maintenance-technician-ubp-ch",
+        "it": "tecnico-di-manutenzione-multi-skilled-union-bancaire-privee-london-united-kingdom",
         "de": "multi-skilled-maintenance-technician-ubp-ch",
         "fr": "multi-skilled-maintenance-technician-ubp-ch"
       },
@@ -3008,7 +3008,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:20:42.162Z"
+      "firstSeenAt": "2026-06-29T14:20:42.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "multi-skilled-maintenance-technician-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "multi-skilled-maintenance-technician-ubp-ch"
+      ]
     }
   ]
 }

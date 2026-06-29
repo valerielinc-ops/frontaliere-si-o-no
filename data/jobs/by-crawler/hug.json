@@ -775,7 +775,7 @@
       "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
-        "en": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
+        "en": "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
         "de": "klinikleiter-mit-oder-ohne-fachtitel-fellowship-in-der-padiatrischen-intensivmedizin-100-hug-geneve",
         "fr": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
       },
@@ -820,7 +820,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
-        "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
         "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
@@ -828,8 +827,8 @@
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "en": [
-          "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
-          "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve"
+          "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
+          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "de": [
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
@@ -3040,9 +3039,9 @@
     },
     {
       "id": "hug-87803c0ec6d6",
-      "slug": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+      "slug": "educatore-sociale-in-psichiatria-80-hug-thonex",
       "slugByLocale": {
-        "it": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+        "it": "educatore-sociale-in-psichiatria-80-hug-thonex",
         "en": "educator-or-social-educator-in-psychiatry-80-hug-thonex",
         "de": "padagoge-oder-sozialpadagoge-in-der-psychiatrie-80-hug-thonex",
         "fr": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
@@ -3087,15 +3086,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "educatore-sociale-in-psichiatria-80-hug-thonex",
         "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
+        "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
         "social-educator-in-psychiatry-80-hug-thonex",
         "sozialpadagoge-in-der-psychiatrie-80-hug-thonex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex"
+          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
+          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
         ],
         "en": [
           "social-educator-in-psychiatry-80-hug-thonex"
@@ -4465,8 +4464,8 @@
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
         "it": "capo-o-capogruppo-servizio-di-ritrattamento-dispositivi-medici-100-hug-vernier",
-        "en": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
-        "de": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+        "en": "group-leader-medical-devices-reprocessing-service-100-hug-vernier",
+        "de": "gruppenleiter-wiederaufbereitungsservice-fur-medizinische-gerate-100-hug-vernier"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4526,6 +4525,12 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
         ]
       },
       "previousSlugs": [
@@ -4538,8 +4543,8 @@
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
         "it": "capo-o-capoclinica-in-radiologia-con-titolo-di-specializzazione-o-medico-aggiunto-a-50-hug-geneve",
-        "en": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
-        "de": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
+        "en": "head-of-x-ray-clinic-with-specialty-title-or-assistant-or-assistant-physician-50-hug-geneve",
+        "de": "leiter-der-rontgenklinik-mit-spezialtitel-oder-assistent-oder-assistenzarzt-50-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4586,6 +4591,12 @@
         "it": [
           "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
           "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-50-hug-geneve"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
         ]
       },
       "previousSlugs": [
@@ -4614,7 +4625,7 @@
         "fr": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
         "it": "agenti-o-agenti-pulizia-igiene-100-hug-geneve",
         "en": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
-        "de": "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
+        "de": "hygiene-sauberkeitsmittel-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4674,6 +4685,9 @@
       "previousSlugsByLocale": {
         "it": [
           "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
+        ],
+        "de": [
+          "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
         ]
       },
       "previousSlugs": [
@@ -4682,11 +4696,11 @@
     },
     {
       "id": "hug-f1c98584ae88",
-      "slug": "assistant-ou-assistante-de-gestion-60-hug-geneve",
+      "slug": "assistente-di-gestione-60-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-de-gestion-60-hug-geneve",
-        "it": "assistant-ou-assistante-de-gestion-60-hug-geneve",
-        "en": "assistant-ou-assistante-de-gestion-60-hug-geneve",
+        "it": "assistente-di-gestione-60-hug-geneve",
+        "en": "management-assistant-60-hug-geneve",
         "de": "assistant-ou-assistante-de-gestion-60-hug-geneve"
       },
       "company": "HUG",
@@ -4743,7 +4757,18 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T13:36:34.971Z"
+      "firstSeenAt": "2026-06-29T13:36:34.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-de-gestion-60-hug-geneve"
+        ],
+        "en": [
+          "assistant-ou-assistante-de-gestion-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-de-gestion-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-c6d6a05885d6",
@@ -4752,7 +4777,7 @@
         "fr": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
         "it": "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve",
         "en": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
-        "de": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
+        "de": "case-manager-palliative-und-support-care-center-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4811,6 +4836,9 @@
       "firstSeenAt": "2026-06-29T13:36:34.962Z",
       "previousSlugsByLocale": {
         "it": [
+          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
+        ],
+        "de": [
           "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
         ]
       },

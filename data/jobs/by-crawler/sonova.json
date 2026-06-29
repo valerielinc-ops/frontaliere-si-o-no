@@ -521,7 +521,7 @@
         "en": "data-scientist-m-f-d-sonova-ch",
         "it": "data-scientist-m-f-d-sonova-ch",
         "de": "data-scientist-m-f-d-sonova-ch",
-        "fr": "data-scientist-m-f-d-sonova-ch"
+        "fr": "scientifique-des-donnees-m-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -803,12 +803,12 @@
     },
     {
       "id": "sonova-8230e78b3493",
-      "slug": "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
+      "slug": "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
-        "it": "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
+        "it": "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland",
         "de": "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
-        "fr": "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
+        "fr": "gestionnaire-principal-traitement-des-signaux-ric-et-bte-m-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -862,7 +862,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-29T13:55:14.784Z"
+      "firstSeenAt": "2026-06-29T13:55:14.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
+      ]
     }
   ]
 }

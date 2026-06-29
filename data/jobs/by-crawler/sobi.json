@@ -680,12 +680,12 @@
     },
     {
       "id": "sobi-4936eded6b4f",
-      "slug": "global-product-safety-science-lead-sobi-basel",
+      "slug": "leader-mondiale-della-sicurezza-dei-prodotti-sobi-basel",
       "slugByLocale": {
         "en": "global-product-safety-science-lead-sobi-basel",
-        "it": "global-product-safety-science-lead-sobi-basel",
+        "it": "leader-mondiale-della-sicurezza-dei-prodotti-sobi-basel",
         "de": "global-product-safety-science-lead-sobi-basel",
-        "fr": "global-product-safety-science-lead-sobi-basel"
+        "fr": "responsable-scientifique-mondial-de-la-securite-des-produits-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -741,7 +741,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T14:05:20.196Z"
+      "firstSeenAt": "2026-06-29T14:05:20.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-product-safety-science-lead-sobi-basel"
+        ],
+        "fr": [
+          "global-product-safety-science-lead-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "global-product-safety-science-lead-sobi-basel"
+      ]
     },
     {
       "id": "sobi-6cf1d5ff57a6",

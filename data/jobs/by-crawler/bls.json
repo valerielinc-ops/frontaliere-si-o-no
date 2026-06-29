@@ -97,8 +97,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
         "it": "incaricato-in-veicoli-avor-bls-ag-bonigen",
-        "en": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
-        "fr": "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
+        "en": "personnel-in-avor-vehicles-bls-ag-bonigen",
+        "fr": "personnel-dans-les-vehicules-avor-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -171,6 +171,12 @@
       "firstSeenAt": "2026-06-29T12:34:16.156Z",
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
+        ],
+        "fr": [
           "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
         ]
       },

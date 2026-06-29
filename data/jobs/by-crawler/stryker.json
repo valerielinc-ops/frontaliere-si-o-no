@@ -395,11 +395,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pianificatore-di-alimentazione-m-f-d-tecnologia-medica-stryker-selzach",
-          "supply-planner-m-w-d-medizintechnik-stryker-ch"
-        ],
-        "en": [
-          "supply-planner-m-w-d-medizintechnik-stryker-ch"
+          "pianificatore-di-alimentazione-m-f-d-tecnologia-medica-stryker-selzach"
         ]
       },
       "firstSeenAt": "2026-06-14T22:47:57.501Z",
@@ -424,7 +420,7 @@
         "it": "microbiologo-senior-stryker-selzach",
         "en": "senior-staff-microbiologist-stryker-ch",
         "de": "senior-staff-microbiologist-stryker-ch",
-        "fr": "microbiologiste-principal-stryker-selzach"
+        "fr": "microbiologiste-senior-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -466,14 +462,16 @@
       "requirementsByLocale": {},
       "jobReqId": "R566460",
       "previousSlugs": [
-        "senior-staff-microbiologist-stryker-ch"
+        "senior-staff-microbiologist-stryker-ch",
+        "microbiologiste-principal-stryker-selzach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-staff-microbiologist-stryker-ch"
         ],
         "fr": [
-          "senior-staff-microbiologist-stryker-ch"
+          "senior-staff-microbiologist-stryker-ch",
+          "microbiologiste-principal-stryker-selzach"
         ]
       },
       "firstSeenAt": "2026-06-16T14:55:49.959Z",
@@ -493,12 +491,12 @@
     },
     {
       "id": "stryker-a7a5ae25cdec",
-      "slug": "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch",
+      "slug": "regional-sales-manager-m-f-d-endoscopia-svizzera-stryker-selzach",
       "slugByLocale": {
         "de": "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch",
-        "it": "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch",
+        "it": "regional-sales-manager-m-f-d-endoscopia-svizzera-stryker-selzach",
         "en": "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch",
-        "fr": "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch"
+        "fr": "directeur-regional-des-ventes-m-f-d-endoscopie-suisse-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -554,7 +552,18 @@
         }
       },
       "postalCode": "4500",
-      "firstSeenAt": "2026-06-29T14:15:15.881Z"
+      "firstSeenAt": "2026-06-29T14:15:15.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch"
+        ],
+        "fr": [
+          "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch"
+      ]
     },
     {
       "id": "stryker-29f22bc2749b",

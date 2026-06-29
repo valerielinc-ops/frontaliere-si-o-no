@@ -1332,8 +1332,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern",
-          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
@@ -1576,8 +1575,7 @@
         ],
         "de": [
           "kopf-gruppenkopf-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
-          "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne",
-          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+          "leiter-gruppenleiter-verlust-des-krankheitsgewinns-80-100-h-f-x-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
@@ -2580,8 +2578,7 @@
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
         ],
         "de": [
-          "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon",
-          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+          "leiter-der-agentur-h-f-x-80-100-vaudoise-assurances-nyon"
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
@@ -2829,11 +2826,11 @@
     },
     {
       "id": "vaudoise-1cc6971da4aa",
-      "slug": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
+      "slug": "direttore-pubblicita-collaboratore-event-h-f-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
-        "it": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
-        "en": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
+        "it": "direttore-pubblicita-collaboratore-event-h-f-x-100-vaudoise-assurances-lausanne",
+        "en": "director-publicity-collaborator-event-h-f-x-100-vaudoise-assurances-lausanne",
         "de": "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -2890,7 +2887,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-29T14:29:04.890Z"
+      "firstSeenAt": "2026-06-29T14:29:04.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
+        ],
+        "en": [
+          "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
+      ]
     }
   ]
 }

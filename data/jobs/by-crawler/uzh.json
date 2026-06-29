@@ -3884,7 +3884,6 @@
       "previousSlugs": [
         "wissenschaftliche-assistenz-uzh-zurich-2",
         "wissenschaftliche-assistenz-uzh-zurich",
-        "wissenschaftliche-assistenz-universitat-zurich-zurich",
         "assistenza-scientifica-universitat-zurich-zurich",
         "scientific-assistance-universitat-zurich-zurich",
         "assistance-scientifique-universitat-zurich-zurich"
@@ -4620,7 +4619,7 @@
         "it": "posizione-md-phd-m-w-universitat-zurich-zurich",
         "en": "md-phd-position-m-w-universitat-zurich-zurich",
         "de": "md-phd-position-m-w-uzh-zurich",
-        "fr": "md-phd-position-m-w-uzh-zurich"
+        "fr": "poste-md-phd-h-f-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -4663,7 +4662,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "md-phd-position-m-w-uzh-zurich",
-        "poste-md-phd-h-f-universitat-zurich-zurich",
         "posizione-di-dottorato-in-idrologia-universitat-zurich-zurich",
         "phd-position-in-hydrology-uzh-zurich",
         "phd-position-in-der-hydrologie-universitat-zurich-zurich",
@@ -4674,7 +4672,6 @@
           "md-phd-position-m-w-uzh-zurich"
         ],
         "fr": [
-          "poste-md-phd-h-f-universitat-zurich-zurich",
           "md-phd-position-m-w-uzh-zurich"
         ]
       },
@@ -4826,8 +4823,7 @@
           "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
         ],
         "fr": [
-          "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich",
-          "assistant-professorship-in-surgery-for-advanced-functional-lung-disease-uzh-zurich"
+          "professeur-adjoint-en-chirurgie-pour-les-maladies-pulmonaires-fonctionnelles-avancees-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.745Z",
@@ -4973,7 +4969,6 @@
       "previousSlugs": [
         "stellenausschreibung-doktorand-in-uzh-zurich-2",
         "stellenausschreibung-doktorand-in-uzh-zurich",
-        "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
         "studente-di-dottorato-in-universitat-zurich-zurich",
         "job-advertisement-doctoral-student-in-universitat-zurich-zurich",
         "annonce-d-emploi-doctorant-etudiant-in-universitat-zurich-zurich"
@@ -9403,7 +9398,7 @@
         "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "fr": "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9446,8 +9441,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
-        "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
         "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
@@ -9455,7 +9448,7 @@
           "liaison-librarian-ub-naturwissenschaften-uzh-zurich"
         ],
         "fr": [
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-24T12:46:54.711Z",
@@ -10251,8 +10244,7 @@
           "business-analyst-lehr-studienadministration-uzh-zurich"
         ],
         "en": [
-          "business-analyst-teaching-study-administration-universitat-zurich-zurich",
-          "business-analyst-lehr-studienadministration-uzh-zurich"
+          "business-analyst-teaching-study-administration-universitat-zurich-zurich"
         ],
         "fr": [
           "business-analyst-lehr-studienadministration-uzh-zurich"
@@ -10274,12 +10266,12 @@
     },
     {
       "id": "uzh-6f10086c5cce",
-      "slug": "spezialist-in-elektronische-medien-uzh-zurich",
+      "slug": "specialista-nei-media-elettronici-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "spezialist-in-elektronische-medien-uzh-zurich",
-        "it": "spezialist-in-elektronische-medien-uzh-zurich",
-        "en": "spezialist-in-elektronische-medien-uzh-zurich",
-        "fr": "spezialist-in-elektronische-medien-uzh-zurich"
+        "it": "specialista-nei-media-elettronici-universitat-zurich-zurich",
+        "en": "specialist-in-electronic-media-universitat-zurich-zurich",
+        "fr": "specialiste-des-medias-electroniques-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10334,7 +10326,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:22:18.139Z"
+      "firstSeenAt": "2026-06-29T14:22:18.139Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-elektronische-medien-uzh-zurich"
+        ],
+        "en": [
+          "spezialist-in-elektronische-medien-uzh-zurich"
+        ],
+        "fr": [
+          "spezialist-in-elektronische-medien-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-elektronische-medien-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-b215ac44c1f6",
@@ -10392,23 +10398,18 @@
           "assistenzstelle-mit-promotionsmoglichkeit-universitat-zurich-zurich"
         ],
         "en": [
-          "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-universitat-zurich-zurich",
           "assistant-with-promotional-opportunity-universitat-zurich-zurich"
         ],
         "de": [
-          "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-uzh-zurich",
           "assistenzstelle-mit-promotionsmoglichkeit-uzh-zurich"
         ],
         "fr": [
-          "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-universitat-zurich-zurich",
           "assistant-avec-possibilite-de-promotion-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-uzh-zurich",
-        "hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-universitat-zurich-zurich",
         "assistenzstelle-mit-promotionsmoglichkeit-uzh-zurich",
-        "hilfsassistenz-o-assistenz-con-promotionsmoglichkeit-universitat-zurich",
         "assistance-or-assistance-with-promotional-opportunity-universitat-zurich-zurich",
         "assistance-ou-assistance-avec-possibilite-de-promotion-universitat-zurich-zurich",
         "assistenzstelle-mit-promotionsmoglichkeit-universitat-zurich-zurich",
@@ -10493,7 +10494,6 @@
       },
       "previousSlugs": [
         "wissenschaftliche-r-assistenzarzt-in-uzh-zurich",
-        "wissenschaftliche-r-assistenzarzt-in-universitat-zurich-zurich",
         "scientifico-r-assistente-medico-in-universitat-zurich-zurich",
         "scientific-r-assistant-doctor-in-universitat-zurich-zurich",
         "docteur-adjoint-scientifique-universitat-zurich-zurich"
@@ -10518,8 +10518,8 @@
       "slugByLocale": {
         "en": "2-postdoc-positions-focus-canada-and-focus-japan-in-the-snsf-starting-grant-project",
         "it": "2-postdoc-positions-focus-canada-and-focus-japan-in-the-snsf-starting-grant-project",
-        "de": "2-postdoc-positions-focus-canada-and-focus-japan-in-the-snsf-starting-grant-project",
-        "fr": "2-postdoc-positions-focus-canada-and-focus-japan-in-the-snsf-starting-grant-project"
+        "de": "2-postdoc-stellen-fokus-kanada-und-fokus-japan-im-snf-starting-grant-project-provisional-futures-migrants-as-wanted",
+        "fr": "2-postes-postdoctoraux-centrer-le-canada-et-le-japon-dans-le-projet-de-subvention-de-demarrage-de-la-snsf-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10583,7 +10583,7 @@
         "de": "ict-supporter-in-uzh-zurich",
         "it": "ict-supporter-in-uzh-zurich",
         "en": "ict-supporter-in-uzh-zurich",
-        "fr": "ict-supporter-in-uzh-zurich"
+        "fr": "soutien-aux-tic-en-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",

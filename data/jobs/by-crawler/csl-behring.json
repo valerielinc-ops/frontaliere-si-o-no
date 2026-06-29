@@ -1410,7 +1410,7 @@
         "it": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2",
         "en": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2",
         "de": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch",
-        "fr": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2"
+        "fr": "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1464,15 +1464,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
-        ]
-      },
-      "previousSlugs": [
-        "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
-      ]
+      "postalCode": "3001"
     },
     {
       "id": "csl-behring-9bf100e26280",
@@ -1910,8 +1902,8 @@
       "slugByLocale": {
         "it": "responsabile-operazioni-aziendali-csl-behring-bern",
         "en": "business-operations-lead-csl-behring-ch",
-        "de": "leiter-business-operations-csl-behring-bern",
-        "fr": "responsable-des-operations-commerciales-csl-behring-bern"
+        "de": "leiter-geschaftsbetriebe-csl-behring-bern",
+        "fr": "chef-des-operations-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1954,11 +1946,19 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "business-operations-lead-csl-behring-ch"
+        "business-operations-lead-csl-behring-ch",
+        "leiter-business-operations-csl-behring-bern",
+        "responsable-des-operations-commerciales-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-operations-lead-csl-behring-ch"
+        ],
+        "de": [
+          "leiter-business-operations-csl-behring-bern"
+        ],
+        "fr": [
+          "responsable-des-operations-commerciales-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-06-11T22:31:14.638Z",
@@ -2062,8 +2062,8 @@
       "slugByLocale": {
         "it": "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
         "en": "senior-laboratory-specialist-tech-ops-csl-behring-ch",
-        "de": "senior-laboratoriumspezialist-tech-ops-csl-behring-bern",
-        "fr": "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern"
+        "de": "leitender-laborspezialist-tech-ops-csl-behring-bern",
+        "fr": "specialiste-de-laboratoire-principal-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -2113,7 +2113,9 @@
         "scienziato-senior-tech-ops-csl-behring-bern",
         "senior-scientist-tech-ops-csl-behring-ch",
         "leitender-wissenschaftler-tech-ops-csl-behring-bern",
+        "senior-laboratoriumspezialist-tech-ops-csl-behring-bern",
         "chercheur-principal-operations-techniques-csl-behring-bern",
+        "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern",
         "specialista-di-laboratorio-tech-ops-csl-behring-bern",
         "leitender-projektmanager-tech-ops-csl-behring-bern",
         "laboratory-specialist-tech-ops-csl-behring-ch",
@@ -2123,15 +2125,7 @@
         "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern",
         "specialiste-de-laboratoire-operations-techniques-csl-behring-bern",
         "ricercatore-tech-ops-csl-behring-bern",
-        "scientist-tech-ops-csl-behring-ch",
-        "wissenschaftler-tech-ops-csl-behring-bern",
-        "scientifique-tech-ops-csl-behring-bern",
-        "senior-scientist-tech-ops-analitical-testing-csl-behring-bern",
-        "senior-scientist-tech-ops-analytical-testing-csl-behring-ch",
-        "senior-scientist-tech-ops-analytisches-testen-csl-behring-bern",
-        "chercheur-principal-operations-techniques-essais-analytiques-csl-behring-bern",
-        "scienziato-senior-operazioni-tecniche-test-analitici-csl-behring-bern",
-        "senior-scientist-tech-ops-analytische-tests-csl-behring-bern"
+        "scientist-tech-ops-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2145,10 +2139,12 @@
           "senior-scientist-tech-ops-csl-behring-ch"
         ],
         "de": [
-          "leitender-wissenschaftler-tech-ops-csl-behring-bern"
+          "leitender-wissenschaftler-tech-ops-csl-behring-bern",
+          "senior-laboratoriumspezialist-tech-ops-csl-behring-bern"
         ],
         "fr": [
-          "chercheur-principal-operations-techniques-csl-behring-bern"
+          "chercheur-principal-operations-techniques-csl-behring-bern",
+          "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-06-18T12:10:07.714Z",

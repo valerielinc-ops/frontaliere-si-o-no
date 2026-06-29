@@ -1986,12 +1986,12 @@
     },
     {
       "id": "sulzer-da553708c3b9",
-      "slug": "electrical-fitter-sulzer-ch",
+      "slug": "apparecchi-elettrici-sulzer-winterthur",
       "slugByLocale": {
-        "it": "electrical-fitter-sulzer-ch",
+        "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
         "de": "electrical-fitter-sulzer-winterthur",
-        "fr": "electrical-fitter-sulzer-ch"
+        "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2031,16 +2031,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apparecchi-elettrici-sulzer-winterthur",
-        "avertisseur-electrique-sulzer-winterthur"
+        "electrical-fitter-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apparecchi-elettrici-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ],
         "fr": [
-          "avertisseur-electrique-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ]
       },
@@ -6389,11 +6386,11 @@
     },
     {
       "id": "sulzer-0d5749c831c9",
-      "slug": "engenheiro-a-de-aplicacao-sulzer-ch",
+      "slug": "ing-di-applicazione-sulzer-winterthur",
       "slugByLocale": {
-        "it": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "it": "ing-di-applicazione-sulzer-winterthur",
         "en": "engenheiro-a-de-aplicacao-sulzer-ch",
-        "de": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "de": "anwendungstechniker-sulzer-winterthur",
         "fr": "engenheiro-a-de-aplicacao-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -6435,19 +6432,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingegnere-applicazioni-sulzer-winterthur",
-        "ing-di-applicazione-sulzer-winterthur",
-        "anwendungsingenieur-sulzer-winterthur",
-        "anwendungstechniker-sulzer-winterthur"
+        "engenheiro-a-de-aplicacao-sulzer-ch",
+        "anwendungsingenieur-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-applicazioni-sulzer-winterthur",
-          "ing-di-applicazione-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ],
         "de": [
           "anwendungsingenieur-sulzer-winterthur",
-          "anwendungstechniker-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ]
       },
@@ -6928,7 +6922,7 @@
       "slugByLocale": {
         "it": "quality-consulente-sulzer-winterthur",
         "en": "quality-advisor-sulzer-ch",
-        "de": "qualitat-berater-sulzer-winterthur",
+        "de": "qualitatsberater-sulzer-winterthur",
         "fr": "qualite-conseiller-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -6970,14 +6964,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-advisor-sulzer-ch"
+        "quality-advisor-sulzer-ch",
+        "qualitat-berater-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quality-advisor-sulzer-ch"
         ],
         "de": [
-          "quality-advisor-sulzer-ch"
+          "quality-advisor-sulzer-ch",
+          "qualitat-berater-sulzer-winterthur"
         ],
         "fr": [
           "quality-advisor-sulzer-ch"
@@ -8606,12 +8602,12 @@
     },
     {
       "id": "sulzer-53c99b1598f4",
-      "slug": "mechanical-ingegnere-sulzer-winterthur",
+      "slug": "ingegnere-meccanico-sulzer-winterthur",
       "slugByLocale": {
-        "it": "mechanical-ingegnere-sulzer-winterthur",
+        "it": "ingegnere-meccanico-sulzer-winterthur",
         "en": "mechanical-engineer-sulzer-winterthur",
-        "de": "mechanical-ingenieur-sulzer-winterthur",
-        "fr": "mechanical-ingenieur-sulzer-winterthur"
+        "de": "maschinenbauingenieur-sulzer-winterthur",
+        "fr": "ingenieur-mecanique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -8656,11 +8652,20 @@
           "mechanical-engineer-sulzer-ch"
         ],
         "it": [
-          "mechanical-engineer-sulzer-ch"
+          "mechanical-engineer-sulzer-ch",
+          "mechanical-ingegnere-sulzer-winterthur"
+        ],
+        "de": [
+          "mechanical-ingenieur-sulzer-winterthur"
+        ],
+        "fr": [
+          "mechanical-ingenieur-sulzer-winterthur"
         ]
       },
       "previousSlugs": [
-        "mechanical-engineer-sulzer-ch"
+        "mechanical-engineer-sulzer-ch",
+        "mechanical-ingegnere-sulzer-winterthur",
+        "mechanical-ingenieur-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-06-04T01:27:00.316Z",
       "salaryMin": 73500,
@@ -9458,12 +9463,12 @@
     },
     {
       "id": "sulzer-3974e00e32b3",
-      "slug": "sales-manager-sulzer-ch-2",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch-2",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
-        "de": "sales-manager-sulzer-ch-2",
-        "fr": "sales-manager-sulzer-ch-2"
+        "de": "vertriebsleiter-sulzer-winterthur",
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -9509,19 +9514,21 @@
         ],
         "it": [
           "sales-manager-sulzer-ch",
-          "responsabile-vendite-sulzer-winterthur-394e0e"
+          "responsabile-vendite-sulzer-winterthur-394e0e",
+          "sales-manager-sulzer-ch-2"
         ],
         "de": [
-          "vertriebsleiter-sulzer-winterthur"
+          "sales-manager-sulzer-ch-2"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur-394e0e"
+          "directeur-des-ventes-sulzer-winterthur-394e0e",
+          "sales-manager-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
         "sales-manager-sulzer-ch",
         "responsabile-vendite-sulzer-winterthur-394e0e",
-        "vertriebsleiter-sulzer-winterthur",
+        "sales-manager-sulzer-ch-2",
         "directeur-des-ventes-sulzer-winterthur-394e0e",
         "sales-ingegnere-sulzer-winterthur",
         "sales-engineer-sulzer-winterthur",
@@ -13493,7 +13500,7 @@
         "it": "risorse-umane-business-partner-sulzer-shanghai",
         "en": "hr-business-partner-sulzer-ch",
         "de": "personalwesen-business-partner-sulzer-shanghai",
-        "fr": "partenaire-operationnel-rh-sulzer-shanghai"
+        "fr": "partenaire-d-affaires-rh-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -13536,7 +13543,7 @@
       "previousSlugs": [
         "hr-business-partner-sulzer-ch",
         "hr-business-partner-sulzer-shanghai",
-        "partenaire-d-affaires-rh-sulzer-shanghai"
+        "partenaire-operationnel-rh-sulzer-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13547,7 +13554,7 @@
         ],
         "fr": [
           "hr-business-partner-sulzer-shanghai",
-          "partenaire-d-affaires-rh-sulzer-shanghai"
+          "partenaire-operationnel-rh-sulzer-shanghai"
         ]
       },
       "firstSeenAt": "2026-05-28T14:24:07.018Z",
@@ -14826,12 +14833,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur-b96129",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur-b96129",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur-b96129"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -14873,8 +14880,9 @@
       "previousSlugs": [
         "sales-manager-w-m-d-sulzer-ch",
         "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur",
+        "sales-manager-sulzer-ch-2",
         "sales-manager-sulzer-ch",
+        "directeur-des-ventes-sulzer-winterthur",
         "responsabile-vendite-sulzer-winterthur-394e0e",
         "vertriebsleiter-sulzer-winterthur",
         "directeur-des-ventes-sulzer-winterthur-394e0e",
@@ -14884,18 +14892,19 @@
         "sales-engineer-sulzer-ch",
         "ingegnere-di-vendita-sulzer-winterthur",
         "vertriebsingenieur-sulzer-winterthur",
-        "ingenieur-commercial-sulzer-winterthur",
-        "sales-manager-sulzer-ch-2"
+        "ingenieur-commercial-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-w-m-d-sulzer-ch",
           "responsabile-vendite-sulzer-winterthur",
-          "sales-manager-sulzer-ch-2"
+          "sales-manager-sulzer-ch-2",
+          "sales-manager-sulzer-ch"
         ],
         "fr": [
           "directeur-des-ventes-sulzer-winterthur",
-          "sales-manager-sulzer-ch-2"
+          "sales-manager-sulzer-ch-2",
+          "sales-manager-sulzer-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T14:26:22.053Z",
@@ -17650,12 +17659,12 @@
     },
     {
       "id": "sulzer-82cd36b3b802",
-      "slug": "proposal-specialista-sulzer-winterthur",
+      "slug": "specialista-di-proposte-sulzer-winterthur",
       "slugByLocale": {
-        "it": "proposal-specialista-sulzer-winterthur",
+        "it": "specialista-di-proposte-sulzer-winterthur",
         "en": "proposal-specialist-sulzer-ch",
         "de": "proposal-spezialist-sulzer-winterthur",
-        "fr": "proposal-specialiste-sulzer-winterthur"
+        "fr": "specialiste-des-propositions-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -17696,17 +17705,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "proposal-specialist-sulzer-ch"
+        "proposal-specialist-sulzer-ch",
+        "proposal-specialista-sulzer-winterthur",
+        "proposal-specialiste-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "proposal-specialist-sulzer-ch"
+          "proposal-specialist-sulzer-ch",
+          "proposal-specialista-sulzer-winterthur"
         ],
         "de": [
           "proposal-specialist-sulzer-ch"
         ],
         "fr": [
-          "proposal-specialist-sulzer-ch"
+          "proposal-specialist-sulzer-ch",
+          "proposal-specialiste-sulzer-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-12T13:06:57.008Z",
@@ -17801,12 +17814,12 @@
     },
     {
       "id": "sulzer-addf1469f628",
-      "slug": "it-apprentice-m-v-x-sulzer-ch",
+      "slug": "apprendistato-m-v-x-sulzer-winterthur",
       "slugByLocale": {
-        "it": "it-apprentice-m-v-x-sulzer-ch",
+        "it": "apprendistato-m-v-x-sulzer-winterthur",
         "en": "it-apprentice-m-v-x-sulzer-winterthur",
-        "de": "it-apprentice-m-v-x-sulzer-ch",
-        "fr": "it-apprentice-m-v-x-sulzer-ch"
+        "de": "it-ausbildung-m-v-x-sulzer-winterthur",
+        "fr": "apprentis-en-informatique-m-v-x-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -17848,19 +17861,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-m-v-x-sulzer-winterthur"
+          "it-apprentice-m-v-x-sulzer-ch"
         ],
         "de": [
-          "it-ausbildung-m-v-x-sulzer-winterthur"
+          "it-apprentice-m-v-x-sulzer-ch"
         ],
         "fr": [
-          "apprentis-en-informatique-m-v-x-sulzer-winterthur"
+          "it-apprentice-m-v-x-sulzer-ch"
         ]
       },
       "previousSlugs": [
-        "apprendistato-m-v-x-sulzer-winterthur",
-        "it-ausbildung-m-v-x-sulzer-winterthur",
-        "apprentis-en-informatique-m-v-x-sulzer-winterthur"
+        "it-apprentice-m-v-x-sulzer-ch"
       ],
       "firstSeenAt": "2026-05-28T14:26:25.559Z",
       "salaryMin": 71000,
@@ -20238,12 +20249,12 @@
     },
     {
       "id": "sulzer-356ad87e08ca",
-      "slug": "tendering-ingegnere-sulzer-winterthur",
+      "slug": "ingegnere-di-offerta-sulzer-winterthur",
       "slugByLocale": {
-        "it": "tendering-ingegnere-sulzer-winterthur",
+        "it": "ingegnere-di-offerta-sulzer-winterthur",
         "en": "tendering-engineer-sulzer-ch",
-        "de": "tendering-ingenieur-sulzer-winterthur",
-        "fr": "tendering-engineer-sulzer-ch-2"
+        "de": "ausschreibungsingenieur-sulzer-winterthur",
+        "fr": "ingenieur-appels-d-offres-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -20285,14 +20296,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "tendering-engineer-sulzer-ch-2",
-        "tendering-engineer-sulzer-ch"
+        "tendering-engineer-sulzer-ch",
+        "tendering-ingegnere-sulzer-winterthur",
+        "tendering-ingenieur-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tendering-engineer-sulzer-ch-2",
-          "tendering-engineer-sulzer-ch"
+          "tendering-engineer-sulzer-ch",
+          "tendering-ingegnere-sulzer-winterthur"
         ],
         "de": [
+          "tendering-engineer-sulzer-ch-2",
+          "tendering-ingenieur-sulzer-winterthur"
+        ],
+        "fr": [
           "tendering-engineer-sulzer-ch-2"
         ]
       },
@@ -20391,9 +20409,9 @@
     },
     {
       "id": "sulzer-369f0f238c8d",
-      "slug": "service-coordinatore-sulzer-winterthur",
+      "slug": "coordinatore-servizi-sulzer-winterthur",
       "slugByLocale": {
-        "it": "service-coordinatore-sulzer-winterthur",
+        "it": "coordinatore-servizi-sulzer-winterthur",
         "en": "service-coordinator-sulzer-ch",
         "de": "service-koordinator-sulzer-winterthur",
         "fr": "service-coordinateur-sulzer-winterthur"
@@ -20437,11 +20455,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-coordinator-sulzer-ch"
+        "service-coordinator-sulzer-ch",
+        "service-coordinatore-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-coordinator-sulzer-ch"
+          "service-coordinator-sulzer-ch",
+          "service-coordinatore-sulzer-winterthur"
         ],
         "de": [
           "service-coordinator-sulzer-ch"
@@ -22886,12 +22906,12 @@
     },
     {
       "id": "sulzer-f532c27924c0",
-      "slug": "group-internal-control-manager-sulzer-ch",
+      "slug": "gestione-del-controllo-interno-di-gruppo-sulzer-winterthur",
       "slugByLocale": {
         "en": "group-internal-control-manager-sulzer-ch",
-        "it": "group-internal-control-manager-sulzer-ch",
-        "de": "group-internal-control-manager-sulzer-ch",
-        "fr": "group-internal-control-manager-sulzer-ch"
+        "it": "gestione-del-controllo-interno-di-gruppo-sulzer-winterthur",
+        "de": "interne-kontrolle-der-gruppe-sulzer-winterthur",
+        "fr": "gestionnaire-de-controle-interne-du-groupe-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22946,7 +22966,21 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-29T14:24:03.154Z"
+      "firstSeenAt": "2026-06-29T14:24:03.154Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-internal-control-manager-sulzer-ch"
+        ],
+        "de": [
+          "group-internal-control-manager-sulzer-ch"
+        ],
+        "fr": [
+          "group-internal-control-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "group-internal-control-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-b938af057bab",

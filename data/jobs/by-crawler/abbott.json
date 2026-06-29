@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "cloud-architetto-abbott-basel",
         "en": "cloud-architect-abbott-basel",
-        "de": "cloud-architekt-abbott-basel",
+        "de": "architektur-und-architektur-abbott-basel",
         "fr": "architecte-cloud-abbott-basel"
       },
       "company": "Abbott",
@@ -76,13 +76,13 @@
           "cloud-architect-abbott-basel"
         ],
         "de": [
-          "architektur-und-architektur-abbott-basel"
+          "cloud-architekt-abbott-basel"
         ]
       },
       "previousSlugs": [
         "cloud-architect-abbott-ch",
         "cloud-architect-abbott-basel",
-        "architektur-und-architektur-abbott-basel"
+        "cloud-architekt-abbott-basel"
       ],
       "firstSeenAt": "2026-05-19T17:18:45.224Z",
       "salaryMin": 64500,
@@ -311,12 +311,12 @@
     },
     {
       "id": "abbott-2864b141d31a",
-      "slug": "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich",
+      "slug": "ingegneria-manifatturiera-manutenzione-e-controllo-della-facilita-abbott-zurich",
       "slugByLocale": {
-        "it": "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich",
+        "it": "ingegneria-manifatturiera-manutenzione-e-controllo-della-facilita-abbott-zurich",
         "en": "manufacturing-engineering-maintenance-facility-control-abbott-ch",
         "de": "produktionsingenieur-wartung-und-gebaudesteuerung-abbott-zurich",
-        "fr": "ingenieur-de-production-entretien-et-controle-des-installations-abbott-zurich"
+        "fr": "ingenierie-de-fabrication-maintenance-et-controle-des-installations-abbott-zurich"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -387,16 +387,16 @@
       "jobReqId": "31142513",
       "previousSlugs": [
         "manufacturing-engineering-maintenance-facility-control-abbott-ch",
-        "ingegneria-manifatturiera-manutenzione-e-controllo-della-facilita-abbott-zurich",
-        "ingenierie-de-fabrication-maintenance-et-controle-des-installations-abbott-zurich"
+        "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich",
+        "ingenieur-de-production-entretien-et-controle-des-installations-abbott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manufacturing-engineering-maintenance-facility-control-abbott-ch",
-          "ingegneria-manifatturiera-manutenzione-e-controllo-della-facilita-abbott-zurich"
+          "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich"
         ],
         "fr": [
-          "ingenierie-de-fabrication-maintenance-et-controle-des-installations-abbott-zurich"
+          "ingenieur-de-production-entretien-et-controle-des-installations-abbott-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:36.331Z",
@@ -1115,11 +1115,11 @@
     },
     {
       "id": "abbott-eb83c34212fb",
-      "slug": "quality-ingegnere-abbott-zurich",
+      "slug": "ingegnere-della-qualita-abbott-zurich",
       "slugByLocale": {
-        "it": "quality-ingegnere-abbott-zurich",
+        "it": "ingegnere-della-qualita-abbott-zurich",
         "en": "quality-engineer-abbott-ch",
-        "de": "qualitat-ingenieur-abbott-zurich",
+        "de": "qualitatsingenieur-abbott-zurich",
         "fr": "qualite-ingenieur-abbott-zurich"
       },
       "company": "Abbott",
@@ -1163,14 +1163,18 @@
       "requirementsByLocale": {},
       "jobReqId": "31153258",
       "previousSlugs": [
-        "quality-engineer-abbott-ch"
+        "quality-engineer-abbott-ch",
+        "quality-ingegnere-abbott-zurich",
+        "qualitat-ingenieur-abbott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-engineer-abbott-ch"
+          "quality-engineer-abbott-ch",
+          "quality-ingegnere-abbott-zurich"
         ],
         "de": [
-          "quality-engineer-abbott-ch"
+          "quality-engineer-abbott-ch",
+          "qualitat-ingenieur-abbott-zurich"
         ],
         "fr": [
           "quality-engineer-abbott-ch"
@@ -1197,7 +1201,7 @@
       "slugByLocale": {
         "it": "ingegnere-senior-della-qualita-abbott-zurich",
         "en": "senior-quality-engineer-abbott-ch",
-        "de": "senior-qualitat-ingenieur-abbott-zurich",
+        "de": "senior-qualitatsingenieur-abbott-zurich",
         "fr": "senior-qualite-ingenieur-abbott-zurich"
       },
       "company": "Abbott",
@@ -1241,11 +1245,15 @@
       "requirementsByLocale": {},
       "jobReqId": "31153262",
       "previousSlugs": [
-        "senior-quality-engineer-abbott-ch"
+        "senior-quality-engineer-abbott-ch",
+        "senior-qualitat-ingenieur-abbott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-quality-engineer-abbott-ch"
+        ],
+        "de": [
+          "senior-qualitat-ingenieur-abbott-zurich"
         ]
       },
       "firstSeenAt": "2026-06-15T13:45:33.104Z",
@@ -1265,12 +1273,12 @@
     },
     {
       "id": "abbott-710511bc534c",
-      "slug": "direttore-commercial-excellence-emea-structural-heart-abbott-basel",
+      "slug": "direttore-eccellenza-commerciale-emea-cuore-strutturale-abbott-basel",
       "slugByLocale": {
-        "it": "direttore-commercial-excellence-emea-structural-heart-abbott-basel",
+        "it": "direttore-eccellenza-commerciale-emea-cuore-strutturale-abbott-basel",
         "en": "director-commercial-excellence-emea-structural-heart-abbott-ch",
-        "de": "direktor-commercial-excellence-emea-structural-heart-abbott-basel",
-        "fr": "director-commercial-excellence-emea-structural-heart-abbott-ch"
+        "de": "leiter-geschaftliche-excellence-emea-strukturherz-abbott-basel",
+        "fr": "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1313,17 +1321,20 @@
       "jobReqId": "31146965",
       "previousSlugs": [
         "director-commercial-excellence-emea-structural-heart-abbott-ch",
-        "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel"
+        "direttore-commercial-excellence-emea-structural-heart-abbott-basel",
+        "direktor-commercial-excellence-emea-structural-heart-abbott-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-commercial-excellence-emea-structural-heart-abbott-ch"
+          "director-commercial-excellence-emea-structural-heart-abbott-ch",
+          "direttore-commercial-excellence-emea-structural-heart-abbott-basel"
         ],
         "de": [
-          "director-commercial-excellence-emea-structural-heart-abbott-ch"
+          "director-commercial-excellence-emea-structural-heart-abbott-ch",
+          "direktor-commercial-excellence-emea-structural-heart-abbott-basel"
         ],
         "fr": [
-          "directeur-excellence-commerciale-coeur-structurel-de-l-emea-abbott-basel"
+          "director-commercial-excellence-emea-structural-heart-abbott-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T12:14:46.654Z",

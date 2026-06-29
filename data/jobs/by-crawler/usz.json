@@ -15702,8 +15702,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-kliniken-plastische-chirurgie-und-handchirurgie-sowie-die",
         "it": "pflegefachperson-per-la-kliniken-plastische-chirurgie-e-handchirurgie-sowie-la-augenklinik-50-100-universitatsspital-zurich-usz-campus",
-        "en": "pflegefachperson-fur-die-kliniken-plastische-chirurgie-und-handchirurgie-sowie-die",
-        "fr": "pflegefachperson-fur-die-kliniken-plastische-chirurgie-und-handchirurgie-sowie-die"
+        "en": "nursing-specialist-for-the-clinics-plastic-surgery-and-hand-surgery-as-well-as-the-eye-clinic-50-100-universitatsspital",
+        "fr": "specialiste-des-soins-infirmiers-pour-les-cliniques-chirurgie-plastique-et-chirurgie-des-mains-ainsi-que-la-clinique"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15749,6 +15749,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-fur-die-kliniken-plastische-chirurgie-und-handchirurgie-sowie-die"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-kliniken-plastische-chirurgie-und-handchirurgie-sowie-die"
+        ],
+        "fr": [
+          "pflegefachperson-fur-die-kliniken-plastische-chirurgie-und-handchirurgie-sowie-die"
         ]
       },
       "previousSlugs": [
@@ -15774,8 +15780,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
         "it": "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-campus",
-        "en": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
-        "fr": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        "en": "nurse-for-the-clinic-of-traumatology-50-100-universitatsspital-zurich-usz-campus",
+        "fr": "infirmiere-de-la-clinique-de-traumatologie-50-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15821,6 +15827,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        ],
+        "fr": [
+          "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -15842,12 +15854,12 @@
     },
     {
       "id": "usz-7d224491aa24",
-      "slug": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus",
+      "slug": "gestione-del-gruppo-cura-la-zona-del-letto-chirurgia-toracica-e-pneumologia-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch",
-        "it": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus",
-        "fr": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus"
+        "it": "gestione-del-gruppo-cura-la-zona-del-letto-chirurgia-toracica-e-pneumologia-80-100-universitatsspital-zurich-usz-campus",
+        "en": "group-management-care-bedside-thoracic-surgery-pneumology-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "gestion-de-groupe-soins-de-chevet-chirurgie-thoracique-pneumologie-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15892,11 +15904,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch"
+          "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch",
+          "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "en": [
+          "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "fr": [
+          "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "previousSlugs": [
-        "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch"
+        "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch",
+        "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15914,12 +15934,12 @@
     },
     {
       "id": "usz-b205931f66d5",
-      "slug": "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
+      "slug": "assistente-medico-f-m-d-medicina-interna-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
-        "it": "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
-        "en": "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
-        "fr": "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch"
+        "it": "assistente-medico-f-m-d-medicina-interna-80-100-universitatsspital-zurich-usz-campus",
+        "en": "assistant-doctor-f-m-d-internal-medicine-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "medecin-assistant-f-m-d-medecine-interne-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15974,7 +15994,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:35:24.404Z"
+      "firstSeenAt": "2026-06-29T14:35:24.404Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-eb5571a57d58",
@@ -16054,8 +16088,8 @@
       "slugByLocale": {
         "de": "clinical-nurse-specialist-w-m-d-departement-fur-viszeral-und-transplantationschirurgie-80",
         "it": "clinical-nurse-specialista-m-w-d-departement-per-viszeral-e-transplantationschirurgie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "clinical-nurse-specialist-w-m-d-departement-fur-viszeral-und-transplantationschirurgie-80",
-        "fr": "clinical-nurse-specialist-w-m-d-departement-fur-viszeral-und-transplantationschirurgie-80"
+        "en": "clinical-nurse-specialist-f-m-d-department-of-visceral-and-transplantation-surgery-80-100-universitatsspital-zurich-usz",
+        "fr": "infirmiere-clinique-specialiste-f-m-d-departement-de-chirurgie-viscerale-et-de-transplantation-80-100-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16101,6 +16135,12 @@
       "previousSlugsByLocale": {
         "it": [
           "clinical-nurse-specialist-w-m-d-departement-fur-viszeral-und-transplantationschirurgie-80"
+        ],
+        "en": [
+          "clinical-nurse-specialist-w-m-d-departement-fur-viszeral-und-transplantationschirurgie-80"
+        ],
+        "fr": [
+          "clinical-nurse-specialist-w-m-d-departement-fur-viszeral-und-transplantationschirurgie-80"
         ]
       },
       "previousSlugs": [
@@ -16126,8 +16166,8 @@
       "slugByLocale": {
         "de": "internistische-oberarztin-internistischer-oberarzt-w-m-d-fur-die-klinik-fur",
         "it": "internistische-oberarztin-internistischer-oberarzt-m-w-d-per-la-klinik-per-gefasschirurgie-50-80-universitatsspital-zurich-usz-campus",
-        "en": "internistische-oberarztin-internistischer-oberarzt-w-m-d-fur-die-klinik-fur",
-        "fr": "internistische-oberarztin-internistischer-oberarzt-w-m-d-fur-die-klinik-fur"
+        "en": "internist-senior-physician-internist-senior-physician-f-m-d-for-the-clinic-for-vascular-surgery-50-80-universitatsspital",
+        "fr": "interniste-medecin-principal-interniste-medecin-principal-f-m-d-pour-la-clinique-de-chirurgie-vasculaire-50-80"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16173,6 +16213,12 @@
       "previousSlugsByLocale": {
         "it": [
           "internistische-oberarztin-internistischer-oberarzt-w-m-d-fur-die-klinik-fur"
+        ],
+        "en": [
+          "internistische-oberarztin-internistischer-oberarzt-w-m-d-fur-die-klinik-fur"
+        ],
+        "fr": [
+          "internistische-oberarztin-internistischer-oberarzt-w-m-d-fur-die-klinik-fur"
         ]
       },
       "previousSlugs": [
@@ -16198,8 +16244,8 @@
       "slugByLocale": {
         "de": "clinical-nurse-w-m-d-departement-viszeral-und-transplantationschirurgie-80-100-usz-ch",
         "it": "clinical-nurse-m-w-d-departement-viszeral-e-transplantationschirurgie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "clinical-nurse-w-m-d-departement-viszeral-und-transplantationschirurgie-80-100-usz-ch",
-        "fr": "clinical-nurse-w-m-d-departement-viszeral-und-transplantationschirurgie-80-100-usz-ch"
+        "en": "clinical-nurse-f-m-d-department-of-visceral-and-transplantation-surgery-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "infirmiere-clinique-f-m-d-departement-de-chirurgie-viscerale-et-de-transplantation-80-100-universitatsspital-zurich-usz"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16245,6 +16291,12 @@
       "previousSlugsByLocale": {
         "it": [
           "clinical-nurse-w-m-d-departement-viszeral-und-transplantationschirurgie-80-100-usz-ch"
+        ],
+        "en": [
+          "clinical-nurse-w-m-d-departement-viszeral-und-transplantationschirurgie-80-100-usz-ch"
+        ],
+        "fr": [
+          "clinical-nurse-w-m-d-departement-viszeral-und-transplantationschirurgie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -16270,8 +16322,8 @@
       "slugByLocale": {
         "de": "disponent-in-arztsekretar-in-fur-das-schmerzambulatorium-80-100-usz-ch",
         "it": "disponent-in-arztsekretar-in-per-das-schmerzambulatorium-80-100-universitatsspital-zurich-usz-campus",
-        "en": "disponent-in-arztsekretar-in-fur-das-schmerzambulatorium-80-100-usz-ch",
-        "fr": "disponent-in-arztsekretar-in-fur-das-schmerzambulatorium-80-100-usz-ch"
+        "en": "disponent-in-medical-secretary-in-for-the-pain-ambulatory-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "deposant-in-secretaire-medical-in-pour-la-douleur-ambulatoire-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16317,6 +16369,12 @@
       "previousSlugsByLocale": {
         "it": [
           "disponent-in-arztsekretar-in-fur-das-schmerzambulatorium-80-100-usz-ch"
+        ],
+        "en": [
+          "disponent-in-arztsekretar-in-fur-das-schmerzambulatorium-80-100-usz-ch"
+        ],
+        "fr": [
+          "disponent-in-arztsekretar-in-fur-das-schmerzambulatorium-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -16342,8 +16400,8 @@
       "slugByLocale": {
         "de": "abteilungskoordinator-in-fur-die-klinik-fur-neurologie-80-100-usz-ch",
         "it": "abteilungskoordinator-in-per-la-klinik-per-neurologie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "abteilungskoordinator-in-fur-die-klinik-fur-neurologie-80-100-usz-ch",
-        "fr": "abteilungskoordinator-in-fur-die-klinik-fur-neurologie-80-100-usz-ch"
+        "en": "department-coordinator-in-for-the-clinic-of-neurology-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "coordinateur-de-departement-pour-la-clinique-de-neurologie-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16389,6 +16447,12 @@
       "previousSlugsByLocale": {
         "it": [
           "abteilungskoordinator-in-fur-die-klinik-fur-neurologie-80-100-usz-ch"
+        ],
+        "en": [
+          "abteilungskoordinator-in-fur-die-klinik-fur-neurologie-80-100-usz-ch"
+        ],
+        "fr": [
+          "abteilungskoordinator-in-fur-die-klinik-fur-neurologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -16410,12 +16474,12 @@
     },
     {
       "id": "usz-658896bb398a",
-      "slug": "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch",
+      "slug": "cura-speciale-assistente-allattante-in-terapia-intensiva-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch",
-        "it": "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch",
-        "en": "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch",
-        "fr": "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch"
+        "it": "cura-speciale-assistente-allattante-in-terapia-intensiva-80-100-universitatsspital-zurich-usz-campus",
+        "en": "special-care-nursing-assistant-in-intensive-care-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "soins-speciaux-assistant-infirmier-en-soins-intensifs-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16470,7 +16534,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:35:24.393Z"
+      "firstSeenAt": "2026-06-29T14:35:24.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch"
+        ],
+        "en": [
+          "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch"
+        ],
+        "fr": [
+          "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-pflegehelfer-in-intensivpflege-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-9db081a6b19d",
@@ -16478,8 +16556,8 @@
       "slugByLocale": {
         "de": "spezialpflege-fage-fur-die-intensivstation-mit-schwerpunkt-viszeral-thorax-und",
         "it": "spezialpflege-fage-per-la-intensivstation-con-schwerpunkt-viszeral-thorax-e-transplantationschirurgie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "spezialpflege-fage-fur-die-intensivstation-mit-schwerpunkt-viszeral-thorax-und",
-        "fr": "spezialpflege-fage-fur-die-intensivstation-mit-schwerpunkt-viszeral-thorax-und"
+        "en": "special-care-fage-for-the-intensive-care-unit-with-focus-on-visceral-thoracic-and-transplantation-surgery-80-100",
+        "fr": "soins-speciaux-fage-pour-l-unite-de-soins-intensifs-avec-l-accent-sur-la-chirurgie-thoracique-viscerale-et-la"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16524,6 +16602,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialpflege-fage-fur-die-intensivstation-mit-schwerpunkt-viszeral-thorax-und"
+        ],
+        "en": [
+          "spezialpflege-fage-fur-die-intensivstation-mit-schwerpunkt-viszeral-thorax-und"
+        ],
+        "fr": [
           "spezialpflege-fage-fur-die-intensivstation-mit-schwerpunkt-viszeral-thorax-und"
         ]
       },

@@ -923,8 +923,7 @@
           "casa-di-nascita-spital-bulach-bulach"
         ],
         "en": [
-          "two-themed-birthplace-spital-bulach-bulach",
-          "zweithebamme-geburtshaus-spital-buelach-bulach"
+          "two-themed-birthplace-spital-bulach-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach"
@@ -1265,8 +1264,7 @@
           "studenti-soggetti-operazionitechnik-hf-spital-bulach-bulach"
         ],
         "en": [
-          "student-specialist-operations-engineering-hf-spital-bulach-bulach",
-          "studierende-fachperson-operationstechnik-hf-spital-buelach-bulach"
+          "student-specialist-operations-engineering-hf-spital-bulach-bulach"
         ],
         "de": [
           "fachpersonal-operationstechnik-hf-spital-bulach-bulach"
@@ -2143,8 +2141,7 @@
           "dipl-pflegefachperson-intensivstation-spital-buelach-bulach"
         ],
         "en": [
-          "dipl-care-specialist-intensive-care-unit-spital-bulach-bulach",
-          "dipl-pflegefachperson-intensivstation-spital-buelach-bulach"
+          "dipl-care-specialist-intensive-care-unit-spital-bulach-bulach"
         ],
         "fr": [
           "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach",
@@ -2307,8 +2304,7 @@
           "dipl-pflegefachperson-medizin-spital-buelach-bulach"
         ],
         "en": [
-          "dipl-medical-care-professional-spital-bulach-bulach",
-          "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach"
+          "dipl-medical-care-professional-spital-bulach-bulach"
         ],
         "fr": [
           "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach"
@@ -2689,8 +2685,7 @@
           "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
         ],
         "en": [
-          "dipl-nurse-surgery-spital-bulach-bulach",
-          "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+          "dipl-nurse-surgery-spital-bulach-bulach"
         ],
         "fr": [
           "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
@@ -3007,8 +3002,7 @@
           "fachperson-gesundheit-privatstation-spital-buelach-bulach"
         ],
         "en": [
-          "specialist-health-private-station-spital-bulach-bulach",
-          "fachperson-gesundheit-privatstation-spital-buelach-bulach"
+          "specialist-health-private-station-spital-bulach-bulach"
         ],
         "fr": [
           "fachperson-gesundheit-privatstation-spital-buelach-bulach"
@@ -3108,12 +3102,12 @@
     },
     {
       "id": "spital-buelach-56969fbbea46",
-      "slug": "berufsbildner-in-fage-spital-buelach-bulach",
+      "slug": "formazione-professionale-in-fage-spital-bulach-bulach",
       "slugByLocale": {
         "de": "berufsbildner-in-fage-spital-buelach-bulach",
-        "it": "berufsbildner-in-fage-spital-buelach-bulach",
-        "en": "berufsbildner-in-fage-spital-buelach-bulach",
-        "fr": "berufsbildner-in-fage-spital-buelach-bulach"
+        "it": "formazione-professionale-in-fage-spital-bulach-bulach",
+        "en": "vocational-trainers-in-fage-spital-bulach-bulach",
+        "fr": "formation-professionnelle-en-fage-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3170,19 +3164,31 @@
       },
       "firstSeenAt": "2026-06-29T14:18:37.280Z",
       "previousSlugs": [
+        "berufsbildner-in-fage-spital-buelach-bulach",
         "designer-professionale-in-fage-spital-bulach-bulach",
         "professional-designer-in-fage-spital-bulach-bulach",
         "createur-professionnel-en-fage-spital-bulach-bulach"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-fage-spital-buelach-bulach"
+        ],
+        "en": [
+          "berufsbildner-in-fage-spital-buelach-bulach"
+        ],
+        "fr": [
+          "berufsbildner-in-fage-spital-buelach-bulach"
+        ]
+      }
     },
     {
       "id": "spital-buelach-b5ecbc6c8d93",
-      "slug": "fachperson-gesundheit-chirurgie-spital-buelach-bulach",
+      "slug": "specialista-di-chirurgia-sanitaria-spital-bulach-bulach",
       "slugByLocale": {
         "de": "fachperson-gesundheit-chirurgie-spital-buelach-bulach",
-        "it": "fachperson-gesundheit-chirurgie-spital-buelach-bulach",
-        "en": "fachperson-gesundheit-chirurgie-spital-buelach-bulach",
-        "fr": "fachperson-gesundheit-chirurgie-spital-buelach-bulach"
+        "it": "specialista-di-chirurgia-sanitaria-spital-bulach-bulach",
+        "en": "health-surgery-specialist-spital-bulach-bulach",
+        "fr": "specialiste-de-chirurgie-de-sante-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3239,22 +3245,34 @@
       },
       "firstSeenAt": "2026-06-29T14:18:37.278Z",
       "previousSlugs": [
+        "fachperson-gesundheit-chirurgie-spital-buelach-bulach",
         "chirurgia-sanitaria-specializzata-spital-bulach-bulach-826853",
         "specialist-health-surgery-spital-bulach-bulach",
         "chirurgie-specialisee-en-sante-spital-bulach-bulach-826853",
         "specialista-sanitario-chirurgia-spital-bulach-bulach",
         "healthcare-specialist-surgery-spital-bulach-bulach",
         "specialiste-en-sante-chirurgicale-spital-bulach-bulach"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-chirurgie-spital-buelach-bulach"
+        ],
+        "en": [
+          "fachperson-gesundheit-chirurgie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "fachperson-gesundheit-chirurgie-spital-buelach-bulach"
+        ]
+      }
     },
     {
       "id": "spital-buelach-949d6b1d4bb5",
-      "slug": "praktikant-in-pflege-spital-buelach-bulach",
+      "slug": "interno-in-cura-spital-bulach-bulach",
       "slugByLocale": {
         "de": "praktikant-in-pflege-spital-buelach-bulach",
-        "it": "praktikant-in-pflege-spital-buelach-bulach",
-        "en": "praktikant-in-pflege-spital-buelach-bulach",
-        "fr": "praktikant-in-pflege-spital-buelach-bulach"
+        "it": "interno-in-cura-spital-bulach-bulach",
+        "en": "intern-in-care-spital-bulach-bulach",
+        "fr": "stagiaire-en-soins-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3309,16 +3327,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:18:37.276Z"
+      "firstSeenAt": "2026-06-29T14:18:37.276Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-spital-buelach-bulach"
+        ],
+        "en": [
+          "praktikant-in-pflege-spital-buelach-bulach"
+        ],
+        "fr": [
+          "praktikant-in-pflege-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflege-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-90f4a9f24ed9",
-      "slug": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
+      "slug": "stage-in-cura-spital-bulach-bulach",
       "slugByLocale": {
         "de": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
-        "it": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
-        "en": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
-        "fr": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        "it": "stage-in-cura-spital-bulach-bulach",
+        "en": "internship-in-care-acute-geriatrics-spital-bulach-bulach",
+        "fr": "stage-en-soins-geriatrie-aigue-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3375,10 +3407,22 @@
       },
       "firstSeenAt": "2026-06-29T14:18:37.272Z",
       "previousSlugs": [
+        "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
         "interno-in-cura-akutgeriatrie-spital-bulach-bulach",
         "intern-in-care-akutgeriatrie-spital-bulach-bulach",
         "stagiaire-a-pflege-akutgeriatrie-spital-bulach-bulach"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        ],
+        "en": [
+          "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        ]
+      }
     },
     {
       "id": "spital-buelach-24bbafa01859",

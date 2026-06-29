@@ -1270,8 +1270,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg",
         "it": "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg",
-        "en": "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg",
-        "fr": "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg"
+        "en": "health-professional-efz-with-vocational-trainer-function-80-spitex-region-lenzburg-lenzburg",
+        "fr": "efz-professionnel-de-la-sante-avec-fonction-de-formateur-professionnel-80-spitex-region-lenzburg-lenzburg"
       },
       "company": "Spitex Region Lenzburg",
       "companyKey": "spitex-ch",
@@ -1331,10 +1331,10 @@
     },
     {
       "id": "spitex-ch-02513a308804",
-      "slug": "fage-40-bis-80-spitex-ch-neuenkirch",
+      "slug": "fage-40-all-80-spitex-neuenkirch-neuenkirch",
       "slugByLocale": {
         "de": "fage-40-bis-80-spitex-ch-neuenkirch",
-        "it": "fage-40-bis-80-spitex-ch-neuenkirch",
+        "it": "fage-40-all-80-spitex-neuenkirch-neuenkirch",
         "en": "fage-40-bis-80-spitex-ch-neuenkirch",
         "fr": "fage-40-bis-80-spitex-ch-neuenkirch"
       },
@@ -1392,16 +1392,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:04:48.145Z"
+      "firstSeenAt": "2026-06-29T14:04:48.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fage-40-bis-80-spitex-ch-neuenkirch"
+        ]
+      },
+      "previousSlugs": [
+        "fage-40-bis-80-spitex-ch-neuenkirch"
+      ]
     },
     {
       "id": "spitex-ch-e668652af716",
-      "slug": "fachperson-gesundheit-50-100-spitex-ch-dornach",
+      "slug": "professionista-della-salute-50-100-spitex-region-birs-gmbh-dornach",
       "slugByLocale": {
         "de": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "it": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "en": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "fr": "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        "it": "professionista-della-salute-50-100-spitex-region-birs-gmbh-dornach",
+        "en": "health-professional-50-100-spitex-region-birs-gmbh-dornach",
+        "fr": "professionnels-de-la-sante-50-100-spitex-region-birs-gmbh-dornach"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1459,19 +1467,31 @@
       },
       "firstSeenAt": "2026-06-29T14:04:47.642Z",
       "previousSlugs": [
+        "fachperson-gesundheit-50-100-spitex-ch-dornach",
         "specialista-della-salute-50-100-spitex-region-birs-gmbh-dornach",
         "healthcare-professional-50-100-spitex-region-birs-gmbh-dornach",
         "professionnel-de-la-sante-50-100-spitex-region-birs-gmbh-dornach"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ],
+        "en": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ],
+        "fr": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ]
+      }
     },
     {
       "id": "spitex-ch-667b0d651a19",
-      "slug": "fachperson-gesundheit-30-70-spitex-ch-lenzburg",
+      "slug": "professionista-della-salute-30-70-spitex-region-lenzburg-lenzburg",
       "slugByLocale": {
         "de": "fachperson-gesundheit-30-70-spitex-ch-lenzburg",
-        "it": "fachperson-gesundheit-30-70-spitex-ch-lenzburg",
-        "en": "fachperson-gesundheit-30-70-spitex-ch-lenzburg",
-        "fr": "fachperson-gesundheit-30-70-spitex-ch-lenzburg"
+        "it": "professionista-della-salute-30-70-spitex-region-lenzburg-lenzburg",
+        "en": "health-professional-30-70-spitex-region-lenzburg-lenzburg",
+        "fr": "professionnels-de-la-sante-30-70-spitex-region-lenzburg-lenzburg"
       },
       "company": "Spitex Region Lenzburg",
       "companyKey": "spitex-ch",
@@ -1527,7 +1547,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:04:47.003Z"
+      "firstSeenAt": "2026-06-29T14:04:47.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-30-70-spitex-ch-lenzburg"
+        ],
+        "en": [
+          "fachperson-gesundheit-30-70-spitex-ch-lenzburg"
+        ],
+        "fr": [
+          "fachperson-gesundheit-30-70-spitex-ch-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-30-70-spitex-ch-lenzburg"
+      ]
     },
     {
       "id": "spitex-ch-a0ccce19d593",
@@ -1600,7 +1634,7 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-40-100-spitex-ch-bremgarten-ag",
         "it": "dipl-pflegefachperson-hf-40-100-spitex-ch-bremgarten-ag",
-        "en": "dipl-pflegefachperson-hf-40-100-spitex-ch-bremgarten-ag",
+        "en": "dipl-care-professional-hf-40-100-spitex-mutschellen-reusstal-bremgarten-ag",
         "fr": "dipl-pflegefachperson-hf-40-100-spitex-ch-bremgarten-ag"
       },
       "company": "Spitex Mutschellen-Reusstal",
@@ -1672,8 +1706,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten",
         "it": "fachfrau-mann-gesundheit-fage-cfc-40-100-spitex-mutschellen-reusstal-bremgarten",
-        "en": "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten",
-        "fr": "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten"
+        "en": "professional-health-fage-efz-40-100-spitex-mutschellen-reusstal-bremgarten",
+        "fr": "sante-professionnelle-fage-efz-40-100-spitex-mutschellen-reusstal-bremgarten"
       },
       "company": "Spitex Mutschellen-Reusstal",
       "companyKey": "spitex-ch",
@@ -1720,6 +1754,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-fage-efz-40-100-spitex-ch-bremgarten"
         ]
       },
       "previousSlugs": [
@@ -1759,8 +1799,8 @@
       "slugByLocale": {
         "de": "berufsbildner-in-fage-oder-pflegefachperson-hf-60-100-spitex-ch-goldau",
         "it": "berufsbildner-in-fage-o-pflegefachperson-hf-60-100-spitex-regio-arth-goldau",
-        "en": "berufsbildner-in-fage-oder-pflegefachperson-hf-60-100-spitex-ch-goldau",
-        "fr": "berufsbildner-in-fage-oder-pflegefachperson-hf-60-100-spitex-ch-goldau"
+        "en": "vocational-trainer-fage-or-nurse-hf-60-100-spitex-regio-arth-goldau-goldau",
+        "fr": "entraineur-professionnel-fage-ou-infirmiere-hf-spitex-regio-arth-goldau-goldau"
       },
       "company": "Spitex Regio Arth-Goldau",
       "companyKey": "spitex-ch",
@@ -1806,6 +1846,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "berufsbildner-in-fage-oder-pflegefachperson-hf-60-100-spitex-ch-goldau"
+        ],
+        "en": [
+          "berufsbildner-in-fage-oder-pflegefachperson-hf-60-100-spitex-ch-goldau"
+        ],
+        "fr": [
           "berufsbildner-in-fage-oder-pflegefachperson-hf-60-100-spitex-ch-goldau"
         ]
       },
