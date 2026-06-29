@@ -113,7 +113,12 @@ function detectEmploymentType(text = '') {
  *
  * API: https://ohws.prospective.ch/public/v1/medium/1003623/jobs
  *   - Medium ID 1003623 = Transgourmet/Prodega career center
- *   - Canton filter:  f=30:1253103  (attribute 30 = "Wallis" / Valais)
+ *   - CH-wide fetch: no canton facet (`f=30:{cantonId}`). The per-job canton
+ *     is inferred from attribute 30 (a localized canton label such as "Bern",
+ *     "Graubünden", "Vallese") via the shared inferAnyCanton helper, mirroring
+ *     the canonical coop-ticino crawler (same Prospective.ch platform). A hard
+ *     Wallis filter previously starved this crawler to 0 jobs whenever Valais
+ *     had no openings (issue #3065); CH-wide it returns ~23 jobs.
  *
  * No detail page fetching needed — the API returns full descriptions
  * in szas.* fields.
@@ -122,7 +127,6 @@ function detectEmploymentType(text = '') {
  */
 
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1003623';
-const CANTON_WALLIS_ID = '1253103';
 const API_LIMIT = 100;
 
 /**
@@ -177,7 +181,11 @@ async function callApi(url) {
 }
 
 /**
- * Fetch Transgourmet job listings from Prospective.ch API, filtered to Wallis/Valais.
+ * Fetch Transgourmet job listings from Prospective.ch API, CH-wide.
+ *
+ * No canton facet (`f=30:{cantonId}`): the per-job canton is inferred from
+ * attribute 30 downstream. A hard Wallis filter previously returned 0 jobs
+ * whenever Valais had no openings (issue #3065).
  */
 async function fetchJobListings() {
   const allListings = [];
@@ -189,11 +197,9 @@ async function fetchJobListings() {
       offset: String(offset),
       limit: String(API_LIMIT),
     });
-    // Canton filter: Wallis/Valais
-    params.append('f', `30:${CANTON_WALLIS_ID}`);
 
     const apiUrl = `${API_BASE}/jobs?${params}`;
-    console.log(`  📄 Fetching Transgourmet Wallis jobs (offset=${offset})...`);
+    console.log(`  📄 Fetching Transgourmet CH-wide jobs (offset=${offset})...`);
 
     const data = await callApi(apiUrl);
     const items = assertJsonListShape(data, { key: 'jobs', source: TRANSGOURMET_KEY });
@@ -232,7 +238,7 @@ function buildDescription(szas = {}, title = '', city = '') {
   if (benefits) sections.push('## Wir bieten\n' + htmlToMarkdown(benefits));
 
   if (sections.length === 0) {
-    return `${title} - Transgourmet/Prodega, ${city || 'Wallis'}, Schweiz`;
+    return `${title} - Transgourmet/Prodega, ${city || 'Schweiz'}, Schweiz`;
   }
 
   return sections.join('\n\n');
@@ -277,7 +283,7 @@ function normalizeCantonCode(regionName = '') {
 }
 
 /**
- * Fetch all Transgourmet jobs in Valais/Wallis.
+ * Fetch all Transgourmet jobs CH-wide.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
@@ -287,7 +293,7 @@ export async function fetchAllTransgourmetJobs() {
   console.log(`🔍 Fetching Transgourmet jobs`);
   console.log(`   Platform: Prospective.ch JobBooster`);
   console.log(`   API: ${API_BASE}/jobs`);
-  console.log(`   Filter: Canton=Wallis (30:${CANTON_WALLIS_ID})\n`);
+  console.log(`   Scope: CH-wide (no canton filter)\n`);
 
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
@@ -315,8 +321,11 @@ export async function fetchAllTransgourmetJobs() {
     );
     const postalCode = normalizeSpace(szas['sza_workplace.zip'] || '');
     const street = normalizeSpace(szas['sza_workplace.street'] || '');
-    const location = city || region || 'Wallis';
-    const canton = normalizeCantonCode(region) || 'VS';
+    const location = city || region || 'Schweiz';
+    const canton = normalizeCantonCode(region);
+    // CH-only gate: drop foreign postings (e.g. Liechtenstein) whose region
+    // doesn't resolve to a Swiss canton — mirrors the coop-ticino crawler.
+    if (!canton) continue;
 
     // Description
     const descriptionText = buildDescription(szas, title, city);
@@ -341,7 +350,7 @@ export async function fetchAllTransgourmetJobs() {
       ? `transgourmet-${viewkey.slice(0, 12)}`
       : `transgourmet-${createHash('sha1').update(publicUrl).digest('hex').slice(0, 12)}`;
 
-    const jobSlug = slugify(`${title} transgourmet ${city || 'wallis'}`);
+    const jobSlug = slugify(`${title} transgourmet ${city || canton}`);
 
     // Posted date from API start_date
     const postedDate = listing.start_date
@@ -393,9 +402,9 @@ export async function fetchAllTransgourmetJobs() {
     };
 
     jobs.push(job);
-    console.log(`  ✅ ${title} — ${city || 'Wallis'}`);
+    console.log(`  ✅ ${title} — ${city || canton}`);
   }
 
-  console.log(`\n📋 Total Transgourmet Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Transgourmet CH-wide jobs discovered: ${jobs.length}`);
   return jobs;
 }

@@ -3,11 +3,12 @@
  *
  * These crawlers previously narrowed their fetch to a single canton/city
  * (SRG → Wallis facet, Swiss Medical Network → Ticino region UUID, Skyguide →
- * Locarno/Lugano-Agno facet, Mikron → Agno filter, PEMSA → canton=125) and/or
- * defaulted unresolved jobs to Ticino. This locks in the CH-wide behaviour:
- * canton derived per-job, no Ticino fallback, foreign rows excluded.
+ * Locarno/Lugano-Agno facet, Mikron → Agno filter, PEMSA → canton=125,
+ * Transgourmet/Interdiscount/Jumbo → Wallis facet `f=30:`) and/or defaulted
+ * unresolved jobs to a fixed canton. This locks in the CH-wide behaviour:
+ * canton derived per-job, no fixed fallback, foreign rows excluded.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 import { inferSkyguideCanton } from '@/scripts/lib/skyguide-job-parser.mjs';
 import { isPemsaTicinoRelevant } from '@/scripts/lib/pemsa-job-parser.mjs';
@@ -18,6 +19,9 @@ import {
   extractSmnPostingId,
   smnPostingsApiUrl,
 } from '@/scripts/lib/swiss-medical-network-job-parser.mjs';
+import { fetchAllTransgourmetJobs } from '@/scripts/lib/transgourmet-job-parser.mjs';
+import { fetchAllInterdiscountJobs } from '@/scripts/lib/interdiscount-job-parser.mjs';
+import { fetchAllJumboJobs } from '@/scripts/lib/jumbo-job-parser.mjs';
 
 describe('Skyguide canton inference — no Ticino default', () => {
   it('derives the real canton for the big control centres', () => {
@@ -117,4 +121,97 @@ describe('Swiss Medical Network — SmartRecruiters API normalization', () => {
     expect(desc).toContain('Main mission here.');
     expect(desc).toContain('Skill A');
   });
+});
+
+describe('Coop-Group Prospective.ch crawlers — CH-wide fetch, no Wallis facet (issue #3065)', () => {
+  // Multi-canton fixture: Bern (BE) + Graubünden (GR) are kept; the
+  // Liechtenstein row has no resolvable Swiss canton and must be dropped.
+  const FIXTURE_JOBS = [
+    {
+      viewkey: '11111111-1111-1111-1111-111111111111',
+      title: 'Lagermitarbeiter',
+      start_date: '2026-06-01',
+      attributes: { '30': ['Bern'], '40': ['unbefristet'] },
+      szas: { sza_title: 'Lagermitarbeiter', 'sza_workplace.city': 'Bern', 'sza_workplace.region': 'Bern' },
+      links: { directlink: 'https://example.ch/job/1' },
+    },
+    {
+      viewkey: '22222222-2222-2222-2222-222222222222',
+      title: 'Verkaufsberater',
+      start_date: '2026-06-02',
+      attributes: { '30': ['Graubünden'], '40': ['unbefristet'] },
+      szas: { sza_title: 'Verkaufsberater', 'sza_workplace.city': 'Chur', 'sza_workplace.region': 'Graubünden' },
+      links: { directlink: 'https://example.ch/job/2' },
+    },
+    {
+      viewkey: '33333333-3333-3333-3333-333333333333',
+      title: 'Filialleiter',
+      start_date: '2026-06-03',
+      attributes: { '30': ['Principato del Liechtenstein'] },
+      szas: { sza_title: 'Filialleiter', 'sza_workplace.city': 'Vaduz', 'sza_workplace.region': 'Principato del Liechtenstein' },
+      links: { directlink: 'https://example.li/job/3' },
+    },
+  ];
+
+  let capturedUrls: string[] = [];
+
+  beforeEach(() => {
+    capturedUrls = [];
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      capturedUrls.push(String(url));
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({ total: FIXTURE_JOBS.length, jobs: FIXTURE_JOBS }),
+      } as unknown as Response;
+    }));
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  const cases = [
+    { name: 'transgourmet', fetchAll: fetchAllTransgourmetJobs, companyFacet: null },
+    { name: 'interdiscount', fetchAll: fetchAllInterdiscountJobs, companyFacet: '70%3A' },
+    { name: 'jumbo', fetchAll: fetchAllJumboJobs, companyFacet: '70%3A' },
+  ];
+
+  for (const { name, fetchAll, companyFacet } of cases) {
+    describe(name, () => {
+      it('never sends a canton facet (f=30:) so the fetch stays CH-wide', async () => {
+        await fetchAll();
+        expect(capturedUrls.length).toBeGreaterThan(0);
+        for (const url of capturedUrls) {
+          expect(url).not.toMatch(/f=30(%3A|:)/i);
+        }
+      });
+
+      if (companyFacet) {
+        it('still scopes by company facet (f=70:)', async () => {
+          await fetchAll();
+          expect(capturedUrls.some((u) => u.includes(companyFacet))).toBe(true);
+        });
+      }
+
+      it('keeps jobs from multiple cantons (BE + GR), never Wallis-only', async () => {
+        const jobs = await fetchAll();
+        const cantons = jobs.map((j) => j.canton);
+        expect(cantons).toContain('BE');
+        expect(cantons).toContain('GR');
+      });
+
+      it('drops foreign rows with no resolvable Swiss canton (Liechtenstein)', async () => {
+        const jobs = await fetchAll();
+        expect(jobs).toHaveLength(2);
+        for (const job of jobs) {
+          expect(job.canton).toBeTruthy();
+          expect(job.country).toBe('CH');
+        }
+      });
+    });
+  }
 });
