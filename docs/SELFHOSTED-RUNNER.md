@@ -55,6 +55,32 @@ GitHub-hosted `ubuntu-latest`. Nothing breaks if the VM is offline *unless*
 `ARTICLE_RUNNER=self-hosted` is set with no runner online (jobs would queue) — so
 remove the variable if you tear the VM down.
 
+## Local open-source LLM fallback ($0, no quota)
+
+The model cascade in `scripts/lib/ai-models.mjs` ends with a **local** model
+(`AI_MODELS.LOCAL_FALLBACK`, id `local/fallback`) pinned to the very bottom of
+every chain (`sortChainByScore`) and reached **only when every remote free-tier
+provider is daily-exhausted** — the recurring `tutti i modelli AI gratuiti
+esauriti` defer that drops frontaliere production to 0 for that window. It serves
+an open-source model (default **Qwen2.5 7B**) via a local OpenAI-compatible
+server, so generation keeps producing at $0 with no API quota.
+
+**Activation (opt-in, off by default):** set the repo variable
+`ARTICLE_LOCAL_FALLBACK=1`. Optionally `ARTICLE_LOCAL_MODEL` (default
+`qwen2.5:7b`; use `qwen2.5:3b` for a faster/lighter CPU run). `generate-article.yml`
+then installs ollama, caches the model (`~/.ollama/models`), serves it, and
+exports `LOCAL_LLM_ENABLED=1` + `LOCAL_LLM_URL` + `LOCAL_LLM_MODEL` for that run.
+
+- Works on the **GitHub-hosted** runner (public repo → free minutes; CPU
+  inference is slow, ~minutes/article, but it is the last resort) **and** on the
+  self-hosted Oracle VM (faster, model stays warm).
+- `ai-models.mjs` env knobs: `LOCAL_LLM_ENABLED`, `LOCAL_LLM_URL` (default
+  `http://127.0.0.1:8080/v1/chat/completions` for a llama.cpp `--server`),
+  `LOCAL_LLM_MODEL`, `LOCAL_LLM_TIMEOUT_MS` (default 600000), `LOCAL_LLM_API_KEY`.
+- **Inert unless enabled:** without the variable nothing is installed and
+  `LOCAL_LLM_ENABLED` stays unset → `isModelAvailable('local/fallback')` is
+  `false` → the model is skipped exactly as today. To revert: delete the variable.
+
 ## Notes
 - The GitHub-hosted path stays the default + safety net; the variable is the only
   switch.
