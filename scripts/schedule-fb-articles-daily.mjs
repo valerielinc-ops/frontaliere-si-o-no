@@ -138,7 +138,7 @@ export function parseArticleRegistry(src) {
 export function parseSlugMap(src) {
   if (!src || typeof src !== 'string') return {};
   const map = {};
-  for (const m of src.matchAll(/'([^']+)':\s*\{[^}]*?\bit:\s*'([^']+)'/g)) {
+  for (const m of src.matchAll(/["']([^"']+)["']:\s*\{[^}]*?\bit:\s*["']([^"']+)["']/g)) {
     map[m[1]] = m[2];
   }
   return map;

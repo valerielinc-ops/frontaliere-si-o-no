@@ -721,6 +721,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.title': 'grenzgänger schweiz steuern 2026: tax rules and practical comparison',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.excerpt': 'The new Frontier Agreement from 1 January 2024 governs taxation: old frontier workers, new regimes, Italy-Steuer and practical examples.',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.imageAlt': 'Lugano skyline with commuters, cross-border fiscal theme.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.title': 'Border salaries and privacy: data disclosed in 2024 statements',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.excerpt': 'The salary data of Italian border workers appeared in the pre-filled incomes. Criticism and requests for clarification from associations and politicians.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.imageAlt': 'Swiss tax office in Lugano with documents and digital screens.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.title': 'Calculation of border taxes over 20 km: rules and simulations',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.excerpt': 'Since 2024, border crossers over 20 km from the border have undergone tax changes: no concessions, IRPEF impact, tax credit and simulations.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.imageAlt': 'View of Lugano and the Alps, typical for cross-border commuters.',
+    'blog.article.lidl-svizzera-lavora-con-noi.title': 'Working at Lidl Switzerland: up-to-date opportunities and procedures',
+    'blog.article.lidl-svizzera-lavora-con-noi.excerpt': 'Lidl offers job opportunities throughout Switzerland. Learn how to apply, what positions are available, and what procedures to follow.',
+    'blog.article.lidl-svizzera-lavora-con-noi.imageAlt': 'Modern supermarket entrance in Switzerland, Alps in the background.',
 };
 
 export default blogMetaChEn;

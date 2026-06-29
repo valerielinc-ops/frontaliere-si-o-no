@@ -99,8 +99,23 @@ jobs:
           if [ -z "$code" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
             echo "Delta dall'ultima LGTM = SOLO data/docs (nessun code) → skip Claude; LGTM carry-forward (fingerprint code-only), vitest gira comunque."
+            exit 0
+          fi
+          # Il compare 2-dot last...HEAD vede ANCHE il code che main ha portato in
+          # un rebase di solo main-merge — ma quel code NON è il contributo della
+          # PR, che resta invariato. Confronta allora il FINGERPRINT del contributo
+          # (3-dot vs merge-base con main, code-only) a HEAD vs all'ultima LGTM: se
+          # uguale, la PR non ha cambiato il proprio code (es. autorebase ha solo
+          # mergiato main) → skip Claude. Stessa funzione che auto-merge-eval usa
+          # per il carry-forward dell'LGTM → niente drift. NULL/incerto → review
+          # piena (conservativo). vitest gira comunque sull'head (safety net).
+          fpHead=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
+          fpLast=$(node scripts/ci/pr-contribution-fingerprint.mjs "$last" 2>/dev/null || echo NULL)
+          if [ -n "$fpHead" ] && [ "$fpHead" != "NULL" ] && [ "$fpHead" = "$fpLast" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Contributo CODE invariato dall'ultima LGTM (fingerprint $fpHead) — solo main-merge nel delta → skip Claude; LGTM carry-forward, vitest gira comunque."
           else
-            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Code cambiato dall'ultima LGTM → review piena."
+            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Code del contributo cambiato dall'ultima LGTM (fpHead=$fpHead fpLast=$fpLast) → review piena."
           fi
 
       - name: Determine review tier
@@ -109,6 +124,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
         # Tier high (opus, max-turns 40, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
@@ -170,15 +187,48 @@ jobs:
             set_tier minimal claude-sonnet-4-6 8
             exit 0
           fi
-          # CODE funnel-critical → high. Match diretto su test/CI/build-plugin,
-          # più gli script che mutano/emettono l'indice (tutto scripts/ ECCETTO
-          # gli helper non-funnel `{ci,dev,evals}/` e gli audit/report read-only).
-          crit=$(echo "$code_files" | grep -E '^(tests/|\.github/workflows/|build-plugins/)' || true)
-          scripts_crit=$(echo "$code_files" \
-            | grep -E '^scripts/' \
-            | grep -vE '^scripts/(ci|dev|evals)/' \
-            | grep -viE '(audit|analytics|report)' || true)
-          if [ -n "$crit$scripts_crit" ]; then
+          # funnel_crit <file-list> → exit 0 se la lista contiene CODE funnel-critical
+          # (test/CI/build-plugin, o script che mutano/emettono l'indice — tutto
+          # scripts/ ECCETTO gli helper non-funnel {ci,dev,evals}/ e gli audit/report
+          # read-only). Usato sia per il tier full sia per il delta incrementale.
+          funnel_crit() {
+            local fs="$1" a b
+            a=$(echo "$fs" | grep -E '^(tests/|\.github/workflows/|build-plugins/)' || true)
+            b=$(echo "$fs" | grep -E '^scripts/' | grep -vE '^scripts/(ci|dev|evals)/' | grep -viE '(audit|analytics|report)' || true)
+            [ -n "$a$b" ]
+          }
+
+          # ── Incremental re-review (token-lever): se esiste GIÀ una review Claude su
+          # un commit precedente, valuta SOLO il delta dei file della PR dall'ultimo
+          # commit reviewato, non l'intera PR. Il grosso del contributo era già stato
+          # reviewato; ri-leggerlo per intero a ogni fix-push brucia token (osservato
+          # su #3038: review Opus full ripetute sullo stesso codice). Modello per
+          # criticità del DELTA: funnel-critical → opus (rigore, scope ridotto);
+          # altrimenti sonnet. Prima review / nessun commit precedente / delta vuoto
+          # → review piena (sotto). Il fingerprint-skip a monte (guard step) copre già
+          # il caso "contributo invariato"; qui il contributo È cambiato, ma in modo
+          # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
+          # contesto → le interazioni col code non-toccato restano coglibili.
+          lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
+            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("claude";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
+          if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
+            delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[].filename' 2>/dev/null \
+              | grep -Fxf <(echo "$code_files") || true)
+            if [ -n "$delta_code" ]; then
+              echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
+              echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
+              if funnel_crit "$delta_code"; then
+                set_tier incremental-high claude-opus-4-8 25
+              else
+                set_tier incremental claude-sonnet-4-6 15
+              fi
+              exit 0
+            fi
+            echo "Nessun delta-code nei file PR dall'ultima review → review piena."
+          fi
+
+          # CODE funnel-critical → high (full scope). Altrimenti normal (sonnet).
+          if funnel_crit "$code_files"; then
             set_tier high claude-opus-4-8 40
           else
             set_tier normal claude-sonnet-4-6 25
@@ -202,6 +252,7 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
+          INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
@@ -230,9 +281,11 @@ jobs:
             2. `AGENTS.md` è grande: NON leggerlo salvo necessità specifica esplicita (un finding richiede di citare un non-negotiable preciso). REVIEW.md basta da solo per il workflow di review — leggere AGENTS.md a ogni run è token sprecato.
             3. Carica PR in UNA call: `gh pr view $PR_NUMBER --json title,body,labels,files`, poi il diff del SOLO code: `gh pr diff $PR_NUMBER -- ':(exclude)data/**' ':(exclude)public/**' ':(exclude)reports/**' ':(exclude)_newsletter_variants/**' ':(exclude)docs/**'`. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
 
+            **Re-review INCREMENTALE (solo se `INCREMENTAL_BASE` è valorizzato, tier `incremental`/`incremental-high`):** i commit fino a `$INCREMENTAL_BASE` sono GIÀ stati reviewati in un pass precedente — NON ri-revieware l'intero contributo. Carica SOLO il delta dei file code dall'ultima review: `gh api repos/${{ github.repository }}/compare/$INCREMENTAL_BASE...$HEAD_SHA --jq '.files[] | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // \"(binary/large)\")"'`. Concentra la review su QUESTE modifiche e sulle loro interazioni. Sei comunque autorizzato (e incoraggiato, se il delta tocca o dipende da code non incluso) a `Read`/`grep` i file pieni per il CONTESTO — l'obiettivo è non ri-spendere token rivalutando code già approvato, non chiudere gli occhi sulle interazioni. Severity e formato invariati. Se il delta è vuoto o solo data/docs → chiudi con `## LGTM` senza inventare finding.
+
             **Esegui workflow di review come specificato in REVIEW.md:**
             - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → claim perf non validato (step 7) → output.
-            - Tier high: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale.
+            - Tier high O incremental-high: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale (per incremental-high: limitate al delta reviewato).
             - **Sezioni mancanti + tier high (REVIEW.md step 4): posta il 🔴 process MA NON terminare.** Prosegui con review sostanziale + `## Adversarial check` completi nello stesso pass — il 🔴 blocca solo l'auto-merge, non un merge manuale, quindi la sostanza deferita evapora. Solo tier normal può terminare al process gate.
             - **Claim perf non validato (REVIEW.md step 7):** PR perf/build/CI che dichiara speedup/regressione attesa senza misura baseline pre-merge (solo "atteso X→Y" / "il profiler misura post-deploy") su tier high → 🔴 Important. Chiedi misura pre/post o revert-risk esplicito.
             - **Escalation ❓ funnel-critical (REVIEW.md Verification):** un ❓ q (incluso quelli nell'adversarial check) il cui soggetto impatta monetizzazione/traffico (writeJson/persistenza dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense) → promuovi a 🔴 o apri follow-up issue + linkala. Mai ❓ funnel-critical passivo accanto a `## LGTM`.

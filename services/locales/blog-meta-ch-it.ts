@@ -721,6 +721,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.title': 'grenzgänger schweiz steuern 2026: regole fiscali e confronto pratico',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.excerpt': 'Il nuovo Accordo Frontalieri dal 1° gennaio 2024 disciplina la tassazione: vecchi frontalieri, nuovi regimi, Italia-Steuer e esempi pratici.',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.imageAlt': 'Panorama di Lugano con frontalieri in movimento, tema fiscale.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.title': 'Stipendi frontalieri e privacy: dati svelati nelle dichiarazioni 2024',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.excerpt': 'I dati salariali dei frontalieri italiani sono comparsi nei redditi precompilati. Critiche e richieste di chiarimenti da associazioni e politici.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.imageAlt': 'Ufficio fiscale svizzero a Lugano con documenti e schermi digitali.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.title': 'Calcolo tasse frontalieri oltre 20 km: regole e simulazioni',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.excerpt': 'Dal 2024 i frontalieri oltre 20 km dal confine subiscono novità fiscali: niente agevolazioni, impatto IRPEF, credito d’imposta e simulazioni.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.imageAlt': 'Vista su Lugano e le Alpi, contesto tipico dei frontalieri.',
+    'blog.article.lidl-svizzera-lavora-con-noi.title': 'Lavorare in Lidl Svizzera: opportunità e procedure aggiornate',
+    'blog.article.lidl-svizzera-lavora-con-noi.excerpt': 'Lidl offre opportunità lavorative in tutta la Svizzera. Scopri come candidarti, quali posizioni sono disponibili e quali procedure seguire.',
+    'blog.article.lidl-svizzera-lavora-con-noi.imageAlt': 'Ingresso di un supermercato moderno in Svizzera, con le Alpi sullo sfondo.',
 };
 
 export default blogMetaChIt;

@@ -860,7 +860,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  } catch { /* non-fatal */ }
  try {
  const routerBlogSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+ const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
  let m: RegExpExecArray | null;
  while ((m = rx.exec(routerBlogSrc)) !== null) {
  articleSlugByLocale.it[m[1]] = m[2];
@@ -875,8 +875,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (let n = 2; n <= 10; n++) {
  try { seoSrc += '\n' + fs.readFileSync(np.resolve(rootDir, `services/seo/seo-blog-${n}.ts`), 'utf-8'); } catch { break; }
  }
- // Extract ogTitle for Italian articles (path → title)
- const titleRx = /path:\s*'\/articoli-frontaliere\/([^']+?)\/?'[\s\S]*?ogTitle:\s*'((?:[^'\\]|\\.)*)'/g;
+ // Extract ogTitle for Italian articles (path → title). Accept single- OR
+ // double-quoted ogTitle values: seo-blog*.ts can carry `ogTitle: "…"` entries
+ // and a single-quote-only regex would silently fall back to the raw slug as
+ // link text (same quote-style class as #2996).
+ const titleRx = /path:\s*'\/articoli-frontaliere\/([^']+?)\/?'[\s\S]*?ogTitle:\s*["']((?:[^"'\\]|\\.)*)["']/g;
  let tm: RegExpExecArray | null;
  while ((tm = titleRx.exec(seoSrc)) !== null) {
  const articleId = Object.entries(articleSlugByLocale.it).find(([, slug]) => slug === tm![1])?.[0] || tm[1];
