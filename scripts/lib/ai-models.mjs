@@ -335,6 +335,13 @@ export const AI_MODELS = Object.freeze({
   // GROQ_LLAMA_4_MAV_INSTR removed — Groq HTTP 404 "model `…-128e-instruct-fp8` does not exist" (2026-05-18)
   // CB_QWEN3_CODER_480B removed — Cerebras HTTP 404 "Model qwen-3-coder-480b does not exist" (2026-05-18)
   // CB_GPT_OSS_20B_2 removed — Cerebras HTTP 404 "Model gpt-oss-20b does not exist" (2026-05-18)
+
+  // ── Local open-source fallback (opt-in, last-resort) ──
+  // Routed to a local llama.cpp/ollama server. Inert unless LOCAL_LLM_ENABLED is
+  // set (isModelAvailable returns false otherwise → silently skipped). Pinned to
+  // the bottom of every chain by sortChainByScore so it never displaces a working
+  // remote API — it only runs when all remote providers are exhausted.
+  LOCAL_FALLBACK:      'local/fallback',
 });
 
 /**
@@ -558,6 +565,11 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.CF_LLAMA_3_2_1B,            // Llama 3.2 1B small/fast    (Cloudflare Workers AI)
   // AI_MODELS.CF_QWEN_25_CODER_32B removed — wrapper crash "text.replace is not a function" (2026-05-27, run 26537033519).
   // AI_MODELS.GROQ_LLAMA_3_3_SPEC removed — Groq HTTP 400 "decommissioned" (2026-05-27, run 26537033519).
+
+  // Last-resort local model. Always sorted to the very bottom (sortChainByScore)
+  // and skipped entirely unless LOCAL_LLM_ENABLED — so when every remote provider
+  // above is daily-exhausted, generation still produces instead of deferring.
+  AI_MODELS.LOCAL_FALLBACK,
 ];
 
 // ── Provider constants ───────────────────────────────────────
@@ -578,6 +590,12 @@ const PROVIDER = Object.freeze({
   CODESTRAL:   'codestral',
   CHUTES:      'chutes',
   ZAI:         'zai',
+  // Local OpenAI-compatible server (llama.cpp / ollama) on the CI runner or a
+  // self-hosted VM. Opt-in last-resort: when EVERY remote free-tier provider is
+  // daily-exhausted (the recurring "tutti i modelli esauriti" defer), generation
+  // would otherwise produce 0 articles for that window. A local open-source model
+  // (e.g. Qwen2.5) keeps the funnel producing at $0/zero-quota. See _callLocal.
+  LOCAL:       'local',
 });
 
 // ── Endpoints ────────────────────────────────────────────────
@@ -596,6 +614,25 @@ const MISTRAL_API_BASE     = 'https://api.mistral.ai/v1/chat/completions';
 const CODESTRAL_API_BASE   = 'https://codestral.mistral.ai/v1/chat/completions';
 const CHUTES_API_BASE      = 'https://llm.chutes.ai/v1/chat/completions';
 const ZAI_API_BASE         = 'https://api.z.ai/api/paas/v4/chat/completions';
+
+// ── Local LLM (llama.cpp / ollama, OpenAI-compatible) ────────
+// Opt-in: inert unless LOCAL_LLM_ENABLED is truthy. Default endpoint targets a
+// llama.cpp `--server` (port 8080); ollama users set LOCAL_LLM_URL to its
+// :11434/v1 endpoint. The served model name is a free-text label — the actual
+// weights are whatever the local server has loaded — so we keep a stable id.
+const LOCAL_LLM_DEFAULT_URL   = 'http://127.0.0.1:8080/v1/chat/completions';
+const LOCAL_LLM_DEFAULT_MODEL = 'local-fallback';
+function isLocalLlmEnabled()  { return /^(1|true|yes|on)$/i.test((process.env.LOCAL_LLM_ENABLED || '').trim()); }
+function getLocalLlmUrl()     { return (process.env.LOCAL_LLM_URL || LOCAL_LLM_DEFAULT_URL).trim(); }
+function getLocalLlmModelId() { return (process.env.LOCAL_LLM_MODEL || LOCAL_LLM_DEFAULT_MODEL).trim(); }
+// llama.cpp/ollama ignore the key, but _callOpenAICompatible requires a non-empty
+// one; allow an override for servers behind an auth proxy.
+function getLocalLlmApiKey()  { return (process.env.LOCAL_LLM_API_KEY || 'local-no-key').trim(); }
+// CPU inference is slow; give the local call a generous floor (overridable).
+function getLocalLlmTimeoutMs() {
+  const v = parseInt((process.env.LOCAL_LLM_TIMEOUT_MS || '').trim(), 10);
+  return Number.isFinite(v) && v > 0 ? v : 600_000; // 10 min default
+}
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -675,6 +712,7 @@ function getProvider(model) {
   if (model.startsWith('mistral/'))    return PROVIDER.MISTRAL;
   if (model.startsWith('chutes/'))     return PROVIDER.CHUTES;
   if (model.startsWith('zai/'))        return PROVIDER.ZAI;
+  if (model.startsWith('local/'))      return PROVIDER.LOCAL;
   return PROVIDER.GITHUB;
 }
 
@@ -707,6 +745,7 @@ function getApiModelId(model) {
   if (model.startsWith('mistral/'))    return model.slice(8);   // 8 chars: "mistral/"
   if (model.startsWith('chutes/'))     return model.slice(7);   // 7 chars: "chutes/"
   if (model.startsWith('zai/'))        return model.slice(4);   // 4 chars: "zai/"
+  if (model.startsWith('local/'))      return getLocalLlmModelId(); // served-model label is runtime-configured
   return model;
 }
 
@@ -734,6 +773,10 @@ function getApiKeyForProvider(provider) {
     case PROVIDER.CODESTRAL:   return getCodestralApiKey();
     case PROVIDER.CHUTES:      return getChutesApiKey();
     case PROVIDER.ZAI:         return getZaiApiKey();
+    // Local server needs no real key; gate purely on the opt-in flag. Returning
+    // a sentinel marks local/* available so the chain can reach it as last resort
+    // (and '' when disabled → every local/* model is skipped). Mirrors Cloudflare.
+    case PROVIDER.LOCAL:       return isLocalLlmEnabled() ? 'local-no-key' : '';
     default: return '';
   }
 }
@@ -1697,6 +1740,12 @@ function sortChainByScore(chain) {
   // Build index map for tiebreaker (lower index = better in original order)
   const indexMap = new Map(chain.map((m, i) => [m, i]));
   return [...chain].sort((a, b) => {
+    // Local CPU fallback always sinks to the bottom regardless of score — slow
+    // local inference must never be score-promoted above a working remote API;
+    // it exists only for when every remote provider is exhausted.
+    const la = a.startsWith('local/') ? 1 : 0;
+    const lb = b.startsWith('local/') ? 1 : 0;
+    if (la !== lb) return la - lb;
     const sa = _modelScores.get(a) || 0;
     const sb = _modelScores.get(b) || 0;
     if (sb !== sa) return sb - sa; // higher score first
@@ -2555,6 +2604,24 @@ function _callZai(model, messages, opts) {
 }
 
 /**
+ * Call a local OpenAI-compatible server (llama.cpp `--server` or ollama).
+ * Last-resort fallback used only when every remote provider is exhausted.
+ * Uses a generous timeout floor because CPU inference is slow. The served model
+ * name comes from LOCAL_LLM_MODEL (getApiModelId already resolves it).
+ */
+function _callLocal(model, messages, opts) {
+  const apiModel = getApiModelId(model); // = getLocalLlmModelId()
+  // Raise the timeout floor for slow CPU inference (caller's timeout may be ~60s).
+  const localOpts = { ...opts, timeout: Math.max(opts.timeout || 0, getLocalLlmTimeoutMs()) };
+  return _callOpenAICompatible(apiModel, messages, localOpts, {
+    endpoint: getLocalLlmUrl(),
+    apiKey: getLocalLlmApiKey(),
+    providerName: 'Local',
+    trackAs: model,
+  });
+}
+
+/**
  * Call a single Gemini model with retry.
  * Returns the text content on success.
  */
@@ -2695,6 +2762,7 @@ function _callModel(model, messages, opts) {
     case PROVIDER.CODESTRAL:   return _callCodestral(model, messages, opts);
     case PROVIDER.CHUTES:      return _callChutes(model, messages, opts);
     case PROVIDER.ZAI:         return _callZai(model, messages, opts);
+    case PROVIDER.LOCAL:       return _callLocal(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);
   }
 }
