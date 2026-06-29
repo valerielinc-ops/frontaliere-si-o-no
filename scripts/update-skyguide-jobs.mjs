@@ -143,7 +143,6 @@ async function fetchListings() {
     const rows = parseSkyguideListings(html);
     console.log(`📋 Page ${page + 1} (startrow ${startRow}): ${rows.length} rows`);
     if (rows.length === 0) break;
-    let added = 0;
     for (const row of rows) {
       // Keep only Swiss locations (all 26 cantons); Skyguide is CH-only but the
       // guard stays as a safety net.
@@ -152,12 +151,12 @@ async function fetchListings() {
       if (seen.has(key)) continue;
       seen.add(key);
       discovered.push(row);
-      added += 1;
       console.log(`  📄 ${row.title} (${row.location})`);
     }
     // Last page reached when the page wasn't full (no further rows to fetch).
+    // (Bounded by LISTING_MAX_PAGES; we don't early-break on all-duplicate pages
+    // because SuccessFactors paginates sequentially by startrow.)
     if (rows.length < LISTING_PAGE_SIZE) break;
-    if (added === 0 && page > 0) break;
   }
 
   if (discovered.length < 1) {

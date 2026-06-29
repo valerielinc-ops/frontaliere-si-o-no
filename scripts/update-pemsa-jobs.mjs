@@ -137,9 +137,10 @@ function parseDate(dateStr = '') {
 function buildPemsaJob(detail, url) {
   const city = detail.city || '';
   // PEMSA is a national agency (HQ Geneva + Ticino branch); the JSON-LD region
-  // field is usually empty, so derive the canton per-job from the city. Only
-  // fall back to the HQ default when nothing resolves.
-  const canton = inferAnyCanton(city) || inferAnyCanton(detail.region || '') || DEFAULT_CANTON;
+  // field is usually empty, so derive the canton per-job from the city. No HQ
+  // default — leave blank when unresolved so the downstream hardening fills it
+  // instead of mislabeling on Ticino.
+  const canton = inferAnyCanton(city) || inferAnyCanton(detail.region || '') || '';
   const localized = buildPemsaLocalizedContent(detail);
 
   return {

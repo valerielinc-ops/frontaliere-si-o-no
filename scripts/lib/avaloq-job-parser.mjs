@@ -213,7 +213,9 @@ export function isAvaloqTargetLocation(raw = '') {
 }
 
 export function inferAvaloqCanton(raw = '') {
-  return inferAnyCanton(raw) || 'TI';
+  // No Ticino default — Avaloq is Zürich-based and hires nationally; leave blank
+  // when unresolved so the downstream hardening derives the canton.
+  return inferAnyCanton(raw) || '';
 }
 
 export function buildAvaloqLocalizedContent(detail = {}, companyName = 'Avaloq') {

@@ -1,8 +1,5 @@
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
-
-const HQ = getCompanyDefaults('bosch');
 
 function normalize(value = '') {
   return String(value || '').trim();
@@ -138,7 +135,9 @@ export function parseBoschJobDetail(html = '') {
     // Location-first: the location field is authoritative; resolve it before the
     // job title so a canton/city name in the title can't override the real
     // location via inferAnyCanton's TARGET_CANTONS array-order sensitivity.
-    canton: inferAnyCanton(location) || inferAnyCanton(title) || HQ.canton,
+    // No Ticino default — Bosch's CH crawl is national (?country=ch); leave
+    // blank when unresolved so the PLZ/locality hardening derives the canton.
+    canton: inferAnyCanton(location) || inferAnyCanton(title) || '',
   };
 }
 
@@ -152,7 +151,7 @@ export function inferBoschCategory(detail = {}) {
 
 export function buildBoschLocalizedContent(detail = {}) {
   const title = normalize(detail.title);
-  const locationLabel = normalize(detail.location || 'Ticino');
+  const locationLabel = normalize(detail.location || 'Svizzera');
   const lowerTitle = title.toLowerCase();
   const baseDescription = detail.description || '';
   const titleByLocale = {
