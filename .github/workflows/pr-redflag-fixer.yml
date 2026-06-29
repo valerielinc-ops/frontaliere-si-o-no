@@ -281,8 +281,11 @@ jobs:
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
-          # Le review/PR autonome sono di claude[bot] / github-actions[bot].
-          allowed_bots: 'github-actions[bot], claude[bot]'
+          # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
+          # frontaliere-automation[bot] (App): le PR aggiornate via App token
+          # triggerano con actor = l'App → senza whitelist la action aborta
+          # "non-human actor: frontaliere-automation" (exit 1). Mai `*`.
+          allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
           # 30->45 (misurato 06-12): 25 fail vs 20 success in 7gg, TUTTI
           # error_max_turns al cap 30 (run 27390252111/27375482475/27373263097)
           # = peggior failure-rate del loop; ogni fail brucia ~8-14min di run
